@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-05-28T23:53:45.818Z",
+  "assembledAt": "2026-05-29T13:15:07.175Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:43.383Z",
+      "crawledAt": "2026-05-29T13:15:03.292Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:18:49.860Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -99,7 +100,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-492045cf9ab2",
@@ -132,7 +134,7 @@
       "url": "https://jobs.bvzholding.ch/Verkehrsplaner-mwd-de-j696.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:42.533Z",
+      "crawledAt": "2026-05-29T13:15:02.395Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -173,8 +175,6 @@
       "previousSlugs": [
         "verkehrsplaner-m-w-d-matterhorn-gotthard-bahn-ch",
         "projektleiter-m-m-j-matterhorn-gotthard-bahn-brig",
-        "projektleiter-m-m-j-matterhorn-gotthard-bahn-brig",
-        "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-687df7",
         "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-687df7"
       ],
       "previousSlugsByLocale": {
@@ -189,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:21:14.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -200,7 +201,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-59f1e0eeb231",
@@ -233,7 +235,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Instandhaltung-Polywerkstatt-Zermatt-mwd-de-j703.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:41.677Z",
+      "crawledAt": "2026-05-29T13:15:01.503Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -285,6 +287,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:50:30.403Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -296,7 +299,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-07f832b71fe2",
@@ -329,7 +333,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j622.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:40.704Z",
+      "crawledAt": "2026-05-29T13:15:00.497Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -386,6 +390,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:16:40.507Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -397,7 +402,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "UR"
     },
     {
       "id": "matterhorn-gotthard-bahn-2bce63d061f4",
@@ -430,7 +436,7 @@
       "url": "https://jobs.bvzholding.ch/Projektleiter-Unternehmenskommunikation-mwd-80-100-de-j701.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:39.745Z",
+      "crawledAt": "2026-05-29T13:14:59.517Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -487,6 +493,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:07.001Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -498,7 +505,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-284ec2fb9ce1",
@@ -531,7 +539,7 @@
       "url": "https://jobs.bvzholding.ch/Product-Owner-Webshop-mwd-60-80-de-j700.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:38.785Z",
+      "crawledAt": "2026-05-29T13:14:58.524Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -575,7 +583,6 @@
       },
       "previousSlugs": [
         "product-owner-webshop-m-w-d-60-80-matterhorn-gotthard-bahn-ch",
-        "proprietaire-du-produit-webshop-m-p-j-60-80-matterhorn-gotthard-bahn-brig",
         "proprietaire-du-produit-webshop-m-p-j-60-80-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
@@ -587,6 +594,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:05.923Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +606,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-8910f75bc3ee",
@@ -631,7 +640,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrer-GGB-mwd-de-j702.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:37.938Z",
+      "crawledAt": "2026-05-29T13:14:57.654Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -687,6 +696,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:39:50.943Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -698,7 +708,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-f8f7233d40c5",
@@ -731,7 +742,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Vertrieb-Digitales-Kundenerlebnis-mwd-80-100-de-j698.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:36.984Z",
+      "crawledAt": "2026-05-29T13:14:56.679Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -789,6 +800,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:02.765Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -800,7 +812,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-2098a241f15e",
@@ -833,7 +846,7 @@
       "url": "https://jobs.bvzholding.ch/Leiter-Produkt-Preis-mwd-80-100-de-j699.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:36.119Z",
+      "crawledAt": "2026-05-29T13:14:55.812Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -892,6 +905,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:40:01.781Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,105 +917,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "matterhorn-gotthard-bahn-41586bb36b7c",
-      "slug": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-687df7",
-      "slugByLocale": {
-        "it": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-687df7",
-        "en": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-687df7",
-        "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "projektleiter-m-m-j-matterhorn-gotthard-bahn-brig"
       },
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
-      "titleByLocale": {
-        "it": "Projektleiter (m/w/d)",
-        "en": "Projektleiter (m/w/d)",
-        "de": "Fahrleitungsmonteur / Netzelektriker (m/w/d)",
-        "fr": "Projektleiter (m/m/j)"
-      },
-      "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Dein Wirkungsfeld\n\n• Unterhalts- und Projektarbeiten an Bahnstromanlagen und Übertragungsleitungen Oberwald - Zermatt (Einsätze in Andermatt/Disentis nach Absprache möglich)\n\n• Spezialist für Arbeiten an Bahnstromanlagen und Unterwerken\n\n• Bereitschaft für Sondereinsätze und regelmassigen Pikettdienst\n\n• Mithilfe bei Schneeräumung, Ereignisbewältigung, sowie Nacht- und Sonntagsarbeit\n\n• Bereitschaft zur internen Weiterbildung (z.B. Triebfahrzeugführer Kat. B80)\n Dein Profil\n\n• Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik\n\n• Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil\n\n• Gute Informatik-Anwenderkenntnisse (MS Office)\n\n• Teamfähigkeit, Zuverlässigkeit und Flexibilität\n\n• Führerausweis Kategorie B\n Deine Vorteile\n\n• Gestaltungsspielraum bei deinen Aufgaben\n\n• Gut eingespieltes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie",
-      "descriptionByLocale": {
-        "it": "Mansioni\n\n- Manutenzione e progettazione lavori su impianti elettrici ferroviari e linee di trasmissione Oberwald - Zermatt (possibili dispacci ad Andermatt/Disentis su accordo)\n- Specialista per lavori su impianti elettrici ferroviari e sottostazioni\n- Disponibilità per servizi straordinari e servizio di picchetto regolare\n- Aiuto nella rimozione della neve, gestione degli eventi, lavoro notturno e domenicale\n- Disponibilità per la formazione interna (ad esempio, driver treno categoria B80)\n\nRequisiti\n\n- Formazione professionale nel settore artigianale, preferibilmente in elettronica o meccanica\n- Esperienza nella tecnica ferroviaria, elettronica o media tensione, un vantaggio\n- Buone conoscenze informatiche (MS Office)\n- Capacità di lavorare in team, affidabilità e flessibilità\n- Patents di guida categoria B\n\nCosa?\n\n- Flessibilità nella gestione dei compiti\n- Squadra ben consolidata\n- GA e altri vantaggi alimentanti per te e la tua famiglia",
-        "en": "Mansioni\n\n- Maintenance e progettazione lavori su impianti elettrici ferroviari e linee di trasmissione Oberwald - Zermatt (possibili dispacci ad Andermatt/Disentis su accordo)\n- Specialista per lavori su impianti elettrici ferroviari e sottostazioni\n- Disponibilità per servizi straordinari e servizio di picchetto regolare\n- Aiuto nella rimozione della neve, gestione degli eventi, lavoro notturno e domenicale\n- Disponibilità per la formazione interna (ad esempio, conducente treno categoria B80)\n\nRequisiti\n\n- Formazione professionale nel settore artigianale, preferibilmente in elettronica o meccanica\n- Esperienza nella tecnica ferroviaria, elettronica o media tensione, un vantaggio\n- Buone conoscenze informatiche (MS Office)\n- Capacità di lavorare in team, affidabilità e flessibilità\n- Patents di guida categoria B\n\nCosa offriamo\n\n- Flessibilità nella gestione dei compiti\n- Squadra ben consolidata\n- GA e altri vantaggi attraenti per te e la tua famiglia",
-        "de": "# Mansioni\n\n- Unterhalts- e progettazione lavori su impianti elettrici ferroviari e linee di trasmissione Oberwald - Zermatt (possibili dispacci ad Andermatt/Disentis su accordo)\n- Specialista per lavori su impianti elettrici ferroviari e sottostazioni\n- Disponibilità per servizi straordinari e servizio di picchetto regolare\n- Aiuto nella rimozione della neve, gestione degli eventi, lavoro notturno e domenicale\n- Disponibilità per la formazione interna (ad esempio, conducente treno categoria B80)\n\n# Requisiti\n\n- Formazione professionale nel settore artigianale, preferibilmente in elettronica o meccanica\n- Esperienza nella tecnica ferroviaria, elettronica o media tensione, un vantaggio\n- Buone conoscenze informatiche (MS Office)\n- Capacità di lavorare in team, affidabilità e flessibilità\n- Patente di guida categoria B\n\n# Cosa offriamo\n\n- Flessibilità nella gestione dei compiti\n- Squadra ben consolidata\n- GA e altri vantaggi attraenti per te e la tua famiglia",
-        "fr": "Mansioni\n\n- Maintenance e progettazione lavori su impianti elettrici ferrovari e linee di trasmissione Oberwald - Zermatt (possibili dispacci ad Andermatt/Disentis su accordo)\n- Specialista per lavori su impianti elettrici ferroviari e sottostazioni\n- Disponibilità per servizi straordinari e servizio di picchetto regolare\n- Aiuto nella ribozione della neve, gestione degli eventi, lavoro notturno e domenicale\n- Disponibilità per la formazione interna (ad esempio, conducente treno category B80)\n\nRequisiti\n\n- Formazione professionale nel settore artigianale, preferibilemente in elettronica o meccanica\n- Esperienza nella tecnica ferroviaire, elettronica o media tensione, un vantaggio\n- Buone conoscenze informache (Office des services de contrôle interne)\n- Capacità di lavorare en équipe, affidabilità e flessibilità\n- Brevets di guida categria B\n\nCosa offriamo\n\n- Flessibilità nella gestione dei compiti\n- Squadra ben consolidata\n- GA e altri vantaggi attraenti per te e la tua famiglia"
-      },
-      "location": "Brig",
-      "canton": "VS",
-      "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:35.258Z",
-      "addressLocality": "Brig",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3900",
-      "streetAddress": "Bahnhofplatz 7",
-      "category": "Trasporti",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "validThrough": "2026-05-31",
-      "applyUrl": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-f689.html",
-      "requirements": [
-        "Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik",
-        "Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil",
-        "Gute Informatik-Anwenderkenntnisse (MS Office)",
-        "Teamfähigkeit, Zuverlässigkeit und Flexibilität",
-        "Führerausweis Kategorie B"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Handwerkliche Berufsausbildung, idealerweise im Bereich Elektrotechnik oder Mechanik",
-          "Erfahrung in der Bahntechnik, Elektrik oder Mittelspannung von Vorteil",
-          "Gute Informatik-Anwenderkenntnisse (MS Office)",
-          "Teamfähigkeit, Zuverlässigkeit und Flexibilität",
-          "Führerausweis Kategorie B",
-          "Teamf higkeit, Zuverl ssigkeit und Flexibilit t",
-          "F hrerausweis Kategorie B"
-        ]
-      },
-      "_mgbMeta": {
-        "rexxId": "689",
-        "identifier": "PERS-661",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "firstSeenAt": "2026-05-28T13:25:41.092Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "en": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "fr": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
-      ]
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
@@ -1034,7 +951,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:34.407Z",
+      "crawledAt": "2026-05-29T13:14:54.070Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -1092,6 +1009,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:14:10.642Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1103,7 +1021,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "VS"
     },
     {
       "id": "matterhorn-gotthard-bahn-0f412224b7c0",
@@ -1136,7 +1055,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:53:33.317Z",
+      "crawledAt": "2026-05-29T13:14:52.958Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1195,7 +1114,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "addressRegion": "VS"
     }
   ]
 }
