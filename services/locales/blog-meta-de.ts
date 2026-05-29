@@ -7845,6 +7845,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina wieder aktiv: Weiterbau zweiter Gotthard-Tunnel',
     'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'Die Tunnelbohrmaschine Paulina hat nach einer langen Pause den Ausbau des zweiten Gotthard-Tunnels wieder aufgenommen.',
     'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Mechanischer Bohrer Paulina bei der Arbeit auf der Baustelle des zweiten Gotthard-Tunnels',
+    'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: Verzögerungen, Kosten und Auswirkungen auf Pendler',
+    'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'Der zweite Tunnel des San Gottardo wird nach 11 Monaten wieder eröffnet: So wird der verlorene Zeit und die Auswirkungen auf die Grenzgänger wiederhergestellt.',
+    'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Eingang des Airolo-Tunnels mit der Tunnelbohrmaschine Paulina, Berglandschaft des Tessin',
 };
 
 export default blogMetaDe;

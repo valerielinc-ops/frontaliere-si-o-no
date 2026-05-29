@@ -7847,6 +7847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina relancée : reprise du creusement du 2e tunnel du Saint-Gothard',
     'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'La fraise mécanique Paulina a repris le creusement du deuxième tunnel du Saint-Gothard après une longue pause.',
     'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Foreuse mécanique Paulina en action sur le chantier du deuxième tunnel du Saint-Gothard',
+    'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: retards, coûts et impact sur les pendulaires',
+    'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'Le chantier du second tunnel du Saint-Gottard rouvre après 11 mois : voici comment rattraper le temps perdu et les conséquences pour les travailleurs frontaliers.',
+    'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Entrée du tunnel d\'Airolo avec la machine Paulina en action, paysage montagneux du Tessin',
 };
 
 export default blogMetaFr;

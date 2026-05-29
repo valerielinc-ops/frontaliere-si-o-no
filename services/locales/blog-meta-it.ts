@@ -7847,6 +7847,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina riattiva: ripresa scavo secondo tunnel San Gottardo',
     'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'La fresa meccanica Paulina ha ripreso lo scavo del secondo tunnel del San Gottardo dopo una lunga pausa.',
     'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Fresa meccanica Paulina al lavoro nel cantiere del secondo tunnel del San Gottardo',
+    'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: rallentamenti, costi e impatto sui pendolari',
+    'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'Il cantiere del secondo tunnel del San Gottardo riapre dopo 11 mesi: ecco come recuperare il tempo perso e le conseguenze sui frontalieri.',
+    'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Ingresso del tunnel di Airolo con la macchina escavatrice Paulina al lavoro, paesaggio montuoso del Ticino',
 };
 
 export default blogMetaIt;

@@ -40868,6 +40868,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gottardo-lavoratori-frontalieri': {
+    title: 'Gottardo: rallentamenti, costi e impatto sui pendolari',
+    description: 'Il tunnel del Gottardo riapre dopo 11 mesi: ecco come i ritardi influenzeranno i pendolari frontalieri e quali alternative sono disponibili. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, gottardo, rallentamenti, costi, impatto',
+    ogTitle: 'Gottardo: ritardi e impatto sui frontalieri',
+    ogDescription: 'I ritardi al tunnel del Gottardo potrebbero prolungare i tempi di pendolarismo per i frontalieri: ecco cosa fare.',
+    canonicalPath: '/articoli-frontaliere/gottardo-lavoratori-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gottardo: rallentamenti, costi e impatto sui pendolari",
+      "description": "Il tunnel del Gottardo riapre dopo 11 mesi: ecco come i ritardi influenzeranno i pendolari frontalieri e quali alternative sono disponibili. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/gottardo-lavoratori-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingresso del tunnel di Airolo con la macchina escavatrice Paulina al lavoro, paesaggio montuoso del Ticino"
+      },
+      "datePublished": "2026-05-29T00:37:43+00:00",
+      "dateModified": "2026-05-29T00:37:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gottardo-lavoratori-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
