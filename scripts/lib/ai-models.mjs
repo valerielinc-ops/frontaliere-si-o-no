@@ -952,14 +952,22 @@ function _decayScore(score, lastUsedISO) {
  * grows as providers ship models instead of waiting for a manual edit.
  *
  * Covered providers (each attempted ONLY when its API key is present):
- * - OpenRouter — keeps IDs ending in `:free`, context_length ≥ 8192. The
- *   listing is the authoritative "what's free right now" source, so OR models
- *   in the chain that are no longer free get pre-exhausted (markStale).
+ * - OpenRouter — keeps IDs ending in `:free`, context_length ≥ 8192.
  * - Groq       — all listed models are free-tier; skips audio/guard/embedding
  *   models and anything with context_window < 8192.
  * - Cerebras   — all listed models are free-tier text models.
  * - Mistral    — free tier covers chat models; skips embedding/OCR/moderation
  *   and models whose capabilities exclude chat completion.
+ * - NVIDIA / SambaNova / Together / Fireworks / Cohere — broad catalogs that
+ *   mix free + paid without a free flag; non-chat models are filtered out and a
+ *   per-provider `maxAdd` cap bounds how many fallbacks each can inject.
+ *
+ * markStale (OpenRouter, Groq, Cerebras, Mistral): for providers whose listing
+ * authoritatively reflects what's usable, a static chain id absent from the live
+ * listing is decommissioned and gets pre-exhausted for this run — but ONLY when
+ * the listing returned ≥1 usable model, so a 200-with-empty-body glitch can't
+ * nuke a whole provider. The broad catalogs above keep markStale OFF (a missing
+ * id there just means "not in the free slice", handled by the 402/404 path).
  *
  * Self-healing safety net: even if a filter lets a non-chat or dead id slip
  * through, the per-model fallback loop in callLLM() marks it exhausted on the
@@ -970,7 +978,7 @@ function _decayScore(score, lastUsedISO) {
  * and isolates providers so one failure can't block the others.
  * Call from initScoreStore() (or before the first callLLM()).
  */
-const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank/i;
+const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
 
 const DISCOVERY_PROVIDERS = Object.freeze([
   {
@@ -993,7 +1001,7 @@ const DISCOVERY_PROVIDERS = Object.freeze([
     prefix: 'groq/',
     getKey: getGroqApiKey,
     url: 'https://api.groq.com/openai/v1/models',
-    markStale: false,
+    markStale: true,
     pick(m) {
       const id = m?.id;
       if (!id || m.active === false) return null;
@@ -1007,7 +1015,7 @@ const DISCOVERY_PROVIDERS = Object.freeze([
     prefix: 'cerebras/',
     getKey: getCerebrasApiKey,
     url: 'https://api.cerebras.ai/v1/models',
-    markStale: false,
+    markStale: true,
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
@@ -1019,7 +1027,7 @@ const DISCOVERY_PROVIDERS = Object.freeze([
     prefix: 'mistral/',
     getKey: getMistralApiKey,
     url: 'https://api.mistral.ai/v1/models',
-    markStale: false,
+    markStale: true,
     pick(m) {
       const id = m?.id;
       if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
@@ -1029,6 +1037,94 @@ const DISCOVERY_PROVIDERS = Object.freeze([
       return id;
     },
   },
+
+  // ── Broad multi-tenant providers (OpenAI-compatible /v1/models) ──
+  // Their catalogs mix free + paid and don't flag free-ness, so: markStale OFF
+  // (a missing id ≠ "decommissioned free model"; the runtime 402/404 handler
+  // skips anything unusable) and a maxAdd cap so one provider can't flood the
+  // chain. Key-gated, so absent keys make each a no-op. Shapes verified live by
+  // smoke-test-ai-models.yml after merge.
+  {
+    name: 'NVIDIA',
+    prefix: 'nvidia/',
+    getKey: getNvidiaApiKey,
+    url: 'https://integrate.api.nvidia.com/v1/models',
+    markStale: false,
+    maxAdd: 40,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      return id;
+    },
+  },
+  {
+    name: 'SambaNova',
+    prefix: 'sn/',
+    getKey: getSambaNovaApiKey,
+    url: 'https://api.sambanova.ai/v1/models',
+    markStale: false,
+    maxAdd: 25,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      if ((m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Together',
+    prefix: 'together/',
+    getKey: getTogetherApiKey,
+    url: 'https://api.together.xyz/v1/models',
+    markStale: false,
+    maxAdd: 40,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      // Together tags each model with a type; keep only text-generation ones.
+      if (m.type && !['chat', 'language', 'code'].includes(m.type)) return null;
+      if ((m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Fireworks',
+    prefix: 'fireworks/',
+    getKey: getFireworksApiKey,
+    url: 'https://api.fireworks.ai/inference/v1/models',
+    markStale: false,
+    maxAdd: 40,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      if ((m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Cohere',
+    prefix: 'cohere/',
+    getKey: getCohereApiKey,
+    // Cohere's native listing (distinct from the OpenAI-compat chat endpoint)
+    // returns { models: [{ name, endpoints, context_length }] }.
+    url: 'https://api.cohere.com/v1/models',
+    markStale: false,
+    maxAdd: 15,
+    getList: (data) => (Array.isArray(data?.models) ? data.models : []),
+    pick(m) {
+      const id = m?.name;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      // Keep only models that expose the chat endpoint.
+      const eps = m.endpoints;
+      if (Array.isArray(eps) && eps.length && !eps.includes('chat')) return null;
+      return id;
+    },
+  },
+
+  // HuggingFace deliberately NOT auto-discovered: router.huggingface.co/v1/models
+  // is an unbounded multi-tenant catalog (thousands of models, most requiring
+  // credits) with no free-tier flag — discovery would flood the chain with
+  // unusable ids. HF stays statically curated in AI_MODELS/DEFAULT_CHAIN.
 ]);
 
 let _discoveryDone = false;
@@ -1061,7 +1157,15 @@ async function _discoverProvider(cfg) {
   }
 
   const data = await res.json();
-  const list = Array.isArray(data?.data) ? data.data : [];
+  // Provider listings come in three shapes: OpenAI-compatible `{data:[…]}`
+  // (most), a bare top-level array (Together), or `{models:[…]}` (Cohere
+  // native). A cfg.getList() override wins; otherwise auto-detect.
+  const list = cfg.getList
+    ? (cfg.getList(data) || [])
+    : (Array.isArray(data) ? data
+      : Array.isArray(data?.data) ? data.data
+      : Array.isArray(data?.models) ? data.models
+      : []);
 
   // Bare IDs the provider currently offers that pass the chat/size filter.
   const offeredIds = new Set();
@@ -1078,21 +1182,30 @@ async function _discoverProvider(cfg) {
       .map(m => m.slice(prefixLen)),
   );
 
+  // Cap how many new models a single provider can inject per run. Bounded,
+  // curated-free catalogs (OR/Groq/Cerebras/Mistral) leave this unset; the
+  // broad multi-tenant routers (NVIDIA, etc.) set it so one provider can't
+  // flood the chain with hundreds of fallbacks and slow every crawl.
   let added = 0;
   for (const id of offeredIds) {
     if (existingIds.has(id)) continue;
+    if (cfg.maxAdd && added >= cfg.maxAdd) {
+      console.log(`🔍 [Discovery:${cfg.name}] hit maxAdd cap (${cfg.maxAdd}) — remaining discovered models skipped`);
+      break;
+    }
     const fullId = `${cfg.prefix}${id}`;
     _dynamicModels.push(fullId);
     DEFAULT_CHAIN.push(fullId);
     added++;
   }
 
-  // Pre-exhaust chain models the provider no longer offers — only for providers
-  // whose listing is the authoritative free-tier source (OpenRouter). For the
-  // others a missing id means "decommissioned"; the runtime 404 handler exhausts
-  // those on first use, so we don't risk false-positives from a transient omission.
+  // Pre-exhaust chain models the provider no longer offers (markStale providers):
+  // a static id absent from the live listing is decommissioned, so skip it for
+  // this run before it wastes a fallback attempt. GUARD: only when the listing
+  // returned at least one usable model — a 200 with an empty/garbage body is an
+  // API glitch, not "every model vanished", and must not nuke the whole provider.
   let stale = 0;
-  if (cfg.markStale) {
+  if (cfg.markStale && offeredIds.size > 0) {
     for (const model of DEFAULT_CHAIN) {
       if (!model.startsWith(cfg.prefix)) continue;
       if (!offeredIds.has(model.slice(prefixLen))) {
