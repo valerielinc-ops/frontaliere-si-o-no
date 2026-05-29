@@ -65,11 +65,11 @@ export default function CalcolatoreTabContent() {
  {t('seoContent.calculator.subtitle')}
  </p>
 
- {showDeferredHomeWidgets ? (
- // SilentErrorBoundary contains React #31 / render errors in the home
- // widgets cluster (NewsFeed, DailyDialectPhrase, job-board CTA) so a
- // transient failure does not blank the whole homepage. Errors are still
- // reported to Analytics with a `home-widgets-desktop` label.
+ {/* Persistent SilentErrorBoundary (see mobile block below for rationale):
+ keeping it mounted across the showDeferredHomeWidgets idle-flip and
+ swapping only its children avoids a subtree unmount/remount that
+ collapses this cluster and shifts layout. Contains React #31 / render
+ errors in the desktop home widgets, reported as `home-widgets-desktop`. */}
  <SilentErrorBoundary boundary="home-widgets-desktop" fallback={
  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
@@ -78,6 +78,7 @@ export default function CalcolatoreTabContent() {
  </div>
  </div>
  }>
+ {showDeferredHomeWidgets ? (
  <div className="hidden md:block space-y-2 mb-4">
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
  <div className="md:col-span-13 h-full">
@@ -113,7 +114,6 @@ export default function CalcolatoreTabContent() {
  </a>
  </div>
  </div>
- </SilentErrorBoundary>
  ) : (
  <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
  <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
@@ -123,6 +123,7 @@ export default function CalcolatoreTabContent() {
  <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-surface-raised to-edge animate-pulse" /></div>
  </div>
  )}
+ </SilentErrorBoundary>
 
  {/* Mobile: Results-first bottom-sheet layout.
    CLS fix (2026-05-12): the Suspense fallback MUST match the real
@@ -186,10 +187,14 @@ export default function CalcolatoreTabContent() {
      Skeleton fallback inside enlarged to four h-[44px] slots so the fallback itself
      also fills the reserved space, preventing a 32px upward shift when fallback shows. */}
  <div className="md:hidden space-y-2 mt-6 min-h-[192px]" style={{ minHeight: 192 }}>
- {showDeferredHomeWidgets ? (
- // Same as desktop: contain render errors in mobile home widgets so a
- // failure does not blank the homepage on small screens. The whole
- // results-and-input layout above stays usable even if widgets crash.
+ {/* SilentErrorBoundary stays mounted across the showDeferredHomeWidgets
+ flip (fired at idle ~2.3s via requestIdleCallback). Previously it lived
+ only in the `true` branch, so the idle flip mounted/unmounted the whole
+ boundary subtree — a transient unmount that collapsed this block to 0
+ height mid-viewport (Playwright live: 0.122 = 72% of mobile homepage
+ CLS @2303ms). Keeping the boundary persistent and swapping only its
+ children reconciles in place: no unmount, no collapse. Contains React
+ #31 / render errors in the mobile home widgets either way. */}
  <SilentErrorBoundary boundary="home-widgets-mobile" fallback={
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
@@ -198,6 +203,8 @@ export default function CalcolatoreTabContent() {
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
  }>
+ {showDeferredHomeWidgets ? (
+ <>
  <Suspense fallback={<SkeletonNewsTicker />}>
  <NewsFeed onNavigate={(tab, article) => {
  setActiveTab(tab as ActiveTab);
@@ -223,7 +230,7 @@ export default function CalcolatoreTabContent() {
  <Suspense fallback={<div className="h-[34px]" />}>
  <DailyDialectPhrase />
  </Suspense>
- </SilentErrorBoundary>
+ </>
  ) : (
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
@@ -232,6 +239,7 @@ export default function CalcolatoreTabContent() {
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
  )}
+ </SilentErrorBoundary>
  </div>
 
  {result && (
