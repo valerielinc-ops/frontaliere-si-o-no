@@ -60,7 +60,7 @@ jobs:
           body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
           if echo "$body" | grep -qiE 'crawler|parser|scripts/|build-plugin|\.github/workflows/|test gate|validator|migrator'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-4-7" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-4-8" >> "$GITHUB_OUTPUT"
             echo "max_turns=40" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
