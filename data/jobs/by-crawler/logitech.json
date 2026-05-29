@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-05-28T23:49:36.049Z",
+  "assembledAt": "2026-05-29T13:10:46.734Z",
   "jobs": [
     {
       "id": "logitech-da6c68d9ead2",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Zurich---Baendliweg-Switzerland/Gaming-Category---Marketing-Manager---Switzerland_145667",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:33.654Z",
+      "crawledAt": "2026-05-29T13:10:44.361Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:27.070Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -75,7 +76,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "addressRegion": "ZH"
     },
     {
       "id": "logitech-458d3f83c1b6",
@@ -108,7 +110,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-User-Experience-Designer_145142",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:32.324Z",
+      "crawledAt": "2026-05-29T13:10:43.250Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +139,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-318c1af909a7",
@@ -170,7 +173,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:31.157Z",
+      "crawledAt": "2026-05-29T13:10:41.954Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -185,8 +188,9 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-28T13:21:24.884Z",
+      "previousSlugs": [
+        "head-of-product-security-logitech-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-product-security-logitech-ch"
@@ -198,9 +202,8 @@
           "head-of-product-security-logitech-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-product-security-logitech-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-28T13:21:24.884Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -213,7 +216,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-4f8ea9e0ae63",
@@ -246,7 +250,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Software-Project-Manager_146110",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:29.938Z",
+      "crawledAt": "2026-05-29T13:10:40.708Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -275,7 +279,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-6402f2123e74",
@@ -308,7 +313,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Product-Manager_144017",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:28.763Z",
+      "crawledAt": "2026-05-29T13:10:39.541Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -323,6 +328,14 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Product-Manager_144017",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-product-manager-logitech-video-solutions-logitech-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-logitech-video-solutions-logitech-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-28T13:21:22.722Z",
       "salaryMin": 68000,
@@ -338,14 +351,7 @@
         }
       },
       "postalCode": "1003",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-product-manager-logitech-video-solutions-logitech-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-product-manager-logitech-video-solutions-logitech-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-171aac38ec54",
@@ -378,7 +384,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:27.584Z",
+      "crawledAt": "2026-05-29T13:10:38.389Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -393,6 +399,14 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-hardware-product-user-experience-designer-logitech-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-hardware-product-user-experience-designer-logitech-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
       "salaryMin": 68000,
@@ -408,14 +422,7 @@
         }
       },
       "postalCode": "1003",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-hardware-product-user-experience-designer-logitech-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-hardware-product-user-experience-designer-logitech-ch"
-      ]
+      "addressRegion": "VD"
     },
     {
       "id": "logitech-8e794f28e2bf",
@@ -448,7 +455,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Sr-AI-ML-Engineer--Video--R-D-_144373",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T23:49:26.392Z",
+      "crawledAt": "2026-05-29T13:10:37.128Z",
       "addressLocality": "Lausanne, Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,7 +498,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "addressRegion": "VD"
     }
   ]
 }
