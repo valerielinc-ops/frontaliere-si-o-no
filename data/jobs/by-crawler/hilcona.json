@@ -286,8 +286,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-qulitaetskontrolle-m-w-d-hilcona-steinach",
-        "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach",
-        "staff-qulitaetcontrol-m-w-d-hugli-nahrmittel-ag-steinach"
+        "mitarbeiter-qulitaetskontrolle-m-w-d-hugli-nahrmittel-ag-steinach"
       ],
       "firstSeenAt": "2026-05-21T12:09:07.458Z",
       "salaryMin": 55500,
@@ -827,7 +826,7 @@
       "id": "hilcona-e7209e483834",
       "slug": "responsabile-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
-        "it": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "it": "responsabile-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
         "en": "technical-manager-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
         "de": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell",
         "fr": "responsable-technique-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
@@ -870,7 +869,8 @@
           "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
         ],
         "it": [
-          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
         ],
         "en": [
           "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
@@ -881,8 +881,8 @@
       },
       "previousSlugs": [
         "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell",
-        "responsabile-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
       ],
       "firstSeenAt": "2026-05-18T12:31:58.747Z",
       "salaryMin": 98000,
@@ -905,7 +905,7 @@
       "id": "hilcona-444d3fc8a600",
       "slug": "assistente-hr-bell-schweiz-ag-basel",
       "slugByLocale": {
-        "it": "hr-assistent-assistentin-hilcona-basel",
+        "it": "assistente-hr-bell-schweiz-ag-basel",
         "en": "hr-assistant-assistant-bell-schweiz-ag-basel",
         "de": "hr-assistent-assistentin-bell-schweiz-ag-basel",
         "fr": "assistant-principal-bell-schweiz-ag-basel"
@@ -952,6 +952,9 @@
         ],
         "de": [
           "hr-assistent-assistentin-hilcona-basel"
+        ],
+        "it": [
+          "hr-assistent-assistentin-hilcona-basel"
         ]
       },
       "previousSlugs": [
@@ -963,10 +966,7 @@
         "fleischfachassistent-fleischfachassistentin-eba-2026-hilcona-ag-bell-food-group-landquart",
         "fleischfachassistent-fleischfachassistentin-eba-2026-hilcona-basel",
         "fleischfachassistent-fleischfachassistentin-eba-2026-hilcona-undefined",
-        "fleischfachassistent-fleischfachassistentin-eba-2026-bell-schweiz-ag-oensingen",
-        "assistente-hr-bell-schweiz-ag-basel",
-        "hr-assistant-assistant-bell-schweiz-ag-basel",
-        "assistant-principal-bell-schweiz-ag-basel"
+        "fleischfachassistent-fleischfachassistentin-eba-2026-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-05-15T11:10:05.036Z",
       "salaryMin": 55500,
@@ -1063,7 +1063,7 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
         "fr": "electricien-d-installation-geiser-ag-schlieren"
@@ -1103,13 +1103,12 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
-        "elettrotecnico-di-impianto-geiser-ag-schlieren",
-        "electricien-d-installation-geiser-ag-schlieren"
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ],
         "fr": [
           "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
@@ -1408,8 +1407,7 @@
         "it": [
           "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
           "installatore-operativo-hilcona-ag-schaan",
-          "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan",
-          "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan"
+          "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -1435,7 +1433,7 @@
       "id": "hilcona-a8510787b77f",
       "slug": "tecnico-operativo-tecnologia-operativa-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-operational-technology-bell-suisse-sa-cheseaux-sur-lausanne",
+        "it": "tecnico-operativo-tecnologia-operativa-bell-suisse-sa-cheseaux-sur-lausanne",
         "en": "operational-technology-specialist-bell-suisse-sa-cheseaux-sur-lausanne",
         "de": "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
         "fr": "technicien-en-technologie-operationnelle-bell-suisse-sa-cheseaux-sur-lausanne"
@@ -1475,12 +1473,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
-        "specialiste-en-technologie-operationnelle-bell-suisse-sa-cheseaux-sur-lausanne",
-        "tecnico-operativo-tecnologia-operativa-bell-suisse-sa-cheseaux-sur-lausanne"
+        "mitarbeiterin-collaboratore-trice-operational-technology-bell-suisse-sa-cheseaux-sur-lausanne",
+        "specialiste-en-technologie-operationnelle-bell-suisse-sa-cheseaux-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
+          "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
+          "mitarbeiterin-collaboratore-trice-operational-technology-bell-suisse-sa-cheseaux-sur-lausanne"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne"
@@ -1949,7 +1948,7 @@
       "id": "hilcona-3dcc23c54c50",
       "slug": "specialista-contabilita-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
-        "it": "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach",
+        "it": "specialista-contabilita-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
         "en": "accounting-specialist-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
         "de": "fachspezialist-rechnungswesen-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
         "fr": "specialiste-comptabilite-80-100-m-w-d-hugli-nahrmittel-ag-steinach"
@@ -1996,13 +1995,13 @@
         ],
         "de": [
           "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
+        ],
+        "it": [
+          "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach",
-        "specialista-contabilita-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
-        "accounting-specialist-80-100-m-w-d-hugli-nahrmittel-ag-steinach",
-        "specialiste-comptabilite-80-100-m-w-d-hugli-nahrmittel-ag-steinach"
+        "fachspezialist-rechnungswesen-80-100-m-w-d-hilcona-steinach"
       ],
       "firstSeenAt": "2026-04-29T10:59:02.441Z",
       "salaryMin": 55500,
@@ -2172,7 +2171,7 @@
       "id": "hilcona-f4f8c6463be3",
       "slug": "torna-all-inizio-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "aushilfe-outlet-im-stundenlohn-hilcona-schlieren",
+        "it": "torna-all-inizio-geiser-ag-schlieren",
         "en": "back-to-top-geiser-ag-schlieren",
         "de": "aushilfe-outlet-im-stundenlohn-geiser-ag-schlieren",
         "fr": "haut-de-page-geiser-ag-schlieren"
@@ -2219,13 +2218,13 @@
         ],
         "de": [
           "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
+        ],
+        "it": [
+          "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
         ]
       },
       "previousSlugs": [
-        "aushilfe-outlet-im-stundenlohn-hilcona-schlieren",
-        "torna-all-inizio-geiser-ag-schlieren",
-        "back-to-top-geiser-ag-schlieren",
-        "haut-de-page-geiser-ag-schlieren"
+        "aushilfe-outlet-im-stundenlohn-hilcona-schlieren"
       ],
       "firstSeenAt": "2026-04-28T22:01:49.267Z",
       "salaryMin": 55500,
@@ -2398,7 +2397,7 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
         "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
@@ -2443,13 +2442,12 @@
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
-        "elettricista-operativo-bell-schweiz-ag-oensingen",
-        "electricien-en-service-bell-schweiz-ag-oensingen"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ],
         "fr": [
           "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
@@ -2742,8 +2740,7 @@
       "previousSlugsByLocale": {
         "it": [
           "installateur-m-w-d-hilcona-pfaffstatt",
-          "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+          "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "needsRetranslation": true,
@@ -3349,7 +3346,7 @@
       "id": "hilcona-5852a3674ac2",
       "slug": "in-100-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "einkaeufer-in-100-hilcona-dallikon",
+        "it": "in-100-eisberg-ag-dallikon",
         "en": "einkaeufer-in-100-hilcona-dallikon",
         "de": "einkaeufer-in-100-eisberg-ag-dallikon",
         "fr": "dans-100-eisberg-ag-dallikon"
@@ -3393,12 +3390,13 @@
         ],
         "de": [
           "einkaeufer-in-100-hilcona-dallikon"
+        ],
+        "it": [
+          "einkaeufer-in-100-hilcona-dallikon"
         ]
       },
       "previousSlugs": [
-        "einkaeufer-in-100-hilcona-dallikon",
-        "in-100-eisberg-ag-dallikon",
-        "dans-100-eisberg-ag-dallikon"
+        "einkaeufer-in-100-hilcona-dallikon"
       ],
       "firstSeenAt": "2026-04-13T21:51:20.728Z",
       "salaryMin": 55500,
@@ -4304,10 +4302,7 @@
         "klaerwerkmeister-in-leiter-in-ara-100-hilcona-dallikon",
         "klaerwerkmeister-in-leiter-in-ara-100-hilcona-undefined",
         "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart",
-        "responsabile-impianto-di-depurazione-eisberg-ag-dallikon",
-        "klaerwerkmeister-in-leiter-in-ara-100-eisberg-ag-dallikon",
-        "wastewater-treatment-plant-manager-eisberg-ag-dallikon",
-        "responsable-de-la-station-d-epuration-eisberg-ag-dallikon"
+        "responsabile-impianto-di-depurazione-eisberg-ag-dallikon"
       ],
       "firstSeenAt": "2026-04-13T10:42:55.394Z",
       "salaryMin": 98000,
@@ -4568,7 +4563,7 @@
       "id": "hilcona-5d1200e80f5f",
       "slug": "addetto-alla-depurazione-delle-acque-eisberg-ag-dallikon",
       "slugByLocale": {
-        "it": "klaerwaerter-in-100-hilcona-undefined",
+        "it": "addetto-alla-depurazione-delle-acque-eisberg-ag-dallikon",
         "en": "wastewater-treatment-operator-eisberg-ag-dallikon",
         "de": "klaerwaerter-in-100-eisberg-ag-dallikon",
         "fr": "operateur-de-station-d-epuration-eisberg-ag-dallikon"
@@ -4613,7 +4608,8 @@
           "klaerwaerter-in-100-hilcona-undefined"
         ],
         "it": [
-          "klaerwaerter-in-100-hilcona-dallikon"
+          "klaerwaerter-in-100-hilcona-dallikon",
+          "klaerwaerter-in-100-hilcona-undefined"
         ],
         "en": [
           "klaerwaerter-in-100-hilcona-dallikon",
@@ -4627,11 +4623,7 @@
       "previousSlugs": [
         "klaerwaerter-in-100-hilcona-dallikon",
         "klaerwaerter-in-100-hilcona-ag-bell-food-group-landquart",
-        "klaerwaerter-in-100-hilcona-undefined",
-        "klaerwaerter-in-100-eisberg-ag-dallikon",
-        "addetto-alla-depurazione-delle-acque-eisberg-ag-dallikon",
-        "wastewater-treatment-operator-eisberg-ag-dallikon",
-        "operateur-de-station-d-epuration-eisberg-ag-dallikon"
+        "klaerwaerter-in-100-hilcona-undefined"
       ],
       "firstSeenAt": "2026-04-13T10:42:54.217Z",
       "salaryMin": 55500,
@@ -4696,10 +4688,7 @@
         "mitarbeiter-mitarbeiterin-kueche-hilcona-schlieren",
         "mitarbeiter-mitarbeiterin-kueche-hilcona-gourmet-s-a-schlieren",
         "mitarbeiter-mitarbeiterin-kueche-hilcona-undefined",
-        "mitarbeiter-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart",
-        "collaboratore-trice-mitarbeiterin-kueche-hilcona-gourmet-s-a-schlieren",
-        "staff-member-kueche-hilcona-gourmet-s-a-schlieren",
-        "fonctionnaire-kueche-hilcona-gourmet-s-a-schlieren"
+        "mitarbeiter-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5291,9 +5280,7 @@
         "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-oensingen",
         "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined",
         "sprachcoach-deutsch-franzoesisch-e-englisch-hilcona-ag-bell-food-group-landquart",
-        "coach-linguistico-tedesco-francese-e-inglese-bell-schweiz-ag-oensingen",
-        "sprachcoach-deutsch-franzoesisch-und-englisch-bell-schweiz-ag-oensingen",
-        "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
+        "coach-linguistico-tedesco-francese-e-inglese-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-04-13T10:42:51.182Z",
       "salaryMin": 55500,
@@ -5392,7 +5379,7 @@
       "id": "hilcona-3b4247b73806",
       "slug": "progetti-e-supporto-dei-dipendenti-bell-schweiz-ag-basel",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel",
+        "it": "progetti-e-supporto-dei-dipendenti-bell-schweiz-ag-basel",
         "en": "employee-sdm-projects-and-support-bell-schweiz-ag-basel",
         "de": "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel",
         "fr": "projets-de-sdm-des-employes-et-soutien-bell-schweiz-ag-basel"
@@ -5435,7 +5422,8 @@
           "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel"
         ],
         "it": [
-          "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel"
+          "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel",
+          "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel"
         ],
         "en": [
           "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel"
@@ -5446,9 +5434,9 @@
       },
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-hilcona-basel",
+        "collaboratore-trice-mitarbeiterin-sdm-projekte-e-support-bell-schweiz-ag-basel",
         "mitarbeiter-mitarbeiterin-sdm-projekte-und-support-bell-schweiz-ag-basel",
-        "sdm-projects-and-support-employee-bell-schweiz-ag-basel",
-        "progetti-e-supporto-dei-dipendenti-bell-schweiz-ag-basel"
+        "sdm-projects-and-support-employee-bell-schweiz-ag-basel"
       ],
       "firstSeenAt": "2026-05-21T12:08:48.101Z",
       "salaryMin": 55500,
@@ -5672,7 +5660,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
-          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
           "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-oensingen",
           "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen"
         ],
@@ -5764,9 +5751,7 @@
       },
       "previousSlugs": [
         "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-oensingen",
-        "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined",
-        "teamleiter-teamleiterin-elektrotechnik-und-automation-bell-schweiz-ag-oensingen",
-        "teamleiter-teamleiterin-elektrotechnik-e-automation-bell-schweiz-ag-oensingen"
+        "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-19T22:27:01.621Z",
       "salaryMin": 55500,
@@ -5788,7 +5773,7 @@
       "id": "hilcona-9bb5ddb054a8",
       "slug": "taglio-e-porzione-di-carne-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "metzger-portionierung-metzgerin-portionierung-hilcona-undefined",
+        "it": "taglio-e-porzione-di-carne-geiser-ag-schlieren",
         "en": "meat-cutting-and-portioning-geiser-ag-schlieren",
         "de": "metzger-portionierung-metzgerin-portionierung-geiser-ag-schlieren",
         "fr": "taille-et-portionnage-de-viande-geiser-ag-schlieren"
@@ -5833,7 +5818,8 @@
           "metzger-portionierung-metzgerin-portionierung-hilcona-undefined"
         ],
         "it": [
-          "metzger-portionierung-metzgerin-portionierung-hilcona-schlieren"
+          "metzger-portionierung-metzgerin-portionierung-hilcona-schlieren",
+          "metzger-portionierung-metzgerin-portionierung-hilcona-undefined"
         ],
         "en": [
           "metzger-portionierung-metzgerin-portionierung-hilcona-schlieren",
@@ -5847,11 +5833,7 @@
       "previousSlugs": [
         "metzger-portionierung-metzgerin-portionierung-hilcona-schlieren",
         "metzger-portionierung-metzgerin-portionierung-hilcona-ag-bell-food-group-landquart",
-        "metzger-portionierung-metzgerin-portionierung-hilcona-undefined",
-        "metzger-portionierung-metzgerin-portionierung-geiser-ag-schlieren",
-        "taglio-e-porzione-di-carne-geiser-ag-schlieren",
-        "meat-cutting-and-portioning-geiser-ag-schlieren",
-        "taille-et-portionnage-de-viande-geiser-ag-schlieren"
+        "metzger-portionierung-metzgerin-portionierung-hilcona-undefined"
       ],
       "firstSeenAt": "2026-04-13T10:42:48.423Z",
       "salaryMin": 55500,
@@ -5933,10 +5915,7 @@
         "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-schlieren",
         "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-undefined",
         "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-geiser-ag-schlieren",
-        "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-ag-bell-food-group-landq",
-        "collaboratore-trice-technik-e-materialwirtschaft-mitarbeiterin-technik-e-materialwirtschaft-geiser-ag-schlieren",
-        "staff-technology-and-material-management-staff-technology-and-material-management-geiser-ag-schlieren",
-        "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
+        "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-ag-bell-food-group-landq"
       ],
       "firstSeenAt": "2026-05-22T11:51:42.428Z",
       "salaryMin": 55500,
@@ -6043,7 +6022,7 @@
       "slug": "hr-systems-consulente-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "hr-systems-consulente-bell-schweiz-ag-basel",
-        "en": "hr-systems-consultant-hilcona-ag-bell-food-group-landquart",
+        "en": "hr-systems-consultant-bell-schweiz-ag-basel",
         "de": "hr-systems-consultant-hilcona-undefined",
         "fr": "consultant-systemes-rh-bell-schweiz-ag-basel"
       },
@@ -6090,8 +6069,7 @@
         ],
         "en": [
           "hr-systems-consultant-hilcona-undefined",
-          "hr-systems-consultant-hilcona-ag-bell-food-group-landquart",
-          "hr-systems-consultant-bell-schweiz-ag-basel"
+          "hr-systems-consultant-hilcona-ag-bell-food-group-landquart"
         ],
         "fr": [
           "hr-systems-consultant-hilcona-undefined"
@@ -6333,8 +6311,7 @@
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
           "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
-          "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+          "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ],
         "en": [
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -6661,7 +6638,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
-          "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
           "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-steinach",
           "anlagefuehrer-fluessigproduktion-m-w-d-hugli-nahrmittel-ag-steinach"
         ],
@@ -6997,8 +6973,7 @@
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
           "specialista-di-formazione-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
-          "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
-          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+          "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh"
         ]
       },
       "previousSlugs": [
@@ -7113,7 +7088,7 @@
       "id": "hilcona-1fd042e916e4",
       "slug": "tecnico-di-manutenzione-automatizzatore-tecnico-di-manutenzione-automatizzatore-bell-suisse-sa-cheseaux-sur-lausanne",
       "slugByLocale": {
-        "it": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart",
+        "it": "tecnico-di-manutenzione-automatizzatore-tecnico-di-manutenzione-automatizzatore-bell-suisse-sa-cheseaux-sur-lausanne",
         "en": "maintenance-technician-automation-maintenance-technician-bell-suisse-sa-cheseaux-sur-lausanne",
         "de": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-sur-lausanne",
         "fr": "technicien-de-maintenance-automatique-technicien-de-maintenance-automatique-bell-suisse-sa-cheseaux-sur-lausanne"
@@ -7160,7 +7135,8 @@
         "it": [
           "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-sur-lausanne",
           "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-su",
-          "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-cheseaux-sur-lausanne"
+          "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-cheseaux-sur-lausanne",
+          "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-sur-lausanne",
@@ -7177,10 +7153,7 @@
         "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart",
         "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-sur-lausanne",
         "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-bell-suisse-sa-cheseaux-su",
-        "technicien-de-maintenance-automatique-technicien-de-maintenance-automatique-bell-suisse-sa",
-        "tecnico-di-manutenzione-automatizzatore-tecnico-di-manutenzione-automatizzatore-bell-suisse-sa-cheseaux-sur-lausanne",
-        "maintenance-technician-automation-maintenance-technician-bell-suisse-sa-cheseaux-sur-lausanne",
-        "technicien-de-maintenance-automatique-technicien-de-maintenance-automatique-bell-suisse-sa-cheseaux-sur-lausanne"
+        "technicien-de-maintenance-automatique-technicien-de-maintenance-automatique-bell-suisse-sa"
       ],
       "firstSeenAt": "2026-04-13T10:42:42.292Z",
       "salaryMin": 55500,
@@ -7271,9 +7244,7 @@
         "employe-pps-neubau-oensingen-bell-schweiz-ag-oensingen",
         "mitarbeiter-mitarbeiterin-pps-neubau-oensingen-hilcona-oensingen",
         "collaboratore-trice-mitarbeiterin-pps-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "mitarbeiter-mitarbeiterin-pps-neubau-oensingen-hilcona-undefined",
-        "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "collaboratore-trice-mitarbeiterin-leitstand-neubau-oensingen-bell-schweiz-ag-oensingen"
+        "mitarbeiter-mitarbeiterin-pps-neubau-oensingen-hilcona-undefined"
       ],
       "firstSeenAt": "2026-04-13T10:42:41.890Z",
       "salaryMin": 55500,
@@ -7379,8 +7350,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-operational-technology-hilcona-undefined",
         "it": "collaboratore-trice-mitarbeiterin-operational-technology-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
-        "fr": "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
+        "en": "employee-of-operational-technology-bell-schweiz-ag-basel",
+        "fr": "employe-de-technologie-operationnelle-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -7424,12 +7395,17 @@
         "de": [
           "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel",
           "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-operational-technology-hilcona-basel",
-        "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel",
-        "collaboratore-trice-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
+        "mitarbeiter-mitarbeiterin-operational-technology-bell-schweiz-ag-basel"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -7535,7 +7511,7 @@
       "id": "hilcona-da4a5ef2fc13",
       "slug": "capo-del-centro-di-pulizia-slicer-nuovo-edificio-oensingen-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
+        "it": "capo-del-centro-di-pulizia-slicer-nuovo-edificio-oensingen-bell-schweiz-ag-oensingen",
         "en": "head-of-cleaning-slicer-center-new-building-oensingen-bell-schweiz-ag-oensingen",
         "de": "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-bell-schweiz-ag-oensingen",
         "fr": "chef-du-centre-de-nettoyage-des-trancheuses-nouveau-batiment-d-oensingen-bell-schweiz-ag-oensingen"
@@ -7580,7 +7556,8 @@
           "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
         ],
         "it": [
-          "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen"
+          "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
+          "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-undefined"
@@ -7592,9 +7569,7 @@
       "previousSlugs": [
         "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
         "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-undefined",
-        "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "capo-del-centro-di-pulizia-slicer-nuovo-edificio-oensingen-bell-schweiz-ag-oensingen"
+        "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:42:40.668Z",
       "salaryMin": 98000,
@@ -7743,9 +7718,7 @@
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined",
-        "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen"
+        "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-undefined"
       ],
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "salaryMin": 55500,
@@ -8737,9 +8710,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
-          "fleischfachmann-fleischfachfrau-portionierung-hilcona-ag-bell-food-group-landquart",
-          "fleischfachmann-fleischfachfrau-portionierung-hilcona-oensingen",
-          "fleischfachmann-fleischfachfrau-portionierung-bell-schweiz-ag-oensingen"
+          "fleischfachmann-fleischfachfrau-portionierung-hilcona-oensingen"
         ],
         "it": [
           "fleischfachmann-fleischfachfrau-portionierung-hilcona-ag-bell-food-group-landquart",
@@ -8763,8 +8734,7 @@
         "meat-processing-specialist-bell-schweiz-ag-oensingen",
         "specialiste-de-la-transformation-de-la-viande-bell-schweiz-ag-oensingen",
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-ag-bell-food-group-landquart",
-        "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen",
-        "fleischfachmann-fleischfachfrau-portionierung-bell-schweiz-ag-oensingen"
+        "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.638Z",
       "salaryMin": 55500,
@@ -8826,9 +8796,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
-          "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-ag-bell-food-group-landquart",
-          "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
-          "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen"
+          "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
         ],
         "it": [
           "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-ag-bell-food-group-landquart",
@@ -8843,8 +8811,7 @@
       },
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-ag-bell-food-group-landquart",
-        "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
-        "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen"
+        "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.371Z",
       "salaryMin": 55500,

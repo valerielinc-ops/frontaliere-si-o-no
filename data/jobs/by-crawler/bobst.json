@@ -2770,8 +2770,8 @@
       "slugByLocale": {
         "it": "mcad-product-owner-bobst-ch",
         "en": "mcad-product-owner-bobst-ch",
-        "de": "mcad-produktbesitzer-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex",
-        "fr": "responsable-de-produit-mcad-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex"
+        "de": "mcad-produktbesitzer-bobst-ticino",
+        "fr": "responsable-de-produit-mcad-bobst-ticino"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -2846,7 +2846,19 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "de": [
+          "mcad-produktbesitzer-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex"
+        ],
+        "fr": [
+          "responsable-de-produit-mcad-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex"
+        ]
+      },
+      "previousSlugs": [
+        "mcad-produktbesitzer-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex",
+        "responsable-de-produit-mcad-bobst-france-bron-italy-san-giorgio-monferrato-switzerland-mex"
+      ]
     },
     {
       "id": "bobst-2317c4fa7029",
