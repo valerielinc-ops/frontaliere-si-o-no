@@ -229,7 +229,37 @@ export default function AdSenseBanner({
  }
  }, { rootMargin: '200px 0px' });
  io.observe(wrapper);
- return () => io.disconnect();
+
+ // Auto Ads idle fallback: load adsbygoogle.js once the page goes idle even
+ // if this slot never scrolls into view. Without it, SPA routes whose static
+ // shell omits the external adsense-loader (e.g. the homepage) never load the
+ // script on a no-scroll / quick-bounce mobile session, so the anchor +
+ // in-page Auto Ads (the top RPM earners) never fire. Mirrors the
+ // requestIdleCallback fallback in ADSENSE_LOADER_CONTENT (build-plugins/
+ // constants.ts). Bot-gated to avoid inflating AD_REQUESTS. Loading the
+ // script alone enables Auto Ads; this slot's own push still waits for the
+ // IntersectionObserver, so manual slots stay lazy.
+ let idleHandle: number | undefined;
+ let idleTimer: ReturnType<typeof setTimeout> | undefined;
+ if (!SKIP_FOR_BOT) {
+ const ric = (window as unknown as {
+ requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+ }).requestIdleCallback;
+ if (typeof ric === 'function') {
+ idleHandle = ric(() => loadAdSenseScript(), { timeout: 3000 });
+ } else {
+ idleTimer = setTimeout(() => loadAdSenseScript(), 2500);
+ }
+ }
+
+ return () => {
+ io.disconnect();
+ const cic = (window as unknown as {
+ cancelIdleCallback?: (handle: number) => void;
+ }).cancelIdleCallback;
+ if (idleHandle !== undefined && typeof cic === 'function') cic(idleHandle);
+ if (idleTimer !== undefined) clearTimeout(idleTimer);
+ };
  }, [enabled, adSlot, loadAdSenseScript]);
 
  // ── Wait for measurable width, then push ─────────────────
