@@ -70,6 +70,11 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');
+    // Funnel-critical symmetry with the SPA AdSenseBanner idle fallback: the
+    // static-shell loader must also fall back to requestIdleCallback so Auto
+    // Ads fire on no-scroll sessions across the ~200k SEO pages, not only when
+    // a slot scrolls into view. Guards the rIC fallback against removal.
+    expect(ADSENSE_LOADER_CONTENT).toContain('requestIdleCallback');
   });
 
   it('exposes the correct client id + script URL', () => {
