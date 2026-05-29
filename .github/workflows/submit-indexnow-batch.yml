@@ -32,7 +32,12 @@ permissions:
 jobs:
   submit:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The full `build:ci` at cathedral scale (23k+ job-seo pages) needs
+    # ~10-15 min on ubuntu-latest (deploy.yml build-profile wall 634-716s);
+    # plus checkout + npm ci + assemble + submit. The old 10-min total cap
+    # turned the OOM fix into a timeout failure. deploy.yml gives its build
+    # job 360 min; 40 here leaves comfortable margin without masking a hang.
+    timeout-minutes: 40
     steps:
       - name: Checkout
         uses: actions/checkout@v5
