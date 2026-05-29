@@ -24923,4 +24923,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumenti-stipendi-ticino-2025',
+ category: 'pratico',
+ date: '2026-05-29T00:47:24.177Z',
+ image: '/images/blog/aumenti-stipendi-ticino-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

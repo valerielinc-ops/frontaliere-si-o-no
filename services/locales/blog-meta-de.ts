@@ -7848,6 +7848,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: Verzögerungen, Kosten und Auswirkungen auf Pendler',
     'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'Der zweite Tunnel des San Gottardo wird nach 11 Monaten wieder eröffnet: So wird der verlorene Zeit und die Auswirkungen auf die Grenzgänger wiederhergestellt.',
     'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Eingang des Airolo-Tunnels mit der Tunnelbohrmaschine Paulina, Berglandschaft des Tessin',
+    'blog.article.aumenti-stipendi-ticino-2025.title': 'Schweiz: Löhne 2025 bis zu 2% höher für Spezialisten',
+    'blog.article.aumenti-stipendi-ticino-2025.excerpt': 'Laut Adecco steigen die Durchschnittslöhne in der Schweiz 2025 um bis zu 2%, mit höheren Zuwächsen für Spezialisten in KI und ESG-Nachhaltigkeit.',
+    'blog.article.aumenti-stipendi-ticino-2025.imageAlt': 'Panoramablick auf Lugano mit den Alpen im Hintergrund an einem Frühlingstag',
 };
 
 export default blogMetaDe;
