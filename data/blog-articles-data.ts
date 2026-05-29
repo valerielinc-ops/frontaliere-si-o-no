@@ -24968,4 +24968,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'occupazione-svizzera-dati-2026-trimestre1',
+ category: 'novita',
+ date: '2026-05-29T10:03:20.693Z',
+ image: '/images/blog/occupazione-svizzera-dati-2026-trimestre1.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

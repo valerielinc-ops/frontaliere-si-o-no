@@ -7863,6 +7863,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Fall Nurnberg gelöst: RSI zahlt alle Forderungen',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'Der Streit zwischen RSI und der Journalistin Paola Nurnberg ist beendet. Die RSI hat alle Forderungen bezahlt.',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Panoramablick auf Lugano mit dem Luganersee und den umliegenden Bergen',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Schweizer Arbeitsmarkt: +26.100 Stellen in einem Jahr, UST-Daten Q1 2026',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'Im ersten Quartal 2026 stieg die Zahl der Arbeitsplätze in der Schweiz auf 5,5 Millionen (+0,5% jährlich). Im Tessin nahm die Zahl um 0,3% im Vergleich zum Vorquartal ab.',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Luftaufnahme des Finanzviertels von Lugano mit modernen Büros und dem Luganer See im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -41102,6 +41102,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-occupazione-svizzera-dati-2026-trimestre1': {
+    title: 'Occupazione Svizzera: +26.100 posti in un anno, dati UST Q1 2026',
+    description: 'Nel primo trimestre 2026 la Svizzera registra 5,5 milioni di posti di lavoro (+0,5% annuo). In Ticino calo dello 0,3%. Dati UST ufficali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, occupazione, posti, anno, dati',
+    ogTitle: 'Occupazione Svizzera Q1 2026: +26.100 posti, dati UST',
+    ogDescription: 'Nel primo trimestre 2026 la Svizzera registra 5,5 milioni di posti di lavoro (+0,5% annuo). In Ticino calo dello 0,3%. Dati UST ufficiali.',
+    canonicalPath: '/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Occupazione Svizzera: +26.100 posti in un anno, dati UST Q1 2026",
+      "description": "Nel primo trimestre 2026 la Svizzera registra 5,5 milioni di posti di lavoro (+0,5% annuo). In Ticino calo dello 0,3%. Dati UST ufficali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/occupazione-svizzera-dati-2026-trimestre1.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del distretto finanziario di Lugano con uffici moderni e lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-29T10:03:20+00:00",
+      "dateModified": "2026-05-29T10:03:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
