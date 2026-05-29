@@ -1,16 +1,16 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-05-28T22:30:06.424Z",
+  "generatedAt": "2026-05-29T11:50:44.516Z",
   "total": 2,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 3225,
-  "avgDurationMs": 3225,
+  "durationMs": 3802,
+  "avgDurationMs": 3802,
   "durationHistory": [
-    3225
+    3802
   ],
   "newJobs": [
     {
@@ -38,7 +38,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?xsrf=550C592BC3BA23FB95E7CD6F161C09D4&company=100-FIRMA-ID&tenant=&lang=I#position,id=826b506c-bb03-453f-b51c-a9b516eb5dc6,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-28T22:30:04.710Z",
+      "crawledAt": "2026-05-29T11:50:42.806Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -155,6 +155,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "firstSeenAt": "2026-03-30T20:10:43.606Z",
+      "country": "CH",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -192,6 +193,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "firstSeenAt": "2026-03-30T20:10:42.854Z",
+      "country": "CH",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
