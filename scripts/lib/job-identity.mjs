@@ -1,3 +1,5 @@
+import { identityUrlKey } from './job-url-key.mjs';
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -16,21 +18,13 @@ function stableStringify(value) {
   return `{${keys.map((key) => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
 }
 
+// Identity URL normalization now lives in the shared scripts/lib/job-url-key.mjs
+// (identityUrlKey variant) alongside the crawl-time merge key and the
+// assemble-time dedup key, so all three are visible — and their intentional
+// divergences documented — in one place. Behavior unchanged; pinned by
+// tests/job-url-key.test.ts.
 function normalizeIdentityUrl(value = '') {
-  const raw = normalizeSpace(value);
-  if (!raw) return '';
-
-  try {
-    const parsed = new URL(raw);
-    parsed.hash = '';
-    if ((parsed.protocol === 'https:' && parsed.port === '443') || (parsed.protocol === 'http:' && parsed.port === '80')) {
-      parsed.port = '';
-    }
-    parsed.pathname = parsed.pathname.replace(/\/+$/g, '') || '/';
-    return parsed.toString().toLowerCase();
-  } catch {
-    return raw.replace(/\/+$/g, '').toLowerCase();
-  }
+  return identityUrlKey(value);
 }
 
 function normalizeLocaleMap(value) {
