@@ -14,18 +14,18 @@ describe('safeLocationToken (#900/#901)', () => {
     expect(safeLocationToken('Lugano')).toBe('Lugano');
   });
 
-  it('returns fallback for the literal "undefined"/"null" string (case-insensitive)', () => {
-    expect(safeLocationToken('undefined')).toBe('svizzera');
-    expect(safeLocationToken('UNDEFINED')).toBe('svizzera');
-    expect(safeLocationToken('null')).toBe('svizzera');
-    expect(safeLocationToken('Null')).toBe('svizzera');
+  it('returns default fallback for the literal "undefined"/"null" string (case-insensitive)', () => {
+    expect(safeLocationToken('undefined')).toBe('Ticino');
+    expect(safeLocationToken('UNDEFINED')).toBe('Ticino');
+    expect(safeLocationToken('null')).toBe('Ticino');
+    expect(safeLocationToken('Null')).toBe('Ticino');
   });
 
-  it('returns fallback for JS undefined/null/empty/whitespace', () => {
-    expect(safeLocationToken(undefined)).toBe('svizzera');
-    expect(safeLocationToken(null)).toBe('svizzera');
-    expect(safeLocationToken('')).toBe('svizzera');
-    expect(safeLocationToken('   ')).toBe('svizzera');
+  it('returns default fallback for JS undefined/null/empty/whitespace', () => {
+    expect(safeLocationToken(undefined)).toBe('Ticino');
+    expect(safeLocationToken(null)).toBe('Ticino');
+    expect(safeLocationToken('')).toBe('Ticino');
+    expect(safeLocationToken('   ')).toBe('Ticino');
   });
 
   it('honors a custom fallback', () => {
