@@ -3857,6 +3857,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mancato-pagamento-stipendio-lavoratrice': { name: 'Caso stipendio non pagato', path: '/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice', parent: 'blog' },
     'blog-chiusura-amministrazione-ticino-2025': { name: 'Chiusura amministrativa Ticino', path: '/articoli-frontaliere/chiusura-amministrazione-ticino-2025', parent: 'blog' },
     'blog-paulina-tunnel-san-gottardo-2026': { name: 'Tunnel San Gottardo', path: '/articoli-frontaliere/paulina-tunnel-san-gottardo-2026', parent: 'blog' },
+    'blog-gottardo-lavoratori-frontalieri': { name: 'Gottardo e frontalieri', path: '/articoli-frontaliere/gottardo-lavoratori-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

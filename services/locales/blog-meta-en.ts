@@ -7846,6 +7846,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina restarts: Gotthard second tunnel excavation resumes',
     'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'The mechanical drill Paulina has resumed excavation of the second Gotthard tunnel after a long pause.',
     'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Mechanical drill Paulina at work in the construction site of the second San Gottardo tunnel',
+    'blog.article.gottardo-lavoratori-frontalieri.title': 'Gottardo: Delays, Costs, and Impact on Commuters',
+    'blog.article.gottardo-lavoratori-frontalieri.excerpt': 'The second tunnel of the San Gottardo reopens after 11 months: how to make up for lost time and the consequences for cross-border workers.',
+    'blog.article.gottardo-lavoratori-frontalieri.imageAlt': 'Airolo tunnel entrance with Paulina tunneling machine operating, Ticino mountain landscape',
 };
 
 export default blogMetaEn;
