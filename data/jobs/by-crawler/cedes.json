@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-05-28T22:27:49.194Z",
+  "assembledAt": "2026-05-29T11:48:20.686Z",
   "jobs": [
     {
       "id": "cedes-095fd9bf3819",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:47.513Z",
+      "crawledAt": "2026-05-29T11:48:18.784Z",
       "previousSlugs": [
         "sales-manager-elevator-escalator-cedes-landquart"
       ],
@@ -71,7 +71,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "country": "CH",
+      "addressRegion": "GR"
     },
     {
       "id": "cedes-3fa516c3ca31",
@@ -114,7 +116,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:46.739Z",
+      "crawledAt": "2026-05-29T11:48:18.405Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
@@ -149,7 +151,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "country": "CH",
+      "addressRegion": "GR"
     }
   ]
 }

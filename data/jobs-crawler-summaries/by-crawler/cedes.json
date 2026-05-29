@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-05-28T22:27:49.195Z",
+  "generatedAt": "2026-05-29T11:48:20.691Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3991,
-  "avgDurationMs": 3991,
+  "durationMs": 3756,
+  "avgDurationMs": 3756,
   "durationHistory": [
-    3991
+    3756
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:46.739Z",
+      "crawledAt": "2026-05-29T11:48:18.405Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:47.513Z",
+      "crawledAt": "2026-05-29T11:48:18.784Z",
       "firstSeenAt": "2026-04-22T09:37:08.541Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -97,11 +97,13 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:47.513Z",
+      "crawledAt": "2026-05-29T11:48:18.784Z",
       "firstSeenAt": "2026-04-22T09:37:08.541Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "7302",
+      "country": "CH",
+      "addressRegion": "GR",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -130,11 +132,13 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-28T22:27:46.739Z",
+      "crawledAt": "2026-05-29T11:48:18.405Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "7302",
+      "country": "CH",
+      "addressRegion": "GR",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
