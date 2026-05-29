@@ -136,6 +136,16 @@ export function registerCrawlerSummaryGuard(key, label) {
 function sanitizeJobLocationField(rawValue) {
   if (typeof rawValue !== 'string') return rawValue;
   const original = rawValue;
+  // A detail parser that returns the literal string "undefined"/"null" (or an
+  // empty/whitespace value) slips past every `|| fallback` (truthy) and would
+  // become `addressLocality: "undefined"` → Google rejects the JobPosting
+  // structured data → de-index (AGENTS.md non-negotiable #3). Issue #900.
+  // by-crawler files are Ticino-targeted, so the canton label is a safe,
+  // audit-friendly default (same fallback this function already uses for prose).
+  const trimmedOriginal = original.trim();
+  if (trimmedOriginal === '' || /^(undefined|null)$/i.test(trimmedOriginal)) {
+    return 'Ticino';
+  }
   let s = original
     .replace(/^.*?Location\s*[:.]?\s*/i, '')
     .split(/[\n.;]/)[0]

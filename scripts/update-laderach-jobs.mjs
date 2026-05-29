@@ -14,6 +14,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchLaderachJobUrls, fetchLaderachDetailPage, slugify, inferEmploymentType } from './lib/laderach-job-parser.mjs';
 import { inferAnyCanton, isKnownSwissMunicipality } from './lib/target-swiss-locations.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -71,7 +72,7 @@ async function main() {
       continue;
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-laderach-${raw.location}`);
+    const jobSlug = slugify(`${raw.title}-laderach-${safeLocationToken(raw.location)}`);
     parsedJobs.push({
       id: `laderach-${urlHash}`, slug: jobSlug,
       slugByLocale: { de: jobSlug },

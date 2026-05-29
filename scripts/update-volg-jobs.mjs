@@ -25,6 +25,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -602,7 +603,7 @@ function getPostalCode(city = '', canton = '') {
 function buildJob(raw) {
   const { url, title, company, city, workload, contractTerms, canton, region } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
-  const slug = slugify(`${title}-${company}-${city}`);
+  const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
   const sourceLang = detectLang(title, 'de');
   const today = new Date().toISOString().slice(0, 10);
   const postalCode = getPostalCode(city, canton);
