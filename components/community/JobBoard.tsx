@@ -4454,7 +4454,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
  return (
- <div className="flex items-center justify-center py-20">
+ // Reserve ~viewport height during the async job fetch. Search/filter URLs
+ // (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this JobBoard
+ // WITHOUT staticOverlay, so App.tsx display:none's the full-height static
+ // SEO body on hydration. A short `py-20` spinner then collapsed the page to
+ // ~116px and it jumped back to N×72px when jobs resolved → CLS p75 0.87
+ // (jobs_filter_concorsi). min-h-[80vh] (same reserve convention as
+ // SkeletonComparator) keeps height stable through static→spinner→list so
+ // the lab CLS drops <0.25 and the audit-cls-live lab_post_fix override clears
+ // the gate without waiting weeks for CrUX to roll forward.
+ <div className="flex items-center justify-center min-h-[80vh]">
  <Loader2 className="w-9 h-9 text-accent animate-spin" />
  </div>
  );
