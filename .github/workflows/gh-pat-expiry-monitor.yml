@@ -1,0 +1,180 @@
+name: GH_PAT Expiry Monitor
+
+# Weekly watchdog for the GH_PAT (stored in Firebase Remote Config, loaded via
+# scripts/load-rc-env.mjs). The PAT powers the auto-merge cascade dispatch
+# (auto-merge-on-lgtm.yml → post-merge-followup), discover-404s.yml and
+# sync-gsc-orphans.yml deploy triggers. If it silently expires, every
+# post-LGTM-merge dispatch and deploy trigger starts failing with a red X and
+# the follow-up triage evaporates (issue #840 / regression of #836's fix).
+#
+# Detection: an authenticated request to the GitHub API returns the
+# `github-authentication-token-expiration` response header for a fine-grained
+# or classic PAT that has an expiry set. We parse that header; if the token
+# expires within EXPIRY_WARN_DAYS (default 30) — or has no expiry header at all
+# in an unexpected way — we open (or dedup-comment on) a warning issue via the
+# canonical scripts/lib/github-issue-creator.mjs helper.
+#
+# Zero-Claude by design (pure bash + the existing node issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no extra Max-quota burn.
+
+on:
+  schedule:
+    # Mondays at 06:30 UTC — well clear of the GSC-quota windows.
+    - cron: '30 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      warn_days:
+        description: 'Warn if the PAT expires within this many days'
+        required: false
+        type: string
+        default: '30'
+
+# Serialize so a manual run never races the scheduled one.
+concurrency:
+  group: gh-pat-expiry-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-expiry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Loads GITHUB_PAT from Firebase Remote Config into $GITHUB_ENV so the
+        # next step can authenticate `gh` as the PAT (same mechanism used by
+        # discover-404s.yml / sync-gsc-orphans.yml). NON shadoware con
+        # secrets.* — `secrets.GH_PAT` non esiste, il PAT vive solo in RC.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check PAT expiry and warn if near
+        env:
+          WARN_DAYS: ${{ inputs.warn_days || '30' }}
+          # GH_REPO is consumed by github-issue-creator.mjs for the --repo flag.
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT not present in environment — Remote Config load failed or the PAT param is missing. The cascade/deploy triggers cannot work without it."
+            # Fall through to open a warning issue so the outage is visible.
+            EXPIRY=""
+          else
+            # An authenticated API request echoes the token-expiry header for a
+            # PAT that has an expiry set. Use the PAT explicitly (do NOT use the
+            # default GITHUB_TOKEN — we want to inspect the PAT specifically).
+            HEADERS="$(GH_TOKEN="$GITHUB_PAT" gh api -i / 2>/dev/null || true)"
+            EXPIRY="$(printf '%s\n' "$HEADERS" \
+              | grep -i '^github-authentication-token-expiration:' \
+              | head -n1 \
+              | sed -E 's/^[^:]+:[[:space:]]*//' \
+              | tr -d '\r')"
+          fi
+
+          echo "Detected expiry header: '${EXPIRY:-<none>}'"
+
+          NOW_EPOCH="$(date -u +%s)"
+          SHOULD_WARN=false
+          WARN_REASON=""
+          EXPIRY_DISPLAY="${EXPIRY:-unknown}"
+
+          if [ -z "$EXPIRY" ]; then
+            if [ -z "${GITHUB_PAT:-}" ]; then
+              SHOULD_WARN=true
+              WARN_REASON="GITHUB_PAT is **missing from the environment** — Remote Config did not provide it. The auto-merge cascade dispatch, discover-404s.yml and sync-gsc-orphans.yml deploy triggers are broken until the PAT is restored."
+            else
+              # No expiry header. A classic PAT with "no expiration" returns no
+              # header. We can't prove the PAT is fine (an invalid/revoked token
+              # also yields no header), so verify it still authenticates.
+              LOGIN="$(GH_TOKEN="$GITHUB_PAT" gh api user --jq '.login' 2>/dev/null || true)"
+              if [ -z "$LOGIN" ]; then
+                SHOULD_WARN=true
+                WARN_REASON="GITHUB_PAT did **not** return an expiry header **and failed to authenticate** (\`gh api user\` returned nothing). The token is likely expired or revoked — the cascade/deploy triggers are broken."
+              else
+                echo "✅ PAT authenticates as '$LOGIN' and reports no expiry (classic no-expiration token). Nothing to warn about."
+              fi
+            fi
+          else
+            # Header format examples:
+            #   2026-08-01 00:00:00 +0200
+            #   2026-08-01 00:00:00 UTC
+            EXPIRY_EPOCH="$(date -u -d "$EXPIRY" +%s 2>/dev/null || true)"
+            if [ -z "$EXPIRY_EPOCH" ]; then
+              echo "::warning::Could not parse expiry timestamp '$EXPIRY' — skipping numeric comparison."
+            else
+              DAYS_LEFT=$(( (EXPIRY_EPOCH - NOW_EPOCH) / 86400 ))
+              echo "PAT expires in ${DAYS_LEFT} day(s) (warn threshold: ${WARN_DAYS})."
+              EXPIRY_DISPLAY="$EXPIRY (${DAYS_LEFT} day(s) left)"
+              if [ "$DAYS_LEFT" -le "$WARN_DAYS" ]; then
+                SHOULD_WARN=true
+                WARN_REASON="GITHUB_PAT expires in **${DAYS_LEFT} day(s)** (on \`${EXPIRY}\`), within the ${WARN_DAYS}-day warning window. Rotate it in Firebase Remote Config (\`GITHUB_PAT\` param) before it lapses to keep the auto-merge cascade and deploy triggers working."
+              fi
+            fi
+          fi
+
+          if [ "$SHOULD_WARN" != "true" ]; then
+            echo "✅ No warning needed."
+            exit 0
+          fi
+
+          echo "::warning::Opening/refreshing a GH_PAT expiry warning issue."
+
+          # Build the issue body with printf (avoids heredoc indentation
+          # clashing with the YAML block-scalar). \n is interpreted by printf.
+          DESCRIPTION="$(printf '%s\n' \
+            "## ⚠️ GH_PAT expiry / health warning" \
+            "" \
+            "$WARN_REASON" \
+            "" \
+            "**Detected expiry:** \`${EXPIRY_DISPLAY}\`" \
+            "" \
+            "### Why this matters" \
+            "The \`GITHUB_PAT\` (Firebase Remote Config \`GITHUB_PAT\` param, loaded by" \
+            "\`scripts/load-rc-env.mjs\`) drives:" \
+            "- the post-LGTM cascade dispatch in \`auto-merge-on-lgtm.yml\` → \`post-merge-followup.yml\`" \
+            "- the deploy triggers in \`discover-404s.yml\` and \`sync-gsc-orphans.yml\`" \
+            "" \
+            "If it expires, those dispatches fail silently (red X, no retry) and follow-up" \
+            "triage is lost — the same failure mode #836 fixed, via a different channel." \
+            "" \
+            "### Action" \
+            "1. Generate a fresh PAT with the same scopes (at minimum \`repo\` + \`workflow\`)." \
+            "2. Update the \`GITHUB_PAT\` parameter in Firebase Remote Config." \
+            "3. Close this issue once rotated." \
+            "" \
+            "_Filed automatically by the GH_PAT Expiry Monitor workflow._")"
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "GH_PAT expiry warning: rotate the Remote Config PAT" \
+            --description "$DESCRIPTION" \
+            --priority 2 \
+            --label follow-up \
+            --label automation \
+            --workflow "GH_PAT Expiry Monitor"
