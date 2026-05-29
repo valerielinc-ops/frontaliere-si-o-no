@@ -605,20 +605,6 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      # Marker file used by the deploy job's extended-polling step to
-      # verify that the live site has been updated even when
-      # `actions/deploy-pages@v5` aborts its own polling at the hard
-      # 10-minute cap. Filename starts with `__` so it's obvious it is
-      # an infra marker, not user-facing content.
-      - name: Generate live deploy marker
-        run: |
-          built_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          printf '{"sha":"%s","run_id":%s,"built_at":"%s"}\n' \
-            "${GITHUB_SHA}" "${GITHUB_RUN_ID}" "${built_at}" \
-            > dist/__deploy_marker.json
-          echo "marker:"
-          cat dist/__deploy_marker.json
-
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
@@ -1038,40 +1024,17 @@ jobs:
           timeout: 1800000
           error_count: 100
 
-      # Extended polling: when deploy-pages times out because backend
-      # `syncing_files` runs past the action's 10-minute cap, the
-      # deployment continues server-side. Verify completion by curling
-      # the marker file (`dist/__deploy_marker.json`, written in the
-      # build job) until the live SHA matches `github.sha`.
-      #
-      # Skipped entirely when either deploy attempt succeeded — the
-      # action's own success signal is authoritative in that case.
-      - name: Verify live deploy via marker file
-        id: marker_check
+      # Both deploy-pages attempts are `continue-on-error`, so a double
+      # failure would otherwise leave the deploy job green. Fail the job
+      # immediately when both attempts failed (Pages busy or the action's
+      # 10-minute polling cap). The previous marker-file extended-polling
+      # step was removed: across all observed runs it never once rescued a
+      # deploy (the live SHA never matched within the 25-minute poll), so
+      # it only ever burned CI time before exiting 1 anyway.
+      - name: Fail if both deploy attempts failed
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
-        env:
-          EXPECTED_SHA: ${{ github.sha }}
-          MARKER_URL: https://frontaliereticino.ch/__deploy_marker.json
         run: |
-          set -u
-          MAX_TRIES=50      # 50 × 30s = 25 minutes of extended polling
-          INTERVAL=30
-          echo "::notice::Both deploy-pages attempts hit the 10-minute polling cap. Verifying via live marker at ${MARKER_URL} (max $((MAX_TRIES*INTERVAL/60))min)."
-          for i in $(seq 1 ${MAX_TRIES}); do
-            body=$(curl -fsS -m 15 --retry 0 "${MARKER_URL}?cb=$(date +%s)" 2>/dev/null || true)
-            if [ -n "$body" ]; then
-              live_sha=$(printf '%s' "$body" | python3 -c 'import sys,json; print(json.load(sys.stdin).get("sha",""))' 2>/dev/null || true)
-              if [ "$live_sha" = "$EXPECTED_SHA" ]; then
-                echo "::notice::Live marker matches SHA after $((i*INTERVAL))s of extended polling — deploy succeeded server-side."
-                exit 0
-              fi
-              echo "[$i/${MAX_TRIES}] live SHA ${live_sha:0:8} != expected ${EXPECTED_SHA:0:8}"
-            else
-              echo "[$i/${MAX_TRIES}] marker not yet reachable"
-            fi
-            sleep ${INTERVAL}
-          done
-          echo "::error::Live marker never matched SHA ${EXPECTED_SHA:0:8} after ${MAX_TRIES} × ${INTERVAL}s — treating as a real deploy failure."
+          echo "::error::Both deploy-pages attempts failed (Pages busy or 10-minute polling cap) — treating as a real deploy failure."
           exit 1
 
       - name: Save deploy metadata to Firestore
