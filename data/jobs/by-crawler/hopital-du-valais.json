@@ -132,7 +132,11 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
+        "medico-dirigente-anestesiologia-60-100-hopital-du-valais-brig",
+        "senior-physician-anesthesiology-60-100-hopital-du-valais-brig",
+        "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig",
+        "medecin-cadre-anesthesiologie-60-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -782,7 +786,9 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
+        "registered-nurse-80-100-orthopedics-lean-ward-3-west-hopital-du-valais-brig",
+        "registered-nurse-80-100-orthopedics-lean-ward-3-west-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1504,7 +1510,12 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
+        "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
+        "assistente-fachpsychologo-80-hopital-du-valais-brig",
+        "assistant-fachpsychologist-80-hopital-du-valais-brig",
+        "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
+        "assistant-fachpsychologue-80-hopital-du-valais-brig",
+        "assistenz-o-fachpsychologe-in-80-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -2234,7 +2245,11 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "assistenzpsychologe-in-80-100-hopital-du-valais-brig"
+        "assistenzpsychologe-in-80-100-hopital-du-valais-brig",
+        "psicologo-assistente-80-100-psichiatria-stazionaria-hopital-du-valais-brig",
+        "assistant-psychologist-80-100-inpatient-psychiatry-hopital-du-valais-brig",
+        "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+        "psychologue-assistant-80-100-psychiatrie-stationnaire-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3032,7 +3047,13 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "principale-medico-medico-endocrinologia-diabetologia-60-100-hopital-du-valais-brig",
+        "leading-physician-physician-endocrinology-diabetology-60-100-hopital-du-valais-brig",
+        "leitende-n-arztin-arzt-endokrinologie-diabetologie-60-100-hopital-du-valais-brig",
+        "medecin-medecin-chef-de-file-endocrinologie-diabeteologie-60-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-e11327d90e79",
@@ -3319,7 +3340,10 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "chauffeur-h-f-hopital-du-valais-sion"
+        "chauffeur-h-f-hopital-du-valais-sion",
+        "titolare-del-trattamento-100-hopital-du-valais-sion",
+        "application-owner-100-hopital-du-valais-sion",
+        "anwendungsinhaber-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3881,7 +3905,13 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "asc-assistente-per-la-cura-e-la-salute-della-comunita-90-per-la-medicina-interna-e-la-divisione-privata-c1-e-c2-hopital-",
+        "asc-community-care-and-health-assistant-90-for-internal-medicine-and-private-division-c1-and-c2-hopital-du-valais-sion",
+        "assc-assistent-e-en-soins-et-sante-communautaire-a-90-pour-le-service-de-medecine-interne-et-division-privee-c1et-c2-hop",
+        "assc-assistant-e-en-soins-et-sante-communautaire-a-90-pour-le-service-de-medecine-interne-"
+      ]
     },
     {
       "id": "hopital-du-valais-05f42698612c",
@@ -4277,7 +4307,17 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "tecnico-biomedico-50-60-hopital-du-valais-martigny",
+        "biomedical-technician-50-60-hopital-du-valais-martigny",
+        "biomedizinischer-techniker-50-60-hopital-du-valais-martigny",
+        "technicien-ne-en-analyses-biomedicales-50-60-hopital-du-valais-martigny",
+        "tecnico-a-in-analisi-biomediche-80-100-hopital-du-valais-sion",
+        "biomedical-analysis-technician-80-100-hopital-du-valais-sion",
+        "techniker-in-fur-biomedizinische-analysen-80-100-hopital-du-valais-sion",
+        "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+      ]
     }
   ]
 }
