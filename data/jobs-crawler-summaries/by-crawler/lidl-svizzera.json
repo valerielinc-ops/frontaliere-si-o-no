@@ -1,18 +1,87 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-28T23:46:52.897Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-05-29T13:08:13.332Z",
+  "total": 11,
+  "newCount": 2,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13710,
-  "avgDurationMs": 13710,
+  "durationMs": 21063,
+  "avgDurationMs": 21063,
   "durationHistory": [
-    13710
+    21063
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-t8rd0w",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1",
+      "location": "Gravesano",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-gravesano-695023",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Gravesano",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-29T13:08:11.011Z",
+      "firstSeenAt": "2026-05-29T13:08:11.011Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-csxpwn",
+      "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Tuttofare vendita (m/f/d) 20-40%",
+      "location": "Lugano",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-29T13:08:11.011Z",
+      "firstSeenAt": "2026-05-29T13:08:11.011Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-j9y9s6",
@@ -46,11 +115,11 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 76,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -87,11 +156,11 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "retranslationAttempts": 1,
-      "_qualityScore": 87,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
