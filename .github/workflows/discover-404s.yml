@@ -134,5 +134,8 @@ jobs:
             echo "📝 Only state file changed — no deploy needed"
           fi
         env:
-          GITHUB_PAT: ${{ secrets.GH_PAT }}
+          # GITHUB_PAT è caricato in $GITHUB_ENV dallo step "load-rc-env" (Firebase
+          # RC, non un Actions secret — `secrets.GH_PAT` non esiste). NON shadoware
+          # con secrets.*: altrimenti trigger-deploy.sh gira con PAT vuoto e il
+          # deploy non parte (cfr. #878).
           GITHUB_REPOSITORY: ${{ github.repository }}

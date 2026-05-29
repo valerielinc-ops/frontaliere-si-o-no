@@ -46,8 +46,9 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run GSC Job Indexation Monitor
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        # GITHUB_PAT è caricato in $GITHUB_ENV da "Load secrets from Remote Config"
+        # (Firebase RC, non un Actions secret — `secrets.GITHUB_PAT` non esiste).
+        # NON shadoware con secrets.* o il monitor gira con PAT vuoto (cfr. #878).
         run: node scripts/monitor-gsc-job-indexation.mjs
 
       - name: Cleanup credentials
