@@ -74,5 +74,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure: Refresh Job Popularity — run ${{ github.run_number }}" \
+            --title "CI Failure: Refresh Job Popularity" \
             --description "Job popularity refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

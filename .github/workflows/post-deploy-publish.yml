@@ -254,7 +254,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "Publish post-deploy fallita — run ${{ github.run_number }}" \
+            --title "Publish post-deploy fallita" \
             --description "## Publish post-deploy fallita
           **Deploy run:** https://github.com/${{ github.repository }}/actions/runs/${{ inputs.deploy_run_id }}
           **Publish run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

@@ -67,5 +67,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure: Persist Job Stats — run ${{ github.run_number }}" \
+            --title "CI Failure: Persist Job Stats" \
             --description "Stats history persistence failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
