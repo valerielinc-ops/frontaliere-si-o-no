@@ -1,7 +1,78 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-05-28T23:10:51.686Z",
+  "assembledAt": "2026-05-29T12:31:43.724Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4100?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4100?c=groupemutuel&lang=fr-FR",
+      "title": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "it": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "en": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
+        "de": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois"
+      },
+      "slug": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-lausanne",
+      "slugByLocale": {
+        "fr": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "en": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "it": "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-lausanne",
+        "de": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+      },
+      "category": "claims",
+      "datePosted": "2026-05-29",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4100",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-61d78288167f",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-05-29T12:31:43.723Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4097?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4097?c=groupemutuel&lang=fr-FR",
@@ -13,23 +84,23 @@
       "country": "CH",
       "description": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
-        "en": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "fr": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "it": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+        "it": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Au sein de l’équipe, tu participes activement à la gestion des réseaux sociaux du Groupe Mutuel, en prenant en charge les demandes et en suivant les interactions sur les différentes plateformes Les publications digitales font partie de ton quotidien : planification, coordination des contenus, rédaction, publication, gestion budgétaire, sponsorisation et suivi sur Facebook, Instagram, LinkedIn, YouTube et TikTok Dans le cadre de projets vidéo, tu assumes la coordination lors de tournages avec des partenaires externes et contribues au bon déroulement des productions La gestion de projets, la réalisation de briefs créatifs ainsi que le suivi des contenus – en interne comme avec des prestataires – rythment également ton activité En parallèle, tu rédiges des articles de blog et des publications autour des thématiques de la santé et de la prévoyance Les échanges avec différents partenaires ainsi que la coordination de brand content et de contenus sponsorisés font partie intégrante du rôle Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
       "titleByLocale": {
-        "fr": "Chef de projet communication digitale (h/f) 80-100% - Temporaire 9 mois",
         "it": "Project manager comunicazione digitale (m/f) 80-100% - Temporaneo 9 mesi",
         "en": "Chef de projet communication digitale (h/f) 80-100% - Temporaire 9 mois",
-        "de": "Chef de projet communication digitale (h/f) 80-100% - Temporaire 9 mois"
+        "de": "Chef de projet communication digitale (h/f) 80-100% - Temporaire 9 mois",
+        "fr": "Chef de projet communication digitale (h/f) 80-100% - Temporaire 9 mois"
       },
       "slug": "project-manager-comunicazione-digitale-m-f-80-100-temporaneo-9-mesi-groupe-mutuel-martigny",
       "slugByLocale": {
-        "fr": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel",
-        "en": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel",
         "it": "project-manager-comunicazione-digitale-m-f-80-100-temporaneo-9-mesi-groupe-mutuel-martigny",
-        "de": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel"
+        "en": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel",
+        "de": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel",
+        "fr": "chef-de-projet-communication-digitale-h-f-80-100-temporaire-9-mois-groupe-mutuel"
       },
       "category": "marketing",
       "datePosted": "2026-05-28",
@@ -70,7 +141,10 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-05-28T23:10:51.686Z"
+      "firstSeenAt": "2026-05-28T23:10:51.686Z",
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4094?c=groupemutuel&lang=fr-FR",
@@ -149,7 +223,10 @@
         "projektmanager-m-w-100-temporary-4-mesi-groupe-mutuel-zurich",
         "projektmanager-m-m-100-temporaire-4-mois-groupe-mutuel-zurich",
         "projektmanager-m-w-100-temporary-4-months-groupe-mutuel-zurich"
-      ]
+      ],
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "addressRegion": "ZH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4083?c=groupemutuel&lang=fr-FR",
@@ -223,7 +300,11 @@
         "consultant-strategie-innovation-h-f-80-100-groupe-mutuel",
         "consulente-strategia-innovazione-m-f-80-100-groupe-mutuel-lausanne",
         "strategie-innovationsberater-m-w-80-100-groupe-mutuel-lausanne"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -296,7 +377,11 @@
       },
       "previousSlugs": [
         "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressLocality": "Genève",
+      "addressCountry": "CH",
+      "addressRegion": "GE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4077?c=groupemutuel&lang=fr-FR",
@@ -369,7 +454,10 @@
       },
       "previousSlugs": [
         "responsable-de-vente-h-f-80-100-groupe-mutuel"
-      ]
+      ],
+      "addressLocality": "Genève",
+      "addressCountry": "CH",
+      "addressRegion": "GE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4075?c=groupemutuel&lang=fr-FR",
@@ -444,7 +532,11 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-05-22T22:18:14.485Z"
+      "firstSeenAt": "2026-05-22T22:18:14.485Z",
+      "needsRetranslation": true,
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4085?c=groupemutuel&lang=fr-FR",
@@ -517,7 +609,10 @@
       },
       "previousSlugs": [
         "medizinische-hilfskraft-temporar-8-monate-m-w-100-groupe-mutuel"
-      ]
+      ],
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4081?c=groupemutuel&lang=fr-FR",
@@ -590,88 +685,10 @@
       },
       "previousSlugs": [
         "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
-      ]
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4074?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4074?c=groupemutuel&lang=fr-FR",
-      "title": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Sion",
-      "canton": "VS",
-      "country": "CH",
-      "description": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Gestire i contractti asicurativi con efficienza, dalla adesione al licenziamento, incl. tutti i cambiamenti necessari - Scrivere corrispondenza chiara e professionale, sia per posta che per email - Indice documentato in modo organizzato e accessibile - Offrire un servizio clienti di qualitàà, con un attento follow-up per ogni entrata Obbligo - Esperienza nella gestione di contractti asicurativi - Buone capacità di scrittura e comunicazione - Attitudine all'organizzazione e alla precisione - Capacità di lavorare in modo autonomo e in team Cosa fare - Ambiente di lavoro temporaneo e stimolante in una delle principali assicurativeve company svizzera - Possibilità di crescita professionale e formazione continua - Pacchetto comppetitivo e profitto Contatto Gruppo Mutuel, sede a Martigny (Vallese)",
-        "en": "Mansioni - Gestire i contractti asicurativi con efficienza, dalla adesione al licenziamento, incl. tutti i cambiamenti necessari - Scrivere corrispondenza chiara e professionale, sia per posta che per e-mail - Documented index in modo organizzato e accessibile - Offer a servizio clienti di qualityà, con un attento follow-up per ogni interazione Required - Esperienza nella gestione di contractti asicurativi - Buone capacità di scrittura e comunicazione - Attitudine all'organizzazione e alla precisione - Capacità di lavorare in modo autonomo e in team Cosa offeriamo - Ambiente di lavoro dinamico e stimolante in una delle principali assicurative company svizzere - Possibilità di crescita professionale e formazione continua - Pacchetto comppetitivo e profit Contatto Mutuel Group, sede a Martigny (Vallese)",
-        "de": "Mansion - Gestire i contractti asicurativi con efficienza, dalla adesione al licenziamento, inkl. tutti i cambiamenti necessari - Scrivere corrispondenza chiara e professionale, sia per posta che per email - Dokumentierter Index in modo organizzato e accessibile - Angebot a servizio clienti di qualityà, con un attento Follow-up pro ogni interazione Erforderlich - Esperienza nella gestione di contractti asicurativi - Buone capacità di scrittura e comunicazione - Attitudine all'organizzazione e alla Precisione - Capacità di lavorare in modo autonomo e in team Cosa offeriamo - Ambiente di lavoro dinamico e stimolante in una delle principali assicurative firma svizzere - Possibilità di crescita professionale e formazione continua - Pacchetto comppetitivo e profit Contattoo Mutuel Group, sede a Martigny (Vallese)",
-        "fr": "## Mansioni - Gestire i contratti assicurativi con efficienza, dalla adesione al licenziamento, inclusi tutti i cambiamenti necessari - Scrivere corrispondenza chiara e professionale, sia per posta che per e-mail - Indice documenti in modo organizzato e accessibile - Offrire un servizio clienti di qualità, con un attento follow-up per ogni interazione ##\n• Requisiti - Esperienza nella gestione di contratti assicurativi - Buone capacità di scrittura e comunicazione - Attitudine all'organizzazione e alla precisione - Capacità di lavorare in modo autonomo e in team ##\n• Cosa offriamo - Ambiente di lavoro dinamico e stimolante in una delle principali compagnie assicurative svizzere - Possibilità di crescita professionale e formazione continua - Pacchetto salariale competitivo e benefit ## Contatto Groupe Mutuel, sede a Martigny (Vallese)"
-      },
-      "titleByLocale": {
-        "it": "Contratto manager (h/f) 100% - temporaneo 3 mesi, estensibile",
-        "en": "Contract manager (h/f) 100% - temporary 3 months, extendable",
-        "de": "Vertragsleiter (h/f) 100% - vorübergehend 3 Monate, ausziehbar",
-        "fr": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable"
-      },
-      "slug": "contratto-manager-h-f-100-temporaneo-3-mesi-estensibile-groupe-mutuel-sion",
-      "slugByLocale": {
-        "it": "contratto-manager-h-f-100-temporaneo-3-mesi-estensibile-groupe-mutuel-sion",
-        "en": "contract-manager-h-f-100-temporary-3-months-extendable-groupe-mutuel-sion",
-        "de": "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-sion",
-        "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
-      },
-      "category": "administration",
-      "datePosted": "2026-05-19",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "jobReqId": "4074",
-      "crawledAt": "",
-      "id": "groupe-mutuel-c6763622482f",
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
-          "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-sion",
-          "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-sion"
-        ],
-        "en": [
-          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
-          "contract-manager-h-f-100-temporary-3-months-extended-groupe-mutuel-sion"
-        ],
-        "de": [
-          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
-          "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-sion"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
-        "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-sion",
-        "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-sion",
-        "contract-manager-h-f-100-temporary-3-months-extended-groupe-mutuel-sion",
-        "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-sion"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
@@ -699,7 +716,7 @@
       "slugByLocale": {
         "it": "contratto-manager-h-f-100-temporaneo-3-mesi-estensibile-groupe-mutuel-fribourg",
         "en": "contract-manager-h-f-100-temporary-3-months-extendable-groupe-mutuel-fribourg",
-        "de": "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg",
+        "de": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2",
         "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
       },
       "category": "administration",
@@ -729,6 +746,7 @@
         ],
         "de": [
           "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg",
+          "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg",
           "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
         ]
       },
@@ -739,6 +757,7 @@
         "contract-manager-m-f-100-temporaneo-3-mesi-prorogabile-groupe-mutuel-fribourg",
         "contract-manager-h-f-100-temporary-3-months-extended-groupe-mutuel-fribourg",
         "vertragsleiter-h-f-100-vorubergehend-3-monate-verlangert-groupe-mutuel-fribourg",
+        "vertragsleiter-h-f-100-vorubergehend-3-monate-ausziehbar-groupe-mutuel-fribourg",
         "benefit-manager-h-f-100-temporary-6-mesi-groupe-mutuel-fribourg",
         "benefit-manager-h-f-100-temporary-6-months-groupe-mutuel-fribourg",
         "vorteile-manager-h-f-100-vorubergehende-6-monate-groupe-mutuel-fribourg",
@@ -759,7 +778,11 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+      "firstSeenAt": "2026-05-19T11:48:30.108Z",
+      "needsRetranslation": true,
+      "addressLocality": "Fribourg",
+      "addressCountry": "CH",
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
@@ -838,9 +861,11 @@
         "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
         "projektmanagement-m-w-groupe-mutuel-sion",
         "gestion-du-projet-m-m-groupe-mutuel-sion",
-        "incaricato-reparto-contrattuale-m-f-100-temporaneo-3-mesi-rinnovabile-groupe-mutuel-zurich",
         "incaricato-reparto-contrattuale-m-f-100-temporaneo-3-mesi-rinnovabile-groupe-mutuel-zurich"
-      ]
+      ],
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4037?c=groupemutuel&lang=fr-FR",
@@ -921,7 +946,10 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-11T11:46:55.536Z"
+      "firstSeenAt": "2026-05-11T11:46:55.536Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4012?c=groupemutuel&lang=fr-FR",
@@ -994,7 +1022,10 @@
       },
       "previousSlugs": [
         "comptable-prevoyance-h-f-80-100-groupe-mutuel"
-      ]
+      ],
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4010?c=groupemutuel&lang=fr-FR",
@@ -1075,7 +1106,11 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-04T10:57:40.559Z"
+      "firstSeenAt": "2026-05-04T10:57:40.559Z",
+      "needsRetranslation": true,
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "addressRegion": "BE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4005?c=groupemutuel&lang=fr-FR",
@@ -1148,7 +1183,10 @@
       },
       "previousSlugs": [
         "collaborateur-support-it-h-f-80-100-groupe-mutuel"
-      ]
+      ],
+      "addressLocality": "Martigny",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3971?c=groupemutuel&lang=fr-FR",
@@ -1223,7 +1261,10 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-14T10:00:50.873Z"
+      "firstSeenAt": "2026-04-14T10:00:50.873Z",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3988?c=groupemutuel&lang=fr-FR",
@@ -1303,7 +1344,10 @@
         "de": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-yverdon-les-bains"
         ]
-      }
+      },
+      "addressLocality": "Fribourg",
+      "addressCountry": "CH",
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -1378,7 +1422,11 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-16T21:40:55.557Z"
+      "firstSeenAt": "2026-04-16T21:40:55.557Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "addressRegion": "ZH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3893?c=groupemutuel&lang=fr-FR",
@@ -1453,7 +1501,11 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-04-15T21:41:29.166Z"
+      "firstSeenAt": "2026-04-15T21:41:29.166Z",
+      "needsRetranslation": true,
+      "addressLocality": "Solothurn",
+      "addressCountry": "CH",
+      "addressRegion": "SO"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1528,7 +1580,10 @@
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true,
+      "addressLocality": "Aarau",
+      "addressCountry": "CH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1619,7 +1674,10 @@
           "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true,
+      "addressLocality": "Crissier",
+      "addressCountry": "CH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1722,7 +1780,11 @@
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true,
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1823,7 +1885,10 @@
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true,
+      "addressLocality": "Crissier",
+      "addressCountry": "CH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
@@ -1891,7 +1956,9 @@
           "candidature-spontanee-groupe-mutuel"
         ]
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "addressLocality": "Suisse",
+      "addressCountry": "CH"
     }
   ]
 }
