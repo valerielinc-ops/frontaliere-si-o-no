@@ -45,3 +45,26 @@ jobs:
             --squash \
             --delete-branch \
             --repo "${{ github.repository }}"
+
+      # Il merge sopra usa GITHUB_TOKEN: per design GitHub, eventi generati dal
+      # GITHUB_TOKEN (qui il `pull_request: closed`) NON triggerano altri
+      # workflow. Conseguenza storica: ogni PR auto-mergiata su `## LGTM`
+      # saltava `post-merge-followup.yml` (triage 🟡/❓/Non-implementato) — il
+      # workflow girava SOLO per le PR mergiate a mano (es. #814/#833), non per
+      # quelle auto-mergiate (#822/#828/#829/#831). Verificato: deploy.yml ha la
+      # propria mitigazione via workflow_dispatch, post-merge-followup no.
+      # Fix: dispatch esplicito del path workflow_dispatch (aggiunto in #809)
+      # con GH_PAT — le API autenticate con PAT triggerano i workflow, a
+      # differenza del GITHUB_TOKEN. Non cambiamo il token del merge (resta
+      # github-actions[bot]) per non introdurre un push-triggered deploy
+      # duplicato.
+      - name: Dispatch post-merge follow-up triage
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "Dispatching post-merge-followup triage for auto-merged PR #$PR_NUMBER."
+          gh workflow run post-merge-followup.yml \
+            -f pr_number="$PR_NUMBER" \
+            --repo "${{ github.repository }}"
