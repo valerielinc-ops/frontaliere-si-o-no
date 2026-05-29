@@ -154,6 +154,8 @@ describe('AdSense lazy loading — SPA AdSenseBanner component', () => {
     // fallback (rIC with setTimeout fallback) and its cleanup against removal.
     expect(adSenseBanner).toContain('requestIdleCallback');
     expect(adSenseBanner).toContain('cancelIdleCallback');
+    // setTimeout fallback for browsers without requestIdleCallback support.
+    expect(adSenseBanner).toContain('setTimeout');
     // Bot-gated so the idle load never inflates AD_REQUESTS.
     expect(adSenseBanner).toMatch(/if\s*\(\s*!SKIP_FOR_BOT\s*\)/);
   });
