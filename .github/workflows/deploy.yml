@@ -77,6 +77,11 @@ on:
         required: false
         type: boolean
         default: false
+      publish_branch_test:
+        description: 'EXPERIMENT (reversible): after build, orphan force-push dist/ to the `gh-pages-test` branch instead of (not in addition to) the normal artifact deploy. Validates whether a ~13 GB site survives a git push to GitHub — the prerequisite for switching off the actions/deploy-pages path (10-min artifact-polling cap that has failed every recent deploy). Does NOT touch the live Pages source or the production gh-pages branch; nothing is published. Off by default.'
+        required: false
+        type: boolean
+        default: false
       parallel_plugins:
         description: 'Force parallel closeBundle even when profile_sequential=true. Default (off) means parallel for production, sequential only for clean profile dispatch runs. Set this to true when you want to dispatch a profile run AND keep the parallel scheduling — useful for measuring parallel build behavior without cron-storm cancellation.'
         required: false
@@ -84,10 +89,12 @@ on:
         default: false
 
 permissions:
-  # Workflow default is read-only. The build job overrides with contents:write
-  # for the gh-pages publish (branch-based deploy). pages:write / id-token:write
-  # were dropped: no actions/deploy-pages or upload-pages-artifact remains.
+  # This workflow only needs repository read access: the previous-slug winners
+  # sync moved to post-deploy-validation.yml, while the deploy itself only
+  # uploads artifacts and publishes to GitHub Pages.
   contents: read
+  pages: write
+  id-token: write
   issues: write     # for github-issue-creator on build/deploy failure
 
 jobs:
@@ -126,14 +133,15 @@ jobs:
     concurrency:
       group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
       cancel-in-progress: false
-    # contents: write is needed by the "Publish dist/ to gh-pages" step
-    # (force-push of dist/ to the gh-pages branch — the deploy) and also lets
-    # the existing dist-history `git push origin HEAD:main` land (it had been
-    # failing on the inherited contents:read). issues: write is for the
-    # failure-reporting step. pages:write / id-token:write are no longer needed
-    # (branch push uses GITHUB_TOKEN + contents:write; no actions/deploy-pages).
+    # contents: write is needed only by the opt-in publish_branch_test step
+    # (orphan force-push of dist/ to gh-pages-test). Mirrors the workflow-level
+    # block otherwise; the bump from read→write also lets the existing
+    # dist-history `git push origin HEAD:main` land (it had been failing on
+    # the inherited contents:read).
     permissions:
       contents: write
+      pages: write
+      id-token: write
       issues: write
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
@@ -141,12 +149,9 @@ jobs:
     # rendering ~2100 PNGs from scratch) don't fail on the default 6 h
     # ceiling and the failure mode is obvious in the logs if it happens.
     timeout-minutes: 360
-    # The build job now performs the deploy (force-push dist/ to gh-pages), so
-    # it runs in the github-pages environment — the protection rule (main only)
-    # correctly gates who can publish to the branch.
     environment:
       name: github-pages
-      url: https://frontaliereticino.ch/
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     steps:
       # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
       # or build output lands on disk. Without this the runner ships with
@@ -881,41 +886,50 @@ jobs:
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
       # ┌────────────────────────────────────────────────────────────────┐
-      # │ Branch-based deploy — publish dist/ to the `gh-pages` branch.    │
+      # │ EXPERIMENT (opt-in, reversible) — branch-based publish viability │
       # │ The actions/deploy-pages path caps Pages status-polling at 10    │
-      # │ min; with a ~13 GB dist (1.53 GB artifact) every deploy hit      │
-      # │ "Timeout reached, aborting!" → 0/100 runs published. Legacy      │
-      # │ "deploy from branch" (Pages source = gh-pages) has no such cap;  │
-      # │ validated by run 26650342310 (13 GB push, ~17.5 min, success).   │
-      # │ `git init` inside dist/ makes a standalone single-commit tree    │
-      # │ force-pushed each run, so the main repo history is NOT bloated.  │
-      # │ .nojekyll disables Jekyll (essential — Pages must NOT try to     │
-      # │ build ~470k files). CNAME ships from public/CNAME via Vite, so   │
-      # │ the custom domain is preserved on the published branch.          │
+      # │ min; with a ~13 GB dist (1.53 GB artifact) every recent deploy   │
+      # │ hit "Timeout reached, aborting!" → 0/100 runs published. Legacy  │
+      # │ "deploy from branch" has no such artifact-polling cap. Before    │
+      # │ switching the production Pages source we must confirm GitHub     │
+      # │ even ACCEPTS a 13 GB git push. This step force-pushes dist/ as a │
+      # │ single orphan commit to `gh-pages-test` (a throwaway branch) —   │
+      # │ `git init` inside dist/ keeps it a standalone tree, so the main  │
+      # │ repo history is NOT bloated and nothing is published (Pages      │
+      # │ source is untouched). Read the wall time + exit status to decide.│
       # └────────────────────────────────────────────────────────────────┘
-      - name: Publish dist/ to gh-pages (branch-based deploy)
-        if: github.event.inputs.profile_sequential != 'true'
+      - name: "[experiment] Orphan force-push dist/ to gh-pages-test"
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_branch_test == true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          echo "dist: $(du -sh dist | cut -f1), $(find dist -type f | wc -l) files"
-          test -f dist/CNAME || echo "frontaliereticino.ch" > dist/CNAME
+          echo "dist size: $(du -sh dist | cut -f1), files: $(find dist -type f | wc -l)"
           cd dist
           touch .nojekyll
           git init -q
-          git checkout -q -b gh-pages
+          git checkout -q -b gh-pages-test
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
-          git commit -qm "deploy ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
-          echo "Pushing $(du -sh . | cut -f1) to gh-pages..."
-          time git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
-          echo "✅ Published to gh-pages — GitHub Pages will serve it (source = branch)."
+          git commit -qm "experiment: branch-based publish ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          echo "Pushing $(du -sh . | cut -f1) as a single orphan commit to gh-pages-test..."
+          time git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-test
+          echo "✅ 13 GB branch push SUCCEEDED — legacy branch-based Pages deploy is viable"
 
-      # (Pages artifact upload removed: branch-based deploy publishes via the
-      # gh-pages push above, so actions/upload-pages-artifact + the
-      # actions/deploy-pages job are no longer used.)
+      - name: Upload Pages artifact (compression-level 9)
+        if: github.event.inputs.profile_sequential != 'true'
+        id: upload-pages-artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+          # Level 9 = max deflate compression on the zip envelope. Pages
+          # backend extracts the zip first, so our content gets the best
+          # compression ratio in transit (~970 MB vs ~1.21 GB at level 6).
+          compression-level: 9
 
       - name: Upload write-collisions analysis
         if: always() && github.event.inputs.profile_sequential != 'true'
@@ -965,11 +979,22 @@ jobs:
             --workflow "${{ github.workflow }}"
 
   # ───────────────────────────────────────────────────────────────────────
-  # deploy: branch-based — the build job already force-pushed dist/ to the
-  # gh-pages branch (that IS the publish; GitHub Pages serves the branch). This
-  # job no longer deploys; it only CONFIRMS the gh-pages branch was published so
-  # validate-live → publish/rollback stay gated on a real deploy. The live
-  # go-live check is validate-live polling build-id.txt.
+  # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
+  # `github-pages` artifact from this run automatically). Inherits the
+  # `pages-deploy` concurrency group so build+deploy together hold the
+  # serial Pages lock for the upload+publish sequence — but each job
+  # individually rilascia la lock when complete.
+  #
+  # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
+  # (~13 GB / ~470k files) actions/deploy-pages aborts at its 10-min polling
+  # cap, so this job goes RED even though GitHub Pages often finishes the
+  # publish server-side afterwards. Because validate-live / publish are gated
+  # on `needs: deploy` + success(), a red deploy means the post-deploy steps
+  # (Google Indexing API + IndexNow + GSC, previous-slug-winners sync, and
+  # last_known_good marking) NEVER run. Branch-based deploy was tried and
+  # reverted (#966 → #986: the legacy branch build fails outright on 13 GB).
+  # The real fix lives in #987 (server-side extended polling and/or reducing
+  # deploy congestion), NOT in reducing site size or changing host.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
     needs: build
@@ -992,13 +1017,13 @@ jobs:
       group: 'pages-deploy'
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    # Branch-based deploy: this job no longer publishes via actions/deploy-pages
-    # (the build job force-pushes dist/ to gh-pages and GitHub Pages serves that
-    # branch). It now only CONFIRMS the gh-pages publish and keeps the
-    # validate-live → publish/rollback DAG gated. No `environment: github-pages`
-    # (no Actions deployment happens here) and no pages/id-token scopes needed.
     permissions:
+      pages: write
+      id-token: write
       contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -1038,28 +1063,54 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
-      # Branch-based deploy gate. The build job force-pushed dist/ to the
-      # gh-pages branch as commit "deploy <sha> (run <id>)"; GitHub Pages
-      # (source = gh-pages) publishes it automatically with no 10-minute
-      # artifact-polling cap. Here we just confirm the branch carries THIS
-      # run's commit so validate-live → publish/rollback stay gated on a real
-      # publish. Live-content verification remains validate-live's job.
-      - name: Confirm gh-pages publish
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # GitHub Pages allows only one deployment at a time. When concurrent
+      # pushes trigger this workflow, the second run can hit "in progress
+      # deployment" errors. Retry once after a short wait to handle this.
+      #
+      # `actions/deploy-pages@v5` ALSO caps its internal status polling at
+      # 10 minutes (the `timeout: 1800000` we pass is silently clamped to
+      # 600000 — see the warning emitted at start of the step). For sites
+      # with >1M files the Pages backend's `syncing_files` phase can run
+      # well past 10 minutes, causing the action to abort with
+      # `Timeout reached, aborting!` even though the deployment itself
+      # eventually completes server-side. The marker-based extended
+      # polling below recognises that case and keeps the job green when
+      # the live site actually came up.
+      - name: Deploy to GitHub Pages
+        id: deployment_first
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          timeout: 1800000
+          error_count: 100
+
+      - name: Wait for previous Pages deployment to finish
+        if: steps.deployment_first.outcome == 'failure'
         run: |
-          set -euo pipefail
-          # The build job force-pushed dist/ to gh-pages (the deploy). Confirm
-          # the branch exists; GitHub Pages (source = gh-pages) then serves it.
-          # We intentionally don't try to match the orphan commit SHA here —
-          # it isn't in this job's checkout — so the real go-live verification
-          # is validate-live polling build-id.txt on the live site.
-          head_sha=$(git ls-remote "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages | cut -f1)
-          if [ -z "$head_sha" ]; then
-            echo "::error::gh-pages branch missing — build job did not publish."
-            exit 1
-          fi
-          echo "✅ gh-pages published (HEAD $head_sha); validate-live confirms the live go-live."
+          echo "::warning::First deploy attempt failed (likely Pages busy or 10-minute polling cap). Retrying in 30s..."
+          sleep 30
+
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment
+        if: steps.deployment_first.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          timeout: 1800000
+          error_count: 100
+
+      # Both deploy-pages attempts are `continue-on-error`, so a double
+      # failure would otherwise leave the deploy job green. Fail the job
+      # immediately when both attempts failed (Pages busy or the action's
+      # 10-minute polling cap). The previous marker-file extended-polling
+      # step was removed: across all observed runs it never once rescued a
+      # deploy (the live SHA never matched within the 25-minute poll), so
+      # it only ever burned CI time before exiting 1 anyway.
+      - name: Fail if both deploy attempts failed
+        if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+        run: |
+          echo "::error::Both deploy-pages attempts failed (Pages busy or 10-minute polling cap) — treating as a real deploy failure."
+          exit 1
 
       - name: Save deploy metadata to Firestore
         if: success()
@@ -1260,18 +1311,23 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          # Branch-based deploy: automated rollback is DISABLED here (follow-up
-          # #967). The legacy machinery below (artifact restore via
-          # actions/deploy-pages, or re-dispatching deploy.yml at last-good) is
-          # incompatible with branch-based publishing AND would risk a deploy
-          # loop if Pages registers no `github-pages` deployment entry
-          # (live_sha empty → still_live=true → fresh dispatch → fails
-          # validate-live → dispatch again …). Force still_live=false so every
-          # restore step skips cleanly. A bad deploy still surfaces (validate-*
-          # go red + a failure issue is filed) and is overwritten by the next
-          # deploy (~20-min cadence); there is just no automatic revert yet.
-          echo "::warning::Branch-based deploy: automated rollback is disabled (see #967). A bad deploy is visible via red validate-* + failure issue and is replaced by the next deploy; manual recovery if urgent."
-          echo "still_live=false" >> "$GITHUB_OUTPUT"
+          live_sha=$(gh api \
+            "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=1" \
+            --jq '.[0].sha // empty')
+          my_sha="${{ github.sha }}"
+          echo "Live Pages deployment SHA: ${live_sha:-(unknown)}"
+          echo "My deploy SHA:             $my_sha"
+          if [ -z "$live_sha" ]; then
+            echo "::warning::Could not resolve live deployment SHA — proceeding with rollback as best-effort"
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          elif [ "$live_sha" = "$my_sha" ]; then
+            echo "✅ My deploy is still live — rollback is the right action."
+            echo "still_live=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ℹ️ A newer deploy ($live_sha) has already replaced mine on Pages."
+            echo "   Rollback is a no-op — skipping. The newer deploy already removed the bad version."
+            echo "still_live=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Get last known good deploy
         if: steps.still-live.outputs.still_live == 'true'
