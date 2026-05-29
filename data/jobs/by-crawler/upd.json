@@ -18,14 +18,14 @@
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson Fachverantwortung Stazione Marbach",
         "en": "Dipl. Pflegefachperson Fachverantwortung Station Marbach",
-        "de": "Dipl. Pflegefachperson Fachverantwortung Station Marbach",
+        "de": "Dipl.-Ing. Pflegefachperson Fachverantwortung Station Marbach",
         "fr": "Infirmier(ère) diplômé(e) Responsable du service de Marbach"
       },
       "description": "Dipl. Pflegefachperson Fachverantwortung Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
         "it": "Mansioni Dipl. Responsabilità specialistica Stazione Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG a Berna (3000, BE), Svizzera. Settore - Care | Formazione sociale Tipo - Tempo pieno Durata - Indeterminato Posizione - Bern (BE) Candidatura - Tramite il portale carriere Umantis di Universitären Psychiatric Services Bern (UPD)",
-        "en": "Mansioni Dipl. Career Specialist responsibility Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland. Area - Care | Social education Tipo - Full time Durata - Indeterminato Posizione - Bern (BE) Candidatura - Tramite il portale carriere Umantis di Universitären Psychiatric Services Bern (UPD)",
-        "de": "Dipl. Pflegefachperson Fachverantwortung Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Pflege | Sozialpädagogik\n• Art: Vollzeit\n• Befristung: Unbefristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "# Mansioni\nDipl. Career Specialist responsibility Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n\nArea\n- Care | Social education\n\n## Tipo\n- Full time\n\n♪\n- Indeterminato\n\n= Posizione\n- Bern (BE)\n\n## Candidatura\n- Tramite il portale carriere Umantis di Universitären Psychiatric Services Bern (UPD)",
+        "de": "## Mansioni\nDipl. Pflegefachperson Fachverantwortung Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n## Area\n- Pflege | Sozialpädagogik\n\n## Tipo\n- Full-time\n\n## Durata\n- Indeterminato\n\n## Posizione\n- Bern (BE)\n\n## Candidatura\n- Tramite il portale carriere Umantis di Universitäre Psychiatrische Dienste Bern (UPD)",
         "fr": "Mansioni Dipl. Carrière Spécialiste responsable Station Marbach bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. Domaine - Éducation sociale Tipo - À plein temps Durata - Indeterminato Posizione - Bern (BE) Candidature - Tramite il portail transporteur Umantis di Universitären Services psychiatriques Berne (UPD)"
       },
       "location": "Bern",
@@ -229,7 +229,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "upd-2617f609680b",
@@ -462,7 +464,7 @@
       "id": "upd-e7c1119f4613",
       "slug": "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "senior-physician-in-child-and-adolescent-psychiatry-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
         "fr": "medecin-specialiste-en-psychiatrie-de-l-enfant-et-de-l-adolescent-universitare-psychiatrische-dienste-bern-upd-bern"
@@ -509,12 +511,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-        "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern"
+        "medico-specialista-in-pediatria-e-adolescenza-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern",
-          "oberarztin-oberarzt-kinder-e-jugendliche-universitare-psychiatrische-dienste-bern-upd-bern"
+          "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
         ],
         "en": [
           "oberarztin-oberarzt-kinder-und-jugendliche-upd-bern"
@@ -589,7 +590,10 @@
       "previousSlugs": [
         "fachperson-gesundheit-oder-dipl-pflegefachperson-station-flugel-inkl-aufbau",
         "healthcare-specialist-or-dipl-nursing-specialist-station-flugel-including-establishment-of-a-training-station",
-        "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare"
+        "specialiste-en-sante-ou-infirmier-diplome-station-flugel-y-compris-la-creation-d-une-station-de-formation-universitare",
+        "fachperson-gesundheit-o-dipl-pflegefachperson-station-flugel-inkl-aufbau-ausbildungsstation-universitare-psychiatrische",
+        "subject-health-or-dipl-nursing-person-station-wing-incl-construction-training-station-universitare-psychiatrische",
+        "sujet-sante-ou-dipl-poste-de-soins-infirmiers-y-compris-le-poste-de-formation-en-construction-universitare"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -620,7 +624,7 @@
       "id": "upd-8edd6aebefcc",
       "slug": "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "dipl-care-specialist-hf-fh-or-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
         "fr": "dipl-specialiste-des-soins-hf-fh-ou-dipl-pedagogue-sociale-universitare-psychiatrische-dienste-bern-upd-bern"
@@ -666,12 +670,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
-        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern"
+        "dipl-specialista-hf-fh-o-dipl-social-pedagogue-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern",
-          "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagogin-sozialpadagoge-universitare-psychiatrische-dienste-bern-upd-bern"
+          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagogin-sozialpadagoge-upd-bern"
