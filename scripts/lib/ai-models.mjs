@@ -6,7 +6,9 @@
  *
  * Features:
  * - Extended fallback chain with 115+ FREE models across 14 providers
- * - **Dynamic OpenRouter discovery**: auto-detects new free models at runtime
+ * - **Dynamic multi-provider discovery**: auto-detects new free models at
+ *   runtime from every provider that exposes an OpenAI-compatible
+ *   `GET /v1/models` listing (OpenRouter, Groq, Cerebras, Mistral)
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
  *   avoiding repeated failures that slow the crawl
@@ -941,95 +943,197 @@ function _decayScore(score, lastUsedISO) {
   return Math.round(score * 0.10);                  // > 24h: 10%
 }
 
-// ── Dynamic OpenRouter free model discovery ──────────────────
+// ── Dynamic free-model discovery (multi-provider) ────────────
 /**
- * Fetch current free models from OpenRouter API and append any new
- * ones to the DEFAULT_CHAIN. This avoids manually maintaining the
- * OR free model list — new models are auto-discovered each run.
+ * Auto-discover currently-available free models from every provider that
+ * exposes an OpenAI-compatible `GET /v1/models` listing, and append any new
+ * ones to DEFAULT_CHAIN. This avoids hand-maintaining each provider's model
+ * list — new models are picked up automatically every run, so the chain
+ * grows as providers ship models instead of waiting for a manual edit.
  *
- * - Queries GET /api/v1/models, filters for IDs ending in `:free`
- * - Skips models already in the chain (static entries)
- * - Skips tiny models (context_length < 8192) — not useful for translation
- * - Appends new models as `openrouter/{id}` entries
- * - Caches result for the process lifetime
- * - Falls back silently to static list if API is unreachable
+ * Covered providers (each attempted ONLY when its API key is present):
+ * - OpenRouter — keeps IDs ending in `:free`, context_length ≥ 8192. The
+ *   listing is the authoritative "what's free right now" source, so OR models
+ *   in the chain that are no longer free get pre-exhausted (markStale).
+ * - Groq       — all listed models are free-tier; skips audio/guard/embedding
+ *   models and anything with context_window < 8192.
+ * - Cerebras   — all listed models are free-tier text models.
+ * - Mistral    — free tier covers chat models; skips embedding/OCR/moderation
+ *   and models whose capabilities exclude chat completion.
  *
- * Call from initScoreStore() or before first callLLM().
+ * Self-healing safety net: even if a filter lets a non-chat or dead id slip
+ * through, the per-model fallback loop in callLLM() marks it exhausted on the
+ * first 400/404/decommissioned response, so a bad discovery never wedges the
+ * pipeline — it just costs one skipped attempt.
+ *
+ * Falls back silently to the static DEFAULT_CHAIN on any network/API error,
+ * and isolates providers so one failure can't block the others.
+ * Call from initScoreStore() (or before the first callLLM()).
  */
-let _orDiscoveryDone = false;
-const _dynamicOrModels = [];
+const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank/i;
 
-export async function discoverOpenRouterFreeModels() {
-  if (_orDiscoveryDone) return _dynamicOrModels;
-  _orDiscoveryDone = true;
+const DISCOVERY_PROVIDERS = Object.freeze([
+  {
+    name: 'OpenRouter',
+    prefix: 'openrouter/',
+    getKey: getOpenRouterApiKey,
+    url: 'https://openrouter.ai/api/v1/models',
+    extraHeaders: { 'HTTP-Referer': 'https://frontaliereticino.ch' },
+    markStale: true,
+    pick(m) {
+      const id = m?.id;
+      if (!id || !id.endsWith(':free')) return null;
+      // Skip tiny models — not useful for translation/article generation
+      if ((m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Groq',
+    prefix: 'groq/',
+    getKey: getGroqApiKey,
+    url: 'https://api.groq.com/openai/v1/models',
+    markStale: false,
+    pick(m) {
+      const id = m?.id;
+      if (!id || m.active === false) return null;
+      if (NON_CHAT_MODEL_RE.test(id)) return null;
+      if ((m.context_window || m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Cerebras',
+    prefix: 'cerebras/',
+    getKey: getCerebrasApiKey,
+    url: 'https://api.cerebras.ai/v1/models',
+    markStale: false,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      return id;
+    },
+  },
+  {
+    name: 'Mistral',
+    prefix: 'mistral/',
+    getKey: getMistralApiKey,
+    url: 'https://api.mistral.ai/v1/models',
+    markStale: false,
+    pick(m) {
+      const id = m?.id;
+      if (!id || NON_CHAT_MODEL_RE.test(id)) return null;
+      // Mistral exposes per-model capabilities; require chat completion when present.
+      if (m.capabilities && m.capabilities.completion_chat === false) return null;
+      if ((m.max_context_length || m.context_length || 0) < 8192) return null;
+      return id;
+    },
+  },
+]);
 
-  const apiKey = getOpenRouterApiKey();
-  if (!apiKey) {
-    console.warn('⚠️  [OR-Discovery] No OPENROUTER_API_KEY — skipping dynamic discovery');
-    return _dynamicOrModels;
-  }
+let _discoveryDone = false;
+const _dynamicModels = [];
 
+/**
+ * Discover usable models for a single provider config and merge them into
+ * DEFAULT_CHAIN. Returns { added, stale }. Throws on network/API error so the
+ * caller can isolate and log per-provider.
+ */
+async function _discoverProvider(cfg) {
+  const apiKey = cfg.getKey();
+  if (!apiKey) return { added: 0, stale: 0 };
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10_000);
+  let res;
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10_000);
-    const res = await fetch('https://openrouter.ai/api/v1/models', {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'HTTP-Referer': 'https://frontaliereticino.ch',
-      },
+    res = await fetch(cfg.url, {
+      headers: { Authorization: `Bearer ${apiKey}`, ...(cfg.extraHeaders || {}) },
       signal: controller.signal,
     });
+  } finally {
     clearTimeout(timeout);
+  }
 
-    if (!res.ok) {
-      console.warn(`⚠️  [OR-Discovery] API returned ${res.status} — using static list`);
-      return _dynamicOrModels;
-    }
+  if (!res.ok) {
+    console.warn(`⚠️  [Discovery:${cfg.name}] API returned ${res.status} — using static list`);
+    return { added: 0, stale: 0 };
+  }
 
-    const data = await res.json();
-    const freeModels = (data.data || []).filter(m => m.id.endsWith(':free'));
+  const data = await res.json();
+  const list = Array.isArray(data?.data) ? data.data : [];
 
-    // Build set of existing OR models in the chain
-    const existingIds = new Set(
-      DEFAULT_CHAIN
-        .filter(m => m.startsWith('openrouter/'))
-        .map(m => m.slice(11)) // strip "openrouter/" prefix to get bare ID
-    );
+  // Bare IDs the provider currently offers that pass the chat/size filter.
+  const offeredIds = new Set();
+  for (const m of list) {
+    const id = cfg.pick(m);
+    if (id) offeredIds.add(id);
+  }
 
-    let added = 0;
-    for (const m of freeModels) {
-      if (existingIds.has(m.id)) continue;
-      // Skip tiny models — not useful for translation/article generation
-      if ((m.context_length || 0) < 8192) continue;
+  // Existing chain entries for this provider (prefix stripped to bare id).
+  const prefixLen = cfg.prefix.length;
+  const existingIds = new Set(
+    DEFAULT_CHAIN
+      .filter(m => m.startsWith(cfg.prefix))
+      .map(m => m.slice(prefixLen)),
+  );
 
-      const fullId = `openrouter/${m.id}`;
-      _dynamicOrModels.push(fullId);
-      DEFAULT_CHAIN.push(fullId);
-      added++;
-    }
+  let added = 0;
+  for (const id of offeredIds) {
+    if (existingIds.has(id)) continue;
+    const fullId = `${cfg.prefix}${id}`;
+    _dynamicModels.push(fullId);
+    DEFAULT_CHAIN.push(fullId);
+    added++;
+  }
 
-    // Also mark OR models in chain that are no longer free
-    const currentFreeIds = new Set(freeModels.map(m => m.id));
-    let staleCount = 0;
+  // Pre-exhaust chain models the provider no longer offers — only for providers
+  // whose listing is the authoritative free-tier source (OpenRouter). For the
+  // others a missing id means "decommissioned"; the runtime 404 handler exhausts
+  // those on first use, so we don't risk false-positives from a transient omission.
+  let stale = 0;
+  if (cfg.markStale) {
     for (const model of DEFAULT_CHAIN) {
-      if (!model.startsWith('openrouter/')) continue;
-      const bareId = model.slice(11);
-      if (!currentFreeIds.has(bareId)) {
-        // Pre-emptively exhaust stale models so they're skipped
+      if (!model.startsWith(cfg.prefix)) continue;
+      if (!offeredIds.has(model.slice(prefixLen))) {
         markModelExhausted(model);
-        staleCount++;
+        stale++;
       }
     }
-
-    if (added > 0 || staleCount > 0) {
-      console.log(`🔍 [OR-Discovery] ${freeModels.length} free models found, ${added} new added to chain, ${staleCount} stale pre-exhausted`);
-    }
-    return _dynamicOrModels;
-  } catch (e) {
-    const msg = e.name === 'AbortError' ? 'timeout' : e.message;
-    console.warn(`⚠️  [OR-Discovery] Failed (${msg}) — using static list`);
-    return _dynamicOrModels;
   }
+
+  if (added > 0 || stale > 0) {
+    console.log(`🔍 [Discovery:${cfg.name}] ${offeredIds.size} usable models, ${added} new added to chain, ${stale} stale pre-exhausted`);
+  }
+  return { added, stale };
+}
+
+/**
+ * Run dynamic discovery across all configured providers in parallel.
+ * Idempotent for the process lifetime; never throws.
+ */
+export async function discoverFreeModels() {
+  if (_discoveryDone) return _dynamicModels;
+  _discoveryDone = true;
+
+  await Promise.all(DISCOVERY_PROVIDERS.map(async (cfg) => {
+    try {
+      await _discoverProvider(cfg);
+    } catch (e) {
+      const msg = e?.name === 'AbortError' ? 'timeout' : (e?.message || String(e));
+      console.warn(`⚠️  [Discovery:${cfg.name}] Failed (${msg}) — using static list`);
+    }
+  }));
+
+  return _dynamicModels;
+}
+
+/**
+ * Backward-compatible alias. Older call sites referenced the OpenRouter-only
+ * discovery; it now triggers the full multi-provider sweep (still idempotent).
+ */
+export async function discoverOpenRouterFreeModels() {
+  return discoverFreeModels();
 }
 
 // ── Firestore init & load ────────────────────────────────────
@@ -1142,11 +1246,11 @@ export async function initScoreStore() {
     _firestoreDb = null;
   }
 
-  // Discover new OpenRouter free models (non-blocking, fire-and-forget on error)
+  // Discover new free models across all providers (each isolated; logs its own errors)
   try {
-    await discoverOpenRouterFreeModels();
+    await discoverFreeModels();
   } catch {
-    // Already logged inside discoverOpenRouterFreeModels
+    // Already logged inside discoverFreeModels
   }
 }
 
