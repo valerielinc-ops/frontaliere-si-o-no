@@ -7864,6 +7864,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Nurnberg case settled: RSI pays all claims',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'The dispute between RSI and journalist Paola Nurnberg is closed. RSI has paid all claims.',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Panoramic view of Lugano with Lake Lugano and surrounding mountains',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Swiss Employment: +26,100 Jobs in One Year, Q1 2026',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'In the first quarter of 2026, jobs in Switzerland rise to 5.5 million (+0.5% year-on-year). In Ticino, a 0.3% quarterly decline.',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Aerial view of Lugano\'s financial district with modern offices and Lake Lugano in the background',
 };
 
 export default blogMetaEn;

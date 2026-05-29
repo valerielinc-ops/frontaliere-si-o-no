@@ -7865,6 +7865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.title': 'Caso Nurnberg risolto: RSI paga tutte le pretese avanzate',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.excerpt': 'La vertenza tra la RSI e la giornalista Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate.',
     'blog.article.caso-nurnberg-risolto-rsi-paga-pretese.imageAlt': 'Vista panoramica di Lugano con il Lago di Lugano e le montagne circostanti',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.title': 'Occupazione Svizzera: +26.100 posti in un anno, dati UST Q1 2026',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.excerpt': 'Nel primo trimestre 2026 i posti di lavoro in Svizzera salgono a 5,5 milioni (+0,5% annuo). In Ticino calo dello 0,3% trimestrale.',
+    'blog.article.occupazione-svizzera-dati-2026-trimestre1.imageAlt': 'Vista aerea del distretto finanziario di Lugano con uffici moderni e lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -3863,6 +3863,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovo-orario-ferroviario-lombardia-2026': { name: 'Trasporti Ticino', path: '/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026', parent: 'blog' },
     'blog-salari-specialisti-svizzera-2024': { name: 'Aumento salari', path: '/articoli-frontaliere/salari-specialisti-svizzera-2024', parent: 'blog' },
     'blog-caso-nurnberg-risolto-rsi-paga-pretese': { name: 'Caso Nurnberg', path: '/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese', parent: 'blog' },
+    'blog-occupazione-svizzera-dati-2026-trimestre1': { name: 'Occupazione Svizzera', path: '/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1', parent: 'blog' },
  };
 
  const info = sectionNames[section];
