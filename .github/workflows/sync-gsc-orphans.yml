@@ -122,5 +122,9 @@ jobs:
             echo "📭 No meaningful data changes — skipping deploy"
           fi
         env:
-          GITHUB_PAT: ${{ secrets.GH_PAT }}
+          # GITHUB_PAT NON impostato qui: ereditato da $GITHUB_ENV via lo step
+          # "Load secrets from Remote Config" (load-rc-env.mjs). Prima era
+          # `${{ secrets.GH_PAT }}`, ma GH_PAT non esiste come Actions secret →
+          # shadowava il valore RC con stringa vuota → trigger-deploy.sh saltava
+          # il dispatch (deploy.yml non partiva). Pattern corretto: update-fuel-prices.yml.
           GITHUB_REPOSITORY: ${{ github.repository }}
