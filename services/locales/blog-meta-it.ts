@@ -7853,6 +7853,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumenti-stipendi-ticino-2025.title': 'Svizzera: stipendi 2025 in aumento fino al 2% per specialisti',
     'blog.article.aumenti-stipendi-ticino-2025.excerpt': 'Secondo Adecco, i salari medi in Svizzera cresceranno fino al 2% nel 2025, con incrementi più alti per specialisti in IA e sostenibilità ESG.',
     'blog.article.aumenti-stipendi-ticino-2025.imageAlt': 'Vista panoramica di Lugano con le Alpi sullo sfondo in una giornata primaverile',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Acquisto abitazione e 2° e 3° pilastro: guida pratica per frontalieri',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analisi delle possibilità di acquisto casa tramite 2° e 3° pilastro secondo RSI Radiotelevisione svizzera.',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Abitazione moderna sulle colline di Lugano con vista sul lago.',
 };
 
 export default blogMetaIt;
