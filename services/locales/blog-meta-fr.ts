@@ -7844,6 +7844,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiusura-amministrazione-ticino-2025.title': 'Fermeture des services administratifs du Tessin : 31 décembre 2025',
     'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'L\'après-midi du 31 décembre 2025, les services de l\'Administration cantonale seront fermés.',
     'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Vue du centre administratif de Bellinzona en soirée, en hiver.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina relancée : reprise du creusement du 2e tunnel du Saint-Gothard',
+    'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'La fraise mécanique Paulina a repris le creusement du deuxième tunnel du Saint-Gothard après une longue pause.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Foreuse mécanique Paulina en action sur le chantier du deuxième tunnel du Saint-Gothard',
 };
 
 export default blogMetaFr;

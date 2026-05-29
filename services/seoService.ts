@@ -3856,6 +3856,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tram-treno-ricorso-zali': { name: 'novita tram', path: '/articoli-frontaliere/tram-treno-ricorso-zali', parent: 'blog' },
     'blog-mancato-pagamento-stipendio-lavoratrice': { name: 'Caso stipendio non pagato', path: '/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice', parent: 'blog' },
     'blog-chiusura-amministrazione-ticino-2025': { name: 'Chiusura amministrativa Ticino', path: '/articoli-frontaliere/chiusura-amministrazione-ticino-2025', parent: 'blog' },
+    'blog-paulina-tunnel-san-gottardo-2026': { name: 'Tunnel San Gottardo', path: '/articoli-frontaliere/paulina-tunnel-san-gottardo-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

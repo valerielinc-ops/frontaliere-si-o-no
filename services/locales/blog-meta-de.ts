@@ -7842,6 +7842,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusura-amministrazione-ticino-2025.title': 'Schliessung der kantonalen Einrichtungen: 31. Dezember 2025',
     'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Am Nachmittag des 31. Dezember 2025 werden die Einrichtungen der kantonalen Verwaltung geschlossen.',
     'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Abendblick auf das Verwaltungszentrum Bellinzona im Winter.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina wieder aktiv: Weiterbau zweiter Gotthard-Tunnel',
+    'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'Die Tunnelbohrmaschine Paulina hat nach einer langen Pause den Ausbau des zweiten Gotthard-Tunnels wieder aufgenommen.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Mechanischer Bohrer Paulina bei der Arbeit auf der Baustelle des zweiten Gotthard-Tunnels',
 };
 
 export default blogMetaDe;

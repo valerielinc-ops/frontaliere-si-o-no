@@ -7844,6 +7844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusura-amministrazione-ticino-2025.title': 'Chiusura servizi amministrativi Ticino: 31 dicembre 2025',
     'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Il pomeriggio del 31 dicembre 2025 i servizi dell’Amministrazione cantonale saranno chiusi.',
     'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Vista serale del centro amministrativo di Bellinzona in inverno.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina riattiva: ripresa scavo secondo tunnel San Gottardo',
+    'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'La fresa meccanica Paulina ha ripreso lo scavo del secondo tunnel del San Gottardo dopo una lunga pausa.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Fresa meccanica Paulina al lavoro nel cantiere del secondo tunnel del San Gottardo',
 };
 
 export default blogMetaIt;

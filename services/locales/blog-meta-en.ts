@@ -7843,6 +7843,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusura-amministrazione-ticino-2025.title': 'Administrative Services Closure in Ticino: 31 December 2025',
     'blog.article.chiusura-amministrazione-ticino-2025.excerpt': 'Afternoon of 31 December 2025, the administrative services of the Canton will be closed.',
     'blog.article.chiusura-amministrazione-ticino-2025.imageAlt': 'Evening view of Bellinzona administrative center in winter.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.title': 'Paulina restarts: Gotthard second tunnel excavation resumes',
+    'blog.article.paulina-tunnel-san-gottardo-2026.excerpt': 'The mechanical drill Paulina has resumed excavation of the second Gotthard tunnel after a long pause.',
+    'blog.article.paulina-tunnel-san-gottardo-2026.imageAlt': 'Mechanical drill Paulina at work in the construction site of the second San Gottardo tunnel',
 };
 
 export default blogMetaEn;
