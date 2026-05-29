@@ -95,9 +95,13 @@ function effectiveLevel(descriptor, scope) {
  * Parse a workflow YAML string into:
  *   { isReusable, calleePermsByScope, calleeScalarAll, callers }
  *
- * - calleePermsByScope: union (max level) of permissions requested across the
- *   reusable workflow's jobs — what a caller must grant.
- * - calleeScalarAll: 0|1|2 if the reusable uses a job-level scalar `*-all`.
+ * - calleePermsByScope: union (max level) of the *effective* permissions across
+ *   the reusable workflow's jobs — what a caller must grant. A job's effective
+ *   permissions are its own `permissions:` block if present, otherwise the
+ *   workflow top-level block (GitHub default-inheritance; a job-level block fully
+ *   replaces the top-level one for that job, it does not merge per-scope).
+ * - calleeScalarAll: 0|1|2 if any reusable job's effective permissions use a
+ *   scalar `*-all`.
  * - callers: jobs with `uses: ./.github/workflows/<file>`, each with the job's
  *   own `permissions:` descriptor (or null if absent).
  */
@@ -117,6 +121,19 @@ export function parseWorkflow(yaml) {
     }
   }
 
+  // Workflow top-level `permissions:` (indent 0), if any. For a reusable callee
+  // this is the default each job inherits unless it declares its own block, so a
+  // callee that requests scopes only at the top level (e.g. `issues: write` with
+  // no per-job block) still imposes a requirement on every caller — #984 item 1.
+  let topLevelPerms = null;
+  for (let i = 0; i < lines.length; i++) {
+    if (indentOf(lines[i]) !== 0) continue;
+    if (/^permissions:/.test(stripComment(lines[i]))) {
+      topLevelPerms = parsePermissionsBlock(lines, i, 0);
+      break;
+    }
+  }
+
   let jobsStart = -1;
   for (let i = 0; i < lines.length; i++) {
     if (/^jobs:\s*$/.test(stripComment(lines[i]))) { jobsStart = i; break; }
@@ -126,28 +143,44 @@ export function parseWorkflow(yaml) {
   let calleeScalarAll = 0;
   const callers = [];
 
+  // Auto-detect the indentation of job headers rather than assuming 2 spaces, so
+  // a workflow that indents jobs differently (e.g. 4 spaces) is not silently
+  // skipped — a skipped caller would mean an undetected permission mismatch
+  // (#984 item 2). The job-key indent is detected per-job from its first child.
+  let jobHeaderIndent = -1;
   if (jobsStart !== -1) {
-    const jobHeaderIndent = 2;
+    for (let i = jobsStart + 1; i < lines.length; i++) {
+      const raw = lines[i];
+      if (raw.trim() === '' || raw.trim().startsWith('#')) continue;
+      if (indentOf(raw) === 0) break; // left jobs: with no entries
+      jobHeaderIndent = indentOf(raw);
+      break;
+    }
+  }
+
+  if (jobsStart !== -1 && jobHeaderIndent !== -1) {
     for (let i = jobsStart + 1; i < lines.length; i++) {
       const raw = lines[i];
       if (raw.trim() === '' || raw.trim().startsWith('#')) continue;
       if (indentOf(raw) === 0) break; // left jobs:
       if (indentOf(raw) !== jobHeaderIndent) continue;
-      const jm = raw.match(/^ {2}([A-Za-z0-9_-]+):\s*$/);
+      const jm = raw.match(/^ *([A-Za-z0-9_-]+):\s*$/);
       if (!jm) continue;
       const jobName = jm[1];
 
       let calleeFile = null;
       let callerPerms = null;
       let jobPermsDesc = null;
+      let jobKeyIndent = -1;
 
       for (let j = i + 1; j < lines.length; j++) {
         const b = lines[j];
         if (b.trim() === '' || b.trim().startsWith('#')) continue;
         const bi = indentOf(b);
         if (bi <= jobHeaderIndent) break; // next job / dedent
+        if (jobKeyIndent === -1) jobKeyIndent = bi; // first direct child fixes the key column
         const bt = stripComment(b);
-        if (bi === jobHeaderIndent + 2) {
+        if (bi === jobKeyIndent) {
           const useMatch = bt.match(/^uses:\s*\.\/\.github\/workflows\/([A-Za-z0-9._-]+)\s*$/);
           if (useMatch) calleeFile = useMatch[1];
           if (/^permissions:/.test(bt)) {
@@ -158,13 +191,18 @@ export function parseWorkflow(yaml) {
         }
       }
 
-      // Reusable workflow: this job's permissions block IS the caller requirement.
-      if (isReusable && jobPermsDesc) {
-        if (jobPermsDesc.mode === 'scalar') {
-          calleeScalarAll = Math.max(calleeScalarAll, effectiveLevel(jobPermsDesc, '__any__'));
-        } else {
-          for (const [scope, v] of Object.entries(jobPermsDesc.perms)) {
-            calleePermsByScope[scope] = Math.max(calleePermsByScope[scope] || 0, LEVEL[v]);
+      // Reusable workflow: a job's effective permissions are its own block if it
+      // has one, else the workflow top-level block (GitHub inheritance; job-level
+      // fully replaces top-level). Their union across jobs is the caller's duty.
+      if (isReusable) {
+        const effective = jobPermsDesc || topLevelPerms;
+        if (effective) {
+          if (effective.mode === 'scalar') {
+            calleeScalarAll = Math.max(calleeScalarAll, effectiveLevel(effective, '__any__'));
+          } else {
+            for (const [scope, v] of Object.entries(effective.perms)) {
+              calleePermsByScope[scope] = Math.max(calleePermsByScope[scope] || 0, LEVEL[v]);
+            }
           }
         }
       }
@@ -179,11 +217,23 @@ export function parseWorkflow(yaml) {
 /**
  * Compare one caller job against a callee workflow's parsed requirements.
  * Returns an array of violation strings (empty = parity OK).
+ *
+ * The caller descriptor passed here is strictly the caller *job's own*
+ * `permissions:` block. We intentionally do NOT fall back to the caller
+ * workflow's top-level `permissions:` (#984 item 5): every reusable-workflow
+ * caller in this repo declares its own job-level block, and requiring that is
+ * the safe direction — under-counting a caller's grant only ever over-reports a
+ * violation (a noisy false positive), never hides the startup_failure-class
+ * mismatch this guardrail exists to catch.
  */
 export function compareCallerVsCallee(callerJob, callerPermsDescriptor, calleeReq, ctx) {
   const violations = [];
   const { calleePermsByScope, calleeScalarAll } = calleeReq;
 
+  // Callee uses a scalar `*-all` (#984 item 4): the only caller grant that
+  // satisfies "every scope at this level" is an equal-or-stronger scalar
+  // `*-all`. An explicit caller map (`contents: write`, …) enumerates a finite
+  // set of scopes and can never cover all-scope, so it is correctly flagged.
   if (calleeScalarAll > 0) {
     const callerAll = effectiveLevel(callerPermsDescriptor, '__any__');
     if (callerAll < calleeScalarAll) {
@@ -259,7 +309,10 @@ export function checkRepo({
 // CLI entry point
 if (basename(process.argv[1] || '') === basename(fileURLToPath(import.meta.url))) {
   try {
-    const { violations, checkedPairs } = checkRepo();
+    // Override hook for the exit-code integration test (#984 item 3); defaults
+    // to the repo's .github/workflows so normal CLI runs are unaffected.
+    const opts = process.env.WORKFLOW_PARITY_DIR ? { workflowsDir: process.env.WORKFLOW_PARITY_DIR } : {};
+    const { violations, checkedPairs } = checkRepo(opts);
     if (violations.length > 0) {
       console.error('✗ Workflow permissions parity violations found:\n');
       for (const v of violations) console.error('  • ' + v);
