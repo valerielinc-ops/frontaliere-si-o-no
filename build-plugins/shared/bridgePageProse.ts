@@ -44,6 +44,8 @@
  * Pure: identical (locale, bridgeKind) inputs produce identical HTML.
  */
 
+import { EJP_STRIPPED_MARKER } from './ejpMarker';
+
 // Local feature flag: skip the prose entirely on bridge pages (slug rename
 // / legacy alias redirects). Default ON because bridges are pure redirect
 // vehicles — Google de-duplicates via canonical, and these pages add bulk
@@ -57,11 +59,7 @@
 // vi.stubEnv() — module-load reads cannot be overridden by tests.
 const isStripBridgeProse = (): boolean =>
   (process.env.STRIP_BRIDGE_PAGE_PROSE ?? '1') !== '0';
-// Use UPPERCASE placeholder-comment form so it survives the HTML minifier's
-// comment-strip pass (htmlMinify.ts preserves only <!--[A-Z][A-Z0-9_]*-->;
-// the prior lowercase `<!--ejp-stripped-->` was being stripped, defeating
-// the audit-text-html-ratio skip).
-const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+// EJP_STRIPPED_MARKER imported from ./ejpMarker (single source of truth).
 
 export type BridgeProseLocale = 'it' | 'en' | 'de' | 'fr';
 

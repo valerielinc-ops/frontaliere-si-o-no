@@ -32,6 +32,8 @@
 // JS see the thin static body (≥50 words + JSON-LD + canonical), which
 // remains a valid indexable page.
 
+import { EJP_STRIPPED_MARKER } from './ejpMarker';
+
 const LOCALE_LISTING_PATH: Record<string, string> = {
   it: '/cerca-lavoro-ticino/',
   en: '/en/find-jobs-ticino/',
@@ -107,7 +109,7 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
     `<main class="seo-static-content static-bridge-page">` +
     // audit:text-html-ratio skip marker — deliberately-thin shell, same
     // contract as legacy STRIP_* paths (uppercase survives minifier).
-    `<!--EJP_STRIPPED-->` +
+    EJP_STRIPPED_MARKER +
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}</p>` +
