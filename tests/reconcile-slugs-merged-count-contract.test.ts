@@ -74,6 +74,81 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
   });
 });
 
+// Regression guard for issue #907 (🔴 from PR #896 review): the no-company
+// candidate set was narrowed ONLY by slug-token overlap ≥ 2. A job matchable
+// solely via Strategy B (title-to-title cross-locale Jaccard) can have a
+// divergent SLUG (slug-overlap < 2) yet a matching cross-locale TITLE — it was
+// silently excluded from the candidate set before scoring, so the merge never
+// happened and the expired/orphan slug stayed a 404 with no redirect bridge.
+// buildActiveIndex now also builds `titleTokenToJobs`, and findBestMatch unions
+// the slug-token and title-token buckets (slug ∪ title) before scoring.
+describe('reconcile slug functions — Strategy B (title-only) candidate union (#907)', () => {
+  it('reconcileOrphanSlugs merges a divergent-slug / matching-title orphan via Strategy B', () => {
+    // Active job: IT slug, but a DE title that matches the orphan's title.
+    const activeJobs = [
+      {
+        slug: 'sviluppatore-software-backend',
+        company: 'Acme',
+        companyKey: 'acme',
+        slugByLocale: { it: 'sviluppatore-software-backend' },
+        titleByLocale: {
+          it: 'Sviluppatore Software',
+          de: 'Software Entwickler Backend',
+        },
+      },
+    ];
+    // Orphan slug shares < 2 tokens with the job slug ({software} only → 1),
+    // so the slug-token bucket alone would NOT surface this candidate. The
+    // match is reachable only because the orphan's enriched DE title matches
+    // the job's `titleByLocale.de` (Strategy B).
+    const orphanSlugs = ['software-entwickler'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+
+    const res = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, { dryRun: false });
+
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler');
+  });
+
+  it('reconcileExpiredSlugs merges a divergent-slug / matching-title expired job via Strategy B', () => {
+    const activeJobs = [
+      {
+        slug: 'contabile-fornitori-pagamenti',
+        company: 'Beta',
+        companyKey: 'beta',
+        slugByLocale: { it: 'contabile-fornitori-pagamenti' },
+        titleByLocale: {
+          it: 'Contabile Fornitori',
+          de: 'Buchhalter Kreditoren Zahlungen',
+        },
+      },
+    ];
+    // Expired slug ({buchhalter, kreditoren}) shares 0 tokens with the active
+    // job's IT slug → excluded by the slug bucket. Reachable only via the
+    // matching DE title.
+    // `reconcileExpiredSlugs` builds enrichment.title from `ej.title`, which
+    // is what Strategy B tokenizes — set it to the DE title.
+    const expiredJobs = [
+      {
+        slug: 'buchhalter-kreditoren',
+        title: 'Buchhalter Kreditoren Zahlungen',
+        titleByLocale: { de: 'Buchhalter Kreditoren Zahlungen' },
+      },
+    ];
+
+    const res = reconcileExpiredSlugs(activeJobs, expiredJobs, { dryRun: false });
+
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('buchhalter-kreditoren');
+  });
+});
+
 describe('assemble-jobs-dataset reconcile guards read the correct property', () => {
   const source = fs.readFileSync(
     path.resolve(root, 'scripts/assemble-jobs-dataset.mjs'),
