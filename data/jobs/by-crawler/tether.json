@@ -983,8 +983,7 @@
         "backend-ingegnere-wallets-100-remote-tether-operations-madrid",
         "backend-ingegnere-wallets-100-remote-tether-operations-milan",
         "backend-ingegnere-wallets-100-remote-tether-operations-milano",
-        "backend-ingegnere-wallets-100-remote-tether-operations-warsaw",
-        "backend-ingegnere-wallets-100-remote-tether-operations-zurich"
+        "backend-ingegnere-wallets-100-remote-tether-operations-warsaw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2607,7 +2606,6 @@
         "performance-manager-associate-100-da-remoto-in-tutto-il-mondo-tether-operations-roma-lazio",
         "senior-backend-developer-tether-ch-14",
         "senior-backend-developer-tether-ch",
-        "investimenti-associate-rise-fund-100-remote-tether-operations-zurich",
         "senior-backend-developer-tether-ch-5",
         "senior-backend-developer-tether-ch-10",
         "senior-backend-developer-tether-ch-11",
@@ -4354,7 +4352,7 @@
       "slugByLocale": {
         "it": "ai-ricerca-ingegnere-kernel-inference-optimization-tether-operations-zurich-zurich",
         "en": "ai-research-engineer-kernel-inference-optimization-tether-ch",
-        "de": "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich",
+        "de": "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich",
         "fr": "ai-recherche-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
       },
       "company": "Tether Operations",
@@ -4401,8 +4399,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ai-research-engineer-kernel-inference-optimization-tether-ch",
-        "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich",
-        "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich"
+        "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4410,8 +4407,7 @@
         ],
         "de": [
           "ai-research-engineer-kernel-inference-optimization-tether-ch",
-          "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich",
-          "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich"
+          "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
         ],
         "fr": [
           "ai-research-engineer-kernel-inference-optimization-tether-ch"
@@ -4913,10 +4909,10 @@
     },
     {
       "id": "tether-68ef587d4fe6",
-      "slug": "machine-learning-systems-engineer-tether-ch",
+      "slug": "ingegnere-di-sistemi-di-apprendimento-della-macchina-tether-operations-zurich-zurich",
       "slugByLocale": {
         "en": "machine-learning-systems-engineer-tether-ch",
-        "it": "machine-learning-systems-engineer-tether-ch",
+        "it": "ingegnere-di-sistemi-di-apprendimento-della-macchina-tether-operations-zurich-zurich",
         "de": "machine-learning-systems-engineer-tether-ch",
         "fr": "machine-learning-systems-engineer-tether-ch"
       },
@@ -4976,7 +4972,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T00:57:11.908Z"
+      "firstSeenAt": "2026-05-29T00:57:11.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "machine-learning-systems-engineer-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "machine-learning-systems-engineer-tether-ch"
+      ]
     }
   ]
 }
