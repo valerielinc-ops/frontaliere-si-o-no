@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-davos",
-  "assembledAt": "2026-05-28T14:10:11.147Z",
+  "assembledAt": "2026-05-29T00:36:53.102Z",
   "jobs": [
     {
       "id": "spital-davos-5a7dd002f54a",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/366/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:08.880Z",
+      "crawledAt": "2026-05-29T00:36:50.498Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:52.799Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/416/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:07.968Z",
+      "crawledAt": "2026-05-29T00:36:49.563Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -191,6 +192,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.806Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -235,7 +237,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/369/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:07.083Z",
+      "crawledAt": "2026-05-29T00:36:48.620Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:51.005Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -305,7 +308,7 @@
       "slug": "sostanza-in-anestesia-100-spital-davos-davos",
       "slugByLocale": {
         "it": "sostanza-in-anestesia-100-spital-davos-davos",
-        "en": "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "en": "anesthesia-assistant-100-spital-davos-davos",
         "de": "unterassistent-in-anasthesie-100-spital-davos-ch",
         "fr": "assistant-en-anesthesie-100-spital-davos-davos"
       },
@@ -331,7 +334,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/613/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:06.195Z",
+      "crawledAt": "2026-05-29T00:36:47.872Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -377,7 +380,7 @@
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
         "assistente-anestesia-100-spital-davos-davos",
-        "anesthesia-assistant-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -385,10 +388,12 @@
           "assistente-anestesia-100-spital-davos-davos"
         ],
         "en": [
+          "subassistance-in-anaesthesia-100-spital-davos-davos",
           "anesthesia-assistant-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -433,7 +438,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/568/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:05.283Z",
+      "crawledAt": "2026-05-29T00:36:46.907Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -517,7 +522,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/674/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:03.873Z",
+      "crawledAt": "2026-05-29T00:36:45.441Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -555,6 +560,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -599,7 +605,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/702/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:02.989Z",
+      "crawledAt": "2026-05-29T00:36:44.516Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -635,6 +641,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -679,7 +686,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/703/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:02.102Z",
+      "crawledAt": "2026-05-29T00:36:43.570Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -762,7 +769,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/704/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:01.207Z",
+      "crawledAt": "2026-05-29T00:36:42.645Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -795,6 +802,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -839,7 +847,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/705/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:10:00.317Z",
+      "crawledAt": "2026-05-29T00:36:41.680Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -919,7 +927,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/700/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:59.455Z",
+      "crawledAt": "2026-05-29T00:36:40.731Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -974,6 +982,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.937Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1018,7 +1027,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/701/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:58.556Z",
+      "crawledAt": "2026-05-29T00:36:39.760Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1055,6 +1064,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T10:40:34.380Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1099,7 +1109,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/696/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:57.680Z",
+      "crawledAt": "2026-05-29T00:36:38.830Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1131,6 +1141,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1175,7 +1186,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/695/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:56.801Z",
+      "crawledAt": "2026-05-29T00:36:37.897Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1224,6 +1235,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1268,7 +1280,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/655/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:55.931Z",
+      "crawledAt": "2026-05-29T00:36:36.951Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1330,11 +1342,11 @@
         "de": "Medizinische:r Praxisassistent:in Pädiatrie (Saisonstelle Winter 2026/27 60-80%)",
         "fr": "Médical: assistant pratique en pédiatrie (site de saison Hiver 2026/27 60-80%)"
       },
-      "description": "Mit Ihren medizinischen und administrativen Kenntnissen leisten Sie einen wichtigen Beitrag für die pädiatrische Versorgung in der Landschaft Davos. Sie sorgen für das Wohl unserer kleinsten Patientinnen und Patienten und deren Familien. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für den Winter 2026/27 suchen wir in der Pädiatrie ein:e |\n• Tätigkeiten im klinischen wie auch im administrativen Bereich inklusive Terminverwaltung\n• Telefonische Beratung und Triange bei medizinischen Fragen\n• Aktive Mitarbeit bei der Dokumentation in unserem Patientensystem\n• Bearbeitung und Weiterleitung der internen sowie externen Post |\n• Ausbildung als Medizinische:r Praxisassistent:in EFZ (MPA) zwingend\n• Grosse Begeisterung für Ihren Beruf; Pädiatrie-Erfahrung ist ein Plus\n• Einfühlungsvermögen im Umgang mit kleinen Patientinnen und Patienten sowie deren Eltern\n• Ausgeprägte Kommunikationsfähigkeit und ein Teamplayer\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil |\n• Interessante und verantwortungsvolle Aufgabe in einem kleinen, motivierten Team\n• Attraktive Anstellungsbedingungen in einer der beliebtesten Destinationen im Winter\n• Einen hohen Freizeitwert in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Herr Dr. med. Christian Potthoff, unter der Telefonnummer +41 81 414 83 69 wie auch das HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+      "description": "Mit Ihren medizinischen und administrativen Kenntnissen leisten Sie einen wichtigen Beitrag für die pädiatrische Versorgung in der Landschaft Davos. Sie sorgen für das Wohl unserer kleinsten Patientinnen und Patienten und deren Familien. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für den Winter 2026/27 suchen wir in der Pädiatrie ein:e |\n• Tätigkeiten im klinischen wie auch im administrativen Bereich inklusive Terminverwaltung\n• Telefonische Beratung und Triage bei medizinischen Fragen\n• Aktive Mitarbeit bei der Dokumentation in unserem Patientensystem\n• Bearbeitung und Weiterleitung der internen sowie externen Post |\n• Ausbildung als Medizinische:r Praxisassistent:in EFZ (MPA) zwingend\n• Grosse Begeisterung für Ihren Beruf; Pädiatrie-Erfahrung ist ein Plus\n• Einfühlungsvermögen im Umgang mit kleinen Patientinnen und Patienten sowie deren Eltern\n• Ausgeprägte Kommunikationsfähigkeit und ein Teamplayer\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil |\n• Interessante und verantwortungsvolle Aufgabe in einem kleinen, motivierten Team\n• Attraktive Anstellungsbedingungen in einer der beliebtesten Destinationen im Winter\n• Einen hohen Freizeitwert in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Herr pract. med. Christian Potthoff, unter der Telefonnummer +41 81 414 83 69 wie auch das HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
         "it": "Descrizione Con la vostra conoscenza medica e amministrativa, potete dare un contributo importante alla cura pediatrica nella campagna di Davos. Garantiscono il benessere dei nostri pazienti più piccoli e delle loro famiglie. Come ospedale regionale / ospedale acustico con servizio di soccorso, casa di cura e Spitex, siamo responsabili per l'assistenza medica di base della popolazione di Davos e gli ospiti. Ci preoccupiamo anche del benessere dei nostri dipendenti. Con noi lavori in un'operazione gestibile ma estremamente importante per la regione. Manteniamo un ambiente di lavoro collegiale e godiamo della vicinanza alla natura così come le numerose opportunità sportive e di svago di Davos. ## Mansioni - Attività in ambito clinico e amministrativo tra cui la gestione degli appuntamenti - Consulenza telefonica e triage in questioni mediche - Cooperazione attiva nella documentazione nel nostro sistema paziente - Elaborazione e inoltro di posta interna ed esterna ##\n• Requisiti - Formazione come medico:r assistente pratico:in EFZ (MPA) obbligatoria - Grande entusiasmo per la tua professione; Pädiatrie esperienza è un plus - empatia nel trattare con i piccoli pazienti così come i loro genitori -.",
         "en": "Descrizione With your medical and administrative knowledge you make an important contribution to paediatric care in the Davos countryside. They ensure the welfare of our smallest patients and their families. As a regional hospital/acoustic hospital with rescue service, nursing home and Spitex, we are responsible for the basic medical care of the Davos population and guests. We also care about the well-being of our employees. With us you work in a manageable but extremely important operation for the region. We maintain a collegial working environment and enjoy the proximity to nature as well as the numerous sports and leisure opportunities of Davos. ## Mansioni - Activities in clinical as well as in administrative areas including appointment management - Telephone advice and triage in medical issues - Active cooperation in documentation in our patient system - Processing and forwarding of internal and external mail ##\n• Requisiti - Training as medical:r practical assistant:in EFZ (MPA) mandatory - Great enthusiasm for your profession; Pädiatrie experience is a plus - empathy in dealing with small patients as well as their parents - Embossed communication skills and a team player - Very good German and good English knowledge, more foreign languages of advantage ##\n• Cosa offriamo - Interesting and responsible task in a small, motivated team - Attractive employment conditions in one of the most popular destinations in winter - A high leisure value in Europe Christian Potthoff, under the phone number +41 81 414 83 69 as well as the HRM recruitment team under the number +41 81 414 84 12 or via email jobs@spitaldavos.ch.",
-        "de": "Mit Ihren medizinischen und administrativen Kenntnissen leisten Sie einen wichtigen Beitrag für die pädiatrische Versorgung in der Landschaft Davos. Sie sorgen für das Wohl unserer kleinsten Patientinnen und Patienten und deren Familien. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für den Winter 2026/27 suchen wir in der Pädiatrie ein:e |\n• Tätigkeiten im klinischen wie auch im administrativen Bereich inklusive Terminverwaltung\n• Telefonische Beratung und Triange bei medizinischen Fragen\n• Aktive Mitarbeit bei der Dokumentation in unserem Patientensystem\n• Bearbeitung und Weiterleitung der internen sowie externen Post |\n• Ausbildung als Medizinische:r Praxisassistent:in EFZ (MPA) zwingend\n• Grosse Begeisterung für Ihren Beruf; Pädiatrie-Erfahrung ist ein Plus\n• Einfühlungsvermögen im Umgang mit kleinen Patientinnen und Patienten sowie deren Eltern\n• Ausgeprägte Kommunikationsfähigkeit und ein Teamplayer\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil |\n• Interessante und verantwortungsvolle Aufgabe in einem kleinen, motivierten Team\n• Attraktive Anstellungsbedingungen in einer der beliebtesten Destinationen im Winter\n• Einen hohen Freizeitwert in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Herr Dr. med. Christian Potthoff, unter der Telefonnummer +41 81 414 83 69 wie auch das HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
+        "de": "Mit Ihren medizinischen und administrativen Kenntnissen leisten Sie einen wichtigen Beitrag für die pädiatrische Versorgung in der Landschaft Davos. Sie sorgen für das Wohl unserer kleinsten Patientinnen und Patienten und deren Familien. Als Regionalspital/Akutspital mit Rettungsdienst, Pflegeheim und Spitex sind wir für die medizinische Grundversorgung der Davoser Bevölkerung und Gäste zuständig. Genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Bei uns arbeiten Sie in einem überschaubaren, für die Region jedoch äusserst wichtigen Betrieb. Wir pflegen ein kollegiales Arbeitsklima und geniessen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten von Davos. | Für den Winter 2026/27 suchen wir in der Pädiatrie ein:e |\n• Tätigkeiten im klinischen wie auch im administrativen Bereich inklusive Terminverwaltung\n• Telefonische Beratung und Triage bei medizinischen Fragen\n• Aktive Mitarbeit bei der Dokumentation in unserem Patientensystem\n• Bearbeitung und Weiterleitung der internen sowie externen Post |\n• Ausbildung als Medizinische:r Praxisassistent:in EFZ (MPA) zwingend\n• Grosse Begeisterung für Ihren Beruf; Pädiatrie-Erfahrung ist ein Plus\n• Einfühlungsvermögen im Umgang mit kleinen Patientinnen und Patienten sowie deren Eltern\n• Ausgeprägte Kommunikationsfähigkeit und ein Teamplayer\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil |\n• Interessante und verantwortungsvolle Aufgabe in einem kleinen, motivierten Team\n• Attraktive Anstellungsbedingungen in einer der beliebtesten Destinationen im Winter\n• Einen hohen Freizeitwert in der höchstgelegenen Stadt Europas | Für weitere Auskünfte steht Ihnen Herr pract. med. Christian Potthoff, unter der Telefonnummer +41 81 414 83 69 wie auch das HRM-Rekrutierungsteam unter der Nummer +41 81 414 84 12 oder über Email jobs@spitaldavos.ch gerne zur Verfügung.",
         "fr": "Descrizione Grâce à vos connaissances médicales et administratives, vous apportez une contribution importante aux soins pédiatriques dans la campagne de Davos. Ils assurent le bien-être de nos plus petits patients et de leurs familles. En tant qu'hôpital régional/acoustique avec service de secours, maison de soins infirmiers et Spitex, nous sommes responsables des soins médicaux de base de la population et des invités de Davos. Nous nous soucions également du bien-être de nos employés. Avec nous vous travaillez dans une opération gérable mais extrêmement importante pour la région. Nous maintenons un environnement de travail collégial et profitons de la proximité de la nature ainsi que des nombreuses possibilités de sports et de loisirs de Davos. ## Mansioni - Activités dans les domaines clinique et administratif y compris la gestion des rendez-vous - Conseils téléphoniques et triage dans les questions médicales - Coopération active dans la documentation dans notre système de patients - Traitement et transmission du courrier interne et externe ##\n• Requisiti - Formation en tant qu'assistant médical:r pratique:in EFZ (MPA) obligatoire - Grand enthousiasme pour votre profession; Pädiatrie expérience est un plus - empathie dans les rapports avec les petits patients ainsi que leurs parents - Compétences de communication Embossed et un joueur d'équipe - Très bonne connaissance allemande et bonne connaissance anglaise, plus de langues étrangères d'avantage ##\n• Cosa offriamo - Tâche intéressante et responsable dans une petite équipe motivée - Attractive conditions d'emploi dans l'une des destinations les plus populaires en hiver - Une grande valeur de loisirs en Europe Christian Potthoff, sous le numéro de téléphone +41 81 414 83 69 ainsi que l'équipe de recrutement de RHM sous le numéro +41 81 414 84 12 ou par courriel jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -1342,7 +1354,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/697/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:55.041Z",
+      "crawledAt": "2026-05-29T00:36:36.009Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1378,6 +1390,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:41:17.960Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1422,7 +1435,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/677/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:54.199Z",
+      "crawledAt": "2026-05-29T00:36:35.037Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1460,6 +1473,7 @@
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch"
       ],
       "firstSeenAt": "2026-04-16T10:41:16.213Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1504,7 +1518,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/660/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:53.279Z",
+      "crawledAt": "2026-05-29T00:36:34.092Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1592,7 +1606,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/706/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:52.374Z",
+      "crawledAt": "2026-05-29T00:36:33.175Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1628,6 +1642,7 @@
         ]
       },
       "firstSeenAt": "2026-04-24T10:53:46.703Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1672,7 +1687,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/707/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:51.470Z",
+      "crawledAt": "2026-05-29T00:36:32.219Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1702,6 +1717,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:37:05.341Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1746,7 +1762,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/699/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:50.614Z",
+      "crawledAt": "2026-05-29T00:36:31.294Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1796,6 +1812,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:30.071Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1840,7 +1857,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/689/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:49.685Z",
+      "crawledAt": "2026-05-29T00:36:30.363Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1901,6 +1918,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:32.128Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1945,7 +1963,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/671/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:48.790Z",
+      "crawledAt": "2026-05-29T00:36:29.420Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2003,6 +2021,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:33.142Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2023,7 +2042,7 @@
         "it": "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
         "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "fr": "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
+        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2047,7 +2066,7 @@
       "url": "https://recruitingapp-2966.umantis.com/Vacancies/694/Description/1",
       "source": "Spital Davos Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T14:09:47.893Z",
+      "crawledAt": "2026-05-29T00:36:28.435Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -2075,7 +2094,7 @@
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
+        "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
@@ -2092,10 +2111,12 @@
         ],
         "fr": [
           "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
+          "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
           "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
