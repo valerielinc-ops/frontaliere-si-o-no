@@ -206,10 +206,30 @@ function detectSlugLocale(slug) {
 
 /**
  * Build lookup indices from active jobs for fast candidate retrieval.
+ *
+ * Also pre-computes per-job slug/title TOKEN SETS so the hot scoring loop
+ * in `findBestMatch` doesn't re-tokenize the same job slugs and titles on
+ * every expired-job iteration. Profiled on run 26611764310: the assemble
+ * step took 494 s (vs 238 s baseline 2026-05-25) — `reconcileExpiredSlugs`
+ * iterates 4906 expired jobs and for each calls `findBestMatch` against
+ * up to ~10 candidates × 5 slugs + 4 titles → ~270 k duplicate
+ * `tokenizeSlug` / `tokenizeTitle` calls when this pre-cache is missing.
+ *
+ * Cache storage: WeakMap keyed by the job object — NOT a property mutation
+ * on the job itself. The first iteration of this fix used `job.__cachedSlugTokens`,
+ * but `assemble-jobs-dataset.mjs` writes `assembled` (the same job array we
+ * cache here) back to `data/jobs.json` and `public/data/jobs.json` after
+ * reconciliation when `mergedCount > 0`. `JSON.stringify(new Map())` →
+ * `'{}'`, which would pollute those committed files with empty
+ * `__cachedSlugTokens: {}` / `__cachedTitleTokens: {}` fields on every
+ * active job. WeakMap is invisible to JSON.stringify, so the on-disk
+ * output stays byte-identical to the pre-cache version.
  */
 function buildActiveIndex(activeJobs) {
   const byCompanyKey = Object.create(null); // companyKey → [job]
   const allSlugSet = new Set();             // all current + previous slugs
+  const slugTokenCache = new WeakMap();     // job → Map<slugString, Set<token>>
+  const titleTokenCache = new WeakMap();    // job → Map<locale, Set<token>>
 
   for (const job of activeJobs) {
     // Index by company key
@@ -229,9 +249,30 @@ function buildActiveIndex(activeJobs) {
     if (job.previousSlugs) {
       for (const s of job.previousSlugs) allSlugSet.add(s);
     }
+
+    // Pre-tokenize all slugs (canonical + locale variants) — saves
+    // repeated `tokenizeSlug` calls inside `findBestMatch`.
+    const slugCache = new Map();
+    if (job.slug) slugCache.set(job.slug, tokenizeSlug(job.slug));
+    if (job.slugByLocale) {
+      for (const s of Object.values(job.slugByLocale)) {
+        if (s && !slugCache.has(s)) slugCache.set(s, tokenizeSlug(s));
+      }
+    }
+    slugTokenCache.set(job, slugCache);
+
+    // Pre-tokenize all titles (per-locale) — saves repeated `tokenizeTitle`
+    // calls inside `findBestMatch` Strategy B (title-to-title Jaccard).
+    if (job.titleByLocale) {
+      const titleCache = new Map();
+      for (const [locale, title] of Object.entries(job.titleByLocale)) {
+        if (title) titleCache.set(locale, tokenizeTitle(title));
+      }
+      titleTokenCache.set(job, titleCache);
+    }
   }
 
-  return { byCompanyKey, allSlugSet };
+  return { byCompanyKey, allSlugSet, slugTokenCache, titleTokenCache };
 }
 
 /**
@@ -322,15 +363,21 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   let matchCount = 0;
   const threshold = companyKey ? 0.60 : 0.70;
 
+  // Pull WeakMap caches off the index — `?.` fallbacks keep this defensive
+  // against callers that built the index with an older code path.
+  const slugTokenCache = index.slugTokenCache;
+  const titleTokenCache = index.titleTokenCache;
+
   for (const job of candidates) {
     // ── Strategy A: Slug-to-slug Jaccard ──
     const allJobSlugs = [
       job.slug,
       ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
     ].filter(Boolean);
+    const cachedSlugTokens = slugTokenCache?.get(job);
 
     for (const jobSlug of allJobSlugs) {
-      const jobTokens = tokenizeSlug(jobSlug);
+      const jobTokens = cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug);
       const overlap = intersectionSize(orphanTokens, jobTokens);
 
       // Guard: require ≥ 3 meaningful tokens in common
@@ -352,9 +399,11 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
 
     // ── Strategy B: Title-to-title Jaccard (cross-locale) ──
     if (orphanTitleTokens && orphanTitleTokens.size >= 3 && job.titleByLocale) {
+      const cachedTitleTokens = titleTokenCache?.get(job);
       for (const [locale, title] of Object.entries(job.titleByLocale)) {
         if (!title) continue;
-        const jobTitleTokens = tokenizeTitle(title);
+        const jobTitleTokens =
+          cachedTitleTokens?.get(locale) ?? tokenizeTitle(title);
         if (jobTitleTokens.size < 2) continue;
 
         const overlap = intersectionSize(orphanTitleTokens, jobTitleTokens);
@@ -381,8 +430,12 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
         job.slug,
         ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
       ].filter(Boolean);
+      const cachedSlugTokens = slugTokenCache?.get(job);
       for (const jobSlug of allJobSlugs) {
-        const score = jaccard(orphanTokens, tokenizeSlug(jobSlug));
+        const score = jaccard(
+          orphanTokens,
+          cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
+        );
         if (score >= bestScore - 0.05) closeMatches++;
       }
     }
