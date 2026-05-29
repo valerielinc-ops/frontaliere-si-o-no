@@ -98,6 +98,7 @@ jobs:
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
+            - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
             - Se la issue è categoria `revenue` o `tracker` (strategica) → posta "Richiede giudizio umano, non auto-fixabile. Rimuovere `agent:fix`." e TERMINA.
 
             **Fix flow (vedi ISSUES.md):**
