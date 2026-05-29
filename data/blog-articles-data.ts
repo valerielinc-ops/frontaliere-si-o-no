@@ -24950,4 +24950,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'salari-specialisti-svizzera-2024',
+ category: 'novita',
+ date: '2026-05-29T09:40:13.737Z',
+ image: '/images/blog/salari-specialisti-svizzera-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

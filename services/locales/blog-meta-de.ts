@@ -7857,6 +7857,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Neuer Fahrplan in der Lombardei: Änderungen für Grenzgänger',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'Ab dem 14. Juni 2026 ändert sich der Fahrplan der Regionalzüge in der Lombardei. Die Region hat sich mit den Pendlerkomitees getroffen, um Anpassungen und geplante Unterbrechungen zu besprechen.',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Bahnhof Lugano bei Sonnenaufgang mit Pendlerzügen und Tessiner Landschaft',
+    'blog.article.salari-specialisti-svizzera-2024.title': 'Löhne in der Schweiz steigen: +1,5-2% im Jahr 2024, aber nur für Experten',
+    'blog.article.salari-specialisti-svizzera-2024.excerpt': 'Die durchschnittlichen Löhne in der Schweiz werden zwischen 1,5 und 2 Prozent im Jahr 2024 steigen, aber die Experten in der Unternehmensumstellung und Künstlicher Intelligenz werden am stärksten davon profitieren. 📊💡⚠️',
+    'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Panoramablick auf das Finanzviertel von Lugano mit modernen Gebäuden und dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

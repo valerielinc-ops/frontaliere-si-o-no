@@ -7859,6 +7859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Nouvel horaire ferroviaire en Lombardie : changements pour les frontaliers',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'L’horaire des trains régionaux en Lombardie change à partir du 14 juin 2026. La Région a rencontré les comités de pendulaires pour discuter des ajustements et des interruptions programmées.',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Gare de Lugano au lever du jour avec trains de navetteurs et paysage tessinois',
+    'blog.article.salari-specialisti-svizzera-2024.title': 'Hausse des salaires en Suisse : +1,5-2% en 2024',
+    'blog.article.salari-specialisti-svizzera-2024.excerpt': 'Les salaires moyens en Suisse augmenteront entre 1,5% et 2% en 2024, mais les spécialistes en transformation d\'entreprise et en intelligence artificielle en bénéficieront davantage.',
+    'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Vue panoramique du quartier financier de Lugano avec des bâtiments modernes et le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

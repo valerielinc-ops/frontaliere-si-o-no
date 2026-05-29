@@ -7859,6 +7859,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Nuovo orario ferroviario in Lombardia: cosa cambia per i frontalieri',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'Cambia l’orario dei treni regionali in Lombardia dal 14 giugno 2026. Regione ha incontrato i comitati dei pendolari per discutere adeguamenti e interruzioni programmate.',
     'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Stazione ferroviaria di Lugano al mattino con treni in partenza e arrivo, paesaggio ticinese sullo sfondo',
+    'blog.article.salari-specialisti-svizzera-2024.title': 'Aumento salari in Svizzera: +1.5-2% nel 2024, ma solo per gli specialisti',
+    'blog.article.salari-specialisti-svizzera-2024.excerpt': 'I salari medi in Svizzera aumenteranno tra l\'1,5% e il 2% nel 2024, ma a beneficiare maggiormente saranno gli specialisti in trasformazione aziendale e intelligenza artificiale.',
+    'blog.article.salari-specialisti-svizzera-2024.imageAlt': 'Vista panoramica del distretto finanziario di Lugano con edifici moderni e il lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
