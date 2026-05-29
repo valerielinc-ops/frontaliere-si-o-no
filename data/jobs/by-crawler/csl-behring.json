@@ -72,10 +72,14 @@
         ],
         "fr": [
           "associate-director-biostatistics-4-csl-behring-ch"
+        ],
+        "de": [
+          "associate-direktor-biostatistics-4-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "associate-director-biostatistics-4-csl-behring-ch"
+        "associate-director-biostatistics-4-csl-behring-ch",
+        "associate-direktor-biostatistics-4-csl-behring-bern"
       ]
     },
     {
@@ -148,10 +152,14 @@
         ],
         "fr": [
           "director-medical-evaluation-case-processing-oversight-csl-behring-ch"
+        ],
+        "de": [
+          "direktor-medical-evaluation-case-processing-oversight-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "director-medical-evaluation-case-processing-oversight-csl-behring-ch"
+        "director-medical-evaluation-case-processing-oversight-csl-behring-ch",
+        "direktor-medical-evaluation-case-processing-oversight-csl-behring-bern"
       ]
     },
     {
@@ -224,10 +232,14 @@
         ],
         "fr": [
           "associate-director-biostatistics-csl-behring-ch"
+        ],
+        "de": [
+          "associate-direktor-biostatistics-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "associate-director-biostatistics-csl-behring-ch"
+        "associate-director-biostatistics-csl-behring-ch",
+        "associate-direktor-biostatistics-csl-behring-bern"
       ]
     },
     {
@@ -300,10 +312,14 @@
         ],
         "fr": [
           "associate-director-biostatistics-2-csl-behring-ch"
+        ],
+        "de": [
+          "associate-direktor-biostatistics-2-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "associate-director-biostatistics-2-csl-behring-ch"
+        "associate-director-biostatistics-2-csl-behring-ch",
+        "associate-direktor-biostatistics-2-csl-behring-bern"
       ]
     },
     {
@@ -376,10 +392,14 @@
         ],
         "fr": [
           "associate-director-pharmacokinetics-pk-csl-behring-ch"
+        ],
+        "de": [
+          "associate-direktor-pharmacokinetics-pk-csl-behring-glattbrugg"
         ]
       },
       "previousSlugs": [
-        "associate-director-pharmacokinetics-pk-csl-behring-ch"
+        "associate-director-pharmacokinetics-pk-csl-behring-ch",
+        "associate-direktor-pharmacokinetics-pk-csl-behring-glattbrugg"
       ]
     },
     {
@@ -452,10 +472,14 @@
         ],
         "fr": [
           "senior-scientist-pharmacokinetics-pk-csl-behring-ch"
+        ],
+        "de": [
+          "senior-scientist-pharmakokinetics-pk-csl-behring-glattbrugg"
         ]
       },
       "previousSlugs": [
-        "senior-scientist-pharmacokinetics-pk-csl-behring-ch"
+        "senior-scientist-pharmacokinetics-pk-csl-behring-ch",
+        "senior-scientist-pharmakokinetics-pk-csl-behring-glattbrugg"
       ]
     },
     {
@@ -755,7 +779,19 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-28T12:19:29.941Z"
+      "firstSeenAt": "2026-05-28T12:19:29.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direttore-sr-global-regulatory-lead-cardiorenal-csl-behring-glattbrugg"
+        ],
+        "de": [
+          "direktor-sr-global-regulatory-lead-cardiorenal-csl-behring-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "direttore-sr-global-regulatory-lead-cardiorenal-csl-behring-glattbrugg",
+        "direktor-sr-global-regulatory-lead-cardiorenal-csl-behring-glattbrugg"
+      ]
     },
     {
       "id": "csl-behring-bcb41266bf65",
@@ -4184,11 +4220,13 @@
           "laboratory-specialist-technical-operations-csl-behring-ch"
         ],
         "fr": [
-          "laboratory-specialist-technical-operations-csl-behring-ch"
+          "laboratory-specialist-technical-operations-csl-behring-ch",
+          "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-2e857e"
         ]
       },
       "previousSlugs": [
-        "laboratory-specialist-technical-operations-csl-behring-ch"
+        "laboratory-specialist-technical-operations-csl-behring-ch",
+        "specialiste-de-laboratoire-operations-techniques-csl-behring-bern-2e857e"
       ]
     },
     {
@@ -4263,7 +4301,8 @@
           "laboratory-specialist-tech-ops-csl-behring-ch"
         ],
         "fr": [
-          "laboratory-specialist-tech-ops-csl-behring-ch"
+          "laboratory-specialist-tech-ops-csl-behring-ch",
+          "specialiste-de-laboratoire-operations-techniques-csl-behring-bern"
         ]
       },
       "previousSlugs": [
@@ -4280,7 +4319,8 @@
         "senior-scientist-tech-ops-csl-behring-ch",
         "senior-wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-principal-tech-ops-csl-behring-bern",
-        "scientifique-principal-operations-techniques-csl-behring-bern"
+        "scientifique-principal-operations-techniques-csl-behring-bern",
+        "specialiste-de-laboratoire-operations-techniques-csl-behring-bern"
       ]
     },
     {
