@@ -20,6 +20,8 @@
 // shrinks that first-paint payload; user UX after hydration is
 // identical to today.
 
+import { EJP_STRIPPED_MARKER } from './ejpMarker';
+
 const LOCALE_LISTING_PATH: Record<string, string> = {
   it: '/cerca-lavoro-ticino/',
   en: '/en/find-jobs-ticino/',
@@ -93,7 +95,7 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
     `<article class="ft-static-article">` +
     // audit:text-html-ratio skip marker — deliberately-thin shell, same
     // contract as legacy STRIP_* paths (uppercase survives minifier).
-    `<!--EJP_STRIPPED-->` +
+    EJP_STRIPPED_MARKER +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}</p>` +
     `</article>`;

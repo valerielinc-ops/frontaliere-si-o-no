@@ -53,6 +53,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
+import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
@@ -139,7 +140,7 @@ const HUB_PAGE_SIZE = 200;
 // Opt out with STRIP_CLUSTER_SEO_PROSE=0 to re-emit the full prose
 // (e.g. for an A/B test of organic CTR vs. SERP impressions).
 const STRIP_CLUSTER_SEO_PROSE = (process.env.STRIP_CLUSTER_SEO_PROSE ?? '1') !== '0';
-const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+// EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
 
 // ── Utilities ───────────────────────────────────────────────────────────
 
