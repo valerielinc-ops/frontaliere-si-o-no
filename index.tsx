@@ -81,6 +81,16 @@ const mountApp = async () => {
  import('./App'),
  import('./components/ChunkLoadErrorBoundary'),
  homeCritical ? import('./services/i18n') : Promise.resolve(null),
+ // Preload the calculator chunk on home-critical paths so App's lazy
+ // CalcolatoreTabContent resolves synchronously on first render. Without it
+ // the homepage shows the shared SkeletonFallback (App.tsx:2215) then swaps
+ // to the real layout, collapsing the reserved mobile-widget block and
+ // contributing ~0.12-0.16 to mobile CLS on cold loads (measured via
+ // Playwright cold-vs-warm: total CLS 0.295 → 0.179 when cached). The chunk
+ // is the homepage's primary/LCP content, so preloading is pure win.
+ // `.catch` keeps this preload non-essential: a chunk failure must not block
+ // mount (App's lazy boundary + ChunkLoadErrorBoundary still handle render).
+ homeCritical ? import('@/components/tabs/CalcolatoreTabContent').catch(() => null) : Promise.resolve(null),
  ]);
 
  if (homeCritical && i18n) {
