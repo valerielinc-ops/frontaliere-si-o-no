@@ -43,20 +43,27 @@ describe('mergeUrlKey (crawl-time merge key — was extractStableJobId)', () => 
   });
 });
 
-describe('extractStableJobId delegates to mergeUrlKey unchanged', () => {
-  const corpus = [
-    'https://jobs.pwc.ch/job-vacancies/x/0441e237-ebd9-4263-9fe5-e21facbd03ba',
-    'https://example.com/jobs/123456/old',
-    'https://example.com/jobs/abcdef0123/old',
-    'https://example.com/jobs/only-a-slug',
-    'https://Example.com/Path/',
-    'https://example.com/jobs/only-a-slug?a=1&amp;b=2',
-    GALENICA,
-    '',
+describe('extractStableJobId output is pinned (real regression guard)', () => {
+  // Pinned expected VALUES, not a comparison to mergeUrlKey — extractStableJobId
+  // now delegates to mergeUrlKey, so `extractStableJobId(u) === mergeUrlKey(u)`
+  // would hold by construction and prove nothing. These literals lock the
+  // observable output so a future change to the shared key (in either module)
+  // is caught here. Complements tests/job-match-key-stable-id.test.ts.
+  const expected: Array<[string, string]> = [
+    ['https://jobs.pwc.ch/job-vacancies/x/0441e237-ebd9-4263-9fe5-e21facbd03ba', 'uuid:0441e237-ebd9-4263-9fe5-e21facbd03ba'],
+    ['https://example.com/jobs/123456/old', 'num:123456'],
+    ['https://example.com/jobs/abcdef0123/old', 'hex:abcdef0123'],
+    ['https://example.com/jobs/only-a-slug', 'url:https://example.com/jobs/only-a-slug'],
+    ['https://Example.com/Path/', 'url:https://example.com/path'],
+    ['https://example.com/jobs/only-a-slug?a=1&amp;b=2', 'url:https://example.com/jobs/only-a-slug?a=1&b=2'],
+    // Galenica: 5-digit id (not ≥6) and no ≥10-char hex run → no stable token,
+    // so the full normalized URL (hash preserved) is the key.
+    [GALENICA, 'url:https://www.galenica.com/it/jobs/#job.id=12345'],
+    ['', ''],
   ];
-  for (const url of corpus) {
-    it(`matches mergeUrlKey for: ${url || '(empty)'}`, () => {
-      expect(extractStableJobId(url)).toBe(mergeUrlKey(url));
+  for (const [url, want] of expected) {
+    it(`extractStableJobId(${url || '(empty)'}) === ${want || '(empty)'}`, () => {
+      expect(extractStableJobId(url)).toBe(want);
     });
   }
 });

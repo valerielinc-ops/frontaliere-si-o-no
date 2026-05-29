@@ -38,6 +38,17 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(report.localityBackfilled).toBe(1);
   });
 
+  it('backfills addressLocality from location when it is an empty/whitespace string', () => {
+    const empty = [{ location: 'Lugano', addressLocality: '' }];
+    const ws = [{ location: 'Locarno', addressLocality: '   ' }];
+    const r1 = normalizeParsedJobsForSlice(empty);
+    const r2 = normalizeParsedJobsForSlice(ws);
+    expect(empty[0].addressLocality).toBe('Lugano');
+    expect(ws[0].addressLocality).toBe('Locarno');
+    expect(r1.localityBackfilled).toBe(1);
+    expect(r2.localityBackfilled).toBe(1);
+  });
+
   it('defaults addressCountry/country to CH and addressRegion to canton', () => {
     const jobs = [{ location: 'Sion', canton: 'vs' }];
     const report = normalizeParsedJobsForSlice(jobs);

@@ -188,10 +188,14 @@ export function normalizeParsedJobsForSlice(jobs) {
         locationFixed++;
       }
     }
-    if (typeof job.addressLocality === 'string') {
+    // Guard on .trim(): an empty/whitespace addressLocality is `typeof string`
+    // but carries no city, so it must fall through to the backfill branch
+    // rather than persisting an empty locality (which propagates to
+    // deriveCanton/deriveStreetAddress lookups that key on addressLocality).
+    if (typeof job.addressLocality === 'string' && job.addressLocality.trim()) {
       const cleanedAddr = sanitizeJobLocationField(job.addressLocality);
       if (cleanedAddr !== job.addressLocality) job.addressLocality = cleanedAddr;
-    } else if (!job.addressLocality && typeof job.location === 'string' && job.location.trim()) {
+    } else if (!String(job.addressLocality || '').trim() && typeof job.location === 'string' && job.location.trim()) {
       job.addressLocality = job.location;
       localityBackfilled++;
     }
