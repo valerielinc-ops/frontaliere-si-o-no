@@ -347,10 +347,10 @@
       "id": "ksbl-6eba981f7170",
       "slug": "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "ostetrica-di-sala-parto-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "midwife-in-obstetrics-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "female-clinic-a-kantonsspital-baselland-ksbl-liestal",
         "de": "beleghebamme-frauenklinik-a-ksbl-liestal",
-        "fr": "sage-femme-en-obstetrique-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -394,22 +394,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "beleghebamme-frauenklinik-a-ksbl-liestal",
-        "female-clinic-a-kantonsspital-baselland-ksbl-liestal",
-        "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal",
+        "ostetrica-di-sala-parto-a-kantonsspital-baselland-ksbl-liestal",
+        "midwife-in-obstetrics-a-kantonsspital-baselland-ksbl-liestal",
+        "sage-femme-en-obstetrique-a-kantonsspital-baselland-ksbl-liestal",
         "mpa-ambulatorium-frauenklinik-a-ksbl-liestal",
         "women-s-clinic-ambulatory-care-mpa-a-kantonsspital-baselland-ksbl-liestal",
-        "clinique-ambulatoire-mpa-femmes-a-kantonsspital-baselland-ksbl-liestal",
-        "clinica-femminile-a-kantonsspital-baselland-ksbl-liestal"
+        "clinique-ambulatoire-mpa-femmes-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "beleghebamme-frauenklinik-a-ksbl-liestal"
+          "beleghebamme-frauenklinik-a-ksbl-liestal",
+          "ostetrica-di-sala-parto-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
-          "female-clinic-a-kantonsspital-baselland-ksbl-liestal"
+          "midwife-in-obstetrics-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "clinique-pour-femmes-a-kantonsspital-baselland-ksbl-liestal"
+          "sage-femme-en-obstetrique-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-22T22:46:09.066Z",
@@ -1017,8 +1018,7 @@
         "specialista-di-manutenzione-degli-edifici-efz-in-formazione-a-kantonsspital-baselland-ksbl-liestal",
         "building-maintenance-specialist-efz-in-training-a-kantonsspital-baselland-ksbl-liestal",
         "fachfrau-fachmann-betriebsunterhalt-efz-in-ausbildung-a-ksbl-liestal",
-        "specialiste-de-l-entretien-des-batiments-efz-en-formation-a-kantonsspital-baselland-ksbl-liestal",
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-a-kantonsspital-baselland-ksbl-liestal"
+        "specialiste-de-l-entretien-des-batiments-efz-en-formation-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1420,10 +1420,10 @@
       "id": "ksbl-9c06ff585a9b",
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "responsabile-di-reparto-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "en": "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-        "fr": "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -1467,15 +1467,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-        "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "responsabile-di-reparto-a-kantonsspital-baselland-ksbl-liestal",
+        "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleiterin-stationsleiter-a-ksbl-liestal"
+          "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
+          "responsabile-di-reparto-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal"
+          "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:50.166Z",
@@ -2007,7 +2008,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-2",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       },
@@ -2074,12 +2075,11 @@
       },
       "previousSlugs": [
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-15ed51",
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal"
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
           "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-15ed51",
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
           "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -2743,7 +2743,7 @@
       "id": "ksbl-e7a93904f3ee",
       "slug": "gestione-delle-applicazioni-servicenow-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "manager-di-applicazioni-manager-di-servizi-servicenow-kantonsspital-baselland-ksbl-liestal",
+        "it": "gestione-delle-applicazioni-servicenow-a-kantonsspital-baselland-ksbl-liestal",
         "en": "servicenow-application-manager-service-manager-kantonsspital-baselland-ksbl-liestal",
         "de": "applikationsmanagerin-applikationsmanager-servicenow-a-ksbl-liestal",
         "fr": "applikationsmanagerin-applikationsmanager-servicenow-a-ksbl-liestal"
@@ -2819,12 +2819,13 @@
       },
       "previousSlugs": [
         "applikationsmanagerin-applikationsmanager-servicenow-a-ksbl-liestal",
-        "applikationsmanagerin-aplikationsmanager-servicenow-a-kantonsspital-baselland-ksbl-liestal",
-        "gestione-delle-applicazioni-servicenow-a-kantonsspital-baselland-ksbl-liestal"
+        "manager-di-applicazioni-manager-di-servizi-servicenow-kantonsspital-baselland-ksbl-liestal",
+        "applikationsmanagerin-aplikationsmanager-servicenow-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsmanagerin-applikationsmanager-servicenow-a-ksbl-liestal"
+          "applikationsmanagerin-applikationsmanager-servicenow-a-ksbl-liestal",
+          "manager-di-applicazioni-manager-di-servizi-servicenow-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "applikationsmanagerin-aplikationsmanager-servicenow-a-kantonsspital-baselland-ksbl-liestal"
@@ -3495,9 +3496,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-3",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-3",
-        "en": "dipl-nursing-professional-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-98dd9d",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3564,18 +3565,16 @@
         ]
       },
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-98dd9d",
+        "dipl-nursing-professional-a-kantonsspital-baselland-ksbl-liestal",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-98dd9d",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-98dd9d",
           "dipl-nursing-professional-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
           "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-98dd9d",
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal",
           "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -3598,9 +3597,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-4",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-88d09a",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-88d09a"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3664,16 +3663,14 @@
         ]
       },
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-88d09a",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-88d09a"
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-88d09a",
           "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-88d09a",
           "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -3881,9 +3878,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-5",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-4c6173",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-4c6173"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3947,16 +3944,14 @@
         ]
       },
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-4c6173",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-4c6173"
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-4c6173",
           "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-4c6173",
           "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -3979,9 +3974,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-6",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-55e2b1",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-55e2b1"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4045,16 +4040,14 @@
         ]
       },
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-55e2b1",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-55e2b1"
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-55e2b1",
           "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-55e2b1",
           "diplome-e-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -4304,8 +4297,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal",
-        "vorpraktikant-vorpraktikant-physiotherapie-liestal-herbst-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4604,9 +4596,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-7",
-        "en": "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-09a530",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-09a530"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4669,16 +4661,14 @@
         ]
       },
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-09a530",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-09a530"
+        "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal",
+        "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-09a530",
           "diploma-in-nursing-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-09a530",
           "diplome-en-soins-infirmiers-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -6117,8 +6107,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiterin-projektleiter-grossbauprojekte-a-ksbl-liestal",
-        "project-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "projektleiterin-projektleiter-grossbauprojekte-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6233,9 +6222,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
+        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8"
+        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6277,18 +6266,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-b13e95",
-        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-b13e95",
           "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
-          "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95",
           "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
@@ -6310,7 +6295,7 @@
       "id": "ksbl-d08c55348be5",
       "slug": "endoscopia-med-diagnostica-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-aufbereitung-endoskopie-med-diagnostik-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "endoscopia-med-diagnostica-a-kantonsspital-baselland-ksbl-liestal",
         "en": "staff-processing-endoscopy-med-diagnostics-a-kantonsspital-baselland-ksbl-liestal",
         "de": "mitarbeiterin-mitarbeiter-aufbereitung-endoskopie-med-diagnostik-a-ksbl-liestal",
         "fr": "traitement-du-personnel-endoscopie-diagnostics-medicaux-a-kantonsspital-baselland-ksbl-liestal"
@@ -6357,11 +6342,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-aufbereitung-endoskopie-med-diagnostik-a-ksbl-liestal",
-        "endoscopia-med-diagnostica-a-kantonsspital-baselland-ksbl-liestal"
+        "mitarbeiterin-collaboratore-trice-aufbereitung-endoskopie-med-diagnostik-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-aufbereitung-endoskopie-med-diagnostik-a-ksbl-liestal"
+          "mitarbeiterin-mitarbeiter-aufbereitung-endoskopie-med-diagnostik-a-ksbl-liestal",
+          "mitarbeiterin-collaboratore-trice-aufbereitung-endoskopie-med-diagnostik-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-aufbereitung-endoskopie-med-diagnostik-a-ksbl-liestal"
@@ -6463,12 +6449,12 @@
     },
     {
       "id": "ksbl-5c0e1612737f",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal",
+      "slug": "dipl-assistenza-intensiva-esperto-nds-hf-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal",
-        "it": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal",
+        "it": "dipl-assistenza-intensiva-esperto-nds-hf-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal"
+        "fr": "dipl-expert-en-soins-intensifs-nds-hf-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6523,7 +6509,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T13:02:15.097Z"
+      "firstSeenAt": "2026-05-29T13:02:15.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-hf-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-ca46b53b3da2",
@@ -6531,8 +6528,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
         "it": "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-imc-a-ksbl-liestal"
+        "en": "dipl-care-specialist-imc-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "dipl-specialiste-des-soins-imc-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",

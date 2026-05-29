@@ -76,8 +76,7 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -307,7 +306,7 @@
       "slug": "sostanza-in-anestesia-100-spital-davos-davos",
       "slugByLocale": {
         "it": "assistente-anestesia-100-spital-davos-davos",
-        "en": "anesthesia-assistant-100-spital-davos-davos",
+        "en": "subassistance-in-anaesthesia-100-spital-davos-davos",
         "de": "unterassistent-in-anasthesie-100-spital-davos-ch",
         "fr": "assistant-en-anesthesie-100-spital-davos-davos"
       },
@@ -378,15 +377,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
-        "subassistance-in-anaesthesia-100-spital-davos-davos",
-        "sostanza-in-anestesia-100-spital-davos-davos"
+        "anesthesia-assistant-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch"
         ],
         "en": [
-          "subassistance-in-anaesthesia-100-spital-davos-davos"
+          "anesthesia-assistant-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
@@ -915,7 +913,7 @@
       "id": "spital-davos-501ff253ad6d",
       "slug": "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos",
       "slugByLocale": {
-        "it": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
+        "it": "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos",
         "en": "employees-in-stock-management-based-on-hours-unregular-operations-spital-davos-davos",
         "de": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "fr": "employes-dans-la-gestion-des-stocks-en-fonction-des-heures-operations-irregulieres-spital-davos-davos"
@@ -963,12 +961,13 @@
       "previousSlugs": [
         "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos",
-        "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos"
+        "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
-          "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos"
+          "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos",
+          "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos"
         ],
         "en": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
@@ -996,7 +995,7 @@
       "id": "spital-davos-9804891a5da1",
       "slug": "spitex-salute-specialistica-50-100-spital-davos-davos",
       "slugByLocale": {
-        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+        "it": "spitex-salute-specialistica-50-100-spital-davos-davos",
         "en": "spitex-health-care-assistant-50-100-spital-davos-davos",
         "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
         "fr": "spitex-assistant-de-sante-50-100-spital-davos-davos"
@@ -1046,11 +1045,12 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-salute-specialistica-50-100-spital-davos-davos"
+        "spitex-assistente-sanitario-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitex-fachperson-gesundheit-50-100-spital-davos-ch"
+          "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
+          "spitex-assistente-sanitario-50-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
@@ -1128,8 +1128,7 @@
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1404,7 +1403,7 @@
       "id": "spital-davos-976c9df256bc",
       "slug": "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
+        "it": "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos",
         "en": "medical-practical-assistant-in-mpa-or-specialist-health-fage-for-daily-clinic-pensum-60-spital-davos-davos",
         "de": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
         "fr": "medical-assistant-pratique-mpa-ou-specialiste-de-la-sante-fage-pour-la-clinique-quotidienne-pensum-60-spital-davos-davos"
@@ -1455,13 +1454,14 @@
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens",
         "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik",
-        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
-        "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos"
+        "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
+        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens",
-          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik"
+          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik",
+          "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
@@ -1646,12 +1646,12 @@
     },
     {
       "id": "spital-davos-6ed07a4bdb92",
-      "slug": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+      "slug": "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
-        "it": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
-        "en": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
-        "fr": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        "it": "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos",
+        "en": "medical-practical-assistant-in-pediatrics-pensum-40-job-sharing-spital-davos-davos",
+        "fr": "medical-assistant-pratique-en-pediatrie-pensum-40-partage-de-l-emploi-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1711,16 +1711,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-05-29T13:58:41.353Z"
+      "firstSeenAt": "2026-05-29T13:58:41.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-80c9d2e1aed9",
-      "slug": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+      "slug": "assistente-medico-60-100-spital-davos-davos",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "it": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "en": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "fr": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        "it": "assistente-medico-60-100-spital-davos-davos",
+        "en": "medical-practice-assistant-60-100-spital-davos-davos-e070f5",
+        "fr": "assistant-de-pratique-medicale-60-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1780,7 +1794,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-05-29T13:58:40.477Z"
+      "firstSeenAt": "2026-05-29T13:58:40.477Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+      ]
     },
     {
       "id": "spital-davos-be835c12c7ba",
@@ -1789,7 +1817,7 @@
         "de": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
         "it": "assistente-medico-a-60-100-spital-davos-davos",
         "en": "medical-practice-assistant-60-100-spital-davos-davos",
-        "fr": "assistant-e-medical-e-60-100-spital-davos-davos"
+        "fr": "medecin-assistant-pratique-en-60-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1839,10 +1867,14 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        ],
+        "fr": [
+          "assistant-e-medical-e-60-100-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "assistant-e-medical-e-60-100-spital-davos-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2170,7 +2202,7 @@
         "it": "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
+        "fr": "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2221,9 +2253,8 @@
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-        "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
-        "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos"
+        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2238,7 +2269,7 @@
         ],
         "fr": [
           "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-          "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
+          "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
