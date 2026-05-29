@@ -186,6 +186,7 @@ async function getUrlsFromSitemaps() {
     console.log(`  Source: local ${sitemapDir}`);
   } else {
     const failed = [];
+    const empty = [];
     for (const file of filteredSitemaps) {
       const xml = await fetchSitemapXml(file);
       // null = unreachable (5xx after retries / 404 / network); an empty but
@@ -195,6 +196,7 @@ async function getUrlsFromSitemaps() {
         continue;
       }
       const count = extractUrls(xml, urls);
+      if (count === 0) empty.push(file);
       console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
     }
     console.log(`  Source: live ${SITEMAP_BASE}`);
@@ -208,6 +210,13 @@ async function getUrlsFromSitemaps() {
         `Aborting to avoid a partial submission that would drop those URLs silently.`,
       );
       process.exit(1);
+    }
+    // A 200-OK sitemap with zero URLs is treated as legitimately empty (some
+    // categories can be small), but a normally-populated one returning 0 —
+    // e.g. sitemap-jobs.xml truncated by a partial deploy — would otherwise
+    // hide behind its count line. Surface it loudly so it's visible in logs.
+    if (empty.length > 0) {
+      console.warn(`  ⚠️  ${empty.length} sitemap(s) returned 200 but 0 URLs: ${empty.join(', ')} — verify this is expected.`);
     }
   }
 

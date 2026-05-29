@@ -33,8 +33,11 @@ jobs:
   submit:
     runs-on: ubuntu-latest
     # No build: the script fetches the deployed sitemaps live over HTTP.
-    # 10 min is ample for fetch (~5 s) + batched submission (5 batches × few s).
-    timeout-minutes: 10
+    # Live dry-run (run 26636490673) measured fetch + parse at 29 s total.
+    # 15 min leaves headroom for the real submission worst case — 5 batches ×
+    # 3 endpoints, each up to 30 s + 3 retries + 429 Retry-After waits (60 s
+    # cap) — which a tight 10-min cap could brush under sustained rate-limiting.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
