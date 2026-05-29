@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2669,
+ "numberOfItems": 2670,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7309,7 +7309,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2666, "name": "Intelligenza artificiale in Ticino: impatti sul...", "url": `${BASE_URL}/articoli-frontaliere/ia-aziende-svizzere-occupazione-ticino` },
           { "@type": "ListItem", "position": 2667, "name": "Tram-treno, ancora un ricorso. Zali: «Contestaz...", "url": `${BASE_URL}/articoli-frontaliere/tram-treno-ricorso-zali` },
           { "@type": "ListItem", "position": 2668, "name": "Mancato pagamento stipendio: il caso Nidil Cgil...", "url": `${BASE_URL}/articoli-frontaliere/mancato-pagamento-stipendio-lavoratrice` },
-          { "@type": "ListItem", "position": 2669, "name": "Chiusura servizi amministrativi Ticino: 31 dice...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-amministrazione-ticino-2025` }
+          { "@type": "ListItem", "position": 2669, "name": "Chiusura servizi amministrativi Ticino: 31 dice...", "url": `${BASE_URL}/articoli-frontaliere/chiusura-amministrazione-ticino-2025` },
+          { "@type": "ListItem", "position": 2670, "name": "Paulina riattiva: ripresa scavo secondo tunnel ...", "url": `${BASE_URL}/articoli-frontaliere/paulina-tunnel-san-gottardo-2026` }
  ]
  },
  {

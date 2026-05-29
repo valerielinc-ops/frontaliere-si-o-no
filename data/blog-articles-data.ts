@@ -24905,4 +24905,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'paulina-tunnel-san-gottardo-2026',
+ category: 'novita',
+ date: '2026-05-29T00:25:55.865Z',
+ image: '/images/blog/paulina-tunnel-san-gottardo-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
