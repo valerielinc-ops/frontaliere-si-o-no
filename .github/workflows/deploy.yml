@@ -129,14 +129,13 @@ jobs:
       group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
       cancel-in-progress: false
     # contents: write is needed by the "Publish dist/ to gh-pages" step
-    # (force-push of dist/ to the gh-pages branch — the deploy). Mirrors the
-    # workflow-level block otherwise; the bump from read→write also lets the
-    # existing dist-history `git push origin HEAD:main` land (it had been
-    # failing on the inherited contents:read).
+    # (force-push of dist/ to the gh-pages branch — the deploy) and also lets
+    # the existing dist-history `git push origin HEAD:main` land (it had been
+    # failing on the inherited contents:read). issues: write is for the
+    # failure-reporting step. pages:write / id-token:write are no longer needed
+    # (branch push uses GITHUB_TOKEN + contents:write; no actions/deploy-pages).
     permissions:
       contents: write
-      pages: write
-      id-token: write
       issues: write
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
@@ -968,11 +967,11 @@ jobs:
             --workflow "${{ github.workflow }}"
 
   # ───────────────────────────────────────────────────────────────────────
-  # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
-  # `github-pages` artifact from this run automatically). Inherits the
-  # `pages-deploy` concurrency group so build+deploy together hold the
-  # serial Pages lock for the upload+publish sequence — but each job
-  # individually rilascia la lock when complete.
+  # deploy: branch-based — the build job already force-pushed dist/ to the
+  # gh-pages branch (that IS the publish; GitHub Pages serves the branch). This
+  # job no longer deploys; it only CONFIRMS the gh-pages branch was published so
+  # validate-live → publish/rollback stay gated on a real deploy. The live
+  # go-live check is validate-live polling build-id.txt.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
     needs: build
@@ -1257,38 +1256,24 @@ jobs:
       # may already be live on Pages — reverting our (failed) deploy
       # would clobber a valid newer one. Check the live Pages deployment
       # SHA before proceeding.
-      # ⚠️ KNOWN GAP (branch-based deploy, follow-up tracked): under the new
-      # gh-pages branch deploy the published commit is an orphan authored by
-      # deploy-bot, so it never equals github.sha — this guard therefore always
-      # takes the "newer deploy replaced mine" path and the rollback no-ops.
-      # A bad deploy still surfaces (validate-* go red + a failure issue is
-      # filed) and is overwritten by the next deploy (~20 min cadence), but
-      # there is no automatic revert to last-known-good yet. Rebuilding rollback
-      # for branch-based (snapshot last-good gh-pages, restore via force-push)
-      # is the declared follow-up — see the PR body "Non implementato".
       - name: Verify our deploy is still live (still-live guard)
         id: still-live
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          live_sha=$(gh api \
-            "repos/${{ github.repository }}/deployments?environment=github-pages&per_page=1" \
-            --jq '.[0].sha // empty')
-          my_sha="${{ github.sha }}"
-          echo "Live Pages deployment SHA: ${live_sha:-(unknown)}"
-          echo "My deploy SHA:             $my_sha"
-          if [ -z "$live_sha" ]; then
-            echo "::warning::Could not resolve live deployment SHA — proceeding with rollback as best-effort"
-            echo "still_live=true" >> "$GITHUB_OUTPUT"
-          elif [ "$live_sha" = "$my_sha" ]; then
-            echo "✅ My deploy is still live — rollback is the right action."
-            echo "still_live=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "ℹ️ A newer deploy ($live_sha) has already replaced mine on Pages."
-            echo "   Rollback is a no-op — skipping. The newer deploy already removed the bad version."
-            echo "still_live=false" >> "$GITHUB_OUTPUT"
-          fi
+          # Branch-based deploy: automated rollback is DISABLED here (follow-up
+          # #967). The legacy machinery below (artifact restore via
+          # actions/deploy-pages, or re-dispatching deploy.yml at last-good) is
+          # incompatible with branch-based publishing AND would risk a deploy
+          # loop if Pages registers no `github-pages` deployment entry
+          # (live_sha empty → still_live=true → fresh dispatch → fails
+          # validate-live → dispatch again …). Force still_live=false so every
+          # restore step skips cleanly. A bad deploy still surfaces (validate-*
+          # go red + a failure issue is filed) and is overwritten by the next
+          # deploy (~20-min cadence); there is just no automatic revert yet.
+          echo "::warning::Branch-based deploy: automated rollback is disabled (see #967). A bad deploy is visible via red validate-* + failure issue and is replaced by the next deploy; manual recovery if urgent."
+          echo "still_live=false" >> "$GITHUB_OUTPUT"
 
       - name: Get last known good deploy
         if: steps.still-live.outputs.still_live == 'true'
