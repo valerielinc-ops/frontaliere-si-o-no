@@ -1763,7 +1763,11 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
           const enrichedData = fs.existsSync(enrichedFile)
             ? JSON.parse(fs.readFileSync(enrichedFile, 'utf8'))
             : {};
-          const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false, writeSlices: true });
+          // reconcile* mutano `assembled` in place (aggiungono previousSlugs);
+          // NON scrivono slice (l'opzione `writeSlices` non è implementata in
+          // reconcile-job-slugs.mjs — vi si legge solo { dryRun, verbose, max }).
+          // La persistenza canonica è il writeJson sotto, gated su mergedCount.
+          const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false });
           if (orphanResult.mergedCount > 0) {
             console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled);
@@ -1772,7 +1776,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
         }
 
         // Reconcile expired slugs → merge into active jobs' previousSlugs
-        const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false, writeSlices: true });
+        const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false });
         if (expResult.mergedCount > 0) {
           console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
           writeJson(DATA_JOBS, assembled);
