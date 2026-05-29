@@ -1,427 +1,7 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-05-29T00:53:00.136Z",
+  "assembledAt": "2026-05-29T14:15:08.605Z",
   "jobs": [
-    {
-      "id": "svar-spitalverbund-ar-3d7b4b6a0ea9",
-      "slug": "dipl-infermiere-a-per-moderna-unita-di-emergenza-40-100-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
-      "slugByLocale": {
-        "it": "dipl-infermiere-a-per-moderna-unita-di-emergenza-40-100-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
-        "en": "dipl-nurse-for-modern-emergency-unit-40-100-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
-        "de": "dipl-pflegefachperson-fur-moderne-notfallstation-40-100-m-w-d-svar-spitalverbund-ar-spital",
-        "fr": "infirmier-ere-dipl-pour-unite-d-urgence-moderne-40-100-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson für moderne Notfallstation 40-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Infermiere/a per moderna unità di emergenza 40-100% (m/f/d)",
-        "en": "Dipl. Nurse for Modern Emergency Unit 40-100% (m/f/d)",
-        "de": "Dipl. Pflegefachperson für moderne Notfallstation 40-100% (m/w/d)",
-        "fr": "Infirmier/ère Dipl. pour unité d'urgence moderne 40-100% (h/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation\n\nEintritt: 01. Juni 2026",
-      "descriptionByLocale": {
-        "it": "Descrizione - Assistenza e cura di pazienti acuti in situazioni instabili, complesse e imprevedibili - Stretta collaborazione intra- e interdisciplinare con tutte le persone coinvolte nel trattamento - Partecipazione e attuazione di misure preventive, terapeutiche e diagnostiche - Documentazione elettronica di cura Ingresso: 01 giugno 2026",
-        "en": "Descrizione - Care and care of acute patients in unstable, complex and unforeseeable situations - Close intra- and interdisciplinary cooperation with all persons involved in the treatment - Participation and implementation of preventive, therapeutic and diagnostic measures - Electronic care documentation Entry: 01 June 2026",
-        "de": "Attraktive Aufgaben\n• Betreuung und Pflege von Akutpatienten in nicht stabilen, komplexen und nicht vorhersehbaren Situationen\n• Enge intra- und interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Personen\n• Mitwirkung und Durchführung von präventiven, therapeutischen und diagnostischen Massnahmen\n• Elektronische Pflegedokumentation Eintritt: 01. Juni 2026",
-        "fr": "Descrizione - Prise en charge et soins de patients aigus dans des situations instables, complexes et imprévisibles - Collaboration étroite intra- et interdisciplinaire avec toutes les personnes impliquées dans le traitement - Participation et mise en œuvre de mesures préventives, thérapeutiques et diagnostiques - Documentation de soins électronique Entrée : 1er juin 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Spital Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4004941",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:57.981Z",
-      "addressLocality": "Spital Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4004941",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4004941",
-      "previousSlugs": [
-        "dipl-pflegefachperson-fur-moderne-notfallstation-40-100-m-w-d-svar-spitalverbund-ar-spital"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-fur-moderne-notfallstation-40-100-m-w-d-svar-spitalverbund-ar-spital"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:36:59.635Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-02d4fd96a37e",
-      "slug": "dipl-infermiere-hf-fh-per-il-nostro-reparto-psichiatrico-privato-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar",
-      "slugByLocale": {
-        "it": "dipl-infermiere-hf-fh-per-il-nostro-reparto-psichiatrico-privato-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar",
-        "en": "dipl-nurse-hf-fh-for-our-private-psychiatric-ward-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches",
-        "de": "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-80-100-m-w-d-svar",
-        "fr": "infirmier-diplome-hf-fh-pour-notre-unite-psychiatrique-privee-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF/FH für unsere psychiatrische Privatstation 80-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Infermiere HF/FH per il nostro reparto psichiatrico privato 80-100% (m/w/d)",
-        "en": "Dipl. Nurse HF/FH for our private psychiatric ward 80-100% (m/w/d)",
-        "de": "Dipl. Pflegefachperson HF/FH für unsere psychiatrische Privatstation 80-100% (m/w/d)",
-        "fr": "Infirmier Diplômé HF/FH pour notre unité psychiatrique privée 80-100% (m/w/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Patientenorientierte, ressourcenfördernde und ganzheitliche Pflege und Betreuung unserer Privat- und Halbprivat-Patientinnen und Patienten, unterschiedlichen Alters und mit verschiedenen psychiatrischen Erkrankungen\n• Arbeiten auf einer neu renovierten Station, innerhalb eines neu erstellten Teams\n• Umsetzung und Sicherung des neuen Stationskonzepts in der Praxis\n• Steuerung des Pflegeprozesses, Einhaltung der Richtlinien und Weisungen und mitwirken bei der Entwicklung einer erhöhten und fachlich fundierten Pflegequalität\n• Verantwortung für eine patientenzentrierte Dokumentation des Pflegeprozesses im ORBIS NICE und korrekte Leistungserfassung anhand unseres LEP-Katalogs\n• Mitverantwortung für die Betreuung und Anleitung unserer Lernenden sowie Einführung neuer Mitarbeitenden.\n• Transparente, interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inkl. externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlichen Verordnungen\n\nEintritt: 01. Juli 2026",
-      "descriptionByLocale": {
-        "it": "Compiti interessanti - Cura e assistenza orientata al paziente, alle risorse e olistica dei nostri pazienti privati e semi-privati, di età diverse e con varie malattie psichiatriche - Lavorare in un reparto di recente ristrutturazione, all'interno di un team di nuova creazione - Implementare e garantire il nuovo concetto di reparto nella pratica - Gestire il processo di cura, rispettare le linee guida e le direttive e contribuire allo sviluppo di una qualità di cura elevata e tecnicamente solida - Responsabilità per una documentazione incentrata sul paziente del processo di cura presso l'ORBIS NICE e una corretta registrazione delle prestazioni sulla base del nostro catalogo EPL - Corresponsabilità per l'assistenza e la guida dei nostri apprendisti e introduzione di nuovi dipendenti. - Collaborazione trasparente e interdisciplinare con tutti gli specialisti coinvolti nel trattamento, compresi i referenti esterni - Esecuzione di misure diagnostiche e terapeutiche secondo le prescrizioni mediche Ingresso: 01 luglio 2026",
-        "en": "Attractive tasks - Patient-oriented, resource-promoting and holistic care and supervision of our private and semi-private patients, of different ages and with various psychiatric diseases - Working in a newly renovated ward, within a newly created team - Implementation and securing of the new ward concept in practice - Management of the care process, compliance with guidelines and instructions and participation in the development of an increased and professionally sound quality of care - Responsibility for patient-centred documentation of the care process in the ORBIS NICE and correct performance recording based on our LEP catalogue - Co-responsibility for the care and guidance of our learners and the introduction of new employees. - Transparent, interdisciplinary cooperation with all specialists involved in the treatment, including external contact persons - Execution of diagnostic and therapeutic measures according to medical prescriptions Entry: 01 July 2026",
-        "de": "Attraktive Aufgaben\n• Patientenorientierte, ressourcenfördernde und ganzheitliche Pflege und Betreuung unserer Privat- und Halbprivat-Patientinnen und Patienten, unterschiedlichen Alters und mit verschiedenen psychiatrischen Erkrankungen\n• Arbeiten auf einer neu renovierten Station, innerhalb eines neu erstellten Teams\n• Umsetzung und Sicherung des neuen Stationskonzepts in der Praxis\n• Steuerung des Pflegeprozesses, Einhaltung der Richtlinien und Weisungen und mitwirken bei der Entwicklung einer erhöhten und fachlich fundierten Pflegequalität\n• Verantwortung für eine patientenzentrierte Dokumentation des Pflegeprozesses im ORBIS NICE und korrekte Leistungserfassung anhand unseres LEP-Katalogs\n• Mitverantwortung für die Betreuung und Anleitung unserer Lernenden sowie Einführung neuer Mitarbeitenden.\n• Transparente, interdisziplinäre Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inkl. externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlichen Verordnungen Eintritt: 01. Juli 2026",
-        "fr": "Tâches attrayantes - Soins et suivi centrés sur le patient, axés sur les ressources et holistiques de nos patients privés et semi-privés, d'âges différents et atteints de diverses maladies psychiatriques - Travailler dans un service récemment rénové, au sein d'une équipe nouvellement créée - Mise en œuvre et sécurisation du nouveau concept de service dans la pratique - Gestion du processus de soins, respect des directives et des instructions et contribution au développement d'une qualité de soins accrue et professionnelle - Responsabilité d'une documentation centrée sur le patient du processus de soins dans ORBIS NICE et d'un enregistrement correct des performances sur la base de notre catalogue LEP - Coresponsabilité de l'encadrement et de l'orientation de nos apprenants ainsi que de l'introduction de nouveaux employés. - Coopération transparente et interdisciplinaire avec tous les spécialistes impliqués dans le traitement, y compris les interlocuteurs externes - Exécution de mesures diagnostiques et thérapeutiques conformément aux prescriptions médicales Entrée : 1er juillet 2026"
-      },
-      "location": "Psychiatrisches Zentrum Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4004823",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:57.314Z",
-      "addressLocality": "Psychiatrisches Zentrum Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4004823",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma HF/FH in infermieristica",
-          "Esperienza in ambito psichiatrico",
-          "Competenze nella gestione del processo di cura",
-          "Capacità di lavorare in team interdisciplinari",
-          "Conoscenza del sistema ORBIS NICE",
-          "Attitudine alla formazione di apprendisti e nuovi collaboratori",
-          "Orientamento al paziente e approccio olistico",
-          "Disponibilità a iniziare il 01 luglio 2026"
-        ],
-        "en": [
-          "Diploma HF/FH in nursing",
-          "Experience in psychiatric care",
-          "Skills in managing the care process",
-          "Ability to work in interdisciplinary teams",
-          "Knowledge of the ORBIS NICE system",
-          "Aptitude for training trainees and new employees",
-          "Patient-oriented and holistic approach",
-          "Availability to start on July 1, 2026"
-        ],
-        "fr": [
-          "Diplôme HF/FH en soins infirmiers",
-          "Expérience en soins psychiatriques",
-          "Compétences dans la gestion du processus de soins",
-          "Capacité à travailler en équipes interdisciplinaires",
-          "Connaissance du système ORBIS NICE",
-          "Aptitude à former les apprentis et les nouveaux collaborateurs",
-          "Approche orientée vers le patient et holistique",
-          "Disponibilité à commencer le 1er juillet 2026"
-        ]
-      },
-      "externalId": "4004823",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-80-100-m-w-d-svar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-fh-fur-unsere-psychiatrische-privatstation-80-100-m-w-d-svar"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:36:58.858Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-0473e8ddaf90",
-      "slug": "dipl-infermiere-a-50-100-per-reparto-con-focus-su-medicina-interna-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
-      "slugByLocale": {
-        "it": "dipl-infermiere-a-50-100-per-reparto-con-focus-su-medicina-interna-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
-        "en": "dipl-nurse-50-100-for-ward-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-spital",
-        "de": "dipl-pflegefachperson-50-100-fur-bettenstation-mit-schwerpunkt-innere-medizin-m-w-d-svar",
-        "fr": "infirmier-diplome-50-100-pour-unite-avec-specialisation-en-medecine-interne-m-f-d-spitalverbund-appenzell-ausserrhoden"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson 50-100% für Bettenstation mit Schwerpunkt Innere Medizin (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Infermiere/a 50-100% per reparto con focus su Medicina Interna (m/f/d)",
-        "en": "Dipl. Nurse 50-100% for ward with focus on Internal Medicine (m/f/d)",
-        "de": "Dipl. Pflegefachperson 50-100% für Bettenstation mit Schwerpunkt Innere Medizin (m/w/d)",
-        "fr": "Infirmier Diplômé 50-100% pour unité avec spécialisation en Médecine Interne (m/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit\n\nEintritt: 01. Juni 2026",
-      "descriptionByLocale": {
-        "it": "Descrizione - Cura e assistenza professionale e competente dei pazienti nel reparto letto interdisciplinare - Attuazione indipendente del processo di cura e trattamento in collaborazione interdisciplinare - Si orientano ai concetti di cura e trattamento della comunità ospedaliera e portano le loro competenze anche nello sviluppo di nuovi standard - Documentazione elettronica e pianificazione delle cure - Hanno un ruolo nell'assistenza pratica degli apprendisti nelle diverse fasi della formazione con l'ingresso: 01 giugno 2026",
-        "en": "Descrizione - Professional and competent care and support of patients on the interdisciplinary bed ward - Independent implementation of the care and treatment process in interdisciplinary cooperation - You are guided by the care and treatment concepts of the hospital network and also contribute your skills to the development of new standards - Electronic documentation and care planning - You work in the practical support of learners in the various training stages with admission: 01 June 2026",
-        "de": "Attraktive Aufgaben\n• Fachgerechte und kompetente Pflege und Betreuung von Patientinnen und Patienten auf der interdisziplinären Bettenstation\n• Selbständige Umsetzung des Pflege- und Behandlungsprozesses in interdisziplinärer Zusammenarbeit\n• Sie orientieren sich dabei an den Pflege- und Behandlungskonzepten des Spitalverbundes und bringen Ihre Kompetenzen auch in die Entwicklung neuer Standards ein\n• Elektronische Dokumentation sowie Planung der Pflege\n• Sie wirken bei der praktischen Betreuung von Lernenden in den verschiedenen Ausbildungsstadien mit Eintritt: 01. Juni 2026",
-        "fr": "Descrizione - Soins professionnels et compétents et prise en charge des patients dans l'unité de soins interdisciplinaire - Mise en œuvre indépendante du processus de soins et de traitement en coopération interdisciplinaire - Vous vous orientez sur les concepts de soins et de traitement du réseau hospitalier et apportez également vos compétences dans le développement de nouvelles normes - Documentation électronique et planification des soins - Vous intervenez dans l'encadrement pratique des apprenants aux différentes étapes de la formation avec entrée : 1er juin 2026"
-      },
-      "location": "Spital Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4004773",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:56.644Z",
-      "addressLocality": "Spital Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4004773",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma in infermieristica riconosciuto",
-          "Esperienza in medicina interna o reparto interdisciplinare",
-          "Capacità di lavorare in team interdisciplinare",
-          "Competenze nella documentazione elettronica",
-          "Flessibilità e orientamento al paziente",
-          "Capacità di supervisione e formazione degli studenti",
-          "Conoscenza delle lingue locali",
-          "Disponibilità a lavorare su turni"
-        ],
-        "en": [
-          "Recognized nursing diploma",
-          "Experience in internal medicine or interdisciplinary ward",
-          "Ability to work in an interdisciplinary team",
-          "Skills in electronic documentation",
-          "Flexibility and patient-oriented approach",
-          "Ability to supervise and train trainees",
-          "Knowledge of local languages",
-          "Willingness to work in shifts"
-        ],
-        "fr": [
-          "Diplôme reconnu en soins infirmiers",
-          "Expérience en médecine interne ou unité interdisciplinaire",
-          "Capacité à travailler en équipe interdisciplinaire",
-          "Compétences en documentation électronique",
-          "Flexibilité et approche centrée sur le patient",
-          "Capacité à superviser et former des stagiaires",
-          "Connaissance des langues locales",
-          "Disponibilité pour travailler en horaires décalés"
-        ]
-      },
-      "externalId": "4004773",
-      "previousSlugs": [
-        "dipl-pflegefachperson-50-100-fur-bettenstation-mit-schwerpunkt-innere-medizin-m-w-d-svar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-50-100-fur-bettenstation-mit-schwerpunkt-innere-medizin-m-w-d-svar"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:36:58.169Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-cc7d00faf599",
-      "slug": "dipl-ergoterapista-in-fh-bsc-per-geriatria-acuta-e-gerontotraumatologia-20-40-m-f-d-spitalverbund-appenzell-ausserrhoden",
-      "slugByLocale": {
-        "it": "dipl-ergoterapista-in-fh-bsc-per-geriatria-acuta-e-gerontotraumatologia-20-40-m-f-d-spitalverbund-appenzell-ausserrhoden",
-        "en": "dipl-occupational-therapist-fh-bsc-for-acute-geriatrics-and-gerontotraumatology-20-40-m-f-d-spitalverbund-appenzell",
-        "de": "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-20-40-m-w-d-svar",
-        "fr": "ergotherapeute-hes-bsc-en-geriatrie-aigue-et-traumatologie-geriatrique-20-40-m-f-d-spitalverbund-appenzell-ausserrhoden"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Ergotherapeut/in FH BSc für Akutgeriatrie und Gerontotraumatologie 20-40% (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Ergoterapista/in FH BSc per Geriatria Acuta e Gerontotraumatologia 20-40% (m/f/d)",
-        "en": "Dipl. Occupational Therapist FH BSc for Acute Geriatrics and Gerontotraumatology 20-40% (m/f/d)",
-        "de": "Dipl. Ergotherapeut/in FH BSc für Akutgeriatrie und Gerontotraumatologie 20-40% (m/w/d)",
-        "fr": "Ergothérapeute HES BSc en gériatrie aigüe et traumatologie gériatrique 20-40% (m/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Selbstständige Behandlung von stationären Patientinnen und Patienten im Einzel- und Gruppensetting\n• Teilnahme an interdisziplinären Teamsitzungen und Rapporten\n• Selbständige Planung der Behandlung und Durchführung von Assessments\n• Aktiver Einsatz für eine interprofessionelle Zusammenarbeit mit allen Fachbereichen\n\nEintritt: 01. Juni 2026",
-      "descriptionByLocale": {
-        "it": "Compiti interessanti - Trattamento indipendente di pazienti ricoverati in un ambiente individuale e di gruppo - Partecipazione a riunioni di team interdisciplinari e rapporti - Pianificazione indipendente del trattamento e dello svolgimento di valutazioni - Impegno attivo per una collaborazione interprofessionale con tutti i dipartimenti Ingresso: 01 giugno 2026",
-        "en": "Attractive tasks - Independent treatment of inpatients in individual and group settings - Participation in interdisciplinary team meetings and reports - Independent planning of treatment and implementation of assessments - Active commitment to interprofessional cooperation with all departments Admission: 01 June 2026",
-        "de": "Attraktive Aufgaben\n• Selbstständige Behandlung von stationären Patientinnen und Patienten im Einzel- und Gruppensetting\n• Teilnahme an interdisziplinären Teamsitzungen und Rapporten\n• Selbständige Planung der Behandlung und Durchführung von Assessments\n• Aktiver Einsatz für eine interprofessionelle Zusammenarbeit mit allen Fachbereichen Eintritt: 01. Juni 2026",
-        "fr": "Tâches attrayantes - Traitement indépendant des patients hospitalisés en configuration individuelle et de groupe - Participation à des réunions d'équipe interdisciplinaires et à des rapports - Planification indépendante du traitement et réalisation d'évaluations - Engagement actif pour une coopération interprofessionnelle avec tous les domaines d'expertise Entrée : 1er juin 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Spital Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4004765",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:55.974Z",
-      "addressLocality": "Spital Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4004765",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4004765",
-      "previousSlugs": [
-        "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-20-40-m-w-d-svar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-ergotherapeut-in-fh-bsc-fur-akutgeriatrie-und-gerontotraumatologie-20-40-m-w-d-svar"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T14:36:57.480Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-c4328dc6c813",
-      "slug": "stv-chefarzt-chefarztin-per-stationare-psychiatrie-e-psychotherapie-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
-      "slugByLocale": {
-        "it": "stv-chefarzt-chefarztin-per-stationare-psychiatrie-e-psychotherapie-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
-        "en": "stv-chefarzt-chefarztin-fur-stationare-psychiatrie-und-psychotherapie-80-100-m-w-d-svar",
-        "de": "stv-chefarzt-chefarztin-fur-stationare-psychiatrie-und-psychotherapie-80-100-m-w-d-svar",
-        "fr": "stv-chefarzt-chefarztin-fur-stationare-psychiatrie-und-psychotherapie-80-100-m-w-d-svar"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Stv. Chefarzt / Chefärztin für stationäre Psychiatrie und Psychotherapie 80-100% (m/w/d)",
-      "titleByLocale": {
-        "it": "Stv. Chefarzt / Chefärztin per stationäre Psychiatrie e Psychotherapie 80-100% (m/w/d)",
-        "en": "Stv. Chefarzt / Chefärztin für stationäre Psychiatrie und Psychotherapie 80-100% (m/w/d)",
-        "de": "Stv. Chefarzt / Chefärztin für stationäre Psychiatrie und Psychotherapie 80-100% (m/w/d)",
-        "fr": "Stv. Chefarzt / Chefärztin für stationäre Psychiatrie und Psychotherapie 80-100% (m/w/d)"
-      },
-      "description": "Attraktive Aufgaben\n\n• Leitung eines klinischen Bereichs bestehend aus mehreren Behandlungseinheiten bezüglich organisatorischer Belange und Prozesse, operativer Umsetzung strategischer Vorgaben der Klinik, fortlaufender Überprüfung, Anpassung und kontinuierlicher Weiterentwicklung der Behandlungsangebote und Qualitätssicherung\n• Sicherstellung der psychiatrisch-psychotherapeutischen Diagnostik, Behandlung und Betreuung aller PatientInnen im zugeordneten Bereich gemäss den Richtlinien der Klinik\n• Kontrolle der gesamten patientenbezogenen Korrespondenz sowie der Führung der Krankengeschichte inkl. Leistungserfassung\n• Förderung der interdisziplinären Zusammenarbeit mit an der Behandlung beteiligten Fachpersonen und Institutionen\n• Sicherstellung der Einhaltung von rechtlichen Bestimmungen und ethischen Vorgaben, insbesondere im Zusammenhang mit der Fürsorgerischen Unterbringung (FU), Rekursen und Zwangsmassnahmen\n• Einführung neuer Mitarbeiter, Führung, Weiterbildung, Supervision und Qualifikation der direkt unterstellten Oberärzte, Psychologen und Assistenzärzte im Zuständigkeitsbereich gemäss den Richtlinien der FMH bzw. FSP\n• Leitung und Teilnahme an interdisziplinären Besprechungen, Rapporten und Supervisionen\n• Stellvertretung des Chefarztes und Übernahme von Führungsaufgaben in der Gesamtklinik\n• Mitwirkung in der Weiterentwicklung der Behandlungsangebote der Gesamtklinik wie auch in Prozess- und Projektarbeit sowie dem Qualitätsmanagement\n\nEintritt: 01. Juli 2026",
-      "descriptionByLocale": {
-        "it": "Attraktive Aufgaben\n• Leitung eines klinischen Bereichs bestehend aus mehreren Behandlungseinheiten bezüglich organisatorischer Belange und Prozesse, operativer Umsetzung strategischer Vorgaben der Klinik, fortlaufender Überprüfung, Anpassung und kontinuierlicher Weiterentwicklung der Behandlungsangebote und Qualitätssicherung\n• Sicherstellung der psychiatrisch-psychotherapeutischen Diagnostik, Behandlung und Betreuung aller PatientInnen im zugeordneten Bereich gemäss den Richtlinien der Klinik\n• Kontrolle der gesamten patientenbezogenen Korrespondenz sowie der Führung der Krankengeschichte inkl. Leistungserfassung\n• Förderung der interdisziplinären Zusammenarbeit mit an der Behandlung beteiligten Fachpersonen und Institutionen\n• Sicherstellung der Einhaltung von rechtlichen Bestimmungen und ethischen Vorgaben, insbesondere im Zusammenhang mit der Fürsorgerischen Unterbringung (FU), Rekursen und Zwangsmassnahmen\n• Einführung neuer Mitarbeiter, Führung, Weiterbildung, Supervision und Qualifikation der direkt unterstellten Oberärzte, Psychologen und Assistenzärzte im Zuständigkeitsbereich gemäss den Richtlinien der FMH bzw. FSP\n• Leitung und Teilnahme an interdisziplinären Besprechungen, Rapporten und Supervisionen\n• Stellvertretung des Chefarztes und Übernahme von Führungsaufgaben in der Gesamtklinik\n• Mitwirkung in der Weiterentwicklung der Behandlungsangebote der Gesamtklinik wie auch in Prozess- und Projektarbeit sowie dem Qualitätsmanagement Eintritt: 01. Juli 2026",
-        "en": "Attraktive Aufgaben\n• Leitung eines klinischen Bereichs bestehend aus mehreren Behandlungseinheiten bezüglich organisatorischer Belange und Prozesse, operativer Umsetzung strategischer Vorgaben der Klinik, fortlaufender Überprüfung, Anpassung und kontinuierlicher Weiterentwicklung der Behandlungsangebote und Qualitätssicherung\n• Sicherstellung der psychiatrisch-psychotherapeutischen Diagnostik, Behandlung und Betreuung aller PatientInnen im zugeordneten Bereich gemäss den Richtlinien der Klinik\n• Kontrolle der gesamten patientenbezogenen Korrespondenz sowie der Führung der Krankengeschichte inkl. Leistungserfassung\n• Förderung der interdisziplinären Zusammenarbeit mit an der Behandlung beteiligten Fachpersonen und Institutionen\n• Sicherstellung der Einhaltung von rechtlichen Bestimmungen und ethischen Vorgaben, insbesondere im Zusammenhang mit der Fürsorgerischen Unterbringung (FU), Rekursen und Zwangsmassnahmen\n• Einführung neuer Mitarbeiter, Führung, Weiterbildung, Supervision und Qualifikation der direkt unterstellten Oberärzte, Psychologen und Assistenzärzte im Zuständigkeitsbereich gemäss den Richtlinien der FMH bzw. FSP\n• Leitung und Teilnahme an interdisziplinären Besprechungen, Rapporten und Supervisionen\n• Stellvertretung des Chefarztes und Übernahme von Führungsaufgaben in der Gesamtklinik\n• Mitwirkung in der Weiterentwicklung der Behandlungsangebote der Gesamtklinik wie auch in Prozess- und Projektarbeit sowie dem Qualitätsmanagement Eintritt: 01. Juli 2026",
-        "de": "Attraktive Aufgaben\n• Leitung eines klinischen Bereichs bestehend aus mehreren Behandlungseinheiten bezüglich organisatorischer Belange und Prozesse, operativer Umsetzung strategischer Vorgaben der Klinik, fortlaufender Überprüfung, Anpassung und kontinuierlicher Weiterentwicklung der Behandlungsangebote und Qualitätssicherung\n• Sicherstellung der psychiatrisch-psychotherapeutischen Diagnostik, Behandlung und Betreuung aller PatientInnen im zugeordneten Bereich gemäss den Richtlinien der Klinik\n• Kontrolle der gesamten patientenbezogenen Korrespondenz sowie der Führung der Krankengeschichte inkl. Leistungserfassung\n• Förderung der interdisziplinären Zusammenarbeit mit an der Behandlung beteiligten Fachpersonen und Institutionen\n• Sicherstellung der Einhaltung von rechtlichen Bestimmungen und ethischen Vorgaben, insbesondere im Zusammenhang mit der Fürsorgerischen Unterbringung (FU), Rekursen und Zwangsmassnahmen\n• Einführung neuer Mitarbeiter, Führung, Weiterbildung, Supervision und Qualifikation der direkt unterstellten Oberärzte, Psychologen und Assistenzärzte im Zuständigkeitsbereich gemäss den Richtlinien der FMH bzw. FSP\n• Leitung und Teilnahme an interdisziplinären Besprechungen, Rapporten und Supervisionen\n• Stellvertretung des Chefarztes und Übernahme von Führungsaufgaben in der Gesamtklinik\n• Mitwirkung in der Weiterentwicklung der Behandlungsangebote der Gesamtklinik wie auch in Prozess- und Projektarbeit sowie dem Qualitätsmanagement Eintritt: 01. Juli 2026",
-        "fr": "Attraktive Aufgaben\n• Leitung eines klinischen Bereichs bestehend aus mehreren Behandlungseinheiten bezüglich organisatorischer Belange und Prozesse, operativer Umsetzung strategischer Vorgaben der Klinik, fortlaufender Überprüfung, Anpassung und kontinuierlicher Weiterentwicklung der Behandlungsangebote und Qualitätssicherung\n• Sicherstellung der psychiatrisch-psychotherapeutischen Diagnostik, Behandlung und Betreuung aller PatientInnen im zugeordneten Bereich gemäss den Richtlinien der Klinik\n• Kontrolle der gesamten patientenbezogenen Korrespondenz sowie der Führung der Krankengeschichte inkl. Leistungserfassung\n• Förderung der interdisziplinären Zusammenarbeit mit an der Behandlung beteiligten Fachpersonen und Institutionen\n• Sicherstellung der Einhaltung von rechtlichen Bestimmungen und ethischen Vorgaben, insbesondere im Zusammenhang mit der Fürsorgerischen Unterbringung (FU), Rekursen und Zwangsmassnahmen\n• Einführung neuer Mitarbeiter, Führung, Weiterbildung, Supervision und Qualifikation der direkt unterstellten Oberärzte, Psychologen und Assistenzärzte im Zuständigkeitsbereich gemäss den Richtlinien der FMH bzw. FSP\n• Leitung und Teilnahme an interdisziplinären Besprechungen, Rapporten und Supervisionen\n• Stellvertretung des Chefarztes und Übernahme von Führungsaufgaben in der Gesamtklinik\n• Mitwirkung in der Weiterentwicklung der Behandlungsangebote der Gesamtklinik wie auch in Prozess- und Projektarbeit sowie dem Qualitätsmanagement Eintritt: 01. Juli 2026"
-      },
-      "needsRetranslation": true,
-      "location": "Psychiatrisches Zentrum AR, Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4007353",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:55.307Z",
-      "addressLocality": "Psychiatrisches Zentrum AR",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4007353",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4007353",
-      "previousSlugs": [
-        "stv-chefarzt-chefarztin-fur-stationare-psychiatrie-und-psychotherapie-80-100-m-w-d-svar"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-chefarzt-chefarztin-fur-stationare-psychiatrie-und-psychotherapie-80-100-m-w-d-svar"
-        ]
-      },
-      "firstSeenAt": "2026-05-22T13:15:43.008Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "svar-spitalverbund-ar-f07e2eba097d",
       "slug": "capoclinica-reparto-generale-80-100-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar-herisau",
@@ -454,7 +34,7 @@
       "url": "https://live.solique.ch/svar/job/details/4007389",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:54.590Z",
+      "crawledAt": "2026-05-29T14:15:06.786Z",
       "addressLocality": "Psychiatrisches Zentrum AR",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -526,7 +106,7 @@
       "url": "https://live.solique.ch/svar/job/details/4007393",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:53.879Z",
+      "crawledAt": "2026-05-29T14:15:06.162Z",
       "addressLocality": "Psychiatrisches Zentrum AR",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -598,7 +178,7 @@
       "url": "https://live.solique.ch/svar/job/details/4007430",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:53.193Z",
+      "crawledAt": "2026-05-29T14:15:05.535Z",
       "addressLocality": "Spital Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -670,7 +250,7 @@
       "url": "https://live.solique.ch/svar/job/details/4008539",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:52.523Z",
+      "crawledAt": "2026-05-29T14:15:04.917Z",
       "addressLocality": "Spitalverbund Appenzell Ausserrhoden",
       "addressRegion": "AI",
       "addressCountry": "CH",
@@ -742,7 +322,7 @@
       "url": "https://live.solique.ch/svar/job/details/4009947",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:52:51.691Z",
+      "crawledAt": "2026-05-29T14:15:04.306Z",
       "addressLocality": "Spital Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -781,6 +361,368 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "svar-spitalverbund-ar-901d3629abe0",
+      "slug": "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-o-fachfrau-fachmann-gesundheit-60-im-nachtdienst-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+      "slugByLocale": {
+        "de": "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-oder-fachfrau-fachmann-gesundheit",
+        "it": "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-o-fachfrau-fachmann-gesundheit-60-im-nachtdienst-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+        "en": "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-oder-fachfrau-fachmann-gesundheit",
+        "fr": "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-oder-fachfrau-fachmann-gesundheit"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Psychotherapiestation: Diplomierte Pflegefachperson HF/FH oder Fachfrau / Fachmann Gesundheit 60% im Nachtdienst (m/w/d)",
+      "titleByLocale": {
+        "de": "Psychotherapiestation: Diplomierte Pflegefachperson HF/FH oder Fachfrau / Fachmann Gesundheit 60% im Nachtdienst (m/w/d)",
+        "it": "Psychotherapiestation: Diplomierte Pflegefachperson HF/FH o Fachfrau / Fachmann Gesundheit 60% im Nachtdienst (m/w/d)",
+        "en": "Psychotherapiestation: Diplomierte Pflegefachperson HF/FH oder Fachfrau / Fachmann Gesundheit 60% im Nachtdienst (m/w/d)",
+        "fr": "Psychotherapiestation: Diplomierte Pflegefachperson HF/FH oder Fachfrau / Fachmann Gesundheit 60% im Nachtdienst (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n\n• Planen, Durchführen, Evaluieren und Beenden des Pflegeprozesses\n• Begleiten und unterstützen von Patienten im Alltag und in Krisensituationen sowie gestalten und fördern eines gesundheitsfördernden Stationsmilieus\n• Einhalten der Pflegestandards sowie Arbeiten mit Pflegediagnosen\n• Erstellen der notwendigen Dokumentationen im ORBIS NICE und Weiterleiten von relevanten Informationen\n• Leiten und Begleiten von pflegerisch geführten psychotherapeutischen und milieutherapeutischen Gruppen\n• Anwenden komplementärmedizinischer Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inklusive externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlicher Verordnung\n• Leistungserfassung gemäss Vorgaben\n\nEintritt: 01. Juli 2026",
+      "descriptionByLocale": {
+        "de": "Attraktive Aufgaben\n\n• Planen, Durchführen, Evaluieren und Beenden des Pflegeprozesses\n• Begleiten und unterstützen von Patienten im Alltag und in Krisensituationen sowie gestalten und fördern eines gesundheitsfördernden Stationsmilieus\n• Einhalten der Pflegestandards sowie Arbeiten mit Pflegediagnosen\n• Erstellen der notwendigen Dokumentationen im ORBIS NICE und Weiterleiten von relevanten Informationen\n• Leiten und Begleiten von pflegerisch geführten psychotherapeutischen und milieutherapeutischen Gruppen\n• Anwenden komplementärmedizinischer Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inklusive externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlicher Verordnung\n• Leistungserfassung gemäss Vorgaben\n\nEintritt: 01. Juli 2026",
+        "it": "Attraktive Aufgaben\n\n• Planen, Durchführen, Evaluieren und Beenden des Pflegeprozesses\n• Begleiten und unterstützen von Patienten im Alltag und in Krisensituationen sowie gestalten und fördern eines gesundheitsfördernden Stationsmilieus\n• Einhalten der Pflegestandards sowie Arbeiten mit Pflegediagnosen\n• Erstellen der notwendigen Dokumentationen im ORBIS NICE und Weiterleiten von relevanten Informationen\n• Leiten und Begleiten von pflegerisch geführten psychotherapeutischen und milieutherapeutischen Gruppen\n• Anwenden komplementärmedizinischer Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inklusive externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlicher Verordnung\n• Leistungserfassung gemäss Vorgaben\n\nEintritt: 01. Juli 2026",
+        "en": "Attraktive Aufgaben\n\n• Planen, Durchführen, Evaluieren und Beenden des Pflegeprozesses\n• Begleiten und unterstützen von Patienten im Alltag und in Krisensituationen sowie gestalten und fördern eines gesundheitsfördernden Stationsmilieus\n• Einhalten der Pflegestandards sowie Arbeiten mit Pflegediagnosen\n• Erstellen der notwendigen Dokumentationen im ORBIS NICE und Weiterleiten von relevanten Informationen\n• Leiten und Begleiten von pflegerisch geführten psychotherapeutischen und milieutherapeutischen Gruppen\n• Anwenden komplementärmedizinischer Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inklusive externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlicher Verordnung\n• Leistungserfassung gemäss Vorgaben\n\nEintritt: 01. Juli 2026",
+        "fr": "Attraktive Aufgaben\n\n• Planen, Durchführen, Evaluieren und Beenden des Pflegeprozesses\n• Begleiten und unterstützen von Patienten im Alltag und in Krisensituationen sowie gestalten und fördern eines gesundheitsfördernden Stationsmilieus\n• Einhalten der Pflegestandards sowie Arbeiten mit Pflegediagnosen\n• Erstellen der notwendigen Dokumentationen im ORBIS NICE und Weiterleiten von relevanten Informationen\n• Leiten und Begleiten von pflegerisch geführten psychotherapeutischen und milieutherapeutischen Gruppen\n• Anwenden komplementärmedizinischer Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen, inklusive externer Ansprechpersonen\n• Ausführung von diagnostischen und therapeutischen Massnahmen nach ärztlicher Verordnung\n• Leistungserfassung gemäss Vorgaben\n\nEintritt: 01. Juli 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Psychiatrisches Zentrum AR, Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4011357",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T14:15:03.689Z",
+      "addressLocality": "Psychiatrisches Zentrum AR",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4011357",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4011357",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-oder-fachfrau-fachmann-gesundheit"
+        ]
+      },
+      "previousSlugs": [
+        "psychotherapiestation-diplomierte-pflegefachperson-hf-fh-oder-fachfrau-fachmann-gesundheit"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T14:15:03.689Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-5e4ce0ca323b",
+      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin 40-100% (m/w/d)",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt Allgemeine Innere Medizin 40-100% (m/w/d)",
+        "it": "Oberärztin / Oberarzt Allgemeine Innere Medizin 40-100% (m/w/d)",
+        "en": "Oberärztin / Oberarzt Allgemeine Innere Medizin 40-100% (m/w/d)",
+        "fr": "Oberärztin / Oberarzt Allgemeine Innere Medizin 40-100% (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+      "descriptionByLocale": {
+        "de": "Attraktive Aufgaben\n\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "it": "Attraktive Aufgaben\n\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "en": "Attraktive Aufgaben\n\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "fr": "Attraktive Aufgaben\n\n• Sie sind mitverantwortlich für eine umfassende und hochwertige Patientenversorgung\n• Sie übernehmen die fachliche und personelle Führung unserer Assistenzärztinnen und -ärzte\n• Sie beteiligen sich am kaderärztlichen Dienst und gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Spital Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4011389",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T14:15:03.056Z",
+      "addressLocality": "Spital Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4011389",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4011389",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T14:15:03.056Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-f99fabc89d18",
+      "slug": "leitende-arztin-leitenden-arzt-o-oberarztin-oberarzt-geriatrie-50-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
+      "slugByLocale": {
+        "de": "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-geriatrie-50-100-m-w-d-svar",
+        "it": "leitende-arztin-leitenden-arzt-o-oberarztin-oberarzt-geriatrie-50-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
+        "en": "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-geriatrie-50-100-m-w-d-svar",
+        "fr": "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-geriatrie-50-100-m-w-d-svar"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Leitende Ärztin / Leitenden Arzt oder Oberärztin / Oberarzt Geriatrie 50–100% (m/w/d)",
+      "titleByLocale": {
+        "de": "Leitende Ärztin / Leitenden Arzt oder Oberärztin / Oberarzt Geriatrie 50–100% (m/w/d)",
+        "it": "Leitende Ärztin / Leitenden Arzt o Oberärztin / Oberarzt Geriatrie 50–100% (m/w/d)",
+        "en": "Leitende Ärztin / Leitenden Arzt oder Oberärztin / Oberarzt Geriatrie 50–100% (m/w/d)",
+        "fr": "Leitende Ärztin / Leitenden Arzt oder Oberärztin / Oberarzt Geriatrie 50–100% (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n\n• Sie leiten den Fachbereich Akutgeriatrie sowie interdisziplinär die Gerontotraumatologie und entwickeln diese Angebote weiter\n• Sie übernehmen weitere Aufgaben entsprechend Ihren Fach- und Führungskompetenzen\n• Sie gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+      "descriptionByLocale": {
+        "de": "Attraktive Aufgaben\n\n• Sie leiten den Fachbereich Akutgeriatrie sowie interdisziplinär die Gerontotraumatologie und entwickeln diese Angebote weiter\n• Sie übernehmen weitere Aufgaben entsprechend Ihren Fach- und Führungskompetenzen\n• Sie gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "it": "Attraktive Aufgaben\n\n• Sie leiten den Fachbereich Akutgeriatrie sowie interdisziplinär die Gerontotraumatologie und entwickeln diese Angebote weiter\n• Sie übernehmen weitere Aufgaben entsprechend Ihren Fach- und Führungskompetenzen\n• Sie gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "en": "Attraktive Aufgaben\n\n• Sie leiten den Fachbereich Akutgeriatrie sowie interdisziplinär die Gerontotraumatologie und entwickeln diese Angebote weiter\n• Sie übernehmen weitere Aufgaben entsprechend Ihren Fach- und Führungskompetenzen\n• Sie gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026",
+        "fr": "Attraktive Aufgaben\n\n• Sie leiten den Fachbereich Akutgeriatrie sowie interdisziplinär die Gerontotraumatologie und entwickeln diese Angebote weiter\n• Sie übernehmen weitere Aufgaben entsprechend Ihren Fach- und Führungskompetenzen\n• Sie gestalten Weiterbildungsveranstaltungen mit\n\nEintritt: 01. Juli 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Spital Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4011276",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T14:15:02.442Z",
+      "addressLocality": "Spital Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4011276",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4011276",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-geriatrie-50-100-m-w-d-svar"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-oder-oberarztin-oberarzt-geriatrie-50-100-m-w-d-svar"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T14:15:02.442Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-80cc1d886373",
+      "slug": "fachperson-gesundheit-per-la-station-per-abhangigkeitsbehandlung-80-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-fur-die-station-fur-abhangigkeitsbehandlung-80-m-w-d-svar",
+        "it": "fachperson-gesundheit-per-la-station-per-abhangigkeitsbehandlung-80-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+        "en": "fachperson-gesundheit-fur-die-station-fur-abhangigkeitsbehandlung-80-m-w-d-svar",
+        "fr": "fachperson-gesundheit-fur-die-station-fur-abhangigkeitsbehandlung-80-m-w-d-svar"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Fachperson Gesundheit für die Station für Abhängigkeitsbehandlung 80% (m/w/d)",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit für die Station für Abhängigkeitsbehandlung 80% (m/w/d)",
+        "it": "Fachperson Gesundheit per la Station per Abhängigkeitsbehandlung 80% (m/w/d)",
+        "en": "Fachperson Gesundheit für die Station für Abhängigkeitsbehandlung 80% (m/w/d)",
+        "fr": "Fachperson Gesundheit für die Station für Abhängigkeitsbehandlung 80% (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n\n• Starke, transparente und konsensorientierte Zusammenarbeit im interdisziplinären Setting wie auch mit Patientinnen und Patienten\n• Begleitung und Bewältigung von Alltagssituationen sowie Leiten von milieutherapeutischen Gruppen\n• Hauptverantwortung für die organisatorischen und logistischen Abläufe auf der Station\n• Unterstützung in Ausbildungsaufgaben\n• Elektronische Dokumentation mit ORBIS NICE und weiteren EDV-Systemen\n\nEintritt: 01. August 2026",
+      "descriptionByLocale": {
+        "de": "Attraktive Aufgaben\n\n• Starke, transparente und konsensorientierte Zusammenarbeit im interdisziplinären Setting wie auch mit Patientinnen und Patienten\n• Begleitung und Bewältigung von Alltagssituationen sowie Leiten von milieutherapeutischen Gruppen\n• Hauptverantwortung für die organisatorischen und logistischen Abläufe auf der Station\n• Unterstützung in Ausbildungsaufgaben\n• Elektronische Dokumentation mit ORBIS NICE und weiteren EDV-Systemen\n\nEintritt: 01. August 2026",
+        "it": "Attraktive Aufgaben\n\n• Starke, transparente und konsensorientierte Zusammenarbeit im interdisziplinären Setting wie auch mit Patientinnen und Patienten\n• Begleitung und Bewältigung von Alltagssituationen sowie Leiten von milieutherapeutischen Gruppen\n• Hauptverantwortung für die organisatorischen und logistischen Abläufe auf der Station\n• Unterstützung in Ausbildungsaufgaben\n• Elektronische Dokumentation mit ORBIS NICE und weiteren EDV-Systemen\n\nEintritt: 01. August 2026",
+        "en": "Attraktive Aufgaben\n\n• Starke, transparente und konsensorientierte Zusammenarbeit im interdisziplinären Setting wie auch mit Patientinnen und Patienten\n• Begleitung und Bewältigung von Alltagssituationen sowie Leiten von milieutherapeutischen Gruppen\n• Hauptverantwortung für die organisatorischen und logistischen Abläufe auf der Station\n• Unterstützung in Ausbildungsaufgaben\n• Elektronische Dokumentation mit ORBIS NICE und weiteren EDV-Systemen\n\nEintritt: 01. August 2026",
+        "fr": "Attraktive Aufgaben\n\n• Starke, transparente und konsensorientierte Zusammenarbeit im interdisziplinären Setting wie auch mit Patientinnen und Patienten\n• Begleitung und Bewältigung von Alltagssituationen sowie Leiten von milieutherapeutischen Gruppen\n• Hauptverantwortung für die organisatorischen und logistischen Abläufe auf der Station\n• Unterstützung in Ausbildungsaufgaben\n• Elektronische Dokumentation mit ORBIS NICE und weiteren EDV-Systemen\n\nEintritt: 01. August 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Psychiatrisches Zentrum AR, Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4011146",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T14:15:01.781Z",
+      "addressLocality": "Psychiatrisches Zentrum AR",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4011146",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4011146",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fur-die-station-fur-abhangigkeitsbehandlung-80-m-w-d-svar"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fur-die-station-fur-abhangigkeitsbehandlung-80-m-w-d-svar"
+      ],
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T14:15:01.781Z"
+    },
+    {
+      "id": "svar-spitalverbund-ar-155441e7dfc8",
+      "slug": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
+        "it": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+        "en": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
+        "fr": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson HF/FH psychiatrische Tagesklinik 80-100% - befristet bis Januar 2027 (m/w/d)",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF/FH psychiatrische Tagesklinik 80-100% - befristet bis Januar 2027 (m/w/d)",
+        "it": "Dipl. Pflegefachperson HF/FH psychiatrische Tagesklinik 80-100% - befristet bis Januar 2027 (m/w/d)",
+        "en": "Dipl. Pflegefachperson HF/FH psychiatrische Tagesklinik 80-100% - befristet bis Januar 2027 (m/w/d)",
+        "fr": "Dipl. Pflegefachperson HF/FH psychiatrische Tagesklinik 80-100% - befristet bis Januar 2027 (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n\n• Fallführende Betreuung der Patientinnen und Patienten im tagesklinischen Setting im Bezugspersonenprinzip mit Schwerpunkten der Beziehungsgestaltung sowie Ressourcenorientierung\n• Begleiten und Leiten von Einzel- und Gruppenaktivitäten sowie anwenden von komplementärmedizinischen Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen inklusive externer Ansprechpersonen\n• Leistungserfassung gemäss Vorgaben sowie elektronische Dokumentation mittels ORBIS NICE\n\nEintritt: 01. Juli 2026",
+      "descriptionByLocale": {
+        "de": "Attraktive Aufgaben\n\n• Fallführende Betreuung der Patientinnen und Patienten im tagesklinischen Setting im Bezugspersonenprinzip mit Schwerpunkten der Beziehungsgestaltung sowie Ressourcenorientierung\n• Begleiten und Leiten von Einzel- und Gruppenaktivitäten sowie anwenden von komplementärmedizinischen Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen inklusive externer Ansprechpersonen\n• Leistungserfassung gemäss Vorgaben sowie elektronische Dokumentation mittels ORBIS NICE\n\nEintritt: 01. Juli 2026",
+        "it": "Attraktive Aufgaben\n\n• Fallführende Betreuung der Patientinnen und Patienten im tagesklinischen Setting im Bezugspersonenprinzip mit Schwerpunkten der Beziehungsgestaltung sowie Ressourcenorientierung\n• Begleiten und Leiten von Einzel- und Gruppenaktivitäten sowie anwenden von komplementärmedizinischen Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen inklusive externer Ansprechpersonen\n• Leistungserfassung gemäss Vorgaben sowie elektronische Dokumentation mittels ORBIS NICE\n\nEintritt: 01. Juli 2026",
+        "en": "Attraktive Aufgaben\n\n• Fallführende Betreuung der Patientinnen und Patienten im tagesklinischen Setting im Bezugspersonenprinzip mit Schwerpunkten der Beziehungsgestaltung sowie Ressourcenorientierung\n• Begleiten und Leiten von Einzel- und Gruppenaktivitäten sowie anwenden von komplementärmedizinischen Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen inklusive externer Ansprechpersonen\n• Leistungserfassung gemäss Vorgaben sowie elektronische Dokumentation mittels ORBIS NICE\n\nEintritt: 01. Juli 2026",
+        "fr": "Attraktive Aufgaben\n\n• Fallführende Betreuung der Patientinnen und Patienten im tagesklinischen Setting im Bezugspersonenprinzip mit Schwerpunkten der Beziehungsgestaltung sowie Ressourcenorientierung\n• Begleiten und Leiten von Einzel- und Gruppenaktivitäten sowie anwenden von komplementärmedizinischen Methoden\n• Enge und transparente Zusammenarbeit mit allen an der Behandlung beteiligten Fachpersonen inklusive externer Ansprechpersonen\n• Leistungserfassung gemäss Vorgaben sowie elektronische Dokumentation mittels ORBIS NICE\n\nEintritt: 01. Juli 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Psychiatrisches Zentrum AR, Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4011271",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T14:15:01.072Z",
+      "addressLocality": "Psychiatrisches Zentrum AR",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4011271",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4011271",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T14:15:01.072Z"
     }
   ]
 }
