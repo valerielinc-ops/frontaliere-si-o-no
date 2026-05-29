@@ -6,7 +6,7 @@
       "id": "sobi-cad47883c5e1",
       "slug": "msat-technical-lead-sostanze-stupefacenti-biologics-sobi-basel",
       "slugByLocale": {
-        "it": "msat-responsabile-tecnico-sostanza-farmaceutica-biologici-sobi-basel",
+        "it": "msat-technical-lead-sostanze-stupefacenti-biologics-sobi-basel",
         "en": "msat-technical-lead-drug-substance-biologics-sobi-basel",
         "de": "msat-technischer-leiter-arzneimittel-biologika-sobi-basel",
         "fr": "responsable-technique-msat-substance-medicinale-biologiques-sobi-basel"
@@ -74,11 +74,12 @@
       },
       "previousSlugs": [
         "msat-technical-lead-drug-substance-biologics-sobi-basel",
-        "msat-technical-lead-sostanze-stupefacenti-biologics-sobi-basel"
+        "msat-responsabile-tecnico-sostanza-farmaceutica-biologici-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "msat-technical-lead-drug-substance-biologics-sobi-basel"
+          "msat-technical-lead-drug-substance-biologics-sobi-basel",
+          "msat-responsabile-tecnico-sostanza-farmaceutica-biologici-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.372Z",
@@ -176,8 +177,7 @@
         ]
       },
       "previousSlugs": [
-        "it-operations-manager-full-stack-developer-azure-ai-sobi-basel",
-        "it-operations-manager-full-stack-sviluppatore-azure-ai-sobi-basel"
+        "it-operations-manager-full-stack-developer-azure-ai-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -309,7 +309,7 @@
       "id": "sobi-4afd5fdb19bb",
       "slug": "gestione-dei-dati-global-manufacturing-supply-sobi-basel",
       "slugByLocale": {
-        "it": "manager-dei-dati-per-la-produzione-e-fornitura-globale-sobi-basel",
+        "it": "gestione-dei-dati-global-manufacturing-supply-sobi-basel",
         "en": "data-manager-global-manufacturing-supply-sobi-basel",
         "de": "globaler-datenmanager-fur-produktion-und-lieferung-sobi-basel",
         "fr": "responsable-des-donnees-pour-la-production-et-l-approvisionnement-mondial-sobi-basel"
@@ -382,11 +382,12 @@
       },
       "previousSlugs": [
         "data-manager-global-manufacturing-supply-sobi-basel",
-        "gestione-dei-dati-global-manufacturing-supply-sobi-basel"
+        "manager-dei-dati-per-la-produzione-e-fornitura-globale-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-manager-global-manufacturing-supply-sobi-basel"
+          "data-manager-global-manufacturing-supply-sobi-basel",
+          "manager-dei-dati-per-la-produzione-e-fornitura-globale-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.376Z",
@@ -760,8 +761,7 @@
       },
       "previousSlugs": [
         "european-supply-chain-associate-director-6-months-contract-sobi-basel",
-        "europaischer-supply-chain-associate-director-6-monatiger-vertrag-sobi-basel",
-        "european-supply-chain-associate-direttore-6-months-contract-sobi-basel"
+        "europaischer-supply-chain-associate-director-6-monatiger-vertrag-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -788,12 +788,12 @@
     },
     {
       "id": "sobi-0e75fe395780",
-      "slug": "director-of-information-security-governance-compliance-sobi-basel",
+      "slug": "direttore-della-governance-e-conformita-della-sicurezza-dell-informazione-sobi-basel",
       "slugByLocale": {
         "en": "director-of-information-security-governance-compliance-sobi-basel",
-        "it": "director-of-information-security-governance-compliance-sobi-basel",
+        "it": "direttore-della-governance-e-conformita-della-sicurezza-dell-informazione-sobi-basel",
         "de": "director-of-information-security-governance-compliance-sobi-basel",
-        "fr": "director-of-information-security-governance-compliance-sobi-basel"
+        "fr": "directeur-securite-de-l-information-gouvernance-et-conformite-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -849,7 +849,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-29T13:54:30.852Z"
+      "firstSeenAt": "2026-05-29T13:54:30.852Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-of-information-security-governance-compliance-sobi-basel"
+        ],
+        "fr": [
+          "director-of-information-security-governance-compliance-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-information-security-governance-compliance-sobi-basel"
+      ]
     }
   ]
 }

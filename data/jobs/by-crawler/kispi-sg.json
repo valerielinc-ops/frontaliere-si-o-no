@@ -112,7 +112,7 @@
         "it": "infermiere-a-per-cure-palliative-pediatriche-e-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
         "en": "nurse-for-pediatric-palliative-and-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
         "de": "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
-        "fr": "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
+        "fr": "infirmiere-specialisee-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -190,10 +190,14 @@
         ],
         "it": [
           "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
+        ],
+        "fr": [
+          "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
+        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen",
+        "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T21:00:04.190Z",
       "salaryMin": 49500,
@@ -433,9 +437,9 @@
       "slug": "direttore-a-medico-pediatratico-riabilitazione-e-intervento-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "it": "direttore-a-medico-pediatratico-riabilitazione-e-intervento-80-100-ostschweizer-kinderspital-st-gallen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st",
         "de": "oberarztin-oberarzt-padiatrische-rehabilitation-und-intervention-80-100-ostschweizer-kinderspital-st-gallen",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -535,8 +539,10 @@
         "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-ostschweizer-kinderspital-st-gallen",
         "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st-gallen",
+        "emergency-medical-technician-in-training-see-spital-horgen",
         "medecin-chef-rehabilitation-et-intervention-pediatrique-80-100-ostschweizer-kinderspital-st-gallen",
-        "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st-gallen"
+        "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st-gallen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-19T21:00:00.972Z",
       "salaryMin": 68000,
@@ -984,7 +990,7 @@
       "slug": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "it": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
-        "en": "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
+        "en": "intensive-care-pediatrics-neonatology-director-80-100-ostschweizer-kinderspital-st",
         "de": "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
         "fr": "directrice-directeur-intensiv-pediatrie-et-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
       },
@@ -1068,12 +1074,16 @@
         ],
         "fr": [
           "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
         "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
-        "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
+        "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
+        "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:55.416Z",
       "salaryMin": 68000,

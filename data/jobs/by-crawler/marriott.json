@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
         "en": "agent-as-agent-receptionist-fromy-night-inter-inter-26-27-ver-marriott-international-verbier",
-        "de": "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
+        "de": "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "agent-d-accueil-receptionniste-jour-et-nuit-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -61,12 +61,11 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
           "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
-        "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier"
+        "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-28T22:16:13.089Z",
       "salaryMin": 49500,
@@ -87,7 +86,7 @@
       "id": "marriott-42c22aa8b3ba",
       "slug": "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier",
+        "it": "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
         "de": "agent-gastbeziehungen-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier"
@@ -142,11 +141,12 @@
       },
       "previousSlugs": [
         "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
-        "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier"
+        "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier"
+          "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
+          "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.090Z",
@@ -323,9 +323,9 @@
       "id": "marriott-ff0d7ee52edf",
       "slug": "cameriere-ristorante-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "internship-universitario-europa-marriott-international-zurich",
+        "it": "cameriere-ristorante-w-verbier-marriott-international-verbier",
         "en": "university-intern-europe-marriott-zurich",
-        "de": "universitatsinternship-europa-marriott-international-zurich",
+        "de": "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier",
         "fr": "waiter-tress-restaurant-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -381,10 +381,11 @@
           "waiter-tress-restaurant-w-verbier-marriott-verbier"
         ],
         "it": [
-          "waiter-tress-restaurant-w-verbier-marriott-verbier"
+          "waiter-tress-restaurant-w-verbier-marriott-verbier",
+          "internship-universitario-europa-marriott-international-zurich"
         ],
         "de": [
-          "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier"
+          "universitatsinternship-europa-marriott-international-zurich"
         ],
         "fr": [
           "stage-universitaire-europe-marriott-international-zurich"
@@ -392,10 +393,9 @@
       },
       "previousSlugs": [
         "waiter-tress-restaurant-w-verbier-marriott-verbier",
-        "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier",
-        "stage-universitaire-europe-marriott-international-zurich",
-        "cameriere-ristorante-w-verbier-marriott-international-verbier",
-        "waiter-tress-restaurant-w-verbier-marriott-international-verbier"
+        "internship-universitario-europa-marriott-international-zurich",
+        "universitatsinternship-europa-marriott-international-zurich",
+        "stage-universitaire-europe-marriott-international-zurich"
       ],
       "firstSeenAt": "2026-04-30T22:11:20.522Z",
       "salaryMin": 49500,
@@ -416,10 +416,10 @@
       "id": "marriott-60e874aa2d93",
       "slug": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "responsabile-revenue-management-marriott-international-geneva",
+        "it": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "revenue-manager-marriott-geneva",
         "de": "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "responsable-revenue-management-marriott-international-geneva"
+        "fr": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -475,29 +475,29 @@
         ],
         "it": [
           "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
-          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+          "responsabile-revenue-management-marriott-international-geneva"
         ],
         "de": [
           "umsatzmanager-marriott-international-geneva"
         ],
         "fr": [
-          "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
+          "responsable-revenue-management-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
-        "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
+        "responsable-revenue-management-marriott-international-geneva",
         "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-tress-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "garcon-mere-matin-hiver-26-27-w-verbier-marriott-international-verbier",
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
-        "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
-        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
-        "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier"
+        "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.158Z",
       "salaryMin": 49500,
@@ -601,10 +601,10 @@
       "id": "marriott-f62411fe05ac",
       "slug": "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier",
+        "it": "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier",
         "en": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
         "de": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-        "fr": "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
+        "fr": "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -656,15 +656,16 @@
       },
       "previousSlugs": [
         "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-        "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier",
-        "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier"
+        "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier",
+        "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier"
+          "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
+          "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier"
         ],
         "fr": [
-          "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier"
+          "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.156Z",
@@ -779,7 +780,6 @@
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
         "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-tress-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "garcon-mere-matin-hiver-26-27-w-verbier-marriott-international-verbier",
@@ -817,7 +817,7 @@
       "slugByLocale": {
         "it": "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "en": "housekeeping-supervisor-intern-marriott-international-geneva",
-        "de": "praktikant-hausdienstleiter-marriott-international-geneva",
+        "de": "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
         "fr": "stagiaire-superviseur-housekeeping-marriott-geneva"
       },
       "company": "Marriott International",
@@ -888,7 +888,6 @@
         ],
         "de": [
           "praktikant-housekeeping-supervisor-marriott-international-geneva",
-          "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
           "praktikant-hausdienstleiter-marriott-international-geneva"
         ]
       },
@@ -896,7 +895,7 @@
         "stagiaire-superviseur-housekeeping-marriott-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
         "praktikant-housekeeping-supervisor-marriott-international-geneva",
-        "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
+        "praktikant-hausdienstleiter-marriott-international-geneva",
         "storekeeper-winter-26-27-w-verbier-marriott-verbier",
         "sushiman-winter-26-27-w-verbier-marriott-verbier",
         "concierge-hiver-26-27-w-verbier-marriott-international-verbier",
@@ -1122,9 +1121,9 @@
       "id": "marriott-5774481b9f11",
       "slug": "stagiaire-patisse-marriott-international-geneva",
       "slugByLocale": {
-        "it": "stagista-reception-marriott-international-geneva",
+        "it": "stagiaire-patisse-marriott-international-geneva",
         "en": "reception-trainee-marriott-international-geneva",
-        "de": "praktikant-rezeption-marriott-international-geneva",
+        "de": "interne-pastete-marriott-international-geneva",
         "fr": "stagiaire-patisserie-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1180,10 +1179,11 @@
           "stagiaire-patisserie-marriott-geneva"
         ],
         "it": [
-          "stagiaire-patisserie-marriott-geneva"
+          "stagiaire-patisserie-marriott-geneva",
+          "stagista-reception-marriott-international-geneva"
         ],
         "de": [
-          "interne-pastete-marriott-international-geneva"
+          "praktikant-rezeption-marriott-international-geneva"
         ],
         "fr": [
           "stagiaire-reception-marriott-geneva"
@@ -1191,10 +1191,9 @@
       },
       "previousSlugs": [
         "stagiaire-patisserie-marriott-geneva",
-        "interne-pastete-marriott-international-geneva",
-        "stagiaire-reception-marriott-geneva",
-        "stagiaire-patisse-marriott-international-geneva",
-        "stagiaire-patisserie-marriott-international-geneva"
+        "stagista-reception-marriott-international-geneva",
+        "praktikant-rezeption-marriott-international-geneva",
+        "stagiaire-reception-marriott-geneva"
       ],
       "firstSeenAt": "2026-05-06T22:21:00.982Z",
       "salaryMin": 47658,
@@ -1281,16 +1280,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "previousSlugs": [
-        "marketing-stagiaire-marriott-international-geneva"
-      ]
+      "addressRegion": "GE"
     },
     {
       "id": "marriott-19feab2c2379",
       "slug": "tirocinante-m-club-lounge-marriott-international-geneva",
       "slugByLocale": {
-        "it": "stagista-mclub-lounge-marriott-international-geneva",
+        "it": "tirocinante-m-club-lounge-marriott-international-geneva",
         "en": "mclub-lounge-intern-marriott-international-geneva",
         "de": "mclub-lounge-praktikant-marriott-international-geneva",
         "fr": "stagiaire-mclub-lounge-marriott-geneva"
@@ -1348,12 +1344,13 @@
           "stagiaire-mclub-lounge-marriott-geneva"
         ],
         "it": [
-          "stagiaire-mclub-lounge-marriott-geneva"
+          "stagiaire-mclub-lounge-marriott-geneva",
+          "stagista-mclub-lounge-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
         "stagiaire-mclub-lounge-marriott-geneva",
-        "tirocinante-m-club-lounge-marriott-international-geneva"
+        "stagista-mclub-lounge-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
       "salaryMin": 47658,
@@ -1461,7 +1458,7 @@
       "slugByLocale": {
         "it": "tirocinante-finanza-marriott-international-geneva",
         "en": "finance-intern-marriott-international-geneva",
-        "de": "finanzpraktikant-marriott-international-geneva",
+        "de": "stagiaire-finanzen-marriott-international-geneva",
         "fr": "stagiaire-finance-marriott-geneva"
       },
       "company": "Marriott International",
@@ -1543,13 +1540,12 @@
           "stagiaire-finance-marriott-geneva"
         ],
         "de": [
-          "stagiaire-finanzen-marriott-international-geneva",
           "finanzpraktikant-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
         "stagiaire-finance-marriott-geneva",
-        "stagiaire-finanzen-marriott-international-geneva"
+        "finanzpraktikant-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
       "salaryMin": 59500,
@@ -1651,9 +1647,9 @@
       "id": "marriott-da07a119cc99",
       "slug": "supervisore-ristorante-marriott-international-geneva",
       "slugByLocale": {
-        "it": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+        "it": "supervisore-ristorante-marriott-international-geneva",
         "en": "amb-as-ambassador-bellbo-inter-inter-26-27-ver-marriott-international-verbier",
-        "de": "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
+        "de": "restaurant-vorgesetzter-marriott-international-geneva",
         "fr": "restaurant-supervisor-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1709,10 +1705,11 @@
           "restaurant-supervisor-marriott-geneva"
         ],
         "it": [
-          "restaurant-supervisor-marriott-geneva"
+          "restaurant-supervisor-marriott-geneva",
+          "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
-          "restaurant-vorgesetzter-marriott-international-geneva"
+          "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -1720,16 +1717,15 @@
       },
       "previousSlugs": [
         "restaurant-supervisor-marriott-geneva",
-        "restaurant-vorgesetzter-marriott-international-geneva",
+        "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+        "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
         "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier",
         "supervisore-f-b-marriott-international-geneva",
         "supervisor-f-b-marriott-international-geneva",
         "aufsichtsbehorde-f-b-marriott-international-geneva",
         "superviseur-f-b-marriott-international-geneva",
         "supervisor-f-b-marriott-geneva",
-        "vorgesetzter-f-b-marriott-international-geneva",
-        "supervisore-ristorante-marriott-international-geneva",
-        "restaurant-supervisor-marriott-international-geneva"
+        "vorgesetzter-f-b-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-21T23:10:23.782Z",
       "salaryMin": 49500,
@@ -2169,9 +2165,7 @@
         "bar-supervisore-long-term-w-verbier-marriott-international-verbier",
         "bar-supervisor-long-term-w-verbier-marriott-verbier",
         "superviseur-de-bar-long-terme-w-verbier-marriott-international-verbier",
-        "bar-supervisor-lungo-termine-w-verbier-marriott-international-verbier",
-        "maitre-d-venue-supervisore-long-term-w-verbier-marriott-international-verbier",
-        "maitre-d-venue-supervisor-long-term-w-verbier-marriott-international-verbier"
+        "bar-supervisor-lungo-termine-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T22:11:20.500Z",
       "salaryMin": 49500,
@@ -2590,7 +2584,6 @@
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
         "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "esperienza-degli-ospiti-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2821,7 +2814,7 @@
       "id": "marriott-8efd5184da21",
       "slug": "equipisodio-marriott-international-geneva",
       "slugByLocale": {
-        "it": "equipier-marriott-geneva",
+        "it": "equipisodio-marriott-international-geneva",
         "en": "equipier-marriott-international-geneva",
         "de": "ausruster-marriott-international-geneva",
         "fr": "equipement-marriott-international-geneva"
@@ -2880,16 +2873,16 @@
         ],
         "fr": [
           "equipier-marriott-geneva"
+        ],
+        "it": [
+          "equipier-marriott-geneva"
         ]
       },
       "previousSlugs": [
         "equipier-marriott-geneva",
         "gruppi-commerciali-di-coordinamento-marriott-international-geneva",
         "coordinateur-commercial-groupes-marriott-geneva",
-        "handelskoordinatorgruppen-marriott-international-geneva",
-        "equipisodio-marriott-international-geneva",
-        "ausruster-marriott-international-geneva",
-        "equipement-marriott-international-geneva"
+        "handelskoordinatorgruppen-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-28T13:25:12.837Z",
       "salaryMin": 49500,
@@ -3230,8 +3223,8 @@
       "slugByLocale": {
         "it": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
-        "de": "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "fr": "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        "de": "oberkellner-marriott-international-geneva",
+        "fr": "cheffe-de-rang-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3283,15 +3276,12 @@
       },
       "previousSlugs": [
         "chef-de-rang-marriott-geneva",
-        "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
-        "oberkellner-marriott-international-geneva",
-        "cheffe-de-rang-marriott-international-geneva-4c4e34",
-        "cheffe-de-rang-marriott-international-geneva",
-        "chef-de-partie-marriott-international-geneva",
-        "kuchenhilfskraft-marriott-international-geneva",
         "chef-de-rang-marriott-international-geneva",
         "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
+        "cheffe-de-rang-marriott-international-geneva-4c4e34",
+        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier",
+        "chef-de-partie-marriott-international-geneva",
+        "kuchenhilfskraft-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3299,16 +3289,13 @@
         ],
         "en": [
           "chef-de-rang-marriott-geneva",
-          "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
           "chef-de-rang-marriott-international-geneva"
         ],
         "de": [
-          "oberkellner-marriott-international-geneva",
           "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "cheffe-de-rang-marriott-international-geneva-4c4e34",
-          "cheffe-de-rang-marriott-international-geneva",
           "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
         ]
       },
@@ -3583,12 +3570,12 @@
     },
     {
       "id": "marriott-cafe555a4453",
-      "slug": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slug": "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva",
       "slugByLocale": {
         "en": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
-        "it": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
-        "fr": "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier",
-        "de": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
+        "it": "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva",
+        "fr": "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva",
+        "de": "auszubildende-cfc-cuisine-1-jahr-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3642,18 +3629,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva"
+          "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva",
+          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "en": [
           "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva"
         ],
         "fr": [
-          "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva"
+          "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
+          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
         "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva",
-        "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva"
+        "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
+        "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
