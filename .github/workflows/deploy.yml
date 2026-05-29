@@ -77,6 +77,11 @@ on:
         required: false
         type: boolean
         default: false
+      publish_branch_test:
+        description: 'EXPERIMENT (reversible): after build, orphan force-push dist/ to the `gh-pages-test` branch instead of (not in addition to) the normal artifact deploy. Validates whether a ~13 GB site survives a git push to GitHub — the prerequisite for switching off the actions/deploy-pages path (10-min artifact-polling cap that has failed every recent deploy). Does NOT touch the live Pages source or the production gh-pages branch; nothing is published. Off by default.'
+        required: false
+        type: boolean
+        default: false
       parallel_plugins:
         description: 'Force parallel closeBundle even when profile_sequential=true. Default (off) means parallel for production, sequential only for clean profile dispatch runs. Set this to true when you want to dispatch a profile run AND keep the parallel scheduling — useful for measuring parallel build behavior without cron-storm cancellation.'
         required: false
@@ -128,6 +133,16 @@ jobs:
     concurrency:
       group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
       cancel-in-progress: false
+    # contents: write is needed only by the opt-in publish_branch_test step
+    # (orphan force-push of dist/ to gh-pages-test). Mirrors the workflow-level
+    # block otherwise; the bump from read→write also lets the existing
+    # dist-history `git push origin HEAD:main` land (it had been failing on
+    # the inherited contents:read).
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+      issues: write
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
@@ -869,6 +884,38 @@ jobs:
             esac
           done
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
+
+      # ┌────────────────────────────────────────────────────────────────┐
+      # │ EXPERIMENT (opt-in, reversible) — branch-based publish viability │
+      # │ The actions/deploy-pages path caps Pages status-polling at 10    │
+      # │ min; with a ~13 GB dist (1.53 GB artifact) every recent deploy   │
+      # │ hit "Timeout reached, aborting!" → 0/100 runs published. Legacy  │
+      # │ "deploy from branch" has no such artifact-polling cap. Before    │
+      # │ switching the production Pages source we must confirm GitHub     │
+      # │ even ACCEPTS a 13 GB git push. This step force-pushes dist/ as a │
+      # │ single orphan commit to `gh-pages-test` (a throwaway branch) —   │
+      # │ `git init` inside dist/ keeps it a standalone tree, so the main  │
+      # │ repo history is NOT bloated and nothing is published (Pages      │
+      # │ source is untouched). Read the wall time + exit status to decide.│
+      # └────────────────────────────────────────────────────────────────┘
+      - name: "[experiment] Orphan force-push dist/ to gh-pages-test"
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_branch_test == true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "dist size: $(du -sh dist | cut -f1), files: $(find dist -type f | wc -l)"
+          cd dist
+          touch .nojekyll
+          git init -q
+          git checkout -q -b gh-pages-test
+          git config user.email "deploy-bot@frontaliereticino.ch"
+          git config user.name "deploy-bot"
+          git add -A
+          git commit -qm "experiment: branch-based publish ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          echo "Pushing $(du -sh . | cut -f1) as a single orphan commit to gh-pages-test..."
+          time git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-test
+          echo "✅ 13 GB branch push SUCCEEDED — legacy branch-based Pages deploy is viable"
 
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
