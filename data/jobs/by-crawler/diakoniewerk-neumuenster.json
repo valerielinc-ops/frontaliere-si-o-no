@@ -1,81 +1,7 @@
 {
   "crawlerKey": "diakoniewerk-neumuenster",
-  "assembledAt": "2026-05-28T22:52:32.639Z",
+  "assembledAt": "2026-05-29T12:13:33.747Z",
   "jobs": [
-    {
-      "id": "diakoniewerk-neumuenster-f77902dea3a3",
-      "slug": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
-      "slugByLocale": {
-        "it": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
-        "en": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg",
-        "de": "praktikantin-praktikanten-pflege-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
-        "fr": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
-      },
-      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
-      "companyKey": "diakoniewerk-neumuenster",
-      "companyDomain": "diakoniewerk-neumuenster.ch",
-      "title": "Praktikantin / Praktikanten Pflege",
-      "titleByLocale": {
-        "it": "Interni / Interni",
-        "en": "Praktikantin / Praktikanten Pflege",
-        "de": "Praktikantin / Praktikanten Pflege",
-        "fr": "Praktikantin / Praktikanten Pflege"
-      },
-      "description": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-      "descriptionByLocale": {
-        "it": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "en": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "de": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
-        "fr": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
-      },
-      "needsRetranslation": true,
-      "location": "Zollikerberg",
-      "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=64018acb-f2a7-4335-8999-5a3f73b9edba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.835Z",
-      "addressLocality": "Zollikerberg",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8125",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=64018acb-f2a7-4335-8999-5a3f73b9edba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
-        ],
-        "it": [
-          "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
-        ]
-      },
-      "previousSlugs": [
-        "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
-      ],
-      "firstSeenAt": "2026-05-19T15:19:47.620Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "diakoniewerk-neumuenster-6e0bf596c162",
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-in-der-chirurgie-e-gynakologie-mitarbeitende-im-fokus-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
@@ -108,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=f5ac99b2-11cd-46a7-b9f8-67d6d79c6ffd,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.835Z",
+      "crawledAt": "2026-05-29T12:13:31.630Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,6 +59,80 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-in-der-chirurgie-und-gynakologie-mitarbeitende-im"
         ]
       },
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "diakoniewerk-neumuenster-f77902dea3a3",
+      "slug": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
+      "slugByLocale": {
+        "it": "interni-interni-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
+        "en": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg",
+        "de": "praktikantin-praktikanten-pflege-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg-zollikerberg",
+        "fr": "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+      },
+      "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
+      "companyKey": "diakoniewerk-neumuenster",
+      "companyDomain": "diakoniewerk-neumuenster.ch",
+      "title": "Praktikantin / Praktikanten Pflege",
+      "titleByLocale": {
+        "it": "Interni / Interni",
+        "en": "Praktikantin / Praktikanten Pflege",
+        "de": "Praktikantin / Praktikanten Pflege",
+        "fr": "Praktikantin / Praktikanten Pflege"
+      },
+      "description": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+      "descriptionByLocale": {
+        "it": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "en": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "de": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "fr": "Praktikantin / Praktikanten Pflege bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
+      },
+      "needsRetranslation": true,
+      "location": "Zollikerberg",
+      "canton": "ZH",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=64018acb-f2a7-4335-8999-5a3f73b9edba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T12:13:31.629Z",
+      "addressLocality": "Zollikerberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8125",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=64018acb-f2a7-4335-8999-5a3f73b9edba,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "it": [
+          "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikanten-pflege-diakoniewerk-neumuenster-zollikerberg"
+      ],
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -179,7 +179,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=ceceea24-85c3-4265-b536-bb51de29cddb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.834Z",
+      "crawledAt": "2026-05-29T12:13:31.628Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,6 +196,14 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=ceceea24-85c3-4265-b536-bb51de29cddb,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -208,15 +216,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
-        ]
-      },
-      "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
-      ]
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-7f53d7190894",
@@ -250,7 +250,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.834Z",
+      "crawledAt": "2026-05-29T12:13:31.628Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,6 +267,17 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=663cbb24-8559-4ade-997b-4d097b458334,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+        ],
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+      ],
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -279,15 +290,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
-      ]
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-10fe896798df",
@@ -321,7 +324,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c609205f-827d-43a0-9075-c8071d2bd04f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.834Z",
+      "crawledAt": "2026-05-29T12:13:31.628Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,6 +341,14 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=c609205f-827d-43a0-9075-c8071d2bd04f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
+        ]
+      },
       "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -350,23 +361,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
-        ]
-      },
-      "previousSlugs": [
-        "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
-      ]
+      }
     },
     {
       "id": "diakoniewerk-neumuenster-a52740ff39ee",
-      "slug": "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
-        "it": "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg"
       },
       "company": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) — Spital Zollikerberg",
@@ -374,16 +377,16 @@
       "companyDomain": "diakoniewerk-neumuenster.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
-        "it": "Infermiere dipl./Infermiere dipl. Nefrologia",
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie"
       },
       "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster.",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie bei Spital Zollikerberg (Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)), Zollikerberg (8125, ZH). Kategorie: Pflegeberufe. Bewerbung über das PI-ASP-Karriereportal von Stiftung Diakoniewerk Neumünster."
       },
       "needsRetranslation": true,
@@ -392,7 +395,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg) Dedicated Parser (Custom HTML — PI-ASP)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:52:30.832Z",
+      "crawledAt": "2026-05-29T12:13:31.626Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -408,19 +411,19 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=50be559c-df7c-42b5-8777-e2cdd522bb55,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
+        "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
+          "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
           "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
-      ],
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -432,8 +435,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      }
     }
   ]
 }
