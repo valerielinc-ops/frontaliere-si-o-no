@@ -72,34 +72,18 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          labels=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels --jq '[.labels[].name] | join(",")')
+          labels_json=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels --jq '[.labels[].name]')
           state=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json state --jq '.state')
           title="$ISSUE_TITLE"
-          echo "Issue #$ISSUE_NUMBER state=$state labels=[$labels] title=$title"
+          echo "Issue #$ISSUE_NUMBER state=$state labels=$labels_json title=$title"
 
-          # label match esatto, case-insensitive (lista comma-joined)
-          has() { printf ',%s,' "$labels" | grep -qiF ",$1,"; }
-          titmatch() { printf '%s' "$title" | grep -qiE "$1"; }
-
-          # --- Classificazione (ordine = priorità conservativa) ---------------
-          # revenue/tracker PER PRIMI: non devono MAI ricevere agent:fix.
-          # Categorie/segnali da ISSUES.md → "Categorie".
-          cat=other
-          autofix=false
-          if has "revenue" || has "rpm-canary" || titmatch 'RPM canary|\bRPM\b'; then
-            cat=revenue
-          elif titmatch 'master tracker|recovery'; then
-            cat=tracker
-          elif titmatch 'Crawler Failure|crawler-health' || { has "priority:high" && titmatch 'crawler|parser'; }; then
-            cat=crawler; autofix=true
-          elif titmatch '^follow-up\(#' || has "follow-up"; then
-            cat=follow-up; autofix=true
-          elif titmatch 'Validation Failure' || { has "bug" && has "priority:urgent"; }; then
-            # NO autofix: transient-vs-persistent non è decidibile in modo
-            # deterministico (spesso transiente). Resta a mano; le recurrence 🔁
-            # del source-dedup rendono visibile la persistenza all'owner.
-            cat=validation-failure
-          fi
+          # Classificazione in modulo node testabile (scripts/lib/classify-issue.mjs):
+          # regex JS portabile (no grep GNU `\b`) + label come array (no bug se un
+          # nome contiene virgola). Test: tests/classify-issue.test.ts.
+          decision=$(node scripts/lib/classify-issue.mjs "$title" "$labels_json")
+          echo "decision=$decision"
+          cat=$(node -e "process.stdout.write(JSON.parse(process.argv[1]).category)" "$decision")
+          autofix=$(node -e "process.stdout.write(String(JSON.parse(process.argv[1]).autofix===true))" "$decision")
           echo "category=$cat autofix=$autofix"
 
           # --- Label anti-loop sempre (GITHUB_TOKEN: non deve triggerare nulla) ---
@@ -130,4 +114,8 @@ jobs:
             echo "::warning::GITHUB_PAT assente → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix)."; exit 0
           fi
           echo "Applico agent:fix via PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
-          GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix"
+          # Non-fatal: se il PAT manca dei permessi issues:write o la label non
+          # esiste, NON rompere il triage (già completato: triaged + commento) —
+          # emetti warning visibile (routing inerte da indagare).
+          GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
+            || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage comunque completato."

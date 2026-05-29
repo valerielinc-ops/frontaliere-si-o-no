@@ -919,7 +919,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure (build): ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --title "CI Failure (build): ${{ github.workflow }}" \
             --description "## Build fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
@@ -1102,7 +1102,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure (deploy): ${{ github.workflow }} — run ${{ github.run_number }}" \
+            --title "CI Failure (deploy): ${{ github.workflow }}" \
             --description "## Deploy fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Branch:** ${{ github.ref_name }}
@@ -1451,7 +1451,7 @@ jobs:
           **Validation run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           fi
           node scripts/lib/github-issue-creator.mjs \
-            --title "Rollback: post-deploy — run ${{ github.run_number }}" \
+            --title "Rollback: post-deploy" \
             --description "$MSG" \
             --priority 1 \
             --label Bug \

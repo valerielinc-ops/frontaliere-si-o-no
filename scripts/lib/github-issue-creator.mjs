@@ -89,7 +89,13 @@ function findOpenIssueByTitlePrefix(titlePrefix) {
   if (!out) return null;
   try {
     const issues = JSON.parse(out);
-    return issues[0] || null;
+    // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
+    // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
+    // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
+    // entrambi comparire. Filtra al match esatto di prefisso → niente commento
+    // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
+    const exact = issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
+    return exact[0] || null;
   } catch {
     return null;
   }

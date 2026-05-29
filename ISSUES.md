@@ -13,7 +13,7 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 | Categoria | Segnale (titolo/label) | Natura |
 |---|---|---|
 | `validation-failure` | "Validation Failure (dist\|live)", label `bug`+`priority:urgent` | alert post-deploy, spesso dupe/transiente |
-| `crawler` | "Crawler Failure", "[crawler-health] ...broken", label `priority:high` | selector drift, parser da rigenerare |
+| `crawler` | "Crawler Failure", "[crawler-health]", "[parser-health]", label `parser-broken` o `priority:high`+crawler/parser | selector drift, parser da rigenerare |
 | `follow-up` | "follow-up(#NNN)", label `follow-up` | micro-task / verifica deferred |
 | `revenue` | label `revenue` / `rpm-canary`, "RPM canary" | monetizzazione, strategico |
 | `tracker` | "master tracker", "recovery", senza label automation | piano umano multi-step |
