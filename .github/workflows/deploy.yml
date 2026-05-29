@@ -984,6 +984,17 @@ jobs:
   # `pages-deploy` concurrency group so build+deploy together hold the
   # serial Pages lock for the upload+publish sequence — but each job
   # individually rilascia la lock when complete.
+  #
+  # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
+  # (~13 GB / ~470k files) actions/deploy-pages aborts at its 10-min polling
+  # cap, so this job goes RED even though GitHub Pages often finishes the
+  # publish server-side afterwards. Because validate-live / publish are gated
+  # on `needs: deploy` + success(), a red deploy means the post-deploy steps
+  # (Google Indexing API + IndexNow + GSC, previous-slug-winners sync, and
+  # last_known_good marking) NEVER run. Branch-based deploy was tried and
+  # reverted (#966 → #986: the legacy branch build fails outright on 13 GB).
+  # The real fix lives in #987 (server-side extended polling and/or reducing
+  # deploy congestion), NOT in reducing site size or changing host.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
     needs: build
