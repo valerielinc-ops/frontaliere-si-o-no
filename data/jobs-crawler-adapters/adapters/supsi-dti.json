@@ -13,16 +13,8 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-05-29T00:52:23.186Z",
+  "updatedAt": "2026-05-29T14:14:38.251Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_4004",
-    "https://www.supsi.ch/bando26_9001",
-    "https://www.supsi.ch/bando26_4005",
-    "https://www.supsi.ch/bando26_4006",
-    "https://www.supsi.ch/bando26_2006",
-    "https://www.supsi.ch/bando26_1013",
-    "https://www.supsi.ch/dottorando/a-in-esperienze-interattive-adattive-in-contesti-multimodali-supsi-26_5024-",
-    "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando26_1011",
     "https://www.supsi.ch/bando26_1012",
     "https://www.supsi.ch/bando26_1010",
@@ -30,82 +22,9 @@
     "https://www.supsi.ch/bando26_1009",
     "https://www.supsi.ch/bando26_2004",
     "https://www.supsi.ch/bando26_2005",
-    "https://www.supsi.ch/bando26_5020",
-    "https://www.supsi.ch/bando26_5021",
-    "https://www.supsi.ch/bando26_5022",
-    "https://www.supsi.ch/bando26_5023",
-    "https://www.supsi.ch/bando26_4001"
+    "https://www.supsi.ch/bando26_5020"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_4004": {
-      "location": "Direzione SUPSI",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-05-29"
-    },
-    "https://www.supsi.ch/bando26_9001": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-05-31"
-    },
-    "https://www.supsi.ch/bando26_4005": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-06-01"
-    },
-    "https://www.supsi.ch/bando26_4006": {
-      "location": "Servizi amministrativi SUPSI",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-06-02"
-    },
-    "https://www.supsi.ch/bando26_2006": {
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-06-14"
-    },
-    "https://www.supsi.ch/bando26_1013": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-06-14"
-    },
-    "https://www.supsi.ch/dottorando/a-in-esperienze-interattive-adattive-in-contesti-multimodali-supsi-26_5024-": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-06-14"
-    },
-    "https://www.supsi.ch/bando26_1008": {
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-06-26"
-    },
     "https://www.supsi.ch/bando26_1011": {
       "location": "Mendrisio",
       "canton": "TI",
@@ -176,41 +95,6 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_5021": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_5022": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_5023": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Part-time",
-      "expiresAt": "2026-08-31"
-    },
-    "https://www.supsi.ch/bando26_4001": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "expiresAt": "2026-12-31"
     }
   }
 }
