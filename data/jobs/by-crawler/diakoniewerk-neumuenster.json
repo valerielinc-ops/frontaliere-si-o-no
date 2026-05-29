@@ -149,9 +149,9 @@
     },
     {
       "id": "diakoniewerk-neumuenster-1ecb3c6f1207",
-      "slug": "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "esperta-infermieristica-esperto-infermieristico-apn-geriatria-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
       "slugByLocale": {
-        "it": "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg",
+        "it": "esperta-infermieristica-esperto-infermieristico-apn-geriatria-diakoniewerk-neumunster-gesundheitswelt-zollikerberg",
         "en": "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "de": "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg",
         "fr": "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
@@ -208,13 +208,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-geriatrie-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-7f53d7190894",
-      "slug": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
+      "slug": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
+        "it": "specialista-in-salute-reparto-privato-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "fr": "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
@@ -271,13 +279,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-2-diakoniewerk-neumuenster-zollikerberg"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-10fe896798df",
-      "slug": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk",
+      "slug": "capo-reparto-reparto-privato-nell-ospedale-di-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
       "slugByLocale": {
-        "it": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk",
+        "it": "capo-reparto-reparto-privato-nell-ospedale-di-zollikerberg-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "en": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk",
         "de": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk",
         "fr": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
@@ -334,14 +350,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-diakoniewerk"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-a52740ff39ee",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+      "slug": "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "it": "infermiere-dipl-infermiere-dipl-nefrologia-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg"
       },
@@ -389,11 +413,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumuenster-zollikerberg",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

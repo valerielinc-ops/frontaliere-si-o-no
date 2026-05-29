@@ -75,9 +75,9 @@
     },
     {
       "id": "spital-zollikerberg-23911f46e7dd",
-      "slug": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg",
+      "slug": "capo-reparto-reparto-privato-nell-ospedale-di-zollikerberg-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg",
+        "it": "capo-reparto-reparto-privato-nell-ospedale-di-zollikerberg-spital-zollikerberg-zollikerberg",
         "en": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg",
         "de": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg",
         "fr": "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg"
@@ -134,7 +134,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiterin-stationsleiter-privatstation-im-spital-zollikerberg-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-f96813c2b6bc",
@@ -209,9 +217,9 @@
     },
     {
       "id": "spital-zollikerberg-17cd603a1a8e",
-      "slug": "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg",
+      "slug": "esperta-infermieristica-esperto-infermieristico-apn-geriatria-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg",
+        "it": "esperta-infermieristica-esperto-infermieristico-apn-geriatria-spital-zollikerberg-zollikerberg",
         "en": "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg",
         "de": "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg",
         "fr": "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg"
@@ -268,13 +276,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-geriatrie-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-4bc3d25bc666",
-      "slug": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
+      "slug": "specialista-in-salute-reparto-privato-2-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
+        "it": "specialista-in-salute-reparto-privato-2-spital-zollikerberg-zollikerberg",
         "en": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg",
         "fr": "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
@@ -331,14 +347,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-privatstation-2-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-520e9b96cf42",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+      "slug": "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+        "it": "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
       },
@@ -396,7 +420,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+      ]
     }
   ]
 }

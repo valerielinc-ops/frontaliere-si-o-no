@@ -378,12 +378,12 @@
     },
     {
       "id": "msc-cargo-a231a60627cc",
-      "slug": "responsabile-acquisizione-digitale-msc-group-geneva",
+      "slug": "gestione-dell-acquisizione-digitale-msc-group-geneva",
       "slugByLocale": {
         "en": "digital-acquisition-manager-msc-geneva",
-        "it": "responsabile-acquisizione-digitale-msc-group-geneva",
-        "de": "digitaler-akquisitionsmanager-msc-group-geneva",
-        "fr": "responsable-de-l-acquisition-numerique-msc-group-geneva"
+        "it": "gestione-dell-acquisizione-digitale-msc-group-geneva",
+        "de": "digital-akquisition-manager-msc-group-geneva",
+        "fr": "gestionnaire-d-acquisitions-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -428,11 +428,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "digital-acquisition-manager-msc-geneva"
+          "digital-acquisition-manager-msc-geneva",
+          "responsabile-acquisizione-digitale-msc-group-geneva"
+        ],
+        "de": [
+          "digitaler-akquisitionsmanager-msc-group-geneva"
+        ],
+        "fr": [
+          "responsable-de-l-acquisition-numerique-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-acquisition-manager-msc-geneva"
+        "digital-acquisition-manager-msc-geneva",
+        "responsabile-acquisizione-digitale-msc-group-geneva",
+        "digitaler-akquisitionsmanager-msc-group-geneva",
+        "responsable-de-l-acquisition-numerique-msc-group-geneva"
       ],
       "salaryMin": 75500,
       "salaryMax": 133000,
@@ -454,7 +464,7 @@
       "slugByLocale": {
         "en": "experience-development-delivery-manager-new-builds-msc-geneva",
         "it": "experience-development-delivery-manager-new-builds-msc-geneva",
-        "de": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "de": "erfahrungs-und-liefermanager-neubauten-msc-group-geneva",
         "fr": "experience-development-delivery-manager-new-builds-msc-geneva"
       },
       "company": "MSC Group",
@@ -518,8 +528,8 @@
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
         "it": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -724,7 +734,7 @@
       "id": "msc-cargo-b8db6c0698ca",
       "slug": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
       "slugByLocale": {
-        "it": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+        "it": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
         "en": "director-of-operations-hospitality-infrastructure-msc-geneva",
         "de": "direktor-of-operations-hospitality-infrastructure-msc-group-geneva",
         "fr": "directeur-of-operations-hospitality-infrastructure-msc-group-geneva"
@@ -770,11 +780,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-of-operations-hospitality-infrastructure-msc-geneva",
-        "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva"
+        "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-operations-hospitality-infrastructure-msc-geneva"
+          "director-of-operations-hospitality-infrastructure-msc-geneva",
+          "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-05-27T23:52:50.538Z",
@@ -936,7 +947,7 @@
         "en": "junior-architect-port-development-intern-msc-geneva",
         "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
+        "fr": "stagiaire-en-developpement-portuaire-junior-architecte-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -997,11 +1008,13 @@
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
-          "junior-architect-port-development-intern-msc-geneva"
+          "junior-architect-port-development-intern-msc-geneva",
+          "junior-architecte-port-development-stagiaire-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "junior-architect-port-development-intern-msc-geneva"
+        "junior-architect-port-development-intern-msc-geneva",
+        "junior-architecte-port-development-stagiaire-msc-group-geneva"
       ]
     },
     {
@@ -1234,7 +1247,7 @@
       "slugByLocale": {
         "en": "mobile-app-product-specialist-msc-geneva",
         "it": "mobile-app-product-specialista-msc-group-geneva",
-        "de": "mobile-app-product-spezialist-msc-group-geneva",
+        "de": "mobile-app-produktspezialist-msc-group-geneva",
         "fr": "mobile-app-product-specialiste-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -1281,10 +1294,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mobile-app-product-specialist-msc-geneva"
+        ],
+        "de": [
+          "mobile-app-product-spezialist-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "mobile-app-product-specialist-msc-geneva"
+        "mobile-app-product-specialist-msc-geneva",
+        "mobile-app-product-spezialist-msc-group-geneva"
       ],
       "salaryMin": 50500,
       "salaryMax": 89000,

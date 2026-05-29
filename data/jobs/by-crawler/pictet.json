@@ -512,9 +512,9 @@
     },
     {
       "id": "pictet-25fe211f2eaa",
-      "slug": "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg",
+      "slug": "agente-di-cessione-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg",
+        "it": "agente-di-cessione-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg",
         "en": "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg",
         "de": "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg",
         "fr": "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg"
@@ -571,7 +571,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "transfert-agent-fixed-term-contract-12-months-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-ab95dc5a0640",

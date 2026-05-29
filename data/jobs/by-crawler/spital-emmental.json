@@ -5043,10 +5043,10 @@
     },
     {
       "id": "spital-emmental-e864d351abc3",
-      "slug": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+      "slug": "direzione-reparto-emergenza-a-spital-emmental-langnau",
       "slugByLocale": {
         "de": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
-        "it": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+        "it": "direzione-reparto-emergenza-a-spital-emmental-langnau",
         "en": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
         "fr": "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
       },
@@ -5111,7 +5111,15 @@
         }
       },
       "firstSeenAt": "2026-05-29T00:36:41.754Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+      ]
     }
   ]
 }

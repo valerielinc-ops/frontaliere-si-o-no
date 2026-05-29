@@ -78,9 +78,9 @@
     },
     {
       "id": "clienia-ag-9542290d1b7c",
-      "slug": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
+      "slug": "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
+        "it": "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh",
         "en": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "de": "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
         "fr": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
@@ -127,12 +127,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
-        "physiotherapeutin-physiotherapeutin-60-clienia-ag-pfaffikon",
+        "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "physiotherapeutin-physiotherapeutin-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich"
+          "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
+          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-05-28T12:05:18.218Z",
@@ -151,9 +152,9 @@
     },
     {
       "id": "clienia-ag-abfd3e9cb6f2",
-      "slug": "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+      "slug": "capoclinica-capoclinica-40-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
+        "it": "capoclinica-capoclinica-40-60-clienia-ag-pfaffikon-zh",
         "en": "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich",
         "de": "springer-oberarztin-oberarzt-40-60-clienia-ag-pfaffikon",
         "fr": "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
@@ -210,7 +211,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "springer-oberarztin-oberarzt-40-60-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-f0efd2e91cb0",
