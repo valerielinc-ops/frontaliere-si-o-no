@@ -1764,8 +1764,8 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
             ? JSON.parse(fs.readFileSync(enrichedFile, 'utf8'))
             : {};
           const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false, writeSlices: true });
-          if (orphanResult.merged > 0) {
-            console.log(`  🔗 Orphan reconciliation: ${orphanResult.merged} slugs merged into active jobs' previousSlugs`);
+          if (orphanResult.mergedCount > 0) {
+            console.log(`  🔗 Orphan reconciliation: ${orphanResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled);
             writeJson(PUBLIC_JOBS, assembled);
           }
@@ -1773,8 +1773,8 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
 
         // Reconcile expired slugs → merge into active jobs' previousSlugs
         const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false, writeSlices: true });
-        if (expResult.merged > 0) {
-          console.log(`  🔗 Expired reconciliation: ${expResult.merged} slugs merged into active jobs' previousSlugs`);
+        if (expResult.mergedCount > 0) {
+          console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
           writeJson(DATA_JOBS, assembled);
           writeJson(PUBLIC_JOBS, assembled);
           writeJson(DATA_EXPIRED, cleanedExpired);
