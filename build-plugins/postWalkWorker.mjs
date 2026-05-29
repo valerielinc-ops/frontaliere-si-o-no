@@ -87,30 +87,28 @@ const writeFailures = [];
 
 /**
  * In-flight concurrency limit per worker. The coordinator spawns N=4 workers
- * on the standard 4-vCPU CI runner. Bumped 4 → 8 (commit TBD) after the
- * [post-walk-profile] table on run 26604491084 measured:
- *   - read         976518 files  1620.9 s total  86.0%  ← dominant
- *   - worker-dispatch       1     110.8 s wall          ← Promise.all gate
- *   - hreflang-transform 900491     7.7 s              ← cheap, fast-path
+ * on the standard 4-vCPU CI runner; with 4 in-flight async file ops per
+ * worker the runner can have ~16 concurrent reads/writes, fully saturating
+ * SSD-backed I/O. Sequential profile measured CPU=170s wall=87s (~2× speedup
+ * across 4 workers due to per-worker sync blocking); switching to async
+ * within each worker should overlap I/O wait with peer-file CPU and bring
+ * wall closer to CPU/N.
  *
- * The wall is gated by I/O fan-out: each worker processes ~244 k files at
- * 1.66 ms avg, of which ~1.6 ms is fs.readFile wait (no CPU work). With
- * IN_FLIGHT=4 lanes per worker the kernel readahead pipeline tops out at
- * ~100 s per worker (Promise.all wall = 110 s, dominated by tail latency).
- * Doubling lanes lets each worker overlap 2× more in-flight readFile ops
- * — well within the libuv default thread pool size (UV_THREADPOOL_SIZE=4
- * per worker, but readFile uses the kernel async io_uring path on Node 22+
- * which is not pool-bound). Aggregate fd count stays bounded at
- * 4 workers × 8 IN_FLIGHT = 32 simultaneous open files, two orders of
- * magnitude under the ulimit 65535 ceiling.
+ * Reverted 8 → 4 (was bumped to 8 in PR #795 on the assumption that the
+ * worker-dispatch wall would scale linearly with lane count). Run
+ * 26608004451 [post-walk-profile] disproved that:
+ *   - worker-dispatch wall   PR #795 → 112.5 s (vs 110.8 s baseline, unchanged)
+ *   - read total_ms          PR #795 → 3179 s  (vs 1621 s baseline, +96%)
+ *   - read avg_ms            PR #795 → 3.25 ms (vs 1.66 ms baseline, +96%)
+ * Doubling lanes doubled CPU work without reducing wall — the readahead
+ * pipeline was already saturated at IN_FLIGHT=4 on the standard runner,
+ * and the extra lanes only added scheduler/contention overhead.
  *
- * Output invariant preserved: each filePath is still claimed by exactly one
- * worker and written exactly once. Lane count only changes the order in
- * which a worker dequeues from its assigned chunk — counters mutate
- * worker-local state, no cross-lane race. Byte-identical sitemap content
- * and on-disk HTML.
+ * We avoid going higher to keep aggregate fd count bounded (workers × IN_FLIGHT
+ * ≤ 32 here, well under the 65535 ulimit on ubuntu-latest and the 1024
+ * conservative ulimit honoured elsewhere in the repo, see batchWrite.ts).
  */
-const IN_FLIGHT = 8;
+const IN_FLIGHT = 4;
 
 /**
  * Detect a flat .html that's already a redirect bridge — emitted that way

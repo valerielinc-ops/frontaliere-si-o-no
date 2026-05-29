@@ -99,50 +99,26 @@ interface WorkerResult {
 /**
  * Walk every `.html` file under `dir`, skipping static-asset directories.
  *
- * BFS with bounded async concurrency. Each round reads up to
- * WALK_CONCURRENCY directories in parallel via `fs.promises.readdir`, then
- * folds new subdirs back into the queue and continues. Beats the sync
- * recursive generator because (a) each readdir is a syscall that benefits
- * from io_uring + libuv overlap, not a CPU loop, and (b) one slow dir
- * (cold-cache, deep tree) no longer serially blocks every peer.
- *
- * Data point from run 26604491084 ([post-walk-profile] table):
- *   walk-dist  1  65333 ms  ← sync recursive `walkHtml` baseline
- *
- * With 19 k+ directories the C-runtime cost per `readdirSync` (~1-3 ms)
- * dominates wall; concurrent reads amortise the per-call overhead across
- * the libuv thread pool.
- *
- * WALK_CONCURRENCY=8 keeps aggregate open-fd footprint at ≤ 8 simultaneous
- * directory handles, well under any ulimit. Skips the same asset
- * directories (`assets`, `data`, `images`) the sync version did — those
- * dirs hold static files (sprites, JSONs, images) with no SEO HTML to
- * post-process.
+ * Reverted from the async BFS variant (PR #802) back to a sync recursive
+ * generator. Run 26608004451 [post-walk-profile]:
+ *   walk-dist  PR #802 → 85.7 s   (vs 65.3 s sync baseline, +31%)
+ * The 8-way `fs.promises.readdir` BFS contended with the post-walk worker
+ * pool (each worker also issues `fs.promises.readFile` through libuv's
+ * default 4-thread pool) and ended up paying Promise scheduling overhead
+ * + thread-pool serialization that the C-runtime sync recursion avoided.
+ * Re-investigate when the worker pool moves to io_uring native ops or
+ * `UV_THREADPOOL_SIZE` is bumped repo-wide.
  */
-async function walkHtml(dir: string): Promise<string[]> {
-  const out: string[] = [];
-  const WALK_CONCURRENCY = 8;
-  let queue: string[] = [dir];
-  while (queue.length > 0) {
-    const batch = queue.splice(0, WALK_CONCURRENCY);
-    const results = await Promise.all(
-      batch.map((d) => fs.promises.readdir(d, { withFileTypes: true })),
-    );
-    const nextQueue: string[] = queue;
-    for (let i = 0; i < batch.length; i++) {
-      const baseDir = batch[i];
-      for (const entry of results[i]) {
-        if (entry.isDirectory()) {
-          if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
-          nextQueue.push(path.join(baseDir, entry.name));
-        } else if (entry.isFile() && entry.name.endsWith('.html')) {
-          out.push(path.join(baseDir, entry.name));
-        }
-      }
+function* walkHtml(dir: string): Iterable<string> {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === 'assets' || entry.name === 'data' || entry.name === 'images') continue;
+      yield* walkHtml(p);
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      yield p;
     }
-    queue = nextQueue;
   }
-  return out;
 }
 
 /**
@@ -419,12 +395,12 @@ export function postWalkCoordinatorPlugin(
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
         const __tWalk = profileStart();
-        const allHtmlPaths = await walkHtml(distDir);
-        profileRecord('walk-dist', __tWalk);
+        const allHtmlPaths: string[] = [];
         const processHtmlPaths: string[] = [];
         const existingHtmlSet = new Set<string>();
         let preEmittedFlatBridgesSkipped = 0;
-        for (const file of allHtmlPaths) {
+        for (const file of walkHtml(distDir)) {
+          allHtmlPaths.push(file);
           existingHtmlSet.add(file);
           if (isPreEmittedJobFlatBridgePath(distDir, file)) {
             preEmittedFlatBridgesSkipped++;
@@ -432,6 +408,7 @@ export function postWalkCoordinatorPlugin(
             processHtmlPaths.push(file);
           }
         }
+        profileRecord('walk-dist', __tWalk);
         const filesScanned = allHtmlPaths.length;
         if (filesScanned === 0) {
           // eslint-disable-next-line no-console
