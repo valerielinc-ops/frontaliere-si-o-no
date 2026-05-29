@@ -62,7 +62,10 @@ Tutte le automazioni Claude usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, z
 
 Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può metterla l'owner (manuale) **o il triage** — quest'ultimo solo via `GITHUB_PAT` nello step `Apply agent:fix via PAT` (vedi "Meccanismo di routing" sopra; mai via `GITHUB_TOKEN`).
 
-1. **Pre-check**: PR aperta già citante la issue → skip. Categoria `revenue`/`tracker` → abort con commento.
+1. **Pre-condizioni** (abort con commento se falliscono):
+   - PR aperta già citante la issue → skip ("PR già in volo").
+   - **Overlap-file**: estrai i path target dal body issue; se una PR aperta (`gh pr list --state open` + `gh pr diff <n> --name-only`) **già modifica** uno di quei file → skip ("file già in volo in PR #N, evito conflitto/duplicazione; riaprire dopo il merge se pertinente"). Evita che il fixer corra su un file che un'altra PR sta riscrivendo (es. #934 vs #943). Issue non file-specifica → procedi.
+   - Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
 3. Diagnosi **root cause** (non sintomo). `crawler` → rigenera parser / edit mirato selector+config.
 4. Fix **chirurgico** (AGENTS.md #6). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
@@ -137,6 +140,7 @@ Companion locale di `issue-fix.yml` (CI). Usalo per le categorie che la pipeline
 
 ## Pre-condizioni
 - PR aperta già citante `#$ARGUMENTS` → fermati (no doppione).
+- Overlap-file: se una PR aperta modifica già un file target della issue (`gh pr list --state open` + `gh pr diff <n> --name-only`) → fermati (evita conflitto con lavoro in corso, es. #934 vs #943).
 - Worktree-first obbligatorio: `git fetch origin main` + verifica `git rev-parse main` == `git rev-parse origin/main`; se divergono basa il worktree su `origin/main`.
 
 ## Flow

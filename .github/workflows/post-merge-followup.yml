@@ -87,12 +87,14 @@ jobs:
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
             - Filtro scopo (`REVIEW.md`): item passa se impatta monetizzazione / traffico / funnel.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
+            - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando (`gh pr list --state open` + `gh pr diff <n> --name-only`) → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
             - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
+            - **Supersede detection** (FOLLOWUP.md § Supersede detection): per le issue `follow-up` aperte che citano un file toccato da questa PR (`gh pr diff $PR_NUMBER --name-only`), posta UN commento `🔗 Possibile supersede` (idempotente). **Mai chiudere** — solo segnalazione; chiude solo l'autore con `Closes #N`.
             - Posta `## Post-merge follow-up triage` summary commento sulla PR.
 
             **Constraint:**
-            - Read-only eccetto `gh issue create`, `gh pr comment`.
+            - Read-only eccetto `gh issue create`, `gh pr comment`, `gh issue comment` (solo Supersede detection).
             - Mai modificare PR label/state/title.
-            - Mai chiudere/riaprire issue.
+            - Mai chiudere/riaprire issue (nemmeno le superseded — solo commento).
             - Incerto sul filtro → crea con rationale "needs triage".
             - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.

@@ -37,9 +37,10 @@ Applica `REVIEW.md → "Scopo progetto"`. Item passa SE impatta monetizzazione /
 
 ## Dedup
 
-Due livelli, in quest'ordine:
+Tre livelli, in quest'ordine:
 - **PR-level**: `gh issue list --label follow-up --state all --search "follow-up(#$PR_NUMBER)"` — se esiste già una issue aggregata per questa PR → **skip totale** (idempotenza re-run / backfill), log "already triaged #N". Mai una seconda issue aggregata per la stessa PR.
 - **Item-level**, per ogni candidate: `gh issue list --label follow-up --state all --search "<keyword from item>"` — match titolo/sezione >70% similar → **escludi l'item** + log "duplicate of #N". Item che referenzia `#NNN` con issue/PR open → escludi l'item.
+- **In-flight PR overlap** (anti self-flag): se l'item riguarda file specifici (path nel testo / `## Suggested action`), raccogli i file target ed esegui `gh pr list --state open --json number,title` + `gh pr diff <n> --name-only` sulle PR aperte. Se una PR aperta **già modifica** uno di quei file → **escludi l'item** + log "in-flight in PR #N". Razionale: un follow-up che indurisce/ritocca un file che un'altra PR sta già riscrivendo nasce obsoleto e fa partire il fixer su lavoro in corso (vedi `ISSUES.md → "Pre-condizioni — overlap-file"`). Nel dubbio (item non file-specifico) → non escludere.
 
 Se dopo il dedup zero item sopravvivono → nessuna issue, summary "zero outstanding items".
 
@@ -97,11 +98,26 @@ Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 
 Se zero item sopravvivono al filtro+dedup → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata).
 
+## Supersede detection (comment-only, mai chiudere)
+
+Dopo il triage, segnala le issue `follow-up` aperte che **questa PR potrebbe aver reso obsolete**, così non restano orfane (es. PR che riscrive un workflow rendendo moot gli item di hardening su quel file). **Non chiudere mai** su euristica: una PR può toccare un file senza coprire lo specifico item — chiudere distruggerebbe scope ancora valido. Solo l'autore, con `Closes #N` / `Supersedes #N` nel body (vedi `AGENTS.md → Workflow`), chiude davvero (GitHub nativo per `Closes`).
+
+1. File toccati da questa PR: `gh pr diff $PR_NUMBER --name-only`.
+2. Issue follow-up aperte: `gh issue list --label follow-up --state open --json number,title,body --limit 50` (escludi quella appena creata per questa PR).
+3. Per ogni issue il cui body cita un file presente nel diff della PR (path match in `## Suggested action` / `## Item`):
+   - Se non hai già commentato (cerca `🔗 Possibile supersede` nei commenti, idempotenza) → posta:
+     ```markdown
+     🔗 Possibile supersede: PR #<PR_NUMBER> (<PR_TITLE>) ha modificato `<file>` — <motivo dal PR title/body>. Verifica se gli item di questa issue sono ancora pertinenti; se coperti, chiudi a mano. (segnalazione automatica, non chiusura)
+     ```
+4. Nel summary commento sulla PR aggiungi una riga `Superseding flags: <N> issue segnalate (#a, #b)` se >0.
+
+Solo segnalazione: il giudizio finale resta umano. Mai più di un commento di supersede per coppia (PR, issue).
+
 ## Constraint
 
-- Read-only su tutto eccetto: `gh issue create`, `gh pr comment`.
+- Read-only su tutto eccetto: `gh issue create`, `gh pr comment`, `gh issue comment` (solo per la Supersede detection — segnalazione, mai chiusura).
 - Mai modificare label/state/title della PR.
-- Mai chiudere/riaprire issue.
+- Mai chiudere/riaprire issue (nemmeno le superseded — solo commento).
 - Zero finding accettabile (PR LGTM puro senza Non implementato). NON inventare.
 - Incerto sul filtro scopo → crea issue comunque, rationale "needs triage". Drop è più costoso di una issue extra.
 - Limite hard: max 10 item nella issue aggregata. Oltre → includi i primi 10 e aggiungi in coda al summary "throttled: >10 item, restanti richiedono triage manuale".
