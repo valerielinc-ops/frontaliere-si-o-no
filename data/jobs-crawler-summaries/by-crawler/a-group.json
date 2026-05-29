@@ -1,18 +1,51 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-05-28T21:57:29.075Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-29T11:17:48.560Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1808,
-  "avgDurationMs": 1808,
+  "durationMs": 2239,
+  "avgDurationMs": 2239,
   "durationHistory": [
-    1808
+    2239
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "HR Coordinator",
+      "slug": "hr-coordinator-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/hr-coordinator-708948/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/hr-coordinator-708948/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "architecture",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "BIM Manager",
@@ -34,7 +67,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
