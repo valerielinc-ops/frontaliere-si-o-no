@@ -7870,6 +7870,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Sintab Project: Rio dei Gioghi Trail Upgrade',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Work begins on securing the CAI Rio dei Gioghi trail in Ligurno, Cantello, as part of the Sintab project.',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Rio dei Gioghi trail with wooden informative structures',
+    'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Tax Deductions for Children Only for Swiss Residents',
+    'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'The Ticino UDC proposes to limit child deductions to Swiss residents, excluding cross-border workers. Potential annual revenue: 20 million francs.',
+    'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Family with children in front of Monte Brè, Ticino',
 };
 
 export default blogMetaEn;

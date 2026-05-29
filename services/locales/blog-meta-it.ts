@@ -7871,6 +7871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Progetto Sintab: riqualificazione del sentiero Rio dei Gioghi',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Iniziati i lavori per la messa in sicurezza del sentiero CAI Rio dei Gioghi a Ligurno, Cantello, nel progetto Sintab.',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Sentiero Rio dei Gioghi con strutture informative in legno',
+    'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Detrazioni fiscali sui figli solo per residenti in Svizzera',
+    'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'L\'UDC Ticino propone di limitare le deduzioni per figli ai residenti in Svizzera, escludendo i frontalieri. Potenziali entrate: 20 milioni di franchi all\'anno.',
+    'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Famiglia con bambini davanti al Monte Brè, Ticino',
 };
 
 export default blogMetaIt;
