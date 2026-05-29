@@ -40814,8 +40814,8 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "height": 675,
         "caption": "Vista serale del centro amministrativo di Bellinzona in inverno."
       },
-      "datePublished": "2026-05-28T07:27:40+00:00",
-      "dateModified": "2026-05-28T07:27:40+00:00",
+      "datePublished": "2025-12-18T07:27:40+00:00",
+      "dateModified": "2025-12-18T07:27:40+00:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",

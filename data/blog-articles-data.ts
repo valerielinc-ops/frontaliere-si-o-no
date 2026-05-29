@@ -8056,7 +8056,7 @@ export const ARTICLES = [
   {
  id: 'manutenzione-ustat-servizi-chiusure-31-12-2025',
  category: 'pratico',
- date: '2026-04-17T09:45:06.716Z',
+ date: '2025-12-18T09:45:06.716Z',
  image: '/images/blog/manutenzione-ustat-servizi-chiusure-31-12-2025.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
@@ -24899,7 +24899,7 @@ export const ARTICLES = [
  {
  id: 'chiusura-amministrazione-ticino-2025',
  category: 'novita',
- date: '2026-05-28T07:27:40.905Z',
+ date: '2025-12-18T07:27:40.905Z',
  image: '/images/blog/chiusura-amministrazione-ticino-2025.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
