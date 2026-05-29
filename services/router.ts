@@ -2877,13 +2877,21 @@ export function parsePath(pathname: string): ParseResult {
  // P7.1 — legacy /cerca-lavoro-ticino/{slug?} → always TI canton filter.
  // Bare hub root (no jobSlug) is a build-time static page emitted by
  // professionLandingsLinksPlugin with `<aside data-ae3-profession-links>`
- // + curated city/sector hub links. Without staticOverlay the SPA replaced
- // the static main with the interactive JobBoard on hydration, producing
- // CLS 0.702 on /cerca-lavoro-ticino/ (Lighthouse 2026-05-28).
- if (!jobSlug) {
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
- }
- return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', jobSlug }, locale };
+ // + curated city/sector hub links. The CLS 0.702 incident on the bare
+ // root (Lighthouse 2026-05-28) was caused by the OLD HTML shape:
+ // `<div id="root"><main id="main-content">${179KB static body}</main></div>`.
+ // React's `createRoot(...).render(<App/>)` cancelled the 179KB on
+ // hydration → grosso shift. PR #765 fixed the shape: bare root now emits
+ // `<div id="root"></div>` empty + `<main class="seo-static-content">`
+ // OUTSIDE root. React hydrates the empty `#root` with JobBoard and
+ // App.tsx's useLayoutEffect (App.tsx:204-212) flips the sibling
+ // `<main class="seo-static-content">` to `display:none` synchronously
+ // BEFORE paint. Same DOM choreography as every other canton job-board
+ // hub (`/cerca-lavoro-basilea/`, `/cerca-lavoro-zurigo/`, etc.) which
+ // already sit at staticOverlay=false and Lighthouse-pass. Without
+ // staticOverlay here the bare root behaves identically: search bar +
+ // canton filters + interactive job cards visible above the fold.
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', ...(jobSlug ? { jobSlug } : {}) }, locale };
  }
  }
 
