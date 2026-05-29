@@ -115,7 +115,7 @@ function getProjectRoot() {
 }
 
 // ── Extract URLs from one sitemap's XML into the accumulator ───
-function extractUrls(xml, urls) {
+export function extractUrls(xml, urls) {
   let count = 0;
   for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     urls.add(m[1].trim());
@@ -157,7 +157,7 @@ async function fetchSitemapXml(file) {
 }
 
 // ── Collect URLs from sitemaps (live by default, --local for FS) ─
-async function getUrlsFromSitemaps() {
+export async function getUrlsFromSitemaps() {
   const urls = new Set();
 
   const filteredSitemaps = sitemapArg
@@ -484,7 +484,14 @@ async function main() {
   console.log('\nAll submissions completed successfully.');
 }
 
-main().catch((err) => {
-  console.error(`Fatal error: ${err.message}`);
-  process.exit(1);
-});
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error(`Fatal error: ${err.message}`);
+    process.exit(1);
+  });
+}
