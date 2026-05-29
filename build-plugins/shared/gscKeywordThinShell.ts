@@ -58,6 +58,10 @@ export function buildGscKeywordThinBody(opts: ThinBodyOpts): string {
   const proseFn = PROSE[opts.locale] || PROSE.it;
   const prose = proseFn(opts.query, opts.listingUrl);
   return (
+    // Deliberately-thin shell (zero-traffic, SPA-hydrated): mark it so
+    // audit:text-html-ratio skips it, same contract as the legacy STRIP_*
+    // paths. Uppercase comment survives the HTML minifier's strip pass.
+    `<!--EJP_STRIPPED-->` +
     `<h1>${opts.h1Title}</h1>` +
     `<p>${prose}</p>`
   );
