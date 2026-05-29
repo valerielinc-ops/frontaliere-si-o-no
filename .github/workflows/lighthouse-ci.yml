@@ -26,6 +26,36 @@ on:
       - 'lighthouserc.json'
   push:
     branches: [main]
+    # Since #844 every auto-merge pushes to main; without a paths filter this
+    # heavy CI ran on data-only / workflow-only / docs-only merges too. Only
+    # run when something that can change the *rendered* output of the audited
+    # pages moves. Conservative: when unsure whether a path affects rendering
+    # it is INCLUDED (a missed regression is worse than an extra run).
+    paths:
+      # Application source that produces rendered DOM / styles / scripts.
+      - 'App.tsx'
+      - 'index.tsx'
+      - 'index.html'
+      - 'index.css'
+      - 'constants.ts'
+      - 'types.ts'
+      - 'components/**'
+      - 'hooks/**'
+      - 'services/**'
+      - 'build-plugins/**'
+      - 'public/**'
+      # Build / dependency config that changes the emitted bundle.
+      - 'vite.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tailwind.config.js'
+      # The audit definition itself.
+      - 'lighthouserc.json'
+      - '.github/workflows/lighthouse-ci.yml'
+    # Implicitly EXCLUDED (no path here ⇒ no run): pure data churn that does not
+    # change layout — data/** job slices, *.jsonl accumulators,
+    # dist-size-history.jsonl, snapshot json — plus docs/**, scripts/**,
+    # functions/**, server/**, tests/**, reports/** and other workflow files.
 
 permissions:
   contents: read
