@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-05-29T12:22:56.134Z",
+  "generatedAt": "2026-05-29T22:58:22.490Z",
   "total": 6,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 1979,
-  "avgDurationMs": 1979,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 1101,
+  "avgDurationMs": 1101,
   "durationHistory": [
-    1979
+    1101
   ],
-  "newJobs": [
-    {
-      "title": "Senior Test Automation Engineer",
-      "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
-      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-27",
-      "validThrough": "2026-08-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260527072235_NHBTXSD2SJMRGXAT",
-        "listingLocation": "Lugano, Ticino, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Application Owner - Banking - Corporate Actions",
@@ -268,12 +230,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Test Automation Engineer",
-      "slug": "test-automation-ingegnere-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Test-Automation-Engineer",
-      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Test-Automation-Engineer",
+      "title": "Senior Test Automation Engineer",
+      "slug": "senior-test-automation-engineer-fincons-group-lugano-ticino-switzerland",
+      "url": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/efLM5m39uG/Senior-Test-Automation-Engineer",
       "company": "Fincons Group",
       "companyKey": "fincons-group",
       "companyDomain": "finconsgroup.com",
@@ -298,20 +261,19 @@
         "listingLocation": "Lugano, Ticino, Switzerland",
         "listingDepartment": ""
       },
-      "id": "fincons-group-7adaac52436e",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
+      "id": "fincons-group-1ddef085bf06",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
       "currency": "CHF",
       "streetAddress": "Via Industria 3",
-      "firstSeenAt": "2026-05-27T12:27:52.100Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-05-29T12:22:56.132Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
