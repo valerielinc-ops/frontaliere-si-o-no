@@ -8,7 +8,12 @@
  * where Bing has a large indexation backlog (e.g. 16k+ pages, 1-4 crawled/day).
  *
  * Features:
- * - Reads all sub-sitemaps from dist/ or public/ to collect every URL
+ * - Fetches all sub-sitemaps LIVE over HTTP from the deployed site (default)
+ *   to collect every URL — no local build required. IndexNow tells engines
+ *   to crawl live URLs, so the live sitemaps are the correct source of truth;
+ *   reading them avoids a full `vite build` (~38 min, OOM-prone) just to
+ *   regenerate XML the deploy already publishes. Pass --local to read from
+ *   dist/ or public/ instead (e.g. when validating a not-yet-deployed build).
  * - Batches URLs in groups of 10,000 (IndexNow API limit)
  * - Submits to multiple IndexNow endpoints (api.indexnow.org, Bing, Yandex)
  * - Verifies the key file is accessible before submitting
@@ -24,9 +29,12 @@
  *   node scripts/submit-indexnow-batch.mjs --dry-run          # Preview URLs without submitting
  *   node scripts/submit-indexnow-batch.mjs --endpoint bing    # Submit only to Bing
  *   node scripts/submit-indexnow-batch.mjs --sitemap jobs     # Only job sitemap URLs
+ *   node scripts/submit-indexnow-batch.mjs --local            # Read sitemaps from dist/public, not live
  *
  * Environment:
  *   INDEXNOW_KEY (optional) — override the default key
+ *   SITEMAP_BASE (optional) — override the live sitemap origin
+ *                             (default https://frontaliereticino.ch)
  */
 
 import { readFileSync, existsSync } from 'node:fs';
@@ -68,8 +76,14 @@ const EXTRA_URLS = [
 // ── CLI argument parsing ──────────────────────────────────────
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
+const USE_LOCAL = args.includes('--local');
 const endpointArg = args.find((_, i, a) => a[i - 1] === '--endpoint');
 const sitemapArg = args.find((_, i, a) => a[i - 1] === '--sitemap');
+
+// Live sitemap origin (default = deployed site). The sub-sitemaps are public
+// XML, always reflecting the latest deploy, so the weekly catch-up can read
+// them directly instead of rebuilding the site.
+const SITEMAP_BASE = (process.env.SITEMAP_BASE || `https://${HOST}`).replace(/\/+$/, '');
 
 if (args.includes('--help') || args.includes('-h')) {
   console.log(`
@@ -79,6 +93,7 @@ Options:
   --dry-run              Preview URLs without submitting
   --endpoint <name>      Submit to a single engine: indexnow, bing, yandex
   --sitemap <filter>     Only include sitemaps matching this substring (e.g. "jobs", "blog")
+  --local                Read sitemaps from dist/ or public/ instead of live HTTP
   --help, -h             Show this help message
 
 Examples:
@@ -99,15 +114,51 @@ function getProjectRoot() {
   return resolve(__dirname, '..');
 }
 
-// ── Collect URLs from sitemaps ────────────────────────────────
-function getUrlsFromSitemaps() {
-  const rootDir = getProjectRoot();
-  const urls = new Set();
+// ── Extract URLs from one sitemap's XML into the accumulator ───
+function extractUrls(xml, urls) {
+  let count = 0;
+  for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    urls.add(m[1].trim());
+    count++;
+  }
+  for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) {
+    urls.add(m[1].trim());
+    count++;
+  }
+  return count;
+}
 
-  // Prefer dist/ (post-build) over public/ (pre-build source)
-  const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap-pages.xml'))
-    ? resolve(rootDir, 'dist')
-    : resolve(rootDir, 'public');
+// ── Fetch one sub-sitemap live over HTTP (with retry) ─────────
+async function fetchSitemapXml(file) {
+  const url = `${SITEMAP_BASE}/${file}`;
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/xml,text/xml' },
+        signal: AbortSignal.timeout(30_000),
+      });
+      if (res.ok) return await res.text();
+      if (res.status >= 500 && attempt < MAX_RETRIES) {
+        await sleep(2000 * attempt);
+        continue;
+      }
+      console.log(`  ${file}: HTTP ${res.status} — skipping`);
+      return null;
+    } catch (err) {
+      if (attempt < MAX_RETRIES) {
+        await sleep(2000 * attempt);
+        continue;
+      }
+      console.log(`  ${file}: fetch error (${err.message}) — skipping`);
+      return null;
+    }
+  }
+  return null;
+}
+
+// ── Collect URLs from sitemaps (live by default, --local for FS) ─
+async function getUrlsFromSitemaps() {
+  const urls = new Set();
 
   const filteredSitemaps = sitemapArg
     ? SUB_SITEMAPS.filter((f) => f.includes(sitemapArg))
@@ -118,22 +169,54 @@ function getUrlsFromSitemaps() {
     process.exit(1);
   }
 
-  for (const file of filteredSitemaps) {
-    const filePath = resolve(sitemapDir, file);
-    try {
-      const xml = readFileSync(filePath, 'utf-8');
-      let count = 0;
-      for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
-        urls.add(m[1].trim());
-        count++;
+  if (USE_LOCAL) {
+    // Prefer dist/ (post-build) over public/ (pre-build source)
+    const rootDir = getProjectRoot();
+    const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap-pages.xml'))
+      ? resolve(rootDir, 'dist')
+      : resolve(rootDir, 'public');
+    for (const file of filteredSitemaps) {
+      try {
+        const count = extractUrls(readFileSync(resolve(sitemapDir, file), 'utf-8'), urls);
+        console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
+      } catch {
+        console.log(`  ${file}: not found — skipping`);
       }
-      for (const m of xml.matchAll(/hreflang="[^"]*"\s+href="([^"]+)"/g)) {
-        urls.add(m[1].trim());
-        count++;
+    }
+    console.log(`  Source: local ${sitemapDir}`);
+  } else {
+    const failed = [];
+    const empty = [];
+    for (const file of filteredSitemaps) {
+      const xml = await fetchSitemapXml(file);
+      // null = unreachable (5xx after retries / 404 / network); an empty but
+      // 200-OK urlset returns '' and is treated as a legitimate empty sitemap.
+      if (xml == null) {
+        failed.push(file);
+        continue;
       }
+      const count = extractUrls(xml, urls);
+      if (count === 0) empty.push(file);
       console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
-    } catch {
-      console.log(`  ${file}: not found — skipping`);
+    }
+    console.log(`  Source: live ${SITEMAP_BASE}`);
+    // Abort on ANY expected sub-sitemap failure, not only when all six fail.
+    // A partial fetch would silently drop a whole content type — e.g. if
+    // sitemap-jobs.xml (the job funnel) 5xx/404s after a deploy while the
+    // other five succeed — and still exit 0, masking the gap as a clean run.
+    if (failed.length > 0) {
+      console.error(
+        `Failed to fetch ${failed.length}/${filteredSitemaps.length} sitemap(s) from ${SITEMAP_BASE}: ${failed.join(', ')}.\n` +
+        `Aborting to avoid a partial submission that would drop those URLs silently.`,
+      );
+      process.exit(1);
+    }
+    // A 200-OK sitemap with zero URLs is treated as legitimately empty (some
+    // categories can be small), but a normally-populated one returning 0 —
+    // e.g. sitemap-jobs.xml truncated by a partial deploy — would otherwise
+    // hide behind its count line. Surface it loudly so it's visible in logs.
+    if (empty.length > 0) {
+      console.warn(`  ⚠️  ${empty.length} sitemap(s) returned 200 but 0 URLs: ${empty.join(', ')} — verify this is expected.`);
     }
   }
 
@@ -142,7 +225,6 @@ function getUrlsFromSitemaps() {
     for (const url of EXTRA_URLS) urls.add(url);
   }
 
-  console.log(`  Source directory: ${sitemapDir}`);
   return [...urls].sort();
 }
 
@@ -333,8 +415,8 @@ async function main() {
   console.log('=== IndexNow Batch Submission ===\n');
 
   // 1. Collect URLs
-  console.log('Collecting URLs from sitemaps...');
-  const urlList = getUrlsFromSitemaps();
+  console.log(`Collecting URLs from sitemaps (${USE_LOCAL ? 'local files' : `live ${SITEMAP_BASE}`})...`);
+  const urlList = await getUrlsFromSitemaps();
   console.log(`\nTotal unique URLs: ${urlList.length}\n`);
 
   if (urlList.length === 0) {

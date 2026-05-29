@@ -32,12 +32,12 @@ permissions:
 jobs:
   submit:
     runs-on: ubuntu-latest
-    # The full `build:ci` at cathedral scale (23k+ job-seo pages) needs
-    # ~10-15 min on ubuntu-latest (deploy.yml build-profile wall 634-716s);
-    # plus checkout + npm ci + assemble + submit. The old 10-min total cap
-    # turned the OOM fix into a timeout failure. deploy.yml gives its build
-    # job 360 min; 40 here leaves comfortable margin without masking a hang.
-    timeout-minutes: 40
+    # No build: the script fetches the deployed sitemaps live over HTTP.
+    # Live dry-run (run 26636490673) measured fetch + parse at 29 s total.
+    # 15 min leaves headroom for the real submission worst case — 5 batches ×
+    # 3 endpoints, each up to 30 s + 3 retries + 429 Retry-After waits (60 s
+    # cap) — which a tight 10-min cap could brush under sustained rate-limiting.
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -46,32 +46,14 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: npm
 
-      - name: Install dependencies
-        run: npm ci
-
-      # The build-plugins (legacyRedirectsPlugin, slugCantonIndex) import the
-      # generated data/jobs.json, which is not committed. Without this step the
-      # vite build below fails to resolve "../data/jobs.json" and the workflow
-      # has been red since 2026-05-18. Mirrors deploy.yml / the CI test gate.
-      - name: Assemble jobs dataset
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      # Use the same build entrypoint as deploy.yml (`npm run build:ci`):
-      # 12 GB heap + --expose-gc + sequential plugins keep peak heap low
-      # (~150 MB/plugin). A plain `vite build` at 8 GB OOMs (exit 134) once
-      # the assembled data/jobs.json drives 23k+ job-seo pages — run
-      # 26632264296 hit "Reached heap limit" at the cathedral scale.
-      # SEQUENTIAL_PROFILE=1 forces the memory-safe sequential closeBundle
-      # path; JOBS_SKIP_URL_VALIDATION=1 skips the network HEAD checks we
-      # don't need just to emit sitemaps.
-      - name: Build to generate full sitemaps
-        run: npm run build:ci
-        env:
-          SEQUENTIAL_PROFILE: '1'
-          JOBS_SKIP_URL_VALIDATION: '1'
-
+      # No `npm ci` / build: submit-indexnow-batch.mjs uses only Node builtins
+      # + fetch, and reads the 6 sub-sitemaps LIVE from the deployed site
+      # (https://frontaliereticino.ch/sitemap-*.xml). IndexNow tells engines to
+      # crawl live URLs, so the published sitemaps are the correct source of
+      # truth — rebuilding the site (~38 min, OOM-prone) just to regenerate XML
+      # the deploy already serves was pure waste. Pass `--local` to read from
+      # dist/ instead (not used here).
       - name: Submit IndexNow batch
         run: |
           ARGS=""
