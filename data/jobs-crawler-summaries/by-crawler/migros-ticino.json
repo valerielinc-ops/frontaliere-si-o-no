@@ -1,16 +1,16 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-28T23:58:24.575Z",
-  "total": 25,
+  "generatedAt": "2026-05-29T13:19:43.880Z",
+  "total": 24,
   "newCount": 0,
-  "updatedCount": 8,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 47609,
-  "avgDurationMs": 47609,
+  "durationMs": 42817,
+  "avgDurationMs": 42817,
   "durationHistory": [
-    47609
+    42817
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -300,55 +300,6 @@
       "streetAddress": "Via Lugano 2",
       "postalCode": "6500",
       "addressLocality": "Samedan",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-cy61c",
-      "slug": "lehrperson-malen-e-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c",
-      "company": "Genossenschaft Migros Ostschweiz",
-      "title": "Lehrperson Malen und Zeichnen/Acrylmalen/Aquarellieren im Stundenlohn",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/lehrperson-malen-und-zeichnenacrylmalenaquarellieren-im-stundenlohn/d7e29ab3-e381-43cd-beaa-ef7423760808",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Deine Freude am Unterrichten, dein Engagement und dein gewinnendes Auftreten begeistern die Teilnehmenden",
-        "Du gestaltest den Unterricht im Angebot Malen und Zeichnen / Aquarellieren und Acrylmalen nach erwachsenenbildnerischen Kriterien, indem du die unterschiedlichen Lebenserfahrungen, Lernstile und Bedürfnisse der Teilnehmenden berücksichtigst",
-        "Die umfassende Vor- und Nachbereitung des Unterrichts gehört ebenfalls zu deinen Aufgaben",
-        "Du schaffst eine positive Lernatmosphäre, welche die Motivation der Lernenden fördert, und knüpfst Beziehungen, die auf Vertrauen und Respekt gegründet sind",
-        "Durch regelmässige Absprachen mit den zuständigen Ansprechpersonen der Klubschuladministration gewährleistest du eine reibungslose Zusammenarbeit"
-      ],
-      "_migrosBenefits": [
-        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
-        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
-        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
-      ],
-      "_migrosWorkPercentage": "808%",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-04-26T10:03:16.994Z",
-      "firstSeenAt": "2026-04-26T10:03:16.994Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
-      "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
