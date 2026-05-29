@@ -29,6 +29,14 @@ describe('classifyIssue', () => {
     { title: 'Master tracker: SEO recovery plan', labels: [], category: 'tracker', autofix: false },
     // other → NO autofix (fail-safe)
     { title: 'Qualche cosa di strano', labels: [], category: 'other', autofix: false },
+    // company-name collision guards (#933 item 1): conservative ordering fires
+    // revenue/tracker BEFORE crawler — intentional override; prevents future
+    // code reordering from silently removing the guardrail.
+    { title: '[crawler-health] RPM Software AG broken', labels: ['priority:high', 'bug'], category: 'revenue', autofix: false },
+    { title: '[parser-health] recovery GmbH boilerplate-only', labels: ['parser-broken', 'automated'], category: 'tracker', autofix: false },
+    // follow-up + funnel-monetization without RPM → autofix=true (#933 item 2):
+    // body is NOT inspected; funnel sensitivity is gated by pr-review-loop ## LGTM.
+    { title: 'follow-up(#900): tune AdSense vignette threshold', labels: ['follow-up', 'funnel-monetization'], category: 'follow-up', autofix: true },
   ];
 
   for (const c of cases) {
