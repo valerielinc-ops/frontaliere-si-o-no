@@ -206,6 +206,24 @@ function detectSlugLocale(slug) {
 
 /**
  * Build lookup indices from active jobs for fast candidate retrieval.
+ *
+ * Also pre-computes per-job slug/title TOKEN SETS so the hot scoring loop
+ * in `findBestMatch` doesn't re-tokenize the same job slugs and titles on
+ * every expired-job iteration. Profiled on run 26611764310: the assemble
+ * step took 494 s (vs 238 s baseline 2026-05-25) — `reconcileExpiredSlugs`
+ * iterates 4906 expired jobs and for each calls `findBestMatch` against
+ * up to ~10 candidates × 5 slugs + 4 titles → ~270 k duplicate
+ * `tokenizeSlug` / `tokenizeTitle` calls when this pre-cache is missing.
+ *
+ * Cache shape (attached to each job in the returned index):
+ *   job.__cachedSlugTokens  : Map<slugString, Set<token>>
+ *   job.__cachedTitleTokens : Map<locale,     Set<token>>
+ *
+ * These fields are mutating writes on the in-memory job objects; the
+ * caller already mutates `job.previousSlugs` when a reconciliation
+ * succeeds, so this stays within the existing "operates on live objects"
+ * contract. Output unchanged: the cached tokens are byte-identical to
+ * what the per-call tokenizer would produce on the same input strings.
  */
 function buildActiveIndex(activeJobs) {
   const byCompanyKey = Object.create(null); // companyKey → [job]
@@ -228,6 +246,27 @@ function buildActiveIndex(activeJobs) {
     }
     if (job.previousSlugs) {
       for (const s of job.previousSlugs) allSlugSet.add(s);
+    }
+
+    // Pre-tokenize all slugs (canonical + locale variants) — saves
+    // repeated `tokenizeSlug` calls inside `findBestMatch`.
+    const slugCache = new Map();
+    if (job.slug) slugCache.set(job.slug, tokenizeSlug(job.slug));
+    if (job.slugByLocale) {
+      for (const s of Object.values(job.slugByLocale)) {
+        if (s && !slugCache.has(s)) slugCache.set(s, tokenizeSlug(s));
+      }
+    }
+    job.__cachedSlugTokens = slugCache;
+
+    // Pre-tokenize all titles (per-locale) — saves repeated `tokenizeTitle`
+    // calls inside `findBestMatch` Strategy B (title-to-title Jaccard).
+    if (job.titleByLocale) {
+      const titleCache = new Map();
+      for (const [locale, title] of Object.entries(job.titleByLocale)) {
+        if (title) titleCache.set(locale, tokenizeTitle(title));
+      }
+      job.__cachedTitleTokens = titleCache;
     }
   }
 
@@ -330,7 +369,13 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     ].filter(Boolean);
 
     for (const jobSlug of allJobSlugs) {
-      const jobTokens = tokenizeSlug(jobSlug);
+      // Read from the pre-computed token cache when present (set by
+      // buildActiveIndex). Falls back to live tokenization for any
+      // unexpected slug not in the cache (e.g. previousSlugs that
+      // weren't pre-tokenized — they don't need scoring anyway, but
+      // the fallback keeps the function defensive).
+      const jobTokens =
+        job.__cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug);
       const overlap = intersectionSize(orphanTokens, jobTokens);
 
       // Guard: require ≥ 3 meaningful tokens in common
@@ -354,7 +399,8 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     if (orphanTitleTokens && orphanTitleTokens.size >= 3 && job.titleByLocale) {
       for (const [locale, title] of Object.entries(job.titleByLocale)) {
         if (!title) continue;
-        const jobTitleTokens = tokenizeTitle(title);
+        const jobTitleTokens =
+          job.__cachedTitleTokens?.get(locale) ?? tokenizeTitle(title);
         if (jobTitleTokens.size < 2) continue;
 
         const overlap = intersectionSize(orphanTitleTokens, jobTitleTokens);
@@ -382,7 +428,10 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
         ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
       ].filter(Boolean);
       for (const jobSlug of allJobSlugs) {
-        const score = jaccard(orphanTokens, tokenizeSlug(jobSlug));
+        const score = jaccard(
+          orphanTokens,
+          job.__cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
+        );
         if (score >= bestScore - 0.05) closeMatches++;
       }
     }
