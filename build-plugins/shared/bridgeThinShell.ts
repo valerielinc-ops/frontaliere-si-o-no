@@ -105,6 +105,9 @@ export function buildBridgeThinHtml(cachedHtml: string, targetSlug: string, loca
   // block for JS-enabled users on non-staticOverlay routes.
   const thinMain =
     `<main class="seo-static-content static-bridge-page">` +
+    // audit:text-html-ratio skip marker — deliberately-thin shell, same
+    // contract as legacy STRIP_* paths (uppercase survives minifier).
+    `<!--EJP_STRIPPED-->` +
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}</p>` +
