@@ -7874,6 +7874,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Déductions fiscales pour enfants: uniquement pour résidents',
     'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'L\'UDC Tessin propose de limiter les déductions pour enfants aux résidents en Suisse, excluant les frontaliers. Gain potentiel : 20 millions de francs par an.',
     'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Famille avec enfants devant le Monte Brè, Tessin',
+    'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 et S50 remplacés par des bus pendant un mois',
+    'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'Du 7 juin au 5 juillet 2024, les liaisons TILO S40 et S50 seront remplacées par des bus entre Stabio, Varese, Gallarate et l\'aéroport de Malpensa.',
+    'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Frontaliers attendant des bus de remplacement à la gare',
 };
 
 export default blogMetaFr;

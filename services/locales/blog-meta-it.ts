@@ -7874,6 +7874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Detrazioni fiscali sui figli solo per residenti in Svizzera',
     'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'L\'UDC Ticino propone di limitare le deduzioni per figli ai residenti in Svizzera, escludendo i frontalieri. Potenziali entrate: 20 milioni di franchi all\'anno.',
     'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Famiglia con bambini davanti al Monte Brè, Ticino',
+    'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 e S50 sostituiti con bus per un mese tra Stabio e Malpensa',
+    'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'Dal 7 giugno al 5 luglio 2024, i collegamenti TILO S40 e S50 saranno sostituiti da bus tra Stabio, Varese, Gallarate e Malpensa Aeroporto.',
+    'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Frontalieri in attesa di bus sostitutivi in stazione',
 };
 
 export default blogMetaIt;

@@ -7873,6 +7873,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Tax Deductions for Children Only for Swiss Residents',
     'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'The Ticino UDC proposes to limit child deductions to Swiss residents, excluding cross-border workers. Potential annual revenue: 20 million francs.',
     'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Family with children in front of Monte Brè, Ticino',
+    'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 and S50 Replaced by Buses for a Month',
+    'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'From June 7 to July 5, 2024, TILO S40 and S50 services will be replaced by buses between Stabio, Varese, Gallarate, and Malpensa Airport.',
+    'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Commuters waiting for replacement buses at a station',
 };
 
 export default blogMetaEn;
