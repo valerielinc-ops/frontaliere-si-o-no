@@ -91,6 +91,9 @@ export function buildSoftLandingThinHtml(fullHtml: string, locale: string): stri
   // `__EXPIRED_JOB_DATA__` from head).
   const thinArticle =
     `<article class="ft-static-article">` +
+    // audit:text-html-ratio skip marker — deliberately-thin shell, same
+    // contract as legacy STRIP_* paths (uppercase survives minifier).
+    `<!--EJP_STRIPPED-->` +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}</p>` +
     `</article>`;
