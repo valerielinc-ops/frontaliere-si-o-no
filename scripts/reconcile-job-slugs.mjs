@@ -230,6 +230,18 @@ function buildActiveIndex(activeJobs) {
   const allSlugSet = new Set();             // all current + previous slugs
   const slugTokenCache = new WeakMap();     // job → Map<slugString, Set<token>>
   const titleTokenCache = new WeakMap();    // job → Map<locale, Set<token>>
+  // Inverted index: slug-token → Set<job>. Used by findBestMatch's
+  // no-company-match path to short-circuit the all-active-jobs scan
+  // (6265 → ~50-100 candidates per orphan), turning the dominant
+  // `for (const job of candidates)` O(E × C × S) loop into one driven
+  // by `orphanTokens.size` bucket lookups. The bucket scope mirrors
+  // what the scoring loop already iterates: each job's `job.slug` +
+  // every `job.slugByLocale[*]`. previousSlugs are intentionally
+  // EXCLUDED — the scoring inner loop iterates the same canonical+locale
+  // slug list, so widening the bucket would let pre-filtered candidates
+  // pass that the scoring would still reject (wasted work, not a
+  // correctness bug).
+  const slugTokenToJobs = new Map();        // token → Set<job>
 
   for (const job of activeJobs) {
     // Index by company key
@@ -251,15 +263,34 @@ function buildActiveIndex(activeJobs) {
     }
 
     // Pre-tokenize all slugs (canonical + locale variants) — saves
-    // repeated `tokenizeSlug` calls inside `findBestMatch`.
+    // repeated `tokenizeSlug` calls inside `findBestMatch`. We also fold
+    // every emitted token into the inverted index (`slugTokenToJobs`)
+    // so the no-company-match candidate set can be derived by bucket
+    // union instead of scanning all 6265 active jobs.
     const slugCache = new Map();
-    if (job.slug) slugCache.set(job.slug, tokenizeSlug(job.slug));
+    const jobTokensUnion = new Set();
+    const collectSlug = (s) => {
+      if (!s || slugCache.has(s)) return;
+      const toks = tokenizeSlug(s);
+      slugCache.set(s, toks);
+      for (const t of toks) jobTokensUnion.add(t);
+    };
+    if (job.slug) collectSlug(job.slug);
     if (job.slugByLocale) {
-      for (const s of Object.values(job.slugByLocale)) {
-        if (s && !slugCache.has(s)) slugCache.set(s, tokenizeSlug(s));
-      }
+      for (const s of Object.values(job.slugByLocale)) collectSlug(s);
     }
     slugTokenCache.set(job, slugCache);
+    // Push job into each of its union tokens' bucket. The union
+    // dedup avoids duplicate inserts when several locale slugs share
+    // the same token (e.g. company name appearing in every locale slug).
+    for (const t of jobTokensUnion) {
+      let bucket = slugTokenToJobs.get(t);
+      if (!bucket) {
+        bucket = new Set();
+        slugTokenToJobs.set(t, bucket);
+      }
+      bucket.add(job);
+    }
 
     // Pre-tokenize all titles (per-locale) — saves repeated `tokenizeTitle`
     // calls inside `findBestMatch` Strategy B (title-to-title Jaccard).
@@ -272,7 +303,13 @@ function buildActiveIndex(activeJobs) {
     }
   }
 
-  return { byCompanyKey, allSlugSet, slugTokenCache, titleTokenCache };
+  return {
+    byCompanyKey,
+    allSlugSet,
+    slugTokenCache,
+    titleTokenCache,
+    slugTokenToJobs,
+  };
 }
 
 /**
@@ -348,10 +385,35 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   if (companyKey && index.byCompanyKey[companyKey]) {
     candidates = index.byCompanyKey[companyKey];
     if (verbose) console.log(`  🔍 Company match: "${companyKey}" — ${candidates.length} candidates`);
+  } else if (index.slugTokenToJobs) {
+    // No company narrowing — use the inverted slug-token index to derive
+    // candidates whose union of (canonical+locale) slug tokens shares
+    // ≥ 2 tokens with `orphanTokens`. This is a SUPERSET of jobs that
+    // could pass the scoring guard (`overlap < 2 → continue`, line ~386),
+    // so eliminating it costs only wasted score work — never a missed
+    // match. Cuts the no-company path from O(activeJobs.length × …) to
+    // O(orphanTokens.size × avg-bucket + matchedCandidates.size × …),
+    // which on production data shrinks ~6265 to ~50-150 candidates.
+    const candidateOverlap = new Map(); // job → tokens-in-common count
+    for (const tok of orphanTokens) {
+      const bucket = index.slugTokenToJobs.get(tok);
+      if (!bucket) continue;
+      for (const j of bucket) {
+        candidateOverlap.set(j, (candidateOverlap.get(j) || 0) + 1);
+      }
+    }
+    candidates = [];
+    for (const [j, n] of candidateOverlap) {
+      if (n >= 2) candidates.push(j);
+    }
+    if (verbose) {
+      console.log(`  🔍 No company match — inverted index narrowed to ${candidates.length} candidates (from ${activeJobs.length})`);
+    }
   } else {
-    // No company narrowing — use full set but require higher threshold
+    // Defensive fallback for callers that built the index with a code
+    // path predating the inverted-index field (older imports, tests).
     candidates = activeJobs;
-    if (verbose) console.log(`  🔍 No company match — scanning all ${candidates.length} jobs`);
+    if (verbose) console.log(`  🔍 No company match — scanning all ${candidates.length} jobs (no inverted index)`);
   }
 
   const orphanLocale = enrichment?.locale || detectSlugLocale(orphanSlug);
