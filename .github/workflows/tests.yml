@@ -48,6 +48,15 @@ jobs:
         # production via assemble-jobs-dataset.mjs.
         run: npm run audit:no-merge-markers
 
+      - name: Lint GHA action Node runtimes
+        # Deterministic guardrail (issue #787, follow-up of #779): fails if any
+        # first-party actions/* step is pinned to a major whose bundled Node
+        # runtime is node16/node20. GitHub defaults the runner to Node 24 on
+        # 2026-06-02 and removes node20 on 2026-09-16 — deprecated actions
+        # accumulate as annotations then hard-fail, which on this repo blocks
+        # the deploy. Catch the regression here instead of reactively (#779).
+        run: npm run lint:gha-node-runtime
+
       - name: Assemble data/jobs.json
         # Several tests read data/jobs.json (job-locale-completeness,
         # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
