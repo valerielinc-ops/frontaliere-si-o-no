@@ -1,0 +1,44 @@
+const e={"blog.article.naspi-disoccupazione-frontalieri.body1":`## TL;DR
+- NASpI is Italy's unemployment benefit for workers, including cross-border ones.
+- Cross-border workers must meet specific criteria to qualify for NASpI.
+- NASpI amount and duration depend on contributions and average salary.
+
+## Key facts
+- **Benefit Name**: NASpI (Nuova Assicurazione Sociale per l’Impiego)
+- **Minimum Contributions**: At least 13 weeks in the last 4 years
+- **Residency Requirement**: Must be a resident in Italy at the time of application
+- **Application Deadline**: Within 68 days of job termination
+- **Maximum Monthly Amount**: €1,470.99 in 2026
+- **Duration Maximum**: Up to 24 months, based on contributions
+- **Swiss Maximum Benefit**: CHF 12,350 per month in 2026
+- **Swiss Duration Maximum**: Up to 400 working days
+
+The topic of unemployment for Italian cross-border workers employed in Switzerland, particularly in Canton Ticino, is a significant issue for many families. The term NASpI, or 'Nuova Assicurazione Sociale per l’Impiego' (New Social Insurance for Employment), refers to the unemployment benefit provided in Italy to workers who lose their jobs. For cross-border workers, NASpI takes on a specific relevance, as despite having worked in Switzerland, Italy is responsible for providing this benefit in the event of job loss.
+
+## Requirements to Access NASpI
+
+To qualify for NASpI, certain specific criteria must be met:
+
+- Having accumulated at least 13 weeks of contributions in the four years preceding the termination of employment.
+- Demonstrating at least 30 days of actual work (not necessarily consecutive) in the last 12 months.
+- Being a resident in Italy at the time of application.
+
+This means that the cross-border worker must have regularly worked in Switzerland, paying social security contributions through their employer, while maintaining their residence in Italy. Otherwise, access to NASpI may be compromised.
+
+To apply, a request must be submitted to INPS, preferably online through the dedicated portal, or by contacting a patronage service. The application must be filed within 68 days of the termination of employment. ⚠️ Note: Missing this deadline may result in losing the right to the benefit!`,"blog.article.naspi-disoccupazione-frontalieri.body2":`## Calculation and Duration of NASpI
+
+The amount of NASpI is calculated based on the average monthly salary of the last four years of work. In 2026, the maximum monthly amount payable is €1,470.99, with the first three months covering 75% of the average salary. Starting from the fourth month, the amount decreases by 3% each month.
+
+For example, a cross-border worker with an average monthly salary of €2,000 will initially receive 75%, or €1,500, but this amount will progressively decrease from the fourth month onward.
+
+The duration of NASpI corresponds to half the number of weeks of contributions accumulated in the four years prior to job loss, up to a maximum of 24 months. This means that a worker with 48 weeks of contributions will receive NASpI for 24 weeks. However, it is important to note that cross-border workers who were employed in Switzerland cannot benefit from the extension mechanism of NASpI available to certain categories of domestic Italian workers.
+
+> NASpI is an important support tool for cross-border workers, but it is essential to fully understand the rules to avoid unpleasant surprises.`,"blog.article.naspi-disoccupazione-frontalieri.body3":`## Differences with Swiss Unemployment Benefits and Practical Tips
+
+One of the main differences between Italian NASpI and Swiss unemployment benefits lies in the calculation method and eligibility requirements. In Switzerland, for instance, the benefit is proportional to the actual income earned, with a maximum cap set at CHF 12,350 per month in 2026. Furthermore, the duration of benefits in Switzerland can extend up to 400 working days, depending on the length of contributions paid.
+
+In Italy, on the other hand, NASpI is more limited in both amounts and duration and does not take into account contributions made in Switzerland. For many cross-border workers, this represents a significant change compared to the social protection conditions in Switzerland.
+
+💡 It is crucial to verify your contribution status in both Italy and Switzerland and, if possible, plan ahead for potential periods of unemployment. Additionally, we recommend using available tools to simulate your NASpI amount and compare it with other income sources or savings. For an accurate estimate of your net income as a cross-border worker, try our [Net Salary Calculator](nav:calculator).
+
+For more information on unemployment for cross-border workers, visit our [Unemployment Guide](nav:unemployment).`,"blog.article.naspi-disoccupazione-frontalieri.faq":'[{"q":"What are the requirements to access NASpI?","a":"To obtain NASpI, you must have accumulated at least 13 weeks of contributions in the four years prior to the termination of employment, have worked at least 30 effective days in the last 12 months and be resident in Italy at the time of application."},{"q":"Can I access NASpI if I have worked in Switzerland but am not resident in Italy?","a":"No, to access the NASpI you must be resident in Italy at the time of application. Contributions paid in Switzerland do not affect the entitlement to the residence required for the NASpI."},{"q":"How do I apply for NASpI if I work in Switzerland but live in Italy?","a":"You must log in to the INPS portal with your tax code and PIN, choose the procedure for cross-border commuters and upload the Swiss certificate of termination of employment, the certificate of AHV/IV contributions and the Italian certificate of residence. The application must be sent within 68 days from the date of dismissal; Alternatively, you can contact a patronato for assistance."},{"q":"What documents do I need to prove the contributions paid in Switzerland to the NASpI application?","a":"You need the severance certificate issued by the Swiss employer, the AHV/IV contribution statement (or the payment certificate), the Italian tax return with indication of foreign income, a valid identity document and the certificate of residence in Italy. Possibly, the contribution transfer form between the two systems."},{"q":"Can I receive the Italian NASpI and the Swiss unemployment benefit at the same time?","a":"No. Italian legislation provides that NASpI is incompatible with other unemployment benefits received abroad. If you start receiving the Swiss allowance, you must notify INPS, which will suspend the NASpI. Only in cases of a difference of very high amount can a supplement be considered, but not a total cumulation."}]'};export{e as default};

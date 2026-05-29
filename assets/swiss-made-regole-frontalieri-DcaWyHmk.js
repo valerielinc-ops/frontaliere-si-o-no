@@ -1,0 +1,108 @@
+const e={"blog.article.swiss-made-regole-frontalieri.body1":`## In brief
+- New rules for the Swiss Made brand
+- Relaxation of norms for products with foreign production
+- Economic value of the Swiss Made brand
+- Impact on Ticino cross-border workers
+
+## Key facts
+- **What**: Change in rules for the use of the Swiss Made brand
+- When: Clarification of practice made public at the end of March 2024
+- Where: Switzerland
+- Who: Federal Institute of Intellectual Property (IPI)
+- Amount: 7 billion Swiss francs depend on the reputation of the Swiss Made brand
+
+Switzerland has always had strict rules on which products can boast the Swiss cross. However, recent changes to the rules are altering the landscape. The Federal Institute of Intellectual Property made public at the end of March a 'clarification of practice' that has significant effects on the use of the Swiss origin label. This modification now also allows products with largely foreign production to be marketed using the Swiss cross, provided they are based on Swiss research or development.
+
+### Market impact
+The value of the 'Swiss Made' brand is significant for the Swiss economy. According to standard calculations by the Confederation, 1% of Switzerland's gross domestic product depends on the good reputation of its territory as a place of production. This added value corresponds to approximately 7 billion francs, as communicated by the Intellectual Property Institute.
+
+### What does 'Swiss Made' mean?
+To obtain the 'Swiss Made' brand, at least 60% of the production costs of industrial goods must be incurred in Switzerland. For watches, the movement must be produced in Switzerland for at least 60%, and development and the most important stages of production must also take place in Switzerland. For food products, 80% of the weight of the raw materials must come from Switzerland, with some exceptions such as chocolate, where the recipe and production must be Swiss.
+
+### Concrete examples
+The shoe manufacturer On, based in Zurich, has succeeded in obtaining a relaxation of the rules, allowing the use of the Swiss cross on its shoes. This example shows how the new rules can open up new opportunities for Swiss manufacturers collaborating with foreign partners. Another example is represented by the Ticinese company Bally, which produces luxury footwear and is based in Caslano. Thanks to the new regulations, Bally can now use the Swiss Made brand even for products with foreign components, provided the design and development take place in Switzerland.
+
+### Implications for cross-border workers
+Cross-border workers working in sectors related to Swiss production may see new job opportunities and collaborations with companies that can now use the Swiss Made brand even for products with foreign components. This could lead to a greater demand for specific skills and new cross-border collaborations. For example, cross-border workers in the fashion and footwear sector may find new job opportunities with companies like Bally or On, which can now use the Swiss Made brand even for products with foreign components.
+
+### Operational Checklist
+For companies wishing to use the Swiss Made brand, it is important to follow a series of steps:
+1. Verify requirements: Ensure that at least 60% of production costs are incurred in Switzerland for industrial goods.
+2. Documentation: Maintain detailed documentation of production costs and development stages.
+3. Collaboration with foreign partners: Ensure that design and development take place in Switzerland.
+4. Compliance with regulations: Verify that food products comply with specific regulations, such as 80% of the weight of raw materials coming from Switzerland.
+
+### Comparisons between practical scenarios
+Before the new regulations, a company like Bally would have had to produce at least 60% of its footwear in Switzerland to use the Swiss Made brand. Now, thanks to the new rules, Bally can use the brand for products with foreign components, provided that design and development take place in Switzerland. This represents a significant competitive advantage for Swiss companies collaborating with foreign partners.
+
+### Conclusion
+The new rules for the Swiss Made brand represent a significant opportunity for Swiss companies and cross-border workers in sectors related to Swiss production. Thanks to these changes, companies can now use the Swiss Made brand for products with foreign components, provided that design and development take place in Switzerland. This could lead to new job opportunities and cross-border collaboration, with a positive impact on the Swiss economy.`,"blog.article.swiss-made-regole-frontalieri.body2":`### Analysis of the new rules
+The new rules for the Swiss Made brand, which came into effect on January 1, 2024, represent a significant change from the past. Previously, only products with at least 60% of Swiss added value could boast the Swiss cross. Now, with the relaxation of the rules, products with a significant portion of production abroad can also use the brand, provided they are based on Swiss research or development, with at least 20% of Swiss added value.
+
+### Advantages and disadvantages
+Among the advantages, there is the possibility for Swiss companies to collaborate more easily with foreign partners without losing the prestige of the Swiss Made brand. This could lead to greater competitiveness in the international market and new business opportunities. For example, a company in Lugano could collaborate with an Italian manufacturer to reduce production costs, while still maintaining the Swiss Made brand if the design and research are Swiss.
+
+> "The new rules offer greater flexibility, but it is fundamental to maintain the quality and integrity of the brand."
+
+However, there is also the risk that the brand may lose some of its perceived value if used too freely. For example, a company in Mendrisio might decide to produce abroad to save on costs, but if the final product does not maintain Swiss quality standards, it could damage the brand's reputation.
+
+### Product examples
+A concrete example is Toblerone chocolate, which had to give up the Matterhorn on the packaging after production was moved to Slovakia. With the new rules, it might be possible to use the Swiss Made brand again if the product is based on Swiss research or development, even if production takes place abroad. Another example is watchmaking: a company in Bellinzona could design and develop a watch in Switzerland, but produce it in China, while still maintaining the Swiss Made brand.
+
+### Impact on consumers
+Consumers might see a greater variety of products with the Swiss Made brand, but they might also be more attentive to verifying the actual origin and quality of the products. This could lead to greater transparency and greater attention to quality on the part of consumers. For example, a consumer in Chiasso might prefer a Swiss Made watch produced entirely in Switzerland over one produced abroad, even if both bear the brand.
+
+### Comparison with the previous situation
+Before the new rules, only products with almost entirely Swiss production could use the Swiss Made brand. This limited opportunities for collaboration with foreign partners and made it more difficult for Swiss companies to compete in the international market. With the new rules, Swiss companies have more flexibility and can collaborate with foreign partners without losing the prestige of the brand.
+
+### Operational checklist
+For companies that intend to use the Swiss Made brand with the new rules, it is important to follow an operational checklist:
+1. Verify that at least 20% of the added value is Swiss.
+2. Ensure that research and development are based in Switzerland.
+3. Guarantee that the quality of the final product is in line with Swiss standards.
+4. Clearly communicate to consumers the origin and quality of the product.
+
+### Practical scenarios
+Let's consider two practical scenarios:
+1. **Scenario A**: A company in Lugano produces 30% of the added value in Switzerland and the remaining 70% abroad. With the new rules, it can use the Swiss Made brand if the design and research are Swiss.
+2. Scenario B: A company in Mendrisio produces 15% of the added value in Switzerland and the remaining 85% abroad. In this case, it cannot use the Swiss Made brand, as it does not reach the minimum required 20%.
+
+### Regulations and amounts
+The new rules were introduced with the ordinance of October 27, 2023, which amends the ordinance of December 23, 1992 on the use of the origin mark 'Swiss Made'. Companies that do not comply with the new rules may be subject to administrative sanctions of up to 10,000 CHF.
+
+### Conclusion
+The new rules for the Swiss Made brand offer greater flexibility to Swiss companies, but it is fundamental to maintain the quality and integrity of the brand. Consumers, on the other hand, will need to be more careful in their choice of products, verifying the actual origin and quality.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.swiss-made-regole-frontalieri.body3":`### Swiss Made: what changes for cross-border workers with the new rules
+
+If you are a cross-border worker in a sector related to Swiss production, it is essential to know the new rules for the Swiss Made label, which came into force on January 1, 2023. These changes could open up new job and collaboration opportunities with companies that can now use the label for products with up to 60% foreign components, compared to the previous 40%.
+
+### Concrete steps
+
+1. **Learn about the new rules**: Check the new rules for the use of the Swiss Made label and how they might affect your sector. For example, if you work in watchmaking, you should know that it is now possible to use the Swiss Made label even if the movement is composed of up to 60% foreign components, provided that the final assembly takes place in Switzerland.
+
+2. Collaborate with Swiss companies: Look for collaboration opportunities with Swiss companies that could benefit from the new rules. For example, companies in Lugano or Mendrisio might be interested in expanding their production thanks to the new regulations.
+
+3. Verify the quality of the products: Ensure that products with the Swiss Made label maintain the high quality standards for which the label is known. A concrete example is the textile industry, where 50% of the materials must be Swiss to use the label.
+
+4. Use comparison tools: Use tools like the [salary calculator](nav:calculator) to compare job opportunities and tax benefits. For example, a cross-border worker earning 80,000 CHF per year could save up to 10,000 CHF in taxes compared to an Italian colleague.
+
+### Operational checklist
+
+- 📊 Check the regulations: Verify the new rules on the website of the Federal Institute of Intellectual Property (UIPM).
+- 💡 Explore opportunities: Contact local companies to understand how the new rules might affect their production.
+- ⚠️ Ensure quality: Verify that the products maintain the required quality standards.
+- 📊 Compare salaries: Use the [salary calculator](nav:calculator) to evaluate job opportunities.
+
+### Useful tools
+
+- [Salary calculator](nav:calculator): Compare job opportunities and tax benefits.
+- [Health insurance guide](nav:health): Information on health insurance for cross-border workers.
+- [Tax calendar](nav:calendar): Tax deadlines and contributions for cross-border workers.
+
+### Conclusion
+
+The new rules for the Swiss Made label represent an opportunity for cross-border workers to explore new collaborations and job opportunities. It is important to be aware of the implications and opportunities offered by the new rules and to use tools such as the [salary calculator](nav:calculator) to maximize the benefits.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/lavoro-ed-economia/cosa-significa-davvero-il-marchio-made-in-switzerland/91252515)*`,"blog.article.swiss-made-regole-frontalieri.faq":`[{"q":"What are the requirements to obtain the Swiss Made label?","a":"To obtain the Swiss Made label, at least 60% of the production costs of industrial goods must be incurred in Switzerland. For watches, the movement must be produced in Switzerland for at least 60%, and the development and most important stages of production must also take place in Switzerland. For food products, 80% of the weight of the raw materials must come from Switzerland, with some exceptions such as chocolate, where the recipe and production must be Swiss."},{"q":"What changes with the new rules for the Swiss Made label?","a":"The new rules also allow products with largely foreign production to be marketed using the Swiss cross, provided they are based on Swiss research or development. This relaxation of the rules opens new opportunities for Swiss companies collaborating with foreign partners."},{"q":"What is the economic value of the Swiss Made label?","a":"According to standard calculations by the Confederation, 1% of Switzerland's gross domestic product depends on the good reputation of its territory as a place of production. This added value corresponds to approximately 7 billion Swiss francs today."}]`};export{e as default};

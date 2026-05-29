@@ -1,0 +1,88 @@
+const e={"blog.article.agricoltura-ticino-allarme-2024.body1":`## In Kürze
+- Die Landwirtschaftskrise im Tessin 2024: Dürre, Raubtiere, Kosten und Arbeitskräftemangel
+- Drei Resolutionen im Jahr 2026 von der Kantonalen Landwirtschaftskammer verabschiedet
+- Update 2026: Der Sektor blickt mit neuer Entschlossenheit nach vorn
+- Saisonale Arbeitsmöglichkeiten für Grenzgänger in der Tessiner Landwirtschaft
+
+## Wichtige Fakten
+- **Was**: Krise und Wiederbelebung der Tessiner Landwirtschaft
+- **Wann**: 2024 (Krise) — 2026 (Erholungsprioritäten und Versammlung vom 2. Mai)
+- **Wo**: Bellinzona, Kanton Tessin
+- **Wer**: Unione Contadini Ticinesi (UCT), Kantonale Landwirtschaftskammer
+- **Schlüsselpersonen**: Omar Pedrini (UCT-Präsident), Sem Genini (kantonaler Landwirtschaftssekretär)
+
+### 2024: Ein Alarmjahr für die Tessiner Landwirtschaft
+
+Im Jahr 2024 durchlief der Tessiner Agrarsektor eine der schwierigsten Phasen der letzten Jahre. Belastend wirkten der Klimawandel mit immer häufigeren Dürreperioden abwechselnd mit intensiven Niederschlägen, steigende Produktionskosten, Wettbewerbsdruck durch preiswerte Importprodukte und die wachsende Präsenz von Großraubtieren — insbesondere dem Wolf — was zur Aufgabe zahlreicher Alpweiden führte.
+
+Der Präsident der Unione Contadini Ticinesi, Omar Pedrini, beschrieb das Problem deutlich: „Es ist nicht machbar, von uns zu verlangen, dass wir nach sehr restriktiven Standards produzieren und gleichzeitig Preise verlangen, die in den verschiedenen Bennet-Geschäften jenseits der Grenze gemacht werden." Der kantonale Landwirtschaftssekretär Sem Genini bestätigte, dass der Sektor leidet, mit mehreren schließenden Betrieben, auch aufgrund des Wolf-Problems und der Wildtiere, die zunehmend Schäden an Alpweiden verursachen.
+
+### Krisenzahlen 2024
+
+Nach den auf der Versammlung diskutierten Daten:
+- Die durch Wölfe und Wildtiere an den Tessiner Alpweiden verursachten Schäden wurden im Jahr 2023 auf rund **1,2 Millionen Franken** geschätzt, mit einer sich verschlechternden Tendenz im Jahr 2024
+- In der Gemeinde Acquarossa wurden rund 30% der Alpweiden in den letzten fünf Jahren wegen Raubtieren aufgegeben
+- Der Kanton Tessin hat im Vergleich zum Beginn des Jahrzehnts einen erheblichen Teil seiner landwirtschaftlichen Betriebe verloren, laut Daten des Bundesamts für Statistik
+
+### Die drei Resolutionen von 2026: Erholungsprioritäten
+
+Die Versammlung der Kantonalen Landwirtschaftskammer vom 2. Mai 2026, die im Auditorium der BancaStato in Bellinzona mit rund fünfzig UCT-Delegierten stattfand, verabschiedete einstimmig drei strategische Resolutionen, die den Weg der Erholung aufzeigen:
+
+1. **Förderung lokaler Produkte**: Die erste Resolution macht auf die geringe Präsenz Tessiner Produkte bei öffentlichen Veranstaltungen, die oft mit öffentlichen Geldern finanziert werden, aufmerksam. Das Prinzip ist klar: „Lokal als erste Wahl, Schweizer Produkte als Alternative und ausländische nur als letzten Ausweg."
+
+2. **Landwirtschaftsflächen in Bauprojekten**: Die zweite Resolution befasst sich mit dem Verbrauch landwirtschaftlicher Flächen für große Infrastrukturprojekte. Im Tessin sind nur 18% der landwirtschaftlichen Flächen im Besitz der Bewirtschafter selbst — eine fragile Situation, die durch Generationenwechsel noch schwieriger werden könnte. Gefordert werden gerechtere Entschädigungen und ein sparsamer Umgang mit den betroffenen Flächen.
+
+3. **Weiterbildung**: Die dritte Resolution zielt darauf ab, ein lokales Weiterbildungsangebot zu entwickeln, das den sprachlichen und geografischen Besonderheiten des Tessins gerecht wird, in Zusammenarbeit mit dem Centro Professionale del Verde di Mezzana.`,"blog.article.agricoltura-ticino-allarme-2024.body2":`### Saisonale Landwirtschaftsarbeit im Tessin: Chancen für Grenzgänger
+
+Für Grenzgänger, die in den Provinzen Como und Varese wohnen, ist der Tessiner Agrarsektor eine konkrete Quelle für Saisonbeschäftigung, vor allem in den Frühjahrs- und Sommermonaten. Folgendes ist nützlich zu wissen für alle, die diese Option in Betracht ziehen.
+
+#### Vertragsarten
+
+In der Tessiner Landwirtschaft werden hauptsächlich zwei Vertragsformen eingesetzt:
+- **Saisonvertrag (contratto stagionale agricolo)**: Die häufigste Form für Weinlese, Obsternte, Alpweidenarbeit und Instandhaltung. Die Dauer kann von wenigen Wochen bis zu mehreren Monaten reichen.
+- **Befristeter Vertrag**: Für strukturiertere Arbeiten oder größere Betriebe, die spezifische Kenntnisse erfordern.
+
+Beide Formen werden durch den **Gesamtarbeitsvertrag (GAV) für die Tessiner Landwirtschaft** geregelt, der Mindestbedingungen für Lohn, Arbeitszeiten und Sozialleistungen festlegt. Die Lohnsätze im Tessiner Agrarsektor sind im Durchschnitt höher als die italienischen Sätze im gleichen Sektor, was diese Option für Grenzgänger wirtschaftlich interessant macht.
+
+#### Grenzgängerausweis G und Saisonarbeit
+
+Italienische Grenzgänger (Grenzgängerausweis G) können im Tessiner Agrarsektor ohne besondere Einschränkungen arbeiten, sofern sie ihren Wohnsitz im Grenzgebiet behalten (innerhalb von 30 km von Grenzübergängen oder in der durch das bilaterale Abkommen Schweiz-Italien definierten Grenzzone). Für Saisonarbeit mit einer Dauer unter 90 Tagen sind die Verwaltungsverfahren vereinfacht.
+
+**Wichtige Punkte für Grenzgänger in der Landwirtschaft:**
+- Der Arbeitgeber muss den Grenzgänger beim **Kantonalen Arbeitsamt** vor Beginn des Arbeitsverhältnisses anmelden
+- Sozialversicherungen (AHV/IV/EO) sind auch bei kurzen Verträgen obligatorisch
+- Der Grenzgänger hat ab dem ersten Arbeitstag Anspruch auf die Unfallversicherung (UVG)
+- Die Krankenversicherung (KVG) bleibt für Grenzgänger, die eine Deckung in Italien behalten, optional
+
+#### Sozialschutz für Saisonarbeiter
+
+Ein oft übersehener Punkt: Auch kurze Saisonarbeitsverhältnisse in der Schweiz erzeugen Rentenansprüche. Während eines Saisonvertrags geleistete AHV-Beiträge kumulieren sich und können sowohl zur Schweizer als auch zur italienischen Altersrente beitragen (dank der Totalisierungsabkommen zwischen den beiden Ländern). Es lohnt sich, alle Beschäftigungsnachweise aus der Schweiz aufzubewahren.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.agricoltura-ticino-allarme-2024.body3":`### Was tun, um in der Tessiner Landwirtschaft den Einstieg zu finden
+
+Hier sind einige konkrete Maßnahmen für Grenzgänger, die am Tessiner Agrarsektor interessiert sind oder bereits dort arbeiten:
+
+1. **Den Tessiner Landwirtschafts-GAV konsultieren**: Der Gesamtarbeitsvertrag legt Mindestlöhne, maximale Arbeitszeiten, Urlaubsansprüche und Zulagen für Saisonarbeit fest. Er ist auf den Websites der UCT (Unione Contadini Ticinesi) und UNIA (der Gewerkschaft, die die Arbeitsbedingungen im Sektor aushandelt) verfügbar.
+
+2. **Die Anforderungen für den Grenzgängerausweis G prüfen**: Für diejenigen, die noch keinen Grenzgängerausweis haben, läuft das Antragsverfahren über das Migrationsamt des Kantons Tessin. Die Hauptanforderungen sind der Wohnsitz im Grenzgebiet und ein Arbeitsvertrag mit einem Schweizer Unternehmen.
+
+3. **Eine Ausbildung am Centro Professionale del Verde di Mezzana in Betracht ziehen**: Die UCT-Versammlung 2026 betonte die Notwendigkeit, die lokale Ausbildung zu stärken. Einige Kurse sind auch für Grenzgänger zugänglich, besonders für diejenigen, die sich auf Weinbau, Obstbau oder Alpweidenbewirtschaftung spezialisieren möchten.
+
+4. **Lokale Produkte als Verbraucher unterstützen**: Tessiner Produkte in Supermärkten und auf Märkten des Kantons Tessin zu wählen, hilft direkt dabei, lokale landwirtschaftliche Betriebe zu unterstützen und das wirtschaftliche Gefüge zu bewahren, aus dem viele Grenzgänger Beschäftigung finden.
+
+5. **An Branchenveranstaltungen teilnehmen**: Die Bellinzonese Juniausmesse und andere Tessiner Landwirtschaftsveranstaltungen sind nützliche Gelegenheiten für Networking, um lokale Betriebe kennenzulernen und über Saisonarbeitsmöglichkeiten auf dem Laufenden zu bleiben.
+
+### Operative Checkliste für Grenzgänger, die nach Landwirtschaftsarbeit suchen
+
+- [ ] Tessiner Landwirtschafts-GAV konsultieren, um die Mindestlöhne zu kennen
+- [ ] Gültigkeit des Grenzgängerausweises G prüfen oder Antrag stellen
+- [ ] UCT oder Berufsverbände für Stellenangebote für Saisonarbeit kontaktieren
+- [ ] Auf dem Portal **Job-Room** (seco.admin.ch) für Schweizer Stellenangebote registrieren
+- [ ] Alle Beschäftigungsnachweise für die Verwaltung der Rentenansprüche aufbewahren
+
+### Schlussfolgerung
+
+Der Tessiner Agrarsektor hat schwierige Jahre erlebt, aber die Resolutionen von 2026 zeigen einen konkreten Willen zur Erholung. Für Grenzgänger bietet dieser Sektor Saisonarbeitsmöglichkeiten mit Lohnbedingungen, die im Allgemeinen höher sind als das italienische Äquivalent, einen schützenden Rechtsrahmen und langfristige Aussichten, die mit der Aufwertung des Territoriums und der lokalen Produkte verbunden sind. Die grenzüberschreitende Zusammenarbeit — auch in der Landwirtschaft — ist eines der besonderen Merkmale des Tessiner Grenzgebiets.
+
+*Quellen: [ticinonews.ch](https://www.ticinonews.ch/ticino/lallarme-degli-agricoltori-il-settore-sta-soffrendo-432708) — [tio.ch](https://www.tio.ch/ticino/attualita/1922530/priorita-a-prodotti-locali-superfici-e-formazione)*`,"blog.article.agricoltura-ticino-allarme-2024.faq":'[{"q":"Welche sind die Haupt-Herausforderungen des Tessiner Agrarsektors?","a":"Die Hauptherausforderungen umfassen den Klimawandel mit Dürre und Extremereignissen, den Druck der Raubtiere (Wölfe) auf die Alpweiden, steigende Produktionskosten und Wettbewerb durch günstige Importprodukte. Im Jahr 2024 erlebte der Sektor eine seiner schwierigsten Perioden, mit mehreren schließenden Betrieben."},{"q":"Wie können Grenzgänger in der Tessiner Landwirtschaft Arbeit finden?","a":"Italienische Grenzgänger mit Grenzgängerausweis G können in der Tessiner Landwirtschaft unter Saison- oder befristeten Verträgen arbeiten, die durch den GAV (Gesamtarbeitsvertrag) der Tessiner Landwirtschaft geregelt sind. Die Lohnsätze sind im Durchschnitt höher als die italienischen Sätze im gleichen Sektor. Verfahren für kurze Verträge (unter 90 Tagen) sind vereinfacht."},{"q":"Welche Resolutionen wurden 2026 zur Wiederbelebung des Sektors verabschiedet?","a":"Die UCT-Versammlung vom 2. Mai 2026 verabschiedete drei Resolutionen: Förderung lokaler Produkte bei öffentlichen Veranstaltungen, gerechtere Bewirtschaftung der in Bauprojekten involvierten Landwirtschaftsflächen und Stärkung der Weiterbildung für landwirtschaftliche Berufe in Zusammenarbeit mit dem Centro Professionale del Verde di Mezzana."}]'};export{e as default};

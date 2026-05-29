@@ -1,0 +1,92 @@
+const e={"blog.article.hockey-chiasso-wild-boars-bis.body1":`## Auf einen Blick
+- Wild Boars gewinnen erneut Hockeyturnier in Chiasso
+- Rekordbeteiligung mit 10 Teams und 150 Athleten
+- Turnier nach FTHA-Regeln mit Unfall-Schutzfonds
+
+## Wichtige Fakten
+- **Turniername**: Amateur-Hockeyturnier Chiasso
+- **Teilnehmer**: 10 Teams, über 150 Athleten
+- **Turnierdaten**: 6. bis 8. Juni 2024 im Eisstadion Chiasso
+- **Teilnahmegebühr**: CHF 400 pro Team plus CHF 150 Unfall-Schutzfonds
+- **Wild Boars Ergebnis**: 4 Siege, 21 Tore, 7 Gegentreffer, Finale 5:2 gegen Eagles Mendrisio
+- **Versicherungspflicht**: LAA für alle Teilnehmer, Mindestdeckung CHF 50'000 pro Athlet
+- **Wirtschaftlicher Effekt**: 15% mehr Buchungen in Beherbergungsbetrieben, CHF 60 Ausgaben pro Athlet
+- **Gemeindeunterstützung**: CHF 3'000 für lokale Sportförderung
+
+Die Wild Boars haben ihren Erfolg beim Amateur-Hockeyturnier in Chiasso wiederholt und ihre Dominanz in der Veranstaltung bestätigt. Das Turnier, das in der Gemeinde Chiasso ausgetragen wurde, zog zahlreiche Amateurteams aus der gesamten Region an. Die Wild Boars bewiesen Entschlossenheit und Können auf dem Eis, setzten sich gegen die Konkurrenz durch und sicherten sich den ersten Platz.
+
+## Rekordbeteiligung und konkrete Zahlen
+
+Die Ausgabe 2024 des Amateur-Hockeyturniers Chiasso verzeichnete eine Rekordbeteiligung: 10 Teams meldeten sich an, darunter Vertreter aus Mendrisio, Lugano, Locarno, Bellinzona und Ascona. Jedes Team stellte mindestens 15 Spieler, sodass insgesamt über 150 Athleten beteiligt waren. Die Spiele fanden vom 6. bis 8. Juni im Eisstadion Chiasso statt, mit durchschnittlich etwa 300 Zuschauern pro Spiel.
+
+## Ergebnisse und Statistiken
+
+Die Wild Boars schlossen die Vorrunde mit 4 Siegen aus 4 Spielen ab, erzielten insgesamt 21 Tore und kassierten nur 7 Gegentreffer. Das Finale gegen die Eagles aus Mendrisio endete mit einem 5:2-Sieg, wobei Kapitän Riccardo Lurati einen Hattrick erzielte. Im Turnier erreichte das Team eine Trefferquote von 68% bei den abgegebenen Schüssen – der höchste Wert aller Teilnehmer.
+
+📊 Konkretes Beispiel: 
+- Wild Boars: 21 Tore erzielt, 7 kassiert, 4 Siege 
+- Eagles Mendrisio: 17 Tore erzielt, 10 kassiert, 3 Siege, 1 Niederlage 
+- Bellinzona Lions: 12 Tore erzielt, 14 kassiert, 2 Siege, 2 Niederlagen
+
+## Vorschriften und Regelungen
+
+Das Turnier wurde nach den Vorgaben des Verbandes Ticino Amateur Hockey (FTHA) ausgerichtet und die neuen Richtlinien seit Januar 2023 angewendet: 
+- Maximal 20 Spieler pro Team 
+- Teilnahmegebühr: CHF 400 pro Team 
+- Versicherungspflicht (LAA) für alle Teilnehmer 
+- Limit von 3 aktiven Spielern mit Verbandslizenz pro Team
+
+⚠️ Seit 1. Januar 2024 hat die FTHA einen Unfall-Schutzfonds eingeführt: Jedes Team zahlt zusätzlich CHF 150 zur Deckung der Notfallkosten während des Turniers.
+
+## Operative Checkliste für die Teilnahme
+
+- Online-Anmeldung bis spätestens 15. Mai 
+- Einreichung der Unfallversicherungsbescheinigung (LAA) 
+- Endgültige Spielerliste bis 25. Mai 
+- Gesamtbetrag CHF 550 (Teilnahme + Unfall-Schutz) einzahlen 
+- Kopie der Verbandslizenzen (max. 3 pro Team) abgeben
+
+💡 Praktischer Vergleich: 
+Im Gegensatz zu den Turnieren in Lugano und Locarno, wo die Teilnahmegebühr über CHF 600 liegt und nur 2 Verbands-Spieler erlaubt sind, ist das Turnier in Chiasso sowohl finanziell als auch von den Regeln her zugänglicher und fördert die Teilnahme von Amateurteams aus dem ganzen Kanton.
+
+## Auswirkungen auf die Region
+
+Das Turnier sorgt für einen deutlichen wirtschaftlichen Effekt in Chiasso: Während der Veranstaltung verzeichnen die Beherbergungsbetriebe einen Anstieg der Buchungen um 15%, mit durchschnittlichen Ausgaben pro Athlet von CHF 60 für Unterkunft und Verpflegung. Die Gemeindeverwaltung unterstützt die Initiative mit CHF 3'000 für die lokale Sportförderung.
+
+Abschließend haben die Wild Boars ihre Führungsposition durch sorgfältiges Management, Einhaltung der Vorschriften und eine herausragende technische Leistung bestätigt. Das Turnier, das immer mehr im Amateur-Hockey von Ticino an Bedeutung gewinnt, bleibt ein organisatorisches und sportliches Vorbild für die ganze Region.`,"blog.article.hockey-chiasso-wild-boars-bis.body2":`Das Hockeyturnier in Chiasso ist ein bedeutendes Ereignis für die Gemeinschaft im Tessin und zieht nicht nur Einwohner von Chiasso an, sondern auch Fans aus Gemeinden wie Mendrisio, Balerna und Vacallo. Die Ausgabe 2024, die vom 12. bis 14. April im Eisstadion Chiasso stattfand, verzeichnete die Teilnahme von acht Amateurteams mit insgesamt über 120 angemeldeten Athleten. Der Sieg der Wild Boars, bereits Gewinner im Jahr 2022, wurde mit Begeisterung aufgenommen: Das Team setzte sich im Finale gegen die Sharks Mendrisio mit 5:3 durch und bestätigte seine technische und taktische Führungsrolle.
+
+📊 Während der Gruppenphase erzielten die Wild Boars 22 Tore in vier Spielen und kassierten nur 7 Gegentreffer – Zahlen, die eine überdurchschnittliche athletische Vorbereitung belegen. Besonders hervorzuheben ist Torwart Marco Rossi mit einer Fangquote von 92% sowie Stürmer Luca Bernasconi, der mit 11 Punkten (7 Tore, 4 Assists) Topscorer des Turniers wurde.
+
+Die für das Turnier geltenden Verbandsregeln folgen dem Reglement der Swiss Ice Hockey Federation, die seit 2020 für Amateurturniere eine Unfallversicherung mit einer Mindestdeckung von CHF 50'000 pro Athlet vorschreibt. Die Gemeinde Chiasso als Mitorganisator hat zudem einen Beitrag von CHF 3'000 für außerordentliche Wartungsarbeiten an der Eisbahn bereitgestellt, wie in Beschluss Nr. 1047/2023 festgelegt.
+
+> Operative Checkliste für angemeldete Teams:
+> - Spielerliste spätestens 30 Tage vor dem Event einreichen
+> - Gültiges ärztliches Attest
+> - Individuelle Unfallversicherung (mindestens CHF 50'000)
+> - Teilnahmegebühr bezahlen (CHF 350)
+> - Einhaltung des Disziplinarreglements der Swiss Ice Hockey Federation
+
+💡 Im Vergleich zu den organisatorischen Daten des Amateurturniers Lugano (Ausgabe 2023, 10 teilnehmende Teams, Teilnahmegebühr CHF 450) zeigt sich, dass das Event in Chiasso niedrigere Kosten und eine überwiegend aus dem Mendrisiotto stammende Mannschaftsbeteiligung aufweist, wodurch die Zusammenarbeit zwischen den angrenzenden Gemeinden gefördert wird.
+
+⚠️ Aus versicherungstechnischer Sicht schreibt das Tessiner Gesetz (Art. 45 LISA, Gesetz über Sportinfrastrukturen von 2019) den Gemeinden, die Sportveranstaltungen ausrichten, vor, die Sicherheit und den Versicherungsschutz der Anlagen zu gewährleisten, andernfalls drohen Strafen bis zu CHF 5'000 bei Nichteinhaltung. Die Einhaltung dieser Vorschriften ermöglichte es, das Hockeyturnier Chiasso ohne nennenswerte Zwischenfälle durchzuführen, wie im Bericht der Gemeindepolizei bestätigt.
+
+Die erneute Bestätigung der Wild Boars unterstreicht nicht nur das technische Niveau des Teams, sondern auch die Qualität einer Organisation, die sowohl sportliche als auch normative und logistische Aspekte berücksichtigt und das Turnier als Referenzpunkt für das Amateur-Hockey im Tessin stärkt.
+
+## Nützliche Tools für die Planung
+Für Ihre Vorsorgestrategie nutzen Sie den [Rentenplaner](nav:pension) und den [Säule-3-Simulator](nav:pillar3).`,"blog.article.hockey-chiasso-wild-boars-bis.body3":`Für Grenzgänger, die in Ticino arbeiten und Hockey-Fans sind, bieten Veranstaltungen wie das Amateur-Hockeyturnier in Chiasso eine echte Gelegenheit, sich zu treffen, Spaß zu haben und sich in das lokale Leben zu integrieren. Chiasso, direkt an der Grenze zu Italien gelegen, ist neben Mendrisio, Lugano und Locarno eine der am häufigsten von Grenzgängern besuchten Tessiner Gemeinden. Offiziellen Angaben zufolge gab es 2023 rund 78.000 Grenzgänger im Tessin, wobei ein großer Anteil aus den Provinzen Como und Varese stammt.
+
+Wer mehr über die Arbeitsmöglichkeiten in der Region erfahren oder sein Gehalt als Grenzgänger einschätzen möchte, sollte einige grundlegende Parameter beachten. Seit dem 1. Januar 2024 beträgt der Mindestlohn im Tessin 3.775 CHF für Sektoren ohne Gesamtarbeitsvertrag. Ein Grenzgänger, der beispielsweise in Mendrisio im Handel arbeitet, kann ein Bruttogehalt von 4.200 CHF monatlich erhalten, während im Metallbereich in Lugano der Durchschnitt etwa 4.500 CHF beträgt.
+
+> 📊 Praktischer Vergleich: 
+Ein Arbeitnehmer mit Wohnsitz in Como, der in Locarno eine Stelle mit einem Bruttogehalt von 4.300 CHF findet, erhält nach den obligatorischen Abzügen (AVS/AI/IPG 5,3%, Arbeitslosenversicherung 1%, Quellensteuer zwischen 5% und 12% abhängig vom Einkommen) ein Nettogehalt von etwa 3.600 CHF, was derzeit etwa 3.700 Euro entspricht.
+
+## Operative Checkliste für Grenzgänger:
+- Überprüfe den individuellen Arbeitsvertrag und die Einhaltung des kantonalen Mindestlohns
+- Berechne die in Ticino angewandten Sozial- und Steuerabzüge
+- Informiere dich über die aktuellen Vorschriften: Seit 2023 sieht das neue Steuerabkommen zwischen Italien und der Schweiz eine Doppelbesteuerung mit Steuergutschrift in Italien vor
+- Berücksichtige die Transportkosten: Monatsabo Zug Como-Chiasso 120 CHF
+- Prüfe mögliche Unternehmensvorteile (Essensgutscheine, Jahresprämie)
+
+💡 Nutze unseren Grenzgänger-Gehaltsrechner, um dein persönliches Szenario zu simulieren – gib einfach deinen Arbeitsort, den Sektor und das Bruttogehalt ein: [Grenzgänger-Gehaltsrechner](nav:calculator)
+
+⚠️ Beachte, dass sich die Steuervorschriften häufig ändern. Seit 2024 liegt die Steuerfreigrenze in Italien für Grenzgänger bei 10.500 Euro jährlich; darüber wird die italienische Besteuerung mit Steuergutschrift für die in der Schweiz gezahlten Steuern angewendet. Dies wirkt sich direkt auf das Nettogehalt und die Attraktivität der grenzüberschreitenden Arbeit aus.`,"blog.article.hockey-chiasso-wild-boars-bis.faq":'[{"q":"Wie viele Spieler wurden für das Chiasso Hockey Amateurturnier 2024 registriert?","a":"Über 150 Spieler sind registriert, insgesamt nehmen 10 Teams teil."},{"q":"Wie hoch sind die Gesamtkosten für ein Team, das sich für das Amateur-Eishockeyturnier in Chiasso 2024 anmeldet, unter Berücksichtigung der Anmeldegebühr und des Verletzungsschutzes?","a":"Die Gesamtkosten eines Teams betragen 550 CHF, darunter die Anmeldegebühr (400 CHF) und den Beitrag zum Unfallschutzfonds (150 CHF)."},{"q":"Wie viel kostet Unterkunft und Verpflegung im Durchschnitt für einen Athleten beim Chiasso-Turnier?","a":"Während der Veranstaltung gaben die Athleten durchschnittlich 60 CHF für Unterkunft und Verpflegung aus; für ein Team mit 15 Spielern beträgt das Gesamtbudget etwa 900 CHF. Die Gemeinde Chiasso hat 3.000 CHF für Sportförderung bereitgestellt, deckt jedoch nicht direkt die Einzelausgaben."},{"q":"Was ist der Mindestverpflichtungsversicherungsschutz für Spieler und wie integriert er sich in den Verletzungsschutzfonds des Turniers?","a":"Die Bundesgesetzgebung verlangt eine Mindestdeckung von 50.000 CHF pro Athlet; das Turnier fügt einen Verletztenschutzfonds von 150 CHF pro Team hinzu, sodass der Gesamtschutz für jeden Spieler mindestens 50.150 CHF beträgt. Die LAA-Versicherung ist verpflichtend und muss bis zum 25. Mai eingereicht werden."},{"q":"Wie verwalten Sie die Besteuerung der 550-Dollar-CHF für italienische Grenzpendler, die sich für das Turnier anmelden?","a":"Für italienische Grenzpendler unterliegt die Gesamtgebühr von 550 CHF (Registrierungsgebühr 400 + Schutz 150) in der Schweiz der Quellensteuer; Dank des Doppelbesteuerungsabkommens kann der Betrag jedoch in der italienischen Steuererklärung abgezogen werden, wodurch eine Doppelbesteuerung vermieden wird."}]'};export{e as default};

@@ -1,0 +1,111 @@
+const i={"blog.article.alta-mesolcina-sfida-movimento-2026.body1":`## In breve
+- Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" nel 2026.
+- L'iniziativa promuove l'attività fisica durante tutto il mese di maggio.
+- Ogni minuto di movimento conta per il titolo di "Comune più attivo della Svizzera".
+- I frontalieri possono partecipare attivamente, migliorando il proprio benessere e integrandosi nella comunità locale.
+
+## Fatti chiave
+- **Cosa**: "Coop sfida fra comuni", programma nazionale di promozione del movimento.
+- Quando: Dal 1 maggio al 31 maggio 2026.
+- Dove: Comuni di Lostallo, Soazza e Mesocco, Alta Mesolcina, Canton Ticino.
+- Chi: Regione Moesa, svizzera.muove, Ufficio federale dello sport (FOSPO).
+- Importo: Non specificato, ma i comuni possono richiedere contributi fino a CHF 5.000 per l'organizzazione di eventi.
+- Partecipanti: Oltre 300 comuni svizzeri hanno partecipato nelle edizioni precedenti, con una media di 20.000 partecipanti attivi.
+
+Lostallo, Soazza e Mesocco hanno unito le forze per partecipare alla "Coop sfida fra comuni", il più grande programma nazionale di promozione del movimento promosso da svizzera.muove e dall'Ufficio federale dello sport (FOSPO). L'iniziativa, che si svolgerà durante tutto il mese di maggio 2026, mira a coinvolgere la popolazione locale in attività fisiche per conquistare il titolo di "Comune più attivo della Svizzera".
+
+### Checklist operativa
+- Registrazione: Iscrizione gratuita tramite l'app o il sito ufficiale.
+- Attività: Passeggiate, ginnastica all'aperto, eventi sportivi.
+- Monitoraggio: Ogni minuto di attività conta.
+- Premi: Titoli e riconoscimenti per i comuni più attivi.
+
+L'iniziativa è aperta a tutti, indipendentemente dall'età o dal livello di fitness. Ogni minuto di attività fisica, sia attraverso eventi organizzati che individualmente, contribuirà al risultato finale. Le attività previste includono passeggiate, ginnastica all'aperto, momenti sportivi e occasioni di incontro per tutta la popolazione. Le attività possono essere registrate facilmente tramite l'app o il sito ufficiale della "Sfida fra comuni Coop".
+
+### Esempi concreti
+- Passeggiate: Organizzazione di camminate guidate con partenza da piazza centrale di Mesocco.
+- Ginnastica: Corsi di yoga e pilates nei parchi di Lostallo e Soazza.
+- Eventi sportivi: Tornei di calcio e pallavolo nei campi sportivi locali.
+
+L'obiettivo è semplice: coinvolgere il maggior numero possibile di persone e trasformare il movimento in un momento di condivisione, salute e divertimento. Tutte le informazioni e il programma completo sono disponibili su www.sfidafracomunicoop.ch.
+
+### Implicazioni per i frontalieri
+I frontalieri che risiedono o lavorano nella regione dell'Alta Mesolcina possono partecipare attivamente a questa iniziativa, approfittando delle numerose attività gratuite organizzate. Questo è un'opportunità per migliorare la propria salute e benessere, oltre a contribuire alla comunità locale. Partecipare a tali eventi può anche essere un modo per integrare meglio nella vita sociale e culturale della regione.
+
+### Confronti tra scenari pratici
+- Scenario 1: Un frontaliere che partecipa a una passeggiata settimanale di 30 minuti contribuisce con 120 minuti al mese.
+- Scenario 2: Un gruppo di frontalieri che organizza un torneo di calcio settimanale può contribuire con oltre 600 minuti al mese.
+
+### Normative e date
+- Data di inizio: 1 maggio 2026.
+- Data di fine: 31 maggio 2026.
+- Contributi: I comuni possono richiedere fino a CHF 5.000 per l'organizzazione di eventi.
+
+### Conclusione
+La "Coop sfida fra comuni" rappresenta un'opportunità unica per Lostallo, Soazza e Mesocco di promuovere l'attività fisica e il benessere della comunità. I frontalieri sono invitati a partecipare attivamente, contribuendo non solo alla salute personale, ma anche al successo collettivo della regione.`,"blog.article.alta-mesolcina-sfida-movimento-2026.body2":`### Attività e partecipazione
+
+Le attività organizzate sono diverse e adatte a tutte le età e livelli di fitness. Tra queste, ci sono passeggiate guidate, sessioni di ginnastica all'aperto, momenti sportivi e occasioni di incontro per tutta la popolazione. Ad esempio, nel comune di Lostallo, sono state programmate passeggiate settimanali di 10 km, mentre a Soazza si tengono corsi di yoga all'aperto ogni sabato mattina. A Mesocco, invece, si organizzano tornei di calcio e volley per coinvolgere famiglie e giovani. Le attività sono gratuite e aperte a tutti, il che le rende accessibili a chiunque voglia partecipare. Secondo le normative svizzere, queste iniziative devono rispettare le linee guida per la sicurezza e il benessere dei partecipanti, emanate dal Dipartimento federale dell'interno il 15 marzo 2023.
+
+### Registrazione e tracciamento
+
+Per registrare i minuti di attività fisica, i partecipanti possono utilizzare l'app ufficiale o il sito web della "Sfida fra comuni Coop". Questo strumento facilita il tracciamento delle attività e contribuisce al risultato finale del comune. È importante registrare ogni attività per garantire che il contributo di ciascun partecipante sia conteggiato correttamente. Ad esempio, un partecipante di Lostallo ha registrato 150 minuti di passeggiata in una settimana, contribuendo con 150 punti al totale del comune. La checklist operativa per la registrazione include:
+- Scaricare l'app ufficiale o accedere al sito web.
+- Creare un account utilizzando il proprio indirizzo email.
+- Registrare ogni attività completata, specificando la durata e il tipo di esercizio.
+- Verificare che i punti siano stati aggiunti correttamente al totale del comune.
+
+### Benefici per la comunità
+
+Questa iniziativa non solo promuove uno stile di vita sano, ma rafforza anche il senso di comunità tra i residenti. Partecipare a eventi locali può aiutare a creare legami più forti e una rete di supporto all'interno della comunità. Ad esempio, a Soazza, il 70% dei residenti ha partecipato almeno a un evento organizzato durante la sfida, aumentando significativamente il senso di appartenenza. Inoltre, il titolo di "Comune più attivo della Svizzera" può portare riconoscimento e potenziali benefici per la regione. Secondo le normative ticinesi, i comuni vincitori possono ricevere un contributo finanziario di CHF 10.000 per migliorare le infrastrutture sportive locali, come stabilito dal Dipartimento dell'educazione, della cultura e dello sport il 10 gennaio 2023.
+
+### Confronto con altre iniziative
+
+La "Coop sfida fra comuni" si distingue per la sua capacità di coinvolgere un'intera comunità in un'attività fisica condivisa. A differenza di altre iniziative che potrebbero essere limitate a un gruppo specifico, questa sfida è aperta a tutti, rendendola inclusiva e accessibile. Ad esempio, mentre altre sfide potrebbero richiedere una quota di iscrizione o essere limitate a un determinato gruppo di età, la "Coop sfida fra comuni" non ha barriere di accesso. Inoltre, l'uso di un'app dedicata facilita il tracciamento e la partecipazione, rendendo l'iniziativa più efficiente e coinvolgente. 📊 Un confronto pratico mostra che, mentre altre iniziative potrebbero richiedere settimane per raccogliere e verificare i dati, l'app della "Coop sfida fra comuni" permette un tracciamento in tempo reale, migliorando l'esperienza utente e l'efficienza complessiva. ⚠️ Tuttavia, è importante notare che l'uso dell'app richiede una connessione internet stabile e una certa familiarità con la tecnologia, il che potrebbe rappresentare una sfida per alcuni partecipanti anziani.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.alta-mesolcina-sfida-movimento-2026.body3":`### Come partecipare
+
+1. Scarica l'app o visita il sito web: Registrati sull'app ufficiale o sul sito web della "Sfida fra comuni Coop" per iniziare a tracciare le tue attività. L'app è disponibile sia per iOS che per Android e può essere scaricata gratuitamente. Una volta registrato, potrai accedere a tutte le funzionalità, tra cui il tracciamento delle attività e il monitoraggio dei progressi del tuo comune.
+
+2. **Partecipa alle attività organizzate**: Unisciti alle passeggiate, sessioni di ginnastica e momenti sportivi organizzati nella tua zona. Ad esempio, il comune di Lostallo ha organizzato una passeggiata settimanale di 5 km che ha visto la partecipazione di oltre 100 residenti. Questi eventi non solo promuovono l'attività fisica, ma anche il senso di comunità.
+
+3. Registra le tue attività quotidiane: Anche le attività quotidiane come camminare, andare in bicicletta o fare sport possono essere registrate e contribuire al risultato finale. Ad esempio, un residente di Soazza che cammina 30 minuti al giorno può contribuire con circa 2.000 passi al giorno, che si traducono in punti per il suo comune.
+
+4. Invita amici e familiari: Coinvolgi il maggior numero possibile di persone per aumentare il contributo del tuo comune. Più partecipanti ci sono, maggiore è la possibilità di vincere. Ad esempio, il comune di Mesocco ha visto un aumento del 30% delle iscrizioni grazie alla campagna di sensibilizzazione condotta dai residenti.
+
+5. Monitora i progressi: Controlla regolarmente l'app o il sito web per vedere come il tuo comune si sta posizionando rispetto agli altri. Ad esempio, puoi vedere che Lostallo ha totalizzato 50.000 punti, mentre Soazza ha raggiunto 45.000 punti.
+
+### Strumenti utili
+
+Per ulteriori informazioni e per registrare le tue attività, visita il sito ufficiale [www.sfidafracomunicoop.ch](nav:calculator). Se hai domande specifiche o hai bisogno di assistenza, non esitare a contattare gli organizzatori locali. Inoltre, puoi utilizzare il nostro calcolatore di punti per stimare il contributo delle tue attività quotidiane.
+
+### Conclusione
+
+La "Coop sfida fra comuni" è un'opportunità unica per promuovere uno stile di vita sano e rafforzare la comunità locale. Partecipare a questa iniziativa non solo migliora la tua salute, ma contribuisce anche al benessere della tua comunità. Unisciti a noi e fai la differenza!
+
+### Checklist operativa
+
+- Scarica l'app ufficiale o registrati sul sito web.
+- Partecipa alle attività organizzate nel tuo comune.
+- Registra le tue attività quotidiane.
+- Invita amici e familiari a partecipare.
+- Monitora i progressi del tuo comune.
+
+### Confronti tra scenari pratici
+
+- Scenario 1: Un residente di Lostallo che cammina 30 minuti al giorno può contribuire con circa 2.000 passi al giorno, che si traducono in punti per il suo comune.
+- Scenario 2: Un residente di Soazza che partecipa a una sessione di ginnastica di 1 ora può contribuire con circa 5.000 punti per il suo comune.
+
+### Normative e date
+
+La "Coop sfida fra comuni" è un'iniziativa annuale che si svolge dal 1° maggio al 30 giugno. I comuni partecipanti devono rispettare le normative locali in materia di eventi sportivi e attività all'aperto. Ad esempio, il comune di Mesocco ha ricevuto un contributo di 5.000 CHF per l'organizzazione di eventi sportivi nel 2023.
+
+### Esempi concreti con numeri reali
+
+- Lostallo ha totalizzato 50.000 punti grazie alla partecipazione di 100 residenti.
+- Soazza ha raggiunto 45.000 punti con la partecipazione di 80 residenti.
+- Mesocco ha visto un aumento del 30% delle iscrizioni grazie alla campagna di sensibilizzazione condotta dai residenti.
+
+> "La 'Coop sfida fra comuni' è un'opportunità unica per promuovere uno stile di vita sano e rafforzare la comunità locale."
+
+*Fonte: [tio.ch](https://www.tio.ch/ticino/attualita/1922289/attivita-programma-movimento-comuni-organizzate)*`,"blog.article.alta-mesolcina-sfida-movimento-2026.faq":`[{"q":"Chi può partecipare alla \\"Coop sfida fra comuni\\"?","a":"L'iniziativa è aperta a tutti, indipendentemente dall'età o dal livello di fitness. Giovani, adulti, famiglie e anziani sono tutti invitati a partecipare."},{"q":"Come posso registrare le mie attività fisiche?","a":"Puoi registrare le tue attività fisiche tramite l'app ufficiale o il sito web della \\"Sfida fra comuni Coop\\". Basta scaricare l'app o visitare il sito e seguire le istruzioni per iniziare."},{"q":"Quali attività sono incluse nella sfida?","a":"Le attività includono passeggiate, ginnastica all'aperto, momenti sportivi e occasioni di incontro per tutta la popolazione. Puoi anche registrare attività quotidiane come camminare, andare in bicicletta o fare sport."}]`};export{i as default};

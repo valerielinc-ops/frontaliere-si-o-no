@@ -1,0 +1,56 @@
+const e={"blog.article.interroll-acquisisce-royal-apollo-group.body1":`## En bref
+- Interroll acquiert Royal Apollo Group, spécialisée dans les systèmes de transport vertical
+- L'acquisition renforce l'offre d'Interroll et élargit le réseau d'assistance
+- Le prix d'achat n'a pas été divulgué
+
+## Faits clés
+- **Quoi** : Acquisition de Royal Apollo Group par Interroll
+- Quand : 8 mai 2026
+- Où : Sant'Antonino, Ticino
+- Qui : Interroll et Royal Apollo Group
+- Montant : Non spécifié
+
+Interroll, entreprise ticinoise basée à Sant'Antonino, a annoncé l'acquisition de Royal Apollo Group, une entreprise néerlandaise spécialisée dans les systèmes de transport vertical et l'emballage des marchandises. Cette opération représente une étape significative pour Interroll, qui entend intégrer la technologie des transporteurs à spirale de Royal Apollo Group dans son portefeuille de solutions. "Avec cette acquisition, nous intégrons la technologie des transporteurs à spirale de Royal Apollo Group dans le portefeuille de solutions d'Interroll, comblant une lacune dans notre offre et renforçant nos services d'assistance pour l'ensemble du cycle de vie des produits", déclare le PDG Markus Asch. Les activités des deux entreprises sont complémentaires, et cette acquisition permettra d'offrir des services plus complets aux clients.
+
+Royal Apollo Group, fondée en 1847, gère trois sites de production avec plus de 200 employés. Claudia van den Pol, présidente du conseil d'administration et propriétaire de l'entreprise, a exprimé sa satisfaction quant à l'opération, soulignant que l'accès au réseau mondial d'Interroll représente une opportunité unique. "Cette opération nous permet d'accéder au réseau mondial beaucoup plus étendu d'Interroll, une opportunité que nous n'aurions pas eue si nous étions restés indépendants", a déclaré van den Pol. La signature et la conclusion de l'opération ont eu lieu simultanément le 7 mai 2026.
+
+Les analystes ont accueilli favorablement la nouvelle. Mark Diethelm, expert de Vontobel, estime que Royal Apollo Group pourrait contribuer au chiffre d'affaires 2026 d'Interroll à hauteur d'une somme comprise entre 45 et 55 millions d'euros. La transaction comble une lacune importante dans l'offre de produits et renforce la position concurrentielle du groupe. En bourse, l'action Interroll a progressé de plus de 1 %, malgré un marché globalement orienté à la baisse. Cependant, la performance de l'entreprise depuis le début de janvier a été négative, avec une perte de 26 %.
+
+Interroll, fondée en 1959 et cotée en bourse depuis 1997, fournit des rouleaux de transport, des moteurs et des entraînements pour systèmes de transport, des convoyeurs à rouleaux et des trieurs, ainsi que des systèmes de stockage dynamique. Ses produits sont utilisés dans divers secteurs, notamment les services postaux et de livraison, le commerce électronique, les aéroports, l'industrie automobile, alimentaire et de la mode. Parmi ses clients figurent des marques comme Amazon, Bosch, Coca-Cola, DHL, Nestlé, Siemens, Walmart et Zalando. L'entreprise compte 2400 employés et a enregistré un chiffre d'affaires de 514 millions de francs en 2025.`,"blog.article.interroll-acquisisce-royal-apollo-group.body2":`### Implications pour les travailleurs frontaliers
+L'acquisition de Royal Apollo Group par Interroll pourrait avoir plusieurs implications pour les travailleurs frontaliers œuvrant dans le secteur de l'automatisation logistique. Tout d'abord, l'élargissement de l'offre de produits et de services pourrait créer de nouvelles opportunités de travail et de carrière. Les frontaliers pourraient bénéficier d'une plus grande stabilité et d'une large gamme de services d'assistance, améliorant ainsi leur expérience professionnelle.
+
+De plus, l'accès au réseau mondial d'Interroll pourrait faciliter la mobilité des travailleurs, leur permettant de se transférer plus facilement entre les différents sites du groupe. Cela pourrait être particulièrement avantageux pour les frontaliers souhaitant explorer de nouvelles opportunités de travail dans différents pays.
+
+### Comparaison avec la situation précédente
+Avant l'acquisition, Interroll et Royal Apollo Group opéraient comme des entités distinctes, avec des offres de produits et de services distinctes. L'intégration des deux entreprises permettra d'offrir une gamme plus complète de solutions aux clients, améliorant ainsi la compétitivité du groupe. Pour les frontaliers, cela signifie une plus grande variété d'opportunités de travail et de développement professionnel.
+
+### Scénarios futurs
+Avec l'acquisition de Royal Apollo Group, Interroll pourrait étendre davantage sa présence sur le marché mondial. Cela pourrait conduire à de nouvelles opportunités de travail pour les frontaliers, tant en Suisse qu'à l'étranger. De plus, l'intégration des technologies des transporteurs à spirale pourrait ouvrir de nouvelles zones d'activité, telles que le commerce électronique et la logistique avancée.
+
+### Comparaison avec d'autres acquisitions
+L'acquisition de Royal Apollo Group s'inscrit dans la continuité d'une série d'opérations similaires dans le secteur de l'automatisation logistique. Par exemple, en 2025, Interroll avait acquis une autre entreprise spécialisée dans les systèmes de transport, renforçant ainsi sa position sur le marché. Ces acquisitions démontrent la stratégie de croissance du groupe, qui vise à devenir un leader mondial dans le secteur.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.interroll-acquisisce-royal-apollo-group.body3":`### Que faire pour les travailleurs frontaliers
+
+Pour les travailleurs frontaliers employés dans le secteur de l'automatisation logistique, il est important de surveiller les opportunités de travail qui pourraient émerger de l'acquisition du groupe Royal Apollo par Interroll. Il peut être utile d'explorer les offres d'emploi disponibles chez Interroll et ses partenaires, ainsi que de participer à des événements de réseautage pour découvrir de nouvelles opportunités.
+
+En outre, les travailleurs frontaliers pourraient envisager de se transférer dans d'autres établissements du groupe, en exploitant le réseau mondial d'Interroll. Cela pourrait offrir de nouvelles expériences professionnelles et améliorer les perspectives de carrière.
+
+### Procédure pour se transférer dans un autre établissement
+
+1. **Évaluer les opportunités** : Explorer les offres d'emploi disponibles dans les établissements d'Interroll dans différents pays.
+2. Contacter le département des ressources humaines : Demander des informations sur les procédures de transfert et les exigences nécessaires.
+3. Préparer la documentation : S'assurer de disposer de tous les documents nécessaires pour le transfert, comme le permis de travail et le visa.
+4. Organiser le transfert : Planifier le transfert logistique, y compris la recherche d'un logement et l'organisation du transport.
+5. S'intégrer dans le nouvel environnement de travail : Participer à des programmes d'orientation et de formation pour s'adapter rapidement au nouveau contexte professionnel.
+
+### Outils utiles
+
+Pour les travailleurs frontaliers qui souhaitent explorer de nouvelles opportunités de travail, il est possible d'utiliser le [calculateur de salaire](nav:calculator) pour comparer les offres d'emploi dans différents pays et évaluer les implications fiscales. De plus, le [comparateur de permis](nav:permit-compare) peut aider à comprendre les exigences pour le transfert dans d'autres pays.
+
+### Conclusion
+
+L'acquisition du groupe Royal Apollo par Interroll représente une opportunité significative pour les travailleurs frontaliers dans le secteur de l'automatisation logistique. Surveiller les opportunités de travail et envisager un transfert dans d'autres établissements du groupe pourrait offrir de nouvelles perspectives de carrière et améliorer l'expérience professionnelle. Utiliser des outils comme le [calculateur de salaire](nav:calculator) et le [comparateur de permis](nav:permit-compare) peut aider à prendre des décisions éclairées et à planifier le transfert de manière efficace.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/interroll%3a-rileva-societ%c3%a0-olandese-royal-apollo-group/91388162)*`,"blog.article.interroll-acquisisce-royal-apollo-group.faq":`[{"q":"Quelles sont les implications fiscales pour les travailleurs frontaliers travaillant chez Interroll?","a":"Les implications fiscales pour les travailleurs frontaliers travaillant chez Interroll dépendent de leur résidence fiscale et du type de contrat de travail. Il est important de consulter un expert fiscal pour comprendre les réglementations spécifiques et planifier la déclaration de revenus. Utiliser le [calculateur de salaire](nav:calculator) peut aider à évaluer les implications fiscales et à planifier les impôts."},{"q":"Comment puis-je me transférer dans un autre établissement d'Interroll?","a":"Pour vous transférer dans un autre établissement d'Interroll, il est nécessaire de contacter le département des ressources humaines et de demander des informations sur les procédures de transfert. Assurez-vous d'avoir tous les documents nécessaires, comme le permis de travail et le visa, et planifiez le transfert logistique. Utiliser le [comparateur de permis](nav:permit-compare) peut aider à comprendre les exigences pour le transfert dans d'autres pays."},{"q":"Quelles sont les opportunités de carrière pour les travailleurs frontaliers chez Interroll?","a":"Les opportunités de carrière pour les travailleurs frontaliers chez Interroll incluent la possibilité de travailler dans différents établissements du groupe, d'explorer de nouvelles zones d'activité et de participer à des programmes de formation et de développement professionnel. Surveiller les offres d'emploi disponibles et participer à des événements de réseautage peut aider à découvrir de nouvelles opportunités. Utiliser le [calculateur de salaire](nav:calculator) peut aider à comparer les offres d'emploi et à évaluer les perspectives de carrière."}]`};export{e as default};

@@ -1,0 +1,34 @@
+const e={"blog.article.terapia-complementare-attestati-lugano.body1":"## Brief Overview","blog.article.terapia-complementare-attestati-lugano.body2":`### Procedure for Obtaining the Cantonial Certificate
+To obtain the Cantonial Certificate for Complementary Therapy, a cross-border worker must complete a 1.5-year training program. The program includes theoretical and practical lessons, internships, and final exams. After completing the program, participants must pass a final exam to obtain the certificate. Once obtained, participants can choose to continue their training to obtain the Federal Diploma in Complementary Therapy and/or Naturopathy, or request authorization to practice as a Cantonial Complementary Therapist.
+
+### Implications for Cross-Border Workers
+For cross-border workers working in the healthcare sector in Ticino, acquiring a Cantonial Certificate can represent an opportunity to improve their skills and career prospects. Additionally, the possibility of requesting authorization to practice as a Cantonial Complementary Therapist can represent an opportunity to expand their job opportunities and improve their economic conditions.
+
+However, it is essential to note that acquiring a Cantonial Certificate does not automatically guarantee recognition of skills at the federal level. To obtain federal recognition, additional training programs and specific exams must be completed. Furthermore, it is essential to verify the specific requirements for authorization to practice as a Cantonial Complementary Therapist, which may vary depending on the Canton.
+
+### Comparison with the Previous Situation
+Before the introduction of the Complementary Therapy Common Trunk, cross-border workers working in the healthcare sector in Ticino faced several challenges in obtaining recognition of their skills. In particular, the absence of a recognized training program at the Cantonial level made it difficult for cross-border workers to demonstrate their skills and access more senior positions.
+
+With the introduction of the Complementary Therapy Common Trunk, cross-border workers working in the healthcare sector in Ticino now have access to a recognized training program at the Cantonial level, which enables them to acquire recognized skills and improve their career prospects. Additionally, the possibility of requesting authorization to practice as a Cantonial Complementary Therapist represents an opportunity to expand their job opportunities and improve their economic conditions.
+
+### Concrete Scenarios
+A cross-border worker working as a healthcare assistant in Ticino might decide to follow the Complementary Therapy Common Trunk training program to acquire recognized skills at the Cantonial level. Once obtained, they might decide to request authorization to practice as a Cantonial Complementary Therapist, thus expanding their job opportunities and improving their economic conditions.
+
+Another concrete scenario could be that of a cross-border worker working as a nurse in Ticino who decides to follow the Complementary Therapy Common Trunk training program to acquire recognized skills at the Cantonial level. Once obtained, they might decide to continue their training to obtain the Federal Diploma in Complementary Therapy and/or Naturopathy, thus improving their career prospects and the quality of services offered.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.terapia-complementare-attestati-lugano.body3":`### What to Do to Obtain the Certificate
+To obtain the Canton of Ticino Certificate for Common Trunk OmL Complementary Therapy, you need to follow these steps:
+1. **Registration in the Training Program**: Contact the Lugano Medical-Technical Professional Social Sanitary Center (CPS) for information on registering in the training program.
+2. Completion of the Training Program: Attend theoretical and practical lessons, participate in internships, and pass the final exams.
+3. Obtaining the Certificate: Pass the final exam to obtain the Canton of Ticino Certificate.
+4. Request Authorization to Practice: Once you have obtained the certificate, you can request authorization to practice as a Canton of Ticino Complementary Therapist.
+
+### Useful Tools
+For further information on the training program and the requirements for authorization to practice as a Canton of Ticino Complementary Therapist, you can consult the website of the Department of Education, Culture, and Sports (DECS) of the Canton of Ticino. You can also use the [salary calculator](nav:calculator) to estimate your income and plan your career.
+
+### Conclusion
+Obtaining the Canton of Ticino Certificate for Common Trunk OmL Complementary Therapy represents an important opportunity for cross-border workers who work in the healthcare sector in Ticino. Thanks to this training program, cross-border workers can acquire recognized skills at the cantonal level and improve their career prospects. In addition, the possibility of requesting authorization to practice as a Canton of Ticino Complementary Therapist represents an opportunity to expand your job opportunities and improve your economic conditions.
+For further information and to plan your career, you can consult the website of the Department of Education, Culture, and Sports (DECS) of the Canton of Ticino and use the [salary calculator](nav:calculator) to estimate your income.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/attualita/1926140/terapia-attestati-cerimonia-formazione-lugano)*`,"blog.article.terapia-complementare-attestati-lugano.faq":'[{"q":"What is the duration of the training program to obtain the Ticino Canton Certificate Tronco comune OmL Complementary Therapy?","a":"The training program has a duration of one and a half years and includes theoretical and practical lessons, internships, and final exams."},{"q":"What can I do once I have obtained the Ticino Canton Certificate Tronco comune OmL Complementary Therapy?","a":"Once you have obtained the certificate, you can choose to continue your training to obtain the Federal Diploma of Complementary Therapist and/or Naturopath, or request authorization to practice as a Canton Ticino Complementary Therapist."},{"q":"What are the requirements for authorization to practice as a Canton Ticino Complementary Therapist?","a":"The specific requirements for authorization to practice as a Canton Ticino Complementary Therapist may vary depending on the Canton. It is essential to check the specific requirements with the Department of Education, Culture, and Sport (DECS) of the Ticino Canton."}]'};export{e as default};

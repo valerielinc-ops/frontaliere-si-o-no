@@ -1,0 +1,61 @@
+const e={"blog.article.andre-wyss-nuovo-presidente-ffs.body1":`## En bref
+- André Wyss est le nouveau président des CFF
+- Il succède à Monika Ribar après avoir atteint la limite de durée du mandat
+- Objectif : évolution durable et innovante des CFF
+
+## Faits clés
+- **Quoi** : Élection du nouveau président des CFF
+- Quand : Mercredi 11 mars 2026
+- Où : Berne, à l'occasion de l'assemblée générale ordinaire
+- Qui : André Wyss, nouveau président ; Monika Ribar, ancienne présidente
+- Montant : Non spécifié
+
+André Wyss est le nouveau président du Conseil d’administration des Chemins de fer fédéraux suisses (CFF). L’élection a eu lieu aujourd’hui, mercredi 11 mars 2026, à l’occasion de l’assemblée générale ordinaire à Berne, comme on peut le lire dans un communiqué. Wyss succède à Monika Ribar, qui quitte la présidence après avoir atteint la limite de durée du mandat. Avec quarante ans d’expérience en gestion dans les secteurs de la construction, de l’immobilier et de la pharmacie, il est membre du Conseil d’administration des CFF depuis un an.
+
+En tant que nouveau président, son objectif est de “faire évoluer davantage les CFF comme colonne vertébrale moderne et durable de la Suisse, avec une grande attention à la fois pour la stabilité et l’innovation”. Au Conseil d’administration, ont également été élus les nouveaux membres Anna Barbara Remund, Dino Cauzza, Dominique Pierre Locher et Maria-Antonella Bino.
+
+### Les défis futurs des CFF
+Les Chemins de fer fédéraux suisses sont confrontés à de nombreux défis, notamment l’augmentation du trafic passagers et la nécessité de moderniser les infrastructures. André Wyss, avec son expérience managériale, se propose d’aborder ces défis avec une approche innovante et durable. La ponctualité des CFF, qui a atteint 94,1 % en 2025 malgré 20 000 chantiers, est un indicateur positif que Wyss entend maintenir et améliorer.
+
+### Innovation et durabilité
+Wyss a souligné l’importance de combiner stabilité et innovation pour garantir un avenir prospère aux CFF. Parmi les priorités figurent la modernisation des infrastructures et l’adoption de technologies durables. Les CFF ont récemment proposé de nouvelles lignes estivales vers l’Europe, des liaisons directes pour l’Italie, la France, l’Allemagne et l’Autriche, qui pourraient représenter une nouvelle opportunité de croissance.
+
+### Nouveaux membres du Conseil d’administration
+Outre Wyss, de nouveaux membres ont été élus au Conseil d’administration : Anna Barbara Remund, Dino Cauzza, Dominique Pierre Locher et Maria-Antonella Bino. Ces nouveaux membres apporteront des compétences diverses et contribueront à guider les CFF vers un avenir d’innovation et de durabilité.
+
+### Conclusion
+L’élection d’André Wyss comme nouveau président des CFF représente une étape importante pour l’avenir des Chemins de fer fédéraux suisses. Avec son expérience et sa vision, Wyss se propose de guider les CFF vers une nouvelle ère de stabilité et d’innovation, garantissant un service de qualité pour les passagers et contribuant à la durabilité du transport ferroviaire en Suisse.`,"blog.article.andre-wyss-nuovo-presidente-ffs.body2":`## Implications pour les travailleurs frontaliers
+L’élection d’André Wyss en tant que nouveau président des CFF pourrait avoir diverses implications pour les frontaliers qui utilisent quotidiennement les services ferroviaires pour se déplacer entre la Suisse et l’Italie. Avec l’objectif d’améliorer la qualité et l’efficacité des services, les frontaliers pourraient bénéficier de nouvelles lignes et d’une meilleure ponctualité.
+
+### Nouvelles lignes estivales
+Les CFF ont récemment proposé de nouvelles lignes estivales vers l’Europe, avec des liaisons directes pour l’Italie, la France, l’Allemagne et l’Autriche. Ces nouvelles connexions pourraient offrir aux frontaliers de nouvelles opportunités de voyage et améliorer la connectivité entre la Suisse et les pays voisins. De plus, l’expérimentation d’une application qui s’active automatiquement lorsque le voyageur monte dans le moyen de transport public pourrait simplifier le processus d’achat des billets et rendre le voyage plus confortable.
+
+### Innovation technologique
+L’innovation technologique est l’une des priorités d’André Wyss. L’adoption de nouvelles technologies pourrait améliorer la ponctualité et l’efficacité des services ferroviaires, bénéficiant directement aux frontaliers. Par exemple, l’introduction de systèmes de surveillance avancés pourrait réduire les retards et améliorer la gestion du trafic.
+
+### Durabilité environnementale
+La durabilité est un autre aspect fondamental pour les CFF. Avec l’objectif de réduire l’impact environnemental, les CFF pourraient introduire de nouvelles mesures pour promouvoir le transport ferroviaire comme alternative écologique au transport routier. Cela pourrait avoir un impact positif sur l’environnement et améliorer la qualité de vie des frontaliers qui utilisent quotidiennement les services ferroviaires.
+
+### Conclusion
+L’élection d’André Wyss en tant que nouveau président des CFF représente une opportunité d’améliorer les services ferroviaires et d’offrir de nouvelles opportunités aux frontaliers. Avec l’introduction de nouvelles lignes, l’innovation technologique et la durabilité environnementale, les frontaliers pourraient bénéficier d’un service plus efficace et confortable.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.andre-wyss-nuovo-presidente-ffs.body3":`## Que faire maintenant
+Les travailleurs frontaliers qui utilisent les services ferroviaires des CFF peuvent s'attendre à des améliorations significatives dans les prochains mois. Voici quelques actions concrètes qu'ils peuvent entreprendre pour bénéficier des nouvelles opportunités offertes par les CFF:
+
+### Utiliser les nouvelles lignes estivales
+Les nouvelles lignes estivales vers l'Europe offrent des liaisons directes pour l'Italie, la France, l'Allemagne et l'Autriche. Les frontaliers peuvent planifier leurs voyages à l'avance et profiter de ces nouvelles opportunités pour visiter les pays voisins. De plus, l'expérimentation d'une application qui s'active automatiquement lorsque le voyageur monte dans le moyen de transport public pourrait simplifier le processus d'achat des billets et rendre le voyage plus confortable.
+
+### Surveiller les mises à jour technologiques
+Les CFF introduisent de nouvelles technologies pour améliorer la ponctualité et l'efficacité des services ferroviaires. Les frontaliers peuvent surveiller les mises à jour et profiter des nouvelles fonctionnalités offertes par les CFF. Par exemple, l'introduction de systèmes de surveillance avancés pourrait réduire les retards et améliorer la gestion du trafic, bénéficiant directement aux frontaliers.
+
+### Participer aux initiatives de durabilité
+Les CFF promouviennent la durabilité environnementale à travers diverses initiatives. Les frontaliers peuvent participer à ces initiatives et contribuer à réduire l'impact environnemental du transport ferroviaire. Par exemple, l'utilisation de moyens de transport publics plutôt que privés peut contribuer à réduire les émissions de CO2 et améliorer la qualité de l'air.
+
+### Utiliser le calculateur de salaire
+Pour les frontaliers qui travaillent en Suisse, il est important de connaître leur salaire net et les impôts à la source. En utilisant le [calculateur de salaire](nav:calculator), il est possible d'obtenir une estimation précise de leur revenu net et de planifier leurs finances de manière plus efficace.
+
+### Conclusion
+L'élection d'André Wyss en tant que nouveau président des CFF représente une opportunité d'améliorer les services ferroviaires et d'offrir de nouvelles opportunités aux frontaliers. Avec l'introduction de nouvelles lignes, l'innovation technologique et la durabilité environnementale, les frontaliers peuvent bénéficier d'un service plus efficace et confortable. En utilisant les nouvelles opportunités offertes par les CFF et en surveillant les mises à jour technologiques, les frontaliers peuvent améliorer la qualité de leur vie quotidienne et contribuer à un avenir plus durable.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3703683)*`,"blog.article.andre-wyss-nuovo-presidente-ffs.faq":'[{"q":"Qui est André Wyss ?","a":"André Wyss est le nouveau président du Conseil d’administration des Chemins de fer fédéraux suisses (CFF). Il a quarante ans d’expérience en gestion dans les secteurs de la construction, de l’immobilier et de la pharmacie et est membre du Conseil d’administration des CFF depuis un an."},{"q":"Quelles sont les priorités d’André Wyss en tant que nouveau président des CFF ?","a":"Les priorités d’André Wyss en tant que nouveau président des CFF incluent l’innovation, la durabilité et la stabilité. Il entend faire évoluer les CFF comme un pilier moderne et durable de la Suisse, avec une grande attention à la fois pour la stabilité et l’innovation."},{"q":"Quelles sont les nouvelles lignes estivales proposées par les CFF ?","a":"Les CFF ont proposé de nouvelles lignes estivales vers l’Europe, avec des liaisons directes pour l’Italie, la France, l’Allemagne et l’Autriche. Ces nouveaux trajets offrent aux travailleurs frontaliers de nouvelles opportunités de voyage et améliorent la connectivité entre la Suisse et les pays voisins."}]'};export{e as default};

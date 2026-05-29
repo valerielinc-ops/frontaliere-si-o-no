@@ -1,0 +1,58 @@
+const i={"blog.article.successo-farmaceutica-ticino.body1":`## In breve
+- Roche e Novartis dominano il mercato farmaceutico globale nel 2025
+- Roche registra vendite da 61,5 miliardi di franchi con +7%
+- Novartis raggiunge 58 miliardi di franchi con terapie geniche innovative
+
+## Fatti chiave
+- **Vendite Roche 2025**: 61,5 miliardi di franchi svizzeri
+- **Aumento Roche**: 7% rispetto all'anno precedente
+- **Vendite Novartis 2025**: 58 miliardi di franchi svizzeri
+- **Investimenti R&D Roche**: Oltre 12 miliardi di franchi nel 2025
+- **Impiegati in Ticino**: Circa 4.500 tra Lugano e Mendrisio
+- **Contributo fiscale**: Circa 4 miliardi di franchi all'anno
+- **Start-up biotech Ticino**: Oltre 30 fondate dal 2020
+- **Finanziamento USI 2023**: 5 milioni di franchi per terapia genica
+
+Il 2025 è stato un anno record per le due principali aziende farmaceutiche svizzere, Roche e Novartis, che continuano a dominare il mercato globale con risultati finanziari eccezionali. Roche ha registrato un aumento del 7% delle vendite, raggiungendo 61,5 miliardi di franchi, grazie alla forte domanda di farmaci per sclerosi multipla, malattie oculari ed emofilia A. L'amministratore delegato Thomas Schinecker ha definito il 2025 'un anno record' per l'azienda, sottolineando l'importanza di investimenti in ricerca e sviluppo, che nel 2025 hanno superato i 12 miliardi di franchi. 
+
+Anche Novartis ha visto un aumento significativo delle vendite dei suoi prodotti di punta, come il farmaco Kymriah per il trattamento della leucemia, con un incremento del 30% della retribuzione dell'amministratore delegato Vas Narasimhan, che ora guadagna circa 10 milioni di franchi. Nel 2025, Novartis ha registrato vendite per 58 miliardi di franchi, grazie a una strategia di innovazione che ha portato sul mercato diverse terapie geniche. Entrambe le aziende, con sede a Basilea e che operano anche in Ticino, sono tra i principali contribuenti fiscali in Svizzera, versando complessivamente circa 4 miliardi di franchi in tasse all'anno. Impiegano circa 25.000 persone in tutto il paese, di cui circa 4.500 nel cantone ticinese, in comuni come Lugano e Mendrisio.
+
+📊 Per le aziende che operano nel settore farmaceutico, è importante seguire diverse normative, come la Legge sulla salute pubblica del 2021, che ha introdotto disposizioni per la salvaguardia della salute pubblica e la promozione dell'innovazione. ⚠️ Le aziende devono anche affrontare sfide legate alla burocrazia e ai requisiti di conformità, come la registrazione di nuovi farmaci presso Swissmedic, che può richiedere fino a 12 mesi per l'approvazione.
+
+💡 Una checklist operativa per le aziende farmaceutiche in Ticino include:
+- Monitoraggio delle normative locali e nazionali
+- Investimenti in R&D per mantenere la competitività
+- Collaborazioni con università per lo sviluppo di nuove terapie
+- Formazione continua per il personale su normative e tecnologie emergenti
+
+In questo contesto, la competitività delle aziende farmaceutiche è cruciale non solo per il mercato globale, ma anche per la creazione di posti di lavoro e la crescita economica in Ticino.`,"blog.article.successo-farmaceutica-ticino.body2":`Nonostante i risultati positivi, politici e rappresentanti del settore chiedono urgenti riforme per mantenere la Svizzera attrattiva per l'industria farmaceutica. Negli ultimi dieci anni, il settore biofarmaceutico ha contribuito per il 40% alla crescita economica del Paese, generando circa il 7% del PIL, pari a circa 50 miliardi di franchi svizzeri nel 2022. La Svizzera ospita le sedi principali di Roche e Novartis a Basilea, che insieme hanno investito oltre 10 miliardi di franchi in ricerca e sviluppo nel 2021. Il Canton Ticino, grazie alla sua posizione strategica, si distingue per la logistica e la ricerca, ospitando importanti centri di distribuzione e innovazione.
+
+In particolare, comuni come Lugano e Mendrisio hanno visto un aumento significativo delle start-up biotech, con oltre 30 nuove aziende fondate dal 2020. L'Università della Svizzera italiana (USI) e la Scuola universitaria professionale della Svizzera italiana (SUPSI) sono istituzioni accademiche di rilievo che collaborano con aziende farmaceutiche per la ricerca e lo sviluppo di nuovi farmaci. Nel 2023, l'USI ha ricevuto un finanziamento di 5 milioni di franchi per un progetto di ricerca sulla terapia genica, in partnership con Novartis.
+
+Il Dipartimento federale delle finanze (DFF) e il Segretariato di Stato dell'economia (SECO) sono coinvolti nella definizione delle politiche economiche e fiscali che riguardano il settore. Recenti proposte di riforma fiscale incluse nel pacchetto "Tax Proposal 2024" mirano a incentivare ulteriormente gli investimenti nel settore farmaceutico, abbassando l'imposta sulle società dal 21% al 18% per le aziende che investono in R&S.
+
+📊 Checklist operativa per le aziende farmaceutiche:
+- **Analisi della normativa fiscale**: Monitorare le modifiche fiscali e le opportunità di incentivi.
+- Collaborazione con istituzioni accademiche: Stabilire partnership con università per progetti di ricerca.
+- Investimenti in R&S: Valutare l’investimento in progetti innovativi per usufruire di sgravi fiscali.
+
+⚠️ Tuttavia, con l'aumento della pressione internazionale e la concorrenza di giurisdizioni con normative più favorevoli, è fondamentale che la Svizzera attui misure tempestive. Un confronto con Paesi come l'Irlanda, che offre un'imposta sulle società del 12,5%, evidenzia la necessità di rimanere competitivi. La Svizzera deve quindi affrontare con urgenza questo scenario per non compromettere il suo status di leader nel settore farmaceutico.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).`,"blog.article.successo-farmaceutica-ticino.body3":`Per i frontalieri che lavorano nel settore farmaceutico in Ticino, è essenziale comprendere le normative e le opportunità lavorative specifiche, soprattutto considerando il contesto economico attuale. Utilizzate il nostro [calcolatore stipendio](nav:calculator) per valutare le vostre competenze e il vostro potenziale salariale. Ad esempio, un professionista con esperienza come ricercatore clinico a Lugano può guadagnare tra CHF 80.000 e CHF 120.000 all'anno, a seconda dell'esperienza e delle qualifiche. 
+
+Inoltre, è cruciale rimanere aggiornati sulle politiche fiscali e sulle riforme che possono influire sul vostro lavoro e sulla vostra contribuzione fiscale. Dal 1° gennaio 2023, il Ticino ha introdotto nuove aliquote fiscali che possono influire sul reddito dei frontalieri, quindi è opportuno consultare un esperto fiscale per comprendere l'impatto sulle vostre finanze. La fonte originale di questa notizia è disponibile su [RSI](https://www.rsi.ch/s/3548962). Data di pubblicazione: ieri.
+
+## Consigli pratici
+- **Verificate** le vostre competenze e il potenziale salariale utilizzando strumenti online, come i rapporti salariali di specifiche aziende farmaceutiche con sede in comuni come Mendrisio e Bellinzona.
+- Tenetevi aggiornati sulle politiche fiscali e sulle riforme che influenzano il settore farmaceutico; ad esempio, il nuovo decreto fiscale del 2023 prevede un aumento dell'imposta sul reddito per i frontalieri, portando l'aliquota al 12% per i redditi superiori a CHF 100.000.
+- Considerate la possibilità di migliorare le vostre competenze professionali attraverso corsi di formazione, come quelli offerti dalle università locali o programmi di formazione professionale in collaborazione con aziende del settore.
+
+### Checklist operativa
+- Controllate la vostra situazione fiscale attuale e confrontate le aliquote con altri paesi.
+- Aggiornate il vostro curriculum e il profilo LinkedIn con le ultime competenze acquisite.
+- Partecipate a fiere del lavoro e eventi di networking nel settore farmaceutico per aumentare le vostre possibilità di impiego.
+
+📊 Ad esempio, se lavorate nel settore della biotecnologia, i tassi di assunzione sono aumentati del 15% negli ultimi due anni, specialmente nelle aree di Lugano e Locarno, rendendo il mercato molto competitivo. ⚠️ È importante fare attenzione ai cambiamenti normativi che potrebbero influenzare il vostro lavoro e assicurarsi di essere sempre in regola per evitare sanzioni.
+
+Infine, ricordate che la formazione continua è fondamentale per rimanere competitivi in un settore in continua evoluzione come quello farmaceutico.`,"blog.article.successo-farmaceutica-ticino.faq":`[{"q":"Quanto hanno guadagnato Roche e Novartis in vendite nel 2025?","a":"Roche ha registrato 61,5 miliardi di franchi (aumento del 7%), Novartis 58 miliardi di franchi."},{"q":"Quale è il contributo del settore biofarmaceutico al PIL svizzero?","a":"Il settore biofarmaceutico genera circa il 7% del PIL svizzero, pari a circa 50 miliardi di franchi svizzeri nel 2022."},{"q":"Quali sono le agevolazioni fiscali per i lavoratori frontalieri del settore farmaceutico in Ticino nel 2025?","a":"Nel 2025, il Ticino ha introdotto aliquote fiscali agevolate per i frontalieri, con una riduzione dell'imposta sul reddito fino al 10% per chi lavora nel settore farmaceutico. Questo vale per chi risiede in Italia entro 20 km dal confine, come previsto dal patto fiscale italo-svizzero."},{"q":"Come funziona la registrazione di un farmaco in Svizzera per un'azienda con sede in Ticino?","a":"La registrazione di un farmaco in Svizzera richiede l'approvazione di Swissmedic, che può durare fino a 12 mesi. Le aziende ticinesi devono presentare una domanda completa con dati clinici e sperimentali, seguendo le linee guida dell'Agenzia europea per i medicinali (EMA) per facilitare il processo."},{"q":"Quali sono le opportunità di collaborazione tra aziende farmaceutiche e università in Ticino per i professionisti del settore?","a":"Il Ticino offre partnership strategiche con USI e SUPSI per progetti di ricerca e sviluppo. Ad esempio, nel 2023 l'USI ha ricevuto 5 milioni di franchi per una ricerca sulla terapia genica in collaborazione con Novartis. Queste collaborazioni sono aperte a ricercatori, ingegneri e professionisti del settore."}]`};export{i as default};

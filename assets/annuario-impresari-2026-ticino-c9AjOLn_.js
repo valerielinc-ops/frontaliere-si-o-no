@@ -1,0 +1,58 @@
+const e={"blog.article.annuario-impresari-2026-ticino.body1":`## In Kürze
+- Jahresverzeichnis 2026 der Tessiner Bauunternehmer veröffentlicht
+- Werkzeug zur Auswahl qualifizierter Bauunternehmen
+- Kantonsgesetzgebung für Arbeiten über 30'000 Franken
+
+## Wichtige Fakten
+- **Was**: Jahresverzeichnis 2026 der Tessiner Bauunternehmer
+- Wann: 29. April 2026
+- Wo: Kanton Tessin
+- Wer: SSIC Sektion Tessin
+- Betrag: 30'000 Franken (Schwelle für Bauarbeiten)
+
+Es wurde die Ausgabe 2026 des Jahresverzeichnisses der Tessiner Bauunternehmer veröffentlicht, ein Werkzeug, das Auftraggeber und Planer bei der Auswahl zwischen den im kantonalen Verzeichnis eingetragenen Firmen unterstützen soll. Die kantonale Gesetzgebung sieht vor, dass für öffentliche und private Bauarbeiten mit einem Betrag von über 30'000 Franken – eine Schwelle, die auf 10'000 Franken für Spezialarbeiten wie die Verlegung von Bewehrungsstahl, die Ausführung von Schalungen für Beton, den Bau von Mauern und die Verlegung von Untergründen sinkt – ausschließlich an im Verzeichnis eingetragene Unternehmen herangegangen werden muss. Andernfalls sind Sanktionen und die Stilllegung der Baustellen vorgesehen.
+
+Das Verzeichnis enthält eine Liste der Bauunternehmen und Fachkräfte, die eingetragen sind, begleitet von informativen Beiträgen zum Sektor. Die Firmen sind nach Distrikt und Gemeinde organisiert, was die Identifizierung von Partnern im Gebiet erleichtert. Um in das Verzeichnis aufgenommen zu werden, das auch online unter der Adresse www.ti.ch/albo verfügbar ist, müssen die Unternehmen präzise berufliche und persönliche Anforderungen erfüllen.
+
+### Unternehmen und Anforderungen
+Die Veröffentlichung enthält auch eine Liste der Unternehmen, die der SSIC Sektion Tessin angehören, deren Zulassungskriterien strenger sind als diejenigen, die vom kantonalen Verzeichnis verlangt werden, 'was eine zusätzliche Garantie für die Auftraggeber darstellt'. Das Verzeichnis enthält auch eine praktische Anleitung, um verdächtige Situationen auf den Baustellen den zuständigen Kontrollorganen zu melden.
+
+Die gedruckte Ausgabe, herausgegeben von Sacchi Edizioni Tecniche & Commerciali SA in Taverne, wurde kostenlos an öffentliche Einrichtungen, Bauunternehmen und technische Büros im Tessin verteilt. Es ist möglich, ein kostenloses Exemplar anzufordern, indem man die SSIC Sektion Tessin kontaktiert (info@ssic-ti.ch; Tel. 091 825 54 23).`,"blog.article.annuario-impresari-2026-ticino.body2":`Das Jahrbuch 2026 der Bauunternehmer im Tessin ist ein grundlegender Schritt, um Sicherheit und Transparenz im Baugewerbe des Kantons Tessin zu gewährleisten. Für Auftraggeber und Planer bietet dieses Werkzeug einen umfassenden Überblick über die qualifizierten Bauunternehmen und erleichtert die Auswahl zuverlässiger Partner für ihre Projekte.
+
+### Praktische Auswirkungen
+Die kantonale Gesetzgebung, die die Eintragung in das Verzeichnis für Arbeiten über 30'000 Franken vorschreibt, unterstreicht die Bedeutung, sich auf Unternehmen zu verlassen, die hohe Qualitäts- und Sicherheitsstandards einhalten. Dies schützt die Auftraggeber nicht nur vor potenziellen Risiken, sondern gewährleistet auch, dass die Baustellen die geltenden Vorschriften einhalten, um Strafen und Blockaden zu vermeiden.
+
+Die im Verzeichnis eingetragenen Unternehmen müssen strenge berufliche und persönliche Anforderungen erfüllen, die den Nachweis technischer Kompetenz und die Einhaltung ethischer Standards umfassen. Dieser Auswahlprozess stellt sicher, dass nur die qualifiziertesten Unternehmen im Tessiner Baugewerbe tätig sein können, und bietet den Auftraggebern die Gewissheit, mit zuverlässigen Fachleuten zusammenzuarbeiten.
+
+### Vergleich mit der vorherigen Situation
+Bevor dieses Jahrbuch veröffentlicht wurde, mussten Auftraggeber und Planer eine komplexere Suche durchführen, um qualifizierte Bauunternehmen zu finden. Das Fehlen eines zentralisierten Verzeichnisses machte es schwierig, zuverlässige Partner zu identifizieren, und erhöhte das Risiko, auf Unternehmen zu stoßen, die nicht den Vorschriften entsprachen. Mit der Einführung des Jahrbuchs 2026 ist dieser Prozess viel einfacher und transparenter geworden.
+
+### Konkrete Szenarien
+Stellen Sie sich einen Auftraggeber vor, der ein großes Bauprojekt in Bellinzona realisieren muss. Dank des Jahrbuchs 2026 kann er leicht die im Verzeichnis eingetragenen Unternehmen in der Region identifizieren, ihre Qualifikationen vergleichen und dasjenige auswählen, das am besten seinen Anforderungen entspricht. Dies spart nicht nur Zeit und Ressourcen, sondern gewährleistet auch, dass das Projekt im Einklang mit den geltenden Vorschriften durchgeführt wird.
+
+### Praktischer Leitfaden für Meldungen
+Das Jahrbuch enthält einen praktischen Leitfaden zur Meldung verdächtiger Situationen auf Baustellen an die zuständigen Kontrollbehörden. Dieser Abschnitt ist besonders nützlich für Auftraggeber, die sicherstellen möchten, dass die Arbeiten im Einklang mit den Sicherheits- und Qualitätsvorschriften durchgeführt werden. Die rechtzeitige Meldung etwaiger Unregelmäßigkeiten trägt dazu bei, hohe Standards im Tessiner Baugewerbe aufrechtzuerhalten.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.annuario-impresari-2026-ticino.body3":`Für die Auftraggeber und Planer, die die Informationen im Jahrbuch 2026 der Bauunternehmer des Tessin nutzen möchten, ist es möglich, eine kostenlose Kopie anzufordern, indem sie den SSIC Sektion Tessin kontaktieren. Das Verfahren ist einfach und schnell und garantiert den Zugang zu einem wesentlichen Werkzeug für die Auswahl qualifizierter Bauunternehmen.
+
+### Verfahren zur Anforderung
+1. Kontaktieren Sie den SSIC Sektion Tessin: Senden Sie eine Anfrage per E-Mail an die Adresse info@ssic-ti.ch oder rufen Sie die Nummer 091 825 54 23 an.
+2. Anforderungsdetails angeben: Geben Sie an, ob Sie eine gedruckte oder digitale Kopie des Jahrbuchs wünschen.
+3. Kopie erhalten: Der SSIC wird die angeforderte Kopie innerhalb weniger Tage zusenden.
+
+### Nutzung des Jahrbuchs
+Sobald Sie eine Kopie des Jahrbuchs erhalten haben, können Sie die Liste der qualifizierten Bauunternehmen konsultieren, die nach Distrikt und Gemeinde organisiert sind. Dies erleichtert die Suche nach lokalen Partnern und garantiert eine gezieltere und den Projektanforderungen entsprechende Auswahl.
+
+### Überprüfung der Anforderungen
+Bevor Sie ein Unternehmen auswählen, ist es wichtig zu überprüfen, ob es die beruflichen und persönlichen Anforderungen erfüllt, die vom kantonalen Register verlangt werden. Das Jahrbuch bietet detaillierte Informationen zu jedem Unternehmen, einschließlich der Zulassungskriterien und spezifischen Qualifikationen.
+
+### Meldung von Unregelmäßigkeiten
+Im Falle von Verdacht auf Unregelmäßigkeiten auf den Baustellen können Sie die praktische Anleitung, die im Jahrbuch enthalten ist, verwenden, um die Situation den zuständigen Kontrollorganen zu melden. Dies trägt dazu bei, hohe Sicherheits- und Qualitätsstandards in der Bauindustrie des Tessin aufrechtzuerhalten.
+
+### Nützliche Werkzeuge
+Um die Informationen über das Jahrbuch und die qualifizierten Bauunternehmen weiter zu vertiefen, können Sie die offizielle Website des Kantons Tessin unter der Adresse www.ti.ch/albo konsultieren. Dieses Portal bietet Zugang zu weiteren Ressourcen und nützlichen Werkzeugen für Auftraggeber und Planer.
+
+Für weitere Details und um eine Kopie des Jahrbuchs anzufordern, kontaktieren Sie den SSIC Sektion Tessin. Verwenden Sie unseren [Rechner](nav:calculator), um die Kosten Ihres Bauprojekts zu schätzen und stellen Sie sicher, dass Sie ein qualifiziertes Unternehmen wählen, um Sicherheit und Transparenz zu gewährleisten.
+
+*Quelle: [tio.ch](https://www.tio.ch/ticino/attualita/1921787/costruire-in-sicurezza-pubblicato-l-annuario-2026-degli-impresari-ticinesi)*`,"blog.article.annuario-impresari-2026-ticino.faq":'[{"q":"Wie kann ich eine Kopie des Jahresverzeichnisses 2026 der Tessiner Unternehmer erhalten?","a":"Um eine Kopie des Verzeichnisses zu erhalten, können Sie die SSIC Sektion Tessin per E-Mail an info@ssic-ti.ch kontaktieren oder unter der Nummer 091 825 54 23 anrufen. Die Kopie wird innerhalb weniger Tage kostenlos zugesandt."},{"q":"Welche Anforderungen gelten für Unternehmen, die im kantonalen Register eingetragen sind?","a":"Die Unternehmen müssen bestimmte berufliche und persönliche Anforderungen erfüllen, darunter den Nachweis technischer Kompetenz und die Einhaltung ethischer Standards. Diese Anforderungen sind im Verzeichnis detailliert aufgeführt."},{"q":"Was ist zu tun bei Unregelmäßigkeiten auf den Baustellen?","a":"Das Verzeichnis enthält eine praktische Anleitung, um verdächtige Situationen den zuständigen Kontrollorganen zu melden. Befolgen Sie die angegebenen Anweisungen, um sicherzustellen, dass die Arbeiten im Einklang mit den Vorschriften durchgeführt werden."}]'};export{e as default};

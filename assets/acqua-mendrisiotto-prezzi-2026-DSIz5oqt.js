@@ -1,0 +1,37 @@
+const e={"blog.article.acqua-mendrisiotto-prezzi-2026.body1":`## Auf einen Blick
+- Wasserpreise im Basso Mendrisiotto steigen ab 2026
+- Erhöhung von 1,20 auf 1,55 Franken pro Kubikmeter
+- Preisüberwacher verhandelte Kompromiss für Nutzer
+
+## Wichtige Fakten
+- **Preiserhöhung**: 1,55 Franken pro Kubikmeter ab 2026
+- **Ursprünglicher Plan**: 1,90 Franken pro Kubikmeter
+- **Steigerung**: 30% gegenüber dem vorherigen Tarif
+- **Behörde**: Preisüberwacher des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung
+- **Verhandlungszeitraum**: 30 Tage nach Information des Preisüberwachers im November
+- **Tarifstabilität**: Keine weiteren Erhöhungen für mindestens zwei Jahre
+- **Region**: Basso Mendrisiotto, Tessin
+- **Betroffene**: Einwohner und Grenzgänger mit B-Bewilligung
+
+Die Wasserrechnungen für die Einwohner des Basso Mendrisiotto werden ab diesem Jahr höher ausfallen. Der Wasserversorger des Basso Mendrisiotto (Sibm) hatte nämlich eine erhebliche Erhöhung des Nutzungstarifs geplant, von 1,20 auf 1,90 Franken pro Kubikmeter. Eine Steigerung von fast 60%, die von der Leitung des Konsortiums mit den "erheblichen Kosten für die Gründung des Konsortiums selbst" gerechtfertigt wurde. Die Erhöhung, die die Bürger auf ihrer Rechnung finden werden, wird jedoch dank des Eingreifens einer Bundesbehörde deutlich moderater ausfallen.
+
+Der Preisüberwacher, ein Organ des Eidgenössischen Departements für Wirtschaft, Bildung und Forschung (WBF), hat dem Vorhaben einen Riegel vorgeschoben. Nachdem der Sibm ihn im November informiert hatte, erhob das Bundesamt innerhalb der gesetzlich vorgeschriebenen Frist von 30 Tagen Einwände gegen die Höhe der Erhöhung. Daraus entstand eine Verhandlung, die zu einem schnellen und für die Nutzer vorteilhaften Kompromiss führte. Der neue Tarif wurde auf **1,55 Franken** pro Kubikmeter festgelegt, was einer Steigerung von 30% gegenüber dem vorherigen Tarif entspricht, aber weit von der ursprünglich geplanten drastischen Erhöhung entfernt ist.
+
+Dieser Vorfall, über den im offiziellen Newsletter des Preisüberwachers berichtet wird, zeigt, wie die Preiskontrollmechanismen in Sektoren funktionieren, in denen es keinen echten Wettbewerb gibt, wie bei der Wasserverteilung. Für die Bewohner der Region, einschliesslich der vielen Grenzgänger mit B-Bewilligung, die sich entschieden haben, in der Nähe ihres Arbeitsplatzes zu leben, ist die Nachricht zweigeteilt: Einerseits eine unvermeidliche Kostensteigerung, andererseits die Bestätigung, dass es wirksame Schutzmassnahmen gegen als übermässig erachtete Preiserhöhungen gibt.`,"blog.article.acqua-mendrisiotto-prezzi-2026.body2":`Das Eingreifen des Preisüberwachers ist kein Einzelfall, sondern gehört zu seinen spezifischen institutionellen Aufgaben. Dieses Bundesorgan hat den Auftrag, die Preisentwicklung zu beobachten und bei ungerechtfertigten Erhöhungen oder der Ausnutzung einer marktbeherrschenden Stellung einzugreifen, insbesondere in den Bereichen der wesentlichen öffentlichen Güter und Dienstleistungen. Der Fall des Sibm ist emblematisch: Als öffentliches Konsortium, das in einem natürlichen Monopol tätig ist, werden seine Tarife nicht durch den Wettbewerb geformt, sondern müssen den Grundsätzen der Kostendeckung und der Verhältnismässigkeit entsprechen.
+
+## Der Kompromiss im Detail
+
+Die zwischen dem Preisüberwacher und dem Sibm erzielte Einigung ist nicht nur wegen der Reduzierung der Erhöhung, sondern auch wegen der zukünftigen Garantien von Bedeutung. Die Vereinbarung sieht vor:
+
+- **Begrenzung der Erhöhung:** Die Steigerung wurde auf 30% festgelegt, was den Tarif auf 1,55 CHF/m³ bringt.
+- **Tarifstabilität:** Der Sibm hat sich verpflichtet, für einen Zeitraum von **mindestens zwei Jahren** keine weiteren Erhöhungen vorzunehmen.
+
+Diese Stabilitätsklausel bietet eine wertvolle Planungssicherheit für Familien und Unternehmen im Mendrisiotto. In einem Tessiner Wirtschaftskontext, der von wachsendem Druck auf die Lebenshaltungskosten geprägt ist, von der Krankenversicherung bis zu den Mieten, stellt die Gewissheit einer stabilen Wasserrechnung für die nächsten 24 Monate ein kleines, aber konkretes Sicherheitselement dar. Die Entscheidung zeigt, wie der Dialog zwischen lokalen Körperschaften und Bundesbehörden zu ausgewogenen Lösungen führen kann, die sowohl die finanziellen Bedürfnisse der Dienstleister als auch die Zahlungsfähigkeit der Verbraucher berücksichtigen.`,"blog.article.acqua-mendrisiotto-prezzi-2026.body3":`Für diejenigen, die im Tessin leben, ist dieser Vorfall eine Erinnerung daran, wie sich die monatlichen Fixkosten unerwartet ändern können. Obwohl die Erhöhung der Wasserrechnung wie ein kleines Detail im Familienbudget erscheinen mag, summiert sie sich zu anderen Kostenpunkten, die die Kaufkraft schmälern. Inflation, Krankenkassenprämien und Schwankungen auf dem Immobilienmarkt sind alles Variablen, die sich direkt auf das Nettogehalt auswirken, das am Ende des Monats übrig bleibt.
+
+## Budget und Planung
+
+💡 Eine sorgfältige Überwachung der eigenen Finanzen ist die beste Strategie, um diesen Erhöhungen zu begegnen. Genau zu wissen, wie hoch das eigene Nettogehalt ist und wie es auf die verschiedenen Ausgaben verteilt wird, ist der erste Schritt zu einem bewussten Finanzmanagement. Selbst eine scheinbar bescheidene Preiserhöhung wie die des Wassers kann Auswirkungen haben, wenn sie bei der jährlichen Budgetplanung nicht berücksichtigt wird.
+
+Dieser Kontext macht es noch wichtiger, ein klares Verständnis des verfügbaren Einkommens nach allen Abzügen zu haben. Für Grenzgänger, deren Gehalt spezifischen Abzügen unterliegt, ist ein präzises Bild von grundlegender Bedeutung. Die Verwendung aktueller Tools zur Analyse der eigenen Lohnabrechnung kann helfen, besser zu planen und auch kleine Erhöhungen der Lebenshaltungskosten stressfrei zu bewältigen. Sie können die Auswirkungen dieser und anderer Variablen auf Ihr Einkommen mit unserem Nettolohnrechner überprüfen.
+
+*(Quelle: laRegione, 20. Februar 2026)*`,"blog.article.acqua-mendrisiotto-prezzi-2026.faq":'[{"q":"Wie stark wird die Wasserrechnung für grenzüberschreitende Pendler im Unteren Mendrisiotto steigen?","a":"Der neue Preis beträgt 1,55 CHF pro Kubikmeter, was einer Erhöhung von 30 % gegenüber dem bisherigen Tarif von 1,20 CHF/m³ entspricht. Das Konsortium hatte 1,90 CHF/m³ (fast +60 %) vorgeschlagen, doch eine bundesstaatliche Intervention verringerte die Erhöhung. Bei einem durchschnittlichen Verbrauch von 15 m³ pro Monat steigt die Rechnung von etwa 18 auf 23 CHF."},{"q":"Welche Rolle spielt der Preisaufsichtsbehörde bei der Verringerung der Erhöhung des Wassertarifs?","a":"Die Preisaufsicht, das Büro der EAER, überwacht ungerechtfertigte Erhöhungen bei wesentlichen öffentlichen Dienstleistungen. Nach Erhalt der Mitteilung des Sibm focht er die 60%ige Erhöhung innerhalb der 30 Tage des Gesetzes an und begann eine Verhandlung. Das Ergebnis war ein Kompromiss, der den Tarif auf CHF 1,55/m³ festlegte und die Verbraucher schützte."},{"q":"Wie viele Jahre ist die Stabilität des Wassertarifs nach dem Abkommen garantiert?","a":"Das Abkommen sieht vor, dass das Sibm mindestens zwei Jahre lang keine weiteren Erhöhungen des Wassertarifs vornimmt, bis 2028. Diese Tarifstabilitätsklausel garantiert den Bewohnern des Unteren Mendrisiottos, einschließlich grenzüberschreitender Pendler mit B-Genehmigung, eine feste Ausgabenprognose für die Wasserrechnung für die nächsten 24 Monate."}]'};export{e as default};

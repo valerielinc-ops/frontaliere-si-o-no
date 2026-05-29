@@ -1,0 +1,24 @@
+const e={"blog.article.credit-agricole-second-pilastro-italia.body1":"## Kurzmeldung","blog.article.credit-agricole-second-pilastro-italia.body2":`## Analyse der Strategie von Crédit Agricole
+Die Strategie von Crédit Agricole, seine Präsenz in Italien durch den zweiten Pfeiler zu stärken, ist ein bedeutender strategischer Schritt für die Bank. Italien stellt einen entscheidenden Markt für Crédit Agricole dar, das auf ein Wachstum im italienischen Finanzsektor abzielt.
+
+Die französische Bank ist seit über 20 Jahren in Italien tätig und verfügt über eine lange Geschichte der Präsenz im Land. Das neue strategische Programm sieht jedoch eine deutliche Erweiterung ihrer Aktivitäten vor. Crédit Agricole strebt an, einer der führenden Akteure im italienischen Finanzmarkt zu werden und eine umfassende Palette an Finanzdienstleistungen für Kunden anzubieten.
+
+### Vorteile für die Kunden
+Die Kunden von Crédit Agricole in Italien werden von einem erweiterten Angebot an Finanzdienstleistungen profitieren, einschließlich Investitions- und Vermögensverwaltungsdienste. Die Bank möchte innovative und personalisierte Services für ihre Kunden bereitstellen.
+
+### Was bedeutet das für Grenzgänger
+Die verstärkte Präsenz von Crédit Agricole in Italien könnte positive Auswirkungen für Grenzgänger im Tessin haben. Die Bank könnte innovativere und individuellere Finanzdienstleistungen für italienische Kunden anbieten, inklusive jener, die im Tessin leben.
+
+## Fakten und Zahlen
+- Crédit Agricole zählt zu den führenden französischen Banken.
+- Die Bank verfügt über eine lange Geschichte der Präsenz in Italien.
+- Der zweite Pfeiler der Strategie von Crédit Agricole fokussiert sich auf die Ausweitung der Aktivitäten in Schlüsselregionen.
+- Italien ist ein wichtiger Markt für Crédit Agricole.
+
+## Instrumente und Ressourcen
+Für weitere Informationen zu den Finanzdienstleistungen von Crédit Agricole können Grenzgänger im Tessin die Website der Bank besuchen oder einen Finanzberater kontaktieren. Sie können auch den Finanzdienstleistungsrechner nutzen, um ihre Optionen zu bewerten und die passendsten Services auszuwählen.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.credit-agricole-second-pilastro-italia.body3":`[object Object]
+
+Überprüfen Sie die [Steuerfristen](nav:calendar) für Grenzgänger: alle Termine in einem interaktiven Kalender.`,"blog.article.credit-agricole-second-pilastro-italia.faq":'[{"q":"Was bedeutet die zweite Säule der Strategie des Crédit Agricole?","a":"Die zweite Säule der Strategie von Crédit Agricole bedeutet, dass die Bank ihre Präsenz in Italien stärken und den italienischen Kunden innovativere und personalisiertere Finanzdienstleistungen anbieten will."},{"q":"Was sind die Vorteile für die Kunden von Crédit Agricole in Italien?","a":"Die Kunden von Crédit Agricole in Italien können von einem größeren Angebot an Finanzdienstleistungen profitieren, einschließlich der Anlage- und Vermögensverwaltungsdienstleistungen."},{"q":"Seit wann ist Crédit Agricole in Italien tätig?","a":"Crédit Agricole hat eine lange Geschichte der Präsenz in Italien, wo es seit über 20 Jahren tätig ist. Der neue Strategieplan, der sich auf die „zweite Säule“ konzentriert, zielt nun darauf ab, seine Aktivitäten im Land deutlich zu steigern und seine Position auf dem italienischen Finanzmarkt und das Dienstleistungsangebot weiter zu stärken."},{"q":"Was ist das strategische Ziel des Crédit Agricole mit der Stärkung in Italien?","a":"Das strategische Ziel von Crédit Agricole ist es, einer der Hauptakteure auf dem italienischen Finanzmarkt zu werden. Durch die „zweite Säule“ ihrer Strategie strebt die Bank eine deutliche Steigerung ihres Geschäfts an und bietet ein umfassendes Angebot an innovativen und personalisierten Dienstleistungen zur Wertschöpfung für Kunden und Aktionäre."},{"q":"Was sind die ersten Schritte für einen Tessiner Grenzgänger, der an Crédit Agricole-Diensten interessiert ist?","a":"Interessierte Tessiner Grenzgänger sollten sich zunächst über die bankspezifischen Angebote auf der Website informieren. Als nächstes ist es ratsam zu prüfen, ob diese Dienstleistungen für Ihre grenzüberschreitenden finanziellen Bedürfnisse geeignet sind. Ein weiterer Schritt kann sein, sich mit einem Finanzberater in Verbindung zu setzen, um die am besten geeigneten Optionen zu besprechen."}]'};export{e as default};

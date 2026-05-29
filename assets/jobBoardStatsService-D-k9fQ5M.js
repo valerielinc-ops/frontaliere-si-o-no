@@ -1,0 +1,1 @@
+async function n(a=!1){const s=a?`?fresh=${Date.now()}`:"",t=await fetch(`/data/jobs-stats.json${s}`,{cache:a?"no-store":"default"});if(!t.ok)throw new Error(`Failed to load job board stats (${t.status})`);const o=await t.json();return!o||typeof o!="object"?null:o}export{n as f};

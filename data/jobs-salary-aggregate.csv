@@ -1,0 +1,25 @@
+# Frontaliere Ticino — salary aggregate (2026 panel snapshot)
+# Generated: 2026-05-29
+# Source: https://frontaliereticino.ch/report/frontalieri-2026/
+# Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+#          https://creativecommons.org/licenses/by/4.0/
+# Citation: Frontaliere Ticino (2026). Annual salary aggregate dataset.
+# Currency: CHF, gross, annual. Salary midpoint = (min + max) / 2 per listing.
+scope,label,observations,median_chf,avg_chf,min_chf,max_chf
+overall,All sectors,6057,62250,68405,,
+sector,"Sanità / Ospedali",2871,62250,65245,52300,107250
+sector,"Impiantistica & Tecnologia Edilizia",205,62250,65959,54500,85500
+sector,"Lusso / Orologeria",153,62250,68678,52300,107250
+sector,"Università / Ricerca",124,62250,67129,52300,107250
+sector,"Assicurazioni",123,62250,70504,52300,107250
+sector,"Consulenza",117,85500,88375,52300,118500
+sector,"Farmaceutico",103,62250,71711,52300,107250
+sector,"Tecnologia & IT",102,68875,73807,50500,117750
+sector,"Sanità",74,62250,68546,52300,85500
+sector,"Edilizia e tecnica",67,62250,62679,62250,68000
+region,"Lugano",179,68000,75100,,
+region,"Chiasso",20,68000,75000,,
+region,"Mendrisio",57,62250,72483,,
+region,"Bellinzona",125,75250,77230,,
+region,"Locarno",32,65125,71806,,
+region,"Altre (TI)",189,71591,76224,,

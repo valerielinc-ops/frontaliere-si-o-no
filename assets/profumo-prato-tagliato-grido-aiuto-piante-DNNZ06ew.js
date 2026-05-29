@@ -1,0 +1,58 @@
+const e={"blog.article.profumo-prato-tagliato-grido-aiuto-piante.body1":`## In brief
+- The smell of cut grass is an alarm signal for plants
+- Plants release volatile molecules to activate defense mechanisms
+- These compounds attract useful predatory insects
+
+## Key facts
+- **What**: Volatile molecules released by plants
+- When: When plant cells are damaged
+- Where: In all environments where there are plants
+- Who: Plants and predatory insects
+- Amount: Not specified
+
+With the arrival of spring, nature awakens, and even domestic gardens need care again. A fragrance that many associate with the beautiful season spreads through the air: that of freshly cut grass. This fragrance comes from specific compounds that play a precise role for plants. Plants' defense mechanisms are called green leaf volatiles (GLV): these are volatile molecules that plants release when their cells are damaged. What is a pleasant smell for us is actually a real alarm signal: nearby plants perceive it and activate defense mechanisms against the threat. Moreover, it has been demonstrated that these substances attract 'useful' predatory insects, which feed on herbivores, thus contributing to the protection of the plant when attacked by other organisms.
+
+### How the smell is generated
+The way the so-called 'green odor' is able to generate has been known for some time: when the grass is cut, the natural fats present in the leaves are transformed by enzymes into odor molecules. The main responsible for the notable fragrance is the compound with formula C₆H₁₀O, called cis-3-hexenal. These substances spread quickly in the air due to their volatility, with a release that increases immediately after cutting and decreases as the surfaces dry.
+
+### How plants perceive the signal
+Any attempt to anthropomorphize the plant, i.e., the hypothesis that it possesses a sense of smell or a 'capacity for speech' like us humans, should be taken with a pinch of salt. What allows plants to capture these chemical messages are rather specific guard cells located on the stomata, the leaf pores responsible for gas exchange. Experiments conducted on plants with artificially closed stomata have revealed almost null reactions, proving the essential function of these structures.
+
+### The underground network of plants
+For some time, the capabilities of plants in transmitting information through the roots have also been known, in a dense network called the 'Wood Wide Web', or plant internet, where electrical and chemical signals run underground thanks to the mediation of the fungal mycelium. Studying the defense mechanisms of plants could also help us develop more efficient natural tools for crop protection.
+
+### Why we like the smell of cut grass
+As for the reasons why the smell of cut grass pleases many people, there is no certain answer. Some behavioral studies on monkeys have revealed that the smell of these compounds has a calming effect in stressful conditions. In particular, it causes an influx of blood to the part of the brain cortex that deals with smell and not only. Beyond biological mechanisms, it is possible that its charm depends on a simpler and more subjective factor: the fact that it immediately recalls summer and pleasant sensations associated with it.
+
+### How to protect biodiversity
+Despite the alleged therapeutic effect of these aromas, which might push us to practice them for pleasure, it is a good idea to try to limit the frequency of cuts in our gardens. Leaving some areas of the lawn to grow freely can indeed favor biodiversity, offering refuge and nourishment to insects, small animals, and microorganisms. A small aesthetic sacrifice to ensure a richer and more vital environment.`,"blog.article.profumo-prato-tagliato-grido-aiuto-piante.body2":`### Implications for Gardeners
+For gardeners, understanding the role of the smell of freshly cut grass can change the way they care for their gardens. For example, cutting the grass less frequently can not only reduce plant stress but also promote biodiversity. This approach can be particularly useful in urban areas where biodiversity is often limited.
+
+### Benefits for the Environment
+Leaving some areas of the lawn to grow freely can have a positive impact on the environment. Insects, small animals, and microorganisms find refuge and nourishment in these areas, contributing to a more balanced ecosystem. This can be particularly important in the context of climate change, where biodiversity is under pressure.
+
+### Future Studies
+Studies on the defense mechanisms of plants and their ability to communicate through their roots are still ongoing. These studies could lead to innovative developments in the field of sustainable agriculture and crop protection. For example, understanding how plants react to herbivore attacks could help develop more targeted and less harmful pesticides for the environment.
+
+### Practical Tips
+For gardeners who want to contribute to biodiversity, there are some simple practices to follow. For example, cutting the grass less frequently and leaving some areas of the lawn to grow freely can make a big difference. Additionally, avoiding the use of chemical pesticides can help maintain a balanced ecosystem.
+
+### Conclusion
+The smell of freshly cut grass is not just a pleasant summer aroma but an important signal of plant defense. Understanding this mechanism can help promote more sustainable gardening practices and protect biodiversity. For gardeners, this means adopting more environmentally friendly approaches and contributing to a healthier and more vibrant ecosystem.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.profumo-prato-tagliato-grido-aiuto-piante.body3":`### What to do to protect plants
+To protect plants and promote biodiversity, it's important to adopt sustainable gardening practices. Here are some concrete steps you can follow:
+
+1. **Reduce mowing frequency**: Mowing the lawn less frequently can reduce plant stress and promote biodiversity.
+2. Leave areas untouched: Leaving some areas of the lawn to grow freely provides refuge and nourishment for insects, small animals, and microorganisms.
+3. Avoid chemical pesticides: Using chemical pesticides can harm the ecosystem. Opt for natural pest control methods.
+4. Promote biodiversity: Planting a variety of native plants can attract a wider range of beneficial insects and promote a balanced ecosystem.
+
+### Useful Tools
+For more information and useful tools, you can visit the [Frontaliere Ticino](https://frontaliereticino.ch) website. Here you will find guides, calculators, and resources to help you manage your garden best and promote sustainable practices.
+
+### Conclusion
+The smell of freshly cut grass is an important signal for plant defense. Understanding this mechanism can help promote more sustainable gardening practices and protect biodiversity. By adopting more environmentally friendly approaches, we can contribute to a healthier and more vibrant ecosystem. For more information and useful tools, visit the [Frontaliere Ticino](https://frontaliereticino.ch) website.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3696207)*`,"blog.article.profumo-prato-tagliato-grido-aiuto-piante.faq":'[{"q":"Why is the smell of cut grass a warning signal for plants?","a":"The smell of cut grass is a warning signal because plants release volatile molecules when their cells are damaged. This signal activates defense mechanisms in nearby plants and attracts beneficial predator insects that protect the plant from further attacks."},{"q":"How can I promote biodiversity in my garden?","a":"You can promote biodiversity in your garden by reducing the frequency of grass cutting, leaving some areas of the lawn to grow freely, and avoiding the use of chemical pesticides. Planting a variety of native plants can also attract a wider range of beneficial insects."},{"q":"What are the benefits of leaving some areas of the lawn to grow freely?","a":"Leaving some areas of the lawn to grow freely provides shelter and nutrition for insects, small animals, and microorganisms, contributing to a more balanced ecosystem and promoting biodiversity."}]'};export{e as default};

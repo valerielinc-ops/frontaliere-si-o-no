@@ -1,0 +1,71 @@
+const e={"blog.article.carpooling-aziendale-ticino.body1":`## Auf einen Blick
+- MomòRide: Carpooling-Initiative für Unternehmen in Balerna, Chiasso und Novazzano.
+- Pendler sparen bis zu 300 CHF/Monat, CO2-Einsparung von 10 Tonnen/Monat.
+- Unternehmen erhalten 500 CHF Beitrag und 50% Kreislaufsteuer-Reduktion für Fahrzeuge mit 3+ Personen.
+
+## Wichtige Fakten
+- **Projektname**: MomòRide
+- **Orte**: Balerna, Chiasso, Novazzano
+- **Startdatum**: 1. Januar 2020
+- **Einsparung Pendler**: Bis zu 300 CHF pro Monat
+- **CO2-Einsparung**: 10 Tonnen pro Monat
+- **Unternehmensbeitrag**: 500 CHF für Teilnahme an nachhaltiger Mobilität
+- **Steuerreduktion**: 50% Kreislaufsteuer für Fahrzeuge mit 3+ Personen
+- **Anreiz für KMU**: Kostenlose Teilnahme für Unternehmen mit weniger als 20 Mitarbeitern
+
+Das Projekt MomòRide, eine zweijährige Initiative für Carpooling für Unternehmen und Pendler in Balerna, Chiasso und Novazzano, in Zusammenarbeit mit ERS-MB, dem PSE Pian Faloppia und mit Unterstützung der lastminute foundation und von Mobitrends, ist sehr erfolgreich. In etwas mehr als einem Monat haben sich bereits 100 Benutzer registriert, ein Zeichen für ein echtes Interesse an nachhaltigeren, wirtschaftlichen und gemeinschaftlichen Lösungen für die Mobilität. Mit MomòRide kann jede Fahrt zu einer Chance werden: weniger Autos auf der Straße, weniger Stress, mehr Einsparungen und neue Verbindungen zwischen Kollegen auch verschiedener Unternehmen.
+
+> Die bisher gesammelten Daten sind ermutigend: Pendler, die MomòRide nutzen, können bis zu 300 Franken pro Monat sparen, wenn man von durchschnittlichen Kosten von 500 Franken pro Monat für ein Auto ausgeht. Zudem trägt das Projekt dazu bei, die Umweltauswirkungen des Verkehrs zu reduzieren, mit einer geschätzten Einsparung von 10 Tonnen CO2 pro Monat.
+
+📊 Ein konkretes Beispiel ist das eines Mitarbeiters eines Unternehmens in Chiasso, der täglich 30 km zur Arbeit zurücklegt. Durch die Nutzung von MomòRide kann er bis zu 150 Franken pro Monat sparen, indem er einfach sein Auto mit zwei anderen Kollegen teilt, die dieselbe Strecke zurücklegen.
+
+⚠️ Der Schweizer Bund unterstützt Carpooling-Initiativen durch wirtschaftliche Anreize. Zum Beispiel gewährt der Kanton Tessin eine Reduzierung der Kreislaufsteuer um 50% für Fahrzeuge, die mindestens 3 Personen befördern. Zudem sieht das kantonale Gesetz einen Beitrag von 500 Franken für Unternehmen vor, die sich an Projekten für nachhaltige Mobilität wie MomòRide beteiligen.
+
+- Um sich MomòRide anzuschließen, müssen Unternehmen einfach ihre Mitarbeiter auf der Website des Projekts registrieren und ihre täglichen Routen angeben.
+- Pendler können dann nach anderen Benutzern suchen, mit denen sie die Fahrt teilen können, und die Details der Reise vereinbaren.
+- Unternehmen, die eine bestimmte Anzahl von Registrierungen erreichen, können von weiteren Anreizen profitieren, wie der Möglichkeit, Networking-Veranstaltungen für ihre Mitarbeiter zu organisieren.
+
+Die Tessiner Gemeinden wie Balerna und Chiasso fördern aktiv die Teilnahme von Unternehmen an MomòRide und erkennen die wirtschaftlichen und ökologischen Vorteile des Carpooling an. Mit zunehmender Beteiligung könnte MomòRide zu einem erfolgreichen Modell für andere Regionen des Kantons Tessin werden.`,"blog.article.carpooling-aziendale-ticino.body2":`Die App Mobalt, die für das betriebliche Carpooling-Projekt angepasst wurde, ermöglicht es den Benutzern, sich in Verbindung zu setzen, Fahrgemeinschaften zu organisieren und Reisen effizient zu verfolgen. Das Hauptziel ist es, den Verkehr in der Region zu reduzieren, indem die Anzahl der Personen, die ein Auto teilen, erhöht wird, und somit eine nachhaltigere Mobilität zu fördern. Um die Initiative noch attraktiver zu machen, gibt es monatliche Anreize: Bargeldprämien, die von den fördernden Gemeinden zur Verfügung gestellt werden, mit einem Gesamtwert von CHF 500. Diese Prämien sind für die Fahrgemeinschaften von Unternehmen mit Sitz in den drei teilnehmenden Gemeinden Lugano, Paradiso und Massagno bestimmt.
+
+Die Initiative wurde nach der Verordnung über Maßnahmen zur Reduzierung des Pendlerverkehrs vom 1. Januar 2020 gestartet, die Mittel zur Förderung nachhaltiger Mobilität bereitgestellt hat. Die beteiligten Gemeinden haben beschlossen, einen Teil dieser Mittel zu nutzen, um das betriebliche Carpooling zu fördern. Unternehmen können auch ihre Mitarbeiter, die teilnehmen, belohnen und somit ihr Engagement für eine verantwortungsvollere Mobilität stärken und gleichzeitig das Betriebsklima verbessern.
+
+> Konkrete Beispiele:
+- Ein Unternehmen in Lugano mit 50 Mitarbeitern verzeichnete nach dem Beitritt zum Projekt eine Reduzierung der Anzahl der zur Arbeit genutzten Autos um 20%.
+- Ein anderes Unternehmen in Paradiso verzeichnete einen Anstieg von 30% im Anteil der Mitarbeiter, die das Auto für den Weg zur Arbeit teilen.
+
+Um dem Projekt beizutreten, müssen sich Unternehmen einfach über die Website des Projekts anmelden und die App Mobalt herunterladen. Mitarbeiter können sich dann registrieren und beginnen, nach Reisebegleitern zu suchen. Die Betriebscheckliste umfasst:
+- Anmeldung zum Projekt
+- Förderung der Initiative unter den Mitarbeitern
+- Nutzung der App zur Organisation von Fahrgemeinschaften
+- Überprüfung der Fortschritte und Teilnahme an den monatlichen Prämien
+
+📊 Ein Vergleich zwischen praktischen Szenarien:
+- Ein Mitarbeiter, der normalerweise täglich 50 km zur Arbeit zurücklegt, kann seinen CO2-Fußabdruck um 50% reduzieren, indem er das Auto mit einem Kollegen teilt.
+- Ein Unternehmen mit 100 Mitarbeitern kann die Anzahl der zur Arbeit genutzten Autos von 100 auf 50 reduzieren, mit einer signifikanten Auswirkung auf die Reduzierung des Verkehrs.
+
+💡 Unternehmen, die dem Projekt beitreten, tragen nicht nur dazu bei, den Verkehr und die Umweltverschmutzung zu reduzieren, sondern können auch von einer Verbesserung des Betriebsklimas profitieren, indem sie eine Kultur der Teilung und Zusammenarbeit fördern.
+
+⚠️ Es ist wichtig zu beachten, dass die Initiative für alle Unternehmen mit Sitz in den teilnehmenden Gemeinden offen ist und dass die monatlichen Prämien je nach verfügbaren Mitteln variieren können. Für weitere Informationen können Unternehmen die Website des Projekts besuchen oder die beteiligten Gemeinden direkt kontaktieren.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.carpooling-aziendale-ticino.body3":`Tessiner Unternehmen, die über eigene Parkplätze verfügen, können nun einige Parkplätze ausschließlich für diejenigen reservieren, die das Auto teilen, dank des betrieblichen Carpooling-Projekts. Die App Mobalt ermöglicht es, diese Parkplätze über die Funktion der bedingten Buchung auf der Grundlage der von den Teilnehmern gesammelten Punkte zu verwalten. Für Unternehmen, die sich diesem innovativen Projekt anschließen möchten, sind erleichterte Beitrittsbedingungen vorgesehen.
+
+Unternehmen mit weniger als 20 Mitarbeitern können von einer kostenlosen Teilnahme profitieren, während für andere ein Rabatt von 40% auf die Kosten des Abonnements für Mobalt für das Carpooling-Modul gilt. Dieser Anreiz ist besonders interessant für kleine und mittlere Unternehmen (KMU), die im Kanton Tessin tätig sind, wie beispielsweise diejenigen in der Industriezone Bioggio oder im Bezirk Lugano.
+
+Es gibt noch wenige Wochen für eine weitere Erleichterung: Bei Beitritt zum zweijährigen Projekt bis zum 31. März 2026 ist das Abonnement für das erste Jahr kostenlos, und die erste Zahlung erfolgt Anfang 2027. Dies bedeutet, dass Unternehmen, die sich bis zum Stichtag anmelden, bis zu 500 Franken pro Mitarbeiter im ersten Jahr sparen können, wenn man von einem Standardabonnement ausgeht.
+
+Um die Vorteile des betrieblichen Carpooling besser zu verstehen, betrachten wir ein konkretes Beispiel. Ein Unternehmen mit 50 Mitarbeitern, das dem Projekt beitritt, kann im ersten Jahr bis zu 10.000 Franken sparen, wenn man den Rabatt von 40% auf das Abonnement berücksichtigt. Darüber hinaus kann die Reduzierung der Anzahl der geparkten Fahrzeuge zu einer Verringerung der Parkplatzverwaltungskosten und zu einer geringeren Umweltbelastung führen.
+
+> Betriebscheckliste:
+- Überprüfung der Verfügbarkeit von Unternehmensparkplätzen
+- Festlegung der Anzahl der für das Carpooling zu reservierenden Parkplätze
+- Kontaktaufnahme mit den Projektorganisatoren für den Beitritt
+- Konfiguration der App Mobalt für die Verwaltung der Parkplätze
+
+Für weitere Informationen und um dem Projekt beizutreten, kann die Website [www.momoride.ch](http://www.momoride.ch) besucht oder die Organisatoren direkt kontaktiert werden. Nutzen Sie unseren Gehaltsrechner, um herauszufinden, wie Carpooling Ihnen helfen kann, Geld zu sparen.
+
+📊 Vergleich zwischen praktischen Szenarien:
+- Unternehmen mit 20 Mitarbeitern: Einsparung von 2.000 Franken im ersten Jahr mit kostenloser Teilnahme
+- Unternehmen mit 100 Mitarbeitern: Einsparung von 20.000 Franken im ersten Jahr mit 40% Rabatt
+
+Die geltenden Vorschriften (Kantonales Umweltschutzgesetz, Art. 12, Abs. 3) sehen Anreize für Unternehmen vor, die nachhaltige Mobilität fördern. Der Beitritt zum betrieblichen Carpooling-Projekt kann eine interessante Option für Tessiner Unternehmen sein, die ihre Umweltbelastung reduzieren und die Lebensqualität ihrer Mitarbeiter verbessern möchten.`,"blog.article.carpooling-aziendale-ticino.faq":'[{"q":"Wie funktioniert das Projekt MomòRide?","a":"Das MomòRide-Projekt ermöglicht es Benutzern, ihre täglichen Strecken zu teilen und Reisebegleiter zu finden, um Umweltauswirkungen und Verkehr zu reduzieren. Unternehmen können ihre Mitarbeiter auf der Projekt-Website einschreiben und die Mobalt-App nutzen, um Crews und Bahnfahrten zu organisieren."},{"q":"Wie viele Francs pro Monat können im Durchschnitt einen Pendler mit MomòRide sparen?","a":"Nach den erhobenen Daten kann ein Pendler bis zu 300 Franc pro Monat speichern, wenn man eine durchschnittliche Kosten von 500 Franc pro Monat für ein Auto betrachtet."},{"q":"Was sind die wirtschaftlichen Anreize, die die Schweiz und das Tessin für die Karpulierung bieten?","a":"Der Kanton Tessin verrechnet mit mindestens 3 Personen an Bord eine 50%ige Reduktion der Fahrzeugumlaufsteuer und bietet einen Beitrag von 500 Francs an Unternehmen, die eine nachhaltige Mobilität wie MomòRide fördern."}]'};export{e as default};

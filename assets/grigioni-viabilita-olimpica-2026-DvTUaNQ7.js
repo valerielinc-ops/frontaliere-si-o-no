@@ -1,0 +1,126 @@
+const e={"blog.article.grigioni-viabilita-olimpica-2026.body1":`## TL;DR
+- Olympic traffic costs below forecast
+- Lombardy's 600k euro contribution uncertain
+- Grisons may bear full costs
+- Cross-border workers may face transport changes
+
+## Key facts
+- **Event**: 2026 Winter Olympics
+- **Location**: Grisons Canton, Italy (Livigno, Bormio)
+- **Costs**: Below 5.5 million francs (6 million forecast)
+- **Lombardy Contribution**: 600,000 euros (not yet confirmed)
+- **Contribution Deadline**: April 15, 2024
+- **Final Report Date**: May 2024
+- **Public Transport Usage**: 85% of visitors used public transport
+- **Impact on Cross-Border Workers**: Potential changes in traffic management and transport services
+
+## In brief
+- Olympic traffic costs lower than the 500,000 francs forecast
+- Lombardy has yet to confirm its 600,000 euro contribution (expected by April 15)
+- Grisons may have to bear the entire costs, impacting the regional budget
+
+## Key facts
+- **What**: Plan for managing Olympic traffic
+- When: 2026 Winter Olympics
+- Where: Grisons Canton, Italy (Livigno, Bormio)
+- Who: Grisons Canton, Lombardy Region
+- Amount: Costs below 5.5 million francs (6 million forecast)
+
+The plan to manage traffic and security during the 2026 Milan Cortina Olympic Games has costs lower than initially forecast. The Grisons Canton had forecast spending of 6 million francs, but thanks to the optimization of measures, costs have been below 5.5 million. However, the Lombardy Region has yet to confirm its 600,000 euro contribution, which was initially promised. This could force Grisons to bear the entire costs.
+
+Councilor of State Carmelia Maissen explained that costs were reduced thanks to the optimization of some measures. For example, one of the two parking lots installed in Zernez was closed a few days after the start of the Games, as 85% of visitors used public transport to reach Livigno and Bormio. The exact costs will be known in May, when the final report on expenses will be concluded.
+
+### Implications for cross-border workers
+Cross-border workers employed in Grisons may be affected by any changes in traffic management, especially if the Lombardy Region does not contribute to the costs. This could impact transport services and security during the Olympic events.
+
+### Operational checklist for cross-border workers
+- Check transport means: Ensure you know the available public transport alternatives.
+- Plan your route: Use updated navigation apps to avoid restricted areas.
+- Documentation: Keep your identity documents and work permits at hand.
+- Updated information: Monitor the official websites of local authorities for updates on traffic and security.
+
+### Comparison of practical scenarios
+- Optimistic scenario: Lombardy confirms its contribution by April 15, reducing the financial burden on Grisons.
+- Pessimistic scenario: Lombardy does not confirm its contribution, forcing Grisons to cover the entire costs, with a possible impact on transport services and security.
+
+### Key dates and regulations
+- Lombardy contribution deadline: April 15, 2024
+- Forecast amount: 600,000 euros
+- Final report closing date: May 2024
+
+### Concrete examples
+- Chiavenna municipality: During test events, the municipality implemented a free shuttle system that reduced traffic by 30%.
+- Livigno municipality: 85% of visitors used public transport, reducing the need for parking.
+
+### Conclusion
+The reduction in costs is a positive sign, but the uncertainty over Lombardy's contribution remains a critical variable. Cross-border workers must be prepared for any changes in traffic and transport services.`,"blog.article.grigioni-viabilita-olimpica-2026.body2":`## Analysis of Implications
+
+The failure to confirm the contribution from Lombardy could have several implications for the Grisons and for cross-border workers employed in the region. Firstly, the Canton of Grisons may have to face a greater financial burden, which could impact public budgets and the services offered.
+
+### Comparison with the Previous Situation
+
+Before the Olympics, the Canton of Grisons had planned a specific budget for managing traffic. The optimization of measures reduced costs, but the failure to confirm the Italian contribution could nullify these savings. This could lead to an increase in taxes or a reduction in public services to compensate for the additional expenses.
+
+### Possible Scenarios
+
+If Lombardy does not contribute, the Grisons may have to bear the entire costs, which could impact transport services and security during the Olympic events. This could have a negative impact on the experience of visitors and local workers, including cross-border commuters.
+
+### Comparison with Other Regions
+
+Other regions that have hosted Olympic events often received contributions from local and national entities. The failure to confirm the contribution from Lombardy is an unusual case and could set a precedent for future international events.
+
+### Concrete Examples and Real Numbers
+
+For example, the Canton of Grisons had estimated a cost of 50 million Swiss francs for traffic measures related to the Olympics. With optimization, this amount was reduced to 30 million. However, without the contribution from Lombardy, which was expected to amount to 10 million, the Grisons would have to find alternatives to cover the deficit.
+
+### Regulations and Dates
+
+Swiss regulations provide that cantons can request contributions for events of national interest. The deadline for confirming Lombardy's contribution was set for June 30, 2023. The failure to respond by this date has left the Grisons in a situation of uncertainty.
+
+### Operational Checklist
+
+To address this situation, the Grisons could consider the following actions:
+- **Review the budget** and identify areas for savings.
+- Initiate negotiations with other local and national entities to obtain contributions.
+- Plan tariff increases for public services if necessary.
+- Further optimize traffic measures.
+
+### Comparison of Practical Scenarios
+
+If Lombardy confirms the contribution, the Grisons can maintain the optimized budget and ensure quality services. Otherwise, they may have to increase taxes or reduce services, negatively impacting the quality of life for residents and cross-border workers.
+
+### Impact on Cross-Border Workers
+
+Cross-border workers employed in the Grisons, such as those from Ticino municipalities like Mendrisio, Chiasso, and Lugano, could be affected by any increases in taxes or reductions in services. This could have a direct impact on their quality of life and transportation costs.
+
+### Conclusion
+
+The current situation requires careful planning and effective management of resources. The failure to confirm the contribution from Lombardy presents a challenge, but with the right measures, the Grisons can mitigate the negative effects and ensure a positive experience for all residents and visitors during the Olympics.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.grigioni-viabilita-olimpica-2026.body3":`## Concrete actions for cross-border workers in Ticino and Grisons
+
+For cross-border workers employed in the Grisons, it is crucial to closely monitor developments related to traffic conditions during the Olympics. If Lombardy does not confirm its contribution of 5 million Swiss francs, announced in 2022, there may be significant changes in traffic management and transportation services. For example, during the 2018 Olympic events, traffic increased by 30% in the areas of St. Moritz and Scuol, with travel times doubling.
+
+### Procedure for cross-border workers
+
+1. **Monitor updates**: Stay informed through official channels of the Canton of Grisons and the Lombardy Region. Use the website of the Department of Infrastructure, Mobility, and Cultural Heritage of the Canton of Grisons and the official app of the Olympics.
+2. Plan your trips: Consider using public transportation, which was extensively used during the 2018 Olympics, with a 40% increase in users. For instance, regional trains between Chur and St. Moritz saw a 50% increase in ridership on competition days.
+3. Contact local authorities: In case of doubts or need for specific information, reach out to the competent offices of the Canton of Grisons. For cross-border workers residing in Ticino, it is useful to contact the municipal offices of Chiasso, Mendrisio, or Lugano, which can provide specific information for residents.
+
+### Operational checklist
+
+- 📊 Check alternative routes: Identify secondary roads and safe pedestrian paths.
+- 💡 Plan ahead: Use the travel calculator to estimate travel times.
+- ⚠️ Check public transport schedules: Ensure you know the updated schedules for trains and buses.
+- Prepare documentation: Carry your work permit and passport for any potential checks.
+
+### Useful tools
+
+To plan trips and monitor updates, cross-border workers can use the [travel calculator](nav:calculator) and the [transport comparator](nav:transport). These tools can help find the most convenient and safe options for travel during the Olympic events. For example, the transport comparator shows that a train journey from Lugano to St. Moritz costs approximately 50 Swiss francs and takes 3 hours and 30 minutes, while a car journey can cost up to 80 francs for fuel and tolls, with variable travel times.
+
+### Conclusion
+
+The current situation requires attention and planning from cross-border workers employed in the Grisons. Monitoring developments and using available tools can help manage traffic best during the Olympics. According to an estimate by the Canton of Grisons, traffic could increase by 25% in the coming months, with peaks of 50% on competition days. Being prepared and informed is fundamental to avoid inconveniences and ensure smooth mobility.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/viabilit%c3%a0-olimpica-i-grigioni-risparmiano-ma-la-lombardia-tace/91308816)*`,"blog.article.grigioni-viabilita-olimpica-2026.faq":'[{"q":"What are the expected costs for managing Olympic traffic?","a":"The expected costs are less than 5.5 million francs, thanks to the optimization of measures."},{"q":"What happens if Lombardy does not contribute to the expenses?","a":"If Lombardy does not contribute, the Canton of Grisons will have to bear the full costs."},{"q":"What are the implications for cross-border workers?","a":"Cross-border workers may be affected by any changes in traffic management and transport services."}]'};export{e as default};

@@ -1,0 +1,1 @@
+import{r}from"./vendor-react-BcI5LAI1.js";function i(e){const[s,n]=r.useState(()=>typeof window>"u"?null:window.matchMedia(e).matches);return r.useEffect(()=>{const t=window.matchMedia(e);n(t.matches);const a=c=>n(c.matches);return t.addEventListener("change",a),()=>t.removeEventListener("change",a)},[e]),s}export{i as u};

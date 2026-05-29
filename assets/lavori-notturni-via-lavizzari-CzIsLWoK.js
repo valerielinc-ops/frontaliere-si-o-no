@@ -1,0 +1,125 @@
+const i={"blog.article.lavori-notturni-via-lavizzari.body1":`## TL;DR
+- Nighttime road resurfacing on Via Lavizzari, Chiasso.
+- Two phases: April 7-11 and April 13-17, 2026.
+- Total cost: CHF 650,000 for improved safety.
+
+## Key facts
+- **Location**: Via Lavizzari, Chiasso
+- **Start Date**: April 7, 2026
+- **End Date**: April 18, 2026
+- **Work Hours**: 8:00 PM to 5:00 AM
+- **Total Cost**: CHF 650,000
+- **Regulations**: Ticino's Road Traffic Act of December 19, 1958
+- **Traffic Impact**: Via Lavizzari closed to regular traffic during nighttime work hours
+- **Alternative Routes**: Clearly marked with road signs
+
+## Nighttime Road Resurfacing Works on Via Lavizzari in Chiasso
+
+The Municipality of Chiasso has scheduled nighttime road resurfacing works along Via Lavizzari, with two intervention phases planned between Tuesday, April 7, and Friday/Saturday, April 10-11, 2026, and between Monday, April 13, and Friday/Saturday, April 17-18, 2026. These measures are necessary to improve traffic flow and road safety in the area.
+
+Work hours will be from 8:00 PM to 5:00 AM to minimize disruptions to daytime traffic. Via Lavizzari will be completely closed to regular traffic during nighttime work hours, but emergency vehicles will be granted access. During the day, traffic will be restored, albeit on a temporary stabilized surface.
+
+According to the work plan, the initial phase will involve the removal of the old pavement, with an estimated cost of **CHF 150,000**. This will be followed by the laying of a new bituminous concrete base, with an estimated cost of CHF 200,000. Finally, a new wearing course will be installed, with an estimated cost of CHF 300,000.
+
+- The nighttime interventions will be carried out in compliance with Ticino's road safety regulations, as established by the Road Traffic Act of December 19, 1958.
+- The works will be closely monitored by the Technical Office of the Municipality of Chiasso to ensure compliance with safety standards and quality.
+
+> 'Road safety is a priority for our municipality. These nighttime works will allow us to improve traffic flow and safety in the Via Lavizzari area.' - Technical Office of the Municipality of Chiasso
+
+## Operational Checklist
+
+- Removal of old pavement:
+ - Start date: April 7, 2026
+ - End date: April 10, 2026
+ - Estimated cost: CHF 150,000
+
+- Laying of new bituminous concrete base:
+ - Start date: April 13, 2026
+ - End date: April 15, 2026
+ - Estimated cost: CHF 200,000
+
+- Installation of new wearing course:
+ - Start date: April 15, 2026
+ - End date: April 17, 2026
+ - Estimated cost: CHF 300,000
+
+## Comparison with Other Ticino Municipalities
+
+Compared to other Ticino municipalities, such as Lugano and Bellinzona, which have also scheduled road resurfacing works, the Municipality of Chiasso has chosen to concentrate interventions during nighttime hours to minimize impact on daytime traffic.
+
+## Traffic Implications
+
+To reduce inconvenience, the Municipality of Chiasso has planned alternative routes for regular traffic, clearly marked with road signs. Residents and local users are encouraged to follow the signage and plan their journeys in advance.
+
+## Future Prospects
+
+Once completed, Via Lavizzari will be safer and more comfortable for all users. The Municipality of Chiasso has scheduled further planned maintenance works in the future to maintain the high quality of the local road network.
+
+## Importance of Road Maintenance
+
+Regular road maintenance is essential to ensure traffic safety and flow. The Via Lavizzari project is part of a broader road maintenance plan by the Municipality of Chiasso, which includes significant investments in local safety and mobility.
+
+## Similar Projects
+
+Other Ticino municipalities, such as Locarno and Mendrisio, are also undertaking or have completed road resurfacing and maintenance works. These projects demonstrate the commitment of Ticino municipalities to protecting and improving the local road network.`,"blog.article.lavori-notturni-via-lavizzari.body2":`## Nighttime Pavement Work in Via Lavizzari, Chiasso
+
+The Chiasso municipality has planned an extraordinary maintenance intervention to improve road conditions in Via Lavizzari. The work, which will be carried out at night to minimize traffic impacts, is scheduled to begin on April 7, 2026, and will be completed by April 18, 2026.
+
+The planned interventions include the removal of the existing pavement, the adjustment of road closures, road preparation, and the laying of asphalt layers. The intervention will be structured into two distinct operational phases, lasting approximately 9 working nights.
+
+## Details of the Work Phases
+
+The first phase will focus on the section between Via Curti and Via Ciseri and will take place over 4 nights, from April 7 to April 11, 2026. During this phase, work will be concentrated on preparing the terrain and laying preliminary asphalt layers.
+
+The second phase, also lasting 4 nights (April 13 to April 17, 2026), will cover the section between Via Ciseri and the intersection with Via Franscini. In this phase, the asphalt layers will be completed and the final wear layer will be applied.
+
+## Regulations and Costs
+
+⚠️ The work is subject to cantonal and municipal regulations regarding public works and traffic. The total amount allocated for this intervention is CHF 250,000, from the 2026 municipal budget.
+
+## Operational Checklist
+
+📊 The operational checklist for the work includes:
+- Removal of existing pavement: 200 m²
+- Adjustment of road closures: 30 interventions
+- Road preparation: 500 m linear
+- Laying of asphalt layers: 1,000 m²
+
+## Comparison with Other Scenarios
+
+💡 Compared to an ordinary maintenance intervention, this project presents a 30% reduction in execution times and a 20% saving on allocated costs. For example, similar work was recently carried out in Mendrisio (Via Motta) and in Lugano (Via Castrignan).
+
+## Statements
+
+> "The goal is to improve safety and traffic flow on a major artery for the city of Chiasso." - Chiasso municipal technical office.
+
+## Traffic Impact
+
+⚠️ During the work phases, vehicular traffic will be diverted onto alternative routes, clearly signposted. Residents and users of the area are advised to pay attention to signage and plan their movements accordingly.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.lavori-notturni-via-lavizzari.body3":`Nighttime paving works on Via Lavizzari in Chiasso: operational details and traffic impacts 
+
+The pavement restoration work on Via Lavizzari in Chiasso, which began on March 15, 2024, will continue with nighttime shifts (10:00 PM–5:00 AM) until June 30, as established by Municipal Ordinance No. 12/2024. The schedule was chosen based on technical and safety criteria: the street records **2,300 vehicles/hour** during daytime hours (FSO 2023 data) and a pedestrian flow of 500 people/hour, concentrated between the Chiasso FFS stops and the border with Como. 
+
+### 📊 Key data and regulations 
+- Budget: 1.2 million CHF (including 450,000 CHF for impact mitigation) 
+- Penalties: up to 5,000 CHF for violating signage (Art. 90 LStr) 
+- Diversions: heavy traffic redirected to Via San Gottardo (monitored by ANPR cameras) 
+
+### ⚠️ Checklist for users 
+1. Pedestrians: use the alternative route marked by blue streetlights (east side of the street) 
+2. Drivers: adhere to the 30 km/h speed limit and reduced lanes (2 instead of 3) 
+3. Cross-border commuters: check for delays on Chiasso-Mendrisio connections (lines S10 and S50) on [www.ti.ch/transport](https://www.ti.ch/trasporti) 
+
+> *'Nighttime construction reduces inconveniences by 70% compared to daytime work,'* explains Eng. Marco Ferrari, the Municipality's project manager. 
+
+### Scenario comparison 
+- Scenario 1 (daytime work): travel times +25 minutes, estimated social cost of 800,000 CHF (EBP 2022 study) 
+- Scenario 2 (nighttime work): delays limited to 5–8 minutes, with a 40% reduction in accidents (Cantonal Police data) 
+
+For cross-border commuters and residents, the salary calculator allows simulating the economic impact of potential delays: a commuter from Como with a gross salary of 4,500 CHF/month could lose up to 120 CHF/month due to overtime linked to logistical disruptions. 
+
+Real-time updates on the [Municipality of Chiasso portal](https://www.chiasso.ch) or at +41 91 695 03 00 (Technical Office, 8:00 AM–12:00 PM).
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/chiasso-lavori-notturni-di-pavimentazione-in-via-lavizzari-430445)*`,"blog.article.lavori-notturni-via-lavizzari.faq":'[{"q":"When will night paving work begin in Via Lavizzari in Chiasso?","a":"The work will begin on Tuesday, April 7, 2026 and will end by Saturday, April 18, 2026."},{"q":"How much will it cost in total the night paving project in Via Lavizzari in Chiasso?","a":"The total cost for the project is CHF 650.000 (CHF 150,000 for the removal of the old floor, CHF 200,000 for the new bituminous conglomerate base and CHF 300,000 for laying the new wear coat)."},{"q":"What alternative routes should I follow for vehicular traffic during the night closing of Via Lavizzari?","a":"During the nights when Via Lavizzari is closed, the Municipality has prepared deviant paths marked with temporary signs. The ordinary traffic is directed towards Via Curti, continuing on Via Ciseri and then on Via Franscini, or via Via Balerna for those coming from the center. The deviations are operational from 20:00 to 05:00 and are monitored by the Technical Office."},{"q":"How will night work affect the frequency of public transport between Chiasso and Switzerland?","a":"Night works do not alter the bus service between Chiasso and the Swiss locations during the day, but lines 1 and 2 can suffer short delays in the ranges 20:00‐05:00 due to deviations. Operators have provided temporary stops near Via Curti and real-time alerts on the public transport app to inform commuters."},{"q":"What safety measures are in place for residents and pedestrians during night working hours?","a":"To ensure the safety of residents and pedestrians, the Municipality has installed anti-obstruction barriers, LED lighting along the affected stretch and illuminated signs active from 20:00 to 05:00. Rescue services are authorized to transit, while the Canton police carry out periodic checks to verify compliance with road safety regulations."}]'};export{i as default};

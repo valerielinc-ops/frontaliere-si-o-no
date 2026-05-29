@@ -1,0 +1,33 @@
+const e={"blog.article.controlli-velocita-ticino-2026.body1":`## Auf einen Blick
+- Nuove controlli velocità mobili nel Ticino dal 2 al 8 marzo 2026.
+- Obiettivo: migliorare sicurezza stradale e prevenire incidenti.
+- Controlli in aree trafficate: Bellinzona, Lugano, Mendrisio, Locarno.
+
+## Wichtige Fakten
+- **Cosa**: Nuove controlli velocità mobili nel Ticino.
+- **Quando**: Dal 2 al 8 marzo 2026 (10. settimana dell'anno).
+- **Dove**: Bellinzona, Lugano, Mendrisio, Locarno.
+- **Chi**: Kantonspolizei Tessin e polizia comunale.
+- **Aumento incidenti**: Aumento del 12% nel 2025 rispetto al 2024.
+- **Sanzioni**: Da 40 CHF a ritiro patente per eccesso velocità.
+- **Impatto**: Grenzgänger tra Italia e Svizzera colpiti.
+
+Die Kantonspolizei Tessin hat in Zusammenarbeit mit den Gemeindepolizeien eine neue Reihe von **mobilen Geschwindigkeitskontrollen** angekündigt, die in der 10. Kalenderwoche, vom 2. bis 8. März 2026, stattfinden werden. Das erklärte Ziel ist es, die Verkehrssicherheit zu verbessern und Unfälle zu verhindern, insbesondere in den verkehrsreichsten Gebieten des Kantons.
+
+Die mobilen Kontrollstellen werden strategisch an verschiedenen Punkten, darunter Bellinzona, Lugano, Mendrisio und Locarno, platziert, allesamt Bereiche mit hoher Verkehrsdichte. Diese Initiative erfolgt als Reaktion auf einen Anstieg der Geschwindigkeitsunfälle, der im Jahr 2025 verzeichnet wurde, mit einem Anstieg von 12 % im Vergleich zum Vorjahr, so die Daten der Kantonspolizei.
+
+> 'Die Unfallprävention hat für unseren Kanton oberste Priorität,' erklärte ein Sprecher der Kantonspolizei. 'Wir fordern alle Autofahrer, einschließlich der Grenzgänger, auf, die Geschwindigkeitsbegrenzungen einzuhalten, um die Sicherheit aller zu gewährleisten.'`,"blog.article.controlli-velocita-ticino-2026.body2":`## Auswirkungen für Grenzgänger
+
+Diese Kontrollen können erhebliche Auswirkungen auf die Grenzgänger haben, die täglich die Grenzübergänge nutzen, um im Tessin zu arbeiten. Die Strecken nach Chiasso, Lugano und Mendrisio sind häufig stark befahren und in einigen Fällen von rücksichtslosen Fahrverhalten betroffen. Daher ist es entscheidend, die Geschwindigkeitsbegrenzungen einzuhalten, nicht nur um Bußgelder zu vermeiden, sondern auch um die eigene Sicherheit und die der anderen Verkehrsteilnehmer zu gewährleisten.
+
+⚠️ Vorhergesehene Sanktionen:
+- Überschreitung bis 5 km/h: Verwarnung oder Geldbuße von 40 CHF
+- Überschreitung über 16 km/h in städtischen Gebieten: Verwaltungsstrafe und möglicher Entzug des Führerscheins
+- Schwerwiegende Geschwindigkeitsüberschreitung: Strafanzeige mit schwerwiegenden Konsequenzen, einschließlich des Entzugs des G-Bewilligung
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.controlli-velocita-ticino-2026.body3":`Die Verkehrssicherheit ist ein zentrales Thema für diejenigen, die täglich zwischen Italien und der Schweiz pendeln. Neben der Einhaltung der Geschwindigkeitsbegrenzungen ist es wichtig, über mögliche Änderungen der Vorschriften oder neue Initiativen wie diese mobilen Kontrollen informiert zu sein.
+
+Wenn Sie ein Grenzgänger sind, empfehlen wir Ihnen, nützliche Werkzeuge wie unseren [Netto-Lohnrechner](nav:calculator) zu konsultieren, der Ihnen hilft, Ihre monatlichen Ausgaben besser zu planen, einschließlich möglicher Bußgelder oder unvorhergesehener Kosten. Darüber hinaus können Sie die Wartezeiten an den Grenzübergängen mit unserem [historischen Grenzverkehr](nav:traffic-history) überprüfen, um Verzögerungen zu vermeiden und sicher zu reisen.
+
+Die Kantonspolizei Tessin wird die Situation weiterhin überwachen und über ihre offizielle Website (polizia.ti.ch) sowie über die sozialen Medien informieren. Bleiben Sie informiert, um sich vor möglichen Unannehmlichkeiten zu schützen.`,"blog.article.controlli-velocita-ticino-2026.faq":'[{"q":"Was passiert, wenn ich Geschwindigkeitsgrenzwerte bei mobilen Steuerungen übersehe?","a":"Überschreiten Sie die Geschwindigkeitsgrenzen, können Sie eine Warnung oder eine Geldstrafe von 40 CHF erhalten. Auch wenn Sie die Geschwindigkeit von 16 km/h im Stadtgebiet überschreiten, können Sie eine Verwaltungsstrafe erhalten und Ihre Fahrerlaubnis kann zurückgenommen werden."},{"q":"Kann ich Traffic-Apps verwenden, um mobile Geschwindigkeitskontrollen in Tessin zu vermeiden?","a":"Ja, Sie können Traffic-Apps verwenden, um über Verlangsamungen oder Unfälle informiert zu werden, aber nicht speziell mobile Bedienelemente zu vermeiden, die nicht markiert sind. Verwenden Sie sie, um Ihren Weg zu planen und Geschwindigkeitsgrenzen zu respektieren."},{"q":"Was sind die riskantesten Bereiche bei der Geschwindigkeitskontrolle im Tessin?","a":"Die risikoreichsten Bereiche sind die wichtigsten Arterien und Täler wie Brogeda und Gaggiolo, wo der Verkehr intensiv ist und mobile Kontrollen häufig durchgeführt werden, um schnelle Unfälle zu verhindern."}]'};export{e as default};

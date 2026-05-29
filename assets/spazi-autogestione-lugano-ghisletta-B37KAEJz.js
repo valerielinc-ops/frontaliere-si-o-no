@@ -1,0 +1,72 @@
+const e={"blog.article.spazi-autogestione-lugano-ghisletta.body1":`## En bref
+- Début des travaux pour l'ancien abattoir de Lugano
+- Ghisletta : «Aucune discussion spécifique prévue pour l'autogestion»
+- L'ancienne école de couture de Viganello pourrait accueillir la culture indépendante
+
+## Faits clés
+- **Quoi** : Réhabilitation de l'ancien abattoir de Lugano
+- Quand : Début des travaux ce matin
+- Où : Lugano
+- Qui : Raoul Ghisletta, chef du département immobilier de la Ville de Lugano
+- Durée : Travaux estimés entre un mois et demi et deux mois
+
+Les travaux de réhabilitation de l'ancien abattoir de Lugano ont commencé ce matin, marquant la fin d'un lieu symbole pour l'autogestion tessinoise, qui semble toujours «sans domicile», comme l'a expliqué à Ticinonews Raoul Ghisletta, chef du département immobilier de la Ville de Lugano. «Sur ce thème, nous n'avons aucune discussion spécifique prévue».
+
+La situation est différente pour la culture indépendante. «Dans ce sens, il y a des discussions, en particulier concernant l'ancienne école de couture de Viganello, qui déménagera à Chiasso en 2028 : si un accord est trouvé avec le Canton, vu que le bâtiment est propriété cantonale, celui-ci pourrait être utilisé pour la culture indépendante».
+
+### Implications pour les frontaliers
+
+La réhabilitation de l'ancien abattoir de Lugano et la possible destination de l'ancienne école de couture de Viganello pour la culture indépendante pourraient avoir un impact significatif sur la communauté des frontaliers vivant et travaillant en Suisse. Ces espaces pourraient offrir de nouvelles opportunités culturelles et sociales, améliorant la qualité de vie et l'intégration des frontaliers dans la communauté locale.
+
+De plus, la discussion sur la culture indépendante pourrait ouvrir de nouvelles possibilités pour les jeunes et les artistes frontaliers d'exprimer leur créativité et de participer activement à la vie culturelle du Canton. Cela pourrait également favoriser la création de réseaux sociaux et professionnels entre les frontaliers et la population locale, contribuant à un environnement plus inclusif et dynamique.
+
+### Comparaison avec la situation précédente
+
+Avant cette initiative, les frontaliers cherchant des espaces pour l'autogestion et la culture indépendante devaient se fier à des structures limitées et souvent temporaires. La réhabilitation de l'ancien abattoir et la possible destination de l'ancienne école de couture de Viganello représentent une étape significative vers la création d'espaces permanents et dédiés, qui pourraient offrir davantage d'opportunités pour l'expression artistique et culturelle.
+
+### Scénarios futurs
+
+Si la discussion sur la culture indépendante devait aboutir à un accord avec le Canton, l'ancienne école de couture de Viganello pourrait devenir un point de référence pour la culture indépendante dans le Canton du Tessin. Cela pourrait attirer de nouveaux artistes et créatifs, tant locaux que frontaliers, contribuant à un environnement culturel plus riche et diversifié.
+
+Cependant, il est important que les frontaliers soient informés et impliqués dans ces discussions, afin de pouvoir exprimer leurs besoins et attentes. La participation active de la communauté des frontaliers sera fondamentale pour garantir que ces espaces répondent à leurs besoins et contribuent à un environnement inclusif et dynamique.`,"blog.article.spazi-autogestione-lugano-ghisletta.body2":`### Procédure de requalification de l'ancien abattoir
+
+La durée totale de l'opération commencée ce matin est estimée entre un mois et demi et deux mois, après quoi les travaux se déplaceront à l'intérieur du bâtiment pour libérer les murs et permettre aux architectes de vérifier l'état de l'art de l'édifice. « Il s'agit d'un monument protégé, donc il doit être maintenu et restauré », précise Ghisletta, rappelant que « pour cela, il est important de pouvoir constater exactement les conditions de l'édifice ».
+
+Ensuite, on reviendra sur les bancs du Conseil communal. « Il faudra voter un crédit pour concevoir les espaces intérieurs et un autre pour l'édification ». En termes de délais, « la première étape pourrait arriver l'année prochaine, tandis que les travaux pourraient commencer dans deux ou trois ans ».
+
+### Implications pratiques pour les frontaliers
+
+Les frontaliers qui souhaitent participer à la vie culturelle et sociale du canton du Tessin devraient suivre de près le développement de ces projets. La requalification de l'ancien abattoir et la possible destination de la future ancienne école de couture de Viganello à la culture indépendante pourraient offrir de nouvelles opportunités pour l'expression artistique et culturelle.
+
+De plus, les frontaliers pourraient être invités à participer à des consultations publiques ou à exprimer leurs opinions à travers des canaux officiels. Il est important que les frontaliers s'informent régulièrement sur les développements de ces projets et participent activement aux discussions, afin de pouvoir contribuer à créer des espaces qui répondent à leurs besoins et attentes.
+
+### Comparaison avec d'autres initiatives culturelles
+
+La requalification de l'ancien abattoir et la possible destination de la future ancienne école de couture de Viganello à la culture indépendante pourraient être comparées à d'autres initiatives culturelles similaires dans d'autres villes suisses. Par exemple, la ville de Zurich a récemment lancé des projets similaires pour la requalification d'espaces publics et la promotion de la culture indépendante.
+
+Ces projets pourraient offrir des pistes intéressantes pour la planification et la gestion des espaces culturels à Lugano, contribuant à créer un environnement plus inclusif et dynamique pour les frontaliers et la population locale.
+
+### Outils utiles pour les frontaliers
+
+Les frontaliers qui souhaitent rester informés sur ces projets et participer activement à la vie culturelle du canton du Tessin peuvent utiliser divers outils et ressources disponibles en ligne. Par exemple, ils peuvent consulter les sites web officiels de la commune de Lugano et du canton du Tessin pour obtenir des informations à jour sur les projets en cours et les opportunités de participation.
+
+De plus, ils peuvent s'abonner à des newsletters et à des groupes de discussion dédiés à la culture et à l'autogestion, afin de recevoir des nouvelles et des mises à jour directement dans leur boîte de réception. Ces outils peuvent aider les frontaliers à rester informés et impliqués, contribuant à créer un environnement culturel plus riche et diversifié.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.spazi-autogestione-lugano-ghisletta.body3":`### Actions concrètes pour les frontaliers
+
+Pour les frontaliers qui souhaitent participer activement à la vie culturelle et sociale du canton du Tessin, il est important de suivre quelques étapes concrètes. Tout d'abord, il est essentiel de rester informé des développements des projets de requalification de l'ancien abattoir et de l'ancienne école de couture de Viganello. Cela peut être fait en consultant régulièrement les sites web officiels de la commune de Lugano et du canton du Tessin.
+
+De plus, les frontaliers peuvent participer à des consultations publiques et exprimer leurs opinions à travers des canaux officiels. Cela peut contribuer à garantir que les espaces culturels répondent à leurs besoins et attentes. Enfin, les frontaliers peuvent rejoindre des groupes de discussion et des réseaux sociaux dédiés à la culture et à l'autogestion, afin de rester informés et impliqués.
+
+### Outils utiles pour les frontaliers
+
+Les frontaliers peuvent utiliser divers outils et ressources disponibles en ligne pour rester informés et participer activement à la vie culturelle du canton du Tessin. Par exemple, ils peuvent consulter les sites web officiels de la commune de Lugano et du canton du Tessin pour obtenir des informations à jour sur les projets en cours et les opportunités de participation.
+
+De plus, ils peuvent s'abonner à des newsletters et des groupes de discussion dédiés à la culture et à l'autogestion, afin de recevoir des nouvelles et des mises à jour directement dans leur boîte de réception. Ces outils peuvent aider les frontaliers à rester informés et impliqués, contribuant ainsi à créer un environnement culturel plus riche et diversifié.
+
+### Calculateur de salaire
+
+Pour les frontaliers qui souhaitent planifier leur budget et mieux comprendre leurs finances, il est utile d'utiliser des outils comme le [calculateur de salaire](nav:calculator). Cet outil peut aider à calculer le revenu net après les déductions fiscales et contributives, fournissant une estimation précise des revenus mensuels. Utiliser le calculateur de salaire peut aider les frontaliers à mieux planifier leurs finances et à prendre des décisions éclairées concernant leur situation économique.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/spazi-per-lautogestione-a-lugano-ghisletta-il-tema-non-e-sul-tavolo-432844)*`,"blog.article.spazi-autogestione-lugano-ghisletta.faq":`[{"q":"Quels sont les délais pour la rénovation de l'ancien abattoir de Lugano ?","a":"La durée totale de l'opération est estimée entre un mois et demi et deux mois. Les travaux intérieurs pourraient commencer dans deux ou trois ans, après le vote du crédit pour la conception des espaces intérieurs et pour la construction."},{"q":"Quelles sont les implications pour les travailleurs frontaliers ?","a":"La rénovation de l'ancien abattoir et la possible destination de l'ancienne école de couture de Viganello à la culture indépendante pourraient offrir de nouvelles opportunités culturelles et sociales pour les travailleurs frontaliers, améliorant ainsi la qualité de vie et l'intégration dans la communauté locale."},{"q":"Comment les travailleurs frontaliers peuvent-ils participer activement à ces projets ?","a":"Les travailleurs frontaliers peuvent participer à des consultations publiques, exprimer leurs opinions à travers des canaux officiels et rejoindre des groupes de discussion dédiés à la culture et à l'autogestion. Il est important de rester informé des développements des projets et de participer activement aux discussions."}]`};export{e as default};

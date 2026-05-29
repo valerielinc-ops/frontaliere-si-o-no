@@ -1,0 +1,75 @@
+const e={"blog.article.ultimo-giorno-funivia-santis-2026.body1":`## En bref
+- Dernier jour pour monter au Säntis en téléphérique : 30 avril 2026
+- Rénovation totale du téléphérique pour un coût de 30 millions de francs
+- Nouvelles cabines avec une capacité de 85 passagers
+
+## Faits clés
+- **Quoi** : Rénovation totale du téléphérique du Säntis
+- Quand : À partir du 1er mai 2026
+- Où : Säntis, Suisse orientale
+- Qui : Responsables du téléphérique du Säntis
+- Coût : 30 millions de francs
+
+Le téléphérique du Säntis, l'un des remontées mécaniques les plus fréquentées de Suisse, effectue aujourd'hui, 30 avril, son dernier transport de passagers. À partir de demain, 1er mai, et jusqu'à la fin de l'automne, l'installation sera complètement rénovée. Les nouvelles cabines pourront transporter jusqu'à 85 passagers, tout en maintenant la durée du trajet d'environ huit minutes. Le coût total de la rénovation est estimé à 30 millions de francs.
+
+Pendant la période des travaux, le Säntis ne sera accessible qu'à pied et le restaurant au sommet restera fermé. Les nouvelles cabines offriront un meilleur confort et une plus grande stabilité en cas de fortes rafales de vent. La date effective de l'ouverture du nouveau téléphérique dépendra des conditions météorologiques des prochains mois.
+
+### Implications pour les visiteurs
+Les visiteurs qui prévoient de monter au Säntis devront tenir compte de l'absence du téléphérique pendant plusieurs mois. Ceux qui avaient réservé des événements au sommet ne pourront pas utiliser les installations jusqu'à la fin de l'année. La montagne, haute de 2.502 mètres, est une destination populaire pour les randonneurs et les touristes, mais pendant les travaux de rénovation, l'accès sera limité.
+
+### Histoire du téléphérique
+Entré en service à l'été 1935, le téléphérique du Säntis a une longue histoire de service. Les installations ont été complètement modernisées pour la dernière fois en 1974, tandis qu'en 2000, de nouvelles cabines ont été introduites. Avec environ un demi-million de passagers par an, le téléphérique est un pilier du tourisme dans l'est de la Suisse.
+
+### Que faire si l'on veut visiter le Säntis
+Pour ceux qui souhaitent malgré tout visiter le Säntis pendant la période de fermeture, l'option principale reste la randonnée à pied. Cependant, il est important de se préparer à une entreprise physiquement exigeante, compte tenu de l'altitude et des conditions météorologiques variables.
+
+### Perspectives futures
+Une fois les travaux terminés, le nouveau téléphérique promet d'offrir une expérience de voyage plus confortable et plus sûre. Les responsables espèrent rouvrir l'installation à la fin de l'automne, mais la date exacte dépendra des conditions atmosphériques. Les visiteurs sont invités à surveiller les mises à jour officielles pour connaître les dates précises de réouverture.
+
+### Conclusion
+La rénovation du téléphérique du Säntis représente une étape importante pour améliorer l'infrastructure touristique de la région. Bien que la fermeture temporaire puisse causer des désagréments, les bénéfices à long terme pour les visiteurs et les opérateurs locaux seront significatifs. Il est conseillé de planifier les visites en tenant compte de cette fermeture et d'explorer les alternatives disponibles pour profiter de la beauté du Säntis même pendant les travaux.
+
+Pour plus d'informations et pour planifier votre visite, consultez le [calculateur de voyage](nav:exchange).`,"blog.article.ultimo-giorno-funivia-santis-2026.body2":`## Analyse des implications
+Le renouvellement du téléphérique du Säntis aura un impact significatif sur le tourisme dans l'est de la Suisse. La fermeture de l'installation pendant plusieurs mois pourrait influencer le flux de visiteurs, en particulier pendant la saison estivale, lorsque le Säntis est une destination très populaire.
+
+### Impact sur le tourisme
+Le téléphérique du Säntis est l'une des principales attractions touristiques de la région. Sa fermeture pourrait entraîner une réduction du nombre de visiteurs, avec des répercussions pour les activités commerciales locales, telles que les restaurants, les magasins et les guides touristiques. Cependant, la réouverture avec de nouvelles cabines et des améliorations techniques pourrait attirer un plus grand nombre de touristes une fois les travaux terminés.
+
+### Alternatives pour les visiteurs
+Pendant la période de fermeture, les visiteurs peuvent envisager d'autres attractions dans la région. Par exemple, la localité voisine d'Appenzell offre de nombreuses opportunités pour des randonnées et des activités de plein air. De plus, d'autres téléphériques et remontées mécaniques dans les Alpes suisses peuvent offrir des expériences similaires.
+
+### Préparation pour la réouverture
+Les responsables du téléphérique travaillent pour garantir que la réouverture se fasse dans les meilleurs délais possibles. Cependant, il est important que les visiteurs soient conscients des éventuelles variations dans les délais d'achèvement des travaux. Surveiller les mises à jour officielles et planifier les visites en conséquence sera fondamental.
+
+### Avantages à long terme
+Malgré les inconvénients temporaires, les améliorations apportées au téléphérique du Säntis apporteront de nombreux avantages à long terme. Les nouvelles cabines offriront un plus grand confort et une plus grande sécurité, améliorant l'expérience globale des passagers. De plus, l'infrastructure mise à jour pourrait attirer un nombre encore plus élevé de visiteurs, contribuant à la croissance du tourisme dans la région.
+
+### Conclusion
+Le renouvellement du téléphérique du Säntis est un investissement important pour l'avenir du tourisme dans l'est de la Suisse. Bien que la fermeture temporaire puisse représenter un défi, les avantages à long terme seront significatifs. Les visiteurs sont invités à planifier leurs visites en tenant compte de cette fermeture et à explorer les alternatives disponibles pour profiter de la beauté des Alpes suisses même pendant les travaux.
+
+Pour plus d'informations et pour planifier votre visite, consultez le [calculateur de voyage](nav:exchange).
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.ultimo-giorno-funivia-santis-2026.body3":`## Que faire pendant la fermeture
+
+Pendant la période de fermeture du téléphérique du Säntis, il existe plusieurs options pour les visiteurs qui souhaitent tout de même explorer la région. Voici quelques suggestions pour profiter au mieux de votre visite.
+
+### Randonnées pédestres
+
+Si vous êtes un passionné de randonnées, le Säntis offre de nombreux sentiers qui peuvent être explorés à pied. Cependant, il est important d'être préparé pour une entreprise physiquement exigeante, compte tenu de l'altitude et des conditions météorologiques variables. Assurez-vous d'avoir l'équipement adéquat et de vous informer sur les conditions du sentier avant de partir.
+
+### Visites d'autres attractions
+
+La Suisse orientale offre de nombreuses autres attractions qui peuvent être visitées pendant la fermeture du téléphérique du Säntis. Par exemple, la localité voisine d'Appenzell est célèbre pour ses paysages pittoresques et ses traditions locales. De plus, d'autres téléphériques et remontées mécaniques dans les Alpes suisses peuvent offrir des expériences similaires.
+
+### Planification de la visite
+
+Si vous planifiez une visite au Säntis, il est important de tenir compte de la fermeture du téléphérique. Surveillez les mises à jour officielles pour connaître les dates précises de réouverture et planifiez votre visite en conséquence. Envisagez également d'explorer d'autres attractions dans la région pour profiter au mieux de votre expérience.
+
+### Conclusion
+
+Le renouvellement du téléphérique du Säntis représente une opportunité d'améliorer l'infrastructure touristique de la région. Bien que la fermeture temporaire puisse causer des désagréments, les bénéfices à long terme pour les visiteurs et les opérateurs locaux seront significatifs. Planifiez votre visite en tenant compte de cette fermeture et explorez les alternatives disponibles pour profiter de la beauté des Alpes suisses même pendant les travaux.
+
+Pour plus d'informations et pour planifier votre visite, consultez le [calculateur de voyage](nav:exchange).
+
+*Source: [laregione.ch](https://www.laregione.ch/svizzera/svizzera/1922082/ultimo-giorno-utile-per-salire-sul-santis-in-funivia)*`,"blog.article.ultimo-giorno-funivia-santis-2026.faq":`[{"q":"Quelle est la date de réouverture prévue pour le téléphérique du Säntis ?","a":"La date effective d'ouverture du nouveau téléphérique dépendra des conditions météorologiques des prochains mois. Les responsables prévoient de rouvrir l'installation à la fin de l'automne, mais la date exacte n'a pas encore été spécifiée."},{"q":"Est-il possible de visiter le Säntis pendant les travaux de rénovation ?","a":"Oui, il est possible de visiter le Säntis pendant les travaux de rénovation, mais l'accès sera limité. La montagne ne sera accessible qu'à pied et le restaurant au sommet restera fermé."},{"q":"Quelles sont les alternatives pour les visiteurs pendant la fermeture du téléphérique ?","a":"Pendant la fermeture du téléphérique, les visiteurs peuvent envisager d'autres attractions dans la région, comme la localité voisine d'Appenzell, ou explorer d'autres téléphériques et installations de remontée dans les Alpes suisses."}]`};export{e as default};

@@ -1,0 +1,46 @@
+const e={"blog.article.ristorni-fiscali-ticino.body1":`## En bref
+- Remboursements fiscaux frontaliers Suisse-Italie
+- 62 millions CHF en 2026, 30% retenu par le Tessin
+- Calcul basé sur revenu brut et taux d'imposition
+
+## Faits clés
+- **Mécanisme**: Remboursement partiel des impôts des frontaliers à l'Italie
+- **Montant 2026**: 62 millions CHF estimés
+- **Part Tessin**: 30% des impôts retenus depuis 2024
+- **Accord initial**: Accord fiscal de 1974, mis à jour en 2023
+- **Délai remboursement**: Transfert d'ici le 30 juin de l'année suivante
+- **Bénéficiaires**: Communes lombardes près de Chiasso, Ponte Tresa et Gaggiolo
+- **Exemple pratique**: 50.000 CHF brut → 3.300 CHF remboursés à l'Italie
+
+## Qu'est-ce que le mécanisme des remboursements fiscaux ?
+
+Les **remboursements fiscaux** représentent l'un des aspects les plus débattus du travail frontalier entre la Lombardie et le canton du Tessin. Chaque année, une partie des impôts sur le revenu versés par les frontaliers en Suisse est restituée aux communes italiennes de résidence par le biais d'un accord bilatéral. En 2026, le total des remboursements dépassera les **60 millions de francs**, un chiffre qui souligne l'importance de ce système pour les administrations communales italiennes.
+
+📊 Données clés sur les remboursements fiscaux en 2026 :
+- Total estimé : 62 millions CHF
+- Pourcentage retenu par le canton du Tessin : 30%
+- Principaux bénéficiaires : Communes lombardes près des passages de Chiasso, Ponte Tresa et Gaggiolo
+
+Le mécanisme est régi par l'accord fiscal de 1974, mis à jour avec les modifications récentes en 2023. À partir de 2024, le canton du Tessin a commencé à retenir une part plus importante des impôts, passant de 20% à 30%. Ce changement a généré des tensions entre la Lombardie et le Tessin, avec des demandes de révision de part et d'autre.
+
+> "Les remboursements représentent une contribution essentielle pour les communes italiennes de frontière, mais leur avenir dépendra de la stabilité des accords bilatéraux avec la Suisse", affirme une source du DFE (Département des Finances et de l'Économie du Tessin).`,"blog.article.ristorni-fiscali-ticino.body2":`## Comment sont-ils calculés et qui les paie ?
+
+Le calcul des remboursements fiscaux se fait en fonction du revenu brut du frontalier et des taux d'imposition cantonaux. Par exemple, un frontalier qui gagne 50.000 CHF bruts annuels paie environ 22-25% d'impôts sur le revenu. Parmi ceux-ci, 70% sont retenus par le canton du Tessin pour financer des services locaux, tandis que les 30% restants sont destinés aux communes italiennes.
+
+💡 **Exemple pratique :**
+Un frontalier de Côme avec un revenu brut de 50.000 CHF et un impôt cantonal de 22% paiera environ 11.000 CHF en impôts. Parmi ceux-ci, 7.700 CHF resteront au Tessin, tandis que 3.300 CHF seront restitués à la commune de résidence en Italie.
+
+⚠️ **Attention aux délais :**
+- Les remboursements sont calculés annuellement et transférés d'ici le 30 juin de l'année suivante.
+- Il est essentiel de déclarer correctement le revenu en Italie pour éviter des sanctions fiscales et garantir le droit à la double imposition allégée, comme prévu par les accords bilatéraux.
+
+La gestion des remboursements est confiée au canton, qui transfère les fonds à l'Agence des Revenus italienne. Ceux-ci sont ensuite distribués aux communes en fonction des résidents frontaliers.`,"blog.article.ristorni-fiscali-ticino.body3":`## Quel est l'avenir des remboursements fiscaux ?
+
+Dans le cadre des nouvelles tensions entre la Suisse et l'Italie, l'avenir des remboursements fiscaux reste incertain. En 2026, les discussions sur une possible révision des accords bilatéraux pourraient influencer la part retenue par le Tessin et le montant destiné aux communes italiennes. Certains partis tessinois ont déjà proposé de réduire davantage les remboursements pour financer des projets locaux.
+
+💡 Conseils pratiques pour les frontaliers :
+- Vérifiez régulièrement votre revenu déclaré pour éviter des problèmes avec le fisc italien.
+- Utilisez notre [suivi des remboursements fiscaux](nav:ristorni) pour surveiller les montants restitués à votre commune.
+- Si vous travaillez au Tessin, évaluez l'impact fiscal sur vos finances personnelles avec le [calculateur de salaire net](nav:calculator).
+
+📅 **Source :** Editorial Frontaliere Ticino, octobre 2023. Pour plus de détails sur les remboursements fiscaux et leur impact sur les frontaliers, visitez notre [comparateur de coût de la vie](nav:cost-of-living).`,"blog.article.ristorni-fiscali-ticino.faq":`[{"q":"Combien seront les remises fiscales en Suisse en 2026?","a":"Les remises fiscales devraient dépasser 60 millions de francs suisses en 2026."},{"q":"Quel est l'impact des amendements de 2023 sur les accords fiscaux pour les navetteurs transfrontaliers?","a":"Les amendements de 2023 ont augmenté la part retenue par le canton du Tessin sur les remises fiscales de 20 % à 30 %, affectant le financement des communes frontalières italiennes."},{"q":"Comment les récents changements de 2023 affectent-ils les remises fiscales pour les navetteurs transfrontaliers?","a":"Les amendements de 2023 ont augmenté la retenue du canton du Tessin de 20 % à 30 %, réduisant le montant restitué aux municipalités italiennes et pouvant affecter les bénéficiaires finaux ainsi que les ressources disponibles pour les services locaux."}]`};export{e as default};

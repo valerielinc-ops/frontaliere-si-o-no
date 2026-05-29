@@ -1,0 +1,43 @@
+const e={"blog.article.friborgogotteron-spareggio-titolo-hockey.body1":`## In brief
+- Friborg-Gottéron plays for the title in a tie-breaker
+- The decisive match is scheduled for next weekend
+- Tension is high among fans and players
+
+## Key facts
+- **What**: Hockey title tie-breaker
+- When: Next weekend
+- Where: Fribourg Arena
+- Who: Friborg-Gottéron and the opposing team
+- Amount: Not specified
+
+The Friborg-Gottéron hockey team is in a situation of great tension, with the title at stake to be decided in a crucial tie-breaker. The match, which will take place next weekend, will see the Friborg-Gottéron players face a decisive challenge to conquer the title. The tension is palpable among fans and players, who are determined to give their best to secure victory. The Fribourg Arena will be the stage for this sporting event, with thousands of spectators ready to support their favorite team. The match promises to be exciting and full of twists, with both teams ready to give their best to win the title.
+
+### The importance of the tie-breaker
+The tie-breaker for the hockey title is a crucial moment for the Friborg-Gottéron team. After an intense and emotional season, the team now has to face a decisive match that could change the course of their history. Winning this tie-breaker would be an important milestone for the team, which has worked hard to get this far. The match will be a test of endurance and determination, with players called to give their best to conquer the title.
+
+### Preparation for the match
+In view of the tie-breaker, the Friborg-Gottéron team is preparing with great commitment. Training sessions are intense and targeted, with players working on every detail to be as ready as possible for the match. The team has also received support from fans, who are ready to cheer on their players with passion and enthusiasm. The match will be a moment of unity for the Fribourg community, which will gather to support their team in a major sporting event.`,"blog.article.friborgogotteron-spareggio-titolo-hockey.body2":`- ## Analysis of game strategies
+The playoff for the hockey title represents a unique opportunity for Friborg-Gottéron to demonstrate their value and determination. The team has shown great cohesion and team spirit during the season, and this will be fundamental to facing the decisive match. The coaches are working on specific strategies to counter the opponent's weaknesses and make the most of their own strengths. The match will be a test of tactics and strategy, with both teams ready to give their all to win the title.
+
+### The emotional impact on the team
+The pressure of a playoff for the title can have a significant impact on the team. Players must be able to manage stress and tension, maintaining the concentration and determination necessary to win. The Friborg-Gottéron team has shown that they can handle high-pressure situations, and this will be a crucial advantage for the match. The coaches are working with the players to help them manage anxiety and stay calm under pressure.
+
+### The role of the fans
+The fans of Friborg-Gottéron will play a fundamental role in the playoff. Their support and passion can make the difference, motivating the players and creating an electric atmosphere in the arena. The team has a strong bond with their fans, and this relationship of mutual trust and respect will be a key factor in the match. The fans are ready to support the team with all their enthusiasm, creating an environment of support and encouragement that can make the difference.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.friborgogotteron-spareggio-titolo-hockey.body3":`## What to do to support the team
+In view of the playoff, Friborg-Gottéron fans can do their part to support the team. Attending the match at the arena is a way to show their support and create an encouraging atmosphere for the players. Additionally, fans can follow the match on social media and share messages of encouragement for the team. The solidarity and support of the fans can make a difference, motivating the players and helping them face the match with determination and confidence.
+
+### Procedure to buy tickets
+To buy tickets for the match, fans can visit the official Friborg-Gottéron website or go to authorized sales points. It is important to buy tickets in advance to secure a seat in the stands and experience the excitement of the match up close. Tickets can be purchased online or at authorized sales points, and there are various price options to meet the needs of all fans.
+
+### Follow the match live
+For those who cannot be present at the arena, it is possible to follow the match live on television channels or on websites dedicated to sports. The match will be broadcast live on television and on sports information websites, allowing all fans to follow the event from home. Additionally, social media will provide real-time updates and live comments, allowing fans to stay always informed about the developments of the match.
+
+### Conclusion
+The playoff for the hockey title represents a crucial moment for Friborg-Gottéron and its fans. The match will be a test of determination and endurance, with the team called to give their best to win the title. The support of the fans will be fundamental to motivate the players and create an encouraging atmosphere. Attending the match at the arena or following it live will be a way to support the team and experience the excitement of the playoff up close. For further information and to buy tickets, visit the official Friborg-Gottéron website or go to authorized sales points.
+
+For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.
+
+*Source: [ilgiornaledelticino.ch](https://ilgiornaledelticino.ch/hockey-nl-friborgogotteron-tutto-nervi-per-il-titolo-si-va-allo-spareggio/)*`,"blog.article.friborgogotteron-spareggio-titolo-hockey.faq":'[{"q":"What is the exact date of the playoff?","a":"The exact date of the playoff is not yet specified in the article. However, it is scheduled for the upcoming weekend."},{"q":"Where will the match take place?","a":"The match will take place at the arena in Fribourg, the official venue for the Friborg-Gottéron home games."},{"q":"How can I buy tickets for the match?","a":"Tickets can be purchased online on the official Friborg-Gottéron website or at authorized sales points. It is advisable to buy tickets in advance to secure a seat in the stands."}]'};export{e as default};

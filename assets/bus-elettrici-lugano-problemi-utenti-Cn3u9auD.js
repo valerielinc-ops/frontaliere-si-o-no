@@ -1,0 +1,78 @@
+const e={"blog.article.bus-elettrici-lugano-problemi-utenti.body1":`## In brief
+- Flat batteries and frequent delays on Lugano's electric buses
+- Seats too high for the elderly
+- UDC presents an interrogation to the Municipality
+
+## Key facts
+- **What**: Technical problems with Lugano's new electric buses
+- When: Since December 2025
+- Where: Lugano, Canton Ticino
+- Who: UDC, TPL SA
+- Amount: Not specified
+
+The interrogation presented by the UDC to the Municipality of Lugano has highlighted several technical issues with the new electric buses that entered service last December. According to the submitted document, users regularly report problems such as flat batteries, overly elevated seats, and frequent delays. These issues are causing significant inconveniences, especially for the elderly, who find the seats excessively high. Additionally, delays and service cancellations due to flat batteries are creating further complications for users.
+
+The interrogation poses four main questions: whether, in light of the technical issues that have emerged, the purchase of additional vehicles from the same manufacturer is planned or if alternatives will be considered; whether tests were conducted before the purchase to verify their efficiency on local roads; what considerations have been made regarding maintenance and the length of the vehicles; and finally whether TPL SA intends to introduce corrective measures to improve the efficiency of the vehicles and reduce inconveniences for users.
+
+### Implications for cross-border workers
+
+The reported problems with Lugano's electric buses could have a significant impact on cross-border workers who use the public transport service daily. Delays and service cancellations could negatively affect punctuality at work, causing inconveniences and possible sanctions for workers. Additionally, the lack of adaptations for the elderly could limit the accessibility of the service for part of the population.
+
+### Comparison with the previous situation
+
+Before the introduction of the new electric buses, the public transport service in Lugano was managed by traditional fuel-powered vehicles. These vehicles did not have problems with flat batteries and had more accessible seats for the elderly. The introduction of electric buses, although in line with sustainability policies, has brought new technical challenges that need to be addressed to ensure an efficient and accessible service for everyone.
+
+### Future scenario
+
+If the technical problems are not resolved promptly, the inconveniences for users could increase, leading to a reduction in the use of public transport in favor of private vehicles. This could have a negative impact on the environment and air quality in Lugano. It is essential that TPL SA and the Municipality of Lugano work together to find effective solutions and improve the efficiency of the new electric buses.`,"blog.article.bus-elettrici-lugano-problemi-utenti.body2":`## Analysis of technical criticalities
+
+The interrogation presented by the UDC highlighted several technical criticalities of the new electric buses in Lugano. Among the main problems are the discharged batteries, which cause frequent delays and service cancellations. This issue could be related to an insufficient battery capacity to cover the entire planned route or a lack of adequate charging stations along the lines.
+
+### Pre-purchase tests
+
+Another crucial point raised in the interrogation concerns the lack of pre-purchase tests to verify the efficiency of the vehicles on local roads. It is possible that the tests were carried out under different conditions from the real ones, leading to an underestimation of the technical problems. It is essential that TPL SA conducts thorough tests to ensure that the new electric buses are suitable for the specific needs of Lugano.
+
+### Maintenance and length of the vehicles
+
+The interrogation also raised doubts about the maintenance and length of the new electric buses. It is possible that the vehicles are too long for some streets in Lugano, making maneuvering difficult and increasing travel times. Furthermore, maintenance might not be adequate to ensure continuous and reliable service.
+
+### Possible solutions
+
+To solve the problems that have emerged, TPL SA could consider purchasing electric buses of different sizes or with more powerful batteries. Additionally, it might be necessary to increase the number of charging stations along the lines to ensure fast and efficient charging. Finally, it could be useful to introduce corrective measures to improve the accessibility of seats for the elderly.
+
+### Comparison with other cities
+
+Lugano is not the only city facing challenges in the implementation of electric buses. Other Swiss and international cities have also encountered similar problems, such as insufficient batteries and lack of charging infrastructure. However, many of these cities have found effective solutions through technological innovation and collaboration with electric bus suppliers.
+
+### Environmental impact
+
+Despite the technical problems, the introduction of electric buses in Lugano represents an important step towards environmental sustainability. Electric buses produce fewer emissions compared to traditional fuel vehicles, contributing to improving air quality and reducing environmental impact. It is fundamental that technical problems are resolved to ensure that environmental benefits are fully realized.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.bus-elettrici-lugano-problemi-utenti.body3":`## Necessary actions to improve the service
+
+To address the issues that have arisen, TPL SA and the Municipality of Lugano must adopt concrete measures to improve the efficiency of electric buses. Among the necessary actions are increasing the number of charging stations, purchasing electric buses with more powerful batteries, and reviewing vehicle maintenance.
+
+### Procedures for problem resolution
+
+1. **Evaluation of technical criticalities**: TPL SA must conduct an in-depth evaluation of the technical criticalities that have emerged to identify the main causes of the problems.
+2. Purchase of alternative electric buses: If the problems persist, TPL SA might consider purchasing electric buses from another manufacturer or with different characteristics.
+3. Pre-purchase testing: Before purchasing new electric buses, TPL SA must carry out extensive tests to ensure that the vehicles are suitable for the specific needs of Lugano.
+4. Improvement of accessibility: TPL SA must introduce corrective measures to improve the accessibility of seats for the elderly, ensuring an inclusive service for all users.
+5. Collaboration with suppliers: TPL SA could collaborate with electric bus suppliers to develop innovative technological solutions that address the issues that have arisen.
+
+### Deadlines and timelines
+
+The actions necessary to improve the electric bus service in Lugano must be implemented as quickly as possible to minimize inconvenience for users. TPL SA and the Municipality of Lugano must establish clear deadlines and precise timelines to ensure that solutions are implemented promptly.
+
+### Useful tools
+
+For cross-border workers using the public transport service in Lugano, it is useful to monitor updates on bus lines and plan trips in advance. You can use the official TPL SA app to receive real-time notifications about delays and service cancellations. Additionally, it is important to stay informed about any changes to the service and the solutions implemented to improve the efficiency of electric buses.
+
+### Final CTA
+
+To plan your trips and stay updated on bus lines in Lugano, use the [public transport calculator](nav:transport) available on our website. This tool will help you plan your trips efficiently and avoid inconveniences.
+
+If you have specific questions or have encountered problems with electric buses in Lugano, do not hesitate to contact TPL SA for further information and assistance.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/politica/1922489/bus-elettrici-a-lugano-ogni-giorno-una-sorpresa)*`,"blog.article.bus-elettrici-lugano-problemi-utenti.faq":`[{"q":"What are the main issues reported about the new electric buses in Lugano?","a":"The main issues reported are discharged batteries, seats that are too high, and frequent delays. These problems are causing complications for users, especially for the elderly."},{"q":"What is TPL SA doing to solve the problems?","a":"TPL SA is evaluating the technical issues that have emerged and may consider purchasing alternative electric buses or introducing corrective measures to improve vehicle efficiency."},{"q":"How can I stay updated on changes to the bus service in Lugano?","a":"You can use the official TPL SA app to receive real-time notifications about delays and service cancellations. Additionally, it's useful to monitor updates on the official TPL SA website."}]`};export{e as default};

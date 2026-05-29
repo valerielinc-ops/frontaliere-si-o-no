@@ -1,0 +1,70 @@
+const e={"blog.article.seco-dazi-segreti-washington.body1":`## In brief
+- SECO blocks access to negotiation documents with Washington
+- Transparency requests rejected
+- Case could end up in court
+- Switzerland-US tariff negotiations still ongoing, details withheld
+- Potential impact for Ticino export companies selling to the US
+
+## Key facts
+- **What**: Access denied to trade negotiation documents
+- **When**: Access requests filed in 2025, case still pending
+- **Where**: Bern, Switzerland
+- **Who**: SECO, IFPDT, journalists and citizens
+- **Status**: Switzerland-US bilateral trade negotiations ongoing; final agreement not yet reached
+
+The State Secretariat for Economic Affairs (SECO) is keeping all documents related to trade negotiations with Washington under lock and key, putting the federal transparency officer in a difficult position. As reported by Blick, the dispute is now headed to court. The transparency requests were submitted by journalists and citizens regarding the bilateral Switzerland-US negotiations on customs tariffs. Among the requested documents are also communications between SECO and the so-called 'Team Switzerland,' a group of entrepreneurs led by Alfred 'Fredy' Gantner who, during a visit to the White House, tried to influence the US president. SECO has rejected all requests, arguing that these are materials related to ongoing negotiations and that their publication could weaken Switzerland's position.
+
+### The conflict with IFPDT
+The denied access has turned the case into a conflict with the Federal Data Protection and Information Commissioner (IFPDT), called to mediate. In an unusual move, SECO has denied access to the documents even to the IFPDT, arguing that the transparency law does not apply in this case because it would be an international procedure. This position is contested by the commissioner, who emphasizes that the right to consult the documents is essential precisely to verify the possible existence of exceptions. In recent years, the Federal Council and courts have also reiterated the importance of this principle.
+
+### Consequences
+The IFPDT has recommended that SECO grant access to the documents, accusing it of violating the duty of cooperation. But even these indications have been ignored. The applicants can now appeal to the Federal Administrative Court and the first appeals are expected shortly. The political knot remains: SECO does not clarify the reasons for its closure. Among the hypotheses, the fear of reactions from Washington or the particularly delicate nature of the documents.
+
+### Context of the US-Switzerland negotiations
+Negotiations between Washington and Bern on tariffs are still ongoing. Switzerland is seeking to reach a bilateral agreement that reduces tariffs on its exports to the US — particularly in the watchmaking, pharmaceutical, and machine tool sectors, which are strategically important for the Ticino economy as well. The definitive terms of any agreement have not yet been made public, and the confidential nature of the negotiations is at the heart of the transparency controversy.
+
+### Potential implications for Ticino companies
+If negotiations were to lead to a favorable agreement that reduces customs tariffs on Swiss exports, Ticino companies selling to the US could benefit from lower export costs. In the absence of an agreement or with high tariffs, export costs would increase significantly for sectors such as watchmaking and pharmaceuticals. Without knowing the definitive terms, companies find it difficult to plan their commercial strategy toward the US market in advance.
+
+### Transparency regulations
+The Swiss transparency law, which came into force on 1 July 2006, establishes the right of citizens to access administrative documents. SECO maintains that this law does not apply to ongoing international negotiations — a position that could be challenged in court.
+
+### Conclusion
+The SECO vs. IFPDT case raises important questions about transparency and access to public documents. While Ticino companies await the outcome of negotiations, the legal debate continues, with possible repercussions on citizens' trust and the transparency of Swiss institutions.`,"blog.article.seco-dazi-segreti-washington.body2":`### Implications for cross-border workers
+The trade negotiations between Switzerland and the United States have concrete repercussions on the Ticino labor market. Ticino is an important manufacturing and pharmaceutical hub: companies in the watchmaking, pharmaceutical, and machinery sectors employ thousands of cross-border workers. The outcome of the US-Switzerland tariff negotiations will influence the competitiveness of these companies and, by extension, the stability of employment in the region.
+
+The lack of transparency in the negotiations raises doubts about the management of commercial relations by SECO, a concern shared by both workers and companies in the border region.
+
+### "Team Switzerland" and the role of entrepreneurs
+Among the documents requested for access are communications between SECO and "Team Switzerland," a group of Swiss entrepreneurs — led by Alfred "Fredy" Gantner of GQG Partners — who met with the US president at the White House in 2025. The role of this group in the commercial negotiations is at the center of the debate: who spoke on behalf of Switzerland? With what mandate? These questions have remained unanswered precisely because of the wall of secrecy erected by SECO.
+
+### Future scenarios for cross-border workers
+If negotiations between Washington and Bern were to conclude with a favorable agreement reducing customs tariffs on Swiss exports, Ticino companies could increase exports to the US, with a positive effect on employment. In the absence of an agreement or with unchanged tariffs, some productions could be relocated or reduced, with possible repercussions on cross-border jobs in the most exposed sectors.
+
+The advice for cross-border workers employed in companies that export to the US is to follow company communications and monitor the evolution of negotiations through reliable sources such as RSI (Swiss Broadcasting Corporation) or the Corriere del Ticino.
+
+#### Operational checklist for cross-border workers:
+- **Monitor official communications** from SECO (seco.admin.ch) and the Federal Department of Economic Affairs (EAER).
+- Check company communications if you work in a sector exposed to the US market (watchmaking, pharmaceuticals, machinery).
+- Consult your trade union (UNIA, Syna) for updates on employment impact.
+- To plan personal finances, use the [net salary calculator](nav:calculator).
+
+## Useful tools for your situation
+To verify your net salary scenario, use the [net salary calculator](nav:calculator) and the [income tax return guide](nav:tax-return).`,"blog.article.seco-dazi-segreti-washington.body3":`### What to do now
+Cross-border workers who wish to stay updated on the US-Switzerland trade negotiations and SECO's decisions can follow news through official channels and local media. It is crucial to monitor SECO communications and consult reliable sources such as the Corriere del Ticino or the Swiss Broadcasting Corporation (RSI).
+
+From a practical standpoint, it is not currently possible to calculate with precision the tariff impact on Swiss exports to the US, as the definitive terms of the negotiations are not yet known. What is certain is that the pharmaceutical, watchmaking, and machine tool sectors — all significantly present in Ticino — are directly exposed to the outcome of these negotiations.
+
+### Useful tools
+For an estimate of your net salary as a cross-border worker, you can use the [net salary calculator](nav:calculator). To understand the tax implications of your employment relationship in Switzerland, it is advisable to consult the [income tax return guide](nav:tax-return) and the [withholding refund calculator](nav:ristorni).
+
+### Operational Checklist
+1. **Monitor official communications**: Subscribe to SECO newsletters and follow local media.
+2. Verify whether your employer exports to the US and to what extent.
+3. Consult tax guides: use the [salary calculator](nav:salary-compare) and the [withholding refund calculator](nav:ristorni) to plan your finances.
+4. Attend webinars and meetings: many cross-border worker associations organize informative events on Switzerland-Italy-US economic relations.
+
+### Conclusion
+The trade negotiations between Switzerland and the US are evolving and it is not yet clear what form the final agreement will take — if one is ever reached. The SECO-IFPDT case shows how the lack of transparency creates uncertainty not only for journalists and citizens, but also for companies and workers who depend on regulatory certainty to plan their future. Staying informed is the first step toward preparing for any scenario.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1922568/dazi-e-segreti-il-muro-della-seco)*`,"blog.article.seco-dazi-segreti-washington.faq":`[{"q":"Why did the SECO deny access to the negotiation documents?","a":"The SECO denied access arguing that these are materials related to ongoing negotiations and that their publication could weaken Switzerland's position. Moreover, it stated that the transparency law does not apply in this case because it would be an international procedure."},{"q":"What is the current status of the US-Switzerland tariff negotiations?","a":"Negotiations between Washington and Bern are still ongoing and the definitive terms have not been made public. Switzerland is seeking a bilateral agreement that reduces tariffs on its exports to the US, particularly in the watchmaking, pharmaceutical, and machine tool sectors."},{"q":"How can the US-Switzerland negotiations affect cross-border workers?","a":"A favorable agreement could increase Ticino exports to the US, with positive effects on employment. High tariffs or the absence of an agreement could instead reduce the competitiveness of Ticino export companies, with possible repercussions on jobs in the most exposed sectors."}]`};export{e as default};

@@ -1,0 +1,62 @@
+const e={"blog.article.incontro-sem-cantone-comuni-annullato.body1":`## In brief
+- SEM-Canton-Municipalities meeting canceled
+- Bern awaits outcome of experiment
+- Debate remains open
+
+## Key facts
+- **What**: Cancellation of SEM-Canton-Municipalities meeting
+- When: April 30, 2026
+- Where: Mendrisiotto
+- Who: SEM, Canton Ticino, Municipalities
+- Amount: Not specified
+
+The meeting scheduled for April 30 between the SEM (State Secretariat for Migration) and representatives of the Canton of Ticino and the municipalities of Mendrisiotto has been canceled. The decision came directly from Bern, where they prefer to await the outcome of an ongoing experiment in other locations. The communication has already been received by local authorities.
+
+The cancellation does not definitively close the debate, which remains open. The SEM and cantonal authorities could resume the dialogue at a later time, once the results of the experiments are available. This delay could influence the implementation timelines of any new measures for cross-border workers.
+
+### Implications for cross-border workers
+For cross-border workers employed in Ticino, the cancellation of the meeting could mean a postponement of decisions regarding any new regulations or support measures. The ongoing experiment could lead to changes that directly affect the daily lives of cross-border workers, particularly regarding residence permits, access to services, and integration.
+
+### Comparison with the previous situation
+Before this decision, local authorities and the SEM had worked together to find solutions to the challenges posed by cross-border work. The cancellation of the meeting could slow down the process of implementing these solutions, leaving cross-border workers in a phase of uncertainty.
+
+### Possible scenarios
+If the results of the experiment are positive, a new consultation process with local authorities could be initiated. Otherwise, further studies and analyses may be necessary before making final decisions. Cross-border workers will need to monitor developments and prepare for any changes in regulations.
+
+### Next steps
+Local authorities and the SEM will continue to monitor the situation and evaluate the results of the experiment. Cross-border workers are invited to stay informed through official channels and to participate in any future consultations.`,"blog.article.incontro-sem-cantone-comuni-annullato.body2":`The cancellation of the meeting between the SEM and the representatives of the Canton of Ticino and the municipalities of Mendrisiotto raises several questions about the practical implications for cross-border workers. In particular, it is important to understand how this delay could affect the implementation times of new measures and what the consequences might be for transnational workers.
+
+### Impact on Residence Permits
+One of the most critical aspects concerns residence permits. The ongoing experiment could lead to changes in the renewal and issuance procedures of G permits, which are fundamental for cross-border workers. If the results are positive, a process of simplifying the procedures could be initiated, making it easier for cross-border workers to obtain and renew their permits.
+
+### Access to Services
+Another important aspect is access to public and healthcare services. Cross-border workers often face difficulties in accessing services such as AVS, LPP, and LAMal. The experiment could lead to solutions that facilitate access to these services, improving the quality of life for transnational workers.
+
+### Integration and Support
+The integration of cross-border workers into the local community is another crucial topic. The experiment could lead to new support initiatives, such as language courses, integration programs, and assistance services. These programs could help cross-border workers feel more at home and integrate better into Swiss society.
+
+### Comparison with Other Regions
+It is interesting to note that the decision to wait for the results of the experiment is in line with the practices adopted in other Swiss regions. In many areas, local authorities are experimenting with new solutions to address the challenges of cross-border work. This gradual approach allows for the evaluation of the effectiveness of the measures before implementing them on a large scale.
+
+### Future Scenarios
+If the results of the experiment are positive, a new consultation process with local authorities could be initiated. This could lead to new regulations and support measures for cross-border workers. Otherwise, further studies and analyses may be necessary before making final decisions.
+
+### What to Do in the Meantime
+Cross-border workers are invited to stay informed through official channels and to participate in any future consultations. It is important to monitor developments and prepare for any changes in regulations. In case of questions or doubts, it is possible to contact the local authorities or the SEM for further information.
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).`,"blog.article.incontro-sem-cantone-comuni-annullato.body3":`The cancellation of the meeting between the SEM and the representatives of the Canton of Ticino and the municipalities of Mendrisio does not definitively close the debate but postpones it to a date to be determined. For cross-border workers, it is important to understand what to do in the meantime and how to prepare for potential changes in regulations.
+
+### Concrete steps
+1. **Monitor developments**: Cross-border workers should monitor official channels and communications from local authorities to stay updated on any news.
+2. Participate in consultations: If new consultations are launched, cross-border workers are invited to participate actively to make their voices heard and contribute to the decision-making process.
+3. Prepare for changes: It is important to prepare for potential changes in regulations, such as modifications to residence permits or access to public services.
+4. Contact the authorities: In case of questions or doubts, it is possible to contact local authorities or the SEM for further information and support.
+
+### Useful tools
+To help cross-border workers navigate this period of uncertainty, several tools and resources are available. For example, the [salary calculator](nav:calculator) can help estimate taxes and pension contributions, while the [permit comparator](nav:permit-compare) can provide information on the different types of residence permits.
+
+### Conclusion
+The cancellation of the meeting between the SEM and the representatives of the Canton of Ticino and the municipalities of Mendrisio is a sign that the authorities are working to find solutions to the challenges of cross-border work. Cross-border workers are invited to stay informed and actively participate in the decision-making process. By using the available tools and resources, they can better prepare for potential changes in regulations and improve their quality of life in Ticino.
+
+*Source: [laregione.ch](https://www.laregione.ch/cantone/mendrisiotto/1921530/pasture-annullato-l-incontro-fra-la-sem-e-i-rappresentanti-di-cantone-e-comuni)*`,"blog.article.incontro-sem-cantone-comuni-annullato.faq":'[{"q":"Why was the meeting between the SEM and the representatives of the Canton and the municipalities cancelled?","a":"The meeting was cancelled because the federal authorities in Bern prefer to wait for the outcome of an ongoing experiment in other locations. This gradual approach allows for evaluating the effectiveness of the measures before implementing them on a large scale."},{"q":"What are the implications for cross-border workers?","a":"The cancellation of the meeting might delay the implementation of new measures for cross-border workers, such as changes to residence permits or access to public services. Cross-border workers should monitor developments and prepare for potential changes in regulations."},{"q":"What can cross-border workers do in the meantime?","a":"Cross-border workers are invited to monitor official channels, participate in any future consultations, and prepare for potential changes in regulations. In case of questions or doubts, they can contact local authorities or the SEM for further information and support."}]'};export{e as default};

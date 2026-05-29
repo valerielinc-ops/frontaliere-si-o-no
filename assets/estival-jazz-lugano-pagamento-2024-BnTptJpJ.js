@@ -1,0 +1,69 @@
+const e={"blog.article.estival-jazz-lugano-pagamento-2024.body1":`## In brief
+- Estival Jazz introduces paid tickets for two evenings
+- Antonello Venditti and Ernia on the program
+- Jacky Marti retires after 47 years
+
+## Key facts
+- **What**: Introduction of paid tickets for two evenings
+- When: From 9 to 11 July 2024
+- Where: Lugano, on Lake Ceresio
+- Who: Organized by the Municipality of Lugano
+- Amount: Prices not specified but defined as 'not exorbitant'
+
+The Estival Jazz in Lugano is changing and introducing paid tickets for two out of three evenings of the festival. A decision made to cope with financial difficulties and ensure the continuity of the event. The vice-mayor of Lugano, Roberto Badaracco, declared that 'sponsors are no longer there, they are fewer and fewer. The latest cuts have made it impossible to sustain the festival without ticket payments.'
+
+The 46th edition of the festival will take place from 9 to 11 July 2024. The inaugural evening, Thursday 9 July, will be free and will feature the Hamilton de Holanda Trio feat. Salomão Soares & Thiago 'Big' Rabello and the Orchestra della Svizzera Italiana. The second evening, Friday 10 July, will host Antonello Venditti, while Saturday 11 July will be the turn of the Milanese rapper Ernia. Both paid evenings: Venditti's with seated places and Ernia's with standing places.
+
+### A historic change
+Another significant novelty is the retirement of Jacky Marti, founder and artistic director of the festival, after 47 years. Marti declared: 'It's a piece of history that will remain in my heart. My wish is not to think too much about the wallet, but to think especially about touching the heart of the public, the heart of the people.'
+
+### Implications for cross-border workers
+For cross-border workers who usually participate in the event, the introduction of paid tickets represents a significant change. However, the free evening still offers the opportunity to enjoy live music without additional costs. The prices of the paid evenings have been defined as 'not exorbitant' by vice-mayor Badaracco, suggesting that the organization has sought to find a balance between sustainability and accessibility.
+
+### Conclusion
+The Estival Jazz of Lugano continues to be a must-attend event for music lovers, but with a new formula that introduces payment for two out of three evenings. A necessary decision to ensure the survival of the festival in an increasingly difficult economic context.
+
+For more information on cultural events in Ticino and their implications for cross-border workers, visit [our dedicated section](nav:calendar).`,"blog.article.estival-jazz-lugano-pagamento-2024.body2":`## Analysis of the implications
+The introduction of paid tickets for two evenings of the Estival Jazz in Lugano represents a significant change that could have various implications for cross-border workers and music enthusiasts.
+
+### Economic impact
+The cost of tickets might influence the participation of cross-border workers, who often try to balance leisure expenses with other financial commitments. However, the free evening still offers an opportunity to enjoy the event without spending. The prices, described as 'not exorbitant' by Deputy Mayor Badaracco, suggest that the organization has tried to maintain accessibility.
+
+### Comparisons with the past
+In previous years, the Estival Jazz was completely free, thanks to the support of sponsors. However, the decrease in sponsors and budget cuts have made this new formula necessary. The decision to keep one free evening is a compromise that seeks to balance the need for sustainability with accessibility for the public.
+
+### Future scenarios
+If the new formula proves to be successful, it could be adopted for other future editions of the festival. This might mean a permanent change in the structure of the event, with more paid evenings. However, the organization has emphasized the importance of maintaining at least one free evening to ensure accessibility for all.
+
+### Practical advice
+For cross-border workers who wish to attend the Estival Jazz, it is advisable to plan ahead and consider the costs of the paid evenings. The free evening offers an opportunity to enjoy the event without spending, while the paid evenings might offer a more exclusive experience with internationally renowned artists.
+
+For more information on how to manage leisure expenses in Switzerland, consult [our guide](nav:cost-of-living).
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.estival-jazz-lugano-pagamento-2024.body3":`## What to do now
+With the introduction of paid tickets for two evenings of Estival Jazz, it's important that cross-border workers and music enthusiasts are well informed on how to participate in the event.
+
+### Steps to buy tickets
+1. **Check the dates**: The paid evenings are Friday, July 10 with Antonello Venditti and Saturday, July 11 with Ernia.
+2. Buy tickets: Tickets will be available on the festival's official website or through authorized sales channels. Make sure to buy tickets in advance to guarantee availability.
+3. Plan your trip: Consider transportation and accommodation costs if necessary. Lugano is well connected by public transport, but it might be useful to plan ahead.
+4. Enjoy the event: Arrive early to find the best spot and enjoy the live music.
+
+### Tips to save
+- Free evening: Take advantage of the free evening on July 9 to enjoy the event without spending.
+- Groups: Some events might offer discounts for groups. Check if group offers are available.
+- Public transport: Use public transport to save on parking and fuel costs.
+
+### Useful tools
+To best plan your participation in Estival Jazz, use the following tools:
+- Expense calculator: Use our [expense calculator](nav:calculator) to estimate travel and accommodation costs.
+- Border map: Consult the [border map](nav:border-map) to plan your trip and find the most convenient routes.
+- Transport guide: Discover how to get around Ticino with our [transport guide](nav:transport).
+
+### Conclusion
+The Estival Jazz in Lugano continues to be a must-attend event for music lovers. With the new paid formula for two evenings, it's important to plan ahead and consider the costs. Use our tools and guides to best organize your participation and enjoy the event.
+
+For more information on how to best live in Ticino, visit [our dedicated section](nav:living-ch).
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/estival-jazz-cambia-pelle-e-introduce-il-biglietto-a-pagamento-432450)*`,"blog.article.estival-jazz-lugano-pagamento-2024.faq":`[{"q":"What are the dates for Estival Jazz 2024?","a":"Estival Jazz 2024 will take place from July 9 to 11. The opening night on July 9 will be free, while the evenings of July 10 and 11 will be ticketed."},{"q":"Who will perform at Estival Jazz 2024?","a":"The festival will host the Hamilton de Holanda Trio feat. Salomão Soares & Thiago 'Big' Rabello and the Orchestra della Svizzera italiana on July 9, Antonello Venditti on July 10, and Ernia on July 11."},{"q":"Why has Estival Jazz introduced paid tickets?","a":"The introduction of paid tickets has been necessary to address financial difficulties and ensure the sustainability of the festival, given the decline in sponsors and budget cuts."}]`};export{e as default};

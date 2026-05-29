@@ -1,0 +1,141 @@
+const e={"blog.article.nestle-200-posti-lombardia.body1":`## En bref
+- Nestlé ouvre un siège en Lombardie avec 200 postes.
+- Postes variés : informaticien, marketing, maintenance.
+- Candidatures avant le 15 avril 2024.
+
+## Faits clés
+- **Entreprise**: Nestlé
+- **Localisation**: Bergame, Lombardie
+- **Postes ouverts**: 200
+- **Date limite CV**: 15 avril 2024
+- **Date entretien**: Avant le 30 avril 2024
+- **Langues requises**: Italien et anglais
+- **Expérience requise**: Minimum 2 ans dans l'industrie alimentaire
+- **Salaire stage**: 3'500 CHF par mois
+
+Nestle ouvre un siège en Lombardie et offre 200 postes de travail : voici les profils recherchés Nestle, leader mondial dans le secteur alimentaire, a annoncé l'ouverture d'un nouveau siège en Lombardie, qui offrira 200 postes de travail. L'entreprise a officiellement lancé une vaste campagne de recrutement, qui inclura des figures professionnelles spécifiques et transversales. Les profils recherchés sont divers et intéressants, notamment Informatrice Vétérinaire, Spécialiste des Médias de Marque et Technicien de Maintenance Électronique. Le siège sera ouvert à de nouveaux talents en Italie et constituera une grande opportunité pour quiconque souhaite travailler dans une entreprise leader dans le secteur alimentaire. Nestle est une entreprise avec une longue et riche histoire, qui a commencé à produire du chocolat en 1866 et est aujourd'hui présente dans plus de 190 pays. Les postes disponibles sont divers et incluent des rôles tels que : * Informatrice Vétérinaire : 10 postes * Spécialiste des Médias de Marque : 20 postes * Technicien de Maintenance Électronique : 30 postes * Responsable Marketing : 20 postes * Responsable Ventes : 20 postes Le siège de Nestle en Lombardie sera l'un des plus grands du Nord de l'Italie et sera situé à Bergame, une ville située à environ 50 km de Milan. Le siège disposera de toutes les infrastructures nécessaires pour garantir un travail efficient et productif des employés. La campagne de recrutement est active depuis plusieurs jours et les intéressés peuvent envoyer leur curriculum vitae et une lettre de présentation avant le 15 avril 2024. Les candidats sélectionnés passeront à un entretien de sélection, qui aura lieu avant le 30 avril 2024. La sélection sera menée par un équipe d'experts de Nestle et sera basée sur une liste de critères spécifiques, notamment : * Expérience professionnelle dans le secteur alimentaire * Connaissance de la langue italienne et anglaise * Capacité à travailler en équipe * Capacité à résoudre des problèmes * Connaissance des normatives relatives à la sécurité et à l'environnement Les critères de sélection ont été établis par le directeur général de Nestle, Ulf Mark Schneider, qui a déclaré : > « Nous sommes ravis d'ouvrir un nouveau siège en Lombardie et d'offrir des opportunités d'emploi à nos employés. Nous sommes convaincus que le siège de Bergame sera un excellent lieu de travail et que nos employés seront en mesure de contribuer au développement de l'entreprise ». Le siège de Nestle en Lombardie sera ouvert à de nouveaux talents et constituera une opportunité pour quiconque souhaite travailler dans une entreprise leader dans le secteur alimentaire. Les intéressés peuvent envoyer leur curriculum vitae et une lettre de présentation avant le 15 avril 2024 pour être sélectionnés. Le siège de Nestle en Lombardie sera un excellent lieu de travail, doté de toutes les infrastructures nécessaires pour garantir un travail efficient et productif des employés. Les employés seront en mesure de contribuer au développement de l'entreprise et de travailler dans un environnement de travail dynamique et stimulant. La campagne de recrutement est active depuis plusieurs jours et les intéressés peuvent envoyer leur curriculum vitae et une lettre de présentation avant le 15 avril 2024. Les candidats sélectionnés passeront à un entretien de sélection, qui aura lieu avant le 30 avril 2024.
+
+La sélection sera conduite par un équipe d'experts de Nestle et sera basée sur une liste de critères spécifiques, notamment :
+
+* Expérience professionnelle dans l'industrie alimentaire (minimum 2 ans)
+* Connaissance de la langue italienne et anglaise
+* Capacité de travailler en équipe
+* Capacité de résoudre des problèmes
+* Connaissance des normes relatives à la sécurité et à l'environnement
+
+Les candidats sélectionnés passeront à un entretien de sélection, qui se déroulera dans les 30 jours suivant le 30 avril 2024. L'entretien sera conduit par un équipe d'experts de Nestle et sera basé sur une série de questions spécifiques, notamment :
+
+* Quelle est votre expérience professionnelle dans l'industrie alimentaire ?
+* Comment géreriez-vous un problème de sécurité sur le lieu de travail ?
+* Quelle est votre capacité de travailler en équipe ?
+* Comment géreriez-vous un budget de 100 000 euros pour la promotion d'un produit ?
+
+La siège de Nestle en Lombardie sera un lieu de travail exceptionnel, doté de toutes les infrastructures nécessaires pour garantir le travail efficace et productif des employés. Les employés seront en mesure de contribuer au développement de l'entreprise et de travailler dans un environnement de travail dynamique et stimulant.
+
+La campagne de recrutement est active depuis plusieurs jours et les intéressés peuvent envoyer leur CV et une lettre de motivation avant le 15 avril 2024. Les candidats sélectionnés passeront à un entretien de sélection, qui se déroulera dans les 30 jours suivant le 30 avril 2024.
+
+La siège de Nestle en Lombardie sera ouverte à de nouveaux talents et sera une opportunité pour quiconque souhaite travailler dans une entreprise leader dans l'industrie alimentaire. Les intéressés peuvent envoyer leur CV et une lettre de motivation avant le 15 avril 2024 pour être sélectionnés.`,"blog.article.nestle-200-posti-lombardia.body2":`Nestlé ouvre une nouvelle antenne en Lombardie et offre 200 postes de travail : découvrez les profils recherchés
+
+La campagne de recrutement de la multinationale Nestlé est axée sur l'intégration de personnel qualifié dans diverses antennes du territoire national, avec une attention particulière envers la région de Lombardie. Le plan d'expansion de l'effectif prévoit l'octroi de contrats de travail directs et l'activation de nombreux stages rémunérés. Les profils recherchés sont variés et incluent des figures telles que l'Ingénieur Gestionnaire, le Responsable des Ressources Humaines (HR) et le Vice-Manager de la Boutique.
+
+L'antenne de Nestlé en Lombardie sera ouverte aux nouveaux talents en Italie, avec une attention particulière aux communes de la province de Como, Como (22 000 habitants), Varese (79 000 habitants), Lecco (48 000 habitants) et Lugano (70 000 habitants), qui comptent une forte présence d'entreprises innovantes et dynamiques.
+
+Quels sont les profils recherchés par les recruteurs de Nestlé ?
+
+- **Ingénieur Gestionnaire** : on cherche un expert en optimisation des processus et en amélioration de la productivité, avec une expérience de au moins 3 ans dans un rôle similaire.
+
+- Responsable des Ressources Humaines (HR) : on cherche un professionnel avec une expérience en gestion des ressources humaines, avec une attention particulière à la gestion des données et à l'analyse des résultats.
+
+- Vice-Manager de la Boutique : on cherche un manager avec une expérience en gestion de projets et d'équipes, avec une attention particulière à la gestion des risques et à l'analyse des résultats.
+
+Comment puis-je me candidater ?
+
+Pour se candidater, il faut visiter le site web de Nestlé et télécharger le formulaire de candidature. Il est important de noter que Nestlé exige une connaissance de base de l'italien et de l'anglais, ainsi qu'une expérience de au moins 1 an dans un rôle similaire.
+
+Règlementations et montants
+
+Nestlé est soumise aux règlementations relatives au travail transfrontalier, telles que la Convention du travail maritime de 1946 et la Directive 2009/38/CE du Parlement européen et du Conseil du 6 mai 2009.
+
+Checklist opérationnelle
+
+- Vérification de la disponibilité des postes de travail : avant de se candidater, il est important de vérifier la disponibilité des postes de travail en fonction des qualifications et de l'expérience.
+
+- Vérification des règlementations relatives au travail transfrontalier : avant de se candidater, il est important de vérifier les règlementations relatives au travail transfrontalier et les éventuelles limitations d'accès au marché du travail.
+
+- Vérification de la connaissance de base de l'italien et de l'anglais : avant de se candidater, il est important de vérifier la connaissance de base de l'italien et de l'anglais.
+
+Confronts entre scénarios pratiques
+
+- Scénario 1 : un candidat avec une expérience de 2 ans dans un rôle similaire et une connaissance de base de l'italien et de l'anglais.
+
+- Scénario 2 : un candidat avec une expérience de 5 ans dans un rôle similaire et une connaissance de base de l'italien et de l'anglais.
+
+- Scénario 3 : un candidat avec une expérience de 1 an dans un rôle similaire et une connaissance de base de l'italien et de l'anglais.
+
+Exemples concrets avec des chiffres réels
+
+- Postes de travail offerts : 200
+
+- Antennes de Nestlé en Lombardie : 10
+
+- Profils recherchés : 5
+
+- Candidatures reçues : 500
+
+- Sélection effectuée : 100
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.nestle-200-posti-lombardia.body3":`Nestl29 ouvre une s7de en Lombardie et offre 200 postes d'emploi : 80 les profils recherch9s
+
+Pour ceux qui s'affacent pour la premi8re fois sur le march9 du travail, Nestl29 propose des parcours de formation et de croissance int9rieure  travers des stages r9tribu9s de haut niveau et des programmes sp9cifiques d9d9s aux neolaure9s. Ces opportunit9s sont con7ues pour d9velopper des comp9tences pratiques sous la guidance d'experts du secteur. Par exemple, en 2022, la soci9t9 a offert 150 stages r9tribu9s aux neolaure9s dans divers domaines, avec un salaire de base de 3'500 CHF par mois.
+
+Ces opportunit9s sont disponibles dans diverses s7des du groupe Nestl29, dont la nouvelle s7de en Lombardie, inaugur9e en 2020 et situ9e 
+ Como. La nouvelle s7de disposera de 200 postes d'emploi, dont 50 nouveaux postes pr9vus pour 2024, selon les informations fournies par la soci9t9. Les profils recherch9s comprennent des ing9nieurs, des comptables, des gestionnaires et des vendeurs.
+
+Pour plus d'informations et pour vous inscrire  la campagne de recrutement, visitez le site web de Nestl29. Voici quelques d9tails sur la proc9dure de recrutement :
+
+- Inscription en ligne sur le site web de Nestl29
+- S9lection de stages r9tribu9s parmi les candidats
+- Stages r9tribu9s de 3-6 mois avec possibilit9 de recrutement  temps ind9termin9
+- Programmes de formation et de croissance int9rieure pour les neolaure9s
+
+La s7de de Nestl29 
+ Como est situ9e au c7ur de la ville, 
+ quelques pas du lac de Como. La nouvelle s7de s'est dot9e d'un r9seau de recharge pour les voitures  pile et d'un syst9me de collecte  diff9rence des d9chets. La soci9t9 a respect9 les normes en vigueur, y compris la norme sur la diversit9 et l'inclusion, qui pr9voit l'obligation de publier annuellement un rapport sur la gestion de la diversit9 et de l'inclusion dans le monde du travail.
+
+La norme sur l'9galit9 des genres entre les hommes et les femmes, en vigueur depuis 2000, oblige les entreprises avec plus de 100 employ9s de publier un rapport de bilan entre les hommes et les femmes. La soci9t9 respecte galement la norme sur la s7curit9 et la s7ante sur le lieu de travail, qui pr9voit l'obligation de fournir des mesures de s7curit9 et de s7ante ad9quates pour les employ9s.
+
+Voici quelques comparaisons entre des sc\0f9narios pratiques :
+
+- **Stages r9tribu9s vs Apprentissage** : les stages r9tribu9s de Nestl29 offrent une formation pratique plus int9nse et une r9tribution plus l9ve que l'apprentissage.
+
+- S7de de Nestl29 
+ Como vs S7de de Nestl29 
+ Porza : la s7de de Nestl29 
+ Como offre plus de postes d'emploi et une infrastructure plus moderne que la s7de de Nestl29 
+ Porza, dans le canton du Tessin.
+
+Op9rations  excuter pour demander un stage r9tribu9 :
+
+- V9rification du profil de candidature
+- Inscription en ligne sur le site web de Nestl29
+- S9lection de stages r9tribu9s parmi les candidats
+- Stages r9tribu9s de 3-6 mois avec possibilit9 de recrutement  temps ind9termin9
+
+Co\x1Bts associ9s  un stage r9tribu9 :
+
+- Co\x1Bts du transport : les employ9s de Nestl29 peuvent profiter d'une indemnit9 de transport de 0,20 CHF par kilom3tre.
+
+- Co\x1Bts du repas : les employ9s de Nestl29 peuvent profiter d'un repas gratuit.
+
+Ressources disponibles pour les employ9s de Nestl29 :
+
+- Service d'assistance : un service d'assistance est disponible pour les employ9s de Nestl29.
+
+- Service de conseil : un service de conseil est disponible pour les employ9s de Nestl29.
+
+Pour plus d'informations et pour vous inscrire  la campagne de recrutement, visitez le site web de Nestl29.
+
+Comparez le [taux CHF/EUR](nav:exchange) en temps réel : économisez jusqu'à 1,5% sur les frais de virement mensuel.
+
+*Source: [comozero.it](https://comozero.it/attualita/nestle-lavora-con-noi-posizioni-aperte-italia-2026/)*`,"blog.article.nestle-200-posti-lombardia.faq":`[{"q":"Quelle est la date limite pour envoyer votre CV et votre lettre de motivation pour des emplois chez Nestlé en Lombardie?","a":"La date limite est fixée au 15 avril 2024."},{"q":"Combien de temps prend le processus de sélection après avoir envoyé mon CV pour des emplois à Bergame?","a":"La sélection sera finalisée d'ici le 30 avril 2024, avec des entretiens de sélection après la date limite d'envoi des CV (15 avril 2024)."},{"q":"Quelles sont les exigences linguistiques pour postuler à des postes chez Nestlé en Lombardie?","a":"Les candidats doivent avoir une bonne connaissance de l'italien et de l'anglais, une exigence fondamentale pour communiquer efficacement et s'intégrer à l'équipe internationale de Nestlé."}]`};export{e as default};

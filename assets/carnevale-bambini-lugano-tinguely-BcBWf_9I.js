@@ -1,0 +1,40 @@
+const i={"blog.article.carnevale-bambini-lugano-tinguely.body1":`## In breve
+- Laboratori creativi per bambini a Lugano.
+- Dal 16 al 20 febbraio 2026, per età 4-11 anni.
+- Costo atelier Tinguely: 20 CHF.
+- Prenotazione obbligatoria per partecipare.
+
+## Fatti chiave
+- **Cosa**: Laboratori creativi al Museo in erba.
+- **Quando**: Dal 16 al 20 febbraio 2026.
+- **Dove**: Museo in erba, Riva Caccia 1, Lugano.
+- **Età**: Bambini di età compresa tra 4 e 11 anni.
+- **Costo**: 20 CHF per l'atelier Tinguely.
+- **Data atelier**: Mercoledì 18 febbraio 2026.
+- **Orario**: Dalle 9:00 alle 12:00, atelier fino alle 11:30.
+- **Prenotazione**: Obbligatoria per partecipare ai laboratori.
+
+Le vacanze di Carnevale in Ticino rappresentano spesso una sfida logistica per i genitori frontalieri. Mentre le scuole chiudono, le attività lavorative proseguono, ponendo il consueto dilemma su come intrattenere i figli in modo costruttivo. Una risposta di qualità arriva direttamente da Lugano, grazie all'iniziativa del Museo in erba, situato in Riva Caccia 1. Per le vacanze di febbraio 2026, il museo propone una settimana di laboratori creativi dal titolo emblematico: “A Carnevale ogni scherzo (d’artista) vale!”.
+
+L'iniziativa si rivolge ai bambini di età compresa tra i **4 e gli 11 anni** e si svolgerà da lunedì 16 a venerdì 20 febbraio 2026. Ogni mattina, dalle 9:00 alle 12:00, i giovani partecipanti potranno esplorare il mondo dell'arte attraverso il gioco e la sperimentazione. L'obiettivo è chiaro: trasformare l'arte in un'avventura sorprendente, ispirandosi ad artisti che hanno fatto dello 'scherzo' e dell'interazione con lo spettatore un loro marchio di fabbrica.
+
+Un appuntamento da segnare in agenda è quello di mercoledì **18 febbraio 2026**, con l'atelier “Clic-clac… Tic tac… quanti ingranaggi Tinguely!”. Dalle 10:15 alle 11:30, i bambini potranno cimentarsi con tecniche e materiali insoliti per creare un quadro fatto di ruote e ingranaggi, un omaggio dinamico e divertente al celebre artista svizzero Jean Tinguely. Un'occasione unica per stimolare la creatività e la manualità.`,"blog.article.carnevale-bambini-lugano-tinguely.body2":`## Un'opportunità concreta per le famiglie frontaliere
+
+L'offerta del Museo in erba non è solo un semplice passatempo, ma una soluzione concreta che risponde alle esigenze delle famiglie che vivono a cavallo del confine. La collocazione a Lugano, facilmente raggiungibile dai principali valichi come Ponte Tresa o Brogeda, e l'orario mattutino, permettono ai genitori di accompagnare i figli prima di recarsi al lavoro, con la certezza di lasciarli in un ambiente sicuro, stimolante e formativo. Il costo per l'atelier Tinguely è di **20 CHF**, una cifra accessibile per un'attività educativa di alto profilo.
+
+La partecipazione a questi laboratori offre un doppio vantaggio. Da un lato, i bambini hanno modo di socializzare con i loro coetanei ticinesi, favorendo un'integrazione culturale spontanea e migliorando le competenze linguistiche in italiano. Dall'altro, entrano in contatto con il patrimonio artistico e culturale svizzero, rappresentato da figure come Tinguely, in un contesto ludico e interattivo. L'intera settimana di laboratori, dal 16 al 20 febbraio, offre una flessibilità notevole, permettendo di scegliere uno o più giorni in base agli impegni lavorativi.
+
+> Il programma “A Carnevale ogni scherzo (d’artista) vale!” è pensato per ispirare i bambini con artisti che “scherzano” con lo spettatore e si divertono a fare dell’arte un gioco davvero sorprendente!
+
+È fondamentale ricordare che la prenotazione è obbligatoria, a testimonianza della cura e dell'attenzione dedicate all'organizzazione per garantire a ogni bambino la giusta attenzione.`,"blog.article.carnevale-bambini-lugano-tinguely.body3":`## Pianificare il tempo libero: consigli pratici
+
+Per i genitori interessati, il passo da compiere è semplice: contattare il museo per informazioni e prenotazioni. L'indirizzo email di riferimento è \`info@museoinerba.com\`. Agire con anticipo è sempre una buona strategia, dato che i posti per questo tipo di iniziative tendono a esaurirsi rapidamente, specialmente durante i periodi di vacanza scolastica.
+
+💡 **Consigli per i genitori frontalieri:**
+- **Verificate gli orari:** L'atelier dura fino alle 11:30, mentre la 'Mattina al museo' si estende fino alle 12:00. Pianificate il recupero dei figli in base alla vostra pausa pranzo o orario di lavoro.
+- **Contattate per dettagli:** Chiedete se è possibile iscrivere i figli a più giornate, magari con una formula agevolata.
+- **Esplorate i dintorni:** La zona di Riva Caccia, con il LAC e il Parco Ciani a pochi passi, offre splendide opportunità per un pomeriggio in famiglia dopo il laboratorio.
+
+Organizzare attività extra-scolastiche e culturali per i figli è una voce importante nel bilancio familiare. Avere una chiara visione delle proprie entrate nette mensili è il primo passo per pianificare senza stress queste preziose esperienze. Sapere esattamente quale budget destinare al tempo libero permette di fare scelte consapevoli e di approfittare di opportunità come questa. Per avere un quadro preciso, potete usare il nostro calcolatore di stipendio netto, uno strumento pensato appositamente per le esigenze dei lavoratori frontalieri.
+
+*Fonte: Ticinonline, Agenda eventi, 18.02.2026*`,"blog.article.carnevale-bambini-lugano-tinguely.faq":`[{"q":"Come posso tenere impegnati i miei figli durante le vacanze di Carnevale nel Ticino?","a":"Il Museo in erba a Lugano propone una settimana di laboratori creativi dal 16 al 20 febbraio 2026, ideali per bambini di età compresa tra 4 e 11 anni."},{"q":"Posso combinare il laboratorio del Museo in erba con altre attività a Lugano per un'esperienza completa per mio figlio?","a":"Sì, il museo si trova vicino al LAC e al Parco Ciani a Lugano, offrendo una combinazione ideale di arte, cultura e natura per un'esperienza completa."},{"q":"Quali sono le modalità di iscrizione ai laboratori del Museo in erba durante le vacanze di Carnevale?","a":"Per partecipare ai laboratori, è obbligatorio prenotare via email all'indirizzo info@museoinerba.com. Si consiglia di farlo con anticipo, poiché i posti sono limitati e si esauriscono rapidamente durante le vacanze scolastiche."}]`};export{i as default};

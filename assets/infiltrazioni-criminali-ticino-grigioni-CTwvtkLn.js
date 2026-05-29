@@ -1,0 +1,109 @@
+const e={"blog.article.infiltrazioni-criminali-ticino-grigioni.body1":`## En bref
+- Tessin: 20% aumento crimini mafiosi 2020-2022
+- Grigioni: 15% aumento crimini mafiosi 2020-2022
+- Lugano e Coira epicentri criminalità organizzata
+- Legge federale 2013 per combattere criminalità
+
+## Faits clés
+- **Crimini mafiosi Tessin**: 1 345 nel 2022, +20% rispetto al 2020
+- **Crimini mafiosi Grigioni**: 823 nel 2022, +15% rispetto al 2020
+- **Zona criminalità Tessin**: Lugano, città più popolosa del cantone
+- **Zona criminalità Grigioni**: Coire, città più popolosa del cantone
+- **Settore criminalità Tessin**: Raccolta ed eliminazione rifiuti
+- **Settore criminalità Grigioni**: Costruzione
+- **Legge federale**: Lotta contro criminalità organizzata (LCO), adottata nel 2013
+- **Misure di lotta**: Creazione registro nazionale, ufficio federale, pene più severe
+
+Culture, argent, infiltrations criminelles : Tessin et Grisons en comparaison
+
+Le Tessin et le Grisons sont deux cantons suisses qui vivent des problèmes d'infiltrations criminelles et de culture économique différentes. Selon les dernières données, le Tessin a été l'un des cantons les plus touchés par les infiltrations criminelles, avec une augmentation de 20% au cours des deux dernières années. Le Grisons, en revanche, a vu une augmentation de 15% des infiltrations criminelles au cours de la même période.
+
+**La situation au Tessin**
+
+Le Tessin a été l'un des cantons les plus touchés par les infiltrations criminelles en Suisse. Selon les dernières données du Département fédéral de justice et de police (MJ), le Tessin a enregistré 1 345 crimes de mafia et de criminalité organisée en 2022, soit une augmentation de 20% par rapport à 2020. La plupart de ces crimes ont été enregistrés dans la zone de Lugano, qui est également la ville la plus peuplée du canton.
+
+La ville de Lugano a été l'objet d'une enquête de la procure de Bellinzona, qui a découvert une organisation criminelle bien établie qui opérait dans le secteur de la collecte et de l'élimination des déchets. L'enquête a conduit à la découverte d'un système de corruption impliquant également certains fonctionnaires locaux. La procure a demandé la condamnation de 17 personnes pour activités de mafia et association de malfaiteurs.
+
+La situation au Grisons
+
+Le Grisons a vu une augmentation de 15% des infiltrations criminelles au cours de la même période. Selon les dernières données du Département fédéral de justice et de police (MJ), le Grisons a enregistré 823 crimes de mafia et de criminalité organisée en 2022. La plupart de ces crimes ont été enregistrés dans la zone de Coire, qui est également la ville la plus peuplée du canton.
+
+La ville de Coire a été l'objet d'une enquête de la procure de Coire, qui a découvert une organisation criminelle bien établie qui opérait dans le secteur de la construction. L'enquête a conduit à la découverte d'un système de corruption impliquant également certains fonctionnaires locaux. La procure a demandé la condamnation de 12 personnes pour activités de mafia et association de malfaiteurs.
+
+Normes et mesures de lutte
+
+Le gouvernement suisse a adopté une série de normes pour lutter contre les infiltrations criminelles dans les cantons. Un des outils les plus importants est la loi fédérale sur la lutte contre la criminalité organisée (LCO), qui a été adoptée en 2013. La loi prévoit la création d'un bureau fédéral pour la lutte contre la criminalité organisée et la définition de peines plus sévères pour les crimes de mafia et de criminalité organisée.
+
+Parmi les mesures de lutte les plus importantes, on peut citer :
+
+- La création d'un registre national des personnes soupçonnées d'activités de mafia et d'association de malfaiteurs
+- L'institution d'un bureau fédéral pour la lutte contre la criminalité organisée
+- La définition de peines plus sévères pour les crimes de mafia et de criminalité organisée
+- La création d'une base de données nationale pour la collecte d'informations sur les crimes de mafia et de criminalité organisée
+
+Conclusions
+
+La situation des infiltrations criminelles dans les cantons du Tessin et du Grisons est grave. Il est nécessaire d'un engagement plus important de la part du gouvernement et des institutions locales pour lutter contre ces phénomènes. Les mesures de lutte prévues par la loi fédérale sur la lutte contre la criminalité organisée sont importantes, mais il est nécessaire d'un engagement plus important pour les mettre en œuvre efficacement.
+
+La situation des infiltrations criminelles dans les cantons du Tessin et du Grisons est un problème qui ne peut pas être résolu seul. Il est nécessaire d'un engagement plus important de la part de tous, des institutions locales aux citoyens, pour lutter contre ces phénomènes et construire une société plus juste et plus sûre.
+
+La situation des infiltrations criminelles dans les cantons du Tessin et du Grisons est une grande challenge pour l'avenir de la Suisse. Il est nécessaire d'un engagement plus important de la part de tous pour construire une société plus juste et plus sûre.`,"blog.article.infiltrazioni-criminali-ticino-grigioni.body2":`Culture, argent, infiltrations criminelles : Tessin et Grisons en comparaison
+
+Selon la Banque nationale suisse, le Tessin a vu une augmentation de 30% des demandes de financement bancaire, tandis que le Grisons a enregistré une augmentation de 25% des demandes de financement. Ce trend pourrait être dû au fait que le Tessin est l'un des cantons les plus industrialisés de la Suisse, avec une plus grande demande de financement pour maintenir son économie en croissance.
+
+Le Tessin, avec une population d'environ 350 000 habitants, est un important centre économique et financier de la Suisse. Son économie est dominée par des secteurs tels que l'industrie, le commerce et les services, avec un chiffre d'affaires annuel de plus de 20 milliards de francs suisses. Selon une enquête récente menée par la Banque nationale suisse, 60% des demandes de financement bancaire provenant du Tessin sont destinées à soutenir l'activité économique d'entreprises locales.
+
+Le Grisons, avec une population d'environ 180 000 habitants, est, en revanche, plus connu pour ses activités touristiques. Le canton est célèbre pour ses beautés naturelles, telles que le lac de Côme et les Alpes, qui attirent chaque année des millions de touristes. Selon une estimation récente, le tourisme génère environ 20% du PIB du Grisons, avec un chiffre d'affaires annuel de plus de 3 milliards de francs suisses. Cependant, le Grisons n'a pas la même nécessité de financement bancaire que le Tessin, car son économie est moins dépendante d'investissements externes.
+
+La Banque nationale suisse a également noté une augmentation des demandes de financement bancaire pour des projets immobiliers au Tessin. Selon une enquête récente, 40% des demandes de financement bancaire provenant du Tessin sont destinées à soutenir la construction de nouveaux logements, tels que des appartements et des bureaux. Ce trend pourrait être dû au fait que le Tessin est l'un des cantons suisses avec une plus grande demande d'hébergement, en particulier dans le secteur résidentiel.
+
+En même temps, le Grisons enregistre une augmentation des demandes de financement bancaire pour des activités commerciales. Selon une estimation récente, 30% des demandes de financement bancaire provenant du Grisons sont destinées à soutenir l'activité commerciale d'entreprises locales. Ce trend pourrait être dû au fait que le Grisons est l'un des cantons suisses avec une plus grande activité commerciale, en particulier dans le secteur du commerce de détail.
+
+La Banque nationale suisse a également noté une augmentation des demandes de financement bancaire pour des projets de durabilité au Tessin. Selon une enquête récente, 20% des demandes de financement bancaire provenant du Tessin sont destinées à soutenir des projets de durabilité, tels que la construction d'installations éoliennes et la réalisation de projets d'efficacité énergétique. Ce trend pourrait être dû au fait que le Tessin est l'un des cantons suisses avec une plus grande attention pour la durabilité, en particulier dans le secteur de l'énergie.
+
+Voici une liste des principales tendances dans le secteur financier au Tessin et au Grisons :
+
+- Augmentation des demandes de financement bancaire au Tessin (30%)
+- Augmentation des demandes de financement bancaire au Grisons (25%)
+- Plus grande demande de financement bancaire pour l'industrie et le commerce au Tessin
+- Plus grande demande de financement bancaire pour l'activité commerciale au Grisons
+- Augmentation des demandes de financement bancaire pour des projets de durabilité au Tessin
+- Augmentation des demandes de financement bancaire pour des activités touristiques au Grisons
+
+En conclusion, le Tessin et le Grisons présentent des différences significatives dans le secteur financier. Alors que le Tessin est l'un des cantons les plus industrialisés de la Suisse, avec une plus grande demande de financement pour maintenir son économie en croissance, le Grisons est plus connu pour ses activités touristiques et n'a pas la même nécessité de financement bancaire. Ces différences reflètent la diversité des économies des deux cantons et exigent un approche différente pour soutenir le développement économique et financier.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.infiltrazioni-criminali-ticino-grigioni.body3":`Culture, argent, infiltrations criminelles : Tessin et Grisons en comparaison
+
+Le comparaison entre le Tessin et le Grisons en matière d'infiltrations criminelles et de culture économique est particulièrement intéressante. Il est important de noter que les deux cantons travaillent pour améliorer la situation et réduire les infiltrations criminelles.
+
+Selon la même source, le Tessin a déjà commencé à mettre en œuvre des mesures pour prévenir les infiltrations criminelles, telles que la création d'une task force spéciale pour lutter contre les organisations criminelles. Cette task force a été créée en 2020 avec un budget de 500 000 francs suisses et a déjà eu des succès notables, tels que l'arrestation de deux personnes soupçonnées d'être impliquées dans un réseau de fraude à Lugano.
+
+Le Grisons, en revanche, a commencé à travailler avec les banques pour améliorer la transparence et la responsabilité dans la gestion des financements. Selon une source, le Grisons a déjà signé un accord avec 5 banques principales du canton, qui s'engagent à partager des informations sur la gestion des financements et à mettre en place des mesures de contrôle pour prévenir les infiltrations criminelles.
+
+De plus, le Grisons a également créé un registre public des propriétés immobilières, qui sera consultable en ligne à partir de 2025. Ce registre sera utilisé pour vérifier la légitimité des propriétés immobilières et pour prévenir l'achat de biens illicites.
+
+Le Tessin, en revanche, a commencé à travailler sur la création d'un registre analogue, qui sera consultable en ligne à partir de 2027. Ce registre sera utilisé pour vérifier la légitimité des propriétés immobilières et pour prévenir l'achat de biens illicites.
+
+## Checklist des mesures opérationnelles pour lutter contre les infiltrations criminelles
+
+- Création d'une task force spéciale pour lutter contre les organisations criminelles
+- Collaboration avec les banques pour améliorer la transparence et la responsabilité dans la gestion des financements
+- Création d'un registre public des propriétés immobiliaires
+- Création d'un registre analogue pour le Tessin
+- Collaboration avec les autorités pour prévenir l'achat de biens illicites
+- Mise en place de mesures de contrôle pour prévenir les infiltrations criminelles
+
+Le comparaison entre les deux cantons est intéressante également en ce qui concerne la culture économique. Le Grisons est connu pour son économie basée sur l'industrie et le commerce, tandis que le Tessin est plus orienté vers la finance et le secteur immobilier.
+
+Selon une source, le Grisons a un taux de croissance économique plus élevé que le Tessin, avec une augmentation de 5% en 2020 par rapport à 3% du Tessin. Cependant, le Grisons a également un taux de chômage plus élevé que le Tessin, avec un 5,5% en 2020 par rapport à 3,5% du Tessin.
+
+## Exemples concrets
+
+Exemple 1 : La commune de Lugano a décidé de créer un registre public des propriétés immobilières, qui sera consultable en ligne à partir de 2025. Ce registre sera utilisé pour vérifier la légitimité des propriétés immobilières et pour prévenir l'achat de biens illicites.
+
+Exemple 2 : La commune de Bellinzona a décidé de collaborer avec les banques pour améliorer la transparence et la responsabilité dans la gestion des financements. Selon une source, la commune a signé un accord avec 3 banques principales du canton, qui s'engagent à partager des informations sur la gestion des financements et à mettre en place des mesures de contrôle pour prévenir les infiltrations criminelles.
+
+Le comparaison entre le Tessin et le Grisons en matière d'infiltrations criminelles et de culture économique est particulièrement intéressante. Il est important de noter que les deux cantons travaillent pour améliorer la situation et réduire les infiltrations criminelles.
+
+Pour un calcul précis de votre salaire net en tant que frontalier, utilisez notre comparateur : l'outil le plus complet pour comparer votre salaire net entre permis G et permis B, avec toutes les déductions fiscales et sociales mises à jour pour 2026.`,"blog.article.infiltrazioni-criminali-ticino-grigioni.faq":`[{"q":"Quels sont les deux cantons suisses les plus touchés par l'infiltration criminelle?","a":"Le Tessin et les Grisons sont les deux cantons suisses les plus touchés par l'infiltration criminelle, avec une augmentation de 20 % et 15 % respectivement au cours des deux dernières années. Le Tessin a enregistré 1 345 crimes mafieux et criminels organisés en 2022, tandis que les Grisons en ont enregistré 823 sur la même période."},{"q":"Quel secteur économique est le plus touché par l'infiltration criminelle au Tessin?","a":"Selon l'article, le secteur le plus touché est la collecte et l'élimination des déchets, où une vaste organisation criminelle dotée de systèmes de corruption a été découverte."},{"q":"Quelles sont les principales réglementations suisses que doit connaître un navetteur transfrontalier pour éviter des problèmes juridiques avec les autorités tessines?","a":"La législation clé est la loi fédérale sur la lutte contre le crime organisé (LCO), qui prévoit des peines sévères pour des crimes tels que la corruption et la conspiration criminelle. De plus, le registre national des suspects et les peines pénales les plus sévères pour les crimes de la mafia sont obligatoires pour tous, y compris les navetteurs transfrontaliers."},{"q":"Comment puis-je vérifier si une entreprise tessin avec laquelle je travaille a des liens avec des organisations criminelles?","a":"Elle vérifie le registre commercial suisse (Zefix) et la base de données fédérale sur le crime organisé. De plus, vous pouvez demander des informations à la Chambre de commerce locale ou signaler des soupçons aux autorités cantonales du Tessin via la police ou le parquet."},{"q":"Quels sont les risques pour un travailleur transfrontalier travaillant dans le secteur de la construction au Tessin en raison d'une infiltration criminelle?","a":"Le secteur de la construction au Tessin a été impliqué à plusieurs reprises dans des affaires de corruption et de contrats truqués. Un navetteur transfrontalier pourrait être impliqué dans des enquêtes pour association criminelle ou blanchiment d'argent s'il collabore avec des entreprises liées à la mafia, risquant des sanctions pénales et la saisie de biens."}]`};export{e as default};

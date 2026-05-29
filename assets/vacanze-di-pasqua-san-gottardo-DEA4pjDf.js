@@ -1,0 +1,49 @@
+const e={"blog.article.vacanze-di-pasqua-san-gottardo.body1":`## TL;DR
+- 21 km queue at San Gottardo tunnel on Good Friday
+- Traffic intensified due to good weather and school holidays
+- Alternative routes like Lucomagno Pass saw increased traffic
+- TCS recommends checking real-time updates and avoiding peak hours
+
+## Key facts
+- **Queue Length**: 21 kilometers at the San Gottardo tunnel
+- **Waiting Time**: Approximately three and a half hours
+- **Tunnel Length**: 16.9 kilometers
+- **Traffic Regulation**: 80 km/h speed limit and no overtaking in the tunnel
+- **Alternative Routes**: Lucomagno Pass and other secondary routes
+- **Previous Year Queue**: 15 kilometers in 2022 and 19 kilometers in 2019
+- **San Gottardo Pass**: Closed until June due to winter conditions
+- **Fines for Infraction**: Up to 200 francs for using emergency lanes
+
+Good Friday turned into a nightmare for holidaymakers heading south: at the northern portal of the San Gottardo highway tunnel, the queue reached **21 kilometers** by early afternoon. The figure, recorded around 3:35 PM, corresponds to an estimated waiting time of approximately three and a half hours. This was reported by TCS through an update on X, confirming the critical traffic forecasts for the Easter period.
+
+The San Gottardo tunnel, which spans 16.9 kilometers, is one of the main transit hubs between northern and southern Europe, especially during holidays. This year, aided by good weather and the overlap with school holidays in many Swiss cantons and neighboring regions, traffic intensified from the early hours of the morning, with queues progressively lengthening throughout the day.
+
+## Local Communities and Impacts
+
+The congestion at the San Gottardo also had repercussions in the Ticino municipalities south of the tunnel, such as Airolo, where many drivers, weary of waiting in line, attempted to take detours through mountain passes. However, the San Gottardo Pass remains closed until June due to winter conditions. Traffic on other secondary routes, such as the Lucomagno Pass, also saw an increase, although these alternatives are only viable in favorable weather conditions.
+
+## Traffic Regulations and Management
+
+To address situations like these, the Canton of Ticino and the Federal Roads Office (USTRA) have implemented measures to ensure safety and minimize disruptions. These include traffic regulation with traffic lights in the Göschenen area and an increased police presence to manage potential emergencies. According to USTRA, the maximum speed limit in the tunnel remains set at 80 km/h, with an absolute ban on overtaking, to ensure safety during periods of high traffic.
+
+## Checklist for Travelers
+
+For those planning to cross the San Gottardo during the holidays, here are some useful recommendations:
+
+- Check real-time traffic updates through official TCS apps or highway information channels.
+- Avoid peak hours, such as Friday morning and afternoon or Saturday morning.
+- Carry essential supplies, such as water, snacks, and blankets, in case of prolonged waits.
+- Consider alternatives, such as rail travel. The Gotthard railway line offers fast and frequent connections between the north and south.
+
+## Comparisons with Previous Years
+
+The 21-kilometer queue recorded this year is not an isolated case. In 2022, during the same period, the queue reached 15 kilometers, while in 2019, before the pandemic, it extended to 19 kilometers. However, the average waiting time of three and a half hours represents one of the longest in recent years, a clear indication of the increase in vehicular traffic post-Covid.
+
+In conclusion, the San Gottardo tunnel remains a critical and challenging bottleneck during holidays. Planning trips in advance and considering alternative transportation options remain the best strategies to avoid disruptions and make the most of your vacation.`,"blog.article.vacanze-di-pasqua-san-gottardo.body2":`Vehicles heading south on the A2 highway became stuck between Altdorf and Göschenen in the canton of Uri, with a 21-kilometer-long queue recorded during the Easter holidays. The Swiss Touring Club (TCS) suggested alternative routes to alleviate traffic and reduce waiting times for drivers heading to Italy or the canton of Ticino.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.vacanze-di-pasqua-san-gottardo.body3":`Travelers heading south for Easter holidays have faced significant disruptions due to intense traffic along the A2 highway, particularly in front of the San Gottardo tunnel. The congestion, which began forming in the early morning hours, peaked at 14:20, with a 15-kilometer-long column of cars. Despite a slight improvement in the evening, the situation remained critical until 18:10, with a reduced queue of 13 kilometers. 🚨 Updated traffic flow data: However, the situation has worsened further today. According to the TCS (Swiss Touring Club) bulletin, the queue has reached **21 kilometers** by 11:30, causing estimated waiting times of over three hours. This represents one of the worst congestions in recent years during the Easter period, surpassing the 19 kilometers recorded in April 2022. 📍 Local impact and involved Ticino municipalities: The congestion is putting pressure not only on the main A2 route but also on secondary roads in neighboring municipalities, such as Airolo and Quinto, where many drivers have attempted to bypass the queue. In these locations, local traffic has been effectively paralyzed, further complicating the mobility of residents. 💡 Regulations and recommendations for travelers: Local authorities and highway police remind travelers that using emergency lanes as an alternative route is strictly prohibited. Fines for this infraction can reach up to 200 francs. Additionally, the no-overtaking ban is in effect along the entire affected section. 📋 Checklist for travelers: - Consult real-time traffic conditions via the TCS app or radio bulletins. - Avoid peak hours, especially between 10:00 and 16:00. - Bring water and snacks, as waiting times may exceed three hours. - Refuel: prolonged inactivity can quickly deplete the fuel tank. 📊 Comparison with alternative scenarios: Travelers heading to Ticino may consider alternative routes, such as the San Bernardino pass, although this also presents risks of congestion during holidays. Alternatively, the train remains a practical solution: according to FFS, Zurich-Lugano connections have seen a 40% increase in passengers, but remain generally punctual. The Easter holidays serve as a test for Ticino's infrastructure, highlighting the need for long-term solutions, such as the expansion of the San Gottardo tunnel, scheduled for 2030. In the meantime, travelers are called to plan their movements with caution and patience.
+
+Compare the [CHF/EUR exchange rate](nav:exchange) in real time across providers: save up to 1.5% on monthly transfer fees.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/vacanze-di-pasqua%3a-colonna-al-gottardo-tocca-i-21-chilometri/91205110)*`,"blog.article.vacanze-di-pasqua-san-gottardo.faq":'[{"q":"How long was the waiting column at the north portal of the gallery of San Gottardo in the afternoon of Good Friday?","a":"The waiting column reached 21 kilometers, with an estimated waiting time of about 3 and a half hours."},{"q":"What is the minimum cost to use the car transport service by train through the Lötschberg?","a":"The price for a single route starts from CHF 28 for a standard car."},{"q":"What are the documents necessary for a frontier worker who works in Switzerland but resides in Italy?","a":"A frontier must have: valid identity document (identity card or passport), Swiss work permit (if not EU/AELS), European health insurance card (TEAM) for health care and, if required, the S1 module for access to Italian health services."},{"q":"How does taxation work for a cross-border worker Switzerland-Italy?","a":"Switzerland applies a tax to the source (about 8-13%) for residents in Italy, while Italy may require additional taxation. It is necessary to check the tax conventions between the two countries and submit the tax declaration in both States to avoid double taxation."},{"q":"What are the tax benefits for frontier workers living in Italy but working in Switzerland?","a":"Frontiers can benefit from a 30% flat-rate reduction in taxable income in Switzerland, thereby reducing Swiss tax. Moreover, in Italy it is possible to deduct the costs of transport and accommodation related to cross-border work."}]'};export{e as default};

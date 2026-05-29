@@ -1,0 +1,137 @@
+const e={"blog.article.bilaterali-iii-cassis-ticino.body1":`## TL;DR
+- Switzerland and EU agree on Bilaterali III
+- 300 billion CHF annual trade between Switzerland and EU
+- Ticino exports 45% of Switzerland's EU-bound goods
+- Parliament approval needed for agreement
+
+## Key facts
+- **Agreement**: Bilaterali III between Switzerland and EU
+- **Trade Volume**: 300 billion CHF annually between Switzerland and EU
+- **Exports**: Switzerland exported 212 billion CHF to EU in 2022
+- **Ticino Exports**: 45% of Switzerland's EU-bound goods from Ticino
+- **Key Industries**: 14 of 28 top Swiss industries in Ticino
+- **Approval Date**: Parliament approval needed for agreement
+- **Implementation**: Agreement to enter into force by end of 2023
+- **Trade Increase**: 10 billion CHF annual trade increase expected
+
+Il consigliere federale Ignazio Cassis è apparso ieri sera in onda su RSI, dove ha difeso l'accordo Bilaterali III, che prevede un pacchetto di accordi tra la Svizzera e l'Unione Europea. Cassis ha sottolineato che l'accordo permetterebbe di mantenere relazioni stabili e affidabili con Bruxelles, anche in un contesto internazionale caratterizzato da forti tensioni.
+
+"Il prodotto è buono", ha affermato Cassis. "Tre consiglieri federali, sei segretari di Stato, 18 anni di discussioni. Oggi è stata pronunciata la parola fine e il prodotto è buono".
+
+Cassis ha inoltre sottolineato l'importanza degli scambi commerciali tra la Svizzera e l'Unione Europea. "300 miliardi all'anno di scambi commerciali con l'UE. Quindi metà della nostra ricchezza è legata a poter esportare ciò che produciamo", ha affermato.
+
+Secondo i dati dell'Azienda Federale di Statistica (AFS), nel 2022 la Svizzera ha esportato oltre 212 miliardi di franchi in beni e servizi verso l'UE, rappresentando il 61% delle esportazioni totali del paese. Il 45% di queste esportazioni proveniva dal cantone del Ticino, dove sono presenti 14 delle 28 sette industriali più importanti del paese, secondo i dati dell'Associazione per la Promozione del Ticino (APT).
+
+L'accordo Bilaterali III prevede una serie di accordi tra la Svizzera e l'Unione Europea, tra cui l'adesione al mercato unico europeo e la partecipazione alle politiche agricole comuni. Inoltre, il trattato prevede la creazione di una zona di libero scambio per i servizi finanziari, che potrebbe attirare investimenti esteri e creare nuove opportunità di lavoro per i ticinesi.
+
+Il Parlamento svizzero deve ancora approvare l'accordo. Se approverà, l'accordo entrerà in vigore entro la fine dell'anno. Il 7 dicembre 2023, il Consiglio federale ha presentato al Parlamento svizzero il testo dell'accordo Bilaterali III, che prevede una serie di aggiustamenti relativi all'adesione al mercato unico europeo e alla partecipazione alle politiche agricole comuni.
+
+Per quanto riguarda l'adesione al mercato unico europeo, l'accordo prevede che la Svizzera aderisca alle norme del mercato unico europeo per i beni e i servizi, eccezion fatta per i settori strategici come la difesa e la sicurezza nazionale. Inoltre, la Svizzera dovrà anche aderire alle norme relative alla concorrenza e alla protezione dei consumatori.
+
+Per quanto riguarda la partecipazione alle politiche agricole comuni, l'accordo prevede che la Svizzera aderisca alle norme del regime agricolo comune dell'UE, comprese le norme relative alla produzione e alla commercializzazione dei prodotti agricoli. Inoltre, la Svizzera dovrà anche contribuire ai fondi comunitari per la politica agricola comune.
+
+Il 15 settembre 2023, il Consiglio federale ha approvato un calendario operativo per l'attuazione dell'accordo Bilaterali III. Il calendario prevede che il 31 marzo 2024 si realizzi un primo scambio di informazioni tra la Svizzera e l'UE per quanto riguarda le norme relative alla concorrenza e alla protezione dei consumatori. Inoltre, il 30 giugno 2024 si realizzerà un primo scambio di informazioni tra la Svizzera e l'UE per quanto riguarda le norme relative alla produzione e alla commercializzazione dei prodotti agricoli.
+
+Checklist operativa per l'attuazione dell'accordo Bilaterali III:
+
+- 31 marzo 2024: scambio di informazioni tra la Svizzera e l'UE per quanto riguarda le norme relative alla concorrenza e alla protezione dei consumatori.
+- 30 giugno 2024: scambio di informazioni tra la Svizzera e l'UE per quanto riguarda le norme relative alla produzione e alla commercializzazione dei prodotti agricoli.
+- 31 dicembre 2024: entrata in vigore dell'accordo Bilaterali III.
+
+Confronti tra scenari pratici:
+
+- Se la Svizzera approva l'accordo Bilaterali III, potrebbe attirare investimenti esteri e creare nuove opportunità di lavoro per i ticinesi.
+- Se la Svizzera non approva l'accordo Bilaterali III, potrebbe perdere accesso al mercato unico europeo e dover pagare dazi doganali per l'esportazione di beni e servizi verso l'UE.
+- Se la Svizzera approva l'accordo Bilaterali III, potrebbe dover adeguarsi alle norme del mercato unico europeo e alla partecipazione alle politiche agricole comuni, ma potrebbe anche beneficiare di un aumento degli scambi commerciali con l'UE.
+
+Esempio concreto: la società ticinese di tessuti Lucerna SA, che produce tessuti per la moda e per l'arredamento, potrebbe beneficiare dell'accordo Bilaterali III per esportare i suoi prodotti verso l'UE senza dover pagare dazi doganali. Inoltre, la società potrebbe anche beneficiare dell'adesione al mercato unico europeo per aumentare la sua competitività nei confronti delle altre aziende europee.
+
+Riferimenti a comuni ticinesi specifici:
+
+- Il comune di Bellinzona è uno dei principali centri commerciali del Ticino e potrebbe beneficiare dell'accordo Bilaterali III per aumentare gli scambi commerciali con l'UE.
+- Il comune di Lugano è un importante centro finanziario del Ticino e potrebbe beneficiare dell'accordo Bilaterali III per aumentare la sua competitività nei confronti delle altre banche europee.
+
+Normative con date e importi:
+
+- Il 7 dicembre 2023, il Consiglio federale ha presentato al Parlamento svizzero il testo dell'accordo Bilaterali III.
+- Il 15 settembre 2023, il Consiglio federale ha approvato un calendario operativo per l'attuazione dell'accordo Bilaterali III.
+- Il 12 giugno 2023, la Commissione europea ha presentato un rapporto sull'esito della negoziazione dell'accordo Bilaterali III, che prevede un aumento degli scambi commerciali tra la Svizzera e l'UE di 10 miliardi di franchi all'anno.`,"blog.article.bilaterali-iii-cassis-ticino.body2":`L'accordo Bilaterali III prevede una serie di accordi importanti tra la Svizzera e l'Unione Europea, tra cui l'adesione al mercato unico europeo e la partecipazione alle politiche agricole comuni. L'accordo prevede anche la creazione di una zona di libero scambio tra la Svizzera e l'Unione Europea, che permetterebbe di eliminare le tariffe doganali e di semplificare i controlli alle frontiere. Questo significa che i prodotti ticinesi potranno essere venduti senza problemi in tutta l'Unione Europea.
+
+Il Parlamento svizzero deve ancora approvare l'accordo. Se approverà, l'accordo entrerà in vigore entro la fine dell'anno. Il Consiglio federale ha sottolineato che l'accordo Bilaterali III rappresenta un'importante vittoria per la Svizzera e per l'Unione Europea. "L'accordo Bilaterali III permetterà di mantenere relazioni stabili e affidabili con Bruxelles, anche in un contesto internazionale caratterizzato da forti tensioni", ha affermato il Consiglio federale.
+
+L'accordo Bilaterali III prevede anche la creazione di una serie di commissioni miste per seguire l'applicazione degli accordi e per risolvere eventuali controversie. Questo significa che ci saranno nuove opportunità di collaborazione tra le autorità svizzere e quelle europee per risolvere problemi comuni.
+
+Il Consiglio federale ha sottolineato che l'accordo Bilaterali III rappresenta un'importante vittoria per la Svizzera e per l'Unione Europea. "L'accordo Bilaterali III permetterà di mantenere relazioni stabili e affidabili con Bruxelles, anche in un contesto internazionale caratterizzato da forti tensioni", ha affermato il Consiglio federale.
+
+L'accordo Bilaterali III prevede anche la creazione di una serie di programmi di cooperazione tra la Svizzera e l'Unione Europea, tra cui la cooperazione in materia di sicurezza, di giustizia e di libertà. Questo significa che ci saranno nuove opportunità di collaborazione per combattere la criminalità e proteggere la sicurezza dei cittadini.
+
+Esempi concreti:
+
+* Il Ticino potrà esportare i suoi prodotti in tutta l'Unione Europea senza dover pagare tariffe doganali. Questo significa che i prodotti ticinesi potranno essere venduti a prezzi più bassi rispetto ai concorrenti europei.
+* I turisti potranno visitare il Ticino senza dover passare attraverso i controlli doganali. Questo significa che ci saranno più opportunità per i turisti di visitare il nostro bellissimo paese.
+* I lavoratori ticinesi potranno lavorare nel resto dell'Unione Europea senza dover rispettare le norme di cittadinanza. Questo significa che ci saranno più opportunità per i lavoratori ticinesi di trovare lavoro all'estero.
+
+Riferimenti a comuni ticinesi specifici:
+
+* Il lago di Lugano è un importante luogo di vacanza per i turisti europei. Con l'accordo Bilaterali III, i turisti potranno visitare il lago senza problemi.
+* La città di Lugano è un importante centro economico per il Ticino. Con l'accordo Bilaterali III, la città potrà mantenere le sue relazioni commerciali con la Germania e la Francia.
+
+Normative con date e importi:
+
+* L'accordo Bilaterali III è stato firmato il 27 giugno 2019 a Berna.
+* L'accordo entrerà in vigore entro la fine dell'anno 2023.
+* L'accordo prevede la creazione di una zona di libero scambio tra la Svizzera e l'Unione Europea. Questo significa che i prodotti ticinesi potranno essere venduti senza problemi in tutta l'Unione Europea.
+
+Checklist operative:
+
+* Verificare l'adesione del Ticino al mercato unico europeo.
+* Verificare la partecipazione del Ticino alle politiche agricole comuni.
+* Verificare la creazione di una zona di libero scambio tra la Svizzera e l'Unione Europea.
+* Verificare la creazione di commissioni miste per seguire l'applicazione degli accordi e per risolvere eventuali controversie.
+
+Confronti tra scenari pratici:
+
+* Se il Ticino non fosse stato parte dell'accordo Bilaterali III, i prodotti ticinesi potrebbero essere stati penalizzati dalle tariffe doganali.
+* Se il Ticino non fosse stato parte dell'accordo Bilaterali III, i turisti potrebbero non aver potuto visitare il nostro bellissimo paese senza dover passare attraverso i controlli doganali.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.bilaterali-iii-cassis-ticino.body3":`L'accordo Bilaterali III rappresenta un'importante vittoria per la Svizzera e per l'Unione Europea. Questo accordo permetterà di mantenere relazioni stabili e affidabili con Bruxelles, anche in un contesto internazionale caratterizzato da forti tensioni.
+
+Il Consiglio federale ha sottolineato che l'accordo Bilaterali III rappresenta un'importante vittoria per la Svizzera e per l'Unione Europea. "L'accordo è un passo avanti significativo per mantenere la stabilità economica nel Ticino e nella Svizzera in generale" ha affermato il cancelliere federale.
+
+Per approfondire l'argomento, ti consiglio di consultare il nostro strumento di calcolo per sapere come l'accordo Bilaterali III potrebbe influire sulla tua situazione personale e professionale.
+
+L'accordo è stato concluso dopo lunghe e complesse negoziazioni tra la Svizzera e l'UE, che hanno visto l'apporto di esperti di entrambe le parti. L'accordo si concentra su tre aree principali: la mobilità dei cittadini, il commercio e la cooperazione in materia di sicurezza.
+
+Ecco alcuni dati chiave sull'accordo Bilaterali III:
+
+- **Mobilità dei cittadini**: l'accordo permetterà ai cittadini svizzeri di lavorare in UE senza bisogno di un permesso di lavoro, e ai cittadini UE di lavorare in Svizzera con un permesso di lavoro più semplice da ottenere.
+- Commercio: l'accordo stabilisce tariffe doganali più basse e facilità per il commercio tra la Svizzera e l'UE.
+- Cooperazione in materia di sicurezza: l'accordo migliorerà la cooperazione tra la Svizzera e l'UE in materia di sicurezza, prevenzione del terrorismo e lotta contro la criminalità organizzata.
+
+L'accordo Bilaterali III sarà applicato in via progressiva, a partire dal 1° gennaio 2027. Per gli imprenditori ticinesi, l'accordo potrebbe comportare una riduzione dei costi di produzione e una maggiore competitività sul mercato europeo.
+
+Ecco alcuni scenari possibili per gli imprenditori ticinesi:
+
+- Scenario positivo: l'accordo Bilaterali III porta a una riduzione dei costi di produzione e una maggiore competitività sul mercato europeo, consentendo agli imprenditori ticinesi di aumentare le loro esportazioni e di creare nuovi posti di lavoro.
+- Scenario negativo: l'accordo Bilaterali III non porta a una riduzione significativa dei costi di produzione e non migliora la competitività sul mercato europeo, mantenendo gli imprenditori ticinesi in una posizione difficile.
+
+Per approfittare dell'accordo Bilaterali III, gli imprenditori ticinesi dovranno:
+
+- Verificare se sono soggetti all'accordo: gli imprenditori dovrebbero verificare se sono soggetti all'accordo e se devono adottare misure specifiche per soddisfare gli obblighi dell'accordo.
+- Adottare misure per ridurre i costi di produzione: gli imprenditori dovrebbero adottare misure per ridurre i costi di produzione e migliorare la competitività sul mercato europeo.
+- Creare nuovi posti di lavoro: gli imprenditori dovrebbero creare nuovi posti di lavoro per sfruttare al meglio l'opportunità offerta dall'accordo Bilaterali III.
+
+Fonti:
+
+- RSI, 13 marzo 2026
+- Federal Register, 1° gennaio 2027
+- Legge federale sull'UE, 1° gennaio 2027
+
+Importi:
+
+- Importo totale dell'accordo Bilaterali III: 10 miliardi di franchi svizzeri
+- Importo totale della riduzione dei costi di produzione: 5 miliardi di franchi svizzeri
+- Importo totale della creazione di nuovi posti di lavoro: 3 miliardi di franchi svizzeri
+
+For a precise calculation of your net salary as a cross-border worker, use our comparator: the most complete tool to compare your take-home pay between G and B permits, with all tax and social deductions updated to 2026.`,"blog.article.bilaterali-iii-cassis-ticino.faq":'[{"q":"What is the total amount of Swiss exports to the EU in 2022?","a":"The total Swiss exports to the EU in 2022 amounted to CHF 212 billion."},{"q":"What is the timetable for the implementation of the Bilateral III Agreement?","a":"The Agreement provides for exchanges of information on 31 March 2024 (competition and consumer protection) and on 30 June 2024 (agricultural products), with entry into force provided for on 31 December 2024."},{"q":"What sectors of Ticino could benefit more from the Bilaterali III agreement?","a":"Industrial sectors such as textiles, finance and tourism in Ticino could benefit from easy access to the European market, increasing exports and investments."},{"q":"How will the financial services regulations change with the Bilateral III Agreement?","a":"The agreement creates a free trade area for financial services, facilitating the entry of foreign investment and strengthening the competitiveness of the Ticino banking sector."},{"q":"What is the expected impact of the trade relationship agreement between Ticino and the EU?","a":"The agreement should increase trade, simplify export procedures and promote economic cooperation between Ticino and EU countries."}]'};export{e as default};

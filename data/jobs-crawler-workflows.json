@@ -1,0 +1,5515 @@
+{
+  "generatedAt": "2026-05-29T21:37:32.911Z",
+  "workflows": [
+    {
+      "id": "orchestrate-crawlers.yml",
+      "title": "🎯 Orchestratore Crawler",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Dispatcher centralizzato — avvia tutti i crawler in sequenza con ritardo configurabile.",
+      "details": "Sostituisce i 76 schedule individuali. Runs 2×/day (03:00 + 15:00 UTC).",
+      "expectedDuration": "30-45 min",
+      "schedule": "03:00 / 15:00",
+      "defaultInputs": {
+        "group": "all",
+        "delay_seconds": "20",
+        "dry_run": "false"
+      }
+    },
+    {
+      "id": "update-jobs-a-plus-plus-group.yml",
+      "title": "A++ Group",
+      "context": "jobs",
+      "summaryKey": "a-group",
+      "description": "Crawler dedicato — A++ Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-aarreha-schinznach.yml",
+      "title": "aarReha Schinznach",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — aarReha Schinznach.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-abb.yml",
+      "title": "ABB",
+      "context": "jobs",
+      "summaryKey": "abb",
+      "description": "Crawler dedicato — ABB.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-abbott.yml",
+      "title": "Abbott",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Abbott.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-adullam.yml",
+      "title": "Adullam-Stiftung Basel Update EHC (Ensemble hospitalier de la Côte)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Adullam-Stiftung Basel Update EHC (Ensemble hospitalier de la Côte).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-adus-klinik.yml",
+      "title": "ADUS Klinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — ADUS Klinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-afry.yml",
+      "title": "AFRY jobs",
+      "context": "jobs",
+      "summaryKey": "afry",
+      "description": "Crawler dedicato — AFRY jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-agie-charmilles.yml",
+      "title": "AGIE Charmilles jobs",
+      "context": "jobs",
+      "summaryKey": "agie-charmilles",
+      "description": "Crawler dedicato — AGIE Charmilles jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-agroscope.yml",
+      "title": "Agroscope jobs",
+      "context": "jobs",
+      "summaryKey": "agroscope",
+      "description": "Crawler dedicato — Agroscope jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-ail.yml",
+      "title": "AIL",
+      "context": "jobs",
+      "summaryKey": "ail-sa",
+      "description": "Crawler dedicato — AIL.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-air-zermatt.yml",
+      "title": "Air Zermatt AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Air Zermatt AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-alcon.yml",
+      "title": "Alcon",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Alcon.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-aldi-suisse.yml",
+      "title": "ALDI Suisse",
+      "context": "jobs",
+      "summaryKey": "aldi-suisse",
+      "description": "Crawler dedicato — ALDI Suisse.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-allianz.yml",
+      "title": "Allianz Suisse",
+      "context": "jobs",
+      "summaryKey": "allianz-suisse",
+      "description": "Crawler dedicato — Allianz Suisse.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-alpiq.yml",
+      "title": "Alpiq",
+      "context": "jobs",
+      "summaryKey": "alpiq",
+      "description": "Crawler dedicato — Alpiq.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-alprose.yml",
+      "title": "Alprose",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Alprose.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-alten.yml",
+      "title": "ALTEN",
+      "context": "jobs",
+      "summaryKey": "alten-switzerland",
+      "description": "Crawler dedicato — ALTEN.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-amag.yml",
+      "title": "AMAG Group",
+      "context": "jobs",
+      "summaryKey": "amag-group",
+      "description": "Crawler dedicato — AMAG Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ameos-ch.yml",
+      "title": "AMEOS Schweiz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — AMEOS Schweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-apg-sga.yml",
+      "title": "APG|SGA",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — APG|SGA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ardentis.yml",
+      "title": "Ardentis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Ardentis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ariston.yml",
+      "title": "Ariston Group",
+      "context": "jobs",
+      "summaryKey": "ariston-group",
+      "description": "Crawler dedicato — Ariston Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-arosa-lenzerheide.yml",
+      "title": "Arosa Lenzerheide",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Arosa Lenzerheide.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-arsante-clinique-de-carouge.yml",
+      "title": "Arsanté (Clinique de Carouge)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Arsanté (Clinique de Carouge).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-artificialy.yml",
+      "title": "Artificialy",
+      "context": "jobs",
+      "summaryKey": "artificialy",
+      "description": "Crawler dedicato — Artificialy.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-artisa.yml",
+      "title": "Artisa Group",
+      "context": "jobs",
+      "summaryKey": "artisa-group",
+      "description": "Crawler dedicato — Artisa Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-arxada.yml",
+      "title": "Arxada",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Arxada.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-asana-spital.yml",
+      "title": "asana Spital AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — asana Spital AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-avaloq.yml",
+      "title": "Avaloq",
+      "context": "jobs",
+      "summaryKey": "avaloq",
+      "description": "Crawler dedicato — Avaloq.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-axa.yml",
+      "title": "AXA Svizzera",
+      "context": "jobs",
+      "summaryKey": "axa-svizzera",
+      "description": "Crawler dedicato — AXA Svizzera.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-axpo.yml",
+      "title": "Axpo Group",
+      "context": "jobs",
+      "summaryKey": "axpo-group",
+      "description": "Crawler dedicato — Axpo Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bachem.yml",
+      "title": "Bachem",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bachem.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bachtelen.yml",
+      "title": "Stiftung Bachtelen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stiftung Bachtelen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-badrutts-palace.yml",
+      "title": "Badrutt's Palace Hotel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Badrutt's Palace Hotel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-balgrist.yml",
+      "title": "Universitätsklinik Balgrist (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Universitätsklinik Balgrist (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bally.yml",
+      "title": "Bally",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bally.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-banca-sempione.yml",
+      "title": "Banca del Sempione",
+      "context": "jobs",
+      "summaryKey": "banca-del-sempione",
+      "description": "Crawler dedicato — Banca del Sempione.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bcvs.yml",
+      "title": "Banque Cantonale du Valais",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Banque Cantonale du Valais.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-benteler.yml",
+      "title": "Benteler",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Benteler.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-berit-klinik.yml",
+      "title": "Berit Klinik",
+      "context": "jobs",
+      "summaryKey": "berit-klinik",
+      "description": "Crawler dedicato — Berit Klinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-berner-klinik-montana.yml",
+      "title": "Berner Klinik Montana",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Berner Klinik Montana.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-berner-montage.yml",
+      "title": "Montagetechnik BERNER AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Montagetechnik BERNER AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bethesda-spital.yml",
+      "title": "Bethesda Spital Basel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bethesda Spital Basel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bitfinex.yml",
+      "title": "Bitfinex",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bitfinex.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bls.yml",
+      "title": "BLS AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — BLS AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bms-building.yml",
+      "title": "BMS Building Materials",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — BMS Building Materials.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-board.yml",
+      "title": "Board International",
+      "context": "jobs",
+      "summaryKey": "board-international",
+      "description": "Crawler dedicato — Board International.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bobst.yml",
+      "title": "Bobst",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bobst.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bosch.yml",
+      "title": "Bosch",
+      "context": "jobs",
+      "summaryKey": "bosch-thermotechnik-ag",
+      "description": "Crawler dedicato — Bosch.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bps-suisse.yml",
+      "title": "BPS Suisse",
+      "context": "jobs",
+      "summaryKey": "bps-suisse",
+      "description": "Crawler dedicato — BPS Suisse.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-bracco.yml",
+      "title": "Bracco Suisse",
+      "context": "jobs",
+      "summaryKey": "bracco-suisse",
+      "description": "Crawler dedicato — Bracco Suisse.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-buergenstock-hotels.yml",
+      "title": "Bürgenstock Hotels",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Bürgenstock Hotels.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-burkhalter.yml",
+      "title": "Burkhalter Group",
+      "context": "jobs",
+      "summaryKey": "burkhalter-group",
+      "description": "Crawler dedicato — Burkhalter Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cambiavalute.yml",
+      "title": "CambiaValute.ch",
+      "context": "jobs",
+      "summaryKey": "cambiavalute-ch",
+      "description": "Crawler dedicato — CambiaValute.ch.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-canton-ticino-osc.yml",
+      "title": "Canton Ticino OSC",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Canton Ticino OSC.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-canton-valais.yml",
+      "title": "Canton du Valais",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Canton du Valais.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-capri-holdings.yml",
+      "title": "Capri Holdings",
+      "context": "jobs",
+      "summaryKey": "capri-holdings",
+      "description": "Crawler dedicato — Capri Holdings.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-caritas-schweiz.yml",
+      "title": "Caritas Schweiz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Caritas Schweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-casale.yml",
+      "title": "Casale SA",
+      "context": "jobs",
+      "summaryKey": "casale-sa",
+      "description": "Crawler dedicato — Casale SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-caseificio-gottardo.yml",
+      "title": "Caseificio del Gottardo",
+      "context": "jobs",
+      "summaryKey": "caseificio-del-gottardo",
+      "description": "Crawler dedicato — Caseificio del Gottardo.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cds-savognin.yml",
+      "title": "CDS Savognin",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CDS Savognin.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cedes.yml",
+      "title": "CEDES",
+      "context": "jobs",
+      "summaryKey": "cedes",
+      "description": "Crawler dedicato — CEDES.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-centiel.yml",
+      "title": "Centiel",
+      "context": "jobs",
+      "summaryKey": "centiel",
+      "description": "Crawler dedicato — Centiel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cerbios-pharma.yml",
+      "title": "Cerbios-Pharma",
+      "context": "jobs",
+      "summaryKey": "cerbios-pharma-sa",
+      "description": "Crawler dedicato — Cerbios-Pharma.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cereneo.yml",
+      "title": "Cereneo",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Cereneo.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-chicco-doro.yml",
+      "title": "Chicco d'Oro",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Chicco d'Oro.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-citta-di-bellinzona.yml",
+      "title": "Città di Bellinzona",
+      "context": "jobs",
+      "summaryKey": "bellinzona",
+      "description": "Crawler dedicato — Città di Bellinzona.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-citta-di-locarno.yml",
+      "title": "Città di Locarno",
+      "context": "jobs",
+      "summaryKey": "locarno",
+      "description": "Crawler dedicato — Città di Locarno.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-citta-di-lugano.yml",
+      "title": "Città di Lugano",
+      "context": "jobs",
+      "summaryKey": "citt-di-lugano",
+      "description": "Crawler dedicato — Città di Lugano.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-claraspital.yml",
+      "title": "St. Claraspital (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — St. Claraspital (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cler.yml",
+      "title": "Cler",
+      "context": "jobs",
+      "summaryKey": "banca-cler",
+      "description": "Crawler dedicato — Cler.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clienia-ag.yml",
+      "title": "Clienia AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clienia AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinica-hildebrand.yml",
+      "title": "Clinica Hildebrand",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinica Hildebrand.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinica-holistica-engiadina.yml",
+      "title": "Clinica Holistica Engiadina (Susch)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinica Holistica Engiadina (Susch).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinica-varini.yml",
+      "title": "Clinica Varini",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinica Varini.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-cic.yml",
+      "title": "Clinique CIC (Saxon & Clarens)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique CIC (Saxon & Clarens).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-de-genolier.yml",
+      "title": "Clinique de Genolier",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique de Genolier.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-de-la-plaine.yml",
+      "title": "Clinique de la Plaine",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique de la Plaine.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-de-montchoisi.yml",
+      "title": "Clinique de Montchoisi",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique de Montchoisi.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-de-valere.yml",
+      "title": "Clinique de Valère",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique de Valère.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-generale-beaulieu.yml",
+      "title": "Clinique Générale-Beaulieu",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique Générale-Beaulieu.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-generale-ste-anne.yml",
+      "title": "Clinique Générale Ste-Anne",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique Générale Ste-Anne.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-la-source.yml",
+      "title": "Clinique de La Source",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Clinique de La Source.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-clinique-le-noirmont.yml",
+      "title": "Clinique Le Noirmont",
+      "context": "jobs",
+      "summaryKey": "clinique-le-noirmont",
+      "description": "Crawler dedicato — Clinique Le Noirmont.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cnp.yml",
+      "title": "CNP Centre Neuchâtelois de Psychiatrie (jobup)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CNP Centre Neuchâtelois de Psychiatrie (jobup).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-colin-cie.yml",
+      "title": "Colin&Cie",
+      "context": "jobs",
+      "summaryKey": "colin-cie-wealth-management",
+      "description": "Crawler dedicato — Colin&Cie.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-concara.yml",
+      "title": "Concara (Domicil & Spitex Bern, Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Concara (Domicil & Spitex Bern, Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-confederazione.yml",
+      "title": "Confederazione Ticino",
+      "context": "jobs",
+      "summaryKey": "confederazione-ti-gr",
+      "description": "Crawler dedicato — Confederazione Ticino.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-constellium.yml",
+      "title": "Constellium Valais",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Constellium Valais.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-convit.yml",
+      "title": "Convit Holding",
+      "context": "jobs",
+      "summaryKey": "convit-holding",
+      "description": "Crawler dedicato — Convit Holding.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-coop.yml",
+      "title": "Coop",
+      "context": "jobs",
+      "summaryKey": "coop",
+      "description": "Crawler dedicato — Coop.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-coopers.yml",
+      "title": "Coopers Group AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Coopers Group AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-corner.yml",
+      "title": "Corner",
+      "context": "jobs",
+      "summaryKey": "corner",
+      "description": "Crawler dedicato — Corner.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-crr-suva-sion.yml",
+      "title": "CRR Suva (Clinique romande de réadaptation Sion)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CRR Suva (Clinique romande de réadaptation Sion).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cs-bregaglia.yml",
+      "title": "Centro Sanitario Bregaglia",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Centro Sanitario Bregaglia.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-csc-costruzioni.yml",
+      "title": "CSC Costruzioni",
+      "context": "jobs",
+      "summaryKey": "csc-costruzioni",
+      "description": "Crawler dedicato — CSC Costruzioni.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-csd-engineers.yml",
+      "title": "CSD ENGINEERS",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CSD ENGINEERS.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-cseb.yml",
+      "title": "Center da Sanadad Engiadina Bassa",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Center da Sanadad Engiadina Bassa.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-csl-behring.yml",
+      "title": "CSL Behring",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CSL Behring.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-csvm-mustair.yml",
+      "title": "CSVM Center da Sanda Val Müstair",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CSVM Center da Sanda Val Müstair.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-csvp-poschiavo.yml",
+      "title": "CSVP Centro Sanitario Valposchiavo",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — CSVP Centro Sanitario Valposchiavo.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-daler-hopital.yml",
+      "title": "Hôpital Daler (Fribourg)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital Daler (Fribourg).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-damiani.yml",
+      "title": "Damiani",
+      "context": "jobs",
+      "summaryKey": "damiani-group",
+      "description": "Crawler dedicato — Damiani.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-davos-klosters-bergbahnen.yml",
+      "title": "Davos Klosters Bergbahnen",
+      "context": "jobs",
+      "summaryKey": "davos-klosters-bergbahnen",
+      "description": "Crawler dedicato — Davos Klosters Bergbahnen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-debiopharm.yml",
+      "title": "Debiopharm",
+      "context": "jobs",
+      "summaryKey": "debiopharm",
+      "description": "Crawler dedicato — Debiopharm.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-decathlon.yml",
+      "title": "Decathlon",
+      "context": "jobs",
+      "summaryKey": "decathlon",
+      "description": "Crawler dedicato — Decathlon.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-delvitech.yml",
+      "title": "Delvitech",
+      "context": "jobs",
+      "summaryKey": "delvitech-sa",
+      "description": "Crawler dedicato — Delvitech.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-denner.yml",
+      "title": "Denner",
+      "context": "jobs",
+      "summaryKey": "denner",
+      "description": "Crawler dedicato — Denner.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-diakoniewerk-neumuenster.yml",
+      "title": "Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Diakoniewerk Neumünster (Gesundheitswelt Zollikerberg).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-dxt.yml",
+      "title": "DXT Commodities",
+      "context": "jobs",
+      "summaryKey": "dxt-commodities",
+      "description": "Crawler dedicato — DXT Commodities.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-efg.yml",
+      "title": "EFG",
+      "context": "jobs",
+      "summaryKey": "efg",
+      "description": "Crawler dedicato — EFG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ehc-vd.yml",
+      "title": "EHC (Ensemble hospitalier de la Côte)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — EHC (Ensemble hospitalier de la Côte).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ehnv.yml",
+      "title": "eHnv Étab. Hospitaliers Nord Vaudois",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — eHnv Étab. Hospitaliers Nord Vaudois.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-elettra-1938.yml",
+      "title": "Elettra 1938",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Elettra 1938.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ems-chemie.yml",
+      "title": "EMS-Chemie",
+      "context": "jobs",
+      "summaryKey": "ems-chemie-ag",
+      "description": "Crawler dedicato — EMS-Chemie.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-engadin-tourismus.yml",
+      "title": "Engadin Tourismus AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Engadin Tourismus AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-engelvoelkers.yml",
+      "title": "Engel & Völkers",
+      "context": "jobs",
+      "summaryKey": "engel-v-lkers",
+      "description": "Crawler dedicato — Engel & Völkers.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-entero.yml",
+      "title": "entero",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — entero.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-eoc.yml",
+      "title": "EOC",
+      "context": "jobs",
+      "summaryKey": "eoc",
+      "description": "Crawler dedicato — EOC.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-epfl.yml",
+      "title": "EPFL",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — EPFL.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-epi-stiftung.yml",
+      "title": "Schweizerische Epilepsie-Stiftung EPI (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Schweizerische Epilepsie-Stiftung EPI (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ergolz-klinik.yml",
+      "title": "Ergolz Klinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Ergolz Klinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-eth-zurich.yml",
+      "title": "ETH Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — ETH Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fart.yml",
+      "title": "FART",
+      "context": "jobs",
+      "summaryKey": "fart",
+      "description": "Crawler dedicato — FART.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-faulhaber.yml",
+      "title": "Faulhaber",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Faulhaber.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ferrovia-retica.yml",
+      "title": "Ferrovia Retica",
+      "context": "jobs",
+      "summaryKey": "ferrovia-retica-rhb",
+      "description": "Crawler dedicato — Ferrovia Retica.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fhgr.yml",
+      "title": "Fachhochschule Graubünden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fachhochschule Graubünden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fielmann.yml",
+      "title": "Fielmann Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fielmann Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fincons.yml",
+      "title": "Fincons",
+      "context": "jobs",
+      "summaryKey": "fincons-group",
+      "description": "Crawler dedicato — Fincons.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-flury-stiftung.yml",
+      "title": "Flury Stiftung",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Flury Stiftung.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fmi.yml",
+      "title": "Spitäler fmi",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spitäler fmi.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fnz.yml",
+      "title": "FNZ",
+      "context": "jobs",
+      "summaryKey": "fnz",
+      "description": "Crawler dedicato — FNZ.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fondation-domus.yml",
+      "title": "Fondation Domus",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fondation Domus.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-forel-klinik.yml",
+      "title": "Forel Klinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Forel Klinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-franklin-university.yml",
+      "title": "Franklin University Switzerland",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Franklin University Switzerland.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fusalp.yml",
+      "title": "Fusalp",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fusalp.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-fust.yml",
+      "title": "Fust",
+      "context": "jobs",
+      "summaryKey": "fust",
+      "description": "Crawler dedicato — Fust.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-galenica.yml",
+      "title": "Galenica",
+      "context": "jobs",
+      "summaryKey": "galenica",
+      "description": "Crawler dedicato — Galenica.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gemeinde-st-moritz.yml",
+      "title": "Gemeinde St. Moritz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Gemeinde St. Moritz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gesundheitsnetz-kuesnacht.yml",
+      "title": "Gesundheitsnetz Küsnacht",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Gesundheitsnetz Küsnacht.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gesundheitszentrum-fricktal.yml",
+      "title": "Gesundheitszentrum Fricktal",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Gesundheitszentrum Fricktal.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ghol.yml",
+      "title": "GHOL (Nyon)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — GHOL (Nyon).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-giardino.yml",
+      "title": "Giardino Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Giardino Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-giorgio-armani.yml",
+      "title": "Giorgio Armani",
+      "context": "jobs",
+      "summaryKey": "giorgio-armani-s-p-a",
+      "description": "Crawler dedicato — Giorgio Armani.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-givaudan.yml",
+      "title": "Givaudan",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Givaudan.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gkb.yml",
+      "title": "Graubündner Kantonalbank",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Graubündner Kantonalbank.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-goline.yml",
+      "title": "GOLINE",
+      "context": "jobs",
+      "summaryKey": "goline-sa",
+      "description": "Crawler dedicato — GOLINE.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-grace.yml",
+      "title": "Grace La Margna",
+      "context": "jobs",
+      "summaryKey": "grace-la-margna-st-moritz",
+      "description": "Crawler dedicato — Grace La Margna.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-groupe-mutuel.yml",
+      "title": "Groupe Mutuel",
+      "context": "jobs",
+      "summaryKey": "groupe-mutuel",
+      "description": "Crawler dedicato — Groupe Mutuel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-guess.yml",
+      "title": "Guess",
+      "context": "jobs",
+      "summaryKey": "guess",
+      "description": "Crawler dedicato — Guess.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gz-dielsdorf.yml",
+      "title": "Gesundheitszentrum Dielsdorf",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Gesundheitszentrum Dielsdorf.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-gzo-wetzikon.yml",
+      "title": "GZO Spital Wetzikon",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — GZO Spital Wetzikon.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-h-ju-hopital-du-jura.yml",
+      "title": "H-JU Hôpital du Jura",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — H-JU Hôpital du Jura.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hamilton.yml",
+      "title": "Hamilton Bonaduz AG",
+      "context": "jobs",
+      "summaryKey": "hamilton-bonaduz-ag",
+      "description": "Crawler dedicato — Hamilton Bonaduz AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-has-healthcare.yml",
+      "title": "HAS Healthcare",
+      "context": "jobs",
+      "summaryKey": "has-healthcare",
+      "description": "Crawler dedicato — HAS Healthcare.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-heineken-ch.yml",
+      "title": "Heineken Switzerland",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Heineken Switzerland.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-helsinn.yml",
+      "title": "Helsinn Healthcare SA",
+      "context": "jobs",
+      "summaryKey": "helsinn-healthcare-sa",
+      "description": "Crawler dedicato — Helsinn Healthcare SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hes-so-valais.yml",
+      "title": "HES-SO Valais",
+      "context": "jobs",
+      "summaryKey": "hes-so-valais-wallis",
+      "description": "Crawler dedicato — HES-SO Valais.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hfr-hopital-fribourgeois.yml",
+      "title": "HFR Hôpital fribourgeois",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — HFR Hôpital fribourgeois.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hib.yml",
+      "title": "HIB (Hôpital Intercantonal de la Broye)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — HIB (Hôpital Intercantonal de la Broye).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hilcona.yml",
+      "title": "Hilcona",
+      "context": "jobs",
+      "summaryKey": "hilcona",
+      "description": "Crawler dedicato — Hilcona.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hirslanden.yml",
+      "title": "Hirslanden Klinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hirslanden Klinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hitachi-energy.yml",
+      "title": "Hitachi Energy jobs",
+      "context": "jobs",
+      "summaryKey": "hitachi-energy",
+      "description": "Crawler dedicato — Hitachi Energy jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-hoch-health.yml",
+      "title": "HOCH Health Ostschweiz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — HOCH Health Ostschweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hochgebirgsklinik-davos.yml",
+      "title": "Hochgebirgsklinik Davos",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hochgebirgsklinik Davos.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hofweissbad.yml",
+      "title": "Hof Weissbad",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hof Weissbad.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-holcim.yml",
+      "title": "Holcim Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Holcim Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hopital-de-lavaux.yml",
+      "title": "Hôpital de Lavaux",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital de Lavaux.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hopital-de-moutier.yml",
+      "title": "Hôpital de Moutier",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital de Moutier.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hopital-du-valais.yml",
+      "title": "Hôpital du Valais",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital du Valais.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hopital-la-tour.yml",
+      "title": "Hôpital de La Tour (Meyrin)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital de La Tour (Meyrin).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hoval.yml",
+      "title": "Hoval jobs",
+      "context": "jobs",
+      "summaryKey": "hoval",
+      "description": "Crawler dedicato — Hoval jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-hrc.yml",
+      "title": "HRC (Hôpital Riviera-Chablais)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — HRC (Hôpital Riviera-Chablais).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hug.yml",
+      "title": "HUG — Hôpitaux Universitaires de Genève",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — HUG — Hôpitaux Universitaires de Genève.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-hugo-boss.yml",
+      "title": "Hugo Boss",
+      "context": "jobs",
+      "summaryKey": "hugo-boss",
+      "description": "Crawler dedicato — Hugo Boss.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-huntsman.yml",
+      "title": "Huntsman Corporation",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Huntsman Corporation.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ibsa.yml",
+      "title": "IBSA",
+      "context": "jobs",
+      "summaryKey": "ibsa",
+      "description": "Crawler dedicato — IBSA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-igs-bern.yml",
+      "title": "IGS Bern (Soteria)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — IGS Bern (Soteria).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ikea.yml",
+      "title": "IKEA Svizzera",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — IKEA Svizzera.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-imad.yml",
+      "title": "imad",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — imad.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-imerys.yml",
+      "title": "Imerys",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Imerys.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-institution-lavigny.yml",
+      "title": "Institution de Lavigny",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Institution de Lavigny.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-integra-biosciences.yml",
+      "title": "INTEGRA Biosciences",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — INTEGRA Biosciences.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-interdiscount.yml",
+      "title": "Interdiscount",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Interdiscount.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-interroll.yml",
+      "title": "Interroll Group",
+      "context": "jobs",
+      "summaryKey": "interroll-group",
+      "description": "Crawler dedicato — Interroll Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ipw.yml",
+      "title": "ipw (Integrierte Psychiatrie Winterthur)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — ipw (Integrierte Psychiatrie Winterthur).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ist.yml",
+      "title": "IST",
+      "context": "jobs",
+      "summaryKey": "ist",
+      "description": "Crawler dedicato — IST.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-julius-baer.yml",
+      "title": "Julius Baer",
+      "context": "jobs",
+      "summaryKey": "julius-baer",
+      "description": "Crawler dedicato — Julius Baer.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-jumbo.yml",
+      "title": "JUMBO",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — JUMBO.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-jysk.yml",
+      "title": "JYSK",
+      "context": "jobs",
+      "summaryKey": "jysk",
+      "description": "Crawler dedicato — JYSK.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kanton-gr.yml",
+      "title": "Kantonale Verwaltung Graubünden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonale Verwaltung Graubünden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kantonsspital-uri.yml",
+      "title": "Kantonsspital Uri (rexx)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital Uri (rexx).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kempinski.yml",
+      "title": "Kempinski Switzerland",
+      "context": "jobs",
+      "summaryKey": "grand-hotel-des-bains-kempinski-st-moritz",
+      "description": "Crawler dedicato — Kempinski Switzerland.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kispi-sg.yml",
+      "title": "Ostschweizer Kinderspital (Kispi SG)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Ostschweizer Kinderspital (Kispi SG).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kispi-zurich.yml",
+      "title": "Universitäts-Kinderspital Zürich (Kispi)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Universitäts-Kinderspital Zürich (Kispi).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kispi.yml",
+      "title": "Kispi",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kispi.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-aadorf.yml",
+      "title": "Klinik Aadorf",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Aadorf.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-adelheid.yml",
+      "title": "Klinik Adelheid (bespoke CMS)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Adelheid (bespoke CMS).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-arlesheim.yml",
+      "title": "Klinik Arlesheim",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Arlesheim.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-barmelweid.yml",
+      "title": "Klinik Barmelweid",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Barmelweid.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-gut.yml",
+      "title": "Klinik Gut",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Gut.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-im-hasel.yml",
+      "title": "Klinik im Hasel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik im Hasel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-lengg.yml",
+      "title": "Klinik Lengg (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Lengg (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-schloss-mammern.yml",
+      "title": "Klinik Schloss Mammern (WP sitemap)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Schloss Mammern (WP sitemap).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-schoenberg.yml",
+      "title": "Klinik Schönberg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Schönberg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-schuetzen.yml",
+      "title": "Klinik Schützen Rheinfelden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Schützen Rheinfelden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-seeschau.yml",
+      "title": "Klinik Seeschau",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Seeschau.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-sgm.yml",
+      "title": "Klinik SGM",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik SGM.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-siloah.yml",
+      "title": "Klinik Siloah",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Siloah.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-sonnenhalde.yml",
+      "title": "Klinik Sonnenhalde Riehen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Sonnenhalde Riehen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-susenberg.yml",
+      "title": "Klinik Susenberg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Susenberg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-klinik-wyssholzli.yml",
+      "title": "Klinik Wysshölzli",
+      "context": "jobs",
+      "summaryKey": "klinik-wyssh-lzli",
+      "description": "Crawler dedicato — Klinik Wysshölzli.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kliniken-valens.yml",
+      "title": "Kliniken Valens (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kliniken Valens (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-knowledge-lab.yml",
+      "title": "Knowledge Lab jobs",
+      "context": "jobs",
+      "summaryKey": "knowledge-lab",
+      "description": "Crawler dedicato — Knowledge Lab jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-kone.yml",
+      "title": "KONE",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — KONE.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kronenhof.yml",
+      "title": "Grand Hotel Kronenhof",
+      "context": "jobs",
+      "summaryKey": "grand-hotel-kronenhof",
+      "description": "Crawler dedicato — Grand Hotel Kronenhof.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksa.yml",
+      "title": "Kantonsspital Aarau (KSA)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital Aarau (KSA).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksb.yml",
+      "title": "KSB (Kantonsspital Baden)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — KSB (Kantonsspital Baden).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksbl.yml",
+      "title": "KSBL Kantonsspital Baselland",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — KSBL Kantonsspital Baselland.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksgl.yml",
+      "title": "Kantonsspital Glarus (KSGL)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital Glarus (KSGL).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksgr.yml",
+      "title": "KSGR",
+      "context": "jobs",
+      "summaryKey": "ksgr-jobs",
+      "description": "Crawler dedicato — KSGR.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksow.yml",
+      "title": "Kantonsspital Obwalden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital Obwalden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kssg.yml",
+      "title": "Kantonsspital St. Gallen (KSSG / HOCH)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital St. Gallen (KSSG / HOCH).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ksw.yml",
+      "title": "Kantonsspital Winterthur (KSW)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kantonsspital Winterthur (KSW).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kudelski-nagra.yml",
+      "title": "Kudelski NAGRA",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kudelski NAGRA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kulm-hotel.yml",
+      "title": "Kulm Hotel St. Moritz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Kulm Hotel St. Moritz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-kzu.yml",
+      "title": "KZU",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — KZU.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-laderach.yml",
+      "title": "Läderach",
+      "context": "jobs",
+      "summaryKey": "l-derach",
+      "description": "Crawler dedicato — Läderach.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lafonte.yml",
+      "title": "La Fonte",
+      "context": "jobs",
+      "summaryKey": "la-fonte",
+      "description": "Crawler dedicato — La Fonte.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lastminute.yml",
+      "title": "lastminute.com",
+      "context": "jobs",
+      "summaryKey": "lastminute-com",
+      "description": "Crawler dedicato — lastminute.com.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-leukerbad-clinic.yml",
+      "title": "Leukerbad Clinic",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Leukerbad Clinic.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lhm-luzerner-hohenklinik-montana.yml",
+      "title": "LHM (Luzerner Höhenklinik Montana)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — LHM (Luzerner Höhenklinik Montana).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lidl.yml",
+      "title": "Lidl",
+      "context": "jobs",
+      "summaryKey": "lidl",
+      "description": "Crawler dedicato — Lidl.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lindenhofgruppe.yml",
+      "title": "Lindenhofgruppe",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Lindenhofgruppe.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-linnea.yml",
+      "title": "Linnea SA",
+      "context": "jobs",
+      "summaryKey": "linnea-sa",
+      "description": "Crawler dedicato — Linnea SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lis.yml",
+      "title": "LIS",
+      "context": "jobs",
+      "summaryKey": "lis",
+      "description": "Crawler dedicato — LIS.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-livingcircle.yml",
+      "title": "The Living Circle",
+      "context": "jobs",
+      "summaryKey": "the-living-circle",
+      "description": "Crawler dedicato — The Living Circle.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-localsearch.yml",
+      "title": "localsearch",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — localsearch.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-logitech.yml",
+      "title": "Logitech",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Logitech.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lombard-odier.yml",
+      "title": "Lombard Odier",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Lombard Odier.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lombardi.yml",
+      "title": "Lombardi Group",
+      "context": "jobs",
+      "summaryKey": "lombardi-group",
+      "description": "Crawler dedicato — Lombardi Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lonza.yml",
+      "title": "Lonza",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Lonza.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-luks.yml",
+      "title": "Luzerner Kantonsspital (LUKS)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Luzerner Kantonsspital (LUKS).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lups.yml",
+      "title": "Luzerner Psychiatrie (LUPS)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Luzerner Psychiatrie (LUPS).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-lwphr.yml",
+      "title": "LWPHR",
+      "context": "jobs",
+      "summaryKey": "lwphr",
+      "description": "Crawler dedicato — LWPHR.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mabetex.yml",
+      "title": "Mabetex Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Mabetex Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-manor.yml",
+      "title": "Manor",
+      "context": "jobs",
+      "summaryKey": "manor",
+      "description": "Crawler dedicato — Manor.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-marriott.yml",
+      "title": "Marriott International",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Marriott International.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-matterhorn-gotthard-bahn.yml",
+      "title": "Matterhorn Gotthard Bahn",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Matterhorn Gotthard Bahn.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-medacta.yml",
+      "title": "Medacta",
+      "context": "jobs",
+      "summaryKey": "medacta",
+      "description": "Crawler dedicato — Medacta.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-medartis.yml",
+      "title": "Medartis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Medartis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-medics-labor.yml",
+      "title": "Medics Labor AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Medics Labor AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-medtronic.yml",
+      "title": "Medtronic",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Medtronic.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mendrisio.yml",
+      "title": "Città di Mendrisio",
+      "context": "jobs",
+      "summaryKey": "citt-di-mendrisio",
+      "description": "Crawler dedicato — Città di Mendrisio.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-merian-iselin.yml",
+      "title": "Merian Iselin Klinik Basel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Merian Iselin Klinik Basel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-michel-gruppe.yml",
+      "title": "Michel Gruppe AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Michel Gruppe AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-migros-hq.yml",
+      "title": "Migros HQ Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Migros HQ Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-migros.yml",
+      "title": "Migros",
+      "context": "jobs",
+      "summaryKey": "migros",
+      "description": "Crawler dedicato — Migros.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mikron.yml",
+      "title": "Mikron",
+      "context": "jobs",
+      "summaryKey": "mikron",
+      "description": "Crawler dedicato — Mikron.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mkspamp.yml",
+      "title": "MKS PAMP",
+      "context": "jobs",
+      "summaryKey": "mks-pamp",
+      "description": "Crawler dedicato — MKS PAMP.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mobiliar.yml",
+      "title": "die Mobiliar",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — die Mobiliar.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-modellstation-somosa.yml",
+      "title": "Modellstation SOMOSA",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Modellstation SOMOSA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-moncucco.yml",
+      "title": "Gruppo Ospedaliero Moncucco",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Gruppo Ospedaliero Moncucco.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-msc-cargo.yml",
+      "title": "MSC Cargo",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — MSC Cargo.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-mtic.yml",
+      "title": "MTIC Group",
+      "context": "jobs",
+      "summaryKey": "mtic-group",
+      "description": "Crawler dedicato — MTIC Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-nant.yml",
+      "title": "Fondation de Nant",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fondation de Nant.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-nestle.yml",
+      "title": "Nestlé",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Nestlé.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-novartis.yml",
+      "title": "Novartis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Novartis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-novelis.yml",
+      "title": "Novelis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Novelis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-nsn-medical.yml",
+      "title": "NSN Medical",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — NSN Medical.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-octapharma.yml",
+      "title": "Octapharma",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Octapharma.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-oerlikon.yml",
+      "title": "Oerlikon",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Oerlikon.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-omega.yml",
+      "title": "OMEGA SA",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — OMEGA SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ophtalmique.yml",
+      "title": "Hôpital ophtalmique Jules-Gonin",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Hôpital ophtalmique Jules-Gonin.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-oscam-castelrotto.yml",
+      "title": "OSCAM Castelrotto",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — OSCAM Castelrotto.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-oscam.yml",
+      "title": "OSCAM",
+      "context": "jobs",
+      "summaryKey": "oscam",
+      "description": "Crawler dedicato — OSCAM.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-otis.yml",
+      "title": "Otis",
+      "context": "jobs",
+      "summaryKey": "otis",
+      "description": "Crawler dedicato — Otis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pallas-kliniken.yml",
+      "title": "Pallas Kliniken",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Pallas Kliniken.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-palliativklinik.yml",
+      "title": "Palliativklinik im Park",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Palliativklinik im Park.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-paraplegie.yml",
+      "title": "Schweizer Paraplegiker-Gruppe",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Schweizer Paraplegiker-Gruppe.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pbl.yml",
+      "title": "Psychiatrie Baselland",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Psychiatrie Baselland.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pdag.yml",
+      "title": "PDAG (Psychiatrische Dienste Aargau)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — PDAG (Psychiatrische Dienste Aargau).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pdgr.yml",
+      "title": "Psychiatrische Dienste Graubünden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Psychiatrische Dienste Graubünden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pemsa.yml",
+      "title": "PEMSA",
+      "context": "jobs",
+      "summaryKey": "pemsa",
+      "description": "Crawler dedicato — PEMSA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pictet.yml",
+      "title": "Pictet Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Pictet Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pigna.yml",
+      "title": "Stiftung Pigna",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stiftung Pigna.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pizzarotti.yml",
+      "title": "Pizzarotti",
+      "context": "jobs",
+      "summaryKey": "impresa-pizzarotti-c-s-p-a",
+      "description": "Crawler dedicato — Pizzarotti.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pole-sante-pays-enhaut.yml",
+      "title": "Pôle Santé Pays-d'Enhaut (PSPE)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Pôle Santé Pays-d'Enhaut (PSPE).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-postch.yml",
+      "title": "Post.ch",
+      "context": "jobs",
+      "summaryKey": "post-ch",
+      "description": "Crawler dedicato — Post.ch.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-postfinance.yml",
+      "title": "PostFinance",
+      "context": "jobs",
+      "summaryKey": "postfinance",
+      "description": "Crawler dedicato — PostFinance.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-prada.yml",
+      "title": "Prada Group",
+      "context": "jobs",
+      "summaryKey": "prada-group",
+      "description": "Crawler dedicato — Prada Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-privatklinik-bethanien.yml",
+      "title": "Privatklinik Bethanien",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Bethanien.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-privatklinik-hohenegg.yml",
+      "title": "Privatklinik Hohenegg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Hohenegg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-privatklinik-meiringen.yml",
+      "title": "Privatklinik Meiringen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Meiringen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-privatklinik-obach.yml",
+      "title": "Privatklinik Obach",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Obach.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-privatklinik-wyss.yml",
+      "title": "Privatklinik Wyss",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Wyss.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-prosenectute-ti.yml",
+      "title": "Pro Senectute Ticino",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Pro Senectute Ticino.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-psgn.yml",
+      "title": "Psychiatrie St.Gallen (PSGN)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Psychiatrie St.Gallen (PSGN).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-puk-zuerich.yml",
+      "title": "PUK Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — PUK Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-pwc.yml",
+      "title": "PwC jobs",
+      "context": "jobs",
+      "summaryKey": "pwc",
+      "description": "Crawler dedicato — PwC jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-pzm-muensingen.yml",
+      "title": "Psychiatriezentrum Münsingen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Psychiatriezentrum Münsingen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-raiffeisen-vc.yml",
+      "title": "Raiffeisen VC",
+      "context": "jobs",
+      "summaryKey": "raiffeisen-vc",
+      "description": "Crawler dedicato — Raiffeisen VC.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rapelli.yml",
+      "title": "Rapelli",
+      "context": "jobs",
+      "summaryKey": "rapelli",
+      "description": "Crawler dedicato — Rapelli.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-reboot-monkey.yml",
+      "title": "Reboot Monkey",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Reboot Monkey.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-reha-andeer.yml",
+      "title": "Reha Andeer",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Reha Andeer.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-reha-bellikon.yml",
+      "title": "Reha Bellikon",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Reha Bellikon.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rehab-basel.yml",
+      "title": "REHAB Basel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — REHAB Basel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rehaklinik-hasliberg.yml",
+      "title": "Rehaklinik Hasliberg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Rehaklinik Hasliberg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-relewant.yml",
+      "title": "ReleWant",
+      "context": "jobs",
+      "summaryKey": "relewant",
+      "description": "Crawler dedicato — ReleWant.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rennbahnklinik.yml",
+      "title": "Rennbahnklinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Rennbahnklinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rfsm-fribourg.yml",
+      "title": "RFSM - Réseau fribourgeois santé mentale",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — RFSM - Réseau fribourgeois santé mentale.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rhne-reseau-hospitalier-neuchatelois.yml",
+      "title": "RHNE Réseau hospitalier neuchâtelois",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — RHNE Réseau hospitalier neuchâtelois.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-richemont.yml",
+      "title": "Richemont",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Richemont.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-riri.yml",
+      "title": "Riri Group",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Riri Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rittmeyer.yml",
+      "title": "Rittmeyer",
+      "context": "jobs",
+      "summaryKey": "rittmeyer-ag",
+      "description": "Crawler dedicato — Rittmeyer.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-riveneuve.yml",
+      "title": "Fondation Rive-Neuve",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fondation Rive-Neuve.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-roche.yml",
+      "title": "Roche",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Roche.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rsbj.yml",
+      "title": "RSBJ Réseau Santé Balcon du Jura Vaudois",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — RSBJ Réseau Santé Balcon du Jura Vaudois.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-rss-surselva.yml",
+      "title": "Regionalspital Surselva",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Regionalspital Surselva.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ruag.yml",
+      "title": "RUAG",
+      "context": "jobs",
+      "summaryKey": "ruag-ag",
+      "description": "Crawler dedicato — RUAG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-salina-reha.yml",
+      "title": "Salina Rehaklinik Rheinfelden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Salina Rehaklinik Rheinfelden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sanatorium-kilchberg.yml",
+      "title": "Sanatorium Kilchberg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Sanatorium Kilchberg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sbb.yml",
+      "title": "SBB",
+      "context": "jobs",
+      "summaryKey": "sbb",
+      "description": "Crawler dedicato — SBB.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-schindler.yml",
+      "title": "Schindler",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Schindler.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-schulthess-klinik.yml",
+      "title": "Schulthess Klinik (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Schulthess Klinik (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-see-spital.yml",
+      "title": "See-Spital",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — See-Spital.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-senevita.yml",
+      "title": "Senevita",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Senevita.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-siegfried.yml",
+      "title": "Siegfried",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Siegfried.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-siemens-healthineers.yml",
+      "title": "Siemens Healthineers",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Siemens Healthineers.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sika.yml",
+      "title": "Sika AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Sika AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sintetica.yml",
+      "title": "Sintetica SA",
+      "context": "jobs",
+      "summaryKey": "sintetica-sa",
+      "description": "Crawler dedicato — Sintetica SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-skyguide.yml",
+      "title": "Skyguide",
+      "context": "jobs",
+      "summaryKey": "skyguide",
+      "description": "Crawler dedicato — Skyguide.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sobi.yml",
+      "title": "Sobi",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Sobi.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-soh-solothurner-spitaeler.yml",
+      "title": "Solothurner Spitäler (soH)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Solothurner Spitäler (soH).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-solina.yml",
+      "title": "Solina (Stiftung Solina)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Solina (Stiftung Solina).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-solothurner-spitaeler.yml",
+      "title": "Solothurner Spitäler (soH)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Solothurner Spitäler (soH).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-somedia.yml",
+      "title": "Somedia AG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Somedia AG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sonnweid.yml",
+      "title": "Sonnweid (Pflegezentrum)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Sonnweid (Pflegezentrum).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spitaeler-schaffhausen.yml",
+      "title": "Spitäler Schaffhausen (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spitäler Schaffhausen (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-affoltern.yml",
+      "title": "Spital Affoltern",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Affoltern.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-buelach.yml",
+      "title": "Spital Bülach",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Bülach.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-davos.yml",
+      "title": "Spital Davos",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Davos.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-emmental.yml",
+      "title": "Spital Emmental",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Emmental.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-lachen.yml",
+      "title": "Spital Lachen (WP REST)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Lachen (WP REST).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-limmattal.yml",
+      "title": "Spital Limmattal",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Limmattal.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-maennedorf.yml",
+      "title": "Spital Männedorf",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Männedorf.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-muri.yml",
+      "title": "Spital Muri",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Muri.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-nidwalden.yml",
+      "title": "Spital Nidwalden",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Nidwalden.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-oberengadin.yml",
+      "title": "Spital Oberengadin",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Oberengadin.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-schwyz.yml",
+      "title": "Spital Schwyz (rexx)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Schwyz (rexx).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-sts.yml",
+      "title": "Spital STS",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital STS.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-thurgau.yml",
+      "title": "Spital Thurgau (STGAG)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Thurgau (STGAG).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-thusis.yml",
+      "title": "Spital Thusis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Thusis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-uster.yml",
+      "title": "Spital Uster",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Uster.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-zofingen.yml",
+      "title": "Spital Zofingen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Zofingen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spital-zollikerberg.yml",
+      "title": "Spital Zollikerberg",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spital Zollikerberg.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spitex-basel.yml",
+      "title": "SPITEX BASEL (Prospective)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — SPITEX BASEL (Prospective).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spitex-ch.yml",
+      "title": "Spitex Schweiz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spitex Schweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spitex-zuerich.yml",
+      "title": "Spitex Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spitex Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-spz.yml",
+      "title": "Schweizer Paraplegiker-Zentrum (SPZ)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Schweizer Paraplegiker-Zentrum (SPZ).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-srg-ssr.yml",
+      "title": "SRG SSR",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — SRG SSR.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sro.yml",
+      "title": "SRO AG (Spital Region Oberaargau)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — SRO AG (Spital Region Oberaargau).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stadler-rail.yml",
+      "title": "Stadler Rail",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stadler Rail.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stadt-chur.yml",
+      "title": "Stadt Chur",
+      "context": "jobs",
+      "summaryKey": "stadt-chur",
+      "description": "Crawler dedicato — Stadt Chur.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stadtspital-zuerich.yml",
+      "title": "Stadtspital Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stadtspital Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stgag.yml",
+      "title": "STGAG",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — STGAG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stiftung-diaconis.yml",
+      "title": "Stiftung Diaconis",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stiftung Diaconis.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stiftung-kind-autismus.yml",
+      "title": "Stiftung Kind und Autismus",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stiftung Kind und Autismus.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-stryker.yml",
+      "title": "Stryker Medical Devices Schweiz",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stryker Medical Devices Schweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-suchtfachstelle-zuerich.yml",
+      "title": "Suchtfachstelle Zürich",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Suchtfachstelle Zürich.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-suchthilfe-region-basel.yml",
+      "title": "Suchthilfe Region Basel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Suchthilfe Region Basel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-suedhang.yml",
+      "title": "Klinik Südhang",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Klinik Südhang.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sulzer.yml",
+      "title": "Sulzer",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Sulzer.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sune-egge.yml",
+      "title": "Fachspital Sune-Egge",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Fachspital Sune-Egge.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-sunrise.yml",
+      "title": "Sunrise",
+      "context": "jobs",
+      "summaryKey": "sunrise-communications-ag",
+      "description": "Crawler dedicato — Sunrise.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-supsi.yml",
+      "title": "SUPSI",
+      "context": "jobs",
+      "summaryKey": "supsi",
+      "description": "Crawler dedicato — SUPSI.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-svar-spitalverbund-ar.yml",
+      "title": "SVAR Spitalverbund AR",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — SVAR Spitalverbund AR.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-swatchgroup.yml",
+      "title": "Swatch Group",
+      "context": "jobs",
+      "summaryKey": "swatch-group",
+      "description": "Crawler dedicato — Swatch Group.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-swiss-life.yml",
+      "title": "Swiss Life",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Swiss Life.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-swiss-medical-network.yml",
+      "title": "Swiss Medical Network",
+      "context": "jobs",
+      "summaryKey": "swiss-medical-network",
+      "description": "Crawler dedicato — Swiss Medical Network.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-swiss-re.yml",
+      "title": "Swiss Re",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Swiss Re.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-swisscom.yml",
+      "title": "Swisscom",
+      "context": "jobs",
+      "summaryKey": "swisscom-ticino",
+      "description": "Crawler dedicato — Swisscom.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-szb-chb.yml",
+      "title": "Spitalzentrum Biel / Centre hospitalier Bienne",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Spitalzentrum Biel / Centre hospitalier Bienne.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tally-weijl.yml",
+      "title": "TALLY WEiJL",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — TALLY WEiJL.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tarchini-group.yml",
+      "title": "Tarchini Group jobs",
+      "context": "jobs",
+      "summaryKey": "tarchini-group",
+      "description": "Crawler dedicato — Tarchini Group jobs.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null
+    },
+    {
+      "id": "update-jobs-tecan.yml",
+      "title": "Tecan",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Tecan.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tertianum.yml",
+      "title": "Tertianum",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Tertianum.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tether.yml",
+      "title": "Tether Operations",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Tether Operations.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-therapiezentrum-meggen.yml",
+      "title": "Therapiezentrum Meggen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Therapiezentrum Meggen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-thurklinik.yml",
+      "title": "Thurklinik",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Thurklinik.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tich.yml",
+      "title": "Ti.CH",
+      "context": "jobs",
+      "summaryKey": "tich",
+      "description": "Crawler dedicato — Ti.CH.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tinext.yml",
+      "title": "Tinext",
+      "context": "jobs",
+      "summaryKey": "tinext-sa",
+      "description": "Crawler dedicato — Tinext.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tpl-lugano.yml",
+      "title": "TPL Lugano",
+      "context": "jobs",
+      "summaryKey": "tpl-lugano",
+      "description": "Crawler dedicato — TPL Lugano.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-transgourmet.yml",
+      "title": "Transgourmet",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Transgourmet.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-triaplus.yml",
+      "title": "Triaplus",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Triaplus.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-trumpf.yml",
+      "title": "TRUMPF Schweiz",
+      "context": "jobs",
+      "summaryKey": "trumpf-schweiz-ag",
+      "description": "Crawler dedicato — TRUMPF Schweiz.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tschuggen.yml",
+      "title": "Tschuggen Collection",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Tschuggen Collection.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-tsmg.yml",
+      "title": "TSMG",
+      "context": "jobs",
+      "summaryKey": "tsmg",
+      "description": "Crawler dedicato — TSMG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ubp.yml",
+      "title": "Union Bancaire Privée",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Union Bancaire Privée.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ubs.yml",
+      "title": "UBS",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — UBS.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-ukbb.yml",
+      "title": "UKBB",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — UKBB.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-unispital-basel.yml",
+      "title": "Universitätsspital Basel",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Universitätsspital Basel.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-upd.yml",
+      "title": "Universitäre Psychiatrische Dienste Bern (UPD)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Universitäre Psychiatrische Dienste Bern (UPD).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-uroviva.yml",
+      "title": "Uroviva",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Uroviva.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-usi.yml",
+      "title": "USI",
+      "context": "jobs",
+      "summaryKey": "usi",
+      "description": "Crawler dedicato — USI.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-usz.yml",
+      "title": "Universitätsspital Zürich (USZ)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Universitätsspital Zürich (USZ).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vaudoise.yml",
+      "title": "Vaudoise Assurances",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Vaudoise Assurances.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vaxcyte.yml",
+      "title": "Vaxcyte",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Vaxcyte.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vf.yml",
+      "title": "VF",
+      "context": "jobs",
+      "summaryKey": "vf",
+      "description": "Crawler dedicato — VF.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-villa-im-park.yml",
+      "title": "Privatklinik Villa im Park",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Privatklinik Villa im Park.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vir-biotechnology.yml",
+      "title": "Vir Biotechnology",
+      "context": "jobs",
+      "summaryKey": "vir-biotechnology",
+      "description": "Crawler dedicato — Vir Biotechnology.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vista.yml",
+      "title": "Vista Augenpraxen & Kliniken",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Vista Augenpraxen & Kliniken.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vitrea-gesundheit.yml",
+      "title": "Vitrea Gesundheit",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Vitrea Gesundheit.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-viva-luzern.yml",
+      "title": "Viva Luzern",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Viva Luzern.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-volg.yml",
+      "title": "Volg / fenaco",
+      "context": "jobs",
+      "summaryKey": "volg-fenaco",
+      "description": "Crawler dedicato — Volg / fenaco.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-vtg.yml",
+      "title": "VTG",
+      "context": "jobs",
+      "summaryKey": "vtg",
+      "description": "Crawler dedicato — VTG.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-wagerenhof.yml",
+      "title": "Stiftung Wagerenhof",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Stiftung Wagerenhof.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-weisse-arena.yml",
+      "title": "Weisse Arena Gruppe",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Weisse Arena Gruppe.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-wuerth-international.yml",
+      "title": "Würth International",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Würth International.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zambon.yml",
+      "title": "Zambon Svizzera SA",
+      "context": "jobs",
+      "summaryKey": "zambon-svizzera-sa",
+      "description": "Crawler dedicato — Zambon Svizzera SA.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zegna.yml",
+      "title": "Zegna",
+      "context": "jobs",
+      "summaryKey": "zegna",
+      "description": "Crawler dedicato — Zegna.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zermatt-bergbahnen.yml",
+      "title": "Zermatt Bergbahnen",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Zermatt Bergbahnen.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zuger-kantonsspital.yml",
+      "title": "Zuger Kantonsspital (rexx)",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — Zuger Kantonsspital (rexx).",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zurich.yml",
+      "title": "Zurich Insurance",
+      "context": "jobs",
+      "summaryKey": "zurich",
+      "description": "Crawler dedicato — Zurich Insurance.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    },
+    {
+      "id": "update-jobs-zurzach-care.yml",
+      "title": "ZURZACH Care",
+      "context": "jobs",
+      "summaryKey": null,
+      "description": "Crawler dedicato — ZURZACH Care.",
+      "details": "Crawler dedicato con localizzazione 4 lingue.",
+      "expectedDuration": "5-20 min",
+      "schedule": null,
+      "defaultInputs": {
+        "strict_localization": "1"
+      }
+    }
+  ]
+}

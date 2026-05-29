@@ -1,0 +1,54 @@
+const e={"blog.article.primo-maggio-zurigo-basilea-2026.body1":`## In Kürze
+- 15'000 Demonstranten in Zürich, 2'500 in Basel
+- Isolierte Vandalismusakte in beiden Städten
+- Kritik an der Gesundheitsversorgung in Basel
+
+## Wichtige Fakten
+- **Was**: Maifeierlichkeiten
+- Wann: 1. Mai 2026
+- Wo: Zürich und Basel
+- Wer: Arbeiter und Gewerkschaften
+- Teilnehmerzahl: 15'000 in Zürich, 2'500 in Basel
+
+Der 1. Mai 2026 sah Tausende Menschen auf den Straßen von Zürich und Basel, um den Tag der Arbeit zu feiern. In Zürich nahmen etwa 15'000 Demonstranten am Umzug teil, der am Helvetiaplatz begann und durch die Innenstadt bis zur Sechseläutenplatz führte. Die Stadtpolizei berichtete, dass die Demonstration friedlich verlief, obwohl es vereinzelte Vandalismusakte gab. Unter den Teilnehmern befanden sich mehrere hundert Personen aus der autonomen linken Szene, die Böller und Rauchbomben warfen und Wände und Schaufenster mit Sprühfarbe beschmierten.
+
+In Basel nahmen etwa 2'500 Personen an der Demonstration teil, die ohne schwerwiegende Vorfälle verlief. Allerdings machte die Spitze des Umzugs eine nicht autorisierte Abweichung und Sprühfarbe wurde an die Fassade des Hotels Les Trois Rois geworfen. Die Demonstranten kritisierten die Arbeitsbedingungen des Gesundheitspersonals und behaupteten, dass die Krankenhäuser wie Unternehmen geführt werden und dass Einsparungen zu Lasten der Mitarbeiter gehen.
+
+### Politische Interventionen
+
+Bei der Demonstration in Zürich sprach die neue sozialistische Nationalrätin Michèle Dünki-Bättig, die Solidarität forderte und davor warnte, sich spalten zu lassen. In Biel sprach der Bundesrat Beat Jans über die Folgen eines Ja zur Initiative „Nein zu einer Schweiz mit 10 Millionen“, wobei er darauf hinwies, dass dies die bilaterale Weg gefährden und den Fachkräftemangel verschärfen würde. Die Bundesrätin Elisabeth Baume-Schneider sprach über Pflege, AHV und die Beziehungen zu Europa in Liestal.
+
+### Auswirkungen auf Grenzgänger
+
+Die Maifeierlichkeiten 2026 haben mehrere relevante Themen für Grenzgänger aufgezeigt. Die Kritik an der Gesundheitsversorgung und den Arbeitsbedingungen des Gesundheitspersonals könnte auch die Grenzgänger betreffen, die in diesem Sektor arbeiten. Zudem könnten die Aussagen der Politiker, die an den Demonstrationen teilnahmen, die zukünftigen Politik betreffend die Personenfreizügigkeit und die Arbeitskräftemanagement beeinflussen.
+
+Für Grenzgänger, die in der Schweiz arbeiten, ist es wichtig, über die sozialen und gesundheitlichen Politik des Landes sowie über politische Initiativen, die ihren Arbeitsplatz und ihre Lebensbedingungen beeinflussen könnten, auf dem Laufenden zu bleiben. Bei spezifischen Fragen können Sie den [Lohnrechner](nav:calculator) konsultieren, um eine Vorstellung von ihren finanziellen Einnahmen und Ausgaben zu erhalten.`,"blog.article.primo-maggio-zurigo-basilea-2026.body2":`Die Demonstrationen am 1. Mai 2026 in Zürich und Basel haben verschiedene relevante Fragen für die Arbeiter, einschließlich der Grenzgänger, aufgezeigt. In Zürich führte die Anwesenheit von mehreren hundert Personen aus der autonomen linken Szene zu vereinzelten Akten des Vandalismus, darunter das Werfen von Böllern und Rauchbomben sowie das Beschmieren von Wänden und Schaufenstern. Diese Aktionen könnten Auswirkungen auf die Sicherheit und die öffentliche Ordnung haben und indirekt auch die Grenzgänger betreffen, die in der Stadt leben und arbeiten.
+
+In Basel könnten die Kritik an der Gesundheitsversorgung und den Arbeitsbedingungen des medizinischen Personals direkte Auswirkungen auf die Grenzgänger haben, die in diesem Sektor tätig sind. Die Verwaltung der Krankenhäuser als Unternehmen und die Einsparungen zulasten der Mitarbeiter könnten zu schlechteren Arbeitsbedingungen und einer größeren Unzufriedenheit unter den Arbeitnehmern, einschließlich der Grenzgänger, führen.
+
+### Vergleich mit der vorherigen Situation
+
+Im Vergleich zu den vorherigen Jahren haben die Demonstrationen am 1. Mai 2026 eine zahlreiche Teilnahme und eine größere Präsenz von linken Gruppen gezeigt. Dies könnte auf eine Zunahme der Mobilisierung und des sozialen Protests hindeuten, was Auswirkungen auf die zukünftigen Politikbereiche Arbeit und Gesundheit haben könnte. Zudem könnten die Aussagen der Politiker, die an den Demonstrationen teilgenommen haben, die zukünftigen Politikbereiche betreffend die Personenfreizügigkeit und die Arbeitskräfteverwaltung beeinflussen.
+
+### Zukunftsszenarien
+
+Im Falle eines Ja zur Initiative „Nein zu einer Schweiz mit 10 Millionen“, wie der Bundesrat Beat Jans es formuliert hat, könnte dies die bilaterale Straße gefährden und den Arbeitskräftemangel verschärfen. Dies könnte direkte Auswirkungen auf die Grenzgänger haben, die möglicherweise ihre Arbeitsmöglichkeiten in der Schweiz eingeschränkt sehen. Zudem könnten die Kritik an der Gesundheitsversorgung und den Arbeitsbedingungen des medizinischen Personals zu Veränderungen in der Gesundheitspolitik führen, was indirekt auch die Grenzgänger betrifft, die in diesem Sektor tätig sind.
+
+Für die Grenzgänger, die in der Schweiz arbeiten, ist es wichtig, über die sozialen und gesundheitspolitischen Entwicklungen des Landes sowie über politische Initiativen informiert zu bleiben, die ihren Arbeitsplatz und ihre Lebensbedingungen beeinflussen könnten. Bei spezifischen Fragen kann der [Lohnrechner](nav:calculator) konsultiert werden, um einen Überblick über die eigenen finanziellen Einnahmen und Ausgaben zu erhalten.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.primo-maggio-zurigo-basilea-2026.body3":`Für die Grenzgänger, die in der Schweiz arbeiten, ist es wichtig, ihre Rechte und Pflichten im Zusammenhang mit Arbeit und Gesundheit zu kennen. Bei spezifischen Fragen können Sie den [Lohnrechner](nav:calculator) konsultieren, um einen Überblick über Ihre finanziellen Einnahmen und Ausgaben zu erhalten.
+
+### Verfahren für Grenzgänger
+
+1. Informationen zu sozialen und gesundheitlichen Politik einholen: Es ist wichtig, über die sozialen und gesundheitlichen Politik des Landes sowie über politische Initiativen informiert zu bleiben, die ihren Arbeitsplatz und ihre Lebensbedingungen beeinflussen könnten.
+2. Den Lohnrechner konsultieren: Um einen Überblick über Ihre finanziellen Einnahmen und Ausgaben zu erhalten, können Sie den [Lohnrechner](nav:calculator) konsultieren.
+3. **An Veranstaltungen teilnehmen**: Wenn Sie Ihre Meinung äußern und aktiv am sozialen und politischen Leben des Landes teilnehmen möchten, können Sie an den von Gewerkschaften und Arbeitnehmerverbänden organisierten Veranstaltungen und Initiativen teilnehmen.
+4. Über politische Initiativen informiert bleiben: Es ist wichtig, über politische Initiativen informiert zu bleiben, die ihren Arbeitsplatz und ihre Lebensbedingungen beeinflussen könnten, wie die Initiative „Nein zu einer Schweiz mit 10 Millionen Einwohnern“.
+5. Die Leitfäden und Tools der Website konsultieren: Für weitere Informationen und nützliche Tools können Sie die Leitfäden und Tools der Website konsultieren, wie den [Vergleich der Bewilligungen](nav:permit-compare) und den [Rentenrechner](nav:pension).
+
+### Letzter CTA
+
+Für weitere Informationen und nützliche Tools können Sie die Leitfäden und Tools der Website konsultieren, wie den [Lohnrechner](nav:calculator), den [Vergleich der Bewilligungen](nav:permit-compare) und den [Rentenrechner](nav:pension).
+
+*Quelle: [rsi.ch](https://www.rsi.ch/s/3709953)*`,"blog.article.primo-maggio-zurigo-basilea-2026.faq":'[{"q":"Welche waren die Hauptkritikpunkte an der Gesundheitsversorgung in Basel?","a":"Die Demonstranten in Basel kritisierten die Arbeitsbedingungen des Gesundheitspersonals und behaupteten, dass die Krankenhäuser wie Unternehmen geführt werden und dass Einsparungen zu Lasten der Mitarbeiter gehen. Sie kritisierten auch die „imperialistischen Kriege“ und das „patriarchalische System“."},{"q":"Welche Auswirkungen haben die Demonstrationen am 1. Mai 2026 auf Grenzgänger?","a":"Die Demonstrationen am 1. Mai 2026 haben verschiedene relevante Themen für Grenzgänger aufgezeigt, wie die Kritik an der Gesundheitsversorgung und den Arbeitsbedingungen des Gesundheitspersonals. Zudem könnten die Aussagen der an den Demonstrationen teilnehmenden Politiker die zukünftigen Politiken bezüglich der Personenfreizügigkeit und der Arbeitskräfteverwaltung beeinflussen."},{"q":"Was hat Bundesrat Beat Jans zur Initiative „Nein zu einer Schweiz mit 10 Millionen“ gesagt?","a":"Bundesrat Beat Jans hat erklärt, dass ein Ja zur Initiative „Nein zu einer Schweiz mit 10 Millionen“ dazu führen würde, dass das Abkommen über die Personenfreizügigkeit gekündigt werden müsste und die bilaterale Weg gefährden würde, was den Arbeitskräftemangel verschärfen würde."}]'};export{e as default};

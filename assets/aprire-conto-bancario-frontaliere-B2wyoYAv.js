@@ -1,0 +1,35 @@
+const e={"blog.article.aprire-conto-bancario-frontaliere.body1":`## TL;DR
+- Open a Swiss bank account to manage salary in CHF
+- Avoid high currency exchange fees with a Swiss account
+- Compare banks for best fees and services in Ticino
+
+## Key facts
+- **Cosa**: Aprire un conto bancario svizzero
+- **Quando**: Prima di iniziare a lavorare come lavoratore transfrontaliero
+- **Dove**: Canton Ticino, Svizzera
+- **Chi**: Lavoratori transfrontalieri
+- **Importo**: Costo annuale medio tra 150 e 250 CHF
+- **Scadenza**: Nessuna scadenza specifica
+- **Requisiti**: Contratto di lavoro, documento d'identità valido, permesso G
+- **Servizi**: Carte di debito/credito accettate in Svizzera e Italia
+
+Opening a Swiss bank account is one of the first necessities for those starting work as a cross-border worker in Ticino. This step is not only advisable for easier management of your salary in Swiss francs but also to save on currency exchange costs. However, the banking options in the Canton of Ticino are extensive, and choosing the right bank can make a significant difference in terms of costs and services.
+
+## Why open an account with a Swiss bank?
+The main reason many cross-border workers choose to open an account with a Swiss bank is to receive their salary in CHF. Receiving your salary in an Italian account often incurs high currency exchange fees and bank charges. Moreover, having a Swiss account makes it easier to manage other financial operations, such as recurring payments for expenses incurred in Switzerland.
+
+According to 2026 data, major banks operating in Ticino, such as UBS, Credit Suisse, Banca Stato, and Raiffeisen, offer accounts tailored to cross-border workers with an average annual cost ranging from 150 to 250 CHF, depending on the services included. Local banks such as BPS Suisse also sometimes offer advantageous conditions for cross-border workers.`,"blog.article.aprire-conto-bancario-frontaliere.body2":`## Which bank to choose in Ticino?
+The choice of bank mainly depends on your needs. If you require a basic account to receive your salary and make payments, a standard cross-border worker account might suffice. Management fees vary, but on average, they range between 10-15 CHF per month, with additional costs for credit or debit cards. For instance, UBS offers a basic package for cross-border workers starting at 12 CHF per month, while Banca Stato has a similar offer at approximately 10 CHF.
+
+💡 **Tip:** Look for banks that offer debit cards accepted in both Switzerland and Italy, such as Maestro cards or Visa and Mastercard credit cards. This will help you avoid issues when making purchases in both countries.
+
+⚠️ **Requirements to open an account:** Remember that to open an account, banks typically require an employment contract, a valid ID, and a G permit. Some banks may also ask for proof of residence in Italy, such as a utility bill or a registry certificate.`,"blog.article.aprire-conto-bancario-frontaliere.body3":`## How to choose the most convenient account?
+Here are some practical tips to help you choose the account that suits you best:
+
+- **Compare management fees:** Carefully evaluate the differences between banks, including costs for foreign currency transactions.
+- **Check included services:** Verify if the bank offers online banking access, free withdrawals from Swiss and international ATMs, or discounts for cross-border workers.
+- **Ask for recommendations:** Many cross-border workers choose banks with branches near border crossings like Ponte Tresa, Chiasso, or Gaggiolo for added convenience.
+
+Another important aspect is currency exchange. If you frequently transfer money from your Swiss account to your Italian account, check the fees and exchange rates applied. Some banks, such as Raiffeisen, offer competitive conditions for cross-border workers.
+
+💡 Practical suggestion: Use our [bank comparison tool](nav:banks) to find the account that best suits your needs. You can compare costs, cards, and services in just a few minutes.`,"blog.article.aprire-conto-bancario-frontaliere.faq":`[{"q":"What are the main reasons why border crossers choose to open an account with a Swiss bank?","a":"The main reasons are the receipt of salary in CHF without high exchange costs and bank fees, and the ease of handling financial transactions as recurring payments."},{"q":"What is the procedure to open an account in Switzerland if I do not yet have the G permit, but I already have the employment contract?","a":"If you don't have the G permit yet, you can start the process with your employment contract and a valid ID. Many Swiss banks, such as UBS and Banca Stato, agree to start the procedure, but the account will only be activated after the submission of the permit G. Some banks may also require a letter of intent from the employer."},{"q":"What documents are required to open an account in Switzerland as a border agent?","a":"To open an account in Switzerland, you must present a valid identity document, employment contract and G permit. Some banks also require proof of residence in Italy, such as a bill or a personal certificate."}]`};export{e as default};

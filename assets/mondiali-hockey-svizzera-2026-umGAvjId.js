@@ -1,0 +1,49 @@
+const e={"blog.article.mondiali-hockey-svizzera-2026.body1":`## En bref
+- Josi, Niederreiter, Hischier et Meier confirment leur participation
+- Suter déjà intégré, Kurashev en doute à cause d'une blessure
+- Mondiaux commencent le 15 mai 2026
+
+## Faits clés
+- **Quoi**: Confirmation de participation aux Mondiaux de hockey
+- Quand: 4 mai 2026
+- Où: Zurich et Fribourg
+- Qui: Roman Josi, Nino Niederreiter, Nico Hischier, Timo Meier
+- Montant: 5 joueurs de la NHL confirmés
+
+Roman Josi, Nino Niederreiter, Nico Hischier et Timo Meier ont officialisé leur participation aux Mondiaux de hockey 2026 qui se dérouleront à Zurich et Fribourg. La confirmation est arrivée par deux vidéos publiées par Swiss Ice Hockey sur ses réseaux sociaux. Josi, défenseur de Nashville, est très probablement destiné à devenir le capitaine de l'équipe entraînée par Jan Cadieux. Les trois autres joueurs, Niederreiter, Hischier et Meier, sont respectivement ailier de Winnipeg et attaquants des Diables du New Jersey.
+
+Ces quatre joueurs rejoignent Pius Suter, déjà intégré au groupe la semaine dernière. L'effectif suisse comprend désormais 29 joueurs, dont quatre provenant de Fribourg et cinq de Davos. Cependant, treize joueurs ont été exclus de la liste finale. Parmi eux, Jonas Siegenthaler est déjà forfait à cause d'une blessure, tandis que l'arrivée de Philipp Kurashev est incertaine en raison d'une blessure. Janis Moser et Kevin Fiala ne sont pas mentionnés, ce dernier étant encore en phase de récupération après une grave blessure à la jambe.
+
+### Implications pour les frontaliers
+Les Mondiaux de hockey représentent un événement de grande importance pour le canton du Tessin et pour les frontaliers qui vivent et travaillent dans la région. La présence de stars de la NHL comme Josi, Niederreiter, Hischier et Meier attire l'attention internationale et peut avoir un impact positif sur le tourisme et l'économie locale. Les frontaliers travaillant dans le secteur de l'hôtellerie et du tourisme pourraient bénéficier d'une augmentation de la demande de services pendant l'événement.
+
+De plus, la participation de ces joueurs suisses de haut niveau peut inspirer les jeunes talents locaux et renforcer le lien entre la communauté et le sport. Pour les frontaliers qui sont passionnés de hockey, l'événement représente une opportunité unique de voir en direct certaines des étoiles les plus brillantes du monde du hockey sur glace.`,"blog.article.mondiali-hockey-svizzera-2026.body2":`## Analyse des implications pratiques
+La participation de ces joueurs de haut niveau aux Championnats du monde de hockey 2026 a plusieurs implications pratiques pour les travailleurs frontaliers vivant et travaillant dans le canton du Tessin. Tout d'abord, l'événement représente une opportunité économique significative pour la région. L'afflux de touristes et de passionnés de hockey peut entraîner une augmentation de la demande de services de restauration, d'hébergement et de transport. Cela peut se traduire par de plus grandes opportunités de travail et des augmentations de salaire potentielles pour les frontaliers employés dans ces secteurs.
+
+### Comparaison avec la situation précédente
+Par rapport aux années précédentes, la présence de tant de joueurs de la NHL de niveau international représente une valeur ajoutée pour l'équipe suisse. Cela peut augmenter l'intérêt médiatique et l'affluence du public, avec des bénéfices économiques consécutifs pour la région. De plus, la participation de ces joueurs peut renforcer l'image du canton du Tessin comme destination touristique et sportive de premier plan.
+
+### Scénarios possibles
+Un scénario positif pourrait voir une augmentation significative du tourisme et de l'économie locale pendant les Championnats du monde. Cela pourrait conduire à une amélioration des infrastructures et à une augmentation des investissements dans la région. Cependant, il est important de considérer également les impacts négatifs possibles, tels que la surpopulation et l'augmentation des prix des services. Les frontaliers devraient être préparés à gérer ces défis et à s'adapter aux nouvelles dynamiques du marché du travail.
+
+### Procédures concrètes
+Pour les frontaliers qui souhaitent profiter des opportunités offertes par les Championnats du monde, il est important d'être bien informé sur les procédures pour obtenir d'éventuels permis de travail temporaires ou pour accéder à de nouvelles opportunités d'emploi. De plus, il est conseillé de surveiller les offres d'emploi et les opportunités de formation dans le secteur de l'hôtellerie et du tourisme. Enfin, il est fondamental de maintenir un dialogue constant avec les employeurs pour comprendre les besoins et les attentes du marché du travail pendant l'événement.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.mondiali-hockey-svizzera-2026.body3":`## Actions concrètes pour les frontaliers
+Pour les frontaliers qui souhaitent profiter des opportunités offertes par les Championnats du monde de hockey 2026, il est important de suivre certaines procédures concrètes. Tout d'abord, il est conseillé de surveiller les offres d'emploi et les opportunités de formation dans le secteur de l'hôtellerie et du tourisme. Cela peut être fait via les sites web des agences de placement et des entreprises locales. De plus, il est important de maintenir un dialogue constant avec les employeurs pour comprendre les besoins et les attentes du marché du travail pendant l'événement.
+
+### Étape par étape pour obtenir des permis de travail
+1. Renseignez-vous sur les opportunités de travail : Surveillez les sites web des agences de placement et des entreprises locales pour trouver des offres d'emploi dans le secteur de l'hôtellerie et du tourisme.
+2. Contactez les employeurs : Maintenez un dialogue constant avec les employeurs pour comprendre les besoins et les attentes du marché du travail pendant l'événement.
+3. Obtenez les permis nécessaires : Si nécessaire, obtenez les permis de travail temporaires via les canaux officiels. Cela peut inclure la présentation de documents et la participation à des entretiens d'embauche.
+4. Participez à des cours de formation : Profitez des opportunités de formation offertes par les entreprises locales pour améliorer vos compétences et augmenter vos chances de trouver un emploi.
+5. Surveillez les délais : Tenez-vous informé des délais pour la présentation des demandes d'emploi et des permis nécessaires.
+
+### Outils utiles
+Pour les frontaliers qui souhaitent profiter des opportunités offertes par les Championnats du monde de hockey 2026, il est important d'utiliser des outils comme le [calculateur de salaire](nav:calculator) et le [comparateur de permis](nav:permit-compare). Ces outils peuvent aider à mieux comprendre les opportunités de travail et les exigences pour obtenir les permis nécessaires. De plus, il est conseillé de consulter les guides pratiques disponibles sur le site pour obtenir des informations détaillées sur les procédures et les délais.
+
+### CTA finale
+Pour profiter au mieux des opportunités offertes par les Championnats du monde de hockey 2026, les frontaliers peuvent utiliser le [calculateur de salaire](nav:calculator) pour comparer les offres d'emploi et évaluer leurs options. De plus, il est conseillé de consulter les guides pratiques disponibles sur le site pour obtenir des informations détaillées sur les procédures et les délais. Enfin, il est important de maintenir un dialogue constant avec les employeurs pour comprendre les besoins et les attentes du marché du travail pendant l'événement.
+
+*Source: [laregione.ch](https://www.laregione.ch/sport/hockey/1922904/josi-niederreiter-hischier-e-meier-alla-corte-di-cadieux)*`,"blog.article.mondiali-hockey-svizzera-2026.faq":`[{"q":"Quels sont les joueurs confirmés pour la Coupe du monde de hockey 2026 ?","a":"Les joueurs confirmés sont Roman Josi, Nino Niederreiter, Nico Hischier et Timo Meier. Ils rejoignent Pius Suter, déjà intégré au groupe la semaine dernière."},{"q":"Quelles sont les implications pratiques pour les frontaliers ?","a":"La Coupe du monde de hockey représente une opportunité économique significative pour la région, avec une augmentation de la demande de services de restauration, d'hébergement et de transports. Cela peut se traduire par de plus grandes opportunités de travail et des augmentations de salaire potentielles pour les frontaliers employés dans ces secteurs."},{"q":"Quelles procédures concrètes les frontaliers peuvent-ils suivre ?","a":"Les frontaliers peuvent surveiller les offres d'emploi et les opportunités de formation dans le secteur de l'hôtellerie et du tourisme. De plus, il est important de maintenir un dialogue constant avec les employeurs pour comprendre les besoins et les attentes du marché du travail pendant l'événement."}]`};export{e as default};

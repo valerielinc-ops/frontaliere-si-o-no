@@ -1,0 +1,62 @@
+const e={"blog.article.whisky-scozzese-dazi-trump-carlo-camilla.body1":`## In brief
+- Trump abolishes tariffs on Scotch whisky
+- Decision in honor of Charles and Camilla
+- Important sectors for Scotland and Kentucky
+
+## Key facts
+- **What**: Abolition of tariffs and restrictions on whisky
+- When: After Charles and Camilla's visit to the White House
+- Where: United States
+- Who: Donald Trump
+- Amount: Not specified
+
+Donald Trump has decided to remove tariffs and restrictions on Scotch whisky in honor of the King and Queen of the United Kingdom, Charles and Camilla. The announcement was made through a post on Truth Social, where Trump emphasized the importance of this gesture for the whisky sectors in Scotland and bourbon in Kentucky. 'It was an extraordinary honor to have them both here in the United States of America,' Trump stated, adding that Charles and Camilla inspired him to make a move that no one else had been able to accomplish.
+
+### Implications for trade
+
+The abolition of tariffs on Scotch whisky represents a significant step forward for trade relations between the United States and the United Kingdom. Trump highlighted the intensity of bilateral trade exchanges, particularly concerning the wooden barrels used in the production of whisky and bourbon. This gesture could open new opportunities for collaboration between the two countries, benefiting both Scottish producers and those in Kentucky.
+
+### International reactions
+
+The news has sparked positive reactions both in Scotland and the United States. Many had long hoped for this step, given the economic importance of the whisky sector for both regions. The abolition of tariffs could have a significant impact on the local economy, increasing exports and creating new job opportunities.
+
+### Future prospects
+
+With the abolition of tariffs, an increase in exports of Scotch whisky to the United States is expected. This could lead to greater collaboration between Scottish whisky producers and Kentucky bourbon producers, fostering the exchange of knowledge and technologies. Additionally, Trump's announcement could be a positive signal for other areas of economic cooperation between the two countries.`,"blog.article.whisky-scozzese-dazi-trump-carlo-camilla.body2":`- ## Analysis of the implications
+
+The abolition of tariffs on Scottish whisky by Donald Trump represents an important turning point in trade relations between the United States and the United Kingdom. This gesture, motivated by the honor of hosting the King and Queen of the United Kingdom, Charles and Camilla, could have significant repercussions on various fronts.
+
+### Economic impact
+
+The elimination of tariffs could lead to an increase in the export of Scottish whisky to the United States, benefiting both Scottish producers and Kentucky bourbon producers. This could translate into increased sales and new job opportunities for both regions. Furthermore, collaboration between Scottish whisky producers and Kentucky bourbon producers could foster the exchange of knowledge and technologies, improving product quality and increasing competitiveness in international markets.
+
+### International collaboration
+
+The abolition of tariffs could also pave the way for greater international collaboration between the two countries. Trump emphasized the importance of the whisky and bourbon sectors for both regions, highlighting the intensity of bilateral trade exchanges. This could lead to new opportunities for collaboration in other sectors, fostering economic growth and job creation.
+
+### Market reactions
+
+Market reactions to the abolition of tariffs have been positive. Many had been hoping for this step for some time, given the economic importance of the whisky sector for both regions. The abolition of tariffs could have a significant impact on the local economy, increasing exports and creating new job opportunities. Furthermore, it could foster greater collaboration between Scottish whisky producers and Kentucky bourbon producers, improving product quality and increasing competitiveness in international markets.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.whisky-scozzese-dazi-trump-carlo-camilla.body3":`## What to do now
+
+The abolition of tariffs on Scotch whisky represents an important opportunity for Scottish whisky producers and American consumers. Here's what to do to take advantage of this new situation:
+
+### For Scottish whisky producers
+
+1. **Evaluate export opportunities**: Scottish whisky producers should evaluate export opportunities to the United States, taking advantage of the abolition of tariffs. This could lead to an increase in sales and new job opportunities.
+2. Collaborate with Kentucky bourbon producers: Scottish whisky producers should consider collaborating with Kentucky bourbon producers, fostering the exchange of knowledge and technologies. This could improve product quality and increase competitiveness in international markets.
+3. Participate in international fairs and events: Scottish whisky producers should participate in international fairs and events to promote their products and create new business opportunities.
+
+### For American consumers
+
+1. Explore new brands of Scotch whisky: American consumers should explore new brands of Scotch whisky, taking advantage of the abolition of tariffs. This could lead to a greater variety of products available on the market.
+2. Participate in tastings and events: American consumers should participate in tastings and events to discover new products and deepen their knowledge of Scotch whisky.
+3. Support local producers: American consumers should support local Kentucky bourbon producers, taking advantage of the increased collaboration between Scottish whisky producers and Kentucky bourbon producers.
+
+### Useful tools
+
+To deepen export and collaboration opportunities, Scottish whisky producers can use the [export calculator](nav:calculator) to evaluate the costs and benefits of exporting to the United States. Additionally, they can participate in international fairs and events to promote their products and create new business opportunities. American consumers can use the [product comparator](nav:salary-compare) to discover new brands of Scotch whisky and deepen their knowledge of Scotch whisky.
+
+*Source: [tio.ch](https://www.tio.ch/dal-mondo/attualita/1922243/whisky-scozzese-e-dazi-li-tolgo-lo-faccio-per-carlo-e-camilla)*`,"blog.article.whisky-scozzese-dazi-trump-carlo-camilla.faq":'[{"q":"What are the economic implications of the abolition of tariffs on Scottish whisky?","a":"The abolition of tariffs on Scottish whisky could lead to an increase in exports to the United States, benefiting both Scottish producers and Kentucky bourbon producers. This could result in increased sales and new job opportunities for both regions. Furthermore, it could foster greater collaboration between Scottish whisky producers and Kentucky bourbon producers, improving product quality and increasing competitiveness in international markets."},{"q":"What are the opportunities for collaboration between Scottish whisky producers and Kentucky bourbon producers?","a":"The abolition of tariffs could open new opportunities for collaboration between Scottish whisky producers and Kentucky bourbon producers. This could facilitate the exchange of knowledge and technologies, improving product quality and increasing competitiveness in international markets. Additionally, it could lead to greater international collaboration between the two countries, promoting economic growth and job creation."},{"q":"What are the market reactions to the abolition of tariffs on Scottish whisky?","a":"Market reactions to the abolition of tariffs have been positive. Many had been hoping for this step for some time, given the economic importance of the whisky sector for both regions. The abolition of tariffs could have a significant impact on the local economy, increasing exports and creating new job opportunities. Furthermore, it could foster greater collaboration between Scottish whisky producers and Kentucky bourbon producers, improving product quality and increasing competitiveness in international markets."}]'};export{e as default};

@@ -1,0 +1,44 @@
+const e={"blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.body1":`## TL;DR
+- Pre-enrollments open for 2026/2027 Complementary Exam Passerella course.
+- Course for federal professional maturity or Swiss specialized maturity certificate holders.
+- Prepares students for cantonal universities and federal polytechnics admission.
+- Exam consists of study project presentation and discussion with committee.
+
+## Key facts
+- **Cosa**: Preparatory course for Complementary Exam Passerella 2026/2027.
+- **Quando**: Pre-enrollments are currently open.
+- **Chi**: Holders of federal professional maturity or Swiss specialized maturity certificate.
+- **Dove**: Cantonal universities and federal polytechnics.
+- **Scadenza**: Study project must be submitted within a certain deadline.
+- **Approvazione**: Study plan must be approved by the examination committee.
+- **Fase 1**: Presentation of a study project.
+- **Fase 2**: Discussion of the project during a colloquium with the committee.
+
+The Department of Education, Culture and Sport announces that pre-enrollments are open for the 2026/2027 preparatory course for the Complementary Exam Passerella. This educational offer prepares students for the Complementary Exam Passerella professional maturity/university specialisation – university schools, as provided for by the Ordinance issued by the Confederation concerning the Complementary Exam for admission to holders of a federal professional maturity certificate or a certificate of national specialisation recognised by the cantonal universities and federal polytechnics, dated 2 February 2011 (effective 1 January 2017).`,"blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.body2":`The preparatory course for the complementary examination passerella 2026/2027 is aimed at holders of a federal professional maturity certificate or a recognized Swiss specialized maturity certificate. The course aims to prepare students for the Complementary Examination Passerella Professional Maturity/Specialized Maturity – University Schools examination.
+
+### Why is preparation for the complementary examination passerella important?
+
+Preparation for the complementary examination passerella is important for students who wish to access cantonal universities and federal polytechnics. The preparation must be carried out under the guidance of an experienced teacher and must be accompanied by an approved study plan by the examination committee.
+
+### How can one prepare for the complementary examination passerella?
+
+One can prepare for the complementary examination passerella by following a preparatory course for the complementary examination passerella. The preparatory course must be carried out under the guidance of an experienced teacher and must be accompanied by an approved study plan by the examination committee.
+
+### How is the complementary examination passerella conducted?
+
+The complementary examination passerella is conducted in two phases: the first phase consists of presenting a study project, while the second phase consists of discussing the project.
+
+### How is the study project presented?
+
+The study project consists of a written and oral presentation that must be submitted within a certain deadline. The project must be accompanied by a study plan that must be approved by the examination committee.
+
+### How is the discussion of the project conducted?
+
+The discussion of the project is conducted during a colloquium with the examination committee. The discussion must be accompanied by a study plan that must be approved by the examination committee.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.body3":`To prepare for the complementary passerella exam, it is possible to follow a preparation course for the complementary passerella exam. The preparation course must be carried out under the guidance of an experienced teacher and must be accompanied by a study plan approved by the examination committee. 💡
+
+Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/attualita/1915925/maturita-esame-passerella-pre-iscrizioni-aperte)*`,"blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.faq":`[{"q":"What are the requirements to participate in the course of preparation for the additional exam catwalk?","a":"The course is aimed at holders of a certificate of federal professional maturity or a certificate of specialized maturity recognised at Swiss level."},{"q":"What is the main advantage of overcoming the complementary walkway exam for an Italian frontier in Switzerland?","a":"Overcoming the exam allows access to the cantonal universities and Swiss Federal Polytechnics, expanding career opportunities."},{"q":"What are the universities and polytechnics that accept the additional exam catwalk for admission?","a":"The complementary walkway exam allows admission to cantonal universities and federal polytechnics in Switzerland. These institutions recognize the certificate of federal professional maturity or the certificate of specialization for access to their university studies."},{"q":"What are the requirements for the study project in the complementary walkway exam?","a":"The study project in the complementary examination of the catwalk must be presented both in written and oral form. It must be accompanied by a study plan approved by the examination committee and submitted within an established period. This project demonstrates the student's ability to plan and discuss his own path of university studies."},{"q":"How can we obtain the approval of the study plan for the complementary examination of the catwalk?","a":"In order to obtain the approval of the study plan for the complementary examination, the plan must be drawn up in accordance with the requirements laid down by the examination committee. It is advisable to prepare under the guidance of an experienced teacher who can assist in drawing up and approving the plan, ensuring that he meets all the criteria required."}]`};export{e as default};

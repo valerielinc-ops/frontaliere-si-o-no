@@ -1,0 +1,78 @@
+const e={"blog.article.neutralizzazione-stime-immobiliari-2026-ticino.body1":`## In brief
+- 430 million francs at stake annually
+- Referendum on June 14, 2024
+- 32 laws and regulations affected
+
+## Key facts
+- **What**: Neutralization of property value adjustments
+- When: Referendum on June 14, 2024
+- Where: Canton of Ticino
+- Who: Cross-party committee (UDC, PLR, Lega, Centro)
+- Amount: 430 million francs annually
+
+On June 14, Ticino residents will vote on a constitutional article that could radically change how taxes and subsidies are adjusted in the canton. At stake is 430 million francs annually, a sum that, according to the committee in favor of neutralization, should stay in the pockets of taxpayers rather than end up in the cantonal coffers.
+
+The adjustment of property values is a requirement imposed by Bern, but the cross-party constitutional initiative proposes not to make tax, fee, or subsidy increases automatic. If accepted, the decision will fall to the Grand Council, which will then have to submit each adjustment to a referendum.
+
+### Who is involved
+The initiative is supported by UDC, PLR, Lega, and Centro. Among the promoters is Andrea Gehri, president of the Chamber of Commerce, who explained how increases in property values on paper do not translate into greater wealth for taxpayers but can instead create difficulties for businesses.
+
+### What changes for cross-border workers
+Cross-border workers residing in Italy and working in Ticino could be affected by this revision, especially if they own property or receive subsidies. The adjustment of property values could impact withholding taxes, as well as subsidies received and fees paid for services like nursing homes.
+
+### Possible scenarios
+If the YES vote prevails, the Grand Council will have to find a balance between budgetary needs and the necessity of not overburdening taxpayers. A challenging task, especially in the current complex economic context.
+
+### What to do
+Interested cross-border workers should closely monitor developments and inform themselves about the practical implications of the neutralization of property values. In case of doubt, it is advisable to consult a tax expert or contact the competent cantonal authorities.`,"blog.article.neutralizzazione-stime-immobiliari-2026-ticino.body2":`## Practical Analysis
+The adjustment of real estate estimates is a topic that directly affects many cross-border workers in Ticino. But what does this neutralization concretely mean? And what are the practical implications for those who reside in Italy and work in Switzerland?
+
+### Impact on Withholding Taxes
+One of the most relevant aspects concerns withholding taxes, which could be influenced by the adjustment of estimates. If real estate estimates increase, withholding taxes could also see an increase. However, with neutralization, this variation would not be automatic but decided by the Grand Council.
+
+### Subsidies and Fees
+In addition to taxes, subsidies and fees could also be affected. For example, the fees for nursing homes or scholarships could be adjusted. Neutralization would prevent automatic increases, but the final decision would still rest with the Grand Council.
+
+### Before/After Comparison
+Before neutralization, adjustments to estimates were automatic and directly impacted taxes and subsidies. After the introduction of neutralization, however, each adjustment should be decided by the Grand Council and subject to a referendum. This could slow down the process but would offer greater transparency and democratic control.
+
+### Concrete Scenarios
+Imagine a cross-border worker who owns a property in Ticino. If the property estimates increase, without neutralization, withholding taxes would automatically increase. With neutralization, however, the Grand Council would have to decide whether and how much to increase the taxes, offering greater certainty and predictability.
+
+### What to Do
+Cross-border workers interested should closely monitor the developments of the situation and inform themselves about the practical implications of the neutralization of estimates. In case of doubts, it is advisable to consult a tax expert or contact the competent cantonal authorities.
+
+### Useful Tools
+To have a complete overview of the tax implications, cross-border workers can use the [salary calculator](nav:calculator) available on the Frontaliere Ticino website. This tool allows simulating different situations and better understanding how variations in estimates may influence withholding taxes.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.neutralizzazione-stime-immobiliari-2026-ticino.body3":`## Concrete actions
+The referendum on June 14, 2024, is a crucial date for cross-border workers employed in Ticino. But what can be done concretely to prepare and better understand the implications of the neutralization of estimates?
+
+### Step-by-step
+1. **Inform yourself**: Read official documents and in-depth articles to better understand the implications of neutralization.
+2. Consult an expert: Contact an accountant or tax consultant for a personalized assessment of your situation.
+3. Monitor developments: Follow news and updates on the decisions of the Grand Council and the referendum.
+4. Participate in the referendum: Cast your vote on June 14, 2024.
+5. Use online tools: Use the [salary calculator](nav:calculator) to simulate different situations and better understand the tax implications.
+
+### Required documents
+For those who own property in Ticino, it is important to have all documents relating to estimates and taxes at hand. These include:
+- Property valuation certificates
+- Tax documents from recent years
+- Lease or purchase contracts
+- Any grants or scholarships received
+
+### Where to turn
+In case of doubts or need for clarification, cross-border workers can contact:
+- The competent cantonal authorities
+- Trade associations
+- Accountants and specialized tax consultants
+
+### Useful tools
+For a comprehensive overview of the tax implications, cross-border workers can use the [salary calculator](nav:calculator) available on the Frontaliere Ticino website. This tool allows you to simulate different situations and better understand how changes in estimates may affect withholding taxes.
+
+### Conclusion
+The neutralization of property estimates is a complex issue, but with the right information and tools, cross-border workers can navigate this context with greater confidence. Participating in the referendum and staying informed are the first steps to making informed decisions and protecting your interests.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/neutralizzazione-aumento-delle-stime-le-ragioni-del-si-432831)*`,"blog.article.neutralizzazione-stime-immobiliari-2026-ticino.faq":'[{"q":"What are property valuations?","a":"Property valuations are official assessments of the value of properties, used to calculate taxes and subsidies. In the Canton of Ticino, these valuations are subject to periodic reviews."},{"q":"How does neutralization affect withholding taxes?","a":"Neutralization prevents increases in valuations from automatically translating into increases in withholding taxes. The decision will be up to the Grand Council, which will have to submit each adjustment to a referendum."},{"q":"What happens if the referendum is rejected?","a":"If the referendum is rejected, adjustments to the valuations will continue to be automatic, directly affecting taxes and subsidies."}]'};export{e as default};

@@ -1,0 +1,62 @@
+const e={"blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.body1":`## In brief
+- Series of meetings on biodiversity and climate change
+- 25 municipalities involved in the Bosco Clima project
+- First meeting on April 30 with Adriano Martinoli
+
+## Key facts
+- **What**: Series of meetings titled "The changing nature – Challenges and transformations of biodiversity between climate and globalization"
+- When: From April to November 2026
+- Where: Rancio Valcuvia, municipal hall at piazza Malcotti 1
+- Who: Comunità Montana Valli del Verbano, Parco Campo dei Fiori, Università degli Studi dell’Insubria, Centro Geofisico Prealpino, LIPU, CAST, Fondazione Cariplo
+- Amount: Not specified
+
+The Comunità Montana Valli del Verbano has launched a series of meetings titled "The changing nature – Challenges and transformations of biodiversity between climate and globalization". The project, which involves 25 municipalities in the area, aims to develop an innovative Climate Transition Strategy. The meetings, six in total, will take place from April to November 2026 and are designed to bring citizens closer to the issues of climate change and the transformations of local ecosystems.
+
+The Bosco Clima project, carried out in collaboration with Parco Campo dei Fiori, Università degli Studi dell’Insubria, Centro Geofisico Prealpino, and the associations LIPU and CAST, with the support of Fondazione Cariplo, focuses on the fundamental role of forests as a key tool to address the challenges of climate change. Forests are considered essential for both adapting to and mitigating climate change.
+
+The first meeting is scheduled for Thursday, April 30, at the municipal hall in piazza Malcotti 1 in Rancio Valcuvia, starting at 8:30 PM. Adriano Martinoli, a professor at Università dell’Insubria, will speak on the topic "The silent war of the squirrels", addressing the phenomenon of alien species and the changes taking place in our forests, with particular attention to the drastic decrease of our red squirrel.
+
+### Calendar and participation
+The complete schedule of events is available in the dedicated poster. Participation in the meetings is open to all interested citizens. For more information, you can visit the website dedicated to the Bosco Clima project.
+
+### Implications for cross-border workers
+These meetings represent an important opportunity for cross-border workers who live and work in the Valli del Verbano. Understanding climate change and the transformations of local ecosystems can help promote greater environmental awareness and actively participate in the protection of the region's natural heritage.`,"blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.body2":`## Practical Analysis
+The cycle of meetings organized by the Comunità Montana Valli del Verbano offers a unique opportunity for citizens and cross-border workers to deepen their knowledge about climate change and local biodiversity. The meetings, which will take place from April to November 2026, cover a wide range of topics, including the silent war of squirrels and the impact of alien species on local ecosystems.
+
+### Scientific Insights
+Adriano Martinoli, a professor at the University of Insubria, will be the speaker of the first meeting. His experience and expertise in the field of biodiversity and climate change will provide participants with a detailed overview of current and future challenges. Subsequent meetings, with other experts in the field, will further explore these topics, providing concrete tools to address ecosystem transformations.
+
+### Community Involvement
+Participation in the meetings is open to all interested citizens, offering an opportunity for active engagement in environmental protection. Participants will have the chance to ask questions, share their experiences, and contribute to the discussion on how to tackle climate and environmental challenges.
+
+### Impact on the Territory
+The Bosco Clima project, with its focus on forests as a key tool to address climate change, has a significant impact on the territory of the Valli del Verbano. Local forests are a natural heritage that requires attention, knowledge, and shared actions. The meetings aim to raise awareness in the community about the importance of protecting and sustainably managing these natural resources.
+
+### Comparison with Other Initiatives
+Similar initiatives have been launched in other regions of Italy and Europe, with the aim of promoting environmental awareness and active citizen participation. These projects often involve universities, research centers, and local associations, creating a network of collaboration and knowledge exchange.
+
+### Future Prospects
+The meetings organized by the Comunità Montana Valli del Verbano represent just the beginning of a broader path towards greater environmental awareness and sustainable management of natural resources. Participants will have the opportunity to actively contribute to the definition of innovative strategies to address climate and environmental challenges, promoting a more sustainable future for future generations.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.body3":`## Concrete actions
+To participate in the meetings organized by the Comunità Montana Valli del Verbano, you can follow these steps:
+
+1. **Check the calendar**: Visit the dedicated Bosco Clima project website to consult the complete schedule of appointments.
+2. Book your spot: Contact the organizational secretariat to book your participation in the meetings of interest.
+3. Participate actively: Attend the meetings and contribute to the discussion, asking questions and sharing your experiences.
+4. Spread the information: Share the information learned with friends, family, and colleagues to promote greater environmental awareness.
+
+### Useful tools
+To further explore the topics discussed during the meetings, you can use the following tools:
+
+- Environmental impact calculator: Use online tools to calculate your environmental impact and identify concrete actions to reduce it.
+- Sustainability guides: Consult guides and manuals on environmental sustainability to gain practical knowledge on how to live more sustainably.
+- Discussion forums: Participate in online forums and discussion groups to exchange ideas and experiences with other citizens interested in environmental protection.
+
+### Conclusion
+The meetings organized by the Comunità Montana Valli del Verbano represent a valuable opportunity for citizens and cross-border workers to deepen their knowledge of climate change and local biodiversity. Actively participating in these meetings and using the available tools can help promote greater environmental awareness and define innovative strategies to address climate and environmental challenges. For more information and to book your participation, visit the dedicated Bosco Clima project website.
+
+[Calculate your environmental impact](nav:calculator)
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/comunita-montana-valli-del-verbano-promuove-un-ciclo-di-incontri-su-la-natura-che-cambia/2561134/)*`,"blog.article.comunita-montana-valli-verbano-incontri-natura-cambia.faq":'[{"q":"What is the main objective of the meeting cycle organized by the Comunità Montana Valli del Verbano?","a":"The main objective is to bring citizens closer to the topics of climate change and the transformations of local ecosystems, promoting greater environmental awareness and shared actions for the protection of natural heritage."},{"q":"Who can participate in the meetings?","a":"Participation in the meetings is open to all interested citizens, including cross-border workers who live and work in the Valli del Verbano."},{"q":"How can I book my participation in the meetings?","a":"To book your participation, you can contact the organizational secretariat of the Bosco Clima project or visit the dedicated website for further information."}]'};export{e as default};

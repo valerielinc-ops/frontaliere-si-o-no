@@ -1,0 +1,80 @@
+const e={"blog.article.indagine-soccorsi-crans-montana-2026.body1":`## In brief
+- Two families report shortcomings in rescue efforts in Crans-Montana
+- Criminal investigation opened by the Valais Public Ministry
+- 13 people already under investigation for negligent homicide
+
+## Key facts
+- **What**: Investigation into the management of rescue efforts
+- When: After the fire on December 31, 2025
+- Where: Crans-Montana, Canton of Valais
+- Who: Valais Public Ministry
+- Impact: 41 victims and over 100 injured
+
+On New Year's Eve, 41 people lost their lives in the fire at the bar Le Constellation in Crans-Montana, and more than a hundred were injured. In the hours following the event, the Valais Public Ministry opened a criminal investigation to determine any responsibilities in the tragedy. To date, 13 people, the Moretti couple and 11 people linked to the municipality of Crans-Montana, are under investigation, particularly for negligent homicide.
+
+According to information from RTS, the Public Ministry will open a new criminal investigation into the management of rescue efforts in the moments following the tragedy. According to police sources, the prosecutors have decided to separate the proceedings to avoid further burdening the main procedure, which already has 13 defendants. This decision is understandable as none of the 13 accused have responsibility for the shortcomings that may have occurred in the care of the injured.
+
+### The families' complaints
+Two lawyers are at the origin of the decision of the Public Ministry to look into the management of the rescue efforts. They are the Swiss Philippe Nantermod, who is also a PLR (VS) national councillor, and the Italian Fabrizio Ventimiglia, who works closely with the Geneva lawyer Pierluca Degni. Nantermod wrote to the prosecutors leading the criminal investigation in March. In this letter, of which RTS has taken note, he states that the conditions and modalities of the care of his client have had a determining role in the unfavorable evolution of his state of health.
+
+The lawyer specifies that the severity of his injuries was greatly underestimated and that he therefore suffered considerable complications which he would have at least partially avoided in the event of better care. In broad terms, it would be a matter of an oxygen mask poorly positioned on a 16-year-old girl, a late arrival of the ambulance and the lack of awareness on the part of the rescuers of the seriousness of his state of health.
+
+Pierluca Degni and Fabrizio Ventimiglia, for their part, have written on two occasions to the Public Ministry. The two represent the interests of an Italian teenager burned over 40% of her body and long hospitalized in Italy. Fabrizio Ventimiglia, interviewed on the RTS 19h30 program, says, There were no stretchers in the hours following the drama, but above all no thermal blankets and no oxygen bottles. Yet, the oxygen bottles were indispensable so that all the injured could breathe immediately. They could not do so because of the toxic fumes.
+
+In his letter addressed to the prosecutors, he refers to a delay in the care that inevitably caused a worsening of the burns, as well as respiratory problems.
+
+### The authorities' response
+Fabrizio Ventimiglia and Philippe Nantermod learned on Wednesday that the Public Ministry intended to investigate the management of the rescue efforts. The Valais lawyer, who is also a national councillor, did not want to comment on this point. Fabrizio Ventimiglia, on the other hand, welcomes the initiative of the magistrates. Investigating the management of the rescue efforts is a matter of respect for the victims, the injured and their families. It is essential to focus on every aspect of that dramatic and tragic night.
+
+Contacted by RTS, the Public Ministry did not want to comment on its decision. The statement of the rescuers Called into question by some lawyers, the Valais Cantonal Organization of Rescue Services (OCVS) did not want to answer the questions of RTS. However, it issued a press release in which it says it is surprised by the accusations regarding the management of the dramatic event that occurred in Crans-Montana. The OCVS writes that the teams engaged on the ground are always composed of qualified professionals specifically trained to manage emergency situations in contexts with multiple victims.
+
+It specifies that the evaluation, which is based on tried and tested protocols, aims to prioritize the care according to the clinical state observable at a given moment and according to the seriousness of the situation on the spot. The OCVS concludes by indicating that for respect for the victims and their families, it will not further comment on the statements made against our device.`,"blog.article.indagine-soccorsi-crans-montana-2026.body2":`### Implications for cross-border workers
+The investigation into the management of rescue operations in Crans-Montana raises important issues for cross-border workers who live and work in Switzerland, particularly in the Canton of Valais. The tragedy has highlighted the need for greater attention to safety and emergency management, especially in tourist areas like Crans-Montana.
+
+For cross-border workers employed in the tourism sector or related activities, it is crucial to be aware of safety protocols and emergency procedures. This includes knowledge of assembly points, escape routes, and emergency contacts. Additionally, it is important that employers provide adequate and regular training on safety protocols.
+
+### Comparison with the previous situation
+Before this tragedy, the management of emergencies in Crans-Montana was considered adequate. However, the fire at the bar Le Constellation has highlighted some shortcomings that need to be addressed. Complaints from the families of the victims and the injured have brought to light specific problems, such as the lack of oxygen tanks and thermal blankets, which need to be resolved to ensure better emergency management in the future.
+
+### Future scenarios
+In the future, it is likely that new regulations and protocols will be introduced to improve emergency management. This could include an increase in the number of available oxygen tanks and thermal blankets, as well as more in-depth training for rescuers. Additionally, greater coordination between different emergency services may be necessary to ensure a more effective and timely response.
+
+### Comparative table
+
+| **Aspect**               | Before the fire       | After the fire         |
+|---------------------------|----------------------------|----------------------------|
+| Oxygen tanks        | Available in limited numbers | Increase expected            |
+| Thermal blankets          | Available in limited numbers | Increase expected            |
+| Rescuer training | Basic                       | More in-depth            |
+| Coordination between services  | Adequate                  | Improved                  |
+
+### Procedure for cross-border workers
+For cross-border workers working in Crans-Montana, it is important to follow specific procedures in case of an emergency:
+
+1. Identify assembly points: Know the designated assembly points in case of an emergency.
+2. Follow escape routes: Follow the indicated escape routes and do not use elevators.
+3. Contact emergency services: Use the emergency number 112 to contact emergency services.
+4. Provide assistance: Provide assistance to the injured and wait for the arrival of the rescuers.
+5. Follow instructions: Follow the instructions of the rescuers and the authorities.
+
+### Conclusion
+The investigation into the management of rescue operations in Crans-Montana is an important step to improve safety and emergency management in Switzerland. For cross-border workers, it is fundamental to be aware of safety protocols and emergency procedures, as well as to follow the instructions of the authorities in case of an emergency.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.indagine-soccorsi-crans-montana-2026.body3":`### Concrete actions for cross-border workers
+For cross-border workers employed in Crans-Montana, it is important to take some concrete measures to ensure their own safety and that of others. Here are some specific actions that can be taken:
+
+1. **Attend training courses**: Participate in training courses on safety protocols and emergency procedures offered by employers or local authorities.
+2. Know the meeting points: Familiarize yourself with the designated meeting points in case of an emergency and make sure you know how to reach them quickly.
+3. Follow evacuation routes: Familiarize yourself with the indicated evacuation routes and make sure you know how to reach them in case of an emergency.
+4. Contact emergency services: Make sure you know how to contact emergency services using the number 112.
+5. Provide assistance: Learn first aid techniques and make sure you know how to assist the injured while waiting for rescuers to arrive.
+6. Follow instructions: Make sure to follow the instructions of rescuers and authorities in case of an emergency.
+
+### Useful tools
+For further information and useful tools, cross-border workers can consult the [safety calculator](nav:calculator) available on the Frontaliere Ticino website. This tool can help assess risks and plan the necessary safety measures.
+
+### Final CTA
+For further information and to plan the necessary safety measures, consult the [safety calculator](nav:calculator) available on the Frontaliere Ticino website. This tool can help you assess risks and plan the necessary safety measures to ensure your safety and that of others.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3709248)*`,"blog.article.indagine-soccorsi-crans-montana-2026.faq":`[{"q":"What are the main shortcomings reported in the management of rescue operations in Crans-Montana?","a":"The main shortcomings reported include the lack of oxygen cylinders and thermal blankets, a late arrival of the ambulance, and an underestimation of the severity of the patients' injuries."},{"q":"Who opened the investigation into the management of rescue operations?","a":"The investigation was opened by the Valais Public Prosecutor's Office, at the request of lawyers Philippe Nantermod and Fabrizio Ventimiglia."},{"q":"What are the implications for cross-border workers who work in Crans-Montana?","a":"Cross-border workers must be aware of safety protocols and emergency procedures, as well as follow the instructions of the authorities in case of an emergency."}]`};export{e as default};

@@ -1,0 +1,40 @@
+const e={"blog.article.carnevale-bambini-lugano-tinguely.body1":`## TL;DR
+- Carnival workshops for kids in Lugano, Feb 2026
+- Art-focused activities for ages 4 to 11
+- Special Tinguely workshop on Feb 18, 2026
+- Affordable and educational for cross-border families
+
+## Key facts
+- **Event**: Carnival workshops for children
+- **Dates**: February 16 to 20, 2026
+- **Location**: Museo in erba, Riva Caccia 1, Lugano
+- **Age Group**: Children aged 4 to 11
+- **Special Workshop**: Click-clack… Tick-tock… so many Tinguely gears! on February 18, 2026
+- **Cost**: 20 CHF for the Tinguely workshop
+- **Contact**: info@museoinerba.com
+- **Booking**: Mandatory
+
+The Carnival holidays in Ticino often present a logistical challenge for cross-border worker parents. While schools close, work activities continue, posing the usual dilemma of how to entertain children constructively. A high-quality solution comes directly from Lugano, thanks to an initiative by the Museo in erba, located at Riva Caccia 1. For the February 2026 holidays, the museum is offering a week of creative workshops with the emblematic title: “At Carnival, every (artist's) trick is fair game!”.
+
+The initiative is aimed at children aged **4 to 11** and will take place from Monday, February 16 to Friday, February 20, 2026. Every morning, from 9:00 AM to 12:00 PM, young participants can explore the world of art through play and experimentation. The goal is clear: to turn art into a surprising adventure, inspired by artists who made 'pranks' and interaction with the viewer their trademark.
+
+A date to mark on your calendar is Wednesday, **February 18, 2026**, for the workshop “Click-clack… Tick-tock… so many Tinguely gears!”. From 10:15 AM to 11:30 AM, children can experiment with unusual techniques and materials to create a picture made of wheels and gears, a dynamic and fun tribute to the famous Swiss artist Jean Tinguely. It's a unique opportunity to stimulate creativity and manual skills.`,"blog.article.carnevale-bambini-lugano-tinguely.body2":`## A tangible opportunity for cross-border families
+
+The offer from Museo in erba is not just simple entertainment but a concrete solution that meets the needs of families living across the border. Its location in Lugano, easily accessible from major crossings like Ponte Tresa or Brogeda, and the morning schedule allow parents to drop off their children before heading to work, confident they are in a safe, stimulating, and educational environment. The cost for the Tinguely workshop is **20 CHF**, an affordable price for a high-profile educational activity.
+
+Participation in these workshops offers a dual benefit. On one hand, children get to socialize with their Ticino peers, fostering spontaneous cultural integration and improving their Italian language skills. On the other, they engage with Swiss artistic and cultural heritage, represented by figures like Tinguely, in a playful and interactive context. The entire week of workshops, from February 16 to 20, provides significant flexibility, allowing parents to choose one or more days based on their work schedules.
+
+> The program “At Carnival, every (artist's) trick is fair game!” is designed to inspire children with artists who “joke” with the viewer and have fun turning art into a truly surprising game!
+
+It is crucial to remember that booking is mandatory, which underscores the care and attention dedicated to the organization to ensure each child receives the right amount of focus.`,"blog.article.carnevale-bambini-lugano-tinguely.body3":`## Planning leisure time: practical tips
+
+For interested parents, the next step is simple: contact the museum for information and reservations. The reference email address is \`info@museoinerba.com\`. Acting in advance is always a good strategy, as spots for these types of initiatives tend to fill up quickly, especially during school holiday periods.
+
+💡 **Tips for cross-border parents:**
+- **Check the times:** The workshop lasts until 11:30 AM, while the 'Morning at the museum' extends until 12:00 PM. Plan your child's pickup according to your lunch break or work schedule.
+- **Contact for details:** Ask if it's possible to enroll your children for multiple days, perhaps with a special package deal.
+- **Explore the surroundings:** The Riva Caccia area, with the LAC and Parco Ciani just a short walk away, offers wonderful opportunities for a family afternoon after the workshop.
+
+Organizing extracurricular and cultural activities for children is a significant item in the family budget. Having a clear view of your net monthly income is the first step to planning these precious experiences without stress. Knowing exactly what budget to allocate for leisure allows for informed choices and taking advantage of opportunities like this one. To get a precise picture, you can use our net salary calculator, a tool specifically designed for the needs of cross-border workers.
+
+*Source: Ticinonline, Events Agenda, 18.02.2026*`,"blog.article.carnevale-bambini-lugano-tinguely.faq":'[{"q":"How can I keep my children busy during the Carnival holidays in Ticino?","a":"The Herb Museum in Lugano offers a week of creative workshops from 16 to 20 February 2026, ideal for children aged 4 to 11 years."},{"q":"Can I combine the grass museum workshop with other activities in Lugano for a full experience for my son?","a":"Yes, the museum is located near the LAC and Ciani Park in Lugano, offering an ideal combination of art, culture and nature for a complete experience."},{"q":"What are the methods of enrollment at the grass museum workshops during the Carnival holidays?","a":"To participate in the workshops, it is mandatory to book by email at info@museoinerba.com. It is recommended to do so in advance, as places are limited and run out quickly during school holidays."}]'};export{e as default};

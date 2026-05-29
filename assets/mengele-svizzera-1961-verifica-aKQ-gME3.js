@@ -1,0 +1,50 @@
+const e={"blog.article.mengele-svizzera-1961-verifica.body1":`## In brief
+- Josef Mengele may have stayed in Kloten in 1961
+- The dossier is classified until 2071
+- Historian Wettstein demands transparency
+
+## Key facts
+- **What**: Possible stay of Josef Mengele in Switzerland
+- When: 1961
+- Where: Kloten
+- Who: Josef Mengele, historian Gérard Wettstein
+- Amount: Dossier classified until 2071
+
+Josef Mengele, known as the "Angel of Death" for the experiments conducted at Auschwitz, may have stayed in Switzerland in 1961. The suspicion, which has fueled speculation for years, could be clarified thanks to the opening of his dossier by the Federal Intelligence Service (SIC). The Bernese historian Gérard Wettstein had requested access to the dossier, classified until 2071, but the SIC had denied the request. Wettstein criticized this decision, emphasizing that the Bergier Commission had been able to consult the dossier years ago. "Mengele is first and foremost a myth," said Wettstein. "It is a name that everyone associates with the horrors of Auschwitz and that continues to generate legends." One of these legends is his possible stay in Switzerland in 1961, when he would have visited his wife who lived in Kloten. The question of why Mengele was not arrested, despite an international arrest warrant since 1959, remains a dark spot. "If Mengele really passed through Kloten, why wasn't he arrested?" asks Wettstein. As long as the dossier remains closed, speculation and conspiracy theories can be fueled. Sacha Zala, director of the Swiss Diplomatic Documents Research Center, also expressed skepticism about the historical results of the dossier, but emphasized the importance of transparency. "For the federal administration, it is too easy to classify documents for long periods," said Zala. "It fuels conspiracy fantasies and is contrary to the interests of the State."
+
+### The transparency of the archives
+The case of Mengele's dossier raises important questions about the transparency of Swiss archives. Zala criticized the federal administration's tendency to classify documents for long periods, even when there are no valid reasons. "It is enough that in a dossier it appears that this person is a member of that party and the administration has a legal pretext, even if futile, to decree an extension of the dossier," he explained. This practice, according to Zala, is detrimental and contrary to the interests of the State. "Opening archives after 30 years serves to create transparency and to stabilize the democratic discourse of our country," he concluded.
+
+### The implications for cross-border workers
+The case of Mengele's dossier, although not directly related to cross-border workers, raises important questions about transparency and the management of sensitive documents. For cross-border workers working in Switzerland, transparency is fundamental to understanding the laws and regulations that concern them. The case of Mengele demonstrates how lack of transparency can fuel speculation and conspiracy theories, which can influence the perception of Switzerland as a safe and transparent country.
+
+### What to do if you suspect a crime
+If a cross-border worker suspects a crime or has relevant information, it is important to contact the competent authorities. In Switzerland, the federal police (Fedpol) are responsible for fighting crime. Cross-border workers can contact Fedpol to report any suspicion or relevant information. It is important to provide as much information as possible to help the authorities investigate and take the necessary measures.`,"blog.article.mengele-svizzera-1961-verifica.body2":`## Practical analysis: implications for cross-border workers
+The case of the Mengele dossier raises important questions about transparency and the management of sensitive documents. For cross-border workers employed in Switzerland, transparency is crucial to understanding the laws and regulations that affect them. Lack of transparency can fuel speculation and conspiracy theories, which may influence the perception of Switzerland as a safe and transparent country. It is important that cross-border workers are informed about their rights and the procedures for reporting any irregularities.
+
+### Transparency of regulations
+Transparency of regulations is fundamental for cross-border workers. The laws and regulations governing work and residence in Switzerland must be clear and accessible. Cross-border workers must be informed about their rights and the procedures for obtaining the necessary permits. Lack of transparency can create confusion and difficulties for cross-border workers who are trying to comply with the laws.
+
+### Procedures for reporting irregularities
+If a cross-border worker suspects a crime or has relevant information, it is important to contact the competent authorities. In Switzerland, the federal police (Fedpol) is responsible for combating crime. Cross-border workers can contact Fedpol to report any suspicions or relevant information. It is important to provide as much information as possible to help the authorities investigate and take the necessary measures.
+
+### Implications for cross-border workers
+The case of the Mengele dossier demonstrates the importance of transparency for cross-border workers. Lack of transparency can create confusion and difficulties for cross-border workers who are trying to comply with the laws. It is important that cross-border workers are informed about their rights and the procedures for reporting any irregularities. Transparency is fundamental to maintaining the trust of cross-border workers in Switzerland as a safe and transparent country.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.mengele-svizzera-1961-verifica.body3":`## Concrete actions for cross-border workers
+For cross-border workers employed in Switzerland, it's crucial to be informed about their rights and the procedures for reporting any irregularities. Here are some concrete actions that cross-border workers can take:
+
+### Inform yourself about regulations
+Cross-border workers must inform themselves about the regulations governing work and residence in Switzerland. It's important to know their rights and the procedures for obtaining the necessary permits. Cross-border workers can consult the SECO (State Secretariat for Economic Affairs) website to obtain up-to-date information on regulations.
+
+### Contact the competent authorities
+If a cross-border worker suspects a crime or has relevant information, it's important to contact the competent authorities. In Switzerland, the federal police (Fedpol) are responsible for combating crime. Cross-border workers can contact Fedpol to report any suspicions or relevant information. It's important to provide as much information as possible to help the authorities investigate and take the necessary measures.
+
+### Use the tools on the website
+The Frontaliere Ticino website offers a series of useful tools for cross-border workers. Cross-border workers can use the [salary calculator](nav:calculator) to calculate their net salary and taxes. Additionally, the website offers a complete guide on work and residence permits in Switzerland. Cross-border workers can consult the guide to obtain detailed information on the procedures for obtaining the necessary permits.
+
+### Conclusion
+The case of the Mengele dossier raises important questions about transparency and the management of sensitive documents. For cross-border workers employed in Switzerland, transparency is fundamental to understanding the laws and regulations that affect them. It's important that cross-border workers are informed about their rights and the procedures for reporting any irregularities. By using the tools on the Frontaliere Ticino website, cross-border workers can obtain up-to-date and detailed information on regulations and procedures for obtaining the necessary permits.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3717972)*`,"blog.article.mengele-svizzera-1961-verifica.faq":'[{"q":"What should you do if you suspect a crime in Switzerland?","a":"If a cross-border worker suspects a crime or has relevant information, it is important to contact the competent authorities. In Switzerland, the federal police (Fedpol) are responsible for combating crime. Cross-border workers can contact Fedpol to report any suspicion or relevant information. It is important to provide as much information as possible to help the authorities investigate and take the necessary measures."},{"q":"What are the rights of cross-border workers in Switzerland?","a":"Cross-border workers who work in Switzerland are entitled to fair working conditions and fair treatment by the authorities. Cross-border workers must be informed about their rights and the procedures for obtaining the necessary permits. Transparency of regulations is fundamental for cross-border workers. The laws and regulations governing work and residence in Switzerland must be clear and accessible."},{"q":"How can I get updated information on regulations for cross-border workers?","a":"Cross-border workers can consult the website of the SECO (State Secretariat for Economic Affairs) to obtain updated information on regulations. In addition, the Frontaliere Ticino website offers a series of useful tools for cross-border workers, including a salary calculator and a comprehensive guide on work and residence permits in Switzerland."}]'};export{e as default};

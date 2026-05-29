@@ -1,0 +1,60 @@
+const i={"blog.article.legge-foti-critica-economia-ticino.body1":`## In breve
+- Legge Foti criticata per inefficienze
+- Doppio binario giudiziario penalizza collettività
+- Obbligo assicurativo già posticipato
+
+## Fatti chiave
+- **Cosa**: Critica alla legge Foti
+- Quando: 2026
+- Dove: Varese, Italia
+- Chi: Esperti in diritto amministrativo
+- Importo: Non ancora specificato
+
+La legge Foti, approvata nel 2026, è stata oggetto di severe critiche durante la nona Rassegna Upel a Ville Ponti. Tre relatori, Vito Tenore, Daniele Granara e Silvia Torraca, hanno analizzato la legge da diversi punti di vista, arrivando alla conclusione che gli obiettivi dichiarati, come la riduzione della burocrazia difensiva e il rilancio dell'efficienza della pubblica amministrazione, rischiano di restare solo sulla carta.
+
+Tenore ha centrato il suo intervento sul cosiddetto 'doppio binario', ovvero la possibilità che un dipendente pubblico sia giudicato sia dalla Corte dei Conti sia dal giudice civile ordinario per lo stesso fatto dannoso. Questo sistema, già esistente nell'ordinamento, è stato trasformato in una 'patologia grave' dalla riforma Foti, secondo Tenore. La nuova legge introduce un tetto alla condanna per la Corte dei Conti, pari al 30% del danno causato e comunque non superiore a due volte lo stipendio annuo del dipendente. Questo limite non si applica davanti al giudice civile, creando una distorsione che, secondo Tenore, renderà inevitabili nuove rimessioni alla Corte Costituzionale.
+
+Granara ha concentrato il suo intervento sull'obbligo assicurativo introdotto dalla riforma, che impone a chiunque gestisca risorse pubbliche di stipulare una polizza a copertura dei danni patrimoniali causati per colpa grave. Questo istituto, già controverso sul piano costituzionale, è stato già posticipato, sollevando ulteriori dubbi sulla sua efficacia e applicabilità.
+
+### Impatto sui frontalieri
+La legge Foti potrebbe avere ripercussioni anche sui frontalieri che lavorano in Ticino e risiedono in Italia. Le inefficienze nella pubblica amministrazione svizzera potrebbero tradursi in ritardi burocratici e complicazioni per i lavoratori transfrontalieri, specialmente in materia di assicurazioni e obblighi fiscali. È fondamentale che i frontalieri siano aggiornati sulle ultime normative e si preparino a eventuali cambiamenti nelle procedure amministrative.
+
+### Confronto con la situazione precedente
+Prima della legge Foti, il sistema giudiziario per i dipendenti pubblici era già complesso, ma la nuova riforma ha introdotto ulteriori complicazioni. Il doppio binario giudiziario e l'obbligo assicurativo potrebbero portare a una maggiore incertezza giuridica e a un aumento dei costi per le pubbliche amministrazioni, con ripercussioni indirette sui contribuenti e sui frontalieri che utilizzano servizi pubblici in Ticino.
+
+### Scenari possibili
+Se la legge Foti dovesse essere applicata come previsto, i frontalieri potrebbero affrontare procedure più complesse per ottenere rimborsi o risolvere controversie con le amministrazioni pubbliche. È possibile che le amministrazioni svizzere debbano attivarsi maggiormente davanti al giudice civile per recuperare somme non condannate dalla Corte dei Conti, il che potrebbe tradursi in tempi di attesa più lunghi per i cittadini e i lavoratori transfrontalieri.
+
+### Procedure concrete
+I frontalieri che lavorano in Ticino dovrebbero monitorare da vicino l'evoluzione della legge Foti e prepararsi a eventuali cambiamenti nelle procedure amministrative. È consigliabile consultare regolarmente le ultime normative e, se necessario, rivolgersi a un consulente fiscale o legale per comprendere meglio le implicazioni della nuova legge.
+
+### Strumenti utili
+Per rimanere aggiornati sulle ultime novità legislative e fiscali, i frontalieri possono utilizzare il [calcolatore fiscale](nav:calculator) disponibile sul sito Frontaliere Ticino. Questo strumento permette di stimare le imposte alla fonte e i contributi AVS/LPP, tenendo conto delle ultime normative.`,"blog.article.legge-foti-critica-economia-ticino.body2":`## Analisi pratica
+La legge Foti introduce una serie di cambiamenti che potrebbero avere un impatto significativo sulla vita dei frontalieri che lavorano in Ticino. Tra le principali criticità emerge il doppio binario giudiziario, che potrebbe complicare le procedure per i lavoratori transfrontalieri che devono affrontare controversie con le amministrazioni pubbliche.
+
+### Confronto con la situazione precedente
+Prima della legge Foti, il sistema giudiziario per i dipendenti pubblici era già complesso, ma la nuova riforma ha introdotto ulteriori complicazioni. Il doppio binario giudiziario e l'obbligo assicurativo potrebbero portare a una maggiore incertezza giuridica e a un aumento dei costi per le pubbliche amministrazioni, con ripercussioni indirette sui contribuenti e sui frontalieri che utilizzano servizi pubblici in Ticino.
+
+### Scenari possibili
+Se la legge Foti dovesse essere applicata come previsto, i frontalieri potrebbero affrontare procedure più complesse per ottenere rimborsi o risolvere controversie con le amministrazioni pubbliche. È possibile che le amministrazioni svizzere debbano attivarsi maggiormente davanti al giudice civile per recuperare somme non condannate dalla Corte dei Conti, il che potrebbe tradursi in tempi di attesa più lunghi per i cittadini e i lavoratori transfrontalieri.
+
+### Procedure concrete
+I frontalieri che lavorano in Ticino dovrebbero monitorare da vicino l'evoluzione della legge Foti e prepararsi a eventuali cambiamenti nelle procedure amministrative. È consigliabile consultare regolarmente le ultime normative e, se necessario, rivolgersi a un consulente fiscale o legale per comprendere meglio le implicazioni della nuova legge.
+
+### Strumenti utili
+Per rimanere aggiornati sulle ultime novità legislative e fiscali, i frontalieri possono utilizzare il [calcolatore fiscale](nav:calculator) disponibile sul sito Frontaliere Ticino. Questo strumento permette di stimare le imposte alla fonte e i contributi AVS/LPP, tenendo conto delle ultime normative.
+
+## Tool utili per la pianificazione
+Per stimare la strategia previdenziale, prova il [pianificatore pensionistico](nav:pension) e il [simulatore 3° pilastro](nav:pillar3).`,"blog.article.legge-foti-critica-economia-ticino.body3":`## Azione concreta
+Per i frontalieri che lavorano in Ticino, è fondamentale essere proattivi e prepararsi a eventuali cambiamenti introdotti dalla legge Foti. Ecco alcuni passi concreti che possono essere seguiti:
+
+1. **Monitorare le ultime normative**: Tenersi aggiornati sulle ultime novità legislative e fiscali attraverso fonti affidabili e siti ufficiali.
+2. Consultare un consulente fiscale o legale: Rivolgersi a un esperto per comprendere meglio le implicazioni della legge Foti e come potrebbe influenzare la propria situazione fiscale e lavorativa.
+3. Utilizzare strumenti online: Utilizzare il [calcolatore fiscale](nav:calculator) disponibile sul sito Frontaliere Ticino per stimare le imposte alla fonte e i contributi AVS/LPP, tenendo conto delle ultime normative.
+4. Prepararsi a procedure più complesse: Essere consapevoli che le procedure amministrative potrebbero diventare più complesse e prepararsi a eventuali ritardi o complicazioni.
+5. Partecipare a eventi informativi: Partecipare a eventi e conferenze organizzati da associazioni di frontalieri o enti pubblici per rimanere informati e fare domande dirette agli esperti.
+
+### Strumenti utili
+Per rimanere aggiornati sulle ultime novità legislative e fiscali, i frontalieri possono utilizzare il [calcolatore fiscale](nav:calculator) disponibile sul sito Frontaliere Ticino. Questo strumento permette di stimare le imposte alla fonte e i contributi AVS/LPP, tenendo conto delle ultime normative.
+
+*Fonte: [varesenews.it](https://www.varesenews.it/2026/05/la-legge-foti-sotto-accusa-lauspicio-di-rilanciare-leconomia-e-solo-sulla-carta/2569156/)*`,"blog.article.legge-foti-critica-economia-ticino.faq":`[{"q":"Quali sono le principali criticità della legge Foti?","a":"Le principali criticità della legge Foti includono il doppio binario giudiziario, che può portare a procedure più complesse per i lavoratori transfrontalieri, e l'obbligo assicurativo, che è già stato posticipato e solleva dubbi sulla sua efficacia e applicabilità."},{"q":"Come posso prepararmi ai cambiamenti introdotti dalla legge Foti?","a":"Per prepararsi ai cambiamenti introdotti dalla legge Foti, è consigliabile monitorare le ultime normative, consultare un consulente fiscale o legale, utilizzare strumenti online come il calcolatore fiscale disponibile sul sito Frontaliere Ticino, e partecipare a eventi informativi organizzati da associazioni di frontalieri o enti pubblici."},{"q":"Quali sono le implicazioni della legge Foti per i frontalieri?","a":"Le implicazioni della legge Foti per i frontalieri includono procedure amministrative più complesse, tempi di attesa più lunghi per risolvere controversie con le amministrazioni pubbliche, e un aumento dei costi per le pubbliche amministrazioni, con ripercussioni indirette sui contribuenti e sui frontalieri che utilizzano servizi pubblici in Ticino."}]`};export{i as default};

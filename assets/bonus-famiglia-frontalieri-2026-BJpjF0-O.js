@@ -1,0 +1,48 @@
+const e={"blog.article.bonus-famiglia-frontalieri-2026.body1":`## En bref
+- Allocations familiales de 3.600 à 4.200 CHF par enfant
+- Bonus crèche couvrant jusqu'à 40% des dépenses
+- Déductions fiscales de 950€ par enfant en 2026
+
+## Faits clés
+- **Montant allocations**: 3.600 à 4.200 CHF par enfant par an
+- **Bonus crèche**: Jusqu'à 40% des dépenses pour les crèches accréditées
+- **Déductions fiscales**: 950€ par enfant en 2026
+- **Permis requis**: Permis G pour les frontaliers
+- **Date limite allocations**: 31 mars 2026
+- **Déclaration revenus**: Entre mai et juin 2026
+- **Accord fiscal**: Nouvel accord Italie-Suisse pour 2026
+- **Crédit d'impôt**: Applicable aux déclarations de revenus italiennes
+
+En 2026, les frontaliers travaillant au Tessin pourront bénéficier d'une série de **mesures familiales** conçues pour soutenir ceux qui vivent au-delà de la frontière, tout en contribuant activement à l'économie suisse. Parmi les principales mesures en vigueur, on trouve les allocations familiales cantonales, le bonus crèche et les déductions fiscales liées aux enfants.
+
+## Allocations familiales
+Les allocations familiales au Tessin prévoient des montants annuels variant de 3.600 CHF à 4.200 CHF par enfant en fonction de l'âge et de la situation professionnelle. Ce bénéfice est accessible également aux frontaliers avec un permis G, à condition que le foyer familial réside en Italie et soit certifié par la **Caisse cantonale de compensation**.
+
+## Bonus crèche
+Une importante nouveauté pour 2026 est l'introduction d'une aide dédiée aux coûts des crèches pour les familles frontalières. Selon le Département des finances et de l'économie (DFE), le bonus couvrira jusqu'à **40 % des dépenses** pour les structures accréditées. Cela représente un allégement significatif pour les familles qui, souvent, font face à des coûts élevés pour la garde des tout-petits.
+
+> 'Les frontaliers sont un élément essentiel de notre économie, et ces mesures témoignent de notre engagement envers les familles', a déclaré Norman Gobbi, Conseiller d'État tessinois.
+
+📊 Données clés :
+- Montant des allocations familiales : 3.600-4.200 CHF/an
+- Bonus crèche : jusqu'à 40 % des dépenses
+- Application de la réglementation : valable pour les frontaliers avec permis G`,"blog.article.bonus-famiglia-frontalieri-2026.body2":`Les implications fiscales de ces bonus sont importantes pour les frontaliers, surtout en tenant compte de l'additionnelle IRPEF dans les communes frontalières. En 2026, le **nouvel accord fiscal** entre l'Italie et la Suisse prévoit une plus grande transparence dans la gestion des déductions pour enfants à charge, avec un système de **crédit d'impôt direct** applicable aux déclarations de revenus italiennes.
+
+## Déductions pour enfants à charge
+Pour les frontaliers avec enfants, la déduction fiscale pour 2026 est fixée à 950€ par enfant, une augmentation par rapport aux années précédentes. Ce bénéfice peut être demandé au moment de la déclaration de revenus, en utilisant le CU certifié par l'employeur suisse.
+
+⚠️ **Dates importantes** :
+- Demande d'allocations familiales : jusqu'au 31 mars 2026
+- Présentation de la déclaration de revenus en Italie : entre mai et juin 2026
+
+## Conditions pour le bonus crèche
+- Résidence familiale en Italie
+- Inscription de l'enfant dans des crèches accréditées au Tessin ou en Lombardie
+- Documentation des dépenses annuelles certifiée`,"blog.article.bonus-famiglia-frontalieri-2026.body3":`Ces bonus représentent une opportunité concrète pour les frontaliers d'alléger le poids économique de la gestion familiale. Cependant, il est essentiel de planifier à l'avance et d'utiliser les outils disponibles pour optimiser les avantages fiscaux.
+
+## Comment s'organiser
+- Utilisez le [calculateur de salaire net](nav:calculator) pour vérifier l'impact des bonus sur le revenu annuel.
+- Explorez la [carte interactive des communes frontalières](nav:border-map) pour comparer les taux IRPEF et mieux planifier les déductions.
+- Découvrez le [comparateur de crèches](nav:nursery) pour évaluer les coûts et les économies possibles.
+
+💡 **Note finale** : ces aides ne sont valables que si les conditions sont respectées. N'oubliez pas de consulter un expert fiscal ou votre conseiller auprès de la **Caisse cantonale de compensation**. Source : Département des Finances Tessin, octobre 2023.`,"blog.article.bonus-famiglia-frontalieri-2026.faq":`[{"q":"Quelles sont les prestations familiales pour les travailleurs frontaliers au Tessin en 2026?","a":"Les allocations familiales au Tessin comprennent des montants annuels allant de 3 600 CHF à 4 200 CHF par enfant en fonction de l'âge et de la situation professionnelle. En outre, une contribution aux coûts des crèches et des déductions fiscales liées aux enfants a été portée à 950 euros par enfant."},{"q":"Quelle est la procédure pour demander la prime au nid pour les frontières au Tessin en 2026?","a":"Pour demander la prime au nid, les frontières doivent présenter la documentation des dépenses annuelles certifiées, l'inscription de l'enfant dans les jardins d'enfants accrédités au Tessin ou en Lombardie, et la confirmation de la résidence familiale en Italie, dans le délai indiqué par le comptoir cantonal."},{"q":"Quelles sont les procédures pour obtenir des déductions fiscales pour les enfants en Italie comme frontière en 2026?","a":"Pour obtenir des déductions fiscales, les travailleurs frontaliers doivent joindre le CU émis par l'employeur suisse dans la déclaration de revenus en Italie et respecter les délais de présentation, généralement entre mai et juin 2026."}]`};export{e as default};

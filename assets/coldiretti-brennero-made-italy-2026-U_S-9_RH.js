@@ -1,0 +1,57 @@
+const e={"blog.article.coldiretti-brennero-made-italy-2026.body1":`## En bref
+- Des agriculteurs varésans au Brenner pour protester contre le faux Made in Italy
+- La Coldiretti demande une révision du code douanier
+- 20 milliards d'euros perdus par le secteur agricole italien
+
+## Faits clés
+- **Quoi** : Protestation de la Coldiretti contre le faux Made in Italy
+- Quand : 27 avril 2026
+- Où : Col du Brenner
+- Qui : Coldiretti, agriculteurs italiens
+- Montant : 20 milliards d'euros perdus par le secteur agricole
+
+Une délégation varésane nombreuse s'est jointe aux dix mille agriculteurs venus de toute l'Italie pour demander la révision des normes sur l'origine des produits. La délégation préalpine, dirigée par le président Pietro Luca Colombo et le directeur Rodolfo Mazzucotelli, s'est jointe à la protestation pour demander la vérité et la transparence sur l'origine des aliments. Au cœur de la 'mère de toutes les batailles' syndicales se trouve la demande de modifier le code douanier.
+
+Selon l'analyse de la Coldiretti, la révision de la norme sur la dernière transformation substantielle permettrait aux agriculteurs italiens de récupérer au moins 20 milliards d'euros, des ressources fondamentales pour contrer la hausse des prix de l'énergie, du gazole et des engrais causés par les conflits internationaux.
+
+### Le problème du faux Made in Italy
+Le principal problème dénoncé par l'association est le mécanisme qui permet à un produit étranger de devenir légalement italien grâce à une dernière transformation effectuée dans notre pays. 'Le faux Made in Italy est un problème pour les producteurs et les consommateurs', a commenté le président varésan Colombo. Cette distorsion du marché ne pénalise pas seulement le travail agricole national, mais trompe également les acheteurs, altérant la perception de la véritable origine des matières premières.
+
+### Sécurité nationale et souveraineté alimentaire
+Pour la Coldiretti, défendre l'origine des produits signifie protéger la souveraineté économique du pays. Le secrétaire général Vincenzo Gesmundo a souligné que la stabilité internationale est cruciale : 'Les conflits en cours produisent déjà des effets concrets sur les filières et sur le pouvoir d'achat des familles'. Dans ce contexte, l'approbation récente de la loi sur les délits agroalimentaires (inspirée par la 'Loi Caselli') représente une étape historique contre les agromafias.
+
+### Les demandes à l'Europe
+Le président national Ettore Prandini a réitéré l'urgence d'une intervention de l'Union européenne : 'L'agroalimentaire italien vaut 707 milliards d'euros et garantit 4 millions d'emplois. Il est nécessaire que les États membres puissent définir l'origine des produits à partir de la matière première agricole. Les contrats de filière doivent devenir l'instrument pour garantir l'équité et redistribuer la valeur le long de toute la chaîne de production.'
+
+La mobilisation, soutenue également sur les réseaux sociaux par la campagne #nofakeinitaly, se déplacera désormais sur le plan institutionnel : jeudi à Rome, les demandes seront présentées directement au Commissaire européen à la Santé, Olivér Várhelyi.`,"blog.article.coldiretti-brennero-made-italy-2026.body2":`### Implications pour les consommateurs et les producteurs
+La révision du code des douanes pourrait avoir un impact significatif tant pour les consommateurs que pour les producteurs. Pour les consommateurs, une plus grande transparence sur l'origine des produits permettrait de faire des choix plus conscients et de soutenir effectivement les producteurs italiens. Pour les producteurs, en revanche, ce changement pourrait signifier un regain de compétitivité et une plus grande équité sur le marché.
+
+### Comparaison avec la situation actuelle
+Actuellement, le mécanisme de la dernière transformation substantielle permet à des produits étrangers d'être étiquetés comme italiens après une minimale transformation dans notre pays. Ce système favorise l'entrée de produits à bas coût qui concurrencent les produits italiens, pénalisant les producteurs locaux et trompant les consommateurs.
+
+### Scénarios futurs
+Si la révision du code des douanes devait être approuvée, on pourrait assister à une augmentation de la production agricole italienne et à une plus grande protection des produits typiques. De plus, les consommateurs pourraient bénéficier d'une plus grande variété de produits authentiquement italiens, avec un impact positif également sur le tourisme œnologique.
+
+### Comparaison avec d'autres réglementations européennes
+En Europe, diverses réglementations protègent déjà l'origine des produits alimentaires. Par exemple, les appellations d'origine protégée (AOP) et les indications géographiques protégées (IGP) garantissent que certains produits sont réalisés dans des régions spécifiques et selon des normes déterminées. Cependant, le mécanisme de la dernière transformation substantielle représente encore une criticité que Coldiretti veut affronter.
+
+### Impact sur le marché du travail
+La révision du code des douanes pourrait avoir un impact positif sur le marché du travail dans le secteur agricole. Avec la récupération de 20 milliards d'euros, de nouvelles opportunités d'emploi pourraient être créées et les conditions des travailleurs agricoles, qui opèrent souvent dans des conditions difficiles et avec de bas salaires, pourraient être améliorées.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.coldiretti-brennero-made-italy-2026.body3":`### Que faire pour soutenir la cause
+Les consommateurs peuvent soutenir la cause de Coldiretti en achetant des produits avec les certifications DOP et IGP, qui garantissent l'origine italienne. De plus, il est possible de participer aux campagnes de sensibilisation comme #nofakeinitaly et de suivre les initiatives de Coldiretti sur les réseaux sociaux.
+
+### Procédure pour les producteurs agricoles
+Les producteurs agricoles peuvent rejoindre les associations de catégorie et participer aux protestations et aux initiatives promues par Coldiretti. Il est également important d'adhérer aux contrats de filière, qui garantissent une plus grande équité dans la distribution de la valeur tout au long de la chaîne de production.
+
+### Dates limites et rendez-vous
+La mobilisation de Coldiretti se poursuivra avec la présentation des demandes au Commissaire européen à la Santé, Olivér Várhelyi, le prochain jeudi à Rome. Ce sera un rendez-vous crucial pour l'avenir du secteur agricole italien.
+
+### Outils utiles
+Pour approfondir la question du faux Made in Italy et découvrir comment soutenir la cause, il est possible d'utiliser le [calculateur de salaire](nav:calculator) pour comparer les salaires dans le secteur agricole et le [comparateur de coûts](nav:cost-of-living) pour évaluer l'impact économique des réglementations douanières.
+
+### Conclusion
+La protestation de Coldiretti au Brenner représente une étape importante dans la lutte contre le faux Made in Italy. La révision du code douanier pourrait apporter des bénéfices significatifs pour les consommateurs, les producteurs et l'ensemble du secteur agricole italien. Il est fondamental de continuer à surveiller les développements et de participer activement aux initiatives promues par Coldiretti pour garantir un avenir plus équitable et transparent.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/coldiretti-anche-da-varese-al-brennero-stop-al-falso-made-in-italy-cambiamo-il-codice-doganale/2559442/)*`,"blog.article.coldiretti-brennero-made-italy-2026.faq":`[{"q":"Que demande la Coldiretti avec la révision du code douanier?","a":"La Coldiretti demande la révision du code douanier pour modifier le mécanisme de la dernière transformation substantielle, qui permet à des produits étrangers d'être étiquetés comme italiens après une légère transformation dans notre pays. Ce changement vise à récupérer au moins 20 milliards d'euros pour le secteur agricole italien et à garantir une plus grande transparence et équité sur le marché."},{"q":"Quel est l'impact du faux Made in Italy sur les consommateurs?","a":"Le faux Made in Italy trompe les consommateurs, altérant la perception de la véritable origine des matières premières. Une plus grande transparence sur l'origine des produits permettrait aux consommateurs de faire des choix plus conscients et de soutenir effectivement les producteurs italiens."},{"q":"Que peuvent faire les consommateurs pour soutenir la cause de la Coldiretti?","a":"Les consommateurs peuvent soutenir la cause de la Coldiretti en achetant des produits avec des certifications DOP et IGP, qui garantissent l'origine italienne. De plus, il est possible de participer aux campagnes de sensibilisation comme #nofakeinitaly et de suivre les initiatives de la Coldiretti sur les réseaux sociaux."}]`};export{e as default};

@@ -1,0 +1,100 @@
+const i={"blog.article.centromedico-castello-chirurgia-ambulatoriale.body1":`## In breve
+- Nuova struttura per chirurgia ambulatoriale a Bellinzona
+- Inclusa oftalmologia con Swiss Visio
+- Parte del gruppo Swiss Medical Network
+
+## Fatti chiave
+- **Cosa**: Nuova struttura medica per chirurgia ambulatoriale
+- Quando: 7 maggio 2026
+- Dove: Bellinzona
+- Chi: Gruppo Swiss Medical Network
+- Importo: Non ancora specificato
+
+Bellinzona si arricchisce di una nuova struttura medica dedicata alla chirurgia ambulatoriale. Centromedico Castello, parte del gruppo Swiss Medical Network, offre ora servizi avanzati per interventi che non richiedono degenza ospedaliera. Tra le novità, spicca anche un centro oftalmologico gestito da Swiss Visio, specializzato in interventi oculistici.
+
+La struttura rappresenta un'opportunità importante per i frontalieri che lavorano in Ticino e risiedono in Italia. La vicinanza geografica e la qualità dei servizi offerti possono rendere più accessibili interventi medici che altrimenti richiederebbero spostamenti più lunghi o attese più prolungate.
+
+### Cosa offre Centromedico Castello
+
+Centromedico Castello si presenta come un punto di riferimento per la chirurgia ambulatoriale, offrendo una gamma completa di servizi medici. Tra questi, spiccano interventi di oftalmologia, ortopedia, ginecologia e chirurgia generale. La presenza di Swiss Visio garantisce inoltre servizi specialistici per la cura degli occhi, con tecnologie all'avanguardia e personale qualificato.
+
+Per i frontalieri, la possibilità di accedere a questi servizi in una struttura moderna e ben attrezzata rappresenta un vantaggio significativo. La vicinanza a Bellinzona, facilmente raggiungibile dai principali valichi di frontiera, rende la struttura accessibile anche per chi risiede in Italia.
+
+### Come accedere ai servizi
+
+Per usufruire dei servizi offerti da Centromedico Castello, i frontalieri devono seguire alcune procedure specifiche. Innanzitutto, è necessario prenotare una visita presso la struttura, che può essere effettuata tramite il sito web o contattando direttamente il centro. Durante la visita, il medico valuterà la necessità di eventuali interventi chirurgici e fornirà tutte le informazioni necessarie.
+
+Per quanto riguarda i costi, è importante verificare la copertura assicurativa. La maggior parte delle assicurazioni sanitarie svizzere copre interventi ambulatoriali, ma è sempre consigliabile controllare i dettagli della propria polizza. In alcuni casi, potrebbe essere necessario anticipare una parte delle spese e richiedere il rimborso successivo.
+
+### Vantaggi per i frontalieri
+
+La nuova struttura offre numerosi vantaggi per i frontalieri che lavorano in Ticino. Tra questi, spiccano:
+- Accesso a servizi medici di alta qualità
+- Tempi di attesa ridotti rispetto ad altre strutture
+- Vicinanza geografica per chi risiede in Italia
+- Tecnologie all'avanguardia e personale qualificato
+
+Inoltre, la presenza di un centro oftalmologico specializzato rappresenta un'opportunità importante per chi necessita di interventi oculistici. La chirurgia ambulatoriale offre infatti il vantaggio di ridurre al minimo i tempi di recupero e di consentire un ritorno rapido alla vita quotidiana.
+
+### Conclusione
+
+Centromedico Castello rappresenta una nuova opportunità per i frontalieri che lavorano in Ticino. La struttura offre servizi avanzati di chirurgia ambulatoriale, con un centro oftalmologico specializzato gestito da Swiss Visio. La vicinanza geografica e la qualità dei servizi rendono questa struttura un punto di riferimento importante per chi necessita di interventi medici.
+
+Per maggiori informazioni, è possibile visitare il sito web di Centromedico Castello o contattare direttamente la struttura. Inoltre, per confrontare i costi e le coperture assicurative, è utile consultare il [comparatore assicurazioni](nav:health).`,"blog.article.centromedico-castello-chirurgia-ambulatoriale.body2":`## Implicazioni pratiche per i frontalieri
+
+La nuova struttura di Centromedico Castello offre diverse opportunità per i frontalieri che lavorano in Ticino. Tra queste, spiccano la possibilità di accedere a servizi medici di alta qualità con tempi di attesa ridotti e la vicinanza geografica per chi risiede in Italia.
+
+### Confronti con la situazione precedente
+
+Prima dell'apertura di Centromedico Castello, i frontalieri che necessitavano di interventi chirurgici ambulatoriali dovevano spesso rivolgersi a strutture situate in altre parti del Canton Ticino o addirittura in Italia. Questo comportava tempi di attesa più lunghi e spostamenti più complessi. Con la nuova struttura, invece, è possibile accedere a servizi avanzati in modo più rapido e conveniente.
+
+### Scenari concreti
+
+Immaginiamo il caso di un frontaliere che necessita di un intervento oftalmologico. Prima dell'apertura di Centromedico Castello, avrebbe dovuto rivolgersi a un centro specializzato in Italia o attendere tempi di attesa più lunghi in Svizzera. Ora, grazie alla presenza di Swiss Visio all'interno della struttura, può accedere a servizi di alta qualità in modo più rapido e vicino al luogo di lavoro.
+
+Un altro scenario riguarda un frontaliere che necessita di un intervento ortopedico. Anche in questo caso, la nuova struttura offre la possibilità di accedere a servizi avanzati con tempi di attesa ridotti, garantendo un ritorno rapido alla vita quotidiana.
+
+### Confronto con altre strutture
+
+Per comprendere meglio i vantaggi offerti da Centromedico Castello, è utile confrontare la struttura con altre cliniche presenti in Ticino. Ad esempio, la Clinica Luganese Moncucco offre servizi simili, ma si trova a Lugano, più lontana dai principali valichi di frontiera. Centromedico Castello, invece, è situata a Bellinzona, facilmente raggiungibile da chi risiede in Italia.
+
+### Tabella comparativa
+
+| Struttura | Località | Tempi di attesa | Servizi offerti |
+|------------|-----------|----------------|-----------------|
+| Centromedico Castello | Bellinzona | Ridotti | Chirurgia ambulatoriale, oftalmologia, ortopedia, ginecologia, chirurgia generale |
+| Clinica Luganese Moncucco | Lugano | Medi | Chirurgia ambulatoriale, oftalmologia, ortopedia, ginecologia, chirurgia generale |
+| Ospedale Civico di Lugano | Lugano | Lunghi | Chirurgia ambulatoriale, oftalmologia, ortopedia, ginecologia, chirurgia generale |
+
+### Conclusioni
+
+Centromedico Castello rappresenta una nuova opportunità per i frontalieri che lavorano in Ticino. La struttura offre servizi avanzati di chirurgia ambulatoriale, con un centro oftalmologico specializzato gestito da Swiss Visio. La vicinanza geografica e la qualità dei servizi rendono questa struttura un punto di riferimento importante per chi necessita di interventi medici.
+
+Per maggiori informazioni, è possibile visitare il sito web di Centromedico Castello o contattare direttamente la struttura. Inoltre, per confrontare i costi e le coperture assicurative, è utile consultare il [comparatore assicurazioni](nav:health).
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.centromedico-castello-chirurgia-ambulatoriale.body3":`## Cosa fare per accedere ai servizi
+
+Per usufruire dei servizi offerti da Centromedico Castello, i frontalieri devono seguire alcune procedure specifiche. Ecco una guida passo-passo:
+
+1. **Prenotazione**: La prima cosa da fare è prenotare una visita presso la struttura. Questo può essere fatto tramite il sito web di Centromedico Castello o contattando direttamente il centro. Durante la prenotazione, è importante fornire tutte le informazioni necessarie, come i dati anagrafici e il motivo della visita.
+
+2. Documentazione: Prima della visita, è necessario preparare tutta la documentazione richiesta. Questo include la carta d'identità, il permesso di soggiorno, la tessera sanitaria e eventuali referti medici precedenti. È importante verificare con la struttura quali documenti sono necessari per il proprio caso specifico.
+
+3. Visita medica: Durante la visita, il medico valuterà la necessità di eventuali interventi chirurgici e fornirà tutte le informazioni necessarie. È importante fare domande e chiarire eventuali dubbi riguardo all'intervento e alle procedure post-operatorie.
+
+4. Costi e coperture assicurative: Prima di procedere con l'intervento, è importante verificare i costi e le coperture assicurative. La maggior parte delle assicurazioni sanitarie svizzere copre interventi ambulatoriali, ma è sempre consigliabile controllare i dettagli della propria polizza. In alcuni casi, potrebbe essere necessario anticipare una parte delle spese e richiedere il rimborso successivo.
+
+5. Intervento e recupero: Dopo l'intervento, è importante seguire le indicazioni del medico per un recupero rapido e sicuro. Questo può includere l'assunzione di farmaci, la limitazione di certe attività e la partecipazione a controlli post-operatori.
+
+### Strumenti utili
+
+Per confrontare i costi e le coperture assicurative, è utile consultare il [comparatore assicurazioni](nav:health). Inoltre, per pianificare al meglio il proprio intervento, è possibile utilizzare il [calcolatore di spese mediche](nav:cost-of-living).
+
+### Conclusioni
+
+Centromedico Castello rappresenta una nuova opportunità per i frontalieri che lavorano in Ticino. La struttura offre servizi avanzati di chirurgia ambulatoriale, con un centro oftalmologico specializzato gestito da Swiss Visio. La vicinanza geografica e la qualità dei servizi rendono questa struttura un punto di riferimento importante per chi necessita di interventi medici.
+
+Per maggiori informazioni, è possibile visitare il sito web di Centromedico Castello o contattare direttamente la struttura. Inoltre, per confrontare i costi e le coperture assicurative, è utile consultare il [comparatore assicurazioni](nav:health).
+
+*Fonte: [laregione.ch](https://www.laregione.ch/cantone/bellinzonese/1923897/centromedico-castello-il-regno-della-chirurgia-ambulatoriale)*`,"blog.article.centromedico-castello-chirurgia-ambulatoriale.faq":`[{"q":"Quali servizi medici offre il nuovo Centromedico Castello di Bellinzona?","a":"Il Centromedico Castello a Bellinzona, parte del gruppo Swiss Medical Network, offre servizi avanzati di chirurgia ambulatoriale. Tra le specialità, spiccano oftalmologia (gestita da Swiss Visio), ortopedia, ginecologia e chirurgia generale. La struttura, operativa dal 7 maggio 2026, è dedicata a interventi che non richiedono degenza ospedaliera, garantendo tecnologie all'avanguardia e personale qualificato."},{"q":"Quali sono i principali vantaggi del Centromedico Castello per i frontalieri italiani?","a":"Per i frontalieri, il Centromedico Castello offre accesso a servizi medici di alta qualità con tempi di attesa ridotti. La sua posizione a Bellinzona lo rende facilmente raggiungibile dai principali valichi di frontiera italiani, minimizzando gli spostamenti. La struttura garantisce tecnologie all'avanguardia e personale qualificato, facilitando un rapido ritorno alla vita quotidiana dopo interventi ambulatoriali."},{"q":"Come possono i frontalieri accedere ai servizi del Centromedico Castello e come funziona la copertura assicurativa?","a":"I frontalieri possono prenotare una visita tramite il sito web del Centromedico Castello o contattando direttamente la struttura. È fondamentale verificare la propria copertura assicurativa sanitaria svizzera, poiché la maggior parte copre gli interventi ambulatoriali. Si consiglia di controllare i dettagli della propria polizza, in quanto in alcuni casi potrebbe essere necessario anticipare le spese e richiedere un rimborso successivo."},{"q":"Il Centromedico Castello di Bellinzona include servizi specialistici per la cura degli occhi?","a":"Sì, il Centromedico Castello ospita un centro oftalmologico specialistico gestito da Swiss Visio. Questa integrazione garantisce ai pazienti, inclusi i frontalieri, l'accesso a servizi avanzati per la cura degli occhi con tecnologie all'avanguardia e personale altamente qualificato. Rappresenta un'opportunità importante per chi necessita di interventi oculistici ambulatoriali."},{"q":"In che modo il Centromedico Castello si differenzia da altre strutture mediche in Ticino per i frontalieri?","a":"Il Centromedico Castello si distingue per la sua posizione strategica a Bellinzona, facilmente accessibile dai frontalieri rispetto a cliniche come la Clinica Luganese Moncucco a Lugano. Offre tempi di attesa ridotti e una gamma completa di chirurgia ambulatoriale, inclusa l'oftalmologia specialistica con Swiss Visio, rappresentando un miglioramento significativo rispetto a spostamenti più lunghi o attese prolungate precedenti."}]`};export{i as default};

@@ -1,0 +1,83 @@
+const i={"blog.article.frontalieri-tassa-salute-scontro.body1":`## In breve
+- La tassa sulla salute per i frontalieri potrebbe violare l'accordo italo-svizzero del 2020
+- Il Pd presenta una mozione per bloccare l'introduzione dell'imposta e tutelare i ristorni dei Comuni di frontiera
+- La Svizzera potrebbe decurtare i ristorni versati all'Italia in misura equivalente all'imposta sanitaria prelevata ai frontalieri
+- La tassa potrebbe avere implicazioni significative per i lavoratori e l'intero ecosistema economico dei Comuni di frontiera
+
+## Fatti chiave
+- **Accordo italo-svizzero**: 2020
+- **Tassa sulla salute**: imposta ulteriore sul reddito dei lavoratori frontalieri
+- **Ristorni**: 38% delle imposte versate dai frontalieri
+- **Pd**: partito che presenta la mozione per bloccare l'introduzione dell'imposta
+- **Svizzera**: potrebbe decurtare i ristorni versati all'Italia
+- **Comuni di frontiera**: potrebbero subire una riduzione dei fondi
+- **Lavoratori frontalieri**: potrebbero subire un doppio prelievo fiscale
+
+L'attesa audizione dell'assessore regionale Sertori in Commissione Lombardia-Svizzera è saltata, ma lo scontro sulla tassa sulla salute per i frontalieri approda in consiglio regionale. I consiglieri del Pd Angelo Orsenigo e Samuele Astuti annunciano la discussione di una mozione per martedì, con l'obiettivo di bloccare l'introduzione dell'imposta e tutelare i ristorni dei Comuni di frontiera.
+
+## Le richieste del Pd
+
+La mozione presentata dal Pd chiede alla Giunta di:
+
+- Sollecitare il Governo italiano al rispetto dell'accordo italo-svizzero del 2020.
+- Richiedere l'abrogazione delle norme che introducono la tassa sulla salute.
+- Non dare corso alla normativa nazionale, sia primaria che secondaria.
+- Promuovere un confronto con la Svizzera per garantire la continuità dei ristorni nel periodo transitorio previsto dall'accordo fiscale.
+
+> L’articolo 9, comma 1, dell’Accordo tra la Confederazione Svizzera e la Repubblica Italiana stabilisce che i lavoratori frontalieri rientranti nel regime transitorio sono assoggettati a imposizione fiscale solo nello Stato dove esercitano l’attività lavorativa, cioè in Svizzera. L’introduzione di un’imposta ulteriore sul reddito di questi lavoratori costituisce una violazione diretta di questo passaggio dell’accordo.
+
+I consiglieri Orsenigo e Astuti sottolineano che la tassa sulla salute, prelevata dallo Stato italiano, sarebbe calcolata sul reddito già tassato in Svizzera e non sarebbe parametrata a servizi individuali, assumendo quindi carattere generale di imposizione tributaria.
+
+## Il rischio per i ristorni
+
+Un altro aspetto critico sollevato dal Pd è il rischio che il Canton Ticino e la Svizzera decurtino i ristorni versati all'Italia in misura equivalente all'imposta sanitaria prelevata ai frontalieri. Questo intervento, potenzialmente legittimo secondo il diritto internazionale, comprometterebbe i bilanci dei Comuni di frontiera, mettendo a rischio l'erogazione di servizi essenziali.
+
+Le dichiarazioni contraddittorie della maggioranza, tra chi sostiene che la legge vada applicata e chi ne condiziona l'applicazione, evidenziano una mancanza di chiarezza all'interno del centrodestra. Intanto, regioni come il Piemonte hanno già dichiarato di non voler procedere con l'applicazione della norma, mentre Valle d'Aosta e Trentino Alto Adige non si sono ancora espressi.`,"blog.article.frontalieri-tassa-salute-scontro.body2":`La tassa sulla salute per i frontalieri, se introdotta, potrebbe avere implicazioni significative non solo per i lavoratori ma anche per l'intero ecosistema economico dei Comuni di frontiera. Analizziamo nel dettaglio le conseguenze pratiche e gli scenari possibili.
+
+## Cosa cambia per i frontalieri
+
+Se la tassa venisse applicata, i frontalieri si troverebbero a pagare un'imposta aggiuntiva sul reddito già tassato in Svizzera. Questo doppio prelievo violerebbe l'accordo italo-svizzero del 2020, che garantisce l'imposizione fiscale esclusiva nello Stato di lavoro. La tassa, non essendo legata a servizi individuali, assumerebbe un carattere generale, simile a un'imposta sul reddito.
+
+### Impatto sui bilanci familiari
+
+Per un frontaliere con uno stipendio medio, l'introduzione della tassa potrebbe tradursi in una riduzione netta del reddito disponibile. Ad esempio, considerando un reddito annuo di 60.000 CHF, già tassato in Svizzera, l'applicazione di un'imposta aggiuntiva del 2% (ipotesi non ancora specificata) potrebbe comportare un prelievo di 1.200 CHF all'anno. Questa cifra, apparentemente modesta, si somma ad altre spese transfrontaliere come i costi di trasporto e le assicurazioni sanitarie integrative.
+
+## Conseguenze per i Comuni di frontiera
+
+Il rischio più grave è la decurtazione dei ristorni da parte della Svizzera. I ristorni, pari al 38% delle imposte versate dai frontalieri, sono una fonte essenziale di finanziamento per i Comuni italiani di confine. Una riduzione di questi fondi comprometterebbe la capacità di erogare servizi pubblici come scuole, trasporti locali e assistenza sanitaria.
+
+### Scenario peggiore
+
+Se la Svizzera decidesse di sospendere parzialmente o totalmente i ristorni, i Comuni potrebbero trovarsi costretti a tagliare servizi o aumentare le tasse locali. Ad esempio, un Comune come Como, che riceve annualmente circa 10 milioni di euro dai ristorni, potrebbe vedere una riduzione di 2-3 milioni, con conseguenze dirette sulla qualità della vita dei residenti.
+
+## Confronto con altre regioni
+
+La posizione del Piemonte, che ha dichiarato di non voler applicare la tassa, crea un precedente significativo. Se altre regioni seguissero questo esempio, la norma potrebbe diventare di fatto inapplicabile, evitando così lo scontro con la Svizzera. Tuttavia, l'incertezza attuale lascia i frontalieri in una situazione di limbo, senza chiarezza sui loro obblighi fiscali futuri.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).`,"blog.article.frontalieri-tassa-salute-scontro.body3":`Di fronte a questa situazione di incertezza, i frontalieri devono adottare un approccio proattivo per tutelare i propri interessi. Ecco una guida pratica su cosa fare e quali strumenti utilizzare.
+
+## Step immediati
+
+1. **Informarsi**: Seguire gli aggiornamenti ufficiali attraverso i canali istituzionali e i media specializzati come Frontaliere Ticino.
+2. Verificare la propria posizione: Controllare se si rientra nella categoria dei 'vecchi frontalieri' soggetti al regime transitorio dell'accordo del 2020.
+3. Consultare un esperto: Rivolgersi a un fiscalista o a un consulente specializzato in diritto transfrontaliero per valutare l'impatto della tassa sulla propria situazione personale.
+
+## Strumenti utili
+
+- Calcolatore stipendio: Utilizza il nostro [calcolatore](nav:calculator) per simulare l'impatto della tassa sul tuo reddito netto.
+- Guida ai ristorni: Scarica la nostra guida completa sui ristorni e il loro ruolo nei bilanci comunali.
+- Mappa dei Comuni: Consulta la [mappa interattiva](nav:border-map) per verificare come i ristorni sono distribuiti nei Comuni di frontiera.
+
+## Cosa succede se...
+
+- La tassa viene applicata: In caso di introduzione della tassa, sarà fondamentale conservare tutta la documentazione fiscale relativa al reddito già tassato in Svizzera per eventuali ricorsi.
+- I ristorni vengono decurtati: Monitorare le decisioni del Canton Ticino e partecipare attivamente alle iniziative dei Comuni per difendere i propri diritti.
+
+## Azioni collettive
+
+Unirsi ad associazioni di frontalieri o partecipare a iniziative locali può aumentare il peso politico della categoria. Ad esempio, petizioni o incontri con i rappresentanti regionali possono contribuire a sensibilizzare le istituzioni sui rischi della tassa.
+
+Per approfondire ulteriormente, consulta la nostra [guida completa](nav:living-ch) sulla vita e il lavoro in Svizzera, con sezioni dedicate agli aspetti fiscali e legali.
+
+*Fonte: [comozero.it](https://comozero.it/attualita/frontalieri-e-tassa-sulla-salute-saltata-laudizione-dellassessore-sertori-e-scontro-in-consiglio-regionale/)*`,"blog.article.frontalieri-tassa-salute-scontro.faq":`[{"q":"Chi sono i 'vecchi frontalieri' e perché sono interessati dalla tassa sulla salute?","a":"I 'vecchi frontalieri' sono i lavoratori che rientrano nel regime transitorio dell'accordo italo-svizzero del 2020. Secondo l'articolo 9 dell'accordo, questi lavoratori sono soggetti a imposizione fiscale solo in Svizzera. La tassa sulla salute, se introdotta, violerebbe questo principio, applicando un prelievo aggiuntivo sul reddito già tassato."},{"q":"Quali sono i rischi per i Comuni di frontiera se i ristorni vengono decurtati?","a":"I ristorni sono una fonte cruciale di finanziamento per i Comuni italiani di confine. Una decurtazione potrebbe portare a tagli nei servizi pubblici essenziali come scuole, trasporti e assistenza sanitaria, con un impatto diretto sulla qualità della vita dei residenti."},{"q":"Cosa possono fare i frontalieri per tutelarsi in questa situazione?","a":"I frontalieri dovrebbero informarsi costantemente, verificare la propria posizione fiscale e consultare esperti. Strumenti come il calcolatore stipendio e la mappa dei ristorni possono aiutare a comprendere l'impatto della tassa. Inoltre, partecipare ad azioni collettive può aumentare la pressione sulle istituzioni per una soluzione equa."}]`};export{i as default};

@@ -1,0 +1,58 @@
+const i={"blog.article.ffs-tagli-ticino-frontalieri-2026.body1":`## In breve
+- FFS annuncia nuovi tagli di posti di lavoro in Ticino
+- Autorità cantonali chiedono un incontro urgente
+- Possibile chiusura del deposito di Chiasso
+
+## Fatti chiave
+- **Cosa**: Nuovi tagli di posti di lavoro e possibile chiusura del deposito di Chiasso
+- Quando: Annunciati per martedì 19 maggio 2026
+- Dove: Canton Ticino, Svizzera
+- Chi: Ferrovie federali svizzere (FFS)
+- Importo: Perdita di decine di posti di lavoro
+
+Le Ferrovie federali svizzere (FFS) sono al centro di una nuova polemica in Ticino. Secondo quanto denunciato da Matteo Pronzini (MPS) in una missiva al Consiglio di Stato, le FFS si preparano a tornare in Ticino martedì 19 maggio per annunciare nuovi tagli di posti di lavoro. Questa notizia ha sollevato preoccupazioni tra i lavoratori e le autorità locali, che hanno già espresso la loro opposizione a tali misure negli scorsi mesi. 
+
+### Il contesto
+Negli scorsi mesi, il Consiglio di Stato, il Gran Consiglio e molte autorità comunali avevano espresso la loro opposizione a nuovi tagli di posti di lavoro da parte delle ferrovie federali. Nonostante ciò, le FFS sembrano essere sorde alle legittime richieste espresse dal Canton Ticino. Pronzini ha richiesto un confronto immediato con le autorità per discutere congiuntamente le azioni da intraprendere per impedire ulteriori tagli di posti di lavoro nel cantone.
+
+### Le accuse
+Secondo il comunicato stampa del Comitato No allo smantellamento di FFS Cargo in Ticino, la dirigenza delle FFS tratterebbe il cantone come «un baliaggio da sfruttare e saccheggiare», riducendolo a «semplice corridoio ferroviario» e trasferendo «posti di lavoro, competenze e funzioni strategiche» oltre Gottardo. In Ticino non vi sarebbero impieghi nei settori centrali, mentre proseguirebbe una «continua e insistente centralizzazione» dei posti di lavoro non ritenuti indispensabili per la gestione della linea sul territorio.
+
+### Le conseguenze
+Tra le decisioni strategiche definite «gravissime», la fonte cita la decisione dello scorso anno di abbandonare i terminali di Cadenazzo e Vedeggio, nonostante una «forte opposizione popolare e istituzionale», con la conseguente perdita di oltre 50 posti di lavoro. La situazione potrebbe ora aggravarsi ulteriormente con la probabile chiusura del deposito di Chiasso, con la perdita di «altre decine di posti di lavoro». Una prospettiva che viene definita «un nuovo attacco contro il Ticino e contro il servizio pubblico».
+
+### Le reazioni
+Grazie alla mobilitazione promossa dal comitato citato nel comunicato, il Gran Consiglio e il Consiglio di Stato avrebbero già preso posizione, trasmettendo alle FFS un messaggio chiaro: «basta smantellamenti, basta tagli ai posti di lavoro in Ticino, NO alla chiusura del deposito di Chiasso».`,"blog.article.ffs-tagli-ticino-frontalieri-2026.body2":`## Analisi delle implicazioni per i frontalieri
+Le decisioni delle FFS potrebbero avere un impatto significativo sui frontalieri che lavorano nel settore ferroviario in Ticino. La possibile chiusura del deposito di Chiasso e i tagli di posti di lavoro potrebbero portare a una riduzione dei servizi ferroviari e a un aumento della congestione nei valichi di frontiera, come Brogeda e Gaggiolo, già critici per i pendolari.
+
+### Impatto sui servizi ferroviari
+La centralizzazione delle funzioni strategiche oltre Gottardo potrebbe portare a una riduzione dei servizi ferroviari nel Ticino, con conseguenze negative per i frontalieri che utilizzano i treni per spostarsi tra Italia e Svizzera. La perdita di posti di lavoro e la chiusura del deposito di Chiasso potrebbero anche portare a un aumento dei tempi di attesa e a una riduzione della frequenza dei treni, rendendo più difficile per i frontalieri raggiungere i loro luoghi di lavoro.
+
+### Impatto sul mercato del lavoro
+I tagli di posti di lavoro potrebbero avere un impatto significativo sul mercato del lavoro ticinese, con conseguenze negative per i frontalieri che lavorano nel settore ferroviario. La perdita di posti di lavoro potrebbe portare a un aumento della disoccupazione e a una riduzione delle opportunità di lavoro per i frontalieri, rendendo più difficile per loro trovare un impiego stabile e ben retribuito.
+
+### Impatto fiscale
+I tagli di posti di lavoro potrebbero anche avere un impatto fiscale per i frontalieri. La riduzione del numero di lavoratori potrebbe portare a una riduzione delle entrate fiscali per il Canton Ticino, con conseguenze negative per i servizi pubblici e per la qualità della vita dei frontalieri. Inoltre, la chiusura del deposito di Chiasso potrebbe portare a una riduzione delle entrate fiscali per il comune di Chiasso, con conseguenze negative per i servizi pubblici locali.
+
+### Impatto sulla qualità della vita
+I tagli di posti di lavoro e la chiusura del deposito di Chiasso potrebbero anche avere un impatto sulla qualità della vita dei frontalieri. La riduzione dei servizi ferroviari e l'aumento dei tempi di attesa potrebbero rendere più difficile per i frontalieri raggiungere i loro luoghi di lavoro, con conseguenze negative sulla loro qualità della vita. Inoltre, la riduzione delle opportunità di lavoro potrebbe portare a un aumento dello stress e dell'ansia per i frontalieri, con conseguenze negative sulla loro salute mentale.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.ffs-tagli-ticino-frontalieri-2026.body3":`## Cosa fare per i frontalieri
+I frontalieri che lavorano nel settore ferroviario in Ticino dovrebbero monitorare attentamente le decisioni delle FFS e partecipare alle assemblee pubbliche per esprimere le loro preoccupazioni. Inoltre, dovrebbero informarsi sulle opportunità di lavoro alternative e sui servizi di supporto disponibili per i lavoratori in difficoltà.
+
+### Partecipare alle assemblee pubbliche
+I frontalieri dovrebbero partecipare alle assemblee pubbliche organizzate dal Comitato No allo smantellamento di FFS Cargo in Ticino per esprimere le loro preoccupazioni e per chiedere alle autorità di intervenire per impedire i tagli di posti di lavoro e la chiusura del deposito di Chiasso. L'assemblea pubblica prevista per martedì 19 maggio a Chiasso è un'opportunità importante per i frontalieri per fare la loro voce sentire.
+
+### Informarsi sulle opportunità di lavoro alternative
+I frontalieri che lavorano nel settore ferroviario dovrebbero informarsi sulle opportunità di lavoro alternative disponibili nel Canton Ticino. Il mercato del lavoro ticinese offre molte opportunità di lavoro in settori diversi, e i frontalieri dovrebbero esplorare queste opportunità per trovare un impiego stabile e ben retribuito. Inoltre, i frontalieri dovrebbero informarsi sui servizi di supporto disponibili per i lavoratori in difficoltà, come i centri per l'impiego e i servizi di orientamento professionale.
+
+### Utilizzare i servizi di supporto disponibili
+I frontalieri che lavorano nel settore ferroviario dovrebbero utilizzare i servizi di supporto disponibili per i lavoratori in difficoltà. I centri per l'impiego e i servizi di orientamento professionale possono fornire informazioni utili sulle opportunità di lavoro disponibili e sui servizi di supporto disponibili per i lavoratori in difficoltà. Inoltre, i frontalieri dovrebbero informarsi sui loro diritti e sulle tutele disponibili in caso di licenziamento o di riduzione del personale.
+
+### Utilizzare il calcolatore di stipendio
+I frontalieri che lavorano nel settore ferroviario dovrebbero utilizzare il calcolatore di stipendio per calcolare il loro stipendio netto e per confrontare le opportunità di lavoro disponibili nel Canton Ticino. Il calcolatore di stipendio può fornire informazioni utili sulle opportunità di lavoro disponibili e sui servizi di supporto disponibili per i lavoratori in difficoltà. Inoltre, i frontalieri dovrebbero informarsi sui loro diritti e sulle tutele disponibili in caso di licenziamento o di riduzione del personale.
+
+Per ulteriori informazioni e per utilizzare il calcolatore di stipendio, visita il sito Frontaliere Ticino.
+
+*Fonte: [tio.ch](https://www.tio.ch/ticino/politica/1925982/ffs-verso-nuovi-tagli-in-ticino-un-attacco-al-lavoro-e-al-servizio-pubblico)*`,"blog.article.ffs-tagli-ticino-frontalieri-2026.faq":`[{"q":"Cosa possono fare i frontalieri per opporsi ai tagli di posti di lavoro?","a":"I frontalieri possono partecipare alle assemblee pubbliche organizzate dal Comitato No allo smantellamento di FFS Cargo in Ticino e contattare le autorità locali per esprimere le loro preoccupazioni. Inoltre, possono informarsi sulle opportunità di lavoro alternative e sui servizi di supporto disponibili per i lavoratori in difficoltà."},{"q":"Quali sono le conseguenze dei tagli di posti di lavoro per i frontalieri?","a":"I tagli di posti di lavoro potrebbero portare a una riduzione dei servizi ferroviari e a un aumento della congestione nei valichi di frontiera, rendendo più difficile per i frontalieri raggiungere i loro luoghi di lavoro. Inoltre, potrebbero portare a un aumento della disoccupazione e a una riduzione delle opportunità di lavoro per i frontalieri."},{"q":"Cosa possono fare i frontalieri per trovare un nuovo lavoro?","a":"I frontalieri possono informarsi sulle opportunità di lavoro alternative disponibili nel Canton Ticino e utilizzare i servizi di supporto disponibili per i lavoratori in difficoltà, come i centri per l'impiego e i servizi di orientamento professionale. Inoltre, possono utilizzare il calcolatore di stipendio per calcolare il loro stipendio netto e per confrontare le opportunità di lavoro disponibili."}]`};export{i as default};

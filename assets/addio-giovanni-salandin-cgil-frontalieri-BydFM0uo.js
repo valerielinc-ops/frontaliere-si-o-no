@@ -1,0 +1,51 @@
+const i={"blog.article.addio-giovanni-salandin-cgil-frontalieri.body1":`## In breve
+- Giovanni Salandin, storico dirigente Cgil, è scomparso.
+- Ultimo saluto a Brissago Valtravaglia il 30 aprile 2026.
+- Ha curato la mostra 'Rido!' per il centenario della Cgil.
+
+## Fatti chiave
+- **Cosa**: Scomparsa di Giovanni Salandin, storico dirigente Cgil.
+- Quando: 30 aprile 2026.
+- Dove: Brissago Valtravaglia, Ticino.
+- Chi: Cgil di Varese e lavoratori frontalieri.
+- Importo: Non specificato.
+
+Il mondo sindacale varesino è in lutto per la scomparsa di Giovanni Salandin, storico dirigente della Cgil che ha segnato decenni di lotte e iniziative culturali sul territorio. Figura stimata per il suo equilibrio e la sua dedizione, Salandin ha saputo coniugare la difesa dei diritti dei lavoratori con una profonda passione per l’informazione e la formazione, lasciando un’impronta indelebile in diverse categorie, dai grafici ai frontalieri.
+
+La carriera di Giovanni Salandin iniziò direttamente sul campo, come delegato sindacale presso la cartotecnica Plv di Daverio. In quell’ambiente produttivo si fece conoscere e apprezzare da colleghi e compagne di lavoro per un impegno costante che lo portò, poco dopo la metà degli anni Ottanta, a diventare Segretario provinciale della Filis, la federazione che riuniva i lavoratori dell’informazione e dello spettacolo.
+
+Un passaggio cruciale del suo percorso avvenne nel 1996, quando fu eletto segretario generale della Slc, la nuova sigla nata dall’unificazione tra la Filis e i Postelegrafonici. Fu un compito complesso, che Salandin affrontò con grande abnegazione, riuscendo a far convivere culture lavorative molto distanti tra loro. Parallelamente, non dimenticò mai l’importanza della trasmissione dei valori alle nuove generazioni, recandosi regolarmente all’Enaip di Varese per insegnare agli studenti i rudimenti dei diritti sindacali.
+
+### La tutela dei frontalieri e la mostra 'Rido!'
+Tra il 2001 e il 2007, Salandin entrò nell’apparato della confederazione occupandosi specificamente dei lavoratori frontalieri, un settore vitale per l’economia della provincia di Varese. Oltre all’aspetto contrattuale, seppe dare spazio alla creatività: nel 2006, in occasione del centenario della Cgil, curò insieme a Franco Stasi e Tiziano Riverso la mostra-concorso di vignette 'Rido!'. L’iniziativa vide il coinvolgimento di personalità del calibro di Sergio Staino, Gad Lerner e Roberto Vecchioni, diventando poi un libro che ha viaggiato attraverso i congressi di tutta Italia.
+
+La notizia della sua scomparsa ha suscitato profonda commozione tra i vertici e gli iscritti del sindacato. «La Segreteria della Cgil di Varese – il messaggio di cordoglio dell’organizzazione – esprime il suo cordoglio alla famiglia di Giovanni Salandin, ricordandone la grande passione per l’impegno sindacale e la capacità di dare vita a tante iniziative capaci di arricchire la vita della nostra organizzazione».`,"blog.article.addio-giovanni-salandin-cgil-frontalieri.body2":`L’impegno di Giovanni Salandin per i lavoratori frontalieri è stato fondamentale per l’economia della provincia di Varese. La sua dedizione ha permesso di migliorare le condizioni contrattuali e di lavoro per molti frontalieri, che rappresentano una parte significativa della forza lavoro nella regione.
+
+La mostra 'Rido!' è stata un’iniziativa culturale di grande rilievo, che ha coinvolto importanti personalità del mondo della cultura e dell’informazione. Questo progetto ha non solo celebrato il centenario della Cgil, ma ha anche contribuito a sensibilizzare l’opinione pubblica sui diritti dei lavoratori e sull’importanza del sindacato.
+
+### Implicazioni pratiche per i frontalieri
+I frontalieri che hanno beneficiato del lavoro di Salandin possono continuare a fare riferimento alle conquiste contrattuali ottenute grazie al suo impegno. È importante che i lavoratori siano consapevoli dei loro diritti e delle tutele sindacali disponibili, soprattutto in un contesto transfrontaliero complesso come quello tra Italia e Svizzera.
+
+Per i giovani che desiderano intraprendere un percorso sindacale, l’esempio di Salandin rappresenta un modello di dedizione e passione. La sua esperienza nell’insegnamento ai giovani studenti dell’Enaip di Varese dimostra l’importanza di trasmettere i valori sindacali alle nuove generazioni, garantendo così la continuità dell’impegno per i diritti dei lavoratori.
+
+### Confronti e scenari
+Prima dell’arrivo di Salandin, la situazione dei lavoratori frontalieri era più precaria, con meno tutele contrattuali e minori opportunità di formazione. Grazie al suo lavoro, sono stati ottenuti miglioramenti significativi, che hanno reso il lavoro transfrontaliero più sicuro e dignitoso.
+
+In un contesto in cui i diritti dei lavoratori sono spesso messi a rischio, l’eredità di Salandin rappresenta un punto di riferimento importante. La sua capacità di unire diverse culture lavorative all’interno della Slc dimostra come sia possibile trovare soluzioni condivise per migliorare le condizioni di lavoro per tutti.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.addio-giovanni-salandin-cgil-frontalieri.body3":`Per i frontalieri che desiderano approfondire le tutele sindacali e i diritti del lavoro, è possibile consultare le guide e i servizi offerti dalla Cgil. In particolare, il [calcolatore stipendio](nav:calculator) può essere utile per comprendere meglio le proprie condizioni economiche e contrattuali.
+
+### Procedura per richiedere assistenza sindacale
+1. **Contattare la Cgil di Varese**: I frontalieri possono rivolgersi alla sede locale della Cgil per ricevere assistenza e informazioni sui propri diritti.
+2. Consultare le guide online: La Cgil offre una serie di guide e risorse online che possono aiutare i lavoratori a comprendere meglio le tutele sindacali.
+3. Partecipare a corsi di formazione: Come ha fatto Salandin, è importante partecipare a corsi di formazione per acquisire competenze sindacali e migliorare le proprie condizioni di lavoro.
+
+### Strumenti utili
+- [Calcolatore stipendio](nav:calculator): Per calcolare il proprio stipendio netto e comprendere meglio le tutele contrattuali.
+- [Guide sindacali](nav:jobs): Per approfondire le tutele e i diritti dei lavoratori.
+- [Servizi di assistenza](nav:residency): Per ricevere supporto legale e contrattuale.
+
+L’eredità di Giovanni Salandin rappresenta un esempio di impegno e dedizione che può ispirare i lavoratori di oggi e di domani. La sua passione per i diritti sindacali e la sua capacità di unire diverse culture lavorative rimangono un modello per tutti coloro che desiderano migliorare le condizioni di lavoro e la vita dei frontalieri.
+
+*Fonte: [varesenews.it](https://www.varesenews.it/2026/04/addio-a-giovanni-salandin-storico-leader-cgil-lultimo-saluto-a-brissago-valtravaglia/2562052/)*`,"blog.article.addio-giovanni-salandin-cgil-frontalieri.faq":`[{"q":"Quali sono stati i principali contributi di Giovanni Salandin per i lavoratori frontalieri?","a":"Giovanni Salandin ha lavorato per migliorare le condizioni contrattuali e di lavoro dei frontalieri, ottenendo importanti conquiste sindacali. Ha anche curato la mostra 'Rido!', che ha sensibilizzato l’opinione pubblica sui diritti dei lavoratori."},{"q":"Come posso ottenere assistenza sindacale come frontaliere?","a":"Puoi rivolgerti alla sede locale della Cgil per ricevere assistenza e informazioni sui tuoi diritti. Inoltre, puoi consultare le guide e i servizi online offerti dalla Cgil per approfondire le tutele sindacali."},{"q":"Quali sono le principali tutele sindacali per i lavoratori frontalieri?","a":"Le principali tutele includono la difesa dei diritti contrattuali, la formazione sindacale e l’assistenza legale. La Cgil offre una serie di servizi e risorse per aiutare i lavoratori a comprendere meglio le loro tutele."}]`};export{i as default};

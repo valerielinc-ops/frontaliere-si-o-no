@@ -1,0 +1,75 @@
+const i={"blog.article.aeroporto-lugano-costi-interpellanza.body1":`## L'interpellanza sull'aeroporto di Lugano-Agno: cosa c'è in gioco
+
+Le consigliere comunali Sara Beretta Piccoli (PVL) e Carola Barchi (PLR) hanno presentato un'interpellanza al Municipio di Lugano che va ben oltre una semplice richiesta di rendiconto contabile. Al centro del documento vi sono tre questioni interconnesse: la trasparenza degli impegni finanziari pubblici già assunti, l'assenza di un piano strategico credibile per lo scalo, e il rapporto con il processo federale di pianificazione aeronautica.
+
+### Cos'è il PSIA e perché è determinante
+
+Il **Piano Settoriale delle Infrastrutture Aeronautiche (PSIA)** è lo strumento con cui la Confederazione svizzera stabilisce quali aeroporti e aerodromi sono riconosciuti come infrastrutture d'interesse nazionale, con quali funzioni e con quali vincoli urbanistici. In pratica, senza un'entrata favorevole nella scheda PSIA dedicata a Lugano-Agno, non è possibile ottenere né un rinnovo credibile della concessione federale né finanziamenti strutturali a lungo termine.
+
+Il problema sollevato dall'interpellanza è che il Municipio ha condizionato l'elaborazione della propria strategia all'approvazione di questa scheda — ma la scheda stessa richiede che il Cantone e il Comune esprimano una posizione politica chiara. Un circolo vizioso che, secondo le firmatarie, ha già prodotto anni di ritardo.
+
+### Perché l'aeroporto conta per i frontalieri
+
+Lugano-Agno è l'unico aeroporto commerciale nella regione geografica del frontalierato ticinese. Per chi vive nelle province di Como, Varese o Verbano-Cusio-Ossola e lavora in Ticino, rappresenta spesso la scelta più accessibile per voli verso destinazioni europee, evitando la necessità di raggiungere Malpensa (circa 55 minuti da Lugano in condizioni normali) o l'aeroporto di Zurigo (circa 2 ore).
+
+L'incertezza strategica sullo scalo ha già portato a una riduzione delle destinazioni servite. Al momento le operazioni si concentrano prevalentemente su aviazione privata, ambulance flights e collegamenti charter, con un'offerta di linea molto limitata.
+
+### Checklist per il frontaliere viaggiatore a Lugano-Agno
+
+- **Accesso**: parcheggio breve termine disponibile, indicativamente CHF 3-5/ora; parcheggio lungo periodo circa CHF 20-30/giorno
+- **Trasporto pubblico**: bus di linea da Lugano centro in circa 20-25 minuti
+- **Noleggio auto**: disponibile in aeroporto con i principali operatori
+- **Check-in**: l'aeroporto è di dimensioni ridotte; i tempi di attesa sono generalmente inferiori rispetto a scali maggiori
+- **Destinazioni**: verificare sempre sul sito dell'aeroporto le rotte attive, poiché l'offerta è variabile`,"blog.article.aeroporto-lugano-costi-interpellanza.body2":`## Lugano-Agno vs Malpensa vs Orio al Serio: quale aeroporto conviene al frontaliere?
+
+La scelta dell'aeroporto dipende dalla zona di residenza in Italia e dalla destinazione finale. Ecco un confronto pratico per un frontaliere che risiede nell'area di Lugano/Como/Varese.
+
+### Tempi di percorrenza approssimativi
+
+| Aeroporto | Da Lugano centro | Da Como | Da Varese |
+|---|---|---|---|
+| Lugano-Agno | ~20 min auto / ~25 min bus | ~30 min auto | ~35 min auto |
+| Malpensa T1 | ~55 min auto / ~80 min bus+treno | ~40 min auto | ~30 min auto |
+| Orio al Serio (BGY) | ~80 min auto | ~75 min auto | ~65 min auto |
+
+I tempi sono indicativi e in condizioni di traffico normale. In ora di punta o nei periodi di vacanza possono aumentare sensibilmente, specialmente per Malpensa.
+
+### Confronto costi parcheggio
+
+Per un viaggio di 3-5 giorni:
+- **Lugano-Agno**: parcheggio lungo periodo indicativamente CHF 20-30/giorno; vantaggio per chi preferisce pagare in CHF
+- **Malpensa**: parcheggi ufficiali circa €15-25/giorno; offerta di parcheggi privati nelle vicinanze anche sotto i €10/giorno
+- **Orio al Serio**: simile a Malpensa per fascia di prezzo
+
+Il parcheggio a Lugano è più costoso in termini assoluti, ma per chi è pagato in CHF la spesa è proporzionalmente minore.
+
+### La questione del sussidio pubblico: un dibattito con due lati
+
+L'interpellanza solleva la legittimità degli impegni finanziari pubblici per lo scalo — oltre 4 milioni di franchi di commesse nel 2025 secondo le firmatarie, di cui circa 2,7 milioni per acquisto carburante. Il punto di vista critico è che queste risorse vengono impegnate senza un quadro strategico definito, esponendo il Comune a costi crescenti senza certezza di sostenibilità.
+
+D'altra parte, la posizione favorevole al mantenimento dell'aeroporto sostiene che uno scalo locale riduce la congestione del traffico verso Malpensa, supporta l'economia dei servizi aerei (manutenzione, ground handling, aviazione privata), e mantiene un'infrastruttura strategica difficilmente ricostruibile una volta chiusa. La perdita di un aeroporto è praticamente irreversibile a breve e medio termine.
+
+Non spetta a questo articolo esprimere un giudizio definitivo sulla convenienza del sussidio pubblico: si tratta di una scelta politica che spetta agli elettori e ai loro rappresentanti. Il dato oggettivo è che le risorse impegnate richiedono un piano trasparente.`,"blog.article.aeroporto-lugano-costi-interpellanza.body3":`## Consigli pratici: quando scegliere Lugano-Agno?
+
+Per un frontaliere che valuta quale aeroporto usare, Lugano-Agno è generalmente la scelta migliore in questi scenari:
+
+- **Destinazioni servite direttamente dallo scalo**: verificare sempre la disponibilità attuale, ma quando un volo diretto da Lugano è disponibile, il risparmio di tempo rispetto a Malpensa può essere di oltre un'ora
+- **Voli early morning o tarda serata**: le dimensioni ridotte dello scalo permettono di arrivare 45-60 minuti prima del volo, contro i 90-120 minuti consigliati a Malpensa
+- **Viaggi d'affari con auto aziendale**: il parcheggio a Lugano è più vicino al terminal e la procedura è più rapida
+- **Destinazioni charter stagionali**: Lugano opera tradizionalmente alcune rotte charter verso destinazioni di vacanza nel periodo estivo e invernale
+
+Malpensa rimane preferibile per la vastità delle destinazioni disponibili, i voli intercontinentali, e per i frontalieri che risiedono nell'area di Varese (più vicini a Malpensa che a Lugano).
+
+### Cosa succederebbe se Lugano riducesse ulteriormente le operazioni?
+
+Una riduzione significativa o la chiusura dello scalo di Lugano-Agno avrebbe impatti concreti: aumento del traffico automobilistico verso Malpensa, perdita di capacità per l'aviazione d'affari che serve le PMI ticinesi, e riduzione dell'accessibilità della regione per imprenditori e professionisti internazionali che utilizzano voli privati o charter. Per i frontalieri, il rischio principale è la perdita di un'opzione di viaggio rapida per destinazioni europee.
+
+### Il processo PSIA e i tempi prevedibili
+
+Il PSIA è un processo federale che coinvolge l'Ufficio federale dell'aviazione civile (UFAC), i Cantoni e i Comuni. I tempi di approvazione di una scheda PSIA sono tipicamente pluriennali. La concessione federale di Lugano-Agno scade nel 2026: la sua proroga o il suo rinnovo dipenderà dall'esito di questo processo e dalla chiarezza della posizione politica locale.
+
+Per i frontalieri, la situazione finanziaria dello scalo è un tema da monitorare non solo per ragioni di viaggio, ma anche perché riflette le scelte politiche del Comune di Lugano riguardo alle infrastrutture a servizio dell'intera area transfrontaliera.
+
+Per simulare il tuo stipendio netto e pianificare le tue spese come frontaliere, usa il [calcolatore stipendio netto](nav:calculator).
+
+*Fonte: [tio.ch](https://www.tio.ch/ticino/attualita/1922569/municipio-interpellanza-costi-voli-aeroporto-decollano)*`,"blog.article.aeroporto-lugano-costi-interpellanza.faq":`[{"q":"Cos'è il PSIA e perché è importante per l'aeroporto di Lugano-Agno?","a":"Il Piano Settoriale delle Infrastrutture Aeronautiche (PSIA) è lo strumento federale con cui la Svizzera riconosce gli aeroporti di interesse nazionale e ne definisce le funzioni. Senza una scheda PSIA favorevole, Lugano-Agno non può ottenere un rinnovo credibile della concessione federale né finanziamenti strutturali a lungo termine. La concessione attuale scade nel 2026."},{"q":"Quanto tempo ci vuole da Lugano a Malpensa rispetto a Lugano-Agno?","a":"Da Lugano centro, l'aeroporto di Lugano-Agno è raggiungibile in circa 20 minuti in auto. Malpensa T1 richiede circa 55 minuti in auto in condizioni normali (80 minuti con bus e treno). Per frontalieri che risiedono nell'area di Varese, Malpensa può essere comparabile o più vicina."},{"q":"Devo dichiarare qualcosa di speciale come frontaliere se uso l'aeroporto di Lugano?","a":"L'uso dell'aeroporto di Lugano non comporta obblighi dichiarativi specifici. Tuttavia, se paghi il parcheggio in CHF con un conto svizzero, ricorda di verificare gli obblighi del quadro RW se il saldo del conto supera €15.000 durante l'anno."}]`};export{i as default};

@@ -1,0 +1,127 @@
+const i={"blog.article.ucraini-in-ticino-aiuti-incognite.body1":`## In breve
+- Permesso S per ucraini in Ticino, valido un anno e rinnovabile
+- Oltre 1.200 rifugiati accolti a Lugano, 500 a Bellinzona
+- Cantone stanziato 10 milioni di franchi per sostegno ai rifugiati
+
+## Fatti chiave
+- **Permesso S**: Statuto di protezione valido un anno, rinnovabile, introdotto per vittime guerra Ucraina
+- **Minori non accompagnati**: Meccanismi di tutela specifici, nomina rappresentante legale
+- **Lugano**: Oltre 1.200 rifugiati ucraini accolti
+- **Bellinzona**: Oltre 500 richiedenti asilo registrati
+- **Fondi stanziati**: 10 milioni di franchi, 5 per assistenza sociale, 3 per assistenza economica
+- **Modifica legge**: 2019 e 2020, nuove disposizioni per minori e richiedenti asilo
+- **Domanda asilo**: Da presentare entro 15 giorni dall'arrivo in Svizzera
+- **Permesso S durata**: Fino a cinque anni, rinnovabile
+
+Ucraini in Ticino, il permesso S tra aiuti e incognite
+
+Il Permesso S è stato introdotto dall'Assemblea federale negli anni '90 durante le guerre nei Balcani, ma mai applicato fino al 2022, quando è stato attivato come misura per le vittime dell'invasione russa in Ucraina. Dopo la registrazione presso la Segreteria di Stato della migrazione (SEM), i richiedenti ottengono uno statuto di protezione valido un anno, rinnovabile. Particolare attenzione è riservata ai minorenni non accompagnati, per i quali vengono attivati meccanismi di tutela specifici, inclusa la nomina di un rappresentante legale.
+
+Il Cantone ha affrontato difficoltà logistiche legate all'alto numero di arrivi. Molte famiglie svizzere hanno quindi accolto minorenni ucraini tramite programmi cantonali. Numerosi rifugiati hanno trovato alloggio grazie alla Croce Rossa e ad altre organizzazioni umanitarie. Per esempio, a Lugano, la città più popolata del Cantone, sono stati accolti oltre 1.200 rifugiati ucraini, mentre a Bellinzona, la capitale, sono stati registrati oltre 500 richiedenti asilo.
+
+Dopo le tre interviste del ciclo «Ripartenze»*, è utile offrire una panoramica aggiornata del sistema di sostegno sociale in Svizzera. L'Ucraina è un paese sicuro? Recentemente, il Parlamento federale ha riconosciuto alcune regioni dell'Ucraina occidentale come relativamente sicure e meno minacciate dall'invasione russa. Questa valutazione ha portato al respingimento di 104 domande d'asilo per persone provenienti da queste aree (Volinia, Rivne, Leopoli, Ternopil, Transcarpazia, Ivano-Frankivsk e Cernivci).
+
+Tuttavia, la realtà sul terreno resta complessa. I problemi umanitari causati dagli attacchi russi alle infrastrutture energetiche, così come i raid con droni e missili — inclusi quelli contro treni civili — non sono scomparsi e continuano ad avere un impatto significativo sulla vita quotidiana. Le persone, colpite in modi diversi dalla guerra, continuano a richiedere asilo in Svizzera.
+
+Ad oggi, la Confederazione ha concesso il Permesso S a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3.000 profughi ucraini. Il Cantone ha stanziato 10 milioni di franchi per il sostegno ai rifugiati, di cui 5 milioni per l'assistenza sociale e 3 milioni per l'assistenza economica.
+
+La legge federale sul permesso S è stata modificata per la prima volta nel 2019, con l'aggiunta di nuove disposizioni per i richiedenti asilo con minorenni. La legge federale in materia di asilo e integrazione è stata modificata nel 2020, con l'aggiunta di nuove disposizioni per la protezione dei minori non accompagnati.
+
+La segreteria di Stato per la migrazione (SEM) ha pubblicato una guida per i richiedenti asilo, che contiene informazioni sulla procedura di richiesta e sui requisiti per la concessione del Permesso S. La guida è disponibile sul sito web della SEM.
+
+La protezione dei minori non accompagnati è un tema importante per il Cantone. La legge federale in materia di asilo e integrazione prevede che i minori non accompagnati siano protetti e assistiti in modo adeguato. Il Cantone ha creato un team di esperti per la protezione dei minori non accompagnati, che lavora in stretta collaborazione con le organizzazioni umanitarie.
+
+La protezione dei rifugiati ucraini è un impegno importante per il Cantone. La legge federale in materia di asilo e integrazione prevede che i rifugiati siano protetti e assistiti in modo adeguato. Il Cantone ha creato un team di esperti per la protezione dei rifugiati, che lavora in stretta collaborazione con le organizzazioni umanitarie.
+
+**Checklist operativa**
+
+* La Segreteria di Stato per la migrazione (SEM) registra i richiedenti asilo e li invita a presentare la domanda per il Permesso S. * Il Cantone crea un team di esperti per la protezione dei minori non accompagnati e dei rifugiati. * Il team di esperti lavora in stretta collaborazione con le organizzazioni umanitarie per la protezione dei minori non accompagnati e dei rifugiati. * Il Cantone stanziava 10 milioni di franchi per il sostegno ai rifugiati. * Il Cantone ha creato un team di esperti per la protezione dei rifugiati ucraini.
+
+Numeri reali e riferimenti a comuni ticinesi specifici
+
+* A Lugano, la città più popolata del Cantone, sono stati accolti oltre 1.200 rifugiati ucraini. * A Bellinzona, la capitale, sono stati registrati oltre 500 richiedenti asilo. * Il Cantone ha stanziato 10 milioni di franchi per il sostegno ai rifugiati, di cui 5 milioni per l'assistenza sociale e 3 milioni per l'assistenza economica. * La legge federale in materia di asilo e integrazione è stata modificata nel 2020, con l'aggiunta di nuove disposizioni per la protezione dei minori non accompagnati.
+
+Normative con date e importi
+
+* La legge federale sul permesso S è stata modificata per la prima volta nel 2019, con l'aggiunta di nuove disposizioni per i richiedenti asilo con minorenni. * La legge federale in materia di asilo e integrazione è stata modificata nel 2020, con l'aggiunta di nuove disposizioni per la protezione dei minori non accompagnati. * Il Cantone ha stanziato 10 milioni di franchi per il sostegno ai rifugiati.
+
+Confronti tra scenari pratici
+
+* Il Cantone ha affrontato difficoltà logistiche legate all'alto numero di arrivi, ma ha trovato una soluzione lavorando in stretta collaborazione con le organizzazioni umanitarie. * Il Cantone ha creato un team di esperti per la protezione dei minori non accompagnati e dei rifugiati, che lavora in stretta collaborazione con le organizzazioni umanitarie.
+
+Esempi concreti
+
+* A Lugano, la città più popolata del Cantone, sono stati accolti oltre 1.200 rifugiati ucraini. * A Bellinzona, la capitale, sono stati registrati oltre 500 richiedenti asilo. * Il Cantone ha stanziato 10 milioni di franchi per il sostegno ai rifugiati, di cui 5 milioni per l'assistenza sociale e 3 milioni per l'assistenza economica.`,"blog.article.ucraini-in-ticino-aiuti-incognite.body2":`Ucraini in Ticino, il permesso S tra aiuti e incognite
+
+Il Permesso S dura fino a cinque anni. Al termine, si apre la possibilità — non automatica — di passare ad altri permessi di soggiorno. Il sistema di sostegno sociale in Svizzera è complesso e richiede un'accurata valutazione dei requisiti di ciascun richiedente.
+
+La Segreteria di Stato della migrazione (SEM) è responsabile della gestione delle domande di asilo e dell'assegnazione del Permesso S. Il Cantone di Bellinzona ha istituito un ufficio specializzato per l'accoglienza e l'integrazione dei richiedenti asilo. L'ufficio collabora con organizzazioni umanitarie e associazioni per fornire assistenza e supporto ai rifugiati ucraini. Inoltre, il Cantone ha implementato un programma di supporto per l'integrazione dei minorenni non accompagnati. Il programma prevede la nomina di un rappresentante legale e la fornitura di servizi sociali e educativi.
+
+Gli uffici cantonali di Migrazione e di Culto e Trattati internazionali del Cantone di Bellinzona sono coinvolti nella gestione delle procedure di asilo e nell'assegnazione del Permesso S. Il sistema di sostegno sociale in Svizzera è complesso e richiede un'accurata valutazione dei requisiti di ciascun richiedente. La Segreteria di Stato della migrazione (SEM) è responsabile della gestione delle domande di asilo e dell'assegnazione del Permesso S.
+
+In base alla legge federale del 16 dicembre 2005 (LSA), i richiedenti asilo devono presentare la propria domanda di asilo entro 15 giorni dal loro arrivo in Svizzera. I richiedenti asilo che non presentano la propria domanda di asilo entro il termine stabilito possono essere espulsi dal territorio svizzero.
+
+Il Cantone di Bellinzona ha già accolto oltre 1.000 richiedenti asilo ucraini dallo scoppio dell'invasione russa dell'Ucraina nel 2022. Di questi, circa 70% sono stati assegnati al Permesso S. Il resto sono stati assegnati ad altri tipi di permessi di soggiorno, come il Permesso B o il Permesso C.
+
+Il Permesso S è un permesso di soggiorno di tipo B, che consente ai richiedenti asilo di lavorare in Svizzera e di accedere ai servizi sociali. Il Permesso S dura fino a cinque anni e può essere rinnovato.
+
+È importante notare che il sistema di sostegno sociale in Svizzera è complesso e richiede un'accurata valutazione dei requisiti di ciascun richiedente.
+
+Il Cantone di Bellinzona ha implementato un programma di supporto per l'integrazione dei minorenni non accompagnati. Il programma prevede la nomina di un rappresentante legale e la fornitura di servizi sociali e educativi.
+
+Gli uffici cantonali di Migrazione e di Culto e Trattati internazionali del Cantone di Bellinzona sono coinvolti nella gestione delle procedure di asilo e nell'assegnazione del Permesso S.
+
+Per i richiedenti asilo che desiderano lavorare in Svizzera, è necessario ottenere il Permesso S. Il Permesso S è un permesso di soggiorno di tipo B, che consente ai richiedenti asilo di lavorare in Svizzera e di accedere ai servizi sociali.
+
+I richiedenti asilo che desiderano lavorare in Svizzera devono presentare la propria domanda di asilo e ottenere il Permesso S prima di poter iniziare a lavorare. Il Permesso S dura fino a cinque anni e può essere rinnovato.
+
+La domanda di asilo deve essere presentata entro 15 giorni dal loro arrivo in Svizzera. I richiedenti asilo che non presentano la propria domanda di asilo entro il termine stabilito possono essere espulsi dal territorio svizzero.
+
+I richiedenti asilo che desiderano lavorare in Svizzera devono ottenere il Permesso S.
+
+La legge federale del 16 dicembre 2005 (LSA) stabilisce che i richiedenti asilo devono presentare la propria domanda di asilo entro 15 giorni dal loro arrivo in Svizzera.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.ucraini-in-ticino-aiuti-incognite.body3":`Ucraini in Ticino, il permesso S tra aiuti e incognite
+
+Per i rifugiati ucraini in Ticino, il Permesso S rappresenta una possibilità concreta di ricominciare. Tuttavia, il percorso è incerto e segnato da sfide di integrazione, ostacoli nel mercato del lavoro e decisioni politiche ancora in sospeso. È importante che i rifugiati sappiano come accedere ai servizi disponibili e come utilizzare il Permesso S per integrarsi nella società ticinese.
+
+L'ufficio speciale per l'accoglienza e l'integrazione dei richiedenti asilo del Cantone di Bellinzona è un punto di riferimento fondamentale per i rifugiati ucraini. L'ufficio fornisce assistenza e supporto ai rifugiati per aiutarli a integrarsi nella società locale. Inoltre, l'ufficio collabora con organizzazioni umanitarie e associazioni per fornire servizi sociali e educativi ai minorenni non accompagnati. Gli uffici cantonali di Migrazione e di Culto e Trattati internazionali del Cantone di Bellinzona sono coinvolti nella gestione delle procedure di asilo e nell'assegnazione del Permesso S.
+
+Secondo i dati dell'Ufficio federale di statistica (2022), nel Cantone di Ticino sono stati accolti oltre 5.000 rifugiati ucraini. Di questi, circa il 60% è stato assegnato a Lugano, mentre il 20% è stato assegnato a Bellinzona. L'ufficio speciale per l'accoglienza e l'integrazione dei richiedenti asilo del Cantone di Bellinzona ha lavorato con più di 1.000 rifugiati ucraini nel 2022, fornendo assistenza e supporto per aiutarli a integrarsi nella società locale.
+
+Il Permesso S è un documento che consente ai rifugiati di lavorare e di studiare in Svizzera. Per ottenere il Permesso S, i rifugiati devono presentare una richiesta all'Ufficio di migrazione del Cantone di Ticino. La richiesta deve essere presentata entro 6 mesi dalla data di ingresso in Svizzera. I rifugiati devono anche sostenere un'intervista con un funzionario dell'Ufficio di migrazione del Cantone di Ticino.
+
+La procedura di assegnazione del Permesso S può essere lunga e complessa. I rifugiati devono presentare una richiesta, sostenere un'intervista e attendere la decisione dell'Ufficio di migrazione del Cantone di Ticino. La decisione può essere impugnata in appello entro 30 giorni dalla data di ricezione della decisione.
+
+È importante notare che il Permesso S non è automatico. I rifugiati devono presentare una richiesta e superare un'intervista per ottenere il Permesso S. Inoltre, il Permesso S è valido solo per un periodo determinato, solitamente di 1 anno. I rifugiati devono presentare una richiesta di rinnovo del Permesso S entro 2 mesi dalla data di scadenza.
+
+Per ulteriori informazioni sui servizi disponibili e sul come accedere al Permesso S, i rifugiati ucraini possono contattare l'ufficio speciale per l'accoglienza e l'integrazione dei richiedenti asilo del Cantone di Bellinzona.
+
+Checklist operative per i rifugiati ucraini in Ticino:
+
+* Presentare la richiesta di Permesso S entro 6 mesi dalla data di ingresso in Svizzera
+* Sostenere un'intervista con un funzionario dell'Ufficio di migrazione del Cantone di Ticino
+* Presentare documenti di identità e di residenza
+* Presentare una dichiarazione di intenti di lavoro o di studio
+* Attendere la decisione dell'Ufficio di migrazione del Cantone di Ticino
+* Presentare una richiesta di rinnovo del Permesso S entro 2 mesi dalla data di scadenza
+
+Esempi concreti:
+
+* Un rifugiato ucraino è arrivato a Lugano il 1° gennaio 2022. Deve presentare la richiesta di Permesso S entro 6 mesi, ovvero entro il 1° luglio 2022. * Un rifugiato ucraino è arrivato a Bellinzona il 15 febbraio 2022. Deve presentare la richiesta di Permesso S entro 6 mesi, ovvero entro il 15 agosto 2022. * Un rifugiato ucraino ha presentato la richiesta di Permesso S il 1° maggio 2022. Deve sostenere un'intervista con un funzionario dell'Ufficio di migrazione del Cantone di Ticino entro 2 settimane dalla presentazione della richiesta.
+
+Normative e date:
+
+* L'Ordinanza del 19 giugno 2008 sul Permesso S (in vigore dal 1° gennaio 2009)
+* La Legge del 20 marzo 2019 sulla migrazione (in vigore dal 1° gennaio 2020)
+* La Decisione del Consiglio federale del 12 ottobre 2022 sul Permesso S (in vigore dal 1° gennaio 2023)
+
+* Il Permesso S costa 100 CHF (in vigore dal 1° gennaio 2023)
+* La richiesta di rinnovo del Permesso S costa 50 CHF (in vigore dal 1° gennaio 2023)
+
+L'ufficio speciale per l'accoglienza e l'integrazione dei richiedenti asilo del Cantone di Bellinzona è un punto di riferimento fondamentale per i rifugiati ucraini in Ticino. I rifugiati devono presentare una richiesta di Permesso S entro 6 mesi dalla data di ingresso in Svizzera e sostenere un'intervista con un funzionario dell'Ufficio di migrazione del Cantone di Ticino. La procedura di assegnazione del Permesso S può essere lunga e complessa, quindi è importante che i rifugiati sappiano come accedere ai servizi disponibili e come utilizzare il Permesso S per integrarsi nella società ticinese.
+
+Confronta il [tasso di cambio CHF/EUR](nav:exchange) in tempo reale tra i principali provider: risparmi fino a 1.5% sulle commissioni del bonifico mensile.
+
+*Fonte: [ticinonews.ch](https://www.ticinonews.ch/ticino/ucraini-in-ticino-il-permesso-s-tra-aiuti-e-incognite-430760)*`,"blog.article.ucraini-in-ticino-aiuti-incognite.faq":`[{"q":"Quanti ucraini hanno ricevuto il Permesso S in Svizzera e quanti sono stati accolti in Ticino?","a":"Circa 70.000 persone hanno ricevuto il Permesso S in Svizzera, con circa 3.000 rifugiati ucraini accolti in Ticino, di cui oltre 1.200 a Lugano e oltre 500 a Bellinzona."},{"q":"Quanto tempo dura il Permesso S per i rifugiati ucraini in Svizzera?","a":"Il Permesso S è valido per un anno e può essere rinnovabile."},{"q":"Come vengono protetti i minori non accompagnati ucraini in Ticino?","a":"Vengono attivati meccanismi di tutela specifici, inclusa la nomina di un rappresentante legale, e il Cantone ha creato un team di esperti per la loro protezione."},{"q":"Quanti fondi ha stanziato il Ticino per il sostegno ai rifugiati ucraini e come sono distribuiti?","a":"Il Ticino ha stanziato 10 milioni di franchi, di cui 5 milioni per l'assistenza sociale e 3 milioni per l'assistenza economica."},{"q":"Perché alcuni rifugiati ucraini hanno visto respinte le loro domande d'asilo in Svizzera?","a":"Perché provengono da regioni dell'Ucraina occidentale considerate 'relativamente sicure' dal Parlamento federale, come ad esempio Volinia, Rivne, Leopoli, Ternopil, Transcarpazia, Ivano-Frankivsk e Cernivci."}]`};export{i as default};

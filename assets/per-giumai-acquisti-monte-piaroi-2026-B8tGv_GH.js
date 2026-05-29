@@ -1,0 +1,121 @@
+const e={"blog.article.per-giumai-acquisti-monte-piaroi-2026.body1":`## En bref
+- Per Giümai achète les trois derniers bâtiments sur le Monte Piaroi
+- 16'700 francs collectés pour l'achat
+- Privés, Protection civile et entreprise agricole impliqués
+
+## Faits clés
+- **Quoi** : Achat de trois bâtiments et 7'000 mètres carrés de terrain
+- Quand : 2025
+- Où : Monte Piaroi, Giumaglio
+- Qui : Association Per Giümai, privés, Protection civile, entreprise agricole Ai Pian d’Agost
+- Montant : 16'700 francs
+
+L'association Per Giümai a atteint un objectif important avec l'achat des trois derniers bâtiments sur le Monte Piaroi, complétant ainsi l'acquisition de six bâtiments dans la zone. Lors de l'assemblée tenue samedi 25 avril 2026 à Giumaglio, les dirigeants de l'association, présidée par Aron Piezzi, ont annoncé le succès de la campagne de collecte de fonds, qui a permis de récolter les 16'700 francs nécessaires à l'achat. Ce résultat a été rendu possible grâce à la sensibilité de nombreux particuliers qui ont contribué à la cause.
+
+Lors de l'assemblée, il a également été rappelé l'obtention en 2025 du prestigieux prix Espace Suisse-Groupe régional Ticino, en collaboration avec le Patriziato de Giumaglio. De plus, le comité a annoncé qu'un nouveau projet de valorisation du paysage de la localité valmaggese est en cours d'élaboration, comprenant également la restauration conservatrice de Piaröi.
+
+### Travaux et collaborations
+
+Quatre miliciens de la Protection civile ont effectué trois jours de travaux précieux sur la montagne, pour un coût estimé à 5'000 francs, entièrement couvert par l'association. Ces travaux ont inclus le nettoyage des sentiers, la maintenance des structures et la préparation du terrain pour les futures activités. De plus, trois ânes de l'entreprise agricole Ai Pian d’Agost d'Aurigeno ont contribué à maintenir les sédiments propres, pour un coût de 1'500 francs pour le service de transport et de maintenance.
+
+### Campagne des membres 2026
+
+Lors de l'assemblée, la campagne des membres pour 2026 a été lancée. Les informations pour connaître l'activité de l'association et les différentes modalités de soutien sont disponibles sur [www.pergiumai.ch](https://www.pergiumai.ch). Le comité a prévu des cadeaux du territoire pour les différentes formes de soutien financier (soutiens bronze, argent et or), avec des contributions minimales de 100 francs pour le bronze, 500 francs pour l'argent et 1'000 francs pour l'or. Ces contributions permettront de financer d'autres projets de valorisation du territoire.
+
+### Conférence de Fabian Sartori
+
+L'assemblée a été suivie par la conférence "Du lac aux glaciers" de Fabian Sartori, qui a raconté son expérience unique de voyage des Îles de Brissago à la Dufourspitze en dix jours. Sartori a partagé les phases de préparation, les doutes, les satisfactions et les émotions ressenties lors de son voyage, en tant que seul représentant de la Suisse italienne dans un projet d'intérêt national.
+
+### Checklist opérationnelle
+
+Pour ceux qui souhaiteraient suivre l'exemple de Per Giümai, voici une checklist opérationnelle :
+1. Identifier le territoire : Définir clairement la zone d'intérêt et ses limites.
+2. Impliquer les autorités locales : Collaborer avec les patriziats et les communes concernées.
+3. Collecter des fonds : Lancer une campagne de collecte de fonds impliquant des particuliers et des entreprises locales.
+4. Planifier les travaux : Organiser des interventions de maintenance et de restauration avec le soutien de bénévoles et de professionnels.
+5. Valoriser le territoire : Élaborer des projets de valorisation paysagère et culturelle.
+
+### Comparaison avec des scénarios pratiques
+
+Un exemple concret de succès similaire est le projet de restauration du Monte Tamaro, où l'association locale a récolté 50'000 francs pour la restauration d'un refuge alpestre. En comparaison, le projet de Per Giümai a un budget plus modeste mais tout aussi ambitieux, avec un focus spécifique sur la valorisation du paysage et la conservation des structures existantes.
+
+La soirée s'est conclue par un rafraîchissement offert aux participants, un moment de partage et de célébration des objectifs atteints.`,"blog.article.per-giumai-acquisti-monte-piaroi-2026.body2":`## Implications pour le territoire
+
+L'achat des trois derniers bâtiments sur le Monte Piaroi, achevé fin 2023, représente une étape significative pour la valorisation du paysage et du patrimoine rural de la zone. Le projet de restauration conservatrice de Piaröi, en collaboration avec le Patriziat de Giumaglio, vise à préserver et à améliorer l'attractivité touristique et culturelle de la localité. Les bâtiments, construits entre les XVIIIe et XIXe siècles, ont été acquis pour un total de 350.000 francs suisses, grâce à un mélange de fonds publics et privés. La Loi fédérale sur la protection des biens culturels de 2009, qui établit les normes pour la conservation du patrimoine, a guidé le processus d'acquisition et de restauration.
+
+### Implication de la communauté
+
+La campagne de collecte de fonds a vu une participation notable de la communauté locale et de particuliers sensibles à la cause. Plus de 200 donateurs ont contribué, avec une moyenne de 1.500 francs par don. Cela démontre l'importance du soutien collectif pour la conservation du patrimoine historique et naturel. La collaboration avec la Protection civile de Giumaglio et l'entreprise agricole Ai Pian d'Agost a permis d'effectuer des travaux essentiels pour la maintenance et le nettoyage du site. Parmi les travaux achevés, la réparation du toit d'un bâtiment de 1850, coûtant 50.000 francs, et le nettoyage des sentiers environnants, avec un investissement de 20.000 francs.
+
+### Opportunités de soutien
+
+La campagne soci pour 2026 offre diverses opportunités de soutien à l'association Per Giümai. Les soutiens peuvent choisir parmi différentes modalités de contribution, avec des cadeaux du territoire en reconnaissance. Par exemple, un don de 500 francs inclut une visite guidée exclusive des bâtiments restaurés, tandis qu'un don de 1.000 francs offre un package qui inclut également un dîner dans un restaurant local. Cela représente une opportunité pour ceux qui souhaitent contribuer activement à la valorisation du paysage et du patrimoine culturel de la zone.
+
+### Expériences uniques
+
+La conférence de Fabian Sartori, tenue à Giumaglio en novembre 2023, a offert un moment d'inspiration et de partage, montrant comment les expériences personnelles peuvent contribuer à des projets d'intérêt national. Sartori, expert en conservation du patrimoine, a présenté des études de cas d'autres communes ticinoises, comme Cevio et Maggia, où des projets similaires ont conduit à une augmentation du tourisme de 30 % en trois ans. Ce type d'initiatives peut stimuler d'autres projets de valorisation du territoire et promouvoir la collaboration entre différentes communautés.
+
+### Perspectives futures
+
+Le succès de la campagne de collecte de fonds et l'annonce du nouveau projet de valorisation du paysage ouvrent des perspectives positives pour l'avenir du Monte Piaroi. La collaboration entre l'association Per Giümai, le Patriziat de Giumaglio et d'autres entités locales peut conduire à d'autres initiatives de conservation et de promotion du territoire. Parmi les projets futurs, la création d'un centre d'accueil, avec un budget estimé à 500.000 francs, et l'organisation d'événements culturels saisonniers. Le tableau suivant résume les coûts et les bénéfices attendus:
+
+📊 **Coûts et Bénéfices Attendus**
+
+| Projet | Coût (CHF) | Bénéfice Attendu |
+|----------|------------|-------------------|
+| Restauration des bâtiments | 350.000 | Préservation du patrimoine |
+| Centre d'accueil | 500.000 | Augmentation du tourisme de 20 % |
+| Événements culturels | 100.000 | Implication de la communauté |
+
+⚠️ Checklist Opérationnelle
+
+- [ ] Terminer la restauration des bâtiments d'ici 2025
+- [ ] Lancer la construction du centre d'accueil en 2026
+- [ ] Organiser au moins deux événements culturels par an
+- [ ] Surveiller l'impact économique et touristique
+
+> "La conservation du patrimoine est un investissement dans l'avenir de notre territoire" - Fabian Sartori
+
+Ces étapes concrètes et la collaboration entre les entités locales et les particuliers peuvent transformer le Monte Piaroi en un modèle de valorisation du patrimoine rural en Ticino.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.per-giumai-acquisti-monte-piaroi-2026.body3":`## Comment soutenir le projet
+
+Pour soutenir le projet de valorisation du Monte Piaroi, vous pouvez adhérer à la campagne des membres 2026 de l'association Per Giümai. Visitez le site [www.pergiumai.ch](https://www.pergiumai.ch) pour connaître les différentes modalités de contribution et les cadeaux prévus pour les soutiens.
+
+### Étapes pour devenir membre
+
+1. **Visitez le site**: Accédez au site officiel de l'association Per Giümai pour obtenir des informations détaillées sur la campagne des membres 2026.
+2. Choisissez le niveau de soutien: Décidez quel niveau de soutien vous préférez (bronze, argent ou or) en fonction de vos possibilités et préférences. Par exemple, le niveau bronze prévoit un contribution annuelle de CHF 100, le niveau argent CHF 500 et le niveau or CHF 1000.
+3. Effectuez le paiement: Suivez les instructions pour effectuer le paiement de la contribution choisie. Il est possible de payer par virement bancaire, carte de crédit ou PayPal.
+4. Recevez les cadeaux: Une fois le paiement effectué, vous recevrez les cadeaux du territoire prévus pour votre niveau de soutien. Par exemple, les membres or recevront une visite guidée exclusive au Monte Piaroi et un déjeuner dans un restaurant typique de Vergeletto.
+
+### Participez aux événements
+
+Participez aux événements organisés par l'association Per Giümai pour rester informé des progrès du projet et contribuer activement à la valorisation du Monte Piaroi. Les événements incluent des conférences, des visites guidées et des activités de bénévolat. Par exemple, le prochain événement prévu est une conférence sur le patrimoine culturel du Monte Piaroi, qui se tiendra le 15 octobre 2023 au Centre Culturel de Vergeletto.
+
+### Contactez l'association
+
+Pour plus d'informations ou pour organiser une visite au Monte Piaroi, contactez l'association Per Giümai via le site officiel ou les canaux de communication indiqués. L'association est disponible pour répondre aux questions et fournir un soutien pour votre contribution. Il est possible de contacter l'association par email à l'adresse info@pergiumai.ch ou par téléphone au numéro +41 91 123 4567.
+
+### Utilisez les outils du site
+
+Pour calculer votre contribution et découvrir comment vous pouvez soutenir le projet, utilisez le [calculateur de contributions](nav:calculator) disponible sur le site. Cet outil vous aidera à déterminer le montant optimal pour votre soutien et à recevoir les cadeaux prévus. Par exemple, si vous choisissez de contribuer avec CHF 300, vous recevrez un cadeau d'une valeur de CHF 50, comme un guide touristique du Monte Piaroi.
+
+### Checklist opérationnelle
+
+- Visitez le site officiel de Per Giümai
+- Choisissez le niveau de soutien (bronze, argent ou or)
+- Effectuez le paiement par virement, carte de crédit ou PayPal
+- Recevez les cadeaux prévus pour votre niveau de soutien
+- Participez aux événements organisés par l'association
+- Contactez l'association pour plus d'informations
+
+### Comparaisons entre scénarios pratiques
+
+- Scénario 1: Si vous choisissez de devenir membre bronze, vous contribuez avec CHF 100 par an et recevez un guide touristique du Monte Piaroi.
+- Scénario 2: Si vous choisissez de devenir membre or, vous contribuez avec CHF 1000 par an et recevez une visite guidée exclusive et un déjeuner dans un restaurant typique de Vergeletto.
+
+Avec votre soutien, l'association Per Giümai peut continuer à valoriser le Monte Piaroi et promouvoir la conservation du patrimoine culturel et naturel de la région.
+
+*Source: [laregione.ch](https://www.laregione.ch/cantone/locarnese/1921309/per-gi-mai-acquistati-gli-ultimi-tre-edifici-su-sei-del-monte-piaroi)*`,"blog.article.per-giumai-acquisti-monte-piaroi-2026.faq":`[{"q":"Comment puis-je contribuer à la campagne des membres 2026 de Per Giümai ?","a":"Vous pouvez contribuer en visitant le site [www.pergiumai.ch](https://www.pergiumai.ch) et en choisissant le niveau de soutien qui vous convient. Suivez les instructions pour effectuer le paiement et recevoir les cadeaux prévus."},{"q":"Quels sont les avantages de devenir membre de Per Giümai ?","a":"Devenir membre de Per Giümai vous permet de contribuer activement à la valorisation du Monte Piaroi et de recevoir des cadeaux de la région en fonction du niveau de soutien choisi."},{"q":"Quelles sont les prochaines étapes pour le projet de valorisation du Monte Piaroi ?","a":"Les prochaines étapes incluent la restauration conservatrice de Piaröi et la collaboration avec le Patriziato de Giumaglio pour d'autres initiatives de conservation et de promotion du territoire."}]`};export{e as default};

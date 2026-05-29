@@ -1,0 +1,48 @@
+const i={"blog.article.citta-laghi-innovativa-transfrontaliera.body1":`## In breve
+- Sei classi premiate per progetti innovativi
+- 15mila euro in borse di studio e attrezzature
+- Cerimonia a Mendrisio il 19 maggio
+
+
+- **Cosa**: Premiazione di progetti per la 'Città dei Laghi'
+- Quando: 19 maggio 2026
+- Dove: Hotel Coronado, Mendrisio
+- Chi: Scuole superiori del Canton Ticino e province di Como e Varese
+- Importo: 15mila euro in premi
+
+Sei classi delle scuole superiori del Canton Ticino e delle province di Como e Varese sono state premiate per i loro progetti dedicati allo sviluppo della 'Città dei Laghi', un'entità transfrontaliera che guarda al futuro attraverso innovazione e sostenibilità. I lavori sono stati realizzati nell'ambito del concorso 'La Città Intelligente dei Laghi: Idee per il Futuro', promosso dal Gruppo di Lavoro Insubrico del Rotary. Il concorso ha visto la partecipazione di club di Cantù, Como, Lugano, Lugano Lago, Mendrisiotto e Varese. L'iniziativa mira a stimolare i giovani a immaginare soluzioni concrete per il territorio, con premi che comprendono borse di studio e attrezzature tecnologiche per un valore complessivo di 15mila euro.
+
+### Il concetto di 'Città dei Laghi'
+Il concetto di 'Città dei Laghi' è il frutto di un'analisi elaborata dall'Accademia di Architettura di Mendrisio. Questo progetto è considerato di fondamentale rilievo per garantire prospettive di sviluppo a un'area dove il valore aggiunto generato dal sistema economico supera i cento miliardi di euro. L'area in questione comprende un triangolo che da Malpensa, passando per Verbania, Como e Varese, tocca il vertice nel Canton Ticino e si chiude a Lecco. L'obiettivo è non solo preservare, ma accrescere le opportunità di lavoro per i giovani, spesso attratti da territori più remunerativi rispetto alle loro qualificate competenze.
+
+### La cerimonia conclusiva
+La cerimonia conclusiva del concorso si terrà martedì 19 maggio all'Hotel Coronado di Mendrisio. A partire dalle 18.30, gli studenti presenteranno le loro proposte per una 'Città dei Laghi' sempre più interconnessa, affrontando temi centrali come la mobilità transfrontaliera, l'energia pulita e l'inclusione sociale. All'evento parteciperanno rappresentanti istituzionali dei due lati della frontiera e una giuria composta da esponenti della vita civile insubrica. Tra i sei progetti finalisti selezionati da un gruppo di esperti, verrà scelto quello ritenuto più significativo e con il maggiore impatto positivo per il futuro del territorio.
+
+### Implicazioni per i frontalieri
+Questo progetto potrebbe avere un impatto significativo sui frontalieri che lavorano nel Canton Ticino e risiedono nelle province di Como e Varese. La 'Città dei Laghi' potrebbe migliorare la mobilità transfrontaliera, rendendo più agevole il pendolarismo e migliorando la qualità della vita per chi attraversa quotidianamente la frontiera. Inoltre, l'attenzione all'energia pulita e all'inclusione sociale potrebbe portare a nuove opportunità di lavoro e a un ambiente più sostenibile per tutti i residenti della regione insubrica.
+
+Inoltre, è possibile navigare su tio.ch senza pubblicità, provando TioABO per 7 giorni.`,"blog.article.citta-laghi-innovativa-transfrontaliera.body2":`### Analisi delle opportunità
+Il progetto 'Città dei Laghi' rappresenta una grande opportunità per i giovani del territorio insubrico. Le borse di studio e le attrezzature tecnologiche offerte come premi possono essere un trampolino di lancio per carriere nel campo dell'innovazione e della sostenibilità. Inoltre, i progetti presentati potrebbero essere implementati in futuro, migliorando la qualità della vita e le opportunità lavorative per tutti i residenti della regione.
+
+
+Attualmente, il territorio insubrico è caratterizzato da una forte propensione all'export e da un'economia dinamica. Tuttavia, molti giovani qualificati sono attratti da territori più remunerativi. Il progetto 'Città dei Laghi' mira a invertire questa tendenza, offrendo nuove opportunità di lavoro e migliorando le infrastrutture per la mobilità transfrontaliera. Questo potrebbe rendere la regione più attraente per i giovani talenti e favorire lo sviluppo economico locale.
+
+### Scenari futuri
+Se il progetto 'Città dei Laghi' dovesse essere implementato con successo, potremmo assistere a un aumento delle opportunità di lavoro nel settore dell'innovazione e della sostenibilità. Inoltre, la mobilità transfrontaliera potrebbe diventare più efficiente, riducendo i tempi di viaggio e migliorando la qualità della vita per i pendolari. Infine, l'attenzione all'energia pulita e all'inclusione sociale potrebbe portare a una maggiore coesione sociale e a un ambiente più sostenibile per tutti i residenti della regione insubrica.
+
+### Come i frontalieri possono beneficiare
+I frontalieri che lavorano nel Canton Ticino e risiedono nelle province di Como e Varese possono beneficiare delle iniziative del progetto 'Città dei Laghi'. Miglioramenti nella mobilità transfrontaliera potrebbero rendere più agevole il pendolarismo quotidiano, mentre nuove opportunità di lavoro nel settore dell'innovazione e della sostenibilità potrebbero offrire nuove prospettive di carriera. Inoltre, un ambiente più sostenibile e inclusivo potrebbe migliorare la qualità della vita per tutti i residenti della regione.
+
+## Tool utili per la pianificazione
+Per stimare la strategia previdenziale, prova il [pianificatore pensionistico](nav:pension) e il [simulatore 3° pilastro](nav:pillar3).`,"blog.article.citta-laghi-innovativa-transfrontaliera.body3":`Inoltre, è possibile navigare su tio.ch senza pubblicità, provando TioABO per 7 giorni.
+
+
+1. Prova TioABO per 7 giorni per accedere a contenuti esclusivi e senza pubblicità.
+4. Segui le attività del Gruppo di Lavoro Insubrico del Rotary per rimanere aggiornato sulle opportunità di lavoro e sulle iniziative di sostenibilità.
+5. Partecipa agli eventi organizzati dal Gruppo di Lavoro Insubrico del Rotary per conoscere nuove opportunità e fare rete con altri professionisti del settore.
+
+### Strumenti utili
+Per i frontalieri che desiderano calcolare il loro stipendio netto o confrontare le opportunità di lavoro, è possibile utilizzare il [calcolatore stipendio](nav:calculator) disponibile sul sito. Inoltre, per chi è interessato a confrontare le opportunità di lavoro in Svizzera e in Italia, è possibile utilizzare il [comparatore Permesso G vs B](nav:permit-compare).
+
+### Conclusione
+Il progetto 'Città dei Laghi' rappresenta una grande opportunità per i giovani del territorio insubrico e per i frontalieri che lavorano nel Canton Ticino. Miglioramenti nella mobilità transfrontaliera, nuove opportunità di lavoro e un ambiente più sostenibile potrebbero migliorare la qualità della vita per tutti i residenti della regione.`,"blog.article.citta-laghi-innovativa-transfrontaliera.faq":`[{"q":"Quali sono i premi previsti per i progetti vincitori?","a":"I premi comprendono borse di studio e attrezzature tecnologiche per un valore complessivo di 15mila euro."},{"q":"Dove si terrà la cerimonia conclusiva del concorso?","a":"La cerimonia conclusiva si terrà martedì 19 maggio all'Hotel Coronado di Mendrisio."},{"q":"Chi può partecipare al concorso?","a":"Possono partecipare le classi delle scuole superiori del Canton Ticino e delle province di Como e Varese."}]`};export{i as default};

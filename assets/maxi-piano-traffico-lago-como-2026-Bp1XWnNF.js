@@ -1,0 +1,72 @@
+const e={"blog.article.maxi-piano-traffico-lago-como-2026.body1":`## In Kürze
+- Gezielte Maßnahmen zur Verbesserung der Verkehrssituation auf der SS 340 Regina
+- Finanzierung durch ANAS und Koordination mit den Gemeinden
+- Ziel: Staus reduzieren und die Sicherheit verbessern
+
+## Wichtige Fakten
+- **Was**: Maßnahmen zur Sicherheit und funktionalen Verbesserung
+- Wann: Vorstellung der Projekte am 4. Mai 2026
+- Wo: Staatsstraße 340 Regina, Comer See
+- Wer: Provinz Como, Gemeinden Colonno, Sala Comacina, Tremezzina, Menaggio und Carlazzo, ANAS
+- Kosten: Vollständige Finanzierung durch ANAS
+
+Heute fand in den Räumlichkeiten der Provinz Como ein operatives Treffen zwischen dem Präsidenten der Provinz, den Bürgermeistern von Colonno, Sala Comacina, Tremezzina, Menaggio und Carlazzo sowie den Technikern von ANAS, Pietro Gualandi, Lorenzo Giusta und Enzo Nicotera, statt. Anlass war die Vorstellung der Projekte, die im Rahmen der kürzlich unterzeichneten Konvention zur Verbesserung der Staatsstraße 340 „Regina“ vorgesehen sind. Die Konvention regelt auf koordinierte Weise Rollen, Kompetenzen und operative Modalitäten für die Umsetzung einer Reihe von lokalisierten Maßnahmen zur Sicherheit und funktionalen Verbesserung entlang eines der heikelsten und am stärksten befahrenen Abschnitte der Verkehrswege am Comer See.
+
+Die heute vorgestellten Maßnahmen umfassen:
+- In Colonno: Anpassungs- und Sicherungsarbeiten, darunter das Zurückversetzen von Elementen, die die Fahrbahn verengen;
+- In Sala Comacina: Das Zurückversetzen eines Steinzauns entlang der Staatsstraße;
+- In Tremezzina: Erweiterungsarbeiten der Fahrbahn in der Nähe des Rathauses von Lenno;
+- In Menaggio: Die Erweiterung der Kurve „Vischi“ und der Via Don Moltrasio.
+
+Des Weiteren wurde auch die Anfrage der Gemeinde Carlazzo für technische Unterstützung zur Verbesserung der Sicherheit, unter anderem durch die Installation von Fußgängerampeln, behandelt.
+
+Die heute vorgestellten Projekte werden nun, wo vorgesehen, in eine Konsultationsphase mit den betroffenen Privatpersonen eintreten, die direkt von den jeweiligen Gemeinden einbezogen werden. Die Projekte werden zudem, wo notwendig, der Aufsichtsbehörde zur Abgabe der erforderlichen Stellungnahmen vorgelegt. Am Ende dieses gemeinsamen Weges wird für jede einzelne Maßnahme mit der Ausführungsplanung und dem Baubeginn fortgefahren.
+
+### Ziele und Finanzierung
+
+Alle Maßnahmen werden vollständig von ANAS finanziert, die die Rolle des ausführenden Subjekts übernehmen wird, indem sie für die Ausführungsplanung, die Vergabe und die Ausführung der Arbeiten sowie für die endgültige Abnahme zuständig ist. Die Provinz und die Gemeinden werden die Verfügbarkeit der Flächen und den Abschluss der Genehmigungsverfahren gewährleisten und in den verschiedenen operativen Phasen zusammenarbeiten.
+
+Die Maßnahmen haben ein doppeltes Ziel: einerseits die Sicherheit und den Verkehrsfluss entlang der SS 340 strukturell zu verbessern, andererseits die Auswirkungen des Verkehrs im Zusammenhang mit der Baustelle der Tremezzina-Variante zu mildern und die Interferenzen zwischen dem normalen Verkehr und den Baumaschinen zu reduzieren.
+
+„Die Provinz bestätigt ihre Koordinierungs- und Vermittlerrolle zwischen den Behörden, fördert eine synergetische Aktion zur Bewältigung der Verkehrsprobleme des Gebiets und garantiert konkrete Antworten für die Bürger, Wirtschaftsakteure und den Tourismus – erklärte der Präsident der Provinz Como, Fiorenzo Bongiasca – Wer die Regina kennt, weiß, dass ihre Probleme nicht gleichmäßig über Dutzende von Kilometern verteilt sind: Sie sind auf bestimmte Punkte konzentriert, oft nur wenige Meter Fahrbahn, die täglich Staus, gefährliche Situationen und Kettenverzögerungen verursachen. Genau dort wird eingegriffen. Nicht mit großen generischen Maßnahmen, sondern mit chirurgischen Lösungen an den kritischsten Knotenpunkten, einem Ansatz, der technische Kompetenz und eine detaillierte Kenntnis des Gebiets erfordert, die auch dank des direkten Beitrags der Gemeinden erworben wurde. Es ist besonders bedeutsam, dass es sich um Maßnahmen handelt, die vollständig von ANAS finanziert und durch eine gemeinsame Arbeit mit den Gemeinden konstruiert werden, die dazu beigetragen haben, die Prioritäten zu identifizieren.“`,"blog.article.maxi-piano-traffico-lago-como-2026.body2":`### Auswirkungen auf Grenzgänger
+
+Die geplanten Maßnahmen entlang der Staatsstraße 340 Regina werden erhebliche Auswirkungen auf die Grenzgänger haben, die täglich diesen Streckenabschnitt nutzen, um ihre Arbeitsplätze in der Schweiz zu erreichen. Die Verbesserung des Verkehrsflusses und die Reduzierung von Staus werden den täglichen Weg erleichtern.
+
+Insbesondere werden die Ausweitung der Fahrbahnen und das Zurückversetzen von Hindernissen, die die Straße einengen, die Verkehrssicherheit verbessern und das Unfallrisiko verringern. Dies ist besonders wichtig für Grenzgänger, die diese Strecke nutzen, um Grenzübergänge wie Brogeda und Gaggiolo zu erreichen.
+
+### Verfahren und Zeitplan
+
+Die heute vorgestellten Projekte werden eine Konsultationsphase mit den betroffenen Privatpersonen durchlaufen. Diese Phase ist entscheidend, um sicherzustellen, dass alle technischen und rechtlichen Aspekte angemessen berücksichtigt werden. Anschließend werden die Projekte der Aufsichtsbehörde zur Abgabe der erforderlichen Stellungnahmen vorgelegt.
+
+Sobald alle notwendigen Genehmigungen eingeholt sind, wird mit der Ausführungsplanung und dem Beginn der Arbeiten fortgefahren. Der genaue Zeitplan der Maßnahmen ist noch nicht festgelegt, aber es wird erwartet, dass die Arbeiten bis Ende 2026 beginnen können, wobei die Gesamtdauer von der Komplexität jeder Maßnahme abhängt.
+
+### Vergleich mit der vorherigen Situation
+
+Bevor diese Maßnahmen ergriffen wurden, war die Staatsstraße 340 Regina durch zahlreiche Engpässe in den bewohnten Gebieten und intensive Verkehrsströme gekennzeichnet, die auch durch die laufenden Arbeiten an der Variante Tremezzina verstärkt wurden. Die geplanten Maßnahmen zielen darauf ab, diese Probleme zu lösen und die Sicherheit und den Verkehrsfluss zu verbessern.
+
+Mit dem Beginn der Arbeiten wird eine Reduzierung der Staus und eine größere Sicherheit für alle Straßenbenutzer erwartet, insbesondere für die Grenzgänger, die diese Straße nutzen, um ihre Arbeitsplätze in der Schweiz zu erreichen.
+
+### Zukunftsszenarien
+
+Wenn die Maßnahmen wie geplant umgesetzt werden, wird es zu einer erheblichen Reduzierung der Fahrzeiten und zu einer größeren Verkehrssicherheit kommen. Dies wird sich positiv auf die Lebensqualität der Grenzgänger auswirken und ihre täglichen Pendelbewegungen zwischen Italien und der Schweiz erleichtern.
+
+Zudem stellt die Zusammenarbeit zwischen der Provinz Como, den betroffenen Gemeinden und ANAS ein Modell für das integrierte Management von Verkehrsinfrastrukturen dar, das in anderen Gebieten mit ähnlichen Problemen repliziert werden könnte.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.maxi-piano-traffico-lago-como-2026.body3":`### Was Grenzpendler tun sollten
+
+Für die Grenzpendler, die die Staatsstraße 340 Regina nutzen, ist es wichtig, den Fortschritt der Arbeiten und eventuelle Änderungen der Verkehrsführung zu überwachen. Es wird empfohlen, die Websites der betroffenen Gemeinden und der Provinz Como zu konsultieren, um Updates zu den Zeitplänen und eventuellen Umleitungen zu erhalten.
+
+Zusätzlich ist es entscheidend, den Verkehrshinweisen zu folgen und eventuelle Geschwindigkeitsbegrenzungen oder andere Einschränkungen während der Bauarbeiten zu beachten. Dies trägt dazu bei, die Sicherheit aller Straßenbenutzer zu gewährleisten und die Durchführung der Arbeiten zu erleichtern.
+
+### Nützliche Werkzeuge
+
+Um ihre Bewegungen optimal zu planen, können die Grenzpendler Werkzeuge wie den [Streckenrechner](nav:calculator) und den [Verkehrsvergleich](nav:traffic-history) nutzen, die auf der Website Frontaliere Ticino verfügbar sind. Diese Werkzeuge ermöglichen es, die Verkehrsbedingungen in Echtzeit zu überwachen und alternative Strecken zu planen, falls erforderlich.
+
+Zusätzlich ist es nützlich, die praktischen Leitfäden auf der Website zu konsultieren, wie den [Leitfaden zur Verkehrsführung](nav:border-map) und den [Leitfaden zu Arbeitserlaubnissen](nav:permits), um aktuelle und detaillierte Informationen zu allen Fragen im Zusammenhang mit der grenzüberschreitenden Arbeit zu erhalten.
+
+### Schlussfolgerung
+
+Die geplanten Maßnahmen entlang der Staatsstraße 340 Regina stellen einen wichtigen Schritt zur Verbesserung der Sicherheit und des Verkehrsflusses dar, mit einem positiven Einfluss auf die Grenzpendler, die diese Straße nutzen, um ihre Arbeitsplätze in der Schweiz zu erreichen. Die Überwachung des Fortschritts der Arbeiten und die Einhaltung der Verkehrshinweise werden entscheidend sein, um die Sicherheit aller Straßenbenutzer zu gewährleisten und die Durchführung der Arbeiten zu erleichtern.
+
+*Quelle: [comozero.it](https://comozero.it/attualita/ecco-il-maxi-piano-contro-il-disastro-traffico-sulla-statale-del-lago-di-como-soluzioni-chirurgiche/)*`,"blog.article.maxi-piano-traffico-lago-como-2026.faq":`[{"q":"Welche sind die Hauptmaßnahmen, die entlang der Staatsstraße 340 Regina vorgesehen sind?","a":"Die Hauptmaßnahmen umfassen das Zurückversetzen von Elementen, die die Fahrbahn in Colonno verengen, das Zurückversetzen eines Steinzauns in Sala Comacina, die Verbreiterung der Fahrbahn in Tremezzina und die Verbreiterung der Kurve 'Vischi' sowie der Via Don Moltrasio in Menaggio. Zudem ist die Installation von Fußgängerampeln in Carlazzo vorgesehen."},{"q":"Wer wird die Maßnahmen entlang der Staatsstraße 340 Regina finanzieren?","a":"Die Maßnahmen werden vollständig von ANAS finanziert, die auch die Rolle des ausführenden Subjekts übernehmen wird, indem sie für die Ausführungsplanung, die Vergabe und die Ausführung der Arbeiten sowie für die Endabnahme zuständig ist."},{"q":"Welche Zeitpläne sind für den Beginn der Arbeiten vorgesehen?","a":"Die genauen Zeitpläne sind noch nicht festgelegt, aber es wird erwartet, dass die Arbeiten bis Ende 2026 beginnen können, wobei die Gesamtlaufzeit von der Komplexität jeder einzelnen Maßnahme abhängt."}]`};export{e as default};

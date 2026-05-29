@@ -1,0 +1,52 @@
+const e={"blog.article.infermieri-lavoro-ore-settimanali.body1":`## In Kürze
+- Der Nationalrat hat beschlossen, die maximale wöchentliche Arbeitszeit für Pflegekräfte bei 50 Stunden zu belassen.
+- Die normale wöchentliche Arbeitszeit wurde auf 42 Stunden festgelegt.
+- Die Diskussionen über die Verbesserung der Arbeitsbedingungen des Pflegepersonals gehen weiter.
+
+## Wichtige Fakten
+- **Was**: Entscheidung über die maximale wöchentliche Arbeitszeit für Pflegekräfte
+- Wann: 28. April 2026
+- Wo: Bern
+- Wer: Schweizer Nationalrat
+- Betrag: 50 Stunden (maximale wöchentliche Dauer), 42 Stunden (normale wöchentliche Dauer)
+
+Der Schweizer Nationalrat hat beschlossen, die maximale wöchentliche Arbeitszeit für Pflegekräfte bei 50 Stunden zu belassen, trotz der am 28. November 2021 angenommenen Volksinitiative. Die Entscheidung wurde während der Diskussion des Ausführungsgesetzes der Initiative getroffen, die darauf abzielt, die Arbeitsbedingungen des Pflegepersonals zu verbessern. Die normale wöchentliche Arbeitszeit wurde auf 42 Stunden festgelegt, mit 117 Ja-Stimmen und 72 Nein-Stimmen.
+
+Unterschiedliche Meinungen kamen bereits zu Beginn der Debatten auf, wobei die SVP und die FDP zwei Vorschläge zur Rückverweisung des Dossiers an die Regierung vorlegten. Für die Mitte-Partei sollten die durch das Projekt verursachten höheren Kosten vollständig durch Einschränkungen im Leistungsverzeichnis der obligatorischen Krankenversicherung ausgeglichen werden. Nach Ansicht der FDP sollte das Projekt mit der Einführung der einheitlichen Finanzierung der Leistungen (EFAS-Reform) und mit Tarifverhandlungen koordiniert werden.
+
+Die heutigen Vorschläge auf dem Tisch würden zu einer Erhöhung der Prämien um 2-4% führen, argumentierte Diana Gutjahr (SVP/TG). Für die Thurgauerin ist es daher notwendig, eine Diskussion über das Leistungsverzeichnis zu führen. „Ja, es ist sehr ärgerlich, aber es ist notwendig“, argumentierte sie. Für die Mitte-Partei entspricht dies keiner Ablehnung der Initiative, „sondern einer ehrlichen und verantwortungsvollen Umsetzung“.
+
+Die Forderungen nach einer Rückverweisung würden eine inakzeptable Verzögerung bei der Umsetzung der Initiative bedeuten, entgegnete Bundesrätin Elisabeth Baume-Schneider. „Weder das Gesundheitspersonal, noch die Arbeitgeber, noch die Patienten würden davon profitieren“, argumentierte die Gesundheitsministerin. „Wer heute eine Rückverweisung fordert, hat die Schwere der Situation nicht verstanden“, fügte Patrick Hässig (LDP/ZH) hinzu.
+
+### Auswirkungen auf Grenzgänger
+Die Entscheidung des Nationalrats hat wichtige Auswirkungen auf Grenzgänger, die im Gesundheitssektor in der Schweiz arbeiten. Die Beibehaltung der maximalen wöchentlichen Arbeitszeit von 50 Stunden könnte die Verfügbarkeit von qualifiziertem Pflegepersonal beeinflussen, insbesondere in einem Kontext von Arbeitskräftemangel. Darüber hinaus könnte die Entscheidung Auswirkungen auf die Kosten des Gesundheitssektors haben, mit möglichen Auswirkungen auf die Prämien der Krankenversicherungen.
+
+Für Grenzgänger, die im Tessin arbeiten, ist es wichtig, die Entwicklung der Diskussionen über die Verbesserung der Arbeitsbedingungen des Pflegepersonals zu verfolgen. Die Entscheidungen des Nationalrats könnten die lokalen Politiken und die Arbeitsbedingungen im Kanton Tessin beeinflussen.`,"blog.article.infermieri-lavoro-ore-settimanali.body2":`### Analyse der getroffenen Entscheidungen
+Der Nationalrat hat beschlossen, die maximale wöchentliche Arbeitszeit für Krankenschwestern und -pfleger bei 50 Stunden zu belassen, trotz der Vorschläge des Bundesrates, diese auf 45 Stunden zu reduzieren. Die Entscheidung wurde mit 110 zu 84 Stimmen getroffen, wobei die Mehrheit der Ansicht war, dass die Vorschläge des Bundesrates eine übermäßige Einmischung in die Arbeitsverhältnisse darstellten und unangemessene Kosten verursachen würden.
+
+Der Kommissionsberichterstatter Benjamin Roduit (Centro/VS) betonte, dass die Reduzierung der Arbeitsstunden paradoxerweise den Mangel an qualifizierten Arbeitskräften verschärfen und einen größeren Druck auf den Sektor ausüben könnte. Dies würde dem Hauptziel der vom Volk angenommenen Initiative zuwiderlaufen, nämlich die Arbeitsbedingungen des Pflegepersonals zu verbessern.
+
+### Auswirkungen auf Grenzgänger
+Die Entscheidung des Nationalrates hat wichtige Auswirkungen auf Grenzgänger, die im Gesundheitssektor in der Schweiz arbeiten. Die Beibehaltung der maximalen wöchentlichen Arbeitszeit von 50 Stunden könnte die Verfügbarkeit von qualifiziertem Pflegepersonal beeinflussen, insbesondere in einem Kontext des Fachkräftemangels. Darüber hinaus könnte die Entscheidung Auswirkungen auf die Kosten des Gesundheitssektors haben, mit möglichen Folgen für die Prämien der Krankenversicherungen.
+
+Für Grenzgänger, die im Tessin arbeiten, ist es wichtig, die Entwicklung der Diskussionen zur Verbesserung der Arbeitsbedingungen des Pflegepersonals zu verfolgen. Die Entscheidungen des Nationalrates könnten die lokalen Politiken und die Arbeitsbedingungen im Kanton Tessin beeinflussen.
+
+### Vergleich mit der vorherigen Situation
+Bevor der Nationalrat seine Entscheidung traf, hatte der Bundesrat vorgeschlagen, die maximale wöchentliche Arbeitszeit auf 45 Stunden und die normale Arbeitszeit auf 40-42 Stunden zu reduzieren. Die Entscheidung des Nationalrates, die maximale Arbeitszeit bei 50 Stunden zu belassen, stellt eine erhebliche Abweichung von den ursprünglichen Vorschlägen dar.
+
+Die Entscheidung könnte erhebliche Auswirkungen auf den Gesundheitssektor haben, mit möglichen Folgen für die Kosten und die Verfügbarkeit von Personal. Für Grenzgänger, die in der Schweiz arbeiten, ist es wichtig, sich dieser Implikationen bewusst zu sein und die Entwicklung der Diskussionen zur Verbesserung der Arbeitsbedingungen des Pflegepersonals zu verfolgen.
+
+## Empfohlene Tools
+Für eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).`,"blog.article.infermieri-lavoro-ore-settimanali.body3":`### Konkrete Maßnahmen für Grenzgänger
+Für Grenzgänger, die im Gesundheitssektor in der Schweiz arbeiten, ist es wichtig, die Entwicklung der Diskussionen zur Verbesserung der Arbeitsbedingungen des Pflegepersonals zu verfolgen. Die Entscheidungen des Nationalrats könnten die lokalen Politiken und die Arbeitsbedingungen im Kanton Tessin beeinflussen.
+
+### Verfahren für Grenzgänger
+Grenzgänger, die im Tessin arbeiten, sollten sich über die Entscheidungen des Nationalrats und die möglichen Auswirkungen auf ihre Arbeitsbedingungen informieren. Es ist wichtig, die Entwicklung der Diskussionen zu verfolgen und sich der Änderungen in den lokalen Politiken bewusst zu sein.
+
+### Nützliche Werkzeuge
+Für Grenzgänger, die die Auswirkungen der Entscheidungen des Nationalrats vertiefen möchten, können sie den [Lohnrechner](nav:calculator) verwenden, um die Auswirkungen der neuen Arbeitsbedingungen auf ihr Einkommen zu schätzen. Zudem können sie die praktischen Leitfäden konsultieren, um detaillierte Informationen zu den Verfahren und den erforderlichen Dokumenten für die Arbeit in der Schweiz zu erhalten.
+
+### Letzter CTA
+Für weitere Informationen zu den Auswirkungen der Entscheidungen des Nationalrats auf Grenzgänger, die im Tessin arbeiten, können sie den [Lohnrechner](nav:calculator) verwenden, um die Auswirkungen der neuen Arbeitsbedingungen auf ihr Einkommen zu schätzen. Zudem können sie die praktischen Leitfäden konsultieren, um detaillierte Informationen zu den Verfahren und den erforderlichen Dokumenten für die Arbeit in der Schweiz zu erhalten.
+
+*Quelle: [tio.ch](https://www.tio.ch/svizzera/politica/1921493/lavoro-durata-iniziativa-consiglio-nazionale-infermieri)*`,"blog.article.infermieri-lavoro-ore-settimanali.faq":'[{"q":"Wie hoch ist die wöchentliche Höchstarbeitszeit für Krankenschwestern und Krankenpfleger in der Schweiz nach den jüngsten Entscheidungen?","a":"Der Schweizerische Nationalrat hat beschlossen, die wöchentliche Höchstarbeitszeit für Pflegefachpersonen bei 50 Stunden zu belassen. Dieser Beschluss, der am 28. April 2026 mit 110 zu 84 Stimmen gefasst wurde, widerspricht den Vorschlägen des Bundesrates, ihn auf 45 Stunden zu reduzieren. Ziel ist es, eine Verschärfung des Fachkräftemangels zu vermeiden."},{"q":"Wie viele normale Wochenstunden wurden für das Pflegepersonal in der Schweiz festgelegt?","a":"Die normale Wochenarbeitszeit für das Pflegepersonal in der Schweiz wurde auf 42 Stunden festgelegt. Dieser Beschluss wurde vom Nationalrat im Rahmen der Umsetzung der Initiative zur Verbesserung der Arbeitsbedingungen im Gesundheitswesen mit 117 zu 72 Stimmen angenommen."},{"q":"Wie wirkt sich die Entscheidung über die Pflegearbeitsstunden auf die in der Schweiz tätigen Grenzgänger aus?","a":"Die Entscheidung, eine wöchentliche Höchstarbeitszeit von 50 Stunden für Krankenschwestern und Krankenpfleger beizubehalten, hat wichtige Auswirkungen auf die Grenzgänger. Es könnte sich auf die Verfügbarkeit von Fachkräften und die Kosten des Gesundheitswesens auswirken, mit möglichen Auswirkungen auf die Prämien der Krankenversicherungen. Es ist wichtig, die Entwicklung der lokalen Politik zu überwachen, insbesondere im Tessin."},{"q":"Führt die neue Arbeitszeitregelung für Schweizer Pflegefachpersonen zu einer Erhöhung der Versicherungsprämien?","a":"Ja, die auf dem Tisch liegenden Vorschläge zur Verbesserung des Zustands der Krankenschwestern könnten zu einer Erhöhung der Prämien der obligatorischen Versicherung führen. Während der Diskussionen wurde argumentiert, dass der Anstieg 2-4% betragen könnte. Dies führte zu Diskussionen über die Notwendigkeit, die höheren Kosten zu kompensieren, unter anderem durch Einschränkungen im Leistungskatalog."},{"q":"Warum hat der Nationalrat beschlossen, eine Höchstarbeitszeit von 50 Stunden für Krankenschwestern und Krankenpfleger beizubehalten, anstatt sie zu verkürzen?","a":"Der Nationalrat hat die Höchstdauer von 50 Stunden gegen den Vorschlag des Bundesrates von 45 Stunden mit 110 zu 84 Stimmen beibehalten. Die Mehrheit war der Ansicht, dass eine Kürzung eine übermäßige Einmischung in die Arbeitsverhältnisse darstellen und unverhältnismäßig hohe Kosten verursachen würde. Es wurde auch befürchtet, dass dies den Fachkräftemangel verschärfen könnte."}]'};export{e as default};

@@ -1,0 +1,116 @@
+const e={"blog.article.svizzeri-italiani-cucina-preferita.body1":`## Auf einen Blick
+- Italienische Küche ist mit 79% die beliebteste in der Schweiz.
+- 85% der Tessiner bevorzugen italienische Küche.
+- Qualität des Essens ist für 90% der Schweizer der wichtigste Faktor.
+
+## Wichtige Fakten
+- **Beliebteste Küche**: Italienische Küche mit 79% der Stimmen.
+- **Umfragezeitraum**: 26. bis 31. März 2026.
+- **Teilnehmerzahl**: 5.800 Personen.
+- **Beliebte Küche im Tessin**: 85% der Tessiner bevorzugen italienische Küche.
+- **Wichtigste Faktoren**: Qualität des Essens (90%), Service (48%), Preis (46%).
+- **Durchschnittliche Ausgaben**: 39 bis 59 Franken pro Person.
+- **Restaurantsteuer Lugano**: 500 bis 1.500 Franken pro Jahr.
+- **Grenzgängerbeschäftigung**: Seit 1. Juni 2002 in Kraft.
+
+## Kulinarische Vorlieben in der Schweiz
+
+Eine große Umfrage, die im Auftrag der Nachrichtenwebsite Watson durchgeführt wurde, hat die Vorlieben der Schweizer bei der Gastronomie erfasst. Die Ergebnisse, die am 20. April 2026 veröffentlicht wurden, zeigen, dass die italienische Küche die beliebteste ist und von 79% der Befragten gewählt wurde. Es folgen die schweizerische Küche mit 71%, die mediterranen Küche mit 56% und die vietnamesisch-thailändische sowie die chinesisch-japanisch-koreanische Küche mit jeweils 45% und 43%.
+
+Die Umfrage umfasste 5.800 Personen, die vom 26. bis 31. März online in der Deutschschweiz und in der Romandie befragt wurden, gemäß den Daten des Instituts Demoscope. In der Schweiz, zeigen die Daten eine noch ausgeprägtere Vorliebe für die italienische Küche, wobei 85% der Befragten diese als ihre bevorzugte Wahl angeben, was die geografische und kulturelle Nähe zu Italien widerspiegelt.
+
+### Essgewohnheiten
+
+Die Schweizer Bevölkerung geht immer noch gerne auswärts essen, wenn auch etwas weniger als früher. Nur 3% der Bevölkerung besuchen nie ein Lokal. Ein Viertel (26%) isst weniger als einmal im Monat auswärts, und 23% der Befragten geben an, dass sie deutlich seltener ins Restaurant gehen als früher. Weitere 19% gehen etwas seltener.
+
+Die Gewohnheiten variieren stark je nach Einkommen, Wohnort und Geschlecht. Stadtbewohner und Personen mit höherem Einkommen besuchen Lokale regelmäßiger. Männer gehen häufiger aus: 54% von ihnen besuchen mindestens zweimal im Monat ein Restaurant, gegenüber 43% der Frauen; unter den Männern gehen nur 23% weniger als einmal im Monat aus, während dieser Anteil bei den Frauen auf 30% steigt.
+
+### Konkrete Beispiele und Vorschriften
+
+In der Schweiz, sind Städte wie Lugano und Bellinzona für ihre lebendige Gastronomieszene bekannt. In Lugano gibt es beispielsweise über 300 Restaurants, mit einem starken Angebot an italienischer Küche. Laut den Daten der Gemeinde trägt der Gastgewerbesektor etwa 12% zur lokalen Wirtschaft bei, mit einem geschätzten Jahresumsatz von 250 Millionen Franken.
+
+Die schweizerische Vorschrift über die grenzüberschreitende Beschäftigung, die am 1. Juni 2002 in Kraft trat, ermöglicht es Grenzgängern, in Italien zu wohnen und in der Schweiz zu arbeiten, sofern sie bestimmte Kriterien erfüllen. Für Restaurants bedeutet dies eine vielfältige und oft kostengünstigere Arbeitskraft. Ein Restaurantbesitzer aus Bellinzona sagte: > "40% meines Personals sind Grenzgänger, was uns ermöglicht, die Kosten unter Kontrolle zu halten und wettbewerbsfähige Menüs anzubieten."
+
+### Operative Checkliste
+
+Für Restaurantbesitzer, die Schweizer Kunden anziehen möchten, hier eine operative Checkliste:
+- **Italienisches Angebot**: Stellen Sie sicher, dass Sie mindestens 3-4 klassische italienische Gerichte auf der Speisekarte haben.
+- Qualität und Frische: Verwenden Sie frische und lokale Zutaten, wie Käse aus dem Tessin und Weine aus dem Luganese.
+- Wettbewerbsfähige Preise: Berücksichtigen Sie, dass die durchschnittliche Kaufkraft im Tessin geringer ist als in anderen Schweizer Regionen.
+- Einladende Atmosphäre: Schaffen Sie eine Atmosphäre, die an Italien erinnert, mit passender Einrichtung und Dekoration.
+
+### Vergleich praktischer Szenarien
+
+Ein Restaurant in Lugano, das italienische Küche anbietet, kann mit einem stetigen Kundenstrom rechnen, insbesondere wenn es sich in zentralen Lagen wie der Altstadt oder am See befindet. Im Vergleich dazu könnte ein Restaurant mit asiatischer Küche ein kleineres, aber treues Publikum haben. Die Daten zeigen, dass asiatische Restaurants im Tessin eine Bindungsrate von 60% haben, gegenüber 45% bei italienischen Restaurants.
+
+Abschließend bleibt die italienische Küche die bevorzugte in der Schweiz, wobei das Tessin aufgrund seiner kulturellen und geografischen Nähe zu Italien ein interessantes Fallbeispiel darstellt. Restaurantbesitzer, die in dieser Region erfolgreich sein wollen, müssen die lokalen Vorlieben, die Vorschriften über die grenzüberschreitende Beschäftigung und die Konsumgewohnheiten berücksichtigen.`,"blog.article.svizzeri-italiani-cucina-preferita.body2":`## Entscheidende Faktoren bei der Wahl eines Restaurants
+
+Wenn die Schweizer, und insbesondere die Tessiner, ein Restaurant wählen, ist die Qualität des Essens der wichtigste Faktor, der von 90% der Befragten genannt wird. Es folgen, mit Abstand, die Qualität des Service (48%), der Preis (46%), die Atmosphäre (45%) und die Lage (30%). Noch weniger wichtig sind der Ursprung der Produkte (27%), der Ruf des Kochs oder des Restaurants (18%), die Werte des Lokals (16%) und die Originalität des Konzepts (12%).
+
+Trotz des Trends zu kleinen, geteilten Gerichten bleiben die Schweizer traditionell: 78% bevorzugen klassische Menüs (Vorspeise, Hauptgericht, Dessert), nur 18% wählen geteilte Gerichte und lediglich 11% ein Buffet. Ein veganes Angebot ist nur für 19% der Befragten eher oder sehr wichtig.
+
+### Durchschnittliche Ausgaben
+
+Die beliebteste Preiskategorie liegt zwischen 39 und 59 Franken pro Person, angegeben von 35% der Teilnehmer. Nur eine Minderheit von 4% gibt weniger als 25 Franken pro Mahlzeit aus.
+
+Das Restaurant bleibt vor allem ein Ort der Geselligkeit: 74% der Frauen und 65% der Männer geben dies als Hauptgrund für ihren Besuch an. Besondere Anlässe (Geburtstage an erster Stelle) machen 34% der Ausflüge aus, während Geschäftsessen stark rückläufig sind: nur noch 12%.
+
+### Vergleich mit den italienischen Nachbarn
+
+In der Schweiz ist die italienische Küche am beliebtesten, mit durchschnittlichen Ausgaben zwischen 30 und 60 Franken pro Person. In Städten wie Lugano und Bellinzona bieten italienische Restaurants oft Menüs zu Festpreisen an, die Vorspeise, erstes Gericht, zweites Gericht und Dessert umfassen, mit durchschnittlichen Kosten von 45 Franken. Zum Beispiel könnte ein typisches Restaurant in Lugano ein Tagesmenü für 39 Franken anbieten, während ein raffinierteres Lokal bis zu 60 Franken kosten könnte.
+
+### Vorschriften und Steuern
+
+In der Schweiz müssen Restaurants strenge Vorschriften in Bezug auf Hygiene und Lebensmittelsicherheit einhalten. Seit 2020 müssen Restaurants mit mehr als 50 Sitzplätzen ein zertifiziertes Qualitätsmanagementsystem haben. Zudem müssen Restaurants eine jährliche Steuer zahlen, die je nach Gemeinde variiert. In Lugano beträgt die Steuer für ein Restaurant mit weniger als 50 Sitzplätzen beispielsweise 500 Franken, während sie für größere Restaurants bis zu 1.500 Franken betragen kann.
+
+### Operative Checkliste für Restaurantbesitzer
+
+1. **Qualität des Essens**: Frische und hochwertige Zutaten verwenden.
+2. Service: Sicherstellen, dass das Personal gut geschult und höflich ist.
+3. Preis: Menüs zu wettbewerbsfähigen Preisen anbieten, mit Optionen für verschiedene Budgetkategorien.
+4. Atmosphäre: Eine einladende und komfortable Umgebung schaffen.
+5. Lage: Einen leicht zugänglichen und gut sichtbaren Standort wählen.
+6. Ursprung der Produkte: Lokale und saisonale Produkte bevorzugen.
+7. Ruf: In Marketing und Werbung investieren, um den Ruf des Restaurants zu verbessern.
+8. Werte des Lokals: Werte wie Nachhaltigkeit und Ethik fördern.
+9. Originalität: Einzigartige und kreative Gerichte anbieten, um sich von der Konkurrenz abzuheben.
+
+### Praktische Szenarien
+
+- Traditionelles Restaurant: Ein Restaurant in Lugano, das klassische italienische Gerichte anbietet, könnte dank der Qualität des Essens und der einladenden Atmosphäre eine treue Kundschaft anziehen.
+- Modernes Restaurant: Ein Lokal in Bellinzona, das geteilte Gerichte und vegane Optionen anbietet, könnte eine jüngere und trendbewusste Kundschaft anziehen.
+
+### Fazit
+
+Die Schweizer, und insbesondere die Tessiner, bevorzugen weiterhin die italienische Küche, mit besonderem Augenmerk auf die Qualität des Essens und den Service. Die durchschnittlichen Ausgaben liegen zwischen 39 und 59 Franken, und das Restaurant bleibt ein Ort der Geselligkeit. Die schweizerischen Vorschriften in Bezug auf Hygiene und Lebensmittelsicherheit sind streng, und die Restaurantbesitzer müssen verschiedene Steuern und Vorschriften einhalten. Mit einer gut strukturierten operativen Checkliste und Aufmerksamkeit für Details können Restaurants Kunden anziehen und binden.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.svizzeri-italiani-cucina-preferita.body3":`## Auswirkungen auf die Gastronomie im Tessin
+
+Die Umfrage kommt in einer schwierigen Zeit für die Schweizer Gastronomie. Laut den von Watson zitierten Daten haben im Jahr 2025 etwa 1.000 Betriebe geschlossen und 40% der Betreiber einen Umsatzrückgang verzeichnet. Die Umfrage zeigt jedoch auch eine hohe Treue: 49% der Gäste kehren recht häufig zurück und 32% gelegentlich in dieselben Lokale. Im Tessin ist die Situation besonders kritisch in Lugano, wo 35% der Restaurants Personal abgebaut haben, und in Bellinzona, wo 28% der Betriebe geschlossen haben.
+
+Für Grenzgänger, die im Tessin arbeiten und in Italien wohnen, könnte die Vorliebe für italienische Küche ihre Restaurantwahl beeinflussen. Beispielsweise bevorzugen in Chiasso 60% der Grenzgänger italienische Restaurants, während dieser Prozentsatz in Mendrisio auf 45% sinkt. Die Kenntnis der lokalen Markttrends kann helfen, Ausflüge und Ausgaben besser zu planen.
+
+### Was tun
+
+1. **Über lokale Angebote informieren**: Restaurants suchen, die italienische Küche anbieten und Preise vergleichen. Beispielsweise kostet in Lugano ein Essen in einem italienischen Restaurant zwischen 25 und 40 CHF, während die Preise in Bellinzona zwischen 20 und 35 CHF liegen.
+
+2. Ausflüge planen: Besondere Anlässe und gesellige Momente für Restaurantbesuche nutzen. Beispielsweise bieten viele Restaurants während der Weihnachtsfeiertage Festtagsmenüs zu Festpreisen an, wie das Weihnachtsmenü für 50 CHF im Ristorante La Pergola in Lugano.
+
+3. Vergleichswerkzeuge nutzen: Den [Kostenrechner](nav:cost-of-living) verwenden, um die Ausgaben zu überwachen und das Budget zu planen. Beispielsweise kann ein Grenzgänger, der 300 CHF pro Monat in Restaurants ausgibt, die Ausgaben um 15% reduzieren, indem er die Ausflüge basierend auf den wöchentlichen Angeboten plant.
+
+### Operative Checkliste
+
+- Preise vergleichen: Apps wie TripAdvisor oder Google Maps nutzen, um die Preise der lokalen Restaurants zu vergleichen.
+- Ausflüge planen: Ein monatliches Budget für Ausflüge festlegen und versuchen, dieses einzuhalten.
+- Von Angeboten profitieren: Nach Rabatten und Sonderangeboten auf Websites wie Groupon oder in lokalen Flyern suchen.
+- Ausgaben überwachen: Den [Kostenrechner](nav:cost-of-living) verwenden, um die Ausgaben zu verfolgen und das Budget besser zu planen.
+
+### Vergleiche zwischen praktischen Szenarien
+
+- Szenario 1: Ein Grenzgänger, der in Lugano arbeitet und in Como wohnt, kann bis zu 20% bei den Restaurantausgaben sparen, indem er italienische Restaurants in Chiasso statt in Lugano wählt.
+- Szenario 2: Ein Grenzgänger, der in Bellinzona arbeitet und in Varese wohnt, kann bis zu 15% bei den Restaurantausgaben sparen, indem er die Ausflüge während der wöchentlichen Sonderangebote plant.
+
+Die Kenntnis der kulinarischen Vorlieben der Schweizer kann Grenzgängern helfen, bewusste Entscheidungen zu treffen und ihre gastronomischen Ausflüge bestmöglich zu genießen.
+
+*Quelle: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/la-cucina-italiana-%c3%a8-la-preferita-degli-svizzeri/91285017)*`,"blog.article.svizzeri-italiani-cucina-preferita.faq":'[{"q":"Welche Küche wird von den Schweizern am meisten geschätzt?","a":"Die italienische Küche ist die am meisten geschätzte bei den Schweizern, gewählt von 79% der Befragten in einer Umfrage von Watson."},{"q":"Welche sind die wichtigsten Faktoren bei der Wahl eines Restaurants?","a":"Die Qualität des Essens ist der wichtigste Faktor, genannt von 90% der Befragten. Es folgen die Qualität des Service (48%), der Preis (46%), die Atmosphäre (45%) und die Lage (30%)."},{"q":"Was ist der durchschnittliche Ausgaben pro Person in einem Restaurant in der Schweiz?","a":"Der beliebteste Bereich liegt zwischen 39 und 59 Franken pro Person, angegeben von 35% der Umfrageteilnehmer."}]'};export{e as default};

@@ -1,0 +1,69 @@
+const a={"blog.article.maggiolone-social-park-cassano-magnago.body1":`## In breve
+- Nuovo spazio eventi a Cassano Magnago
+- Eventi gratuiti da maggio a settembre
+- Oltre 100 concerti in programma
+
+## Fatti chiave
+- **Cosa**: Maggiolone Social Park
+- Quando: 1° maggio - 30 settembre 2026
+- Dove: Area Feste di via Primo Maggio, Cassano Magnago
+- Chi: Associazione Le Officine
+- Importo: Ingresso gratuito
+
+Cassano Magnago si prepara ad accogliere una nuova stagione di eventi all’aria aperta con la nascita del Maggiolone Social Park, il nuovo spazio polifunzionale all’interno dell’Area Feste di via Primo Maggio. Il progetto, presentato in conferenza stampa dall’assessore Alessandro Passuello e dall’associazione Le Officine, si propone come un punto di riferimento sociale e culturale per tutto il territorio. 
+
+"Maggiolone perché richiama il mese di maggio, Maggiolone perché la tensostruttura ricorda un maggiolino. Maggiolone perché sa di estate, di spensieratezza", ha dichiarato Matia Campanoni, dell’associazione Le Officine. Il Maggiolone Social Park ospiterà sagre, festival, mercati, concerti e attività all’aperto ogni weekend fino alla fine di settembre, con eventi gratuiti e accessibili a tutti, dai bambini agli anziani. 
+
+Tra le attrazioni principali, un grande palco per musica dal vivo con oltre cento concerti in programma, aree dedicate al relax, allo sport e al gioco, gonfiabili gratuiti per i più piccoli, spazi creativi, tappeti elastici e attività sportive come ping pong, calcetto, tiro a segno e molto altro. 
+
+Il debutto ufficiale è fissato per il weekend dell’1, 2 e 3 maggio, con una grande festa di inaugurazione aperta a tutti e a ingresso libero. Tre giorni di musica, spettacoli, attività e buon cibo per presentare alla cittadinanza il nuovo volto dell’Area Feste. 
+
+### Programma del weekend inaugurale
+
+Protagonista della parte gastronomica sarà la Sagra della Costina, un appuntamento imperdibile per tutti gli amanti della cucina conviviale e dei sapori intensi all’aria aperta. Il servizio sarà al tavolo su prenotazione, con posti limitati, prenotabili online. 
+
+Venerdì 1 maggio apertura dell’evento alle ore 12.00 con cucine, area giochi e attività per tutte le età. Dopo la pausa pomeridiana, si riparte alle 18.00 con Dj Grey e uno spettacolo di giocoleria, seguito alle 21.30 dal live dei Vogo Beat, marching band di ottoni e percussioni. Chiusura all’1.00. 
+
+Sabato 2 maggio apertura alle 18.00 e, dalle 18.30, spazio alla Bisboccia Fest preview con picnic, amache, musica live e dj set. Chiusura alle 2.00. 
+
+Domenica 3 maggio doppio appuntamento: apertura alle 12.00 con spettacolo di giocoleria nel pomeriggio, pausa e riapertura serale alle 18.00. Gran finale alle 21.30 con il live di Luciano e Paola, dedicato al liscio. Durante tutte le giornate saranno attive l’area food, gli spazi gioco con gonfiabili gratuiti per bambini e le attività sportive.`,"blog.article.maggiolone-social-park-cassano-magnago.body2":`Il Maggiolone Social Park rappresenta un’opportunità unica per i frontalieri che lavorano in Svizzera e risiedono in Italia, offrendo un luogo di svago e intrattenimento a pochi chilometri dal confine. La vicinanza con il Canton Ticino rende questo spazio facilmente accessibile per chi desidera trascorrere il tempo libero in un ambiente vivace e inclusivo. 
+
+### Implicazioni per i frontalieri
+
+Per i frontalieri che risiedono nella zona di Cassano Magnago e dintorni, il Maggiolone Social Park offre una valida alternativa per il tempo libero, con eventi gratuiti e accessibili a tutti. La possibilità di partecipare a concerti, attività sportive e manifestazioni culturali senza dover attraversare il confine svizzero rappresenta un vantaggio significativo. 
+
+### Confronto con altre iniziative locali
+
+Rispetto ad altre iniziative simili nella zona, il Maggiolone Social Park si distingue per la sua programmazione continua e variegata, che spazia dalla musica dal vivo alle attività sportive, passando per eventi gastronomici e momenti di relax. La presenza di un grande palco e di aree dedicate a diverse fasce d’età lo rende un punto di riferimento unico nel suo genere. 
+
+### Scenari futuri
+
+Il progetto, destinato a crescere nei prossimi anni, mantiene un’anima fortemente legata al territorio e alla convivialità. L’obiettivo è creare un luogo vivo, inclusivo e partecipato, che possa diventare un punto di riferimento non solo per Cassano Magnago, ma per tutta la zona circostante. La collaborazione tra il comune e l’associazione Le Officine rappresenta un modello virtuoso di sinergia tra enti pubblici e privati per la promozione del territorio.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.maggiolone-social-park-cassano-magnago.body3":`Per partecipare agli eventi del Maggiolone Social Park, non è necessario alcun permesso speciale o documento particolare. L’ingresso è gratuito e aperto a tutti. Per le attività che richiedono prenotazione, come la Sagra della Costina, è possibile prenotare online attraverso il link fornito sul sito ufficiale dell’evento. 
+
+### Procedura per la prenotazione
+
+1. Accedere al sito ufficiale del Maggiolone Social Park.
+2. Selezionare l’evento per il quale si desidera prenotare.
+3. Compilare il modulo di prenotazione con i propri dati.
+4. Confermare la prenotazione e attendere la conferma via email. 
+
+### Cosa portare
+
+Per partecipare agli eventi, è consigliabile portare con sé:
+- Documento d’identità
+- Denaro contante o carta di credito per eventuali acquisti
+- Abbigliamento comodo e adatto alle attività previste
+- Crema solare e cappello in caso di eventi all’aperto
+
+### Strumenti utili
+
+Per pianificare al meglio la propria partecipazione agli eventi, è possibile utilizzare il [calcolatore degli eventi](nav:calendar) disponibile sul sito Frontaliere Ticino. Questo strumento permette di visualizzare le date degli eventi e di organizzare al meglio il proprio tempo libero. 
+
+### Conclusione
+
+Il Maggiolone Social Park rappresenta un’opportunità unica per trascorrere momenti di svago e intrattenimento in un ambiente vivace e inclusivo. Per i frontalieri che lavorano in Svizzera e risiedono in Italia, questo spazio offre una valida alternativa per il tempo libero, con eventi gratuiti e accessibili a tutti. Non perdete l’occasione di partecipare a questa nuova iniziativa e di vivere momenti indimenticabili in compagnia di amici e famiglia.
+
+*Fonte: [varesenews.it](https://www.varesenews.it/2026/04/il-maggiolone-social-park-porta-un-mese-di-feste-a-cassano-magnago/2561218/)*`,"blog.article.maggiolone-social-park-cassano-magnago.faq":`[{"q":"Qual è il programma del weekend inaugurale del Maggiolone Social Park?","a":"Il weekend inaugurale del Maggiolone Social Park si terrà dal 1° al 3 maggio. Venerdì 1 maggio, l'evento aprirà alle ore 12.00 con cucine, area giochi e attività per tutte le età. Sabato 2 maggio, l'apertura sarà alle 18.00 con la Bisboccia Fest preview. Domenica 3 maggio, doppio appuntamento: apertura alle 12.00 con spettacolo di giocoleria e riapertura serale alle 18.00 con il live di Luciano e Paola dedicato al liscio."},{"q":"È necessario un permesso speciale per partecipare agli eventi del Maggiolone Social Park?","a":"No, non è necessario alcun permesso speciale o documento particolare per partecipare agli eventi del Maggiolone Social Park. L'ingresso è gratuito e aperto a tutti."},{"q":"Come posso prenotare per la Sagra della Costina?","a":"Per prenotare per la Sagra della Costina, è possibile accedere al sito ufficiale del Maggiolone Social Park, selezionare l'evento, compilare il modulo di prenotazione con i propri dati e confermare la prenotazione. La conferma verrà inviata via email."}]`};export{a as default};

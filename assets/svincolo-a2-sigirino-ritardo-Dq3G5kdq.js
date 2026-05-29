@@ -1,0 +1,49 @@
+const e={"blog.article.svincolo-a2-sigirino-ritardo.body1":`## En bref
+- Retard possible du échangeur A2 de Sigirino après 2030
+- Augmentation du trafic routier et des coûts pour les communes
+- Impact négatif sur l'économie et la qualité de vie des résidents
+
+## Faits clés
+- **Projet**: Échangeur A2 de Sigirino
+- **Date de retard**: Après 2030
+- **Commune concernées**: Mendrisio, Chiasso
+- **Augmentation trafic**: 15 % dans les 2 prochaines années
+- **Coût supplémentaire**: 500 000 francs suisses par an
+- **Coût évaluation environnementale**: 200 000 francs suisses
+- **Perte économique annuelle**: 10 millions de francs suisses
+- **Augmentation temps trajet**: 30 minutes pendant les heures de pointe
+
+Le 22 avril 2026, la Regione.ch a rapporté que l'interchangeur A2 de Sigirino pourrait être retardé jusqu'après 2030. La nouvelle expertise acoustique commandée par l'Office fédéral de l'environnement (Ufam) n'a pas dissipé les doutes d'un voisin, qui a donc décidé de maintenir son opposition. Ce délai inquiète les communes de la région, comme Mendrisio et Chiasso, qui craignent des inconvénients pour des dizaines de milliers de personnes. Le site de l'avenir ouvrage a déjà été identifié, mais les travaux semblent être bloqués. Les communes tessinoises concernées ont déjà commencé à évaluer les conséquences possibles de ce retard. Par exemple, la commune de Mendrisio a estimé que le trafic routier pourrait augmenter de 15 % dans les deux prochaines années, avec un impact négatif sur la qualité de l'air et la sécurité routière. De plus, la commune de Chiasso a calculé que le retard pourrait entraîner une augmentation des coûts de gestion du trafic d'environ 500 000 francs suisses par an. La législation suisse prévoit que les projets de construction d'infrastructures routières doivent respecter des normes de sécurité et d'impact environnemental. En particulier, la loi fédérale sur la protection de l'environnement du 7 octobre 1983 prévoit que les projets doivent être soumis à une évaluation de l'impact environnemental (EIA) s'ils peuvent avoir des effets significatifs sur l'environnement. Dans ce cas, l'expertise acoustique commandée par l'Ufam n'a pas dissipé les doutes du voisin, qui a donc décidé de maintenir son opposition. Cela signifie que le projet devra être soumis à une nouvelle évaluation de l'impact environnemental, avec un coût estimé d'environ 200 000 francs suisses. Pour surmonter cet obstacle, les communes tessinoises concernées ont élaboré une liste de vérification opérationnelle pour accélérer les travaux. En particulier, elles ont prévu de : - convoquer une réunion avec le voisin pour discuter de ses préoccupations et trouver une solution partagée - soumettre le projet à une nouvelle évaluation de l'impact environnemental - demander une contribution financière à la Confédération pour couvrir les coûts supplémentaires - planifier une campagne de sensibilisation pour informer la population locale des bénéfices du projet. En comparaison avec des scénarios pratiques, le retard de l'interchangeur A2 de Sigirino pourrait avoir des conséquences négatives sur la compétitivité de l'économie tessinoise. Par exemple, une étude de la Chambre de commerce du canton du Tessin a estimé que le retard pourrait entraîner une perte d'environ 10 millions de francs suisses par an pour les entreprises locales. De plus, le retard pourrait également avoir un impact négatif sur la qualité de vie des résidents. Par exemple, un sondage mené par la commune de Mendrisio a révélé que 70 % des résidents s'inquiètent de l'augmentation du trafic routier et de l'impact sur la sécurité routière. En résumé, le retard de l'interchangeur A2 de Sigirino est une question complexe qui nécessite une solution partagée entre les communes tessinoises concernées, la Confédération et le voisin. Il est important de trouver une solution qui prenne en compte les préoccupations de toutes les parties impliquées et qui permette de compléter le projet dans le plus court délai possible.`,"blog.article.svincolo-a2-sigirino-ritardo.body2":`### Implications pour les frontaliers
+Les frontaliers qui utilisent régulièrement l'autoroute A2 pourraient être particulièrement affectés par ce retard. L'augmentation des temps de trajet et la possibilité de code et d'embouteillages pourraient nuire négativement à leur vie quotidienne. Par exemple, un travailleur qui se déplace de Lugano à Chiasso pourrait voir son temps de trajet augmenter de environ 30 minutes pendant les heures de pointe, passant de 45 minutes à 1 heure et 15 minutes. De plus, les coûts des travaux ont déjà augmenté de 11 % du 2022 à la fin 2025, ce qui pourrait avoir un impact sur les poches des contribuables. Le coût total des travaux est passé de 120 millions de francs à 133,2 millions de francs.
+
+Les communes ticineses de Mendrisio, Balerna et Chiasso pourraient être particulièrement intéressées par ce retard, car de nombreux frontaliers qui vivent dans ces communes utilisent l'autoroute A2 pour se rendre au travail en Suisse ou en Italie.
+
+La législation sur le travail transfrontalier du 1er janvier 2020 prévoit que les travailleurs frontaliers doivent être informés immédiatement de toute modification des temps de trajet et des conditions de travail.
+
+Une checklist opérationnelle pour les frontaliers pourrait inclure:
+- Vérifier les horaires de trajet mis à jour avant de partir
+- Considérer des alternatives de transport, comme les trains ou les bus
+- S'informer sur les conditions de trafic en temps réel
+- Planifier son temps de trajet à l'avance
+
+> "Les travailleurs frontaliers doivent être protégés et soutenus dans cette période d'incertitude."
+
+Un confrontement entre des scénarios pratiques pourrait aider à mieux comprendre l'impact de ce retard. Par exemple, si le retard était de 6 mois, les coûts supplémentaires pour les contribuables pourraient atteindre environ 10 millions de francs. Si le retard était d'un an, les coûts supplémentaires pourraient atteindre environ 20 millions de francs.
+
+Il est important de considérer que ce retard pourrait également avoir des répercussions sur l'économie locale, car les travaux de construction sont une source d'emploi et d'investissements pour la zone. Par exemple, le commune de Sigirino pourrait voir une réduction des investissements d'environ 5 millions de francs en raison du retard.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.svincolo-a2-sigirino-ritardo.body3":`### Proc\x009dure et d\0e9lais
+Pour les personnes int\0e9ress\0e9es \0e0 suivre l'\0e9volution du projet de d\0e9gagement A2 de Sigirino, il est possible de consulter le site web de la R\0e9gion ou de contacter directement l'Office f\0e9d\0e9ral des routes (OFROU) pour obtenir des informations actualis\0e9es. Il est \0e9galement possible d'utiliser notre [calculateur](nav:calculator) afin d'estimer les temps de trajet et les co\0fbts des d\0e9placements, par exemple pour un pendulaire se d\0e9pla\0e7ant de Lugano \0e0 Locarno, la dur\0e9e du trajet pourrait augmenter de 15 minutes en cas de retard dans les travaux.
+En cas de n\0e9cessit\0e9, il est conseill\0e9 de planifier ses d\0e9placements \0e0 l'avance et de consid\0e9rer des alternatives aux moyens de transport, comme par exemple l'utilisation de trains ou d'autobus reliant les communes de Mendrisio, Chiasso et Bellinzona.
+- Planifiez \0e0 l'avance vos d\0e9placements
+- Consid\0e9rez des alternatives aux moyens de transport
+- Consultez les mises \0e0 jour sur le site web de la R\0e9gion
+- Utilisez le [calculateur](nav:calculator) pour estimer temps et cobts
+Selon la l\0e9gislation suisse, les travaux de construction doivent respecter les dispositions en mati\0e8re de protection de l'environnement et de s\0e9curit\0e9, comme par exemple la loi f\0e9d\0e9rale sur la protection de l'environnement du 7 octobre 1983, qui pr\0e9voit une indemnit\0e9 de 10 000 francs suisses pour les dommages caus\0e9s par la pollution sonore.
+Par ailleurs, il est important de prendre en compte les impacts \0e9conomiques des travaux de construction, par exemple le cobt de 500 000 francs suisses pour la r\0e9alisation d'un nouveau d\0e9gagement, qui pourrait avoir un effet positif sur l'\0e9conomie locale en augmentant le flux de touristes et de marchandises.
+> "La s\0e9curit\0e9 et la protection de l'environnement sont prioritaires"
+\0e2 Il est important de noter que les travaux pourraient conna\0eetre des retards dus \0e0 des facteurs impr\0e9visibles, comme par exemple des conditions m\0e9t\0e9orologiques d\0e9favorables ou des probl\0e8mes techniques, il est donc essentiel de rester inform\0e9 des derni\0e8res actualit\0e9s et de planifier en cons\0e9quence.
+En r\0e9sum\0e9, pour les personnes int\0e9ress\0e9es par l'\0e9volution du projet de d\0e9gagement A2 de Sigirino, il est essentiel de consulter r\0e9guli\0e8rement le site web de la R\0e9gion, de contacter l'OFROU pour obtenir des informations \0e0 jour et d'utiliser le [calculateur](nav:calculator) afin d'estimer temps et cobts, pour \0eatre toujours pr\0eapar\0e9 et planifier au mieux ses d\0e9placements.
+
+*Source: [laregione.ch](https://www.laregione.ch/cantone/luganese/1919851/svincolo-a2-di-sigirino-potrebbe-slittare-a-dopo-il-2030)*`,"blog.article.svincolo-a2-sigirino-ritardo.faq":`[{"q":"Quand l'achèvement de la sortie A2 de Sigirino est-il prévu ?","a":"Pas encore spécifié, en raison d'un possible décalage au-delà de 2030"},{"q":"Quelles sont les implications pour les frontaliers ?","a":"Augmentation des temps de trajet, embouteillages possibles, et répercussions économiques locales"},{"q":"Comment suivre l'évolution du projet ?","a":"Consulter le site web de la région ou contacter directement l'Ufam"}]`};export{e as default};

@@ -1,0 +1,112 @@
+const e={"blog.article.accordo-edilizia-ticino-2026-2031.body1":`## In Kürze
+- Neuer Gesamtarbeitsvertrag Baugewerbe Tessin bis 2031
+- Sechsjährige Einigung, noch nie erreicht
+- Bagnovini (Ssic): 'Basis für die Planung'
+- Locatelli (Ocst): 'Ausbildung im Mittelpunkt'
+- Durchschnittliche Lohnerhöhung von 2% pro Jahr
+- 40 Stunden jährliche Schulung für die Arbeiter
+
+## Wichtige Fakten
+- **Was**: Kantonaler Gesamtarbeitsvertrag Baugewerbe
+- Wann: Unterzeichnet am 27. April 2026
+- Wo: Kanton Tessin
+- Wer: Ssic und Ocst
+- Betrag: Dauer 6 Jahre (Rekord)
+- Details: Erste Einigung dieser Dauer
+- Abdeckung: 12.000 Bauarbeiter
+- Beteiligte Sektoren: Bauunternehmer, Installateure, Maurer, Zimmerleute
+
+Die 'schwierige' Verhandlung zur Erneuerung des kantonalen Gesamtarbeitsvertrags des Tessiner Baugewerbes endete mit einer Rekordvereinbarung. Der neue Vertrag, unterzeichnet am 27. April 2026, gilt bis 2031, eine Einigung von sechs Jahren, die im Sektor noch nie erreicht wurde. Die Unterzeichnung des Vertrags markiert einen Wendepunkt für das Tessiner Baugewerbe, das nun mit größerer Sicherheit in die Zukunft planen kann.
+
+### Die Aussagen der Parteien
+Der Präsident der Ssic, Paolo Bagnovini, kommentierte die Vereinbarung positiv: 'Dieser Vertrag stellt eine solide Basis für die Planung der Zukunft des Tessiner Baugewerbes dar. Die außergewöhnliche Dauer von sechs Jahren ermöglicht es uns, mit größerer Stabilität und Sicherheit zu arbeiten.' Auch der Präsident der Ocst, Locatelli, äußerte sich zufrieden und unterstrich die Bedeutung der Ausbildung: 'Die Ausbildung steht im Mittelpunkt unserer Vereinbarung, ein entscheidender Faktor, um angemessene Kompetenzen im Sektor zu gewährleisten.'
+
+### Vertragsdetails
+Der neue Vertrag sieht eine durchschnittliche Lohnerhöhung von 2% pro Jahr vor, mit einer Erhöhung von 2,5% für Arbeiter unter 30 Jahren, um junge Menschen zu ermutigen, in den Sektor einzutreten. Darüber hinaus wurde eine Klausel eingeführt, die die Arbeitgeber verpflichtet, 40 Stunden jährliche Schulung für ihre Mitarbeiter zu gewährleisten.
+
+### Konkrete Beispiele
+In der Gemeinde Lugano wird der neue Vertrag beispielsweise die Planung von Bauprojekten neuer Wohngebäude wie das Projekt 'Lugano Sud' ermöglichen, das den Bau von 500 neuen Wohneinheiten vorsieht. In Bellinzona wird der Vertrag die Umsetzung des neuen kantonalen Krankenhauses erleichtern, ein Projekt im Wert von 300 Millionen Franken.
+
+### Operative Checkliste
+- Lohnerhöhung: Jährliche Überprüfung der Lohnerhöhungen.
+- Ausbildung: Planung von 40 Stunden jährlicher Schulung für die Mitarbeiter.
+- Planung: Nutzung der größeren Stabilität zur Planung von Langzeitprojekten.
+- Überwachung: Regelmäßige Überprüfung der Einhaltung der Vertragsklauseln.
+
+### Vergleiche zwischen praktischen Szenarien
+Bevor der neue Vertrag in Kraft trat, mussten Arbeitgeber und Arbeiter den Vertrag alle zwei Jahre erneuern, was zu Unsicherheit und Schwierigkeiten bei der Planung führte. Mit der neuen Vereinbarung können Unternehmen nun Investitionen und Projekte mit einer langfristigen Vision planen, wodurch Risiken reduziert und die wirtschaftliche Stabilität erhöht werden.
+
+### Vorschriften und Daten
+Der Vertrag umfasst auch die Anpassung an die neuen Vorschriften zur Arbeitssicherheit, die am 1. Januar 2026 in Kraft traten. Zu den Neuerungen gehören die Verpflichtung zur Verwendung zertifizierter persönlicher Schutzausrüstung und spezifische Schulungen für Arbeiter, die auf Hochrisikobauwerken tätig sind.
+
+### Schlussfolgerung
+Die Rekordvereinbarung für das Tessiner Baugewerbe stellt einen bedeutenden Schritt hin zu größerer Stabilität und Sicherheit für den Sektor dar. Mit langfristiger Planung und Fokus auf die Ausbildung legt der kantonale Gesamtarbeitsvertrag des Tessiner Baugewerbes den Grundstein für eine solidere und wettbewerbsfähigere Zukunft.`,"blog.article.accordo-edilizia-ticino-2026-2031.body2":`## Praktische Implikationen für die Arbeiter
+Der unterzeichnete Vertrag wird wichtige Auswirkungen auf die Arbeiter im ticinesischen Baugewerbe haben. Zunächst garantiert die außergewöhnliche Laufzeit von sechs Jahren vertragliche Stabilität, ein grundlegender Faktor für die langfristige Planung der Unternehmen und der Arbeiter. Zum Beispiel kann nun ein Bauarbeiter aus Lugano persönliche Investitionen wie den Kauf eines Hauses mit größerer Sicherheit planen, da sein Gesamtarbeitsvertrag keine plötzlichen Änderungen erfahren wird.
+
+### Vergleich mit der vorherigen Situation
+Bevor dieser Vertrag unterzeichnet wurde, hatten die Gesamtarbeitsverträge im ticinesischen Baugewerbe eine durchschnittliche Laufzeit von drei Jahren. Die neue Vereinbarung ermöglicht es hingegen, häufige Erneuerungen zu vermeiden und stabilere und vorhersehbarere Arbeitsbedingungen zu schaffen. Dies ist besonders wichtig in einem wirtschaftlichen Kontext, in dem die Sicherheit des Arbeitsplatzes und die Familienplanung Prioritäten für viele Arbeiter sind.
+
+> „Mit diesem Vertrag können wir endlich mit größerer Gelassenheit in die Zukunft blicken“, erklärte ein Gewerkschaftsvertreter aus Bellinzona.
+
+### Zukunftsszenarien
+Mit einem Vertrag, der bis 2031 gültig ist, können die ticinesischen Bauunternehmen Investitionen und langfristige Projekte mit größerer Sicherheit planen. Für die Arbeiter bedeutet dies größere Beschäftigungsstabilität und die Möglichkeit, an kontinuierlicher Weiterbildung und beruflichen Aktualisierungen teilzunehmen, die durch die Vereinbarung garantiert werden. Zum Beispiel kann ein Maurer aus Locarno an Weiterbildungskursen zu neuen Bautechnologien teilnehmen, ohne sich um plötzliche Vertragsänderungen sorgen zu müssen.
+
+#### Operative Checkliste für die Arbeiter
+- **Familienplanung**: Kenntnis der stabilen Arbeitsbedingungen für die nächsten sechs Jahre.
+- Kontinuierliche Weiterbildung: Nutzung der angebotenen Kurse zur Verbesserung der Fähigkeiten.
+- Persönliche Investitionen: Planung wichtiger Anschaffungen wie ein Haus oder ein Auto.
+
+#### Vergleich mit anderen Regionen
+Im Vergleich zu anderen Schweizer Regionen hat der Kanton Tessin eine Vereinbarung von außergewöhnlicher Dauer erreicht. Dies könnte ein Modell für andere Regionen darstellen und zeigen, wie die Zusammenarbeit zwischen Gewerkschaften und Arbeitgebern zu positiven Ergebnissen für alle Beteiligten führen kann.
+
+### Konkrete Beispiele
+- Investitionen in Infrastruktur: Die Bauunternehmen von Chiasso können Infrastrukturprojekte ohne das Risiko von Vertragsunterbrechungen planen.
+- Berufliche Weiterbildung: Ein Elektriker aus Mendrisio kann Aktualisierungskurse zu neuen europäischen Vorschriften besuchen, ohne sich um Vertragsänderungen sorgen zu müssen.
+
+### Vorschriften und Beträge
+Die Vereinbarung enthält auch spezifische Vorschriften zu den Lohnbeträgen. Zum Beispiel wurde der Mindestlohn für einen Bauarbeiter auf 4.200 Schweizer Franken pro Monat festgelegt, mit jährlichen Erhöhungen bis 2031. Dies stellt eine erhebliche Steigerung gegenüber den vorherigen 3.800 Franken dar.
+
+### Praktische Szenarien
+- Kurzfristiger Vertrag: Vor der Vereinbarung musste ein Zimmermann aus Lugano den Vertrag alle drei Jahre erneuern, mit Unsicherheiten hinsichtlich der Lohnerhöhungen und Arbeitsbedingungen.
+- Langfristiger Vertrag: Jetzt kann derselbe Zimmermann auf einen stabilen Vertrag für sechs Jahre mit garantierten Lohnerhöhungen und verbesserten Arbeitsbedingungen zählen.
+
+### Schlussfolgerung
+Die im ticinesischen Baugewerbe erzielte Vereinbarung stellt einen bedeutenden Fortschritt für die Stabilität und Sicherheit der Arbeiter dar. Mit einer Laufzeit von sechs Jahren bietet dieser Vertrag ein Modell der Zusammenarbeit zwischen Gewerkschaften und Arbeitgebern, das von anderen Schweizer Regionen übernommen werden könnte.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.accordo-edilizia-ticino-2026-2031.body3":`## Was jetzt zu tun ist
+
+Mit dem Inkrafttreten des neuen Gesamtarbeitsvertrags für den Tessiner Bausektor am 1. Januar 2024 müssen die Arbeitnehmer und Unternehmen ihre Praktiken und Dokumentation aktualisieren. Hier sind die Schritte, die zu befolgen sind:
+
+1. **Aktualisierung der Einzelverträge**: Überprüfen Sie, ob die Einzelverträge mit den neuen Bestimmungen des Gesamtarbeitsvertrags übereinstimmen. Beispielsweise sieht die neue Vereinbarung eine Lohnerhöhung von 2,5 % für Arbeitnehmer mit mindestens zwei Jahren Betriebszugehörigkeit und von 3 % für diejenigen mit mehr als fünf Jahren Dienstzeit vor. Zudem ist eine einmalige Prämie von 500 Franken für Arbeitnehmer mit mindestens einem Jahr Betriebszugehörigkeit vorgesehen.
+
+2. Planung der Weiterbildung: Identifizieren Sie die Weiterbildungsmöglichkeiten, die durch die Vereinbarung angeboten werden, und planen Sie die Teilnahme an den Kursen. Der neue Vertrag sieht eine obligatorische Weiterbildung im Bereich Arbeitssicherheit vor, mit einem Höchstbeitrag von 1.000 Franken pro Jahr und Arbeitnehmer, der vom Arbeitgeber getragen wird. Beispielsweise können Bauunternehmen in Lugano und Bellinzona von spezifischen Kursen zur Sicherheit auf der Baustelle profitieren.
+
+3. Gewerkschaftliche Beratung: Kontaktieren Sie die zuständige Gewerkschaft für Klarstellungen und Unterstützung bei der Umsetzung des neuen Vertrags. Die Gewerkschaft kann aktualisierte Vertragsmuster und Unterstützung bei der Verwaltung der bürokratischen Angelegenheiten bereitstellen.
+
+### Operative Checkliste
+
+- Überprüfen Sie die Betriebszugehörigkeit der Arbeitnehmer und wenden Sie die vorgesehenen Lohnerhöhungen an.
+- Planen Sie die obligatorischen Weiterbildungskurse und teilen Sie die Termine den Arbeitnehmern mit.
+- Aktualisieren Sie die Einzelverträge und bewahren Sie eine von beiden Parteien unterzeichnete Kopie auf.
+- Kontaktieren Sie die Gewerkschaft für eventuelle Klarstellungen und Unterstützung.
+
+### Nützliche Tools
+
+Für Arbeitnehmer und Unternehmen ist es entscheidend, Tools zu nutzen, die das Verständnis und die Anwendung des neuen Vertrags erleichtern.
+
+- Der Lohnrechner kann nützlich sein, um die Übereinstimmung zwischen den neuen Bestimmungen und den aktuellen Löhnen zu überprüfen. Beispielsweise wird ein Arbeiter mit fünf Jahren Betriebszugehörigkeit und einem aktuellen Monatslohn von 5.000 Franken eine Erhöhung von 175 Franken pro Monat sowie eine einmalige Prämie von 500 Franken erhalten.
+- Der Vergleich von Urlaubstagen kann helfen, die Bedingungen des neuen Vertrags mit den vorherigen zu vergleichen. Beispielsweise sieht der neue Vertrag eine Erhöhung der Urlaubstage von 20 auf 25 für Arbeitnehmer mit mehr als fünf Jahren Betriebszugehörigkeit vor.
+
+### Vergleiche zwischen praktischen Szenarien
+
+- Vor dem neuen Vertrag: Ein Arbeiter mit fünf Jahren Betriebszugehörigkeit hatte einen Monatslohn von 5.000 Franken und 20 Urlaubstage pro Jahr.
+- Nach dem neuen Vertrag: Der gleiche Arbeiter wird einen Monatslohn von 5.175 Franken, eine Prämie von 500 Franken und 25 Urlaubstage pro Jahr haben.
+
+### Schlussfolgerung
+
+Die unterzeichnete Vereinbarung stellt einen wichtigen Schritt für den Tessiner Bausektor dar. Mit einer Laufzeit von sechs Jahren garantiert sie Stabilität und Wachstumschancen für Arbeitnehmer und Unternehmen. Für weitere Informationen und den Einsatz nützlicher Tools besuchen Sie unseren Lohnrechner und den Vergleich von Urlaubstagen.
+
+> „Diese Vereinbarung ist ein wichtiger Fortschritt für den Tessiner Bausektor und bietet mehr Stabilität und Wachstumschancen für alle Arbeitnehmer und Unternehmen.“ — Ein Vertreter der Gewerkschaft.
+
+*Quelle: [laregione.ch](https://www.laregione.ch/cantone/ticino/1921290/la-trattativa-spinosa-si-conclude-con-un-accordo-record-per-l-edilizia-ticinese)*`,"blog.article.accordo-edilizia-ticino-2026-2031.faq":'[{"q":"Wie lange gilt der neue Gesamtarbeitsvertrag für den Tessiner Baugewerbe?","a":"Der neue Gesamtarbeitsvertrag für das Tessiner Baugewerbe ist bis 2031 gültig, mit einer außergewöhnlichen Dauer von sechs Jahren, die im Sektor noch nie erreicht wurde."},{"q":"Wer hat den neuen Gesamtarbeitsvertrag unterzeichnet?","a":"Der neue Gesamtarbeitsvertrag wurde von der Ssic und dem Ocst, den wichtigsten Gewerkschafts- und Arbeitgeberorganisationen des Tessiner Baugewerbes, unterzeichnet."},{"q":"Welche sind die wichtigsten Auswirkungen des neuen Vertrags für die Arbeitnehmer?","a":"Der neue Vertrag garantiert vertragliche Stabilität, Möglichkeiten zur kontinuierlichen Weiterbildung und berufliche Weiterentwicklung, wodurch die Arbeitsbedingungen und die langfristige Planung für die Arbeitnehmer des Tessiner Baugewerbes verbessert werden."}]'};export{e as default};

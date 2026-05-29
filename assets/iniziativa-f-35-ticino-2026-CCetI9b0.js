@@ -1,0 +1,68 @@
+const e={"blog.article.iniziativa-f-35-ticino-2026.body1":`## In breve
+- Iniziativa per annullare l'acquisto degli F-35
+- Raccolta firme fino al 28 ottobre 2027
+- Berna potrebbe adeguare il bilancio dell'esercito
+
+## Fatti chiave
+- **Cosa**: Iniziativa per annullare il contratto degli F-35
+- Quando: Lanciata oggi, raccolta firme fino al 28 ottobre 2027
+- Dove: Svizzera
+- Chi: Associazione civica "No agli F-35"
+- Importo: Non ancora specificato
+
+L'associazione civica "No agli F-35" ha lanciato un'iniziativa popolare per annullare il contratto relativo all'acquisto degli aerei da combattimento F-35 americani. Secondo il comitato promotore, questi velivoli sono "del tutto inadatti" e costano "decisamente troppo". La Cancelleria federale ha pubblicato il testo dell'iniziativa nella Gazzetta federale, che prevede che Berna rinunci all'acquisto degli F-35 e adegui di conseguenza il bilancio dell'esercito.
+
+L'iniziativa è sostenuta da oltre 220 personalità che si sono dichiarate favorevoli dopo il ritiro dell'iniziativa "Stop-F-35" nel 2022. Nell'agosto 2022, l'Alleanza di sinistra aveva deciso di ritirare il proprio testo dopo la firma del contratto per l'acquisto di 36 aerei da combattimento. L'Associazione ha interpellato la Confederazione in merito all'importo, alla scadenza e alla risoluzione del contratto di acquisto degli aerei americani.
+
+### Implicazioni per i frontalieri
+
+L'iniziativa potrebbe avere implicazioni significative per i frontalieri che lavorano nel settore della difesa o in settori correlati. Se l'iniziativa dovesse avere successo, potrebbero esserci cambiamenti nel bilancio dell'esercito e, di conseguenza, nel numero di posti di lavoro disponibili. Inoltre, i frontalieri che lavorano in aziende che forniscono servizi o prodotti per l'esercito svizzero potrebbero essere interessati da eventuali cambiamenti nei contratti e nelle commesse.
+
+### Procedura di raccolta firme
+
+La raccolta delle firme per l'iniziativa è iniziata e continuerà fino al 28 ottobre 2027. I promotori dell'iniziativa stanno cercando di raccogliere il maggior numero possibile di firme per presentare la richiesta al Consiglio federale. Una volta raccolte le firme necessarie, il Consiglio federale dovrà esaminare l'iniziativa e decidere se accettarla o respingerla.
+
+### Scenari possibili
+
+Se l'iniziativa dovesse essere accettata, la Confederazione svizzera dovrebbe rinunciare all'acquisto degli F-35 e adeguare il bilancio dell'esercito di conseguenza. Questo potrebbe portare a una riduzione del numero di aerei da combattimento acquistati o a una riallocazione delle risorse verso altri progetti di difesa. Inoltre, potrebbe esserci un dibattito pubblico sull'opportunità di investire in altri sistemi di difesa o di riformare la struttura dell'esercito svizzero.
+
+Se invece l'iniziativa dovesse essere respinta, il contratto per l'acquisto degli F-35 rimarrebbe in vigore e l'esercito svizzero procederebbe con l'acquisto dei velivoli. In questo caso, i frontalieri che lavorano nel settore della difesa potrebbero continuare a beneficiare delle commesse legate agli F-35.`,"blog.article.iniziativa-f-35-ticino-2026.body2":`## Analisi pratica
+
+L'iniziativa per annullare l'acquisto degli F-35 potrebbe avere un impatto significativo sul bilancio dell'esercito svizzero e sulle aziende che forniscono servizi e prodotti per la difesa. Se l'iniziativa dovesse avere successo, la Confederazione svizzera dovrebbe rinunciare all'acquisto degli F-35 e adeguare il bilancio dell'esercito di conseguenza. Questo potrebbe portare a una riduzione del numero di aerei da combattimento acquistati o a una riallocazione delle risorse verso altri progetti di difesa.
+
+### Confronto con la situazione precedente
+
+Prima del lancio di questa iniziativa, l'esercito svizzero aveva già firmato un contratto per l'acquisto di 36 aerei da combattimento F-35. L'iniziativa "Stop-F-35" era stata ritirata nel 2022 dopo la firma del contratto. Ora, con il lancio di una nuova iniziativa, si riapre il dibattito sull'opportunità di acquistare questi velivoli.
+
+### Implicazioni per i frontalieri
+
+I frontalieri che lavorano nel settore della difesa o in settori correlati potrebbero essere interessati da eventuali cambiamenti nei contratti e nelle commesse. Se l'iniziativa dovesse avere successo, potrebbero esserci meno opportunità di lavoro legate agli F-35. Tuttavia, se l'iniziativa dovesse essere respinta, i frontalieri potrebbero continuare a beneficiare delle commesse legate agli F-35.
+
+### Scenari possibili
+
+Se l'iniziativa dovesse essere accettata, la Confederazione svizzera dovrebbe rinunciare all'acquisto degli F-35 e adeguare il bilancio dell'esercito di conseguenza. Questo potrebbe portare a una riduzione del numero di aerei da combattimento acquistati o a una riallocazione delle risorse verso altri progetti di difesa. Inoltre, potrebbe esserci un dibattito pubblico sull'opportunità di investire in altri sistemi di difesa o di riformare la struttura dell'esercito svizzero.
+
+Se invece l'iniziativa dovesse essere respinta, il contratto per l'acquisto degli F-35 rimarrebbe in vigore e l'esercito svizzero procederebbe con l'acquisto dei velivoli. In questo caso, i frontalieri che lavorano nel settore della difesa potrebbero continuare a beneficiare delle commesse legate agli F-35.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.iniziativa-f-35-ticino-2026.body3":`## Azione
+
+Per i frontalieri che desiderano sostenere o opporsi all'iniziativa, è importante rimanere informati e partecipare attivamente al dibattito pubblico. È possibile firmare l'iniziativa o partecipare a discussioni pubbliche sull'argomento. Inoltre, è importante monitorare le decisioni del Consiglio federale e le eventuali modifiche al bilancio dell'esercito.
+
+### Procedura di raccolta firme
+
+La raccolta delle firme per l'iniziativa è iniziata e continuerà fino al 28 ottobre 2027. I promotori dell'iniziativa stanno cercando di raccogliere il maggior numero possibile di firme per presentare la richiesta al Consiglio federale. Una volta raccolte le firme necessarie, il Consiglio federale dovrà esaminare l'iniziativa e decidere se accettarla o respingerla.
+
+### Scadenze e documenti necessari
+
+Non sono ancora specificate scadenze o documenti necessari per partecipare alla raccolta firme. Tuttavia, è importante rimanere aggiornati sulle novità attraverso i canali ufficiali dell'iniziativa e del Consiglio federale.
+
+### Strumenti utili
+
+Per rimanere informati sulle ultime notizie e partecipare al dibattito pubblico, è possibile utilizzare il [calcolatore di stipendio](nav:calculator) per confrontare le opportunità di lavoro nel settore della difesa e valutare le implicazioni economiche dell'iniziativa. Inoltre, è possibile consultare le guide e le risorse disponibili sul sito per comprendere meglio le procedure e le scadenze.
+
+### CTA finale
+
+Per ulteriori informazioni e per partecipare alla raccolta firme, visitate il sito ufficiale dell'iniziativa o consultate le risorse disponibili sul sito [Frontaliere Ticino](nav:calculator).
+
+*Fonte: [rsi.ch](https://www.rsi.ch/s/3698868)*`,"blog.article.iniziativa-f-35-ticino-2026.faq":`[{"q":"Qual è l'obiettivo dell'iniziativa per annullare l'acquisto degli F-35?","a":"L'obiettivo dell'iniziativa è far annullare il contratto relativo all'acquisto degli aerei da combattimento F-35 americani, considerati troppo costosi e inadatti."},{"q":"Quando scade la raccolta firme per l'iniziativa?","a":"La raccolta firme per l'iniziativa scade il 28 ottobre 2027."},{"q":"Quali sono le implicazioni per i frontalieri che lavorano nel settore della difesa?","a":"Se l'iniziativa dovesse avere successo, potrebbero esserci cambiamenti nel bilancio dell'esercito e, di conseguenza, nel numero di posti di lavoro disponibili. Inoltre, i frontalieri che lavorano in aziende che forniscono servizi o prodotti per l'esercito svizzero potrebbero essere interessati da eventuali cambiamenti nei contratti e nelle commesse."}]`};export{e as default};

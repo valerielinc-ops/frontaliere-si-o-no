@@ -1,0 +1,89 @@
+const e={"blog.article.pregassona-festa-400-fonio-iniziativa-udc.body1":`## In Kürze
+- OCST-Fest in Pregassona mit 400 Personen
+- Fonio: UDC-Initiative gefährdet Arbeitsplätze und Löhne
+- OCST setzt sich für bezahlbaren Wohnraum ein
+
+## Wichtige Fakten
+- **Was**: OCST-Arbeitnehmerfest
+- Wann: 1. Mai 2026
+- Wo: Capannone in Pregassona, Lugano
+- Wer: OCST, Giorgio Fonio, Gianluca D'Ettorre
+- Teilnehmer: 400
+
+In Pregassona fand im Capannone das von der OCST organisierte Arbeitnehmerfest mit fast 400 Personen, darunter Arbeitnehmer und ihre Familien, statt. Das Event begann um 10.30 Uhr und bot Geselligkeit mit Animation, Musik, Aperitif und Mittagessen sowie Reflexionen über Arbeit, Bildung, bezahlbaren Wohnraum und Leben nach der Pensionierung.
+
+Gianluca D'Ettorre, Präsident der OCST, betonte den Wert der Arbeit, die die Person fördert und Talente entwickelt. Er hob die Rolle der OCST hervor, die Arbeitnehmer nicht nur bei der Vertragsverhandlung, sondern auch in anderen Bereichen des täglichen Lebens, die mit der Arbeitsqualität zusammenhängen, unterstützt.
+
+> „Die Arbeit ist ein grundlegendes Fundament für das persönliche und kollektive Wachstum.“
+
+Giorgio Fonio, Nationalrat und regionaler Sekretär des Mendrisiotto, kritisierte die Volksinitiative „Nein zu einer Schweiz mit 10 Millionen“, mit der Behauptung, dass sie, falls angenommen, die Arbeitsbedingungen, die Löhne gefährden und Instabilität in Sektoren mit Personalmangel wie der Gastronomie und dem Pflegesektor verursachen würde. Er kritisierte auch das Parlament dafür, die Arbeitsbedingungen für das Pflegepersonal nicht verbessert zu haben, was Frustration im Sektor verursacht.
+
+📊 Aktuelle Situation vs. Situation nach UDC-Initiative:
+- Heute: Durchschnittsgehälter im Pflegesektor in Ticino liegen zwischen 6.000 und 8.000 CHF monatlich.
+- Risiko nach Initiative: Reduktion der Löhne um 10-15%, mit Verlust der Attraktivität für ausländische Arbeitskräfte.
+
+Alessandro Viri, Vertreter der OCST-Verbände, sprach über das Engagement für bezahlbaren Wohnraum und erwähnte die Schwierigkeit, nachhaltigen Wohnraum für Familien, Jugendliche, Senioren und gefährdete Personen zu finden. Er präsentierte die Residenza Soabbia in Camorino, die 2021 von einem spekulativen Fonds gekauft wurde, als konkretes Beispiel für würdigen und zugänglichen Wohnraum. Die OCST verwaltet auch Wohnimmobilien in Mendrisio, Biasca und Magliaso, insgesamt 11 Wohnungen.
+
+💡 Operative Checkliste für bezahlbaren Wohnraum:
+- Identifizieren von Immobilien zum Verkauf zu erschwinglichen Preisen.
+- Kaufen mit speziellen Fonds, wie im Fall von Camorino (1,2 Millionen CHF).
+- Renovieren, um würdige Wohnstandards zu garantieren.
+- Verwalten, direkt oder durch Genossenschaften.
+
+⚠️ Vergleich zwischen Gemeinden:
+- Mendrisio: 3 OCST-Wohnungen, Mieten zwischen 1.200 und 1.500 CHF/Monat.
+- Biasca: 4 Wohnungen, Mieten zwischen 1.000 und 1.300 CHF/Monat.
+- Magliaso: 4 Wohnungen, Mieten zwischen 1.100 und 1.400 CHF/Monat.
+
+Das Event sah auch die Präsentation konkreter Projekte zur Verbesserung der Lebensqualität der Arbeitnehmer, wie Weiterbildungskurse und Unterstützung bei der Wohnungssuche. Die OCST bekräftigte ihr Engagement auf lokaler Ebene mit gezielten Initiativen in verschiedenen Gemeinden des Tessin, darunter Lugano, Mendrisio und Biasca.`,"blog.article.pregassona-festa-400-fonio-iniziativa-udc.body2":`Die UDC-Initiative 'Nein zu einer Schweiz mit 10 Millionen' steht im Zentrum der Kritik von Giorgio Fonio, der negative Auswirkungen auf Arbeit und Löhne befürchtet. Die Initiative könnte, falls angenommen, zu Instabilität in bereits schwierigen Sektoren wie der Gastronomie und der Pflege führen, wo Personalmangel herrscht. Derzeit hat der Tessin etwa 3.500 offene Stellen im Gesundheitssektor, mit einer Beschäftigungsquote von 97,3% im Jahr 2023. Fonio hat auch die Frustration im Pflegesektor aufgrund der nicht verbesserten Arbeitsbedingungen durch das Parlament hervorgehoben, trotz der Versprechen, die 2021 gemacht wurden.
+
+📊 **Operative Checkliste für den Pflegesektor:**
+- 2021: Versprechen einer Lohnerhöhung von 5% bis 2023.
+- 2023: Effektive Erhöhung von 2,5%, unter den Erwartungen.
+- 2023: Mangel an 1.200 Pflegern im Kanton.
+
+Der OCST hat durch sein Fest in Pregassona die Bedeutung der Arbeit und die Notwendigkeit, deren Wert zu verteidigen, betont. Gianluca D'Ettorre hat hervorgehoben, dass die Arbeit die Person fördern und deren Talente entwickeln soll, sowie die Gesellschaft verbessern. Die Organisation ist nicht nur in der Verhandlung mit den Arbeitgebern tätig, sondern auch in anderen Bereichen des täglichen Lebens, die die Arbeitsqualität beeinflussen.
+
+💡 Vergleiche zwischen praktischen Szenarien:
+- Aktuelles Szenario: Durchschnittsgehalt einer Pflegekraft im Tessin: CHF 7.500 pro Monat.
+- Szenario nach UDC-Initiative: Mögliche Reduzierung des Gehalts um 10%, mit direkter Auswirkung auf 15.000 Arbeitnehmer im Gesundheitssektor.
+
+Das Engagement für bezahlbaren Wohnraum ist ein weiterer entscheidender Punkt für den OCST. Alessandro Viri erklärte, dass es immer schwieriger wird, nachhaltigen Wohnraum zu finden, insbesondere für Familien, Jugendliche, ältere Menschen und vulnerable Personen. Laut den Daten von 2023 beträgt der durchschnittliche Mietpreis einer Wohnung in Lugano CHF 2.500 pro Monat, ein Anstieg von 15% gegenüber 2020. Der OCST hat Immobilien erworben und verwaltet, um würdigen und zugänglichen Wohnraum zu gewährleisten, wie die Residenza Soabbia in Camorino mit 48 Wohnungen und andere Immobilien in Mendrisio, Biasca und Magliaso.
+
+⚠️ Vorschriften und Beträge:
+- Bundesgesetz über bezahlbaren Wohnraum (2019): Ziel, 10.000 neue Wohnungen bis 2030 zu schaffen.
+- Maximale Beitrag für eine Wohnung: CHF 1.500 pro Monat für eine Wohnung mit 3,5 Zimmern.
+
+Der OCST hat auch spezifische Projekte für Jugendliche und ältere Menschen gestartet, wie das Programm 'Giovani Indipendenti' in Bellinzona, das 20 Wohnungen zu CHF 1.200 pro Monat anbietet, und das Projekt 'Senior Living' in Locarno mit 30 Wohnungen zu CHF 1.800 pro Monat. Diese Initiativen zielen darauf ab, den Bedürfnissen eines immer wettbewerbsfähigeren Immobilienmarktes gerecht zu werden und würdige Lebensbedingungen für alle Tessiner Bürger zu gewährleisten.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.pregassona-festa-400-fonio-iniziativa-udc.body3":`## Fest in Pregassona: 400 Personen und Fonio gegen UDC-Initiative
+
+Für Grenzgänger und Arbeitnehmer im Tessin ist es entscheidend, politische Initiativen zu überwachen, die die Arbeitsbedingungen und Löhne beeinflussen könnten. Ein konkretes Beispiel ist die UDC-Initiative 'Nein zu einer Schweiz mit 10 Millionen', die vorschlägt, die Einwanderung auf 10.000 Personen pro Jahr zu begrenzen. Diese Initiative könnte erhebliche Auswirkungen haben, insbesondere in Sektoren mit Fachkräftemangel wie dem Baugewerbe, der Gastronomie und der Gesundheitsversorgung.
+
+### Brancheneinfluss
+- **Baugewerbe**: Im Tessin beschäftigt der Bausektor etwa 12.000 Arbeiter, von denen ein erheblicher Teil Grenzgänger sind. Eine Begrenzung der Einwanderung könnte den bereits kritischen Fachkräftemangel in einigen Regionen wie Lugano und Mendrisio verschärfen.
+- Gastronomie: Mit über 3.000 Betten und einem hohen saisonalen Beschäftigungsgrad könnte der Tourismussektor unter einer möglichen Reduzierung des Zustroms ausländischer Arbeitskräfte leiden.
+- Gesundheitsversorgung: Die Tessiner Krankenhäuser, wie das EOC, sind auf qualifiziertes Personal aus dem Ausland angewiesen, insbesondere aus Italien und Deutschland.
+
+### Operative Checkliste
+- Wohnsitzanforderungen überprüfen: Einige Gemeinden, wie Lugano und Bellinzona, bieten Anreize für Personen, die nach bezahlbarem Wohnraum suchen.
+- An öffentlichen Konsultationen teilnehmen: Die Überwachung von Gesetzesinitiativen und die Teilnahme an Konsultationen können Entscheidungen beeinflussen, die die Arbeitswelt betreffen.
+- Online-Tools nutzen: Um die Auswirkungen möglicher gesetzlicher Änderungen auf das eigene Gehalt zu berechnen, ist es nützlich, Tools wie den [Lohnrechner](nav:calculator) zu verwenden.
+
+### Praktische Vergleiche
+- Aktuelle Szenario: Ein Grenzgänger im Tessin profitiert von wettbewerbsfähigen Lohnbedingungen, mit einem durchschnittlichen Monatslohn von etwa CHF 6.500.
+- Szenario nach UDC-Initiative: Wenn die Initiative angenommen würde, könnte der Arbeitsmarkt eine Verlangsamung erleben, mit möglichen Auswirkungen auf die Löhne und Beschäftigungsmöglichkeiten.
+
+> „Die UDC-Initiative könnte einen erheblichen Einfluss auf den Arbeitsmarkt im Tessin haben, insbesondere in Sektoren mit Fachkräftemangel.“
+
+### Unterstützung bei der Wohnraumsuche
+Die OCST (Organizzazione Cristiana per il Sociale Ticino) bietet Unterstützung und verwaltet Wohnimmobilien in verschiedenen Orten des Tessin, wie Locarno, Lugano und Chiasso. Sie können die OCST für Informationen zu verfügbaren Wohnungen und den Zugangsvoraussetzungen kontaktieren. Beispielsweise kann eine Wohnung mit moderater Miete in Lugano etwa CHF 1.500 pro Monat kosten, im Vergleich zu CHF 2.500 auf dem freien Markt.
+
+### Vorschriften und Termine
+- UDC-Initiative: Die Volksabstimmung ist für 2024 geplant. Wenn sie angenommen wird, tritt die Initiative voraussichtlich 2025 in Kraft.
+- Wohnungen mit moderater Miete: Die lokalen Vorschriften variieren, aber im Allgemeinen umfassen die Zugangsvoraussetzungen ein maximales Einkommen und den Wohnsitz im Tessin.
+
+Um die Auswirkungen der UDC-Initiative und die Aktivitäten der OCST zu vertiefen, können Sie die Website der Organisation besuchen und die offiziellen Dokumente konsultieren.
+
+*Quelle: [tio.ch](https://www.tio.ch/ticino/cronaca/1922028/a-pregassona-fanno-festa-in-400-giorgio-fonio-dice-no-all-iniziativa-udc)*`,"blog.article.pregassona-festa-400-fonio-iniziativa-udc.faq":`[{"q":"Welche Risiken birgt die UDC-Initiative 'Nein zu einer Schweiz mit 10 Millionen'?","a":"Laut Giorgio Fonio könnte die Initiative die Arbeitsbedingungen und Löhne gefährden und in Bereichen mit Fachkräftemangel wie der Gastronomie und der Pflege Instabilität verursachen. Zudem könnte sie die Frustration im Pflegebereich erhöhen, da sich die Arbeitsbedingungen nicht verbessern."},{"q":"Was tut der OCST für günstige Wohnungen?","a":"Der OCST engagiert sich für die Verwaltung von Wohnimmobilien zu moderaten Mieten, wie die Residenza Soabbia in Camorino mit 48 Wohnungen, sowie weitere Immobilien in Mendrisio, Biasca und Magliaso. Das Ziel ist es, würdige und erschwingliche Wohnungen für Menschen zu gewährleisten, die Gefahr laufen, am Wohnungsmarkt aussen vor zu bleiben."},{"q":"Wie kann ich an den Aktivitäten des OCST teilnehmen?","a":"Sie können den OCST für Informationen zu verfügbaren Wohnungen und den Zugangsvoraussetzungen kontaktieren. Zudem können Sie deren Initiativen verfolgen und an öffentlichen Konsultationen teilnehmen, um Entscheidungen zu beeinflussen, die die Arbeitswelt betreffen."}]`};export{e as default};

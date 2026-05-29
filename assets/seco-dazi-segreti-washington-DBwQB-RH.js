@@ -1,0 +1,70 @@
+const e={"blog.article.seco-dazi-segreti-washington.body1":`## En bref
+- SECO bloque l'accès aux documents des négociations avec Washington
+- Les demandes de transparence rejetées
+- L'affaire pourrait finir en justice
+- Négociations Suisse-USA sur les droits de douane toujours en cours, détails retenus
+- Impacts potentiels pour les entreprises tessinoises exportant vers les USA
+
+## Faits clés
+- **Quoi** : Accès refusé aux documents de négociations commerciales
+- **Quand** : Demandes d'accès déposées en 2025, cas toujours en attente
+- **Où** : Berne, Suisse
+- **Qui** : SECO, IFPDT, journalistes et citoyens
+- **Statut** : Négociations bilatérales Suisse-USA en cours ; accord définitif pas encore atteint
+
+Le Secrétariat d'État à l'économie (SECO) maintient sous clé tous les documents relatifs aux négociations commerciales avec Washington, mettant en difficulté le responsable fédéral de la transparence. La dispute, comme le rapporte le Blick, est désormais destinée à aboutir en justice. Les demandes de transparence ont été présentées par des journalistes et des citoyens concernant les négociations bilatérales entre la Suisse et les États-Unis sur les tarifs douaniers. Parmi les documents demandés figurent également les communications entre la SECO et le soi-disant "Team Switzerland", le groupe d'entrepreneurs dirigé par Alfred "Fredy" Gantner qui, lors d'une visite à la Maison Blanche, a tenté d'influencer le président américain. La SECO a rejeté toutes les demandes, soutenant qu'il s'agit de documents relatifs à des négociations encore en cours et que leur publication pourrait affaiblir la position suisse.
+
+### Le conflit avec l'IFPDT
+L'accès refusé a transformé l'affaire en un conflit avec l'Incaricat fédéral de la protection des données et de la transparence (IFPDT), appelé à médier. De manière inhabituelle, la SECO a refusé l'accès aux documents même à l'IFPDT, soutenant que la loi sur la transparence ne s'applique pas dans ce cas car il s'agirait d'une procédure internationale. Cette position est contestée par le garant, qui souligne que le droit de consulter les documents est essentiel pour vérifier l'éventuelle existence d'exceptions. Ces dernières années, le Conseil fédéral et les tribunaux ont également réaffirmé l'importance de ce principe.
+
+### Les conséquences
+L'IFPDT a recommandé à la SECO d'accorder l'accès aux documents, l'accusant de violer l'obligation de collaboration. Mais ces indications ont également été ignorées. Les demandeurs peuvent désormais saisir le Tribunal administratif fédéral et les premiers recours sont attendus sous peu. Reste enfin le nœud politique : la SECO ne clarifie pas les raisons de sa fermeture. Parmi les hypothèses, la crainte de réactions de Washington ou la nature particulièrement délicate des documents.
+
+### Contexte des négociations USA-Suisse
+Les négociations entre Washington et Berne sur les droits de douane sont encore en cours. La Suisse cherche à conclure un accord bilatéral qui réduise les tarifs sur ses exportations vers les USA — notamment dans les secteurs de l'horlogerie, de la pharmacie et des machines-outils, qui sont d'une importance stratégique pour l'économie tessinoise. Les conditions définitives d'un éventuel accord n'ont pas encore été rendues publiques, et la nature confidentielle des négociations est au cœur de la controverse sur la transparence.
+
+### Implications potentielles pour les entreprises tessinoises
+Si les négociations devaient mener à un accord favorable réduisant les droits de douane sur les exportations suisses, les entreprises tessinoises exportant vers les USA pourraient bénéficier de coûts d'exportation réduits. En l'absence d'accord ou avec des droits de douane élevés, les coûts d'exportation augmenteraient considérablement pour des secteurs comme l'horlogerie et la pharmacie. Sans connaître les conditions définitives, les entreprises peinent à planifier à l'avance leur stratégie commerciale vers le marché américain.
+
+### Réglementations sur la transparence
+La loi suisse sur la transparence, entrée en vigueur le 1er juillet 2006, établit le droit des citoyens d'accéder aux documents administratifs. La SECO soutient que cette loi ne s'applique pas aux négociations internationales en cours — une position qui pourrait être contestée en justice.
+
+### Conclusion
+L'affaire SECO vs. IFPDT soulève des questions importantes sur la transparence et l'accès aux documents publics. Alors que les entreprises tessinoises attendent l'issue des négociations, le débat juridique se poursuit, avec des répercussions possibles sur la confiance des citoyens et la transparence des institutions suisses.`,"blog.article.seco-dazi-segreti-washington.body2":`### Implications pour les frontaliers
+Les négociations commerciales entre la Suisse et les États-Unis ont des répercussions concrètes sur le marché du travail tessinois. Le Tessin est un pôle manufacturier et pharmaceutique important : les entreprises des secteurs horloger, pharmaceutique et des machines emploient des milliers de frontaliers. Le résultat des négociations USA-Suisse sur les droits de douane influencera la compétitivité de ces entreprises et, par conséquent, la stabilité de l'emploi dans la région.
+
+Le manque de transparence dans les négociations soulève des doutes sur la gestion des relations commerciales par la SECO, une préoccupation partagée tant par les travailleurs que par les entreprises de la région frontalière.
+
+### "Team Switzerland" et le rôle des entrepreneurs
+Parmi les documents demandés figurent les communications entre la SECO et "Team Switzerland", un groupe d'entrepreneurs suisses — dirigé par Alfred "Fredy" Gantner de GQG Partners — qui a rencontré le président américain à la Maison Blanche en 2025. Le rôle de ce groupe dans les négociations commerciales est au cœur du débat : qui a parlé au nom de la Suisse ? Avec quel mandat ? Ces questions sont restées sans réponse précisément à cause du mur de confidentialité dressé par la SECO.
+
+### Scénarios futurs pour les frontaliers
+Si les négociations entre Washington et Berne devaient aboutir à un accord favorable réduisant les droits de douane sur les exportations suisses, les entreprises tessinoises pourraient augmenter leurs exportations vers les USA, avec un effet positif sur l'emploi. En l'absence d'accord ou avec des droits de douane inchangés, certaines productions pourraient être délocalisées ou réduites, avec des répercussions possibles sur les emplois des frontaliers dans les secteurs les plus exposés.
+
+Le conseil pour les frontaliers qui travaillent dans des entreprises exportant vers les USA est de suivre les communications de l'entreprise et de surveiller l'évolution des négociations via des sources fiables comme la RSI (Radiotélévision suisse) ou le Corriere del Ticino.
+
+#### Checklist opérationnelle pour les frontaliers :
+- **Surveiller les communications officielles** de la SECO (seco.admin.ch) et du Département fédéral de l'économie (DEFR).
+- Vérifier les communications de l'entreprise si l'on travaille dans un secteur exposé au marché américain (horlogerie, pharmacie, machines).
+- Consulter son syndicat (UNIA, Syna) pour des mises à jour sur l'impact sur l'emploi.
+- Pour planifier ses finances personnelles, utiliser le [calculateur de salaire net](nav:calculator).
+
+## Outils utiles pour votre situation
+Pour vérifier votre scénario de salaire net, utilisez le [calculateur de salaire net](nav:calculator) et le [guide de déclaration de revenus](nav:tax-return).`,"blog.article.seco-dazi-segreti-washington.body3":`### Que faire maintenant
+Les travailleurs frontaliers qui souhaitent rester informés des négociations commerciales USA-Suisse et des décisions de la SECO peuvent suivre les actualités via les canaux officiels et les médias locaux. Il est essentiel de surveiller les communications de la SECO et de consulter des sources fiables comme le Corriere del Ticino ou la Radiotélévision suisse (RSI).
+
+Sur le plan pratique, il n'est actuellement pas possible de calculer avec précision l'impact tarifaire sur les exportations suisses vers les USA, car les conditions définitives des négociations ne sont pas encore connues. Ce qui est certain, c'est que les secteurs pharmaceutique, horloger et des machines-outils — tous présents de manière significative au Tessin — sont directement exposés au résultat de ces négociations.
+
+### Outils utiles
+Pour une estimation de son salaire net en tant que frontalier, il est possible d'utiliser le [calculateur de salaire net](nav:calculator). Pour comprendre les implications fiscales de sa relation de travail en Suisse, il est conseillé de consulter le [guide de déclaration de revenus](nav:tax-return) et le [calculateur de remboursement de l'impôt à la source](nav:ristorni).
+
+### Checklist opérationnelle
+1. **Surveiller les communications officielles** : S'abonner aux newsletters de la SECO et suivre les médias locaux.
+2. Vérifier si son employeur exporte vers les USA et dans quelle mesure.
+3. Consulter les guides fiscaux : utiliser le [calculateur de salaire](nav:salary-compare) et le [calculateur de remboursement d'impôt](nav:ristorni) pour planifier ses finances.
+4. Participer à des webinaires et des rencontres : de nombreuses associations de frontaliers organisent des événements informatifs sur les relations économiques Suisse-Italie-USA.
+
+### Conclusion
+Les négociations commerciales entre la Suisse et les USA évoluent et il n'est pas encore clair quelle forme prendra l'accord définitif — si jamais il est atteint. L'affaire SECO-IFPDT montre comment le manque de transparence crée de l'incertitude non seulement pour les journalistes et les citoyens, mais aussi pour les entreprises et les travailleurs qui dépendent de la sécurité juridique pour planifier leur avenir. Rester informé est le premier pas pour se préparer à tout scénario.
+
+*Source : [tio.ch](https://www.tio.ch/svizzera/attualita/1922568/dazi-e-segreti-il-muro-della-seco)*`,"blog.article.seco-dazi-segreti-washington.faq":`[{"q":"Pourquoi la SECO a-t-elle refusé l'accès aux documents des négociations ?","a":"La SECO a refusé l'accès en affirmant qu'il s'agit de documents relatifs à des négociations encore en cours et que leur publication pourrait affaiblir la position suisse. De plus, elle a déclaré que la loi sur la transparence ne s'appliquait pas dans ce cas car il s'agirait d'une procédure internationale."},{"q":"Quel est l'état actuel des négociations USA-Suisse sur les droits de douane ?","a":"Les négociations entre Washington et Berne sont encore en cours et les conditions définitives n'ont pas été rendues publiques. La Suisse cherche un accord bilatéral qui réduise les droits de douane sur ses exportations vers les USA, notamment dans les secteurs de l'horlogerie, de la pharmacie et des machines-outils."},{"q":"Comment les négociations USA-Suisse peuvent-elles affecter les frontaliers ?","a":"Un accord favorable pourrait augmenter les exportations tessinoises vers les USA, avec des effets positifs sur l'emploi. Des droits de douane élevés ou l'absence d'accord pourraient en revanche réduire la compétitivité des entreprises exportatrices tessinoises, avec des répercussions possibles sur les emplois dans les secteurs les plus exposés."}]`};export{e as default};

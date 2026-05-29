@@ -1,0 +1,94 @@
+const e={"blog.article.piogge-intense-ceresio-2026.body1":`## In brief
+- Less frequent but more intense precipitation on Lake Ceresio
+- Around 2,000 tonnes of material removed in 2025 by the Shores Cleaning Consortium
+- Management costs stable at around 600,000 francs
+- Concrete impacts for cross-border workers, lakeside property owners, and outdoor workers
+
+## Key facts
+- **What**: Water management and debris collection on Lake Ceresio (Lake Lugano)
+- **When**: 2025–2026
+- **Where**: Lake Ceresio, Canton Ticino / provinces of Como and Varese
+- **Who**: Consorzio Pulizia Rive e Lago Ceresio, chaired by Walter Lisetto
+- **Quantity**: Approximately 2,000 tonnes of material removed in 2025
+- **Costs**: Approximately 600,000 francs for annual operations
+
+Lake Ceresio — shared between Switzerland (Canton Ticino) and Italy (provinces of Como and Varese) — is facing a growing environmental challenge: precipitation that is increasingly less frequent but increasingly intense is changing the nature of the debris that ends up in its waters. The Consorzio Pulizia Rive e Lago Ceresio, the inter-municipal body responsible for cleaning, reported at its ordinary General Assembly — chaired by Walter Lisetto with the support of secretary Fabio Schnellmann — that in 2025 approximately 2,000 tonnes of material were removed, predominantly floating wood and, to a lesser extent, waste of anthropogenic origin.
+
+### The Cleaning Consortium: what it is and what it does
+
+The Consorzio Pulizia Rive e Lago Ceresio is a Ticino inter-municipal body that coordinates the collection of floating debris, monitors water quality, and works with lakeside municipalities (Lugano, Mendrisio, Morcote, and others) to keep the lake navigable and environmentally healthy. It operates under the framework of the **Federal Act on the Protection of Waters (GSchG)**, which imposes specific maintenance obligations for water bodies.
+
+Operations include:
+- Collection using dedicated vessels of floating wood, algae, and waste
+- Monitoring with drones and sensors to detect accumulations in real time
+- Coordination with municipalities and cantonal authorities for emergency interventions
+- Awareness campaigns aimed at residents and cross-border workers
+
+### Climate trend: fewer rains, more debris
+
+According to MeteoSwiss, climate change is accentuating the variability of precipitation on the southern slopes of the Alps: drought periods alternate with concentrated thunderstorm events that in a few hours discharge quantities of water previously distributed over weeks. This phenomenon increases the flow of streams feeding Lake Ceresio — such as the Cassarate, Vedeggio, and Magliasina — which carry far more wood and sediment than the historical average.
+
+The result is a debris load that complicates both commercial and leisure navigation and requires more frequent and costly interventions by the Consortium.
+
+### Alert system and useful contacts
+
+In case of sudden accumulations of debris or situations that risk navigation, the Consortium can be reached through lakeside municipalities. The general emergency numbers in Switzerland are **117 (police)** and **118 (fire/emergency)**. For non-urgent environmental reports, cross-border workers residing in Ticino can contact the **Water Protection and Supply Office (UPAI)** of Canton Ticino.
+
+In Italy, environmental reports in the provinces of Como and Varese are handled by **ARPA Lombardia** (Regional Agency for Environmental Protection).`,"blog.article.piogge-intense-ceresio-2026.body2":`### Implications for cross-border workers
+
+Lake Ceresio is not just a water body: it is a geographic axis that runs through the daily life of thousands of cross-border workers who reside on the Italian side (provinces of Como and Varese) and work in Canton Ticino, or vice versa. The consequences of intense rains and debris management directly concern this community in several ways.
+
+#### Risks for commuting routes
+
+Some of the roads most used by cross-border workers run along the Ceresio or through its tributary valleys. In the event of concentrated heavy storms, the risk of temporary flooding or accumulations of mud and debris on the carriageway is real, particularly:
+- The **state road 340** along the Swiss-Lariano branch toward Lugano
+- Access roads to the **Ponte Tresa** and **Stabio** border crossings in the event of minor stream flooding
+- The lakefront of **Melide** and the low-lying areas of **Bissone**
+
+Cross-border workers are advised to follow weather bulletins from **MeteoSwiss (meteosvizzera.admin.ch)** and **MeteoLombardia (www.meteo.regione.lombardia.it)** on alert days, and to plan alternative routes before setting out.
+
+#### Cross-border workers who own lakeside properties
+
+Those who own homes, garages, or land close to the lake — on either the Ticino or Lombard side — should be aware that intense precipitation increases the likelihood of infiltrations and minor local flooding. It is advisable to:
+- Verify insurance coverage against water and flood damage (in Switzerland, many home policies include this coverage; in Italy, this must be verified specifically)
+- Periodically check drainage channels and basements
+- Be familiar with municipal emergency plans, available on the website of your Ticino municipality or Italian province
+
+#### Outdoor and agricultural workers
+
+Cross-border workers employed in outdoor activities — construction sites along the lake, landscaping, leisure or commercial navigation — are most directly exposed to the consequences of intense thunderstorm events. Swiss regulations (Ordinance on Accident Prevention, VUV) require employers to suspend dangerous work in adverse weather conditions.
+
+### The Canton Ticino "Lacustri" programme
+
+Canton Ticino has established a funding programme informally known as **"Lacustri"** to support lakeside municipalities in water management and shoreline rehabilitation. According to information communicated at the Consortium's general assembly, funds have been allocated for the period 2025–2027 to improve debris collection infrastructure and the environmental quality of the lake. Cross-border workers with property or professional interests linked to the lake can enquire about available contributions at the **Department of Territory** of Canton Ticino.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.piogge-intense-ceresio-2026.body3":`### What to do concretely
+
+Here is a summary of practical steps for cross-border workers and residents in the Ceresio area:
+
+1. **Monitor weather alerts**: Sign up for push notifications from MeteoSwiss or MeteoLombardia to receive advance warnings about intense thunderstorm events. In Ticino, the **AlertSwiss** system is also active (free app available for download).
+
+2. **Plan your commute**: On days with yellow or orange weather alerts, check road conditions on **TCS (tcs.ch)** or **Viasuisse (viasuisse.ch)** before departure, and consider the alternative of the TILO train or regional bus.
+
+3. **Check your home insurance**: If you own or rent a property near the lake, verify that your policy covers water and debris flow damage. In Switzerland, building insurance is compulsory at cantonal level; in Lombardy, many home policies exclude flood damage by default — it is worth adding this coverage.
+
+4. **Respect navigation ordinances**: In the event of intense weather events, cantonal authorities may issue ordinances that limit or prohibit leisure navigation on Lake Ceresio. Information is published on the website of the **Canton Ticino Mobility Section**.
+
+5. **Participate in cleaning initiatives**: The Consortium periodically organises volunteer days for litter collection along the shores. Participating is a concrete way to contribute to the environmental quality of a lake that many cross-border workers use for leisure.
+
+6. **Reduce waste toward the lake**: Avoid leaving materials on the shores or discharging liquids near tributary watercourses. Even small individual actions, multiplied across the cross-border community, affect water quality.
+
+### Quick checklist
+
+- [ ] Weather bulletin checked before every journey on alert days
+- [ ] Alternative commute route identified
+- [ ] Insurance policy verified (water/flood damage coverage)
+- [ ] Environmental emergency number saved: 117 (CH) / ARPA Lombardia for IT
+- [ ] AlertSwiss app installed on your phone
+
+### Conclusion
+
+Managing Lake Ceresio is a shared challenge between two countries and thousands of cross-border workers who live its daily reality. The Shores Cleaning Consortium is increasing its operational capacity to respond to new climate dynamics, but the collaboration of all — residents, cross-border workers, employers — is essential to preserve an ecosystem that is both a natural heritage and economic resource of the territory.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/meno-piogge-ma-piu-intense-aumentano-le-sfide-per-il-ceresio-432750)*`,"blog.article.piogge-intense-ceresio-2026.faq":'[{"q":"What is the Consorzio Pulizia Rive e Lago Ceresio?","a":"It is a Ticino inter-municipal body that coordinates the collection of floating debris, monitors water quality, and works with lakeside municipalities to keep the lake navigable and environmentally healthy. It operates under the Federal Act on the Protection of Waters (GSchG)."},{"q":"Why do intense rains increase debris in Lake Ceresio?","a":"Climate change is accentuating precipitation variability: drought periods alternate with concentrated storms that discharge large quantities of water in a few hours. This increases the flow of tributary streams that carry wood and sediment into the lake in amounts well above the historical average."},{"q":"What concrete risks do cross-border workers face during intense rains?","a":"Cross-border workers may encounter difficulties on certain roads that run along the Ceresio or its tributaries (such as the SS340 or the routes toward the Ponte Tresa and Stabio border crossings). Those who own properties near the lake should also check their insurance coverage for water damage. It is recommended to monitor MeteoSwiss bulletins and have the AlertSwiss app installed."}]'};export{e as default};

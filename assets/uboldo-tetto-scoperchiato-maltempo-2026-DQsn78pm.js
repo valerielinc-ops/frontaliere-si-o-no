@@ -1,0 +1,65 @@
+const e={"blog.article.uboldo-tetto-scoperchiato-maltempo-2026.body1":`## En bref
+- Intempéries à Uboldo, toit arraché
+- Aucun blessé, opérations de secours terminées
+- Les pompiers sont intervenus
+
+## Faits marquants
+- **Quoi** : Arrachement du toit d'un bâtiment résidentiel
+- Quand : Après-midi du 6 mai 2026
+- Où : Via Cascina Malpaga, Uboldo, Varese
+- Qui : Les pompiers
+- Coût : Non spécifié
+
+Les intempéries qui ont frappé la zone entre Sottoceneri et l'Alto Milanese dans l'après-midi du mercredi 6 mai 2026 ont causé des dégâts significatifs à Uboldo, dans la province de Varese. En particulier, dans la zone de via Cascina Malpaga, un bâtiment résidentiel a été littéralement arraché à cause des rafales de vent et de la grêle martelante. Une partie de la toiture et de l'infrastructure de soutien ont été arrachées, avec les matériaux retombant au sol à proximité de l'immeuble. Heureusement, aucun blessé n'a été signalé.
+
+Les opérations d'assistance technique et de sécurisation ont été réalisées par les pompiers, qui ont agi rapidement pour éviter d'autres dommages et garantir la sécurité des habitants de la zone. L'événement a souligné l'importance d'être préparé pour faire face à des situations d'urgence, surtout pendant les périodes de mauvais temps intense.
+
+### Que faire en cas de mauvais temps
+En cas de mauvais temps intense, il est fondamental de suivre certaines précautions pour garantir sa sécurité et celle de ses proches. Tout d'abord, il est important de surveiller les prévisions météorologiques et de rester informé des conditions atmosphériques. En cas d'alerte, il est conseillé d'éviter de sortir de chez soi et, si nécessaire, de se réfugier dans des lieux sûrs, comme des caves ou des pièces intérieures sans fenêtres.
+
+Si vous résidez dans un bâtiment qui pourrait être vulnérable à des événements atmosphériques extrêmes, il est important de vérifier la stabilité de la structure et, si nécessaire, de prendre des mesures pour renforcer le toit et les fenêtres. De plus, il est utile d'avoir à disposition un kit d'urgence avec de l'eau, de la nourriture non périssable, une lampe torche, une radio à piles et un kit de premiers secours.
+
+### Les conséquences des intempéries
+Les intempéries peuvent causer des dégâts significatifs aux propriétés et aux infrastructures, comme dans le cas d'Uboldo. Outre les dégâts matériels, des événements comme ceux-ci peuvent avoir un impact significatif sur la vie quotidienne des résidents. En particulier, les travailleurs frontaliers qui travaillent en Suisse et résident en Italie pourraient affronter des difficultés supplémentaires, comme la nécessité de trouver des solutions d'hébergement temporaires ou de faire face à des retards dans les transports publics.
+
+De plus, des événements comme ceux-ci peuvent avoir un impact sur la santé mentale des personnes, causant du stress et de l'anxiété. Il est important de prendre soin de sa santé mentale et de chercher du soutien si nécessaire. En cas d'urgence, il est fondamental de contacter immédiatement les services d'urgence locaux pour recevoir de l'aide.
+
+### Conclusion
+L'événement d'intempéries à Uboldo a souligné l'importance d'être préparé pour faire face à des situations d'urgence. En suivant quelques précautions simples, il est possible de réduire les risques et de garantir sa sécurité et celle de ses proches. En cas d'urgence, il est fondamental de contacter immédiatement les services d'urgence locaux pour recevoir de l'aide.`,"blog.article.uboldo-tetto-scoperchiato-maltempo-2026.body2":`## Analyse pratique
+Le mauvais temps qui a frappé Uboldo le 6 mai 2026 a laissé une traînée de dommages matériels, mais heureusement, n'a pas causé de victimes. Cet événement, cependant, soulève quelques questions importantes pour les résidents et, en particulier, pour les frontaliers qui travaillent en Suisse et résident en Italie.
+
+### Impact sur les frontaliers
+Les frontaliers qui travaillent en Suisse et résident en Italie pourraient affronter des difficultés supplémentaires en cas de mauvais temps intense. Par exemple, ils pourraient devoir faire face à des retards dans les transports publics ou dans la circulation, ce qui pourrait influencer leur ponctualité au travail. De plus, ils pourraient devoir trouver des solutions d'hébergement temporaires si leur maison subit des dommages significatifs.
+
+### Procédures d'urgence
+En cas de mauvais temps intense, il est important de suivre certaines procédures d'urgence pour garantir sa sécurité. Tout d'abord, il est fondamental de surveiller les prévisions météorologiques et de rester à jour sur les conditions atmosphériques. En cas d'alerte, il est conseillé d'éviter de sortir de chez soi et, si nécessaire, de se réfugier dans des lieux sûrs, comme des caves ou des pièces intérieures sans fenêtres.
+
+Si vous résidez dans un bâtiment qui pourrait être vulnérable à des événements atmosphériques extrêmes, il est important de vérifier la stabilité de la structure et, si nécessaire, de prendre des mesures pour renforcer le toit et les fenêtres. De plus, il est utile d'avoir à disposition un kit d'urgence avec de l'eau, de la nourriture non périssable, une lampe torche, une radio à piles et un kit de premiers secours.
+
+### Assurances et indemnisations
+En cas de dommages à la propriété causés par le mauvais temps, il est important de contacter immédiatement votre compagnie d'assurance pour signaler l'événement et demander une indemnisation. Il est fondamental de documenter les dommages avec des photos et des vidéos et de conserver toutes les factures relatives aux réparations effectuées.
+
+### Soutien psychologique
+Des événements comme celui d'Uboldo peuvent avoir un impact significatif sur la santé mentale des personnes. Il est important de prendre soin de sa santé mentale et de chercher du soutien si nécessaire. En cas d'urgence, il est fondamental de contacter immédiatement les services d'urgence locaux pour recevoir de l'aide.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.uboldo-tetto-scoperchiato-maltempo-2026.body3":`## Actions concrètes
+En cas de mauvais temps intense, il est fondamental de suivre certaines actions concrètes pour garantir votre sécurité et celle de vos proches. Voici quelques étapes à suivre :
+
+1. **Surveiller les prévisions météorologiques** : Utiliser des sources fiables pour rester informé des conditions atmosphériques.
+2. Préparer un kit d'urgence : Avoir à disposition de l'eau, de la nourriture non périssable, une lampe torche, une radio à piles et un kit de premiers secours.
+3. Vérifier la stabilité de votre habitation : Contrôler le toit, les fenêtres et les structures extérieures pour vous assurer qu'ils sont sûrs.
+4. Se réfugier dans des lieux sûrs : En cas d'alerte, éviter de sortir de chez soi et se réfugier dans des caves ou des pièces intérieures sans fenêtres.
+5. Contacter les services d'urgence : En cas de besoin, contacter immédiatement les pompiers ou d'autres services d'urgence locaux.
+6. Documenter les dommages : En cas de dommages à la propriété, prendre des photos et des vidéos et conserver toutes les factures relatives aux réparations effectuées.
+7. Chercher un soutien psychologique : Si nécessaire, contacter un professionnel de la santé mentale pour recevoir un soutien.
+
+### Outils utiles
+Pour plus d'informations et de soutien, vous pouvez utiliser le [calculateur de risque de mauvais temps](nav:calculator) disponible sur le site. Cet outil peut aider à évaluer le risque de dommages à votre propriété et à prendre les mesures nécessaires pour les prévenir.
+
+De plus, vous pouvez consulter la [carte des risques](nav:border-map) pour rester informé des zones à risque de mauvais temps et prendre les précautions nécessaires.
+
+### Conclusion
+Le mauvais temps peut causer des dommages significatifs aux propriétés et aux infrastructures, mais en suivant quelques précautions simples, il est possible de réduire les risques et de garantir votre sécurité et celle de vos proches. En cas d'urgence, il est fondamental de contacter immédiatement les services d'urgence locaux pour recevoir de l'assistance.
+
+*Source: [ilgiornaledelticino.ch](https://ilgiornaledelticino.ch/uboldo-varese-maltempo-salta-il-tetto-di-uno-stabile-nessun-ferito/)*`,"blog.article.uboldo-tetto-scoperchiato-maltempo-2026.faq":`[{"q":"Que faire en cas de mauvais temps intense ?","a":"En cas de mauvais temps intense, il est important de surveiller les prévisions météorologiques, de préparer un kit d'urgence, de vérifier la stabilité de votre habitation, de se réfugier dans des lieux sûrs et de contacter les services d'urgence si nécessaire."},{"q":"Comment documenter les dégâts causés par le mauvais temps ?","a":"Pour documenter les dégâts causés par le mauvais temps, il est important de prendre des photos et des vidéos des dégâts et de conserver toutes les factures relatives aux réparations effectuées."},{"q":"Où trouver un soutien psychologique en cas d'urgence ?","a":"En cas d'urgence, il est possible de contacter un professionnel de la santé mentale pour recevoir un soutien. De plus, il est possible de consulter les ressources disponibles sur le site pour plus d'informations."}]`};export{e as default};

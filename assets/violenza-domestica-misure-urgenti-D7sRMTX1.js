@@ -1,0 +1,59 @@
+const e={"blog.article.violenza-domestica-misure-urgenti.body1":`## En bref
+- Nouvelle feuille de route contre la violence domestique
+- Numéro national 142 opérationnel à partir du 1er mai
+- 2266 infractions en 2025, +4,4% par rapport à 2024
+
+## Faits clés
+- **Quoi** : Feuille de route contre la violence domestique
+- Quand : Lancée il y a cinq ans, bilan tracé le 27 avril 2026
+- Où : Suisse, avec des mesures au niveau fédéral et cantonal
+- Qui : Conseiller fédéral Beat Jans, Département fédéral de justice et police (DFJP)
+- Montant : 2266 infractions en 2025, augmentation de 4,4% par rapport à 2024
+
+Le conseiller fédéral Beat Jans a reconnu l'efficacité de la feuille de route quinquennale contre la violence domestique, mais a annoncé la nécessité de nouvelles mesures urgentes. Parmi celles-ci, le numéro national 142, opérationnel à partir du 1er mai, offrira une assistance 24 heures sur 24. Jans a souligné que, malgré les progrès, les chiffres peignent encore un tableau négatif, avec une augmentation de 4,4% des infractions en 2025 par rapport à l'année précédente. La surveillance électronique et la gestion des menaces avec des normes qualitatives uniformes sont parmi les avancées réalisées. De plus, le Conseil fédéral a proposé des modifications à la loi sur l'aide aux victimes d'infractions, facilitant l'accès aux premiers soins et prévoyant la gratuité de la documentation médico-légale.
+
+### Implications pratiques
+Les nouvelles mesures, comme le numéro national 142, représentent une étape significative pour les victimes de violence domestique. La possibilité d'accéder à des services d'assistance 24 heures sur 24 et la gratuité de la documentation médico-légale simplifient le processus de plainte et de soutien. De plus, l'élargissement des logements d'urgence offre une solution immédiate pour ceux qui se trouvent dans des situations de danger. La surveillance électronique et la gestion des menaces avec des normes uniformes améliorent la protection des victimes, réduisant le risque de violences supplémentaires.
+
+### Comparaison avec la situation précédente
+Avant l'introduction de ces mesures, les victimes de violence domestique devaient faire face à des obstacles significatifs pour accéder aux services d'assistance. L'absence d'un numéro national dédié et la complexité des procédures légales rendaient difficile l'obtention d'un soutien rapide. Avec l'opérationnalité du numéro 142 et les modifications à la loi sur l'aide aux victimes, le processus est devenu plus accessible et rapide. De plus, l'élargissement des logements d'urgence et l'adoption de normes uniformes pour la gestion des menaces offrent une protection plus efficace.
+
+### Scénarios concrets
+Imaginons une victime de violence domestique qui se trouve dans une situation de danger. Avant l'introduction du numéro 142, cette personne aurait dû chercher de l'aide à travers des canaux moins directs et potentiellement plus lents. Maintenant, avec le nouveau numéro national, elle peut obtenir une assistance immédiate, 24 heures sur 24. De plus, la gratuité de la documentation médico-légale facilite le processus de plainte, rendant plus simple l'obtention de justice. Les logements d'urgence offrent un refuge sûr, tandis que la surveillance électronique et la gestion des menaces garantissent une protection continue.
+
+### Implications pour les frontaliers
+Les frontaliers résidant au Tessin et travaillant en Italie peuvent bénéficier des nouvelles mesures contre la violence domestique. Le numéro national 142 est accessible à tous, indépendamment de la nationalité, offrant un soutien immédiat en cas de besoin. La gratuité de la documentation médico-légale et l'élargissement des logements d'urgence sont particulièrement utiles pour ceux qui se trouvent dans des situations de vulnérabilité. La surveillance électronique et la gestion des menaces avec des normes uniformes garantissent une protection efficace, indépendamment du lieu de résidence ou de travail.`,"blog.article.violenza-domestica-misure-urgenti.body2":`## Analyse pratique
+Les nouvelles mesures contre la violence domestique représentent une étape significative, mais il est important de considérer les implications pratiques pour les victimes et les autorités. Le numéro national 142 offre un accès rapide aux services d'assistance, mais il est essentiel que les victimes soient conscientes de son existence et sachent comment l'utiliser. La gratuité de la documentation médico-légale simplifie le processus de plainte, mais il est nécessaire que les victimes soient informées de leurs droits et des procédures à suivre. ### Procédure pour accéder aux services d'assistance
+1. **Contacter le numéro 142** : Les victimes de violence domestique peuvent appeler le numéro national 142 pour obtenir une assistance immédiate. Le service est opérationnel 24 heures sur 24 et offre un soutien dans différentes langues.
+2. Documentation médico-légale : Les victimes peuvent demander la documentation médico-légale gratuitement, utilisable comme preuve en cas de plainte. Ce document est essentiel pour engager une procédure légale contre l'agresseur.
+3. Logements d'urgence : Les cantons élargissent l'offre de logements d'urgence pour les victimes de violence domestique. Ces logements offrent un refuge sûr et temporaire, permettant aux victimes de s'éloigner de la situation de danger.
+4. Surveillance électronique : La surveillance électronique est un moyen efficace de protéger les victimes de violence domestique. Les cantons ont défini des normes qualitatives uniformes pour la gestion des menaces, garantissant une protection continue.
+5. Gestion des menaces : Les autorités vérifieront avec plus de soin le risque de sévices au sein des familles, en tenant compte de cela dans l'attribution de la garde et de l'autorité parentale. Cette approche vise à protéger les victimes dans les procédures civiles, en leur évitant le confrontation directe avec l'agresseur.
+
+### Comparaison avec d'autres initiatives
+Les nouvelles mesures contre la violence domestique s'inscrivent dans un contexte d'initiatives plus larges pour la protection des victimes. La campagne 'L'égalité prévient la violence', lancée en novembre 2025, vise à sensibiliser l'opinion publique sur le thème de la violence domestique. De plus, le Parlement discute de la nécessité éventuelle d'une loi nationale sur la protection contre la violence, avec pour objectif d'uniformiser les normes en la matière. ### Implications pour les autorités
+Les nouvelles mesures nécessitent un engagement significatif de la part des autorités. La gestion des menaces avec des normes qualitatives uniformes nécessite une formation adéquate du personnel et une collaboration efficace entre les cantons. L'élargissement des logements d'urgence nécessite des ressources financières et logistiques. La surveillance électronique nécessite l'adoption de technologies avancées et la formation du personnel pour l'utilisation de ces outils. ### Scénarios futurs
+Les nouvelles mesures contre la violence domestique représentent une étape significative, mais il est important de considérer les scénarios futurs. L'adoption d'une loi nationale sur la protection contre la violence pourrait uniformiser les normes en la matière et améliorer la protection des victimes. La révision du droit sur les armes pourrait réduire le risque de violence domestique liée à l'utilisation d'armes à feu. La stratégie nationale contre la violence domestique, prévue pour le printemps 2027, pourrait introduire des mesures supplémentaires pour prévenir et lutter contre ce phénomène.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.violenza-domestica-misure-urgenti.body3":`## Action concrète
+Les nouvelles mesures contre la violence domestique offrent une série d'outils pratiques pour les victimes et les autorités. Il est important que les victimes soient conscientes de ces outils et sachent comment les utiliser. Les autorités doivent garantir la mise en œuvre efficace des nouvelles mesures et la formation du personnel. ### Procédure pour les victimes
+1. **Contacter le numéro 142** : Les victimes de violence domestique peuvent appeler le numéro national 142 pour obtenir une assistance immédiate. Le service est opérationnel 24 heures sur 24 et offre un soutien dans différentes langues.
+2. Demander la documentation médico-légale : Les victimes peuvent demander la documentation médico-légale gratuitement, utilisable comme preuve en cas de plainte. Ce document est essentiel pour engager une procédure légale contre l'agresseur.
+3. Accéder aux logements d'urgence : Les cantons étendent l'offre de logements d'urgence pour les victimes de violence domestique. Ces logements offrent un refuge sûr et temporaire, permettant aux victimes de se éloigner de la situation de danger.
+4. Utiliser la surveillance électronique : La surveillance électronique est un moyen efficace de protéger les victimes de violence domestique. Les victimes peuvent demander la surveillance électronique aux autorités compétentes.
+5. Signaler les menaces : Les victimes peuvent signaler les menaces aux autorités compétentes. Les autorités vérifieront avec plus de soin le risque d'abus au sein des familles, en tenant compte de cela dans l'attribution de la garde et de l'autorité parentale. ### Procédure pour les autorités
+1. Formation du personnel : Les autorités doivent garantir la formation adéquate du personnel pour la gestion des menaces et l'utilisation de la surveillance électronique.
+2. Collaboration entre les cantons : Les autorités doivent collaborer efficacement entre les cantons pour garantir la mise en œuvre uniforme des nouvelles mesures.
+3. Extension des logements d'urgence : Les autorités doivent garantir l'extension des logements d'urgence pour les victimes de violence domestique.
+4. Révision du droit sur les armes : Les autorités doivent envisager la révision du droit sur les armes pour réduire le risque de violence domestique liée à l'utilisation d'armes à feu.
+5. Adoption d'une stratégie nationale : Les autorités doivent adopter une stratégie nationale contre la violence domestique pour introduire des mesures supplémentaires de prévention et de lutte. ### Outils utiles
+Pour plus d'informations et de soutien, les victimes de violence domestique peuvent utiliser les outils suivants :
+- [Calculateur de salaire](nav:calculator)
+- Guides pratiques
+- Contacts utiles
+
+### CTA finale
+Pour plus d'informations et de soutien, les victimes de violence domestique peuvent utiliser le [calculateur de salaire](nav:calculator) pour évaluer leurs options et planifier leur avenir.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/violenza-domestica-progressi-con-roadmap-ma-servono-altre-misure/91322517)*`,"blog.article.violenza-domestica-misure-urgenti.faq":`[{"q":"Quel est le numéro national pour les victimes de violence domestique ?","a":"Le numéro national pour les victimes de violence domestique est le 142, opérationnel depuis le 1er mai. Il offre une assistance 24 heures sur 24 et un soutien dans différentes langues."},{"q":"Comment puis-je demander la documentation médico-légale ?","a":"Les victimes de violence domestique peuvent demander la documentation médico-légale gratuitement, utilisable comme preuve en cas de plainte. Ce document est essentiel pour engager une procédure légale contre l'agresseur."},{"q":"Qu'est-ce que les logements d'urgence ?","a":"Les logements d'urgence sont des refuges sûrs et temporaires pour les victimes de violence domestique. Les cantons sont en train d'élargir l'offre de ces logements pour garantir une protection immédiate."}]`};export{e as default};

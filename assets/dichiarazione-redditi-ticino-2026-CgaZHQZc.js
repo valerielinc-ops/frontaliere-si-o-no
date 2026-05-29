@@ -1,0 +1,44 @@
+const e={"blog.article.dichiarazione-redditi-ticino-2026.body1":`## Auf einen Blick
+- Einkommensteuererklärung 2025 im Tessin
+- Frist: 30. April 2026, Verlängerung online möglich
+- eTax 2025: digitale Plattform für einfache Einreichung
+
+## Wichtige Fakten
+- **Cosa**: Einkommensteuererklärung 2025 für Einkünfte und Vermögen 2025
+- **Quando**: Frist für Einreichung: 30. April 2026
+- **Dove**: Kanton Tessin, Schweiz
+- **Chi**: Einwohner und Grenzgänger im Tessin
+- **Plattform**: eTax 2025 für digitale Einreichung und Berechnungen
+- **QR-Code**: Zugang zum Portal und Verlängerung beantragen
+- **Grenzgänger**: Angabe von Einkünften in Schweiz und Italien, Steuerabkommen mit Italien
+
+Die Abteilung für Beiträge des Kantons Tessin hat in den letzten Tagen mit der Verteilung der Formulare für die **Einkommensteuererklärung 2025** begonnen, ein wichtiger steuerlicher Termin für Einwohner und Grenzgänger. Die Frist für die Einreichung ist auf den **30. April 2026** festgelegt, jedoch kann online eine Verlängerung beantragt werden. In diesem Jahr wurde das Verfahren dank der aktualisierten Plattform **eTax 2025** weiter digitalisiert, die es ermöglicht, die Dokumente auszufüllen und zu versenden, ohne sie ausdrucken zu müssen.
+
+Die Erklärung muss die im Jahr 2025 erzielten Einkünfte und das Vermögen, das am 31. Dezember 2025 gehalten wird, enthalten. Für Steuerpflichtige, die während des Jahres ihren Wohnsitz ins Ausland verlegt haben, müssen die Daten bis zum Ende des Steuerzeitraums angegeben werden. „Das Ziel ist es, die Verfahren zu vereinfachen und Fehler durch automatische Berechnungen und detaillierte Zusammenfassungen der kantonalen und bundesstaatlichen Abzüge zu reduzieren“, erklärte die Abteilung für Beiträge.
+
+Außerdem kann mit dem im zugesandten Material enthaltenen QR-Code schnell auf das Portal zugegriffen werden, um eventuell benötigte Verlängerungen zu beantragen. Die eingegebenen Daten, wie etwa die zu Immobilien, werden gespeichert und können auch für zukünftige Erklärungen wiederverwendet werden, was die Ausfüllzeiten weiter verkürzt.`,"blog.article.dichiarazione-redditi-ticino-2026.body2":`## So funktioniert eTax 2025
+
+Die Nutzung von eTax stellt einen Fortschritt in der Steuerverwaltung im Tessin dar. Diese digitale Plattform bietet **zahlreiche praktische Vorteile** für die Steuerpflichtigen, darunter:
+
+- Automatische Berechnungen der zu zahlenden Steuern
+- Sofortige Zusammenfassung der vorgesehenen Abzüge auf kantonaler und bundesstaatlicher Ebene
+- Speicherung der Daten zur Erleichterung der nachfolgenden Erklärungen
+- Möglichkeit, die Dokumente vollständig online zu übermitteln
+
+⚠️ Fristen, die du dir merken solltest:
+- 30. April 2026: letzter Termin für die Einreichung der Erklärung
+- Antrag auf Verlängerung: online über die offizielle Website des Kantons oder mit dem QR-Code, der zusammen mit den Formularen gesendet wurde
+
+💡 **Regelungen für Grenzgänger**
+Für Grenzgänger ist es wichtig, die in der Schweiz und in Italien erzielten Einkünfte genau anzugeben. Wir erinnern daran, dass das Steuerabkommen zwischen Italien und der Schweiz eine differenzierte Besteuerung je nach Art des Vertrags und der Gemeinde des Wohnsitzes in Italien vorsieht. Grenzgänger, die im Tessin arbeiten, können Werkzeuge wie den [Netto-Lohnrechner](nav:calculator) nutzen, um eine klare Vorstellung davon zu bekommen, was sie angeben und welche Steuern zu zahlen sind.`,"blog.article.dichiarazione-redditi-ticino-2026.body3":`## Tipps für eine fehlerfreie Erklärung
+
+Die Vorbereitung der Einkommensteuererklärung kann komplex erscheinen, aber mit einigen einfachen Maßnahmen kann sie stressfrei angegangen werden. Hier sind einige praktische Ratschläge:
+
+- **Sammle alle notwendigen Dokumente**: CU, Bankbescheinigungen, Abzüge, Versicherungen und Dokumente zu den zweiten und dritten Säulen.
+- **Nutze den Online-Modus**: eTax 2025 ist darauf ausgelegt, den Prozess zu vereinfachen und zu beschleunigen. Nutze dies, um manuelle Fehler zu vermeiden.
+- **Überprüfe die verfügbaren Abzüge**: Stelle sicher, dass du alle abziehbaren Ausgaben, wie Transportkosten und eventuelle freiwillige Beiträge zur dritten Säule, einbeziehst.
+- Bitte um Hilfe, wenn nötig: Wenn du unsicher bist, konsultiere einen Steuerexperten oder nutze Werkzeuge wie unseren [Leitfaden zur Einkommensteuererklärung](nav:tax-return), um jeden Schritt zu klären.
+
+Vergiss nicht, die Fristen einzuhalten, um Strafen oder Bußgelder zu vermeiden. Für weitere Informationen zur Einkommensteuererklärung im Tessin und zur Berechnung der fälligen Steuern besuche unseren Bereich zum [Netto-Lohnrechner](nav:calculator).
+
+Quelle: Ticinonline, 26. Februar 2026`,"blog.article.dichiarazione-redditi-ticino-2026.faq":'[{"q":"Wie ist die Frist für die Abgabe der Steuererklärung 2025?","a":"Die Frist für die Abgabe der Steuererklärung 2025 ist der 30. April 2026."},{"q":"Kann ich eTax 2025 verwenden, auch wenn ich 2025 ins Ausland überwiesen habe?","a":"Ja, Sie können eTax 2025 verwenden, aber Sie müssen die Daten bis zum Ende der Besteuerung in der Schweiz angeben."},{"q":"Welche Dokumente benötige ich, um die Einkommenserklärung 2025 korrekt auszufüllen?","a":"Um die Einkommenserklärung 2025 korrekt auszufüllen, erfassen Sie die folgenden Dokumente: Eineinkommenszertifikat (CU), Bankzertifikate, Abzugszertifikate, Versicherungsdokumente und die zweite und dritte Säule. Diese Dokumente helfen Ihnen, Ihre Einkommen und Abzüge genau zu melden."},{"q":"Wie kann ich eine Verlängerung der Einkommensrechnung 2025 beantragen?","a":"Sie können eine Verlängerung für die Steuererklärung von 2025 online über die offizielle Website von Kanton Tessin beantragen. Verwenden Sie den QR-Code, der in dem Material enthalten ist, das gesendet wird, um schnell auf das Portal zuzugreifen und Ihre Anfrage zur Erweiterung weiterzuleiten."},{"q":"Welche Ausgaben kann ich in meiner Einkommenserklärung 2025 abziehen?","a":"In Ihrer Einkommenserklärung 2025 können Sie mehrere abzugsfähige Ausgaben wie Transportkosten zur Arbeit, freiwillige Beiträge zur dritten Säule und andere auf Kantons- und Bundesebene anerkannte Ausgaben einschließen. Überprüfen Sie die verfügbaren Abzüge, um Ihre Steuerersparnis zu maximieren."}]'};export{e as default};

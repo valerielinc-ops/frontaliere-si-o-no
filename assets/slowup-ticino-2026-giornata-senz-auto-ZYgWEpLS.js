@@ -1,0 +1,73 @@
+const i={"blog.article.slowup-ticino-2026-giornata-senz-auto.body1":`## In breve
+- 50 km di strade tra Locarno e Bellinzona chiusi alle auto
+- Evento il 19 aprile 2026, dalle 10 alle 17
+- Attività e soste agricole lungo il percorso
+
+## Fatti chiave
+- **Cosa**: Evento slowUp Ticino 2026, giornata senza auto tra Locarno e Bellinzona
+- **Quando**: Domenica 19 aprile 2026, dalle 10 alle 17
+- **Dove**: Tra Locarno e Bellinzona, comuni di Locarno, Muralto, Minusio, Tenero-Contra, Gordola, Cugnasco-Gerra, Cadenazzo, Sant’Antonino, Camorino e Bellinzona
+- **Chi**: Organizzato da enti locali e associazioni sportive e ricreative
+- **Attività**: Mini-ferrovia, gonfiabili, attività in fattoria, spettacoli di magia, musica live, soste agricole
+- **Percorso**: 50 chilometri di strade chiuse al traffico motorizzato
+- **Novità**: Restringimenti del percorso a Minusio a causa di un cantiere
+- **Motto**: Vivi una giornata senz’auto, promuovendo mobilità lenta e scoperta del territorio
+
+Torna slowUp Ticino, l’evento che ogni anno trasforma **50 chilometri di strade** tra Locarno e Bellinzona in un’arteria dedicata esclusivamente a pedoni, ciclisti e mezzi senza motore. L’appuntamento è fissato per domenica 19 aprile 2026, dalle 10 alle 17, sulla tratta che attraversa i comuni di Locarno, Muralto, Minusio, Tenero-Contra, Gordola, Cugnasco-Gerra, Cadenazzo, Sant’Antonino, Camorino e Bellinzona. 
+
+L’iniziativa, promossa da organizzatori locali e sostenuta da associazioni sportive e ricreative, rientra nella prima edizione della stagione 2026 dei 18 slowUp previsti in tutta la Svizzera. Il motto scelto per l’edizione ticinese è chiaro: «Vivi una giornata senz’auto», con l’obiettivo di promuovere la mobilità lenta, il movimento e la scoperta del territorio. 
+
+### Il percorso e le novità
+Il tracciato, identico alle edizioni precedenti, sarà interamente chiuso al traffico motorizzato e permetterà ai partecipanti di muoversi liberamente, nel rispetto del senso di marcia, a piedi, in bicicletta, con pattini o altri mezzi non motorizzati. Si potrà scegliere se percorrere l’intero itinerario o solo una parte, entrando e uscendo in qualsiasi punto. Unica eccezione segnalata: a Minusio, dove la stradina rossa sarà interessata da un cantiere che causerà restringimenti del percorso. Gli organizzatori avvertono di prestare massima attenzione per evitare ingorghi e rallentamenti, soprattutto in prossimità dell’area interessata dal cantiere.
+
+### Animazioni e soste lungo il percorso
+Lungo i 50 km di strada, i partecipanti troveranno 18 tappe dedicate all’animazione, alla ristorazione e a intrattenimenti vari, gestite principalmente da associazioni locali. Tra le attività proposte per il 2026 figurano: mini-ferrovia, gonfiabili, attività in fattoria, giri a cavallo, spettacoli di magia, esposizione di veicoli (Pompieri e Rega), tennis, musica live, guggen e molto altro. Non mancheranno poi le ‘soste agricole’, con aperture straordinarie di aziende agricole come Aerni (Piano di Magadino), Scuderia Resinelli - Progero (Gudo) e Ponzio (Sant’Antonino), che apriranno le porte ai visitatori per degustazioni e visite guidate.`,"blog.article.slowup-ticino-2026-giornata-senz-auto.body2":`Per i frontalieri e i residenti del Ticino, slowUp rappresenta un’opportunità unica per vivere il territorio in modo diverso, senza la pressione del traffico quotidiano e con la possibilità di scoprire angoli nascosti tra Locarno e Bellinzona. L’evento si inserisce in un contesto più ampio di **promozione della mobilità sostenibile**, che negli ultimi anni ha visto crescere l’attenzione verso soluzioni alternative all’auto privata, soprattutto in una regione come il Ticino, dove il pendolarismo transfrontaliero è diffuso. 
+
+### Prima vs dopo: cosa cambia per i partecipanti
+Prima di slowUp, chi si sposta quotidianamente tra Italia e Svizzera è abituato a pianificare gli spostamenti intorno agli orari di punta, con particolare attenzione alle code sull’A2 o ai ritardi dei mezzi pubblici. Domenica 19 aprile 2026, invece, l’intera area tra Locarno e Bellinzona diventa un laboratorio di mobilità lenta. Per chi abita in Lombardia e lavora in Ticino, questo significa poter evitare l’uso dell’auto personale e sperimentare percorsi alternativi, magari scoprendo nuove vie di accesso ai centri urbani ticinesi. 
+
+### Scenari pratici: come organizzarsi
+Chi intende partecipare può valutare diverse opzioni: 
+- Percorso completo: 50 km da Locarno a Bellinzona, con soste intermedie per rinfrescarsi o mangiare.
+- Tratti parziali: scegliere solo una tratta, ad esempio da Gordola a Cadenazzo, per evitare le aree più affollate.
+- Arrivo in treno: utilizzare le ferrovie federali (FFS) o le linee regionali per raggiungere Locarno o Bellinzona e poi accedere al percorso slowUp. Le stazioni di Locarno e Bellinzona saranno punti di partenza ideali.
+
+Un aspetto da non sottovalutare è la gestione dei bagagli o degli acquisti. Poiché non sarà possibile spostarsi con auto o moto, chi ha bisogno di trasportare oggetti ingombranti dovrà organizzarsi in anticipo, magari affidandosi a servizi di consegna a domicilio o ai negozi locali lungo il percorso, che resteranno aperti per l’occasione.
+
+### Confronto con altre iniziative simili
+A differenza di eventi come le ‘domeniche senz’auto’ organizzate in altre regioni svizzere o italiane, slowUp Ticino si distingue per la continuità del percorso e la varietà delle attività proposte. Mentre in altre città le chiusure al traffico sono limitate a poche ore o a zone circoscritte, qui l’intera tratta tra Locarno e Bellinzona rimane inaccessibile ai veicoli motorizzati per sette ore consecutive, offrendo un’esperienza immersiva nella mobilità dolce. 
+
+### Attenzione ai dettagli: cosa portare
+Gli organizzatori consigliano di indossare abbigliamento comodo e di portare con sé acqua, snack e protezione solare, soprattutto nelle aree all’aperto. Per chi si muove con bambini, sono previsti gonfiabili e attività ludiche, ma è consigliabile verificare in anticipo la disponibilità presso le varie tappe.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.slowup-ticino-2026-giornata-senz-auto.body3":`Partecipare a slowUp Ticino 2026 è semplice, ma richiede una minima organizzazione per sfruttare al meglio la giornata. Ecco una **procedura passo-passo** per non farsi trovare impreparati. 
+
+### 1. Pianificare l’arrivo al percorso
+Se arrivate da fuori Canton Ticino, valutate l’opzione treno: le stazioni di Locarno e Bellinzona sono collegate direttamente con Milano, Como e altre città lombarde. Da lì, potrete accedere al percorso slowUp a piedi o in bicicletta. 
+
+> *Consiglio pratico*: Verificate gli orari dei treni in anticipo, poiché alcune corse potrebbero subire modifiche per l’evento. 
+
+### 2. Scegliere il punto di accesso
+Il percorso è accessibile in qualsiasi punto. Se partite da Locarno, potete iniziare la vostra avventura dalla Piazza Grande o dal Lido. Se preferite Bellinzona, il punto di partenza naturale è nei pressi della Stazione FFS. 
+
+### 3. Preparare gli spostamenti interni
+Poiché non sarà possibile utilizzare auto o moto, portate con voi solo ciò che potete trasportare a mano o in bicicletta. Se avete bisogno di spostare oggetti pesanti, considerate l’opzione di affittare un carrellino o di organizzare una consegna a domicilio presso uno dei punti di sosta. 
+
+### 4. Verificare le soste agricole e le attività
+Prima di partire, consultate la mappa ufficiale dell’evento (disponibile sul sito degli organizzatori) per identificare le soste agricole e le attività che vi interessano. Alcune, come le degustazioni, potrebbero richiedere una prenotazione. 
+
+### 5. Gestire il rientro
+Se arrivate in treno, assicuratevi di avere il biglietto per il ritorno. Se siete in bicicletta, verificate la disponibilità di parcheggi custoditi presso le stazioni ferroviarie, dove potrete lasciare la vostra bici in sicurezza. 
+
+### Strumenti utili per organizzarsi
+Per chi vuole pianificare al meglio la giornata, il sito degli organizzatori fornisce una mappa interattiva del percorso con tutte le tappe e le attività. Inoltre, è possibile scaricare l’app slowUp per ricevere aggiornamenti in tempo reale sulle soste e su eventuali modifiche al tracciato. 
+
+📊 *Dove trovare la mappa e l’app*: [Sito ufficiale slowUp Ticino](nav:transport) 
+
+### Cosa fare se siete frontalieri
+Se lavorate in Ticino ma abitate in Lombardia, slowUp rappresenta un’occasione per ridurre l’uso dell’auto e sperimentare percorsi alternativi. Potreste, ad esempio, raggiungere Locarno o Bellinzona in treno e poi spostarvi a piedi o in bicicletta lungo il percorso, magari combinando la giornata con una visita ai centri storici o ai mercati locali. 
+
+💡 *Consiglio*: Se avete bisogno di noleggiare una bicicletta, diverse aziende locali offrono servizi di bike-sharing in occasione dell’evento. Verificate la disponibilità e i costi direttamente sul sito degli organizzatori.
+
+*Fonte: [ticinonews.ch](https://www.ticinonews.ch/ticino/riecco-slowup-ticino-vivi-una-giornata-senzauto-431488)*`,"blog.article.slowup-ticino-2026-giornata-senz-auto.faq":'[{"q":"Quali comuni sono attraversati dal percorso slowUp Ticino 2026?","a":"Il percorso tocca i comuni di Locarno, Muralto, Minusio, Tenero-Contra, Gordola, Cugnasco-Gerra, Cadenazzo, Sant’Antonino, Camorino e Bellinzona. L’intero tracciato è di 50 km e rimane chiuso al traffico motorizzato dalle 10 alle 17 di domenica 19 aprile 2026."},{"q":"È possibile portare animali domestici lungo il percorso?","a":"I mezzi non motorizzati come biciclette e pattini sono ammessi, ma la fonte non specifica se siano consentiti animali al guinzaglio. Gli organizzatori consigliano di verificare le regole sul sito ufficiale prima della partecipazione."},{"q":"Ci sono restrizioni sull’uso di monopattini elettrici?","a":"La fonte non menziona esplicitamente i monopattini elettrici. Tuttavia, poiché l’evento promuove la mobilità lenta, è probabile che siano ammessi solo mezzi non motorizzati (biciclette, pattini, ecc.). Si consiglia di consultare il regolamento ufficiale."},{"q":"Come posso verificare lo stato del percorso a Minusio in caso di cantiere?","a":"Gli organizzatori avvertono di prestare massima attenzione a Minusio, dove la stradina rossa sarà interessata da un cantiere. Per aggiornamenti in tempo reale, è possibile consultare la mappa interattiva sul sito ufficiale o contattare direttamente gli organizzatori tramite i canali indicati."},{"q":"Ci sono servizi di ristorazione lungo il percorso?","a":"Sì, lungo il tracciato sono previste 18 tappe dedicate alla ristorazione, gestite da associazioni locali. Tra le opzioni figurano cibi tradizionali ticinesi, bevande e snack. Alcune soste agricole offrono anche degustazioni di prodotti locali."}]'};export{i as default};

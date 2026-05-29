@@ -1,0 +1,37 @@
+const e={"blog.article.contributi-sociali-busta-paga.body1":`## Auf einen Blick
+- Sozialbeiträge in der Schweiz werden zwischen Arbeitgeber und Arbeitnehmer geteilt.
+- AHV/IV/EOG beträgt 10,6% des Bruttoeinkommens, 50/50 Aufteilung.
+- Arbeitslosenversicherung (ALV) beträgt 2,2% bis 148.200 CHF Jahreseinkommen.
+
+## Wichtige Fakten
+- **AHV/IV/EOG Satz**: 10,6% des Bruttoeinkommens, 50/50 Aufteilung zwischen Arbeitgeber und Arbeitnehmer.
+- **ALV Satz**: 2,2% bis zu einem jährlichen Einkommen von 148.200 CHF, 50/50 Aufteilung.
+- **Pensionskasse (PK)**: Durchschnittlich 7% bis 18% des versicherten Einkommens, geteilt zwischen Arbeitgeber und Arbeitnehmer.
+- **UVG Kosten**: Variieren je nach Branche und Beschäftigungsrisiko, Arbeitgeber trägt Arbeitsunfälle, Arbeitnehmer nichtberufliche Unfälle.
+- **Beispiel Grenzgänger**: Bei 72.000 CHF Bruttoeinkommen: 3.816 CHF für AHV/IV/EOG und 1.584 CHF für ALV.
+- **Rentenberechnung**: Beiträge in der Schweiz und Italien werden kumuliert, aber spezifische Vorschriften beachten.
+- **Steuerabzug**: Sozialbeiträge sind von der Steuerbasis in Italien abziehbar.
+
+In der Schweiz als Grenzgänger zu arbeiten bringt wirtschaftliche Vorteile, aber auch einige Besonderheiten hinsichtlich der Abzüge auf der Lohnabrechnung mit sich. Für diejenigen, die im Tessin arbeiten, ist es wichtig zu verstehen, wie das System der Sozialbeiträge funktioniert. Die wichtigsten Positionen auf einer Schweizer Lohnabrechnung sind **AHV (Alters- und Hinterlassenenversicherung)**, **IV (Invalidenversicherung)**, **EOG (Erwerbsersatzordnung)**, ALV (Arbeitslosenversicherung), Pensionskasse (PK) und UVG (Unfallversicherung).
+
+## Wie viel zahlen Arbeitgeber und Arbeitnehmer?
+
+In der Schweiz werden die Sozialbeiträge zwischen Arbeitgeber und Arbeitnehmer aufgeteilt. Beispielsweise beträgt der Gesamtbeitragssatz für AHV/IV/EOG im Jahr 2026 10,6% des Bruttoeinkommens, wobei die Hälfte vom Arbeitnehmer und die andere Hälfte vom Arbeitgeber getragen wird. Um ein konkretes Beispiel zu nennen: Wenn ein Grenzgänger in Mendrisio 6.000 CHF im Monat verdient, muss er 318 CHF für diese Positionen beitragen.
+
+Was die Arbeitslosenversicherung (ALV) betrifft, so beträgt der Satz 2,2% bis zu einem jährlichen Einkommen von 148.200 CHF, mit einer 50/50-Aufteilung zwischen Arbeitgeber und Arbeitnehmer. Über dieser Schwelle wird ein zusätzlicher Beitrag von 0,5% auf das übersteigende Einkommen fällig. Die Pensionskasse (PK) variiert hingegen je nach Unternehmenspensionsplan, hat aber durchschnittlich einen Einfluss von 7% bis 18% des versicherten Einkommens. Auch hier wird der Beitrag zwischen den beiden Parteien geteilt.
+
+Schließlich deckt die UVG (Unfallversicherung) sowohl Arbeitsunfälle als auch nichtberufliche Unfälle ab, wobei der erste vom Arbeitgeber und der zweite in der Regel vom Arbeitnehmer getragen wird. Die Kosten variieren je nach Branche und Beschäftigungsrisiko.`,"blog.article.contributi-sociali-busta-paga.body2":`## Praktische Auswirkungen für Grenzgänger
+
+Zu verstehen, wie die Abzüge auf der Lohnabrechnung funktionieren, ist entscheidend für die Planung des eigenen Budgets. Für Grenzgänger, die täglich Übergänge wie Ponte Tresa, Gaggiolo oder Brogeda passieren, ist es wichtig zu wissen, wie viel von ihrem Bruttoeinkommen abgezogen wird, um das monatliche Netto zu berechnen. Zudem sei daran erinnert, dass die in der Schweiz gezahlten Beiträge auch Auswirkungen auf die zukünftige Rente haben können.
+
+Die AHV beispielsweise bildet die erste Säule des Schweizer Rentensystems und koordiniert sich mit dem INPS gemäß den bilateralen Abkommen zwischen der Schweiz und Italien. Das bedeutet, dass die Beitragsjahre in der Schweiz und in Italien für die Rentenberechnung kumuliert werden, jedoch ist es wichtig, die spezifischen Vorschriften jedes Landes zu beachten.
+
+📊 **Reales Beispiel**: Ein Grenzgänger, der im Jahr 2026 ein Bruttoeinkommen von 72.000 CHF hat, wird etwa 3.816 CHF für AHV/IV/EOG und 1.584 CHF für ALV abgezogen sehen, zusätzlich zu den Beiträgen für PK und UVG. Diese Beträge sind von der Steuerbasis für die Berechnung der italienischen Steuern abziehbar, wodurch die Gesamtsteuerbelastung verringert wird.
+
+💡 **Tipp**: Es ist ratsam, beim Arbeitgeber eine jährliche Übersicht über die Abzüge anzufordern, um die Richtigkeit der gezahlten Beträge zu überprüfen und die Steuererklärung in Italien zu erleichtern.`,"blog.article.contributi-sociali-busta-paga.body3":`## So optimieren Sie Ihr Nettoeinkommen
+
+Für Grenzgänger ist es der erste Schritt, die Abzüge im Detail zu kennen, um das Nettoeinkommen zu maximieren. Neben dem Verständnis der obligatorischen Beiträge können auch andere Aspekte wie der **Säule 3A** (freiwillige individuelle Vorsorge) oder die Optionen zur Erstattung von Transport- und Krankenkosten berücksichtigt werden. Auch die Wahl zwischen **LAMal** und **CMI** kann einen erheblichen Unterschied im Familienbudget ausmachen.
+
+💡 Praktischer Hinweis: Nutzen Sie unseren [Lohnabrechnungssimulator](nav:payslip), um Ihr monatliches Netto basierend auf Ihren persönlichen Daten genau zu berechnen. Mit wenigen Klicks erhalten Sie eine detaillierte Schätzung und können überprüfen, wie stark die Sozialbeiträge Ihr Gehalt beeinflussen.
+
+Quelle: redaktionelle Analyse "Frontaliere Ticino", Oktober 2023. Nutzen Sie unseren [Nettoeinkommensrechner](nav:calculator) für weitere Details!`,"blog.article.contributi-sociali-busta-paga.faq":'[{"q":"Wie werden Sozialbeiträge zwischen Arbeitgebern und Arbeitnehmern in der Schweiz untergliedert?","a":"In der Schweiz werden Sozialbeiträge zwischen Arbeitgebern und Arbeitnehmern aufgeteilt. Zum Beispiel beträgt der Gesamtbeitragssatz für AVS/AI/IPG 2026 10,6% des Bruttoeinkommens, dessen Hälfte vom Arbeitnehmer und die Hälfte vom Arbeitgeber getragen wird."},{"q":"Kann ich von meinem italienischen Einkommen alle Sozialbeiträge in der Schweiz abziehen?","a":"Nein, nur wenige Beiträge sind abzugsfähig. Zum Beispiel sind AVS, AI, AD und LPP vom italienischen Steuerpflichtigen abzugsfähig, während LAINF nur bei Berufsunfällen liegt."},{"q":"Was sind die wichtigsten Unterschiede zwischen dem Schweizer und dem italienischen Sicherheitssystem für Grenzarbeiter?","a":"Das Schweizer System bietet ein Drei-Säulen-System mit obligatorischen Beiträgen an AVS/AI, LPP und Unfallversicherung, während Italien auf INPS und anderen Fällen basiert. Die Grenzen sammeln Beiträge in beiden Ländern, die durch bilaterale Abkommen mit den Renten kombiniert werden können."}]'};export{e as default};

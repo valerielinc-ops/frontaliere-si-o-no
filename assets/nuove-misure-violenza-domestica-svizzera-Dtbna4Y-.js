@@ -1,0 +1,48 @@
+const e={"blog.article.nuove-misure-violenza-domestica-svizzera.body1":`## In breve
+- La Svizzera introduce nuove misure contro la violenza domestica
+- Focus sulla prevenzione precoce e protezione delle vittime
+- Coinvolgimento dei cantoni per standard uniformi
+
+## Fatti chiave
+- **Cosa**: Pacchetto legislativo con misure per migliorare la tutela dalla violenza domestica
+- Quando: Proposto al Consiglio federale dal Dipartimento federale di giustizia e polizia
+- Dove: Svizzera, con coinvolgimento cantonale
+- Chi: Dipartimento federale di giustizia e polizia (DFGP), cantoni
+- Importo: Non specificato
+
+Il Dipartimento federale di giustizia e polizia ha annunciato l'introduzione di nuove misure per contrastare la violenza domestica in Svizzera. La roadmap contro la violenza domestica e sessuale, lanciata cinque anni fa, ha dimostrato efficacia, ma ulteriori strumenti sono necessari per combattere fenomeni come i femminicidi. Il consigliere federale Beat Jans ha sottolineato l'importanza di potenziare la prevenzione precoce e la protezione delle vittime. Durante una conferenza stampa a Berna, Jans ha affermato che la violenza domestica e sessuale è inaccettabile e che il suo dipartimento farà di tutto per potenziare la prevenzione, proteggere le vittime e punire i colpevoli. Anche il consigliere di Stato ticinese Norman Gobbi ha partecipato all'incontro, ribadendo l'impegno del Canton Ticino contro la violenza domestica.
+
+### Misure attuali e future
+Le misure attuali includono la sorveglianza elettronica, che ha permesso di potenziare notevolmente la protezione delle vittime. I cantoni hanno definito standard qualitativi uniformi per la gestione delle minacce, aiutando a individuare tempestivamente i rischi di violenza. Tuttavia, l'aumento dei casi di violenza domestica e femminicidi richiede ulteriori provvedimenti. Il pacchetto legislativo proposto mira a migliorare la tutela dalla violenza domestica nel diritto civile e nel diritto processuale civile.
+
+### Implicazioni per i frontalieri
+I frontalieri che risiedono in Svizzera o lavorano in Ticino devono essere consapevoli delle nuove misure e delle risorse disponibili per la prevenzione e la protezione. È importante conoscere i propri diritti e le procedure da seguire in caso di violenza domestica. Le nuove misure potrebbero includere miglioramenti nei servizi di supporto e nelle procedure legali per le vittime di violenza domestica.`,"blog.article.nuove-misure-violenza-domestica-svizzera.body2":`### Analisi delle nuove misure
+Le nuove misure proposte dal Dipartimento federale di giustizia e polizia mirano a migliorare la tutela delle vittime di violenza domestica. Queste misure includono l'introduzione di strumenti di prevenzione precoce e il potenziamento della sorveglianza elettronica. I cantoni svizzeri, tra cui il Canton Ticino, sono coinvolti nella definizione di standard qualitativi uniformi per la gestione delle minacce. Questi standard aiutano a individuare tempestivamente i rischi di violenza e a contenere le situazioni pericolose.
+
+### Confronto con la situazione precedente
+Prima dell'introduzione delle nuove misure, la Svizzera aveva già avviato una roadmap contro la violenza domestica e sessuale cinque anni fa. Questa roadmap ha dimostrato efficacia, ma l'aumento dei casi di violenza domestica e femminicidi ha reso necessari ulteriori provvedimenti. Le nuove misure proposte mirano a colmare le lacune esistenti e a migliorare la protezione delle vittime.
+
+### Scenari concreti
+Immaginiamo uno scenario in cui un frontaliere che risiede in Ticino e lavora in Italia sia vittima di violenza domestica. Grazie alle nuove misure, la vittima potrebbe beneficiare di una maggiore protezione e supporto. Le procedure legali potrebbero essere più efficienti e le risorse disponibili potrebbero essere più accessibili. Inoltre, la sorveglianza elettronica potrebbe essere utilizzata per monitorare il comportamento dell'aggressore e prevenire ulteriori episodi di violenza.
+
+### Implicazioni pratiche
+Le nuove misure potrebbero avere implicazioni pratiche significative per i frontalieri. Ad esempio, potrebbero essere introdotti nuovi servizi di supporto per le vittime di violenza domestica. Inoltre, le procedure legali potrebbero essere semplificate e rese più efficienti. I frontalieri dovrebbero essere informati sulle nuove misure e sulle risorse disponibili per la prevenzione e la protezione.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.nuove-misure-violenza-domestica-svizzera.body3":`### Azioni concrete per i frontalieri
+I frontalieri che risiedono in Svizzera o lavorano in Ticino devono essere consapevoli delle nuove misure e delle risorse disponibili per la prevenzione e la protezione. È importante conoscere i propri diritti e le procedure da seguire in caso di violenza domestica. Le nuove misure potrebbero includere miglioramenti nei servizi di supporto e nelle procedure legali per le vittime di violenza domestica.
+
+### Procedura step-by-step
+1. **Informarsi sulle nuove misure**: I frontalieri dovrebbero informarsi sulle nuove misure introdotte dal Dipartimento federale di giustizia e polizia. Questo può essere fatto attraverso i siti web ufficiali o contattando le autorità locali.
+2. Conoscere i propri diritti: È importante conoscere i propri diritti in caso di violenza domestica. Le nuove misure potrebbero includere miglioramenti nei servizi di supporto e nelle procedure legali.
+3. Utilizzare le risorse disponibili: I frontalieri dovrebbero utilizzare le risorse disponibili per la prevenzione e la protezione. Questo può includere servizi di supporto, procedure legali e strumenti di sorveglianza elettronica.
+4. Segnalare i casi di violenza: In caso di violenza domestica, è importante segnalare il caso alle autorità competenti. Le nuove misure potrebbero rendere le procedure legali più efficienti e le risorse disponibili più accessibili.
+5. Monitorare la situazione: La sorveglianza elettronica potrebbe essere utilizzata per monitorare il comportamento dell'aggressore e prevenire ulteriori episodi di violenza.
+
+### Strumenti utili
+I frontalieri possono utilizzare vari strumenti per informarsi sulle nuove misure e sulle risorse disponibili. Ad esempio, possono visitare il sito web del Dipartimento federale di giustizia e polizia o contattare le autorità locali. Inoltre, possono utilizzare il [calcolatore stipendio](nav:calculator) per calcolare il loro stipendio netto e comprendere meglio la loro situazione finanziaria.
+
+### CTA finale
+Per ulteriori informazioni sulle nuove misure contro la violenza domestica in Svizzera, visitate il sito web del Dipartimento federale di giustizia e polizia o contattate le autorità locali. Utilizzate il [calcolatore stipendio](nav:calculator) per calcolare il vostro stipendio netto e comprendere meglio la vostra situazione finanziaria.
+
+*Fonte: [ticinonews.ch](https://www.ticinonews.ch/svizzera/violenza-domestica-la-svizzera-pensa-a-nuove-misure-432326)*`,"blog.article.nuove-misure-violenza-domestica-svizzera.faq":'[{"q":"Quali sono le nuove misure contro la violenza domestica in Svizzera?","a":"Le nuove misure includono il potenziamento della prevenzione precoce, la sorveglianza elettronica e la definizione di standard qualitativi uniformi per la gestione delle minacce. Queste misure mirano a migliorare la protezione delle vittime e a rendere le procedure legali più efficienti."},{"q":"Come posso segnalare un caso di violenza domestica?","a":"Potete segnalare un caso di violenza domestica alle autorità competenti, come la polizia locale o i servizi sociali. È importante fornire tutte le informazioni necessarie e collaborare con le autorità per garantire la sicurezza delle vittime."},{"q":"Quali risorse sono disponibili per le vittime di violenza domestica?","a":"Le vittime di violenza domestica possono beneficiare di vari servizi di supporto, come centri di accoglienza, consulenza legale e servizi di sorveglianza elettronica. È importante informarsi sulle risorse disponibili e utilizzare i servizi offerti dalle autorità locali."}]'};export{e as default};

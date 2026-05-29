@@ -1,0 +1,73 @@
+const e={"blog.article.carburanti-rincari-confine-ticino.body1":`## TL;DR
+- Fuel prices in Italy exceed €1.8/l in 5 regions.
+- Cross-border workers face higher costs refueling in Italy.
+- No data on Ticino fuel prices provided.
+
+## Key facts
+- **Date**: March 8, 2026
+- **Regions**: Basilicata, Calabria, Sicily
+- **Gasoline price**: €1.812/l in Basilicata, €1.820/l in Calabria, €1.80/l in Sicily
+- **Diesel price**: Approaching €2.6/l at highway service stations
+- **Impact**: Higher costs for cross-border workers refueling in Italy
+- **Source**: Varesenoi and Adnkronos
+- **Trigger**: War in Iran
+- **Monitoring**: Codacons
+
+On March 8, 2026, the wave of fuel price hikes returns to the spotlight. According to a report picked up by Varesenoi and Adnkronos, "after the increases due to the war in Iran, the wave of price hikes for fuels on the Italian network continues" and "today in 5 Italian regions the average price of self-service gasoline has exceeded the threshold of €1.8 per liter." Specifically, as reported by the source: Basilicata €1.812/l, Calabria €1.820/l, Sicily €1.80/l; diesel at service stations on highways is indicated as rising towards €2.6/l at some stations.
+
+This Italian dynamic has immediate repercussions for those living or working near the border: cross-border workers who cross the Brogeda and Gaggiolo checkpoints daily, commuters between Chiasso, Mendrisio, and the Luganese, and professionals who use their cars to reach hospitals or universities such as EOC, SUPSI, and USI. From a practical standpoint, two phenomena become significant for the Canton of Ticino: 1) cross-border workers refueling in Italy will pay more; 2) the pressure on refueling points near the border may change daily refueling and mobility habits.
+
+The source does not specify whether and how much pump prices in Canton Ticino or Switzerland have increased concurrently. Similarly, no data is provided on sales volumes at the border or the number of cross-border workers who choose to refuel in Italy for convenience. What is certain, as noted by the source, is the backdrop of international tension—the war in Iran—as a triggering factor for the price increases and the alarmed monitoring by Codacons.
+
+For the readers of Frontaliere Ticino, the issue thus becomes practical: how much does it impact the monthly budget of those who travel daily between Lombardy and Canton Ticino? What behaviors can be changed immediately to limit costs? In the next paragraph, I will provide reference numbers, concrete calculation examples, and a step-by-step procedure to assess personal impact.`,"blog.article.carburanti-rincari-confine-ticino.body2":`Technical insights and example calculations: the source (Varesenoi/Adnkronos, March 8, 2026) indicates specific prices for Italy: self-service gasoline over €1.8/l in at least 5 regions (examples: Basilicata €1.812/l; Calabria €1.820/l; Sicily €1.80/l) and diesel at service stations on the highway approaching €2.6/l. The article does not provide data on fuel prices in Canton Ticino; therefore, any direct comparison with Switzerland must be made by consulting local price lists or official tools.
+
+Practical calculation examples on the potential impact for a commuter: let’s assume two realistic scenarios to show how the numbers translate into expenses.
+
+Scenario A — Mixed refueling, gasoline (source data)
+- Estimated average weekly consumption: 40 liters (illustrative assumption).
+- Cost with Italian price at €1.82/l: 40 x 1.82 = €72.80 per week.
+- For a month (4 weeks): 72.80 x 4 = €291.20.
+
+Scenario B — Highway use and diesel at service (source data: up to €2.6/l)
+- Estimated weekly consumption: 50 liters.
+- Cost with diesel at €2.60/l: 50 x 2.60 = €130 per week.
+- For a month: €520.
+
+These examples serve to show how the same distance or car usage translates into very different expenses based on fuel type and refueling location. If a cross-border worker fills up in Italy for convenience, the rise in Italian prices reduces or nullifies the savings compared to refueling in Ticino: the price data for Ticino is not specified in the source, so it is necessary to check updated cantonal price lists.
+
+Recommended procedure for assessing personal impact (step-by-step):
+1) Note average weekly consumption in liters and kilometers traveled; 2) Take current prices at the station where you refuel (e.g., self-service or service prices mentioned by the source); 3) Calculate weekly and monthly expenses as in the examples; 4) Compare with any Ticino prices by consulting local stations or comparison apps; 5) Evaluate alternatives (carpooling, smart working days, TILO/public transport). 
+
+📊 Checklist for cross-border workers: actual consumption, price per liter, refueling frequency, most convenient entry point (Brogeda/Gaggiolo), mobility alternatives.
+
+Technical FAQs (brief):
+- The Italian prices cited are updated as of 08/03/2026; the source does not specify hourly fluctuations.
+- No immediate government containment measures are indicated in the source.
+- For Ticino data, consult local price lists or cantonal contacts (Municipal offices, DFE).
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.carburanti-rincari-confine-ticino.body3":`Practical tips to reduce the impact on the wallets of cross-border workers and commuters between Ticino and Lombardy. First, some concrete recommendations, followed by an extended FAQ with operational answers.
+
+Concrete actions (priority list):
+- Check and measure: keep a record of actual consumption (liters and km) for at least 2 weeks.
+- Plan refueling: avoid service stations on the highway when unnecessary; self-service prices are often lower (source: Varesenoi/Adnkronos note the differences between self/service).
+- Consider smart working days: even one or two fewer days on the road per month significantly reduces fuel costs.
+- Carpooling: organize shifts with fellow cross-border workers to reduce weekly outings.
+- Maintenance: tire pressure and regular check-ups improve consumption; simple interventions save euros every month.
+
+Concrete examples of optimization with numbers (based on source prices):
+- If you reduce from 50 liters/week to 40 liters/week (10 liters less) with gasoline at €1.82/l, you save €18.20 per week, ~€72.80 per month.
+- If you shift a refueling from a highway service station to an urban station with diesel at €2.60/l to one at a lower price, the difference can exceed €10-20 for a large refueling.
+
+Practical FAQ (5+ questions):
+1) Can I trust the prices reported by the source? — Yes: Varesenoi cites data from Adnkronos/Codacons updated as of 08/03/2026; for local comparisons, check Ticino price lists.
+2) Does the Italian price increase automatically affect prices in Ticino? — The source does not specify if Ticino price lists have adjusted; the correlation exists at the European level but needs local verification.
+3) Where is it convenient to refuel if I am a cross-border worker? — It depends on the price per liter and local taxes; with rising Italian prices, the advantage may decrease or disappear. Always check self-service prices.
+4) What can I request from my employer? — Negotiate mileage reimbursements or teleworking days; many public and private companies in Ticino and Lombardy accept individual agreements.
+5) Are there recommended monitoring tools? — Use price comparison apps and track consumption on a spreadsheet or expense management app.
+
+⚠️ Note: some data on the Ticino situation is not specified by the source; for precise comparisons, contact the relevant cantonal offices or local distributors.
+
+To check the cost of transferring the car across the border or to evaluate personal scenarios, use our tool: [Calculate car transfer and costs](nav:car-transfer)
+
+Source: Varesenoi / Adnkronos, March 8, 2026.`,"blog.article.carburanti-rincari-confine-ticino.faq":'[{"q":"What are the prices of petrol in Italy?","a":"According to the source, petrol prices in Italy are higher than 1.8 euro per litre in some regions, such as Basilicata (1,812 €/l), Calabria (1,820 €/l) and Sicily (1,80 €/l)."},{"q":"How to calculate the economic impact of the increase in fuels on my monthly budget as a frontier?","a":"Note weekly consumption in liters, current fuel price in Italy and Ticino, calculates weekly and monthly expenditure. Compare with Ticino prices and alternative currency of mobility."},{"q":"What are the most effective strategies to save fuel as a front panel?","a":"To save money, monitor real consumption, prefer self distributors in Italy, plan out of peak time supplies, evaluate smart working and organize car pooling with colleagues, thus reducing outputs and costs."}]'};export{e as default};

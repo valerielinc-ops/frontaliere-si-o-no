@@ -1,0 +1,58 @@
+const e={"blog.article.ospedali-varesini-cambiamenti-20-anni.body1":`## In brief
+- 30-40% fewer beds in 20 years
+- More efficient but fragile care model
+- Specialization of facilities
+
+## Key facts
+- **What**: Reduction in beds and specialization
+- When: Over the past twenty years
+- Where: Hospitals in Varese, Busto Arsizio, Gallarate
+- Who: ASST Sette Laghi, ASST Valle Olona
+- Amount: 30-40% reduction in beds
+
+Over the past twenty years, the number of beds in hospitals in the area between Varese, Busto Arsizio, and Gallarate has significantly decreased. However, this is not just about cuts: there is a real revolution in the care model, which has changed the face of facilities such as the Circolo in Varese, Del Ponte, Busto Arsizio Hospital, and Sant’Antonio Abate in Gallarate. A change that has made the system more efficient but, according to some operators, also more fragile.
+
+The starting figure is eloquent: in the 2000s, Lombardy had an average of five to six beds per thousand inhabitants. Today, that number has dropped to between three and 3.2, with a reduction of around 30-40 percent. A trend that has affected all hospitals in the Varesotto area, albeit with different methods and intensity depending on the role each facility plays in the provincial network.
+
+### The Circolo in Varese: the hub aiming high
+
+The Circolo Hospital is the provincial reference for high specialties and the most complex cases. Its current capacity reflects this mission: around a hundred general medicine beds, about thirty cardiology beds with an attached coronary unit, thirty neurology beds, about twenty respectively for oncology, nephrology, and vascular surgery. In surgery, the facility maintains around sixty beds for general surgery, about fifty for orthopedics and traumatology, fifteen for neurosurgery. The critical area has about twenty intensive care beds and around fifteen sub-intensive care beds.
+
+Over the years, the Circolo has progressively reduced the beds in traditional medicine and surgery, but has strengthened high-intensity areas. The result is a facility with an enhanced role, not diminished, although profoundly different from the past. The day hospital has become a pillar: oncology, cardiology, hematology, and nephrology now manage much of the activity on an outpatient or day hospitalization basis, reserving ordinary beds for the most complex cases.
+
+### Del Ponte: the exception to the trend
+
+The Filippo Del Ponte Hospital in Varese is a case apart. While elsewhere the number of beds is decreasing, here the trend has gone in the opposite direction, at least in some sectors. Del Ponte is a predominantly maternal and child facility, and its specific mission has preserved it — and to some extent enhanced it — from the deepest cuts. Obstetrics and gynecology now have almost seventy-two active beds, with four places in day hospital. Neonatology has eighteen, neonatal intensive care eight, pediatric surgery seven with as many as eight day hospital places. Child neuropsychiatry has ten ordinary beds and two in day hospital. Even oncology is present, but only in day hospital, with three places, indicating that the outpatient model is also gaining ground in this facility.
+
+### Busto Arsizio: an advanced spoke
+
+The hospital in Busto Arsizio plays the role of an advanced spoke in the Lombard network, with a wide clinical coverage but lower complexity compared to the Varese hub. Its current capacity is significant: twenty-six beds in obstetrics and gynecology with three places in day hospital, fourteen in hematology, sixteen in pediatrics, six in intensive care, fourteen in psychiatry with one place in day hospital, sixteen in nephrology, twelve or thirteen in psychiatry. Pulmonology has been active for eleven months`,"blog.article.ospedali-varesini-cambiamenti-20-anni.body2":`### Implications for patients and the healthcare system
+
+The reduction in hospital beds and the specialization of facilities have led to a more efficient care model, but also to a more fragile system. Specialization has allowed resources to be concentrated in high-intensity areas, improving the quality of care for the most complex patients. However, this transformation has also made the system more vulnerable to peaks in demand or health crises, as demonstrated during the COVID-19 pandemic.
+
+### Comparison with the previous situation
+
+In the 2000s, hospitals in the Varesotto region had a larger number of beds and less specialization. This model allowed for greater flexibility in managing different types of patients, but with a lower quality of care compared to today. The reduction in beds and the increase in specialization have led to greater efficiency, but also to a greater dependence on specialized facilities for managing complex cases.
+
+### Future scenarios
+
+The future of the Varesotto healthcare system will depend on the ability to balance efficiency and resilience. It will be crucial to invest in staff training and technology to ensure a high-quality service, even in emergency situations. Furthermore, it will be necessary to strengthen collaboration between different facilities to optimize the use of resources and ensure fair and accessible healthcare for all citizens.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.ospedali-varesini-cambiamenti-20-anni.body3":`### What to do to access specialized care
+
+To access specialized care in the hospitals of Varesotto, it is necessary to follow some specific procedures. First of all, it is important to consult your general practitioner, who can assess the need for a specialist visit and provide a referral to the most appropriate facility. In some cases, it may be necessary to obtain an appointment through the online or telephone booking system of ASST Sette Laghi and Valle Olona.
+
+### Use the calculator for healthcare costs
+
+To plan healthcare costs and better understand the expenses associated with specialized care, you can use the [healthcare cost calculator](nav:calculator). This tool allows you to estimate the costs of specialist visits, hospital stays, and therapies, providing a clear and detailed overview of the expected expenses.
+
+### Compare healthcare facilities
+
+To compare the different healthcare facilities in Varesotto and choose the one that best suits your needs, you can use the [healthcare facility comparator](nav:health). This tool allows you to evaluate the services offered, patient reviews, and available specializations, making it easier to choose the most appropriate facility.
+
+### Conclusion
+
+The transformation of the hospitals in Varesotto over the last twenty years has led to a more efficient and specialized care model, but also to a more fragile system. To ensure high-quality healthcare, it is essential to follow the correct procedures to access specialized care and use the available tools to plan healthcare costs and compare facilities.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/meno-letti-piu-specializzazione-come-sono-cambiati-gli-ospedali-varesini-negli-ultimi-ventanni/2560024/)*`,"blog.article.ospedali-varesini-cambiamenti-20-anni.faq":'[{"q":"What are the main changes in the hospitals of Varesotto in the last twenty years?","a":"In the last twenty years, the hospitals of Varesotto have seen a significant reduction in hospital beds, going from an average of five-six beds per thousand inhabitants to three to three and two. This change has been accompanied by a greater specialization of the structures, with a focus on high-intensity areas such as cardiology, neurology, and oncology. The care model has become more efficient but also more fragile, with a greater dependence on specialized structures for the management of complex cases."},{"q":"How can I access specialized care in the hospitals of Varesotto?","a":"To access specialized care, you need to contact your general practitioner, who will assess the need for a specialist visit and provide a referral to the most appropriate facility. In some cases, it may be necessary to obtain an appointment through the online or telephone booking system of ASST Sette Laghi and Valle Olona."},{"q":"What tools can I use to plan my healthcare expenses?","a":"To plan your healthcare expenses, you can use the [healthcare expense calculator](nav:calculator). This tool allows you to estimate the costs of specialist visits, hospital stays, and therapies, providing a clear and detailed overview of the expected expenses."}]'};export{e as default};

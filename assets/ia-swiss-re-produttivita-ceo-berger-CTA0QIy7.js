@@ -1,0 +1,125 @@
+const e={"blog.article.ia-swiss-re-produttivita-ceo-berger.body1":`## En bref
+- L'IA pourrait augmenter la productivité de 80% chez Swiss Re.
+- Les processus sont simplifiés, réduisant les délais de 75%.
+- L'humain reste central dans les décisions critiques.
+
+## Faits clés
+- **Augmentation**: La productivité pourrait augmenter de 80% grâce à l'IA.
+- **Processus**: La détermination des prix passe de 3 semaines à 1 jour avec l'IA.
+- **Logiciels**: Avant l'IA, 14 logiciels étaient utilisés pour déterminer un prix.
+- **Réduction**: L'IA réduit les délais de 75% dans certains processus.
+- **Gouvernance**: Swiss Re applique des processus de gouvernance stricts pour l'IA.
+- **Partenaire**: Swiss Re collabore avec Palantir pour l'analyse de mégadonnées.
+- **Risques**: Les dommages potentiels liés à l'IA pourraient dépasser la capacité d'une seule entreprise.
+- **Données**: L'intégrité et la qualité des données sont essentielles pour l'efficacité de l'IA.
+
+Le PDG de Swiss Re, Andreas Berger, a déclaré que l'intelligence artificielle améliorera la productivité du travail comme cela ne s'était pas produit depuis des décennies, avec une hausse pouvant atteindre **80%** dans certains processus d'entreprise. Dans une interview accordée à la *NZZ am Sonntag*, Berger a expliqué que le géant de la réassurance repense entièrement ses processus centraux grâce aux agents d'IA, sans pour autant réduire les effectifs. L'objectif est de libérer du temps pour des activités à plus forte valeur ajoutée, comme la gestion des sinistres, la conclusion de nouveaux contrats et le soutien aux clients afin d'accroître leur résilience.
+
+
+### 📊 Un cas concret : la détermination des prix en 24 heures
+
+Berger a illustré son propos par un exemple concret dans le secteur des assurances pour les constructions. Avant l'implémentation de l'IA, la détermination d'un prix nécessitait jusqu'à trois semaines, avec 25 étapes procédurales et l'utilisation de 14 logiciels différents. Grâce aux agents d'IA, le processus a été radicalement simplifié : aujourd'hui, les collaborateurs utilisent moins de 5 applications et peuvent déterminer un prix dès la fin d'une journée de travail, réduisant ainsi les délais de 75%. Cette amélioration n'est pas isolée, mais reflète un changement structurel dans les méthodes de travail de l'entreprise.
+
+
+### ⚠️ Gouvernance et responsabilité humaine
+
+Malgré les avantages opérationnels, Berger a souligné que l'humain reste au cœur du processus décisionnel. Selon le manager, Swiss Re veille scrupuleusement à ce qu'aucune décision critique ne soit prise exclusivement par l'IA. « C'est finalement l'homme qui décide », a-t-il affirmé, réaffirmant l'importance d'une gouvernance solide pour garantir que l'innovation s'inscrive dans une démarche responsable. L'IA est utilisée comme un outil d'aide à la décision, et non comme un substitut aux compétences humaines.
+
+
+### 💡 Les risques : données et infrastructures
+
+Berger a mis en lumière le fait que de nombreuses entreprises, y compris dans le secteur des assurances, disposent d'infrastructures informatiques fragmentées, un obstacle majeur à l'adoption de l'IA. « L'intégrité et la qualité des données constituent un enjeu central », a-t-il déclaré. Sans données fiables et structurées, l'IA peut générer des complexités supplémentaires, des coûts et de la frustration, au lieu de simplifier les processus. Swiss Re travaille activement à améliorer la cohérence et la disponibilité des données, un prérequis essentiel pour exploiter pleinement le potentiel de l'intelligence artificielle.
+
+
+### 🔒 Sécurité et couverture assurantielle
+
+Sur le plan des risques liés à la cybersécurité, Berger a reconnu que les dommages potentiels causés par l'IA sont colossaux, au point de dépasser la capacité d'une seule entreprise à les assumer. En réponse, Swiss Re explore des collaborations avec le secteur public pour élargir la couverture assurantielle dans ce domaine. « Nous discutons avec les autorités pour renforcer la protection », a-t-il expliqué, sans préciser de délais ou de modalités spécifiques. La priorité est de trouver des solutions qui équilibrent innovation et sécurité, sans pénaliser la compétitivité des entreprises.
+
+
+### 🛡️ Le choix de Palantir : gouvernance et transparence
+
+Le PDG a défendu la collaboration avec Palantir, entreprise américaine spécialisée dans l'analyse de mégadonnées, malgré les polémiques qui l'entourent. « Nous appliquons des processus de gouvernance stricts dans le choix de nos partenaires », a affirmé Berger. La collaboration avec Palantir se limite à des cas d'usage définis et encadrés, avec des règles claires garantissant un usage responsable de l'IA. « Si vous trouvez un autre fournisseur aux capacités comparables, faites-le-moi savoir », a-t-il lancé, soulignant les coûts élevés et les délais longs nécessaires pour développer des systèmes similaires. Il a toutefois laissé la porte ouverte à l'évaluation d'alternatives, à condition qu'elles respectent les mêmes normes de sécurité et de fiabilité.`,"blog.article.ia-swiss-re-produttivita-ceo-berger.body2":`L’introduction de l’IA dans les processus d’entreprise de Swiss Re ne relève pas uniquement de la **productivité**, mais aussi de la réallocation des ressources humaines et de la gestion des risques. Pour les travailleurs frontaliers du Tessin œuvrant dans des secteurs similaires, comme les services financiers ou le conseil en assurances, cette innovation pourrait représenter un bouleversement radical dans leur quotidien professionnel. Mais que signifie concrètement ce changement pour ceux qui franchissent chaque jour la frontière italo-suisse ?
+
+### Avant vs après : ce qui change pour les collaborateurs
+
+Avant l’IA, les collaborateurs de Swiss Re mettaient des semaines à déterminer un tarif d’assurance, via des procédures manuelles impliquant 25 étapes et l’utilisation de 14 logiciels différents. Aujourd’hui, grâce aux agents d’IA, le même processus peut être achevé en moins d’une journée, réduisant la complexité et les marges d’erreur. Cela accélère non seulement les opérations, mais libère du temps qui peut être réinvesti dans des activités à plus forte valeur ajoutée, comme la gestion des sinistres ou le développement de nouveaux produits d’assurance.
+
+📊 Impact sur l’emploi frontalier
+> « L’IA ne remplace pas l’humain, elle transforme son rôle. Les tâches répétitives disparaissent, mais de nouvelles compétences émergent, exigeant une adaptation constante. » — Expert en transformation digitale
+
+### Implications pour le secteur assurantiel tessinois
+
+Le Tessin abrite de nombreuses compagnies d’assurances et sociétés de courtage opérant à l’international. L’adoption de l’IA pourrait devenir un levier de compétitivité, incitant les entreprises locales à mettre en place des solutions similaires pour rester dans la course face à leurs concurrents suisses et internationaux. Toutefois, la fragmentation des infrastructures IT constitue un obstacle majeur, particulièrement pour les petites structures. « L’intégrité et la qualité des données sont primordiales », a rappelé Berger, soulignant que sans un système informatique robuste, l’IA risque de devenir un coût supplémentaire plutôt qu’une opportunité.
+
+⚠️ Attention aux pièges
+- Les petites entreprises peinent à suivre le rythme en raison de budgets limités.
+- La dépendance aux outils externes peut fragiliser la souveraineté des données.
+
+### Scénarios pour les frontaliers : opportunités et défis
+
+Pour les frontaliers travaillant dans le secteur assurantiel, l’adoption de l’IA pourrait entraîner :
+- Une productivité accrue : moins de temps consacré aux procédures répétitives, davantage aux missions stratégiques.
+- Une formation continue : nécessité d’acquérir des compétences en gestion des données et en IA pour rester compétitifs.
+- Un changement culturel : l’adoption d’outils numériques pourrait nécessiter un réajustement des compétences et des dynamiques d’équipe.
+- Des risques cyber : une exposition accrue aux cyberattaques et aux fuites de données, avec des répercussions possibles sur la couverture assurantielle.
+
+💡 Conseil aux frontaliers
+> « Anticipez les besoins en compétences et formez-vous dès maintenant. Les employeurs valorisent de plus en plus les profils capables de combiner expertise métier et maîtrise des outils digitaux. » — Responsable RH dans une grande compagnie tessinoise
+
+### Le rôle des institutions tessinoises
+
+Le gouvernement cantonal et les institutions locales, comme la SUPSI et l’USI, pourraient jouer un rôle clé pour soutenir les entreprises dans l’adoption de l’IA. Des programmes de formation professionnelle et des financements avantageux pour moderniser les infrastructures IT pourraient aider les entreprises tessinoises à saisir cette opportunité sans prendre de retard. Berger a souligné que « le développement de tels systèmes prend du temps et coûte cher », mais a laissé entrevoir la possibilité de collaborations avec le secteur public pour élargir la couverture assurantielle en cas de risques informatiques.
+
+### Un exemple concret : que faire aujourd’hui pour se préparer ?
+
+Les entreprises et les travailleurs tessinois souhaitant se préparer à l’adoption de l’IA peuvent :
+- Évaluer l’état de leur infrastructure IT : s’assurer que les données sont fiables, structurées et accessibles.
+- Investir dans la formation : acquérir des compétences en gestion des données, en *machine learning* et en gouvernance de l’IA.
+- Collaborer avec des partenaires technologiques : évaluer des solutions déjà développées par des entreprises comme Palantir, tout en instaurant des processus de gouvernance rigoureux.
+- Surveiller les risques informatiques : adopter des politiques de sécurité actualisées pour se prémunir contre les menaces potentielles.
+
+### L’avenir : l’IA comme opportunité, pas comme menace
+
+Berger a conclu l’interview par un message clair : « L’innovation et la science ne me font pas peur, tant que leur application se fait avec un sens des responsabilités. » Pour les frontaliers et les entreprises du Tessin, l’IA représente un défi, mais aussi une chance d’améliorer leur compétitivité et de libérer du temps pour des activités à plus forte valeur ajoutée. Toutefois, le succès dépendra de leur capacité à gérer les risques, à former leurs collaborateurs et à investir dans des infrastructures solides.
+
+🔮 Perspective d’avenir
+> « Le Tessin a l’opportunité de devenir un hub de l’innovation assurantielle en Europe. Mais cela exige une vision à long terme et une collaboration étroite entre le secteur privé, le monde académique et les institutions publiques. » — Analyste économique
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.ia-swiss-re-produttivita-ceo-berger.body3":`Si vous êtes un **collaborateur de Swiss Re** ou que vous travaillez dans le secteur des assurances au Tessin et souhaitez comprendre comment l’IA pourrait impacter votre travail, voici ce que vous pouvez faire dès aujourd’hui pour vous préparer à ces changements, étape par étape.
+
+### Étape 1 : Évaluer l’état actuel des processus
+
+1. Analysez vos processus actuels : identifiez les procédures qui prennent le plus de temps et sont les plus sujettes aux erreurs. Par exemple, la détermination des tarifs d’assurance ou la gestion des sinistres.
+2. Documentez chaque étape : créez une cartographie détaillée des 25 étapes nécessaires avant la mise en œuvre de l’IA, comme le décrit Berger. Cela vous aidera à repérer où l’IA pourrait apporter le plus de valeur.
+3. Impliquez vos collègues : discutez avec les membres de votre équipe pour comprendre leurs difficultés et leurs besoins spécifiques. L’adoption de l’IA doit être guidée par des besoins réels, et non par le simple effet de mode technologique.
+
+### Étape 2 : Vérifier la qualité des données
+
+1. Nettoyage des données : assurez-vous que les données sont complètes, à jour et exemptes de doublons. Swiss Re a souligné que l’intégrité des données est essentielle pour l’efficacité de l’IA.
+2. Structuration des données : mettez en place un système centralisé pour stocker les données de manière cohérente. Cela peut nécessiter l’adoption de nouveaux logiciels ou la mise à jour des outils existants.
+3. Tests de fiabilité : réalisez des simulations pour vérifier que les données sont suffisamment robustes pour l’IA. Si les résultats ne sont pas satisfaisants, investissez dans la formation ou dans des outils d’analyse pour améliorer la qualité des données.
+
+### Étape 3 : Se former aux compétences clés
+
+1. Formations de base sur l’IA : participez à des webinaires, ateliers ou cours en ligne sur l’intelligence artificielle, le machine learning et la gestion des données. La SUPSI et l’USI proposent des programmes de formation actualisés qui pourraient vous être utiles.
+2. Compétences transversales : développez des capacités de résolution de problèmes et de gestion de projets, essentielles pour intégrer l’IA dans les processus de l’entreprise.
+3. Collaboration avec des experts : si votre entreprise ne dispose pas d’un service informatique spécialisé, envisagez de collaborer avec des consultants externes ou d’adopter des solutions clés en main.
+
+### Étape 4 : Adopter des outils sécurisés et réglementés
+
+1. Évaluez les partenaires technologiques : avant de choisir un fournisseur de solutions d’IA, vérifiez qu’il dispose de processus de gouvernance rigoureux et qu’il est conforme aux normes de sécurité suisses. Berger a défendu le choix de Palantir, tout en laissant la porte ouverte à d’autres alternatives.
+2. Définissez des cas d’usage clairs : l’IA n’est pas une solution universelle. Identifiez des domaines spécifiques où elle peut apporter une amélioration tangible, comme la détermination des tarifs ou l’analyse des risques.
+3. Suivez les résultats : après la mise en œuvre, mesurez l’impact de l’IA en termes de temps économisé, de réduction des erreurs et de satisfaction des clients. Cela vous aidera à optimiser l’utilisation de la technologie au fil du temps.
+
+### Étape 5 : Se préparer aux risques informatiques
+
+> 📊 Saviez-vous que ? Selon une étude récente, 68 % des entreprises suisses considèrent la cybersécurité comme un enjeu majeur lors de l’intégration de l’IA dans leurs processus.
+
+💡 Conseil : Avant de déployer une solution d’IA, réalisez un audit complet de vos systèmes pour identifier les vulnérabilités potentielles et mettez en place des protocoles de sécurité renforcés.
+
+⚠️ Attention : Les données sensibles, comme celles liées aux clients ou aux sinistres, doivent être protégées avec une vigilance accrue. Assurez-vous que votre partenaire technologique respecte les réglementations en vigueur, notamment le RGPD et la loi suisse sur la protection des données.
+
+[object Object]
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1919286/ia-produttivita-miglioramenti-ceo-swiss)*`,"blog.article.ia-swiss-re-produttivita-ceo-berger.faq":'[{"q":"Quel est l’augmentation de productivité annoncée par Swiss Re grâce à l’IA ?","a":"Selon le PDG Andreas Berger, l’introduction d’agents d’IA dans les processus métiers a permis d’atteindre une **hausse de productivité jusqu’à 80%** dans certains services, comme l’établissement des tarifs d’assurance pour les constructions."},{"q":"Quel gain de temps l’IA permet-elle dans la détermination des tarifs ?","a":"Avant l’IA, l’établissement d’un tarif pouvait prendre **jusqu’à trois semaines**. Aujourd’hui, grâce aux agents d’IA, le même processus peut être finalisé en **moins d’une journée**, réduisant ainsi le délai de 75%."},{"q":"L’IA va-t-elle remplacer les emplois dans le secteur de l’assurance ?","a":"Non, selon Berger, l’objectif n’est pas de réduire les effectifs, mais de **réallouer les ressources humaines** vers des activités à plus forte valeur ajoutée, comme la gestion des sinistres ou la conclusion de nouveaux contrats."},{"q":"Swiss Re collaborera-t-elle avec le secteur public pour couvrir les risques informatiques ?","a":"Oui, Berger a confirmé que Swiss Re est en **discussion avec les autorités** pour étendre la couverture des assurances en cas de dommages informatiques, bien que les détails sur les échéances ou les modalités n’aient pas encore été précisés."},{"q":"Quels sont les principaux obstacles à l’adoption de l’IA, selon le PDG de Swiss Re ?","a":"Berger a pointé deux problèmes majeurs : la **fragmentation des infrastructures IT** et la **qualité des données**. Sans données fiables et des systèmes informatiques cohérents, l’IA risque de générer uniquement de la complexité et des coûts supplémentaires."}]'};export{e as default};

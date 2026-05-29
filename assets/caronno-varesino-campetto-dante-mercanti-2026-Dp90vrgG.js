@@ -1,0 +1,62 @@
+const e={"blog.article.caronno-varesino-campetto-dante-mercanti-2026.body1":`## En bref
+- Inauguration du nouveau terrain de sport à Caronno Varesino
+- Dédié à Dante Mercanti
+- Rafraîchissements offerts par la Pro Loco
+
+## Points clés
+- **Quoi** : Inauguration du nouveau terrain de sport
+- Quand : Samedi 9 mai à 16h
+- Où : Via Macchi, Caronno Varesino
+- Qui : Administration communale et Pro Loco de Caronno Varesino
+- Coût : Non spécifié
+
+Caronno Varesino se prépare à un événement significatif pour la communauté locale. Samedi 9 mai à 16h, via Macchi, aura lieu l'inauguration du nouveau terrain de sport, une initiative qui représente une étape importante pour le village. La zone sportive, conçue comme un lieu de rassemblement pour les jeunes, les familles et les amateurs d'activités en plein air, sera dédiée à Dante Mercanti, une figure chérie par la communauté. La cérémonie officielle marquera le début de l'utilisation de l'installation, qui promet d'être un point de référence pour le sport et les loisirs à Caronno Varesino.
+
+À la fin de la cérémonie, des rafraîchissements seront offerts par la Pro Loco de Caronno Varesino, une occasion de partager ce nouveau succès avec les citoyens. L'initiative n'enrichit pas seulement l'offre sportive du village, mais revêt également une valeur symbolique, rendant hommage à une personne qui a laissé une empreinte dans la communauté. L'administration communale invite tous les citoyens à participer à cet événement, qui promet d'être un moment de fête et de partage.
+
+### Un succès pour la communauté
+L'inauguration du nouveau terrain de sport représente une étape significative pour Caronno Varesino. La structure, située via Macchi, a été conçue pour offrir un espace dédié au sport et aux loisirs, promouvant la cohésion et le bien-être des citoyens. La dédicace à Dante Mercanti ajoute une valeur symbolique supplémentaire à l'initiative, honorant une figure qui a contribué de manière significative à la vie de la communauté.
+
+La cérémonie d'inauguration sera une occasion de célébrer non seulement la nouvelle structure, mais aussi le travail et l'engagement de tous ceux qui ont rendu ce projet possible. La présence de représentants institutionnels et de la Pro Loco souligne l'importance de l'événement pour le village, qui se prépare à vivre un moment de fête et de partage.
+
+### Une occasion de rassemblement
+Le nouveau terrain de sport de Caronno Varesino promet d'être un lieu de rassemblement pour les jeunes et les familles. La structure, conçue pour accueillir diverses disciplines sportives, offrira une opportunité supplémentaire de pratiquer des activités en plein air et de promouvoir un mode de vie sain. La dédicace à Dante Mercanti représente un hommage à sa mémoire et un moyen de garder son souvenir vivant dans la communauté.
+
+L'administration communale invite tous les citoyens à participer à l'inauguration, qui aura lieu samedi 9 mai à 16h. La cérémonie sera suivie de rafraîchissements offerts par la Pro Loco, une occasion de socialiser et de partager ce succès avec des amis et des voisins. L'événement représente un moment de fête pour toute la communauté, qui pourra profiter d'une nouvelle structure sportive et d'un lieu de rencontre dédié aux loisirs.`,"blog.article.caronno-varesino-campetto-dante-mercanti-2026.body2":`L'inauguration du nouveau terrain de sport à Caronno Varesino représente une opportunité de réfléchir sur l'importance du sport et de l'agrégation dans la vie de la communauté. La structure, dédiée à Dante Mercanti, n'offre pas seulement un nouvel espace pour pratiquer des activités sportives, mais revêt également une valeur symbolique, honorant une figure qui a laissé une empreinte dans la vie du village.
+
+### Implications pour la communauté
+La réalisation du nouveau terrain de sport aura un impact positif sur la vie de la communauté de Caronno Varesino. La structure, située via Macchi, offrira une opportunité supplémentaire pour pratiquer des sports et des activités de plein air, promouvant le bien-être physique et mental des citoyens. De plus, la dédicace à Dante Mercanti représente un hommage à sa mémoire et un moyen de garder son souvenir vivant dans la communauté.
+
+L'inauguration du nouveau terrain de sport sera une occasion de célébrer non seulement la nouvelle structure, mais aussi le travail et l'engagement de tous ceux qui ont rendu ce projet possible. La présence de représentants institutionnels et de la Pro Loco souligne l'importance de l'événement pour le village, qui se prépare à vivre un moment de fête et de partage.
+
+### Promotion de l'agrégation
+Le nouveau terrain de sport de Caronno Varesino s'annonce comme un lieu de rassemblement pour les jeunes et les familles. La structure, conçue pour accueillir diverses disciplines sportives, offrira une opportunité supplémentaire pour pratiquer des activités de plein air et promouvoir un mode de vie sain. La dédicace à Dante Mercanti représente un hommage à sa mémoire et un moyen de garder son souvenir vivant dans la communauté.
+
+L'administration communale invite tous les citoyens à participer à l'inauguration, qui se tiendra samedi 9 mai à 16 heures. La cérémonie sera suivie d'un rafraîchissement offert par la Pro Loco, une occasion de socialiser et de partager ce succès avec des amis et des voisins. L'événement représente un moment de fête pour toute la communauté, qui pourra profiter d'une nouvelle structure sportive et d'un lieu de rencontre dédié aux loisirs.
+
+### Une occasion de réflexion
+L'inauguration du nouveau terrain de sport à Caronno Varesino représente une opportunité de réfléchir sur l'importance du sport et de l'agrégation dans la vie de la communauté. La structure, dédiée à Dante Mercanti, n'offre pas seulement un nouvel espace pour pratiquer des activités sportives, mais revêt également une valeur symbolique, honorant une figure qui a laissé une empreinte dans la vie du village.
+
+L'administration communale invite tous les citoyens à participer à l'inauguration, qui se tiendra samedi 9 mai à 16 heures. La cérémonie sera suivie d'un rafraîchissement offert par la Pro Loco, une occasion de socialiser et de partager ce succès avec des amis et des voisins. L'événement représente un moment de fête pour toute la communauté, qui pourra profiter d'une nouvelle structure sportive et d'un lieu de rencontre dédié aux loisirs.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.caronno-varesino-campetto-dante-mercanti-2026.body3":`Pour participer à l'inauguration du nouveau terrain de sport à Caronno Varesino, les citoyens sont invités à se présenter samedi 9 mai à 16h via Macchi. La cérémonie officielle marquera le début de l'utilisation de l'installation, qui sera dédiée à Dante Mercanti. À la fin de la cérémonie, un rafraîchissement offert par la Pro Loco de Caronno Varesino est prévu, une occasion de socialiser et de partager cette étape avec des amis et des voisins. 
+
+### Procédure pour la participation
+1. **Date et Heure**: Samedi 9 mai à 16h
+2. Lieu: Via Macchi, Caronno Varesino
+3. Cérémonie: Coupure du ruban et inauguration officielle
+4. Rafraîchissement: Offerte par la Pro Loco de Caronno Varesino
+
+L'administration communale invite tous les citoyens à participer à cet événement, qui représente un moment de fête et de partage pour toute la communauté. La présence de représentants institutionnels et de la Pro Loco souligne l'importance de l'événement pour le pays, qui se prépare à vivre un moment de fête et de partage.
+
+### Ce qu'il faut apporter
+Les participants sont invités à apporter des vêtements confortables et adaptés à l'occasion. Il n'est pas nécessaire d'apporter quoi que ce soit de spécifique, puisque le rafraîchissement sera offert par la Pro Loco. Cependant, il est conseillé d'apporter une bouteille d'eau et un chapeau pour se protéger du soleil pendant la cérémonie en plein air.
+
+### Contacts utiles
+Pour plus d'informations sur l'inauguration du nouveau terrain de sport à Caronno Varesino, il est possible de contacter la Pro Loco de Caronno Varesino ou l'administration communale. La Pro Loco peut être jointe au numéro de téléphone [numéro de téléphone non spécifié] ou par email à l'adresse [adresse email non spécifiée]. L'administration communale peut être contactée au numéro de téléphone [numéro de téléphone non spécifié] ou par email à l'adresse [adresse email non spécifiée].
+
+### Calculateur de participation
+Pour aider les citoyens à planifier leur participation à l'inauguration, un calculateur de participation en ligne est disponible. Cet outil permet d'estimer le nombre de personnes qui participeront à l'événement et d'organiser au mieux le rafraîchissement offert par la Pro Loco. Pour accéder au calculateur, visitez le site [lien vers le calculateur non spécifié].
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/caronno-varesino-inaugura-il-nuovo-campetto-dedicato-a-dante-mercanti/2563390/)*`,"blog.article.caronno-varesino-campetto-dante-mercanti-2026.faq":`[{"q":"Où se trouve le nouveau terrain de sport à Caronno Varesino?","a":"Le nouveau terrain de sport se trouve dans la rue Macchi, à Caronno Varesino."},{"q":"Qui a rendu possible la réalisation du nouveau terrain de sport?","a":"La réalisation du nouveau terrain de sport a été rendue possible grâce au travail et à l'engagement de l'administration communale et de la Pro Loco de Caronno Varesino."},{"q":"Que faire si je ne peux pas assister à l'inauguration?","a":"Si vous ne pouvez pas assister à l'inauguration, vous pourrez tout de même profiter du nouveau terrain de sport plus tard. La structure sera ouverte au public après la cérémonie officielle."}]`};export{e as default};

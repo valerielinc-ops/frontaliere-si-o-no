@@ -1,0 +1,64 @@
+const e={"blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.body1":`## In brief
+- Mini-retreat of 0.1% in turnover in March 2026
+- +0.5% in real terms, accounting for inflation
+- UST data based on 3000 companies
+
+## Key facts
+- **What**: Retail trade turnover
+- When: March 2026
+- Where: Switzerland
+- Who: Federal Statistical Office (UST)
+- Amount: -0.1% nominal, +0.5% real
+
+March 2026 closed with substantial stability for Swiss stationary and online stores. However, data from the Federal Statistical Office (UST) show a mini-retreat of 0.1% in turnover compared to March 2025, after adjusting for different trading days and holidays. In real terms, considering inflation, there was a progression of 0.5%. Excluding petrol stations, the decline was 0.7% nominal and zero in real terms.
+
+### Struggling sectors
+The food, beverages, and tobacco sector saw a nominal annual decrease of 1.5%, while the non-food sector recorded a -0.3% nominal and +0.9% real. The data are based on a sample of around 3000 companies, with the smallest ones consulted quarterly.
+
+### Implications for cross-border workers
+For cross-border workers employed in Swiss retail, this mini-retreat could have indirect impacts. Companies might review budgets and investments, influencing job opportunities and contractual conditions. Moreover, the stability of the sector could reflect on hiring policies and benefits offered to employees.
+
+### Comparison with 2025
+Compared to 2025, the Swiss retail sector shows some resilience. Despite the mini-retreat, the non-food sector recorded real growth. This could indicate a consumer preference for non-essential goods, an interesting trend for cross-border workers in this sector.
+
+### Future prospects
+As the summer season approaches, the sector might register a recovery. Cross-border workers could benefit from an increase in seasonal hiring, especially in the non-food sector. However, it is important to monitor monthly data to have a more comprehensive picture of the situation.
+
+To delve into the tax and pension implications for cross-border workers, consult the [salary calculator](nav:calculator).`,"blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.body2":`## Practical Analysis
+The mini-decline in Swiss retail turnover has several implications for cross-border workers. Firstly, it's important to understand how this trend might affect job opportunities and contractual conditions. Companies may review their budgets and investments, directly impacting hiring and the benefits offered to employees.
+
+### Impact on the Food Sector
+The food, beverages, and tobacco sector saw a nominal decrease of 1.5%. This could indicate a reduction in demand or increased competition. For cross-border workers in this sector, it's crucial to monitor market trends and adapt to new consumer needs.
+
+### Opportunities in the Non-Food Sector
+The non-food sector showed real growth of 0.9%. This could represent an opportunity for cross-border workers seeking new job opportunities. Companies may be more inclined to hire qualified personnel to meet the growing demand for non-essential goods.
+
+### Comparison with 2025
+Compared to 2025, the Swiss retail sector shows some resilience. Despite the mini-decline, the non-food sector recorded real growth. This could indicate a consumer preference for non-essential goods, an interesting trend for cross-border workers in this sector.
+
+### Future Prospects
+As the summer season approaches, the sector may see a recovery. Cross-border workers could benefit from an increase in seasonal hiring, especially in the non-food sector. However, it's important to monitor monthly data for a more comprehensive picture.
+
+### Concrete Actions
+For cross-border workers in retail, it's essential to stay updated on market trends and adapt to new consumer needs. Additionally, it's important to monitor hiring policies and the benefits offered by companies. To delve deeper into the tax and pension implications, consult the [salary calculator](nav:calculator).
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.body3":`## Concrete actions
+For cross-border workers employed in Swiss retail, it's important to adopt a series of concrete actions to address the minor dip in turnover. Firstly, it's crucial to monitor market trends and adapt to new consumer needs. This might mean acquiring new skills or specializing in growing sectors.
+
+### Monitoring job opportunities
+As the summer season approaches, the sector may see a recovery. Cross-border workers could benefit from an increase in seasonal hiring, especially in the non-food sector. It's important to monitor job offers and apply promptly.
+
+### Adapting to new consumer needs
+The non-food sector has shown a real growth of 0.9%. This could represent an opportunity for cross-border workers seeking new job opportunities. Companies might be more inclined to hire qualified personnel to meet the growing demand for non-essential goods.
+
+### Monitoring hiring policies
+Companies might review their budgets and investments, directly influencing hiring and the benefits offered to employees. It's important to monitor hiring policies and the benefits offered by companies to remain competitive.
+
+### Consult the salary calculator
+To delve deeper into the tax and pension implications for cross-border workers, consult the [salary calculator](nav:calculator). This tool can help you better understand your income and expenses, allowing you to plan your financial future more effectively.
+
+### Conclusion
+In conclusion, the minor dip in turnover in Swiss retail has several implications for cross-border workers. However, with the right concrete actions, it's possible to address this situation and seize new opportunities. Monitoring market trends, adapting to new consumer needs, and consulting useful tools like the [salary calculator](nav:calculator) can make all the difference.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/commercio-al-dettaglio%3a-mini-flessione-dei-ricavi-in-marzo/91346538)*`,"blog.article.commercio-al-dettaglio-mini-flessione-marzo-2026.faq":'[{"q":"What are the implications of the slight decline in turnover for cross-border workers?","a":"The slight decline in turnover could influence job opportunities and contractual conditions for cross-border workers. Companies might review their budgets and investments, directly affecting hiring and the benefits offered to employees."},{"q":"How can I monitor market trends in Swiss retail?","a":"You can monitor market trends by consulting the monthly data from the Federal Statistical Office (FSO) and staying updated on hiring policies and benefits offered by companies."},{"q":"What are the job opportunities in the non-food sector?","a":"The non-food sector has shown a real growth of 0.9%, representing an opportunity for cross-border workers. Companies might be more inclined to hire qualified personnel to meet the increasing demand for non-essential goods."}]'};export{e as default};

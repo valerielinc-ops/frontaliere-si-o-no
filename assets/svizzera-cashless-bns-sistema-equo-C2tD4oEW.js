@@ -1,0 +1,69 @@
+const i={"blog.article.svizzera-cashless-bns-sistema-equo.body1":`## In breve
+- Il contante è al 30% delle transazioni in cassa
+- Le app di pagamento sono al 20%
+- La BNS avverte sui rischi di concentrazione
+
+## Fatti chiave
+- **Cosa**: Utilizzo del contante e app di pagamento
+- Quando: Dati 2024
+- Dove: Svizzera
+- Chi: Banca Nazionale Svizzera (BNS)
+- Importo: 30% contante, 20% app di pagamento
+
+I pagamenti senza contanti continuano a guadagnare terreno in Svizzera. Secondo le rilevazioni periodiche della Banca nazionale svizzera (BNS), il contante è oggi utilizzato in circa il 30% delle transazioni alla cassa, mentre le app di pagamento – Twint in testa – hanno raggiunto il 20% delle operazioni. A fotografare questo scenario è stato in particolare Petra Tschudin, membro della Direzione generale della BNS, in un recente intervento a Zurigo in cui ha anche lanciato un chiaro avvertimento: la concentrazione del mercato nei pagamenti digitali è un rischio reale, e richiede interventi mirati.
+
+### Le tre velocità dei pagamenti in Svizzera
+
+Il panorama dei pagamenti al dettaglio si è trasformato rapidamente nell’ultimo decennio. Il sondaggio BNS 2024 – il più recente con dati completi – restituisce un quadro preciso: la carta di debito è il mezzo più utilizzato, impiegata nel 35% degli acquisti; il contante tiene il 30% delle transazioni di persona; le app di pagamento raggiungono il 20% e le carte di credito il restante 14%. A titolo di confronto, nel 2017 il contante era ancora al 70%: uno spostamento di quaranta punti in sette anni, che non ha precedenti nella storia dei pagamenti elvetici.
+
+### Il rischio di concentrazione
+
+Ed è proprio sulle app e sui network di pagamento che si gioca la partita più interessante. Secondo la BNS, il mercato svizzero è oggi dominato da quattro grandi operatori: Mastercard, Visa, PostFinance e Twint. Una concentrazione che porta con sé il rischio di una deriva oligopolistica, con effetti sulla concorrenza, sulle commissioni e in ultima analisi sui costi per commercianti e consumatori.
+
+### L'intervento della BNS
+
+Di fronte a questo scenario, Tschudin ha tracciato una distinzione che vale la pena tenere a mente. Non tutti i segmenti del sistema dei pagamenti richiedono la stessa dose di concorrenza. Per l’infrastruttura centrale di regolamento – il sistema Swiss Interbank Clearing (SIC), gestito da SIX su mandato della BNS – esiste un “monopolio naturale”: avere un unico operatore è la soluzione più efficiente, e la BNS garantisce che questa posizione non venga abusata. Diverso il discorso per i network di pagamento. Qui, ha spiegato Tschudin, “né un monopolio né un mercato con molti concorrenti è desiderabile”: serve un equilibrato mix di competizione.
+
+### Misure concrete
+
+Per contrastare la deriva verso la concentrazione, la BNS propone misure concrete: regolamentazione delle commissioni di interscambio, riduzione delle barriere all’ingresso e apertura forzata delle interfacce tecnologiche. Uno dei fronti più caldi riguarda le cosiddette interchange fees, le commissioni che i network applicano ai commercianti per ogni transazione. In Svizzera la Commissione della concorrenza (COMCO) ha già avviato un’indagine su questo tema, che potrebbe portare a cambiamenti significativi nel mercato dei pagamenti.`,"blog.article.svizzera-cashless-bns-sistema-equo.body2":`### Implicazioni per i frontalieri
+
+La transizione verso un sistema di pagamenti sempre più digitale ha implicazioni significative per i frontalieri che lavorano in Svizzera. Con l'aumento dell'uso delle app di pagamento e delle carte di debito, è fondamentale che i frontalieri siano consapevoli delle opzioni disponibili e dei costi associati. Ad esempio, l'uso di Twint o altre app di pagamento può offrire vantaggi in termini di convenienza e velocità, ma è importante confrontare le commissioni e le condizioni offerte dai diversi provider.
+
+### Confronto tra metodi di pagamento
+
+Per aiutare i frontalieri a navigare in questo panorama, è utile fare un confronto tra i diversi metodi di pagamento disponibili. Ecco una tabella comparativa che mostra i pro e i contro di ciascun metodo:
+
+| Metodo di Pagamento | Vantaggi | Svantaggi |
+|-------------------|-----------|------------|
+| Contante         | Anonimato, nessuna commissione | Meno conveniente, rischio di furto |
+| Carta di debito  | Conveniente, ampiamente accettata | Possibili commissioni, rischio di frode |
+| App di pagamento | Velocità, convenienza | Dipendenza dalla tecnologia, commissioni |
+| Carta di credito | Reward, protezione del consumatore | Commissioni elevate, rischio di debito |
+
+### Scenari futuri
+
+Con l'evoluzione del sistema dei pagamenti, è possibile immaginare diversi scenari futuri. Uno scenario ottimistico vede un mercato dei pagamenti più equo e competitivo, con una maggiore scelta per i consumatori e costi più bassi per i commercianti. Tuttavia, uno scenario pessimistico potrebbe portare a una maggiore concentrazione del mercato, con pochi operatori dominanti che dettano le condizioni.
+
+### Cosa fare ora
+
+Per i frontalieri, è importante stare al passo con i cambiamenti e adottare le nuove tecnologie di pagamento. È consigliabile esplorare le diverse opzioni disponibili e scegliere quella che meglio si adatta alle proprie esigenze. Inoltre, è fondamentale monitorare le eventuali modifiche normative e le decisioni della BNS che potrebbero influenzare il mercato dei pagamenti.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.svizzera-cashless-bns-sistema-equo.body3":`### Passaggi concreti per i frontalieri
+
+1. **Valutare le opzioni di pagamento**: Confrontare le commissioni e le condizioni offerte dai diversi provider di servizi di pagamento.
+2. Adottare nuove tecnologie: Sperimentare con app di pagamento come Twint e altre piattaforme digitali.
+3. Monitorare le normative: Tenersi aggiornati sulle decisioni della BNS e sulle eventuali modifiche normative.
+4. Confrontare i costi: Utilizzare strumenti di confronto per valutare i costi associati ai diversi metodi di pagamento.
+5. Proteggere i dati personali: Assicurarsi di utilizzare piattaforme di pagamento sicure e proteggere le informazioni personali.
+
+### Strumenti utili
+
+Per aiutare i frontalieri a navigare nel complesso mondo dei pagamenti digitali, Frontaliere Ticino offre una serie di strumenti utili. Tra questi, il [calcolatore di stipendio](nav:calculator) può aiutare a confrontare i costi associati ai diversi metodi di pagamento e a pianificare le spese. Inoltre, la [guida ai pagamenti digitali](nav:exchange) fornisce informazioni dettagliate sulle opzioni disponibili e sui passaggi da seguire per utilizzare al meglio le nuove tecnologie.
+
+### Conclusione
+
+La transizione verso un sistema di pagamenti sempre più digitale offre sia opportunità che sfide per i frontalieri. Con la giusta informazione e gli strumenti adeguati, è possibile navigare con successo in questo nuovo panorama e trarre vantaggio dalle nuove tecnologie. Restare informati e adottare un approccio proattivo sono fondamentali per affrontare i cambiamenti in corso.
+
+*Fonte: [tio.ch](https://www.tio.ch/newsblog/valute-e-frontiere/1918997/svizzera-sempre-piu-cashless-ma-la-bns-vuole-un-sistema-piu-equo)*`,"blog.article.svizzera-cashless-bns-sistema-equo.faq":'[{"q":"Quali sono i principali metodi di pagamento in Svizzera?","a":"I principali metodi di pagamento in Svizzera includono il contante, le carte di debito, le app di pagamento come Twint e le carte di credito. Ogni metodo ha i suoi vantaggi e svantaggi, e la scelta dipende dalle esigenze individuali."},{"q":"Come posso confrontare i costi associati ai diversi metodi di pagamento?","a":"Puoi utilizzare strumenti di confronto come il [calcolatore di stipendio](nav:calculator) per valutare i costi associati ai diversi metodi di pagamento. Inoltre, è utile monitorare le commissioni e le condizioni offerte dai diversi provider."},{"q":"Quali sono le implicazioni per i frontalieri?","a":"I frontalieri devono essere consapevoli delle opzioni di pagamento disponibili e dei costi associati. È importante adottare nuove tecnologie di pagamento e monitorare le eventuali modifiche normative per affrontare al meglio i cambiamenti in corso."}]'};export{i as default};

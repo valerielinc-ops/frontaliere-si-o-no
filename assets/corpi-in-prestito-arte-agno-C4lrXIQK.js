@@ -1,0 +1,32 @@
+const e={"blog.article.corpi-in-prestito-arte-agno.body1":`## Auf einen Blick
+- Ausstellung 'Corpi in prestito' von Gloria Guidi Nobile
+- Ort: Verein für häusliche Pflege in Serocca d'Agno
+- Kostenlos bis 31. Dezember 2026, Mo-Fr 8:00-12:00 und 14:00-18:00
+
+## Wichtige Fakten
+- **Ausstellungstitel**: Corpi in prestito (Geliehene Körper)
+- **Künstlerin**: Gloria Guidi Nobile
+- **Ort**: Verein für häusliche Pflege Maggio, Via Campagna 13, Serocca d'Agno
+- **Öffnungszeiten**: Montag bis Freitag, 8:00-12:00 und 14:00-18:00
+- **Dauer**: Bis 31. Dezember 2026
+- **Thema**: Geliehene Körper, um die tiefsten Bedeutungen der Existenz zu interpretieren
+- **Zielgruppe**: Grenzgänger und lokale Gemeinschaft
+
+Nicht nur Arbeit, Staus am Grenzübergang Gaggiolo oder Steuerangelegenheiten. Das Tessin bietet auch Oasen der kulturellen Reflexion, oft an unerwarteten Orten und abseits der bekannten Pfade. Dies ist der Fall bei der Einzelausstellung der Malerin Gloria Guidi Nobile mit dem Titel "Corpi in prestito" (Geliehene Körper), die an einem ganz besonderen Ort stattfindet: in den Räumlichkeiten des Vereins für häusliche Pflege und Betreuung Maggio in der Via Campagna 13 in Serocca d'Agno. Eine Initiative, die die Kunst aus den traditionellen Galerien herausholt und in das lebendige Gefüge der lokalen Gemeinschaft einbettet.
+
+Die Ausstellung, die von Montag bis Freitag während der Bürozeiten (8:00-12:00 und 14:00-18:00) kostenlos besucht werden kann, läuft über einen langen Zeitraum bis zum **31. Dezember 2026**. Dies bietet ein grosses Zeitfenster für die Planung eines Besuchs. Das Thema selbst ist evokativ und kraftvoll, wie in der Präsentation beschrieben: "Geliehene Körper, um die tiefsten Bedeutungen der Existenz zu interpretieren." Ein Konzept, das für diejenigen, die wie Grenzgänger täglich ihre Zeit und Energie in einem grenzüberschreitenden Arbeitskontext 'leihen' und ein physisches und existenzielles Pendeln erleben, eine einzigartige Resonanz haben kann.`,"blog.article.corpi-in-prestito-arte-agno.body2":`## Zugängliche Kunst, ausserhalb der üblichen Schemata
+
+Die Wahl des Ortes ist kein Zufall und verdient eine Überlegung. Kunstwerke in einem Verein für häusliche Pflege auszustellen, unterstreicht eine tiefe Verbindung zwischen Verletzlichkeit, Hilfe und künstlerischem Ausdruck. Für einen Grenzgänger, der es gewohnt ist, sich zwischen den Industriezentren von Mendrisio oder den Finanzzentren von Lugano zu bewegen, kann die Entdeckung dieser Seite des Tessins eine bereichernde Erfahrung sein. Serocca d'Agno im Bezirk Lugano ist leicht erreichbar und bietet eine Alternative zu den überfüllten Zielen, ideal für eine andere Mittagspause oder einen kulturellen Abstecher vor der Rückkehr nach Italien über den nahegelegenen Grenzübergang Ponte Tresa.
+
+Das Werk von Gloria Guidi Nobile (www.gloriaguidi.ch) lädt zu einer intimen Betrachtung ein. Es handelt sich nicht um ein gesellschaftliches Ereignis, sondern um eine Gelegenheit, sich mit einer künstlerischen Sprache zu verbinden, die die menschliche Verfassung untersucht. Diese Initiative zeigt, wie die Kultur im Tessin nicht nur auf grosse Institutionen wie das LAC in Lugano beschränkt ist, sondern sich kapillar im Gebiet ausbreitet und sich in das soziale und betreuende Leben integriert. Ein Aspekt des Kantons, der denen, die ihn nur in der Arbeitsdimension erleben, oft entgeht, aber seine authentischste Seele ausmacht.`,"blog.article.corpi-in-prestito-arte-agno.body3":`## Das Tessin leben, nicht nur dort arbeiten
+
+Momente der Freizeit und Kultur in den Alltag zu integrieren, ist für ein gesundes psychophysisches Gleichgewicht von grundlegender Bedeutung, insbesondere für diejenigen, die sich den Herausforderungen des grenzüberschreitenden Pendelns stellen. Veranstaltungen wie die Ausstellung "Geliehene Körper" sind wertvolle Gelegenheiten, um aus der Routine auszubrechen, neue Ecken des Kantons zu entdecken und sich als Teil einer breiteren Gemeinschaft jenseits der beruflichen Rolle zu fühlen.
+
+💡 **Praktische Tipps:**
+- **Öffnungszeiten:** Die Ausstellung ist nur an Wochentagen geöffnet. Perfekt für diejenigen, die in der Gegend arbeiten und ihre Mittagspause nutzen möchten.
+- **Standort:** Überprüfen Sie die genaue Adresse (Via Campagna 13, Serocca d'Agno), bevor Sie losfahren. Sie befindet sich in einer betrieblichen Einrichtung, daher ist Respekt für die laufenden Aktivitäten erforderlich.
+- **Dauer:** Sie haben bis Ende 2026 Zeit, also keine Eile, aber tragen Sie es in Ihren Kalender ein.
+
+Das reiche kulturelle Angebot des Tessins zu geniessen, ist einer der Vorteile der Arbeit über die Grenze hinweg, aber um dies unbeschwert tun zu können, ist es unerlässlich, die volle Kontrolle über die eigenen Finanzen zu haben. Zu verstehen, wie Quellensteuern, der Franken-Euro-Wechselkurs und neue Steuervorschriften das monatliche Einkommen beeinflussen, ist der erste Schritt zur Planung der Freizeit. Um ein klares Bild zu erhalten, bietet unser Nettolohnrechner eine detaillierte und aktuelle Schätzung auf der Grundlage der neuesten Bestimmungen.
+
+*(Quelle: Tio.ch, 18.02.2026)*`,"blog.article.corpi-in-prestito-arte-agno.faq":`[{"q":"Wo können Sie die Ausstellung 'Bodies on Leih' des Malers Gloria Guidi Nobile besuchen?","a":"Die Ausstellung befindet sich im Hauptsitz des Vereins für Assistenz und Pflege zu Hause Mai, in Via Campagna 13 in Serocca d'Agno."},{"q":"Wie kann ich meine Freizeit in Tessin unter Berücksichtigung der steuerlichen Auswirkungen meiner grenzüberschreitenden Arbeit planen?","a":"Verwenden Sie einen aktuellen Netto-Gehälterrechner, um die Einschränkungen, die Frank-Euro-Änderung und Steuerregeln zu verstehen, dann planen Sie Aktivitäten wie den Besuch der Ausstellung "Bodies on Darlehen" von Gloria Guidi Nobile."},{"q":"Was sind die effizientesten Transportmittel, um Serocca d'Agno von der Schweizer Grenze zu erreichen?","a":"Um Serocca d'Agno zu erreichen, können Sie den öffentlichen Nahverkehr, wie Busse und Züge, nutzen oder sich für Ihr Fahrzeug entscheiden, wenn Sie die Möglichkeit des Parkens in der Nähe berücksichtigen. Die nächste Station ist Lugano, ca. 10 km entfernt, leicht mit öffentlichen Verkehrsmitteln erreichbar."}]`};export{e as default};

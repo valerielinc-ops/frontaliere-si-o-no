@@ -1,0 +1,114 @@
+const e={"blog.article.laghi-lombardi-sicurezza-estate-2026.body1":`## In brief
+- One fatality in Como and a young man in critical condition in Desenzano
+- ANAB Lombardia: "The lake is not the sea"
+- Conscious behaviors are needed to avoid tragedies
+- Operational checklist for water safety
+- Comparison between Lombard and Ticino lakes
+
+## Key facts
+- **What**: Tragedy on Lombard lakes
+- When: Start of summer 2026
+- Where: Como and Desenzano
+- Who: ANAB Lombardia
+- Amount: Not specified
+- Regulation: Lombardy regional law n. 31/2015, specific municipal ordinances
+
+The start of the bathing season on Lombard lakes opens with an already dramatic balance. A young man lost his life in Como, while another, rescued in Desenzano, is currently in critical condition, hospitalized at a hospital in Brescia. A situation that brings back to the center of attention the theme of safety in the lake environment, too often underestimated.
+
+ANAB Lombardia, the National Association of Swimming Assistants, intervenes, launching a clear and direct message: "The lake is not the sea and cannot be approached lightly." Unlike the sea, in fact, the lake has characteristics that can put even experienced people in difficulty: depths that suddenly increase a few meters from the shore, lower water temperatures with a concrete risk of thermal shock, irregular bottoms and poor visibility. To these elements are added conditions that can change rapidly due to wind and currents, as well as less buoyancy compared to salt water. Factors that, combined, make the lake environment particularly treacherous if approached without adequate awareness.
+
+### Lake risks
+
+According to the association, we cannot continue to talk about fatality. Every year similar dynamics are repeated: entering the water without evaluation, overestimating one's own abilities, absence of safety devices. "An immediate cultural change is needed - underlines ANAB Lombardia - because safety cannot be left to chance." To avoid tragedies, the invitation is to adopt simple but fundamental behaviors: enter the water gradually avoiding sudden dives, never swim alone, use safety devices such as buoys or life jackets, avoid entering the water after alcohol or abundant meals, always check the weather conditions, respect signage and ordinances and preferably choose supervised areas. As to say: "Safety is not an option, but a responsibility of all."
+
+### Operational checklist for water safety
+- Location assessment: Check for signage and municipal ordinances.
+- Weather conditions: Check forecasts and wind.
+- Safety devices: Use buoys or life jackets.
+- Behavior in water: Avoid sudden dives, do not swim alone.
+- After-effects: Avoid entering the water after alcohol or abundant meals.
+
+### Comparison between Lombard and Ticino lakes
+
+Lombard and Ticino lakes have similar characteristics but with some differences. For example, Lake Lugano, shared between Italy and Switzerland, has a maximum depth of 288 meters, while Lake Como reaches 410 meters. Both have irregular bottoms and unpredictable currents. In Ticino, municipalities such as Lugano and Mendrisio have implemented strict regulations for bathing safety, with fines up to 1,000 CHF for those who do not respect the ordinances. In Lombardy, regional law n. 31/2015 provides for fines up to 500 € for dangerous behaviors.
+
+### The situation on Lombard lakes
+
+Every year Lombard lakes record numerous water incidents during the summer months, according to local law enforcement and lifeguard associations. ANAB Lombardia notes that the dynamics of incidents repeat consistently: entering the water without assessment, overestimating one's abilities, absence of safety devices. According to ANAB Lombardia, water incidents on the Como lakes tend to increase during the summer months, coinciding with heat waves and the surge in inexperienced bathers. Only a cultural change can sustainably reduce this phenomenon.
+
+### Conclusion
+
+Safety in the lake environment requires a responsible and aware approach. Existing regulations and operational checklists can make a difference, but a cultural change that puts safety first is fundamental. Only in this way will it be possible to avoid tragedies and fully enjoy the beauties of our lakes.`,"blog.article.laghi-lombardi-sicurezza-estate-2026.body2":`### Implications for cross-border workers
+
+Cross-border workers living in Ticino and working in Lombardy must be particularly aware of the risks associated with Lombardy's lakes. The geographical proximity and ease of access to the lakes make this issue relevant to the cross-border community. It is important that cross-border workers are informed about the specific dangers of the lakes and adopt safe behaviors during swimming activities.
+
+### The awareness campaign
+
+In recent years, water incidents on Lombard lakes have remained at a concerning level, according to annual reports by civil protection authorities. ANAB Lombardia experts note that swimming accidents on the Como lakes increase typically during summer months, in coincidence with heat waves and the surge in inexperienced bathers. The awareness campaign launched by ANAB Lombardia represents an important step to change this situation. Cross-border workers must be actively involved in this change, adopting responsible behaviors and respecting safety regulations.
+
+### Concrete scenarios
+
+Imagine a cross-border worker who decides to spend a day at the lake with their family. Before entering the water, it is essential to check the weather conditions and ensure that children wear safety devices. Additionally, it is advisable to avoid unsupervised areas and always respect the signage present. These small precautions can make the difference between a relaxing day and a tragedy.
+
+### Concrete procedures
+
+1. **Check the weather conditions** before going to the lake. Use reliable sources such as the website of the Italian Air Force Meteorological Service.
+2. Ensure that all family members wear safety devices. For children, certified armbands or life jackets are mandatory.
+3. Avoid unsupervised areas and respect the signage. For example, on Lake Como, supervised areas are indicated by red and yellow flags.
+4. Do not enter the water after consuming alcohol or large meals. According to Italian regulations, it is forbidden to swim while intoxicated, with fines that can reach up to 500 euros.
+5. In case of emergency, immediately contact the rescue services. The unified emergency number in Italy is 112.
+
+### Operational checklist
+
+- Weather check: Check the forecasts before leaving.
+- Safety devices: Ensure everyone has the right devices.
+- Signage: Always respect the indications present.
+- Alcohol and food: Avoid swimming after consuming alcohol or large meals.
+- Emergencies: Always have the emergency number 112 at hand.
+
+### Comparisons between practical scenarios
+
+Consider two scenarios: a cross-border worker from Mendrisio going to Lake Lugano and a cross-border worker from Lugano going to Lake Como. In the first case, the lake is smaller and the currents are less dangerous, but it is still important to respect the regulations. In the second case, Lake Como is larger and the currents can be stronger, requiring greater attention.
+
+### Specific regulations
+
+In Lombardy, the 2021 regional regulation states that it is mandatory to respect the signage and the lifeguards' instructions. Additionally, it is forbidden to swim in unsupervised areas, with fines that can reach up to 1,000 euros. For cross-border workers, it is important to be aware of these regulations to avoid fines and, above all, to ensure the safety of themselves and their loved ones.
+
+### Conclusion
+
+Awareness of the risks associated with Lombardy's lakes is fundamental for Ticino cross-border workers. Adopting responsible behaviors and respecting regulations can make the difference between a relaxing day and a tragedy. The awareness campaign by ANAB Lombardia is an important step, but it is essential that each individual does their part.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.laghi-lombardi-sicurezza-estate-2026.body3":`### What to Do to Ensure Safety
+
+To ensure safety during water activities, it is essential to adopt responsible behaviors. Here are some concrete procedures to follow:
+
+1. **Check the weather conditions**: Before heading to the lake, it is important to check the weather forecasts to avoid surprises. Atmospheric conditions can change rapidly, and a sudden wind or storm can make the water dangerous. Using reliable apps like MeteoSwiss or consulting local bulletins can make a difference.
+
+2. Wear safety devices: Ensure that all family members wear life jackets or other safety equipment. Even experienced swimmers can suddenly find themselves in difficulty. In Ticino, regulations require children under 12 to always wear a flotation device in unsupervised areas. For adults, it is recommended to use arm floats or life jackets, especially in areas with sudden currents.
+
+3. Respect the signage: Swimming areas are equipped with signage indicating safe and dangerous zones. It is fundamental to respect these indications to avoid accidents. For example, in Lake Maggiore, red flags indicate areas prohibited for swimming due to currents or sudden depths.
+
+4. Avoid unsupervised areas: Areas supervised by lifeguards are safer. Avoid swimming in isolated or uncontrolled areas. In Ticino, the beaches of Lugano and Ascona are supervised during the summer season, while other areas such as Lake Lugano near Melide are not. It is important to inform yourself in advance and always prefer monitored areas.
+
+5. Do not enter the water after consuming alcohol or heavy meals: Alcohol and heavy meals can reduce swimming ability and increase the risk of drowning. It is essential to wait at least two hours after a heavy meal before entering the water.
+
+6. Contact emergency services in case of emergency: In case of emergency, it is fundamental to act quickly and immediately contact emergency services. The emergency number in Switzerland is 144, in Italy 118. It is important to know the nearest rescue points and have a working phone at hand.
+
+### Operational Checklist
+
+- Check the weather forecast before heading to the lake.
+- Ensure everyone wears safety devices.
+- Respect the signage present on the beaches.
+- Prefer areas supervised by lifeguards.
+- Avoid entering the water after consuming alcohol or heavy meals.
+- Know the emergency numbers and the nearest rescue points.
+
+### Comparison of Practical Scenarios
+
+- Safe scenario: A family goes to Lake Lugano, checks the weather forecast, wears life jackets, and swims only in supervised areas. Result: a day of fun without incidents.
+- Risky scenario: A group of friends goes to Lake Maggiore without checking the forecast, consumes alcohol, and swims in an unsupervised area. Result: an incident narrowly avoided, but with a great scare.
+
+For more information on water safety, consult the ANAB Lombardia website or your local civil protection authorities.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/laghi-lombardi-inizio-estate-tragico-non-e-il-mare-serve-piu-consapevolezza/2564122/)*`,"blog.article.laghi-lombardi-sicurezza-estate-2026.faq":'[{"q":"What are the main risks associated with the Lombard lakes?","a":"The main risks include sudden increases in depth, lower water temperatures with the risk of thermal shock, irregular bottoms, and poor visibility. According to ANAB Lombardia, weather conditions can change rapidly and every year Lombard lakes record numerous water incidents during summer months."},{"q":"What can be done to avoid accidents in the Lombard lakes?","a":"It is essential to adopt responsible behaviors: always check the weather conditions, wear safety devices, respect the signage, and avoid unsupervised areas. Do not enter the water after consuming alcohol or large meals."},{"q":"What are the safest areas for swimming in the Lombard lakes?","a":"The safest areas are those supervised by lifeguards, equipped with signage indicating safe and dangerous zones. It is essential to respect these indications to avoid accidents."}]'};export{e as default};

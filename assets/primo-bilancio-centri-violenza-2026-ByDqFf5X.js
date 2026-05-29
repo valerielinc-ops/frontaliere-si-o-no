@@ -1,0 +1,58 @@
+const e={"blog.article.primo-bilancio-centri-violenza-2026.body1":`## In brief
+- 398 men followed in the CUAV in the first year
+- 224 completed the assessment process
+- Average age of 42 years
+
+## Key facts
+- **What**: Balance of the Centers for Men Authors of Violence (CUAV)
+- When: First year of activity
+- Where: Territories of ATS Insubria (Varese and Como)
+- Who: ATS Insubria, CIPM, Dorian Gray Onlus, Associazione InfraMente, Fondazione Somaschi
+- Amount: 398 men intercepted, 224 completed the process
+
+In the first year of activity, the Centers for Men Authors or potential authors of Violence (CUAV) active in the territories of ATS Insubria outline a first balance: 398 men intercepted between requests for information and initial interviews, of which 224 completed the assessment process. The four active sites between Varese and Como mainly welcome men with an average age of 42, often already involved in judicial proceedings related to episodes of domestic violence against partners, ex-partners and, in some cases, children.
+
+### Paths of accountability
+The data from this first year demonstrate how fundamental it is to work on the protection of victims and also on the change of men who are authors of violence. Intervening on both fronts means preventing new risky situations and contributing to the creation of more aware and safer communities. Centers offer individual and group paths to help recognize the violence acted, take responsibility for it and develop alternative relational modalities.
+
+### Prevention and territorial work
+Alongside the treatment paths, ample space is dedicated to prevention: meetings in schools on the themes of consent and gender stereotypes, activities with people with addictions and public events. The work continues in the prisons of Varese and Como, with groups addressed to the detainees. The CUAV are managed on the territory by CIPM, Dorian Gray Onlus, Associazione InfraMente and Fondazione Somaschi.
+
+### Implications for cross-border workers
+For cross-border workers who work in Lombardy and reside in Ticino, it is important to know that these centers offer support not only to the authors of violence, but also to the victims. The geographical proximity and the collaboration between Italian and Swiss institutions facilitate access to services, making the prevention and treatment of domestic violence more effective.`,"blog.article.primo-bilancio-centri-violenza-2026.body2":`## Analysis of Practical Implications
+The Centers for Men Authors of Violence (CUAV) represent a significant step in the fight against domestic violence, offering concrete support to both perpetrators and victims. For cross-border workers who work in Lombardy and reside in Ticino, the geographical proximity and collaboration between Italian and Swiss institutions facilitate access to services, making the prevention and treatment of domestic violence more effective.
+
+### Comparison with the Previous Situation
+Before the establishment of the CUAV, the management of domestic violence was often fragmented and less coordinated. The creation of these centers has allowed resources to be centralized and more structured and targeted treatment paths to be offered. This integrated approach not only helps perpetrators recognize and manage their violence but also contributes to protecting victims and preventing new risky situations.
+
+### Concrete Scenarios
+Imagine a cross-border worker who works in Varese and resides in Mendrisio. If this individual is involved in a domestic violence incident, they can turn to the CUAV to receive support and follow a path of empowerment. Similarly, victims can access protection and assistance services, ensuring a safer and more aware environment for everyone.
+
+### Collaboration Between Institutions
+The collaboration between ATS Insubria, CIPM, Dorian Gray Onlus, Associazione InfraMente, and Fondazione Somaschi is fundamental to ensuring an integrated and coordinated approach. This synergy allows for more comprehensive services to be offered and a greater number of people in need of support to be reached.
+
+### Prevention and Awareness
+In addition to treatment paths, the CUAV dedicates ample space to prevention through meetings in schools, activities with people with addictions, and public events. These initiatives aim to raise awareness in the community about the issues of consent and gender stereotypes, contributing to creating a more aware and safe society.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.primo-bilancio-centri-violenza-2026.body3":`## Concrete actions and useful tools
+For cross-border workers who want to delve deeper or access the services offered by the Centres for Men Perpetrators of Violence (CUAV), it is important to know the procedures and available resources. Here is a practical guide to navigating this context.
+
+### Procedure to access services
+1. **Contact the CUAV**: The centers are active in the locations of Varese and Como. It is possible to request information or schedule a first interview by phone or through the website.
+2. Initial assessment: During the first interview, the specific situation will be evaluated and a personalized path will be defined.
+3. Participation in paths: The men involved can participate in individual or group paths, aimed at recognizing and managing violence.
+4. Continuous support: The centers offer continuous support to ensure change and prevent relapses.
+
+### Useful tools
+- Salary calculator: For cross-border workers who work in Lombardy and reside in Ticino, it is important to correctly calculate their salary and taxes. Use the [salary calculator](nav:calculator) to get an accurate estimate.
+- Tax guide: Compare tax rates between Italy and Switzerland to optimize your financial situation. Consult the [tax guide](nav:tax-return) for more details.
+- Legal assistance: In case of need, you can turn to legal assistance services to protect your rights and those of the victims.
+
+### Deadlines and required documents
+There are no specific deadlines to access the services of the CUAV, but it is important to act promptly in case of need. Useful documents include: identity, residence documents and any judicial documents.
+
+### Conclusion
+The Centres for Men Perpetrators of Violence (CUAV) represent an important resource for the prevention and treatment of domestic violence. For cross-border workers who work in Lombardy and reside in Ticino, access to these services is facilitated by geographical proximity and collaboration between institutions. Use the available tools to calculate your salary and optimize your financial situation, and do not hesitate to contact the CUAV in case of need.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/ats-insubria-fa-il-primo-bilancio-dei-centri-per-autori-di-violenza-contro-le-donne-398-uomini-presi-in-carico/2562649/)*`,"blog.article.primo-bilancio-centri-violenza-2026.faq":'[{"q":"What are the requirements to access the services of the CUAV?","a":"The requirements to access the services of the Centres for Men Authors of Violence (CUAV) include the willingness to participate in assessment and treatment pathways. There are no specific restrictions related to residence or nationality, but it is necessary to contact the centres for an initial assessment."},{"q":"How can I contact the CUAV?","a":"You can contact the CUAV through the official website or by calling the offices in Varese and Como. During the first interview, your specific situation will be assessed and a personalized pathway will be defined."},{"q":"What are the costs for the services offered by the CUAV?","a":"The costs for the services offered by the Centres for Men Authors of Violence (CUAV) vary depending on the chosen pathway. However, many services are offered free of charge or at a reduced cost, thanks to the support of the institutions and organizations involved."}]'};export{e as default};

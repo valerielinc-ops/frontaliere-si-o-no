@@ -1,0 +1,87 @@
+const e={"blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.body1":`## CHF-EUR exchange: the variable that determines your real take-home pay
+
+For a cross-border worker in Ticino, the gross salary in Swiss francs is only the starting point. The income that actually reaches your Italian bank account depends directly on the CHF-EUR exchange rate at the time of conversion. A shift of just three cents — say from 0.90 to 0.93 EUR/CHF — can mean hundreds of euros more or less per year, without any change to your employment contract.
+
+Consider a concrete example: a cross-border worker with a net salary of **CHF 5,500 per month**.
+
+| Exchange rate | EUR/month (net) | EUR/year (net) |
+|---|---|---|
+| 0.90 EUR/CHF | €4,950 | €59,400 |
+| 0.93 EUR/CHF | €5,115 | €61,380 |
+| 0.96 EUR/CHF | €5,280 | €63,360 |
+
+The difference between the worst scenario (0.90) and the best (0.96) is **€3,960 per year** — nearly an extra month's salary, purely due to the rate at the time of conversion. This is why exchange rate management is not a minor detail, but a central component of every cross-border worker's financial planning.
+
+### The concept of a conversion strategy
+
+Knowing the rate is necessary, but not sufficient. The real question is: **when** and **how** to convert. Should you convert everything on payday, or wait for a more favourable moment? Should you accumulate CHF and convert quarterly to average the rate over time? Or keep part of your income in CHF in a Swiss account?
+
+There is no single answer: it depends on your personal situation, your fixed costs in euros (mortgage, rent, Italian bills), and your individual risk tolerance. The starting point is recognising that this is an **active choice**, not a fixed given.
+
+### Checklist for the new cross-border worker
+
+First steps for setting up a rational approach to currency conversion:
+
+- **Open an optimised Italian current account**: some online accounts (N26, Revolut) support multiple currencies without excessive fees
+- **Check your Swiss employer's payment policy**: some pay in CHF to a Swiss account, others convert directly before payment
+- **Calculate your fixed monthly costs in EUR**: rent, mortgage, Italian bills — this is your minimum monthly conversion requirement
+- **Monitor the rate at least once a week**: apps like XE Currency or Google Finance are sufficient
+- **Consider opening a PostFinance Swiss account** to hold CHF and decide when to convert
+- **Never convert at a traditional bank without comparing alternatives**: the spread applied makes a significant difference (see next section)`,"blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.body2":`## Conversion platforms: what does it actually cost to exchange your CHF?
+
+Not all exchange platforms are equal. The real cost of a conversion depends on three elements: the **spread** on the exchange rate (difference between the interbank rate and the rate applied to you), **fixed fees** per transaction, and possible monthly account costs. Here is an indicative comparison based on typical documented ranges:
+
+| Platform | Typical spread | Fixed fees | Notes |
+|---|---|---|---|
+| Traditional Swiss bank (PostFinance, UBS, ex-CS) | 1.0–2.0% | often CHF 5–15 per wire | high spread, full service |
+| Wise (ex-TransferWise) | 0.4–0.6% on mid-market rate | no fixed fee | transparent rate, fast credit |
+| Revolut | 0% up to monthly plan limit | 0.5% above limit | limit varies by plan (Free, Plus, Premium) |
+| N26 | 0% within SEPA zone (EUR→EUR) | ~1.7% for currency exchange | less competitive for CHF→EUR |
+
+Figures are indicative and subject to change: always verify current conditions on each platform's official website.
+
+### Concrete annual savings
+
+On a net salary of **CHF 5,500/month**, the difference between a traditional bank (estimated average effective cost ~1.5%) and Wise (~0.5%) is:
+
+- Annual cost via traditional bank: CHF 5,500 × 12 × 1.5% ≈ **CHF 990/year**
+- Annual cost via Wise: CHF 5,500 × 12 × 0.5% ≈ **CHF 330/year**
+- **Indicative saving: approximately CHF 660/year** ≈ €615 at a rate of 0.93
+
+When discussing cross-border worker income optimisation, saving 600+ euros per year with a simple platform switch is one of the most accessible improvements available.
+
+### Italian tax obligation: the quadro RW
+
+An often-overlooked aspect: Italian residents who hold foreign accounts (including Swiss accounts) are **required to complete the quadro RW** section of the Italian tax return if the foreign account balance exceeded **€15,000** (approximately CHF 16,000 at the current rate) at any point during the year. This obligation applies to PostFinance and any other Swiss account held by a cross-border worker.
+
+Failing to declare in the quadro RW is a punishable tax violation. If in doubt, consult an accountant with expertise in cross-border worker taxation.
+
+### Two scenarios compared
+
+**Scenario A — Automatic monthly conversion**: the cross-border worker sets up a recurring transfer on the day their salary is credited. Advantage: simplicity, immediate coverage of fixed costs. Disadvantage: the rate is whatever it is that day, with no optimisation opportunity.
+
+**Scenario B — Accumulation and quarterly conversion**: the worker holds CHF in a Swiss account for 3 months and converts when the rate appears favourable. Advantage: potential to benefit from short-term rate rises. Disadvantage: requires EUR reserves to cover fixed costs in the meantime, and triggers the RW obligation if the balance exceeds the threshold.`,"blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.body3":`## Timing strategies: when is it best to convert?
+
+The currency market has some recurring patterns worth knowing, even without being a professional trader.
+
+**Avoid Monday mornings**: markets are closed over the weekend, but the economic world keeps generating news. Banks and platforms compensate for this risk by slightly widening their spread in the first hours of Monday. Converting Tuesday to Thursday during mid-day hours is generally preferable.
+
+**Watch the SNB calendar**: the Swiss National Bank announces its monetary policy decisions quarterly, typically in **March, June, September and December**. Interest rate decisions directly influence the CHF. In the days immediately following SNB announcements, volatility increases — not the ideal moment for large conversions if you want to avoid surprises.
+
+**Summer seasonality**: historically, the EUR tends to weaken slightly during holiday periods (July-August), when trading volumes fall. This is not an absolute rule, but it is a documented pattern that may favour directing your larger conversions towards spring or autumn.
+
+### Multi-currency accounts: holding CHF until you need to convert
+
+Italian residents with a G or B permit and a Swiss employer can open a **PostFinance** account in Switzerland. This allows you to receive your salary in CHF, keep it in the account, and decide independently when and how much to convert. PostFinance also offers Maestro/Visa debit cards usable directly in CHF for Swiss expenses (fuel, lunches, shopping), further reducing the need for frequent conversions.
+
+Alternatively, platforms like **Wise** offer multi-currency accounts with separate CHF and EUR IBANs: you can receive your salary in the CHF balance, cover Swiss expenses without conversion, and transfer to EUR only when the rate is favourable.
+
+### Operational summary
+
+Optimal CHF-EUR management for a cross-border worker comes down to three practical choices:
+
+1. **Choose the right platform** — Wise or Revolut for small frequent amounts; PostFinance for maintaining CHF liquidity
+2. **Set a conversion plan** — automatic monthly for fixed expenses, discretionary for the surplus
+3. **Respect Italian tax obligations** — complete the quadro RW if any foreign account balance exceeds €15,000 at any point during the year
+
+To simulate your personal scenario — gross salary, withholding tax, AVS/LPP/LAMal contributions — and see how many euros you actually receive each month, use the [exchange rate comparator](nav:exchange).`,"blog.article.frontaliere-cambio-chf-eur-strategia-2026-simulazione-pratica.faq":'[{"q":"How much can the exchange rate difference be worth over a year for a cross-border worker?","a":"For a net salary of CHF 5,500 per month, the difference between a rate of 0.90 EUR/CHF and 0.96 EUR/CHF amounts to nearly €4,000 per year. Even small shifts of 2-3 cents in the rate translate to hundreds of euros of annual difference."},{"q":"Which platforms are most convenient for converting CHF to EUR as a cross-border worker?","a":"Wise (typical spread 0.4-0.6%) and Revolut (0% up to the monthly plan limit) are generally more competitive than traditional Swiss banks (typical spread 1-2%). The difference on CHF 5,500/month can exceed CHF 600 per year. Figures are approximate: always check current conditions on each platform."},{"q":"Do I need to declare my Swiss bank account to the Italian tax authorities?","a":"Yes, if the balance of a foreign account (including a Swiss account such as PostFinance) exceeded €15,000 at any point during the year, you must complete the quadro RW section of your Italian tax return. Omitting this is a punishable tax violation. If in doubt, consult an accountant specialising in cross-border worker taxation."}]'};export{e as default};

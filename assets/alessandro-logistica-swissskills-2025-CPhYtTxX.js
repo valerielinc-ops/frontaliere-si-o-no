@@ -1,0 +1,60 @@
+const e={"blog.article.alessandro-logistica-swissskills-2025.body1":`## In breve
+- Alessandro, 19 anni, lavora in logistica al Cardiocentro di Lugano
+- Partecipa agli SwissSkills 2025 a Berna
+- Studia per diventare tecnico dei processi aziendali
+
+## Fatti chiave
+- **Cosa**: Percorso lavorativo e di studio di Alessandro
+- Quando: 2026
+- Dove: Cardiocentro di Lugano e Berna
+- Chi: Alessandro Capuzzo
+- Importo: Non ancora specificato
+
+A 19 anni, Alessandro Capuzzo ha già le idee chiare sul proprio futuro. Impiegato in logistica presso l’Istituto Cardiocentro di Lugano e studente alla scuola per tecnici dei processi aziendali, è tra i giovani talenti che hanno partecipato agli SwissSkills 2025, a Berna. La sua quotidianità si divide tra studio e lavoro, in un ambiente dinamico come quello ospedaliero.
+
+«Mi occupo di rifornire i reparti con tutto ciò di cui hanno bisogno», racconta. Un’attività che lo porta a muoversi costantemente all’interno della struttura mettendolo a contatto con diverse persone. «Mi piace girare nell’ospedale, fare consegne e soprattutto lo scambio con i colleghi nei reparti, anche un semplice ciao! rende le giornate più leggere».
+
+Accanto alla dimensione relazionale, c’è anche quella più tecnica del lavoro in magazzino. Il commissionamento, anche noto come picking o preparazione degli ordini, è un’altra colonna portante della logistica di magazzino. In poche parole consiste nel mettere insieme tutte le merci che vanno a comporre il carrello del destinatario. «Mi piace il commissionamento, preparare gli ordini. È un momento in cui mi concentro: per una quarantina di minuti raccolgo gli articoli e ragiono su come organizzare tutto. Sistemare gli oggetti in modo preciso e ordinato mi dà soddisfazione».
+
+Un’attenzione al dettaglio che è fondamentale nella professione di Alessandro. Dietro il suo percorso c’è un forte sostegno familiare. «Per me la famiglia è casa, un punto di riferimento importante nella mia vita», spiega. Mi piace che il legame resti solido: «Siamo in contatto costante e questo ci tiene uniti». Un supporto che ha avuto un ruolo decisivo anche nella scelta professionale. «La mia famiglia mi ha aiutato molto: è stato importante avere qualcuno che crede in me».
+
+Per Alessandro, il confine tra lavoro e famiglia si fa spesso sottile. «Quando l’ambiente di lavoro è positivo e si va d’accordo, diventa un piacere. Anche i colleghi possono diventare come una seconda famiglia». Un clima che contribuisce a mantenere alta la motivazione e a vivere con serenità le giornate lavorative.
+
+### La partecipazione agli SwissSkills
+La partecipazione agli SwissSkills ha rappresentato per lui una tappa importante. Non solo una sfida professionale, ma anche un’opportunità di crescita personale. Come molti altri giovani, Alessandro Capuzzo dimostra come la formazione professionale non sia un’alternativa, ma una scelta solida e ricca di prospettive, valori e passione. Elementi che, insieme, costruiscono il vero significato del suo percorso.`,"blog.article.alessandro-logistica-swissskills-2025.body2":`## Implicazioni per i giovani lavoratori
+Il percorso di Alessandro è un esempio di come la formazione professionale possa offrire opportunità concrete e soddisfazione personale. La sua esperienza nel settore logistico, unito allo studio per diventare tecnico dei processi aziendali, mostra come sia possibile combinare pratica e teoria per costruire una carriera solida.
+
+### Opportunità di crescita
+La partecipazione agli SwissSkills 2025 ha rappresentato per Alessandro una tappa fondamentale. Questo evento non solo ha messo alla prova le sue competenze, ma gli ha anche offerto l’opportunità di confrontarsi con altri giovani talenti, ampliando così le sue prospettive professionali.
+
+### Il ruolo della famiglia
+Un altro aspetto cruciale del percorso di Alessandro è il sostegno familiare. La famiglia rappresenta un punto di riferimento importante, offrendo supporto emotivo e pratico. Questo sostegno è essenziale per affrontare le sfide della vita lavorativa e formativa, soprattutto in un contesto dinamico come quello ospedaliero.
+
+### L’importanza della logistica
+Il lavoro di Alessandro nella logistica ospedaliera è un esempio di come questo settore sia fondamentale per il funzionamento di una struttura complessa come un ospedale. La logistica non solo garantisce che i reparti siano sempre forniti di tutto il necessario, ma contribuisce anche a creare un ambiente di lavoro positivo e collaborativo.
+
+### Conclusione
+Il percorso di Alessandro è un esempio di come la formazione professionale possa offrire opportunità concrete e soddisfazione personale. La sua esperienza nel settore logistico, unito allo studio per diventare tecnico dei processi aziendali, mostra come sia possibile combinare pratica e teoria per costruire una carriera solida.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.alessandro-logistica-swissskills-2025.body3":`## Cosa fare per intraprendere un percorso simile
+Se sei un giovane interessato a intraprendere un percorso simile a quello di Alessandro, ci sono alcuni passi fondamentali da seguire. Innanzitutto, è importante scegliere una formazione che combinasse pratica e teoria, come un apprendistato o un corso di tecnico dei processi aziendali.
+
+### Passo 1: Scegliere la formazione giusta
+Per diventare tecnico dei processi aziendali, è necessario seguire un percorso formativo specifico. In Ticino, ad esempio, ci sono diverse scuole che offrono corsi di formazione professionale in questo settore. È importante informarsi sulle opportunità disponibili e scegliere quella che meglio si adatta alle proprie esigenze e interessi.
+
+### Passo 2: Trovare un apprendistato
+Un apprendistato è un’ottima opportunità per acquisire esperienza pratica mentre si studia. Molte aziende in Ticino offrono apprendistati nel settore logistico e dei processi aziendali. È possibile trovare queste opportunità attraverso i siti web delle scuole professionali o dei centri di formazione.
+
+### Passo 3: Partecipare a eventi di settore
+Partecipare a eventi come gli SwissSkills può offrire l’opportunità di confrontarsi con altri giovani talenti e di mettere alla prova le proprie competenze. Questi eventi sono un’ottima occasione per fare rete e scoprire nuove opportunità professionali.
+
+### Passo 4: Cercare il supporto della famiglia
+Il sostegno familiare è fondamentale per affrontare le sfide della vita lavorativa e formativa. È importante comunicare con la propria famiglia e cercare il loro supporto emotivo e pratico.
+
+### Passo 5: Utilizzare gli strumenti giusti
+Per facilitare il processo di ricerca di un apprendistato o di una formazione, è possibile utilizzare strumenti come il [calcolatore di stipendio](nav:calculator) o il [comparatore di permessi](nav:permit-compare). Questi strumenti possono aiutare a fare scelte informate e a pianificare il proprio percorso professionale.
+
+Se hai domande specifiche o hai bisogno di ulteriori informazioni, non esitare a contattarci. Siamo qui per aiutarti a intraprendere il tuo percorso professionale con successo.
+
+*Fonte: [tio.ch](https://www.tio.ch/speciali/-iodomani/1923522/famiglia-alessandro-percorso-logistica-swissskills)*`,"blog.article.alessandro-logistica-swissskills-2025.faq":'[{"q":"Quali sono i requisiti per diventare tecnico dei processi aziendali?","a":"Per diventare tecnico dei processi aziendali, è necessario seguire un percorso formativo specifico che combina pratica e teoria. In Ticino, ci sono diverse scuole che offrono corsi di formazione professionale in questo settore. È importante informarsi sulle opportunità disponibili e scegliere quella che meglio si adatta alle proprie esigenze e interessi."},{"q":"Come posso trovare un apprendistato nel settore logistico?","a":"Per trovare un apprendistato nel settore logistico, è possibile consultare i siti web delle scuole professionali o dei centri di formazione. Molte aziende in Ticino offrono apprendistati in questo settore. È importante cercare opportunità che offrano un equilibrio tra studio e pratica."},{"q":"Quali sono i vantaggi di partecipare agli SwissSkills?","a":"Partecipare agli SwissSkills offre l’opportunità di confrontarsi con altri giovani talenti e di mettere alla prova le proprie competenze. Questi eventi sono un’ottima occasione per fare rete e scoprire nuove opportunità professionali. Inoltre, partecipare agli SwissSkills può rappresentare una tappa importante nel proprio percorso di crescita personale e professionale."}]'};export{e as default};

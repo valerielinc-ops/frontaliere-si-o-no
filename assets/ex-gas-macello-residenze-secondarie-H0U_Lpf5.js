@@ -1,0 +1,63 @@
+const e={"blog.article.ex-gas-macello-residenze-secondarie.body1":`## TL;DR
+- Locarno non aggiorna il piano per Ex Gas ex Macello
+- Quota residenze secondarie inefficace
+- Sinistra Unita Locarno Monti aveva richiesto l'aggiornamento
+
+## Key facts
+- **Cosa**: Decisione di non aggiornare il piano per Ex Gas ex Macello
+- **Quando**: 24 aprile 2026
+- **Dove**: Locarno, Canton Ticino
+- **Chi**: Comune di Locarno
+- **Importo**: Non specificato
+- **Richiedente**: Sinistra Unita Locarno Monti
+- **Implicazioni**: Proliferazione residenze secondarie, mercato immobiliare locale
+
+## In brief
+- Locarno does not update the plan for Ex Gas ex Macello
+- Secondary residences quota ineffective
+- Sinistra Unita Locarno Monti had requested the update
+
+## Key facts
+- **What**: Decision not to update the plan for Ex Gas ex Macello
+- When: April 24, 2026
+- Where: Locarno, Canton Ticino
+- Who: Locarno Municipality
+- Amount: Not specified
+
+After the Are's decision, the Locarno Municipality has decided not to update the planning report for the Ex Gas ex Macello area, as requested by Sinistra Unita Locarno Monti. This decision has raised several issues regarding the management of secondary residences in the area. The quota of secondary residences, which should limit the number of these homes, seems to have no significant impact. The current situation is that, despite the quota, secondary residences continue to proliferate, making the measure almost ineffective.
+
+Sinistra Unita Locarno Monti had formally requested to update the planning plan for the area, but the Municipality decided not to proceed. This has led to a debate on the need to review urban policies to ensure a balance between primary and secondary residences.
+
+### Implications for cross-border workers
+For cross-border workers residing or intending to reside in Locarno, this decision could have significant implications. The proliferation of secondary residences could influence the local real estate market, making it more difficult to find affordable housing. Moreover, the lack of an updated plan could lead to less efficient land management, with possible impacts on the quality of life.
+
+### Comparison with the previous situation
+Before the Are's decision, the Ex Gas ex Macello area was subject to a planning plan that limited the number of secondary residences. However, the lack of updates has made this measure ineffective. The current situation is that, despite the quotas, secondary residences continue to grow, making it necessary for local authorities to take more decisive action.
+
+### Future scenarios
+If the situation is not managed adequately, there could be an increase in the number of secondary residences, with consequent negative impacts on the real estate market and quality of life. It is crucial that the Locarno Municipality reviews its decision and updates the planning plan to ensure a balance between primary and secondary residences.`,"blog.article.ex-gas-macello-residenze-secondarie.body2":`### Analysis of Practical Implications
+The decision by the Municipality of Locarno not to update the planning plan for the Ex Gas ex Macello area has raised several practical issues. Firstly, the proliferation of secondary residences could lead to an increase in property prices, making it more difficult for cross-border workers to find affordable housing. Moreover, the lack of an updated plan could result in less efficient territory management, with potential impacts on the quality of life.
+
+### Comparison with Other Swiss Cities
+Unlike other Swiss cities that have successfully implemented measures to limit the number of secondary residences, Locarno seems to be struggling with this issue. For example, cities like Zurich and Geneva have introduced quotas and stricter regulations to limit the proliferation of secondary residences, with positive results. Locarno could draw inspiration from these experiences to improve the management of its territory.
+
+### Future Scenarios and Possible Solutions
+If the situation is not managed adequately, there could be an increase in the number of secondary residences, with consequent negative impacts on the real estate market and quality of life. It is crucial that the Municipality of Locarno reviews its decision and updates the planning plan to ensure a balance between primary and secondary residences. Furthermore, it might be useful to introduce stricter measures to limit the number of secondary residences, such as more severe quotas or more detailed regulations.
+
+### Implications for Cross-Border Workers
+For cross-border workers residing or intending to reside in Locarno, this decision could have significant implications. The proliferation of secondary residences could influence the local real estate market, making it more difficult to find affordable housing. Additionally, the lack of an updated plan could lead to less efficient territory management, with potential impacts on the quality of life.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.ex-gas-macello-residenze-secondarie.body3":`### Concrete actions for cross-border workers
+For cross-border workers residing or intending to reside in Locarno, it is important to closely monitor the decisions of the Municipality regarding the planning plan for the Ex Gas ex Macello area. It is crucial to stay informed about any changes to the quotas for secondary residences and the measures adopted to manage this issue. Additionally, it might be useful to participate in public consultations or meetings with local authorities to express your concerns and suggest possible solutions.
+
+### Procedure to request information
+If you wish to obtain further information about the current situation of the Ex Gas ex Macello area and the measures adopted to limit the number of secondary residences, you can directly contact the Municipality of Locarno. It is possible to request a meeting with the planning plan managers to discuss your concerns and possible solutions.
+
+### Useful tools
+To stay updated on the latest news and decisions of the Municipality of Locarno, you can consult the official website of the commune or subscribe to the local newsletter. Additionally, you can use the [salary calculator](nav:calculator) to estimate your net income and plan your expenses accordingly.
+
+### Conclusion
+The decision of the Municipality of Locarno not to update the planning plan for the Ex Gas ex Macello area has raised several concerns regarding the management of secondary residences. It is fundamental that cross-border workers closely monitor the situation and actively participate in public consultations to express their concerns and suggest possible solutions. Use the [salary calculator](nav:calculator) to plan your expenses and stay updated on the latest news through the official website of the commune.
+
+*Source: [laregione.ch](https://www.laregione.ch/cantone/locarnese/1920434/ex-gas-ex-macello-la-quota-di-residenze-secondarie-e-come-se-non-ci-fosse)*`,"blog.article.ex-gas-macello-residenze-secondarie.faq":`[{"q":"What are the practical implications of Locarno Municipality's decision?","a":"Locarno Municipality's decision not to update the planning scheme for the Ex Gas ex Macello area could lead to an increase in secondary residences, with potential negative impacts on the real estate market and quality of life. It's crucial for cross-border workers to closely monitor the situation and actively participate in public consultations to express their concerns and suggest possible solutions."},{"q":"What can cross-border workers do to stay informed about the situation?","a":"Cross-border workers can visit the official website of the municipality of Locarno or subscribe to the local newsletter to stay updated on the latest news and decisions by the Municipality. Additionally, they can participate in public consultations or meetings with local authorities to express their concerns and suggest possible solutions."},{"q":"What tools are available to plan expenses effectively?","a":"Cross-border workers can use the [salary calculator](nav:calculator) to estimate their net income and plan their expenses accordingly. Furthermore, they can visit the official website of the municipality of Locarno to obtain more information about the current situation of the Ex Gas ex Macello area and the measures taken to limit the number of secondary residences."}]`};export{e as default};

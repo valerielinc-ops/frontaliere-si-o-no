@@ -1,0 +1,60 @@
+const e={"blog.article.assegni-familiari-frontalieri-ticino.body1":`## Auf einen Blick
+- Grenzgänger im Tessin erhalten Familienzulagen wie Schweizer, aber mit Komplexitäten.
+- INPS in Italien hat Probleme bei der Datenübermittlung, was zu Zahlungsverzögerungen führt.
+- Lorenzo Quadri fordert Maßnahmen gegen INPS, um korrekte Daten und Zahlungen zu gewährleisten.
+- Grenzgänger sollten Daten prüfen und Zahlungen überwachen, um Probleme zu vermeiden.
+
+## Wichtige Fakten
+- **Familienzulagen**: CHF 2000 für das erste Kind und CHF 400 für jedes weitere Kind im Jahr 2023.
+- **INPS Probleme**: Lombardische INPS übermittelt unzuverlässige Daten, was zu Zahlungsproblemen führt.
+- **RINA GUI Plattform**: Seit 2021 aktiv, soll Datenaustausch zwischen Italien und Schweiz verbessern.
+- **Verzögerte Anträge**: 30% der Anträge auf Familienzulagen hatten 2023 Verzögerungen.
+- **Quadri Antrag**: Eingereicht im Januar 2023, fordert korrekte Datenverwaltung durch INPS.
+- **Frist für Anträge**: Bis 30. April jedes Jahres für Familienzulagen in Mendrisio.
+- **Mögliche Suspendierung**: Quadri schlägt vor, Zahlungen auszusetzen, falls INPS nicht kooperiert.
+- **Jährliche Zulagen**: Familie mit zwei Kindern erhält bis zu CHF 9.600 pro Jahr.
+
+In den letzten Jahren hat die Frage der Familienzulagen für Grenzgänger im Kanton Tessin, insbesondere in Gemeinden wie Lugano und Mendrisio, wo die Präsenz von Grenzgängern besonders hoch ist, an Bedeutung gewonnen. Lorenzo Quadri, Nationalrat, hat kürzlich einen Antrag beim Bundesrat eingereicht und fordert ein Eingreifen bei der lombardischen INPS. Diese Initiative entsteht aus der Besorgnis über Anomalien im Datenaustausch bezüglich der Familienzulagen zwischen Italien und der Schweiz.
+
+Quadri hat hervorgehoben, dass die lombardische Sektion der INPS ihren Verpflichtungen nicht ordnungsgemäß nachkommt, was nicht nur den Grenzgängern, sondern auch der Wirtschaft im Tessin Schwierigkeiten bereitet. Derzeit profitieren die Grenzgänger von den gleichen Beträgen der Familienzulagen wie die in der Schweiz ansässigen Personen, die für 2023 **CHF 2000** für das erste Kind und CHF 400 für jedes weitere Kind betragen. Es gibt jedoch eine Komplexität: Wenn der Familienhaushalt auch in Italien Einkommen hat, ist es zunächst Italien, das die Grundzulage auszahlt, während die Schweiz die Differenz übernimmt. Dieses System wurde entwickelt, um Doppelzahlungen zu vermeiden, aber die mangelnde Zuverlässigkeit der Daten seitens der INPS könnte zu erheblichen Problemen führen, wie dem Risiko überhöhter Zahlungen seitens der Schweiz, die im Jahr 2022 einen Anstieg der Auszahlungen für Familienzulagen aufgrund von Kommunikationsfehlern verzeichnete.
+
+Quadri hat daher die Notwendigkeit betont, aktiv zu werden, um die korrekte Eingabe der Informationen in die europäische Plattform RINA GUI sicherzustellen, die seit 2021 aktiv ist, um den Datenaustausch zwischen den Ländern zu erleichtern. Diese Plattform wurde konzipiert, um die Transparenz und Genauigkeit der Zahlungen zu verbessern, hat jedoch bisher nicht die erhofften Ergebnisse geliefert. Laut einem Bericht aus dem Jahr 2023 haben etwa 30% der von Grenzgängern eingereichten Anträge auf Familienzulagen aufgrund falscher oder fehlender Informationen Verzögerungen erfahren.
+
+Um diese Situation anzugehen, wird eine operative Checkliste für Grenzgänger vorgeschlagen:
+
+- Datenüberprüfung: Sicherstellen, dass die persönlichen und Einkommensdaten sowohl in Italien als auch in der Schweiz korrekt sind.
+- Überwachung der Zahlungen: Die erhaltenen Zulagen überwachen und mit den vorgesehenen Beträgen vergleichen.
+- Anfrage um Unterstützung: Bei Anomalien die INPS und das Familienzulagenbüro im Tessin kontaktieren.
+- Nutzung der RINA GUI Plattform: Zugriff zur Überprüfung des Status der Anträge und zur Meldung eventueller Diskrepanzen.
+
+Die aktuelle Situation, wenn sie nicht verwaltet wird, könnte das wirtschaftliche Gleichgewicht im Kanton Tessin weiter gefährden, das bereits unter dem Druck der Grenzgänger und der Migrationsströme zum Schweizer Arbeitsmarkt leidet. Es ist von entscheidender Bedeutung, dass die zuständigen Behörden dringend handeln, um einen ordnungsgemäßen Betrieb des Systems für die Vergabe von Familienzulagen zu gewährleisten, um zu verhindern, dass Grenzgänger wirtschaftliche Nachteile erleiden und die Wirtschaft im Tessin darunter leidet.`,"blog.article.assegni-familiari-frontalieri-ticino.body2":`Der Antrag von Quadri beschränkt sich nicht nur auf die Forderung nach einer korrekten Datenverwaltung, sondern schlägt auch drastische Maßnahmen vor, falls die Versäumnisse weiterhin bestehen bleiben sollten. Es wird die Möglichkeit vorgeschlagen, die Zahlungen der Familienzulagen an Grenzgänger auszusetzen, bis die INPS die Informationen korrekt und zuverlässig bereitstellt. Dieses Szenario, obwohl extrem, verdeutlicht die Ernsthaftigkeit der Lage und die Notwendigkeit eines sofortigen Eingreifens.
+
+Die aktuellen Vorschriften, basierend auf dem Abkommen über die Freizügigkeit der Personen, sehen vor, dass Grenzgänger Familienzulagen in Höhe derjenigen von ansässigen Personen erhalten. Beispielsweise hat ein Grenzgänger mit zwei unterhaltsberechtigten Kindern Anspruch auf eine monatliche Zulage von etwa 400 CHF für jedes Kind, was sich auf einen jährlichen Betrag von 9.600 CHF summiert. Die Wirksamkeit dieses Systems hängt jedoch stark von der Zusammenarbeit zwischen den beiden Staaten ab. Ohne klare Daten kann das Tessiner Sozialversicherungsinstitut nicht effektiv arbeiten, was die Grenzgänger in eine verletzliche Position bringt.
+
+Einerseits zahlen die Tessiner Gemeinden, wie Lugano und Mendrisio, weiterhin die Zulagen, während andererseits die INPS keine nützlichen Informationen für die erforderlichen Abzüge bereitstellt. Dies führt zu einer Unsicherheit und gefährdet das Vertrauen der Grenzgänger in die Institutionen. Es ist daher entscheidend, dass das Bundesamt für Sozialversicherungen (UFAS) die Angelegenheit übernimmt und eine Reihe von Treffen und Verhandlungen mit den italienischen Behörden einleitet, um eine endgültige Lösung zu finden.
+
+📊 **Operative Checkliste**:
+- Daten zu den Zahlungen der Familienzulagen in den Tessiner Gemeinden sammeln
+- Überwachung der Informationsübermittlung durch die INPS
+- Etablierung eines direkten Kommunikationskanals zwischen UFAS und INPS
+
+⚠️ Sollte sich die Situation verlängern, könnten Grenzgänger nicht nur mit Verzögerungen bei den Zahlungen konfrontiert werden, sondern auch mit negativen Auswirkungen auf ihre Familienfinanzen. Tatsächlich könnte eine Familie mit drei Kindern bis zu 1.200 CHF pro Monat verlieren, ein erheblicher Betrag für viele Familien.
+
+In diesem Kontext ist es entscheidend, dass konstruktive Dialoginitiativen zwischen den beiden Nationen gefördert werden, um sicherzustellen, dass die Rechte der Grenzgänger respektiert werden und die Mittel transparent und verantwortungsvoll verwaltet werden. Nur so kann das Vertrauen in die Institutionen wiederhergestellt und ein angemessenes Unterstützungssystem für Grenzgänger gewährleistet werden.
+
+## Nützliche Tools für die Planung
+Für Ihre Vorsorgestrategie nutzen Sie den [Rentenplaner](nav:pension) und den [Säule-3-Simulator](nav:pillar3).`,"blog.article.assegni-familiari-frontalieri-ticino.body3":`Für Grenzgänger ist die Frage der Familienzulagen von grundlegender Bedeutung. Es ist entscheidend, dass sie über ihre Rechte und die Verfahren informiert sind, um Verzögerungen oder Probleme bei den Zahlungen zu vermeiden. Beispielsweise kann ein Grenzgänger mit Wohnsitz in Chiasso und einem Bruttoeinkommen von 70.000 CHF pro Jahr Anspruch auf eine Familienzulage von etwa 200 CHF pro Monat für jedes Kind haben, abhängig von den geltenden Vorschriften. Es wird empfohlen, die Nachrichten bezüglich des Antrags von Quadri, der im Januar 2023 eingereicht wurde und darauf abzielt, die Antragsverfahren für Familienzulagen für Grenzgänger zu vereinfachen, aufmerksam zu verfolgen.
+
+Grenzgänger sollten auch in Betracht ziehen, sich an Fachleute oder Steuerberater zu wenden, um eventuelle Zweifel bezüglich ihrer steuerlichen und sozialversicherungsrechtlichen Situation zu klären, insbesondere in Bezug auf das italienisch-schweizerische Steuerabkommen. Beispielsweise muss ein Grenzgänger aus Lugano, der ein Einkommen von 80.000 CHF erzielt, die Steuerabzüge und den Beitrag zur Sozialversicherung berücksichtigen, die sein Nettoeinkommen beeinflussen können.
+
+Darüber hinaus ist es wichtig, die Mitteilungen des Tessiner Sozialversicherungsbüros zu verfolgen, die relevante Aktualisierungen bereitstellen werden. Wer in Mendrisio lebt, sollte besonders auf die Fristen für die Einreichung der Anträge achten, die bis zum 30. April jedes Jahres für die Familienzulagen festgelegt sind.
+
+📊 Operative Checkliste für den Antrag auf Familienzulagen:
+- Überprüfen Sie die Anspruchsvoraussetzungen.
+- Sammeln Sie die erforderlichen Dokumente (Kopie des Arbeitsvertrags, Wohnsitzbescheinigung usw.).
+- Füllen Sie das Antragsformular auf der offiziellen Website aus.
+- Reichen Sie den Antrag beim Sozialversicherungsbüro bis zur Frist ein.
+
+⚠️ In praktischen Szenarien kann ein Grenzgänger mit zwei Kindern eine erhebliche Erhöhung seines Nettoeinkommens durch die Familienzulagen erfahren. Wenn er das richtige Verfahren nicht befolgt, riskiert er, keine Zahlungen zu erhalten, was auch Auswirkungen auf die Familienfinanzen hat.
+
+💡 Um Ihnen zu helfen, Ihre Situation besser zu verstehen, besuchen Sie unseren [Gehaltsrechner](nav:calculator), der Ihnen ermöglicht, Ihr Nettoeinkommen und die Ihnen zustehenden Leistungen, einschließlich der Familienzulagen, zu bewerten. Für weitere Details laden wir Sie ein, die Quelle der Nachricht zu konsultieren, die auf Ticinonews veröffentlicht wurde, wo Sie aktuelle Informationen und Einblicke zu diesem Thema finden.`,"blog.article.assegni-familiari-frontalieri-ticino.faq":'[{"q":"Wie werden die Familienzulagen für Grenzgänger in der Schweiz und in Italien ausbezahlt?","a":"Grenzgänger erhalten die gleichen Beträge an Familienzulagen wie Schweizer Einwohner, aber wenn die Familie auch in Italien Einkünfte hat, muss Italien zuerst den Grundbetrag auszahlen, während die Schweiz die Differenz abdeckt."},{"q":"Wie viel können Grenzgänger in der Schweiz als Familienzulage erhalten?","a":"Für 2023 können Grenzgänger 2000 CHF für das erste Kind und 400 CHF für jedes weitere Kind erhalten, vorausgesetzt, die persönlichen und finanziellen Daten sind sowohl in Italien als auch in der Schweiz korrekt."},{"q":"Wie kann ich den Status meiner Familienzulagen-Anträge als Grenzgängerin überprüfen?","a":"Sie können die europäische Plattform RINA GUI nutzen, um den Status Ihrer Anträge zu überprüfen und eventuelle Abweichungen zu melden. Es ist auch ratsam, den INPS und das Amt für Familienzulagen im Tessin im Falle von Abweichungen zu kontaktieren."},{"q":"Welche Folgen hat es, wenn der INPS falsche Informationen für die Familienzulagen liefert?","a":"Wenn der INPS falsche Informationen liefert, können Grenzgänger Verzögerungen bei den Zahlungen und negative Auswirkungen auf ihr Familienbudget erleben, mit möglichen Verlusten von bis zu 1.200 CHF pro Monat für eine Familie mit drei Kindern."},{"q":"Was kann das Bundesamt für Sozialversicherungen (BASV) tun, um das Problem zu lösen?","a":"Das BASV kann eine Reihe von Treffen und Verhandlungen mit den italienischen Behörden einleiten, um eine endgültige Lösung zu finden, einen direkten Kommunikationskanal zwischen BASV und INPS einzurichten und die Übermittlung von Informationen durch den INPS zu überwachen."}]'};export{e as default};

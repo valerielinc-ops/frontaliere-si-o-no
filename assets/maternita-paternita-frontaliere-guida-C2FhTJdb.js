@@ -1,0 +1,52 @@
+const e={"blog.article.maternita-paternita-frontaliere-guida.body1":`## TL;DR
+- Swiss maternity leave: 14 weeks, 80% of salary
+- Paternity leave: 2 weeks, 80% of salary
+- Swiss benefits apply, not Italian INPS rules
+
+## Key facts
+- **Maternity leave**: 14 weeks (98 days) of paid leave
+- **Maternity allowance**: 80% of average gross income, max CHF 230/day in 2026
+- **Paternity leave**: 2 weeks (14 days) of paid leave
+- **Paternity allowance**: 80% of income, same cap as maternity
+- **AVS requirements**: 9 months of contributions before birth, 5 months worked during pregnancy
+- **Application deadline**: Paternity leave must be taken within 6 months of birth
+- **INPS role**: May pay supplement if Swiss benefit is lower than Italian one
+- **Key documents**: Employment contract, payslips, birth certificate
+
+Becoming a parent while working as a cross-border worker in Ticino opens a complex bureaucratic chapter, straddling two social security systems. The fundamental rule is one: contributions paid in Switzerland entitle you to Swiss benefits. Forget, at least initially, about Italian regulations. For those working in Lugano, Mendrisio, or Bellinzona, the reference point is the Federal Law on Income Compensation Allowances (LIPG).
+
+## Swiss maternity leave
+
+Switzerland guarantees working mothers a paid maternity leave of **14 weeks** (98 days), starting from the day of childbirth. During this period, the new mother is entitled to a daily allowance equal to 80% of her average gross income earned before the leave. To be eligible, you must have paid AVS contributions for at least nine months before the birth and have worked for a minimum of five months during the pregnancy. The system is much stricter than the Italian one: there is no mandatory pre-partum leave, unless a medical certificate confirms the inability to work.
+
+📊 **Key data for 2026**
+- **Duration:** 14 weeks (98 days)
+- **Allowance:** 80% of the average gross salary
+- **Maximum cap:** The daily allowance cannot exceed a maximum ceiling, which for 2026 is estimated to be around **CHF 230**. This means that for very high salaries, the actual allowance might be less than 80%.
+
+## Swiss paternity leave
+
+Introduced more recently, paternity leave offers the cross-border father **2 weeks** (14 days) of paid absence, to be taken within six months of the child's birth. The days can be taken consecutively or split up. In this case as well, the allowance corresponds to 80% of the income, with the same cap as for maternity. The AVS requirements are identical to those required for the mother. This benefit, although short compared to the standards of other European countries, represents an established right for fathers who cross the Chiasso or Ponte Tresa border crossings every day.`,"blog.article.maternita-paternita-frontaliere-guida.body2":`The practical management of allowance claims follows a well-defined path involving the employer and the cantonal AVS compensation fund. It is not the cross-border worker who has to deal directly with INPS for these primary benefits.
+
+## The application procedure: step by step
+
+The first actor is always the Ticino-based employer. It is the employer who must submit the application to the AVS compensation fund with which the company is affiliated. Usually, the HR department handles everything, but it is wise to be proactive.
+
+- **For the mother:** The request for maternity allowance must be submitted after the child's birth, attaching the birth certificate. The allowance is paid directly to the employee or, more commonly, to the employer, who will continue to pay the salary (at 80%) as usual.
+- **For the father:** The application for paternity leave follows a similar process. The father must inform the employer of the dates on which he intends to take the leave, and the company will submit the request to the AVS fund. It is crucial to respect the six-month deadline from the birth.
+
+⚠️ **The role of INPS and the 'right of option'**
+
+This is where things get complicated. If the other parent works in Italy, the field of European social security coordination comes into play. In principle, the state of employment (Switzerland) is competent for benefits. However, Italian law provides for longer and different types of leave (e.g., optional parental leave). In some specific cases, if the Swiss benefit is lower than what would be due in Italy, INPS may pay a differential supplement. However, this is a complex, non-automatic procedure that must be verified on a case-by-case basis with a patronage office expert in cross-border matters. For the vast majority of cross-border workers in Ticino, the only direct and certain benefits are those provided by Switzerland.`,"blog.article.maternita-paternita-frontaliere-guida.body3":`Facing the birth of a child as a cross-border worker requires organization and clarity. The most common mistake is to think with an Italian mindset, mentally applying INPS rules to a Swiss employment relationship. This approach only generates confusion and false expectations. The key is to focus on the rights guaranteed by the AVS system and act accordingly.
+
+## Practical advice for future parents
+
+💡 **Pre-birth checklist:**
+- **Check AVS requirements:** Verify with your HR department that you have completed the necessary 9 months of contributions.
+- **Talk to your employer:** Communicate your intentions well in advance, especially for paternity leave, to best plan the absence.
+- **Prepare documents:** Keep a copy of your employment contract, recent payslips, and, after the birth, the official birth certificate handy.
+- **Don't take INPS integration for granted:** Consider the Swiss benefits as your reference income. Any Italian supplements are an exception to be explored cautiously, not the rule.
+
+The impact of a leave on the family budget is an aspect not to be underestimated. The allowance, while generous, corresponds to 80% of the gross salary and temporarily changes the monthly cash flow. Understanding exactly how your purchasing power will change is essential for planning the months ahead. To get a clear idea of the impact on your payslip, you can use our [net salary calculator](nav:calculator), which allows you to simulate your monthly income after deductions, even in a situation of reduced allowance. For a more detailed analysis of your rights and timelines, try our [parental leave calculator](nav:parental-leave), designed specifically for cross-border workers.
+
+*(Source: Editorial analysis based on LIPG/AVS regulations and bilateral agreements between Switzerland and the EU, updated to June 2024)*`,"blog.article.maternita-paternita-frontaliere-guida.faq":'[{"q":"How long of maternity leave is guaranteed by Switzerland to a working mother?","a":"Switzerland guarantees paid maternity leave of 14 weeks (98 days)."},{"q":"How many days of paternity leave are guaranteed to a father who is a cross-border worker in Switzerland?","a":"2 weeks (14 days) of paid paternity leave are guaranteed, which can be taken within six months of the birth of the child, with an allowance equal to 80% of the average gross income."},{"q":"What are the requirements for accessing maternity benefits in Switzerland as a cross-border commuter?","a":"To receive maternity benefits in Switzerland, you must have paid AHV contributions for at least nine months before the birth and have worked at least five months during pregnancy, as well as being regularly employed in the Swiss system."}]'};export{e as default};

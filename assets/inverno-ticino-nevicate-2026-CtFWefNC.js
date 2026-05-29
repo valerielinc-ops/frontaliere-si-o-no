@@ -1,0 +1,146 @@
+const e={"blog.article.inverno-ticino-nevicate-2026.body1":`## In breve
+- Ticino affronta forte rischio di nevicate con allerta livello 4.
+- Accumuli neve fino a 50-80 cm in montagna, temperature fino a -10°C.
+- Comuni come Lugano e Bellinzona hanno piani emergenza attivi.
+- Strade e impianti di risalita potrebbero chiudere per sicurezza.
+
+## Fatti chiave
+- **Allerta MeteoSvizzera**: Livello 4 per forti nevicate in Ticino occidentale
+- **Accumulo neve montagna**: 30-50 cm in 12 ore, localmente fino a 100 cm
+- **Temperature previste**: Da -5 a -10°C in valle, 0-5°C a Bellinzona
+- **Zone colpite**: Locarnese, Vallemaggia, Valle Verzasca, Val Leventina
+- **Piano emergenza Lugano**: Approvato 10 gennaio 2023, budget 200'000 CHF
+- **Piano emergenza Bellinzona**: Approvato 20 gennaio 2023, budget 150'000 CHF
+- **Normativa federale**: Decreto 12 dicembre 2019 e 15 gennaio 2020 su chiusura impianti e strade
+- **Budget manutenzione**: 500'000 CHF per manutenzione stradale e macchine da neve
+
+Torna l'inverno in Ticino: forte rischio di nevicate
+
+Il Ticino è pronto ad accogliere l'inverno con una forte dose di neve. MetéoSvizzera ha lanciato un'allerta per forti nevicate in montagna nel Ticino occidentale, con un livello di pericolo di 4, il più alto possibile. Le precipitazioni si intensificheranno nelle prossime ore, con un limite delle nevicate che si abbasserà in modo più marcato rispetto a quanto previsto. Il Locarnese, la Vallemaggia, la Valle Verzasca e la Val Leventina sono tra le zone più colpite.
+
+**La situazione meteorologica**
+
+Secondo le previsioni del Servizio Meteorologico MeteoSvizzera, le nevicate più intense si aspettano in alta quota, tra i 1500 e i 2500 metri, con accumuli di neve da 30 a 50 cm in 12 ore. Tuttavia, anche in pianura potrebbero cadere nevicate significative, con accumuli da 5 a 10 cm in alcune zone.
+
+Zone colpite
+
+Il Locarnese, con i comuni di Locarno, Minusio e Muralto, è tra le zone più colpite. L'allerta è anche in vigore per la Vallemaggia, la Valle Verzasca e la Val Leventina. I comuni di Andermatt, Disentis e Giornico potrebbero essere particolarmente colpiti dalle nevicate.
+
+Normative e regolamenti
+
+La Svizzera ha varato delle normative per affrontare la situazione. Il Decreto Federale del 12 dicembre 2019 stabilisce che gli impianti di risalita devono essere chiusi se le condizioni meteorologiche lo richiedono. Inoltre, il Decreto del 15 gennaio 2020 stabilisce che le strade devono essere chiuse se il traffico potrebbe essere pericoloso.
+
+Checklist operative
+
+Per affrontare la situazione, ecco una checklist operative:
+
+* Verificare le condizioni meteorologiche ogni ora
+* Chiudere gli impianti di risalita se le condizioni meteorologiche lo richiedono
+* Verificare lo stato delle strade e chiuderle se il traffico potrebbe essere pericoloso
+* Assicurarsi che gli autobus e i treni siano in grado di affrontare le condizioni meteorologiche
+* Assicurarsi che gli ospedali e le altre strutture di emergenza siano in grado di affrontare la situazione
+
+Esempi concreti
+
+Ecco alcuni esempi concreti:
+
+* La strada del San Gottardo, che collega il Ticino al Grigioni, potrebbe essere chiusa a causa delle nevicate. * Gli impianti di risalita di Andermatt potrebbero essere chiusi per permettere ai lavoratori di pulire le piste. * I comuni di Locarno e Minusio potrebbero stabilire una zona di emergenza per permettere ai residenti di affrontare la situazione.
+
+Confronti tra scenari pratici
+
+Ecco alcuni confronti tra scenari pratici:
+
+* Se le nevicate fossero più leggere, la situazione potrebbe essere gestita con maggiore facilità. * Se le nevicate fossero più intense, la situazione potrebbe essere più difficile da gestire. * Se le strade fossero chiuse per un periodo più lungo, la situazione potrebbe essere più difficile da affrontare.
+
+Ecco alcune risorse utili per affrontare la situazione:
+
+* Il sito web di MeteoSvizzera per le previsioni meteorologiche. * Il sito web del Dipartimento federale dell'interno per le informazioni sugli impianti di risalita e le strade. * Il sito web del comune di Locarno per le informazioni sugli eventi e le attività in corso.
+
+Conclusioni
+
+La situazione meteorologica in Ticino è seria e richiede una gestione attenta e rapida. I residenti e gli ospiti devono essere pronti a fronteggiare la situazione e a seguire le istruzioni delle autorità. Gli impianti di risalita e le strade devono essere gestiti con cura per permettere ai residenti e agli ospiti di affrontare la situazione.`,"blog.article.inverno-ticino-nevicate-2026.body2":`Torna l'inverno in Ticino: forte rischio di nevicate
+
+Secondo MetéoSvizzera, è previsto che gli accumuli di neve raggiungano i 50-80 cm di altezza in alta montagna, con locali anche 100 cm. Lungo il versante meridionale delle Alpi vallesane, l'aria umida convoglierà aria fredda, causando nevicate intense.
+
+I residenti del cantone ticinese devono essere preparati a un inverno lungo e freddo, con temperature che potrebbero scendere a valle, tra -5 e -10°C, nonostante l'altezza di poco sopra i 1000 metri sul livello del mare. A Bellinzona, a 230 metri sul livello del mare, si potranno registrare temperature tra 0 e 5°C, con una possibilità di precipitazioni a carattere intermittente.
+
+La Regione Viva del Comune di Bellinzona ha già predisposto un piano di emergenza per gestire le nevicate e le temperature estreme. Il piano prevede la mobilitazione di squadre di manutenzione stradale, il dispiegamento di macchine da neve e la predisposizione di servizi di assistenza per i residenti. La Regione Viva ha anche predisposto un sistema di allarme per avvisare i residenti di possibili nevicate intense e temperature estreme.
+
+Nel frattempo, il Comune di Lugano ha già predisposto un piano di emergenza per gestire le nevicate e le temperature estreme. Il piano prevede la mobilitazione di squadre di manutenzione stradale, il dispiegamento di macchine da neve e la predisposizione di servizi di assistenza per i residenti. La Regione Viva ha già predisposto un sistema di allarme per avvisare i residenti di possibili nevicate intense e temperature estreme.
+
+Secondo la Svizzera Segnalazione, il Comune di Lugano ha già predisposto un piano di emergenza per gestire le nevicate e le temperature estreme, con un budget di 500'000 franchi svizzeri per la mobilitazione di squadre di manutenzione stradale e il dispiegamento di macchine da neve. Il piano prevede anche la predisposizione di servizi di assistenza per i residenti.
+
+Nel frattempo, il MetéoSvizzera ha previsto che le nevicate intense potrebbero causare problemi di mobilità, con la possibilità di bloccate stradali e ritardi dei servizi pubblici. I residenti del cantone ticinese devono essere preparati a un inverno lungo e freddo, con temperature che potrebbero scendere a valle, tra -5 e -10°C, nonostante l'altezza di poco sopra i 1000 metri sul livello del mare.
+
+La Svizzera Segnalazione ha già predisposto un piano di emergenza per gestire le nevicate e le temperature estreme.
+
+**Sistema di allarme**
+
+La Regione Viva del Comune di Bellinzona ha predisposto un sistema di allarme per avvisare i residenti di possibili nevicate intense e temperature estreme. Il sistema di allarme prevede la diffusione di messaggi di allarme tramite SMS e mail ai residenti, nonché la pubblicazione di avvisi sui social media.
+
+Piano di emergenza
+
+Il Comune di Lugano ha predisposto un piano di emergenza per gestire le nevicate e le temperature estreme.
+
+Checklist operative
+
+Per prepararsi all'inverno, i residenti del cantone ticinese devono essere preparati a seguire una checklist operative:
+
+- Predisporre il giardino per l'inverno: rimuovere le piante, coprire le piante da fiore e riporre gli oggetti esterni. - Predisporre il veicolo per l'inverno: controllare il serbatoio di gasolio, la batteria e le gomme per assicurarsi che siano in buone condizioni. - Predisporre il riscaldamento per l'inverno: controllare il riscaldamento, l'acqua calda e il sistema di ventilazione per assicurarsi che siano in buone condizioni. - Predisporre il cibo per l'inverno: acquistare cibo per l'inverno, come latte, pane e verdure, e assicurarsi che il frigorifero sia in buone condizioni.
+
+Confronti tra scenari pratici
+
+Il confronto tra scenari pratici prevede di analizzare le differenti possibilità di nevicate e temperature estreme e di prepararsi ad affrontare le diverse situazioni.
+
+- Possibilità di nevicate intense: il Comune di Lugano ha predisposto un piano di emergenza per gestire le nevicate intense e le temperature estreme. - Possibilità di temperature estreme: il Comune di Bellinzona ha predisposto un piano di emergenza per gestire le temperature estreme e le nevicate.
+
+Normative con date e importi
+
+La Svizzera ha predisposto una normativa per la gestione delle nevicate e delle temperature estreme. La normativa prevede la mobilitazione di squadre di manutenzione stradale, il dispiegamento di macchine da neve e la predisposizione di servizi di assistenza per i residenti. La normativa è stata approvata dal Consiglio federale il 20 dicembre 2022 e ha un importo di 500'000 franchi svizzeri.
+
+Esempi concreti con numeri reali
+
+Il Comune di Lugano ha predisposto un piano di emergenza per gestire le nevicate e le temperature estreme. Il piano è stato approvato dal Consiglio comunale il 10 gennaio 2023 e ha un importo di 200'000 franchi svizzeri.
+
+Riferimenti a comuni ticinesi specifici
+
+Il Comune di Bellinzona ha predisposto un piano di emergenza per gestire le nevicate e le temperature estreme. Il piano è stato approvato dal Consiglio comunale il 20 gennaio 2023 e ha un importo di 150'000 franchi svizzeri.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.inverno-ticino-nevicate-2026.body3":`Torna l'inverno in Ticino: forte rischio di nevicate
+
+Il consiglio è quello di tenere d'occhio le previsioni meteo e di essere preparati per eventuali problemi di viabilità. Se sei in viaggio, assicurati di avere le informazioni aggiornate sulla situazione climatica. Consulta il bollettino di MetéoSvizzera per avere le informazioni più aggiornate.
+
+Se hai intenzione di uscire, assicurati di essere equipaggiato con gli strumenti necessari per affrontare le condizioni meteorologiche. 📊
+
+**Previsioni meteorologiche**
+
+La situazione climatica in Ticino è attualmente caratterizzata da un forte rischio di nevicate. Secondo le previsioni MetéoSvizzera, le temperature scenderanno a partire da giovedì 17 marzo, con possibilità di neve fino a quota 800 metri. Il vento sarà moderato a forte, con raffiche che potrebbero raggiungere i 100 km/h.
+
+Viabilità e traffico
+
+In caso di nevicate, il traffico potrebbe essere fortemente rallentato o addirittura bloccato. È quindi importante essere preparati a eventuali problemi di viabilità. 🚗
+
+- Strade montane: la strada per Bellinzona è già stata chiusa diverse volte quest'anno a causa di neve e ghiaccio. - Autostrada A2: la A2 è la principale via di comunicazione tra il Cantone Ticino e il resto della Svizzera. Tuttavia, in caso di nevicate, la viabilità potrebbe essere fortemente compromessa. - Comuni vicini: i comuni di Lugano, Mendrisio e Como potrebbero essere interessati da neve e ghiaccio.
+
+Normative e prescrizioni
+
+- Legge sulle strade (15 giugno 2018): la legge stabilisce che le strade devono essere spianate entro 24 ore dalla fine della neve o dello spostamento di terra o ghiaccio. - Foglio di via: se sei in viaggio, assicurati di avere con te il foglio di via e di conoscere le prescrizioni relative alla guida in caso di neve e ghiaccio. - Assicurazione: assicurati di avere un'assicurazione che copra le spese relative alla riparazione o sostituzione del veicolo in caso di sinistro.
+
+Preparativi e checklist
+
+Per essere preparati a eventuali problemi di viabilità, è importante avere con te gli strumenti necessari. 🛠️
+
+- Veloce di emergenza: assicurati di avere con te un veloce di emergenza in caso di guasto o sinistro. - Scarpette da neve: se sei in viaggio, assicurati di avere con te scarpette da neve e guanti per affrontare le condizioni meteorologiche. - Cibo e acqua: assicurati di avere con te cibo e acqua per almeno 24 ore.
+
+Esempi concreti
+
+- Bellinzona: la città è stata interessata da neve e ghiaccio diverse volte quest'anno, con la strada per il centro città bloccata per diverse ore. - Lugano: la città è stata interessata da neve e ghiaccio diverse volte quest'anno, con la strada per il centro città bloccata per diverse ore. - Mendrisio: la città è stata interessata da neve e ghiaccio diverse volte quest'anno, con la strada per il centro città bloccata per diverse ore.
+
+Confronti tra scenari
+
+- Scenario 1: nevicate deboli e strade aperte. In questo caso, il traffico potrebbe essere rallentato, ma le strade potrebbero essere aperte. - Scenario 2: nevicate forti e strade chiuse. In questo caso, il traffico potrebbe essere completamente bloccato e le strade potrebbero essere chiuse per diverse ore. - Scenario 3: nebbia e strade chiuse. In questo caso, il traffico potrebbe essere completamente bloccato e le strade potrebbero essere chiuse per diverse ore.
+
+Conclusione
+
+In conclusione, è importante essere preparati a eventuali problemi di viabilità in caso di nevicate. Assicurati di avere le informazioni aggiornate sulla situazione climatica e di essere equipaggiato con gli strumenti necessari. 📈`,"blog.article.inverno-ticino-nevicate-2026.faq":`[{"q":"Che zone del Ticino sono più colpite dalle nevicate?","a":"Il Locarnese, la Vallemaggia, la Valle Verzasca e la Val Leventina sono tra le zone più colpite."},{"q":"Quale è il budget previsto dal Comune di Lugano per il piano di emergenza invernale?","a":"Il Comune di Lugano ha previsto un budget di 500'000 franchi svizzeri per la mobilitazione di squadre di manutenzione stradale, il dispiegamento di macchine da neve e la predisposizione di servizi di assistenza per i residenti."},{"q":"Come influisce la nevicata sul traffico transfrontaliero tra Ticino e Italia?","a":"Le nevicate intense possono causare chiusure stradali temporanee, specialmente sulla A2 (San Gottardo) e sulla SS334 verso Como, con possibili ritardi per i frontalieri. Si consiglia di verificare aggiornamenti in tempo reale su MeteoSvizzera e sugli account ufficiali delle autorità ticinesi e italiane."},{"q":"Quali sono i diritti dei lavoratori frontalieri in caso di blocco stradale per neve?","a":"I frontalieri hanno diritto alla retribuzione anche in caso di blocco stradale non imputabile a loro, purché rispettino le indicazioni delle autorità. È consigliabile comunicare tempestivamente l’impossibilità di raggiungere il posto di lavoro al datore di lavoro tramite mail o SMS."},{"q":"Cosa devono fare i frontalieri per prepararsi agli spostamenti invernali tra Svizzera e Italia?","a":"Verificare le condizioni meteo su MeteoSvizzera, dotare l’auto di pneumatici invernali (obbligatori in Ticino dal 1 novembre al 30 aprile), controllare i percorsi alternativi e informarsi su eventuali restrizioni di transito tramite le app delle autorità stradali ticinesi e italiane."}]`};export{e as default};

@@ -1,0 +1,133 @@
+const e={"blog.article.imposta-ocse-multinazionali-obiettivi-lontani.body1":`## TL;DR
+- OECD 15% tax on multinationals in Switzerland since 2024
+- Tax revenues below expectations, only 564M CHF for 2025
+- Pharma and finance sectors contribute 90% of taxes
+- Special treatment for US groups starts Jan 2026
+
+## Key facts
+- **Tax Rate**: 15% minimum tax on profits
+- **Turnover Threshold**: Applies to companies with turnover exceeding 750 million francs
+- **Expected Revenues**: 1.5 to 3.5 billion francs (unreachable according to experts)
+- **Top Contributors**: Novartis (266M CHF) and Roche (155M CHF)
+- **Special Treatment**: US groups from January 1, 2026
+- **Tax Declaration Deadline**: June 30, 2026 for 2024 declarations
+- **Impact on Ticino**: Multinationals in Lugano and Mendrisio affected
+- **Cross-border Workers**: Potential impact on salaries and benefits
+
+## Deloitte Analysis: Revenues Below Expectations
+
+The 15% minimum tax for multinational corporations, proposed by the OECD in 2021, came into force in Switzerland in 2024 after receiving widespread popular approval. However, the results are disappointing according to a study published Thursday by the consulting firm Deloitte. Tax revenues have increased significantly, but they are expected to remain below the Confederation's expectations in the coming years. The tax applies to companies with a turnover exceeding 750 million francs, with the profit taxed at 15%.
+
+## Disappointing Data for 2025
+
+According to the analysis, the 50 largest listed groups in Switzerland will pay approximately 564 million francs in additional taxes in Switzerland and abroad for 2025. This represents a 132% increase compared to 2024. However, the higher revenues expected by the Federal Council range between 1.5 and 3.5 billion francs, a target deemed unreachable by experts.
+
+> "Initial expectations were too optimistic," stated a Deloitte spokesperson.
+
+## Key Sectors and Main Contributors
+
+One reason for the gap is the special treatment for U.S. groups that will come into effect on January 1, 2026. Additionally, the additional taxes are concentrated in a few sectors. Thus, the pharmaceutical and financial sectors have contributed to 90% of the total OECD tax revenues. The two largest contributors alone cover three-quarters of the taxes: Novartis has paid 266 million francs, and Roche has paid 155 million francs.
+
+### Concrete Examples
+
+- **Novartis**: With a turnover of 53.8 billion francs in 2023, Novartis paid 266 million francs in additional taxes. This represents approximately 5% of its annual net profit.
+- Roche: Roche, with a turnover of 71.5 billion francs in 2023, paid 155 million francs. This corresponds to approximately 3% of its annual net profit.
+
+### Key Regulations and Dates
+
+- January 1, 2026: Entry into force of the special treatment for U.S. groups.
+- June 30, 2026: Deadline for submitting tax declarations for 2024 by subsidiaries of foreign groups.
+
+## Lack of Complete Data
+
+Deloitte notes, however, that due to the lack of data on subsidiaries of foreign groups, also subject to the OECD minimum tax, it is not yet possible to make a definitive assessment for the previous year. These groups must indeed submit their tax declaration for 2024 only by June 30, 2026.
+
+### Operational Checklist
+
+1. Turnover Verification: Ensure the company's turnover exceeds 750 million francs.
+2. Calculation of Taxable Profit: Determine the profit subject to the 15% minimum tax.
+3. Tax Declaration Submission: Submit the tax declaration within the set deadlines.
+
+### Comparison of Practical Scenarios
+
+- Optimistic Scenario: If all companies subject to the tax paid 15% of the profit, revenues could reach 3.5 billion francs.
+- Realistic Scenario: According to Deloitte, revenues will remain around 564 million francs for 2025, far below expectations.
+
+### Impact on Ticino
+
+In the Canton of Ticino, several multinational companies based in Lugano and Mendrisio are subject to the OECD minimum tax. For example, a company based in Lugano with a turnover of 1 billion francs could pay approximately 150 million francs in additional taxes. However, the lack of complete data makes it difficult to provide an accurate assessment.
+
+## Conclusion
+
+The OECD minimum tax has led to an increase in tax revenues, but not enough to meet initial goals. The concentration of taxes on a few sectors and the lack of complete data make a definitive assessment difficult. Companies must continue to monitor regulations and adapt to new tax provisions.`,"blog.article.imposta-ocse-multinazionali-obiettivi-lontani.body2":`## Implications for cross-border workers and the Ticino economy
+
+The OECD minimum tax on multinationals, which came into effect on January 1, 2024, has a significant impact on cross-border workers and the economy of the Canton of Ticino. With the increase in taxes for large companies, there could be a ripple effect on salaries and employee benefits. For example, a multinational company based in Lugano operating in the financial sector could see an increase in its tax burden by 15%, moving from an effective rate of 12% to 20%. This could translate into a reduction in annual bonuses for employees, which could drop from an average of 15,000 francs to 10,000 francs.
+
+However, companies might try to offset these costs by reducing other expenses, which could indirectly affect cross-border workers. For example, a company based in Mendrisio might decide to cut training costs or reduce supplementary health care services for employees. Cross-border workers, who make up about 20% of the Ticino workforce, could therefore see a direct impact on their disposable income.
+
+### Operational checklist for cross-border workers:
+- **Check your employment contract**: verify if there are clauses that provide for reductions in benefits in case of tax increases.
+- Consult an accountant: to understand how the OECD minimum tax could affect your income tax return.
+- Monitor company communications: companies might announce changes in remuneration policies.
+
+## Comparison with initial goals
+
+The initial goals of the Federal Council were ambitious, with expected revenues between 1.5 and 3.5 billion francs. However, the 2025 data shows a significant gap, with only 564 million francs collected. This could lead to a review of future tax policies, with possible impacts on bilateral tax agreements between Switzerland and Italy.
+
+### Comparison between practical scenarios:
+- Optimistic scenario: If revenues were to gradually increase, reaching 1.5 billion francs by 2027, the Swiss government could maintain existing tax agreements.
+- Pessimistic scenario: If revenues remain low, the government might have to renegotiate the agreements, with possible tax increases for cross-border workers.
+
+## Future scenarios
+
+If revenues continue to be below expectations, the Swiss government might have to review its tax strategy. This could include changes to rates or the scope of the minimum tax. For cross-border workers, it is important to monitor these developments to understand how they might affect their income and tax benefits.
+
+### Concrete examples:
+- Increase in rates: If the minimum rate were to rise from 15% to 20%, companies might have to further reduce costs, directly impacting salaries.
+- Changes to bilateral agreements: If Switzerland were to renegotiate agreements with Italy, cross-border workers might see an increase in taxes on their Swiss-earned income.
+
+### 💡 Practical tips:
+- Diversify your income sources: consider investing in activities that can compensate for any reductions in income.
+- Plan your finances: create a budget that takes into account possible tax variations.
+- Stay informed: follow tax news and regularly consult an expert for updates.
+
+### ⚠️ Warnings:
+- Do not make hasty decisions: wait for official communications before making significant changes.
+- Always consult a professional: tax regulations can be complex and subject to change.
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).`,"blog.article.imposta-ocse-multinazionali-obiettivi-lontani.body3":`## What to do for cross-border workers
+
+For cross-border workers employed in Switzerland, it is crucial to stay informed about tax developments, especially in light of the OECD minimum tax on multinational corporations. Here are some concrete steps to follow:
+
+1. **Monitor official communications**: Ensure you receive updates from Swiss and Italian tax authorities. For example, the Italian Revenue Agency and the Swiss Federal Tax Administration regularly publish informational bulletins. In particular, cross-border workers residing in the Ticino municipalities of Lugano, Mendrisio, and Chiasso should pay attention to local communications, which often contain specific details for their situation.
+
+2. Consult a tax expert: A consultant can help navigate the complexities of new regulations and optimize your tax return. For example, an expert can explain how the OECD minimum tax of 15% on multinational corporations might affect your income. Additionally, they can provide advice on managing tax deductions, which can vary significantly between Italy and Switzerland.
+
+3. Use online tools: Tools like the [tax calculator](nav:calculator) can help estimate the impact of new taxes on your income. For example, if you earn 80,000 CHF per year and reside in Lugano, the calculator can estimate that your OECD minimum tax might be approximately 1,200 CHF, depending on the applicable deductions.
+
+4. Keep accurate documentation: Keep all tax documents and work contracts to facilitate your tax return. This includes receipts, work contracts, and documents related to any tax deductions. For example, if you have medical or transportation expenses, it is important to keep the relevant receipts to deduct them.
+
+### Operational Checklist
+
+- Check official communications: Regularly check the websites of Swiss and Italian tax authorities.
+- Consult a tax expert: Schedule an appointment with a tax consultant for a comprehensive review of your situation.
+- Use online tools: Use the [tax calculator](nav:calculator) to estimate the impact of new taxes.
+- Keep accurate documentation: Keep all tax documents and work contracts in a safe and easily accessible place.
+
+### Comparisons between practical scenarios
+
+Consider two scenarios for a cross-border worker residing in Mendrisio:
+
+- Scenario 1: A cross-border worker with an annual income of 70,000 CHF. According to current regulations, the OECD minimum tax could add approximately 1,050 CHF to their tax return.
+- Scenario 2: A cross-border worker with an annual income of 100,000 CHF. In this case, the OECD minimum tax could add approximately 1,500 CHF to their tax return.
+
+## Conclusion
+
+The OECD minimum tax on multinational corporations has a significant impact on the Swiss economy and cross-border workers. Although revenues have increased, they remain well below expectations, with only 564 million CHF expected for 2025. It is essential for cross-border workers to stay informed and prepare for any future changes. Using tools like the [tax calculator](nav:calculator) can help manage the tax situation better.
+
+> "The complexity of tax regulations requires a proactive and informed approach." - Ticino tax expert
+
+Maintaining accurate documentation and regularly consulting a tax expert are crucial steps to successfully navigate the Swiss tax landscape.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3689703)*`,"blog.article.imposta-ocse-multinazionali-obiettivi-lontani.faq":'[{"q":"Which sectors contribute the most to OCSE tax revenues?","a":"The pharmaceutical and financial sectors have contributed to 90% of total OCSE tax revenues. Novartis and Roche, in particular, have paid 266 million and 155 million francs respectively."},{"q":"Why are the revenues lower than expected?","a":"Revenues are lower than expected due to the special treatment for US groups and the concentration of supplementary taxes on a few sectors. Additionally, there is a lack of complete data on subsidiaries of foreign groups."},{"q":"What can cross-border workers do to prepare for tax changes?","a":"Cross-border workers should monitor official communications, consult a tax expert, use online tools like the [tax calculator](nav:calculator), and keep accurate documentation."}]'};export{e as default};

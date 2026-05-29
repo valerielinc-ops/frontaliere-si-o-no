@@ -1,0 +1,67 @@
+const e={"blog.article.internazionali-ticino-2026.body1":`## Kurz und bündig
+- Die Italian Open 2026 beginnen heute
+- Erster Tag mit dem Damen-Tabellen
+- Jannik Sinner debütiert im zweiten Durchgang
+
+## Wichtige Fakten
+- **Was**: Beginn der Italian Open 2026
+- Wann: 5. Mai 2026
+- Wo: Rom, Foro Italico
+- Wer: Internationale Tennisspieler
+- Preisgeld: Noch nicht spezifiziert
+
+Die Italian Open 2026 haben offiziell heute, Dienstag, den 5. Mai, begonnen. Das Tennisturnier, das im Foro Italico in Rom stattfindet, sieht den Damen-Tabellen als Hauptakteur am ersten Tag. In Erwartung des Debüts von Jannik Sinner, das für den zweiten Durchgang geplant ist, eröffnet der erste Durchgang des WTA-Tabellen und einige Spiele der Männer-Qualifikationen die Veranstaltung. Viele italienische Tennisspieler sind an diesem ersten Tag im Einsatz, mit einem reichen Programm an Spielen auf verschiedenen Plätzen.
+
+### Programm des ersten Tages
+Das Programm des ersten Tages ist reich an Spielen auf verschiedenen Plätzen. Auf dem Zentralplatz beginnt um 11 Uhr das Spiel zwischen Barbora Krejcikova und Elsa Jacquemot, gefolgt von Sofia Kenin gegen Bianca Andreescu und Anastasia Zakharova gegen Dayana Yastremska. Die BNP Paribas Arena wird ab 10 Uhr Spiele wie Pablo Carreno Busta gegen Stan Wawrinka und Anna Bondar gegen Qinwen Zheng beherbergen. Auch der Pietrangeli-Platz und andere Nebenplätze werden bedeutende Spiele haben.
+
+### Wo sie im Fernsehen zu sehen sind
+Die Italian Open 2026 werden live im Fernsehen auf den Kanälen Sky Sport und TennisTv übertragen. SuperTennis wird alle Spiele des Damen-Tabellen kostenlos zeigen. Ein Spiel pro Tag des Herren-Tabellen wird auch kostenlos auf Tv8 zu sehen sein. Zudem wird das Turnier auf der Streaming-App SkyGo, auf NOW, auf der Streaming-Plattform von TennisTv, auf der von Tv8 (wenn vorgesehen) und auf SuperTennix verfügbar sein.
+
+Für die Grenzgänger, die in der Schweiz arbeiten und das Turnier verfolgen möchten, bieten diese Übertragungsoptionen verschiedene Möglichkeiten, die Spiele live zu sehen. Ob Sie Tennis-Fans sind oder einfach nur neugierig, den Sportveranstaltungen zu folgen, Sie haben die Qual der Wahl, um kein Match zu verpassen.
+
+### Auswirkungen auf Grenzgänger
+Für die Grenzgänger, die in der Schweiz arbeiten, kann die Verfolgung der Italian Open eine Möglichkeit sein, mit der italienischen Sportkultur verbunden zu bleiben. Das Turnier bietet die Gelegenheit, die besten Tennisspieler der Welt in Aktion zu sehen, und die kostenlose Übertragung auf SuperTennis und Tv8 macht es für alle zugänglich. Zudem ermöglicht die Möglichkeit, die Spiele per Streaming zu verfolgen, sich an die Arbeitszeiten anzupassen und das Turnier auch während der Pausen zu genießen.
+
+### Praktische Szenarien
+Wenn Sie Grenzgänger sind und wenig Zeit haben, das Turnier live zu verfolgen, können Sie planen, die Spiele während der Mittagspause oder am Abend per Streaming zu sehen. SuperTennis bietet eine gute Abdeckung des Damen-Tabellen, während Tv8 ein Spiel pro Tag des Herren-Tabellen überträgt. Dies ermöglicht es Ihnen, Ihre Lieblingstennisspieler zu verfolgen, ohne sich um feste Zeiten kümmern zu müssen.
+
+Zusätzlich, wenn Sie Tennis-Fans sind und alle Spiele verfolgen möchten, können Sie einen Abonnement bei Sky Sport oder TennisTv in Betracht ziehen. Diese Dienste bieten eine vollständige Abdeckung des Turniers und ermöglichen es Ihnen, alle Spiele live und on-demand zu sehen.
+
+### Fazit
+Die Italian Open 2026 versprechen, ein aufregendes Turnier zu sein, mit einem reichen Programm an Spielen und verschiedenen Optionen, es im Fernsehen und per Streaming zu verfolgen. Für die Grenzgänger, die in der Schweiz arbeiten, kann die Verfolgung des Turniers eine Möglichkeit sein, mit der italienischen Sportkultur verbunden zu bleiben und eines der wichtigsten Tennisevents des Jahres zu genießen.
+
+Für weitere Informationen zu den Zeiten und Übertragungen besuchen Sie die offiziellen Websites von Sky Sport, TennisTv und SuperTennis. Gutes Sehen!`,"blog.article.internazionali-ticino-2026.body2":`## Praktische Analyse
+Die Internationalen Italien 2026 sind ein Ereignis von großem Interesse für Tennis-Fans, aber auch für Grenzgänger, die im Tessin arbeiten. Die Möglichkeit, das Turnier im Fernsehen und im Streaming zu verfolgen, bietet verschiedene Optionen, um sich an die Arbeitszeiten anzupassen und die Spiele zu genießen.
+
+### Sehoptionen
+Für Grenzgänger, die im Tessin arbeiten, gibt es viele Sehoptionen. SuperTennis bietet eine vollständige Abdeckung des Damen-Tabellen, während Tv8 ein Spiel pro Tag des Herren-Tabellen überträgt. Dies ermöglicht es Ihnen, Ihre Lieblingstennisspieler zu verfolgen, ohne sich um feste Zeiten kümmern zu müssen.
+
+Zusätzlich bietet die Möglichkeit, die Spiele im Streaming über die SkyGo-App, NOW, die TennisTv-Streaming-Plattform und die von Tv8 (wenn vorgesehen) eine große Flexibilität. Sie können planen, die Partien während der Mittagspause oder am Abend zu sehen und sich an Ihre Arbeitsverpflichtungen anzupassen.
+
+### Sehplan
+Wenn Sie Tennis-Fans sind und alle Spiele verfolgen möchten, können Sie einen Abonnement bei Sky Sport oder TennisTv in Betracht ziehen. Diese Dienste bieten eine vollständige Abdeckung des Turniers und ermöglichen es Ihnen, alle Spiele live und on-demand zu sehen. Außerdem können Sie planen, die Spiele basierend auf den Arbeitszeiten zu sehen, zum Beispiel während der Mittagspause oder am Abend.
+
+### Vergleich mit der vorherigen Situation
+Im Vergleich zu den Vorjahren hat sich die Fernsehberichterstattung der Internationalen Italien deutlich verbessert. Die Möglichkeit, das Turnier im Free-TV auf SuperTennis und Tv8 zu verfolgen, zusätzlich zur vollständigen Abdeckung auf Sky Sport und TennisTv, bietet eine größere Zugänglichkeit für alle Fans. Dies ist besonders nützlich für Grenzgänger, die im Tessin arbeiten und das Turnier verfolgen möchten, ohne große Opfer bringen zu müssen.
+
+### Alternative Szenarien
+Wenn Sie keine Möglichkeit haben, das Turnier live zu verfolgen, können Sie die Spiele immer im Streaming nachholen. SkyGo, NOW, TennisTv und Tv8 bieten die Möglichkeit, die Spiele on-demand zu sehen, sodass Sie das Turnier nach Belieben verfolgen können. Außerdem können Sie planen, die Spiele am Wochenende oder an freien Tagen zu sehen und sich an Ihre Arbeitsverpflichtungen anzupassen.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.internazionali-ticino-2026.body3":`## Aktion
+Für Grenzgänger, die im Tessin arbeiten und die Internationalen Italien 2026 verfolgen möchten, gibt es einige konkrete Maßnahmen:
+
+### Planung des Sehens
+Planen Sie das Sehen der Spiele basierend auf Ihren Arbeitszeiten. Sie können die Spiele während der Mittagspause oder am Abend verfolgen, je nach Ihren Verpflichtungen. Nutzen Sie die verfügbaren Streaming-Optionen, um die Spiele auf Abruf zu sehen.
+
+### Wahl der Plattform
+Wählen Sie die Plattform, die am besten zu Ihren Bedürfnissen passt. Wenn Sie Tennis-Fans sind und alle Spiele verfolgen möchten, sollten Sie einen Abonnement bei Sky Sport oder TennisTv in Betracht ziehen. Wenn Sie eine kostenlose Berichterstattung bevorzugen, bieten SuperTennis und Tv8 Optionen für freies Fernsehen.
+
+### Nutzung der Tools der Website
+Für weitere Informationen zu den Zeiten und Übertragungen besuchen Sie die offiziellen Websites von Sky Sport, TennisTv und SuperTennis. Zusätzlich können Sie den [Lohnrechner](nav:calculator) nutzen, um Ihr Budget zu planen und das Turnier ohne Sorgen zu genießen.
+
+### Fazit
+Die Internationalen Italien 2026 bieten eine einzigartige Gelegenheit für Grenzgänger, die im Tessin arbeiten, um eines der wichtigsten Tennisevents des Jahres zu verfolgen. Mit den verfügbaren Sehoptionen können Sie die Spiele basierend auf Ihren Arbeitsverpflichtungen planen und das Turnier genießen, ohne große Opfer bringen zu müssen. Gutes Sehen!
+
+*Quelle: [varesenoi.it](https://www.varesenoi.it/2026/05/05/leggi-notizia/articolo/internazionali-si-parte-programma-della-prima-giornata-e-dove-vederli-in-tv.html)*`,"blog.article.internazionali-ticino-2026.faq":`[{"q":"Wo kann ich die Internazionali d'Italia 2026 im Fernsehen verfolgen?","a":"Die Internazionali d'Italia 2026 werden live auf Sky Sport und TennisTv übertragen. SuperTennis zeigt alle Spiele des Damendoppel im Free-TV, während ein Spiel pro Tag des Herrendoppel auch im Free-TV auf Tv8 zu sehen sein wird. Zudem wird das Turnier auf der SkyGo-App, auf NOW, auf der TennisTv-Streamingplattform, auf der von Tv8 (wenn vorgesehen) und auf SuperTennix gestreamt."},{"q":"Welche italienischen Tennisspieler sind am ersten Tag im Einsatz?","a":"Am ersten Tag der Internazionali d'Italia 2026 sind viele italienische Tennisspieler im Einsatz. Auf dem Zentralplatz werden zum Beispiel Spiele wie Barbora Krejcikova gegen Elsa Jacquemot und Sofia Kenin gegen Bianca Andreescu stattfinden. Die BNP Paribas Arena wird unter anderem Anna Bondar gegen Qinwen Zheng und Martina Trevisan gegen Talia Gibson beherbergen."},{"q":"Wann debütiert Jannik Sinner?","a":"Jannik Sinner wird in der zweiten Runde der Internazionali d'Italia 2026 debütieren. Der erste Tag des Turniers ist dem Damendoppel und einigen Spielen der Herrenqualifikation gewidmet."}]`};export{e as default};

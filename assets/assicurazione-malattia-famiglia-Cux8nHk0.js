@@ -1,0 +1,38 @@
+const e={"blog.article.assicurazione-malattia-famiglia.body1":`## TL;DR
+- Cross-border workers in Ticino must choose between LAMal, EHIC, or private insurance.
+- LAMal costs around 350 CHF/month in 2026, varying by canton and deductible.
+- EHIC covers emergencies only; supplementary insurance is needed for routine care.
+- Combining LAMal with Italian supplementary insurance ensures comprehensive coverage.
+
+## Key facts
+- **LAMal cost**: Average premium for an adult in 2026 is around 350 CHF per month.
+- **EHIC coverage**: Valid only for emergencies, does not cover planned treatments.
+- **Supplementary insurance**: Average cost for a family of four in Italy is approximately €1,200 annually in 2026.
+- **Cross-border workers**: Must decide between LAMal, EHIC, or private insurance for health coverage.
+- **Family coverage**: Check if family members can be included in the Swiss policy or if another solution is more cost-effective.
+- **Healthcare systems**: Swiss healthcare system is renowned for its quality, while Italian public healthcare may offer broad protection.
+
+In Canton Ticino, cross-border workers face an important decision: how to ensure adequate health coverage for themselves and their families. The main options include Switzerland's mandatory LAMal insurance, the European Health Insurance Card (EHIC), and private supplementary policies. Understanding the differences between these alternatives is essential to avoid surprises, both in terms of coverage and costs.
+
+## LAMal: Mandatory for Cross-Border Workers
+
+LAMal is Switzerland's mandatory health insurance. For cross-border workers, opting for LAMal means access to the Swiss healthcare system, renowned for its quality. The average premium for LAMal for an adult in 2026 is around 350 CHF per month, but it varies depending on the canton and the chosen deductible.
+
+> 'LAMal provides robust coverage, but it's crucial to evaluate whether to extend it to family members residing in Italy, where the public healthcare system may already offer broad protection,' explains a consultant from the DFE in Bellinzona.
+
+For those working in Lugano but with families in Varese or Como, it's essential to check whether family members can be included in the Swiss policy or if another solution is more cost-effective.`,"blog.article.assicurazione-malattia-famiglia.body2":`## EHIC and Supplementary Insurance: What You Should Know
+
+The European Health Insurance Card (EHIC) is a useful option for those living in Italy but working in Ticino. It allows access to certain urgent medical treatments in the country of residence and across Europe. However, it is not comprehensive coverage: for specialist visits or routine care, one must rely on the Italian healthcare system or a private supplementary policy.
+
+- **EHIC**: Valid only for emergencies, does not cover planned treatments
+- **Supplementary insurance**: Can cover dental expenses, physiotherapy, or private treatments not included in public systems
+
+⚠️ In 2026, the average cost of a supplementary policy for a family of four in Italy is approximately €1,200 annually. It's crucial to compare available offers on the market to find the solution that best fits your budget and healthcare needs.`,"blog.article.assicurazione-malattia-famiglia.body3":`## Practical Tips for Cross-Border Workers
+
+💡 For those crossing daily at Gaggiolo or Ponte Tresa, planning health coverage in advance can make a big difference, especially in case of medical emergencies abroad. In many cases, combining LAMal with an Italian supplementary policy ensures comprehensive protection both in Switzerland and Italy.
+
+- Check if your employer provides assistance in choosing insurance plans
+- Review deductible options to reduce LAMal costs
+- Use online tools to compare policies and premiums
+
+Don't leave anything to chance: visit our [health insurance comparison tool](nav:health) to evaluate all available options and find the best coverage for you and your family.`,"blog.article.assicurazione-malattia-famiglia.faq":'[{"q":"What is the average cost of a LAMal premium for an adult in 2026?","a":"The average cost of a LAMal premium for an adult in 2026 is around 350 CHF per month, but varies depending on the canton and deductible chosen."},{"q":"What does the European Health Insurance Card (EHIC) cover?","a":"The EHIC allows access to some urgent medical care in the country of residence and in Europe, but it is not comprehensive coverage and does not cover scheduled treatments."},{"q":"What is the average cost of a supplementary insurance policy for a family of 4 in Italy in 2026?","a":"The average cost of a supplementary insurance policy for a family of 4 in Italy is around 1,200 € per year."},{"q":"How can I choose the best health insurance coverage for me and my family?","a":"It is recommended to compare available offers on the market, use online tools to evaluate all options, and consider combining LAMal with an Italian supplementary insurance policy."},{"q":"Can I include my family members living in Italy in my LAMal policy?","a":"It is possible, but it is essential to check if it is more convenient to include them in the Swiss policy or if another solution is more advantageous, also considering the Italian public healthcare system."}]'};export{e as default};

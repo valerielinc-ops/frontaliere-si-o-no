@@ -1,0 +1,84 @@
+const e={"blog.article.servizio-civile-errore-voto-2026.body1":`## En bref
+- Erreur dans le dépliant papier sur les demandes de service civil
+- Correction disponible uniquement en ligne
+- Disposition ne vaut que pendant l'école de recrues
+
+## Faits clés
+- **Quoi** : Erreur dans les explications de vote pour le service civil
+- Quand : 14 juin 2026 (date de votation)
+- Où : Suisse
+- Qui : Office fédéral du service civil
+- Montant : Non spécifié
+
+L'Office fédéral du service civil a identifié une erreur significative dans le dépliant informatif papier du Conseil fédéral en vue des votations du 14 juin 2026. À la page 28, le dépliant affirme à tort que "toute personne qui présente une demande d'admission au service civil avant ou pendant l'école de recrues devra effectuer l'emploi de longue durée dès l'année suivante à l'admission au service civil". En réalité, selon la modification législative sur laquelle on votera, cette disposition "ne vaut que pour toute personne qui présente une demande d'admission au service civil pendant l'école de recrues". Toute personne qui fait une demande avant le début de l'école de recrues doit continuer à accomplir la période d'emploi de longue durée avant la fin du troisième année civile suivant celle où l'admission au service civil devient définitive.
+
+### Implications pour les frontaliers
+
+L'erreur pourrait influencer les frontaliers qui envisagent le service civil comme alternative au service militaire. Il est important que les frontaliers vérifient les informations mises à jour en ligne avant de présenter leur demande. L'Office fédéral du service civil a corrigé l'erreur dans les versions PDF des explications de vote disponibles sur les sites web du Gouvernement, mais les explications de vote déjà imprimées ne peuvent plus être modifiées.
+
+Pour les frontaliers qui résident en Italie et travaillent en Suisse, il est essentiel de connaître les dernières modifications législatives pour éviter tout inconvénient. La correction en ligne est disponible et devrait être consultée pour éviter des erreurs dans les demandes d'admission.
+
+### Procédure pour la correction
+
+Les frontaliers qui ont déjà reçu le dépliant papier doivent accéder aux versions PDF mises à jour disponibles sur les sites web du Gouvernement pour obtenir les informations correctes. Il est conseillé d'imprimer les explications de vote mises à jour pour avoir une copie physique des informations correctes.
+
+### Comparaisons et scénarios
+
+Avant la correction, les frontaliers qui présentaient une demande avant l'école de recrues étaient soumis à une disposition différente de ceux qui la présentaient pendant l'école de recrues. Maintenant, avec la correction, la disposition ne vaut que pour ceux qui présentent une demande pendant l'école de recrues, ce qui pourrait influencer la planification du service civil pour certains frontaliers.
+
+Pour les frontaliers qui envisagent le service civil, il est important de prendre en compte les nouvelles dispositions et de planifier en conséquence. La correction pourrait influencer le calendrier et la durée du service civil, il est donc fondamental d'être bien informé.
+
+### Actions immédiates
+
+Les frontaliers qui ont déjà présenté une demande ou qui envisagent de le faire devraient vérifier les informations mises à jour en ligne. Il est conseillé de contacter l'Office fédéral du service civil pour des éclaircissements en cas de doute ou de questions spécifiques. De plus, il est important de surveiller d'éventuelles mises à jour futures pour être toujours informé des dernières modifications législatives.
+
+Pour plus d'informations et pour accéder aux explications de vote mises à jour, les frontaliers peuvent visiter les sites web du Gouvernement suisse. Il est fondamental de rester à jour pour éviter les erreurs et garantir une présentation correcte de la demande d'admission au service civil.`,"blog.article.servizio-civile-errore-voto-2026.body2":`## Analyse des implications
+
+L'erreur dans les explications de vote pour le service civil pourrait avoir un impact significatif sur les travailleurs frontaliers qui envisagent cette option. Il est important de comprendre les implications pratiques de cette correction pour éviter les inconvénients et planifier adéquatement le service civil.
+
+### Impact sur la planification du service civil
+
+La correction de la disposition signifie que les frontaliers qui présentent une demande d'admission au service civil avant l'école de recrues ne sont pas soumis au même calendrier que ceux qui la présentent pendant l'école de recrues. Cela pourrait influencer la planification du service civil, surtout pour ceux qui envisagent cette option comme alternative au service militaire.
+
+### Comparaison avec la situation précédente
+
+Avant la correction, la disposition applicable à tous les demandeurs était la même, indépendamment du moment de la présentation de la demande. Maintenant, avec la correction, la disposition ne s'applique qu'à ceux qui présentent une demande pendant l'école de recrues, ce qui pourrait influencer la planification du service civil pour certains frontaliers.
+
+### Scénarios pratiques
+
+Considérons deux scénarios : un frontalier qui présente une demande avant l'école de recrues et un autre qui la présente pendant l'école de recrues. Dans le premier cas, le frontalier doit accomplir la période d'emploi de longue durée avant la fin de la troisième année civile suivant celle au cours de laquelle l'admission au service civil devient définitive. Dans le second cas, le frontalier doit effectuer l'emploi de longue durée dès l'année suivante à l'admission au service civil.
+
+### Procédures pour la correction
+
+Les frontaliers qui ont déjà reçu le dépliant papier doivent accéder aux versions PDF mises à jour disponibles sur les sites web du Gouvernement pour obtenir les informations correctes. Il est conseillé d'imprimer les explications de vote mises à jour pour avoir une copie physique des informations correctes.
+
+### Surveillance des modifications législatives
+
+Il est fondamental pour les frontaliers de surveiller d'éventuelles mises à jour futures pour être toujours informés des dernières modifications législatives. Cela peut être fait en visitant régulièrement les sites web du Gouvernement suisse ou en contactant l'Office fédéral du service civil pour des éclaircissements sur d'éventuels doutes ou questions spécifiques.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.servizio-civile-errore-voto-2026.body3":`## Actions immédiates pour les frontaliers
+
+Pour les frontaliers qui envisagent le service civil, il est important de suivre certaines actions immédiates pour garantir une bonne présentation de la demande et éviter les inconvénients.
+
+### Vérification des informations mises à jour
+
+Les frontaliers qui ont déjà reçu le dépliant papier doivent accéder aux versions PDF mises à jour disponibles sur les sites web du Gouvernement pour obtenir les informations correctes. Il est conseillé d'imprimer les explications de vote mises à jour pour avoir une copie physique des informations correctes.
+
+### Contacter l'Office fédéral du service civil
+
+Pour des éclaircissements sur d'éventuels doutes ou des questions spécifiques, il est conseillé de contacter l'Office fédéral du service civil. Cela peut être fait via le site web officiel ou via les canaux de contact fournis.
+
+### Surveiller les éventuelles mises à jour futures
+
+Il est fondamental pour les frontaliers de surveiller les éventuelles mises à jour futures pour être toujours informés des dernières modifications législatives. Cela peut être fait en visitant régulièrement les sites web du Gouvernement suisse ou en contactant l'Office fédéral du service civil pour des éclaircissements sur d'éventuels doutes ou des questions spécifiques.
+
+### Utiliser des outils en ligne
+
+Pour plus d'informations et pour accéder aux explications de vote mises à jour, les frontaliers peuvent visiter les sites web du Gouvernement suisse. Il est fondamental de rester à jour pour éviter les erreurs et garantir une bonne présentation de la demande d'admission au service civil.
+
+### Calculateur de salaire
+
+Pour mieux planifier le service civil et comprendre les implications financières, les frontaliers peuvent utiliser le [calculateur de salaire](nav:calculator) disponible sur le site. Cet outil peut aider à estimer les revenus et les dépenses pendant la période de service civil, garantissant une planification financière adéquate.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3718398)*`,"blog.article.servizio-civile-errore-voto-2026.faq":`[{"q":"Quel est l'erreur dans le dépliant informatif du service civil?","a":"L'erreur concerne les demandes d'admission au service civil présentées avant ou pendant l'école de recrues. Le dépliant affirmait à tort que ceux qui présentent une demande pendant ces périodes doivent effectuer l'emploi de longue durée dès l'année suivante à l'admission au service civil. En réalité, cette disposition ne vaut que pour ceux qui présentent une demande pendant l'école de recrues."},{"q":"Comment puis-je obtenir les informations correctes?","a":"Les informations correctes sont disponibles dans les versions PDF des explications de vote mises à jour sur les sites web du Gouvernement suisse. Il est conseillé d'imprimer ces explications pour avoir une copie physique des informations correctes."},{"q":"Quelles sont les implications pour les travailleurs frontaliers?","a":"Les travailleurs frontaliers qui présentent une demande d'admission au service civil avant l'école de recrues doivent effectuer la période d'emploi de longue durée avant la fin du troisième année civile suivant celle où l'admission au service civil devient définitive. Cela pourrait influencer la planification du service civil pour certains travailleurs frontaliers."}]`};export{e as default};

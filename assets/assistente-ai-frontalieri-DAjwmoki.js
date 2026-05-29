@@ -1,0 +1,119 @@
+const e={"blog.article.assistente-ai-frontalieri.body1":`## Auf einen Blick
+- Kostenloser Chatbot für italienische Grenzgänger in der Schweiz
+- Echtzeit-Antworten zu Steuern, Versicherungen und Telearbeit
+- Basiert auf Google-Gemini-Modellen mit spezialisierter Wissensbasis
+
+## Wichtige Fakten
+- **Cosa**: KI-Assistent für italienische Grenzgänger in der Schweiz
+- **Quando**: Neues Steuerabkommen Italien-Schweiz in Kraft seit 17.07.2023
+- **Dove**: Ticino, Schweiz
+- **Chi**: Italienische Grenzgänger, die in der Schweiz arbeiten
+- **Importo**: IRPEF-Freigrenze von 10.000 €
+- **Scadenza**: Telearbeits-Protokoll Gesetz 13/2024
+- **Limiti**: 45 Tage Nichtrückkehr + 25 % Telearbeit im Protokoll
+- **Modelli**: Google-Gemini-Modelle (Flash für schnelle Antworten, Pro für komplexe Fragen)
+
+Der KI-Assistent von Frontaliere Ticino ist ein kostenloser Chatbot, der in Echtzeit Fragen italienischer Grenzgänger beantwortet, die in der Schweiz arbeiten. Er richtet sich an alle, die sich mit Grenzgängerbewilligung (Permesso G), Quellensteuer, der IRPEF-Freigrenze von 10.000 €, dem 13. Monatslohn, LAMal vs. CMI, BVG und Telearbeit zurechtfinden müssen — ohne tagelang auf eine Antwort vom Steuerberater zu warten. Der Assistent öffnet sich über die Schaltfläche unten rechts auf jeder Seite: keine Pflichtregistrierung, keine Kosten, keine Limits im Basisbetrieb. Die Wissensbasis des Modells ist auf das Neue Steuerabkommen Italien-Schweiz (in Kraft seit 17.07.2023, ratifiziert durch Gesetz 83/2023), das Telearbeits-Protokoll (Gesetz 13/2024) und die aktuellen Tessiner Quellensteuertabellen 2026 der kantonalen Steuerabteilung abgestimmt.`,"blog.article.assistente-ai-frontalieri.body2":'Der Chatbot kombiniert Google-Gemini-Modelle (Flash für schnelle Antworten, Pro für komplexe Fragen) mit einer spezialisierten Wissensbasis zur Grenzgängerbesteuerung. Der Unterschied zu einem generischen ChatGPT ist erheblich: Der Assistent hat Echtzeit-Kontext zu den AHV/ALV-Sätzen 2026, den Quellensteuertabellen A/B/C/H, der Unterscheidung zwischen "alten" und "neuen" Grenzgängern sowie den Limits 45 Tage Nichtrückkehr + 25 % Telearbeit des italienisch-schweizerischen Protokolls. Bei Bedarf ruft der Assistent die Rechner der Website auf — [Lohnrechner](nav:calculator), [Wechselkursvergleich](nav:exchange), [LAMal vs. CMI Vergleich](nav:health), [AHV/BVG-Rentenrechner](nav:pension) — so kommst du mit einem Klick von der Frage zur Berechnung.',"blog.article.assistente-ai-frontalieri.body3":`## Wie der KI-Assistent funktioniert
+
+Das System ist dreischichtig aufgebaut:
+
+1. **Basismodell (Gemini Flash/Pro)**: verarbeitet natürliche italienische Sprache, erkennt Absichten und generiert Antworten. Flash ist auf Geschwindigkeit optimiert (<2 s); Pro wird automatisch aktiviert für Fragen, die tieferes Reasoning erfordern.
+2. **Grenzgänger-Wissensbasis**: intern gepflegte Dokumente, wöchentlich aktualisiert — Tessiner Quellensteuertabellen, IRPEF-Sätze 2026, italienisch-schweizerisches Telearbeitsprotokoll, LAMal-Prämien pro Kanton, AHV-INPS-Abkommen. Das Modell konsultiert sie vor der Antwort (Retrieval), wodurch Halluzinationen bei Steuerdaten drastisch reduziert werden.
+3. **Tool Calls**: Bei konkreten Rechenfragen ("Wie hoch ist mein Netto bei 75 000 CHF brutto als neuer Grenzgänger?") ruft der Assistent direkt die Steuersimulation der Seite auf und liefert die reale Zahl statt einer Schätzung.`,"blog.article.assistente-ai-frontalieri.body4":`## Was du fragen kannst: echte Fragen
+
+Das sind die häufigsten Nutzerfragen — alle werden auf Italienisch ohne Registrierung bearbeitet.
+
+### Was ist die Grenzgängerbewilligung G und wie bekomme ich sie?
+Die Bewilligung G ist die Schweizer Grenzgängerbewilligung, ausgestellt vom kantonalen Migrationsamt. Voraussetzung: unterzeichneter Arbeitsvertrag; der Arbeitgeber reicht den Antrag ein. Gültigkeit: 5 Jahre, verlängerbar. Pflicht zur wöchentlichen Rückkehr nach Italien (45 Tage Nichtrückkehr pro Jahr erlaubt).
+
+### Wie wird die Tessiner Quellensteuer berechnet?
+Eine progressive Tabelle (A/B/C/H) wird auf das monatliche steuerbare Einkommen nach Sozialabzügen (AHV/IV/EO, ALV, UVG, KTG, BVG) angewendet. Für "neue Grenzgänger" (Anstellung ab 17.07.2023) wird der effektive Satz auf 80 % reduziert, da der Rest in Italien besteuert wird.
+
+### Wie viel darf ich im Homeoffice arbeiten?
+Bis zu 25 % der jährlichen Arbeitszeit (ca. 55 Tage) gemäß italienisch-schweizerischem Telearbeitsprotokoll (gültig ab 01.01.2024), plus 45 Tage Nichtrückkehr aus beruflichen Gründen. Beide Limits kumulieren sich.`,"blog.article.assistente-ai-frontalieri.body5":`### Was ist die IRPEF-Freigrenze von 10.000 €?
+Es ist die IRPEF-befreite Schwelle auf Schweizer Lohneinkommen für neue Grenzgänger (Art. 4, Gesetz 83/2023). Die ersten 10.000 € Grenzgängereinkommen sind von der italienischen Steuerbasis ausgenommen. Gilt jährlich, nicht monatlich.
+
+### Muss ich als alter Grenzgänger eine italienische Steuererklärung abgeben?
+Nein. Alte Grenzgänger (Beginn vor 17.07.2023), die täglich in die 20-km-Grenzzone zurückkehren, behalten die IRPEF-Befreiung bis 31.12.2033 (Art. 9 Zusatzprotokoll). Sie erklären nur andere italienische Einkünfte.
+
+### Wie funktioniert die Quellensteuer-Anrechnung?
+Die Schweizer Quellensteuer wird vom Arbeitgeber abgeführt. Für neue Grenzgänger ist 100 % des einbehaltenen Betrags als Steuergutschrift gegen die italienische IRPEF (Feld CE im 730 oder Redditi PF) anrechenbar. Grenze: nicht höher als der IRPEF-Anteil auf das ausländische Einkommen.
+
+### LAMal oder CMI: was lohnt sich?
+Hängt von Familieneinkommen, Alter und Haushaltsgröße ab. Der [LAMal vs. CMI Vergleich](nav:health) berechnet die jährlichen Nettokosten. Faustregel: Singles unter 40 mit Durchschnittseinkommen fahren mit CMI fast immer günstiger; Familien mit Kindern (inkl. Prämienverbilligung) oft mit LAMal.`,"blog.article.assistente-ai-frontalieri.body6":`### Wie stark belastet die BVG meinen Lohn?
+Die obligatorische zweite Säule ist ein Abzug zwischen 7 % und 18 % auf den koordinierten Lohn (Jahreslohn minus CHF 26.460 Koordinationsabzug 2026). Konkret: bei CHF 65.000 brutto mit 40 Jahren rund CHF 321 pro Monat. Es ist keine "Steuer": Das angesparte Kapital gehört dir und du beziehst es bei Pensionierung, endgültiger Ausreise oder Erstwohnungskauf.
+
+### Kann ich den Arbeitgeber wechseln und "alter Grenzgänger" bleiben?
+Ja, sofern keine Arbeitsunterbrechung von mehr als 60 Tagen zwischen den Verträgen liegt (AdE-Rundschreiben 25/2024). Kantonswechsel: erlaubt, solange du in einem Grenzkanton (Tessin, Graubünden, Wallis) bleibst.
+
+### Was passiert mit der Rente: Zählen AHV und INPS zusammen?
+Ja, dank des bilateralen Sozialversicherungsabkommens. Schweizer AHV und italienische INPS sind koordiniert: Beiträge gehen nicht verloren. Mit 65 kannst du beide Renten beantragen. Der [Rentenrechner](nav:pension) schätzt das kombinierte Netto.
+
+### Wie finde ich Arbeit im Tessin?
+Der KI-Assistent kann das [interne Job-Board](nav:job-board) für dich filtern: Sag einfach "suche Pflegefachstellen in Lugano mit mindestens 70.000 CHF". Angebote werden aus JobUp, jobs.ch, SECO und kantonalen Portalen aggregiert und automatisch ins Italienische übersetzt.`,"blog.article.assistente-ai-frontalieri.body7":`### Wie viel kostet es wirklich, im Tessin zu leben?
+Das hängt von Gemeinde, Zivilstand und Lebensstil ab. Unser [Kostenvergleich Tessin vs. Lombardei](nav:cost-of-living) vergleicht Miete, Einkauf, Transport, Gesundheit und Steuern. Beispiel: Ein Single in Lugano gibt im Schnitt CHF 3.100/Monat aus, gegenüber umgerechnet 2.200 € in Varese.
+
+### Welcher CHF/EUR-Wechselkurs ist heute am vorteilhaftesten?
+Der Assistent liest den [Wechselkursvergleich](nav:exchange) in Echtzeit — Wise, Revolut, N26, EZB und klassische Banken. Im Schnitt bieten Wise und Revolut Spreads von 0,4–0,7 % gegenüber 2–3 % bei Banken, was bei einem monatlich umgerechneten Lohn 600–1.200 € pro Jahr spart.
+
+### Wie funktioniert die Säule 3a und lohnt sie sich für Grenzgänger?
+Grenzgänger mit Bewilligung G dürfen ein Schweizer 3a-Konto eröffnen (maximal CHF 7.258 im Jahr 2026 für Angestellte). Einzahlungen reduzieren die Quellensteuer-Basis. Beim Ende des Arbeitsverhältnisses oder bei Pensionierung wird das Kapital separat und zu reduziertem Satz besteuert. Für neue Grenzgänger ist der Steuervorteil teilweise (Italien besteuert etwa 20 %), bleibt aber für den Vermögensaufbau in starken Franken interessant.
+
+### Ich habe in der Schweiz gearbeitet und wurde entlassen: was nun?
+Du hast Anspruch auf italienische Arbeitslosenentschädigung (NASpI), berechnet auf dem in Euro umgerechneten Schweizer Lohn, zusätzlich zu den erworbenen AHV-Beiträgen. Der Antrag muss innert 68 Tagen nach Beendigung bei der italienischen INPS unter Beilage des Schweizer Formulars U1 eingereicht werden.`,"blog.article.assistente-ai-frontalieri.body8":`### Mein Schweizer Arbeitgeber zahlt verspätet: was kann ich tun?
+Im Tessin schreiben die Gesamtarbeitsverträge (GAV) die Lohnzahlung bis Ende des gearbeiteten Monats vor. Zahlt der Arbeitgeber nicht innert 30 Tagen, kannst du dich an das kantonale Schlichtungsamt (kostenlos) wenden oder direkt über den Pretore einen Rechtsöffnungsbefehl erwirken. Der Assistent kann dir das Mahnschreiben (Messa in Mora) per Einschreiben vorformulieren.
+
+## Konkrete Anwendungsfälle
+
+Die drei häufigsten Nutzungen heute:
+
+**1. Nettolohn-Berechnung im Flug**: *"Verheiratet, 2 Kinder, Ehefrau ohne Einkommen. 78.000 CHF brutto, alter Grenzgänger, Wohnsitz Varese. Netto monatlich?"* — der Assistent wendet Tabelle B an, berechnet Sozialabzüge und Quellensteuer, konvertiert zum EZB-Kurs und liefert das monatliche Netto (≈ 4.950 CHF → ≈ 5.220 €).
+
+**2. Gezielte Jobsuche**: *"Zeige Physiotherapeuten-Stellen in Lugano oder Chiasso, min. 75.000 CHF, nur Arbeitgeber mit 20+ Mitarbeitenden"* — der Assistent filtert das [interne Job-Board](nav:job-board) und liefert 6–12 passende Angebote mit direktem Bewerbungslink.
+
+**3. Spezifische Steuerfragen**: *"Mein CU 2026 enthält Feld 462 für Auslandseinkommen nicht. Ist das ein Fehler?"* — der Assistent erklärt, dass Feld 462 für neue Grenzgänger optional ist und das Schweizer Einkommen in Quadro C Zeile C4 gehört, mit Gutschrift in CE.`,"blog.article.assistente-ai-frontalieri.body9":`## Datenschutz und Sicherheit
+
+Der Assistent ist DSGVO-konform und schützt die Privatsphäre der Grenzgänger, die heikle Steuerfragen stellen. Betriebliche Regeln:
+
+- **Keine Pflichtregistrierung** für die Basisnutzung. Du kannst bis zu 20 Fragen pro Tag ohne Konto stellen.
+- **Persönliche Daten**: Fragen werden von Gemini-Modellen über Google AI Studio (EU-Server) verarbeitet. Sie werden nicht für das Retraining des Modells gespeichert (No-Train-Policy auf dem Projekt-API-Key).
+- **Lokale Historie**: Das Gespräch bleibt im \`sessionStorage\` deines Browsers, nicht auf unseren Servern. Schließt du den Tab, ist alles weg.
+- **Kein Werbe-Profiling**: Chat-Inhalt wird nie für Targeting oder den Verkauf an Dritte verwendet.
+- **Steuerliche Hinweise**: Der Assistent ersetzt keinen eingetragenen Steuerberater. Für komplexe Situationen (grenzüberschreitende Erbschaft, umstrittene Doppelansässigkeit, Mehrwertsteuerpflichtige) empfiehlt er stets eine Fachperson zu konsultieren.
+
+Wer Gespräche speichern will (zum späteren Nachschlagen oder Teilen mit dem Steuerberater) kann ein kostenloses Konto mit Google oder LinkedIn erstellen: In diesem Fall wird die Historie Ende-zu-Ende verschlüsselt auf Firestore in deinem privaten Ordner gespeichert.`,"blog.article.assistente-ai-frontalieri.body10":`## Grenzen und wann du ihn NICHT nutzen solltest
+
+Der Assistent ist ein starker Ausgangspunkt, hat aber klare Grenzen, die wir transparent machen:
+
+- **Keine Rechtsberatung**: Bei Arbeitsrechtsstreiten, Einsprüchen gegen Steuerbescheide oder umstrittener Doppelansässigkeit braucht es einen Anwalt oder eingetragenen Steuerberater.
+- **Ersetzt nicht die 730-Erklärung**: Er kann erklären, wie Quadro C und CE auszufüllen sind, aber die Steuer­unterschrift bleibt deine Verantwortung.
+- **Immer überprüfbare Daten**: Jede Steuerantwort enthält Quellen (BSV, Tessiner Steuerabteilung, AdE, Gesetzgebung). Wir laden dich ein, sie zu prüfen — alle sind öffentlich.
+- **Kontinuierliche Aktualisierung**: Die 2026-Tarife und Normen sind in der Wissensbasis, aber falls das Parlament die Regeln mitten im Jahr ändert, kann die Aktualisierung 24–48 Stunden dauern. In diesem Fall warnt ein Banner: "diese Antwort berücksichtigt möglicherweise spätere Änderungen nach dem [Datum] nicht".
+- **Sprache**: Zu 100 % auf Italienisch ausgelegt. Bei Fragen auf Deutsch oder Französisch sinkt die Qualität um 20–30 % — lokalisierte Wissensbasen sind in Arbeit (Abschluss Q3 2026).`,"blog.article.assistente-ai-frontalieri.body11":`## Erste Schritte
+
+1. Gehe auf **[frontaliereticino.ch](https://frontaliereticino.ch/)** — der Chat-Button (KI-Icon) ist unten rechts auf jeder Seite.
+2. Klicke zum Öffnen. Erste Frage gratis, kein Login.
+3. Schreibe auf natürlichem Italienisch ("quanto pago di tasse con 70k CHF?" funktioniert; kein Fachjargon nötig).
+4. Verlangt das Modell eine Berechnung, zeigt es das Resultat direkt im Chat mit Link zum vollständigen Rechner.
+5. Zum Speichern des Verlaufs: nach der 5. Frage mit Google oder LinkedIn anmelden.
+
+Alternativ öffnest du direkt den [Lohnrechner](nav:calculator) oder den [Wechselkursvergleich](nav:exchange), wenn du schon weißt, was du brauchst.
+
+## Häufige Fragen zum KI-Assistenten
+
+**Ist der KI-Assistent wirklich gratis?**
+Ja. Die Basisnutzung ist kostenlos und registrierungsfrei: bis zu 20 Fragen pro Tag. Künftige Bezahlversionen (eine Pro-Stufe mit höheren Limits) sind optional und für den professionellen Einsatz gedacht.
+
+**Funktioniert er auch am Handy?**
+Ja, der Chat ist responsive und für iOS sowie Android optimiert. Keine App-Installation: läuft direkt im Browser.
+
+**Kann ich ihn für die Steuern meiner nicht-grenzgängerischen Frau verwenden?**
+Der Assistent ist auf den Grenzgängerstatus spezialisiert. Für rein italienische Einkünfte (Privatangestellte, Selbständige, Mehrwertsteuerpflichtige) verweist er auf passendere Werkzeuge. Bei gemeinsamer Steuererklärung mit einem Grenzgänger-Partner kann er unterstützen.
+
+**Wie wird die Wissensbasis aktualisiert?**
+Eine automatisierte Pipeline überwacht die offiziellen Seiten (BSV, Tessiner Steuerabteilung, AdE, Gazzetta Ufficiale) und aktualisiert die internen Dokumente wöchentlich. Dringende regulatorische Änderungen werden innert 24–48 Stunden eingespielt.
+
+**Kann ich Chats als PDF exportieren?**
+Ja, mit kostenlosem Konto: Button "PDF exportieren" oben im Chat. Nützlich fürs Archiv oder um den Kontext an den Steuerberater zu schicken.
+
+*Hauptquellen: Gesetz 83/2023 (Neues Steuerabkommen Italien-Schweiz); Gesetz 13/2024 (Ratifizierung Telearbeits-Protokoll); BSV — Ansätze 2026; Tessiner Steuerabteilung — Quellensteuertabellen 2026; AdE-Rundschreiben 25/2024; AHV-INPS-Abkommen von 1962 mit späteren Änderungen. Wissensbasis des KI-Assistenten auf Stand April 2026. Der Assistent ersetzt keinen Steuerberater und keinen Arbeitsrechtsanwalt: Bei komplexen Situationen eine Fachperson konsultieren, die bei ODCEC oder bei der Anwaltskammer eingetragen ist.*`,"blog.article.assistente-ai-frontalieri.faq":'[{"q":"Ist der KI-Assistent von Frontaliere Ticino wirklich kostenlos?","a":"Ja. Die Basisnutzung ist kostenlos und ohne Pflichtregistrierung: bis zu 20 Fragen pro Tag. Eine zukünftige Pro-Version mit höheren Limits ist optional; der Basis-Assistent bleibt für Grenzgänger dauerhaft gratis."},{"q":"Welche Gesprächsdaten werden gespeichert?","a":"Fragen werden von Google Gemini auf EU-Servern mit aktivierter No-Train-Policy verarbeitet. Die Historie bleibt im sessionStorage des Browsers und verschwindet beim Schließen des Tabs, außer du erstellst ein Konto — dann wird sie Ende-zu-Ende verschlüsselt auf Firestore gespeichert."},{"q":"Kann ich mit dem KI-Assistenten meinen Grenzgänger-Nettolohn berechnen?","a":"Ja. Der Assistent ruft das Steuersimulations-Engine der Seite mit deinen Variablen (Brutto, Zivilstand, Wohnsitz, alter/neuer Grenzgänger) auf und liefert das monatliche Netto direkt im Chat, mit Link zum vollständigen Rechner."},{"q":"Kennt der KI-Assistent das Steuerabkommen 2023 und das Telearbeits-Protokoll?","a":"Ja. Die Wissensbasis ist auf Gesetz 83/2023 (Neues Steuerabkommen), Gesetz 13/2024 (Ratifizierung Telearbeits-Protokoll) und AdE-Rundschreiben 25/2024 abgestimmt. Sie kennt die Unterscheidung alte/neue Grenzgänger, die IRPEF-Freigrenze von 10.000 €, das 25 %-Telearbeitslimit und die 45 Tage Nichtrückkehr."},{"q":"Kann der Assistent mir bei der Jobsuche im Tessin helfen?","a":"Ja. Der Assistent filtert das interne Job-Board nach deinen Kriterien (Beruf, Stadt, Mindestgehalt, Firmengröße) und liefert passende Stellenangebote, aggregiert aus JobUp, jobs.ch, SECO und kantonalen Portalen, mit automatischer italienischer Übersetzung."},{"q":"Ersetzt der KI-Assistent den Steuerberater?","a":"Nein. Der Assistent liefert informative Antworten auf Basis der geltenden Gesetzgebung mit zitierten Quellen, aber keine professionelle Beratung. Bei komplexen Fällen (Arbeitsstreitigkeiten, Doppelansässigkeit, Einsprüche, grenzüberschreitende Erbschaften) empfehlen wir stets die Konsultation eines eingetragenen Steuerberaters."},{"q":"Funktioniert es auf dem Handy?","a":"Ja, der Chat ist vollständig responsive auf iOS und Android. Keine App-Installation nötig — funktioniert im mobilen Browser genau wie auf dem Desktop, mit denselben Funktionen und Limits."},{"q":"Wie wird die Wissensbasis aktualisiert?","a":"Eine automatisierte Pipeline überwacht offizielle Websites (BSV, Tessiner Steuerabteilung, AdE, Gazzetta Ufficiale) und aktualisiert interne Dokumente wöchentlich. Dringende regulatorische Änderungen werden innerhalb von 24-48 Stunden eingespielt."},{"q":"Was unterscheidet ihn von generischem ChatGPT?","a":"Drei Dinge: spezialisierte Wissensbasis zur italienisch-schweizerischen Grenzgängerbesteuerung mit wöchentlicher Aktualisierung; Tool Calls, die die realen Rechner der Seite aufrufen; Echtzeit-Kontext zu 2026-Tarifen und zum Neuen Steuerabkommen, den generisches ChatGPT in seinen Trainingsdaten nicht hat."},{"q":"Kann ich eine falsche Antwort melden?","a":"Jede Antwort hat einen Fehler-melden-Button. Feedback geht direkt an das Redaktionsteam, das innerhalb von 48 Stunden prüft und bei Bestätigung die Wissensbasis aktualisiert und Nutzer mit derselben Frage benachrichtigt."}]'};export{e as default};

@@ -1,0 +1,58 @@
+const e={"blog.article.varese-citta-piu-verde-2026.body1":`## En bref
+- Varèse est l'une des villes les plus vertes d'Europe
+- Plus de 50 % de la population respecte la règle du 3-30-300
+- Seulement 13,5 % des citoyens européens vivent dans des conditions similaires
+
+## Faits clés
+- **Quoi** : Étude sur 862 villes européennes
+- Quand : Publié dans Nature Communications
+- Où : Varèse, Italie
+- Qui : Nature et JRC
+- Montant : 50 % de la population de Varèse respecte la règle du 3-30-300
+
+Varèse a été reconnue comme l'une des villes les plus vertes d'Europe selon une étude publiée dans Nature Communications. La recherche, qui a analysé 862 villes du continent, a utilisé la règle du 3-30-300 élaborée par l'éducateur Cecil Konijnendijk. Cette règle stipule que chaque habitant devrait avoir trois arbres visibles depuis sa fenêtre, vivre dans un quartier avec au moins 30 % de couverture arborée et se trouver à moins de 300 mètres d'un parc ou d'une zone verte accessible.
+
+Varèse, avec Espoo en Finlande, est l'une des deux seules villes européennes où plus de 50 % de la population vit dans le plein respect de ces critères. Ce primat place la ville lombarde au sommet absolu du continent, devant des capitales comme Stockholm, Helsinki et Berlin.
+
+### Comparaison avec d'autres villes italiennes
+En Italie, Varèse se positionne au sommet du classement national aux côtés de Reggio Emilia, Pavie et Pérouse. Dans ces villes, plus de 24 % des habitants vivent dans des quartiers qui respectent les paramètres de la règle du 3-30-300. À l'inverse, dans les régions du sud, la plupart des communes ont moins de 2 % des résidents avec un accès homogène au vert.
+
+L'étude souligne que le respect global de la règle ne dépend pas seulement du score atteint dans les critères individuels, mais aussi de la distribution spatiale des zones vertes. Varèse offre un exemple rare : être citée dans une analyse scientifique à l'échelle continentale non pas comme un problème à résoudre, mais comme un modèle à étudier.
+
+### Implications pour les frontaliers
+Pour les frontaliers qui travaillent en Suisse et résident en Lombardie, Varèse représente un exemple de la manière dont la planification urbaine durable peut améliorer la qualité de vie. La présence de zones vertes accessibles et bien réparties peut influencer positivement le bien-être général et la productivité.
+
+### Événement avec l'architecte Elena Granata
+Le 18 mai à Materia se tiendra un événement avec l'architecte Elena Granata, qui présentera son livre 'La città è di tutti'. La professeure du Polytechnique de Milan consacrera une large partie de son travail aux thèmes environnementaux.
+
+Varèse, avec sa réputation construite au fil du temps grâce à la coexistence de la ville et de la nature, trouve enfin une mesure rigoureuse et comparable à l'échelle européenne. Cette reconnaissance peut encourager d'autres villes à suivre l'exemple de Varèse et à intégrer le vert dans la planification urbaine de manière systématique et capillaire.`,"blog.article.varese-citta-piu-verde-2026.body2":`## Analyse pratique
+La règle du 3-30-300 n'améliore pas seulement la qualité de vie, mais a également un impact significatif sur l'environnement et la santé publique. Varèse, avec son haut pourcentage de couverture arborée et son accès aux parcs et aux espaces verts, offre un modèle de durabilité urbaine qui peut être adopté par d'autres villes.
+
+### Avantages pour les frontaliers
+Pour les frontaliers qui vivent et travaillent dans des zones urbaines, la présence d'espaces verts accessibles peut améliorer considérablement la qualité de vie. La possibilité d'accéder facilement aux parcs et aux espaces verts peut réduire le stress et améliorer la santé mentale, tout en promouvant un mode de vie plus actif et sain.
+
+### Comparaison avec d'autres villes européennes
+Varèse et Espoo sont les deux seules villes en Europe où plus de 50% de la population respecte la règle du 3-30-300. Cette comparaison met en évidence l'importance d'une planification urbaine qui tient compte de la distribution équitable des espaces verts publics. Les villes qui ne parviennent pas à garantir un accès équitable à la nature risquent de créer des inégalités concrètes, non seulement environnementales, mais aussi sociales et économiques.
+
+### Défis futurs
+Le défi pour les prochaines décennies est d'intégrer le vert dans la planification urbaine de manière systématique et capillaire, atteignant également les quartiers les plus marginaux. Cela nécessite un engagement concret de la part des administrations locales et une collaboration étroite avec des experts en urbanisme et en environnement.
+
+### Événements et initiatives
+Des événements comme celui avec l'architecte Elena Granata représentent une opportunité de discuter et de promouvoir des pratiques durables en milieu urbain. La présentation du livre 'La ville est à tous' peut offrir des pistes intéressantes pour améliorer la qualité de vie dans les villes, non seulement pour les résidents, mais aussi pour les frontaliers qui vivent et travaillent dans ces zones.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.varese-citta-piu-verde-2026.body3":`## Actions concrètes
+Pour les frontaliers qui souhaitent vivre dans un environnement urbain durable, Varese offre un exemple positif. Voici quelques actions concrètes qui peuvent être entreprises pour améliorer la qualité de vie et promouvoir la durabilité :
+
+1. Participer à des événements et initiatives locales : Des événements comme celui avec l'architecte Elena Granata offrent l'opportunité d'apprendre et de discuter des pratiques durables en milieu urbain.
+2. **Utiliser les espaces verts locaux** : Profiter des parcs et des zones vertes accessibles pour des activités récréatives et sportives.
+3. Promouvoir la durabilité : Soutenir les initiatives locales qui promeuvent la durabilité et la planification urbaine équitable.
+4. Collaborer avec les administrations locales : Participer à des projets et initiatives visant à améliorer la distribution des espaces verts publics.
+
+### Outils utiles
+Pour les frontaliers qui souhaitent planifier leur déménagement ou améliorer la qualité de vie dans les villes où ils vivent, il est possible d'utiliser des outils comme le [calculateur de salaire](nav:calculator) pour comparer les coûts et les avantages de vivre dans des villes durables.
+
+### Conclusion
+Varese représente un modèle de durabilité urbaine qui peut être adopté dans d'autres villes. Pour les frontaliers, vivre dans un environnement urbain durable peut améliorer significativement la qualité de vie et promouvoir un mode de vie plus sain et actif. Participer à des événements locaux et utiliser des espaces verts accessibles sont des actions concrètes qui peuvent faire la différence.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/varese-e-tra-le-citta-piu-verdi-deuropa/2561911/)*`,"blog.article.varese-citta-piu-verde-2026.faq":`[{"q":"Qu'est-ce que la règle du 3-30-300 ?","a":"La règle du 3-30-300 stipule que chaque habitant devrait avoir trois arbres visibles depuis sa fenêtre, vivre dans un quartier avec au moins 30 % de couverture arborée et se trouver à moins de 300 mètres d'un parc ou d'une zone verte accessible."},{"q":"Quelles sont les villes européennes qui respectent la règle du 3-30-300 ?","a":"Varese et Espoo en Finlande sont les deux seules villes européennes où plus de 50 % de la population respecte la règle du 3-30-300."},{"q":"Quels sont les avantages de vivre dans une ville avec une forte couverture arborée ?","a":"Vivre dans une ville avec une forte couverture arborée peut améliorer la qualité de vie, réduire le stress et promouvoir un mode de vie plus actif et sain."}]`};export{e as default};

@@ -1,0 +1,58 @@
+const e={"blog.article.varese-friuli-solidarieta-2026.body1":`## In brief
+- Volunteers from Varesotto helped Friuli after the 1976 earthquake
+- Celebrations in 2026 with the mayors of Albizzate and Sesto Calende
+- Reconstruction of Braulins with the help of volunteers
+
+## Key facts
+- **What**: Aid and reconstruction after the Friuli earthquake
+- When: 1976, celebrations in 2026
+- Where: Braulins, Trasaghis, Friuli
+- Who: Volunteers from Varesotto, mayors of Albizzate and Sesto Calende
+- Amount: Not yet specified
+
+Fifty years after the earthquake that shook and shattered Friuli, we followed one of the many streams of solidarity that in 1976 brought a powerful river of humanity from all over Italy and beyond to these parts. It is that of the volunteers of the 'Braulins group', a group of over a hundred young people who came here from Varesotto to lend a hand to a population bowed down by the extremely violent shock that razed the houses and the hope of a people to the ground. From Albizzate and Sesto Calende, which today, not surprisingly, find their name in two streets of the village as a sign of recognition, but also from Malnate, Solbiate Arno, Azzate, Caronno Varesino, Cassano Magnago, Ferno, Legnano, Busto Arsizio, people moved to help.
+
+Some for a few days, some for a season, some stayed for months and some even for two years: cooking, rebuilding, making children play, animating the tent cities. Small and large gestures that, even fifty years later, are alive in the memory of everyone, of those who helped and of those who were helped. Via Albizzate in Braulins Via Sesto Calende in Braulins
+
+'They were angels, they gave us light and hope in the darkest phase of our lives' - tells us Lorena, who was 12 years old in May 1976. 'Many came here and I remember well how all that help managed to restart the Friulian people'. Today, in 2026, that group of volunteers, organized by Marta Prodan from Albizzate and accompanied by the mayors of Albizzate Mirko Zorzo and of Sesto Calende Elisabetta Giordani, has moved again. An initiative that fits into the official celebrations taking place throughout the area. In Gemona with the President of the Republic Sergio Mattarella and the Prime Minister Giorgia Meloni, but also in the many small centers that were then affected. We were in Trasaghis, guests of the mayor Stefania Pisu and the former administrator Ivo Del Negro.
+
+The earth that trembled and then the landslide Braulins is a small hamlet of the municipality of Trasaghis nestled between the banks of the Tagliamento river and the slopes of Monte Brancot. The same mountain that on May 9, 1976, a few days after the earthquake, caused debris and boulders to roll down onto the village. A double tragedy that forced the population to move to a tent city on the other side of the river. And it was here that the help became concrete: thanks to the volunteers and the funds that arrived from Varesotto, the multi-purpose hall was built, a powerful sign of the beginning of the reconstruction of Braulins right where it had always been.
+
+### The story of the Friuli earthquake
+
+The story of the Friuli earthquake is a story of light among the post-earthquake reconstruction experiences. A different story among the many experiences that are far from positive that Italy has known. When at 21:06 on May 6, 1976 the earth rose under Monte San Simeone, Italy did not have a civil protection. The final balance, after the devastating replica on September 15, will be 965 victims and about 15,000 workers who lost their jobs due to the destruction or damage of factories.
+
+Volunteers in a photo from the time with Luigi Bassani from Albizzate and Father Gianni Nobili The appointment of the Extraordinary Commissioner took place only 22 hours after the shock and the one to receive the assignment was the Undersecretary of the Interior Giuseppe Zamberletti, a native of Varese, Christian Democrat deputy since 1968, who had been dealing with public safety and fire prevention for years. Aldo Moro chose him because he was his most operational man, but above all because he was one of the few to have studied that matter in depth. In front of him was a machine to be built from scratch`,"blog.article.varese-friuli-solidarieta-2026.body2":`### The Impact of Varesotto Volunteers on the Reconstruction of Friuli
+
+The Varesotto volunteers had a significant impact on the reconstruction of Friuli. Their presence not only enabled the reconstruction of infrastructure but also helped to rebuild hope and trust among the local population. The construction of the multi-purpose hall in Braulins is a concrete example of how the help of the Varesotto volunteers contributed to reviving community life.
+
+### Celebrations in 2026
+
+The 2026 celebrations represent an important moment to recall the help and solidarity of the Varesotto volunteers. The presence of the mayors of Albizzate and Sesto Calende, alongside the volunteers, highlights the importance of keeping alive the memory of those events and continuing to promote mutual aid and solidarity.
+
+### Reconstruction of Braulins
+
+The reconstruction of Braulins is an example of how concrete help from the volunteers and funding from Varesotto enabled the rebuilding of a community. The multi-purpose hall built with the help of the volunteers is a symbol of hope and rebirth for the people of Braulins.
+
+### Testimonies of Survivors
+
+The testimonies of survivors, such as Lorena's, serve as a living reminder of how the help of the volunteers made a difference in people's lives. Mutual aid and solidarity remain essential values today, just as they were in 1976.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.varese-friuli-solidarieta-2026.body3":`### What to do to participate in the celebrations
+
+If you wish to participate in the 2026 celebrations, you can contact the municipality of Trasaghis or the mayors of Albizzate and Sesto Calende. The celebrations represent an opportunity to remember the importance of solidarity and mutual aid.
+
+### How to contribute to the reconstruction
+
+If you wish to contribute to the reconstruction of Braulins or other communities affected by the earthquake, you can contact local volunteer associations or participate in fundraising initiatives. Every contribution, big or small, can make a difference.
+
+### Use our donation calculator
+
+To calculate the amount of your donation and see how it can be used for the reconstruction, use our donation calculator. Enter the amount you wish to donate and discover how you can contribute to the reconstruction of Braulins and other communities affected by the earthquake.
+
+### Conclusion
+
+The story of solidarity and reconstruction between Varese and Friuli is an example of how mutual aid can make a difference in people's lives. The 2026 celebrations represent an opportunity to remember the importance of these values and to continue promoting solidarity and mutual aid.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/varese-e-il-friuli-un-legame-lungo-50-anni-la-storia-di-chi-parti-e-che-oggi-ricorda-ancora/2567491/)*`,"blog.article.varese-friuli-solidarieta-2026.faq":'[{"q":"Who were the volunteers from Varesotto?","a":"The volunteers from Varesotto were a group of over a hundred young people from various locations in Varesotto, including Albizzate, Sesto Calende, Malnate, Solbiate Arno, Azzate, Caronno Varesino, Cassano Magnago, Ferno, Legnano, and Busto Arsizio. These volunteers mobilized to help the population of Friuli after the 1976 earthquake."},{"q":"What did the volunteers from Varesotto do in Friuli?","a":"The volunteers from Varesotto carried out a series of activities to help the population of Friuli. They cooked, rebuilt houses, played with children, and animated the tent cities. They also contributed to the construction of the multipurpose hall in Braulins, a symbol of hope and rebirth for the community."},{"q":"How can I participate in the 2026 celebrations?","a":"To participate in the 2026 celebrations, you can contact the municipality of Trasaghis or the mayors of Albizzate and Sesto Calende. The celebrations represent an opportunity to remember the importance of solidarity and mutual aid."}]'};export{e as default};

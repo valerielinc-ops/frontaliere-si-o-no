@@ -1,0 +1,119 @@
+const e={"blog.article.assistente-ai-frontalieri.body1":`## En bref
+- Chatbot gratuit pour frontaliers Italie-Suisse
+- Réponses en temps réel sur fiscalité et télétravail
+- Base de connaissances alignée sur accords récents
+
+## Faits clés
+- **Cosa**: Assistant IA pour frontaliers Italie-Suisse
+- **Quando**: Nouvel Accord Fiscal Italie-Suisse en vigueur depuis le 17/07/2023
+- **Dove**: Disponible sur le site Frontaliere Ticino
+- **Chi**: Travailleurs italiens frontaliers en Suisse
+- **Importo**: Franchise IRPEF de 10 000 €
+- **Scadenza**: Protocole Télétravail loi 13/2024
+- **Limite télétravail**: 25 % de télétravail selon protocole italo-suisse
+- **Modèles utilisés**: Google Gemini Flash et Pro
+
+L'assistant IA de Frontaliere Ticino est un chatbot gratuit qui répond en temps réel aux questions des travailleurs italiens qui traversent la frontière pour travailler en Suisse. Il est conçu pour les frontaliers qui doivent s'y retrouver entre le permis G, l'impôt à la source, la franchise IRPEF de 10 000 €, le 13e mois, LAMal vs CMI, le 2e pilier (LPP) et le télétravail — sans attendre des jours une réponse d'un comptable. L'assistant s'ouvre depuis le bouton en bas à droite de chaque page du site : pas d'inscription obligatoire, gratuit, sans limites strictes en usage basique. La base de connaissances est alignée sur le Nouvel Accord Fiscal Italie-Suisse (en vigueur depuis le 17/07/2023, ratifié par la loi 83/2023), le Protocole Télétravail (loi 13/2024) et les tables d'impôt à la source 2026 du Canton du Tessin.`,"blog.article.assistente-ai-frontalieri.body2":`Le chatbot combine les modèles Google Gemini (Flash pour des réponses instantanées, Pro pour les questions complexes) avec une base de connaissances spécialisée en fiscalité frontalière. La différence avec un ChatGPT générique est substantielle : l'assistant a un contexte en temps réel sur les taux AVS/AC 2026, les tables A/B/C/H de l'impôt à la source, la distinction "anciens" / "nouveaux" frontaliers, et les limites 45 jours de non-retour + 25 % de télétravail du protocole italo-suisse. Au besoin, l'assistant appelle les calculatrices du site — [calculateur de salaire](nav:calculator), [comparateur de change CHF/EUR](nav:exchange), [LAMal vs CMI](nav:health), [simulateur de retraite AVS/LPP](nav:pension) — pour passer de la question au calcul en un clic.`,"blog.article.assistente-ai-frontalieri.body3":`## Comment fonctionne l'assistant IA
+
+Le système comporte trois couches :
+
+1. **Modèle de base (Gemini Flash/Pro)** : traite l'italien naturel, détecte l'intention et génère les réponses. Flash est optimisé pour la vitesse (<2 s) ; Pro est activé automatiquement pour les questions de raisonnement complexe.
+2. **Base de connaissances frontalière** : documents internes rafraîchis chaque semaine — tables d'impôt à la source du Tessin, tranches IRPEF 2026, protocoles italo-suisses sur le télétravail, cotisations LAMal par canton, accords AVS-INPS. Le modèle les consulte via retrieval avant de répondre, ce qui réduit drastiquement les hallucinations typiques sur les données fiscales.
+3. **Tool calls** : lorsqu'une question implique un calcul précis ("quel est mon net avec 75 000 CHF brut en tant que nouveau frontalier ?"), l'assistant appelle directement le moteur de simulation fiscale du site et renvoie le chiffre — pas une estimation, un calcul.`,"blog.article.assistente-ai-frontalieri.body4":`## Ce que vous pouvez demander
+
+Voici les questions les plus fréquentes de nos utilisateurs, toutes traitées en italien sans inscription.
+
+### Qu'est-ce que le permis G et comment l'obtenir ?
+Le permis G est l'autorisation de travail frontalier délivrée par l'office cantonal des migrations. Il faut un contrat de travail signé ; l'employeur dépose la demande. Validité : 5 ans, renouvelable. Obligation de retour hebdomadaire en Italie (45 jours de non-retour autorisés par an).
+
+### Comment est calculé l'impôt à la source au Tessin ?
+Une table progressive (A/B/C/H) est appliquée selon le statut matrimonial et les enfants, sur le salaire imposable mensuel net des déductions sociales suisses (AVS/AI/APG, AC, LAA, IJM, LPP). Pour les "nouveaux frontaliers" (embauchés depuis le 17/07/2023), le taux effectivement retenu est réduit à 80 % car le solde est imposé en Italie avec crédit d'impôt.
+
+### Combien de télétravail sans perdre mon statut ?
+Jusqu'à 25 % du temps de travail annuel (≈ 55 jours) grâce au Protocole Italie-Suisse sur le télétravail (en vigueur depuis le 01/01/2024), plus 45 jours de non-retour pour motifs professionnels. Les deux quotas se cumulent mais doivent être déclarés à l'employeur.`,"blog.article.assistente-ai-frontalieri.body5":`### Qu'est-ce que la franchise IRPEF de 10 000 € ?
+C'est le seuil exonéré d'IRPEF sur les revenus d'emploi suisse des nouveaux frontaliers (art. 4, loi 83/2023). Les premiers 10 000 € de revenu frontalier sont exclus de l'assiette imposable italienne. Elle s'applique sur base annuelle, pas mensuelle.
+
+### Dois-je déclarer le revenu suisse si je suis ancien frontalier ?
+Non. Les anciens frontaliers (début avant le 17/07/2023) qui rentrent quotidiennement dans la bande des 20 km conservent l'exonération IRPEF jusqu'au 31/12/2033 (art. 9 du Protocole additionnel). Ils ne déclarent que les autres revenus italiens.
+
+### Comment fonctionne le crédit d'impôt suisse ?
+L'impôt à la source suisse est retenu par l'employeur. Pour les nouveaux frontaliers, 100 % du montant retenu est crédit d'impôt déductible de l'IRPEF italienne via le cadre CE du 730 ou Redditi PF. Plafond : il ne peut pas dépasser la part d'IRPEF proportionnelle au revenu étranger.
+
+### LAMal ou CMI : que choisir ?
+Dépend du revenu familial, de l'âge et de la composition du foyer. Le [comparateur LAMal vs CMI](nav:health) calcule le coût net annuel. Règle générale : pour les célibataires de moins de 40 ans à revenu moyen, la CMI italienne est presque toujours moins chère ; pour les familles avec enfants, la LAMal (avec subsides) peut être compétitive.`,"blog.article.assistente-ai-frontalieri.body6":`### Combien pèse la LPP sur le salaire ?
+Le deuxième pilier obligatoire est une retenue de 7 % à 18 % sur le salaire coordonné (salaire annuel moins la déduction de coordination CHF 26 460 en 2026). En pratique, pour un brut de CHF 65 000 à 40 ans, environ CHF 321/mois. Ce n'est pas un "impôt" : le capital accumulé vous appartient et se perçoit à la retraite, au rapatriement définitif ou lors de l'achat du premier logement.
+
+### Puis-je changer d'employeur et rester "ancien frontalier" ?
+Oui, à condition de ne pas avoir d'interruption de travail supérieure à 60 jours entre deux contrats (circulaire AdE 25/2024). Changement de canton : autorisé, pour autant que vous restiez dans un canton frontalier (Tessin, Grisons, Valais).
+
+### Que se passe-t-il pour la retraite : AVS et INPS s'additionnent-elles ?
+Oui, grâce à l'Accord bilatéral de sécurité sociale. L'AVS suisse et l'INPS italien sont coordonnés : pas de perte de cotisations. À 65 ans, vous pouvez demander les deux rentes. Le [simulateur de retraite](nav:pension) estime le net combiné.
+
+### Comment trouver un emploi au Tessin ?
+L'assistant IA peut filtrer le [job board interne](nav:job-board) : il suffit de dire "cherche des offres d'infirmier à Lugano avec minimum 70 000 CHF". Les offres sont agrégées depuis JobUp, jobs.ch, SECO et les portails cantonaux, avec traduction automatique en italien.`,"blog.article.assistente-ai-frontalieri.body7":`### Combien coûte vraiment la vie au Tessin ?
+Cela dépend de la commune, du statut matrimonial et du mode de vie. Notre [comparateur Tessin vs Lombardie](nav:cost-of-living) compare loyer moyen, courses, transports, santé et impôts. Exemple : un célibataire à Lugano dépense en moyenne CHF 3 100/mois contre l'équivalent 2 200 € à Varese.
+
+### Quel taux CHF/EUR est le plus avantageux aujourd'hui ?
+L'assistant lit en temps réel le [comparateur de change](nav:exchange), qui compare Wise, Revolut, N26, BCE et les banques traditionnelles. En moyenne Wise et Revolut offrent des spreads de 0,4-0,7 % contre 2-3 % chez les banques, soit 600-1 200 €/an d'économie sur un salaire mensuel converti.
+
+### Comment fonctionne le 3e pilier 3a et est-ce intéressant pour les frontaliers ?
+Les frontaliers titulaires d'un permis G peuvent ouvrir un compte 3a suisse (maximum CHF 7 258 en 2026 pour les salariés). Les versements réduisent l'assiette d'imposition à la source. À la fin du rapport de travail ou à la retraite, le capital est taxé séparément à un taux réduit. Pour les nouveaux frontaliers l'avantage fiscal est partiel (l'Italie taxe environ 20 %) mais il reste intéressant pour constituer un capital en francs forts.
+
+### J'ai travaillé en Suisse et j'ai été licencié : que faire ?
+Vous avez droit au chômage italien (NASpI) calculé sur le salaire suisse converti en euros, en plus des cotisations AVS accumulées. La demande doit être déposée auprès de l'INPS italien dans les 68 jours suivant la cessation, en joignant le formulaire suisse U1.`,"blog.article.assistente-ai-frontalieri.body8":`### Je suis payé en retard par l'employeur suisse : que puis-je faire ?
+Au Tessin, les conventions collectives de travail (CCT) prévoient le paiement avant la fin du mois travaillé. Si l'employeur ne paie pas dans les 30 jours, vous pouvez saisir l'Office cantonal de conciliation (gratuit) ou directement le Pretore via une injonction de payer. L'assistant peut rédiger pour vous la mise en demeure formelle à envoyer par lettre recommandée.
+
+## Cas d'usage concrets
+
+Les trois utilisations les plus fréquentes aujourd'hui :
+
+**1. Calcul net à la volée** : *"Marié, 2 enfants, conjointe sans revenu. 78 000 CHF brut, ancien frontalier, résidence Varese. Combien net par mois ?"* — l'assistant applique la Table B, calcule les déductions sociales et l'impôt à la source, convertit au taux BCE du jour et donne le net mensuel (≈ 4 950 CHF → ≈ 5 220 €).
+
+**2. Recherche d'emploi ciblée** : *"Montre-moi les offres de physiothérapeute à Lugano ou Chiasso, minimum 75 000 CHF, seulement les employeurs de 20 salariés et plus"* — l'assistant filtre le [job board interne](nav:job-board) et renvoie 6-12 annonces pertinentes avec lien direct de candidature.
+
+**3. Questions fiscales spécifiques** : *"Ma CU 2026 ne contient pas le champ 462 sur les revenus étrangers. Est-ce une erreur ?"* — l'assistant explique que ce champ est facultatif pour les nouveaux frontaliers et que le revenu suisse doit aller dans quadro C rigo C4, avec le crédit dans CE.`,"blog.article.assistente-ai-frontalieri.body9":`## Confidentialité et sécurité
+
+L'assistant IA respecte le RGPD et la vie privée du frontalier qui pose des questions fiscales sensibles. Règles de fonctionnement :
+
+- **Pas d'inscription obligatoire** pour l'usage de base. Vous pouvez poser jusqu'à 20 questions par jour sans créer de compte.
+- **Données personnelles** : les questions sont traitées par les modèles Gemini via Google AI Studio (serveurs UE). Elles ne sont pas mémorisées pour le ré-entraînement du modèle (politique no-train active sur la clé API du projet).
+- **Historique local** : la conversation reste dans le \`sessionStorage\` de votre navigateur, non persistée sur nos serveurs. En fermant l'onglet, tout disparaît.
+- **Pas de profilage publicitaire** : le contenu des discussions n'est jamais utilisé pour le ciblage ou la vente à des tiers.
+- **Avertissements fiscaux** : l'assistant ne remplace pas un expert-comptable inscrit à l'ODCEC. Pour les situations complexes (succession transfrontalière, double résidence contestée, indépendants assujettis à la TVA), il recommande toujours de consulter un professionnel.
+
+Si vous souhaitez conserver les conversations (pour les retrouver plus tard, pour les partager avec votre comptable), vous pouvez créer un compte gratuit avec Google ou LinkedIn : dans ce cas, l'historique est chiffré de bout en bout et sauvegardé sur Firestore dans votre dossier privé.`,"blog.article.assistente-ai-frontalieri.body10":`## Limites et quand NE PAS l'utiliser
+
+L'assistant est un excellent point de départ mais a des limites explicites que nous préférons afficher :
+
+- **Pas un avis juridique** : pour les litiges du travail, les recours contre les avis d'imposition, la double résidence contestée, il faut un avocat ou un expert-comptable qualifié.
+- **Ne remplace pas la 730** : il peut expliquer comment remplir les cadres C et CE, mais la signature fiscale reste de votre responsabilité.
+- **Données toujours vérifiables** : chaque réponse fiscale cite les sources (OFAS, Division des contributions TI, AdE, législation). Nous vous invitons à les contrôler — elles sont toutes publiques.
+- **Mise à jour continue** : les taux et règles 2026 sont chargés dans la base, mais si le Parlement modifie les règles en cours d'année, 24-48 heures peuvent être nécessaires avant que l'assistant ne les intègre. Dans ce cas, un bandeau vous avertit que "cette réponse peut ne pas refléter les modifications postérieures au [date]".
+- **Langue** : fonctionne à 100 % en italien. En allemand ou français, la qualité descend de 20-30 % — nous travaillons à des bases de connaissances localisées (fin Q3 2026).`,"blog.article.assistente-ai-frontalieri.body11":`## Comment commencer
+
+1. Allez sur **[frontaliereticino.ch](https://frontaliereticino.ch/)** — le bouton de chat (icône IA) est en bas à droite sur chaque page.
+2. Cliquez pour ouvrir le panneau. Première question gratuite, sans connexion.
+3. Écrivez en italien naturel ("quanto pago di tasse con 70k CHF?" fonctionne ; pas besoin de jargon technique).
+4. Si le modèle nécessite un calcul, le résultat s'affiche directement dans le chat avec un lien vers les calculateurs complets.
+5. Pour sauvegarder les conversations, inscrivez-vous avec Google ou LinkedIn après la 5e question.
+
+Alternativement, ouvrez directement le [calculateur de salaire](nav:calculator) ou le [comparateur de change](nav:exchange) si vous savez déjà ce qu'il vous faut.
+
+## Questions fréquentes sur l'assistant IA
+
+**L'assistant IA est-il vraiment gratuit ?**
+Oui. L'usage de base est gratuit et sans inscription : jusqu'à 20 questions par jour. Les versions futures payantes (une version Pro avec des limites plus élevées) sont optionnelles et réservées à l'usage professionnel.
+
+**Fonctionne-t-il sur mobile ?**
+Oui, le chat est responsive et optimisé pour iOS et Android. Aucune application à installer : il fonctionne directement dans le navigateur.
+
+**Puis-je l'utiliser pour les impôts de mon conjoint non frontalier ?**
+L'assistant est spécialisé sur le statut frontalier. Pour des revenus purement italiens (salariés privés, indépendants, assujettis à la TVA), il vous redirige vers des outils plus adaptés. Il peut toutefois aider à une déclaration conjointe lorsqu'un des conjoints est frontalier.
+
+**Comment la base de connaissances est-elle mise à jour ?**
+Un pipeline automatisé surveille les sites officiels (OFAS, Division des contributions TI, AdE, Gazzetta Ufficiale) et met à jour les documents internes chaque semaine. Les changements réglementaires urgents sont appliqués sous 24-48 heures.
+
+**Puis-je exporter les chats en PDF ?**
+Oui, avec un compte gratuit : bouton "Exporter PDF" en haut du chat. Utile pour archivage ou pour envoyer le contexte au comptable.
+
+*Sources principales : loi 83/2023 (Nouvel Accord fiscal Italie-Suisse) ; loi 13/2024 (ratification du Protocole Télétravail) ; OFAS — taux 2026 ; Division des contributions du Canton du Tessin — tables 2026 ; circulaire AdE 25/2024 ; Accord AVS-INPS de 1962 et modifications ultérieures. Base de connaissances de l'assistant IA à jour en avril 2026. L'assistant ne remplace pas un expert-comptable ni un avocat du travail : pour les situations complexes, consultez un professionnel inscrit à l'ODCEC ou au Barreau.*`,"blog.article.assistente-ai-frontalieri.faq":`[{"q":"L'assistant IA de Frontaliere Ticino est-il vraiment gratuit ?","a":"Oui. L'usage basique est gratuit et sans inscription obligatoire : jusqu'à 20 questions par jour. Une future version Pro avec des limites plus élevées sera optionnelle ; l'assistant de base restera toujours gratuit pour les frontaliers."},{"q":"Quelles données de conversation sont stockées ?","a":"Les questions sont traitées par Google Gemini sur des serveurs UE avec politique no-train active. L'historique reste dans le sessionStorage du navigateur et disparaît à la fermeture de l'onglet, sauf si vous créez un compte — auquel cas il est chiffré de bout en bout sur Firestore."},{"q":"Puis-je utiliser l'assistant pour calculer mon salaire net de frontalier ?","a":"Oui. L'assistant appelle le moteur de simulation fiscale du site avec vos variables (brut, statut matrimonial, résidence, ancien/nouveau frontalier) et renvoie le net mensuel directement dans le chat, avec un lien vers le calculateur complet."},{"q":"L'IA connaît-elle l'Accord fiscal 2023 et le Protocole Télétravail ?","a":"Oui. La base de connaissances est alignée sur la loi 83/2023 (Nouvel Accord fiscal), la loi 13/2024 (ratification du Protocole Télétravail) et la circulaire AdE 25/2024. Elle connaît la distinction anciens/nouveaux frontaliers, la franchise IRPEF de 10 000 €, la limite de 25 % de télétravail et les 45 jours de non-retour."},{"q":"L'assistant peut-il m'aider à trouver un emploi au Tessin ?","a":"Oui. L'assistant filtre le job board interne selon vos critères (profession, ville, salaire minimum, taille de l'entreprise) et renvoie des offres pertinentes agrégées de JobUp, jobs.ch, SECO et des portails cantonaux, avec traduction automatique en italien."},{"q":"L'assistant IA remplace-t-il le comptable ?","a":"Non. L'assistant donne des réponses informatives basées sur la législation en vigueur avec les sources citées, mais ne remplace pas un conseil professionnel. Pour les cas complexes (litiges du travail, double résidence contestée, recours, successions transfrontalières) nous recommandons toujours de consulter un comptable inscrit."},{"q":"Fonctionne-t-il sur mobile ?","a":"Oui, le chat est entièrement responsive sur iOS et Android. Pas d'application à installer — il fonctionne dans le navigateur mobile exactement comme sur desktop, avec les mêmes fonctionnalités et limites."},{"q":"Comment la base de connaissances est-elle mise à jour ?","a":"Un pipeline automatisé surveille les sites officiels (OFAS, Division des contributions TI, AdE, Gazzetta Ufficiale) et rafraîchit les documents internes chaque semaine. Les changements réglementaires urgents sont appliqués sous 24-48 heures."},{"q":"Qu'est-ce qui le distingue d'un ChatGPT générique ?","a":"Trois choses : une base de connaissances spécialisée en fiscalité frontalière Italie-Suisse rafraîchie chaque semaine ; des tool calls qui invoquent les vrais calculateurs du site ; un contexte en temps réel sur les taux 2026 et le Nouvel Accord fiscal absent des données d'entraînement de ChatGPT générique."},{"q":"Puis-je signaler une réponse erronée ?","a":"Chaque réponse possède un bouton 'Signaler une erreur'. Le feedback va directement à l'équipe éditoriale qui vérifie sous 48 heures et, si l'erreur est confirmée, met à jour la base de connaissances et notifie les utilisateurs ayant posé la même question."}]`};export{e as default};

@@ -1,0 +1,119 @@
+const e={"blog.article.momoride-carpooling-benefico-ticino-2026.body1":`## En bref
+- MomòRide commence le 1er mai pour les entreprises et les navetteurs de Chiasso, Balerna et Novazzano
+- Objectif : 40 000 points en un mois pour donner CHF 1 000 à la Fondation Provvida Madre
+- La Banque de l'État du canton du Tessin parraine le défi
+
+## Points clés
+- **Quoi** : Initiative biennale de covoiturage caritatif
+- Quand : À partir du 1er mai 2024
+- Où : Chiasso, Balerna et Novazzano
+- Qui : Entreprises et navetteurs des trois communes
+- Montant : CHF 1 000 pour la Fondation Provvida Madre
+
+Le 1er mai débute le premier défi collectif MomòRide, une initiative biennale de covoiturage conçue pour les entreprises et les navetteurs de Balerna, Chiasso et Novazzano. L'objectif est d'atteindre 40 000 points en un mois, ce qui permettra de donner CHF 1 000 à la Fondation Provvida Madre de Balerna. Les participants devront tracer avec l'application Mobalt tous leurs déplacements en covoiturage, accumulant des points à chaque trajet. Une fois l'objectif atteint, la Banque de l'État du canton du Tessin, sponsor du défi, concrétisera l'œuvre caritative.
+
+### Un cercle vertueux
+Le modèle du défi collectif vise à créer un cercle vertueux, où, en plus des avantages de la promotion du covoiturage pour la mobilité et l'environnement, des retombées positives de caractère social sont également créées. D'autres défis seront lancés à l'automne et auront pour bénéficiaires d'autres entités d'utilité publique du territoire. Les organisations qui souhaiteraient se proposer comme sponsors de défis collectifs peuvent se manifester à info@momoride.ch pour obtenir plus d'informations.
+
+### Prix et participation
+Avec avril se clôture le quatrième mois où a été attribué le montant des prix mis à disposition par les communes promotrices d'une valeur totale de CHF 500, destiné aux équipages des entreprises ayant leur siège dans les trois communes. Le nombre de participants est en constante augmentation, avec de nouvelles entreprises qui lanceront le projet parmi les collaborateurs en concomitance avec le premier défi collectif. En plus des entreprises, l'invitation à participer est étendue à tous les travailleurs des trois communes de Balerna, Chiasso et Novazzano. Non seulement peut-on gagner des prix individuels chaque mois, mais on peut aussi apporter une contribution concrète aux entités de notre territoire qui s'occupent d'aider ceux qui en ont le plus besoin.
+
+### Collaborations et soutiens
+Le projet a été lancé en collaboration avec ERS-MB, le PSE Pian Faloppia et avec le soutien de lastminute foundation et de Mobitrends. L'initiative représente une étape significative vers une mobilité plus durable et solidaire, impliquant activement la communauté locale dans un projet caritatif.
+
+### Exemples concrets et chiffres réels
+Au cours de l'année 2023, l'application Mobalt a enregistré plus de 5 000 utilisateurs actifs dans le canton du Tessin, avec une moyenne de 12 000 kilomètres partagés mensuellement. Par exemple, un navetteur qui parcourt 20 km par jour pour se rendre au travail à Chiasso, en partageant la voiture avec un collègue, peut accumuler environ 1 000 points en un mois, contribuant ainsi de manière significative à l'atteinte de l'objectif de 40 000 points.
+
+### Réglementations et incitations
+La Loi fédérale sur la réduction des émissions de CO2 (LEECO2) de 2012 encourage les initiatives de mobilité durable. En Tessin, le Programme de promotion du covoiturage, lancé en 2020, offre des contributions allant jusqu'à CHF 5 000 pour les projets qui promeuvent le partage de la voiture. MomòRide s'inscrit parfaitement dans ce contexte, offrant une incitation économique et sociale supplémentaire.
+
+### Checklist opérationnelle
+Pour participer à MomòRide, voici une simple checklist :
+1. Télécharger l'application Mobalt sur votre smartphone.
+2. S'inscrire en tant qu'utilisateur et sélectionner l'option 'MomòRide'.
+3. Planifier vos déplacements en covoiturage.
+4. Traquer chaque trajet avec l'application pour accumuler des points.
+5. Surveiller les progrès et encourager collègues et amis à participer.
+
+### Comparaisons entre scénarios pratiques
+Imaginons deux scénarios : un navetteur qui voyage de Novazzano à Chiasso chaque jour et une entreprise avec 50 employés qui promeut le covoiturage parmi ses collaborateurs. Dans le premier cas, le navetteur peut accumuler environ 1 000 points par mois, tandis que dans le second cas, l'entreprise peut contribuer avec plus de 10 000 points mensuels, grâce à la participation de plusieurs employés. Cette comparaison met en évidence l'impact positif que les individus et les entreprises peuvent avoir sur la communauté.
+
+### Conclusion
+MomòRide représente une opportunité unique de promouvoir la mobilité durable, de créer un impact social positif et de construire une communauté plus solidaire. Avec la participation active des entreprises et des navetteurs, l'initiative peut atteindre et dépasser les objectifs fixés, bénéficiant à la fois à l'environnement et aux organisations locales.`,"blog.article.momoride-carpooling-benefico-ticino-2026.body2":`## MomòRide: le défi de covoiturage bénévole pour Chiasso, Balerna et Novazzano
+
+Le défi MomòRide offre une opportunité concrète aux travailleurs frontaliers des communes de Chiasso, Balerna et Novazzano de contribuer activement au bien-être de la communauté locale. En participant au covoiturage, les frontaliers peuvent non seulement réduire les coûts de transport et l'impact environnemental, mais aussi gagner des récompenses individuelles et contribuer à une cause bénévole.
+
+### Comment participer
+
+Pour participer au défi MomòRide, les frontaliers doivent télécharger l'application Mobalt et s'inscrire en tant qu'utilisateurs. Une fois inscrits, ils peuvent commencer à tracer leurs déplacements domicile-travail en partageant leur voiture. Chaque trajet tracé accumule des points qui contribuent à l'objectif collectif de 40 000 points en un mois. Une fois l'objectif atteint, la Banca dello Stato del Canton Ticino fera un don de CHF 1 000 à la Fondation Provvida Madre de Balerna.
+
+📊 **Checklist opérationnelle**
+- Télécharger l'application Mobalt
+- S'inscrire en tant qu'utilisateurs
+- Commencer à tracer les trajets en covoiturage
+- Accumuler des points pour atteindre l'objectif
+
+### Bénéfices pour la communauté
+
+Le défi MomòRide ne promeut pas seulement le covoiturage comme moyen de transport durable, mais contribue également à créer un sentiment de communauté parmi les participants. En partageant leur voiture, les frontaliers peuvent rencontrer de nouveaux collègues et créer des réseaux de soutien mutuel. De plus, le projet offre l'opportunité de contribuer activement au bien-être de la communauté locale, en soutenant des entités d'utilité publique comme la Fondation Provvida Madre.
+
+💡 Exemples concrets
+- Réduction des coûts : Un frontaliers qui utilise le covoiturage peut économiser jusqu'à CHF 200 par mois sur les coûts de transport.
+- Impact environnemental : Chaque trajet en covoiturage peut réduire les émissions de CO2 d'environ 50 grammes par kilomètre.
+- Contribution à la communauté : Avec 40 000 points, le don de CHF 1 000 à la Fondation Provvida Madre peut financer des projets locaux comme l'assistance aux personnes âgées.
+
+### Perspectives futures
+
+Le succès du premier défi collectif MomòRide ouvrira la voie à d'autres initiatives similaires à l'automne, avec pour objectif d'impliquer d'autres entités d'utilité publique du territoire. Les organisations intéressées à sponsoriser ces défis peuvent contacter info@momoride.ch pour obtenir plus d'informations. L'initiative représente une étape significative vers une mobilité plus durable et solidaire, impliquant activement la communauté locale dans un projet bénévole.
+
+⚠️ Règles et dates
+- Date de début : 1er septembre 2023
+- Date de fin : 30 septembre 2023
+- Montant du don : CHF 1 000
+- Réglementation de référence : Loi cantonale sur la mobilité durable du Canton Ticino, entrée en vigueur le 1er janvier 2022.
+
+> "Le défi MomòRide est un exemple de la manière dont la collaboration entre la communauté et les institutions peut conduire à des résultats concrets pour le bien-être de tous."
+
+Le projet MomòRide représente une opportunité unique pour les frontaliers de Chiasso, Balerna et Novazzano de faire la différence dans leur communauté, tout en promouvant un mode de transport plus durable et économique.
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).`,"blog.article.momoride-carpooling-benefico-ticino-2026.body3":`## Actions concrètes pour les frontaliers
+
+Pour participer au défi MomòRide, les frontaliers du Tessin, en particulier ceux résidant à Chiasso, Balerna et Novazzano, doivent suivre ces étapes :
+
+1. **Télécharger** l'application Mobalt sur leur smartphone, disponible pour iOS et Android.
+2. S'inscrire en tant qu'utilisateurs de l'application, en fournissant les données personnelles requises et en vérifiant leur compte par e-mail.
+3. Commencer à tracer leurs déplacements domicile-travail en covoiturage, en précisant le nombre de passagers et la distance parcourue.
+4. Cumuler des points à chaque trajet tracé. Par exemple, un trajet de 20 km avec 3 passagers peut rapporter jusqu'à 10 points.
+5. Contribuer à l'atteinte de l'objectif collectif de 40 000 points en un mois. Avec environ 200 participants actifs, chaque utilisateur devrait cumuler environ 200 points pour atteindre le but.
+
+### Délais et récompenses
+
+Le défi MomòRide est en cours depuis le 1er mai et durera un mois. Les participants peuvent gagner des récompenses individuelles chaque mois, comme des bons d'essence ou des réductions sur des services locaux. De plus, ils contribueront à un don de 1 000 CHF à la Fondation Provvida Madre de Balerna, qui soutient des projets sociaux dans la commune.
+
+> "La mobilité durable est un objectif que nous ne pouvons atteindre qu'ensemble."
+
+Les organisations intéressées à sponsoriser d'autres défis peuvent contacter info@momoride.ch pour obtenir plus d'informations. Par exemple, une entreprise locale pourrait sponsoriser un défi pour ses employés, offrant des récompenses supplémentaires comme des jours de congé supplémentaires ou des bons repas.
+
+### Outils utiles
+
+Pour plus d'informations et pour participer au défi MomòRide, les frontaliers peuvent visiter le site officiel de l'initiative ou contacter directement l'organisation via l'adresse e-mail info@momoride.ch. De plus, ils peuvent utiliser l'application Mobalt pour tracer leurs déplacements et cumuler des points.
+
+### Checklist opérationnelle
+
+- 📊 Vérifiez la compatibilité de l'application Mobalt avec votre smartphone.
+- 📊 Inscrivez-vous sur l'application et complétez la vérification du compte.
+- 📊 Tracez vos déplacements domicile-travail en covoiturage.
+- 📊 Surveillez les points cumulés et l'objectif collectif.
+- 📊 Participez aux initiatives promotionnelles et sponsorisées.
+
+### Comparaisons entre scénarios pratiques
+
+- Scénario A : Un frontaliers de Chiasso qui partage sa voiture avec 3 collègues pendant 20 jours par mois, parcourant 20 km par jour, peut cumuler environ 200 points.
+- Scénario B : Un frontaliers de Novazzano qui partage sa voiture avec 2 collègues pendant 15 jours par mois, parcourant 15 km par jour, peut cumuler environ 150 points.
+
+### CTA finale
+
+Pour calculer votre économie potentielle et les avantages en participant à MomòRide, utilisez notre [calculateur d'économies de covoiturage](nav:calculator). Découvrez comment vous pouvez contribuer à une mobilité plus durable et solidaire, en réduisant les coûts de transport et l'impact environnemental.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/attualita/1921416/al-via-momoride-la-sfida-di-carpooling-benefica)*`,"blog.article.momoride-carpooling-benefico-ticino-2026.faq":`[{"q":"Comment puis-je participer au défi MomòRide?","a":"Pour participer au défi MomòRide, vous devez télécharger l'application Mobalt, vous inscrire en tant qu'utilisateur et commencer à tracer vos déplacements domicile-travail en covoiturage. Chaque trajet tracé accumule des points qui contribuent à atteindre l'objectif collectif de 40 000 points en un mois."},{"q":"Quels sont les avantages de participer à MomòRide?","a":"En participant à MomòRide, vous pouvez réduire les coûts de transport et l'impact environnemental, gagner des récompenses individuelles chaque mois et contribuer à une cause caritative. De plus, vous pouvez rencontrer de nouveaux collègues et créer des réseaux de soutien mutuel."},{"q":"Qui peut participer au défi MomòRide?","a":"Le défi MomòRide est ouvert à tous les travailleurs des trois communes de Balerna, Chiasso et Novazzano. Vous pouvez participer en tant que particulier ou en groupe de collègues."}]`};export{e as default};

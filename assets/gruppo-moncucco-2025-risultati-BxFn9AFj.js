@@ -1,0 +1,70 @@
+const e={"blog.article.gruppo-moncucco-2025-risultati.body1":`## En bref
+- 120 000 hospitalisations en 2025
+- Un chiffre d'affaires de 187 millions
+- 300 employés en formation
+
+## Faits marquants
+- Quoi: Augmentation des hospitalisations
+- Quand: 2025
+- Où: Clinique Moncucco et Clinique Santa Chiara
+- Qui: Groupe Moncucco
+- Montant: 120 000 hospitalisations
+- Quoi: Chiffre d'affaires du Groupe
+- Quand: 2025
+- Où: Tessin
+- Qui: Groupe Moncucco
+- Montant: 187 millions
+- **Quoi**: Employés en formation
+- Quand: 2025
+- Où: Clinique Moncucco et Clinique Santa Chiara
+- Qui: Groupe Moncucco
+- Montant: 300
+
+Le Groupe Hospitalier Moncucco a clôturé l'année 2025 avec des résultats positifs, dépassant la barre des 120 000 hospitalisations et enregistrant un chiffre d'affaires de 187 millions de francs. Cette augmentation par rapport aux 107 000 cas de 2024 a été rendue possible grâce aux investissements infrastructurels, technologiques et dans le personnel. Le directeur Christian Camponovo a souligné que la croissance de l'activité est un signe de confiance des patients envers les deux cliniques du groupe, la Clinique Moncucco et la Clinique Santa Chiara. Cependant, il a également souligné que l'augmentation des besoins de soins est liée au vieillissement de la population, un défi qui nécessite un engagement constant dans la formation du personnel.
+
+### Investissements et Formation
+
+Le Groupe Moncucco a investi de manière significative dans la formation du personnel, avec 300 employés sur 952 en formation. Cet engagement est crucial pour faire face à la pénurie de personnel qualifié et garantir le changement générationnel. Le président du Conseil d'administration, Mauro Dell'Ambrogio, a souligné que le groupe travaille à des tarifs inférieurs à ceux des autres, avec un tarif moyen pour les patients hospitalisés de 9 120 francs, contre 10 000 francs pour l'Ente Ospedaliero Cantonale.
+
+### Acquisitions et Perspectives d'Avenir
+
+À la fin de l'année 2025, le Groupe Moncucco a acquis les prestations psychiatriques de la clinique Viarnetto, une expansion supplémentaire qui renforce la présence du groupe dans le secteur sanitaire tessinois. Mauro Dell'Ambrogio a exprimé de la fierté pour cette acquisition, soulignant la continuité avec la tradition de qualité de la clinique Viarnetto.
+
+### Implications pour les Frontaliers
+
+Les résultats positifs du Groupe Moncucco peuvent avoir un impact significatif sur les travailleurs frontaliers qui travaillent dans le secteur de la santé au Tessin. L'augmentation des hospitalisations et des investissements dans la formation du personnel peuvent offrir de nouvelles opportunités d'emploi et de développement professionnel. De plus, la réduction des tarifs par rapport à d'autres entités hospitalières peut influencer positivement les coûts de santé pour les résidents et les travailleurs frontaliers.`,"blog.article.gruppo-moncucco-2025-risultati.body2":`## Analyse des Implications
+
+L'augmentation des hospitalisations et des investissements dans le Groupe Moncucco offre diverses opportunités pour les travailleurs frontaliers œuvrant dans le secteur sanitaire en Suisse. L'augmentation du personnel en formation et l'acquisition de la clinique Viarnetto peuvent créer de nouvelles positions de travail et des opportunités de carrière. De plus, la réduction des tarifs par rapport à d'autres entités hospitalières peut améliorer l'accessibilité aux services sanitaires pour les résidents et les travailleurs frontaliers.
+
+### Comparaison avec la Situation Précédente
+
+Par rapport à 2024, le Groupe Moncucco a enregistré une augmentation significative des hospitalisations, passant de 107 000 à 120 000 cas. Cette augmentation a été rendue possible grâce aux investissements infrastructurels et technologiques, qui ont amélioré la capacité de réponse du groupe. De plus, l'acquisition de la clinique Viarnetto représente une étape importante pour l'expansion du groupe dans le secteur psychiatrique.
+
+### Scénarios Futurs
+
+Avec le vieillissement de la population et l'augmentation des besoins en soins, le Groupe Moncucco se trouve confronté à de nouveaux défis. Cependant, les investissements dans la formation du personnel et l'acquisition de nouvelles structures peuvent offrir des opportunités de croissance et de développement pour les travailleurs frontaliers œuvrant dans le secteur sanitaire. De plus, la réduction des tarifs peut améliorer l'accessibilité aux services sanitaires, bénéficiant autant aux résidents qu'aux travailleurs frontaliers.
+
+### Procédures et Documents Nécessaires
+
+Pour les travailleurs frontaliers intéressés à travailler dans le Groupe Moncucco, il est important de connaître les procédures et les documents nécessaires pour l'embauche. Parmi ceux-ci, le permis de travail, le permis de séjour et les documents d'identité sont essentiels. De plus, il est nécessaire de vérifier les exigences spécifiques pour les postes ouverts et de suivre les procédures de sélection du groupe.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.gruppo-moncucco-2025-risultati.body3":`## Actions et Procédures
+
+Pour les travailleurs frontaliers qui souhaitent travailler au sein du Groupe Moncucco, il est important de suivre certaines procédures spécifiques. Tout d'abord, il est nécessaire de vérifier les postes ouverts sur le site web du groupe et d'envoyer sa candidature. Une fois sélectionnés, les candidats devront fournir les documents d'identité, le permis de travail et le permis de séjour. De plus, il est important de suivre les procédures de sélection et de formation du groupe pour garantir une carrière réussie.
+
+### Délais et Documents Nécessaires
+
+Les délais pour l'envoi des candidatures et la présentation des documents varient selon les postes ouverts. Il est important de vérifier les délais spécifiques sur le site web du groupe et d'envoyer les documents demandés dans les délais impartis. Parmi les documents nécessaires, le permis de travail, le permis de séjour et les documents d'identité sont essentiels. De plus, il est important de suivre les procédures de sélection et de formation du groupe pour garantir une carrière réussie.
+
+### Outils et Ressources Utiles
+
+Pour les travailleurs frontaliers qui souhaitent travailler au sein du Groupe Moncucco, il est utile d'utiliser les outils et les ressources disponibles sur le site web du groupe. Parmi ceux-ci, le calculateur de salaire, le comparateur d'assurances maladie et le comparateur de permis de travail peuvent être utiles pour planifier sa carrière et garantir une vie professionnelle et personnelle satisfaisante.
+
+[Calculez votre salaire](nav:calculator) pour planifier au mieux votre carrière dans le secteur sanitaire.
+
+### Conclusion
+
+Le Groupe Moncucco représente une opportunité importante pour les travailleurs frontaliers qui souhaitent travailler dans le secteur sanitaire en Ticino. Avec l'augmentation des hospitalisations et des investissements dans la formation du personnel, le groupe offre de nouvelles opportunités de travail et de développement professionnel. De plus, la réduction des tarifs par rapport à d'autres entités hospitalières peut améliorer l'accessibilité aux services sanitaires pour les résidents et les travailleurs frontaliers. En suivant les procédures et en utilisant les outils disponibles, les travailleurs frontaliers peuvent garantir une carrière réussie au sein du Groupe Moncucco.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/il-2025-sorride-al-gruppo-moncucco-sempre-piu-numeroso-432518)*`,"blog.article.gruppo-moncucco-2025-risultati.faq":`[{"q":"Quelles sont les conditions pour travailler au sein du Groupe Moncucco ?","a":"Les conditions pour travailler au sein du Groupe Moncucco incluent le permis de travail, le permis de séjour et les documents d'identité. De plus, il est nécessaire de vérifier les exigences spécifiques pour les postes ouverts et de suivre les procédures de sélection du groupe."},{"q":"Comment puis-je envoyer ma candidature au Groupe Moncucco ?","a":"Pour envoyer votre candidature au Groupe Moncucco, il est nécessaire de vérifier les postes ouverts sur le site web du groupe et de suivre les instructions pour l'envoi de la candidature. Une fois sélectionnés, les candidats devront fournir les documents d'identité, le permis de travail et le permis de séjour."},{"q":"Quelles sont les dates limites pour l'envoi des candidatures ?","a":"Les dates limites pour l'envoi des candidatures varient selon les postes ouverts. Il est important de vérifier les dates spécifiques sur le site web du groupe et d'envoyer les documents requis dans les délais impartis."}]`};export{e as default};

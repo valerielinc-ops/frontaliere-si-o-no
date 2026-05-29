@@ -1,0 +1,87 @@
+const e={"blog.article.ladies-run-lugano-2026.body1":`## In brief
+- Ladies Run Ticino 2026 will take place on Saturday, May 9th, in Lugano
+- Available routes: 2.5 km, 5 km, and 10 km
+- Registrations open until May 7th
+
+## Key facts
+- **What**: Ladies Run Ticino 2026
+- When: Saturday, May 9th, 2026
+- Where: Lugano
+- Who: Event organizers
+- Amount: Over 400 registrations already recorded
+
+Lugano is preparing to host the Ladies Run Ticino 2026, an event exclusively for women that will take place on Saturday, May 9th, 2026. The event, which will be held regardless of weather conditions, will offer three different routes: 2.5 km, 5 km, and 10 km. Additionally, a non-competitive sunset walk of 5 km, called Sunset Walking, will be available. For families, the Family Run, a 2.5 km race open to the whole family, is planned.
+
+The day's program includes the opening of the event village at 15.00 in Piazza Manzoni. The starts of the various races are scheduled from 17.00, with the final award ceremony at 19.30. Throughout the day, participants can enjoy a relaxation area with pre- and post-race massages, exhibitor stands, gadgets, food, and a kids' area with inflatables.
+
+Registrations are still possible online until May 7th on www.ladiesrunticino.ch or www.biglietteria.ch, or directly on-site in Piazza Manzoni on Saturday, May 9th, from 15.00. To date, over 400 registrations have already been recorded.
+
+### Routes and Times
+
+Each proposed route is flat and offers an attractive panorama, winding along the lakeside of Lugano, Parco Ciani, and the city center streets. Here are the details of the times:
+
+- 17.00: Start of the 10 km Power route
+- 18.30: Start of the 2.5 km Sprint route
+- 18.35: Start of the 5 km Classic route
+- 18.40: Start of the 2.5 km Family Run
+- 18.45: Start of the 5 km Sunset Walking
+
+Each start will be preceded by a group muscle warm-up, while a muscle defatication session is planned at the finish.
+
+### Event Village
+
+The event village will host exhibitor stands, animations, a relaxation area with pre- and post-race massages, food, and a kids' area with inflatables. Additionally, it will be possible to pick up the race pack and bib directly on-site.
+
+For further information and registrations, visit the website www.ladiesrunticino.ch.`,"blog.article.ladies-run-lugano-2026.body2":`The Ladies Run Ticino 2026 represents a unique opportunity for women to participate in a sporting event focused on solidarity and fun. The race, which will take place in Lugano, offers routes suitable for all fitness levels, making it accessible to a wide and diverse audience.
+
+### Implications for Cross-Border Workers
+
+For cross-border workers employed in Ticino, the Ladies Run Ticino 2026 can be an occasion to participate in a local event and better integrate into the community. The race offers an opportunity to meet new people and discover the beauties of the Ticino region.
+
+### Comparison with the Previous Situation
+
+Compared to previous editions, the Ladies Run Ticino 2026 introduces some novelties, such as the relaxation area with pre- and post-race massages and the kids' area with inflatables. These additions aim to make the experience even more pleasant and engaging for participants.
+
+### Practical Scenarios
+
+For those who decide to participate in the Ladies Run Ticino 2026, it is important to plan the day so that they can fully enjoy the event. Here are some practical tips:
+
+1. **Registration**: Make sure to register by May 7 to avoid having to do it on site.
+2. Race Pack Collection: Collect the race pack and bib in advance to avoid queues and stress.
+3. Warm-Up: Participate in the muscle warm-up before the start to prepare your body for the race.
+4. Cool-Down: Take advantage of the muscle cool-down session upon arrival to avoid post-race muscle soreness.
+5. Explore the Village: Dedicate some time to exploring the event village, visiting the exhibitor stands, and participating in the animations.
+
+### Conclusion
+
+The Ladies Run Ticino 2026 is an event that combines sport, solidarity, and fun, offering a unique opportunity for women to participate in a race in a welcoming and stimulating context. For cross-border workers, it represents an occasion to better integrate into the local community and discover the beauties of Ticino.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.ladies-run-lugano-2026.body3":`To participate in the Ladies Run Ticino 2026, you need to follow a few simple but important steps. Here's a step-by-step guide to ensure you don't miss anything:
+
+### Registration Procedure
+
+1. **Online Registration**: Visit the website www.ladiesrunticino.ch or www.biglietteria.ch and fill out the registration form by May 7.
+2. On-Site Registration: If you prefer to register on-site, go to Piazza Manzoni on Saturday, May 9, starting at 3:00 PM.
+3. Collect Race Pack: Pick up your race pack and bib on-site on the day of the event.
+
+### Event Day
+
+1. Arrive Early: Arrive at Piazza Manzoni at least 30 minutes before your race start time.
+2. Warm-Up: Join the group warm-up session before the start.
+3. Start: Follow the directions to reach the starting line of your race.
+4. Run: Enjoy the run along the flat and scenic routes of Lugano.
+5. Cool Down: Take advantage of the post-run cool-down session.
+6. Explore the Village: Spend time exploring the event village, visiting exhibitor stands, and participating in the activities.
+
+### Useful Tools
+
+For more information and to register for the Ladies Run Ticino 2026, visit the official website www.ladiesrunticino.ch.
+
+To plan your participation effectively, use the [route calculator](nav:calculator) to estimate the time needed to complete your preferred route.
+
+### Conclusion
+
+The Ladies Run Ticino 2026 offers a unique opportunity for women to participate in a race within a welcoming and stimulating environment. Follow the indicated steps to ensure you don't miss anything and enjoy the experience to the fullest.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/attualita/1922928/lugano-si-tinge-di-rosa-torna-la-ladies-run-ticino-2026)*`,"blog.article.ladies-run-lugano-2026.faq":`[{"q":"What routes are available at the Ladies Run Ticino 2026?","a":"The available routes are 2.5 km, 5 km, and 10 km. Additionally, there is a non-competitive sunset walk of 5 km, called Sunset Walking, and a Family Run of 2.5 km open to the whole family."},{"q":"How can I register for the Ladies Run Ticino 2026?","a":"Registrations are still possible online until May 7th on www.ladiesrunticino.ch or www.biglietteria.ch, or directly on site in Piazza Manzoni on Saturday, May 9th from 3:00 PM."},{"q":"What does the event village include?","a":"The event village will host exhibitor stands, animations, a relaxation area with pre- and post-race massages, food, and a kids' area with inflatables."}]`};export{e as default};

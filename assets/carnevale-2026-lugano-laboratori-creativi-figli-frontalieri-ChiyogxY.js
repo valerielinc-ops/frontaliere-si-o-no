@@ -1,0 +1,30 @@
+const i={"blog.article.carnevale-2026-lugano-laboratori-creativi-figli-frontalieri.body1":`## In breve
+- Laboratori creativi per bambini a Lugano.
+- Date: 16-20 febbraio 2026.
+- Attività per famiglie frontaliere.
+- Biglietti tra 12 e 18 CHF a bambino.
+
+## Fatti chiave
+- **Cosa**: Laboratori creativi per bambini.
+- **Quando**: Dal 16 al 20 febbraio 2026.
+- **Dove**: Museo in erba, Lugano.
+- **Età**: Bambini tra 4 e 11 anni.
+- **Costo**: Biglietti tra 12 e 18 CHF a bambino.
+- **Accessibilità**: Facilmente raggiungibile con mezzi pubblici.
+- **Tipo di attività**: Pittura, collage e creazione di maschere.
+
+Dal 16 al 20 febbraio 2026, il Museo in erba di Lugano ha ospitato una serie di laboratori creativi dedicati ai bambini tra i 4 e gli 11 anni. L'iniziativa si inserisce nel calendario delle attività di Carnevale promosse dal Canton Ticino, pensate anche per le famiglie frontaliere che desiderano vivere appieno la vita culturale svizzera durante i periodi di vacanza scolastica.
+
+I laboratori hanno proposto attività di pittura, collage e creazione di maschere, guidate da educatori del museo. Il Museo in erba, situato nel cuore di Lugano, è uno dei pochi spazi museali interattivi in Ticino pensati espressamente per i bambini: un'esperienza che unisce arte, gioco e apprendimento. Per le famiglie frontaliere con figli in età scolare, partecipare a eventi culturali in Canton Ticino è una delle modalità più efficaci per aiutare i bambini a familiarizzare con l'ambiente elvetico, la cultura locale e, in alcuni casi, anche con il dialetto lombardo-svizzero parlato nella regione.`,"blog.article.carnevale-2026-lugano-laboratori-creativi-figli-frontalieri.body2":`## Carnevale a Lugano: cosa significa per i frontalieri
+
+Per un lavoratore frontaliere con figli, il periodo di Carnevale in Ticino rappresenta un momento di particolare attenzione logistica. Le scuole svizzere seguono il calendario scolastico cantonale, che prevede una pausa di Carnevale solitamente di 4-5 giorni — diversa da quella italiana, spesso più lunga. Questo disallineamento tra i due calendari scolastici può creare complicazioni per chi ha figli scolarizzati in Italia: mentre i bambini italiani sono già in vacanza da qualche giorno, il genitore frontaliero continua a lavorare.
+
+Questo tipo di eventi locali — laboratori, spettacoli, iniziative per famiglie — è pensato anche in funzione delle famiglie che lavorano in Svizzera e vogliono offrire ai figli esperienze di qualità durante le poche giornate di vacanza condivisa. Il Canton Ticino investe ogni anno in attività culturali per bambini, con un'offerta che spazia dal Museo Cantonale d'Arte al Museo della Scienza, fino al Museo in erba, ideale per i più piccoli.
+
+💡 Per chi si chiede come gestire le differenze tra i calendari scolastici italiani e svizzeri, o vuole pianificare una giornata a Lugano con i figli, la nostra [guida per frontalieri](nav:guide) offre consigli pratici su vita quotidiana in Ticino.`,"blog.article.carnevale-2026-lugano-laboratori-creativi-figli-frontalieri.body3":`## Informazioni pratiche sul Museo in erba di Lugano
+
+Il Museo in erba si trova in Via Nassa, nel centro storico di Lugano, facilmente raggiungibile sia a piedi dal parcheggio del Centro Lugano Sud che con i mezzi pubblici dal terminal del Lugano Bus. Per i frontalieri che vengono da Como, Varese o Mendrisio, l'accessibilità è buona: la zona pedonale del centro è comoda una volta in città.
+
+I biglietti per i laboratori del Museo in erba variano solitamente tra i 12 e i 18 CHF a bambino, con ingresso ridotto per i genitori accompagnatori. Importante: l'accesso con moneta svizzera è praticamente obbligatorio in quasi tutti gli esercizi commerciali e culturali ticinesi — il pagamento in euro, quando accettato, avviene generalmente con un cambio sfavorevole rispetto al tasso di mercato.
+
+Per pianificare al meglio la visita e verificare il costo reale in euro del biglietto, usa il nostro [convertitore di valuta CHF/EUR](nav:exchange) che aggiorna il tasso in tempo reale. Conoscere il cambio del giorno aiuta a valutare meglio la spesa durante le uscite in Ticino.`,"blog.article.carnevale-2026-lugano-laboratori-creativi-figli-frontalieri.faq":`[{"q":"Come gestire le differenze tra i calendari scolastici italiani e svizzeri durante il Carnevale?","a":"Le scuole svizzere seguono il calendario scolastico cantonale, che prevede una pausa di Carnevale di 4-5 giorni, diversa da quella italiana. Il Canton Ticino offre attività culturali per bambini durante le poche giornate di vacanza condivisa."},{"q":"Qual è il vantaggio per i frontalieri di partecipare a eventi culturali in Canton Ticino durante il Carnevale?","a":"Aiuta i bambini a familiarizzare con l'ambiente elvetico, la cultura locale e, in alcuni casi, il dialetto lombardo-svizzero."},{"q":"Quali sono le principali differenze tra il calendario scolastico svizzero e quello italiano durante il Carnevale?","a":"Il calendario svizzero del Canton Ticino prevede una pausa di 4-5 giorni di Carnevale, mentre in Italia le vacanze sono generalmente più lunghe e variabili. Questa differenza può influenzare la pianificazione familiare e lavorativa dei frontalieri."}]`};export{i as default};

@@ -1,0 +1,70 @@
+const e={"blog.article.seco-dazi-segreti-washington.body1":`## In Kürze
+- SECO blockiert Zugang zu Verhandlungsakten mit Washington
+- Transparenzanfragen abgelehnt
+- Fall könnte vor Gericht landen
+- Schweiz-USA-Zollverhandlungen noch im Gange, Details zurückgehalten
+- Mögliche Auswirkungen auf Tessiner Exportunternehmen in den USA
+
+## Wichtige Fakten
+- **Was**: Zugang zu Handelsverhandlungsdokumenten verweigert
+- **Wann**: Zugriffsanfragen im Jahr 2025 gestellt, Fall noch ausstehend
+- **Wo**: Bern, Schweiz
+- **Wer**: SECO, IFPDT, Journalisten und Bürger
+- **Status**: Bilaterale Schweiz-USA-Handelsverhandlungen laufen; endgültige Einigung noch nicht erzielt
+
+Das Staatssekretariat für Wirtschaft (SECO) hält alle Dokumente zu den Handelsverhandlungen mit Washington unter Verschluss, was den Bundesbeauftragten für Transparenz in Schwierigkeiten bringt. Wie der Blick berichtet, wird der Fall nun vor Gericht landen. Die Transparenzanfragen wurden von Journalisten und Bürgern bezüglich der bilateralen Verhandlungen zwischen der Schweiz und den USA über Zolltarife gestellt. Zu den angeforderten Dokumenten gehören auch die Kommunikation zwischen der SECO und dem sogenannten „Team Switzerland", einer Gruppe von Unternehmern unter der Führung von Alfred „Fredy" Gantner, die während eines Besuchs im Weißen Haus versucht haben, den US-Präsidenten zu beeinflussen. Die SECO hat jedoch alle Anfragen abgelehnt und argumentiert, dass es sich um Materialien zu laufenden Verhandlungen handelt und deren Veröffentlichung die Position der Schweiz schwächen könnte.
+
+### Der Konflikt mit dem IFPDT
+Der verweigerte Zugang hat den Fall zu einem Konflikt mit dem Bundesbeauftragten für Datenschutz und Transparenz (IFPDT) gemacht, der als Vermittler hinzugezogen wurde. In ungewöhnlicher Weise hat die SECO dem IFPDT sogar den Zugang zu den Dokumenten verweigert und argumentiert, dass das Transparenzgesetz in diesem Fall nicht anwendbar sei, da es sich um ein internationales Verfahren handle. Diese Position wird vom Beauftragten bestritten, der betont, dass das Recht auf Einsicht in die Dokumente gerade dazu diene, mögliche Ausnahmen zu überprüfen. In den letzten Jahren haben auch der Bundesrat und die Gerichte die Bedeutung dieses Prinzips betont.
+
+### Die Folgen
+Der IFPDT hat der SECO empfohlen, den Zugang zu den Akten zu gewähren, und sie beschuldigt, die Zusammenarbeitspflicht zu verletzen. Auch diese Empfehlungen wurden jedoch ignoriert. Die Antragsteller können nun beim Bundesverwaltungsgericht Berufung einlegen, und die ersten Berufungen werden in Kürze erwartet. Bleibt schließlich der politische Knotenpunkt: Die SECO klärt die Gründe für ihre Schließung nicht. Zu den Hypothesen gehören die Angst vor Reaktionen aus Washington oder die besonders heikle Natur der Dokumente.
+
+### Hintergrund der USA-Schweiz-Verhandlungen
+Die Verhandlungen zwischen Washington und Bern über Zölle sind noch im Gange. Die Schweiz versucht, ein bilaterales Abkommen zu erreichen, das die Zölle auf ihre Exporte in die USA senkt — insbesondere in den Bereichen Uhrenindustrie, Pharmazie und Werkzeugmaschinen, die auch für die Tessiner Wirtschaft von strategischer Bedeutung sind. Die endgültigen Bedingungen eines etwaigen Abkommens wurden noch nicht veröffentlicht, und der vertrauliche Charakter der Verhandlungen bildet den Kern der Transparenzstreitigkeit.
+
+### Mögliche Auswirkungen auf Tessiner Unternehmen
+Falls die Verhandlungen zu einem günstigen Abkommen mit reduzierten Zöllen auf Schweizer Exporte führen sollten, könnten Tessiner Unternehmen mit Exporten in die USA von niedrigeren Kosten profitieren. Bei fehlendem Abkommen oder hohen Zöllen würden die Exportkosten für Sektoren wie Uhrenindustrie und Pharmazie erheblich steigen. Ohne die endgültigen Bedingungen zu kennen, können Unternehmen ihre Handelsstrategie gegenüber dem US-Markt kaum vorausplanen.
+
+### Transparenzvorschriften
+Das Schweizer Transparenzgesetz, das am 1. Juli 2006 in Kraft trat, legt das Recht der Bürger fest, auf Verwaltungsdokumente zuzugreifen. Die SECO argumentiert, dass dieses Gesetz nicht auf laufende internationale Verhandlungen anwendbar ist — eine Position, die vor Gericht angefochten werden könnte.
+
+### Schlussfolgerung
+Der Fall SECO vs. IFPDT wirft wichtige Fragen zur Transparenz und zum Zugang zu öffentlichen Dokumenten auf. Während die Tessiner Unternehmen auf das Ergebnis der Verhandlungen warten, geht der Rechtsstreit weiter, mit möglichen Auswirkungen auf das Vertrauen der Bürger und die Transparenz der Schweizer Institutionen.`,"blog.article.seco-dazi-segreti-washington.body2":`### Auswirkungen auf Grenzgänger
+Die Handelsgespräche zwischen der Schweiz und den Vereinigten Staaten haben konkrete Auswirkungen auf den Tessiner Arbeitsmarkt. Das Tessin ist ein bedeutender Fertigungs- und Pharmahub: Unternehmen in der Uhrenindustrie, Pharmazie und im Maschinenbau beschäftigen Tausende von Grenzgängern. Das Ergebnis der USA-Schweiz-Zollverhandlungen wird die Wettbewerbsfähigkeit dieser Unternehmen und damit die Beschäftigungsstabilität in der Region beeinflussen.
+
+Der Mangel an Transparenz bei den Verhandlungen wirft Zweifel an der Verwaltung der Handelsbeziehungen durch die SECO auf, was sowohl die Arbeitnehmer als auch die Unternehmen der Grenzregion beunruhigt.
+
+### "Team Switzerland" und die Rolle der Unternehmer
+Zu den für den Zugang angeforderten Dokumenten gehören die Kommunikationen zwischen der SECO und "Team Switzerland", einer Gruppe Schweizer Unternehmer — geführt von Alfred "Fredy" Gantner von GQG Partners —, die im Jahr 2025 den US-Präsidenten im Weißen Haus getroffen hat. Die Rolle dieser Gruppe in den Handelsverhandlungen steht im Mittelpunkt der Debatte: Wer hat im Namen der Schweiz gesprochen? Mit welchem Mandat? Diese Fragen sind genau wegen der von der SECO errichteten Mauer der Verschwiegenheit unbeantwortet geblieben.
+
+### Zukünftige Szenarien für Grenzgänger
+Falls die Verhandlungen zwischen Washington und Bern zu einem günstigen Abkommen führen würden, das die Zölle auf Schweizer Exporte senkt, könnten Tessiner Unternehmen ihre Exporte in die USA steigern, mit positiven Auswirkungen auf die Beschäftigung. Bei fehlendem Abkommen oder unveränderten Zöllen könnten einige Produktionen verlagert oder reduziert werden, mit möglichen Auswirkungen auf die Arbeitsplätze der Grenzgänger in den am stärksten betroffenen Sektoren.
+
+Für Grenzgänger, die in Unternehmen tätig sind, die in die USA exportieren, empfiehlt es sich, die Unternehmenskommunikationen zu verfolgen und die Entwicklung der Verhandlungen über zuverlässige Quellen wie RSI (Radiotelevisione Svizzera) oder den Corriere del Ticino zu beobachten.
+
+#### Operative Checkliste für Grenzgänger:
+- **Offizielle Kommunikationen verfolgen** von SECO (seco.admin.ch) und dem Eidgenössischen Departement für Wirtschaft (WBF).
+- Unternehmenskommunikationen prüfen, wenn man in einem gegenüber dem US-Markt exponierten Sektor tätig ist (Uhren, Pharmazie, Maschinen).
+- Die eigene Gewerkschaft (UNIA, Syna) für Updates zu den Beschäftigungsauswirkungen konsultieren.
+- Für die persönliche Finanzplanung den [Nettolohnrechner](nav:calculator) nutzen.
+
+## Nützliche Tools für Ihren Fall
+Um Ihr Nettolohnszenario zu überprüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Steuererklärungsratgeber](nav:tax-return).`,"blog.article.seco-dazi-segreti-washington.body3":`### Was jetzt tun
+Frontalierarbeiter, die über die USA-Schweiz-Handelsverhandlungen und die Entscheidungen der SECO auf dem Laufenden bleiben möchten, können die Nachrichten über offizielle Kanäle und lokale Medien verfolgen. Es ist entscheidend, die Kommunikation der SECO zu überwachen und vertrauenswürdige Quellen wie den Corriere del Ticino oder die Radiotelevisione svizzera (RSI) zu konsultieren.
+
+Auf praktischer Ebene ist es derzeit nicht möglich, die Zollauswirkungen auf Schweizer Exporte in die USA genau zu berechnen, da die endgültigen Bedingungen der Verhandlungen noch nicht bekannt sind. Was sicher ist: Der Pharmazie-, Uhren- und Werkzeugmaschinensektor — alle im Tessin bedeutend vertreten — ist direkt dem Ausgang dieser Verhandlungen ausgesetzt.
+
+### Nützliche Tools
+Für eine Schätzung des Nettolohns als Grenzgänger kann der [Nettolohnrechner](nav:calculator) genutzt werden. Um die steuerlichen Auswirkungen des Arbeitsverhältnisses in der Schweiz zu verstehen, empfiehlt sich der [Steuererklärungsratgeber](nav:tax-return) und der [Quellensteuerrückerstattungsrechner](nav:ristorni).
+
+### Operative Checkliste
+1. **Offizielle Kommunikationen überwachen**: SECO-Newsletter abonnieren und lokale Medien verfolgen.
+2. Prüfen, ob der eigene Arbeitgeber in die USA exportiert und in welchem Umfang.
+3. Steuerratgeber konsultieren: Den [Lohnrechner](nav:salary-compare) und den [Quellensteuerrückerstattungsrechner](nav:ristorni) für die Finanzplanung nutzen.
+4. An Webinaren und Treffen teilnehmen: Viele Grenzgänger-Verbände organisieren Informationsveranstaltungen zu den Schweiz-Italien-USA-Wirtschaftsbeziehungen.
+
+### Schlussfolgerung
+Die Handelsgespräche zwischen der Schweiz und den USA entwickeln sich weiter, und es ist noch nicht klar, welche Form ein endgültiges Abkommen annehmen wird — wenn es überhaupt jemals erzielt wird. Der Fall SECO-IFPDT zeigt, wie der Mangel an Transparenz nicht nur bei Journalisten und Bürgern, sondern auch bei Unternehmen und Arbeitnehmern, die auf Rechtssicherheit für die Zukunftsplanung angewiesen sind, Unsicherheit erzeugt. Informiert zu bleiben ist der erste Schritt, um sich auf jedes Szenario vorzubereiten.
+
+*Quelle: [tio.ch](https://www.tio.ch/svizzera/attualita/1922568/dazi-e-segreti-il-muro-della-seco)*`,"blog.article.seco-dazi-segreti-washington.faq":'[{"q":"Warum hat die SECO den Zugang zu den Verhandlungsakten verweigert?","a":"Die SECO hat den Zugang verweigert, indem sie behauptete, dass es sich um Materialien handelt, die sich auf noch laufende Verhandlungen beziehen und dass deren Veröffentlichung die Position der Schweiz schwächen könnte. Darüber hinaus hat sie behauptet, dass das Transparenzgesetz in diesem Fall nicht anwendbar sei, da es sich um ein internationales Verfahren handele."},{"q":"Was ist der aktuelle Stand der USA-Schweiz-Zollverhandlungen?","a":"Die Verhandlungen zwischen Washington und Bern sind noch im Gange und die endgültigen Bedingungen wurden nicht veröffentlicht. Die Schweiz sucht ein bilaterales Abkommen, das die Zölle auf ihre Exporte in die USA senkt, insbesondere in den Bereichen Uhrenindustrie, Pharmazie und Werkzeugmaschinen."},{"q":"Wie können die USA-Schweiz-Verhandlungen die Grenzgänger beeinflussen?","a":"Ein günstiges Abkommen könnte die Tessiner Exporte in die USA steigern, mit positiven Auswirkungen auf die Beschäftigung. Hohe Zölle oder das Fehlen eines Abkommens könnten hingegen die Wettbewerbsfähigkeit der exportierenden Tessiner Unternehmen verringern, mit möglichen Auswirkungen auf die Arbeitsplätze in den am stärksten exponierten Sektoren."}]'};export{e as default};

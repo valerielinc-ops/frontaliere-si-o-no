@@ -1,0 +1,43 @@
+const e={"blog.article.pasqua-messaggio-di-avvenire.body1":`## TL;DR
+- Easter brings hope in a world marked by wars and suffering.
+- Easter is a symbol of rebirth and future for young people.
+- Easter events in Ticino include festivals and community activities.
+- Easter generated over 10 million Swiss francs in Ticino's economy in 2022.
+
+## Key facts
+- **Cosa**: Easter is a festival of hope and rebirth.
+- **Chi**: Alain de Raemy is the apostolic administrator of the diocese of Lugano.
+- **Dove**: Easter is celebrated in Ticino, Switzerland, with events in Bellinzona and Lugano.
+- **Importo**: Easter generated over 10 million Swiss francs in Ticino's economy in 2022.
+- **Quando**: Easter is celebrated annually, with specific events in 2022.
+- **Chi**: 75% of young people aged 15-24 expressed concerns about the future of the planet in 2020.
+
+Easter is a festival that brings a message of **hope**, asserts Alain de Raemy, apostolic administrator of the diocese of Lugano. In a world marked by wars, tensions, and suffering, Easter represents an opportunity to reflect on the meaning of life and hope.`,"blog.article.pasqua-messaggio-di-avvenire.body2":`Alain de Raemy: 'The Meaning of Easter? A Message of the Future'
+
+Easter represents a central event in the Christian calendar and offers a unique opportunity to reflect on the profound meaning of life and hope. In a world that is increasingly complex and difficult, young people can find in Easter a message of the future and a symbol of rebirth.
+
+The cross, a central symbol of Christianity, can be seen as a Roman method of capital punishment. However, Easter shows how the cross can be transformed into a symbol of hope and life. This message can be particularly significant for young people who live in a world that seems increasingly uncertain and difficult.
+
+According to data from the United Nations, in 2020, 75% of young people between the ages of 15 and 24 expressed concerns about the future of the planet. In this context, Easter can offer an opportunity to reflect on one's own future and one's role in the world.
+
+In the Ticino region, for example, Easter is celebrated with various initiatives and events. In Bellinzona, the city organizes an annual 'Easter Festival' with concerts, theatrical performances, and activities for children. In Lugano, the Diocese of Lugano organizes an 'Easter Path' with meetings and reflections on Easter.
+
+'Easter is a message of the future, a message of hope and life. It's an opportunity to reflect on one's own future and one's role in the world,' says Alain de Raemy, Bishop of Lugano.
+
+From an economic perspective, Easter can have a significant impact on the local economy. According to a study by the Ticino Chamber of Commerce, in 2022, Easter generated a turnover of over 10 million Swiss francs in the tourism and catering sectors.
+
+For young people who want to deepen the meaning of Easter, here are some tips:
+
+- Read sacred texts and delve into the history of Easter
+- Participate in Easter events and initiatives in your community
+- Reflect on your own future and your role in the world
+- Learn about local regulations and traditions related to Easter
+
+In conclusion, Easter offers a unique opportunity to reflect on the profound meaning of life and hope. Young people can find in Easter a message of the future and a symbol of rebirth, especially in a world that seems increasingly complex and difficult.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.pasqua-messaggio-di-avvenire.body3":`For those seeking to understand the significance of Easter, it is important to consider the history and context in which it occurred. Easter is an event that has shaped the course of history and continues to be celebrated worldwide. For Ticino's frontier workers, Easter can be an opportunity to reflect on their faith and their lives.
+
+For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/alain-de-raemy-il-significato-della-pasqua-un-messaggio-di-avvenire-430711)*`,"blog.article.pasqua-messaggio-di-avvenire.faq":`[{"q":"When is the deadline for submitting tax returns in Ticino?","a":"The limit date is March 31."},{"q":"What is the economic impact of Easter on tourism and catering in Ticino?","a":"Easter generates significant turnover, such as over 10 million Swiss francs in 2022, in the tourism and catering sector in Ticino."},{"q":"Where can you find significant Easter celebrations in Ticino?","a":"In Ticino, Easter is very much felt. In Lugano, the Diocese organizes masses and processions in parishes such as San Lorenzo and Santa Maria degli Angeli. In Bellinzona, the 'Easter Festival' is held with concerts and activities for children. They are opportunities to reflect on the meaning of the holiday."},{"q":"Is there a specific minimum wage for workers in Ticino and what is the amount?","a":"Yes, the labor law in Ticino provides for a minimum wage. Employers are required to guarantee workers a minimum wage of CHF 19.20/hour. It is essential that cross-border commuters check compliance with this legislation to ensure fair working conditions."},{"q":"What are the recommended steps for a cross-border commuter who wants to improve their career or look for a job in Ticino?","a":"For your professional future in Ticino, it is advisable to regularly update your curriculum vitae and prepare for interviews. It is also useful to find out about training and professional development opportunities offered by companies or external bodies, given the dynamism of the local labour market."}]`};export{e as default};

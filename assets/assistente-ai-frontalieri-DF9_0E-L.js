@@ -1,0 +1,119 @@
+const e={"blog.article.assistente-ai-frontalieri.body1":`## TL;DR
+- Free chatbot for Italian workers in Switzerland
+- Answers real-time questions on taxes, healthcare, pensions
+- No registration, no cost, no usage limits
+
+## Key facts
+- **Cosa**: Free chatbot for Italian cross-border workers in Switzerland
+- **Quando**: New Italy-Switzerland Tax Agreement in force since 17/07/2023
+- **Dove**: Available on every page of the site, no registration required
+- **Chi**: Designed for Italian workers commuting to Switzerland
+- **Importo**: €10,000 IRPEF allowance for cross-border workers
+- **Scadenza**: Telework Protocol ratified by Law 13/2024
+- **Limiti**: 45-days-no-return + 25%-telework limits of the Italian-Swiss protocol
+- **Modello**: Uses Google Gemini models (Flash for instant answers, Pro for complex questions)
+
+The Frontaliere Ticino AI assistant is a free chatbot that answers real-time questions from Italian workers who commute to Switzerland. It is designed for cross-border workers who need to navigate the G permit, withholding tax, the €10,000 IRPEF allowance, the 13th-month payment, LAMal vs CMI healthcare, BVG pension contributions and remote work rules — without waiting days for an accountant. The assistant opens from the button in the bottom-right corner of every page on the site: no mandatory registration, no cost, no hard limits on basic usage. The model's knowledge base is aligned with the New Italy-Switzerland Tax Agreement (in force since 17/07/2023, ratified by Law 83/2023), the Telework Protocol (Law 13/2024) and the latest 2026 Ticino withholding tax tables published by the Canton's Tax Division.`,"blog.article.assistente-ai-frontalieri.body2":`The chatbot uses a combination of Google Gemini models (the "Flash" variant for instant answers, "Pro" for complex questions) plus a specialised knowledge base on cross-border taxation. The difference compared to a generic ChatGPT is substantial: the assistant has real-time context on 2026 AHV/ALV rates, on the A/B/C/H withholding tax tables, on the distinction between "old" and "new" cross-border workers, and on the 45-days-no-return + 25%-telework limits of the Italian-Swiss protocol. Where relevant, the assistant automatically suggests the site's [salary calculator](nav:calculator), [CHF/EUR exchange comparator](nav:exchange), [LAMal vs CMI comparison](nav:health) or [AHV/BVG pension simulator](nav:pension), so you can move from question to calculation in one click.`,"blog.article.assistente-ai-frontalieri.body3":`## How the AI assistant works
+
+The system has three layers:
+
+1. **Base model (Gemini Flash/Pro)**: processes natural Italian input, detects intent and generates answers. Flash is tuned for speed (<2s); Pro is triggered automatically for complex reasoning questions (e.g. "is a Swiss 3a better than an Italian pension fund if I already have 15 years of INPS contributions?").
+2. **Cross-border knowledge base**: internal documents refreshed weekly — Ticino withholding tables, 2026 IRPEF brackets, Italian-Swiss telework protocols, LAMal quotas by canton, AHV-INPS agreements — which the model retrieves before answering. This drastically reduces hallucinations typical of generic models on fiscal data.
+3. **Tool calls**: when a question involves a specific calculation ("what is my net take-home with CHF 75,000 as a new cross-border worker?"), the assistant calls the site's tax simulation engine directly and returns the number — not an estimate, a calculation. In the E5a phase we are also adding a job-search tool, so the assistant can filter job-board listings for you.`,"blog.article.assistente-ai-frontalieri.body4":`## What you can ask: real-world questions
+
+These are the questions our users ask most often. All are handled in Italian, without registration.
+
+### What is the G permit and how do I get it?
+The G permit is the Swiss cross-border work authorisation, issued by the cantonal migration office of the canton where you work. You need a signed employment contract; your employer files the application for you. Validity: 5 years, renewable. You must return home to Italy at least once a week (45 non-return days per year allowed).
+
+### How is Ticino withholding tax calculated?
+A progressive table (A/B/C/H) is applied based on marital status and children, on the monthly taxable salary net of Swiss social deductions (AHV/IV/EO, ALV, UVG, KTG, BVG). For "new cross-border workers" (hired since 17/07/2023) the effective rate withheld is reduced to 80%, because the remainder is taxed in Italy with a tax credit.
+
+### How much telework can I do without losing my cross-border status?
+Up to 25% of annual working time (about 55 days) thanks to the Italy-Switzerland Telework Protocol (in force from 1/1/2024), plus 45 non-return days for professional reasons. The two quotas stack for different purposes but must be declared to your employer and tracked.`,"blog.article.assistente-ai-frontalieri.body5":`### What is the €10,000 IRPEF allowance?
+It is the IRPEF-exempt threshold on Swiss employment income for new cross-border workers (art. 4, Law 83/2023). The first €10,000 of cross-border income is excluded from the Italian taxable base. It applies annually, not monthly.
+
+### Do I need to file Italian taxes if I am an old cross-border worker?
+No. Old cross-border workers (started before 17/07/2023) who return daily within the 20 km border band keep the IRPEF exemption until 31/12/2033 (art. 9, additional Protocol). They file only for other Italian income.
+
+### What is Swiss withholding tax and how does the credit work?
+Withholding tax = the tax withheld by your Swiss employer and paid to the canton. For new cross-border workers, 100% of what is withheld in Switzerland is a tax credit deductible from Italian IRPEF via line CE of the 730 or Redditi PF. Limit: it cannot exceed the IRPEF portion proportional to foreign income.
+
+### LAMal or CMI: which should I choose?
+It depends on family income, age and household size. The [LAMal vs CMI comparison](nav:health) calculates the net annual cost of both options. Rule of thumb: for singles under 40 with average income, Italian CMI is almost always cheaper; for families with children, LAMal (with subsidies) can be competitive.`,"blog.article.assistente-ai-frontalieri.body6":`### How much does BVG weigh on my salary?
+The mandatory second pillar is a deduction between 7% and 18% on the coordinated salary (annual salary minus the CHF 26,460 coordination deduction in 2026). In practice, for a gross salary of CHF 65,000 at age 40, that is about CHF 321/month. It is not a "tax": the accumulated capital is yours and you cash it in at retirement, permanent repatriation or first-home purchase.
+
+### Can I change employer and remain an "old cross-border worker"?
+Yes, provided there is no work interruption longer than 60 days between contracts (AdE Circular 25/2024). Changing canton: allowed, as long as you stay in one of the border cantons (Ticino, Graubünden, Valais).
+
+### What happens to my pension: do AVS and INPS add up?
+Yes, thanks to the bilateral social-security agreement. Swiss AVS and Italian INPS are coordinated: you do not lose contributions. At 65 you can claim both pensions. The [pension simulator](nav:pension) estimates the combined net.
+
+### How do I find work in Ticino?
+The AI assistant can filter the [internal job board](nav:job-board): just say "find nurse openings in Lugano with minimum CHF 70,000". Listings are aggregated from JobUp, jobs.ch, SECO and cantonal portals, with automatic Italian translation.`,"blog.article.assistente-ai-frontalieri.body7":`### How much does it really cost to live in Ticino?
+It depends on the municipality, marital status and lifestyle. Our [Ticino vs Lombardy cost comparator](nav:cost-of-living) compares average rent, groceries, transport, healthcare and taxes. Example: a single person in Lugano spends on average CHF 3,100/month vs an equivalent of €2,200 in Varese.
+
+### Which CHF/EUR exchange rate is best today?
+The assistant reads the [currency exchange comparator](nav:exchange) in real time, comparing Wise, Revolut, N26, ECB and traditional banks. On average Wise and Revolut offer spreads of 0.4-0.7% vs 2-3% at banks, saving €600-1,200/year on a converted monthly salary.
+
+### How does the Swiss 3a pillar work and is it worth it for cross-border workers?
+Cross-border workers with a G permit can open a Swiss 3a account (max CHF 7,258 in 2026 for employees). Contributions reduce the withholding-tax base. At the end of the employment or at retirement, the capital is taxed separately at a reduced rate. For new cross-border workers the tax benefit is partial (Italy taxes roughly 20%), but it is still interesting for those who want to build capital in strong francs.
+
+### I worked in Switzerland and was laid off: what now?
+You are entitled to Italian unemployment benefits (NASpI) computed on the Swiss salary converted into euros, plus the AVS contributions accumulated. Applications must be filed with Italian INPS within 68 days of termination, attaching the Swiss U1 form.`,"blog.article.assistente-ai-frontalieri.body8":`### I am being paid late by my Swiss employer: what can I do?
+In Ticino collective labour agreements (CCL) require payment within the end of the worked month. If the employer fails to pay within 30 days, you can turn to the cantonal conciliation office (free) or go directly to the Pretore with an injunction order. The assistant can draft the formal notice-of-default letter to send by registered mail.
+
+## Concrete use cases
+
+The three most frequent uses of the assistant today:
+
+**1. On-the-fly net pay calculation**: *"Married, 2 children, spouse not working. CHF 78,000 gross, old cross-border worker, resident in Varese. What is my monthly take-home?"* — the assistant applies Table B, computes social deductions and withholding tax, converts to euros at the day's ECB rate, and returns the monthly net (≈ CHF 4,950 → ≈ €5,220).
+
+**2. Targeted job search**: *"Show me physiotherapist openings in Lugano or Chiasso, minimum CHF 75,000, only employers with 20+ staff"* — the assistant filters the [internal job board](nav:job-board) and returns 6-12 matching listings with direct application links.
+
+**3. Specific tax questions**: *"My 2026 CU is missing field 462 for foreign income. Is this an error?"* — the assistant explains that field 462 is optional for new cross-border workers, and that Swiss income goes in quadro C rigo C4 with the credit in CE.`,"blog.article.assistente-ai-frontalieri.body9":`## Privacy and security
+
+The assistant is GDPR-compliant and designed for the privacy of cross-border workers asking sensitive tax questions. Operating rules:
+
+- **No mandatory registration** for basic use. You can ask up to 20 questions per day without creating an account.
+- **Personal data**: questions are processed by Gemini models via Google AI Studio (EU servers). They are not stored for model re-training (no-train policy active on the project API key).
+- **Local history**: conversation stays in your browser's \`sessionStorage\`, not persisted on our servers. Close the tab and everything disappears.
+- **No ad profiling**: we never use chat content for advertising targeting or sell data to third parties.
+- **Tax disclaimers**: the assistant does not replace an accountant registered with the ODCEC. For complex situations (cross-border inheritance, contested dual residency, VAT numbers) it always recommends consulting a professional.
+
+If you want to save conversations (to find them later, to share with your accountant) you can create a free account with Google or LinkedIn: in that case the history is end-to-end encrypted and stored on Firestore in your private folder.`,"blog.article.assistente-ai-frontalieri.body10":`## Limits and when NOT to use it
+
+The assistant is an excellent starting point but has explicit limits we prefer to state up front:
+
+- **Not a legal opinion**: for labour disputes, appeals against tax assessments, contested dual residency, you need a qualified lawyer or accountant.
+- **Does not replace the 730**: it can explain how to fill sections C and CE, but the tax signature remains your responsibility.
+- **Always verifiable data**: every fiscal answer includes the sources (FSIO, Ticino Tax Division, AdE, legislation). We encourage you to check them — they are all public.
+- **Continuous updates**: 2026 rates and rules are in the knowledge base, but if Parliament changes the rules mid-year it may take 24-48 hours before the assistant reflects it. In that case, a banner warns you that "this answer may not reflect changes after [date]".
+- **Language**: 100% quality in Italian. For German or French the quality drops 20-30% — we are working on localised knowledge bases (completion planned Q3 2026).`,"blog.article.assistente-ai-frontalieri.body11":`## How to get started
+
+1. Go to **[frontaliereticino.ch](https://frontaliereticino.ch/)** — the chat button (AI icon) is bottom-right on every page.
+2. Click to open the panel. First question free, no login.
+3. Type in natural Italian ("how much tax do I pay at 70k CHF?" works; no technical jargon needed).
+4. For calculations, the assistant shows the result directly in chat with a link to the full calculator.
+5. To save conversations, sign in with Google or LinkedIn after the 5th question.
+
+Alternatively, open the [salary calculator](nav:calculator) or [exchange comparator](nav:exchange) directly if you already know what you need.
+
+## Frequently asked questions about the AI assistant
+
+**Is the AI assistant really free?**
+Yes. Basic use is free and requires no registration: up to 20 questions per day. Future paid versions (a "Pro" tier with higher limits) are optional and reserved for those who want to use the assistant as a professional tool.
+
+**Does it work on mobile?**
+Yes, the chat is responsive and optimised for iOS and Android. No app to install: it works directly in the browser.
+
+**Can I use it for my non-frontaliere spouse's taxes?**
+The assistant is specialised in cross-border status. For purely Italian income (private employees, self-employed, VAT numbers) it redirects you to more suitable tools. It can however help with a joint return where one spouse is a cross-border worker.
+
+**How is the knowledge base updated?**
+An automated pipeline monitors the official sites (FSIO, Ticino Tax Division, AdE, Gazzetta Ufficiale) and updates internal documents weekly. Urgent regulatory changes are applied within 24-48 hours.
+
+**Can I export chats to PDF?**
+Yes, with a free account: "Export PDF" button at the top of the chat. Useful for archiving or sending context to your accountant.
+
+*Main sources: Law 83/2023 (New Italy-Switzerland Tax Agreement); Law 13/2024 (Telework Protocol ratification); FSIO — 2026 rates; Ticino Tax Division — 2026 withholding tables; AdE Circular 25/2024; 1962 AVS-INPS Agreement with subsequent amendments. AI assistant knowledge base updated as of April 2026. The assistant does not replace an accountant or a labour lawyer: for complex situations, consult a professional registered with the ODCEC or the Bar.*`,"blog.article.assistente-ai-frontalieri.faq":`[{"q":"Is the Frontaliere Ticino AI assistant really free?","a":"Yes. Basic use is free with no mandatory registration: up to 20 questions per day. A future Pro version with higher limits is optional; the basic assistant will always stay free for cross-border workers."},{"q":"What conversation data is stored?","a":"Questions are processed by Google Gemini (EU servers) with no-train policy enabled. History stays in your browser sessionStorage and disappears when you close the tab, unless you create an account — in which case it is end-to-end encrypted on Firestore."},{"q":"Can I use the AI assistant to calculate my cross-border net salary?","a":"Yes. The assistant calls the site's tax simulation engine with your variables (gross, marital status, residency, old/new worker) and returns the monthly net directly in chat, with a link to the full calculator for more detail."},{"q":"Does the AI know about the 2023 Tax Agreement and Telework Protocol?","a":"Yes. The knowledge base is aligned with Law 83/2023 (New Tax Agreement), Law 13/2024 (Telework Protocol ratification) and AdE Circular 25/2024. It understands old/new worker distinction, the €10,000 IRPEF allowance, the 25% telework limit and the 45 non-return days."},{"q":"Can the assistant help me find work in Ticino?","a":"Yes. The assistant filters the internal job board by your criteria (profession, city, minimum salary, company size) and returns matching listings aggregated from JobUp, jobs.ch, SECO and cantonal portals, with automatic Italian translation."},{"q":"Does the AI assistant replace my accountant?","a":"No. The assistant gives informative answers based on current law with cited sources, but does not replace professional advice. For complex cases (labour disputes, contested dual residency, appeals, cross-border inheritance) we always recommend consulting a registered accountant."},{"q":"Does it work on mobile?","a":"Yes, the chat is fully responsive on iOS and Android. No app to install — it works in the mobile browser exactly like on desktop, with the same features and limits."},{"q":"How is the knowledge base updated?","a":"An automated pipeline monitors official sites (FSIO, Ticino Tax Division, AdE, Gazzetta Ufficiale) and refreshes internal documents weekly. Urgent regulatory changes are applied within 24-48 hours."},{"q":"What makes it different from generic ChatGPT?","a":"Three things: a specialised Italy-Switzerland cross-border tax knowledge base refreshed weekly; tool calls that invoke the site's real calculators for accurate numbers; real-time context on 2026 rates and the New Tax Agreement that generic ChatGPT lacks in its training data."},{"q":"Can I report a wrong answer?","a":"Every answer has a 'Report error' button. Feedback goes directly to the editorial team, who verify within 48 hours and, if confirmed, update the knowledge base and notify users who asked the same question."}]`};export{e as default};

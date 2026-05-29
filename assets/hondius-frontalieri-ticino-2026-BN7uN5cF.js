@@ -1,0 +1,61 @@
+const e={"blog.article.hondius-frontalieri-ticino-2026.body1":`## En bref
+- Le navire Hondius en rade à Tenerife avec un foyer d'hantavirus
+- Les passagers rapatriés directement à l'aéroport
+- 23 pays impliqués dans le rapatriement
+
+## Faits clés
+- **Quoi** : Le navire de croisière Mv Hondius avec un foyer d'hantavirus
+- Quand : Arrivée prévue dimanche à midi
+- Où : Port de Granadilla de Abona, Tenerife
+- Qui : Gouvernement espagnol et Commission européenne
+- Montant : 23 pays impliqués dans le rapatriement
+
+Le navire de croisière Mv Hondius, avec un foyer d'hantavirus à bord, restera en rade devant le port de Granadilla de Abona sans accoster. La directrice générale de la Protection civile espagnole, Virginia Barcones, a réaffirmé que personne ne descendra du navire, sauf pour se rendre directement à l'aéroport pour le rapatriement dans leur pays d'origine. Cet scénario pourrait avoir des implications également pour les frontaliers du Tessin qui voyagent fréquemment vers des destinations internationales.
+
+### Implications pour les frontaliers
+Les frontaliers qui voyagent vers des destinations internationales pourraient être affectés par les mesures de sécurité adoptées à la suite de l'épisode de la Hondius. Les autorités espagnoles ont complètement isolé la zone et délimité les parcours vers l'aéroport, sans possibilité de contact avec la population civile. Cela pourrait entraîner des contrôles plus stricts et des procédures de sécurité plus rigoureuses également pour les voyageurs provenant de Suisse et du Tessin.
+
+### Procédures de rapatriement
+Le gouvernement espagnol prépare les rapatriements avec les Pays-Bas, le pays du pavillon du navire de croisière, qui a pleinement assumé sa responsabilité conformément au droit maritime. Les États-Unis et le Royaume-Uni ont déjà manifesté leur disponibilité à envoyer des avions pour rapatrier leurs ressortissants. L'Union européenne a également activé le Mécanisme européen de protection civile pour coordonner l'évacuation des passagers.
+
+### Implication de l'Union européenne
+La Commission européenne a accueilli une réunion avec les autorités sanitaires et de protection civile des États membres pour fournir les dernières mises à jour sur les cas d'hantavirus à bord de la Hondius. La Commission a informé que le mécanisme de protection civile a été activé par l'Espagne et que demain, d'autres discussions auront lieu pour examiner et définir les protocoles de quarantaine et les lignes directrices.
+
+### Pays impliqués
+Parmi les pays qui ont adhéré au Mécanisme européen de protection civile, il y a les Pays-Bas, l'Allemagne, la France, l'Ukraine, la Turquie, l'Irlande, la Belgique, la Grèce, la Pologne, le Portugal et le Monténégro. Parmi les pays extracommunautaires, sur l'Hondius, il y a des citoyens provenant des Philippines, de la Grande-Bretagne, des États-Unis, du Canada, de l'Australie, de l'Inde, de la Russie et du Guatemala.
+
+### Conclusions
+L'épisode de la Hondius pourrait avoir un impact significatif sur les voyages internationaux et les procédures de sécurité pour les frontaliers du Tessin. Il est important de rester informé des dernières nouvelles et de suivre les indications des autorités compétentes pour garantir sa propre sécurité et celle de ses proches.`,"blog.article.hondius-frontalieri-ticino-2026.body2":`### Implications pratiques pour les frontaliers
+L'épisode du Hondius pourrait entraîner une augmentation des contrôles de sécurité dans les principaux aéroports européens, y compris ceux suisses. Les frontaliers du Tessin qui voyagent fréquemment vers des destinations internationales pourraient devoir affronter des temps d'attente plus longs et des procédures de sécurité plus rigoureuses. Il est important d'être préparé et d'arriver à l'aéroport avec une marge de temps suffisante pour éviter les retards.
+
+### Comparaison avec la situation précédente
+Avant l'épisode du Hondius, les procédures de sécurité dans les aéroports étaient déjà assez rigoureuses, mais pas aussi strictes. Avec l'augmentation des contrôles, les frontaliers pourraient devoir présenter des documents supplémentaires ou subir des contrôles plus approfondis. Il est important d'avoir à portée de main tous les documents nécessaires, y compris le passeport, le permis de séjour et éventuellement des certificats médicaux.
+
+### Scénarios possibles
+En cas d'autres épisodes similaires, les autorités pourraient décider de mettre en place des mesures de sécurité encore plus rigoureuses, comme la quarantaine obligatoire pour les voyageurs provenant de certaines zones. Les frontaliers du Tessin devraient être préparés à cette éventualité et s'informer sur les dernières nouvelles et les indications des autorités compétentes.
+
+### Comparaisons avec d'autres situations
+L'épisode du Hondius rappelle celui du Diamond Princess, le navire de croisière qui a été mis en quarantaine au large des côtes japonaises en 2020 en raison d'un foyer de COVID-19. Dans ce cas également, les passagers ont été rapatriés avec des avions spéciaux et les procédures de sécurité ont été renforcées dans le monde entier. Les frontaliers du Tessin devraient s'inspirer de ces expériences et se préparer à d'éventuels changements dans les procédures de voyage.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.hondius-frontalieri-ticino-2026.body3":`### Que faire pour les travailleurs frontaliers
+
+Les travailleurs frontaliers du Tessin qui se rendent fréquemment dans des destinations internationales devraient se tenir informés des dernières nouvelles et des directives des autorités compétentes. Il est important d'arriver à l'aéroport avec une marge de temps suffisante et de garder à portée de main tous les documents nécessaires, y compris le passeport, le permis frontalier et les éventuels certificats médicaux.
+
+### Procédure étape par étape
+
+1. Se tenir informé des dernières nouvelles et des directives des autorités compétentes
+2. Arriver à l'aéroport avec une marge de temps suffisante
+3. Garder à portée de main tous les documents nécessaires
+4. Suivre les indications du personnel de l'aéroport
+5. Respecter les procédures de sécurité et les éventuelles mesures de quarantaine
+
+### Outils utiles
+
+Pour rester informés des dernières nouvelles et des directives des autorités compétentes, les travailleurs frontaliers du Tessin peuvent utiliser le calculateur de voyage disponible sur le site Frontalier Ticino. Cet outil permet de calculer les temps de trajet et de planifier son itinéraire en fonction des dernières nouvelles et des directives des autorités.
+
+### CTA finale
+
+Pour planifier son voyage et rester informé des dernières nouvelles, les travailleurs frontaliers du Tessin peuvent utiliser le calculateur de voyage disponible sur le site Frontalier Ticino. Cet outil permet de calculer les temps de trajet et de planifier son itinéraire en fonction des dernières nouvelles et des directives des autorités.
+
+*Source: [tio.ch](https://www.tio.ch/dal-mondo/cronaca/1923892/nessuno-lascera-la-hondius-se-non-per-andare-in-aeroporto)*`,"blog.article.hondius-frontalieri-ticino-2026.faq":`[{"q":"Que se passe-t-il si un frontalier du Tessin se rend dans une destination touchée par un foyer d'hantavirus ?","a":"En cas de foyer d'hantavirus dans une destination de voyage, les travailleurs frontaliers du Tessin devraient s'informer sur les dernières nouvelles et les indications des autorités compétentes. Il est important d'arriver à l'aéroport avec une marge de temps suffisante et de garder à portée de main tous les documents nécessaires, y compris le passeport, le permis de séjour et éventuellement des certificats médicaux."},{"q":"Quelles sont les procédures de sécurité pour les voyageurs en provenance de zones touchées par un foyer d'hantavirus ?","a":"Les procédures de sécurité pour les voyageurs en provenance de zones touchées par un foyer d'hantavirus peuvent inclure des contrôles plus stricts, des temps d'attente plus longs et éventuellement des mesures de quarantaine. Il est important de suivre les indications du personnel aéroportuaire et de respecter les procédures de sécurité."},{"q":"Comment puis-je rester informé des dernières nouvelles et des indications des autorités compétentes ?","a":"Pour rester informé des dernières nouvelles et des indications des autorités compétentes, les travailleurs frontaliers du Tessin peuvent utiliser le [calculateur de voyage](nav:travel-calculator) disponible sur le site Frontalier Ticino. Cet outil permet de calculer les temps de trajet et de planifier son itinéraire en fonction des dernières nouvelles et des indications des autorités."}]`};export{e as default};

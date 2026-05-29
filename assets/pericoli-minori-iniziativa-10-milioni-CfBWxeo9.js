@@ -1,0 +1,55 @@
+const i={"blog.article.pericoli-minori-iniziativa-10-milioni.body1":`## In brief
+- Alliance of organizations warns of risks to minors
+- Possible termination of the UN Convention on the Rights of the Child
+- Initiative aims to limit population to 10 million by 2050
+
+## Key facts
+- **What**: Initiative "No to a Switzerland of 10 million!"
+- When: Voting on June 14, 2026
+- Where: Switzerland
+- Who: Alliance of organizations for the defense of children and youth
+- Amount: Not specified
+
+An alliance of organizations for the defense of children and youth, including Pro Juventute, Swiss Child Protection, SOS Children's Villages, and the Swiss Federation of Youth Associations, has raised an alarm about the dangers to minors posed by the Initiative "No to a Switzerland of 10 million!". The initiative, which will be put to a vote on June 14, could lead to the termination of the UN Convention on the Rights of the Child, putting the rights of children in the migratory and asylum system at risk.
+
+The initiative, launched by the Christian Democrats, aims to set a maximum limit on the permanent resident population in the Constitution, aiming for strict control of immigration so that the inhabitants in Switzerland do not exceed the threshold of 10 million by 2050. The alliance emphasizes that abandoning the UN Convention would represent a huge step backward for Switzerland's credibility as a country with a humanitarian tradition.
+
+### Practical implications
+The initiative, if approved, could have a significant impact on the rights of minors, particularly in the migratory and asylum system. The UN Convention on the Rights of the Child obliges authorities to consider the well-being of children, and its termination could lead to a violation of these rights. The alliance of organizations has expressed concern about the practical implications of such an initiative, emphasizing that it is not an abstract text, but a document with concrete consequences for children and their families.
+
+The initiative "No to a Switzerland of 10 million!" was launched with the aim of limiting the permanent resident population in Switzerland to 10 million by 2050. This limit would be set in the Swiss Constitution, with the intention of strictly controlling immigration. However, the alliance of organizations for the defense of children's rights has warned that such an initiative could have negative consequences for minors, particularly in the migratory and asylum system.
+
+### Impact on cross-border workers
+For cross-border workers who work in Switzerland and reside in Italy, the approval of this initiative could have significant implications. In particular, it could influence migration and asylum policies, which in turn could affect the living and working conditions of cross-border workers. It is important that cross-border workers are aware of these potential consequences and closely monitor the development of this initiative.`,"blog.article.pericoli-minori-iniziativa-10-milioni.body2":`The alliance of organizations for the defense of children's rights has warned that the approval of the 'No to a Switzerland of 10 million!' Initiative could lead to a violation of minors' rights in the migratory and asylum system. This is because the UN Convention on the Rights of the Child obliges authorities to consider the well-being of children, and its termination could have a significant impact on migratory and asylum policies.
+
+### Possible Scenarios
+If the initiative were approved, it could lead to an increase in asylum and migratory procedures, directly impacting minors. This could include an increase in document requests, verification procedures, and expulsion decisions. Furthermore, it could lead to an increase in discrimination and violations of minors' rights, particularly those in the migratory and asylum system.
+
+The alliance of organizations has emphasized that abandoning the UN Convention would represent a huge step backward for Switzerland's credibility as a country with a humanitarian tradition. This is because the UN Convention on the Rights of the Child is an international document that obliges authorities to respect and promote children's rights. Its termination could lead to an increase in violations of minors' rights and a deterioration in living conditions for children and their families.
+
+### Comparison with the Current Situation
+Currently, Switzerland is a country that respects and promotes children's rights, in line with the UN Convention on the Rights of the Child. However, the approval of the 'No to a Switzerland of 10 million!' Initiative could lead to a significant change in this situation. In particular, it could lead to an increase in asylum and migratory procedures, directly impacting minors. Furthermore, it could lead to an increase in discrimination and violations of minors' rights, particularly those in the migratory and asylum system.
+
+### Implications for Cross-Border Workers
+For cross-border workers who work in Switzerland and reside in Italy, the approval of this initiative could have significant implications. In particular, it could influence migratory and asylum policies, which in turn could affect the living and working conditions of cross-border workers. It is important that cross-border workers are aware of these potential consequences and closely monitor the development of this initiative.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.pericoli-minori-iniziativa-10-milioni.body3":`In conclusion, the 'No to a Switzerland of 10 million!' Initiative poses a significant threat to the rights of minors in Switzerland. The alliance of organizations defending children's rights has warned that the approval of this initiative could lead to a violation of minors' rights in the migration and asylum system, with negative consequences for children and their families.
+
+### What to do
+For cross-border workers who commute to Switzerland and live in Italy, it is important to closely monitor the development of this initiative and its potential consequences. In particular, it is important to be aware of the practical implications of this initiative and the possible consequences for migration and asylum policies. Additionally, it is important to stay informed about the latest news and developments regarding this initiative, so that informed decisions can be made to protect one's own rights and those of one's children.
+
+### Useful tools
+To stay informed about the latest news and developments regarding this initiative, you can use the [salary calculator](nav:calculator) to compare salaries in Switzerland and Italy. Additionally, you can use the [permit comparator](nav:permit-compare) to compare the requirements and conditions for obtaining a work permit in Switzerland. Finally, you can use the [deadline calendar](nav:calendar) to stay up-to-date on deadlines and administrative procedures.
+
+### FAQ
+1. What are the dangers for minors resulting from the 'No to a Switzerland of 10 million!' Initiative?
+The dangers for minors resulting from the 'No to a Switzerland of 10 million!' Initiative include the possible termination of the UN Convention on the Rights of the Child, which could lead to a violation of minors' rights in the migration and asylum system. Furthermore, the initiative could lead to an increase in asylum and migration procedures, directly impacting minors.
+
+2. What are the practical implications of the 'No to a Switzerland of 10 million!' Initiative for cross-border workers?
+The practical implications of the 'No to a Switzerland of 10 million!' Initiative for cross-border workers include a possible impact on migration and asylum policies, which in turn could affect the living and working conditions of cross-border workers. It is important that cross-border workers are aware of these potential consequences and closely monitor the development of this initiative.
+
+3. What can cross-border workers do to protect their rights and those of their children?
+Cross-border workers can protect their rights and those of their children by closely monitoring the development of this initiative and its potential consequences. Additionally, it is important to stay informed about the latest news and developments regarding this initiative, so that informed decisions can be made to protect one's own rights and those of one's children.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1922771/svizzera-bambini-alleanza-sos-villaggi)*`,"blog.article.pericoli-minori-iniziativa-10-milioni.faq":`[{"q":"What are the dangers for minors arising from the \\"No to a Switzerland of 10 million!\\" Initiative?","a":"The dangers for minors arising from the \\"No to a Switzerland of 10 million!\\" Initiative include the possible termination of the UN Convention on the Rights of the Child, which could lead to a violation of minors' rights in the migratory and asylum system. Furthermore, the initiative could lead to an increase in asylum and migratory procedures, directly impacting minors."},{"q":"What are the practical implications of the \\"No to a Switzerland of 10 million!\\" Initiative for cross-border workers?","a":"The practical implications of the \\"No to a Switzerland of 10 million!\\" Initiative for cross-border workers include a possible impact on migratory and asylum policies, which in turn could affect the living and working conditions of cross-border workers. It is important that cross-border workers are aware of these potential consequences and closely monitor the development of this initiative."},{"q":"What can cross-border workers do to protect their rights and those of their children?","a":"Cross-border workers can protect their rights and those of their children by closely monitoring the development of this initiative and its potential consequences. Additionally, it is important to stay informed about the latest news and developments regarding this initiative, so that informed decisions can be made to protect their rights and those of their children."}]`};export{i as default};

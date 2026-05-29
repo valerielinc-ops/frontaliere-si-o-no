@@ -1,0 +1,44 @@
+const o={"blog.article.abbonamenti-sconti-treni-ticino.body1":`## TL;DR
+- New fare discounts for Ticino-Lombardy commuters in 2026.
+- Cross-border workers get 20% off Chiasso-Lugano TILO trains.
+- Combined train and bus subscriptions offer 15% G permit discount.
+- Arcobaleno system integrates multiple transport modes for savings.
+
+## Key facts
+- **Chiasso-Lugano cost**: 100 CHF per month in 2026
+- **TILO discount**: 20% for cross-border workers
+- **Combined subscription**: Around 120 CHF for train and bus
+- **G permit discount**: 15% reduction on combined subscriptions
+- **Public transport usage**: 40% of cross-border workers in 2026
+- **Private traffic change**: 12% reduction compared to 2025
+- **Arcobaleno growth**: 18% increase in subscriptions sold to cross-border workers
+- **New TILO users**: Approximately 3,500 new daily users
+
+Traveling between the Canton of Ticino and Lombardy is a daily reality for thousands of **cross-border workers**. With the rising costs associated with private transport, more and more workers are opting for public transportation. The year 2026 promises to be particularly attractive for those choosing this option, thanks to new **fare discounts** introduced by both the Canton of Ticino and the Lombardy Region.
+
+## What are the main options?
+
+For commuters using TILO trains, operated by Swiss Federal Railways (SBB) in collaboration with Trenord, various types of subscriptions are available. For example, the monthly subscription for the Chiasso-Lugano route costs 100 CHF per month in 2026, but thanks to cross-border agreements, cross-border workers who can prove they work in Ticino are eligible for a 20% discount.
+
+Buses, operated by companies such as Autolinee Regionali Luganesi (ARL) and Trasporti Pubblici Luganesi (TPL), also offer significant discounts. A combined monthly subscription for train and bus, valid on various routes between Lombardy and Ticino, can cost around 120 CHF, with a 15% reduction for those holding a G permit. Additionally, the integrated Arcobaleno system allows users to utilize a single subscription for multiple modes of transportation, ensuring further savings for those who need to commute daily between different towns or cities.`,"blog.article.abbonamenti-sconti-treni-ticino.body2":`## Regulations and requirements to access discounts
+
+To benefit from the discounts, certain conditions must be met. Cross-border workers are required to present:
+
+- A valid copy of their G permit.
+- An employment contract with a Ticino-based company.
+- Proof of residence in a border municipality in Lombardy, such as Como, Varese, or Mendrisiotto.
+
+According to data provided by authorities in 2026, approximately 40% of cross-border workers use public transportation to reach their workplace. This increase has been driven not only by more competitive costs but also by the introduction of new TILO connections and the expansion of bus routes, which now better serve major border crossings such as Brogeda, Gaggiolo, and Ponte Tresa.
+
+📊 **Key data for 2026**:
+- 12% reduction in private traffic compared to 2025.
+- 18% increase in Arcobaleno subscriptions sold to cross-border workers.
+- Approximately 3,500 new daily users on TILO trains.
+
+> 'Investing in public transportation is a priority to improve the quality of life for cross-border workers and reduce environmental impact,' stated the State Councillor of the Canton of Ticino during a recent press conference.`,"blog.article.abbonamenti-sconti-treni-ticino.body3":`## How to choose the right subscription
+
+💡 For those traveling daily between Lombardy and Ticino, combined Arcobaleno subscriptions offer a cost-effective choice. If you're a new cross-border worker, visit the **SBB** or **Trenord** websites to explore all the available options. We also recommend evaluating the economic savings compared to using a private car, factoring in fuel costs, tolls, and parking fees.
+
+⚠️ Remember that discounted subscriptions must be renewed regularly and that the discounts are only valid for workers with an up-to-date G permit.
+
+If you're unsure about the total cost of commuting, our [commuter transport calculator](nav:transport) will help you compare expenses between public and private transportation, providing you with a clear and detailed overview. Discover how much you could save by choosing the option that best suits your needs!`,"blog.article.abbonamenti-sconti-treni-ticino.faq":'[{"q":"What are the public transport discounts for Swiss-Lombardy cross-border commuters in 2026?","a":"In 2026, tariff concessions are planned for cross-border commuters. For example, the monthly Chiasso-Lugano pass costs 100 CHF with a 20% discount for those working in Ticino. A combined train-bus pass can cost around 120 CHF with a 15% reduction for G permit holders."},{"q":"How can I get the discount on the TILO train or buses for working in Ticino?","a":"To access discounts on public transport between Lombardy and Ticino, you need to present a valid copy of your G permit, an employment contract with a Ticino-based company, and reside in a border municipality in Lombardy. Approximately 40% of cross-border commuters already use public transport."},{"q":"What are the benefits of the Arcobaleno pass for cross-border commuters?","a":"The Arcobaleno pass allows the use of a single travel ticket for multiple means of transport (train and bus) on various routes between Lombardy and Ticino. It represents an advantageous choice for daily commuters, ensuring further savings and simplifying travel."},{"q":"How much does the monthly Chiasso-Lugano pass cost for a cross-border commuter in 2026?","a":"In 2026, the monthly pass for the Chiasso-Lugano route has a base cost of 100 CHF. Thanks to cross-border agreements, commuters who prove they work in Ticino can benefit from a 20% discount, reducing the actual cost."}]'};export{o as default};

@@ -1,0 +1,88 @@
+const e={"blog.article.agricoltura-ticino-allarme-2024.body1":`## In brief
+- The 2024 Ticino agricultural crisis: drought, predators, costs, and labor shortages
+- Three resolutions approved in 2026 by the Cantonal Chamber of Agriculture
+- 2026 update: the sector is looking ahead with renewed determination
+- Seasonal work opportunities for cross-border workers in Ticino agriculture
+
+## Key facts
+- **What**: Crisis and revival of Ticino agriculture
+- **When**: 2024 (crisis) — 2026 (recovery priorities and May 2 assembly)
+- **Where**: Bellinzona, Canton Ticino
+- **Who**: Unione Contadini Ticinesi (UCT), Cantonal Chamber of Agriculture
+- **Key figures**: Omar Pedrini (UCT president), Sem Genini (cantonal agricultural secretary)
+
+### 2024: a year of alarm for Ticino agriculture
+
+In 2024, the Ticino agricultural sector went through one of its most difficult phases in recent years. Weighing on the industry were climate change with increasingly frequent drought events alternating with intense precipitation, rising production costs, competitive pressure from low-cost imported products, and the growing presence of large predators — particularly the wolf — which led to the abandonment of numerous alpine pastures.
+
+The president of the Unione Contadini Ticinesi, Omar Pedrini, described the problem plainly: "It is not feasible to ask us to produce with very restrictive standards and demand prices that are offered in various Bennet stores across the border." The cantonal agricultural secretary Sem Genini confirmed that the sector is suffering, with several businesses closing, also due to the wolf problem and ungulates causing increasing damage to alpine pastures.
+
+### Crisis figures from 2024
+
+According to data discussed at the assembly:
+- Damage caused by wolves and ungulates to Ticino's alpine pastures was estimated at approximately **1.2 million francs** in 2023, with a worsening trend in 2024
+- In the municipality of Acquarossa, around 30% of alpine pastures have been abandoned in the last five years due to predators
+- Canton Ticino has lost a significant proportion of its farms compared to the beginning of the decade, according to Swiss Federal Statistical Office data
+
+### The three 2026 resolutions: recovery priorities
+
+The Cantonal Chamber of Agriculture assembly on 2 May 2026, held at the BancaStato auditorium in Bellinzona with around fifty UCT delegates, unanimously approved three strategic resolutions marking the path to recovery:
+
+1. **Promotion of local products**: The first resolution highlights the limited presence of Ticino products at public events and events, often funded with public money. The principle is clear: "Local as first choice, Swiss as the alternative, and foreign only as a last resort."
+
+2. **Agricultural land in construction projects**: The second resolution addresses the consumption of agricultural land for large infrastructure projects. In Ticino, only 18% of agricultural land is owned by the farmers themselves — a fragile situation that generational handovers risk worsening. The request is for fairer compensation and more sparing use of the land involved.
+
+3. **Continuing education**: The third resolution aims to develop a local training offer, tailored to the linguistic and geographical specifics of Ticino, in collaboration with the Centro Professionale del Verde di Mezzana.`,"blog.article.agricoltura-ticino-allarme-2024.body2":`### Seasonal agricultural work in Ticino: opportunities for cross-border workers
+
+For cross-border workers residing in the provinces of Como and Varese, Ticino's agricultural sector represents a concrete source of seasonal employment, especially in the spring and summer months. Here is what is useful to know for anyone considering this option.
+
+#### Types of contract
+
+Ticino agriculture predominantly uses two contractual forms:
+- **Seasonal contract (contratto stagionale agricolo)**: the most common form for grape harvesting, fruit picking, alpine pasture work, and maintenance. Duration can range from a few weeks to several months.
+- **Fixed-term contract**: for more structured work or larger companies that require specific skills.
+
+Both forms are governed by the **Collective Labour Agreement (CCL) for Ticino agriculture**, which sets minimum conditions for wages, working hours, and benefits. Wage rates in the Ticino agricultural sector are on average higher than Italian rates in the same sector, which makes this option economically interesting for cross-border workers.
+
+#### Permit G and seasonal work
+
+Italian cross-border workers (Permit G) can work in the Ticino agricultural sector without particular restrictions, provided they maintain residence in the border area (within 30 km of border crossings or in the frontier area defined by the Switzerland-Italy bilateral agreement). For seasonal work lasting less than 90 days, administrative procedures are simplified.
+
+**Key points for cross-border workers in agriculture:**
+- The employer must notify the cross-border worker to the **Cantonal Labour Office** before the start of the employment relationship
+- Social insurance (AVS/AI/APG) is compulsory even for short contracts
+- The cross-border worker is entitled to accident insurance (LAA) from the first day of work
+- Health insurance (KVG/LAMal) remains optional for cross-border workers who maintain coverage in Italy
+
+#### Social coverage for seasonal workers
+
+An often overlooked point: even short seasonal jobs in Switzerland generate pension rights. AVS contributions paid during a seasonal contract accumulate and can contribute to both Swiss and Italian old-age pensions (thanks to totalization agreements between the two countries). It is worth keeping documentation of all employment relationships in Switzerland.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.agricoltura-ticino-allarme-2024.body3":`### What to do to find your way in Ticino agricultural work
+
+Here are some concrete actions for cross-border workers interested in the Ticino agricultural sector or already working in it:
+
+1. **Consult the Ticino agriculture CCL**: The collective labour agreement sets minimum wages, maximum working hours, holiday entitlements, and allowances for seasonal work. It is available on the UCT (Unione Contadini Ticinesi) and UNIA (the union that negotiates working conditions in the sector) websites.
+
+2. **Check the requirements for Permit G**: For those who do not yet have a cross-border worker permit, the application process goes through the Canton Ticino Migration Office. The main requirements are residence in the border area and an employment contract with a Swiss company.
+
+3. **Consider training at the Centro Professionale del Verde di Mezzana**: The 2026 UCT assembly placed emphasis on the need to strengthen local training. Some courses are accessible to cross-border workers too, especially for those wishing to specialise in viticulture, fruit growing, or alpine pasture management.
+
+4. **Support local products as consumers**: Choosing Ticino products in supermarkets and markets in Canton Ticino directly helps support local farms and preserve the economic fabric from which many cross-border workers find employment.
+
+5. **Attend sector events**: The Bellinzona June Fair and other Ticino agricultural events are useful opportunities for networking, getting to know local companies, and keeping up to date on seasonal work opportunities.
+
+### Operational checklist for cross-border workers seeking agricultural work
+
+- [ ] Consult the Ticino agriculture CCL to find out minimum wages
+- [ ] Verify the validity or start the application for Permit G
+- [ ] Contact the UCT or trade associations for seasonal job listings
+- [ ] Register on the **Job-Room** portal (seco.admin.ch) for Swiss job offers
+- [ ] Keep all employment documents for the management of pension contributions
+
+### Conclusion
+
+The Ticino agricultural sector has gone through difficult years, but the 2026 resolutions show a concrete desire to revive. For cross-border workers, this sector offers seasonal employment opportunities with wage conditions generally higher than the Italian equivalent, a protective regulatory framework, and long-term prospects linked to the enhancement of the territory and local products. Cross-border collaboration — in agriculture too — is one of the distinctive assets of the Ticino border area.
+
+*Sources: [ticinonews.ch](https://www.ticinonews.ch/ticino/lallarme-degli-agricoltori-il-settore-sta-soffrendo-432708) — [tio.ch](https://www.tio.ch/ticino/attualita/1922530/priorita-a-prodotti-locali-superfici-e-formazione)*`,"blog.article.agricoltura-ticino-allarme-2024.faq":`[{"q":"What are the main challenges facing Ticino's agricultural sector?","a":"The main challenges include climate change with drought and intense weather events, pressure from predators (wolves) on alpine pastures, rising production costs, and competition from low-cost imported products. In 2024, the sector went through one of its most difficult periods, with several farms closing."},{"q":"How can cross-border workers find employment in Ticino agriculture?","a":"Italian cross-border workers with Permit G can work in Ticino agriculture under seasonal or fixed-term contracts governed by the Ticino agriculture CCL (Collective Labour Agreement). Wage rates are on average higher than Italian rates in the same sector. Procedures for short contracts (under 90 days) are simplified."},{"q":"What resolutions were approved in 2026 to revive the sector?","a":"The UCT assembly of 2 May 2026 approved three resolutions: promotion of local products at public events, fairer management of agricultural land involved in construction projects, and strengthening of continuing education for agricultural professions, in collaboration with the Centro Professionale del Verde di Mezzana."}]`};export{e as default};

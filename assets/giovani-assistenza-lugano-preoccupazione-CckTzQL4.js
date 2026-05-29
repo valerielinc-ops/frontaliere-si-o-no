@@ -1,0 +1,72 @@
+const i={"blog.article.giovani-assistenza-lugano-preoccupazione.body1":`## In breve
+- Un terzo dei beneficiari di assistenza a Locarno ha tra 18 e 25 anni
+- Aumentano anche i minorenni che ricevono aiuti sociali
+- Wicht chiede chiarimenti al Municipio di Lugano
+
+
+- **Cosa**: Dati preoccupanti sui giovani beneficiari di assistenza sociale
+- Quando: Dati recenti pubblicati sul Corriere del Ticino
+- Dove: Locarno e Lugano
+- Chi: Consigliere comunale Omar Wicht (Lega)
+- Importo: Un terzo dei beneficiari a Locarno ha tra 18 e 25 anni
+
+La situazione riguardo l’assistenza sociale giovanile a Lugano desta preoccupazioni? A chiederlo è il consigliere comunale Omar Wicht (Lega) con un’interrogazione rivolta di recente al Municipio. Il firmatario prende spunto, nella sua riflessione, dai dati «preoccupanti» inerenti la Città di Locarno, apparsi recentemente sul Corriere del Ticino, da cui si evince che un terzo dei beneficiari di prestazioni assistenziali, appartiene alla fascia di età che va dai 18 ai 25 anni.
+
+«Oggettivamente ritengo che questo sia un fenomeno del tutto nuovo e inquietante», scrive Wicht. «Poco confortante è altresì il numero di minorenni (in aumento), anche loro a beneficio di aiuti sociali». Alla luce di questi indicatori, per il consigliere comunale «è assolutamente necessario monitorare la situazione anche a Lugano».
+
+Wicht pone quindi una serie di domande in merito all’Esecutivo cittadino, per fare chiarezza sulla situazione attuale.
+
+### Domande chiave
+
+1. A Lugano, a quanto ammonta il numero e la percentuale (rispetto al complesso dei beneficiari in assistenza), di giovani dai 18 ai 25 anni e dai 25 anni ai 40 anni beneficiari di prestazioni assistenziali?
+2. A Lugano, a quanto ammonta il numero di minorenni a beneficio di prestazioni assistenziali?
+3. Il Municipio ha già predisposto misure, per evitare il più possibile che i giovani inizino il loro percorso di vita dall’assistenza?
+4. Il crescente numero di giovani frontalieri, soprattutto apprendisti, può essere un elemento di maggiore difficoltà per l’inserimento professionale dei giovani residenti?
+5. Ci sono apprendisti frontalieri assunti nell’amministrazione comunale o nelle partecipate del Comune?
+
+Questi dati sollevano interrogativi importanti per la comunità di Lugano e per i frontalieri che lavorano e vivono nella regione. È fondamentale comprendere come queste dinamiche possano influenzare il mercato del lavoro e le politiche sociali locali.`,"blog.article.giovani-assistenza-lugano-preoccupazione.body2":`## Analisi delle implicazioni per i frontalieri
+
+I dati presentati da Omar Wicht sollevano questioni rilevanti per i frontalieri che lavorano a Lugano e nei dintorni. La presenza di un numero significativo di giovani beneficiari di assistenza sociale potrebbe influenzare il mercato del lavoro locale, in particolare per quanto riguarda le opportunità di impiego per i giovani residenti e i frontalieri.
+
+### Impatto sul mercato del lavoro
+
+Il crescente numero di giovani frontalieri, soprattutto apprendisti, potrebbe rappresentare una sfida per l’inserimento professionale dei giovani residenti. Questo fenomeno potrebbe portare a una maggiore concorrenza per le posizioni di lavoro disponibili, influenzando sia i frontalieri che i residenti. È importante monitorare come queste dinamiche possano evolvere e quali misure potrebbero essere adottate per garantire un mercato del lavoro equilibrato.
+
+### Misure di supporto
+
+Il Municipio di Lugano potrebbe considerare l’implementazione di misure specifiche per supportare i giovani nel loro percorso di inserimento professionale. Questo potrebbe includere programmi di formazione, stage e collaborazioni con le aziende locali per creare opportunità di lavoro. Inoltre, potrebbe essere utile esplorare come i frontalieri possano essere integrati in questi programmi, promuovendo una collaborazione transfrontaliera.
+
+### Confronto con la situazione precedente
+
+È interessante notare come la situazione a Locarno, con un terzo dei beneficiari di assistenza sociale nella fascia di età 18-25 anni, possa servire come punto di riferimento per Lugano. Questo confronto potrebbe aiutare a identificare le aree di miglioramento e le strategie più efficaci per affrontare il problema. Inoltre, potrebbe essere utile analizzare come altre città svizzere stanno gestendo situazioni simili e quali lezioni possono essere apprese.
+
+### Scenari futuri
+
+Se la situazione non viene monitorata e gestita adeguatamente, potrebbe portare a un aumento della disoccupazione giovanile e a una maggiore dipendenza dall’assistenza sociale. Questo potrebbe avere un impatto negativo sulla comunità locale e sui frontalieri che lavorano nella regione. È fondamentale che il Municipio di Lugano adotti un approccio proattivo per affrontare queste sfide e garantire un futuro migliore per tutti i giovani, sia residenti che frontalieri.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).`,"blog.article.giovani-assistenza-lugano-preoccupazione.body3":`## Cosa fare per i frontalieri
+
+Per i frontalieri che lavorano a Lugano, è importante essere consapevoli delle dinamiche del mercato del lavoro locale e delle politiche sociali. Ecco alcuni passaggi concreti che possono essere utili:
+
+### Monitorare le opportunità di lavoro
+
+I frontalieri dovrebbero monitorare le opportunità di lavoro disponibili a Lugano e nei dintorni. Questo può essere fatto attraverso siti web di annunci di lavoro, reti professionali e collaborazioni con le aziende locali. Inoltre, è utile partecipare a fiere del lavoro e eventi di networking per ampliare le proprie opportunità.
+
+### Partecipare a programmi di formazione
+
+I frontalieri possono beneficiare di programmi di formazione e stage offerti dalle aziende locali e dalle istituzioni educative. Questi programmi possono fornire competenze preziose e migliorare le opportunità di carriera. È importante rimanere aggiornati sulle ultime offerte e partecipare attivamente a questi programmi.
+
+### Collaborare con le istituzioni locali
+
+I frontalieri possono collaborare con le istituzioni locali, come il Municipio di Lugano e le partecipate del Comune, per esplorare opportunità di lavoro e formazione. Questo può includere la partecipazione a progetti di collaborazione transfrontaliera e l’impegno in iniziative locali.
+
+### Utilizzare strumenti di supporto
+
+Esistono strumenti e risorse disponibili per supportare i frontalieri nel loro percorso professionale. Ad esempio, il [calcolatore stipendio](nav:calculator) può aiutare a comprendere meglio le proprie finanze e pianificare il futuro. Inoltre, è utile consultare le guide e le risorse disponibili sul sito di Frontaliere Ticino per rimanere informati sulle ultime novità e opportunità.
+
+### Conclusione
+
+La situazione dell’assistenza sociale giovanile a Lugano richiede un’attenzione particolare e un approccio proattivo da parte di tutti i soggetti coinvolti. Per i frontalieri, è importante monitorare le dinamità del mercato del lavoro e partecipare attivamente a programmi di formazione e collaborazioni locali. Utilizzando gli strumenti e le risorse disponibili, i frontalieri possono migliorare le proprie opportunità di carriera e contribuire positivamente alla comunità locale.
+
+*Fonte: [ticinonews.ch](https://www.ticinonews.ch/ticino/giovani-e-assistenza-sociale-a-lugano-ce-preoccupazione-433783)*`,"blog.article.giovani-assistenza-lugano-preoccupazione.faq":'[{"q":"Quali sono le principali preoccupazioni sollevate da Omar Wicht?","a":"Omar Wicht ha sollevato preoccupazioni riguardo al numero crescente di giovani beneficiari di assistenza sociale a Lugano, in particolare nella fascia di età 18-25 anni. Ha anche evidenziato l’aumento dei minorenni che ricevono aiuti sociali, sottolineando la necessità di monitorare attentamente la situazione."},{"q":"Quali domande ha posto Wicht al Municipio di Lugano?","a":"Wicht ha posto diverse domande al Municipio di Lugano, tra cui il numero e la percentuale di giovani beneficiari di assistenza sociale, il numero di minorenni che ricevono aiuti, le misure predisposte per evitare che i giovani inizino il loro percorso di vita dall’assistenza, l’impatto dei giovani frontalieri sull’inserimento professionale dei residenti e la presenza di apprendisti frontalieri nell’amministrazione comunale o nelle partecipate del Comune."},{"q":"Quali sono le implicazioni per i frontalieri che lavorano a Lugano?","a":"Le implicazioni per i frontalieri includono una maggiore concorrenza per le opportunità di lavoro, la necessità di monitorare le dinamiche del mercato del lavoro locale e la partecipazione a programmi di formazione e collaborazioni locali. È importante per i frontalieri rimanere informati e utilizzare gli strumenti di supporto disponibili per migliorare le proprie opportunità di carriera."}]'};export{i as default};

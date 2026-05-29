@@ -1,0 +1,39 @@
+const e={"blog.article.violenza-adolescenti-ticino.body1":`## TL;DR
+- Three teens assaulted a 48-year-old man in Frauenfeld, Switzerland.
+- Incident escalated from verbal insults to physical violence at Bahnhofplatz.
+- Youth violence incidents in Switzerland increased by 15% between 2025-2026.
+- Ticino authorities plan enhanced patrols and video surveillance by 2026.
+
+## Key facts
+- **Cosa**: Assalto a un uomo di 48 anni da parte di tre adolescenti.
+- **Quando**: 27 febbraio 2026.
+- **Dove**: Piazza della stazione di Frauenfeld, Canton Thurgau.
+- **Chi**: Tre adolescenti arrestati, vittima portata in ospedale.
+- **Importo**: Aumento del 15% negli incidenti giovanili in Svizzera tra il 2025 e il 2026.
+- **Scadenza**: 31 marzo 2026 per il sondaggio sulla sicurezza per i lavoratori transfrontalieri.
+- **Dati chiave**: 1.800 arresti per violenza giovanile in Svizzera nel 2025, 30% vicino a stazioni e confini.
+
+On February 27th, a serious episode of youth violence shook the quiet town of Frauenfeld in the Canton of Thurgau. Three teenagers were involved in an assault on a 48-year-old man at Bahnhofplatz, the train station square. According to local authorities, the situation escalated from verbal insults to physical violence, with two of the youths kicking and punching the victim, causing moderate injuries. The intervention of some passersby prevented the situation from worsening, allowing the man to be taken to the hospital and the three teenagers to be arrested. The case is now in the hands of juvenile justice, with investigations underway.`,"blog.article.violenza-adolescenti-ticino.body2":`## Impacts on Local Safety
+- The incident highlights a worrying trend of youth violence in Swiss urban areas, including transit hubs like train stations and border crossings.
+- According to cantonal police data, incidents involving teenagers increased by 15% between 2025 and 2026.
+> 'We can no longer ignore the issue of safety in public spaces, especially for those who travel daily between Italy and Switzerland,' said a spokesperson for the Ticino police.
+
+📊 Key Data: In 2025, the number of arrests related to youth violence reached 1,800 across Switzerland, with 30% of incidents concentrated near train stations and border crossings. This trend also affects cross-border workers, who are often present in the busiest areas.
+
+For cross-border workers employed in Ticino, **personal safety** is a critical issue, given the long daily commutes through crossings like Chiasso or Ponte Tresa. Episodes of youth violence, such as the recent one, can impact perceptions of safety in transit areas and urban zones.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.violenza-adolescenti-ticino.body3":`## Regulations and Preventive Measures
+- Ticino authorities, in collaboration with the Canton of Thurgau, are evaluating the introduction of additional patrols at key points, including major border crossings.
+- Starting in 2026, the Canton of Ticino plans to enhance its video surveillance system at Lugano and Mendrisio stations as part of the regional safety plan.
+> 'Safety is a priority for our Canton, especially in areas frequented by cross-border workers,' stated the Director of the Department of Institutions.
+
+⚠️ Upcoming Deadline: By March 31, 2026, cross-border workers who face long daily commutes are invited to participate in a cantonal survey on safety perceptions, available at major customs offices.
+
+For those living the reality of cross-border work, adopting **preventive measures** can make a significant difference in managing personal safety. In case of emergencies, it is essential to know the contact numbers for local police and customs authorities. Moreover, incidents in public areas may have legal implications, particularly for those who regularly cross borders.
+
+## Practical Tips
+💡 Use traffic monitoring apps to avoid congested and potentially problematic areas.
+💡 Consider purchasing specific insurance policies for incidents during international commutes.
+
+For those looking to delve deeper into safety and the costs associated with cross-border life, our [net salary calculator](nav:calculator) is an essential tool. Also, compare the [cost of living](nav:cost-of-living) to assess whether residential alternatives near the border could enhance your quality of life.`,"blog.article.violenza-adolescenti-ticino.faq":'[{"q":"What is going on with security at the Swiss stations for the Italian-Switzerland frontiers?","a":"Security at Swiss stations is an increasing concern for frontier workers, with a 30% of the episodes of youth violence concentrated there and in border crossings. Youth arrests increased by 15% between 2025 and 2026."},{"q":"What is the impact of the trend of youth violence on insurance policies for frontier workers in Switzerland?","a":"The trend of youth violence is leading to a strengthening of recommendations for specific insurance policies that cover accidents during international commuters, with some Swiss insurance companies that are evaluating higher premiums for high-risk areas, such as railway stations and border crossings."},{"q":"What are the concrete measures for frontier workers who cross Chiasso to avoid risk situations?","a":"Since 2026, Canton Ticino has upgraded video surveillance at Chiasso and Ponte Tresa stations with 20 additional cameras. In addition, mixed Italian-Switzerland patrols are provided at the nerve points, active from 6 to 22. It is recommended to avoid isolated areas, especially in the evening."},{"q":"Should the border guards pay more health insurance if aggressions occur near the vessels?","a":"No, attacks on external causes do not affect the basic health insurance premium (LAMal). However, some additional accident insurance policies may have additional costs: check with your insurer."},{"q":"What happens if a frontier is involved in an episode of violence near a vessel and is not a Swiss citizen?","a":"In case of arrest, the Swiss authorities shall apply the same procedures regardless of nationality. You may need to provide additional documents (work permit, passport) and contact the Italian embassy. The local police provide language assistance."}]'};export{e as default};

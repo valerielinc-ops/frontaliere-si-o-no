@@ -1,0 +1,52 @@
+const i={"blog.article.parco-ticino-controlli-maggio-2026.body1":`## In breve
+- Controlli intensificati nel Parco del Ticino per il weekend del Primo maggio
+- Ventina di sanzioni elevate per accesso in aree di divieto
+- Zero rifiuti abbandonati nelle zone controllate
+
+## Fatti chiave
+- **Cosa**: Controlli e sensibilizzazione nel Parco del Ticino
+- Quando: Weekend del Primo maggio 2026
+- Dove: Zone di Cava, Mezzanino, Ponte della Becca, Linarolo, Baia del Re, Area Vul, Ciottele a Pavia, Sayonara, Ronchi, Castagnolo, Torricella, Bosco Ghisolfa
+- Chi: Guardiaparco, Gev di Parasacco e Pavia, Gev della Provincia di Pavia, volontari di Vigevano, Protezione civile
+- Importo: Ventina di sanzioni elevate
+
+Il lungo weekend del primo maggio e le temperature quasi estive hanno richiamato centinaia di turisti sulle spiagge e nei boschi lungo il fiume Ticino. Quest'anno, grazie al controllo e alla prevenzione capillare avviata da settimane per volontà del Presidente del Parco, Ismaele Rognoni, la situazione è decisamente migliorata, almeno per quanto riguarda l'abbandono dei rifiuti, vera piaga soprattutto in alcune zone. L'obiettivo di questa task force dell'Ente che ha chiesto un grosso sforzo al personale del settore vigilanza e volontariato è chiaro: garantire la fruizione rispettosa delle aree naturali e contrastare i fenomeni di degrado.
+
+Venerdì 1 maggio il servizio congiunto ha visto impegnati i Guardiaparco, le Gev di Parasacco e Pavia e due Gev della Provincia di Pavia nelle zone di Cava e Mezzanino, in località Ponte della Becca e Linarolo, alla Baia del Re, area Vul e Ciottele a Pavia. In totale sono state elevate una ventina di sanzioni per accesso in aree di divieto. Per quanto riguarda l'abbandono di rifiuti, l'attività di informazione ha fatto registrare un netto miglioramento dei comportamenti, a dimostrazione che l'attività di sensibilizzazione e la vigilanza stanno scoraggiando i comportamenti incivili.
+
+Domenica 3 maggio l'attività ha visto impegnati sei volontari del distaccamento di Vigevano, quattro Gev e due uomini di Protezione civile, per il controllo della spiaggia nelle località Sayonara, Ronchi, Castagnolo, Torricella e Bosco Ghisolfa. Una sola la sanzione elevata e zero rifiuti abbandonati. Nella giornata di domenica, anche il Presidente del Parco, Ismaele Rognoni, ha voluto partecipare personalmente al servizio di sensibilizzazione e vigilanza. Un gesto volto soprattutto a testimoniare la propria gratitudine e vicinanza al Settore Vigilanza e ai numerosi volontari impegnati nei controlli.
+
+«È stato un onore, per me, poter ammirare l'impegno e la dedizione messi al servizio della comunità in questo weekend. Venerdì non era nemmeno una giornata qualunque, era la Festa dei Lavoratori; giornata in cui donne e uomini, dipendenti e volontari del Parco Lombardo della Valle del Ticino, hanno scelto di esserci a tutela del territorio — dichiara il Presidente Ismaele Rognoni — Domenica ho scelto di esserci anche io, fra loro, e ho potuto constatare con piacere che le attività che abbiamo scelto di portare avanti quest'anno iniziando subito a Pasquetta stanno dando i loro frutti. Sono zero i rifiuti abbandonati nelle zone controllate, frutto delle attività di sensibilizzazione e repressione portate avanti dal mese scorso. A Vigevano, località Sayonara, ho ammirato con soddisfazione che tutti i fruitori presenti erano dotati di sacchi della spazzatura, cosa che l'anno scorso non avevamo visto, e ci hanno accolto senza agitazione o tensione, anzi, perfettamente collaborativi. Continuiamo così!"
+
+### Implicazioni per i frontalieri
+
+I frontalieri che frequentano il Parco del Ticino possono beneficiare di un ambiente più pulito e sicuro grazie ai controlli intensificati. È importante rispettare le aree di divieto e portare con sé sacchi per i rifiuti per evitare sanzioni e contribuire alla salvaguardia del parco.`,"blog.article.parco-ticino-controlli-maggio-2026.body2":`### Analisi dei risultati
+
+I risultati dei controlli del weekend del Primo maggio mostrano un miglioramento significativo rispetto agli anni precedenti. La riduzione dei rifiuti abbandonati e il numero limitato di sanzioni elevate indicano che le attività di sensibilizzazione e vigilanza stanno avendo un impatto positivo. Questo è un segnale incoraggiante per tutti coloro che frequentano il parco, compresi i frontalieri che spesso utilizzano queste aree per il tempo libero.
+
+### Confronto con gli anni precedenti
+
+Negli anni passati, il Parco del Ticino ha affrontato problemi significativi legati all'abbandono dei rifiuti e ai comportamenti incivili. Grazie all'impegno del Presidente Rognoni e del personale del parco, la situazione è migliorata notevolmente. Questo confronto evidenzia l'importanza della vigilanza e della sensibilizzazione per mantenere le aree naturali pulite e sicure.
+
+### Scenari futuri
+
+Se i controlli continuano con la stessa intensità, è probabile che il parco rimanga un luogo pulito e sicuro per tutti i visitatori. I frontalieri possono aspettarsi un'esperienza di visita più piacevole e rispettosa dell'ambiente. È fondamentale continuare a seguire le regole e collaborare con il personale del parco per mantenere questi risultati positivi.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.parco-ticino-controlli-maggio-2026.body3":`### Cosa fare per i frontalieri
+
+Per i frontalieri che desiderano visitare il Parco del Ticino, è importante seguire alcune linee guida per evitare sanzioni e contribuire alla salvaguardia del parco:
+
+1. **Rispettare le aree di divieto**: Assicurarsi di non accedere a zone vietate per proteggere l'ambiente e la fauna.
+2. Portare sacchi per i rifiuti: Utilizzare sacchi della spazzatura per raccogliere i propri rifiuti e smaltirli correttamente.
+3. Collaborare con il personale del parco: Seguire le indicazioni del personale e dei volontari per garantire una visita rispettosa e sicura.
+
+### Strumenti utili
+
+Per ulteriori informazioni e per pianificare la visita al Parco del Ticino, i frontalieri possono utilizzare il [calcolatore di visite](nav:calculator) disponibile sul sito. Questo strumento aiuta a pianificare il viaggio e a conoscere le regole del parco.
+
+### Conclusione
+
+I controlli intensificati nel Parco del Ticino per il weekend del Primo maggio hanno dimostrato l'efficacia della vigilanza e della sensibilizzazione. I frontalieri possono godere di un ambiente più pulito e sicuro, rispettando le regole e collaborando con il personale del parco. Continuare su questa strada è fondamentale per mantenere il parco un luogo di svago e relax per tutti.
+
+*Fonte: [varesenews.it](https://www.varesenews.it/2026/05/parco-del-ticino-weekend-del-primo-maggio-allinsegna-dei-controlli/2565979/)*`,"blog.article.parco-ticino-controlli-maggio-2026.faq":'[{"q":"Quali sono le aree del Parco del Ticino controllate durante il weekend del Primo maggio?","a":"Le aree controllate includono Cava, Mezzanino, Ponte della Becca, Linarolo, Baia del Re, Area Vul, Ciottele a Pavia, Sayonara, Ronchi, Castagnolo, Torricella e Bosco Ghisolfa."},{"q":"Quante sanzioni sono state elevate durante il weekend?","a":"Sono state elevate una ventina di sanzioni per accesso in aree di divieto venerdì 1 maggio e una sola sanzione domenica 3 maggio."},{"q":"Come posso contribuire a mantenere il Parco del Ticino pulito?","a":"Puoi contribuire rispettando le aree di divieto, portando con te sacchi per i rifiuti e collaborando con il personale del parco."}]'};export{i as default};

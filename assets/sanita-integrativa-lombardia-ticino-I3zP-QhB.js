@@ -1,0 +1,58 @@
+const e={"blog.article.sanita-integrativa-lombardia-ticino.body1":`## En bref
+- Délibération régionale XII/4986 permet accords santé public-privé en Lombardie.
+- 27 organisations s'opposent, craignant disparités d'accès aux soins.
+- Frontaliers Tessin-Lombardie pourraient subir hausse coûts santé.
+
+## Faits clés
+- **Délibération**: XII/4986, publiée le 15 septembre 2025.
+- **Opposition**: 27 organisations, dont syndicats et associations.
+- **Lettre ouverte**: Diffusée le 9 mars 2026, contre la mesure.
+- **Coût consultation**: 100-150 euros en Lombardie.
+- **Augmentation coût**: 20 % possible avec santé complémentaire.
+- **Assurances Tessin**: 300-600 francs/mois selon couverture.
+- **Loi italienne**: Décret Législatif 502/1992 autorise contrats santé.
+- **Attente chirurgicale**: 6 mois à Lugano, risque d'aggravation.
+
+En Lombardie, le débat sur la **santé complémentaire** a pris des tournures vives suite à la délibération régionale XII/4986, publiée le 15 septembre 2025. Cette réglementation permet la conclusion d'accords entre les structures de santé publiques et les fonds privés, suscitant les inquiétudes de vingt-sept organisations, dont des syndicats et des associations de consommateurs, qui ont adressé une lettre ouverte aux directeurs des Asst et des Irccs. Dans cette lettre, diffusée le 9 mars 2026, une forte opposition à cette mesure est exprimée, soulignant le risque d'une « super-intramoenia ». Dans ce contexte, l'idée d'élargir les prestations payantes dans le secteur public pourrait générer des voies préférentielles pour ceux qui disposent de plus de ressources économiques, créant une disparité dans l'accès aux soins.
+
+> "La transparence et l'équité dans le système de santé doivent être garanties, sinon ce sont les plus vulnérables qui paieront", affirment les signataires de la lettre.
+
+Le sujet revêt une importance particulière pour les frontaliers travaillant en Lombardie et résidant dans le Canton du Tessin, comme par exemple les habitants de communes telles que Lugano et Mendrisio. Ces travailleurs dépendent en grande partie du système de santé italien, et la mise en œuvre de conventions avec des fonds privés pourrait entraîner une augmentation des coûts des prestations de santé. Actuellement, pour une consultation spécialisée en Lombardie, le coût moyen se situe autour de 100-150 euros, montant qui pourrait encore augmenter si des tarifs préférentiels étaient introduits uniquement pour les payants.
+
+📊 Exemples pratiques :
+- Une consultation spécialisée qui coûte aujourd'hui 120 euros pourrait augmenter de 20 % si la santé complémentaire était mise en œuvre, portant le coût à 144 euros.
+- Pour un frontalier nécessitant des soins fréquents, cette variation pourrait se traduire par une dépense supplémentaire annuelle de 500-1000 euros.
+
+⚠️ Checklist opérationnelle pour les frontaliers :
+- Surveiller les délibérations régionales concernant la santé.
+- Évaluer l'adhésion à des fonds de santé privés pour éviter des surcoûts.
+- S'informer sur les droits d'accès aux prestations de santé en Lombardie.
+- Considérer l'option d'assurances santé complémentaires pour couvrir d'éventuels coûts supplémentaires.
+
+Le système de santé lombard, déjà sous pression pour la gestion des ressources, pourrait subir un fardeau supplémentaire si les conventions avec les fonds privés devaient augmenter. La situation est critique et nécessite une attention particulière, non seulement pour les résidents lombards, mais aussi pour ceux qui, comme les frontaliers tessinois, doivent faire face à l'incertitude des coûts de santé.`,"blog.article.sanita-integrativa-lombardia-ticino.body2":`L'introduction de conventions entre public et privé dans le secteur de la santé pourrait également entraîner des scénarios complexes pour les frontaliers travaillant au Tessin. Actuellement, les frontaliers font face à des coûts élevés pour les assurances santé, avec des primes pouvant varier de 300 à 600 francs par mois, selon la couverture choisie. Avec la mise en œuvre de ces nouvelles conventions, on craint que les coûts des assurances santé n'augmentent encore, rendant encore plus difficile pour de nombreux frontaliers de supporter ces dépenses.
+
+Il n'est pas clair comment cette modification influencera les tarifs des assurances santé au Tessin, où les polices entraînent déjà des coûts significativement plus élevés par rapport à des régions voisines comme la Lombardie, où les primes peuvent osciller entre 150 et 400 euros par mois. La loi italienne, en particulier le Décret Législatif 502/1992, permet aux entreprises de conclure des contrats avec des fonds de santé et des assurances, mais la préoccupation réside dans le fait que cela pourrait amplifier la disparité entre ceux qui peuvent se permettre d'accéder à des services privés et ceux qui sont contraints de se fier uniquement au service public.
+
+De plus, la mise en œuvre de voies préférentielles pour ceux ayant accès à des fonds privés pourrait entraîner une diminution de la qualité des prestations offertes par le service de santé public. Dans la commune de Lugano, par exemple, le nombre de patients en attente d'interventions chirurgicales est déjà élevé, avec des temps d'attente dépassant six mois. Un système qui favorise l'accès aux services privés pourrait aggraver cette situation, entraînant un désintérêt pour les besoins des patients incapables de payer.
+
+Un intervention réglementaire est nécessaire pour garantir que la santé publique reste accessible à tous, sans discrimination. Les organisations impliquées, comme l'Association des Frontaliers Tessinois et le Syndicat Unia, demandent un dialogue direct avec les institutions pour trouver des solutions partagées. Dans ce contexte, une checklist opérationnelle pour les frontaliers est proposée :
+
+- Évaluer les polices de santé actuelles et comparer les coûts.
+- S'informer sur les nouvelles réglementations qui pourraient influencer les assurances.
+- Participer à des réunions d'information organisées par les associations.
+- Surveiller les tarifs et les services offerts par les hôpitaux publics.
+
+L'avenir de la santé au Tessin pourrait donc dépendre d'un dialogue constructif entre les parties prenantes, afin de garantir un système équitable et accessible à tous.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.sanita-integrativa-lombardia-ticino.body3":`Pour les frontaliers et ceux qui travaillent entre l'Italie et la Suisse, il est essentiel de suivre les évolutions dans le domaine de la santé. En particulier, la situation en Lombardie suscite des préoccupations, surtout pour les 27 groupes qui s'opposent aux réformes récentes proposées. Il est fondamental de vérifier sa couverture santé, en comparant les polices disponibles et en évaluant les coûts à long terme. Par exemple, un frontalier résident à Mendrisio avec un revenu annuel de 70.000 CHF pourrait dépenser jusqu'à 3.500 CHF par an pour une police de santé de base en Suisse, tandis qu'en Italie le coût d'une police complémentaire pourrait tourner autour de 1.200 EUR, avec des différences significatives dans les prestations couvertes.
+
+Utiliser des outils comme le calculateur de salaire pour mieux comprendre comment les dépenses de santé influenceront son revenu net est une démarche utile. En comparant les coûts, un frontalier peut découvrir qu'en choisissant une police suisse, il pourrait avoir accès à des services de qualité supérieure, mais à un coût plus élevé. Il est conseillé de surveiller les éventuels développements réglementaires qui pourraient impacter les polices et les coûts de santé dans un avenir proche. Par exemple, le décret de la Région Lombardie de 2022 a introduit de nouvelles règles sur la couverture de santé complémentaire, augmentant les primes pour certaines catégories.
+
+Checklist opérationnelle :
+- Vérifiez votre police de santé actuelle
+- Comparez les coûts entre la Suisse et l'Italie
+- Utilisez le calculateur de salaire pour estimer le revenu net
+- Restez informé des réglementations sanitaires locales
+
+Si vous souhaitez en savoir plus sur votre salaire et comment les dépenses de santé pourraient l'influencer, visitez notre [calculateur de salaire](nav:calculator). La question de la santé complémentaire en Italie est complexe et en constante évolution ; en 2023, par exemple, les polices complémentaires en Lombardie ont connu une augmentation moyenne de 5 %, rendant impératif une analyse attentive de ses options. Seule une information adéquate permet de naviguer au mieux dans les défis du système de santé actuel.`,"blog.article.sanita-integrativa-lombardia-ticino.faq":`[{"q":"Comment les soins de santé complémentaires en Lombardie pourraient-ils affecter les travailleurs transfrontaliers travaillant au Tessin?","a":"Les soins de santé complémentaires pourraient augmenter les coûts des services de santé, rendant plus difficile pour de nombreux navetteurs transfrontaliers de supporter ces coûts, d'autant plus qu'ils font déjà face à des coûts élevés d'assurance santé."},{"q":"Quel pourrait être l'impact immédiat des résolutions sur le système de santé complémentaire lombard sur le coût de l'assurance maladie pour les travailleurs transfrontaliers du Tessin?","a":"L'impact immédiat pourrait être une augmentation des primes d'assurance, compte tenu de l'augmentation des tarifs des services de santé en Lombardie, avec des augmentations potentielles de 10 à 20 % des polices santé tessiniennes."},{"q":"Comment changeront-ils le mode d'accès aux soins publics en Lombardie avec de nouvelles conventions ?","a":"Les conventions pourraient favoriser les performances rémunérées et créer des disparités dans l'accès, avec des patients plus avides qui utilisent des services préférentiels, tandis que les plus vulnérables risquent d'être laissés pour compte."}]`};export{e as default};

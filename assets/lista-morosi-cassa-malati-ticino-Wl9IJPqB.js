@@ -1,0 +1,62 @@
+const e={"blog.article.lista-morosi-cassa-malati-ticino.body1":`## En bref
+- Nouvelle liste des débiteurs des caisses maladie en Suisse
+- Temps nécessaire pour la mise en œuvre
+- Éclaircissements en cours
+
+## Faits clés
+- **Quoi** : Liste des débiteurs des caisses maladie
+- Quand : En phase de définition
+- Où : Canton du Tessin
+- Qui : Autorités cantonales
+- Montant : Non encore spécifié
+
+Le Canton du Tessin travaille à la mise en place d'une liste des débiteurs des caisses maladie, mais le processus nécessite du temps et des éclaircissements. Cette nouvelle liste vise à identifier les contribuables qui n'ont pas payé les primes d'assurance maladie, un problème qui concerne également les travailleurs frontaliers qui travaillent en Suisse et résident en Italie. Selon les autorités cantonales, la mise en œuvre de la liste nécessite une analyse attentive pour garantir que toutes les étapes soient conformes à la réglementation en vigueur.
+
+La liste des débiteurs est un outil important pour les caisses maladie, qui peuvent ainsi récupérer les créances impayées. Cependant, le processus de mise en œuvre est complexe et nécessite la collaboration entre différentes autorités. Les caisses maladie doivent notifier les dettes aux contribuables et leur donner la possibilité de régulariser leur situation avant d'être inclus dans la liste.
+
+Pour les travailleurs frontaliers, la situation est particulièrement délicate. Beaucoup d'entre eux paient les primes d'assurance maladie en Suisse, mais résident en Italie, où la réglementation peut être différente. Il est fondamental que les travailleurs frontaliers soient conscients de leurs obligations et des étapes à suivre pour éviter de figurer sur la liste des débiteurs.
+
+### Procédure de notification
+Les caisses maladie doivent suivre une procédure spécifique pour notifier les dettes aux contribuables. Tout d'abord, elles envoient une lettre de rappel au contribuable, lui demandant de payer la prime impayée. Si le contribuable ne répond pas dans un délai spécifié, la caisse maladie peut procéder à une deuxième notification, qui peut inclure une amende ou des intérêts de retard.
+
+Si le contribuable ne paie même pas après la deuxième notification, la caisse maladie peut décider de l'inclure dans la liste des débiteurs. Cette liste est accessible aux autorités cantonales et peut être utilisée pour récupérer les créances par des procédures légales.
+
+### Implications pour les travailleurs frontaliers
+Pour les travailleurs frontaliers, il est important d'être conscients de leurs obligations d'assurance maladie en Suisse. Payer les primes à temps est fondamental pour éviter de figurer sur la liste des débiteurs. De plus, il est conseillé de maintenir une communication ouverte avec leur caisse maladie pour résoudre d'éventuels problèmes de paiement.
+
+En cas de doute ou de difficulté, les travailleurs frontaliers peuvent s'adresser aux autorités cantonales ou aux associations de catégorie pour obtenir des éclaircissements et de l'assistance. Il est important d'agir rapidement pour éviter des conséquences négatives, telles que l'inclusion dans la liste des débiteurs et les éventuelles procédures légales qui en découlent.`,"blog.article.lista-morosi-cassa-malati-ticino.body2":`La mise en œuvre de la liste des débiteurs des caisses maladie en Suisse doit faire l'objet d'une analyse minutieuse et d'une collaboration entre différentes autorités. Les caisses maladie doivent notifier les dettes aux contribuables et leur donner la possibilité de régulariser leur situation avant d'être inclus dans la liste. Ce processus est complexe et prend du temps, mais il est fondamental pour garantir que toutes les étapes soient conformes à la réglementation en vigueur.
+
+Pour les travailleurs frontaliers, la situation est particulièrement délicate. Beaucoup d'entre eux paient les primes d'assurance maladie en Suisse, mais résident en Italie, où la réglementation peut être différente. Il est fondamental que les frontaliers soient conscients de leurs obligations et des étapes à suivre pour éviter de figurer sur la liste des débiteurs.
+
+### Comparaisons avec la situation précédente
+Avant l'introduction de la liste des débiteurs, les caisses maladie avaient des difficultés à récupérer les créances impayées. La nouvelle liste représente un outil important pour améliorer la situation et garantir que tous les contribuables respectent leurs obligations. Cependant, la mise en œuvre de la liste prend du temps et nécessite des éclaircissements, et les autorités cantonales travaillent pour garantir que toutes les étapes soient conformes à la réglementation en vigueur.
+
+### Scénarios concrets
+Imaginons un travailleur frontalier qui travaille en Suisse et réside en Italie. Ce frontalier doit payer les primes d'assurance maladie en Suisse, mais pour diverses raisons, il n'a pas pu le faire à temps. La caisse maladie envoie une lettre de rappel, mais le frontalier ne répond pas. Après une période de temps spécifiée, la caisse maladie envoie une deuxième notification, qui inclut une amende ou un intérêt de retard. Si le frontalier ne paie même pas après la deuxième notification, la caisse maladie peut décider de l'inclure dans la liste des débiteurs.
+
+Dans ce scénario, le frontalier peut éviter de figurer sur la liste des débiteurs en payant les primes à temps ou en contactant la caisse maladie pour résoudre d'éventuels problèmes de paiement. Il est important d'agir rapidement pour éviter des conséquences négatives, comme l'inclusion dans la liste des débiteurs et les éventuelles procédures légales qui en découlent.
+
+### Implications pratiques
+Pour les travailleurs frontaliers, il est fondamental d'être conscients de leurs obligations d'assurance maladie en Suisse. Payer les primes à temps est essentiel pour éviter de figurer sur la liste des débiteurs. De plus, il est conseillé de maintenir une communication ouverte avec sa caisse maladie pour résoudre d'éventuels problèmes de paiement. En cas de doute ou de difficulté, les frontaliers peuvent s'adresser aux autorités cantonales ou aux associations de catégorie pour obtenir des éclaircissements et une assistance.
+
+Les autorités cantonales travaillent pour garantir que toutes les étapes soient conformes à la réglementation en vigueur. Cependant, la mise en œuvre de la liste des débiteurs prend du temps et nécessite des éclaircissements, et les autorités collaborent avec les caisses maladie pour garantir que le processus soit le plus efficace possible.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.lista-morosi-cassa-malati-ticino.body3":`Pour éviter de figurer sur la liste des mauvais payeurs des caisses maladie, les frontaliers doivent suivre quelques étapes concrètes. Tout d'abord, il est essentiel de payer les primes d'assurance maladie à temps. Cela peut se faire en ligne, par virement bancaire ou aux guichets de la caisse maladie. Il est important de vérifier les échéances et de s'assurer de payer dans les délais impartis.
+
+En cas de difficultés financières ou de problèmes de paiement, il est conseillé de contacter immédiatement la caisse maladie pour expliquer la situation et trouver une solution. Les caisses maladie peuvent offrir des plans de paiement échelonné ou d'autres formes d'assistance pour aider les contribuables à régulariser leur situation.
+
+### Procédure étape par étape
+1. Vérifiez les échéances des primes d'assurance maladie.
+2. Payez les primes à temps, de préférence en ligne ou par virement bancaire.
+3. En cas de difficultés, contactez immédiatement la caisse maladie pour expliquer la situation.
+4. Suivez les instructions de la caisse maladie pour régulariser votre position.
+5. Maintenez une communication ouverte avec la caisse maladie pour éviter les problèmes futurs.
+
+### Outils utiles
+Pour les frontaliers, il est utile d'utiliser des outils comme le [calculateur des primes d'assurance maladie](nav:calculator) pour vérifier les échéances et les coûts des primes. De plus, il est possible de consulter les guides et les informations disponibles sur le site de la caisse maladie ou des autorités cantonales pour obtenir des éclaircissements et de l'assistance.
+
+### CTA finale
+Pour plus d'informations et pour utiliser le calculateur des primes d'assurance maladie, visitez la page dédiée [calculateur des primes d'assurance maladie](nav:calculator).
+
+*Source: [news.google.com](https://news.google.com/rss/articles/CBMixwFBVV95cUxPeVQyaVpWNnNLaU9QZkVqVUtFNU82eDAycmZ6Ti1GN0dKOUJYSjBwM2VvTjJZZzBydVJCNzY2emoyT3UwVHMxNVF1SlpIYW0yR05LZEdXMG51ejVHR1hOVE1YSkxKSXoxUG9iU1l2S1RmTFo5R2ZYRTlscTh2eXhrVk5zYjJEUFNwb2xRLW5RUGFDMzBoOEJ6TWM1OGxGTW53RmUxQjEtSTAtSnRJYmJMSzZhVkl1Q2dzUXRXX19tUUJsMDA0dlFn?oc=5)*`,"blog.article.lista-morosi-cassa-malati-ticino.faq":`[{"q":"Que se passe-t-il si je ne paie pas les primes d'assurance maladie à temps ?","a":"Si vous ne payez pas les primes d'assurance maladie à temps, la caisse maladie peut envoyer une lettre de rappel et, en cas de non-paiement, une deuxième notification avec une amende ou des intérêts de retard. Si la dette n'est pas réglée, vous pourriez être inscrit sur la liste des mauvais payeurs."},{"q":"Comment puis-je éviter d'être inscrit sur la liste des mauvais payeurs ?","a":"Pour éviter d'être inscrit sur la liste des mauvais payeurs, il est essentiel de payer les primes d'assurance maladie à temps. En cas de difficultés, contactez immédiatement la caisse maladie pour expliquer la situation et trouver une solution."},{"q":"Que dois-je faire si je reçois une lettre de rappel de la caisse maladie ?","a":"Si vous recevez une lettre de rappel de la caisse maladie, il est important d'agir rapidement. Vérifiez la dette et, si nécessaire, contactez la caisse maladie pour régulariser votre situation. Vous pouvez payer la prime à temps ou convenir d'un plan de paiement échelonné."}]`};export{e as default};

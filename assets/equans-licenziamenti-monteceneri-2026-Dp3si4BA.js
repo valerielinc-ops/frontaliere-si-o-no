@@ -1,0 +1,68 @@
+const e={"blog.article.equans-licenziamenti-monteceneri-2026.body1":`## Kurz zusammengefasst
+- Equans entlässt 19 Mitarbeiter in Monteceneri
+- Die betroffenen Arbeitnehmer sind ab sofort frei
+- Die Gewerkschaften konnten nicht vermitteln
+
+## Wichtige Fakten
+- **Was**: Entlassungen bei Equans
+- Wann: Ende März 2026 angekündigt, ab sofort wirksam
+- Wo: Equans-Sitz in Monteceneri
+- Wer: Equans, Gewerkschaften
+- Betrag: 19 Vollzeitstellen
+
+Equans wird schließlich 19 Entlassungen an seinem Standort in Monteceneri durchführen. Die Ankündigung wurde vom Corriere del Ticino bestätigt, nachdem die Vermittlung der Sozialpartner die Kürzungen nicht verhindern konnte. Die betroffenen Mitarbeiter werden ab sofort als frei betrachtet, mit der Möglichkeit, den Arbeitsplatz vor Ablauf der Kündigungsfrist zu verlassen, falls sie eine andere Stelle finden.
+
+Die Ankündigung der Entlassungen erfolgte Ende März mit einer anfänglichen Perspektive von 22 Entlassungen. Die Reduzierung auf 19 Arbeitsplätze ist das Ergebnis der Verhandlungen zwischen dem Unternehmen und den Gewerkschaften, die jedoch die Kürzungen nicht verhindern konnten.
+
+### Auswirkungen auf die Arbeitnehmer
+Die von Equans entlassenen Arbeitnehmer stehen nun vor einer komplexen Situation. Die Möglichkeit, den Arbeitsplatz vor Ablauf der Kündigungsfrist zu verlassen, könnte eine Gelegenheit für diejenigen sein, die bereits eine andere Stelle gefunden haben, aber für diejenigen, die noch keine Alternative haben, könnte die Situation schwieriger sein.
+
+Die betroffenen Arbeitnehmer müssen nun die Verfahren zur Arbeitslosigkeit durchlaufen und, falls notwendig, eine neue Beschäftigung suchen. Es ist wichtig, dass sie sich über ihre Rechte und die verfügbaren Unterstützungsmöglichkeiten informieren, wie z.B. Schulungen und berufliche Wiedereingliederungsprogramme.
+
+### Vergleich mit der vorherigen Situation
+Bevor die Entlassungen angekündigt wurden, hatte Equans 22 Entlassungen in Aussicht gestellt. Die Reduzierung auf 19 Arbeitsplätze ist ein positives Zeichen, stellt aber dennoch einen harten Schlag für die betroffenen Arbeitnehmer und ihre Familien dar. Die Situation ist ähnlich wie in anderen Unternehmen des Sektors, die ähnliche Herausforderungen aufgrund von Veränderungen im Markt und in der Nachfrage bewältigen müssen.
+
+### Mögliche Szenarien
+Für die entlassenen Arbeitnehmer gibt es verschiedene Optionen zu berücksichtigen. Einige könnten sich entscheiden, eine neue Beschäftigung im gleichen Bereich zu suchen, während andere die Möglichkeit in Betracht ziehen könnten, in eine andere Region oder ein anderes Land umzuziehen. Es ist wichtig, dass die Arbeitnehmer ihre Optionen sorgfältig abwägen und die notwendige Unterstützung suchen, um diesen Übergang zu bewältigen.
+
+Für Equans stellen die Entlassungen eine schwierige, aber notwendige Entscheidung dar, um die Herausforderungen des Marktes zu bewältigen. Das Unternehmen muss sich nun auf die Reorganisation und die Suche nach neuen Wachstumschancen konzentrieren.`,"blog.article.equans-licenziamenti-monteceneri-2026.body2":`## Analyse der Auswirkungen
+Die Entlassungen bei Equans in Monteceneri werden nicht nur die betroffenen Arbeitnehmer, sondern auch die lokale Wirtschaft erheblich beeinflussen. Es ist wichtig, die kurz- und langfristigen Auswirkungen dieser Entscheidung zu verstehen.
+
+### Lokale wirtschaftliche Auswirkungen
+Die Entlassungen können eine Kettenreaktion auf die lokale Wirtschaft auslösen. Mit 19 weniger Arbeitsplätzen wird die Kaufkraft sinken und möglicherweise die lokalen Ausgaben zurückgehen. Dies könnte die Geschäfte und Dienstleistungen in der Region beeinflussen, insbesondere diejenigen, die von den Equans-Mitarbeitern abhängen.
+
+### Möglichkeiten zur Weiterbildung und Wiedereingliederung
+Die entlassenen Arbeitnehmer müssen sich auf die Suche nach einer neuen Beschäftigung begeben. Es ist entscheidend, dass sie sich über die verfügbaren Möglichkeiten zur Weiterbildung und beruflichen Wiedereingliederung informieren. Der Kanton Tessin bietet verschiedene Unterstützungsprogramme für arbeitslose Arbeitnehmer an, darunter Weiterbildungskurse, Berufsberatung und Hilfe bei der Jobsuche.
+
+### Vergleich mit ähnlichen Situationen
+Die Situation bei Equans ist nicht isoliert. Viele Unternehmen im Tessin und in anderen Regionen stehen vor ähnlichen Herausforderungen, mit Entlassungen und Restrukturierungen. Es ist wichtig, dass sich die Arbeitnehmer über die Erfahrungen anderer informieren und wie sie ähnliche Situationen gemeistert haben.
+
+### Wiedereingliederungs-Szenarien
+Für die entlassenen Arbeitnehmer gibt es verschiedene Möglichkeiten zur Wiedereingliederung. Einige könnten sich entscheiden, in derselben Branche nach einer neuen Stelle zu suchen, während andere die Möglichkeit in Betracht ziehen, in eine andere Region oder ein anderes Land umzuziehen. Es ist wichtig, dass die Arbeitnehmer ihre Optionen sorgfältig prüfen und die notwendige Unterstützung suchen, um diesen Übergang zu bewältigen.
+
+### Psychologische und soziale Unterstützung
+Entlassungen können einen erheblichen Einfluss auf das psychische und soziale Wohlbefinden der Arbeitnehmer haben. Es ist wichtig, dass die betroffenen Arbeitnehmer bei Bedarf psychologische und soziale Unterstützung suchen. Der Kanton Tessin bietet verschiedene Unterstützungsdienste an, darunter psychologische Beratung, Selbsthilfegruppen und soziale Unterstützung.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.equans-licenziamenti-monteceneri-2026.body3":`## Was tun jetzt
+Für die von Equans entlassenen Arbeitnehmer ist es entscheidend, schnell zu handeln, um die Situation zu bewältigen. Hier sind einige Schritte, die befolgt werden sollten:
+
+1. **Über die eigenen Rechte informieren**: Die Arbeitnehmer müssen sich über ihre Rechte und die verfügbaren Unterstützungsmöglichkeiten informieren. Es ist wichtig, die Verfahren bei Arbeitslosigkeit und die Möglichkeiten der Weiterbildung und beruflichen Wiedereingliederung zu kennen.
+
+2. Eine neue Stelle suchen: Die Arbeitnehmer sollten so schnell wie möglich mit der Suche nach einer neuen Stelle beginnen. Es ist wichtig, alle verfügbaren Ressourcen zu nutzen, darunter Jobsuchseiten, Arbeitsvermittlungsagenturen und Netzwerke.
+
+3. Weiterbildungsmöglichkeiten prüfen: Die Arbeitnehmer sollten die verfügbaren Weiterbildungsmöglichkeiten prüfen. Der Kanton Tessin bietet verschiedene Weiterbildungsprogramme und berufliche Weiterbildungslehrgänge an, die den Arbeitnehmern helfen können, ihre Fähigkeiten zu verbessern und ihre Chancen auf eine neue Stelle zu erhöhen.
+
+4. Psychologische und soziale Unterstützung suchen: Die Arbeitnehmer sollten, falls nötig, psychologische und soziale Unterstützung suchen. Der Kanton Tessin bietet verschiedene Unterstützungsdienste an, darunter psychologische Beratung, Selbsthilfegruppen und soziale Unterstützung.
+
+5. Berufsberatungsdienste nutzen: Die Arbeitnehmer sollten die verfügbaren Berufsberatungsdienste nutzen. Diese Dienste können den Arbeitnehmern helfen, ihre Fähigkeiten und Interessen zu identifizieren und eine neue Stelle zu finden, die ihren Bedürfnissen entspricht.
+
+### Nützliche Werkzeuge
+Um den entlassenen Arbeitnehmern zu helfen, bietet der Kanton Tessin verschiedene Werkzeuge und Ressourcen an. Dazu gehören Jobsuchseiten, Arbeitsvermittlungsagenturen, Weiterbildungsprogramme und psychologische und soziale Unterstützungsdienste. Es ist wichtig, dass die Arbeitnehmer diese Ressourcen nutzen, um die Situation zu bewältigen und eine neue Stelle zu finden.
+
+### Schlussfolgerung
+Die Entlassungen bei Equans in Monteceneri stellen eine erhebliche Herausforderung für die betroffenen Arbeitnehmer und die lokale Wirtschaft dar. Es ist wichtig, dass sich die Arbeitnehmer über ihre Rechte und die verfügbaren Unterstützungsmöglichkeiten informieren und schnell handeln, um die Situation zu bewältigen. Mit der notwendigen Unterstützung können die Arbeitnehmer eine neue Stelle finden und diesen Übergang erfolgreich bewältigen.
+
+Für weitere Informationen und Unterstützung können die Arbeitnehmer den [Lohnrechner](nav:calculator) besuchen und die verfügbaren Werkzeuge für die Jobsuche und Weiterbildung nutzen.
+
+*Quelle: [tio.ch](https://www.tio.ch/ticino/attualita/1921314/equans-alla-fine-i-licenziamenti-saranno-19)*`,"blog.article.equans-licenziamenti-monteceneri-2026.faq":'[{"q":"Welche Rechte haben von Equans entlassene Arbeitnehmer?","a":"Entlassene Arbeitnehmer von Equans haben Anspruch auf verschiedene Formen der Unterstützung, darunter Arbeitslosengeld, Ausbildungs- und Wiedereingliederungsprogramme sowie psychologische und soziale Unterstützung. Es ist wichtig, dass sich die Arbeitnehmer über ihre Rechte und die verfügbaren Möglichkeiten informieren."},{"q":"Welche Ausbildungsmöglichkeiten gibt es für entlassene Arbeitnehmer?","a":"Der Kanton Tessin bietet verschiedene Ausbildungsprogramme und berufliche Weiterbildungskurse für entlassene Arbeitnehmer an. Diese Programme können den Arbeitnehmern helfen, ihre Fähigkeiten zu verbessern und ihre Chancen auf eine neue Anstellung zu erhöhen."},{"q":"Welche psychologischen und sozialen Unterstützungsdienste gibt es für entlassene Arbeitnehmer?","a":"Der Kanton Tessin bietet verschiedene psychologische und soziale Unterstützungsdienste für entlassene Arbeitnehmer an, darunter psychologische Beratung, Selbsthilfegruppen und soziale Unterstützung. Diese Dienste können den Arbeitnehmern helfen, den Stress und die emotionalen Schwierigkeiten im Zusammenhang mit Entlassungen zu bewältigen."}]'};export{e as default};

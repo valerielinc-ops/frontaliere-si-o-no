@@ -1,0 +1,70 @@
+const i={"blog.article.seco-dazi-segreti-washington.body1":`## In breve
+- SECO blocca accesso atti trattative con Washington
+- Richieste di trasparenza respinte
+- Caso potrebbe finire in tribunale
+- Trattative Svizzera-USA sui dazi ancora in corso, dettagli riservati
+- Possibili impatti per le aziende ticinesi esportatrici verso gli USA
+
+## Fatti chiave
+- **Cosa**: Accesso negato a documenti trattative commerciali
+- **Quando**: Richieste di accesso presentate nel 2025, caso ancora pendente
+- **Dove**: Berna, Svizzera
+- **Chi**: SECO, IFPDT, giornalisti e cittadini
+- **Stato**: Trattative bilaterali Svizzera-USA in corso; accordo definitivo non ancora raggiunto
+
+La Segreteria di Stato dell'economia (SECO) mantiene sotto chiave tutti i documenti relativi alle trattative commerciali con Washington, mettendo in difficoltà il responsabile federale della trasparenza. La disputa, come riporta il Blick, è ora destinata ad approdare in tribunale. Le richieste di trasparenza sono state presentate da giornalisti e cittadini in merito alle trattative bilaterali tra Svizzera e Stati Uniti sulle tariffe doganali. Tra i documenti richiesti figurano anche le comunicazioni tra la SECO e il cosiddetto "Team Switzerland", il gruppo di imprenditori guidato da Alfred "Fredy" Gantner che, durante una visita alla Casa Bianca, ha cercato di influenzare il presidente statunitense. La SECO ha respinto tutte le richieste, sostenendo che si tratta di materiali relativi a negoziati ancora in corso e che la loro pubblicazione potrebbe indebolire la posizione svizzera.
+
+### Il conflitto con l'IFPDT
+L'accesso negato ha trasformato il caso in uno scontro con l'Incaricato federale della protezione dei dati e della trasparenza (IFPDT), chiamato a mediare. In modo insolito, la SECO ha negato l'accesso ai documenti persino all'IFPDT, sostenendo che la legge sulla trasparenza non si applichi in questo caso perché si tratterebbe di una procedura internazionale. Questa posizione è contestata dal garante, che sottolinea come il diritto di consultare i documenti sia essenziale proprio per verificare l'eventuale esistenza di eccezioni. Negli ultimi anni, anche Consiglio federale e tribunali hanno ribadito l'importanza di questo principio.
+
+### Le conseguenze
+L'IFPDT ha raccomandato alla SECO di concedere l'accesso agli atti, accusandola di violare l'obbligo di collaborazione. Ma anche queste indicazioni sono state ignorate. I richiedenti possono ora ricorrere al Tribunale amministrativo federale e i primi ricorsi sono attesi a breve. Resta infine il nodo politico: la SECO non chiarisce le ragioni della sua chiusura. Tra le ipotesi, il timore di reazioni da Washington o la natura particolarmente delicata dei documenti.
+
+### Il contesto delle trattative USA-Svizzera
+Le trattative tra Washington e Berna sui dazi sono ancora in corso. La Svizzera sta cercando di raggiungere un accordo bilaterale che riduca le tariffe sulle proprie esportazioni verso gli USA — in particolare nei settori dell'orologeria, della farmaceutica e delle macchine utensili, che rappresentano comparti strategici anche per l'economia ticinese. I termini definitivi di qualsiasi accordo non sono ancora stati resi pubblici, e la natura riservata dei negoziati è alla base della controversia sulla trasparenza.
+
+### Implicazioni potenziali per le aziende ticinesi
+Se le trattative dovessero portare a un accordo favorevole, le aziende ticinesi che esportano verso gli USA potrebbero beneficiare di tariffe ridotte. In assenza di accordo o in caso di tariffe elevate, i costi di esportazione aumenterebbero in modo significativo per settori come l'orologeria e la farmaceutica. Senza conoscere i termini definitivi, le aziende fanno fatica a pianificare in anticipo la loro strategia commerciale verso il mercato americano.
+
+### Normative sulla trasparenza
+La legge sulla trasparenza svizzera, entrata in vigore il 1° luglio 2006, stabilisce il diritto dei cittadini di accedere ai documenti amministrativi. La SECO sostiene che questa legge non si applichi alle trattative internazionali in corso — una posizione che potrebbe essere contestata in tribunale.
+
+### Conclusione
+Il caso SECO vs. IFPDT solleva importanti questioni sulla trasparenza e sull'accesso ai documenti pubblici. Mentre le aziende ticinesi attendono l'esito dei negoziati, il dibattito legale continua, con possibili ricadute sulla fiducia dei cittadini e sulla trasparenza delle istituzioni svizzere.`,"blog.article.seco-dazi-segreti-washington.body2":`### Implicazioni per i frontalieri
+Le trattative commerciali tra la Svizzera e gli Stati Uniti hanno ricadute concrete sul mercato del lavoro ticinese. Il Ticino è un polo manifatturiero e farmaceutico di rilievo: aziende come Microtech, Swisscom, e numerose PMI del settore orologiero impiegano migliaia di frontalieri. L'esito delle trattative USA-Svizzera sulle tariffe doganali influenzerà la competitività di queste aziende e, di riflesso, la stabilità dell'occupazione nella regione.
+
+La mancanza di trasparenza sulle trattative solleva dubbi sulla gestione delle relazioni commerciali da parte della SECO, un aspetto che preoccupa sia i lavoratori che le aziende della regione di confine.
+
+### Il "Team Switzerland" e il ruolo degli imprenditori
+Tra i documenti richiesti all'accesso figurano le comunicazioni tra la SECO e il "Team Switzerland", un gruppo di imprenditori svizzeri — guidato da Alfred "Fredy" Gantner di GQG Partners — che nel 2025 ha incontrato il presidente degli Stati Uniti alla Casa Bianca. Il ruolo di questo gruppo nelle trattative commerciali è al centro del dibattito: chi ha parlato a nome della Svizzera? Con quale mandato? Queste domande sono rimaste senza risposta proprio per il muro di riservatezza eretto dalla SECO.
+
+### Scenari futuri per i frontalieri
+Se le trattative tra Washington e Berna dovessero concludersi con un accordo favorevole che riduce le tariffe doganali sulle esportazioni svizzere, le aziende ticinesi potrebbero aumentare le esportazioni verso gli USA, con un effetto positivo sull'occupazione. In assenza di accordo o con tariffe invariate, alcune produzioni potrebbero essere delocalizzate o ridotte, con possibili ripercussioni sui posti di lavoro dei frontalieri nei settori più esposti.
+
+Il consiglio per i frontalieri che lavorano in aziende esportatrici verso gli USA è di seguire le comunicazioni aziendali e di monitorare l'evoluzione delle trattative attraverso fonti affidabili come la RSI (Radiotelevisione svizzera) o il Corriere del Ticino.
+
+#### Checklist operativa per i frontalieri:
+- **Monitorare le comunicazioni ufficiali** della SECO (seco.admin.ch) e del Dipartimento federale dell'economia (DEFR).
+- Verificare le comunicazioni aziendali se si lavora in un settore esposto al mercato USA (orologeria, farmaceutica, macchinari).
+- Consultare il proprio sindacato (UNIA, Syna) per aggiornamenti sull'impatto occupazionale.
+- Per pianificare le finanze personali, utilizzare il [calcolatore stipendio netto](nav:calculator).
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il [calcolatore stipendio netto](nav:calculator) e la [guida dichiarazione redditi](nav:tax-return).`,"blog.article.seco-dazi-segreti-washington.body3":`### Cosa fare ora
+I frontalieri che desiderano rimanere aggiornati sulle trattative commerciali USA-Svizzera e sulle decisioni della SECO possono seguire le notizie attraverso i canali ufficiali e i media locali. È fondamentale monitorare le comunicazioni della SECO e consultare fonti affidabili come il Corriere del Ticino o la Radiotelevisione svizzera (RSI).
+
+Sul piano pratico, non è possibile al momento calcolare con precisione l'impatto tariffario sulle esportazioni svizzere verso gli USA, poiché i termini definitivi delle trattative non sono ancora noti. Ciò che è certo è che il settore farmaceutico, orologiero e delle macchine utensili — tutti presenti in modo significativo in Ticino — è direttamente esposto all'esito di questi negoziati.
+
+### Strumenti utili
+Per una stima del proprio stipendio netto come frontaliere, è possibile utilizzare il [calcolatore stipendio netto](nav:calculator). Per comprendere le implicazioni fiscali del proprio rapporto di lavoro in Svizzera, si consiglia di consultare la [guida alla dichiarazione dei redditi](nav:tax-return) e il [calcolatore dei ristorni](nav:ristorni).
+
+### Checklist operativa
+1. **Monitorare le comunicazioni ufficiali**: Iscriversi alle newsletter della SECO e seguire i media locali.
+2. Verificare se il proprio datore di lavoro esporta verso gli USA e in che misura.
+3. Consultare le guide fiscali: utilizzare il [calcolatore di stipendio](nav:salary-compare) e il [calcolatore di ristorni](nav:ristorni) per pianificare le finanze.
+4. Partecipare a webinar e incontri: molte associazioni di frontalieri organizzano eventi informativi sul tema delle relazioni economiche Svizzera-Italia-USA.
+
+### Conclusione
+La situazione delle trattative commerciali tra Svizzera e USA è in evoluzione e non è ancora chiaro quale forma assumerà l'accordo definitivo — se mai verrà raggiunto. Il caso SECO-IFPDT mostra come la mancanza di trasparenza crei incertezza non solo per i giornalisti e i cittadini, ma anche per le aziende e i lavoratori che dipendono dalla certezza normativa per pianificare il futuro. Rimanere informati è il primo passo per prepararsi a qualsiasi scenario.
+
+*Fonte: [tio.ch](https://www.tio.ch/svizzera/attualita/1922568/dazi-e-segreti-il-muro-della-seco)*`,"blog.article.seco-dazi-segreti-washington.faq":`[{"q":"Perché la SECO ha negato l'accesso agli atti delle trattative?","a":"La SECO ha negato l'accesso sostenendo che si tratta di materiali relativi a negoziati ancora in corso e che la loro pubblicazione potrebbe indebolire la posizione svizzera. Inoltre, ha affermato che la legge sulla trasparenza non si applichi in questo caso perché si tratterebbe di una procedura internazionale."},{"q":"Qual è lo stato attuale delle trattative USA-Svizzera sui dazi?","a":"Le trattative tra Washington e Berna sono ancora in corso e i termini definitivi non sono stati resi pubblici. La Svizzera cerca di raggiungere un accordo bilaterale che riduca le tariffe sulle proprie esportazioni verso gli USA, in particolare nei settori dell'orologeria, della farmaceutica e delle macchine utensili."},{"q":"Come possono le trattative USA-Svizzera influenzare i frontalieri?","a":"Un accordo favorevole potrebbe aumentare le esportazioni ticinesi verso gli USA, con effetti positivi sull'occupazione. Tariffe elevate o l'assenza di accordo potrebbero invece ridurre la competitività delle aziende esportatrici ticinesi, con possibili ripercussioni sui posti di lavoro nei settori più esposti."}]`};export{i as default};

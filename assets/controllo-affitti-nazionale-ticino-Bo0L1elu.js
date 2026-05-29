@@ -1,0 +1,56 @@
+const e={"blog.article.controllo-affitti-nazionale-ticino.body1":`## TL;DR
+- Rental prices rising in Ticino, Switzerland.
+- Proposals for stricter rental controls rejected.
+- Average rent in Lugano: 1,800 CHF/month.
+- Municipality of Mendrisio offers rent subsidies.
+
+## Key facts
+- **Rent increase**: 8% over past two years in Lugano.
+- **Average rent**: 1,800 CHF/month for 2-bedroom in Lugano.
+- **Vacancy rate**: 1.5% in Ticino, below national average.
+- **Rent subsidies**: Up to 300 CHF offered by Mendrisio.
+- **Proposal rejection**: 120 against 61 votes for stricter controls.
+- **Cross-border workers**: Increasing demand for housing in Ticino.
+- **Rent increase**: 4.5% over the past year in Ticino.
+- **Salary calculator**: Tool available on 'Frontaliere Ticino' portal.
+
+The recent debate in the Swiss National Council highlighted growing concerns regarding the rental crisis, with prices continuing to rise in various regions of the country, including Ticino. During an extraordinary session, council members discussed several motions presented to address this issue. The Socialist Party (PS) put forward a proposal for stricter rental controls, suggesting periodic checks on rents to combat the surge in housing costs. A concrete example is the municipality of Lugano, where the average rent for a two-bedroom apartment has increased by 8% over the past two years, now reaching around 1,800 CHF per month. Deputy Samuel Bendahan (PS/VD) emphasized that, despite the presence of fair property owners, real estate speculation is becoming increasingly widespread, worsening the situation for tenants.
+
+This view was supported by statistics showing a rise in rents that is not necessarily correlated with the vacancy rate, currently set at 1.5% in Ticino, well below the national average of 2.4%. However, the proposal was rejected, with a vote of 120 against 61. Bourgeois parties, particularly the Swiss People's Party (UDC), countered by attributing the increase in housing costs to immigration and the growth of the resident population, a stance that sparked debate among various political factions.
+
+The situation is further complicated by the Federal Rental Law, dating back to 1990, which many believe needs revision. For instance, the Municipality of Mendrisio has implemented a support program for tenants, offering subsidies of up to 300 CHF to help families cope with rising rents.
+
+To address this crisis, an operational checklist is essential, including:
+- Monthly monitoring of rents in different regions of Ticino.
+- Creation of an emergency fund to support struggling tenants.
+- Collaboration between public and private entities to develop new affordable housing.
+
+These steps could help alleviate the pressure in the Ticino real estate market and ensure fair access to housing.`,"blog.article.controllo-affitti-nazionale-ticino.body2":`In addition to the PS motion, other proposals were also discussed during the National Council session. One of these, presented by the Greens, aimed to establish clear standards regarding excessive temperatures in housing, highlighting the current legal uncertainty affecting both tenants and landlords. This proposal was also rejected. Another motion, presented by Simone Gianini (PLR/TI), sought to introduce a conciliation obligation in case of disputes between landlords and tenants, to reduce the lengthy legal disputes that can arise. Despite its justification regarding improving relations between the parties, this motion also did not gain the necessary consensus.
+
+However, a postulate from Matthias Glarner (PLR) was more successful, receiving 102 votes in favor, indicating some openness towards implementing more effective measures to address issues in the housing sector. The lack of a clear regulatory framework could have significant repercussions for tenants in Ticino, where pressure on rents has also increased due to the presence of cross-border workers seeking housing solutions in the canton.
+
+According to data from the Ticino Statistical Office, in 2022, the average rent for a 3.5-room apartment in Lugano was around 1,800 CHF per month, while in Mendrisio it was about 1,600 CHF. These figures represent a 5% increase compared to the previous year, highlighting the growing difficulty in accessing housing. The regulatory proposals, although rejected, underscore the need for regulatory intervention.
+
+In this context, it is crucial for tenants and landlords to be aware of their responsibilities. Here’s an operational checklist:
+- **Check local regulations**: review rent laws in your municipality.
+- Document conditions: note and photograph any structural issues in the housing.
+- Conciliation: consider mediation to resolve disputes before proceeding legally.
+
+The rejection of the motions suggests a missed opportunity to effectively address the tension in the rental market, especially in municipalities like Lugano and Bellinzona, where demand exceeds supply. With the continuous increase in cross-border workers, it is essential to find a balance between the needs of tenants and landlords to ensure a sustainable living environment in Ticino.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.controllo-affitti-nazionale-ticino.body3":`For tenants and families in Ticino, the current rental situation presents a significant challenge. Statistics show that the cost of living continues to rise, with an average increase in residential rents of 4.5% over the past year, making it increasingly unlikely to find an affordable rent. In Lugano, for example, the average price of a 3-room apartment has risen to about 1,800 CHF per month, while in Mendrisio and Bellinzona, rents hover around 1,500 CHF.
+
+It is essential for citizens to be aware of their rights and the resources available. In this context, the 'Frontaliere Ticino' portal offers useful tools such as the salary calculator, which helps individuals better understand their economic situation. Using this tool, a cross-border worker with a salary of 5,000 CHF per month can calculate the expenses they can afford, taking into account taxes and social contributions, which in Ticino can amount to around 15-20% of income.
+
+It is advisable to use these resources to strategically plan housing expenses and consider options that may alleviate the burden of high rents. For instance, shared renting can be considered, where a 1,500 CHF apartment can be split between two people, bringing the cost down to a more manageable 750 CHF each.
+
+In a period where political measures do not seem to favor stricter price controls, preparation and awareness of one's possibilities are key to facing the challenges of the real estate market. Currently, the National Council has rejected a bill presented in 2023 aimed at introducing rent control, leaving families without the necessary tools to combat rising prices.
+
+To navigate this complex scenario, it is helpful to follow an operational checklist:
+1. **Evaluate your budget**: use the salary calculator.
+2. Research rental options: compare listing sites and real estate agencies.
+3. Consider shared renting: reduce costs.
+4. Stay informed about rights: consult the 'Frontaliere Ticino' portal for regulatory updates.
+
+Further details and updates can be found on our website, where the salary calculator is also available for more informed financial management.`,"blog.article.controllo-affitti-nazionale-ticino.faq":'[{"q":"What is the situation in Ticino?","a":"The price of rents in Ticino is constantly rising, with an average increase of 4.5% in the last year. In Lugano, the average price of a 3-room apartment rose to about CHF 1,800 per month, while in Mendrisio and Bellinzona the fees are around CHF 1,500."},{"q":"What is the impact of immigration and population growth on the rent crisis in Ticino according to the UDC?","a":"According to the Democratic Union of Central (UDC), immigration and growth of the resident population were identified as the main causes of the increase in housing costs in Ticino, although this position was contested by other parties."},{"q":"What are public initiatives to support renters in difficulty in Ticino?","a":"The Municipality of Mendrisio offers subsidies up to CHF 300 to help families face rent increases, while other initiatives aim to create emergency funds and support for tenants in economic difficulty."}]'};export{e as default};

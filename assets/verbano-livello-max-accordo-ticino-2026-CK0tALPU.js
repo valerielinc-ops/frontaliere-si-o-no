@@ -1,0 +1,71 @@
+const e={"blog.article.verbano-livello-max-accordo-ticino-2026.body1":`## TL;DR
+- Lake Maggiore level raised 10cm for 2026 summer
+- 20 million extra cubic meters for Lombardy agriculture
+- Trial period until 2027, ecological and tourism needs considered
+
+## Key facts
+- **Cosa**: Raising Lake Maggiore's water level by 10 centimeters
+- **Quando**: From mid-April to the end of July 2026
+- **Dove**: Lake Maggiore, between Ticino, Piedmont, and Lombardy
+- **Chi**: Po River Basin Authority, Ticino, Piedmont, Lombardy
+- **Importo**: 20 million cubic meters of additional water storage
+- **Scadenza**: Trial period concludes in 2027
+- **Ecological Impact**: Lake level kept 1 meter below zero in August-September
+- **Tourism Impact**: Monitoring to ensure safety of Ticino's beaches and roads
+
+The Po River Basin Authority has reached an agreement with Ticino, Piedmont, and Lombardy to raise Lake Maggiore's water level from mid-April to the end of July 2026. The decision, part of a trial, includes a 10-centimeter derogation from the usual limit, bringing the maximum level to 135 centimeters above the hydrometric zero at Sesto Calende.
+
+This adjustment will allow for an additional 20 million cubic meters of water storage, a critical resource for irrigating Lombard agricultural fields during the summer months, when drought threatens crops. According to sources close to the negotiations, the Ticino proposal was more moderate than the initial demands from the Italian provinces, which had requested a permanent increase in the water level.
+
+The agreement also considers the ecological needs of the Bolle di Magadino wetlands and the tourism demands of Ticino’s beaches. For this reason, the lake’s level will be kept one meter below the Sesto Calende zero between August and September, preventing damage to local ecosystems and ensuring protection against potential summer floods.
+
+The trial, launched in 2015 and set to continue until next year, has already highlighted some challenges in its first evaluation report. However, the parties have decided to proceed with a temporary derogation to address the recurring drought emergency affecting border areas.
+
+### Timeline of negotiations
+The issue of Lake Maggiore’s water level has been an unresolved matter for decades. As early as 1943, with the construction of the Miorina dam in Sesto Calende, the lake’s average level was raised to 193 meters, leading to the disappearance of some small beaches. Since then, the Italian border provinces have consistently requested increased water reserves, particularly during the summer months.
+
+The Po River Basin Authority has played a central role in the negotiations, mediating between Lombardy’s agricultural needs and the necessity to protect Ticino’s environment. The agreement reached represents a compromise among the different interests, though it is likely to spark debate among those in Lombardy who advocate for more sustainable water use.`,"blog.article.verbano-livello-max-accordo-ticino-2026.body2":`For commuters living and working in the Verbano area, the agreement on the lake’s water level will have immediate practical implications. The additional 20 million cubic metres of water represent a strategic reserve for Lombard agriculture, as well as a guarantee of stability for economic activities dependent on field irrigation. However, the trial introduces new variables that could affect daily life along the border.
+
+Previously, the Verbano’s water level was regulated by a fixed threshold, with precise limits set for the summer months. Now, a temporary derogation has been introduced, which could lead to water levels rising even outside the usual periods. This means Ticinese residents in lakeside areas will need to closely monitor communications from cantonal authorities, particularly during April, May, June and July.
+
+### Comparison with the previous situation
+| Aspect | Before the agreement | After the agreement |
+|--------|----------------------|---------------------|
+| Maximum level (April-July) | Standard level | +135 cm |
+| Available water reserves | 0 million m³ extra | +20 million m³ |
+| Impact on Bolle di Magadino | No change | Reduced level by 1 metre (August-September) |
+| Tourist use | No change | Constant monitoring |
+
+The increase in water reserves is welcome news for Lombard farmers, but it also raises questions about sustainable water management. Estimates suggest that the additional 20 million cubic metres would require a day and a half of continuous water release at the current rate of 190 cubic metres per second. This highlights how the agreement is a temporary compromise, not a structural solution.
+
+📊 **Risks and opportunities for commuters**
+For those crossing the border daily for work, the agreement could translate into greater stability for agricultural activities, indirectly benefiting Ticino’s economy as well. However, the trial also introduces uncertainties. Cantonal authorities will need to ensure that rising water levels do not compromise the safety of lakeside roads or drinking water quality.
+
+Moreover, the 10-centimetre derogation may be extended or modified based on trial results, which will conclude in 2027. This means commuters will need to stay up to date on future decisions, especially if the agreement is renewed or expanded.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.verbano-livello-max-accordo-ticino-2026.body3":`For commuters living or working in the Verbano area, it is essential to follow the instructions issued by the Ticino and Lombard authorities during the derogation period. Here are the steps to take to stay prepared for the changes:
+
+1. **Monitor official announcements**: The cantonal authorities will issue official communications regarding changes in the lake's water level. It is advisable to subscribe to the RSI Info information channels or follow updates from the Po River Basin Authority.
+
+2. Check local road conditions: In the event of rising water levels, some lakeside roads may be temporarily closed or restricted. Monitor notices from the Ticino cantonal police or local administrations such as Locarno, Ascona, and Gambarogno.
+
+3. Adapt agricultural activities: Lombard farmers relying on Verbano’s waters will need to plan field irrigation based on the new water availability. It is recommended to contact provincial agriculture offices for specific guidance.
+
+4. Prepare for possible restrictions: Although the agreement provides for a temporary derogation, authorities may introduce additional restrictions in case of exceptional drought. Staying informed is key to avoiding surprises.
+
+### Key deadlines to remember
+- 15 April 2026: Start of the lake level derogation.
+- 31 July 2026: End of the derogation.
+- 2027: Conclusion of the trial period and evaluation of results.
+
+### Useful tools
+To assess the impact of Verbano’s water level changes on your activities, commuters can use our [Ticino cost of living calculator](nav:cost-of-living). Additionally, for those traveling daily between Italy and Switzerland, we recommend checking [real-time traffic at border crossings](nav:traffic-history) to avoid long waits at the border.
+
+📊 > Follow official sources closely to stay updated on any changes.
+
+💡 > Plan ahead and adjust your routines to minimize disruptions.
+
+⚠️ > Stay flexible—conditions may evolve rapidly during the derogation period.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3660089)*`,"blog.article.verbano-livello-max-accordo-ticino-2026.faq":'[{"q":"Will the agreement on the Verbano water level enter into force immediately after signing?","a":"No. The derogation will come into effect from mid-April 2026 and will end at the end of July of the same year. During this period, the lake level will be raised by 135 centimetres compared to the zero level of Sesto Calende."},{"q":"Who signed the agreement on the Verbano water level?","a":"The agreement was reached between Ticino, Piedmont, Lombardy and the Po River Basin Authority, which is responsible for planning water resources across the entire Po River basin."},{"q":"How many extra cubic metres of water will be available for Lombard agriculture?","a":"The agreement will allow for an additional 20 million cubic metres of water to be stored compared to the current situation. This is a quantity that would require one and a half days of continuous release at the current rate of 190 cubic metres per second."},{"q":"Will there be restrictions for cross-border commuters living near the lake?","a":"Ticino authorities may introduce restrictions on local traffic or closely monitor the safety of lakeside roads. It is advisable to follow official notices from cantonal and municipal authorities such as Locarno, Ascona and Gambarogno."},{"q":"Will the trial period last throughout 2026?","a":"The derogation will come into effect in mid-April 2026 and will end at the end of July. However, the trial as a whole will continue until 2027, when the effectiveness of raising the lake level will be evaluated."},{"q":"What will happen if the trial has negative effects on Ticino’s environment?","a":"Cantonal authorities have already put measures in place to protect the Bolle di Magadino wetlands and the tourist use of beaches. Between August and September, the lake level will be kept one metre lower than the Sesto Calende zero level to prevent damage to ecosystems."}]'};export{e as default};

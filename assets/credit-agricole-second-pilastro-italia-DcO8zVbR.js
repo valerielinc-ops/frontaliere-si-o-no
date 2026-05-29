@@ -1,0 +1,23 @@
+const e={"blog.article.credit-agricole-second-pilastro-italia.body1":"## En bref","blog.article.credit-agricole-second-pilastro-italia.body2":`## Analyse de la stratégie de Crédit Agricole La stratégie de Crédit Agricole visant à renforcer sa présence en Italie à travers le second pilier constitue une étape stratégique majeure pour la banque. L'Italie représente un marché clé pour Crédit Agricole, qui cherche à développer ses activités dans le secteur financier italien.
+
+La banque française possède une longue histoire en Italie, où elle opère depuis plus de 20 ans. Cependant, le nouveau plan stratégique prévoit une augmentation significative de ses activités dans le pays. Crédit Agricole vise à devenir l’un des principaux acteurs du marché financier italien, en proposant une gamme complète de services financiers à ses clients.
+
+### Avantages pour les clients
+Les clients de Crédit Agricole en Italie bénéficieront d’une offre élargie de services financiers, y compris dans le domaine de l’investissement et de la gestion patrimoniale. La banque souhaite offrir des services innovants et personnalisés à ses clients.
+
+### Ce que cela signifie pour les frontaliers
+La présence renforcée de Crédit Agricole en Italie pourrait avoir des retombées positives pour les travailleurs frontaliers du Tessin. La banque pourrait proposer des services financiers plus innovants et adaptés aux clients italiens, y compris ceux qui résident au Tessin.
+
+## Chiffres et faits
+- Crédit Agricole est l’une des principales banques françaises.
+- La banque possède une longue histoire en Italie.
+- Le second pilier de la stratégie de Crédit Agricole se concentre sur l’augmentation de sa présence sur les marchés clés.
+- L’Italie constitue un marché important pour Crédit Agricole.
+
+## Outils et ressources
+Pour obtenir plus d’informations sur les services financiers proposés par Crédit Agricole, les frontaliers du Tessin peuvent consulter le site web de la banque ou contacter un conseiller financier. Ils peuvent également utiliser le calculateur de services financiers pour évaluer leurs options et choisir les services les plus adaptés.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.credit-agricole-second-pilastro-italia.body3":`[object Object]
+
+Vérifiez les [échéances fiscales](nav:calendar) : déclarations, ristournes — toutes les dates dans un calendrier interactif.`,"blog.article.credit-agricole-second-pilastro-italia.faq":`[{"q":"Que signifie le deuxième pilier de la stratégie du Crédit Agricole ?","a":"Le deuxième pilier de la stratégie du Crédit Agricole signifie que la banque vise à renforcer sa présence en Italie et à offrir des services financiers plus innovants et personnalisés aux clients italiens."},{"q":"Quels sont les avantages pour les clients de Crédit Agricole en Italie ?","a":"Les clients de Crédit Agricole en Italie pourront bénéficier d'une offre accrue de services financiers, y compris ceux d'investissement et de gestion de fortune."},{"q":"Depuis combien de temps le Crédit Agricole opère-t-il en Italie ?","a":"Crédit Agricole a une longue histoire de présence en Italie, où il opère depuis plus de 20 ans. Le nouveau plan stratégique, axé sur le « deuxième pilier », vise maintenant une augmentation significative de son activité dans le pays, renforçant encore sa position sur le marché financier italien et l'offre de services."},{"q":"Quel est l'objectif stratégique de Crédit Agricole avec le renforcement en Italie ?","a":"L'objectif stratégique de Crédit Agricole est de devenir l'un des principaux acteurs du marché financier italien. Grâce au « deuxième pilier » de sa stratégie, la banque vise une augmentation significative de son activité, en offrant une gamme complète de services innovants et personnalisés pour créer de la valeur pour les clients et les actionnaires."},{"q":"Quels sont les premiers pas pour un frontalier Tessin intéressé par les services du Crédit Agricole ?","a":"Les frontaliers du Tessin intéressés devraient d'abord s'informer sur les offres spécifiques de la banque, en visitant le site Web. Ensuite, il est conseillé d'évaluer si ces services sont adaptés à vos besoins financiers transfrontaliers. Une autre étape peut être de contacter un conseiller financier pour discuter des options les plus appropriées."}]`};export{e as default};

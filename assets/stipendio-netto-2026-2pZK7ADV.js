@@ -1,0 +1,129 @@
+const i={"blog.article.stipendio-netto-2026.body1":`## In breve
+- Stipendio netto frontalieri svizzeri: calcolo complesso con deduzioni sociali obbligatorie.
+- Nuovo accordo fiscale Italia-Svizzera dal 2024: imposta alla fonte svizzera + IRPEF italiana.
+- Vecchi frontalieri mantengono regime precedente fino al 31/12/2033 con condizioni specifiche.
+
+## Fatti chiave
+- **Deduzioni sociali**: AVS/AI/IPG 5.3%, AC 1.1%, LAINF 0.7%, IJM 0.8%, LPP 7-18%.
+- **Imposta alla fonte**: Calcolata con tabelle progressive cantonali ticinesi (A, B, C, H).
+- **Nuovo accordo**: In vigore dal 2024, imposta alla fonte svizzera + IRPEF italiana.
+- **Franchigia IRPEF**: Primi €10.000 di reddito frontaliero esenti IRPEF.
+- **Credito d'imposta**: Evita doppia imposizione per imposte già versate in Svizzera.
+- **Vecchi frontalieri**: Regime precedente fino al 31/12/2033 con rientro quotidiano entro 20 km.
+- **Cambio datore**: Non interrompe status se interruzione attività < 60 giorni.
+
+Il calcolo dello stipendio netto per un frontaliere è più complesso rispetto a un lavoratore italiano. Lo stipendio lordo in CHF subisce diverse deduzioni sociali svizzere obbligatorie: AVS/AI/IPG al 5.3%, assicurazione contro la disoccupazione (AC) all'1.1%, assicurazione infortuni non professionali (LAINF) allo 0.7%, indennità giornaliera malattia (IJM) circa 0.8%, e i contributi al secondo pilastro LPP che variano dal 7% al 18% in base all'età (Fonte: UFAS — Ufficio federale delle assicurazioni sociali, aliquote 2026). A queste si aggiunge l'imposta alla fonte cantonale ticinese, calcolata con tabelle progressive (A, B, C, H) che dipendono dallo stato civile e dal numero di figli (Fonte: Divisione delle contribuzioni, Canton Ticino). Solo dopo tutte queste deduzioni si ottiene il netto in franchi svizzeri.`,"blog.article.stipendio-netto-2026.body2":"Dal 2024 è in vigore il Nuovo Accordo Fiscale Italia-Svizzera che cambia radicalmente il regime dei nuovi frontalieri (inizio attività dal 17/07/2023). Questi lavoratori pagano sia l'imposta alla fonte svizzera che l'IRPEF italiana. Tuttavia, esistono due importanti misure di attenuazione: una franchigia di €10.000 (i primi diecimila euro di reddito frontaliero sono esenti IRPEF) e il credito d'imposta per le imposte già versate in Svizzera, che evita la doppia imposizione (Fonte: Accordo Italia-Svizzera del 23/12/2020, ratificato con Legge n. 83/2023). In pratica, il frontaliere dovrà presentare la dichiarazione dei redditi in Italia e scomputare quanto già pagato al fisco svizzero. È fondamentale conservare il certificato di salario (Lohnausweis) e l'attestazione delle imposte alla fonte trattenute.","blog.article.stipendio-netto-2026.body3":`I vecchi frontalieri (inizio attività prima del 17/07/2023) mantengono il regime precedente fino al 31 dicembre 2033: imposta alla fonte in Svizzera ed esenzione IRPEF in Italia, a condizione di rientrare quotidianamente al proprio domicilio entro la fascia dei 20 km dal confine (Fonte: art. 9, protocollo aggiuntivo all'Accordo del 23/12/2020). Questa categoria beneficia del regime transitorio previsto dal protocollo aggiuntivo. È importante ricordare che qualsiasi cambio di datore di lavoro non interrompe lo status di "vecchio frontaliere", purché non vi sia un'interruzione dell'attività lavorativa superiore a 60 giorni (Fonte: Circolare AdE n. 25/2024). Il nostro calcolatore tiene conto automaticamente di entrambi i regimi fiscali e calcola il netto con precisione.`,"blog.article.stipendio-netto-2026.body4":`## Le tabelle dell'imposta alla fonte Ticino 2026
+
+L'imposta alla fonte ticinese è calcolata su tabelle progressive che cambiano in base allo stato civile e alla situazione familiare. Le quattro tabelle principali sono:
+
+- **Tabella A**: persona sola, senza figli a carico
+- **Tabella B**: persona coniugata o convivente con un solo reddito in famiglia
+- **Tabella C**: persona coniugata o convivente con due redditi in famiglia (aliquota più bassa)
+- **Tabella H**: genitore solo con figli a carico (aliquota agevolata)
+
+Per il 2026, le aliquote effettive sulla Tabella A (singolo senza figli) seguono questa progressione orientativa:
+
+| Salario annuo lordo (CHF) | Aliquota indicativa Tabella A |
+|---|---|
+| 30.000 | 3,5 – 4,5% |
+| 50.000 | 7 – 9% |
+| 65.000 | 9 – 11% |
+| 80.000 | 11 – 13% |
+| 100.000 | 13 – 16% |
+| 130.000+ | 16 – 20% |
+
+⚠️ Per i **nuovi frontalieri**, l'aliquota effettivamente applicata è ridotta all'80% di quella ordinaria, per tenere conto che una parte del carico fiscale sarà riscossa dall'Italia tramite IRPEF. Questo riduce sensibilmente la trattenuta mensile in busta paga svizzera, anche se non elimina l'obbligo di dichiarazione in Italia.`,"blog.article.stipendio-netto-2026.body5":`## Esempio concreto: calcolo netto per un salario di 65.000 CHF annui (2026)
+
+Prendiamo il caso di un lavoratore dipendente, celibe senza figli, che lavora in Canton Ticino con un contratto da 65.000 CHF lordi annui. Vediamo passo per passo come si arriva al netto.
+
+**Deduzioni sociali svizzere mensili** (lordo mensile: 5.417 CHF):
+
+| Voce | Aliquota | Importo mensile (CHF) |
+|---|---|---|
+| AVS/AI/IPG | 5,30% | −287 |
+| AC (disoccupazione) | 1,10% | −60 |
+| LAINF (infortuni non prof.) | ~0,75% | −41 |
+| IJM (malattia) | ~0,80% | −43 |
+| LPP (secondo pilastro, età 35-44) | ~10,00% | −542 |
+| **Totale deduzioni sociali** | **~18%** | **−973 CHF** |
+
+**Imponibile imposta alla fonte**: 5.417 − 973 = 4.444 CHF/mese
+
+**Imposta alla fonte (Tabella A, vecchio frontaliere)**: ~9,5% → −422 CHF/mese
+
+**Netto mensile vecchio frontaliere**: circa **4.022 CHF** (≈ 4.240 €)
+
+**Imposta alla fonte ridotta (Tabella A, nuovo frontaliere)**: 80% × 422 = −338 CHF/mese
+
+**Netto mensile svizzero nuovo frontaliere**: circa **4.106 CHF** — ma su questo importo dovrà poi calcolare e pagare l'IRPEF italiana, stimabile in circa 180-250 € al mese dopo la franchigia di €10.000 e il credito d'imposta.
+
+💡 **Usa il [calcolatore di stipendio](nav:calculator)** per simulare la tua situazione specifica: il nostro strumento aggiorna automaticamente le aliquote e distingue i due regimi fiscali.`,"blog.article.stipendio-netto-2026.body6":`## Il secondo pilastro LPP: quanto pesa sul netto?
+
+La previdenza professionale obbligatoria (LPP) è spesso la voce più pesante sulle deduzioni, ma è anche quella che accumula capitale reale per la pensione o per situazioni come acquisto di prima casa o avvio di attività indipendente. I contributi LPP sono versati al 50% dal lavoratore e al 50% dal datore di lavoro. La quota a carico del dipendente dipende dalla fascia d'età e dal piano previdenziale del datore di lavoro:
+
+| Fascia d'età | Aliquota LPP coordinata (tipica) |
+|---|---|
+| 25 – 34 anni | 7% |
+| 35 – 44 anni | 10% |
+| 45 – 54 anni | 15% |
+| 55 – 65 anni | 18% |
+
+I contributi LPP si calcolano sul **salario coordinato**, ossia il salario annuo al netto di una deduzione di coordinamento fissata per legge (2026: CHF 26.460). Un lavoratore di 40 anni con 65.000 CHF lordi avrebbe un salario coordinato di circa 38.540 CHF, su cui il contributo LPP del 10% significa ~3.854 CHF/anno a carico del dipendente (≈ 321 CHF/mese). È una deduzione importante, ma ricordate che il capitale accumulato nella cassa pensioni vi appartiene e potete ottenerlo in forma di rendita o liquidazione alla pensione — o in anticipo per comprare casa in Svizzera.`,"blog.article.stipendio-netto-2026.body7":`## Vecchio frontaliere vs nuovo frontaliere: quanto si guadagna davvero?
+
+Il confronto più richiesto dai lettori è quanto rimane in tasca, concretamente, tra i due regimi. Ecco una simulazione per salari tipici del Canton Ticino nel 2026 (singolo senza figli, età 40 anni, Tabella A):
+
+| Lordo annuo (CHF) | Netto vecchio frontaliere | Netto nuovo frontaliere* | Differenza |
+|---|---|---|---|
+| 50.000 | ~33.000 CHF | ~30.800 CHF | −2.200 CHF/anno |
+| 65.000 | ~42.000 CHF | ~39.000 CHF | −3.000 CHF/anno |
+| 80.000 | ~50.500 CHF | ~46.800 CHF | −3.700 CHF/anno |
+| 100.000 | ~62.000 CHF | ~57.000 CHF | −5.000 CHF/anno |
+
+*Il netto del nuovo frontaliere include già l'effetto del credito d'imposta IRPEF e la franchigia di €10.000. I valori sono stime medie: la situazione esatta dipende dal comune di residenza italiano (addizionali comunali e regionali variano sensibilmente), dallo stato civile e dalla presenza di detrazioni fiscali italiane (familiari a carico, spese sanitarie, ecc.).
+
+📌 In media, un nuovo frontaliere porta a casa tra il 5% e il 8% in meno rispetto a un vecchio frontaliere a parità di salario lordo. Su un lordo di 65.000 CHF, la differenza è circa 250 CHF al mese — non una cifra trascurabile, ma assolutamente non tale da rendere non conveniente lavorare in Svizzera.`,"blog.article.stipendio-netto-2026.body8":`## IRPEF sul reddito svizzero: come si calcola
+
+I nuovi frontalieri devono dichiarare il proprio reddito svizzero in Italia tramite il **Modello 730** o il **Modello Redditi PF**, quadro C (redditi da lavoro dipendente estero) e quadro CE (credito per imposte pagate all'estero).
+
+Le aliquote IRPEF 2026 sono:
+
+| Scaglione di reddito | Aliquota |
+|---|---|
+| Fino a 28.000 € | 23% |
+| Da 28.001 € a 50.000 € | 35% |
+| Oltre 50.000 € | 43% |
+
+Su queste aliquote si aggiungono le addizionali regionali (0,70% – 3,33% a seconda della regione) e comunali (da 0% a 0,80%). La Lombardia, dove risiedono la maggior parte dei frontalieri ticinesi, applica un'addizionale regionale dell'1,23%.
+
+**Come funziona la franchigia di €10.000**: i primi €10.000 di reddito di lavoro frontaliero sono esclusi dall'imponibile IRPEF. Su un reddito convertito di €60.000, solo €50.000 sono tassati in Italia.
+
+**Il credito d'imposta**: le imposte alla fonte già pagate in Svizzera si detraggono dall'IRPEF dovuta. Il credito non può eccedere la quota di IRPEF proporzionale al reddito estero. In quasi tutti i casi pratici, il credito copre integralmente o quasi la doppia imposizione — il costo fiscale netto in più per il nuovo frontaliere è tipicamente l'addizionale regionale e comunale italiana, non un doppio pagamento integrale.`,"blog.article.stipendio-netto-2026.body9":`## Come migliorare il netto: strumenti e strategie legali
+
+Esistono alcune scelte legittime che possono ridurre il carico fiscale complessivo:
+
+**Terzo pilastro (3a) in Svizzera**: i frontalieri con Permesso G possono aprire un conto di previdenza privata 3a in Svizzera. I versamenti (fino a CHF 7.258/anno per dipendenti nel 2026) sono deducibili dal reddito imponibile svizzero, riducendo l'imposta alla fonte. Al momento del ritiro (pensione, acquisto casa, partenza dalla Svizzera), l'importo è tassato separatamente con aliquota ridotta.
+
+**Scelta della tabella corretta**: se siete sposati e il vostro coniuge non lavora, richiedete di essere inquadrato nella Tabella B (coniuge senza reddito), che prevede aliquote sensibilmente più basse rispetto alla Tabella A. Molti frontalieri dimenticano di comunicare tempestivamente le variazioni dello stato civile al datore di lavoro.
+
+**Detrazioni IRPEF in Italia**: spese mediche, interessi sul mutuo prima casa, figli a carico, spese scolastiche — tutte le detrazioni ordinarie IRPEF si applicano normalmente anche ai redditi frontalieri. Un nucleo familiare con figli e mutuo in corso può ridurre sensibilmente l'imposta italiana netta.
+
+**Telelavoro**: con il nuovo accordo bilaterale sul telelavoro (in vigore dal 2023), i frontalieri possono lavorare da casa in Italia fino al 25% del tempo senza perdere lo status di frontaliere e senza implicazioni fiscali aggiuntive. Questa flessibilità non riduce le tasse, ma migliora la qualità di vita e può ridurre i costi di pendolarismo.`,"blog.article.stipendio-netto-2026.body10":`## Il Lohnausweis: il documento chiave per la dichiarazione
+
+Il **Lohnausweis** è il certificato di salario svizzero, equivalente alla Certificazione Unica italiana. Viene rilasciato dal datore di lavoro ticinese entro fine gennaio e contiene tutti i dati necessari per la dichiarazione fiscale in entrambi i Paesi. I campi più importanti sono:
+
+- **Campo 1 (Salario lordo)**: reddito complessivo lordo in CHF — questo è il valore da convertire in euro per la dichiarazione italiana
+- **Campo 9 (Contributi LPP)**: quota a carico del dipendente versata alla cassa pensioni
+- **Campo 12 (Imposta alla fonte)**: importo totale già trattenuto dal datore e versato al Cantone
+- **Campo 15 (Spese professionali)**: eventuali rimborsi spese che non costituiscono reddito
+
+Per la dichiarazione italiana, il valore da inserire nel quadro C del 730 è il **salario lordo** (campo 1) convertito in euro al cambio medio annuo pubblicato dalla Banca d'Italia. Non usate mai il cambio del giorno di pagamento o il cambio BCE — solo il cambio medio ufficiale per l'anno di imposta è riconosciuto dall'Agenzia delle Entrate.`,"blog.article.stipendio-netto-2026.body11":`## Domande frequenti sul netto del frontaliere 2026
+
+**Quanto guadagna mediamente un frontaliere in Ticino?** Il salario mediano in Canton Ticino nel 2025-2026 si attesta intorno a 65.000-70.000 CHF lordi annui per i settori più rappresentati tra i frontalieri (sanità, commercio, manifattura, finanza). A questo corrisponde un netto di circa 3.800-4.200 CHF/mese per un vecchio frontaliere, e 3.500-3.900 CHF/mese per un nuovo frontaliere (dopo IRPEF).
+
+**Devo pagare le tasse anche sui bonus?** Sì. I bonus, le tredicesime e le quattordicesime sono soggetti all'imposta alla fonte in Svizzera. L'aliquota applicata sui bonus può essere diversa da quella mensile ordinaria (si calcola sull'imponibile annuo proiettato). In Italia, i bonus concorrono al reddito complessivo e vanno dichiarati nel 730.
+
+**Il cambio CHF/EUR mi penalizza?** Il franco svizzero è storicamente forte sull'euro. Quando il CHF si apprezza, il potere d'acquisto del frontaliere aumenta (stessa spesa in CHF vale di più in Italia). Quando si deprezza, l'effetto è opposto. Il rischio di cambio è una variabile reale: per chi converte il proprio stipendio mensile, strumenti come Wise o Revolut offrono tassi di conversione sensibilmente migliori rispetto alle banche tradizionali.
+
+**Cosa succede se lavoro part-time?** L'imposta alla fonte si applica con le stesse tabelle ma sull'imponibile mensile ridotto. Il calcolo IRPEF in Italia è proporzionale al reddito effettivo. Il nostro calcolatore supporta la simulazione per qualsiasi percentuale di impiego.
+
+*Fonti: UFAS (Ufficio federale delle assicurazioni sociali), aliquote 2026; Divisione delle contribuzioni del Canton Ticino (tabelle imposta alla fonte); Accordo Italia-Svizzera del 23/12/2020; Legge n. 83/2023; Circolare AdE n. 25/2024; USTAT (salario mediano TI). Dati e aliquote aggiornati a marzo 2026. Per la propria situazione fiscale specifica, si raccomanda sempre di consultare un commercialista o CAF specializzato in fiscalità italo-svizzera.*`,"blog.article.stipendio-netto-2026.faq":`[{"q":"Quale è la differenza fiscale tra nuovi e vecchi frontalieri Svizzera-Italia dal 2024?","a":"I nuovi frontalieri (inizio attività dal 17/07/2023) pagano sia l'imposta alla fonte svizzera che l'IRPEF italiana, con una franchigia di €10.000 e credito d'imposta per imposte svizzere. I vecchi frontalieri (inizio prima del 17/07/2023) mantengono l'imposta alla fonte svizzera ed esenzione IRPEF se rientrano quotidianamente entro 20 km dal confine fino al 31/12/2033."},{"q":"Posso cambiare datore di lavoro e mantenere lo status di 'vecchio frontaliere'?","a":"Sì, puoi cambiare datore di lavoro senza perdere lo status di 'vecchio frontaliere', a condizione di non avere interruzioni lavorative superiori a 60 giorni (Fonte: Circolare AdE n. 25/2024)."},{"q":"Come si calcola il netto dello stipendio per un frontaliere che lavora in Ticino nel 2024?","a":"Lo stipendio lordo in CHF subisce deduzioni sociali svizzere (AVS/AI/IPG 5.3%, AC 1.1%, LAINF 0.7%, IJM 0.8%) e contributi LPP (7%-18%). Poi si applica l’imposta alla fonte cantonale ticinese, variabile per stato civile e figli. Solo dopo si ottiene il netto in franchi."},{"q":"Quali documenti servono per dichiarare i redditi da frontaliere in Italia nel 2024?","a":"È necessario conservare il certificato di salario (Lohnausweis) e l’attestazione delle imposte alla fonte trattenute in Svizzera. Questi documenti servono per presentare la dichiarazione dei redditi in Italia e ottenere il credito d’imposta per le imposte già versate."},{"q":"Cosa succede se un frontaliere supera i 20 km di distanza dal confine per rientrare a casa?","a":"I vecchi frontalieri (inizio attività prima del 17/07/2023) perdono l’esenzione IRPEF in Italia se superano i 20 km di distanza dal confine per il rientro quotidiano. Rimangono soggetti solo all’imposta alla fonte svizzera."}]`};export{i as default};

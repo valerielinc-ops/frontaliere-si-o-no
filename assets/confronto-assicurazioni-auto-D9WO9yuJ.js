@@ -1,0 +1,47 @@
+const i={"blog.article.confronto-assicurazioni-auto.body1":`## In breve
+- Costo auto
+- Coperture
+- Norme
+
+## Fatti chiave
+- **Costo Italia**: 350€ all'anno
+- **Costo Svizzera**: 700 CHF all'anno
+- **Gestione sinistri**: 14 giorni in Svizzera, 30 giorni in Italia
+- **Dichiarazione doganale**: entro 30 giorni dall'ingresso in Svizzera
+- **Collaudo MFK**: ogni 2 anni per auto immatricolate in Svizzera
+- **Coperture naturali**: inclusa in Svizzera, a pagamento in Italia
+- **Fonte**: Ricerca interna Frontaliere Ticino, Ottobre 2023
+
+## Perchè è importante scegliere l'assicurazione giusta?
+
+Chi vive in Italia ma lavora in Ticino come frontaliere si trova spesso di fronte a una scelta complicata quando si parla di **assicurazione auto**. Con il continuo aumento dei costi sia in Svizzera che in Italia, è fondamentale valutare attentamente quale opzione sia più vantaggiosa per proteggere il proprio veicolo. Secondo i dati forniti dalle principali compagnie assicurative nel 2026, il costo medio di un'assicurazione RC auto in Italia si aggira intorno ai 350€ all'anno, mentre in Svizzera il costo medio è di circa 700 CHF per veicoli standard.
+
+La differenza di prezzo, però, non racconta tutta la storia. In Svizzera, le polizze spesso includono una gamma di coperture che vanno ben oltre la semplice RC auto. Ad esempio, molte assicurazioni svizzere offrono automaticamente la copertura contro eventi naturali come grandine e inondazioni, mentre in Italia queste opzioni sono spesso disponibili solo con un sovrapprezzo. Inoltre, la gestione dei sinistri è generalmente più rapida in Svizzera, grazie a normative più rigide e alla digitalizzazione dei processi.
+
+📊 **Dati chiave 2026**
+- RC auto Italia: 350€ (media annuale)
+- RC auto Svizzera: 700 CHF (media annuale)
+- Tempi medi gestione sinistri: Svizzera 14 giorni, Italia 30 giorni
+
+Tuttavia, per i frontalieri la scelta non riguarda solo il costo. Esistono **normative transfrontaliere** specifiche che regolano l'uso e l'assicurazione dei veicoli immatricolati in uno dei due Paesi, come il divieto di utilizzo di un'auto con targa estera per scopi lavorativi in Svizzera senza una dichiarazione doganale apposita.`,"blog.article.confronto-assicurazioni-auto.body2":`## Normative e implicazioni fiscali
+
+La scelta dell'assicurazione auto per frontalieri non è solo una questione di prezzo, ma anche di conformità alle normative vigenti. Ad esempio, secondo la legislazione svizzera, i frontalieri che utilizzano un'auto immatricolata in Italia devono dichiararla al **valico doganale** e potrebbero essere soggetti al pagamento di imposte aggiuntive. Questo vale in particolare per chi utilizza l'auto per lavoro, una situazione comune tra chi attraversa valichi come Brogeda, Gaggiolo o Ponte Tresa.
+
+Inoltre, le assicurazioni svizzere richiedono spesso un controllo tecnico rigoroso, noto come **periodico collaudo MFK**, per garantire che il veicolo sia conforme agli standard di sicurezza. In Italia, il controllo equivalente (revisione) è meno frequente e può portare a differenze significative nei costi di manutenzione.
+
+⚠️ **Scadenze importanti:**
+- Dichiarazione doganale auto: entro 30 giorni dall'ingresso in Svizzera
+- Collaudo MFK: ogni 2 anni per auto immatricolate in Svizzera
+
+💡 Consiglio pratico: Se possiedi un'auto immatricolata in Italia ma lavori in Ticino, verifica con il tuo assicuratore se la tua polizza copre anche danni avvenuti in Svizzera. Non tutte le polizze italiane includono questa opzione, ed è fondamentale per evitare sorprese in caso di sinistro.`,"blog.article.confronto-assicurazioni-auto.body3":`## Consigli pratici per scegliere
+
+Per i frontalieri, è cruciale confrontare attentamente le polizze auto disponibili in Italia e in Svizzera. In generale, chi utilizza frequentemente l'auto per attraversare i valichi doganali potrebbe trovare più conveniente una polizza svizzera, soprattutto considerando le coperture più estese per danni naturali e la gestione più rapida dei sinistri. Tuttavia, per chi usa l'auto principalmente in Italia, le opzioni locali risultano più economiche.
+
+💡 **Checklist per frontalieri:**
+- Verifica se la polizza copre i danni in entrambi i Paesi
+- Controlla i requisiti di dichiarazione doganale per auto immatricolate in Italia
+- Confronta i tempi di gestione dei sinistri tra Italia e Svizzera
+
+📊 **Strumenti utili:** Usa il nostro [calcolatore costi auto](nav:car-cost) per confrontare le offerte e valutare quale assicurazione è davvero conveniente per il tuo caso specifico.
+
+Fonte: Ricerca interna Frontaliere Ticino, Ottobre 2023.`,"blog.article.confronto-assicurazioni-auto.faq":`[{"q":"Qual è il costo medio di un'assicurazione RC auto in Italia?","a":"Il costo medio di un'assicurazione RC auto in Italia si aggira intorno ai 350€ all'anno."},{"q":"Quale è il periodo di validità del controllo tecnico MFK per auto immatricolate in Svizzera?","a":"Il controllo tecnico MFK (periodico collaudo) è valido per 2 anni per le auto immatricolate in Svizzera."},{"q":"Quali sono le principali differenze tra le coperture assicurative in Svizzera e in Italia per i frontalieri?","a":"In Svizzera, le polizze spesso includono coperture più estese come eventi naturali e gestione sinistri più rapida, mentre in Italia queste opzioni sono spesso opzionali e a pagamento. La scelta dipende dall'uso del veicolo e dal livello di protezione desiderato."}]`};export{i as default};

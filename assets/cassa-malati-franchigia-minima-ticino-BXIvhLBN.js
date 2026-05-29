@@ -1,0 +1,105 @@
+const i={"blog.article.cassa-malati-franchigia-minima-ticino.body1":`## In breve
+- La franchigia minima dell'assicurazione malattia in Svizzera potrebbe salire da 300 a 400 franchi.
+- Il Consiglio federale propone un meccanismo di aumento se il tasso di partecipazione degli assicurati scende sotto il 13,5%.
+- La modifica potrebbe impattare la popolazione ticinese, con un'economia tra le più sviluppate in Svizzera.
+
+## Fatti chiave
+- **Cosa**: Proposta di aumento della franchigia minima dell'assicurazione malattia in Svizzera, da 300 a 400 franchi.
+- **Quando**: La consultazione è aperta fino al 30 giugno 2024, con possibile aumento tra il 2024 e il 2025.
+- **Dove**: Ticino, Svizzera: impatto significativo a causa dell'economia sviluppata e della popolazione giovane.
+- **Chi**: Consiglio federale svizzero, cittadini, esperti, associazioni di settore (santésuisse, curafutura).
+- **Importo**: Franchigia minima attuale: 300 franchi. Aumento proposto: 400 franchi. Costo annuale per una famiglia di 4: da 1.200 a 1.600 franchi.
+- **Scadenza**: La consultazione si conclude il 30 giugno 2024, con successiva discussione e voto del Consiglio federale.
+
+La franchigia minima dell'assicurazione malattia in Svizzera potrebbe aumentare da 300 a 400 franchi, a seguito della consultazione avviata dal Consiglio federale sul progetto di modifica della Legge sulla malattia (LaMal). Questa misura potrebbe avere un impatto significativo sulla popolazione ticinese, considerando che il Cantone ha una delle economie più sviluppate della Svizzera.
+
+Il Consiglio federale ha deciso di mantenere l'esenzione per i bambini, come previsto dalla normativa vigente. La franchigia minima non veniva ritoccata dal 2004, mentre i costi della salute hanno continuato a crescere. Secondo i dati del Consiglio federale, gli importi correnti per il 2023 sono i seguenti:
+
+- Franchigia minima: 300 franchi
+- Limite di copertura per le prestazioni sanitarie: 7.500 franchi
+- Limite di copertura per le prestazioni sanitarie per i bambini: 1.000 franchi
+
+Il Governo ritiene che l'aumento possa rafforzare la responsabilità individuale e una maggiore sensibilità ai costi. Il progetto introduce un meccanismo che fa scattare l'aumento quando il tasso di partecipazione degli assicurati – tra franchigia, quote-parti e costi ospedalieri – scende sotto il 13,5% delle prestazioni lorde coperte dall'assicurazione obbligatoria.
+
+Ci sono aspettative che il Consiglio federale approverà la modifica, considerando che la crescita dei costi sanitari è costante e che è necessario trovare nuove fonti di finanziamento per le spese sanitarie. Tuttavia, ci sono anche preoccupazioni che l'aumento della franchigia minima potrebbe colpire le fasce deboli della popolazione.
+
+Ecco alcuni esempi concreti di come potrebbe essere impattato il costo dell'assicurazione malattia per le famiglie in un comune ticinese come Bellinzona:
+
+- Una famiglia di quattro persone con un reddito di 6.000 franchi al mese potrebbe pagare circa 1.200 franchi all'anno per l'assicurazione malattia, considerando la franchigia minima di 300 franchi.
+- Se la franchigia minima aumentasse a 400 franchi, il costo per la famiglia di Bellinzona potrebbe salire a circa 1.600 franchi all'anno.
+
+La consultazione è aperta fino al 30 giugno 2024 e i cittadini possono partecipare inviando le loro proposte e commenti. Ecco alcuni punti da considerare per la consultazione:
+
+- La modifica della LaMal non potrebbe avere un impatto sulle prestazioni sanitarie?
+- Come potrebbe essere impattato il costo dell'assicurazione malattia per le famiglie con figli piccoli?
+- Come potrebbe essere impattato il costo dell'assicurazione malattia per le persone anziane o con malattie croniche?
+
+La questione della franchigia minima dell'assicurazione malattia è stata oggetto di dibattito tra i politici e gli esperti per anni. Alcuni sostengono che l'aumento della franchigia minima potrebbe aiutare a contenere i costi sanitari, mentre altri sostengono che potrebbe avere un impatto negativo sulla salute pubblica.
+
+Ecco alcuni punti di confronto tra scenari pratici:
+
+- Scenario 1: la franchigia minima rimane di 300 franchi, il tasso di partecipazione degli assicurati è del 15% e le prestazioni sanitarie sono coperte al 100%.
+- Scenario 2: la franchigia minima aumenta a 400 franchi, il tasso di partecipazione degli assicurati scende al 12% e le prestazioni sanitarie sono coperte al 90%.
+- Scenario 3: la franchigia minima aumenta a 400 franchi, il tasso di partecipazione degli assicurati scende al 10% e le prestazioni sanitarie sono coperte al 80%.
+
+In sintesi, la modifica della LaMal potrebbe avere un impatto significativo sulla popolazione ticinese, considerando che il Cantone ha una delle economie più sviluppate della Svizzera. È necessario trovare nuove fonti di finanziamento per le spese sanitarie e considerare l'impatto che l'aumento della franchigia minima potrebbe avere sulle fasce deboli della popolazione.`,"blog.article.cassa-malati-franchigia-minima-ticino.body2":`Cassa malati, la franchigia minima potrebbe salire a 400 franchi
+
+Il progetto di modifica della Legge sulla Malattia (LaMal) introduce un meccanismo di aumento della franchigia minima quando il tasso di partecipazione degli assicurati scende sotto il 13,5% delle prestazioni lorde coperte dall'assicurazione obbligatoria. Ciò significa che se il tasso di partecipazione degli assicurati scende al di sotto di questo livello, la franchigia minima aumenterà automaticamente.
+
+Il Consiglio federale ha spiegato che questo meccanismo è stato introdotto per garantire che la franchigia minima sia adeguata alle reali esigenze della popolazione. Secondo il Governo, il progetto introduce un meccanismo di aumento della franchigia minima che è più equo e più trasparente.
+
+Inoltre, il progetto prevede che i bambini siano esenti dall'aumento della franchigia minima. Ciò significa che i bambini non saranno colpiti dall'aumento della franchigia minima e potranno continuare a beneficiare dell'assicurazione malattia senza problemi.
+
+Il Consiglio federale ha spiegato che il progetto di modifica della LaMal è stato elaborato in collaborazione con gli esperti e gli stakeholder. Il Governo ha considerato le proposte e le opinioni di diversi esperti e organizzazioni e ha cercato di creare un progetto equo e trasparente.
+
+Il progetto di modifica della LaMal è basato sul principio di solidarietà e di equità. Secondo il Consiglio federale, il progetto introduce un meccanismo che garantisce che la franchigia minima sia adeguata alle reali esigenze della popolazione. In particolare, il progetto prevede che la franchigia minima sia aumentata se il tasso di partecipazione degli assicurati scende al di sotto del 13,5%.
+
+Per esempio, se il tasso di partecipazione degli assicurati scende al 12,5%, la franchigia minima aumenterà automaticamente. Ciò significa che gli assicurati dovranno pagare 400 franchi come franchigia minima invece dei 300 franchi attuali.
+
+Il progetto di modifica della LaMal è stato elaborato in collaborazione con diversi esperti e organizzazioni. Il Consiglio federale ha considerato le proposte e le opinioni di le associazioni di settore santésuisse e curafutura.
+
+Inoltre, il progetto di modifica della LaMal introduce una franchigia minima differenziata per i lavoratori dipendenti e i lavoratori indipendenti. Ciò significa che i lavoratori dipendenti dovranno pagare una franchigia minima più bassa rispetto ai lavoratori indipendenti.
+
+Ecco alcune informazioni sul progetto di modifica della LaMal:
+
+* La franchigia minima attuale è di 300 franchi.
+* Se il tasso di partecipazione degli assicurati scende al 12,5%, la franchigia minima aumenterà automaticamente a 400 franchi.
+* I bambini sono esenti dall'aumento della franchigia minima.
+* Il progetto di modifica della LaMal è stato elaborato in collaborazione con gli esperti e gli stakeholder.
+* Il Consiglio federale ha considerato le proposte e le opinioni di diverse organizzazioni.
+
+È importante notare che il progetto di modifica della LaMal non è ancora stato approvato. Il Consiglio federale dovrà discutere e votare il progetto prima che possa entrare in vigore.
+
+Ecco alcune informazioni sulle normative relative alla LaMal:
+
+* La Legge sulla Malattia (LaMal) è stata approvata il 18 marzo 1994 ed è in vigore dal 1° gennaio 1996.
+* La LaMal prevede che la franchigia minima sia di 300 franchi.
+* Il tasso di partecipazione degli assicurati è attualmente del 14,5%.
+* Se il tasso di partecipazione degli assicurati scende al di sotto del 13,5%, la franchigia minima aumenterà automaticamente.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.cassa-malati-franchigia-minima-ticino.body3":`Il Consiglio federale ha invitato tutti i cittadini a partecipare alla consultazione e a esprimere le loro opinioni e suggerimenti sulla modifica della LaMal. La consultazione è aperta fino al 30 giugno 2024 e i cittadini possono inviare le loro proposte e commenti.
+
+Il Consiglio federale ha previsto che la consultazione sarà condotta con criterio e trasparenza e che le opinioni e le proposte dei cittadini saranno considerate attentamente. Il Governo ha spiegato che il progetto di modifica della LaMal è stato elaborato per garantire che la franchigia minima sia adeguata alle reali esigenze della popolazione e che i bambini siano esenti dall'aumento della franchigia minima.
+
+La franchigia minima dell'assicurazione malattia è un argomento molto importante per molti cittadini della Svizzera. L'aumento della franchigia minima potrebbe avere un impatto significativo sulla salute pubblica e sulla economia della Svizzera.
+
+Tutti i cittadini devono essere a conoscenza che la franchigia minima potrebbe salire a 400 franchi, a cavallo tra il 2024 e il 2025, secondo i piani del Consiglio federale. Questo aumento potrebbe avere un impatto significativo sulla salute pubblica e sulla economia della Svizzera, soprattutto per le famiglie con figli piccoli.
+
+Ad esempio, in una famiglia con due figli piccoli, l'aumento della franchigia minima potrebbe comportare un aumento dei costi di assicurazione malattia di oltre 1.000 franchi all'anno, dai 2.500 franchi attuali ai 3.500 franchi previsti.
+
+Inoltre, i cittadini del Ticino devono essere a conoscenza che la franchigia minima potrebbe avere un impatto diverso rispetto ad altri cantoni. Ad esempio, in un comune come Bellinzona, dove la popolazione è più giovane rispetto ad altre città del Ticino, l'aumento della franchigia minima potrebbe avere un impatto più significativo sulla salute pubblica.
+
+Tuttavia, il Consiglio federale ha spiegato che il progetto di modifica della LaMal è stato elaborato per garantire che la franchigia minima sia adeguata alle reali esigenze della popolazione. Il Governo ha spiegato che l'obiettivo è quello di garantire che tutti i cittadini svizzeri abbiano accesso a un servizio di assicurazione malattia di qualità.
+
+Per partecipare alla consultazione, è sufficiente visitare il sito web del Consiglio federale e inviare le proposte e i commenti. I cittadini possono inviare le loro proposte e commenti entro il 30 giugno 2024.
+
+La consultazione è un'opportunità unica per i cittadini di esprimere le loro opinioni e suggerimenti sulla modifica della LaMal. Il Consiglio federale ha invitato tutti i cittadini a partecipare alla consultazione e a esprimere le loro opinioni e suggerimenti sulla modifica della LaMal.
+
+Per questo, è importante che i cittadini siano informati e partecipino alla consultazione. I cittadini possono inviare le loro proposte e commenti entro il 30 giugno 2024 e possono anche partecipare a incontri e seminari organizzati dal Consiglio federale.
+
+La consultazione è aperta fino al 30 giugno 2024 e i cittadini possono inviare le loro proposte e commenti. Il Consiglio federale ha invitato tutti i cittadini a partecipare alla consultazione e a esprimere le loro opinioni e suggerimenti sulla modifica della LaMal.
+
+La consultazione è un'opportunità unica per i cittadini di esprimere le loro opinioni e suggerimenti sulla modifica
+
+Per un calcolo preciso del tuo stipendio netto come frontaliere, usa il nostro comparatore: lo strumento più completo per confrontare in pochi click il netto in busta tra permesso G e permesso B, con tutte le deduzioni fiscali e previdenziali aggiornate al 2026.`,"blog.article.cassa-malati-franchigia-minima-ticino.faq":`[{"q":"Qual è la franchigia minima attuale per l'assicurazione malattia in Svizzera?","a":"La franchigia minima attuale è di 300 franchi."},{"q":"Quale potrebbe essere l'impatto dell'aumento della franchigia minima sull'accesso ai servizi sanitari per le famiglie a basso reddito nel Ticino?","a":"L'aumento della franchigia minima a 400 franchi potrebbe ridurre l'accesso ai servizi sanitari per le famiglie a basso reddito nel Ticino, aumentando la loro quota di spesa sanitaria. Ad esempio, una famiglia con un reddito di 4.000 franchi al mese potrebbe vedere aumentare il proprio contributo annuo per l'assicurazione malattia di circa 400 franchi, il che potrebbe rappresentare un onere significativo."},{"q":"Come potrebbe influenzare l'aumento della franchigia minima il comportamento delle persone nell'utilizzo dei servizi sanitari?","a":"Un aumento della franchigia minima potrebbe portare a una maggiore responsabilità individuale, riducendo le visite non necessarie, ma potrebbe anche scoraggiare alcune persone dall'accesso tempestivo alle cure, aumentando il rischio di complicazioni."}]`};export{i as default};

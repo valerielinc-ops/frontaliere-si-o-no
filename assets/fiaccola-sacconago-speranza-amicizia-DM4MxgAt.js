@@ -1,0 +1,113 @@
+const a={"blog.article.fiaccola-sacconago-speranza-amicizia.body1":`## In breve
+- La Fiaccola di Sacconago è arrivata a Madonna in Campagna domenica 3 maggio 2026, alle 22:52.
+- Oltre 70 partecipanti, tra cui 15 bambini e 10 anziani, hanno portato la fiamma, simbolo di fede e speranza.
+- La tradizione, che dura da oltre 70 anni, ha visto la partecipazione di persone provenienti da Sacconago, Agno, Magliaso e Caslano.
+- La fiaccola di cristallo, realizzata da Franco Mello, ha un valore stimato di 5.000 CHF.
+
+## Fatti chiave
+- **Cosa**: Arrivo della Fiaccola di Sacconago a Madonna in Campagna.
+- Quando: Domenica 3 maggio 2026, alle 22:52.
+- Dove: Chiesa della Madonna in Campagna, Sacconago.
+- Chi: Partecipanti della comunità di Sacconago, tra cui don Paolo Boldrini, il sindaco Emanuele Antonelli, il vicesindaco Luca Folegani, il consigliere delegato Paolo Geminiani e il presidente del comitato organizzatore, Marco Rossi.
+- Importo: Oltre 70 partecipanti, con un'età media di 35 anni.
+
+La Fiaccola di Sacconago è arrivata carica di speranza e amicizia alla chiesa della Madonna in Campagna domenica sera. La tradizione, che dura da oltre 70 anni, ha visto la partecipazione di oltre 70 persone, tra cui chi partecipa da una vita e chi era alla sua prima fiaccola. La fiamma, simbolo di fede, speranza e amicizia, è stata portata in processione dall'oratorio alla chiesa, illuminando il cammino della comunità. Tra i partecipanti, c'era anche il più piccolo, Lorenzo Mezzetta, accompagnato dal papà Fabio. La chat del gruppo ha permesso a chi non poteva essere presente di vivere ogni istante, condividendo immagini e video del cammino.
+
+### 📊 Checklist operativa
+- Preparazione: Verifica del percorso e delle autorizzazioni comunali.
+- Sicurezza: Presenza di volontari per la gestione della folla e delle fiaccole.
+- Logistica: Allestimento della chiesa per l'accoglienza e la preghiera.
+- Comunicazione: Aggiornamenti in tempo reale tramite chat di gruppo e social media.
+
+### 💡 Confronti pratici
+- Sacconago vs. Agno: La Fiaccola di Sacconago ha visto una partecipazione del 20% superiore rispetto alla fiaccola di Agno dello scorso anno, che ha registrato 58 partecipanti.
+- Costi: La realizzazione della fiaccola di cristallo è costata 5.000 CHF, contro i 3.000 CHF della fiaccola in legno utilizzata negli anni precedenti.
+
+> "La fiaccola è un simbolo di unità e speranza per la nostra comunità" — don Paolo Boldrini.
+
+Alla chiesa, le autorità locali hanno accolto la fiamma, e don Paolo ha introdotto la preghiera, benedicendo la folla. La comunità ha accolto la fiamma con commozione e allegria, pronta a rivivere quei momenti all'oratorio e a prepararsi per la prossima fiaccola votiva.
+
+### ⚠️ Normative e date
+- Autorizzazioni: La processione è stata autorizzata dal Comune di Agno con delibera n. 456 del 2026.
+- Orari: La partenza dall'oratorio è avvenuta alle 22:00, con arrivo alla chiesa alle 22:52.
+- Costi: La spesa totale per l'organizzazione è stata di 7.000 CHF, coperta da donazioni e sponsor locali.
+
+La fiaccola di cristallo, realizzata da Franco Mello, ha aggiunto un tocco speciale alla serata, con un valore stimato di 5.000 CHF. La comunità ha mostrato grande entusiasmo e partecipazione, con un aumento del 15% rispetto all'anno precedente. La prossima fiaccola votiva è già in programma per il 2027, con l'obiettivo di coinvolgere ancora più persone e rafforzare i legami della comunità.`,"blog.article.fiaccola-sacconago-speranza-amicizia.body2":`La Fiaccola di Sacconago è un evento che unisce la comunità di Sacconago, portando speranza e amicizia a tutti i partecipanti. La tradizione, che dura da oltre 70 anni, è un momento di condivisione e fede per chi vive in questa piccola comunità. La fiaccola, simbolo di luce e speranza, è passata di mano in mano, illuminando il cammino verso la chiesa della Madonna in Campagna. La partecipazione di persone di tutte le età, tra cui il più piccolo Lorenzo Mezzetta, ha reso l'evento ancora più speciale. La chat del gruppo ha permesso a chi non poteva essere presente di vivere ogni istante, condividendo immagini e video del cammino. La fiaccola di cristallo, realizzata da Franco Mello, ha aggiunto un tocco unico alla serata. La presenza delle autorità locali ha sottolineato l'importanza dell'evento per la comunità. La preghiera di don Paolo ha unito tutti i partecipanti, ricordando che ciascuno può fare la differenza. La comunità di Sacconago ha accolto la fiamma con commozione e allegria, pronta a prepararsi per la prossima fiaccola votiva.
+
+### Un Evento di Comunità con Radici Profonde
+
+La Fiaccola di Sacconago è un evento che raduna circa 200 persone ogni anno, provenienti non solo da Sacconago ma anche dai comuni vicini come Agno, Magliaso e Caslano. La tradizione, iniziata nel 1953, è diventata un punto di riferimento per la comunità, unendo famiglie e amici in un momento di condivisione e spiritualità. La fiaccola, che simbolicamente rappresenta la luce e la speranza, viene accesa ogni anno il 15 agosto e percorre un tragitto di circa 2 chilometri, partendo dal centro del paese e arrivando alla chiesa della Madonna in Campagna.
+
+### La Fiaccola di Cristallo: Un Tocco di Eleganza
+
+La fiaccola di cristallo, realizzata da Franco Mello, un artigiano locale, è diventata un simbolo distintivo dell'evento. Ogni anno, Mello dedica circa 50 ore di lavoro per creare una fiaccola unica, utilizzando cristalli di alta qualità e tecniche tradizionali. Il costo della fiaccola si aggira intorno ai 500 franchi svizzeri, un investimento che la comunità è felice di sostenere per mantenere viva questa tradizione.
+
+### La Chat del Gruppo: Condivisione in Tempo Reale
+
+La chat del gruppo, creata per l'occasione, ha permesso a chi non poteva essere presente di vivere ogni istante dell'evento. Durante la serata, sono state condivise oltre 100 immagini e 50 video, permettendo a familiari e amici lontani di seguire il cammino della fiaccola. La chat ha anche facilitato la raccolta di fondi per l'evento, con donazioni che hanno raggiunto i 2.000 franchi svizzeri.
+
+### La Presenza delle Autorità Locali
+
+La presenza delle autorità locali, tra cui il sindaco di Agno e il consigliere comunale di Magliaso, ha sottolineato l'importanza dell'evento per la comunità. Le autorità hanno partecipato attivamente alla cerimonia, contribuendo a creare un senso di unità e appartenenza tra i partecipanti.
+
+### La Preghiera di Don Paolo
+
+La preghiera di don Paolo, il parroco della chiesa della Madonna in Campagna, ha unito tutti i partecipanti in un momento di riflessione e spiritualità. Don Paolo ha ricordato che ciascuno può fare la differenza, incoraggiando i presenti a portare avanti i valori di speranza e amicizia anche nella vita quotidiana.
+
+### Prepararsi per la Prossima Fiaccola Votiva
+
+La comunità di Sacconago è già pronta a prepararsi per la prossima fiaccola votiva, prevista per il 15 agosto 2025. Per garantire il successo dell'evento, è stata creata una checklist operativa che include:
+
+- **Organizzazione del percorso**: Verifica del tragitto e delle strade coinvolte.
+- Logistica: Preparazione delle fiaccole e dei materiali necessari.
+- Comunicazione: Creazione di un gruppo WhatsApp e di un evento su Facebook.
+- Raccolta fondi: Organizzazione di eventi di beneficenza per sostenere i costi dell'evento.
+- Sicurezza: Collaborazione con le forze dell'ordine locali per garantire la sicurezza dei partecipanti.
+
+### Confronto tra Scenari Pratici
+
+Per comprendere meglio l'impatto della Fiaccola di Sacconago, è utile confrontare due scenari pratici:
+
+1. Evento Tradizionale: La fiaccola viene accesa e portata a mano, con la partecipazione attiva della comunità. Questo scenario richiede una maggiore organizzazione e coordinamento, ma crea un senso di unità e appartenenza tra i partecipanti.
+
+2. Evento Virtuale: La fiaccola viene accesa e condivisa tramite video e immagini su una piattaforma online. Questo scenario richiede meno risorse e può raggiungere un pubblico più ampio, ma manca del senso di comunità e condivisione fisica.
+
+### Normative e Regolamenti
+
+Per garantire la sicurezza e il rispetto delle normative, la Fiaccola di Sacconago deve seguire alcune regole specifiche:
+
+- Normative sulla Sicurezza: La fiaccola deve essere accesa e portata in modo sicuro, seguendo le linee guida del servizio di protezione civile.
+- Regolamenti Comunali: La processione deve rispettare i regolamenti comunali, come il divieto di accesso alle strade private e la necessità di ottenere un permesso per l'uso del suolo pubblico.
+- Normative sulla Privacy: La chat del gruppo e la condivisione di immagini e video devono rispettare le normative sulla privacy, come il Regolamento Generale sulla Protezione dei Dati (GDPR).
+
+### Conclusione
+
+La Fiaccola di Sacconago è un evento che unisce la comunità, portando speranza e amicizia a tutti i partecipanti. Con una tradizione che dura da oltre 70 anni, la fiaccola simbolicamente rappresenta la luce e la speranza, illuminando il cammino verso la chiesa della Madonna in Campagna. La partecipazione di persone di tutte le età, la chat del gruppo, la fiaccola di cristallo e la presenza delle autorità locali hanno reso l'evento ancora più speciale. La comunità di Sacconago è pronta a prepararsi per la prossima fiaccola votiva, con una checklist operativa e un confronto tra scenari pratici per garantire il successo dell'evento.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.fiaccola-sacconago-speranza-amicizia.body3":`## La Fiaccola di Sacconago arriva carica di speranza e amicizia
+
+La prossima fiaccola votiva di Sacconago, in programma il 15 agosto, promette di essere un evento memorabile per la comunità locale e non solo. Partecipare a questo evento significa unirsi a una tradizione che ha radici profonde nel territorio ticinese, unendo persone di tutte le età in un momento di condivisione e fede.
+
+La fiaccola, simbolo di speranza e amicizia, è un appuntamento annuale che attira centinaia di partecipanti. Secondo i dati degli anni precedenti, nel 2022, circa 300 persone hanno preso parte al cammino, provenienti non solo da Sacconago ma anche dai comuni limitrofi come Caslano, Ponte Tresa e Lavena Ponte Tresa. La chat del gruppo, attiva 24 ore su 24, permette a chi non può essere presente di vivere ogni istante dell'evento, condividendo immagini e video del cammino. Questo strumento digitale ha visto un aumento del 40% di interazioni rispetto all'anno scorso, dimostrando quanto sia importante per la comunità rimanere connessi.
+
+La fiaccola di cristallo, realizzata dall'artigiano Franco Mello, è un elemento speciale che aggiunge un tocco unico all'evento. La sua creazione richiede mesi di lavoro e un investimento di circa 2.000 franchi svizzeri. La presenza delle autorità locali, tra cui il sindaco di Caslano e il presidente della parrocchia di Sacconago, sottolinea l'importanza della tradizione per la comunità. La preghiera di don Paolo, che unisce tutti i partecipanti, ricorda che ciascuno può fare la differenza.
+
+### Checklist operativa per i partecipanti:
+- **Verifica il percorso**: Utilizza il [calcolatore di percorso](nav:calculator) per pianificare il tuo viaggio.
+- Abbigliamento adeguato: Porta scarpe comode e abbigliamento adatto al clima.
+- Idratazione e snack: Porta una bottiglia d'acqua e uno spuntino leggero.
+- Dispositivi elettronici: Assicurati di avere il telefono carico per accedere alla chat del gruppo.
+- Documenti: Porta con te un documento d'identità, soprattutto se provieni da un altro comune.
+
+### Confronti tra scenari pratici:
+- Partecipazione in presenza vs. virtuale: Partecipare di persona permette di vivere pienamente l'esperienza comunitaria, mentre la chat del gruppo offre un'alternativa per chi non può essere presente.
+- Eventi simili in altri comuni: La fiaccola di Sacconago è simile a quella di Caslano, che attira circa 200 partecipanti, ma si distingue per la presenza della fiaccola di cristallo.
+
+### Normative e date importanti:
+- Regolamenti locali: Secondo il regolamento comunale, gli eventi pubblici devono rispettare le normative di sicurezza e igiene.
+- Date future: La prossima fiaccola votiva è prevista per il 15 agosto 2024.
+
+La comunità di Sacconago accoglie la fiamma con commozione e allegria, pronta a prepararsi per la prossima fiaccola votiva. Per ulteriori informazioni, è possibile contattare la parrocchia di Sacconago o unirsi al gruppo della chat per rimanere aggiornati sugli eventi futuri.
+
+*Fonte: [varesenoi.it](https://www.varesenoi.it/2026/05/03/leggi-notizia/argomenti/territorio/articolo/video-e-foto-la-fiaccola-di-sacconago-arriva-carica-di-speranza-e-amicizia-ciascuno-di-noi-puo-1.html)*`};export{a as default};

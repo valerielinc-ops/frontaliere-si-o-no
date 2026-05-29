@@ -1,0 +1,58 @@
+const e={"blog.article.isola-artica-islanda-pugliese.body1":`## En bref
+- Leonardo Piccione, un Pugliese, passe des mois en Islande.
+- Grímsey est une île arctique avec seulement 50 habitants.
+- Piccione a écrit un livre sur son expérience hivernale.
+
+## Faits clés
+- **Quoi** : Vie sur l'île de Grímsey en Islande.
+- Quand : Séjour hivernal non spécifié.
+- Où : Grímsey, Islande.
+- Qui : Leonardo Piccione, un Pugliese.
+- Montant : Non spécifié.
+
+Leonardo Piccione, un Pugliese de Corato, né en 1987, a passé plusieurs mois par an sur l'île de Grímsey, en Islande. Docteur en Sciences Statistiques, Piccione a travaillé dans divers endroits, de la réception d'un hôtel à un kiosque à sandwichs. Son expérience est racontée dans le livre "Choses à faire la nuit au Cercle Polaire Arctique", publié en 2026.
+
+Grímsey est une île arctique avec une superficie plus réduite que le Prater de Vienne et pas beaucoup plus grande que le Central Park de New York. Elle est habitée par un peu plus de cinquante humains et par beaucoup de macareux. L'île est traversée par le Cercle Polaire Arctique et possède une longue série d'attributs uniques, comme l'absence d'arbres et l'irrégularité de la forme.
+
+Piccione a conquis les habitants de Grímsey avec sa cuisine, en particulier avec la focaccia barese et les brioches avec glace. Son livre est un mémoire d'un séjour hivernal dans un lieu à la limite de l'habitable, une biographie d'un personnage oublié, un essai sur l'attraction irrésistible que les îles exercent sur les êtres humains, et un journal météorologique, géologique et ornithologique d'une terre extrême.
+
+### Le personnage oublié
+Le livre de Piccione se concentre également sur Daniel Willard Fiske, un bibliographe et collectionneur américain obsédé par Grímsey. Fiske est devenu un bienfaiteur de l'île, méritant un monument, des enfants locaux baptisés de son nom et une photo dans l'ancienne église, détruite par un incendie l'automne précédent le séjour de Piccione.
+
+### L'entrelacement entre passé et présent
+L'entrelacement entre l'histoire contemporaine de Piccione et celle du XIXe siècle de Fiske est le moteur narratif du livre. Piccione n'est pas le typique aventurier, mais un observateur patient qui gagne la confiance des insulaires en se présentant à la piscine et au comptoir de l'épicerie. Son approche auto-ironique et son manque d'héroïsme en font un narrateur unique.
+
+### Le silence qui n'existe pas
+L'un des passages les plus réussis du livre concerne la relation avec le silence arctique. Piccione démontre le concept de silence avec une précision presque scientifique, expliquant que l'oreille doit s'éduquer à des bruits différents, comme le vent dans les joints de la fenêtre.`,"blog.article.isola-artica-islanda-pugliese.body2":`Leonardo Piccione n'est pas le typique aventurier en quête d'isolement total. Au contraire, il emporte avec lui un routeur pour éviter un isolement complet. La solitude l'attire et l'effraie à parts égales, et pour ne pas succomber à l'accoutumance, il se rend chaque jour à l'épicerie du village, ouverte seulement une heure par jour.
+
+### La vie quotidienne à Grímsey
+La vie quotidienne à Grímsey est marquée par une série d'activités que Piccione décrit avec précision. Par exemple, on peut organiser un dîner en compagnie même par mauvais temps. Piccione a découvert que la clé pour gagner la confiance des insulaires est de se présenter à la piscine et au comptoir de l'épicerie.
+
+### L'attrait des îles
+Le livre de Piccione est également un essai sur l'attrait irrésistible que les îles exercent sur les êtres humains. Piccione passe en revue une série de narrateurs d'îles, de D.H. Lawrence à Jonathan Franzen, de Fredrik Sjöberg à Paolo Rumiz, montrant comment chacun d'eux a trouvé une manière unique de décrire la vie sur l'île.
+
+### La géologie et l'ornithologie de Grímsey
+Piccione consacre une partie de son livre à la description de la géologie et de l'ornithologie de Grímsey. Ses descriptions sont détaillées et précises, montrant une grande attention à la perception sensorielle. Par exemple, il décrit le vent dans les joints de la fenêtre comme puissant et tonitruant, un bruit qui amplifie la perception du silence arctique.
+
+### L'importance du silence
+Le silence est un thème central dans le livre de Piccione. Il explique que le silence arctique n'est pas un silence absolu, mais un silence relatif. L'oreille doit s'éduquer à des bruits différents, comme le vent dans les joints de la fenêtre, pour apprécier pleinement la beauté du silence arctique.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.isola-artica-islanda-pugliese.body3":`Si vous êtes curieux de découvrir davantage sur la vie sur l'île de Grímsey, vous pouvez lire le livre de Leonardo Piccione 'Cose da fare di notte al Circolo Polare Artico'. Le livre est disponible en librairie et en ligne.
+
+### Que faire si vous voulez visiter Grímsey
+Si vous êtes intéressés à visiter Grímsey, il y a quelques choses que vous devez savoir. Tout d'abord, Grímsey est une île isolée et éloignée, donc il est important d'être préparé à l'isolement. Emportez avec vous tout ce dont vous avez besoin, y compris des vêtements chauds et de la nourriture.
+
+### Comment arriver à Grímsey
+Pour arriver à Grímsey, vous devez d'abord vous rendre en Islande. De là, vous pouvez prendre un ferry ou un vol pour Húsavík, la ville la plus proche de Grímsey. Depuis Húsavík, vous pouvez prendre un ferry pour Grímsey. Le trajet en ferry dure environ une heure.
+
+### Que faire à Grímsey
+Une fois arrivés à Grímsey, il y a plusieurs activités que vous pouvez faire. Vous pouvez explorer l'île à pied, visiter le monument de Daniel Willard Fiske, ou simplement profiter de la beauté naturelle de l'île. Vous pouvez également visiter la piscine locale ou l'épicerie du village.
+
+### Conseils pour la visite
+Si vous êtes intéressés à visiter Grímsey, il est important d'être préparé à l'isolement. Emportez avec vous tout ce dont vous avez besoin, y compris des vêtements chauds et de la nourriture. De plus, il est important de respecter l'environnement et les habitants de l'île. N'oubliez pas que Grímsey est un lieu unique et spécial, et vous devez le traiter avec respect.
+
+### Calculateur de voyage
+Si vous planifiez un voyage en Islande, vous pouvez utiliser notre calculateur de voyage pour estimer les coûts et planifier votre itinéraire. Le calculateur vous aidera à planifier votre voyage de manière efficace et à économiser de l'argent.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/dio-li-ha-abbandonati-vita-ai-confini-del-mondo-sullisola-artica-dislanda-che-ha-stregato-un-pugliese/2563177/)*`,"blog.article.isola-artica-islanda-pugliese.faq":`[{"q":"Qui est Leonardo Piccione ?","a":"Leonardo Piccione est un Pugliese de Corato, né en 1987, avec un doctorat en Sciences Statistiques. Il a passé plusieurs mois de l'année sur l'île de Grímsey, en Islande, travaillant à divers endroits et écrivant un livre sur son expérience."},{"q":"Où se trouve Grímsey ?","a":"Grímsey est une île arctique située au nord de l'Islande. Elle est traversée par le Cercle Polaire Arctique et a une superficie plus réduite que le Prater de Vienne et pas beaucoup plus grande que le Central Park de New York."},{"q":"Qu'a écrit Leonardo Piccione sur l'Islande ?","a":"Leonardo Piccione a écrit \\"Cose da fare di notte al Circolo Polare Artico\\", un livre qui raconte son expérience hivernale sur l'île de Grímsey. Le livre est un mémoire, une biographie, un essai et un journal météorologique, géologique et ornithologique."}]`};export{e as default};

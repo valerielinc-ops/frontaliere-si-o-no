@@ -1,0 +1,52 @@
+const e={"blog.article.casanova-pressione-aziende.body1":`## In brief
+The companies in Ticino are facing a series of challenges that put their long-term competitiveness and sustainability at risk. Among these, the growing geopolitical uncertainty, the increase in tariffs, and the shortage of qualified labor stand out, making the economic landscape in which they operate increasingly complex.
+
+## Key facts
+- **What**: The companies in Ticino are facing challenges that threaten their competitiveness and sustainability.
+- When: During the general assembly of AITI, held recently in Ticino.
+- Where: In Ticino, a Swiss canton that hosts many companies active in the financial, pharmaceutical, and technological sectors.
+- Who: Nicoletta Casanova, president of AITI (Association of Ticino Companies), highlighted the main challenges that Ticino companies must face.
+- Amount: Not specified.
+
+Nicoletta Casanova, president of AITI, emphasized that Ticino companies are very active and innovative, but also under strong pressure due to conditions they cannot control. Among the main challenges, uncertain geopolitics and international trade tensions, which can lead to an increase in tariffs and greater market instability. For example, the increase in tariffs between the United States and China in 2018 had a significant impact on Ticino companies operating in the technology and electronics sector, with an increase in production costs and a reduction in profits.
+
+Furthermore, the shortage of qualified labor is another crucial challenge for Ticino companies. According to a survey conducted by AITI in 2021, 70% of Ticino companies had difficulty finding qualified personnel, particularly in technical and specialized professions. This phenomenon could be exacerbated by the growing popularity of remote work, which could attract talent away from Ticino towards other Swiss regions or abroad.
+
+Casanova emphasized the importance of collaboration between companies, institutions, and politics to influence the economic framework conditions. In particular, Ticino companies need a stable and favorable regulatory environment that supports their innovation and investment activities. For example, the Swiss federal law on innovation, which came into force in 2020, introduced new measures to encourage research and development by companies, such as the research and development tax credit and the funding of innovation projects.
+
+However, the president of AITI also pointed out that collaboration between companies, institutions, and politics must be pragmatic and concrete, avoiding bureaucratic or window-dressing initiatives. In this sense, Ticino companies need continuous dialogue with local and national authorities to make their voice heard and influence the decisions that directly concern them.
+
+In conclusion, Ticino companies are facing a series of challenges that put their long-term competitiveness and sustainability at risk. To overcome these challenges, companies need a stable and favorable regulatory environment that supports their innovation and investment activities. Therefore, collaboration between companies, institutions, and politics is crucial to ensure a sustainable and competitive future for Ticino companies.
+
+Title of the article: Casanova: 'There is a lot of pressure on Ticino companies, collaboration is needed to overcome the challenges'`,"blog.article.casanova-pressione-aziende.body2":`The collaboration between companies has been identified as a key element to address the current and future challenges of the Ticino market. Companies must work together to influence the economic framework conditions and to support technological transformation. Additionally, the availability of qualified workforce is another significant challenge for the Ticino industrial sector. Casanova has emphasized the importance of valuing the industrial sector in the eyes of young Ticinese to attract and bring back local talents. 
+
+The Ticino industrial sector has been heavily impacted by the COVID-19 pandemic, with an estimated production loss of 2 billion Swiss francs in 2020. The collaboration between companies has been identified as a key element to address the current and future challenges of the Ticino market. Companies must work together to influence the economic framework conditions and to support technological transformation. 
+
+Moreover, the availability of qualified workforce is another significant challenge for the Ticino industrial sector. According to a recent survey conducted by the Chamber of Commerce, Industry, Craft and Agriculture of the Canton Ticino, 65% of the interviewed companies have reported difficulties in finding qualified personnel. This problem is further exacerbated by the lack of young people who choose to pursue careers in the industrial sector. 
+
+Casanova has emphasized the importance of valuing the industrial sector in the eyes of young Ticinese to attract and bring back local talents. ">We must do more to promote career opportunities in the industrial sector among young Ticinese," Casanova stated. "We must show them that the industrial sector is a place where they can develop their skills and build a successful career."
+
+To address the shortage of qualified workforce, Ticinese companies are exploring various options, including professional training and collaboration with local schools and universities. Additionally, some companies have started to offer financial incentives and benefits to attract qualified talents. 
+
+Moreover, Ticinese companies are also facing the challenge of adapting to increasingly stringent environmental regulations. In 2021, the State Council of the Canton Ticino approved a package of measures to reduce greenhouse gas emissions, with a target of reducing emissions by 50% by 2030 compared to 1990 levels. Companies must invest in clean and sustainable technologies to respect these regulations, which will require collaboration between companies and the government to ensure adequate financial support. 
+
+In summary, the collaboration between companies and the valuation of the industrial sector among young Ticinese are two key elements to address the current and future challenges of the Ticino market. Companies must work together to influence the economic framework conditions and to support technological transformation, while also addressing the shortage of qualified workforce and adapting to environmental regulations. 
+
+Collaboration between companies: a key element to address the challenges of the Ticino market 📊💡
+
+Valuing the industrial sector among young Ticinese: a key element to attract and bring back local talents ⚠️
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.casanova-pressione-aziende.body3":`For Ticino-based companies aiming to tackle global market challenges, collaboration with institutions, politics, and other economic entities is crucial. Additionally, investing in the training and attraction of local talent is essential to ensure a qualified workforce. Cross-border workers in Ticino can find useful information and calculation tools on the Frontaliere Ticino website to manage their tax and pension situations effectively.
+
+Ticino, with its strategic location between Switzerland and Italy, offers an ideal context for companies looking to expand internationally. However, global market challenges require close collaboration between businesses and local institutions. For instance, the City of Lugano has implemented a series of tax incentives for companies choosing to establish themselves in the city, such as reduced corporate taxes and the possibility of deducting investments in research and development.
+
+Ticino-based companies must also invest in the training and attraction of local talent to ensure a qualified workforce. According to a recent study by the Università della Svizzera italiana, 60% of Ticino-based companies face difficulties finding qualified personnel. Consequently, many companies have decided to invest in the training of their employees and offer internship and apprenticeship programs for local youth.
+
+Cross-border workers in Ticino can find useful information and calculation tools on the Frontaliere Ticino website to manage their tax and pension situations effectively. The website offers an operational checklist for calculating tax deductions and pension contributions based on individual situations. Additionally, the website provides information on the fiscal and pension regulations in force, such as the 1974 Convention between Italy and Switzerland, which regulates the situation of cross-border workers in terms of social security.
+
+The website also features a section dedicated to news and updates on cross-border employment, such as the recent introduction of the minimum wage in Switzerland, which will come into effect in 2022. This novelty could significantly impact cross-border workers working in Ticino, as it may lead to an increase in labor costs for companies.
+
+In conclusion, Ticino-based companies aiming to tackle global market challenges must collaborate with institutions, politics, and other economic entities, invest in the training and attraction of local talent, and provide their cross-border employee with the necessary tools to manage their tax and pension situations effectively. The Frontaliere Ticino website offers a useful resource for cross-border workers seeking information on fiscal and pension regulations and updates on cross-border employment.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/casanova-ce-tanta-pressione-sulle-aziende-serve-collaborazione-434055)*`,"blog.article.casanova-pressione-aziende.faq":'[{"q":"What are the main challenges for Ticino companies?","a":"The main challenges for Ticino companies include geopolitics, tariffs, and the shortage of qualified labor."},{"q":"How can companies tackle these challenges?","a":"Companies must collaborate with each other, with institutions, and with politics to influence the economic framework conditions and support technological transformation."},{"q":"What is the importance of qualified labor for the Ticino industrial sector?","a":"Qualified labor is crucial for the Ticino industrial sector to ensure the competitiveness of companies and attract local talents."}]'};export{e as default};

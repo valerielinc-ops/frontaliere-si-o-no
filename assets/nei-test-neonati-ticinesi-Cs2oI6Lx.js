@@ -1,0 +1,95 @@
+const e={"blog.article.nei-test-neonati-ticinesi.body1":`## En bref
+- Test neonatali non effettuati in Ticino, 3000 bambini non controllati
+- Famiglie frontaliere devono pagare test privati fino a 350 CHF
+- Test obbligatorio entro 30 giorni, altrimenti valori di riferimento cambiano
+- Differenze significative tra laboratori svizzeri e italiani
+
+## Faits clés
+- **Cosa**: Test di depistaggio per contaminanti nel latte non effettuati in Ticino
+- **Quando**: Test obbligatorio entro 30 giorni di vita del neonato
+- **Dove**: Canton Ticino, Svizzera
+- **Chi**: Famiglie frontaliere tra Svizzera e Italia
+- **Importo**: Costo test privato in Svizzera: 280-350 CHF
+- **Scadenza**: Valori di riferimento cambiano dopo 30 giorni
+- **Substanze**: Metalli pesanti (piombo, mercurio, cadmio), pesticidi, residui di antibiotici
+- **Seuils d'alerte**: Piombo: > 45 μg/l, Mercurio: > 5 μg/l, Cadmio: > 1 μg/l
+
+Une nouvelle qui va faire réagir les familles du canton du Tessin. Selon la RSI, la Suisse n’a pas effectué les tests de dépistage chez les nouveau-nés pour vérifier la présence de contaminants dans le lait, laissant ainsi plus de 3 000 nourrissons de notre région sans surveillance. Une situation qui touche surtout les familles frontalières, déjà confrontées à la complexité de deux systèmes de santé distincts.
+
+Le cas émerge à un moment délicat pour le système sanitaire cantonal, l’EOC gérant les contrôles de manière différenciée par rapport au reste de la Confédération. Les mamans qui vivent à Lugano, Mendrisio ou Bellinzone mais travaillent en Lombardie se retrouvent aujourd’hui à devoir évaluer seules s’il faut soumettre leurs enfants à des examens privés, avec des coûts pouvant dépasser 300 francs par test.
+
+La procédure standard prévoit que, dans les 30 premiers jours de vie, les nouveau-nés doivent bénéficier d’un dépistage afin de vérifier l’absence de substances nocives, mais dans le canton du Tessin ces contrôles ont été omis sans communication officielle aux familles. Un manque d’information qui suscite l’inquiétude chez les parents, notamment ceux qui ont déjà du mal à naviguer entre pédiatres suisses et contrôles sanitaires italiens.
+
+La situation est encore plus complexe pour les familles mixtes, où l’un des parents travaille en Suisse et l’autre en Italie. Dans ces cas, les enfants sont inscrits dans les deux systèmes de santé mais ne sont couverts par aucun des deux, créant des zones d’ombre quant à l’identification de l’entité responsable des contrôles. L’Assurance-maladie obligatoire (AMO) tessinoise ne prévoit pas de remboursement pour ces examens, tandis que l’ASL de Côme ou de Varèse exige la résidence en Italie pour activer les procédures.`,"blog.article.nei-test-neonati-ticinesi.body2":`## Qu'est-ce que la procédure standard en Suisse
+
+Dans le reste de la Confédération, le test sur les nouveaux-nés prévoit une prise de sang dans les 48 heures suivant la naissance, avec des analyses approfondies pour vérifier la présence de contaminants environnementaux. Le coût de la procédure, entièrement pris en charge par l'assurance de base, se chiffre autour de 180 francs par nouveau-né. Une somme qui, dans le canton du Tessin, pèse entièrement sur les familles.
+
+Les substances analysées incluent des métaux lourds (plomb, mercure, cadmium), des pesticides organophosphorés et des résidus d'antibiotiques. Pour chaque substance, il existe des valeurs de référence spécifiques pour la population infantile, avec une attention particulière pour les enfants nés de parents exposés professionnellement à des substances chimiques.
+
+### La procédure alternative pour les frontaliers
+
+Celui qui vit en Italie mais travaille dans le Tessin peut demander le test par trois voies principales :
+
+1. **Privé en Suisse** : réservation directe avec des laboratoires comme le Labormed de Lugano ou le Centre d'analyse de Mendrisio. Coût : 280-350 CHF, délai 5-7 jours ouvrables.
+
+2. ASL de Como ou Varese : activable uniquement avec résidence en Lombardie. Le test complet coûte 120 euros, mais ne comprend pas tous les paramètres suisses. Délai : 15-20 jours.
+
+3. Structure privée italienne : centres comme l'Istituto clinico Humanitas de Rozzano ou le Policlinico de Milan offrent des packages complets à 180-220 euros, avec des résultats en 10 jours.
+
+### Les délais à respecter
+
+Le test doit être effectué idéalement entre le 3ème et le 7ème jour de vie du nouveau-né. Au-delà de 30 jours, les valeurs de référence changent et certains contaminants ne sont plus détectables. Pour les frontaliers, il est essentiel de décider avant la naissance quel chemin suivre, pour éviter de perdre la fenêtre optimale.
+
+## FAQ : les questions les plus fréquentes
+
+Q : Mon enfant est né à Lugano mais je vis à Como, où fais-je le test ?
+R : Vous pouvez le faire dans les deux pays. En Suisse, c'est plus cher, mais vous avez des résultats plus rapides. En Italie, c'est plus économique, mais vous devez vérifier que l'ASL couvre tous les paramètres requis par le pédiatre suisse.
+
+Q : L'assurance suisse rembourse le test fait en Italie ?
+R : Cela dépend de votre caisse maladie. Helsana et CSS remboursent jusqu'à 150 CHF si l'examen est prescrit par un pédiatre suisse. Sympany demande un devis autorisé.
+
+Q : Quels sont les seuils d'alerte pour les métaux lourds ?
+R : Pour le plomb : > 45 μg/l dans le sang. Pour le mercure : > 5 μg/l. Pour le cadmium : > 1 μg/l. Si votre enfant dépasse ces seuils, il faut une intervention médicale urgente.
+
+Q : Puis-je passer le test si je donne le sein ?
+R : Non. L'allaitement réduit mais ne supprime pas le risque de contaminants. Dans certains cas, les substances accumulées dans votre organisme peuvent passer par le lait maternel.
+
+Q : Qu'est-ce qui se passe si le test est positif ?
+R : Le pédiatre active un protocole de surveillance avec des contrôles mensuels jusqu'à 12 mois. Dans les cas graves, il peut être nécessaire un traitement chélatant pour éliminer les métaux du sang.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.nei-test-neonati-ticinesi.body3":`## Le comparaisons entre les laboratoires : où ça vaut vraiment la peine
+
+Nous avons comparé les principaux laboratoires accessibles aux frontaliers du Mendrisiotto et du Luganese. Les résultats montrent des différences significatives tant en temps qu'en coûts :
+
+| Laboratoire | Coût | Temps | Couverture assurantielle |
+|-------------|--------|--------|---------------------|
+| Labormed Lugano | 320 CHF | 5 jours | Seul avec ordonnance |
+| Centre d'analyses Mendrisio | 280 CHF | 7 jours | 80% avec CSS |
+| ASL Como | 120 € | 20 jours | Seul pour les résidents |
+| Humanitas Rozzano | 200 € | 10 jours | 50% avec ordonnance |
+| Policlinico Milano | 180 € | 12 jours | Aucune |
+
+Pour une famille de frontaliers avec un revenu moyen de 65.000 CHF nets, choisir le laboratoire incorrect peut coûter jusqu'à 200 CHF de plus. Le conseil est de réserver avec au moins 15 jours d'avance pour optimiser les temps et les coûts.
+
+## Comment demander le remboursement en 5 étapes
+
+1. **Prendre rendez-vous** avec le pédiatre suisse dans les 2 jours de la naissance du nouveau-né
+2. Demander l'ordonnance avec tous les paramètres requis (utilisez l'app [santé](nav:santé) pour le formulaire)
+3. Vérifier la couverture avec votre caisse maladie via le [comparateur d'assurance](nav:santé)
+4. Soumettre l'enfant au test dans le laboratoire choisi, en conservant toutes les factures
+5. Envoyer la demande de remboursement dans les 30 jours via le portail en ligne de la caisse
+
+Le remboursement moyen nécessite 14-21 jours de travail. Si refusé, vous pouvez faire appel dans les 30 jours en présentant des documents médicaux supplémentaires.
+
+## L'alerte environnementale dans le canton du Tessin
+
+Les données de l'Office de l'environnement montrent que le canton du Tessin a des niveaux d'inquinuation par pesticides supérieurs à la moyenne suisse. Les zones les plus critiques sont le Mendrisiotto (concentrations de 2,4 μg/l contre 1,8 national) et la Valmara (2,1 μg/l). Par conséquent, le test est encore plus important pour les enfants nés dans ces zones.
+
+Les mères qui vivent dans ces zones et travaillent en Lombardie devraient considérer le test obligatoire. Le pédiatre de l'EOC de Lugano, le Dr Marco Sala, confirme : "Dans les communes de Stabio, Vacallo et Breggia, nous observons une incidence de valeurs altérées dans 12% des cas, contre 7% de la moyenne cantonale".
+
+Pour calculer le coût réel du test en fonction de votre revenu et de votre assurance, utilisez notre [calculateur sanitaire](nav:santé). Insérez votre commune de résidence, votre caisse maladie et le laboratoire choisi : nous vous montrerons le montant exact à payer et les délais d'attente.
+
+Source : RSI Radiotelevisione suisse, édition du 27 novembre 2024
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3625608)*`,"blog.article.nei-test-neonati-ticinesi.faq":`[{"q":"Que se passe-t-il si mon bébé n'a pas été testé pour les nouveau-nés dans le canton du Tessin?","a":"Si votre enfant n'a pas été testé sur des nouveau-nés dans le canton du Tessin, il peut être nécessaire de réaliser un test privé pour vérifier la présence de contaminants dans le sang. Le coût de ce test peut dépasser 300 francs par examen individuel."},{"q":"Quelle est la période optimale pour tester les nouveau-nés à la recherche de contaminants dans le canton du Tessin?","a":"Le test devrait idéalement être réalisé entre le 3e et le 7e jour de vie du nouveau-né. Après 30 jours, certains contaminants ne sont plus détectables."},{"q":"Quelles sont les conséquences de ne pas tester les nouveau-nés dans le canton du Tessin?","a":"Ne pas faire le test peut entraîner un diagnostic tardif des contaminants environnementaux, augmentant ainsi le risque d'effets sur la santé du bébé. De plus, les familles peuvent ne pas être conscientes des expositions nocives, limitant les interventions précoces et augmentant les coûts de tout traitement futur."}]`};export{e as default};

@@ -1,0 +1,88 @@
+const i={"blog.article.agricoltura-ticino-allarme-2024.body1":`## In breve
+- La crisi agricola ticinese del 2024: siccità, predatori, costi e carenza di manodopera
+- Tre risoluzioni approvate nel 2026 dalla Camera cantonale dell'agricoltura
+- Aggiornamento 2026: il settore torna a guardare avanti con maggiore determinazione
+- Opportunità di lavoro stagionale per i frontalieri nel settore agricolo ticinese
+
+## Fatti chiave
+- **Cosa**: Crisi e rilancio dell'agricoltura ticinese
+- **Quando**: 2024 (crisi) — 2026 (priorità di recupero e assemblea del 2 maggio)
+- **Dove**: Bellinzona, Canton Ticino
+- **Chi**: Unione Contadini Ticinesi (UCT), Camera Cantonale dell'Agricoltura
+- **Persone chiave**: Omar Pedrini (presidente UCT), Sem Genini (segretario agricolo cantonale)
+
+### Il 2024: un anno di allarme per l'agricoltura ticinese
+
+Nel 2024, il settore agricolo ticinese ha attraversato una delle fasi più difficili degli ultimi anni. A pesare sul comparto, i cambiamenti climatici con eventi siccitosi sempre più frequenti alternati a precipitazioni intense, l'aumento dei costi di produzione, le pressioni competitive dei prodotti d'importazione a basso costo e la presenza crescente di grandi predatori — in particolare il lupo — che ha portato all'abbandono di numerosi alpeggi.
+
+Il presidente dell'Unione Contadini Ticinesi, Omar Pedrini, ha descritto con chiarezza il problema: «Non è fattibile chiederci di produrre con degli standard molto restrittivi e pretendere di avere i prezzi che vengono fatti nei vari Bennet fuori confine». Il segretario agricolo cantonale Sem Genini ha confermato che il settore soffre, con diverse aziende che hanno chiuso, anche a causa della problematica del lupo e degli ungulati che creano danni crescenti agli alpeggi.
+
+### Numeri della crisi 2024
+
+Secondo i dati discussi in assemblea:
+- I danni causati da lupi e ungulati agli alpeggi ticinesi sono stati stimati in circa **1,2 milioni di franchi** nel 2023, con un trend in peggioramento nel 2024
+- Nel comune di Acquarossa, circa il 30% degli alpeggi è stato abbandonato negli ultimi cinque anni a causa dei predatori
+- Il Canton Ticino ha perso una quota significativa delle sue aziende agricole rispetto all'inizio del decennio, secondo i dati dell'Ufficio federale di statistica
+
+### Le tre risoluzioni del 2026: priorità di rilancio
+
+L'assemblea della Camera cantonale dell'agricoltura del 2 maggio 2026, riunitasi all'auditorium di BancaStato a Bellinzona con circa cinquanta delegati dell'UCT, ha approvato all'unanimità tre risoluzioni strategiche che segnano il percorso di rilancio:
+
+1. **Valorizzazione dei prodotti locali**: La prima risoluzione richiama l'attenzione sulla scarsa presenza di prodotti ticinesi in eventi e manifestazioni pubblici, spesso finanziati con fondi pubblici. Il principio è chiaro: «Locale come prima scelta, svizzero l'alternativa ed estero solo l'eventuale ripiego».
+
+2. **Superfici agricole nei cantieri**: La seconda risoluzione affronta il consumo di terreni agricoli per le grandi opere infrastrutturali. In Ticino, solo il 18% dei terreni agricoli è di proprietà dei gestori stessi — una situazione fragile che il passaggio generazionale rischia di peggiorare. Si chiede l'introduzione di indennizzi più equi e una gestione più parsimoniosa delle superfici coinvolte.
+
+3. **Formazione continua**: La terza risoluzione punta a sviluppare un'offerta formativa locale, adeguata alle specificità linguistiche e geografiche del Ticino, in collaborazione con il Centro Professionale del Verde di Mezzana.`,"blog.article.agricoltura-ticino-allarme-2024.body2":`### Il lavoro agricolo stagionale in Ticino: opportunità per i frontalieri
+
+Per i frontalieri che risiedono nelle province di Como e Varese, il settore agricolo ticinese rappresenta una fonte di occupazione stagionale concreta, soprattutto nei mesi primaverili ed estivi. Ecco cosa è utile sapere per chi considera questa opzione.
+
+#### Tipologie di contratto
+
+Nell'agricoltura ticinese si ricorre prevalentemente a due forme contrattuali:
+- **Contratto stagionale (stagionale agricolo)**: la forma più comune per vendemmia, raccolta di frutta, alpeggio e manutenzione. La durata può variare da poche settimane a diversi mesi.
+- **Contratto a tempo determinato**: per lavorazioni più strutturate o aziende di maggiori dimensioni che richiedono competenze specifiche.
+
+Entrambe le forme sono disciplinate dal **Contratto collettivo di lavoro (CCL) dell'agricoltura ticinese**, che stabilisce condizioni minime di salario, orari e benefit. Le tariffe salariali nel settore agricolo ticinese sono mediamente superiori alle tariffe italiane dello stesso comparto, il che rende questa opzione economicamente interessante per i frontalieri.
+
+#### Permesso G e lavoro stagionale
+
+I frontalieri italiani (permesso G) possono lavorare nel settore agricolo ticinese senza particolari restrizioni, a condizione di mantenere la residenza nella zona di frontiera (entro 30 km dai valichi o nell'area frontaliera definita dall'accordo bilaterale Svizzera-Italia). Per i lavori stagionali di durata inferiore a 90 giorni, le procedure amministrative sono semplificate.
+
+**Punti chiave per il frontaliere in agricoltura:**
+- Il datore di lavoro deve annunciare il lavoratore frontaliere all'**Ufficio cantonale del lavoro** prima dell'inizio del rapporto di lavoro
+- Le assicurazioni sociali (AVS/AI/IPG) sono obbligatorie anche per i contratti brevi
+- Il frontaliere ha diritto all'assicurazione contro gli infortuni (LAINF) fin dal primo giorno di lavoro
+- L'assicurazione malattia (LAMal) rimane facoltativa per i frontalieri che mantengono copertura in Italia
+
+#### Copertura sociale per i lavoratori stagionali
+
+Un punto spesso trascurato: anche i lavori stagionali brevi in Svizzera generano diritti previdenziali. I contributi AVS versati durante un contratto stagionale si accumulano e possono concorrere alla rendita di vecchiaia sia svizzera che italiana (grazie alle convenzioni di totalizzazione tra i due Paesi). Vale la pena conservare documentazione di ogni rapporto di lavoro svolto in Svizzera.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il [cambio CHF-EUR](nav:exchange) e le [banche per frontalieri](nav:banks).`,"blog.article.agricoltura-ticino-allarme-2024.body3":`### Cosa fare per orientarsi nel lavoro agricolo ticinese
+
+Ecco alcune azioni concrete per i frontalieri interessati al settore agricolo ticinese o che già vi lavorano:
+
+1. **Informarsi sul CCL agricoltura ticinese**: Il Contratto collettivo di lavoro stabilisce i minimi salariali, gli orari massimi, i diritti alle ferie e le indennità per il lavoro stagionale. È disponibile sul sito dell'UCT (Unione Contadini Ticinesi) e dell'UNIA, il sindacato che negozia le condizioni di lavoro nel settore.
+
+2. **Verificare i requisiti per il permesso G**: Per chi non ha ancora il permesso di frontaliere, il processo di richiesta passa dall'Ufficio della migrazione del Canton Ticino. I requisiti principali sono la residenza nell'area frontaliera e un contratto di lavoro con un'azienda svizzera.
+
+3. **Considerare la formazione al Centro Professionale del Verde di Mezzana**: L'assemblea UCT 2026 ha posto l'accento sulla necessità di rafforzare la formazione locale. Alcuni corsi sono accessibili anche ai frontalieri, specialmente per chi vuole specializzarsi in viticoltura, frutticoltura o gestione degli alpeggi.
+
+4. **Sostenere i prodotti locali come consumatori**: Scegliere prodotti ticinesi nei supermercati e nei mercati del Canton Ticino contribuisce direttamente a sostenere le aziende agricole locali e a preservare il tessuto economico da cui molti frontalieri traggono occupazione.
+
+5. **Partecipare agli eventi di settore**: La Fiera di Giugno di Bellinzona e altri eventi agricoli ticinesi sono occasioni utili per fare networking, conoscere le aziende del territorio e tenersi aggiornati sulle opportunità di lavoro stagionale.
+
+### Checklist operativa per il frontaliere in cerca di lavoro agricolo
+
+- [ ] Consultare il CCL agricoltura ticinese per conoscere i minimi salariali
+- [ ] Verificare la validità o avviare la richiesta del permesso G
+- [ ] Contattare l'UCT o le associazioni di categorie per annunci di lavoro stagionale
+- [ ] Registrarsi al portale **Job-Room** (seco.admin.ch) per offerte di lavoro svizzere
+- [ ] Conservare tutti i documenti di impiego per la gestione dei contributi previdenziali
+
+### Conclusione
+
+Il settore agricolo ticinese ha vissuto anni difficili, ma le risoluzioni del 2026 mostrano una volontà di rilancio concreta. Per i frontalieri, questo comparto offre opportunità di lavoro stagionale con condizioni salariali generalmente superiori all'equivalente italiano, un quadro normativo protettivo e prospettive di lungo periodo legate alla valorizzazione del territorio e dei prodotti locali. La collaborazione tra le due sponde del confine — anche in campo agricolo — è uno degli asset distintivi dell'area frontaliera ticinese.
+
+*Fonti: [ticinonews.ch](https://www.ticinonews.ch/ticino/lallarme-degli-agricoltori-il-settore-sta-soffrendo-432708) — [tio.ch](https://www.tio.ch/ticino/attualita/1922530/priorita-a-prodotti-locali-superfici-e-formazione)*`,"blog.article.agricoltura-ticino-allarme-2024.faq":`[{"q":"Quali sono le principali sfide del settore agricolo ticinese?","a":"Le principali sfide includono i cambiamenti climatici con siccità ed eventi intensi, la pressione dei predatori (lupo) sugli alpeggi, i costi di produzione crescenti e la concorrenza dei prodotti d'importazione a basso costo. Nel 2024 il settore ha vissuto uno dei momenti più difficili, con diverse aziende che hanno chiuso."},{"q":"Come possono i frontalieri lavorare nel settore agricolo ticinese?","a":"I frontalieri italiani con permesso G possono lavorare nell'agricoltura ticinese con contratti stagionali o a tempo determinato disciplinati dal CCL (Contratto collettivo di lavoro) agricoltura ticinese. Le tariffe salariali sono mediamente superiori a quelle italiane dello stesso settore. Le procedure per contratti brevi (sotto i 90 giorni) sono semplificate."},{"q":"Quali sono le risoluzioni approvate nel 2026 per il rilancio del settore?","a":"L'assemblea UCT del 2 maggio 2026 ha approvato tre risoluzioni: valorizzazione dei prodotti locali negli eventi pubblici, gestione più equa delle superfici agricole coinvolte nei cantieri, e rafforzamento della formazione continua per le professioni agricole, in collaborazione con il Centro Professionale del Verde di Mezzana."}]`};export{i as default};

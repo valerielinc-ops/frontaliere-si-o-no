@@ -1,0 +1,86 @@
+const e={"blog.article.congresso-varese-2026-fisco-lavoro-ticino.body1":`## TL;DR
+- 10th Swiss-Italy Congress in Varese on cross-border work and investments.
+- Tourism between Lombardy and Ticino up 10% in 2025.
+- Stricter tax rules on cryptocurrencies and foreign assets.
+- Cross-border workers face complex tax regulations and double taxation risks.
+
+## Key facts
+- **Event**: 10th Swiss-Italy Congress organized by Studio Giallo.
+- **Location**: Ville Ponti, Varese, Italy.
+- **Tourist arrivals**: 1.7 million in 2025, up 10% from 2024.
+- **Overnight stays**: 3.2 million in 2025, up 10% from 2024.
+- **Cryptocurrency tax**: Italy's capital gains tax rate on cryptocurrencies rises to 33% from 2026.
+- **Penalties**: Up to 15% of undeclared value for not monitoring foreign assets in Italy.
+- **Border crossings**: Over 200,000 daily crossings between Italy and Switzerland.
+- **Tax return deadline**: End of November (730 form) or end of June (Redditi PF form) in Italy.
+
+📊 The 10th Swiss-Italy Congress, organized by Studio Giallo at the Ville Ponti in Varese, brought together experts, businesses, and cross-border workers to tackle the challenges of employment and investments across borders. Key topics included taxation, cryptocurrencies, and the mobility of assets between Italy and Ticino.
+
+### Growing tourism between Lombardy and the Canton of Ticino
+Mauro Vitiello, President of the Varese Chamber of Commerce, opened the event by presenting 2025 data: 1.7 million tourist arrivals and 3.2 million overnight stays, both up by 10% compared to 2024. The Varese Welcome Foundation, involving over 30 municipalities, aims to coordinate territorial promotion with initiatives such as the **Lakes Cycle Path**, designed for both tourism and daily mobility. The project strengthens ties with Ticino, where daily cross-border connections are becoming increasingly frequent.
+
+Vitiello also highlighted a shift in residency choices: 'We have received requests from citizens working in Switzerland who want to relocate to Italy due to rising living costs.' This trend is reshaping the balance between the two countries, historically linked by strong labor interconnections.
+
+### Focus on cross-border taxation and assets
+The heart of the conference focused on tax obligations for those holding assets abroad. Salvatore Giallo, an international taxation expert, reminded attendees that Italian regulations require financial monitoring in the RW framework for foreign assets, with penalties up to 15% of the undeclared value. 'Monitoring costs little, but not doing so can cost dearly,' Giallo warned, citing automatic information exchanges between states that make it increasingly difficult to hide undeclared assets.
+
+Particular attention was given to safety deposit boxes, often considered opaque but which, according to Giallo, 'are increasingly traceable thanks to targeted controls.' Capital gains on foreign real estate are also subject to reporting obligations, with taxation varying according to local regulations.
+
+### Cryptocurrencies: stricter rules in Italy and Switzerland
+Andrea Puzone and Pietro Soldati analyzed cryptocurrency taxation in Italy and Switzerland. In Italy, from 2026, the capital gains tax rate on many cryptocurrencies has risen to 33%, up from the previous 26%. Financial monitoring is also mandatory, with penalties up to 15% for omitted declarations. From September 2027, the OECD’s Common Reporting Standard (CRS) will come into force, increasing the traceability of international transactions.
+
+In Switzerland, private capital gains remain tax-exempt only if the activity is not considered professional. This is a competitive advantage for cross-border workers investing in cryptocurrencies, but it requires careful attention to local regulations to avoid disputes.
+
+### Controls and borders: the challenge for the Guardia di Finanza
+Francesca Bertone, Lieutenant Colonel of the Guardia di Finanza, outlined control activities on the Italian-Swiss border, one of Europe’s most dynamic with over 200,000 daily crossings. Bertone stressed that 'tax fraud does not respect borders,' and collaboration between Italy and Switzerland is crucial to combating evasion. Key issues include cracking down on currency smuggling and suspicious capital movements, particularly near crossings like Brogeda and Ponte Chiasso.
+
+### Real estate investments: what changes for cross-border workers
+Another central topic was cross-border property purchases. Experts highlighted how Italian regulations impose an obligation to declare foreign real estate, with taxation both in Italy and in the country of residence. In Switzerland, taxation depends on the canton and type of property, with rates varying significantly between Ticino and other regions.
+
+The complexity of regulations and the need to avoid double taxation have led many cross-border workers to seek specialized advice, especially for purchase-sale transactions or inheritance matters.`,"blog.article.congresso-varese-2026-fisco-lavoro-ticino.body2":`[object Object]
+
+[object Object]
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).`,"blog.article.congresso-varese-2026-fisco-lavoro-ticino.body3":`[object Object]
+
+#### 4. Changing your tax residence: what to do if you move to Italy
+If you're considering relocating to Italy to reduce your cost of living, follow these steps:
+
+Before the move:
+1. Notify the Ticino municipality of your departure and the Italian Revenue Agency (Agenzia delle Entrate).
+2. Declare your foreign assets in the Italian tax return (730/Redditi PF) by the deadline.
+3. Check local taxes in Ticino: some taxes (such as the wealth tax) may still apply until the day of your move.
+
+After the move:
+1. Update your details with the Italian Revenue Agency and the Italian National Institute for Social Security (INPS).
+2. Verify the taxation of income earned in Switzerland: in Italy, foreign income is taxed according to Italian rates, with a possible tax credit for taxes already paid in Ticino.
+3. Check for repatriation benefits (e.g., the repatriation tax relief if you return after at least 2 years of living abroad).
+
+⚠️ Important: If you maintain your tax residence in Switzerland but work in Ticino, you may be subject to taxation in both Italy and Switzerland. Check the Double Taxation Agreement between the two countries.
+
+#### 5. Where to find help and useful tools
+- Accountants and tax advisors: Consult professionals specializing in international taxation, especially for complex assets or cryptocurrency investments.
+- Italian Revenue Agency: On their website [agenziaentrate.gov.it](https://www.agenziaentrate.gov.it), you’ll find guides and tax return forms.
+- SUPSI/USI: The Università della Svizzera Italiana offers courses and seminars on taxation and cross-border work.
+- Guardia di Finanza: To report anomalies or clarify tax audit procedures, contact their local offices in Lombardy.
+
+📌 Key deadlines to remember:
+- Italian tax return: End of November (730 form) or end of June (Redditi PF form).
+- RW section: Mandatory completion by the tax return deadline.
+- CARF Protocol: From September 2027, greater transparency for international transactions.
+
+### Final call to action: act now to avoid surprises
+Don’t wait until the last moment: the complexity of cross-border tax regulations requires time to manage properly. Whether you're a cross-border worker with assets in Switzerland, a cryptocurrency investor, or a citizen considering a move to Italy, the most common mistake is underestimating tax obligations.
+
+💡 What to do today:
+1. Conduct a tax health check of your assets and foreign investments.
+2. Consult an accountant to verify your tax position.
+3. Use Frontaliere Ticino tools to calculate taxes and simulate scenarios:
+   - [Tax return calculator for cross-border workers](nav:tax-return)
+   - [Cost of living comparison: Ticino vs Italy](nav:cost-of-living)
+   - [Guide to residence permits for cross-border workers](nav:permit-compare)
+
+Don’t risk penalties or audits: tax evasion doesn’t pay, but proper planning does.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/04/al-congresso-svizzera-italia-a-varese-focus-su-fisco-lavoro-e-investimenti-oltre-confine/2549716/)*`,"blog.article.congresso-varese-2026-fisco-lavoro-ticino.faq":'[{"q":"What are the tax obligations in Italy for a cross-border worker who holds a bank account in Switzerland?","a":"You must declare the bank account in the Italian tax return’s **RW section** (Quadro RW), regardless of the amount deposited. Failure to do so may result in penalties of up to 15% of the undeclared value. Additionally, if the average balance exceeds CHF 10,000 per year, you must also complete the **tax monitoring section** of the RW framework."},{"q":"How are capital gains from cryptocurrencies taxed in Ticino?","a":"In Switzerland, private capital gains from cryptocurrencies are **tax-exempt** as long as the activity is not considered professional. For example, if you bought cryptocurrencies and sold them months later at a profit, you won’t owe taxes in Ticino. However, if transactions are frequent or involve large amounts, they may be classified as a business activity and become taxable."},{"q":"Do I need to declare my house in Lugano in Italy as well?","a":"Yes. If you own property in Ticino, you must declare it in the **RW section** of the Italian tax return (Modello 730 or Redditi PF), paying the **IVIE** (Imposta sul valore degli immobili all’estero) at a rate of 0.4% of the cadastral or market value. If you rent out the property, the rental income must also be declared in Italy as income from real estate."},{"q":"What are the risks if I fail to declare foreign assets in Italy?","a":"Penalties can reach up to **15% of the undeclared value**, plus late-payment interest. Additionally, the Italian tax police (Guardia di Finanza) may conduct targeted checks, particularly near border crossings like Ponte Chiasso or Brogeda, where collaboration between Italy and Switzerland is strong. From 2027, the **CARF protocol** will make it even harder to hide undeclared assets."},{"q":"What are the deadlines for filing Italian income tax returns in 2026?","a":"For the Modello 730, the deadline is **late November 2026**. For the Redditi PF model (individual tax return), the deadline is **late June 2026**. If you are a self-employed taxpayer or have complex income, you may need to file the Redditi PF by June."}]'};export{e as default};

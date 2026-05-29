@@ -1,0 +1,35 @@
+const e={"blog.article.comuni-frontalieri-distanza.body1":`## En bref
+- Frontaliers italiens en Suisse : distance cruciale pour avantages fiscaux
+- Nouvel accord fiscal 2023 crée deux catégories de frontaliers
+- Misinto obtient statut frontalier mais sans rétroactivité des avantages
+
+## Faits clés
+- **Distance critique**: 20 kilomètres à vol d'oiseau de la frontière suisse
+- **Nouvel accord fiscal**: Entré en vigueur le 17 juillet 2023
+- **Ancien frontaliers**: Paient des impôts exclusivement en Suisse
+- **Nouveaux frontaliers**: Soumis à une double imposition Italie-Suisse
+- **Misinto**: Obtient statut frontalier en 2023 mais sans rétroactivité
+- **Communes frontalières**: 72 nouvelles Communes ajoutées en 2023
+- **Critères initiaux**: Basés sur des listes unilatérales des années 70
+- **Impact fiscal**: Double imposition pour les nouveaux frontaliers
+
+Partir chaque matin de la Lombardie pour rejoindre son lieu de travail au Tessin est la routine quotidienne de milliers de frontaliers. Mais que se passe-t-il lorsque votre Commune de résidence n'est pas officiellement reconnue comme 'frontalière' ? L'affaire de Misinto, petit village de la Brianza situé à seulement 17 kilomètres de la frontière suisse, a mis en lumière comment une 'poignée de mètres' peut entraîner une différence économique significative pour les travailleurs transfrontaliers.
+
+Ces dernières années, la question de la définition de 'Commune frontalière' est revenue au centre des discussions, notamment avec l'introduction du nouvel accord fiscal italo-suisse entré en vigueur le 17 juillet 2023. Cet accord a créé deux catégories de travailleurs : les 'anciens frontaliers', qui paient des impôts exclusivement en Suisse, et les 'nouveaux frontaliers', soumis à une double imposition en Italie et en Suisse. La distinction n'est cependant pas seulement temporelle mais aussi géographique : les résidents de Communes situées à moins de 20 kilomètres de la frontière ont droit à des avantages fiscaux spécifiques. Pendant des années, il n'était pas clair comment définir exactement les Communes frontalières.
+
+La bataille de Misinto est emblématique : en 2022, un citoyen a découvert que, bien qu'il vive à 17 kilomètres de la frontière, sa femme n'avait jamais bénéficié des ristournes fiscales prévues pour les frontaliers. L'intervention du maire Matteo Piuri a permis au petit Commune d'être inclus dans la liste officielle seulement en 2023, mais avec une amère surprise : les travailleurs continuent d'être considérés comme 'nouveaux frontaliers', sans rétroactivité pour les avantages perdus au cours des années précédentes.`,"blog.article.comuni-frontalieri-distanza.body2":`## La réglementation et les critères de distance
+
+L'origine du problème remonte aux années 70, lorsque l'accord fiscal transfrontalier de 1974 a été rédigé. À l'époque, les Cantons suisses ont élaboré des listes 'unilatérales' de Communes frontalières, basées sur des critères souvent peu transparents et parfois issus d'anciennes conventions sur la pastorale. Ce n'est qu'en 2017 que l'Agence des Revenus italienne a établi le paramètre des 20 kilomètres à vol d'oiseau pour définir les Communes frontalières, mais sans aucune rétroactivité. Cela a conduit à des situations paradoxales, avec des travailleurs frontaliers qui, bien qu'habitant à quelques pas de la ligne de frontière, n'ont pas pu bénéficier des allègements fiscaux prévus.
+
+Le nouvel accord de 2023 a enfin fixé des règles plus claires, incluant 72 nouvelles Communes dans la liste officielle des Communes frontalières. Cependant, les travailleurs résidant dans ces Communes sont considérés comme 'nouveaux frontaliers', indépendamment de leur ancienneté dans le travail en Suisse. Cela signifie qu'en plus du régime fiscal suisse, ils doivent également se soumettre au régime fiscal italien, ce qui a un impact important sur leur revenu net.
+
+La question a suscité des critiques de la part des syndicats, qui ont vainement demandé l'application de la rétroactivité pour garantir l'équité. Andrea Puglia de l'OCST a déclaré qu'il 'y a eu une énorme confusion dans la mise en œuvre de cet accord, qui pénalise des travailleurs qui contribuent à l'économie tessinoise depuis des années.'
+
+## Outils utiles pour votre cas
+Pour vérifier votre scénario fiscal dans/hors des 20 km, utilisez le [calculateur de salaire net](nav:calculator) et le [guide déclaration fiscale](nav:tax-return).`,"blog.article.comuni-frontalieri-distanza.body3":`## Que faire si votre Commune a été récemment ajoutée à la liste ?
+
+Si votre Commune fait partie des 72 nouvelles reconnues comme 'frontalières', il est important de vérifier immédiatement votre statut fiscal. Même si vous ne pouvez pas bénéficier de la rétroactivité, vous pouvez optimiser votre situation fiscale actuelle pour minimiser l'impact de la double imposition. Consultez un expert fiscal pour évaluer si vous avez droit à des déductions ou des allègements et pour comprendre comment déclarer correctement vos revenus en Italie et en Suisse.
+
+💡 Si vous n'êtes pas sûr que votre Commune figure dans la liste mise à jour, utilisez notre outil [Carte interactive des Communes frontalières](nav:border-map) pour découvrir avec précision votre situation fiscale. Vous pouvez également utiliser le [Calculateur de salaire net](nav:calculator) pour estimer l'impact du nouvel accord sur votre revenu net.
+
+L'affaire de Misinto démontre combien il est important de rester informé sur les réglementations fiscales et sur ses droits en tant que frontalier. Ne laissez pas l'incertitude réglementaire compromettre vos gains : informez-vous, agissez et utilisez les outils à votre disposition. Source : tvsvizzera.it, 28 février 2026.`,"blog.article.comuni-frontalieri-distanza.faq":`[{"q":"Quelle est la distance minimale à considérer comme un travailleur transfrontalier?","a":"Selon l'Agence italienne du Revenu, pour être considéré comme un travailleur transfrontalier, il est nécessaire de résider dans une commune de moins de 20 kilomètres en ligne d'air depuis la frontière suisse."},{"q":"Quel est l'impact fiscal pour les «nouveaux frontaliers» résidant dans les municipalités frontalières récemment ajouté à la liste?","a":"Les «nouveaux frontaliers» sont soumis à une double imposition (Italie et Suisse), sans rétroactivité pour les prestations perdues. Ils doivent gérer les deux régimes fiscaux, avec une incidence sur le revenu net."},{"q":"Comment puis-je vérifier si ma municipalité de résidence a récemment été reconnue comme municipalité frontalière?","a":"Vous pouvez consulter la carte interactive des municipalités frontalières disponible en ligne ou consulter l'Agence italienne du revenu, qui a mis à jour les listes officielles avec les nouvelles municipalités reconnues en 2023."}]`};export{e as default};

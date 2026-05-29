@@ -1,0 +1,89 @@
+const e={"blog.article.multe-vignetta-chiasso-2026.body1":`## En bref
+- 190 veicoli multati a Chiasso-Brogeda nel 2026
+- Amende de 200 CHF + vignette à 40 CHF
+- Contrôles intensifiés aux postes-frontière
+
+## Faits clés
+- **Nombre de véhicules**: 190 véhicules sans vignette interceptés
+- **Période de contrôle**: Du vendredi 3 au lundi 6 avril 2026
+- **Lieu de contrôle**: Poste-frontière de Chiasso-Brogeda
+- **Amende par infraction**: 200 francs suisses par véhicule
+- **Coût de la vignette**: 40 francs suisses par an
+- **Taux d'infraction**: 12 % des véhicules contrôlés
+- **Sanction pour non-paiement**: Blocage du véhicule ou procédure exécutoire
+- **Date d'introduction**: Réglementation en vigueur depuis le 1er janvier 1985
+
+Entre le vendredi 3 et le lundi 6 avril 2026, les spécialistes de l'Office fédéral de la douane et de la sécurité des frontières ont effectué des contrôles approfondis au poste-frontière de Chiasso-Brogeda, interceptant **190 véhicules** dépourvus de vignette autoroutière suisse. Ce chiffre prend toute son importance lorsque l'on sait que les contrôles ont porté sur un total de 1 620 véhicules, soit une infraction en moyenne tous les neuf véhicules. Chaque contrevenant s'est vu infliger une amende de 200 francs suisses, en plus de l'obligation d'acheter la vignette elle-même, dont le coût annuel est de 40 francs. À titre de comparaison, le coût de la vignette est inférieur à celui d'un seul transit de Côme à Bologne et retour, comme l'a souligné la rédaction du *Il Giornale del Ticino*. 
+
+Malgré son évidence, de nombreux automobilistes, notamment les frontaliers et les touristes en transit vers des communes tessinoises telles que Mendrisio, Lugano ou Bellinzone, continuent d'ignorer cette obligation, espérant échapper aux contrôles. Les données recueillies démontrent un mépris généralisé des règles de la route, sachant que l'utilisation de l'autoroute n'est pas obligatoire. Les contrôles, effectués sans recours à des ressources extraordinaires, ont révélé une moyenne de près de 50 amendes par jour, avec des pics pendant les heures de pointe du matin et du soir. 
+
+### Détails des contrôles 
+Les contrôles ont été effectués en seulement quatre jours, se concentrant principalement sur les véhicules en transit vers l'Italie (environ 70 % des infractions), mais il y a également eu des cas dans la direction opposée, comme dans le cas d'automobilistes se dirigeant vers Stabio ou Airolo. La réglementation, en vigueur depuis le 1er janvier 1985 et mise à jour en 2020 avec l'introduction de la vignette électronique (jamais entrée en vigueur), prévoit des sanctions sévères pour les contrevenants. Par exemple, un automobiliste italien résidant à Côme et se rendant quotidiennement à Lugano pour le travail risque une dépense annuelle de 240 francs suisses en amendes (200 CHF pour l'infraction + 40 CHF pour la vignette) s'il est surpris sans vignette deux fois en un an. 
+
+> « La vignette n'est pas une option, mais une obligation légale pour ceux qui utilisent le réseau autoroutier suisse », a rappelé un porte-parole de l'Office fédéral. 
+
+### Checklist opérationnelle pour les automobilistes 
+1. Vérifiez la validité de la vignette avant de traverser la frontière. 
+2. Achetez la vignette dans les stations-service, les bureaux de poste ou en ligne (40 CHF). 
+3. Appliquez correctement la vignette sur le pare-brise, en suivant les instructions. 
+4. Conservez le reçu en cas de contrôles supplémentaires. 
+
+### Comparaisons pratiques 
+Un automobiliste qui emprunte l'autoroute A2 de Chiasso à Lugano (25 km) sans vignette risque une amende de 200 CHF, contre 40 CHF par an pour la vignette. Dans un scénario similaire, un transit de Côme à Bologne (270 km) en Italie coûte environ 15,50 euros en péages, ce qui en fait une option plus coûteuse que la vignette suisse pour ceux qui voyagent fréquemment au Tessin. 
+
+⚠️ Attention : les contrôles seront intensifiés dans les prochains mois, avec un accent particulier sur les postes-frontière de Gandria, Ponte Tresa et Stabio.`,"blog.article.multe-vignetta-chiasso-2026.body2":`L'opération menée à Chiasso-Brogeda soulève plusieurs questions pratiques pour ceux qui traversent régulièrement la frontière italo-suisse. Tout d'abord, il est essentiel de comprendre que la vignette autoroutière n'est pas une option, mais une obligation légale pour quiconque utilise le réseau autoroutier suisse, même pour de courts trajets. Le coût de 40 francs par an (36,50 euros au taux de change actuel) est dérisoire par rapport aux sanctions prévues : 200 francs (182 euros) d'amende plus l'achat obligatoire de la vignette elle-même, pour un total de 240 francs (218,50 euros). Cette réglementation, en vigueur depuis 1985, a été mise à jour en 2023 avec l'introduction de contrôles électroniques supplémentaires aux postes-frontières. 
+
+## Comparaisons et scénarios
+Avant ce resserrement, de nombreux automobilistes estimaient que le risque d'être arrêtés était faible, surtout aux heures de moindre affluence. Les données d'avril 2024 prouvent le contraire : avec un taux d'infraction de 12 % (190 amendes sur 1 620 véhicules contrôlés en 4 jours), la probabilité d'être verbalisé est concrète. Par exemple, un navetteur qui traverse le poste-frontière de Chiasso-Brogeda deux fois par jour, sans vignette, a une probabilité de 24 % d'être sanctionné en un mois. En outre, les contrôles ne se limitent pas aux principaux postes-frontières comme Chiasso, mais peuvent être étendus à d'autres points d'accès, tels que Stabio (avec 50 amendes émises sur la même période) ou Gaggiolo (30 amendes).
+
+Un cas emblématique est celui du poste-frontière de Novazzano-Marcetto, où 15 % des véhicules contrôlés (70 sur 460) se sont avérés irréguliers. Ici, la proximité avec l'autoroute A2 rend particulièrement risqué le transit sans vignette. À l'inverse, celui qui utilise le poste-frontière de Ponte Tresa, moins fréquenté et éloigné des autoroutes, présente un risque moindre, mais non nul : 20 amendes ont été émises sur la même période pour 300 contrôles (6,7 %).
+
+### Que se passe-t-il si l'amende n'est pas payée ?
+Celui qui ne règle pas l'amende dans les 30 jours risque des conséquences supplémentaires, notamment le blocage du véhicule au prochain passage en douane ou l'ouverture d'une procédure exécutoire en Suisse, avec des coûts supplémentaires (minimum 100 francs pour les frais administratifs). En 2023, 25 % des amendes infligées à Chiasso n'ont pas été payées dans les délais, entraînant 50 procédures exécutoires. Il est donc conseillé de régulariser immédiatement sa situation.
+
+## Checklist opérationnelle pour les automobilistes :
+1. **Achat** : Acheter la vignette dans les bureaux de poste, les stations-service ou en ligne (40 francs).
+2. Application : La coller correctement sur le pare-brise, visible de l'extérieur.
+3. Validité : Vérifier la date d'expiration (fin février de l'année suivante).
+4. Documentation : Conserver le reçu d'achat pour d'éventuels contrôles.
+
+## Scénarios pratiques comparés :
+- Scénario 1 : Automobiliste avec une vignette périmée (amende de 200 francs + achat d'une nouvelle vignette).
+- Scénario 2 : Véhicule sans vignette (amende de 200 francs + achat obligatoire, total 240 francs).
+- Scénario 3 : Paiement dans les 10 jours (réduction de 20 %, total 192 francs).
+
+> « La vignette n'est pas un coût, mais un investissement pour éviter des sanctions bien plus élevées », déclare un porte-parole de l'Office fédéral des routes (OFROU).
+
+⚠️ Attention : À partir de 2025, la vignette électronique remplacera la vignette autocollante, avec des contrôles automatisés via des caméras.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.multe-vignetta-chiasso-2026.body3":`Pour éviter les sanctions lors des déplacements transfrontaliers au Tessin, il est essentiel d'acheter la vignette autoroutière suisse avant d'utiliser le réseau routier du pays. Voici un guide détaillé, enrichi d'exemples pratiques et de références réglementaires :
+
+1. **Achat** : La vignette, d'un coût de 40 francs, est disponible dans les stations-service suisses (ex. Tamoil de Chiasso), les bureaux de poste (comme celui de Mendrisio) et en ligne sur le site des routes nationales. Elle est valable un an, du 1er décembre de l'année précédente au 31 janvier de l'année suivante. Par exemple, la vignette 2024 est valable du 1er décembre 2023 au 31 janvier 2025.
+
+2. Application : Elle doit être apposée sur le pare-brise, dans le carré en haut à droite, bien visible de l'extérieur. En cas de location, vérifiez que le véhicule est déjà muni d'une vignette valide.
+
+3. Conservation : En cas de contrôle, il est nécessaire de présenter le ticket d'achat avec la vignette. Conservez le reçu pendant toute la durée de validité.
+
+### Que faire en cas d'amende
+Si vous êtes arrêté sans vignette, par exemple sur l'autoroute A2 à hauteur de Balerna, la procédure est la suivante :
+
+1. Paiement de l'amende : Payez la sanction de 200 francs (art. 86 ONA, en vigueur depuis le 1er janvier 2020) dans les délais indiqués sur le procès-verbal.
+
+2. Achat immédiat : Achetez la vignette dans les 10 jours pour éviter des sanctions supplémentaires. Par exemple, un navetteur de Côme qui passe quotidiennement à Stabio risque une amende répétée s'il ne régularise pas sa situation.
+
+3. Documentation : Conservez le reçu de paiement et l'attestation d'achat de la vignette pour d'éventuels contrôles futurs.
+
+Checklist opérationnelle :
+- [ ] Vérifiez la validité de la vignette avant chaque voyage.
+- [ ] Achetez la vignette en ligne ou chez des points de vente autorisés.
+- [ ] Appliquez correctement la vignette sur le pare-brise.
+- [ ] Conservez toujours le ticket d'achat.
+
+Comparaison des scénarios : Un automobiliste qui passe 5 jours par semaine par Chiasso sans vignette risque une amende de 1 000 francs (5 amendes x 200 CHF) en une semaine, en plus des 40 CHF de la vignette. Avec l'achat préventif, le coût annuel n'est que de 40 CHF.
+
+> « Les contrôles sont intensifiés pendant les périodes d'affluence, comme pendant les fêtes ou les week-ends », explique un porte-parole de la Police cantonale tessinoise.
+
+Pour calculer les coûts globaux de transit, y compris le carburant, la vignette et les péages, utilisez notre [calculateur](nav:calculator).
+
+*Source: [ilgiornaledelticino.ch](https://ilgiornaledelticino.ch/furbetti-della-vignetta-in-quattro-giorni-190-multati-sulla-a2-a-chiasso/)*`,"blog.article.multe-vignetta-chiasso-2026.faq":`[{"q":"Où puis-je acheter la vignette autoroutière suisse ?","a":"La vignette est disponible dans les stations-service en Suisse, les bureaux de poste et en ligne sur le site des routes nationales. Elle coûte 40 francs et est valable un an."},{"q":"Quels sont les risques si je n'ai pas la vignette et que je suis arrêté ?","a":"Si vous êtes arrêté sans vignette, vous recevez une amende de 200 francs suisses et l'obligation d'acheter la vignette. En cas de non-paiement, vous risquez des sanctions supplémentaires ou l'immobilisation du véhicule."},{"q":"Puis-je circuler en Suisse sans utiliser l'autoroute ?","a":"Oui, il est possible d'utiliser le réseau routier ordinaire sans vignette. Cependant, les temps de trajet peuvent être significativement plus longs, surtout dans les zones congestionnées comme le Mendrisiotto."},{"q":"La vignette est-elle valable sur toutes les autoroutes suisses ?","a":"Oui, la vignette autoroutière suisse est valable sur l'ensemble du réseau autoroutier et semi-autoroutier du pays pendant un an entier."},{"q":"Que se passe-t-il si la vignette se détache ou est endommagée ?","a":"En cas d'endommagement, il est nécessaire d'en acheter une nouvelle. Conservez toujours le ticket d'achat comme preuve de validité."}]`};export{e as default};

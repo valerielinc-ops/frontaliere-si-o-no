@@ -1,0 +1,67 @@
+const i={"blog.article.lugano-cultura-digitale-2024.body1":`## In breve
+- Nuova piattaforma digitale per cultura a Lugano
+- Sezione dedicata agli operatori culturali
+- Progetti interdisciplinari tra cultura e salute
+
+## Fatti chiave
+- **Cosa**: Nuovo portale digitale Lugano Cultura
+- Quando: Lancio immediato (data non specificata)
+- Dove: Lugano, Canton Ticino
+- Chi: Città di Lugano, Divisione Cultura
+- Importo: Non specificato
+- Cosa offre: Vetrina per operatori culturali, informazioni su finanziamenti e spazi
+- Progetti in evidenza: Area Cultura e Salute
+- Obiettivo: Sostenere il tessuto culturale locale
+- Link: [luganocultura.ch](https://www.luganocultura.ch)
+
+La Città di Lugano ha lanciato un nuovo portale digitale che unisce tutte le attività culturali promosse dal comune in un unico spazio. Il sito luganocultura.ch è stato completamente rinnovato per offrire una visione completa delle iniziative culturali locali, con una particolare attenzione agli operatori del settore. La nuova piattaforma include una sezione dedicata agli operatori culturali, sia professionisti che non professionisti, che operano nel territorio.
+
+### Servizi accessibili
+La nuova piattaforma è stata progettata per rendere più accessibili i servizi culturali offerti dalla Divisione Cultura della Città di Lugano. Oltre alle sezioni già esistenti dedicate al patrimonio storico, artistico e immateriale della città, sono state aggiunte nuove pagine concepite per sostenere e far conoscere gli operatori culturali attivi sul territorio.
+
+### Sviluppo culturale
+Una delle novità più importanti è la nuova sezione Sviluppo culturale, che si configura come uno strumento al servizio delle industrie culturali locali. Questa sezione non solo promuove la visibilità degli operatori, ma raccoglie anche informazioni utili su opportunità di finanziamento, disponibilità di spazi e risorse a sostegno delle loro attività.
+
+### Vetrina per operatori
+La nuova area dedicata agli operatori culturali permette di conoscere chi opera in città grazie a una vetrina che valorizza le associazioni e i singoli operatori. La sezione è in continua evoluzione e sarà perfezionata anche sulla base delle segnalazioni inviate all'e-mail [email protected].
+
+### Progetti interdisciplinari
+Tra i progetti in evidenza figura anche l'area Cultura e Salute, rivista per l'occasione. Questa sezione valorizza gli esiti della collaborazione avviata nel 2020 tra la Divisione cultura e la Fondazione IBSA, che oggi coinvolge diversi enti del territorio come USI, Pro-Senectute, LAC, MASI, SUPSI. L'obiettivo è sviluppare progetti interdisciplinari capaci di mettere in relazione pratiche artistiche e culturali con i benefici che possono portare alla salute psico-fisica delle persone.
+
+### Obiettivi del nuovo portale
+Roberto Badaracco, vicesindaco e capodicastero Cultura sport ed eventi, ha commentato: «Il nuovo portale nasce come uno strumento concreto a sostegno degli operatori, facilitando l'accesso alle informazioni, alle opportunità e alle risorse disponibili, e promuovendo condizioni sempre più favorevoli alla crescita e alla sostenibilità del tessuto culturale locale, anche nell'ottica della candidatura di Lugano con Locarno e Mendrisio a Capitale Culturale Svizzera 2030».`,"blog.article.lugano-cultura-digitale-2024.body2":`La nuova piattaforma digitale di Lugano Cultura rappresenta un passo significativo verso la modernizzazione e l'accessibilità dei servizi culturali offerti dalla Città di Lugano. Per i frontalieri che risiedono nel Canton Ticino, questa iniziativa offre nuove opportunità di partecipazione e coinvolgimento nella vita culturale locale.
+
+### Implicazioni per i frontalieri
+I frontalieri che lavorano in Svizzera e risiedono in Italia possono trovare nella nuova piattaforma un punto di riferimento per scoprire eventi culturali, mostre, conferenze e progetti interdisciplinari. La sezione dedicata agli operatori culturali può essere particolarmente utile per chi desidera collaborare con associazioni locali o partecipare a progetti culturali.
+
+### Confronto con la situazione precedente
+Prima del lancio del nuovo portale, le informazioni sulle attività culturali promosse dalla Città di Lugano erano disperse su diverse piattaforme e siti web. La nuova piattaforma unifica tutte queste informazioni in un unico spazio, rendendo più facile per i cittadini e i visitatori accedere a novità e approfondimenti.
+
+### Scenari pratici
+Immaginiamo un frontaliere che desidera partecipare a un evento culturale a Lugano. Grazie alla nuova piattaforma, può facilmente trovare informazioni sugli eventi in programma, prenotare biglietti e scoprire nuove iniziative culturali. Inoltre, la sezione dedicata agli operatori culturali può essere un punto di partenza per chi desidera avviare una collaborazione o partecipare a progetti culturali.
+
+### Opportunità di finanziamento
+La nuova sezione Sviluppo culturale non solo promuove la visibilità degli operatori, ma raccoglie anche informazioni utili su opportunità di finanziamento. Questo può essere particolarmente utile per i frontalieri che desiderano avviare un'attività culturale o partecipare a progetti culturali, offrendo loro accesso a risorse e finanziamenti.
+
+### Progetti interdisciplinari
+I progetti interdisciplinari, come l'area Cultura e Salute, offrono nuove opportunità di collaborazione tra diversi enti e istituzioni. I frontalieri possono partecipare a questi progetti, contribuendo alla crescita e alla sostenibilità del tessuto culturale locale.
+
+### Candidatura a Capitale Culturale Svizzera 2030
+La nuova piattaforma è anche un passo importante nell'ottica della candidatura di Lugano con Locarno e Mendrisio a Capitale Culturale Svizzera 2030. Questo può offrire nuove opportunità di sviluppo e crescita per la comunità culturale locale, coinvolgendo anche i frontalieri che risiedono nel Canton Ticino.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.lugano-cultura-digitale-2024.body3":`Per i frontalieri che desiderano partecipare alla vita culturale di Lugano, la nuova piattaforma digitale offre numerose opportunità. Ecco alcuni passi concreti che possono seguire:
+
+1. **Esplorare la piattaforma**: Visitare il sito [luganocultura.ch](https://www.luganocultura.ch) per scoprire le attività culturali promosse dalla Città di Lugano.
+2. Scoprire gli eventi: Navigare tra le diverse sezioni per trovare informazioni su eventi, mostre, conferenze e progetti interdisciplinari.
+3. Partecipare a progetti: Utilizzare la sezione Sviluppo culturale per trovare opportunità di finanziamento e collaborazioni.
+4. Contattare gli operatori: Utilizzare la vetrina degli operatori culturali per contattare associazioni e singoli operatori.
+5. Segnalare iniziative: Inviare segnalazioni e suggerimenti all'e-mail [email protected] per contribuire alla crescita della piattaforma.
+
+### Strumenti utili
+Per approfondire ulteriormente, i frontalieri possono utilizzare il [calcolatore stipendio](nav:calculator) per confrontare le opportunità di lavoro e i benefici culturali offerti dalla nuova piattaforma. Inoltre, possono esplorare le guide e i consigli disponibili sul sito per scoprire come partecipare attivamente alla vita culturale di Lugano.
+
+### Conclusione
+La nuova piattaforma digitale di Lugano Cultura rappresenta un'opportunità unica per i frontalieri di partecipare e contribuire alla vita culturale del Canton Ticino. Con la sua sezione dedicata agli operatori culturali, le opportunità di finanziamento e i progetti interdisciplinari, la piattaforma offre un punto di riferimento per chi desidera scoprire e partecipare alle attività culturali locali. Per ulteriori informazioni e per esplorare le opportunità offerte, visita il sito [luganocultura.ch](https://www.luganocultura.ch).
+
+*Fonte: [ticinonews.ch](https://www.ticinonews.ch/ticino/lugano-cultura-si-rinnova-arriva-uno-spazio-digitale-unico-432403)*`,"blog.article.lugano-cultura-digitale-2024.faq":'[{"q":"Come posso partecipare agli eventi culturali promossi dalla Città di Lugano?","a":"Puoi visitare il sito luganocultura.ch per scoprire gli eventi in programma e prenotare biglietti. La piattaforma offre informazioni dettagliate su mostre, conferenze e progetti interdisciplinari."},{"q":"Come posso trovare opportunità di finanziamento per progetti culturali?","a":"La sezione Sviluppo culturale del nuovo portale raccoglie informazioni utili su opportunità di finanziamento, disponibilità di spazi e risorse a sostegno delle attività culturali. Puoi esplorare questa sezione per trovare le risorse di cui hai bisogno."},{"q":"Come posso contattare gli operatori culturali attivi a Lugano?","a":"La nuova piattaforma include una vetrina dedicata agli operatori culturali, sia professionisti che non professionisti. Puoi utilizzare questa sezione per scoprire chi opera in città e contattare le associazioni e i singoli operatori."}]'};export{i as default};

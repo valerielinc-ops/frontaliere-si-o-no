@@ -1,0 +1,80 @@
+const e={"blog.article.deepfake-legge-svizzera-2026.body1":`## In breve
+- Deepfake pornografici creati con IA in Svizzera
+- Otto donne hanno sporto denuncia
+- Nessun reato specifico, ma norme su identità e onore
+
+## Fatti chiave
+- **Cosa**: Deepfake pornografici creati con intelligenza artificiale
+- Quando: Contenuti circolati per mesi su Telegram
+- Dove: Svizzera, con almeno 14 donne coinvolte
+- Chi: Otto donne hanno sporto denuncia
+- Importo: Non specificato
+
+La Svizzera non è immune al problema dei deepfake pornografici, contenuti creati con intelligenza artificiale che sovrappongono il volto di una persona reale a un altro corpo in immagini o video a sfondo sessuale. Secondo un’inchiesta del Tages-Anzeiger, per mesi su Telegram sono circolati deepfake di influencer svizzere. Sono coinvolte almeno 14 donne, di cui otto hanno sporto denuncia. Nei canali venivano anche scambiate istruzioni su come realizzare questi falsi sessuali in modo semplice e rapido.
+
+Per Angela Müller, di Algorithm Watch, il caso dimostra che i deepfake pornografici non sono un fenomeno marginale. “Il problema è più ampio di qualche episodio isolato”, afferma Müller. Sessismo e violenza sessualizzata online non sono certo una novità, ma l’IA agisce da moltiplicatore. L’organizzazione chiede quindi che le piattaforme di social media e i fornitori di strumenti di intelligenza artificiale vengano chiamati ad assumersi maggiori responsabilità.
+
+### Le leggi in Svizzera
+
+In Svizzera non esiste un reato penale specifico legato alla produzione e diffusione di deepfake pornografici. Il Consiglio federale ritiene però che il diritto vigente sia, in linea di principio, applicabile anche a questo tipo di contenuti. A seconda dei casi, possono entrare in gioco fattispecie già previste dal Codice penale, come l’usurpazione d’identità o i delitti contro l’onore. Anche la diffusione non autorizzata di contenuti intimi può avere rilevanza penale. “A mio avviso le norme esistenti coprono già diversi aspetti del problema” spiega Manuel Bertschi, avvocato specializzato in diritto della comunicazione. Fondamentale, sottolinea, è che la giustizia le applichi in modo coerente anche ai casi di deepfake pornografici.
+
+Un problema di applicazione
+
+Secondo Bertschi, il nodo centrale è l’applicazione del diritto. Le persone colpite, infatti, spesso non sanno chi si celi dietro gli account anonimi che diffondono questi contenuti. Per poter procedere penalmente è però necessario individuare una persona fisica o giuridica da perseguire. “Sostengo la necessità di introdurre per legge una responsabilità delle piattaforme” afferma l’avvocato. Attualmente, spiega, uno dei problemi principali è proprio il fatto che le piattaforme non rispondono giuridicamente della pubblicazione di deepfake. Angela Müller condivide questa posizione: a suo avviso, le piattaforme dovrebbero essere chiamate a rispondere quando sono a conoscenza di contenuti illegali ma non provvedono a rimuoverli.
+
+### Cosa fare contro i deepfake pornografici?
+
+La priorità è documentare i contenuti e segnalarli alle piattaforme per ottenerne la rimozione. Se l’autore è noto e l’obiettivo è far cancellare rapidamente il materiale, l’avvocato Bertschi consiglia di intraprendere un’azione in sede civile. In parallelo può essere presentata anche una denuncia penale, ad esempio per usurpazione d’identità o i delitti contro l’onore.
+
+Divieti in discussione
+
+Al Consiglio nazionale sono pendenti diverse mozioni che chiedono di vietare le cosiddette app di “nudificazione”. Si tratta di applicazioni che permettono di creare facilmente deepfake a partire da foto già esistenti di una persona. Il problema con i divieti delle applicazioni è che queste possono cambiare nome, indirizzo web o infrastruttura tecnica. Dopo il blocco di un sito o servizio, spesso se ne vede rapidamente comparire un altro simile.
+
+Un problema sociale
+
+Divieti e nuove leggi sono quindi solo una parte della soluzione, secondo Angela Müller, che non ritiene sufficiente una discussione limitata al diritto penale. Quando questi contenuti iniziano a circolare online, sottolinea, il danno è spesso già stato fatto. Servono dunque anche misure di prevenzione, punti di riferimento per le persone colpite e una maggiore responsabilità da parte delle piattaforme, il cui design e i cui algoritmi possono favorire la diffusione di contenuti problematici. I deepfake pornografici, conclude Müller, sono l’espressione di un problema sociale più ampio, che non può essere risolto soltanto con le leggi.`,"blog.article.deepfake-legge-svizzera-2026.body2":`### Implicazioni per i frontalieri
+
+I frontalieri che risiedono in Ticino e lavorano in Italia potrebbero essere particolarmente vulnerabili ai deepfake pornografici, dato il loro utilizzo frequente di piattaforme digitali e social media. La mancanza di una legge specifica in Svizzera potrebbe rendere più difficile la protezione delle vittime, soprattutto se gli autori dei deepfake operano da giurisdizioni diverse.
+
+### Confronto con la situazione precedente
+
+Prima dell’emergere dei deepfake pornografici, le vittime di revenge porn o di diffusione non autorizzata di contenuti intimi potevano fare affidamento su normative esistenti come l’usurpazione d’identità e i delitti contro l’onore. Tuttavia, la tecnologia dei deepfake ha reso più complessa l’applicazione di queste norme, poiché spesso è difficile identificare gli autori e provare l’intenzionalità del danno.
+
+### Scenari concreti
+
+Immaginiamo un frontaliere che risiede in Ticino e lavora in Italia. Se diventa vittima di un deepfake pornografico, potrebbe trovarsi di fronte a diverse sfide. Innanzitutto, dovrebbe documentare i contenuti e segnalarli alle piattaforme per ottenerne la rimozione. Se l’autore è noto, potrebbe intraprendere un’azione civile per far cancellare rapidamente il materiale. In parallelo, potrebbe presentare una denuncia penale per usurpazione d’identità o delitti contro l’onore.
+
+### Responsabilità delle piattaforme
+
+Un aspetto cruciale è la responsabilità delle piattaforme di social media. Attualmente, le piattaforme non rispondono giuridicamente della pubblicazione di deepfake, il che rende più difficile per le vittime ottenere giustizia. Angela Müller e Manuel Bertschi sostengono che le piattaforme dovrebbero essere chiamate a rispondere quando sono a conoscenza di contenuti illegali ma non provvedono a rimuoverli.
+
+### Misure di prevenzione
+
+Oltre alle leggi e alle azioni legali, sono necessarie misure di prevenzione. Le piattaforme potrebbero implementare algoritmi più efficaci per rilevare e rimuovere i deepfake pornografici. Inoltre, potrebbero essere creati punti di riferimento per le persone colpite, come centri di supporto psicologico e legale. Una maggiore consapevolezza del problema tra gli utenti potrebbe anche contribuire a prevenire la diffusione di questi contenuti.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.deepfake-legge-svizzera-2026.body3":`### Cosa fare se sei vittima di un deepfake pornografico
+
+Se sei vittima di un deepfake pornografico, la prima cosa da fare è documentare i contenuti. Fai screenshot o salva i video e segnalali alle piattaforme per ottenerne la rimozione. Se conosci l’autore, puoi intraprendere un’azione civile per far cancellare rapidamente il materiale. In parallelo, puoi presentare una denuncia penale per usurpazione d’identità o delitti contro l’onore.
+
+### Segnalare alle piattaforme
+
+Ogni piattaforma ha un proprio sistema di segnalazione. Ad esempio, su Facebook e Instagram, puoi segnalare contenuti inappropriati tramite il menu di opzioni del post o del profilo. Su Telegram, puoi segnalare un canale o un messaggio tramite il menu di opzioni del canale o del messaggio.
+
+### Denuncia penale
+
+Se decidi di presentare una denuncia penale, puoi rivolgerti alla polizia locale o a un avvocato specializzato in diritto della comunicazione. L’avvocato può aiutarti a raccogliere le prove e a presentare la denuncia. Ricorda che è importante agire rapidamente, poiché i contenuti potrebbero essere rimossi o modificati nel tempo.
+
+### Supporto psicologico
+
+Essere vittima di un deepfake pornografico può essere un’esperienza traumatica. È importante cercare supporto psicologico per affrontare l’ansia, la vergogna e la paura che possono derivare da questa situazione. Puoi rivolgerti a un terapista o a un centro di supporto specializzato.
+
+### Strumenti utili
+
+Per ulteriori informazioni e supporto, puoi visitare il sito di Algorithm Watch o contattare un avvocato specializzato in diritto della comunicazione. Inoltre, puoi utilizzare il [calcolatore di stipendio](nav:calculator) per confrontare i tuoi guadagni e pianificare le tue finanze.
+
+### Conclusione
+
+I deepfake pornografici sono un problema complesso che richiede un approccio multifaccettato. Oltre alle azioni legali, sono necessarie misure di prevenzione e una maggiore responsabilità da parte delle piattaforme. Se sei vittima di un deepfake pornografico, non esitare a cercare aiuto e supporto. Utilizza gli strumenti disponibili per documentare i contenuti, segnalarli alle piattaforme e presentare una denuncia penale se necessario.
+
+*Fonte: [rsi.ch](https://www.rsi.ch/s/3686991)*`,"blog.article.deepfake-legge-svizzera-2026.faq":'[{"q":"Cosa sono i deepfake pornografici?","a":"I deepfake pornografici sono contenuti creati con intelligenza artificiale che sovrappongono il volto di una persona reale a un altro corpo in immagini o video a sfondo sessuale. Questi contenuti possono essere diffusi online senza il consenso della persona coinvolta."},{"q":"Quali leggi in Svizzera si applicano ai deepfake pornografici?","a":"In Svizzera non esiste un reato penale specifico legato alla produzione e diffusione di deepfake pornografici. Tuttavia, il diritto vigente può essere applicato in casi particolari, come l’usurpazione d’identità o i delitti contro l’onore."},{"q":"Cosa fare se si è vittima di un deepfake pornografico?","a":"Se sei vittima di un deepfake pornografico, la prima cosa da fare è documentare i contenuti e segnalarli alle piattaforme per ottenerne la rimozione. Se conosci l’autore, puoi intraprendere un’azione civile per far cancellare rapidamente il materiale. In parallelo, puoi presentare una denuncia penale per usurpazione d’identità o delitti contro l’onore."}]'};export{e as default};

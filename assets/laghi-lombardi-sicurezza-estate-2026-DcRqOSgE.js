@@ -1,0 +1,114 @@
+const e={"blog.article.laghi-lombardi-sicurezza-estate-2026.body1":`## En bref
+- Un mort dans le Comasco et un jeune dans un état très grave à Desenzano
+- ANAB Lombardie : "Le lac n'est pas la mer"
+- Des comportements conscients sont nécessaires pour éviter les tragédies
+- Checklist opérationnelle pour la sécurité dans l'eau
+- Comparaison entre les lacs lombards et tessinois
+
+## Faits clés
+- **Quoi** : Tragédie sur les lacs lombards
+- Quand : Début de l'été 2026
+- Où : Comasco et Desenzano
+- Qui : ANAB Lombardie
+- Montant : Non spécifié
+- Réglementation : Loi régionale Lombardie n. 31/2015, ordonnances communales spécifiques
+
+Le début de la saison balnéaire sur les lacs lombards s'ouvre avec un bilan déjà dramatique. Un jeune a perdu la vie dans le Comasco, tandis qu'un autre, secouru à Desenzano, se trouve actuellement dans un état très grave, hospitalisé dans une structure hospitalière de Brescia. Une situation qui rappelle avec force l'attention sur le thème de la sécurité en milieu lacustre, trop souvent sous-estimée.
+
+A intervenir, l'ANAB Lombardie, l'Association Nationale des Assistants de Baignade, qui lance un message clair et direct : "Le lac n'est pas la mer et ne peut être abordé avec légèreté". Contrairement à la mer, en effet, le lac présente des caractéristiques qui peuvent mettre en difficulté même des personnes expérimentées : des profondeurs qui augmentent soudainement à quelques mètres du rivage, des températures de l'eau plus basses avec un risque concret de choc thermique, des fonds irréguliers et une faible visibilité. À ces éléments s'ajoutent des conditions qui peuvent changer rapidement sous l'effet du vent et des courants, ainsi qu'une flottabilité moindre par rapport à l'eau salée. Des facteurs qui, combinés, rendent l'environnement lacustre particulièrement insidieux s'il est abordé sans une conscience adéquate.
+
+### Les risques du lac
+
+Selon l'association, on ne peut plus parler de fatalité. Chaque année, des dynamiques similaires se répètent : entrée dans l'eau sans évaluation, surestimation de ses propres capacités, absence de dispositifs de sécurité. "Il faut un changement culturel immédiat - souligne l'ANAB Lombardie - car la sécurité ne peut être laissée au hasard". Pour éviter les tragédies, l'invitation est d'adopter des comportements simples mais fondamentaux : entrer dans l'eau progressivement en évitant les plongeons soudains, ne jamais nager seul, utiliser des dispositifs de sécurité comme des bouées ou des gilets de sauvetage, éviter d'entrer dans l'eau après avoir consommé de l'alcool ou après des repas copieux, vérifier toujours les conditions météo, respecter la signalisation et les ordonnances et choisir de préférence des zones surveillées.
+
+### Checklist opérationnelle pour la sécurité dans l'eau
+- Évaluation du lieu : Vérifier la présence de signalisation et d'ordonnances communales.
+- Conditions météo : Contrôler les prévisions et le vent.
+- Dispositifs de sécurité : Utiliser des bouées ou des gilets de sauvetage.
+- Comportement dans l'eau : Éviter les plongeons soudains, ne pas nager seul.
+- Postume : Éviter d'entrer dans l'eau après avoir consommé de l'alcool ou après des repas copieux.
+
+### Comparaison entre les lacs lombards et tessinois
+
+Les lacs lombards et tessinois présentent des caractéristiques similaires mais avec quelques différences. Par exemple, le Lac de Lugano, partagé entre l'Italie et la Suisse, a une profondeur maximale de 288 mètres, tandis que le Lac de Côme atteint les 410 mètres. Tous deux présentent des fonds irréguliers et des courants imprévisibles. En Tessin, des communes comme Lugano et Mendrisio ont mis en place des réglementations strictes pour la sécurité balnéaire, avec des amendes allant jusqu'à 1.000 CHF pour ceux qui ne respectent pas les ordonnances. En Lombardie, la loi régionale n. 31/2015 prévoit des sanctions allant jusqu'à 500 € pour les comportements dangereux.
+
+### La situation sur les lacs lombards
+
+Chaque année les lacs lombards enregistrent de nombreux incidents aquatiques pendant les mois d'été, selon les forces de l'ordre locales et les associations de maîtres-nageurs. ANAB Lombardie note que la dynamique des accidents se répète constamment : entrée dans l'eau sans évaluation, surestimation de ses capacités, absence de dispositifs de sécurité. Selon les autorités, les accidents de baignade sur les lacs du Comasco augmentent typiquement pendant les mois d'été, en coïncidence avec les vagues de chaleur et l'afflux de baigneurs inexpérimentés. Seul un changement culturel peut réduire durablement ce phénomène.
+
+### Conclusion
+
+La sécurité en milieu lacustre nécessite une approche responsable et consciente. Les réglementations existantes et les checklists opérationnelles peuvent faire la différence, mais il est fondamental de changer culturellement pour placer la sécurité en premier lieu.`,"blog.article.laghi-lombardi-sicurezza-estate-2026.body2":`### Implications pour les frontaliers
+
+Les frontaliers vivant dans le canton du Tessin et travaillant en Lombardie doivent être particulièrement conscients des risques liés aux lacs lombards. La proximité géographique et la facilité d'accès aux lacs rendent cette problématique pertinente pour la communauté des frontaliers. Il est important que les frontaliers soient informés des dangers spécifiques des lacs et adoptent des comportements sûrs lors des activités balnéaires.
+
+### La campagne de sensibilisation
+
+Ces dernières années, les accidents aquatiques sur les lacs lombards ont maintenu un niveau préoccupant, selon les rapports annuels des autorités de protection civile. Les experts d'ANAB Lombardie soulignent que les accidents de baignade sur les lacs du Comasco augmentent typiquement pendant les mois d'été, en coïncidence avec les vagues de chaleur et l'afflux de baigneurs inexpérimentés. La campagne de sensibilisation lancée par ANAB Lombardia représente une étape importante pour changer cette situation. Les frontaliers doivent être acteurs de ce changement, en adoptant des comportements responsables et en respectant les normes de sécurité.
+
+### Scénarios concrets
+
+Imaginons un frontalier qui décide de passer une journée au lac avec sa famille. Avant d'entrer dans l'eau, il est fondamental de vérifier les conditions météorologiques et de s'assurer que les enfants portent des dispositifs de sécurité. De plus, il est conseillé d'éviter les zones non surveillées et de toujours respecter la signalisation présente. Ces petits gestes peuvent faire la différence entre une journée de détente et une tragédie.
+
+### Procédures concrètes
+
+1. **Vérifier les conditions météorologiques** avant de se rendre au lac. Utiliser des sources fiables comme le site du Service Météorologique de l'Aéronautique Militaire italienne.
+2. S'assurer que tous les membres de la famille portent des dispositifs de sécurité. Pour les enfants, les brassards ou les gilets de sauvetage certifiés sont obligatoires.
+3. Éviter les zones non surveillées et respecter la signalisation. Par exemple, sur le Lac de Côme, les zones surveillées sont indiquées par des drapeaux rouges et jaunes.
+4. Ne pas entrer dans l'eau après avoir consommé de l'alcool ou des repas copieux. Selon la réglementation italienne, il est interdit de nager en état d'ivresse, avec des sanctions pouvant aller jusqu'à 500 euros.
+5. En cas d'urgence, contacter immédiatement les secours. Le numéro d'urgence unifié en Italie est le 112.
+
+### Checklist opérationnelle
+
+- Vérification météo : Vérifier les prévisions avant de partir.
+- Dispositifs de sécurité : S'assurer que chacun a les bons dispositifs.
+- Signalisation : Toujours respecter les indications présentes.
+- Alcool et nourriture : Éviter de nager après avoir consommé de l'alcool ou des repas copieux.
+- Urgences : Avoir toujours à portée de main le numéro d'urgence 112.
+
+### Comparaisons entre scénarios pratiques
+
+Considérons deux scénarios : un frontalier de Mendrisio qui se rend au Lac de Lugano et un frontalier de Lugano qui va au Lac de Côme. Dans le premier cas, le lac est plus petit et les courants sont moins dangereux, mais il est néanmoins important de respecter les réglementations. Dans le second cas, le Lac de Côme est plus grand et les courants peuvent être plus forts, nécessitant une plus grande attention.
+
+### Réglementations spécifiques
+
+En Lombardie, la réglementation régionale de 2021 stipule qu'il est obligatoire de respecter la signalisation et les indications des maîtres-nageurs. De plus, il est interdit de nager dans les zones non surveillées, avec des amendes pouvant aller jusqu'à 1 000 euros. Pour les frontaliers, il est important de connaître ces réglementations pour éviter les sanctions et, surtout, pour garantir la sécurité de chacun.
+
+### Conclusion
+
+La conscience des risques liés aux lacs lombards est fondamentale pour les frontaliers tessinois. Adopter des comportements responsables et respecter les réglementations peut faire la différence entre une journée de détente et une tragédie. La campagne de sensibilisation de ANAB Lombardia est une étape importante, mais il est fondamental que chaque individu fasse sa part.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.laghi-lombardi-sicurezza-estate-2026.body3":`### Que faire pour garantir la sécurité
+
+Pour garantir la sécurité pendant les activités balnéaires, il est fondamental d'adopter des comportements responsables. Voici quelques procédures concrètes à suivre :
+
+1. **Vérifier les conditions météo** : Avant de se rendre au lac, il est important de vérifier les prévisions météo pour éviter les surprises. Les conditions atmosphériques peuvent changer rapidement, et un vent soudain ou un orage peuvent rendre l'eau dangereuse. Utiliser des applications fiables comme Météosuisse ou consulter les bulletins locaux peut faire la différence.
+
+2. Porter des dispositifs de sécurité : Assurez-vous que tous les membres de la famille portent des gilets de sauvetage ou d'autres équipements de sécurité. Même les nageurs expérimentés peuvent rencontrer des difficultés soudaines. En Suisse, la réglementation oblige les enfants de moins de 12 ans à porter toujours un dispositif de flottabilité dans les zones non surveillées. Pour les adultes, il est conseillé d'utiliser des brassards ou des gilets de sauvetage, surtout dans les zones avec des courants soudains.
+
+3. Respecter la signalisation : Les zones balnéaires sont équipées de signalisation indiquant les zones sûres et les zones dangereuses. Il est fondamental de respecter ces indications pour éviter les accidents. Par exemple, sur le Lac Majeur, les drapeaux rouges indiquent les zones interdites à la baignade en raison de courants ou de profondeurs soudaines.
+
+4. Éviter les zones non surveillées : Les zones surveillées par des maîtres-nageurs sont plus sûres. Évitez de nager dans des zones isolées ou non contrôlées. En Suisse, les plages de Lugano et d'Ascona sont surveillées pendant la saison estivale, tandis que d'autres zones comme le Lac de Lugano, près de Melide, ne le sont pas. Il est important de s'informer à l'avance et de préférer toujours les zones surveillées.
+
+5. Ne pas entrer dans l'eau après avoir consommé de l'alcool ou des repas abondants : L'alcool et les repas abondants peuvent réduire la capacité de nager et augmenter le risque de noyade. Il est fondamental d'attendre au moins deux heures après un repas abondant avant d'entrer dans l'eau.
+
+6. Contacter les secours en cas d'urgence : En cas d'urgence, il est fondamental d'agir rapidement et de contacter immédiatement les secours. Le numéro d'urgence en Suisse est le 144, en Italie le 118. Il est important de connaître les points de secours les plus proches et d'avoir à portée de main un téléphone fonctionnant.
+
+### Checklist opérationnelle
+
+- Vérifier les prévisions météo avant de se rendre au lac.
+- S'assurer que tout le monde porte des dispositifs de sécurité.
+- Respecter la signalisation présente sur les plages.
+- Préférer les zones surveillées par des maîtres-nageurs.
+- Éviter d'entrer dans l'eau après avoir consommé de l'alcool ou des repas abondants.
+- Connaître les numéros d'urgence et les points de secours les plus proches.
+
+### Comparaison entre scénarios pratiques
+
+- Scénario sûr : Une famille se rend au Lac de Lugano, vérifie les prévisions météo, porte des gilets de sauvetage et nage seulement dans les zones surveillées. Résultat : une journée de divertissement sans incidents.
+- Scénario risqué : Un groupe d'amis se rend au Lac Majeur sans vérifier les prévisions, consomme de l'alcool et nage dans une zone non surveillée. Résultat : un accident évité par chance, mais avec une grande frayeur.
+
+Pour plus d'informations sur la sécurité aquatique, consultez le site d'ANAB Lombardia ou vos autorités locales de protection civile.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/laghi-lombardi-inizio-estate-tragico-non-e-il-mare-serve-piu-consapevolezza/2564122/)*`,"blog.article.laghi-lombardi-sicurezza-estate-2026.faq":`[{"q":"Quels sont les principaux risques liés aux lacs lombards?","a":"Les principaux risques incluent des profondeurs qui augmentent soudainement, des températures de l'eau plus basses avec un risque de choc thermique, des fonds irréguliers et une faible visibilité. Selon ANAB Lombardie, les conditions météorologiques peuvent changer rapidement et chaque année les lacs lombards enregistrent de nombreux incidents aquatiques pendant les mois d'été."},{"q":"Que peut-on faire pour éviter les accidents dans les lacs lombards?","a":"Il est fondamental d'adopter des comportements responsables : vérifier toujours les conditions météo, porter des dispositifs de sécurité, respecter la signalisation et éviter les zones non surveillées. De plus, il est important de ne pas entrer dans l'eau après avoir consommé de l'alcool ou des repas copieux."},{"q":"Quelles sont les zones les plus sûres pour se baigner dans les lacs lombards?","a":"Les zones les plus sûres sont celles surveillées par des maîtres-nageurs sauveteurs, équipées de signalisation indiquant les zones sûres et les zones dangereuses. Il est fondamental de respecter ces indications pour éviter les accidents."}]`};export{e as default};

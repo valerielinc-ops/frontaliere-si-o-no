@@ -1,0 +1,46 @@
+const e={"blog.article.legionellosi-ticino-allarme.body1":`## TL;DR
+- Ticino has the highest legionellosis rate in Switzerland at 13.9 cases per 100,000 inhabitants.
+- Legionellosis disproportionately affects men and the elderly, with a peak among those over eighty.
+- The bacterium thrives in stagnant water at temperatures between 25 and 45 degrees Celsius.
+- Prevention includes maintaining hot water temperature at 60°C and regular water system maintenance.
+
+## Key facts
+- **Cosa**: Legionellosi è una grave infezione polmonare causata dal batterio Legionella pneumophila.
+- **Quando**: I casi sono in aumento dal 2001, con un picco di 603 casi nel 2022.
+- **Dove**: Ticino ha il tasso più alto di casi di legionellosi in Svizzera.
+- **Chi**: Gli uomini e le persone over 67 sono i più colpiti, con un picco tra gli over eighty.
+- **Importo**: Ticino ha registrato 13.9 casi per 100.000 abitanti nel 2024.
+- **Scadenza**: La stagione estiva è la più critica per la proliferazione del batterio.
+- **Fonti**: Le principali fonti di infezione sono docce, umidificatori, vasche idromassaggio e sistemi di condizionamento.
+- **Prevenzione**: Mantenere la temperatura dell'acqua calda a 60°C e evitare ristagni d'acqua.
+
+A shadow is cast over public health in Ticino. Cases of legionellosis are steadily increasing throughout Switzerland, but our canton is paying the highest price. According to a report published in late January by the Federal Office of Public Health (FOPH), Ticino holds the unfortunate national record for the incidence of this severe lung infection. The data is clear and raises concern among residents and workers.
+
+📊 **The Numbers of the Emergency**
+In 2024, Ticino recorded a rate of **13.9 cases** per 100,000 inhabitants. This is an alarming figure compared to the national average of 5.5 cases. Even the second most affected canton, Glarus, stands at 11.3 cases. French-speaking Switzerland, by contrast, shows a much more contained situation, with rates below 8 and a low of 3.5 in the Canton of Vaud. At the federal level, after a peak of 603 cases in 2022, 2023 saw 574 reported infections. The trend has been consistently upward since 2001.
+
+Legionellosis, caused by the bacterium *Legionella pneumophila*, disproportionately affects men, with an incidence more than double that of women, and the older population. Half of the patients are over 67 years old, with a peak among those over eighty (22.9 cases per 100,000 inhabitants). Summer is the most critical season for the bacterium's proliferation, a factor not to be underestimated as warmer temperatures approach.`,"blog.article.legionellosi-ticino-allarme.body2":`## Where Does the Risk Hide? Daily Life and Workplaces
+
+Contrary to what one might think, the danger does not come from hospitals or specialized healthcare facilities. The FOPH report is categorical: three-quarters of infections are contracted in everyday life. Nursing homes, for example, account for only **4.3%** of identified infection sites. The bacterium lurks in water systems, thriving in stagnant water at temperatures between 25 and 45 degrees Celsius.
+
+ The main sources of infection are:
+- Showerheads (both at home and in public places like gyms or company changing rooms)
+- Air humidifiers
+- Hot tubs
+- Air conditioning systems with cooling towers
+
+Recent checks have confirmed the widespread nature of the problem. The Cantonal Laboratory of Basel-Stadt found heavy contamination in public showers, while tests commissioned by RTS revealed legionella levels above legal limits in public hot tubs in Fribourg and Geneva. Infection occurs through the inhalation of aerosols, tiny contaminated water droplets suspended in the air. It's important to note that drinking contaminated water is not dangerous, as stomach acid destroys the bacterium.
+
+⚠️ **The Impact of Climate Change**
+Researchers from the Swiss Federal Institute of Aquatic Science and Technology (Eawag) warn that global warming could worsen the situation. Higher temperatures promote faster multiplication of legionella, increasing the risk of contamination in water systems.`,"blog.article.legionellosi-ticino-allarme.body3":`## Prevention and Practical Advice for Cross-Border Workers
+
+Although there is no vaccine, legionellosis is preventable and treatable. The disease manifests as a severe pneumonia and, if diagnosed early, can be treated effectively with antibiotics. Prevention, however, remains the most powerful weapon. For those who live or work in Ticino, it is crucial to be aware of the risks, especially in summer.
+
+💡 **What to do?**
+- **Home maintenance:** Regularly run water from all taps and showers, especially after long periods of absence (like holidays). This prevents water stagnation.
+- **Boiler temperature:** Keep the hot water temperature at a minimum of 60°C to inhibit bacterial growth.
+- **Workplaces and public areas:** Pay attention to the maintenance of air conditioning and water systems in offices, factories, and gyms. Companies have a responsibility to ensure a safe working environment.
+
+Health is the most precious asset, and a safe work environment is a fundamental right. Securing one's financial stability in a safe context is the goal of every cross-border worker. To get a complete picture of your financial situation, considering all variables that can affect your income, it is always useful to check the impact of deductions and contributions on your salary. With our net salary calculator, you can get an accurate and up-to-date estimate of your monthly earnings.
+
+*Source: Tio.ch, February 21, 2026*`,"blog.article.legionellosi-ticino-allarme.faq":'[{"q":"What is the rate of legionellosis in Ticino?","a":"Ticino recorded a rate of 13.9 cases per 100,000 inhabitants, the highest in Switzerland."},{"q":"What is the main source of contagion of legionellosis in Ticino?","a":"The main source of contagion is water systems with stagnant water, in particular shower heads, air humidifiers, hot tubs and air conditioning systems with cooling towers."},{"q":"What are the age groups most at risk for legionellosis in Switzerland?","a":"The most at-risk population group is composed of people over the age of eighty, with an incidence of 22.9 cases per 100,000 inhabitants, and more than half of patients are over 67 years old, making this category particularly vulnerable."}]'};export{e as default};

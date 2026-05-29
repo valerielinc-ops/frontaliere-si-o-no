@@ -1,0 +1,141 @@
+const e={"blog.article.traduzione-documenti-finanziari-visto.body1":`## En bref
+- Traduction assermentée nécessaire pour les documents financiers
+- Coûts variables selon le type de document, de 50 à 150 CHF
+- Délais précis pour la présentation, généralement dans les 30 jours suivant la demande
+
+## Faits clés
+- **Quoi** : Traduction assermentée de documents financiers
+- Quand : Avant la demande de visa, avec des délais variables selon la commune de résidence dans le canton du Tessin
+- Où : Bureaux compétents en Italie et en Suisse, comme le Consulat suisse à Milan ou l'Office des migrations du canton du Tessin
+- Qui : Frontaliers demandant un visa, avec une attention particulière aux résidents des communes frontalières comme Chiasso, Mendrisio et Lugano
+- Montant : Coûts variables selon le type de document, avec des exemples concrets comme 70 CHF pour une déclaration de revenus et 120 CHF pour un relevé bancaire
+
+La traduction de documents financiers est une étape cruciale pour les frontaliers souhaitant travailler en Suisse, en particulier dans le canton du Tessin. La procédure, bien que simple, nécessite une attention aux détails pour éviter les retards dans la demande de visa. Les documents financiers, tels que les déclarations de revenus, les relevés bancaires et les certificats de salaire, doivent être traduits en italien ou en allemand selon la région suisse de destination. La traduction assermentée est obligatoire et doit être effectuée par un traducteur autorisé. Les coûts varient selon le type de document et la longueur du texte, mais se situent en moyenne entre 50 et 150 CHF par document.
+
+### Procédure de traduction
+
+1. Identification du document : Vérifier quels documents financiers sont nécessaires pour la demande de visa. En général, les trois dernières années de déclarations de revenus, les relevés bancaires et les certificats de salaire sont requis. Par exemple, pour un résident à Chiasso, des documents relatifs à d'éventuelles propriétés immobilières en Italie pourraient également être demandés.
+
+2. Choix du traducteur : Contacter un traducteur assermenté autorisé. Il est possible de trouver une liste de traducteurs autorisés auprès des bureaux consulaires suisses en Italie ou sur les sites web des chambres de commerce locales. Pour les résidents du Tessin, il est conseillé de choisir un traducteur ayant une expérience spécifique dans les réglementations suisses, comme celles du canton du Tessin.
+
+3. Traduction et serment : Remettre les documents au traducteur, qui procédera à la traduction et à la certification assermentée. Ce processus peut prendre de quelques jours à plusieurs semaines, selon la complexité du document et la charge de travail du traducteur. Par exemple, une déclaration de revenus pourrait prendre environ une semaine, tandis qu'un relevé bancaire plus complexe pourrait prendre jusqu'à deux semaines.
+
+4. Remise des documents : Une fois la traduction assermentée obtenue, les documents doivent être remis au bureau compétent pour la demande de visa. Il est important de vérifier les délais et de présenter les documents dans les délais impartis. Pour les résidents de Mendrisio, le délai est généralement de 30 jours à compter de la demande de visa, tandis que pour les résidents de Lugano, il peut être nécessaire de présenter les documents dans les 15 jours.
+
+### Checklist opérationnelle
+
+RÈGLES DE TRADUCTION :
+- Traduction COMPLÈTE, même profondeur et longueur que l'italien
+- NE PAS résumer — traduire tout le contenu
+- Maintenir la mise en forme : ## pour les sous-titres, - pour les listes, > pour les citations, emojis (📊💡⚠️) pour les boîtes
+- Maintenir les liens internes exactement tels qu'ils sont : texte traduit — traduire uniquement le texte visible, PAS l'action nav:
+- GRAS : max 2-3 mots en gras pour CHAQUE champ body. Préférer ZÉRO gras.
+- Utiliser une phraséologie naturelle dans la langue cible, pas de traduction littérale
+- Apostrophes : toujours ' (droit), jamais de guillemets courbes
+- Les noms propres de lieux suisses (Sessa, Melide, Malcantone) restent inchangés dans toutes les langues
+
+TERMINOLOGIE FRANÇAISE OBLIGATOIRE :
+- "permesso G" → "permis G" ou "permis frontalier" (JAMAIS "permis de conduire G")
+- "franchi" → "francs" (JAMAIS "Franken")
+- "ponti" (fêtes) → "ponts" ou "jours fériés" (le terme "pont" existe en français)
+- "Swissminiatur" reste "Swissminiatur" (JAMAIS "Swissminiatura")
+- "frontaliere/i" → "frontalier(s)" ou "travailleur(s) frontalier(s)"
+
+- Vérifier les documents requis par la commune de résidence dans le canton du Tessin
+- Contacter un traducteur assermenté autorisé
+- Remettre les documents originaux au traducteur
+- Vérifier les délais de livraison et respecter les échéances
+- Présenter les documents traduits au bureau compétent
+
+### Comparaison entre scénarios pratiques
+
+- Scénario 1 : Un frontalier résidant à Chiasso doit présenter une déclaration de revenus des trois dernières années. Le coût de la traduction assermentée sera d'environ 70 CHF par document, pour un total de 210 CHF. Le délai pour la présentation des documents est de 30 jours à compter de la demande de visa.
+
+- Scénario 2 : Un frontalier résidant à Lugano doit présenter un relevé bancaire et un certificat de salaire. Le coût de la traduction assermentée sera d'environ 120 CHF pour le relevé bancaire et 80 CHF pour le certificat de salaire, pour un total de 200 CHF. Le délai pour la présentation des documents est de 15 jours à compter de la demande de visa.
+
+> "La précision dans la traduction des documents financiers est fondamentale pour éviter les retards dans la procédure de visa," déclare un fonctionnaire de l'Office des migrations du canton du Tessin.
+
+### Normes et références
+
+- Loi fédérale sur la libre circulation des personnes (LFLCP) : Article 5, qui régit l'entrée et le séjour des travailleurs frontaliers en Suisse.
+- Ordonnance du Département des finances et de l'économie du canton du Tessin : Du 1er janvier 2023, qui établit les exigences pour la traduction assermentée des documents financiers.
+
+En suivant ces étapes et en respectant les délais, les travailleurs frontaliers peuvent garantir une procédure de visa sans encombre et commencer à travailler en Suisse dans les plus brefs délais.`,"blog.article.traduzione-documenti-finanziari-visto.body2":`La traduction des documents financiers pour le permis G est un processus qui nécessite de l'attention et de la précision, surtout pour les travailleurs frontaliers qui travaillent dans le canton du Tessin. Comprendre les implications pratiques de cette procédure est fondamental pour éviter les retards et les complications dans le processus d'obtention du permis. La traduction certifiée est obligatoire et doit être effectuée par un traducteur autorisé, inscrit dans un registre professionnel reconnu, qui certifie la fidélité de la traduction par rapport à l'original.
+
+### Comparaison des documents
+
+| Document | Traduction obligatoire | Coût indicatif (CHF) | Délai de livraison |
+|------------|----------------------|---------------------|------------------|
+| Déclaration de revenus | Oui | 50-100 | 1-2 semaines |
+| Relevé bancaire | Oui | 30-80 | 3-7 jours |
+| Certificat de salaire | Oui | 40-90 | 5-10 jours |
+| Contrat de travail | Oui | 60-150 | 1-3 semaines |
+
+### Scénarios pratiques
+
+1. **Documents incomplets** : Si les documents financiers ne sont pas complets ou contiennent des erreurs, la traduction pourrait être refusée. Par exemple, un frontalier de Lugano a dû répéter la traduction d'une déclaration de revenus parce qu'il manquait une signature. Il est important de vérifier que tous les documents sont corrects et complets avant de procéder à la traduction.
+
+2. Délais : Les délais pour la présentation des documents varient selon l'office compétent. Par exemple, le canton du Tessin exige la présentation des documents traduits dans les 30 jours suivant la demande de permis. Il est fondamental de respecter les délais pour éviter les retards dans la procédure de permis.
+
+3. Coûts supplémentaires : En plus du coût de la traduction, des coûts supplémentaires pourraient être demandés pour la certification ou la légalisation des documents. Par exemple, la légalisation d'un contrat de travail peut coûter 50-100 CHF supplémentaires. Il est important de se renseigner à l'avance sur les coûts totaux.
+
+### Checklist opérationnelle
+
+- Vérifiez que tous les documents sont complets et corrects.
+- Assurez-vous que le traducteur est autorisé et inscrit dans un registre professionnel reconnu.
+- Vérifiez les délais spécifiques de l'office compétent.
+- Renseignez-vous sur les coûts totaux, y compris ceux de la certification et de la légalisation.
+- Conservez une copie de tous les documents traduits et certifiés.
+
+### Comparaisons entre scénarios pratiques
+
+- Scénario 1 : Un frontalier de Mendrisio a dû répéter la traduction d'un relevé bancaire parce qu'il manquait une date. Le coût supplémentaire a été de 30 CHF et le délai de livraison a augmenté d'une semaine.
+- Scénario 2 : Un travailleur de Bellinzone a respecté toutes les échéances et a présenté les documents traduits dans les 30 jours requis. La procédure de permis a été complétée sans retard.
+
+> "La précision dans la traduction des documents financiers est cruciale pour éviter les retards et les complications dans le processus d'obtention du permis."
+
+En conclusion, la traduction des documents financiers pour le permis G nécessite de l'attention et de la précision. Suivre une checklist opérationnelle et se renseigner sur les coûts et les délais peut faciliter le processus et éviter les complications.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.traduzione-documenti-finanziari-visto.body3":`Pour les frontaliers qui doivent traduire les documents financiers pour le permis, il est essentiel de suivre une procédure claire et précise. Voici les étapes détaillées à suivre:
+
+1. **Identifier les documents nécessaires** : Vérifier quels documents financiers sont requis pour la demande de permis. En général, les trois dernières années de déclarations de revenus, les relevés bancaires et les certificats de salaire sont demandés. Par exemple, pour un frontalier travaillant à Lugano, les déclarations de revenus des années 2021, 2022 et 2023, ainsi que les relevés bancaires des 12 derniers mois, pourraient être nécessaires.
+
+2. Contacter un traducteur autorisé : Rechercher un traducteur assermenté autorisé auprès des bureaux consulaires suisses en Italie ou sur les sites web des chambres de commerce locales. En Ticino, par exemple, il est possible de trouver des traducteurs assermentés auprès de la Chambre de Commerce du Canton Ticino. Assurez-vous que le traducteur soit reconnu par les autorités suisses et italiennes pour éviter tout problème de validité des documents.
+
+3. Remettre les documents : Remettre les documents originaux au traducteur, qui procédera à la traduction et à l'attestation. Le coût de la traduction peut varier en fonction de la complexité des documents et de leur longueur. Par exemple, une traduction assermentée d'une déclaration de revenus peut coûter environ 50-100 CHF, tandis qu'un relevé bancaire pourrait coûter entre 30 et 60 CHF.
+
+4. Vérifier les délais : Assurez-vous de respecter les délais pour la présentation des documents à l'office compétent. En Ticino, les délais pour la présentation des documents pour le permis peuvent varier selon la commune. Par exemple, à Bellinzone, les documents doivent être présentés au moins 30 jours avant la date d'expiration du permis.
+
+5. Présenter les documents : Une fois la traduction assermentée obtenue, présenter les documents à l'office compétent pour la demande de permis. En Ticino, les offices compétents pour la demande de permis sont généralement les offices cantonaux de migration. Il est important de présenter tous les documents requis pour éviter tout retard dans la procédure.
+
+### Outils utiles
+
+Pour plus d'informations et pour calculer les coûts de la traduction, il est possible d'utiliser le [calculateur de coûts](nav:calculator) disponible sur le site. De plus, il est utile de consulter les guides pratiques disponibles sur le site pour mieux comprendre la procédure de traduction et les exigences nécessaires.
+
+### Checklist opérationnelle
+
+- Vérifier les documents requis pour le permis.
+- Contacter un traducteur assermenté autorisé.
+- Remettre les documents originaux au traducteur.
+- Vérifier les délais pour la présentation des documents.
+- Présenter les documents à l'office compétent.
+
+### Comparaison entre scénarios pratiques
+
+- Scénario 1 : Un frontalier travaillant à Lugano et devant renouveler son permis annuel. Dans ce cas, il est nécessaire de présenter les documents financiers des trois dernières années et les relevés bancaires des 12 derniers mois.
+- Scénario 2 : Un frontalier travaillant à Locarno et devant obtenir un nouveau permis. Dans ce cas, il pourrait être nécessaire de présenter des documents supplémentaires, comme un contrat de travail signé et une lettre de référence de l'employeur.
+
+Pour toute question ou besoin d'assistance, il est possible de contacter l'office compétent ou de consulter les FAQ disponibles sur le site.
+
+> "La précision dans la traduction des documents financiers est fondamentale pour éviter tout retard dans la procédure de demande de permis." - Office Cantonal de Migration du Ticino
+
+### Réglementations et montants
+
+- Loi fédérale sur le contrôle des étrangers (LStr) du 16 décembre 2005.
+- Ordonnance sur les étrangers (OStr) du 24 octobre 2007.
+- Tarifs pour la traduction assermentée : varient selon la commune et la complexité des documents, mais se situent généralement entre 30 et 100 CHF par document.
+
+### Conclusion
+
+Suivre une procédure claire et précise pour la traduction des documents financiers est essentiel pour obtenir le permis en temps opportun. Utiliser des outils utiles comme le calculateur de coûts et les guides pratiques peut faciliter le processus et garantir que toutes les exigences soient satisfaites.`,"blog.article.traduzione-documenti-finanziari-visto.faq":`[{"q":"Combien coûte une traduction assermentée de documents financiers pour la Suisse ?","a":"Le coût d'une traduction assermentée pour des documents financiers varie en fonction du type et de la longueur du texte, mais se situe en moyenne entre 50 et 150 CHF par document. Par exemple, une déclaration de revenus peut coûter environ 70 CHF, tandis qu'un relevé bancaire peut aller jusqu'à 120 CHF."},{"q":"Quels documents financiers sont nécessaires pour le visa frontalier au Tessin ?","a":"Généralement, les trois dernières années sont requises pour les déclarations de revenus, les relevés bancaires et les certificats de salaire. Selon la commune de résidence au Tessin, des documents supplémentaires, tels que ceux relatifs aux biens immobiliers, peuvent également être nécessaires."},{"q":"Où puis-je trouver un traducteur assermenté agréé pour les documents suisses ?","a":"Vous trouverez une liste de traducteurs assermentés agréés dans les bureaux consulaires suisses en Italie ou sur les sites internet des chambres de commerce locales. Il est conseillé de choisir un traducteur ayant une expérience spécifique des réglementations suisses, en particulier celles du canton du Tessin."},{"q":"Quels sont les délais pour présenter les documents traduits pour le visa ?","a":"Les délais de présentation des documents traduits varient selon la commune de résidence au Tessin. Habituellement, les documents doivent être présentés dans les 30 jours suivant la demande de visa, mais pour certaines municipalités comme Lugano, le délai peut être plus court, par exemple 15 jours."},{"q":"Combien de temps faut-il pour obtenir une traduction assermentée de documents financiers ?","a":"Le délai de livraison pour une traduction assermentée peut varier de quelques jours à plusieurs semaines, en fonction de la complexité du document et de la charge de travail du traducteur. Une déclaration de revenus peut prendre environ une semaine, tandis qu'un relevé bancaire plus complexe peut prendre jusqu'à deux semaines."}]`};export{e as default};

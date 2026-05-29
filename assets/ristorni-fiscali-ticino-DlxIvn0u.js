@@ -1,0 +1,47 @@
+const e={"blog.article.ristorni-fiscali-ticino.body1":`## Auf einen Blick
+- Steuerrückerstattungen für Grenzgänger zwischen Tessin und Lombardei
+- 62 Millionen CHF Rückerstattungen 2026, 30% einbehalten vom Kanton Tessin
+- Berechnung basiert auf Bruttoeinkommen und kantonalen Steuersätzen
+
+## Wichtige Fakten
+- **Gesamtsumme 2026**: 62 Millionen CHF
+- **Einbehalt Kanton Tessin**: 30% der Einkommenssteuern
+- **Hauptbegünstigte**: Lombardische Gemeinden nahe Chiasso, Ponte Tresa und Gaggiolo
+- **Abkommen**: Steuerabkommen von 1974, aktualisiert 2023
+- **Frist Rückerstattung**: Bis zum 30. Juni des folgenden Jahres
+- **Beispielrechnung**: 50.000 CHF Bruttoeinkommen: 3.300 CHF Rückerstattung an Italien
+- **Verwaltung**: Kanton Tessin überweist Mittel an italienische Steuerbehörde
+- **Zukunft**: Ungewiss aufgrund neuer Spannungen zwischen Schweiz und Italien
+
+## Was ist der Mechanismus der Steuerrückerstattungen?
+
+Die **Steuerrückerstattungen** sind eines der meistdiskutierten Themen der Grenzarbeit zwischen der Lombardei und dem Kanton Tessin. Jedes Jahr wird ein Teil der von Grenzgängern in der Schweiz gezahlten Einkommenssteuern im Rahmen eines bilateralen Abkommens an die italienischen Wohnsitzgemeinden zurückerstattet. Im Jahr 2026 wird die Gesamtsumme der Rückerstattungen **60 Millionen Franken** übersteigen, ein Betrag, der die Bedeutung dieses Systems für die italienischen Gemeindeverwaltungen unterstreicht.
+
+📊 Wichtige Daten zu den Steuerrückerstattungen im Jahr 2026:
+- Geschätzte Gesamtsumme: 62 Millionen CHF
+- Prozentsatz, der vom Kanton Tessin einbehalten wird: 30%
+- Hauptbegünstigte: Lombardische Gemeinden in der Nähe der Grenzübergänge Chiasso, Ponte Tresa und Gaggiolo
+
+Der Mechanismus wird durch das Steuerabkommen von 1974 geregelt, das 2023 mit den jüngsten Änderungen aktualisiert wurde. Ab 2024 hat der Kanton Tessin begonnen, einen höheren Anteil der Steuern einzubehalten, der von 20% auf 30% erhöht wurde. Diese Änderung hat Spannungen zwischen der Lombardei und dem Tessin erzeugt, mit Forderungen nach einer Überprüfung von beiden Seiten.
+
+> "Die Rückerstattungen stellen einen wesentlichen Beitrag für die italienischen Grenzgemeinden dar, aber ihre Zukunft hängt von der Stabilität der bilateralen Abkommen mit der Schweiz ab", sagt eine Quelle des DFE (Departement für Finanzen und Wirtschaft des Tessins).`,"blog.article.ristorni-fiscali-ticino.body2":`## Wie werden sie berechnet und wer zahlt sie?
+
+Die Berechnung der Steuerrückerstattungen erfolgt auf Grundlage des Bruttoeinkommens des Grenzgängers und der kantonalen Steuersätze. Zum Beispiel zahlt ein Grenzgänger, der 50.000 CHF brutto jährlich verdient, etwa 22-25% Einkommenssteuer. Davon werden 70% vom Kanton Tessin einbehalten, um lokale Dienstleistungen zu finanzieren, während die verbleibenden 30% an die italienischen Gemeinden gehen.
+
+💡 **Praktisches Beispiel:**
+Ein Grenzgänger aus Como mit einem Bruttoeinkommen von 50.000 CHF und einem kantonalen Steuersatz von 22% zahlt etwa 11.000 CHF an Steuern. Davon bleiben 7.700 CHF im Tessin, während 3.300 CHF an die Wohnsitzgemeinde in Italien zurückerstattet werden.
+
+⚠️ **Achtung auf Fristen:**
+- Die Rückerstattungen werden jährlich berechnet und bis zum 30. Juni des folgenden Jahres überwiesen.
+- Es ist wichtig, das Einkommen in Italien korrekt anzugeben, um steuerliche Strafen zu vermeiden und das Recht auf die begünstigte Doppelbesteuerung gemäß den bilateralen Abkommen sicherzustellen.
+
+Die Verwaltung der Rückerstattungen obliegt dem Kanton, der die Mittel an die italienische Steuerbehörde überweist. Diese werden dann entsprechend der Anzahl der Grenzgänger an die Gemeinden verteilt.`,"blog.article.ristorni-fiscali-ticino.body3":`## Wie sieht die Zukunft der Steuerrückerstattungen aus?
+
+Im Kontext der neuen Spannungen zwischen der Schweiz und Italien bleibt die Zukunft der Steuerrückerstattungen ungewiss. Im Jahr 2026 könnten Diskussionen über eine mögliche Überprüfung der bilateralen Abkommen die einbehaltene Quote des Tessins und den Betrag, der an die italienischen Gemeinden geht, beeinflussen. Einige Tessiner Parteien haben bereits vorgeschlagen, die Rückerstattungen weiter zu reduzieren, um lokale Projekte zu finanzieren.
+
+💡 **Praktische Tipps für Grenzgänger:**
+- Überprüfen Sie regelmäßig Ihr angegebenes Einkommen, um Probleme mit dem italienischen Finanzamt zu vermeiden.
+- Nutzen Sie unseren [Tracker für Steuerrückerstattungen](nav:ristorni), um die Beträge zu überwachen, die Ihrer Gemeinde zurückerstattet werden.
+- Wenn Sie im Tessin arbeiten, prüfen Sie die steuerlichen Auswirkungen auf Ihre persönlichen Finanzen mit dem [Netto-Lohnrechner](nav:calculator).
+
+📅 **Quelle:** Editoriale Frontaliere Ticino, Oktober 2023. Für weitere Details zu Steuerrückerstattungen und deren Auswirkungen auf Grenzgänger besuchen Sie unseren [Lebenshaltungskostenvergleich](nav:cost-of-living).`,"blog.article.ristorni-fiscali-ticino.faq":'[{"q":"Wie hoch werden die Steuerermäßigungen in der Schweiz im Jahr 2026 sein?","a":"Die Steuerermäßigungen werden voraussichtlich 2026 60 Millionen Schweizer Franken übersteigen."},{"q":"Welche Auswirkungen haben die Änderungen von 2023 auf Steuerabkommen für grenzüberschreitende Pendler?","a":"Die Änderungen von 2023 erhöhten den vom Kanton Tessin einbehaltenen Anteil an Steuerermäßigungen von 20 % auf 30 %, was die Finanzierung der italienischen Grenzgemeinden beeinträchtigte."},{"q":"Wie beeinflussen die jüngsten Änderungen im Jahr 2023 die Steuerermäßigungen für grenzüberschreitende Pendler?","a":"Die Änderungen von 2023 erhöhten die Einzüge im Kanton Tessin von 20 % auf 30 %, reduzierten den Betrag, der an italienische Gemeinden zurückgegeben wird, und betrifft potenziell die Endbegünstigten sowie die verfügbaren Ressourcen für lokale Dienstleistungen."}]'};export{e as default};

@@ -1,0 +1,73 @@
+const e={"blog.article.latte-ticino-crisi-politica-ritardo.body1":`## En bref
+- Crise laitière tessinoise due à prix bas et fermetures
+- Interpellation communiste pour soutien politique urgent
+- Risque de fermeture d'exploitations et perte de savoir-faire
+
+## Faits clés
+- **Cosa**: Crise de la filière laitière tessinoise
+- **Quando**: Situation critique actuelle
+- **Chi**: Députés communistes Lea Ferrari et Massimiliano Ay
+- **Dove**: Tessin, Suisse
+- **Importo**: Prix du lait historiquement bas
+- **Scadenza**: 13 juin 2021 (votazione costituzionale)
+
+## La crise de la filière laitière tessinoise
+
+Le Parti communiste a mis sous la loupe du gouvernement la situation critique de la filière laitière tessinoise. Dans une interpellation, les députés Lea Ferrari et Massimiliano Ay ont souligné que le prix du lait destiné au marché intérieur suisse a atteint des niveaux historiquement bas. Cette crise fait suite à la fermeture de Lati et à l'ouverture de la fromagerie de la Vallée de Blenio, ce qui a conduit à une situation d'urgence pour les éleveurs locaux.
+
+### Les questions au Conseil d'État
+
+Les députés communistes ont posé plusieurs questions au Conseil d'État, notamment le volume de lait non tessinois transformé en Tessin ces dernières années, comment et par qui il est transformé, et s'il est possible de remplacer ce lait par du lait produit localement même en période hivernale. De plus, ils ont demandé comment le Conseil d'État entend maintenir la transformation du lait tessinois en Tessin et éviter les distorsions.
+
+## Les préoccupations pour l'avenir
+
+La situation est rendue encore plus critique par le fait que la population tessinoise a inscrit le principe de la souveraineté alimentaire parmi les objectifs sociaux de la Constitution lors d'une votation du 13 juin 2021. Cependant, la filière laitière est aujourd'hui sous pression, avec le risque de fermeture de nombreuses exploitations agricoles et la perte d'une économie importante des vallées tessinoises.
+
+### Les conséquences d'une attitude attentiste
+
+L'interpellation souligne qu'une attitude attentiste, qui voudrait rééquilibrer la production de lait avec le départ à la retraite et la fermeture définitive sans succession des exploitations agricoles alpines, n'aurait comme seul résultat l'augmentation des importations de produits laitiers de l'étranger. Cela entraînerait la disparition des techniques et du savoir-faire régional séculaire, ainsi que de décennies de sélection zootechnique qui ont atteint des niveaux très élevés.
+
+## La nécessité d'une réponse politique
+
+Les députés communistes ont souligné que la situation est urgente et que la politique est déjà en retard. Les incertitudes continuent de peser sur la vie des éleveurs et des éleveuses du canton, et une réponse politique rapide est nécessaire pour éviter d'autres dommages à la filière laitière tessinoise.`,"blog.article.latte-ticino-crisi-politica-ritardo.body2":`## Les implications pratiques pour les éleveurs
+
+La crise du lait tessinois a des implications pratiques significatives pour les éleveurs locaux. Avec le prix du lait à des niveaux historiquement bas, de nombreuses exploitations agricoles risquent la fermeture, avec des conséquences économiques et sociales pour les communautés de montagne. La perte de ces exploitations entraînerait non seulement la disparition d'une économie importante, mais aussi la perte d'un patrimoine culturel et technique séculaire.
+
+### Comparaison avec la situation précédente
+
+Avant la fermeture de Lati et l'ouverture de la fromagerie de la vallée de Blenio, la situation était différente. La transformation du lait tessinois était plus stable et les éleveurs pouvaient compter sur un marché intérieur plus solide. Maintenant, la situation a changé et les éleveurs doivent faire face à une crise sans précédent.
+
+## Scénarios possibles
+
+Si la situation ne devait pas s'améliorer, les scénarios possibles sont divers. En premier lieu, l'importation de produits laitiers étrangers pourrait augmenter, avec des conséquences négatives pour l'économie locale. De plus, la fermeture de nombreuses exploitations agricoles entraînerait la perte d'emplois et un impact négatif sur les communautés de montagne.
+
+### Que peuvent faire les éleveurs
+
+Les éleveurs peuvent chercher à diversifier leur production, par exemple en produisant des fromages de haute qualité ou d'autres produits laitiers. De plus, ils peuvent chercher à collaborer avec d'autres exploitations agricoles pour créer une filière plus forte et résiliente. Enfin, ils peuvent faire pression sur les autorités pour obtenir un soutien politique et économique.
+
+## La nécessité d'une intervention politique
+
+L'intervention politique est essentielle pour résoudre la crise de la filière laitière tessinoise. Le Conseil d'État doit prendre des mesures concrètes pour soutenir les éleveurs et garantir la survie des exploitations agricoles locales. De plus, un plan doit être créé pour maintenir la transformation du lait tessinois en Tessin et éviter l'importation de produits étrangers.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.latte-ticino-crisi-politica-ritardo.body3":`## Que faire concrètement
+
+Pour faire face à la crise de la filière laitière tessinoise, il est nécessaire d'agir sur plusieurs fronts. En premier lieu, il est important que les éleveurs s'organisent et collaborent entre eux pour créer une filière plus forte et résiliente. De plus, il est nécessaire de faire pression sur les autorités pour obtenir un soutien politique et économique.
+
+### Étapes concrètes
+
+1. **Organisation des éleveurs**: Les éleveurs doivent s'organiser en coopératives ou associations pour augmenter leur pouvoir de négociation et créer une filière plus forte.
+2. Diversification de la production: Les éleveurs peuvent diversifier leur production, par exemple en produisant des fromages de haute qualité ou d'autres produits laitiers.
+3. Collaboration avec d'autres entreprises agricoles: Les éleveurs peuvent collaborer avec d'autres entreprises agricoles pour créer une filière plus forte et résiliente.
+4. Pression sur les autorités: Les éleveurs doivent faire pression sur les autorités pour obtenir un soutien politique et économique.
+5. Soutien politique et économique: Le Conseil d'État doit prendre des mesures concrètes pour soutenir les éleveurs et garantir la survie des exploitations agricoles locales.
+
+## Outils utiles
+
+Pour faire face à la crise de la filière laitière tessinoise, il est possible d'utiliser différents outils. En premier lieu, il est possible d'utiliser le [calculateur de salaire](nav:calculator) pour évaluer l'impact économique de la crise sur son entreprise. De plus, il est possible d'utiliser le [comparateur de permis](nav:permit-compare) pour évaluer les options de soutien politique et économique disponibles.
+
+### Conclusion
+
+La crise de la filière laitière tessinoise est une situation urgente qui nécessite une réponse politique rapide. Les éleveurs doivent s'organiser et collaborer entre eux pour créer une filière plus forte et résiliente, tandis que le Conseil d'État doit prendre des mesures concrètes pour soutenir les éleveurs et garantir la survie des exploitations agricoles locales. En utilisant les outils disponibles, il est possible de faire face à la crise et de trouver des solutions concrètes pour l'avenir.
+
+*Source: [tio.ch](https://www.tio.ch/ticino/politica/1920983/latte-ticinese-la-situazione-e-urgente-e-la-politica-e-gia-in-ritardo)*`,"blog.article.latte-ticino-crisi-politica-ritardo.faq":`[{"q":"Quelles sont les principales questions posées par le Parti communiste au Conseil d'État?","a":"Les principales questions posées par le Parti communiste au Conseil d'État concernent le volume de lait non tessinois transformé en Tessin ces dernières années, comment et par qui il est transformé, et s'il est possible de remplacer ce lait par du lait produit localement même en période hivernale. De plus, ils ont demandé comment le Conseil d'État entend maintenir la transformation du lait tessinois en Tessin et éviter les distorsions."},{"q":"Quelles sont les implications pratiques pour les éleveurs?","a":"Les implications pratiques pour les éleveurs incluent le risque de fermeture des exploitations agricoles, la perte d'emplois et un impact négatif sur les communautés de montagne. De plus, la crise du lait tessinois pourrait entraîner une augmentation des importations de produits laitiers de l'étranger, avec des conséquences négatives pour l'économie locale."},{"q":"Que peuvent faire les éleveurs pour faire face à la crise?","a":"Les éleveurs peuvent s'organiser en coopératives ou associations pour augmenter leur pouvoir de négociation et créer une filière plus forte. De plus, ils peuvent diversifier leur production, collaborer avec d'autres exploitations agricoles et faire pression sur les autorités pour obtenir un soutien politique et économique."}]`};export{e as default};

@@ -1,0 +1,1 @@
+const e={success:"#22c55e",warning:"#eab308",danger:"#ef4444",positive:"#10b981",caution:"#f59e0b",negative:"#ef4444",neutral:"#94a3b8",primary:"#3b82f6",primaryStroke:"#1e40af",accent:"#4f46e5",countryCH:"#dc2626",countryIT:"#16a34a"};export{e as M};

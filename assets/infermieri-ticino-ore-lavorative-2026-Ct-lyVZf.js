@@ -1,0 +1,58 @@
+const e={"blog.article.infermieri-ticino-ore-lavorative-2026.body1":`## En bref
+- La semaine de travail des infirmiers reste à 50 heures
+- La proposition de la réduire à 45 heures a été rejetée
+- 14'000 postes vacants dans le secteur
+
+## Faits clés
+- **Quoi** : Décision sur la durée de la semaine de travail des infirmiers
+- Quand : 28 avril 2026
+- Où : Berne, Suisse
+- Qui : Conseil national suisse
+- Montant : 50 heures (durée maximale de la semaine de travail)
+
+Le Conseil national suisse a décidé de maintenir la durée maximale de la semaine de travail des infirmiers à 50 heures, rejetant la proposition de la réduire à 45 heures. La décision a été prise lors d'une session spéciale à Berne, où l'on discutait de la mise en œuvre de l'initiative populaire "Pour des soins infirmiers forts", approuvée par le peuple en 2021. La majorité a rejeté l'idée de raccourcir la semaine de travail, optant pour une durée normale de 42 heures, contre la fourchette de 40-42 heures demandée par le gouvernement et les 38 heures demandées par la gauche.
+
+La décision est intervenue après la remise d'un appel urgent signé par 190'000 personnes demandant l'application intégrale et immédiate de l'initiative populaire. Le débat est toujours en cours, mais la majorité a déjà clairement exprimé sa position. La conseillère fédérale Elisabeth Baume-Schneider a rappelé qu'il y a actuellement 14'000 postes vacants dans le secteur des soins infirmiers, soulignant l'importance d'améliorer les conditions de travail pour attirer de nouveaux professionnels.
+
+### Implications pour les frontaliers
+Pour les frontaliers travaillant dans le secteur des soins infirmiers au Tessin, la décision du Conseil national signifie que la situation reste inchangée. La durée maximale de la semaine de travail restera à 50 heures, tandis que la durée normale sera fixée à 42 heures. Cela pourrait influencer la planification du travail et la gestion du temps libre pour de nombreux professionnels du secteur.
+
+### Comparaison avec la situation précédente
+Avant cette décision, il y avait la possibilité que la semaine de travail soit réduite à 45 heures, ce qui aurait eu un impact significatif sur les conditions de travail des infirmiers. Le choix de maintenir la durée actuelle pourrait être vu comme un signe de stabilité, mais aussi comme une opportunité manquée d'améliorer davantage les conditions de travail dans le secteur.
+
+### Que se passe-t-il maintenant
+Le débat sur le thème des soins infirmiers se poursuit, et on s'attend à ce que le Conseil national approfondisse davantage les questions liées aux conditions de travail et à la formation des professionnels du secteur. Pour les frontaliers travaillant au Tessin, il est important de surveiller les développements et de rester informés des décisions qui pourraient influencer leur travail.`,"blog.article.infermieri-ticino-ore-lavorative-2026.body2":`## Analyse pratique
+La décision du Conseil national de maintenir la durée maximale de la semaine de travail des infirmiers à 50 heures a des implications importantes pour le secteur des soins infirmiers en Suisse, et en particulier pour les travailleurs frontaliers qui travaillent au Tessin. Voyons en détail ce qui change et quelles sont les implications pratiques.
+
+### Impact sur les conditions de travail
+La décision de ne pas réduire la semaine de travail à 45 heures signifie que les infirmiers continueront à travailler jusqu'à 50 heures par semaine. Cela pourrait avoir un impact sur la fatigue et le bien-être des professionnels, surtout dans un secteur déjà sous pression en raison de la pénurie de personnel. La durée normale de la semaine de travail a été fixée à 42 heures, ce qui représente un compromis entre les demandes du Gouvernement et celles de la gauche.
+
+### Comparaison avec d'autres professions
+Par rapport à d'autres professions dans le secteur de la santé, la durée de la semaine de travail des infirmiers est relativement longue. Par exemple, les médecins peuvent avoir des horaires plus flexibles et moins d'heures de travail hebdomadaires, tandis que les infirmiers sont souvent soumis à des quarts de travail plus longs et exigeants. Cela pourrait influencer le choix des professionnels de travailler dans le secteur des soins infirmiers.
+
+### Scénarios futurs
+Si la situation devait rester inchangée, il est possible que le secteur continue à souffrir d'une pénurie de personnel. Cela pourrait entraîner une augmentation de la pression sur le personnel existant et une plus grande difficulté à recruter de nouveaux professionnels. D'autre part, si le Conseil national devait décider de revoir la décision à l'avenir, nous pourrions assister à une amélioration des conditions de travail et à un plus grand intérêt pour la profession.
+
+### Que faire maintenant
+Pour les travailleurs frontaliers qui travaillent au Tessin, il est important de surveiller les développements et de rester informés des décisions du Conseil national. En cas de changements, il sera nécessaire de s'adapter aux nouvelles conditions de travail et de planifier en conséquence. De plus, il est conseillé de participer à des initiatives et à des débats sur le thème des soins infirmiers pour faire entendre sa voix et contribuer à améliorer les conditions de travail dans le secteur.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.infermieri-ticino-ore-lavorative-2026.body3":`## Action
+La décision du Conseil national sur la durée de la semaine de travail des infirmiers a des implications pratiques pour les professionnels du secteur, en particulier pour les travailleurs frontaliers qui travaillent au Tessin. Voyons ce qu'il faut faire concrètement pour s'adapter aux nouvelles conditions de travail et quelles sont les échéances à garder à l'esprit.
+
+### Procédure étape par étape
+1. S'informer sur les décisions du Conseil national : Surveiller les communiqués officiels et les mises à jour sur le site du Conseil national pour rester informé des décisions relatives aux conditions de travail des infirmiers.
+2. **Adapter la planification du travail** : Si la durée de la semaine de travail reste à 50 heures, il est important de planifier son temps de manière efficace pour gérer au mieux la charge de travail.
+3. Participer à des initiatives et des débats : Participer à des réunions et des débats sur le thème des soins infirmiers pour faire entendre sa voix et contribuer à améliorer les conditions de travail dans le secteur.
+4. Surveiller les offres d'emploi : Garder un œil sur les offres d'emploi dans le secteur des soins infirmiers pour saisir d'éventuelles opportunités de carrière ou d'amélioration des conditions de travail.
+
+### Échéances importantes
+Il n'y a pas d'échéances spécifiques liées à cette décision, mais il est important de surveiller les communiqués officiels du Conseil national pour rester informé de tout changement.
+
+### Outils utiles
+Pour les travailleurs frontaliers qui travaillent au Tessin, il est utile d'utiliser des outils comme le [calculateur de salaire](nav:calculator) pour planifier son budget et gérer au mieux ses revenus. De plus, il est possible de consulter les guides et les ressources disponibles sur le site de [Frontalier Ticino](https://frontaliereticino.ch) pour rester informé des dernières nouveautés et des opportunités de travail dans le secteur des soins infirmiers.
+
+### CTA finale
+Pour plus d'informations et pour planifier au mieux son travail, consultez le [calculateur de salaire](nav:calculator) et les guides disponibles sur le site de [Frontalier Ticino](https://frontaliereticino.ch).
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3696018)*`,"blog.article.infermieri-ticino-ore-lavorative-2026.faq":`[{"q":"Quelle est la durée maximale de la semaine de travail des infirmiers dans le Tessin?","a":"La durée maximale de la semaine de travail des infirmiers dans le Tessin est de 50 heures, comme décidé par le Conseil national suisse. La durée normale a été fixée à 42 heures."},{"q":"Qu'est-ce qui change pour les frontaliers travaillant comme infirmiers dans le Tessin?","a":"Pour les frontaliers travaillant comme infirmiers dans le Tessin, la décision du Conseil national signifie que la situation reste inchangée. La durée maximale de la semaine de travail restera à 50 heures, tandis que la durée normale sera fixée à 42 heures."},{"q":"Quelles sont les implications pratiques de la décision du Conseil national?","a":"La décision de maintenir la durée maximale de la semaine de travail à 50 heures pourrait avoir un impact sur la fatigue et le bien-être des infirmiers, surtout dans un secteur déjà sous pression en raison de la pénurie de personnel. De plus, cela pourrait influencer le choix des professionnels de travailler dans le secteur des soins infirmiers."}]`};export{e as default};

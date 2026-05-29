@@ -1,0 +1,58 @@
+const e={"blog.article.ffs-ascensione-pentecoste-2026.body1":`## In Kürze
+- 58 zusätzliche Züge für Christi Himmelfahrt und Pfingsten
+- 130.000 zusätzliche Sitzplätze
+- Reservierung empfohlen
+
+## Wichtige Fakten
+- **Was**: 58 Sonderzüge und 130.000 zusätzliche Sitzplätze
+- Wann: Christi Himmelfahrt und Pfingsten 2026
+- Wo: Zwischen der Deutschschweiz und dem Tessin
+- Wer: SBB
+- Anzahl: 130.000 zusätzliche Sitzplätze
+
+Dieses Jahr haben die Schweizerischen Bundesbahnen (SBB) beschlossen, das Angebot zwischen der Deutschschweiz und dem Tessin für Christi Himmelfahrt und Pfingsten zu verstärken. Es werden 58 Sonderzüge und etwa 130.000 zusätzliche Sitzplätze zur Verfügung gestellt. Trotz dieser Maßnahmen könnten auf bestimmten Zügen dennoch hohe Auslastungen auftreten. Die SBB empfehlen daher, die Reise frühzeitig zu planen und die Sitzplätze zu reservieren.
+
+### Außergewöhnliche Maßnahmen
+Die SBB haben angekündigt, dass aufgrund der erwarteten erhöhten Reisendenzahl an den Wochenenden von Christi Himmelfahrt und Pfingsten 58 zusätzliche Züge verkehren werden. Diese Züge ermöglichen reibungslose Verbindungen zwischen der Deutschschweiz und dem Tessin. Um die Anzahl der Sitzplätze zu erhöhen, werden die SBB auch zusätzliche Wagen zu den regulären Zügen hinzufügen, einschließlich der EuroCity-Züge, die bis nach Italien fahren.
+
+Zusätzlich wird an Christi Himmelfahrt und am Samstag vor Pfingsten eine zusätzliche TILO RE80-Verbindung von Locarno nach Mailand Porta Garibaldi angeboten. Diese Verbindungen werden nicht wie üblich über Chiasso, sondern über Varese mit Zwischenhalten in Gallarate und Rho Fiera Milano fahren.
+
+### Reservierung und Fahrradtransport
+Die SBB empfehlen, die Reise frühzeitig zu planen und sich über das Angebot an Sonderzügen im Online-Fahrplan zu informieren. Es ist möglich, Sitzplätze zu reservieren und dabei die Reservierungspflicht für Fahrräder zu berücksichtigen. Jetzt können dank der grafischen Darstellung in der Mobile-App der SBB und auf SBB.ch die gewünschten Plätze auf den meisten InterCity-Zügen des nationalen Fernverkehrs, nach Italien und in der ersten Klasse nach Frankreich bequem ausgewählt werden.
+
+Für Reisen innerhalb der Schweiz können auch Plätze für Fahrräder im Wagonschema ausgewählt werden. Dies gilt nicht für den internationalen Personenverkehr und den nationalen Schweizer Verkehr auf den EuroCity-Zügen. Das Angebot an Fahrradplätzen ist begrenzt. Für die Züge, die durch den Gotthard-Basistunnel fahren, wurde daher vom 21. März bis 31. Oktober die Reservierungspflicht für Fahrräder eingeführt.
+
+### Bauarbeiten
+Die Bauarbeiten am Bahnhof Lenzburg und der Ausbau der Bahnstrecke werden zu Sperrungen und Fahrplanänderungen im Bereich Lenzburg an den Wochenenden von Christi Himmelfahrt und Pfingsten führen. Während dieser beiden Wochenenden werden die SBB die Fernverkehrszüge auf der Strecke Olten–Zürich HB umleiten. Die Fahrzeiten werden entsprechend angepasst.
+
+`,"blog.article.ffs-ascensione-pentecoste-2026.body2":`### Auswirkungen auf Reisende
+Die außergewöhnlichen Maßnahmen der SBB für Christi Himmelfahrt und Pfingsten 2026 haben wichtige Auswirkungen auf Reisende, insbesondere auf Grenzgänger, die zwischen der Deutschschweiz und dem Tessin pendeln. Durch die Erhöhung der Sitzplatzkapazität und die Einführung von Sonderzügen haben Reisende mehr Möglichkeiten, ihre Reisen flexibler zu planen.
+
+Trotz der erhöhten Kapazität können einige Züge dennoch stark ausgelastet sein. Daher ist es entscheidend, Sitzplätze im Voraus zu reservieren, um Unannehmlichkeiten zu vermeiden. Die Möglichkeit, Fahrradplätze zu reservieren und die gewünschten Sitze über die Mobile-App der SBB und die Website der SBB auszuwählen, macht die Reiseplanung einfacher und bequemer.
+
+### Vergleich zum Vorjahr
+Im Vergleich zu 2025 haben die SBB das Sitzplatzangebot um 25% erhöht. Dies stellt eine erhebliche Verbesserung für Reisende dar, die von einer größeren Verfügbarkeit von Plätzen und einer größeren Flexibilität bei den Fahrplänen profitieren können. Es ist jedoch wichtig zu beachten, dass die erhöhte Kapazität das Risiko von Überfüllung, insbesondere an Wochenenden mit hoher Auslastung, nicht vollständig beseitigt.
+
+### Praktische Szenarien
+Für Grenzgänger, die in der Schweiz arbeiten und in Italien wohnen, ist die Möglichkeit, Sitzplätze im Voraus zu reservieren, besonders wichtig. Beispielsweise könnte ein Grenzgänger, der in Zürich arbeitet und in Varese wohnt, seine Rückreise am Himmelfahrtswochenende planen, indem er einen Platz in einem der Sonderzüge reserviert. Dies würde ihm ermöglichen, Überfüllung zu vermeiden und komfortabler zu reisen.
+
+Ebenso könnte ein Reisender, der das Tessin am Pfingstwochenende besuchen möchte, einen Platz in einem der Sonderzüge reservieren, um eine stressfreie Reise zu garantieren. Die Möglichkeit, Fahrradplätze auszuwählen, ist ein weiterer Vorteil für diejenigen, die ihr Fahrrad während der Reise mitnehmen möchten.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.ffs-ascensione-pentecoste-2026.body3":`### Was tun
+Um die Reise effektiv zu planen, ist es ratsam, diese Schritte zu befolgen:
+1. Den Online-Fahrplan der SBB konsultieren, um sich über die verfügbaren Sonderzüge zu informieren.
+2. Die Sitzplätze im Voraus über die Mobile-App der SBB oder die Website der SBB reservieren.
+3. Falls man ein Fahrrad transportieren möchte, einen Platz für das Fahrrad reservieren und die Platzbeschränkungen überprüfen.
+4. Die Bauarbeiten in Lenzburg und mögliche Fahrplanänderungen berücksichtigen.
+
+### Nützliche Tools
+Für weitere Informationen und zur Reiseplanung können folgende Tools verwendet werden:
+- [SBB-Fahrplancalculator](nav:calculator)
+- [Sitzplatzreservierung](nav:exchange)
+- [Informationen zu Bauarbeiten](nav:health)
+
+### Fazit
+Die außergewöhnlichen Maßnahmen der SBB für Christi Himmelfahrt und Pfingsten 2026 stellen eine bedeutende Verbesserung für die Reisenden, insbesondere für die Grenzgänger, dar. Die Sitzplätze im Voraus zu reservieren und die Reise sorgfältig zu planen, sind grundlegend, um Unannehmlichkeiten zu vermeiden und komfortabel zu reisen. Mit den verfügbaren Tools können die Reisenden ihre Reise effektiv planen und eine stressfreie Reiseerfahrung genießen.
+
+*Quelle: [tio.ch](https://www.tio.ch/ticino/attualita/1922803/treni-ffs-posti-pentecoste-ascensione-viaggiatori-svizzera-numero)*`,"blog.article.ffs-ascensione-pentecoste-2026.faq":'[{"q":"Wie kann ich einen Sitzplatz in einem Sonderzug buchen?","a":"Du kannst einen Sitzplatz über die Mobile FFS App oder die FFS Website buchen. Es wird empfohlen, dies im Voraus zu tun, um die Verfügbarkeit zu gewährleisten."},{"q":"Welche Sonderzüge sind für Christi Himmelfahrt und Pfingsten verfügbar?","a":"Die FFS haben 58 Sonderzüge zwischen der Deutschschweiz und dem Tessin bereitgestellt. Zusätzlich gibt es zusätzliche TILO RE80 Verbindungen von Locarno nach Mailand Porta Garibaldi."},{"q":"Wie kann ich mein Fahrrad in einem Zug transportieren?","a":"Du kannst einen Platz für das Fahrrad über die Mobile FFS App oder die FFS Website buchen. Allerdings ist das Angebot an Fahrradplätzen begrenzt, insbesondere für Züge, die durch den Gotthard-Basistunnel fahren."}]'};export{e as default};

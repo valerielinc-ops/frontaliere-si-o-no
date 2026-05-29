@@ -1,0 +1,58 @@
+const e={"blog.article.trump-dazi-ue-frontalieri-ticino.body1":`## In brief
+- Trump announces 25% increase in EU tariffs
+- Accuses EU of not respecting trade agreement
+- Invites to produce cars in the USA to avoid tariffs
+
+## Key facts
+- **What**: Increase in tariffs on EU cars and trucks
+- When: Next week
+- Where: United States
+- Who: US President Donald Trump
+- Amount: 25%
+
+US President Donald Trump has announced a 25% increase in tariffs on cars and trucks coming from the European Union. The decision was communicated via a post on Truth Social, where Trump accused the EU of not fully respecting the agreed trade agreement. 'I am pleased to announce that, in light of the fact that the European Union is not fully respecting our fully agreed trade agreement, next week I will increase the tariffs applied to the European Union for cars and trucks entering the United States. The tariff will be increased to 25%', Trump wrote.
+
+The president also assured that if cars and trucks are produced in US plants, there will be no tariffs. 'It is fully understood and agreed that if they produce cars and trucks in US plants, there will be no tariffs. Many car and truck plants are currently under construction, with over 100 billion dollars invested, a record in the history of car and truck production. These plants, with American personnel, will soon open. There has never been anything like what is happening today in America!'`,"blog.article.trump-dazi-ue-frontalieri-ticino.body2":`## Analysis of the implications
+
+The 25% increase in tariffs on cars and trucks from the EU could have a significant impact on the automotive and transportation market, affecting both companies and consumers. For cross-border workers in Ticino, it is important to understand how this decision could influence their sector and job opportunities.
+
+### Impact on the automotive market
+
+The increase in tariffs could lead to a rise in the prices of cars and trucks imported from the United States, making European cars less competitive in the American market. This could result in a reduction of exports from the EU to the USA, affecting European companies and their employees, including cross-border workers in the sector.
+
+### Production opportunities in the USA
+
+Trump has invited European companies to produce cars and trucks in US plants to avoid tariffs. This could represent an opportunity for European companies to expand their presence in the American market, but it would require significant investment and adaptation to local regulations.
+
+For cross-border workers who wish to work in the USA, this could be an opportunity to explore new career possibilities, but it would require a careful evaluation of working conditions and local regulations.
+
+### Comparisons with other trade policies
+
+The increase in tariffs on cars and trucks from the EU follows other decisions by Trump in trade policy, such as the reduction of American troops in Europe and statements on cooperation in the war against Iran. These developments could influence economic and political relations between the EU and the USA, with possible repercussions for cross-border workers in sensitive sectors.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.trump-dazi-ue-frontalieri-ticino.body3":`## What to do for cross-border workers
+
+For cross-border workers employed in the automotive and transportation sectors in Ticino, it is crucial to monitor the developments of this situation and assess how it might impact their job and business opportunities. Here are some concrete steps that can be taken:
+
+### Monitor developments
+
+Stay informed about the latest news and developments regarding tariffs and trade policies between the EU and the USA. This can help better understand the potential impact on job and business opportunities.
+
+### Evaluate job opportunities in the USA
+
+If interested in exploring new job opportunities in the USA, it is important to carefully evaluate the working conditions and local regulations. This may include researching information on salaries, benefits, and working conditions in U.S. automotive plants.
+
+### Consult tax experts
+
+The increase in tariffs could have tax implications for cross-border workers in the automotive sector. Consulting a tax expert can help better understand the implications and plan accordingly.
+
+### Use calculation tools
+
+To better understand the financial impact of the increased tariffs, you can use calculation tools such as the [tax calculator](nav:calculator) to estimate potential changes in income and taxes.
+
+### Conclusion
+
+The increase in tariffs on cars and trucks from the EU represents a significant change in U.S. trade policy. For cross-border workers in the automotive and transportation sectors in Ticino, it is important to monitor the developments of this situation and assess how it might impact their job and business opportunities. Using calculation tools and consulting tax experts can help better understand the financial impact and plan accordingly.
+
+*Source: [varesenoi.it](https://www.varesenoi.it/2026/05/01/leggi-notizia/articolo/trump-ue-non-rispetta-accordo-dazi-su-camion-e-auto-aumentano-del-25.html)*`,"blog.article.trump-dazi-ue-frontalieri-ticino.faq":'[{"q":"What are the implications for cross-border workers in the automotive sector in Ticino?","a":"The increase in tariffs could affect car and truck exports from the EU to the USA, potentially reducing job opportunities for cross-border workers in the sector. However, it could also open new opportunities for those who wish to work in US automotive plants."},{"q":"What can cross-border workers do to adapt to this situation?","a":"Cross-border workers can monitor developments, evaluate job opportunities in the USA, consult tax experts, and use calculation tools to better understand the financial impact of the tariff increase."},{"q":"What are the opportunities for cross-border workers who want to work in the USA?","a":"Trump has invited European companies to produce cars and trucks in US plants, which could represent an opportunity for cross-border workers to explore new career possibilities. However, it is important to carefully evaluate the working conditions and local regulations."}]'};export{e as default};

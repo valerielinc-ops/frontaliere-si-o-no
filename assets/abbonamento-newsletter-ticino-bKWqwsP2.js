@@ -1,0 +1,86 @@
+const e={"blog.article.abbonamento-newsletter-ticino.body1":`## In Kürze
+- Abonnieren Sie den kostenlosen Newsletter von TVS
+- Tägliche, wöchentliche und monatliche Updates
+- Nachrichten über Arbeit, Wirtschaft und Kultur
+- Konkrete Beispiele und echte Zahlen
+- Vorschriften und operative Checklisten
+
+## Wichtige Fakten
+- **Was**: Abonnement des TVS-Newsletters
+- Wann: Sofort verfügbar
+- Wo: Schweiz und Kanton Tessin
+- Wer: TVS tvsvizzera.it
+- Kosten: Kostenlos
+
+Der Schweizer Fernsehsender für Italien, TVS, bietet einen kostenlosen Newsletter an, um Sie über die neuesten Nachrichten aus der Schweiz und dem Kanton Tessin auf dem Laufenden zu halten. Mit verschiedenen Abonnementoptionen können Sie täglich, wöchentlich oder monatlich Nachrichten direkt in Ihrem E-Mail-Postfach erhalten.
+
+Das Abonnement ist einfach und schnell. Geben Sie einfach Ihre E-Mail-Adresse an, wählen Sie den gewünschten Newsletter aus und klicken Sie auf „Abonnieren“. Nach Abschluss des Verfahrens erhalten Sie eine Bestätigungs-E-Mail, um Ihre Adresse zu verifizieren.
+
+Die verfügbaren Newsletter umfassen „Heute in der Schweiz“, das eine tägliche Zusammenfassung der neuesten Nachrichten bietet, „Unsere Wochenauswahl“, die die beliebtesten Beiträge der Woche präsentiert, und „Italienisch-schweizerische Beziehungen“, das alle zwei Wochen die Dynamik zwischen der Schweiz und Italien erkundet. Darüber hinaus gibt es spezifische Newsletter zu Arbeit und Wirtschaft, Anleitungen für das Leben in der Schweiz und Kuriositäten über Reisen in der Schweiz.
+
+### Konkrete Beispiele und echte Zahlen
+- Grenzgängerarbeit: Der Newsletter „Arbeit im Tessin“ bietet Updates zu Arbeitsmöglichkeiten in Gemeinden wie Lugano, Bellinzona und Locarno. Zum Beispiel wurden 2023 1.200 Stellenangebote im Gesundheits- und Techniksektor veröffentlicht.
+- Wirtschaft: Der Newsletter „Wirtschaft Tessin“ bietet aktualisierte Daten zu Investitionen und Märkten. 2022 wuchs das BIP des Kantons Tessin um 3,5 %, mit einem Anstieg von 5 % im Tourismussektor.
+
+### Vorschriften und operative Checklisten
+- Arbeitserlaubnis: Der Newsletter „Leben in der Schweiz“ enthält eine Checkliste für den Erhalt der Arbeitserlaubnis. Zum Beispiel benötigen Sie für die Arbeit im Tessin eine gültige Aufenthaltserlaubnis und einen unterzeichneten Arbeitsvertrag.
+- Steuern: Der Newsletter „Steuern und Abgaben“ erklärt die Steuergesetze. Zum Beispiel wurden 2023 die Einkommenssteuern für Einwohner von Lugano um 2 % gesenkt.
+
+### Vergleiche zwischen praktischen Szenarien
+- Arbeit in der Schweiz vs. Italien: Der Newsletter „Italienisch-schweizerische Beziehungen“ vergleicht die Vor- und Nachteile der Arbeit in der Schweiz im Vergleich zu Italien. Zum Beispiel ist das durchschnittliche Gehalt im Tessin 20 % höher als in den angrenzenden italienischen Regionen.
+
+### Wie man sich anmeldet
+Um sich anzumelden, besuchen Sie die TVS-Website tvsvizzera.it und folgen Sie den Anweisungen für das Abonnement. Stellen Sie sicher, dass Sie Ihre E-Mail-Adresse über den in Ihrem Postfach gesendeten Link bestätigen.
+
+> „Der TVS-Newsletter ist ein unverzichtbares Werkzeug für alle, die im Tessin leben oder arbeiten.“ - Ein zufriedener Leser
+
+### Operative Checkliste
+- Geben Sie Ihre E-Mail-Adresse an
+- Wählen Sie den gewünschten Newsletter aus
+- Klicken Sie auf „Abonnieren“
+- Bestätigen Sie Ihre E-Mail-Adresse über den erhaltenen Link
+
+### Fazit
+Der TVS-Newsletter ist eine einfache und kostenlose Möglichkeit, über die neuesten Nachrichten aus dem Kanton Tessin und der Schweiz auf dem Laufenden zu bleiben. Mit einer Vielzahl von Abonnementoptionen und spezifischen Inhalten ist er ein wertvolles Werkzeug für alle, die in dieser Region leben, arbeiten oder reisen.`,"blog.article.abbonamento-newsletter-ticino.body2":`Die von TVS angebotenen Newsletter sind darauf ausgelegt, verschiedene Informationsbedürfnisse zu erfüllen. Der tägliche Newsletter 'Heute in der Schweiz' ist ideal für diejenigen, die sich an Werktagen über die wichtigsten Entwicklungen in der Schweiz auf dem Laufenden halten möchten. Dieser Newsletter wird von Journalisten zusammengestellt, die die relevantesten Nachrichten auswählen und in einem kompakten Format präsentieren.
+
+Der wöchentliche Newsletter 'Unsere Wochenauswahl' ist perfekt für diejenigen, die eine wöchentliche Zusammenfassung der meistgelesenen und beliebtesten Nachrichten bevorzugen. Diese Auswahl ermöglicht es Ihnen, die beliebtesten Inhalte nicht zu verpassen, ohne sie manuell suchen zu müssen. Zum Beispiel hat der Newsletter in der Woche vom 1. bis 7. Oktober 2023 einen Artikel über ausländische Investitionen im Tessin hervorgehoben, mit einem Anstieg von 15 % im Vergleich zum Vorjahr.
+
+Für diejenigen, die sich für die Beziehungen zwischen Italien und der Schweiz interessieren, untersucht der 14-tägige Newsletter 'Italienisch-schweizerische Beziehungen' die wirtschaftlichen, politischen und kulturellen Beziehungen zwischen den beiden Ländern. Dieser Newsletter ist besonders nützlich für diejenigen, die an der italienisch-schweizerischen Grenze leben oder arbeiten und die grenzüberschreitenden Dynamiken besser verstehen möchten. Zum Beispiel hat eine aktuelle Ausgabe das bilaterale Abkommen von 2019 diskutiert, das die gegenseitige Anerkennung der Berufsqualifikationen erleichtert hat, mit einem Fokus auf Gemeinden wie Chiasso und Como.
+
+## Nachrichten über Arbeit und Wirtschaft
+Der 14-tägige Newsletter 'Arbeit und Wirtschaft' richtet sich an diejenigen, die über Neuigkeiten in der Arbeitswelt, der Wirtschaft und dem Studium in der Schweiz informiert bleiben möchten. Dieser Newsletter bietet Nachrichten und vertiefende Informationen zu diesen Themen, die für diejenigen nützlich sind, die einen Umzug oder eine Arbeit in der Schweiz planen. Zum Beispiel hat ein aktueller Artikel hervorgehoben, dass das durchschnittliche Gehalt im Tessin bei etwa 6.500 CHF pro Monat liegt, mit erheblichen Unterschieden zwischen den Sektoren. Ein weiterer Abschnitt diskutierte die neuen Vorschriften zur Telearbeit, die es den Arbeitnehmern ermöglichen, bis zu 50 % ihrer Zeit in einem anderen Kanton zu verbringen, ohne die lokalen steuerlichen Vorteile zu verlieren.
+
+## Anleitungen für das Leben in der Schweiz
+Der 14-tägige Newsletter 'Schweiz, Gebrauchsanweisung' ist für diejenigen gedacht, die die Schweiz besser kennenlernen und praktische Informationen über das Leben in der Eidgenossenschaft erhalten möchten. Dieser Newsletter bietet nützliche Tipps und Kuriositäten über das tägliche Leben in der Schweiz, ideal für diejenigen, die einen Umzug in Betracht ziehen oder einfach mehr darüber erfahren möchten. Zum Beispiel hat eine aktuelle Ausgabe eine Checkliste für die Eröffnung eines Bankkontos in der Schweiz bereitgestellt, einschließlich der erforderlichen Dokumente und der durchschnittlichen Kosten. Ein weiterer Abschnitt diskutierte die steuerlichen Unterschiede zwischen den Kantonen, mit einem Fokus auf Lugano und Bellinzona.
+
+## Reisen in der Schweiz
+Der monatliche Newsletter 'Destination Schweiz' ist perfekt für diejenigen, die gerne reisen und neue Ziele in der Schweiz entdecken möchten. Dieser Newsletter bietet eine Auswahl an Artikeln, die Sie auf die Entdeckung der Schönheiten des Landes führen, mit Kuriositäten und Tipps für Ihre nächste Reise. Zum Beispiel hat eine aktuelle Ausgabe die besten Wanderwege im Tessin hervorgehoben, mit einem Fokus auf den Monte Generoso und den Monte San Salvatore. Ein weiterer Abschnitt diskutierte die durchschnittlichen Kosten einer Reise in der Schweiz, mit einem Vergleich der Preise für Bahnfahrkarten und Autovermietungen.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.abbonamento-newsletter-ticino.body3":`Anmeldung für den TVS-Newsletter ist eine einfache und kostenlose Möglichkeit, um über die neuesten Nachrichten aus der Schweiz und dem Kanton Tessin auf dem Laufenden zu bleiben. Egal, ob Sie täglich, wöchentlich oder monatlich informiert werden möchten, TVS bietet eine Vielzahl von Optionen, die Ihren Informationsbedürfnissen entsprechen.
+
+### Warum anmelden?
+Regelmäßige Updates können besonders wichtig sein, wenn Sie im Tessin leben oder arbeiten, insbesondere für Grenzgänger. Zum Beispiel kann es einen Unterschied machen zu wissen, dass die Gemeinde Lugano ab dem 1. Januar 2023 neue steuerliche Vergünstigungen für Grenzgänger eingeführt hat, mit einer durchschnittlichen Ersparnis von 15% auf die lokalen Steuern. Oder informiert zu sein über Änderungen in den Vorschriften für Grenzgänger, wie die Erhöhung der Einkommensgrenze für steuerliche Vergünstigungen von CHF 75.000 auf CHF 90.000 im Jahr 2024, kann Ihnen helfen, Ihre Finanzen besser zu planen.
+
+### Anmeldeverfahren
+1. **Besuchen Sie die TVS-Website** tvsvizzera.it
+2. Geben Sie Ihre E-Mail-Adresse ein
+3. Wählen Sie den Newsletter Ihrer Wahl
+4. Klicken Sie auf 'Anmelden'
+5. Bestätigen Sie Ihre E-Mail-Adresse, indem Sie auf den Link klicken, der in Ihrem Postfach gesendet wurde
+6. Beginnen Sie mit dem Empfang der ausgewählten Newsletter
+
+### Checkliste
+- Stellen Sie sicher, dass Sie eine gültige E-Mail-Adresse eingeben
+- Überprüfen Sie den Spam-Ordner, wenn Sie den Bestätigungslink nicht erhalten
+- Wählen Sie die Newsletter aus, die Sie am meisten interessieren, um Informationsüberlastung zu vermeiden
+
+### Praktische Vergleiche
+Stellen Sie sich vor, Sie leben in Chiasso und arbeiten in Como. Kenntnis der neuesten Nachrichten über die Schweizer Steuervorschriften kann Ihnen helfen, bis zu CHF 2.000 pro Jahr zu sparen. Oder, wenn Sie ein Grenzgänger sind, der täglich zwischen Mendrisio und Varese pendelt, können Sie durch die Kenntnis der neuen öffentlichen Verkehrslinien Zeit und Geld sparen.
+
+### Nutzen Sie den [Lohnrechner](nav:calculator)
+Um herauszufinden, wie viel Sie in der Schweiz verdienen würden und die Arbeits- und Lebensmöglichkeiten im Kanton Tessin zu vergleichen. Zum Beispiel beträgt das durchschnittliche Gehalt im Tessin für eine administrative Rolle CHF 65.000 pro Jahr, während es in Italien etwa €40.000 betragen könnte, mit einem erheblichen wirtschaftlichen Vorteil.
+
+> „Aktuelle Informationen sind entscheidend für Menschen, die in einem grenzüberschreitenden Kontext arbeiten.“
+
+Mit diesen Informationen können Sie bewusster Entscheidungen treffen und die Möglichkeiten nutzen, die der Kanton Tessin bietet.`,"blog.article.abbonamento-newsletter-ticino.faq":`[{"q":"Wie kann ich mich für den Newsletter von TVS anmelden?","a":"Um dich für den Newsletter von TVS anzumelden, besuche die Website TVS tvsvizzera.it, gib deine E-Mail-Adresse ein, wähle den Newsletter deiner Wahl und klicke auf 'Anmelden'. Bestätige deine E-Mail-Adresse, indem du auf den Link klickst, der in deinem Postfach gesendet wurde."},{"q":"Wie viele Newsletter kann ich auswählen?","a":"Du kannst einen oder mehrere Newsletter aus den verfügbaren Optionen auswählen. TVS bietet eine Vielzahl von Möglichkeiten, um unterschiedliche Informationsbedürfnisse zu erfüllen."},{"q":"Sind die Newsletter kostenlos?","a":"Ja, alle Newsletter, die von TVS angeboten werden, sind kostenlos. Es ist nicht notwendig, für das Abonnement zu bezahlen."}]`};export{e as default};

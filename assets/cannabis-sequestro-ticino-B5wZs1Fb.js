@@ -1,0 +1,71 @@
+const e={"blog.article.cannabis-sequestro-ticino.body1":`## TL;DR
+- Massive cannabis plantation of 24,000 plants dismantled in Spreitenbach
+- Three men arrested during a joint police operation in northern Switzerland
+- Seizure included weapons, ammunition, and 11,000 Swiss francs in cash
+- Case highlights legal risks for Italian cross-border commuters
+
+## Key facts
+- **Location**: Spreitenbach, Switzerland
+- **Cannabis quantity**: 24,000 plants
+- **Arrests**: Three men (German, Kosovar, and Albanian)
+- **Cash seized**: Approximately 11,000 Swiss francs
+- **THC blood limit**: 1.5 ng/ml in Switzerland from January 1, 2026
+- **Drug seizures 2025**: 1,847 drug seizures at major Swiss border crossings
+- **Swiss cannabis fine**: Can exceed 20,000 Swiss francs
+
+A ton of cannabis, 24,000 plants, and three arrests: this is the outcome of a joint operation by the Zurich and Aargau cantonal police in Spreitenbach, a municipality just a few kilometers from the Italian-Swiss border. The intervention, which took place on Thursday morning, dismantled one of the largest illegal plantations discovered in northern Switzerland in recent years.
+
+The three men arrested - a 36-year-old German, a 26-year-old Kosovar, and a 29-year-old Albanian - all resided in the canton of Zurich and traveled daily to reach the cultivation facility. For the 380,000 Italian cross-border commuters who cross the border every day to work in Switzerland, the episode reignites the debate on the safety of border crossings and customs controls.
+
+The operation involved around fifty agents from Zurich and Aargau, with support from the Zurich Forensic Institute for technical analyses. In addition to the narcotic substance, investigators seized weapons, ammunition, a bulletproof vest, and approximately 11,000 Swiss francs in cash. The discovery was made by chance during a routine check on a German citizen who was behaving suspiciously near the building.
+
+> "The man was stopped for an ordinary identity check, but the strong smell of marijuana raised the agents' suspicions"
+
+ha explained the spokesperson for the Zurich police. The subsequent intervention revealed a real indoor cultivation laboratory, with professional irrigation and lighting systems.
+
+For cross-border commuters who travel daily on the A2 to reach Lugano, Bellinzona, or Zurich, the case raises questions about the real perception of safety along the route. Many Italian commuters pass just a few meters from the seizure site, using the Birr or Baden exits to reach the logistics centers and technology companies in the region.
+
+According to data from the Office for Migration (SEM), in 2025, 67% of Italian cross-border commuters work in the services sector, with high concentrations in the Zurich and Aargau districts. The episode could influence control policies at border crossings, already intensified after the introduction of the e-gate system in Chiasso, Mendrisio, and Ponte Tresa.`,"blog.article.cannabis-sequestro-ticino.body2":`From a legal perspective, the case opens up complex scenarios for cross-border commuters who reside in Italy but work in Switzerland. Swiss cannabis legislation remains more restrictive than Italian legislation, creating potential legal conflicts.
+
+In Switzerland, cannabis possession is punishable by up to three years in prison or fines that can exceed 20,000 Swiss francs. The Federal Law on Narcotics (LStup) considers cannabis a prohibited substance, although since 2022, controlled sales of products with low THC content have been permitted in some supermarkets. However, the 24,000 plants seized in Spreitenbach contained THC levels well above the 1% legal limit.
+
+For cross-border commuters, the concrete risk manifests itself during customs control. Border authorities can carry out personal and vehicle searches without a judicial warrant, based solely on founded suspicion. In 2025, Swiss customs registered 1,847 drug seizures at major border crossings, with a 23% increase compared to the previous year.
+
+📊 Useful numbers for commuters:
+- Main border crossings: Brogeda, Ponte Tresa, Gaggiolo, Fornasette
+- Peak hours: 6-8 and 16-19
+- Random checks: around 12% of vehicles
+- Average waiting time: 3-7 minutes
+
+The regulatory difference between the two countries also creates disparities in sanctioning treatment. A cross-border commuter caught with small amounts of cannabis in Italy might receive a simple administrative fine, while the same quantity transported in Switzerland entails a criminal proceeding with a court appearance in Zurich or Bellinzona.
+
+💡 Practical case: if a Como worker is stopped at the Ponte-Cremenaga border crossing with 5 grams of marijuana, they risk:
+- In Italy: administrative sanction from 250 to 2,000 euros
+- In Switzerland: criminal charges, fine up to 500 CHF or arrest up to 3 months
+
+Swiss companies are implementing more restrictive company policies. Many pharmaceutical and banking companies in Lugano now require preventive drug tests and surprise controls during employment. The Spreitenbach case could accelerate this trend, making controls on cross-border workers even stricter.
+
+⚠️ Attention: from January 1, 2026, Switzerland has introduced new rules for driving under the influence of substances. The THC limit in blood is set at 1.5 ng/ml, lower than the Italian limit of 3 ng/ml. This means that a cross-border commuter who has consumed cannabis on the weekend could test positive even after 48 hours.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.cannabis-sequestro-ticino.body3":`For the 120,000 Lombardy and 90,000 Piedmont cross-border commuters who cross the border every day, the golden rule is simple: zero tolerance. Even if cannabis is decriminalized in Italy, it remains a criminal offense in Switzerland with serious consequences for cross-border workers.
+
+Here is the daily checklist to avoid trouble:
+- Always check pockets, wallets, and car trunks before leaving
+- Avoid transporting passengers who may have illegal substances
+- Do not accept packages or deliveries to be made in Switzerland
+- In case of control, always declare the presence of any medications
+
+Many cross-border commuters underestimate the risk of passive contamination. Swiss customs dogs can detect even minimal traces on clothing or luggage. A colleague who has consumed cannabis in Italy can leave residues sufficient to trigger a control.
+
+The Spreitenbach case also highlights the problem of money laundering. The 30,000 euros in cash found on the first arrested person were likely proceeds from cannabis sales. Swiss authorities are intensifying controls on cash flows across the border, with particular attention to cross-border commuters transporting more than 10,000 francs.
+
+For those working in the financial or insurance sector in Lugano, a criminal indictment entails the automatic revocation of the professional activity authorization. In practice, a Varese bank consultant who faces drug charges loses their job in Switzerland and must return to Italy.
+
+The economic cost for a cross-border commuter involved in a drug case is high:
+- Criminal lawyer in Ticino: 250-400 CHF/hour
+- Average fine: 500-2,000 CHF
+- Loss of working days: 200-300 CHF/day
+- Possible dismissal: 3-6 months of allowance
+
+If you work in Switzerland and reside in Italy, it's always best to consult the [salary calculator](nav:calculator) to evaluate the real economic impact of a work suspension. In case of trouble, remember that the Italian embassy in Bern offers consular assistance, but cannot interfere with the Swiss criminal proceedings.`,"blog.article.cannabis-sequestro-ticino.faq":'[{"q":"How does customs control work for Italian border crossings with cannabis?","a":"The border authorities may carry out personal and vehicular searches without a judicial mandate, based on the only suspect founded. In 2025, Swiss customs registered 1.847 drug seizures with the main vaccines, an increase of 23% compared to the previous year."},{"q":"What is the risk for an Italian frontierer if found with small amounts of cannabis in Switzerland and how does it differ from Italian legislation?","a":"In Switzerland, even small amounts of cannabis may lead to criminal proceedings with fines of up to CHF 500 or stop up to 3 months. In Italy, the same amount could be subject to a simple administrative fine of 250 to 2.000 euros."},{"q":"What are the main areas of control along the Swiss-Italy border for border guards?","a":"The main valleys are Brogeda, Ponte Tresa, Gaggiolo and Fornasette, with more intensified controls during peak hours (6-8 and 16-19) and about 12% of vehicles subjected to random controls."}]'};export{e as default};

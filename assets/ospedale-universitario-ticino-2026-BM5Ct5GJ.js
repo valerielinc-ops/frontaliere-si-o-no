@@ -1,0 +1,68 @@
+const e={"blog.article.ospedale-universitario-ticino-2026.body1":`## En bref
+- Nouveaux plans du Cardiocentro inaugurés
+- Projet d'hôpital universitaire diffus en phase d'évaluation
+- Sanvido : 'Nous espérons recevoir bientôt le feu vert'
+
+## Faits clés
+- **Quoi** : Projet d'hôpital universitaire diffus
+- Quand : 4 mai 2026
+- Où : Tessin
+- Qui : Ente Ospedaliero Cantonale (EOC)
+- Montant : Non encore spécifié
+
+Le conseiller fédéral Ignazio Cassis a retracé l'histoire du Cardiocentro de Lugano, soulignant comment sa naissance a été accompagnée de résistances et de polémiques, typiques du campanilisme tessinois. Cassis, qui était à l'époque médecin cantonal, a rappelé comment le meilleur traitement pour les patients tessinois était, il y a quelques années, un voyage de trois heures en train jusqu'à Zurich. Aujourd'hui, grâce au Cardiocentro, ces soins sont également disponibles en Tessin.
+
+Le président du Conseil d'administration de l'EOC, Paolo Sanvido, a annoncé que le Cardiocentro continuerait à croître et qu'un autre grand projet est à l'horizon : un hôpital universitaire cantonal. Sanvido a expliqué que le concept est nouveau par rapport à celui auquel nous sommes habitués en Suisse, avec l'idée d'un hôpital universitaire diffus. Le projet est actuellement sur la table du Conseil d'État, en attente d'un feu vert pour approfondir davantage cette possibilité.
+
+### Croissance du Cardiocentro
+Le directeur du Cardiocentro, Massimo Manserra, a parlé d'une croissance sur toute la ligne. Outre les trois nouveaux étages ajoutés à l'hôpital, le Cardiocentro réalise le projet 'Cœur, vaisseaux et poumons', qui élargira la possibilité de prise en charge depuis le centre. Depuis le 1er avril, tout le service de chirurgie thoracique de l'EOC a été intégré au Cardiocentro.
+
+Manserra a également annoncé une deuxième phase de développement, qui durera quelques années et pendant laquelle tout l'implant technique nécessaire sera mis en place pour avancer vers une médecine de plus en plus spécialisée et de qualité. Cela inclura des lits supplémentaires et des normes plus élevées, par exemple pour les soins intensifs.
+
+### Futur de la santé en Tessin
+Le directeur du Département de la santé et de la socialité, Raffaele De Rosa, a parlé de la croissance du Cardiocentro comme d'un élan pour tout le secteur médical. Cependant, il a souligné que le contexte reste compliqué et qu'il faut un équilibre entre l'offre et les besoins pour limiter l'augmentation des coûts qui se répercutent sur les primes de l'assurance maladie.
+
+Le directeur général de l'EOC, Glauco Martinetti, a ajouté que le contenu de l'avenir sera de plus en plus la médecine ambulatoire, et que les espaces doivent s'adapter en conséquence. Les travaux ont été réalisés par l'architecte Guya Camponovo, qui a cherché à rendre la structure aussi accueillante que possible pour les patients, par exemple en abaissant les fenêtres pour permettre d'admirer le paysage du lac même depuis le lit.
+
+### Impact sur les frontaliers
+Les frontaliers qui travaillent en Tessin pourraient bénéficier d'une amélioration des structures sanitaires locales, réduisant la nécessité de se déplacer pour des soins spécialisés. De plus, un hôpital universitaire diffus pourrait offrir des opportunités de formation et de recherche, améliorant la qualité des services sanitaires disponibles dans la région.`,"blog.article.ospedale-universitario-ticino-2026.body2":`## Analyse pratique
+Le projet d'un hôpital universitaire réparti dans le canton du Tessin représente une opportunité significative pour améliorer l'accès aux soins de santé pour les résidents et les travailleurs frontaliers du canton du Tessin. Actuellement, de nombreux Tessinois et frontaliers doivent se rendre à Zurich ou dans d'autres villes suisses pour accéder à des soins spécialisés. Un hôpital universitaire réparti pourrait réduire cette nécessité, offrant des services de haute qualité plus proches de chez eux.
+
+### Avantages pour les frontaliers
+Les travailleurs frontaliers du Tessin pourraient bénéficier d'une amélioration des infrastructures sanitaires locales. Cela pourrait réduire les temps d'attente pour les soins spécialisés et améliorer la qualité de vie pour ceux qui vivent et travaillent dans le Tessin. De plus, un hôpital universitaire réparti pourrait offrir des opportunités de formation et de recherche, améliorant la qualité des services de santé disponibles dans la région.
+
+### Défis et considérations
+Cependant, il y a aussi des défis à considérer. Le projet nécessitera un investissement significatif et devra être géré de manière à garantir un équilibre entre l'offre et les besoins. De plus, il sera important de s'assurer que les coûts n'augmentent pas excessivement, se répercutant sur les primes d'assurance maladie. Le directeur du Département de la santé et de la socialité, Raffaele De Rosa, a souligné l'importance de trouver cet équilibre pour garantir un système de santé durable.
+
+### Scénarios futurs
+Si le projet est approuvé, le Tessin pourrait devenir un modèle pour d'autres cantons suisses. Un hôpital universitaire réparti pourrait attirer des professionnels de santé de haut niveau et offrir des opportunités de collaboration avec des universités et des centres de recherche. Cela pourrait conduire à une amélioration générale de la qualité de vie et des opportunités de travail dans la région.
+
+### Comparaisons avec la situation actuelle
+Actuellement, les travailleurs frontaliers du Tessin doivent souvent voyager pour accéder à des soins spécialisés. Cela peut être coûteux et chronophage. Un hôpital universitaire réparti pourrait réduire cette nécessité, offrant des services de haute qualité plus proches de chez eux. De plus, il pourrait offrir des opportunités de formation et de recherche, améliorant la qualité des services de santé disponibles dans la région.
+
+### Procédures et délais
+Pour l'instant, le projet est sur la table du Conseil d'État. S'il est approuvé, une phase d'approfondissement et de planification sera lancée. Les délais et les procédures spécifiques n'ont pas encore été définis, mais il est probable que le processus prendra plusieurs années.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.ospedale-universitario-ticino-2026.body3":`## Actions concrètes
+Pour les frontaliers travaillant au Tessin, il est important de suivre les développements du projet d'hôpital universitaire diffus. Voici quelques actions concrètes qu'ils peuvent entreprendre :
+
+### Surveiller les mises à jour
+Se tenir informé des développements du projet à travers les canaux officiels de l'EOC et du Conseil d'État. Cela peut être fait en visitant les sites web officiels ou en s'abonnant à des newsletters informatives.
+
+### Participer aux consultations publiques
+Si des consultations publiques ou des réunions d'information sont organisées, il est important d'y participer pour exprimer ses opinions et ses préoccupations. Cela peut aider à garantir que le projet réponde aux besoins de la communauté.
+
+### Planifier les soins de santé
+Si l'on prévoit avoir besoin de soins spécialisés à l'avenir, il est utile de planifier à l'avance. Cela pourrait inclure la recherche d'informations sur les services actuellement disponibles et la planification des éventuels déplacements nécessaires pour accéder à des soins spécialisés.
+
+### Utiliser des outils en ligne
+Il existe des outils en ligne qui peuvent aider à comparer les coûts et les services de santé disponibles dans différentes régions. Ces outils peuvent être utiles pour planifier les soins de santé et faire des choix éclairés.
+
+### Conclusion
+Le projet d'hôpital universitaire diffus au Tessin représente une opportunité significative d'améliorer l'accès aux soins de santé pour les frontaliers travaillant dans la région. Il est important de suivre les développements du projet et de participer aux consultations publiques pour exprimer ses opinions et ses préoccupations. De plus, il est utile de planifier à l'avance les soins de santé et d'utiliser des outils en ligne pour faire des choix éclairés.
+
+### CTA
+Pour plus d'informations et pour planifier vos soins de santé, utilisez notre [calculateur de coûts de santé](nav:health). Cet outil peut vous aider à comparer les coûts et les services disponibles, garantissant que vous puissiez faire des choix éclairés pour votre santé.
+
+*Source: [laregione.ch](https://www.laregione.ch/cantone/ticino/1922944/dal-campanilismo-ticinese-al-sogno-dell-ospedale-universitario)*`,"blog.article.ospedale-universitario-ticino-2026.faq":`[{"q":"Quels sont les avantages d'un hôpital universitaire réparti pour les travailleurs frontaliers?","a":"Un hôpital universitaire réparti pourrait offrir des services de haute qualité plus proches de chez soi, réduisant ainsi la nécessité de voyager pour des soins spécialisés. De plus, il pourrait offrir des opportunités de formation et de recherche, améliorant ainsi la qualité des services de santé disponibles dans la région."},{"q":"Comment puis-je suivre les développements du projet?","a":"Vous pouvez suivre les développements du projet à travers les canaux officiels de l'EOC et du Conseil d'État. Visitez les sites web officiels ou inscrivez-vous à des newsletters informatives pour rester à jour."},{"q":"Quelles sont les défis associés au projet d'hôpital universitaire réparti?","a":"Le projet nécessitera un investissement significatif et devra être géré de manière à garantir un équilibre entre l'offre et les besoins. De plus, il sera important de s'assurer que les coûts n'augmentent pas excessivement, se répercutant sur les primes d'assurance maladie."}]`};export{e as default};

@@ -1,0 +1,66 @@
+const e={"blog.article.littizzetto-critica-svizzera-crans-montana.body1":`## In Kürze
+- Littizzetto kritisiert die Schweiz wegen Rechnungen an die Verletzten von Crans Montana
+- Schweizer und italienische Behörden bestätigen, dass die Behandlung kostenlos ist
+- Monolog voller Klischees über die Schweiz
+
+## Wichtige Fakten
+- **Was**: Kritik von Luciana Littizzetto an der Schweiz
+- Wann: 4. Mai 2026
+- Wo: Sendung von Fabio Fazio
+- Wer: Luciana Littizzetto
+- Betrag: Nicht spezifiziert
+
+Die von Luciana Littizzetto gegen die Schweiz erhobene Polemik wegen der Krankenhausrechnungen, die den Familien der bei dem Brand in Crans Montana verletzten Jugendlichen geschickt wurden, hat zahlreiche Reaktionen ausgelöst. Während eines Monologs in der Sendung von Fabio Fazio kritisierte die italienische Komikerin die Schweiz scharf, wobei sie zahlreiche Klischees und ungenaue Informationen verwendete. Dennoch betonten die schweizerischen und italienischen Behörden, dass die Behandlung der Verletzten und ihrer Angehörigen vollständig kostenlos ist, unabhängig von der Nationalität.
+
+Der Präsident der Schweizerischen Eidgenossenschaft Guy Parmelin und die italienische Ministerpräsidentin Giorgia Meloni bestätigten beide, dass es keine Kosten für die unmittelbar nach der Tragödie erhaltenen Behandlungen geben wird. Dies widerlegte die Aussagen von Littizzetto, die behauptet hatte, dass die italienischen Familien für die Behandlung zahlen sollten.
+
+### Littizzetto's Monolog
+
+Littizzetto's Monolog beginnt mit einer Reihe von Klischees über die Schweiz, in denen sie sie als ein „Land mit gekämmten Bergen und von Hand gebügelten Seen“ beschreibt, eine „kleine Nation, die mitten in Europa steht, das sie verachtet“, und ein „neutrales Land wie Schuhcreme, die man auf die Mokassins gibt“. Die Komikerin ging dann auf die Antipathie ein, die die Schweiz hervorruft, und bezeichnete sie als „die Erste in der Klasse, wir sind die Chaoten in der letzten Reihe“.
+
+Littizzetto sprach auch das Thema der medizinischen Behandlung an und behauptete, dass die Schweiz Geld für die Behandlung der in Crans Montana verletzten Jungen verlangt habe. Wie bereits erwähnt, haben die Behörden jedoch bestätigt, dass die Behandlung kostenlos ist. Die Komikerin kritisierte dann die Schweiz dafür, dass sie die Sicherheitsgesetze für Diskotheken nicht eingehalten habe, und behauptete, dass das Schweizer Recht nur dann eingehalten werde, wenn es bequem sei.
+
+### Die Reaktion der Behörden
+
+Die schweizerischen und italienischen Behörden haben noch einmal betont, dass die Behandlung der Verletzten des Brandes in Crans Montana vollständig kostenlos ist. Dies widerlegt die Aussagen von Littizzetto, die behauptet hatte, dass die italienischen Familien für die Behandlung zahlen sollten. Die italienische Ministerpräsidentin Giorgia Meloni bestätigte, dass es keine Kosten für die unmittelbar nach der Tragödie erhaltenen Behandlungen geben wird.
+
+Der Präsident der Schweizerischen Eidgenossenschaft Guy Parmelin hat auch noch einmal betont, dass die Behandlung kostenlos ist und dass die schweizerischen Behörden alles tun, um die Verletzten und ihre Familien zu unterstützen. Dies bestätigte, dass die Aussagen von Littizzetto unbegründet und auf ungenauen Informationen beruhten.`,"blog.article.littizzetto-critica-svizzera-crans-montana.body2":`### Auswirkungen auf Grenzgänger
+
+Der Brand in Crans Montana und die anschließenden Kontroversen, die von Luciana Littizzetto angestoßen wurden, haben die Wahrnehmung der Schweiz durch Grenzgänger erheblich beeinflusst. Viele italienische Grenzgänger, die in der Schweiz arbeiten, könnten sich über die möglichen Auswirkungen der Kritik von Littizzetto und die Reaktionen der Schweizer und italienischen Behörden Sorgen machen.
+
+Dennoch ist es wichtig zu betonen, dass die medizinische Versorgung für die Verletzten des Brandes vollständig kostenlos ist, unabhängig von der Nationalität. Das bedeutet, dass sich italienische Grenzgänger, die in der Schweiz arbeiten, keine Sorgen über zusätzliche Kosten für die medizinische Versorgung im Notfall machen müssen.
+
+### Vergleich mit der vorherigen Situation
+
+Bevor der Brand in Crans Montana ausbrach, konnten sich italienische Grenzgänger, die in der Schweiz arbeiten, auf ein hochwertiges Schweizer Gesundheitssystem verlassen, allerdings mit hohen Kosten. Die Schweizer Behörden haben jedoch stets betont, dass im Notfall die medizinische Versorgung für alle kostenlos ist, unabhängig von der Nationalität.
+
+Der Brand in Crans Montana hat die Bedeutung dieses Prinzips unterstrichen und bestätigt, dass die Notfallmedizin für alle, einschließlich italienischer Grenzgänger, kostenlos ist. Dies ist ein wichtiger Punkt für die Grenzgänger, die sich somit auf ein hochwertiges Schweizer Gesundheitssystem verlassen können, ohne sich über die Kosten Sorgen machen zu müssen.
+
+### Zukunftsszenarien
+
+In Zukunft könnte es sein, dass die von Luciana Littizzetto angestoßenen Kontroversen die Wahrnehmung der Schweiz durch italienische Grenzgänger beeinflussen. Dennoch ist es wichtig zu betonen, dass die Schweizer und italienischen Behörden bestätigt haben, dass die Notfallmedizin für alle kostenlos ist, unabhängig von der Nationalität.
+
+Italienische Grenzgänger, die in der Schweiz arbeiten, können sich somit weiterhin auf ein hochwertiges Gesundheitssystem verlassen, ohne sich über die Kosten Sorgen machen zu müssen. Dies ist ein wichtiger Punkt für die Grenzgänger, die somit in der Schweiz mit größerer Gelassenheit leben und arbeiten können.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.littizzetto-critica-svizzera-crans-montana.body3":`### Was tun im Notfall
+
+Im Notfall müssen sich italienische Grenzgänger, die in der Schweiz arbeiten, bewusst sein, dass die medizinische Versorgung kostenlos ist. Es ist jedoch wichtig, bestimmte Verfahren zu befolgen, um sicherzustellen, dass sie die notwendige Behandlung erhalten.
+
+1. **Rufen Sie den 112 an**: Im Notfall den Notruf 112 anrufen, um sofortige Hilfe zu erhalten.
+2. Gehen Sie zur nächsten Notaufnahme: Wenn möglich, zur nächsten Notaufnahme gehen, um die notwendige Behandlung zu erhalten.
+3. Zeigen Sie Ihren Aufenthaltstitel vor: Im Notfall ist es wichtig, den Aufenthaltstitel vorzuzeigen, um den Wohnsitz in der Schweiz nachzuweisen.
+4. Kontaktieren Sie die italienische Botschaft: Im Notfall kann die italienische Botschaft in der Schweiz kontaktiert werden, um Unterstützung zu erhalten.
+
+### Nützliche Tools
+
+Für italienische Grenzgänger, die in der Schweiz arbeiten, ist es wichtig, die nützlichen Tools für das Leben und Arbeiten in der Schweiz zu kennen. Einige dieser Tools umfassen:
+- Lohnrechner: Um das Nettoeinkommen in der Schweiz zu berechnen.
+- Steuerrechner: Um die Steuern in der Schweiz zu berechnen.
+- Rentenrechner: Um die Renten in der Schweiz zu berechnen.
+
+### CTA finale
+
+Für weitere Informationen darüber, wie man in der Schweiz lebt und arbeitet, besuchen Sie unseren [Lohnrechner](nav:calculator), um herauszufinden, wie viel Sie in der Schweiz verdienen.
+
+*Quelle: [tio.ch](https://www.tio.ch/svizzera/attualita/1922947/legge-svizzera-essere-montana-crans)*`,"blog.article.littizzetto-critica-svizzera-crans-montana.faq":'[{"q":"Sind die medizinischen Behandlungen für die Verletzten des Brandes in Crans Montana kostenlos?","a":"Ja, die medizinischen Behandlungen für die Verletzten des Brandes in Crans Montana sind vollständig kostenlos, unabhängig von der Nationalität. Dies wurde von den schweizerischen und italienischen Behörden bestätigt."},{"q":"Was ist im Notfall in der Schweiz zu tun?","a":"Im Notfall in der Schweiz ist es wichtig, die Notrufnummer 112 anzurufen, sich in die nächste Notaufnahme zu begeben, die Grenzgängerbewilligung vorzuzeigen und bei Bedarf die italienische Botschaft zu kontaktieren."},{"q":"Welche Werkzeuge sind nützlich für italienische Grenzgänger, die in der Schweiz arbeiten?","a":"Einige nützliche Werkzeuge für italienische Grenzgänger, die in der Schweiz arbeiten, umfassen den Lohnrechner, den Steuerrechner und den Pensionsrechner."}]'};export{e as default};

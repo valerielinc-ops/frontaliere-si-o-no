@@ -1,0 +1,1 @@
+const o="/icons/company-placeholder.svg";function e(l){const a=l.currentTarget;a.dataset.logoFallback!=="placeholder"&&(a.src=o,a.dataset.logoFallback="placeholder",a.style.visibility="visible")}export{o as C,e as h};

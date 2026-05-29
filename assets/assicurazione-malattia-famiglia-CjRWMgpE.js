@@ -1,0 +1,38 @@
+const e={"blog.article.assicurazione-malattia-famiglia.body1":`## Auf einen Blick
+- Grenzgänger im Tessin müssen zwischen LAMal, EHIC und privaten Zusatzpolicen wählen.
+- LAMal ist obligatorisch und kostet durchschnittlich 350 CHF/Monat im Jahr 2026.
+- EHIC deckt nur Notfälle, Zusatzversicherungen können zusätzliche Leistungen abdecken.
+
+## Wichtige Fakten
+- **Versicherung**: LAMal ist die obligatorische Schweizer Krankenversicherung für Grenzgänger.
+- **Kosten LAMal**: Durchschnittlich 350 CHF pro Monat für einen Erwachsenen im Jahr 2026.
+- **EHIC Gültigkeit**: Nur für Notfälle gültig, deckt keine geplanten Behandlungen ab.
+- **Kosten Zusatzversicherung**: Durchschnittlich 1.200 € jährlich für eine Familie mit 4 Personen in Italien im Jahr 2026.
+- **Zusatzversicherungen**: Können zahnärztliche Kosten, Physiotherapie oder private Behandlungen abdecken.
+- **Arbeitsorte**: Lugano, Varese, Como.
+- **Grenzgänger**: Personen, die im Tessin arbeiten, aber in Italien leben.
+
+Im Kanton Tessin stehen Grenzgänger vor einer wichtigen Entscheidung: Wie sichern sie eine angemessene Gesundheitsversorgung für sich und ihre Familie? Die Hauptoptionen umfassen die obligatorische Schweizer Krankenversicherung LAMal, die Europäische Krankenversicherungskarte (EHIC) und private Zusatzpolicen. Es ist entscheidend, die Unterschiede zwischen diesen Alternativen zu verstehen, um Überraschungen in Bezug auf die Deckung und die Kosten zu vermeiden.
+
+## LAMal: obligatorisch für Grenzgänger
+
+LAMal ist die in der Schweiz obligatorische Krankenversicherung. Für Grenzgänger bedeutet die Wahl von LAMal, Zugang zum Schweizer Gesundheitssystem zu gewährleisten, das für seine Qualität bekannt ist. Die durchschnittlichen Kosten für eine LAMal-Prämie für einen Erwachsenen liegen im Jahr 2026 bei etwa 350 CHF pro Monat, variieren jedoch je nach Kanton und gewähltem Selbstbehalt.
+
+> 'LAMal bietet einen robusten Schutz, aber es ist wichtig zu prüfen, ob auch die in Italien lebenden Angehörigen mitversichert werden können, wo das öffentliche Gesundheitssystem bereits umfassenden Schutz bieten könnte', erklärt ein Berater des DFE in Bellinzona.
+
+Für diejenigen, die in Lugano arbeiten, aber eine Familie in Varese oder Como haben, ist es wichtig zu klären, ob die Angehörigen in die Schweizer Police aufgenommen werden können oder ob eine andere Lösung kostengünstiger ist.`,"blog.article.assicurazione-malattia-famiglia.body2":`## EHIC und Zusatzversicherungen: Was Sie wissen sollten
+
+Die Europäische Krankenversicherungskarte (EHIC) ist eine nützliche Option für diejenigen, die in Italien leben, aber im Tessin arbeiten. Sie ermöglicht den Zugang zu bestimmten dringenden medizinischen Behandlungen im Wohnsitzland und in Europa. Allerdings ist sie kein vollständiger Schutz: Für Facharztbesuche oder Routinebehandlungen muss man auf das italienische Gesundheitssystem oder eine private Zusatzversicherung zurückgreifen.
+
+- **EHIC**: nur für Notfälle gültig, deckt keine geplanten Behandlungen ab
+- **Zusatzversicherungen**: können zahnärztliche Kosten, Physiotherapie oder private Behandlungen abdecken, die nicht im öffentlichen System enthalten sind
+
+⚠️ Im Jahr 2026 liegen die durchschnittlichen Kosten für eine Zusatzversicherung für eine Familie mit 4 Personen in Italien bei etwa 1.200 € jährlich. Es ist wichtig, die verfügbaren Angebote auf dem Markt zu vergleichen, um die beste Lösung für Ihr Budget und Ihre Gesundheitsbedürfnisse zu finden.`,"blog.article.assicurazione-malattia-famiglia.body3":`## Praktische Tipps für Grenzgänger
+
+💡 Für diejenigen, die täglich den Gaggiolo oder Ponte Tresa überqueren, kann eine frühzeitige Planung der Gesundheitsversorgung einen Unterschied machen, insbesondere im Falle medizinischer Notfälle im Ausland. In vielen Fällen garantiert die Kombination von LAMal mit einer italienischen Zusatzversicherung einen umfassenden Schutz, sowohl im Schweizer Gebiet als auch in Italien.
+
+- Fragen Sie, ob Ihr Arbeitgeber Unterstützung bei der Auswahl der Versicherungen bietet
+- Überprüfen Sie die Selbstbehaltoptionen, um die LAMal-Kosten zu senken
+- Nutzen Sie Online-Tools, um Policen und Prämien zu vergleichen
+
+Lassen Sie nichts dem Zufall überlassen: Besuchen Sie unseren [Krankenversicherungsvergleich](nav:health), um alle verfügbaren Optionen zu prüfen und den besten Schutz für sich und Ihre Familie zu finden.`,"blog.article.assicurazione-malattia-famiglia.faq":'[{"q":"Wie hoch sind die durchschnittlichen Kosten für eine LAMal-Prämie für einen Erwachsenen im Jahr 2026?","a":"Die durchschnittlichen Kosten für eine LAMal-Prämie für einen Erwachsenen im Jahr 2026 betragen etwa 350 CHF pro Monat, aber variieren je nach Kanton und gewählter Franchise."},{"q":"Was deckt die Europäische Krankenversicherungskarte (EHIC) ab?","a":"Die EHIC ermöglicht den Zugang zu einigen dringenden medizinischen Behandlungen im Wohnsitzland und in Europa, ist aber keine umfassende Absicherung und deckt keine geplanten Behandlungen ab."},{"q":"Wie hoch sind die durchschnittlichen Kosten für eine Zusatzversicherung für eine vierköpfige Familie in Italien im Jahr 2026?","a":"Die durchschnittlichen Kosten für eine Zusatzversicherung für eine vierköpfige Familie in Italien betragen etwa 1.200 € pro Jahr."},{"q":"Wie kann ich die beste Krankenversicherung für mich und meine Familie wählen?","a":"Es ist ratsam, die verfügbaren Angebote auf dem Markt zu vergleichen, Online-Tools zur Bewertung aller Optionen zu nutzen und die Möglichkeit zu prüfen, LAMal mit einer italienischen Zusatzversicherung zu kombinieren."},{"q":"Kann ich meine in Italien lebenden Familienmitglieder in meine LAMal-Police einschließen?","a":"Das ist möglich, aber es ist wichtig zu prüfen, ob es günstiger ist, sie in die Schweizer Police einzuschließen oder ob eine andere Lösung vorteilhafter ist, unter Berücksichtigung des italienischen öffentlichen Gesundheitssystems."}]'};export{e as default};

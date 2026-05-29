@@ -1,0 +1,95 @@
+const a={"blog.article.iran-invita-sacrificio-frontalieri-2026.body1":`## In brief
+- Janfada campaign promoted by the Iranian embassy in Bern
+- Concern among the Iranian diaspora in Switzerland
+- Objectives still unclear
+
+## Key facts
+- **What**: Janfada campaign
+- When: May 3, 2026
+- Where: Switzerland and abroad
+- Who: Iranian embassy in Bern
+- Amount: Nearly 30 million sign-ups (figure unverifiable)
+
+The Iranian embassy in Bern is promoting a campaign by the regime in Switzerland that urges emigrants abroad to 'sacrifice their lives.' The initiative, which carries the slogan 'Janfada,' meaning 'I sacrifice my life,' is being promoted worldwide and is also being spread in Switzerland through websites and social media. In the images circulating online, a soldier in combat uniform can be seen, with his face hidden behind a flag bearing the Persian inscription 'Janfada.' According to the Mullah regime, the goal is to show the world that the Iranian people are ready to defend their country against what is referred to as 'the American and Zionist enemy.'
+
+The campaign has caught the attention of Swiss authorities and has caused concern among Iranians abroad. NZZ am Sonntag writes that Iranian authorities speak of nearly thirty million sign-ups in Iran and abroad, figures that are not, however, verifiable. Some media even talk about a campaign that evokes the idea of martyrdom. Concern has thus grown in Western countries, and the British government, for example, has summoned the Iranian ambassador. In Switzerland, fears are also growing among the Iranian diaspora, as the objective of this initiative is not clear: to mobilize supporters of the regime or to encourage terrorist acts abroad.
+
+The Federal Department of Foreign Affairs (FDFA), contacted by the Sunday newspaper from beyond San Gottardo, communicates that the issue has been addressed with the Iranian ambassador in Bern during regular meetings. The FDFA also recalls that all foreign representations in Switzerland must respect international law and Swiss laws.
+
+### Implications for cross-border workers
+For Iranian cross-border workers living in Ticino and working in Switzerland, this campaign could have significant implications. The main concern is the security and stability of the Iranian community in Switzerland. The Janfada campaign could influence the social and political climate, creating tensions and concerns among members of the diaspora. It is important that cross-border workers are aware of the potential consequences and keep informed through official and reliable channels.
+
+### What to do if you are involved
+If you are an Iranian cross-border worker and feel involved or concerned about the Janfada campaign, it is advisable to follow these steps:
+1. Stay informed: Seek reliable and up-to-date information through official Swiss and Italian channels.
+2. Contact the authorities: If you have specific concerns, contact local authorities or the Iranian consulate in Switzerland for clarification.
+3. Stay vigilant: Be aware of suspicious activities and report them to the competent authorities.
+4. Talk to the community: Share your concerns with other members of the Iranian community to find support and shared solutions.
+
+### Comparisons and scenarios
+It is important to compare the current situation with the previous one to better understand the implications of the Janfada campaign. Before this initiative, the Iranian community in Switzerland lived in relative tranquility, without particular tensions. Now, with the campaign promoted by the Iranian embassy, the situation could change, creating concerns and uncertainties. It is crucial that cross-border workers are prepared and informed to face any future challenges.
+
+### Useful tools
+For cross-border workers who want to stay informed and protected, it is useful to use tools such as the [salary calculator](nav:calculator) to plan their finances and the [insurance comparator](nav:health) to choose the best health coverage. Additionally, it is important to know their rights and duties as cross-border workers, using resources such as the [permit guide](nav:permits) and the [tax calendar](nav:calendar).`,"blog.article.iran-invita-sacrificio-frontalieri-2026.body2":`## Practical analysis: implications for cross-border workers
+
+The Janfada campaign could have several practical implications for Iranian cross-border workers in Ticino. It is important to understand these aspects to best address the situation.
+
+### Security and protection
+
+The main concern is the security of the Iranian community in Switzerland. The campaign could lead to an increase in tensions and suspicious activities. It is crucial that cross-border workers are aware of potential risks and adopt adequate security measures. This includes reporting suspicious activities to the relevant authorities and participating in protection programs offered by local institutions.
+
+### Social impact
+
+The campaign could also influence the social and political climate in Ticino. Tensions may arise between members of the Iranian community and other local communities. It is important that cross-border workers maintain open and constructive dialogue with the authorities and other communities to prevent conflicts and promote social cohesion.
+
+### Legal implications
+
+Swiss authorities have reminded that all foreign representations in Switzerland must respect international law and Swiss laws. This means that any activity promoted by the Iranian embassy must comply with Swiss laws. Cross-border workers must be aware of their legal rights and duties and seek legal assistance if necessary.
+
+### Community support
+
+The Iranian community in Ticino can find support through various local organizations and associations. These groups can offer practical assistance, legal advice, and emotional support. It is important that cross-border workers turn to these resources to address the challenges related to the Janfada campaign.
+
+### Comparisons and scenarios
+
+It is useful to compare the current situation with that of other countries where the Janfada campaign has been promoted. For example, in the United Kingdom, the government summoned the Iranian ambassador to express similar concerns. This comparison can help cross-border workers in Ticino better understand the potential implications and prepare adequately.
+
+### Useful tools
+
+For cross-border workers who wish to stay informed and protected, it is useful to use tools such as the [salary calculator](nav:calculator) to plan their finances and the [insurance comparator](nav:health) to choose the best health coverage. Additionally, it is important to know their rights and duties as cross-border workers, using resources such as the [permit guide](nav:permits) and the [tax calendar](nav:calendar).
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.iran-invita-sacrificio-frontalieri-2026.body3":`## Action: what to do concretely
+
+To best address the situation related to the Janfada campaign, Iranian cross-border workers in Ticino can follow a series of concrete steps.
+
+### Stay informed and up-to-date
+
+1. **Follow official news**: Stay updated through reliable and official news channels, such as the website of the Federal Department of Foreign Affairs (FDFA) and local authorities.
+2. Attend community meetings: Participate in meetings and gatherings organized by the local Iranian community to discuss concerns and shared solutions.
+3. Use online resources: Utilize official websites and social media to obtain up-to-date and reliable information.
+
+### Contact authorities
+
+1. Contact the Iranian consulate: If you have specific concerns, contact the Iranian consulate in Switzerland for clarifications and assistance.
+2. Report suspicious activities: Report any suspicious activities to the competent authorities, such as the local police or Swiss law enforcement.
+3. Seek legal assistance: If necessary, seek legal assistance through lawyers specialized in international and migration law.
+
+### Engage with the community
+
+1. Join support groups: Join support groups and local associations to find practical assistance, legal advice, and emotional support.
+2. Organize community events: Organize events and activities to promote social cohesion and dialogue among different local communities.
+3. Share your concerns: Share your concerns with other members of the Iranian community to find shared solutions and mutual support.
+
+### Useful tools
+
+1. Salary calculator: Use the [salary calculator](nav:calculator) to plan your finances and better understand your net income.
+2. Insurance comparator: Use the [insurance comparator](nav:health) to choose the best health coverage based on your needs.
+3. Permits guide: Consult the [permits guide](nav:permits) to know your rights and duties as a cross-border worker and ensure you comply with all regulations.
+4. Tax calendar: Use the [tax calendar](nav:calendar) to stay updated on tax deadlines and ensure you comply with all local regulations.
+
+### Conclusion
+
+The Janfada campaign promoted by the Iranian embassy in Bern has raised concerns among the Iranian diaspora in Switzerland. It is important that Iranian cross-border workers in Ticino are aware of the potential implications and take adequate measures to address the situation. By following the steps and using the useful tools provided, cross-border workers can protect themselves and stay informed, ensuring a safe and stable life in Ticino.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/3712299)*`,"blog.article.iran-invita-sacrificio-frontalieri-2026.faq":`[{"q":"What does the Janfada campaign mean?","a":"The Janfada campaign, promoted by the Iranian embassy, calls on Iranian emigrants abroad to 'sacrifice their lives'. The slogan 'Janfada' means 'I sacrifice my life' and is spread through websites and social media. The stated goal is to demonstrate the Iranian people's willingness to defend their country against enemies defined as 'Americans and Zionists'."},{"q":"What are the main concerns for Iranian cross-border workers in Ticino?","a":"The main concerns relate to the safety and stability of the Iranian community in Switzerland. The Janfada campaign could influence the social and political climate, creating tensions and concerns among members of the diaspora. It is important that cross-border workers are aware of the potential consequences and stay informed through official and reliable channels."},{"q":"What can Iranian cross-border workers do to protect themselves?","a":"Iranian cross-border workers can take various measures to protect themselves, such as getting informed through official channels, contacting local authorities and the Iranian consulate for clarification, reporting suspicious activities to the police, and participating in community support groups. It is also useful to use tools like the salary calculator and insurance comparator to plan their finances and choose the best health coverage."}]`};export{a as default};

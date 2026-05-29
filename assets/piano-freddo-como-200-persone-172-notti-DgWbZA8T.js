@@ -1,0 +1,47 @@
+const e={"blog.article.piano-freddo-como-200-persone-172-notti.body1":`## En bref
+- Plan Froid Como: 200 personnes accueillies
+- 172 nuits d'accueil hivernal
+- 550 bénévoles et 20.000 euros collectés
+
+## Faits clés
+- **Quoi**: Accueil hivernal pour personnes sans abri
+- Quand: Du 1er décembre 2025 au 1er mai 2026
+- Où: Como et ses environs
+- Qui: Vicini di Strada, Commune de Como, Province de Como
+- Montant: 200 personnes accueillies, 550 bénévoles, 20.000 euros collectés
+
+Le Plan Froid de Como s'est conclu avec un bilan positif: 200 personnes sans abri ont trouvé refuge pour 172 nuits grâce à l'initiative qui s'est étendue à partir du 1er décembre 2025. Ce projet, réalisé grâce à la collaboration entre Vicini di Strada, le Bureau de Plan de l'Ambito Territoriale de Como, la Commune de Como et la Province de Como, a offert un soutien vital pendant les mois d'hiver. Le réseau de protection s'est articulé sur différentes structures et projets, dont le Dormitoire de via Borgovico, le Projet Bethléem de la Fondation Caritas, le Dormitoire de via Napoleona et la Petite Maison Federico Ozanam. Chaque structure a accueilli un nombre significatif de personnes, avec un total de 96 présences uniques au Dormitoire de via Borgovico, 27 personnes au Projet Bethléem, 69 personnes au Dormitoire de via Napoleona et 2 insertions à la Petite Maison Federico Ozanam.
+
+### Le cœur du projet
+La mise en œuvre du Plan Froid a été rendue possible grâce à la contribution indispensable d'environ 550 bénévoles, dont 400 dans les paroisses du Projet Bethléem et 150 au Dormitoire Hivernal de Via Borgovico. Extraordinaire également la réponse de la citoyenneté: la campagne de collecte de fonds a frôlé les 20.000 euros. "Cette expérience s'inscrit dans un parcours plus large visant à améliorer la qualité de vie de ceux qui se trouvent dans des conditions de grande marginalité, en promouvant une citoyenneté active et consciente pour garantir à tous une quotidienneté digne", explique la note.
+
+### Comment soutenir le réseau
+Pour soutenir les initiatives et les projets du réseau, le Fonds Vicini di Strada est actif sur la plateforme de crowdfunding de la Fondation Provinciale de la Communauté Comasque. Font partie de Vicini di Strada différentes associations et coopératives locales, dont ASCI Don Guanella, Associazione Como Accoglie, Associazione Comunità Il Gabbiano ODV, Associazione Incroci, Associazione Lachesi, Piccola Casa Federico Ozanam ODV, Caritas citoyennes, Coopérative Sociale Lavoro e Solidarietà, Coopérative sociale Symploké, Coopérative sociale Lotta contro l’emarginazione, Croix Rouge Italienne Comité de Como, CSV Insubria, Fondation Caritas Solidarietà e Servizio, Fondation Somaschi, Groupe "Legami", Opera don Guanella, Observatoire juridique pour les droits des migrants et Paroisse de Rebbio.
+
+### Entités et groupes de bénévoles
+Les entités et les groupes de bénévoles du Plan Froid incluent la Fondation Somaschi (entité gestionnaire Borgovico), la Fondation Caritas Solidarietà e Servizio, ACLI, ANA-Protection Civile, Associazione Como Accoglie, Associazione Incroci, Communauté de familles aux Querces de Mamre, Croix Rouge Italienne, Groupe "Legami", Groupe "Elleboro", Nouveaux Horizons, Ordre Franciscain Séculier, Paroisses de Como et ses environs, Caritas citoyennes, Protection civile de Cantù, Protection Civile de Olgiate Comasco, Scouts Agesci et tant de citoyens et citoyennes comasques individuels.`,"blog.article.piano-freddo-como-200-persone-172-notti.body2":`### Implications pour les frontaliers
+Le Plan Froid de Côme représente un modèle de solidarité qui pourrait avoir des implications également pour les frontaliers travaillant en Suisse et résidant en Italie. La collaboration entre les entités locales et la communauté montre comment il est possible de créer des réseaux de soutien efficaces pour faire face aux urgences hivernales. Pour les frontaliers, ce type d'initiative pourrait offrir un exemple de la manière dont les communautés peuvent s'unir pour garantir une assistance à ceux qui en ont besoin, indépendamment de la nationalité ou du statut juridique.
+
+### Comparaison avec la situation précédente
+Avant la mise en œuvre du Plan Froid, les structures permanentes de Côme ne pouvaient accueillir que 130 personnes sans abri sur un total d'environ 250. Le Plan Froid a comblé ce déficit, offrant un soutien vital pendant les mois d'hiver. Cette comparaison met en évidence l'importance des initiatives temporaires pour faire face à des urgences spécifiques, surtout pendant les périodes de plus grande vulnérabilité comme l'hiver.
+
+### Scénarios futurs
+À l'avenir, le modèle du Plan Froid pourrait être reproduit dans d'autres villes, surtout celles avec un grand nombre de personnes sans abri. La collaboration entre les entités publiques, les associations et les bénévoles pourrait être étendue à d'autres initiatives de solidarité, créant un réseau de soutien plus large et durable. Pour les frontaliers, cela pourrait signifier une augmentation des opportunités de bénévolat et de participation à des projets communautaires, renforçant les liens entre les communautés locales et celles transfrontalières.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).`,"blog.article.piano-freddo-como-200-persone-172-notti.body3":`### Comment soutenir le Plan Froid
+Si vous souhaitez soutenir le Plan Froid et les initiatives similaires, vous pouvez faire un don au Fonds Vicini di Strada sur la plateforme de crowdfunding de la Fondation Provinciale de la Communauté Comasque. De plus, vous pouvez participer en tant que bénévole à l'une des associations ou coopératives faisant partie de Vicini di Strada. Contactez les organisations locales pour obtenir des informations sur la manière de vous joindre à leurs efforts.
+
+### Procédure pour devenir bénévole
+1. Choisissez l'association ou la coopérative avec laquelle vous souhaitez collaborer.
+2. Contactez l'organisation pour obtenir des informations sur les exigences et les modalités de participation.
+3. Participez à d'éventuelles sessions de formation ou d'orientation offertes par l'organisation.
+4. Commencez le bénévolat en suivant les indications fournies par l'organisation.
+
+### Outils utiles
+Pour plus d'informations et pour faire un don, visitez le site du Fonds Vicini di Strada. Si vous êtes un frontalier et que vous souhaitez plus de détails sur la manière de participer à des initiatives de solidarité, consultez le [calculateur de salaire](nav:calculator) pour mieux comprendre vos options financières et le temps que vous pouvez consacrer au bénévolat.
+
+### Conclusion
+Le Plan Froid de Côme est un exemple de la manière dont la collaboration entre les entités publiques, les associations et les bénévoles peut faire la différence dans la vie des personnes sans abri. Pour les travailleurs frontaliers, participer à des initiatives similaires peut être un moyen de contribuer à la communauté et de renforcer les liens transfrontaliers. Soutenez le Plan Froid et d'autres initiatives de solidarité pour garantir à tous une quotidienneté digne.
+
+*Source: [comozero.it](https://comozero.it/attualita/como-si-chiude-il-piano-freddo-accolte-200-persone-per-172-notti-tutti-i-dettagli/)*`,"blog.article.piano-freddo-como-200-persone-172-notti.faq":`[{"q":"Comment puis-je faire un don au Fonds Vicini di Strada ?","a":"Vous pouvez faire un don au Fonds Vicini di Strada via la plateforme de crowdfunding de la Fondation Provinciale de la Communauté Comasque. Visitez le site officiel pour plus d'informations et pour effectuer votre don."},{"q":"Qui peut participer en tant que bénévole au Plan Froid ?","a":"Tout le monde peut participer en tant que bénévole au Plan Froid. Contactez les associations ou les coopératives qui font partie de Vicini di Strada pour obtenir des informations sur les exigences et les modalités de participation."},{"q":"Quelles sont les structures impliquées dans le Plan Froid ?","a":"Les structures impliquées dans le Plan Froid incluent le Dormitorio de via Borgovico, le Progetto Betlemme de la Fondation Caritas, le Dormitorio de via Napoleona et la Piccola Casa Federico Ozanam."}]`};export{e as default};

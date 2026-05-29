@@ -1,0 +1,54 @@
+const e={"blog.article.aprile-secco-siccita-ticino-2026.body1":`## In brief
+- April 2026 is the driest since records began
+- Only 15% of average rainfall in Ticino
+- Marked risk of forest fires
+
+## Key facts
+- **What**: Exceptional drought
+- When: April 2026
+- Where: Ticino, Altopiano, Valais
+- Who: MeteoSwiss
+- Amount: 10 mm of rain recorded
+
+Switzerland is experiencing an exceptionally dry April, according to the national weather service. According to the Federal Office of Meteorology and Climatology (MeteoSwiss), this April is set to be the driest since records began. As of April 23, only about a third of the average precipitation for the reference period 1991-2020 had fallen nationwide. In some areas, the shortage is much more severe: the western Altopiano region, the canton of Valais and some areas of the canton of Ticino have received just over 15% of their usual April rains. Many weather stations have recorded just 10 millimetres of rain since the start of the month. Under normal conditions, the Altopiano usually receives between 70 and 100 millimetres in April, while the southern side of the Alps records between 100 and 200.
+
+### Implications for cross-border workers
+The prolonged absence of rain has also increased the risk of forest fires. The danger level is considered marked to high in much of the canton of Grisons and marked in Ticino. Several Grisons municipalities have already imposed bans on lighting fires. Water reserves in dams have also been affected. According to the Federal Office of Energy, the basins are currently full on average by 12% at national level, a figure well below seasonal norms. Levels stand at 9% in Ticino, 8% in Valais and 11% in Grisons. The agricultural world is also expressing concern, although the situation is not yet considered critical, said the Swiss Farmers' Union. For now, it is not expected that the lack of rain will affect crops.
+
+### Comparison with seasonal averages
+MeteoSwiss forecasts do not indicate significant rainfall and the drought index is set to remain high until the beginning of May. A change in the situation is expected during the first half of next month. Significant rains occurred only on 12 and 13 April. The current situation represents a significant anomaly compared to seasonal averages, with potential consequences for agriculture, water resource management and forest fire prevention.`,"blog.article.aprile-secco-siccita-ticino-2026.body2":`- ## Analysis of the consequences
+The exceptional drought of April 2026 is having a significant impact on various sectors in Ticino and other Swiss regions. The increased risk of forest fires has led to the imposition of bans on lighting fires in several municipalities, particularly in the Grisons. This type of restriction can have a direct impact on the daily lives of cross-border workers, who must be aware of local regulations and safety measures.
+
+### Impact on water reserves
+The water reserves of the dams are currently below seasonal norms. In Ticino, the basins are 9% full, a worrying figure that could influence the availability of water for agriculture and water supply. The Federal Office of Energy is closely monitoring the situation, but the low levels of water reserves could require water-saving measures in the coming weeks.
+
+### Agricultural concerns
+The Swiss Farmers' Union has expressed concern about the situation, although it is not yet considered critical. The lack of rain could impact crops, especially if the drought were to persist beyond the end of April. Cross-border workers in the agricultural sector must be prepared for possible changes in working conditions and agricultural practices.
+
+### Prevention measures
+To prevent forest fires, it is fundamental to follow local regulations and the indications of the authorities. Cross-border workers must be aware of the bans on lighting fires and the safety measures adopted by the municipalities. Additionally, it is important to adopt responsible behaviors to reduce the risk of fires, such as avoiding lighting fires outdoors and reporting any dangerous situations.
+
+### Comparison with previous years
+Compared to previous years, April 2026 stands out for its exceptional drought. The recorded precipitation is significantly lower than the seasonal averages, with potential consequences for the local environment and economy. Cross-border workers must be prepared for possible changes in living and working conditions, adopting preventive measures to cope with the drought.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.aprile-secco-siccita-ticino-2026.body3":`## Concrete actions for cross-border workers
+In response to the exceptional drought, cross-border workers in Ticino and other Swiss regions must adopt some concrete measures to address the situation. Here is a step-by-step guide to manage the situation as best as possible:
+
+1. **Check local regulations**: Verify with local authorities the regulations in force regarding bans on lighting fires and other measures to prevent forest fires.
+2. Reduce water consumption: Adopt responsible behaviors to reduce water consumption, such as turning off the taps while brushing your teeth, using low-consumption appliances, and collecting rainwater when possible.
+3. Report dangerous situations: In case of spotting forest fires or dangerous situations, immediately contact the competent authorities to report the incident.
+4. Monitor weather forecasts: Stay updated on weather forecasts to be prepared for any changes in climatic conditions.
+5. Adopt safety measures: Follow the authorities' instructions to prevent forest fires, such as avoiding lighting fires outdoors and using electrical equipment safely.
+
+### Useful tools
+To best address the situation, cross-border workers can use various tools and resources available online. Here are some examples:
+
+- Water consumption calculator: Use online tools to calculate water consumption and identify areas for improvement.
+- Maps of water reserves: Consult maps and updated data on water reserves to monitor the situation in real time.
+- Guides to preventing fires: Download guides and manuals on preventing forest fires to be prepared for any emergencies.
+
+### Final CTA
+For more information and to use useful tools, visit the [water consumption calculator](nav:calculator).
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/un-aprile-eccezionalmente-secco-attanaglia-la-svizzera-lallarme-di-meteosvizzera/91309051)*`,"blog.article.aprile-secco-siccita-ticino-2026.faq":`[{"q":"What are the main consequences of the drought in Ticino?","a":"The exceptional drought of April 2026 has led to an increased risk of forest fires, with bans on lighting fires in several municipalities. Additionally, the water reserves in the dams are below seasonal norms, with potential impacts on agriculture and water supply."},{"q":"What can cross-border workers do to cope with the drought?","a":"Cross-border workers can adopt responsible behaviors to reduce water consumption, inform themselves about local regulations, and follow the authorities' guidelines to prevent forest fires. It is important to monitor weather forecasts and report any dangerous situations."},{"q":"What tools are available to manage the drought?","a":"Cross-border workers can use online tools such as the water consumption calculator, maps of water reserves, and guides to forest fire prevention to best address the situation."}]`};export{e as default};

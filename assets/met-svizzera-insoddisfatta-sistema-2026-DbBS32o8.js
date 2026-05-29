@@ -1,0 +1,65 @@
+const e={"blog.article.met-svizzera-insoddisfatta-sistema-2026.body1":`## In brief
+- Over half of the Swiss population perceives the system as unjust
+- A third finds it 'somewhat unjust', 18% 'completely unjust'
+- Income is the decisive factor
+
+## Key facts
+- **What**: Survey on the perception of social justice
+- When: April 2026
+- Where: Switzerland
+- Who: Beobachter magazine and gfs.bern institute
+- Amount: 2,000 people surveyed
+
+Over half of the Swiss population perceives the system as unjust, according to a representative survey published Monday by Beobachter magazine, conducted by the gfs.bern research institute on around 2,000 people. Compared to the first 'Justice Barometer' of summer 2024, dissatisfaction has grown: a third of those surveyed consider the system 'somewhat unjust', while 18% judge it 'completely unjust'. The decisive factor is income: those with little income feel systematically disadvantaged. While two-thirds of the wealthy declare themselves satisfied, three-quarters of low-income individuals express a negative judgment.
+
+The percentage of those who feel treated 'rather' or 'very' justly has decreased from 68% to 56% compared to 2024. 'In the end, it all depends on who benefits from the system and who bears the burden,' says pollster Cloé Jans. According to the researcher, the issue of costs dominates every other question, starting with rents and health insurance premiums. On an individual level, the wallet is under pressure, on a political level, there are disputes over billion-dollar projects, for example also in the field of pensions.
+
+Among the various topics addressed, interesting is the one concerning the legal field: 81% of those surveyed say they are concerned about the high costs of legal proceedings and lawyers, which are considered too high. The feeling is growing that justice in Switzerland has become purchasable. Despite everything, the survey also signals a positive note: trust in the pillars of the State – democracy, freedom and education – remains solid.
+
+### Implications for cross-border workers
+
+For cross-border workers who work in Switzerland and reside in Italy, this perception of social injustice can have various implications. For example, economic pressure can influence the decision to move to Switzerland permanently or to continue working cross-border. Furthermore, concern about legal costs can make it more difficult to access justice for those residing in another country.
+
+### Comparison with the previous situation
+
+Compared to 2024, dissatisfaction has increased significantly. This could be due to various factors, including the rise in the cost of living, tax pressure, and general economic difficulties. For cross-border workers, this means they may have to face additional challenges in managing their finances and planning for the future.
+
+### What to do if injustice is perceived
+
+If injustice is perceived in the system, it is important to act. First of all, it is essential to inform oneself about one's rights and the possibilities of legal assistance. Furthermore, participating in public discussions and supporting organizations that work for social justice can make a difference. For cross-border workers, it is also useful to stay updated on regulations and assistance opportunities available both in Switzerland and in Italy.`,"blog.article.met-svizzera-insoddisfatta-sistema-2026.body2":`## Practical Analysis
+
+The increasing dissatisfaction with social equity in Switzerland has several practical implications, especially for cross-border workers in Ticino. The perception of injustice can influence the decision to continue working cross-border or to move to Switzerland permanently. Additionally, concerns about legal expenses can make it more difficult for those residing in another country to access justice.
+
+### Tax Implications
+
+For cross-border workers, economic pressure can influence the decision to move to Switzerland permanently or to continue working cross-border. For example, tax pressure can be a decisive factor. In Switzerland, the withholding tax system can simplify tax returns for cross-border workers, but it can also result in higher tax pressure compared to Italy. It is important to inform oneself about tax regulations and the assistance opportunities available in both Switzerland and Italy.
+
+### Access to Justice
+
+Concerns about legal and attorney fees can make it more difficult for cross-border workers to access justice. It is important to inform oneself about one's rights and the possibilities for legal assistance. Additionally, participating in public discussions and supporting organizations that work for social justice can make a difference. For cross-border workers, it is also useful to stay updated on the regulations and assistance opportunities available in both Switzerland and Italy.
+
+### Financial Planning
+
+Economic pressure can influence the financial planning of cross-border workers. It is important to consider legal expenses and the opportunities for assistance available. Additionally, it is useful to inform oneself about tax regulations and the assistance opportunities available in both Switzerland and Italy. Financial planning can help manage one's finances and plan for the future more effectively.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).`,"blog.article.met-svizzera-insoddisfatta-sistema-2026.body3":`## Action
+
+If you perceive injustice in the system, it's important to act. First and foremost, it's crucial to inform yourself about your rights and the possibilities for legal assistance. Additionally, participating in public discussions and supporting organizations that work for social justice can make a difference. For cross-border workers, it's also useful to stay updated on regulations and assistance opportunities available in both Switzerland and Italy.
+
+### Concrete steps
+
+1. **Inform yourself about your rights**: Knowing your rights is the first step to addressing the perception of injustice. You can consult the regulations and assistance opportunities available in both Switzerland and Italy.
+2. Participate in public discussions: Participating in public discussions can help you make your voice heard and support organizations that work for social justice.
+3. Stay updated: Staying updated on regulations and assistance opportunities available can make a difference in managing your finances and planning for the future.
+4. Use assistance tools: Using assistance tools available in both Switzerland and Italy can help you manage your finances and plan for the future more effectively.
+
+### Useful tools
+
+For cross-border workers in Ticino, it's useful to use assistance tools available in both Switzerland and Italy. For example, the [salary calculator](nav:calculator) can help you manage your finances and plan for the future more effectively. Additionally, you can consult the regulations and assistance opportunities available in both Switzerland and Italy.
+
+### Conclusion
+
+The increase in dissatisfaction with social equity in Switzerland has several practical implications, especially for cross-border workers in Ticino. It's important to inform yourself about your rights and the possibilities for legal assistance, participate in public discussions, and support organizations that work for social justice. Additionally, it's useful to stay updated on regulations and assistance opportunities available in both Switzerland and Italy. Using available assistance tools can help you manage your finances and plan for the future more effectively.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/qui-svizzera/oltre-la-met%c3%a0-della-popolazione-percepisce-il-sistema-come-ingiusto/91322586)*`,"blog.article.met-svizzera-insoddisfatta-sistema-2026.faq":`[{"q":"What can I do if I perceive injustice in the system?","a":"If you perceive injustice in the system, it's important to inform yourself about your rights and legal assistance options. You can participate in public discussions and support organizations working for social justice. Additionally, it's useful to stay updated on regulations and assistance opportunities available in both Switzerland and Italy."},{"q":"How can I manage economic pressure as a cross-border worker?","a":"To manage economic pressure, it's important to inform yourself about tax regulations and assistance opportunities available in both Switzerland and Italy. You can use tools like the salary calculator to manage your finances and plan for the future more effectively."},{"q":"What are the tax implications for cross-border workers?","a":"Tax implications for cross-border workers can include tax pressure and assistance opportunities available in both Switzerland and Italy. It's important to inform yourself about tax regulations and assistance opportunities to manage your finances and plan for the future more effectively."}]`};export{e as default};

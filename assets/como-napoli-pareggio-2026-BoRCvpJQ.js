@@ -1,0 +1,87 @@
+const e={"blog.article.como-napoli-pareggio-2026.body1":`## Kurz und bündig
+- Como und Napoli trennen sich mit 0-0 im Sinigaglia
+- Nico Paz ist mit zwei Vorlagen der beste Spieler auf dem Platz
+- Douvikas und Diao lassen große Chancen liegen
+
+## Wichtige Fakten
+- **Was**: Unentschieden zwischen Como und Napoli
+- Wann: 03/05/2026
+- Wo: Stadio Sinigaglia, Como
+- Wer: Como 1907 und Napoli
+- Ergebnis: 0-0
+
+Como hat am Nachmittag im Sinigaglia gegen Napoli mit 0-0 unentschieden gespielt. Die Lariani haben ein gutes Spiel gemacht, aber vor dem Tor gefehlt, wobei Douvikas und Diao die besten Torchancen gegen Milinkovic-Savic nicht nutzen konnten. Jetzt kann auch die Roma die Männer von Fabregas überholen.
+
+### Die Noten der weiß-blauen Spieler
+
+Butez 6: Einige Ungenauigkeiten mit den Füßen und bei den Ausflügen lassen seine Fans zittern, aber am Ende beendet er das Spiel ohne Gegentor. Napoli fordert ihn praktisch nie heraus, auch wenn der Pfosten ihn im Finale gegen Politano rettet.
+
+Smolcic 6.5: Anfangs bringt Alisson Santos ihn mit seinen Beschleunigungen durcheinander. Mit der Zeit gelingt es ihm jedoch, ihn einzuschätzen und die einzige und wahre offensive Spielquelle der Gäste einzudämmen. Er erhält auch den MVP-Preis der Serie A.
+
+Ramon 6.5: Wieder eine solide und führende Leistung in der Mitte der Verteidigung. Er führt mehrere wichtige Eingriffe in seinem Strafraum durch und ist die primäre Quelle für den Spielaufbau des Como.
+
+Diego Carlos 6.5: Er teilt sich mit Ramon die Aufgabe, Hojlund zu stoppen. In vielen Situationen geht er in den Körper-zu-Körper-Kampf gegen den Dänen, der ihn nie täuschen kann, auch nicht beim Tiefenangriff. Positive Leistung gegen einen harten Knochen.
+
+Alex Valle 6: Er erhöht seinen Aktionsradius erheblich und zwingt Politano zum defensiven Rückzug. In seinem Bereich gehen nur wenige Bälle vorbei, und er zeigt sich nach vorne nur mit einem schönen linken Cross, den Diao nicht ins Tor bringen kann.
+
+Da Cunha 6.5: Er greift die Ballträger von Napoli mit Leidenschaft an und gewinnt viele Bälle im offensiven Mittelfeld. Mit seinen Sprints hilft er dem Como, das Spielzentrum hoch zu halten und die Azzurri in die Defensive zu zwingen. Heute mehr ein Kämpfer als ein Erfinder.
+
+Perrone 6.5: Die Verständigung mit Da Cunha ist nun perfekt, und die beiden teilen sich das Mittelfeld perfekt. Er gibt dem Ballbesitz seines Teams Tempo und gewinnt das Duell mit Lobotka.
+
+Diao 6: Eine konstante Plage für Gutierrez, der oft in Schwierigkeiten gerät, wenn es um seine Ausbrüche geht. Er macht alles gut, aber ihm fehlt der Killerinstinkt vor Milinkovic-Savic, und er trifft ihn voll mit dem rechten Fuß. Dieser Fehler wiegt auf seiner ansonsten guten Leistung.
+
+Nico Paz 7: Die beiden klarsten Chancen des Como entstehen durch seinen zarten linken Fuß. Zuerst schickt er Douvikas ins Tor und dann führt er einen Konter perfekt aus und wählt im richtigen Moment Diao auf der rechten Seite. Neben der Qualität in den letzten Metern kämpft er auch in der Defensive und lässt seinen Beitrag nie vermissen, wenn die Gäste angreifen.
+
+Baturina 6: Er versteht sofort, dass das Spiel hauptsächlich auf der rechten Seite stattfindet, und versucht, zentraler zu werden, um mehr ins Spiel einzusteigen. Von seinen Füßen gehen nicht viele Bälle weg, aber er schafft es trotzdem, gefährlich zu werden, mit einem Schuss, den Milinkovic-Savic abwehren muss.
+
+Douvikas 5.5: Nach weniger als 10 Minuten hat er den Ball am Fuß, um das Spiel zu entscheiden, aber nach dem Dribbling an Milinkovic-Savic verzögert er den Abschluss und schießt den rechten Fuß auf Rrhamani. Er versucht, sich mit seiner üblichen großen Anwendung zu revanchieren, aber die drei Innenverteidiger von Conte schaffen es, ihn zu stoppen.
+
+Morata S.V. Jesus Rodriguez S.V. Alberto Moreno S.V. Vojvoda S.V. Sergi Roberto S.V. Fabregas 6.5: Zum dritten Mal in dieser Saison verliert er nicht gegen die amtierenden italienischen Meister. Auch heute spielen die Lariani besser als die Gegner, aber es fehlt ihnen an dem wichtigsten Element des Fußballspiels: Tore zu schießen. Es gibt trotzdem eine weitere gute Leistung, die seinen Como immer näher an die großen Teams unserer Serie A heranbringt.`,"blog.article.como-napoli-pareggio-2026.body2":`### Analyse des Spiels
+
+Das Spiel zwischen Como und Napoli zeigte die Gastgeber als gute Mannschaft, die jedoch an der entscheidenden Stelle, vor dem Tor, an Konsequenz mangelte. Nico Paz war der beste Spieler auf dem Feld, mit zwei Vorlagen, die das Spiel hätten verändern können. Douvikas und Diao hingegen verschwendeten Torchancen, die Como den Sieg hätten bringen können.
+
+Como spielte besser als die Gegner, aber es fehlte an dem wichtigsten Element im Fußball: Tore zu schießen. Dies ermöglichte es der Roma, in der Tabelle aufzuschließen und Druck auf die Männer von Fabregas auszuüben.
+
+### Implikationen für Como
+
+Como hat gezeigt, dass es mit den großen Teams der Serie A mithalten kann, muss aber an der Konsequenz vor dem Tor arbeiten. Nico Paz ist eine wichtige Ressource für das Team, und sein Beitrag wird in den kommenden Spielen entscheidend sein. Douvikas und Diao müssen ihre Präzision vor dem Tor verbessern, um wichtige Chancen nicht zu verschwendeten.
+
+### Vergleiche mit der vorherigen Situation
+
+Bevor dieses Spiel stattfand, hatte Como bereits gezeigt, dass es mit den Top-Teams mithalten kann. Allerdings hatte die mangelnde Konsequenz vor dem Tor bereits wichtige Punkte gekostet. Dieses Spiel macht da keine Ausnahme, und Como muss in diesem Bereich verbessern.
+
+### Zukunftsszenarien
+
+Wenn Como seine Präzision vor dem Tor verbessert, könnte es um die vorderen Plätze in der Tabelle kämpfen. Wenn es jedoch weiterhin Chancen verschwendet, wie in diesem Spiel, könnte es Schwierigkeiten haben, mit den Top-Teams mitzuhalten.
+
+### Konkrete Maßnahmen
+
+Um die Konsequenz vor dem Tor zu verbessern, könnte Como spezifische Übungen im Training durchführen. Zudem müssen die Spieler während der Spiele konzentrierter sein und wichtige Chancen nicht verschwendeten.
+
+### Checkliste für die Spieler
+
+- Präzision vor dem Tor verbessern
+- Konzentrierter während der Spiele sein
+- Wichtige Chancen nicht verschwendeten
+- Spezifische Übungen im Training durchführen
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.como-napoli-pareggio-2026.body3":`### Konkrete Maßnahmen für den Como
+
+Um die Effizienz vor dem Tor zu verbessern, könnte der Como eine Reihe von konkreten Schritten befolgen. Zunächst ist es wichtig, während des Trainings spezifische Übungen durchzuführen. Diese Übungen sollten darauf abzielen, die Präzision und die Ausführungsgeschwindigkeit der Torabschlüsse zu verbessern.
+
+Des Weiteren müssen die Spieler während der Spiele konzentrierter sein. Dies bedeutet, Ablenkungen zu vermeiden und die maximale Aufmerksamkeit in den entscheidenden Spielphasen zu bewahren. Es ist auch wichtig, dass die Spieler effektiv miteinander kommunizieren, um die Torchancen bestmöglich zu nutzen.
+
+### Fristen und Verfahren
+
+Der Como sollte diese Aspekte so schnell wie möglich angehen. Während des Trainings sollten die Spieler mindestens 30 Minuten pro Tag Übungen zur Präzision vor dem Tor widmen. Zudem sollte der Trainer Fabregas die Fortschritte der Spieler in diesem Bereich genau im Auge behalten.
+
+### Nützliche Werkzeuge
+
+Um die Effizienz vor dem Tor zu verbessern, könnte der Como Werkzeuge wie Videoanalysen und Simulationssoftware nutzen. Diese Werkzeuge können den Spielern helfen, ihre Schwachstellen zu identifizieren und gezielt daran zu arbeiten.
+
+### Letzter CTA
+
+Für weitere Informationen darüber, wie man die Effizienz vor dem Tor verbessern kann, besuche unseren [Leistungsrechner](nav:calculator).
+
+*Quelle: [comozero.it](https://comozero.it/sport/le-pagelle-del-como-dopo-il-pari-con-il-napoli-nico-paz-inventa-ma-douvikas-e-diao-non-concretizzano/)*`,"blog.article.como-napoli-pareggio-2026.faq":'[{"q":"Wer war der beste Spieler im Spiel zwischen Como und Napoli?","a":"Nico Paz war der beste Spieler im Spiel mit zwei Assists, die das Gesicht des Spiels hätten verändern können."},{"q":"Warum hat Como gegen Napoli unentschieden gespielt?","a":"Como hat gegen Napoli unentschieden gespielt, weil sie wichtige Torchancen verschwendet haben, insbesondere Douvikas und Diao."},{"q":"Was muss Como tun, um seine Effizienz vor dem Tor zu verbessern?","a":"Como muss an spezifischen Übungen während des Trainings arbeiten und die Konzentration während der Spiele verbessern, um wichtige Chancen nicht zu verschwenden."}]'};export{e as default};

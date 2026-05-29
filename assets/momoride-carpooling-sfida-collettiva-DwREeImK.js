@@ -1,0 +1,69 @@
+const e={"blog.article.momoride-carpooling-sfida-collettiva.body1":`## In Kürze
+- MomòRide startet Carpooling-Herausforderung für Pendler im Mendrisiotto
+- Ziel: 40.000 Punkte in einem Monat sammeln
+- Spende von 1.000 CHF an die Stiftung Provvida Madre
+
+## Wichtige Fakten
+- **Was**: Kollektive Carpooling-Herausforderung
+- Wann: Ab dem 1. Mai 2026
+- Wo: Balerna, Chiasso, Novazzano
+- Wer: MomòRide, Bank des Kantons Tessin
+- Betrag: 1.000 CHF für die Stiftung Provvida Madre
+
+Vom unteren Mendrisiotto aus wurde eine kollektive Herausforderung an die Pendler gestartet. Es ist die erste, die von MomòRide, dem zweijährigen Carpooling-Projekt für Unternehmen und Arbeitnehmer aus Balerna, Chiasso und Novazzano, ins Leben gerufen wurde. Ab Freitag, dem 1. Mai, sind alle, die im Gebiet einen Beitrag zu einer nachhaltigen Mobilität leisten und bereit sind, ihr Auto zu teilen, aufgerufen, sich zusammenzutun. Das Ziel? Innerhalb eines Monats 40.000 Punkte sammeln.
+
+Der Erfolg, so wird angekündigt, wird in einer Spende von 1.000 Franken für die Initiativen der Stiftung Provvida Madre in Balerna münden. Konkret müssen sich die Teilnehmer verpflichten, mit der App Mobalt alle Pendelfahrten im Auto zu teilen und so Punkte pro Fahrt zu sammeln, die sich zu denen aller anderen Carpooler im Gebiet summieren. Bei Erreichen des gemeinsamen Ziels wird die Bank des Kantons Tessin, Sponsor der Challenge, die wohltätige Tat konkretisieren.
+
+Der erklärte Zweck ist es, „einen virtuellen Kreis zu schaffen, in dem neben den Vorteilen der Förderung des Carpoolings für die Mobilität und die Umwelt auch positive soziale Auswirkungen entstehen“. Die Mai-Herausforderung wird nämlich nicht die einzige sein. Weitere Initiativen werden im Herbst gefördert und werden, wie bereits angekündigt, andere gemeinnützige Einrichtungen der Region zum Ziel haben. Tatsächlich können sich ab sofort Organisationen, die sich als Sponsoren für kollektive Herausforderungen engagieren möchten, unter info@momoride.ch melden.
+
+### Wie man teilnimmt
+
+Um an der Carpooling-Herausforderung teilzunehmen, müssen die Pendler die App Mobalt herunterladen und sich als Benutzer registrieren. Sobald sie registriert sind, können sie mit der Aufzeichnung ihrer Fahrten im geteilten Auto beginnen. Jede Fahrt trägt zur Ansammlung von Punkten bei, die zu denen der anderen Teilnehmer im Gebiet addiert werden. Das Ziel ist es, bis zum Ende des Mai 40.000 Punkte zu erreichen.
+
+### Vorteile für die Teilnehmer
+
+Neben dem sozialen Beitrag können die Teilnehmer der Carpooling-Herausforderung von verschiedenen Vorteilen profitieren. Erstens wird das Projekt MomòRide von der lastminute foundation und Mobitrends unterstützt, die Ressourcen und Instrumente zur Förderung des Carpoolings bieten. Darüber hinaus endet im April der vierte Monat, in dem der Preispool, der von den fördernden Gemeinden in Höhe von 500 Franken zur Verfügung gestellt wurde, an die Teams der Unternehmen mit Sitz in den drei Gemeinden vergeben wurde.
+
+### Zukunftsaussichten
+
+Die Mai-Herausforderung ist nur der Anfang. MomòRide plant ähnliche Initiativen im Herbst, mit dem Ziel, immer mehr Pendler und Unternehmen der Region einzubeziehen. Organisationen, die diese Herausforderungen sponsern möchten, können MomòRide unter der E-Mail-Adresse info@momoride.ch kontaktieren. Das Ziel ist es, eine immer breitere und teilnehmendere Bewegung zu schaffen, die nachhaltige Mobilität fördert und einen positiven Einfluss auf die lokale Gemeinschaft hat.`,"blog.article.momoride-carpooling-sfida-collettiva.body2":`### Praktische Implikationen für Pendler
+
+Die Carpooling-Herausforderung von MomòRide bietet den Pendlern aus dem Mendrisiotto eine konkrete Möglichkeit, zur nachhaltigen Mobilität beizutragen und von einer solidarischen Initiative zu profitieren. Durch die Teilnahme an der Herausforderung können sie nicht nur den Verkehr und die Umweltbelastung reduzieren, sondern auch Punkte sammeln, die in eine finanzielle Spende für eine lokale wohltätige Organisation umgewandelt werden.
+
+### Vergleich mit der vorherigen Situation
+
+Bevor das MomòRide-Projekt startete, gab es für die Pendler aus dem Mendrisiotto keine strukturierte Initiative, die das Carpooling kollektiv und mit einem solidarischen Ziel förderte. Die neue Herausforderung stellt einen bedeutenden Fortschritt dar, indem sie einen konkreten Anreiz für all jene bietet, die sich entscheiden, ihr Auto mit Kollegen oder anderen Pendlern zu teilen. Zudem fügt die Möglichkeit, Punkte zu sammeln und zu einer wohltätigen Spende beizutragen, der Teilnahme einen zusätzlichen Wert hinzu.
+
+### Zukunftsszenarien
+
+Falls die Mai-Herausforderung erfolgreich sein sollte, ist es wahrscheinlich, dass MomòRide auch in Zukunft ähnliche Initiativen fördern wird. Dies könnte zu einem größeren Bewusstsein für die Bedeutung des Carpoolings führen und die Anzahl der Pendler erhöhen, die diese Transportart nutzen. Darüber hinaus könnte die Zusammenarbeit mit öffentlichen Einrichtungen die positive Wirkung der Initiativen verstärken, indem immer mehr lokale Akteure einbezogen werden und ein positiver Kreislauf für die gesamte Gemeinschaft entsteht.
+
+### Vergleich mit anderen Initiativen
+
+Im Vergleich zu anderen Carpooling-Initiativen hebt sich die MomòRide-Herausforderung durch ihren kollektiven und solidarischen Ansatz hervor. Während viele andere Initiativen sich hauptsächlich auf die Reduzierung des Verkehrs und die Effizienz der Transporte konzentrieren, fügt MomòRide ein Element der Solidarität hinzu, indem die Teilnehmer an einem Projekt beteiligt werden, das einen direkten Einfluss auf die lokale Gemeinschaft hat. Dieser Ansatz könnte andere ähnliche Initiativen in anderen Regionen inspirieren und ein Modell für nachhaltige und solidarische Mobilität fördern.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.momoride-carpooling-sfida-collettiva.body3":`### Wie man an der Challenge teilnimmt
+
+Um an der Carpooling-Challenge teilzunehmen, müssen die Pendler folgende Schritte befolgen:
+
+1. Die App Mobalt herunterladen und sich als Benutzer registrieren.
+2. Beginnen Sie, Ihre Fahrten im Auto zu teilen.
+3. Sammeln Sie Punkte pro Fahrt und tragen Sie zum gemeinsamen Ziel von 40.000 Punkten bei.
+4. Verfolgen Sie den Fortschritt und ermutigen Sie andere Pendler, teilzunehmen.
+
+### Fristen und Preise
+
+Die Carpooling-Challenge dauert einen Monat, beginnend am 1. Mai 2026. Bei Erreichen von 40.000 Punkten spendet die Banca dello Stato del Canton Ticino 1.000 CHF an die Fondazione Provvida Madre von Balerna. Zudem können die Teilnehmer von einem Preisgeld von 500 Franken profitieren, das von den fördernden Gemeinden zur Verfügung gestellt wird und für die Besatzungen der Unternehmen in den drei Gemeinden bestimmt ist.
+
+### Nützliche Werkzeuge
+
+Für weitere Informationen und um an der Challenge teilzunehmen, können die Pendler die offizielle Website von MomòRide besuchen oder die E-Mail-Adresse info@momoride.ch kontaktieren. Zudem können sie die App Mobalt nutzen, um ihre Fahrten zu verfolgen und die gesammelten Punkte zu überwachen.
+
+### Schlussfolgerung
+
+Die von MomòRide initiierte Carpooling-Challenge bietet den Pendlern des Mendrisiotto eine einzigartige Gelegenheit, zur nachhaltigen Mobilität beizutragen und eine solidarische Initiative zu unterstützen. Die Teilnahme an der Challenge hilft nicht nur, den Verkehr und die Umweltverschmutzung zu reduzieren, sondern ermöglicht es auch, Punkte zu sammeln, die sich in eine finanzielle Spende für eine lokale Wohltätigkeitsorganisation umsetzen lassen. Verpassen Sie nicht die Gelegenheit, sich dieser Initiative anzuschließen und einen Unterschied in Ihrer Gemeinschaft zu machen.
+
+[Erfahren Sie mehr über Carpooling und wie Sie an der MomòRide-Challenge teilnehmen können](nav:calculator).
+
+*Quelle: [laregione.ch](https://www.laregione.ch/cantone/mendrisiotto/1921590/momoride-lancia-una-sfida-collettiva-di-carpooling)*`,"blog.article.momoride-carpooling-sfida-collettiva.faq":'[{"q":"Wie kann ich an der MomòRide-Mitfahrgelegenheit-Challenge teilnehmen?","a":"Um an der Challenge teilzunehmen, musst du die App Mobalt herunterladen, dich als Benutzer registrieren und deine Fahrten im Auto teilen beginnen. Jede Fahrt trägt zur Ansammlung von Punkten bei, die mit denen der anderen Teilnehmer des Gebiets addiert werden."},{"q":"Was ist das Ziel der Mitfahrgelegenheit-Challenge?","a":"Das Ziel der Challenge ist es, 40.000 Punkte in einem Monat zu sammeln. Bei Erreichen dieses Ziels spendet die Banca dello Stato del Canton Ticino 1.000 CHF an die Fondazione Provvida Madre di Balerna."},{"q":"Welche Vorteile haben die Teilnehmer an der Challenge?","a":"Neben dem sozialen Beitrag können die Teilnehmer von einem Preisgeld von 500 Franken profitieren, das von den fördernden Gemeinden zur Verfügung gestellt wird und für die Besatzungen der Unternehmen in den drei Gemeinden bestimmt ist. Darüber hinaus wird das Projekt MomòRide von der lastminute foundation und von Mobitrends unterstützt, die Ressourcen und Werkzeuge zur Förderung des Mitfahrgelegenheitsverkehrs bieten."}]'};export{e as default};

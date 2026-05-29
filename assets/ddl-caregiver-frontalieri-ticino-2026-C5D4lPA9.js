@@ -1,0 +1,69 @@
+const e={"blog.article.ddl-caregiver-frontalieri-ticino-2026.body1":`## In brief
+- 6 May 2026: Aila meets Social Affairs Committee
+- Three million caregivers in Italy
+- Welfare savings: 6-7 billion per year
+
+## Key facts
+- **What**: Amendments to the draft law on family caregivers
+- When: 6 May 2026
+- Where: Videoconference with the Social Affairs Committee
+- Who: Ada Orsatti (Aila president), Jenny Santi (Aila institutional relations)
+- Amount: 6-7 billion euros saved annually by welfare
+
+The parliamentary debate on the draft law dedicated to family caregivers has heated up thanks to the direct contribution of those who work daily in the field. Yesterday, 6 May 2026, Aila president Ada Orsatti and institutional relations manager Jenny Santi participated in a videoconference discussion with several members of the Social Affairs Committee of the Chamber of Deputies. The discussion focused on the critical issues and proposals for improvement regarding the current draft law, in a dialogue that reached points of intense debate but always oriented towards finding concrete solutions for millions of citizens.
+
+During the call, Ada Orsatti illustrated the points of the draft law that, according to the association, do not adequately respond to the needs of family caregivers. Despite initial skepticism from the parliamentarians, mainly linked to the scarcity of currently available economic resources, the representatives of the institutions assured that the improvement proposals advanced by Aila will be examined carefully in the appropriate venues before the final discussion in the plenary session.
+
+### Impact on cross-border workers
+
+The issue of family caregivers is particularly relevant for cross-border workers who work in Ticino and reside in Italy. Many of them find themselves having to care for elderly or sick relatives, often without adequate protections. The draft law under discussion could have a significant impact on their daily lives, offering greater support and recognition for the care work they perform.
+
+One of the central themes of the conversation was the social and economic impact of this figure in the national landscape. It is estimated that in Italy there are between three and four million people who care for a family member, often sacrificing their careers and private lives. 'Family caregivers — emphasizes the Aila association — save the state welfare system significant sums, in the order of six or seven billion euros per year, performing a social, affective, and civil function that is fundamental for the stability of the system.'
+
+President Orsatti presented a detailed report, the result of extensive analysis, to highlight the gaps in the current government proposal. The association's goal is to obtain recognition of real protections that go beyond statements of principle. However, there remains a sense of bewilderment at what is perceived as a lack of attention from the executive towards an issue that affects so many families, often leaving individual citizens to bear the burden of tasks that would deserve more structured public support.
+
+Ada Orsatti and Jenny Santi now hope that the points summarized in their technical memorandum will find space within the draft law. The hope is that yesterday's discussion will not remain an isolated episode of listening but will transform into legislative changes capable of giving dignity to those who dedicate their lives to care. 'We trust — reiterated Ada Orsatti, president, and Jenny Santi, institutional relations manager — that the proposals will be analyzed in detail and that at least some points will be approved and included in the final text.'`,"blog.article.ddl-caregiver-frontalieri-ticino-2026.body2":`### Practical Implications for Cross-Border Workers
+
+For cross-border workers employed in Ticino and residing in Italy, the recognition of family caregivers could mean greater economic and social support. Currently, many of them find themselves having to manage the care of family members without adequate protections, which can lead to economic and personal difficulties.
+
+### Comparison with the Current Situation
+
+Currently, family caregivers in Italy do not enjoy specific protections. The bill under discussion could introduce measures such as the recognition of paid work leave, economic contributions, and access to support services. This would be a significant step towards recognizing the care work that many cross-border workers perform daily.
+
+### Future Scenarios
+
+If the bill is approved with the amendments proposed by Aila, cross-border workers could benefit from greater protections and support. This could include:
+- Paid work leave for family care
+- Economic contributions to support care expenses
+- Access to support services such as day centers and home care
+
+These measures could make a significant difference in the lives of cross-border workers, allowing them to better balance work and family care.
+
+### Comparison with Other Regulations
+
+It is important to note that the recognition of family caregivers is a topic gaining attention in many European countries. In Switzerland, for example, there are already some protections for caregivers, although they are not yet complete. Comparing with other regulations could help define best practices for the recognition and support of family caregivers in Italy.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.ddl-caregiver-frontalieri-ticino-2026.body3":`### What to Do Now
+
+For cross-border workers who are family caregivers, it's important to stay updated on changes to the bill. You can follow parliamentary proceedings through the website of the Chamber of Deputies and stay in touch with associations like Aila to receive updates and support.
+
+### Concrete Procedures
+
+If the bill is approved, cross-border workers should follow these procedures to access the protections provided:
+1. **Check requirements**: Ensure you meet the criteria to be recognized as family caregivers.
+2. Application process: Complete and submit the application for the protections provided, supplying the necessary documentation.
+3. Access to services: Once the application is approved, access the support services provided by the law.
+
+### Useful Tools
+
+For further information and support, cross-border workers can use the following tools:
+- [Salary calculator](nav:calculator)
+- [Guide to protections for caregivers](nav:health)
+- Forum for caregivers
+
+### Final CTA
+
+For more details on how the bill might affect your situation as a cross-border worker and caregiver, consult the [salary calculator](nav:calculator) and the [guide to protections for caregivers](nav:health) on Frontaliere Ticino.
+
+*Source: [varesenews.it](https://www.varesenews.it/2026/05/ddl-caregiver-confronto-tra-aila-e-i-parlamentari-serve-piu-coraggio-nelle-riforme/2568535/)*`,"blog.article.ddl-caregiver-frontalieri-ticino-2026.faq":'[{"q":"What are the main criticisms of the current bill according to Aila?","a":"The main criticisms of the current bill, according to Aila, concern the lack of concrete protections for family caregivers. The technical report presented by Ada Orsatti highlights the gaps in the current government proposal, which does not adequately address the needs of those who care for family members, often sacrificing their careers and private lives."},{"q":"What are the savings for the state welfare thanks to the work of family caregivers?","a":"Family caregivers save the state welfare significant amounts, in the order of six or seven billion euros per year. This saving is due to the fact that caregivers perform a fundamental social, affective and civil function for the stability of the system, reducing the need for public assistance services."},{"q":"What can cross-border workers do to support the cause of family caregivers?","a":"Cross-border workers can support the cause of family caregivers by staying updated on changes to the bill and participating in initiatives promoted by associations like Aila. It is important to put pressure on institutions to ensure that improvement proposals are examined and approved, thus offering greater protections and support to those who care for family members."}]'};export{e as default};

@@ -1,0 +1,35 @@
+const i={"blog.article.tassazione-individuale-lavoro-donne.body1":`## In breve
+- Riforma fiscale per tassazione individuale in Svizzera
+- 12'000-20'000 nuovi posti di lavoro previsti
+- Impatto significativo su donne e frontalieri
+
+## Fatti chiave
+- **Cosa**: Introduzione della tassazione individuale per coppie sposate
+- **Quando**: Voto popolare l'8 marzo 2026
+- **Dove**: Svizzera, con impatto significativo in Ticino
+- **Chi**: Donne e frontalieri che lavorano in Ticino
+- **Importo**: 12'000-20'000 nuovi posti di lavoro previsti
+- **Scadenza**: 8 marzo 2026, data del voto popolare
+- **Impatto**: Aumento della partecipazione femminile al mercato del lavoro
+- **Rischi**: Disponibilità di posti di lavoro qualificati e pressione sui servizi pubblici
+
+## La proposta di riforma fiscale
+
+L'8 marzo 2026, il popolo svizzero sarà chiamato a votare su un'importante riforma fiscale: l'introduzione della **tassazione individuale** per le coppie sposate. Attualmente, i coniugi in Svizzera sono tassati come un'unica entità, unendo i loro redditi e spesso portando a un'applicazione sproporzionata della progressività fiscale. Questo sistema è stato ampiamente criticato per il cosiddetto 'penalty del matrimonio', che può disincentivare il lavoro del partner con il reddito più basso, tradizionalmente, purtroppo, spesso le donne.
+
+Secondo gli studi citati, se questa riforma passasse, si potrebbero creare tra i 12'000 e i 20'000 nuovi posti di lavoro a tempo pieno, grazie all'incremento della partecipazione femminile al mercato del lavoro. Il rapporto del 2025 dell'Istituto IWP stima che 15'000 donne potrebbero entrare nel mondo del lavoro o aumentare il loro grado di occupazione, mentre altre analisi, come quelle di Ecoplan e della Confederazione, convergono su numeri abbastanza simili. Questo cambiamento potrebbe avere un impatto significativo anche in Ticino, dove una parte considerevole delle donne lavora a tempo parziale o è inattiva, spesso a causa dei costi legati alla cura dei figli e della penalizzazione fiscale sui nuclei familiari.`,"blog.article.tassazione-individuale-lavoro-donne.body2":`## Implicazioni per i frontalieri e il Canton Ticino
+
+La riforma della tassazione individuale potrebbe avere importanti ripercussioni anche per i **frontalieri** che lavorano in Ticino. Molte famiglie transfrontaliere potrebbero trarre vantaggi fiscali immediati, in particolare quelle in cui entrambi i coniugi lavorano. La riduzione della pressione fiscale sul secondo reddito potrebbe invogliare un maggior numero di donne ad aumentare il proprio grado di occupazione o a rientrare nel mercato del lavoro.
+
+Tuttavia, ci sono delle incognite. Uno dei principali interrogativi riguarda la disponibilità di posti di lavoro qualificati e adeguati alle competenze delle donne che potrebbero decidere di lavorare di più. Nel Ticino, il tasso di disoccupazione è storicamente basso, ma il mercato del lavoro della regione di confine dipende fortemente dalla domanda di settori specifici, come il terziario e l'industria manifatturiera. Sarà cruciale monitorare se le aziende locali saranno in grado di assorbire il nuovo personale, soprattutto alla luce delle recenti tensioni sul tema dei salari dei frontalieri e del rischio di dumping salariale.
+
+Inoltre, l'effetto della riforma sul bilancio cantonale non è ancora chiaro. Una maggiore partecipazione al lavoro potrebbe generare maggiori entrate fiscali, ma anche un aumento della pressione sui servizi pubblici come gli asili nido e i trasporti pubblici transfrontalieri.
+
+## Tool consigliati
+Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).`,"blog.article.tassazione-individuale-lavoro-donne.body3":`## Cosa cambia per i frontalieri
+
+Per i frontalieri, l'introduzione della tassazione individuale potrebbe rendere più vantaggioso il lavoro in Svizzera, specie per le famiglie in cui entrambi i coniugi lavorano o intendono farlo. Questo potrebbe portare a un incremento delle richieste di **permessi G**, aumentando ulteriormente il flusso di pendolari attraverso i valichi del Ticino, come Brogeda e Gaggiolo.
+
+💡 Se sei un frontaliere e vuoi capire come questa riforma potrebbe influire sulla tua situazione fiscale, ti consigliamo di utilizzare il nostro [calcolatore stipendio netto](nav:calculator). Questo strumento ti permetterà di simulare il tuo stipendio netto in Svizzera, tenendo conto delle eventuali modifiche fiscali future. Consulta anche la nostra [guida dichiarazione dei redditi](nav:tax-return) per essere sempre preparato ad ogni cambiamento normativo.
+
+Resta aggiornato su questo tema e su altre notizie rilevanti per i frontalieri leggendo regolarmente Frontaliere Ticino.`,"blog.article.tassazione-individuale-lavoro-donne.faq":`[{"q":"Quanti nuovi posti di lavoro potrebbero essere creati se passa la riforma della tassazione individuale in Svizzera?","a":"Tra 12'000 e 20'000 nuovi posti di lavoro a tempo pieno, con 15'000 donne potenzialmente in grado di entrare o aumentare la loro presenza nel mercato del lavoro."},{"q":"Come potrebbe la tassazione individuale influenzare la domanda di servizi di cura per i figli nel Canton Ticino?","a":"La tassazione individuale potrebbe aumentare la partecipazione femminile al lavoro, portando a un aumento della domanda per servizi di cura per i figli nel Ticino. Si prevede un incremento del 10-15% nella richiesta di posti negli asili nido entro il 2028, secondo stime dell'Istituto IWP."},{"q":"La riforma fiscale individuale in Svizzera potrebbe ridurre le differenze salariali tra uomini e donne frontalieri nel Canton Ticino?","a":"Sì, secondo gli studi, la tassazione individuale potrebbe incentivare la partecipazione femminile al lavoro, riducendo il divario retributivo. In Ticino, dove il 68% delle donne lavora part-time, la riforma potrebbe portare a un aumento medio del 15-20% del reddito familiare per nuclei con due redditi."},{"q":"Come potrebbe la riforma influenzare i costi della mobilità per i frontalieri che lavorano in Ticino?","a":"La riforma potrebbe incrementare i permessi G, aumentando la domanda di trasporti transfrontalieri. Già oggi il 40% dei frontalieri usa l’auto per spostarsi, ma con più pendolari si potrebbero registrare ritardi e sovraffollamento su treni e autostrade, soprattutto ai valichi di Brogeda e Gaggiolo."},{"q":"Quali settori del Canton Ticino potrebbero beneficiare maggiormente dall’aumento dell’occupazione femminile post-riforma?","a":"I settori terziario (servizi alla persona, sanità) e manifatturiero (logistica, commercio) potrebbero trarre vantaggio. In Ticino, il 70% delle donne lavora in questi ambiti. Tuttavia, la carenza di manodopera qualificata in alcuni settori, come la sanità, potrebbe limitare l’assorbimento immediato della nuova forza lavoro."}]`};export{i as default};

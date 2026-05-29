@@ -1,0 +1,68 @@
+const e={"blog.article.cervelat-salsiccia-nazionale-svizzera.body1":`## In brief
+- Cervelat is considered the national sausage of Switzerland
+- On average, 20 pieces are consumed per person per year
+- It is a product widespread in all regions of the country
+
+## Key facts
+- **What**: Cervelat
+- When: Since the 16th century (modern since the 19th century)
+- Where: Throughout Switzerland
+- Who: Swiss population
+- Amount: 160 million cervelats produced annually
+
+Cervelat, the 'national sausage of Switzerland,' is a culinary product that represents a symbol of national identity. This small, stout, pink, and unadorned cylinder has been a staple on plates, in backpacks, on grills, and sometimes in surprisingly passionate discussions among the Swiss population for over a century. Cervelat is often cited as one of the most emblematic culinary products of Switzerland, alongside fondue, raclette, chocolate, and rösti.
+
+### History and tradition
+Sausages similar to cervelat are mentioned in gastronomic literature as far back as the 16th century. The modern cervelat, however, appears in butcher's records as early as the 19th century. One of the peculiarities of cervelat is that 'no canton, no region can claim its paternity,' observes the Swiss Culinary Heritage. This makes it a truly national product, widespread and consumed throughout the country.
+
+### Spread and consumption
+The widespread consumption of cervelat dates back to the early 20th century, with the generalized introduction of the mechanical meat grinder, which allowed this sausage to be marketed in large quantities and at a modest price. According to a recent estimate (2026), around 160 million cervelats are produced annually in Switzerland, which corresponds to an average consumption of about 20 pieces per person per year.
+
+### Controversies and debates
+Cervelat has become an indispensable product for summer barbecues, especially during the national holiday on August 1st. However, controversies are not lacking. On the occasion of the last national holiday, the president of the Democratic Union of the Centre (UDC, conservative right) Marcel Dettling had grilled a cervelat skewered on the tip of a halberd, a symbolic weapon of Swiss resistance, over a fire fueled by the pages of the agreement between Switzerland and the European Union (EU).
+
+### Recipes and traditions
+There is no 'official' recipe for cervelat. Nevertheless, this sausage is at the center of numerous debates and traditions. For example, the Swiss population loves to debate seemingly trivial questions such as whether to grill the cervelat with or without the skin, how to cut it for better grilling, whether to score it or not, and which sauce to accompany it with.
+
+### Impact on cross-border workers
+For cross-border workers who work in Switzerland, cervelat represents an element of integration and cultural sharing. Participating in a barbecue with Swiss colleagues and tasting a cervelat can be a way to get closer to the local culture and create social bonds. Moreover, cervelat is often present at company events and national holidays, offering cross-border workers the opportunity to fully experience the Swiss experience.`,"blog.article.cervelat-salsiccia-nazionale-svizzera.body2":`### Practical Analysis: The Cervelat in Daily Life
+The cervelat is not just a food product, but a symbol of national identity that has a significant impact on the daily lives of Swiss citizens and cross-border workers living and working in Switzerland. Its constant presence at summer barbecues and national celebrations makes it a central element of Swiss culture.
+
+### Comparison with Other Specialties
+While fondue and raclette are predominantly local specialties that only gained national popularity starting in the mid-20th century, thanks to the combined effect of dairy industry marketing and the spread of a national identity built around the myth of an 'alpine nation,' the cervelat remains one of the most serious candidates for the title of 'national dish.'
+
+### Concrete Scenarios
+Imagine you are a cross-border worker in Switzerland and you participate in a company barbecue during the national holiday on August 1st. The cervelat will certainly be one of the main dishes. Knowing local traditions and preferences can help you integrate better and create an atmosphere of sharing and friendship.
+
+### Comparative Table
+
+| Specialty   | Origin    | National Spread | Annual Consumption | Cultural Importance |
+|-------------|-----------|-------------------|--------------------|--------------------|
+| Cervelat    | National   | High              | 20 pieces per person | High               |
+| Fondue      | Local      | Medium            | Not specified       | Medium             |
+| Raclette    | Local      | Medium            | Not specified       | Medium             |
+| Chocolate   | National   | High              | Not specified       | High               |
+| Rösti       | National   | High              | Not specified       | High               |
+
+### Practical Tips
+If you are a cross-border worker living in Ticino and working in Switzerland, participating in a barbecue with Swiss colleagues can be an opportunity to learn more about local culture. Don't hesitate to ask for advice on how to grill the cervelat best and which sauces to accompany it. This will help you integrate better and create social bonds.
+
+### Economic Impact
+The production and consumption of cervelat have a significant impact on the Swiss economy. According to a recent estimate (2026), around 160 million cervelats are produced annually in Switzerland. This sector contributes to the local economy and offers job opportunities in various regions of the country.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).`,"blog.article.cervelat-salsiccia-nazionale-svizzera.body3":`### What to do concretely
+If you're a cross-border worker living in Ticino and working in Switzerland, participating in a barbecue with Swiss colleagues can be an opportunity to better understand the local culture. Here are some practical tips:
+
+1. **Attend company events**: Many Swiss companies organize barbecues during the national holiday on August 1st. Participating in these events can help you integrate better and create social bonds.
+2. Ask for advice: Don't hesitate to ask for advice on how to grill the cervelat best and which sauces to accompany it. This will help you understand local traditions better.
+3. Try different recipes: Cervelat can be grilled with or without the skin, cut in different ways, and accompanied by different sauces. Try different recipes to find the one you prefer.
+4. Create social bonds: Participating in a barbecue with Swiss colleagues can be an opportunity to create social bonds and better understand the local culture.
+
+### Useful tools
+To delve deeper into the subject, you can use our [salary calculator](nav:calculator) to compare your salary with that of your Swiss colleagues and better understand purchasing power in Switzerland. Additionally, you can consult our [guide to tax refunds](nav:ristorni) to learn how to optimize your taxes and save money.
+
+### Final CTA
+If you want to learn more about how to better integrate Swiss culture and create social bonds, consult our cross-border workers' guide and discover all the practical tips for making the most of your experience in Switzerland.
+
+*Source: [tvsvizzera.it](https://www.tvsvizzera.it/tvs/destinazione-svizzera/il-cervelat-la-salsiccia-nazionale-svizzera/91252516)*`,"blog.article.cervelat-salsiccia-nazionale-svizzera.faq":'[{"q":"What makes cervelat so special?","a":"Cervelat is special because it is a culinary product that represents a symbol of Swiss national identity. It is widespread throughout the country and consumed in large quantities, making it a central element of Swiss culture."},{"q":"How can I better integrate into Swiss culture?","a":"Participating in company events and barbecues with Swiss colleagues can help you integrate better and create social bonds. Ask for advice on how to grill cervelat best and which sauces to accompany it to understand local traditions better."},{"q":"What is the average annual consumption of cervelat in Switzerland?","a":"According to a recent estimate (2026), approximately 160 million cervelats are produced annually in Switzerland, which corresponds to an average consumption of about 20 pieces per person per year."}]'};export{e as default};

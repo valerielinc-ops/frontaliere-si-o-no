@@ -1,0 +1,94 @@
+const e={"blog.article.piogge-intense-ceresio-2026.body1":`## In Kürze
+- Weniger häufige, aber intensivere Niederschläge am Luganersee (Ceresio)
+- Rund 2.000 Tonnen Material im Jahr 2025 vom Ufersäuberungskonsortium entfernt
+- Verwaltungskosten stabil bei rund 600.000 Franken
+- Konkrete Auswirkungen auf Grenzgänger, Seeanlieger und Outdoor-Beschäftigte
+
+## Wichtige Fakten
+- **Was**: Wasserbewirtschaftung und Trümmersammlung am Luganersee (Ceresio)
+- **Wann**: 2025–2026
+- **Wo**: Luganersee, Kanton Tessin / Provinzen Como und Varese
+- **Wer**: Consorzio Pulizia Rive e Lago Ceresio, unter dem Vorsitz von Walter Lisetto
+- **Menge**: Etwa 2.000 Tonnen Material im Jahr 2025 entfernt
+- **Kosten**: Etwa 600.000 Franken für den Jahresbetrieb
+
+Der Luganersee (Ceresio) — zwischen der Schweiz (Kanton Tessin) und Italien (Provinzen Como und Varese) geteilt — steht vor einer wachsenden Umweltherausforderung: Immer seltener werdende, aber immer intensivere Niederschläge verändern die Art der Trümmer, die in seine Gewässer gelangen. Das Consorzio Pulizia Rive e Lago Ceresio, das für die Reinigung zuständige interkommunale Gremium, gab auf seiner ordentlichen Generalversammlung — unter dem Vorsitz von Walter Lisetto und mit Unterstützung von Sekretär Fabio Schnellmann — bekannt, dass 2025 rund 2.000 Tonnen Material entfernt wurden, hauptsächlich Treibholz und in geringerem Maße anthropogene Abfälle.
+
+### Das Reinigungskonsortium: Was es ist und was es tut
+
+Das Consorzio Pulizia Rive e Lago Ceresio ist ein tessiner interkommunales Gremium, das die Sammlung von Treibgut koordiniert, die Wasserqualität überwacht und mit den Ufergemeinden (Lugano, Mendrisio, Morcote und anderen) zusammenarbeitet, um den See schiffbar und ökologisch gesund zu halten. Es handelt im Rahmen des **Bundesgesetzes über den Schutz der Gewässer (GSchG)**, das spezifische Wartungspflichten für Gewässer vorschreibt.
+
+Zu den Tätigkeiten gehören:
+- Sammlung von Treibholz, Algen und Abfällen mit speziellen Schiffen
+- Überwachung mit Drohnen und Sensoren zur Echtzeit-Erkennung von Ansammlungen
+- Koordination mit Gemeinden und Kantonsbehörden für Notfalleinsätze
+- Sensibilisierungskampagnen für Einwohner und Grenzgänger
+
+### Klimatrend: Weniger Regen, mehr Schutt
+
+Laut MeteoSchweiz verstärkt der Klimawandel die Niederschlagsvariabilität am Südhang der Alpen: Trockenperioden wechseln sich mit konzentrierten Gewitterereignissen ab, die in wenigen Stunden Wassermengen abwerfen, die früher auf Wochen verteilt waren. Dies erhöht den Abfluss der Zuflüsse des Luganersees — wie Cassarate, Vedeggio und Magliasina — die weit mehr Holz und Sedimente als der historische Durchschnitt transportieren.
+
+Das Ergebnis ist eine Trümmerlast, die sowohl die kommerzielle als auch die Freizeitschifffahrt erschwert und häufigere und kostspieligere Einsätze des Konsortiums erfordert.
+
+### Warnsystem und nützliche Kontakte
+
+Bei plötzlichen Anhäufungen von Trümmern oder bei Situationen, die die Schifffahrt gefährden, kann das Konsortium über die Ufergemeinden erreicht werden. Die allgemeinen Notrufnummern in der Schweiz sind **117 (Polizei)** und **118 (Feuerwehr/Notfall)**. Für nicht dringende Umweltmeldungen können in Tessin wohnhafte Grenzgänger das **Amt für Gewässerschutz und Wasserversorgung (UPAI)** des Kantons Tessin kontaktieren.
+
+In Italien sind Umweltmeldungen in den Provinzen Como und Varese Sache der **ARPA Lombardia** (Regionale Umweltschutzbehörde).`,"blog.article.piogge-intense-ceresio-2026.body2":`### Auswirkungen auf Grenzgänger
+
+Der Luganersee ist nicht nur ein Gewässer: Er ist eine geografische Achse, die das tägliche Leben von Tausenden von Grenzgängern durchzieht, die auf der italienischen Seite (Provinzen Como und Varese) wohnen und im Kanton Tessin arbeiten, oder umgekehrt. Die Folgen intensiver Regenfälle und der Schuttbewirtschaftung betreffen diese Gemeinschaft auf verschiedene Weisen.
+
+#### Risiken für Pendelwege
+
+Einige der von Grenzgängern meistgenutzten Straßen verlaufen entlang des Ceresio oder durch seine Nebentäler. Bei konzentrierten Gewitterereignissen besteht ein reales Risiko von vorübergehenden Überschwemmungen oder Ansammlungen von Schlamm und Trümmern auf der Fahrbahn, insbesondere:
+- Die **Staatsstraße 340** entlang des Schweizer Lario-Asts in Richtung Lugano
+- Zufahrtsstraßen zu den Grenzübergängen **Ponte Tresa** und **Stabio** bei Überschwemmungen kleinerer Bäche
+- Die Seepromenade von **Melide** und die Tieflagen von **Bissone**
+
+Grenzgängern wird empfohlen, an Warntagen die Wetterberichte von **MeteoSchweiz (meteosvizzera.admin.ch)** und **MeteoLombardia (www.meteo.regione.lombardia.it)** zu verfolgen und gegebenenfalls alternative Routen zu planen.
+
+#### Grenzgänger mit Seeanlieger-Eigentum
+
+Wer Häuser, Garagen oder Grundstücke in Seenähe besitzt — sei es auf der Tessiner oder der lombardischen Seite — sollte beachten, dass intensive Niederschläge die Wahrscheinlichkeit von Wassereinbrüchen und kleinen lokalen Überschwemmungen erhöhen. Es ist ratsam:
+- Den Versicherungsschutz gegen Wasser- und Hochwasserschäden zu überprüfen (in der Schweiz umfassen viele Hauspolicen diesen Schutz; in Italien muss dies speziell geprüft werden)
+- Abflusskanäle und Keller regelmäßig zu kontrollieren
+- Die kommunalen Notfallpläne zu kennen, die auf der Website der eigenen Tessiner Gemeinde oder der italienischen Provinz verfügbar sind
+
+#### Outdoor- und Landwirtschaftsarbeiter
+
+Grenzgänger, die im Freien tätig sind — Baustellen am See, Grünanlagenpflege, Freizeit- oder Schifffahrt — sind am direktesten den Folgen intensiver Gewitterereignisse ausgesetzt. Die Schweizer Vorschriften (Verordnung über die Verhütung von Unfällen, VUV) verpflichten Arbeitgeber, gefährliche Arbeiten bei schlechten Wetterbedingungen einzustellen.
+
+### Das Tessiner "Lacustri"-Programm
+
+Der Kanton Tessin hat ein Förderprogramm eingerichtet, das informell als **"Lacustri"** bekannt ist, um die Ufergemeinden bei der Wasserbewirtschaftung und der Sanierung der Ufer zu unterstützen. Laut den auf der Generalversammlung des Konsortiums mitgeteilten Informationen wurden Mittel für den Zeitraum 2025–2027 bereitgestellt, um die Infrastruktur zur Schuttsammlung und die ökologische Qualität des Sees zu verbessern. Grenzgänger mit Eigentums- oder Berufsinteressen am See können sich beim **Departement für das Territorium** des Kantons Tessin über verfügbare Beiträge informieren.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie [CHF-EUR-Wechseloptionen](nav:exchange) und [Banken für Grenzgänger](nav:banks).`,"blog.article.piogge-intense-ceresio-2026.body3":`### Was konkret zu tun ist
+
+Hier ist eine Zusammenfassung der praktischen Schritte für Grenzgänger und Anwohner im Ceresio-Gebiet:
+
+1. **Wetterwarnungen überwachen**: Für Push-Benachrichtigungen von MeteoSchweiz oder MeteoLombardia anmelden, um frühzeitig Warnungen vor intensiven Gewitterereignissen zu erhalten. Im Tessin ist auch das **AlertSwiss**-System aktiv (kostenlose App zum Herunterladen).
+
+2. **Pendelweg planen**: An Tagen mit gelben oder orangefarbenen Wetterwarnungen die Straßenverhältnisse auf **TCS (tcs.ch)** oder **Viasuisse (viasuisse.ch)** vor der Abfahrt prüfen und die Alternative TILO-Zug oder Regionalbus in Betracht ziehen.
+
+3. **Gebäudeversicherung prüfen**: Wer eine Immobilie in Seenähe besitzt oder mietet, sollte sicherstellen, dass die Police Wasser- und Murgangschäden abdeckt. In der Schweiz ist die Gebäudeversicherung auf kantonaler Ebene obligatorisch; in der Lombardei schließen viele Hauspolicen Hochwasserschäden standardmäßig aus — es lohnt sich, diesen Schutz hinzuzufügen.
+
+4. **Schifffahrtsverordnungen respektieren**: Bei intensiven Wettereignissen können die Kantonalbehörden Verordnungen erlassen, die die Freizeitschifffahrt auf dem Luganersee einschränken oder verbieten. Informationen werden auf der Website der **Mobilitätsstelle des Kantons Tessin** veröffentlicht.
+
+5. **An Reinigungsinitiativen teilnehmen**: Das Konsortium organisiert regelmäßig Freiwilligentage zur Abfallsammlung entlang der Ufer. Die Teilnahme ist ein konkreter Beitrag zur Umweltqualität eines Sees, den viele Grenzgänger in ihrer Freizeit nutzen.
+
+6. **Abfälle aus dem See fernhalten**: Materialien nicht am Ufer liegen lassen und Flüssigkeiten nicht in der Nähe von Zuflüssen entsorgen. Auch kleine individuelle Handlungen, multipliziert über die Grenzgängergemeinschaft, beeinflussen die Wasserqualität.
+
+### Schnell-Checkliste
+
+- [ ] Wetterbericht vor jeder Fahrt an Warntagen überprüft
+- [ ] Alternative Pendelroute identifiziert
+- [ ] Versicherungspolice überprüft (Wasser-/Hochwasserschutz)
+- [ ] Umwelt-Notfallnummer gespeichert: 117 (CH) / ARPA Lombardia für IT
+- [ ] AlertSwiss-App auf dem Telefon installiert
+
+### Schlussfolgerung
+
+Die Bewirtschaftung des Luganersees ist eine gemeinsame Herausforderung für zwei Länder und Tausende von Grenzgängern, die seinen Alltag leben. Das Ufersäuberungskonsortium baut seine Kapazitäten aus, um auf neue klimatische Dynamiken zu reagieren, aber die Zusammenarbeit aller — Einwohner, Grenzgänger, Arbeitgeber — ist unerlässlich, um ein Ökosystem zu erhalten, das zugleich Naturerbe und wirtschaftliche Ressource des Territoriums ist.
+
+*Quelle: [ticinonews.ch](https://www.ticinonews.ch/ticino/meno-piogge-ma-piu-intense-aumentano-le-sfide-per-il-ceresio-432750)*`,"blog.article.piogge-intense-ceresio-2026.faq":'[{"q":"Was ist das Consorzio Pulizia Rive e Lago Ceresio?","a":"Es ist ein tessiner interkommunales Gremium, das die Sammlung von Treibgut koordiniert, die Wasserqualität überwacht und mit den Ufergemeinden zusammenarbeitet, um den See schiffbar und ökologisch gesund zu halten. Es handelt im Rahmen des Bundesgesetzes über den Schutz der Gewässer (GSchG)."},{"q":"Warum erhöhen intensive Regenfälle den Schutt im Ceresio?","a":"Der Klimawandel verstärkt die Niederschlagsvariabilität: Trockenperioden wechseln sich mit konzentrierten Gewittern ab, die in wenigen Stunden große Wassermengen abwerfen. Dies erhöht den Abfluss der Zuflüsse, die weit mehr Holz und Sedimente als der historische Durchschnitt in den See tragen."},{"q":"Welche konkreten Risiken tragen Grenzgänger bei intensiven Regenfällen?","a":"Grenzgänger können auf bestimmten Straßen entlang des Ceresio oder seiner Nebenflüsse Schwierigkeiten haben (z.B. SS340 oder Wege zu den Grenzübergängen Ponte Tresa und Stabio). Wer Immobilien in Seenähe besitzt, sollte auch seinen Versicherungsschutz für Wasserschäden überprüfen. Es wird empfohlen, die MeteoSchweiz-Berichte zu verfolgen und die AlertSwiss-App installiert zu haben."}]'};export{e as default};

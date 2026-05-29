@@ -1,0 +1,32 @@
+const e={"blog.article.magliaso-zona-educativa-ripresa.body1":`## Auf einen Blick
+- Neue Grundschule in Magliaso im Bau
+- Budget von 14,186 Millionen Franken
+- Fertigstellung für Schuljahr 2028/2029
+
+## Wichtige Fakten
+- **Projektname**: PIVOT des Architekturbüros Bonetti e Bonetti
+- **Budget**: 14,186 Millionen Franken
+- **Architekturwettbewerb**: Herbst 2019
+- **Fertigstellung**: Schuljahr 2028/2029
+- **Klassenräume**: 5 Klassenräume im ersten Stockwerk
+- **Nachhaltigkeit**: Fortschrittliche Technologien für Energie- und Wassermanagement
+- **Außenräume**: Für außerschulische Aktivitäten und Erholung der Schüler
+
+Am 26. März wurde im Nachmittagsstund der erste Stein gelegt, der symbolisch die Arbeiten für den Bau der neuen Grundschule in Magliaso in Gang setzt. Die Zeremonie wurde von allen Schülern des Istituto scolastico di Magliaso besucht, die an der Zeremonie teilnahmen, indem sie kleine Steine, die sie selbst farbig bemalt hatten, in eine Grube legten. In dieser Grube wurde auch eine Zeitkapsel deponiert, die die Gedanken und Hoffnungen aller Schüler enthält, die sich an die zukünftigen Schulgemeinden gewandt haben. Der Gemeinderat hatte 14,186 Millionen Franken für die Planung und Errichtung dieser neuen Schulstruktur budgetiert. Der Gewinner des Architekturwettbewerbs, der im Herbst 2019 vom Gemeindeamt ausgeschrieben wurde, war der Projekt 'PIVOT' des Architekturbüros Bonetti e Bonetti. Das schmale und lange Gebäude erstreckt sich über zwei Etagen und einen Keller. Im Erdgeschoss befinden sich der Eingangsbereich, die Cafeteria, die Lehrerstube und die Räume für kreative Aktivitäten und Musik. Im ersten Stockwerk befinden sich die fünf Klassenräume. Die Struktur wird für das Schuljahr 2028/2029 bereit sein. Die Vizebürgermeisterin Fè Fossati sagte, dass wir den Zukunft der unserer Gemeinschaft bauen. 📊`,"blog.article.magliaso-zona-educativa-ripresa.body2":`Die neue Grundschule von Magliaso wird ein Beispiel für Innovation und Nachhaltigkeit im Bereich der Schularchitektur sein. Die Struktur wird so konzipiert sein, um effizient und nachhaltig zu sein, mit einem minimalen Umweltaufwand. Die Schule wird mit fortschrittlichen Technologien für die Energie- und Wassermanagement ausgestattet sein, um Ressourcen zu sparen und Treibhausgasemissionen zu reduzieren. Die Schule wird auch mit Außenräumen für außerschulische Aktivitäten und die Erholung der Schüler ausgestattet sein.
+
+Das Projekt 'PIVOT' des Architekturbüros Bonetti und Bonetti sieht die Errichtung einer modernen und funktionalen Grundschule mit insgesamt fünf Klassenräumen vor. Die Struktur wird aus zwei Erdgeschossen und einem Untergeschoss bestehen. Im Erdgeschoss befinden sich der Eingangsbereich, die Mensa, der Lehrerzimmer und die Räume für kreative und musikalische Aktivitäten. Im ersten Obergeschoss befinden sich die fünf Klassenräume für den Unterricht.
+
+Die Schule wird mit fortschrittlichen Technologien für die Energie- und Wassermanagement ausgestattet sein, um Ressourcen zu sparen und Treibhausgasemissionen zu reduzieren. Die Schule wird auch mit Außenräumen für außerschulische Aktivitäten und die Erholung der Schüler ausgestattet sein.
+
+Der Gemeinderat hatte 14,186 Millionen Franken für den Bau der neuen Grundschule eingeplant.
+
+Die Vizebürgermeisterin Fè Fossati hat ihre Hoffnung ausgedrückt, dass die neue Grundschule von Magliaso ein Symbol für die Zukunft der Gemeinde werden könne.
+
+Die neue Grundschule von Magliaso wird ein wichtiger Investitionsprojekt für die lokale Gemeinde sein, ein modernes und funktionales Bildungsumfeld für die Schüler bieten.
+
+Das Projekt 'PIVOT' des Architekturbüros Bonetti und Bonetti wurde im Herbst 2019 als Sieger des Architekturwettbewerbs ausgewählt, der vom Gemeinderat ausgeschrieben wurde.
+
+## Empfohlene Tools
+Für eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).`,"blog.article.magliaso-zona-educativa-ripresa.body3":`Wenn Sie mehr über die neue Grundschule in Magliaso erfahren möchten, können Sie unseren Rechner verwenden, um die verfügbaren Räumlichkeiten und die Nutzungsflächen zu schätzen. Darüber hinaus können Sie unseren Planungstool für Ihre Schule verwenden, der Ihnen helfen wird, die Räumlichkeiten und Aktivitäten für Ihre Schulkommune zu planen. Nutzen Sie die Gelegenheit, Ihre Ideen und Vorschläge mit uns zu teilen. Schreiben Sie uns und teilen Sie Ihre Meinung über die neue Grundschule in Magliaso.
+
+*Quelle: [laregione.ch](https://www.laregione.ch/cantone/luganese/1914366/magliaso-iniziati-i-lavori-per-la-nuova-scuola-elementare)*`,"blog.article.magliaso-zona-educativa-ripresa.faq":'[{"q":"Wie viel kostete der Bau der neuen Grundschule in Magliaso?","a":"Der Stadtrat hatte einen Kredit von 14.186 Millionen Francs für den Bau der neuen Grundschule bereitgestellt."},{"q":"Wie sieht der Nachhaltigkeitsplan für die neue Grundschule in Magliaso aus?","a":"Die Schule wird mit fortschrittlichen Technologien für Energie- und Wassermanagement ausgestattet, was Ressourceneinsparungen und eine Reduzierung der Treibhausgasemissionen ermöglicht."},{"q":"Welche nachhaltigen Technologien werden in der neuen Schule in Magliaso übernommen?","a":"Die Schule wird mit fortschrittlichen Technologien für intelligentes Energie- und Wassermanagement ausgestattet, Ressourcen sparen und Treibhausgasemissionen reduzieren und so zu einer nachhaltigeren Umwelt beitragen."}]'};export{e as default};
