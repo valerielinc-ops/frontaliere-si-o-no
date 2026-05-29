@@ -246,6 +246,7 @@
     "audit:max-bfs-depth:rebaseline": "node scripts/audit-bfs-depth.mjs --write-baseline=data/bfs-depth-baseline.json",
     "audit:footer-root-presence": "node scripts/audit-footer-root-presence.mjs",
     "audit:no-merge-markers": "node scripts/audit-no-merge-markers.mjs",
+    "lint:gha-node-runtime": "node scripts/lint-gha-node-runtime.mjs",
     "audit:no-dotfile-html": "node scripts/audit-no-dotfile-html.mjs",
     "audit:active-jobs-regression": "node scripts/check-active-jobs-regression.mjs",
     "audit:active-jobs-regression:rebaseline": "node scripts/check-active-jobs-regression.mjs --rebaseline",
