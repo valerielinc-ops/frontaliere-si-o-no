@@ -420,7 +420,7 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="seo-static-content s-EDtWsL">${body}</main>`;
+  const bodyHtml = `<main class="s-EDtWsL">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = JSON.stringify({
