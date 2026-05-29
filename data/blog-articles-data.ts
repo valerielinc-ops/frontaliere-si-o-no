@@ -24959,4 +24959,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'caso-nurnberg-risolto-rsi-paga-pretese',
+ category: 'novita',
+ date: '2026-05-29T09:50:15.195Z',
+ image: '/images/blog/caso-nurnberg-risolto-rsi-paga-pretese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

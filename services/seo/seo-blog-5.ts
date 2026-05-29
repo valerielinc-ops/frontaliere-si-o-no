@@ -41063,6 +41063,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caso-nurnberg-risolto-rsi-paga-pretese': {
+    title: 'Caso Nurnberg risolto: RSI paga tutte le pretese avanzate',
+    description: 'La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, caso, nurnberg, risolto, paga',
+    ogTitle: 'Caso Nurnberg risolto: RSI paga tutte le pretese avanzate',
+    ogDescription: 'La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caso Nurnberg risolto: RSI paga tutte le pretese avanzate",
+      "description": "La vertenza tra RSI e Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese avanzate. Scopri di più su Frontaliere Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caso-nurnberg-risolto-rsi-paga-pretese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il Lago di Lugano e le montagne circostanti"
+      },
+      "datePublished": "2026-05-29T09:50:15+00:00",
+      "dateModified": "2026-05-29T09:50:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
