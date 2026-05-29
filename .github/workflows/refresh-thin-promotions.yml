@@ -84,6 +84,9 @@ jobs:
             --window-hours="${{ github.event.inputs.window_hours || '24' }}" \
             --active-window-days="${{ github.event.inputs.active_window_days || '30' }}"
 
+      # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
+      # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.
+      # Guarded by .github/CODEOWNERS so a future writer is forced through review.
       - name: Commit if changed
         run: |
           if git diff --quiet -- data/thin-page-promotions-active.json data/thin-page-promotions.jsonl; then
