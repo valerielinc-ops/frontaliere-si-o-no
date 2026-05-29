@@ -28,7 +28,8 @@ jobs:
     # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
     if: |
       github.event.label.name == 'agent:fix' &&
-      github.event.sender.login == 'valerielinc-ops'
+      (github.event.sender.login == 'valerielinc-ops' ||
+       startsWith(github.event.sender.login, 'claude'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -85,6 +86,7 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
+          allowed_bots: '*'
           claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
