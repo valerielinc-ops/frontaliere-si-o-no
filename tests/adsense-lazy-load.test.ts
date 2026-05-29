@@ -75,6 +75,12 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     // Ads fire on no-scroll sessions across the ~200k SEO pages, not only when
     // a slot scrolls into view. Guards the rIC fallback against removal.
     expect(ADSENSE_LOADER_CONTENT).toContain('requestIdleCallback');
+    // Pin the *post-IO* scheduling site specifically. The loader has two rIC
+    // call sites — `timeout:4000` (IntersectionObserver-unavailable branch) and
+    // `timeout:6000` (the no-scroll guard that fires after the observer is set
+    // up). A bare `toContain('requestIdleCallback')` would stay green if a
+    // refactor dropped only the 6000 site — the exact regression this guards.
+    expect(ADSENSE_LOADER_CONTENT).toContain('timeout:6000');
   });
 
   it('exposes the correct client id + script URL', () => {
