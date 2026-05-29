@@ -83,3 +83,37 @@ describe('thin-shell builders emit the EJP_STRIPPED audit-skip marker', () => {
     });
   }
 });
+
+// The `career-landings` regression (10 > cap 0) is NOT the company-hub path:
+// the audit's classifyFeature maps any `/cerca-lavoro-ticino/azienda-*/` URL
+// to `career-landings`, which also catches expired-job soft-landings whose
+// slug starts with the word "azienda" (e.g. the AMB "Azienda Multiservizi
+// Bellinzona" job, or "azienda di formazione …spital-emmental-burgdorf").
+// Those are soft-landing THIN shells (text ~700 B / html ~7-15 KB per the
+// failing run's text-html-ratio.json), so the softLandingThinShell marker fix
+// above skips them — the marker check runs before feature classification, so a
+// skipped page never reaches the career-landings bucket. (Real company hubs
+// like `entreprise-zurzach-care` sit at 31-67% ratio and were never offenders.)
+describe('career-landings regression is soft-landing thin pages, covered by the marker', () => {
+  const azPath =
+    'dist/cerca-lavoro-ticino/azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti/index.html';
+
+  it('a thin soft-landing under an azienda-* path is skipped, not bucketed as career-landings', async () => {
+    const thin = buildSoftLandingThinHtml(SOFT_LANDING_FULL, 'it');
+    const a = createAuditor({ threshold: 10, failOnOffenders: true });
+    a.collect(azPath, minifyHtml(thin));
+    const r = await a.report();
+    expect(r.extra.skippedEjpStripped).toBe(1);
+    expect(r.byFeature?.['career-landings'] ?? 0).toBe(0);
+    expect(r.offendersTotal).toBe(0);
+  });
+
+  it('control: the same azienda-* path WITHOUT the marker IS bucketed as a career-landings offender', async () => {
+    const lowRatioNoMarker =
+      `<!doctype html><html><head><title>x</title></head><body><h1>Y</h1>${'<div></div>'.repeat(2000)}</body></html>`;
+    const a = createAuditor({ threshold: 10, failOnOffenders: true });
+    a.collect(azPath, lowRatioNoMarker);
+    const r = await a.report();
+    expect(r.byFeature?.['career-landings']).toBe(1);
+  });
+});
