@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-05-28T22:29:39.298Z",
+  "generatedAt": "2026-05-29T11:50:33.806Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2729,
-  "avgDurationMs": 2729,
+  "durationMs": 3518,
+  "avgDurationMs": 3518,
   "durationHistory": [
-    2729
+    3518
   ],
   "newJobs": [
     {
@@ -32,13 +32,13 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4963bfb0-dc3f-4082-9131-848794b0a92d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "pdfUrl": null,
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4963bfb0-dc3f-4082-9131-848794b0a92d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-28T22:29:37.556Z",
+      "crawledAt": "2026-05-29T11:50:31.613Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,6 +118,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "firstSeenAt": "2026-03-30T20:10:23.185Z",
+      "country": "CH",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
