@@ -406,7 +406,7 @@ interface RenderedPage {
   wordCount: number;
 }
 
-export function renderPage(opts: {
+function renderPage(opts: {
   locale: BorderWaitLocale;
   dateStamp: string;
   distDir?: string;
@@ -498,14 +498,14 @@ export function renderPage(opts: {
   // ── Playful UI (Workstream UX) ────────────────────────────────────
   // Self-contained <style> (no Tailwind — JIT does not scan build-plugins/;
   // no hex — only semantic --color-* tokens, per no-hex-in-seo-plugins test).
+  // NOTE: the mobile horizontal-overflow fix lives in the SHARED stylesheet
+  // (public/assets/seo-static.css → .s-EDtWsL gains min-width:0 +
+  // max-width:min(1100px,100%)). .s-EDtWsL is a grid item of the display:grid
+  // .seo-static-content wrapper; min-width:auto let wide tables stretch the
+  // track past the viewport (≈1116px on a 382px screen). The shared rule is
+  // used by both this page and comparisonsHubPlugin (whose 520–720px tables
+  // hit the same bug), so fixing it once there covers both.
   const playfulStyle = `<style>
-/* Mobile overflow fix: .seo-static-content is display:grid and this inner
-   <main> is a grid item with default min-width:auto, so the 24-row crossings
-   table stretched the track past the viewport (≈1116px on a 382px screen) and
-   the table's overflow-x:auto never engaged. min-width:0 lets the grid item
-   shrink; max-width:min(1100px,100%) keeps the desktop 1100px cap while never
-   exceeding the track on mobile. Desktop layout verified byte-identical. */
-.s-EDtWsL{min-width:0;max-width:min(1100px,100%)}
 .bw-head-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
 .bw-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-strong);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
 .bw-live-dot{width:8px;height:8px;border-radius:50%;background:var(--color-success-strong);display:inline-block}
