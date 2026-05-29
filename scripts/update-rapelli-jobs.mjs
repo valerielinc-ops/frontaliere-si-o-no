@@ -42,6 +42,7 @@ import {
   slugify, inferEmploymentType,
 } from './lib/rapelli-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -104,7 +105,7 @@ async function main() {
     }
     const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-rapelli-${raw.location}`);
+    const jobSlug = slugify(`${raw.title}-rapelli-${safeLocationToken(raw.location)}`);
     // Only set source locale (IT) — other locales will be filled by:
     // 1. mergePreserveLocaleData (preserves existing translations from previous runs)
     // 2. translate-pending pipeline (AI translation for missing locales)

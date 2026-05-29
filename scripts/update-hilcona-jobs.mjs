@@ -14,6 +14,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -60,14 +61,16 @@ async function main() {
     const detail = await fetchHilconaDetailPage(raw.url);
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
-    const loc = detail.location || 'Landquart';
+    // Guard upstream of `loc` so a missing/invalid value ("undefined"/"null"/
+    // empty from the detail parser) can never leak the literal string into the
+    // slug (regression that produced live /…-hilcona-undefined/ pages + tripped
+    // the sitemap-canonical gate) NOR into the JSON-LD addressLocality (Google
+    // rejects → de-index; AGENTS.md non-negotiable #3). Issue #900. The guarded
+    // value flows into slug, location, addressLocality and inferAnyCanton.
+    const loc = safeLocationToken(detail.location, 'Landquart');
     const company = detail.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    // Guard the location token so a missing/invalid value can never leak the
-    // literal string "undefined" into an emitted URL (regression that produced
-    // live /…-hilcona-undefined/ pages and tripped the sitemap-canonical gate).
-    const slugLoc = loc && loc !== 'undefined' ? loc : 'landquart';
-    const jobSlug = slugify(`${raw.title}-hilcona-${slugLoc}`);
+    const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
     parsedJobs.push({
       id: `hilcona-${urlHash}`, slug: jobSlug,
       slugByLocale: { de: jobSlug },

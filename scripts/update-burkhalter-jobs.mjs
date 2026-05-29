@@ -48,6 +48,7 @@ import {
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -207,7 +208,7 @@ function buildJob(raw, description = '') {
   const company = String(raw.company || COMPANY_NAME).trim();
   const city = String(raw.city || '').trim();
   const canton = mapCanton(raw.canton, city) || DEFAULT_CANTON;
-  const slug = slugify(`${title}-${company}-${city}`);
+  const slug = slugify(`${title}-${company}-${safeLocationToken(city)}`);
   const detailUrl = raw.url
     ? (raw.url.startsWith('http') ? raw.url : `${BASE_URL}${raw.url}`)
     : `${BASE_URL}/en/jobs-and-careers/vacancies`;

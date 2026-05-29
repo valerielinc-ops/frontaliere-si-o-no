@@ -14,6 +14,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchDavosKlostersBergbahnenJobUrls, fetchDavosKlostersBergbahnenDetailPage, slugify, inferEmploymentType } from './lib/davos-klosters-bergbahnen-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -62,7 +63,7 @@ async function main() {
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-davos-klosters-bergbahnen-${raw.location}`);
+    const jobSlug = slugify(`${raw.title}-davos-klosters-bergbahnen-${safeLocationToken(raw.location)}`);
     parsedJobs.push({
       id: `davos-klosters-bergbahnen-${urlHash}`, slug: jobSlug,
       slugByLocale: { de: jobSlug },
