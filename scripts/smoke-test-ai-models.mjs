@@ -11,6 +11,16 @@
  */
 import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels } from './lib/ai-models.mjs';
 
+// stdout of this script is a machine-read JSON contract (the workflow pipes it
+// into .tmp/smoke.json and `require()`s it). ai-models.mjs emits diagnostic
+// chatter via console.log (Firestore score-store load, daily-quota notices,
+// etc.); a single such line on stdout corrupts the JSON. Route ALL console.log
+// to stderr so library noise can never leak into the payload — the final JSON
+// is written with process.stdout.write below, bypassing console entirely.
+// (ai-models.mjs does not log during module evaluation, so patching here —
+// after the import, before any call into it — catches every runtime log.)
+console.log = (...args) => console.error(...args);
+
 // Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
 // Groq, Cerebras, Mistral) are included in the smoke test — otherwise we'd only
 // validate the static chain and never catch a bad auto-discovered id.
@@ -61,4 +71,7 @@ if (dead.length) {
   for (const d of dead) console.error(`  ${d.model}  →  ${d.detail}`);
 }
 
-console.log(JSON.stringify({ summary, results }, null, 2));
+// Emit the JSON payload straight to the real stdout (console.log is patched to
+// stderr above, so this is the ONLY thing the workflow's `> .tmp/smoke.json`
+// redirect captures).
+process.stdout.write(JSON.stringify({ summary, results }, null, 2) + '\n');
