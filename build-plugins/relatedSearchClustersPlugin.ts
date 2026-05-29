@@ -254,7 +254,14 @@ const CACHE_KEY_INPUTS = [
 // (sitemap-search-clusters-001.xml, …) so we stay under the sitemaps.org
 // 50k hard cap. Old single-file caches would restore one 81k file and
 // reintroduce the violation — bump invalidates them.
-const CACHE_VERSION = 'v5';
+//
+// v6 (2026-05-29, issue #911) adds `crossSectionMirrorLocs` to the manifest:
+// the legacy per-canton mirror URLs (canonical → Svizzera) that THIS plugin
+// overwrites in dist/, so the cache-hit path can drop them from
+// sitemap-jobs.xml (written by jobsSeoPagesPlugin, which lists them as
+// self-canonical TI before our overwrite). Old caches lack the field → bump
+// invalidates them so the next build re-emits and repopulates it.
+const CACHE_VERSION = 'v6';
 
 /**
  * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 45,000 to
@@ -300,6 +307,10 @@ interface CacheManifest {
   files: string[];                         // dist-relative paths
   hubs: { locale: Locale; url: string }[]; // hub URLs for re-injection
   sitemapLocs: string[];                   // for master sitemap patch
+  // Legacy per-canton mirror loc URLs (canonical → Svizzera) overwritten by
+  // this plugin in dist/. Persisted so the cache-hit path can drop them from
+  // sitemap-jobs.xml (issue #911). Optional for back-compat with pre-v6 caches.
+  crossSectionMirrorLocs?: string[];
   emittedCount: number;
 }
 
@@ -410,6 +421,7 @@ function saveToCache(
   emittedFiles: ReadonlyArray<string>,
   hubs: ReadonlyArray<{ locale: Locale; url: string }>,
   sitemapLocs: ReadonlyArray<string>,
+  crossSectionMirrorLocs: ReadonlyArray<string>,
 ): number {
   const cacheDir = cacheDirFor(rootDir, cacheKey);
   // Wipe stale entries for the same key (defensive — should never collide).
@@ -435,6 +447,7 @@ function saveToCache(
     files: Array.from(seen),
     hubs: hubs.slice(),
     sitemapLocs: sitemapLocs.slice(),
+    crossSectionMirrorLocs: crossSectionMirrorLocs.slice(),
     emittedCount: copied,
   };
   fs.writeFileSync(
@@ -1934,6 +1947,72 @@ async function dropOverwrittenLocs(
   return out;
 }
 
+/**
+ * Drop the given cross-section mirror loc URLs from sitemap-jobs.xml (issue #911).
+ *
+ * sitemap-jobs.xml is owned by jobsSeoPagesPlugin (a `default`-phase plugin) and
+ * lists keyword/search landings as SELF-canonical TI URLs. This `post`-phase
+ * plugin then overwrites the HTML at those legacy per-canton paths with mirrors
+ * whose `<link rel="canonical">` points to the Svizzera aggregate — so the TI
+ * URL stops being self-canonical and `audit:sitemap-canonicals` (0-tolerance)
+ * fails, blocking publish. jobsSeoPagesPlugin's sitemap can't know about our
+ * overwrite, so we patch it here: remove exactly the `<url>` blocks whose `<loc>`
+ * is one we mirrored. Targeted (membership test, no HTML re-scan) — only the
+ * cluster mirror URLs are touched; the ~200k self-canonical job-detail entries
+ * are left byte-identical.
+ *
+ * Safe ordering: sitemap-jobs.xml is written in the `default` phase, fully
+ * flushed before any `post`-phase plugin runs (and we additionally await
+ * `jobsSeoPagesFlushed` at both call sites). sitemapAliasPlugin only regenerates
+ * the master `sitemap.xml` INDEX from a directory scan; it never rewrites this
+ * file's URL body, so our patch survives.
+ */
+/**
+ * Pure core of the sitemap-jobs.xml patch: remove every `<url>...</url>` block
+ * whose `<loc>` matches one of `mirrorLocs` (compared via canonical-normalized
+ * form, so trailing-slash/host-case differences don't matter). Exported for
+ * unit testing — no filesystem access here.
+ */
+export function dropUrlBlocksByLoc(
+  xml: string,
+  mirrorLocs: ReadonlyArray<string>,
+): { xml: string; dropped: number } {
+  if (mirrorLocs.length === 0) return { xml, dropped: 0 };
+  const dropSet = new Set(mirrorLocs.map(normalizeLocForCanonicalCmp));
+  const LOC_RE = /<loc>([^<]+)<\/loc>/;
+  let dropped = 0;
+  const patched = xml.replace(/[ \t]*<url>[\s\S]*?<\/url>\n?/g, (block) => {
+    const m = block.match(LOC_RE);
+    if (m && dropSet.has(normalizeLocForCanonicalCmp(m[1]))) {
+      dropped++;
+      return '';
+    }
+    return block;
+  });
+  return { xml: patched, dropped };
+}
+
+async function dropMirrorLocsFromSitemapJobs(
+  distDir: string,
+  mirrorLocs: ReadonlyArray<string>,
+): Promise<void> {
+  if (mirrorLocs.length === 0) return;
+  const sitemapPath = path.join(distDir, 'sitemap-jobs.xml');
+  let xml: string;
+  try {
+    xml = await fs.promises.readFile(sitemapPath, 'utf-8');
+  } catch {
+    return; // sitemap-jobs.xml not emitted this build — nothing to patch.
+  }
+  const { xml: patched, dropped } = dropUrlBlocksByLoc(xml, mirrorLocs);
+  if (dropped > 0) {
+    await fs.promises.writeFile(sitemapPath, patched, 'utf-8');
+    console.log(
+      `\x1b[33m[related-search-clusters]\x1b[0m dropped ${dropped} cross-section mirror URL(s) from sitemap-jobs.xml (canonical → Svizzera, issue #911)`,
+    );
+  }
+}
+
 async function writeSitemap(
   distDir: string,
   allLocs: ReadonlyArray<string>,
@@ -2104,6 +2183,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
               ).sort()
             : [];
           patchMasterSitemap(distDir, dateStamp, restoredShards);
+          // issue #911: also drop our cross-section mirror URLs from
+          // sitemap-jobs.xml on the cache-hit path. Await the jobs flush first
+          // (the emit path gets this barrier inside writeSitemap; here we must
+          // do it explicitly since we skip writeSitemap entirely).
+          await jobsSeoPagesFlushed;
+          await dropMirrorLocsFromSitemapJobs(distDir, restored.crossSectionMirrorLocs ?? []);
           profileRecord('cache-hit-patches', __tCacheHitPatch);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
@@ -2265,6 +2350,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const collector = new WriteCollector({ distDir, pluginName: 'relatedSearchClustersPlugin' });
       const sitemapLocs: string[] = [];
       const emittedFiles: string[] = []; // dist-relative paths for cache save
+      // Legacy per-canton mirror loc URLs (canonical → Svizzera) we overwrite in
+      // dist/. Collected during the emit loop, persisted to the cache manifest,
+      // and dropped from sitemap-jobs.xml after jobs flush (issue #911).
+      const crossSectionMirrorLocs: string[] = [];
       const cachedHubs: { locale: Locale; url: string }[] = [];
 
       // ── Per-cluster pages ─────────────────────────────────────────────
@@ -2445,6 +2534,10 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           collector.add(mirrorIndexPath, __clHtml);
           clusterBytesSaved += __clDelta;
           emittedFiles.push(path.relative(distDir, mirrorIndexPath));
+          // The mirror's HTML canonicalizes to Svizzera (out.loc), so this TI
+          // URL must NOT remain a self-canonical sitemap entry. Record it for
+          // the sitemap-jobs.xml patch (issue #911).
+          crossSectionMirrorLocs.push(`${BASE_URL}${mirrorPath.replace(/\/+$/, '')}/`);
         }
         profileRecord('render-cluster-page', __tRenderCluster);
       }
@@ -2501,6 +2594,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       profileRecord('sitemap-write', __tSitemap);
       for (const shard of sitemapShards) emittedFiles.push(shard);
 
+      // issue #911: drop our cross-section mirror URLs from sitemap-jobs.xml.
+      // writeSitemap already awaited jobsSeoPagesFlushed, so the file is final.
+      const __tDropJobsMirrors = profileStart();
+      await dropMirrorLocsFromSitemapJobs(distDir, crossSectionMirrorLocs);
+      profileRecord('drop-jobs-mirrors', __tDropJobsMirrors);
+
       // Capture stats before releasing the maps that hold them.
       const ctxCount = contexts.length;
       const hubCount = byLocale.size;
@@ -2521,7 +2620,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       if (cacheEnabled) {
         try {
           const __tCacheSave = profileStart();
-          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs);
+          const cached = saveToCache(rootDir, distDir, cacheKey, emittedFiles, cachedHubs, sitemapLocs, crossSectionMirrorLocs);
           profileRecord('cache-save', __tCacheSave);
           console.log(`\x1b[36m[related-search-clusters]\x1b[0m saved ${cached} files to cache (${cacheKey})`);
         } catch (err) {
