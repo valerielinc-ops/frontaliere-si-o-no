@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-05-28T23:16:50.806Z",
+  "assembledAt": "2026-05-29T12:37:50.168Z",
   "jobs": [
     {
       "id": "heineken-ch-3d1c80a02409",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149552&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:48.582Z",
+      "crawledAt": "2026-05-29T12:37:47.948Z",
       "previousSlugs": [
         "elektroinstallateur-automatiker-chur-m-w-heineken-ch-chur",
         "logistician-heineken-switzerland-chur",
@@ -68,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:13:05.928Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -128,7 +129,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:40.615Z",
+      "crawledAt": "2026-05-29T12:37:39.859Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
       ],
@@ -204,7 +205,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:32.731Z",
+      "crawledAt": "2026-05-29T12:37:30.586Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistiker-in-getrankelager-100-heineken-switzerland-luzern"
@@ -243,7 +244,7 @@
       "slugByLocale": {
         "it": "logistician-heineken-switzerland-denges",
         "en": "logisticsian-heineken-switzerland-denges",
-        "de": "logistik-heineken-switzerland-denges",
+        "de": "logistician-heineken-ch-denges",
         "fr": "logistician-heineken-ch-denges"
       },
       "company": "Heineken Switzerland",
@@ -253,15 +254,15 @@
       "titleByLocale": {
         "it": "Logistician",
         "en": "Logisticsian",
-        "de": "Logistik",
+        "de": "Logistician",
         "fr": "Logistique"
       },
       "description": "Dans cette activité dynamique et variée, tu es responsable des tâches suivantes : Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais Contrôle et remise en stock des retours de marchandises pleines Réception des marchandises et contrôle des entrées de marchandises Participation active aux inventaires Exécution de travaux généraux d’entrepôt En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel Travaux de nettoyage et d’élimination des déchets Garantie de l’ordre et de la propreté dans le dépôt (5S) Afin de mener à bien ces tâches exigeantes, tu réponds aux critères suivants : Formation professionnelle achevée avec succès en tant que logisticien(ne) Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille Permis de conduire catégories C/E souhaité, mais non obligatoire Permis de cariste requis Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage Des connaissances de l’allemand sont un avantage, mais non obligatoires Bonne condition physique et résistance au stress",
       "descriptionByLocale": {
-        "it": "Mansioni\n- Preparazione degli ordini in modo che i nostri piloti possano consegnare i clienti correttamente e in tempo\n- Controllo e stoccaggio dei ritorni di merce completa\n- Ricevimento delle merci e controllo delle voci delle merci\n- Partecipazione attiva agli inventari\n- Lavori generali di magazzino\n- In caso di necessità, il supporto del conducente durante le consegne a clienti o assistenza in altri depositi in caso di carenza di personale\n- Pulizia e smaltimento dei rifiuti\n- Garanzia di ordine e pulizia nel deposito (5S)\n\nObbligo\n- Formazione professionale completata con successo come logistica\n- Diversi anni di esperienza professionale nella gestione del magazzino, idealmente in una società più grande\n- Le categorie di patente C/E desiderate, ma non obbligatorie\n- Permesso di trasporto richiesto\n- Metodo di lavoro attento, autonomo e responsabile, con resistenza e perseveranza\n- Alta flessibilità e disponibilità per gestire i numerosi compiti della vita quotidiana\n- Esperienza con applicazioni MS Office desiderate, SAP R/3 un vantaggio\n- La conoscenza tedesca è un vantaggio, ma non obbligatorio\n- Buona condizione fisica e resistenza allo stress",
-        "en": "Mansioni\n- Preparation of orders so that our drivers can deliver customers correctly and on time\n- Control and stocking of full merchandise returns\n- Receipt of goods and control of goods entries\n- Active participation in inventories\n- General works of warehouse\n- In case of need, driver support during deliveries to customers or assistance in other depots in case of staff shortage\n- Waste cleaning and disposal\n- Guarantee of order and cleanliness in the deposit (5S)\n\nRequired\n- Vocational training completed successfully as a logisticsian\n- Several years of professional experience in warehouse management, ideally in a larger company\n- Driver's licence categories C/E desired, but not mandatory\n- Carist permit required\n- Careful, autonomous and responsible method of work, with endurance and perseverance\n- High flexibility and availability to manage the many tasks of everyday life\n- Experience with desired MS Office applications, SAP R/3 an advantage\n- German knowledge is an advantage, but not compulsory\n- Good physical condition and stress resistance",
-        "de": "Mansion\n- Vorbereitung von Aufträgen, damit unsere Fahrer Kunden korrekt und rechtzeitig liefern können\n- Kontrolle und Lagerhaltung der vollständigen Warenrücksendungen\n- Wareneingang und Warenkontrolle\n- Aktive Beteiligung an Vorräten\n- Allgemeine Lagerarbeiten\n- Bei Bedarf Unterstützung der Fahrer während der Lieferungen an Kunden oder Unterstützung in anderen Depots bei Personalmangel\n- Reinigung und Entsorgung\n- Gewährleistung der Ordnung und Sauberkeit in der Kaution (5S)\n\nErforderlich\n- Berufsbildung erfolgreich als Logistiker abgeschlossen\n- Mehrere Jahre Berufserfahrung im Lagermanagement, ideal in einem größeren Unternehmen\n- Führerscheinkategorien C/E gewünscht, aber nicht zwingend\n- Carist Genehmigung erforderlich\n- Pflegevolle, autonome und verantwortungsvolle Arbeitsweise, mit Ausdauer und Ausdauer\n- Hohe Flexibilität und Verfügbarkeit, um die vielen Aufgaben des Alltags zu bewältigen\n- Erfahrung mit gewünschten MS Office-Anwendungen, SAP R/3 ein Vorteil\n- Deutsches Wissen ist ein Vorteil, aber nicht zwingend\n- Guter körperlicher Zustand und Stressbeständigkeit",
-        "fr": "## Mansioni\n- Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais\n- Contrôle et remise en stock des retours de marchandises pleines\n- Réception des marchandises et contrôle des entrées de marchandises\n- Participation active aux inventaires\n- Exécution de travaux généraux d’entrepôt\n- En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel\n- Travaux de nettoyage et d’élimination des déchets\n- Garantie de l’ordre et de la propreté dans le dépôt (5S)\n\n## Requisiti\n- Formation professionnelle achevée avec succès en tant que logisticien(ne)\n- Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille\n- Permis de conduire catégories C/E souhaité, mais non obligatoire\n- Permis de cariste requis\n- Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance\n- Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien\n- Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage\n- Des connaissances de l’allemand sont un avantage, mais non obligatoires\n- Bonne condition physique et résistance au stress"
+        "it": "Mansioni - Preparazione degli ordini in modo che i nostri piloti possano consegnare i clienti correttamente e in tempo - Controllo e stoccaggio dei ritorni di merce completa - Ricevimento delle merci e controllo delle voci delle merci - Partecipazione attiva agli inventari - Lavori generali di magazzino - In caso di necessità, il supporto del conducente durante le consegne a clienti o assistenza in altri depositi in caso di carenza di personale - Pulizia e smaltimento dei rifiuti - Garanzia di ordine e pulizia nel deposito (5S) Obbligo - Formazione professionale completata con successo come logistica - Diversi anni di esperienza professionale nella gestione del magazzino, idealmente in una società più grande - Le categorie di patente C/E desiderate, ma non obbligatorie - Permesso di trasporto richiesto - Metodo di lavoro attento, autonomo e responsabile, con resistenza e perseveranza - Alta flessibilità e disponibilità per gestire i numerosi compiti della vita quotidiana - Esperienza con applicazioni MS Office desiderate, SAP R/3 un vantaggio - La conoscenza tedesca è un vantaggio, ma non obbligatorio - Buona condizione fisica e resistenza allo stress",
+        "en": "Mansioni - Preparation of orders so that our drivers can deliver customers correctly and on time - Control and stocking of full merchandise returns - Receipt of goods and control of goods entries - Active participation in inventories - General works of warehouse - In case of need, driver support during deliveries to customers or assistance in other depots in case of staff shortage - Waste cleaning and disposal - Guarantee of order and cleanliness in the deposit (5S) Required - Vocational training completed successfully as a logisticsian - Several years of professional experience in warehouse management, ideally in a larger company - Driver's licence categories C/E desired, but not mandatory - Carist permit required - Careful, autonomous and responsible method of work, with endurance and perseverance - High flexibility and availability to manage the many tasks of everyday life - Experience with desired MS Office applications, SAP R/3 an advantage - German knowledge is an advantage, but not compulsory - Good physical condition and stress resistance",
+        "de": "Dans cette activité dynamique et variée, tu es responsable des tâches suivantes : Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais Contrôle et remise en stock des retours de marchandises pleines Réception des marchandises et contrôle des entrées de marchandises Participation active aux inventaires Exécution de travaux généraux d’entrepôt En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel Travaux de nettoyage et d’élimination des déchets Garantie de l’ordre et de la propreté dans le dépôt (5S) Afin de mener à bien ces tâches exigeantes, tu réponds aux critères suivants : Formation professionnelle achevée avec succès en tant que logisticien(ne) Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille Permis de conduire catégories C/E souhaité, mais non obligatoire Permis de cariste requis Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage Des connaissances de l’allemand sont un avantage, mais non obligatoires Bonne condition physique et résistance au stress",
+        "fr": "## Mansioni - Préparation des commandes afin que nos chauffeurs puissent livrer les clients correctement et dans les délais - Contrôle et remise en stock des retours de marchandises pleines - Réception des marchandises et contrôle des entrées de marchandises - Participation active aux inventaires - Exécution de travaux généraux d’entrepôt - En cas de besoin, soutien des chauffeurs lors des livraisons aux clients ou aide dans d’autres dépôts en cas de pénurie de personnel - Travaux de nettoyage et d’élimination des déchets - Garantie de l’ordre et de la propreté dans le dépôt (5S) ## \n• Requisiti - Formation professionnelle achevée avec succès en tant que logisticien(ne) - Plusieurs années d’expérience professionnelle dans la gestion d’entrepôt, idéalement au sein d’une entreprise de plus grande taille - Permis de conduire catégories C/E souhaité, mais non obligatoire - Permis de cariste requis - Méthode de travail soigneuse, autonome et responsable, avec endurance et persévérance - Grande flexibilité et disponibilité pour gérer les nombreuses tâches du quotidien - Expérience avec les applications MS Office souhaitée, SAP R/3 un avantage - Des connaissances de l’allemand sont un avantage, mais non obligatoires - Bonne condition physique et résistance au stress"
       },
       "location": "Denges",
       "canton": "VD",
@@ -282,9 +283,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-28T23:16:24.474Z",
+      "crawledAt": "2026-05-29T12:37:23.022Z",
       "previousSlugsByLocale": {
         "de": [
+          "logistik-heineken-switzerland-denges",
           "logistician-heineken-ch-denges"
         ],
         "it": [
@@ -295,9 +297,11 @@
         ]
       },
       "previousSlugs": [
-        "logistician-heineken-ch-denges"
+        "logistician-heineken-ch-denges",
+        "logistik-heineken-switzerland-denges"
       ],
       "firstSeenAt": "2026-05-13T11:12:42.166Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -358,7 +362,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:16.421Z",
+      "crawledAt": "2026-05-29T12:37:14.467Z",
       "previousSlugs": [
         "truck-driver-heineken-ch-baltschieder"
       ],
@@ -434,7 +438,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:08.170Z",
+      "crawledAt": "2026-05-29T12:37:07.094Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern"
       ],
@@ -510,7 +514,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156200&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:16:00.308Z",
+      "crawledAt": "2026-05-29T12:36:59.837Z",
       "previousSlugs": [
         "lernende-r-logistik-in-domat-ems-heineken-ch-domat-ems",
         "lernende-r-logistik-in-domat-ems-heineken-ch-chur",
@@ -575,10 +579,10 @@
       },
       "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine \n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse \n• Das bieten wir dir",
       "descriptionByLocale": {
-        "it": "Descrizione Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità dedicata e potente come leader del team: nel Customer Service Center Sales del sito Lucerne per rafforzare il nostro centro assistenza clienti. In questo ruolo versatile, guiderai un team nel servizio clienti che lavora in due sedi (Luzern & Winterthur) e ti assicurerai che i nostri clienti ricevano assistenza professionale e orientata alla soluzione in qualsiasi momento. Allo stesso tempo, stai attivamente guidando l'ulteriore sviluppo dei nostri canali di clienti digitali (piattaforma eB2B / Eazle) e ottimizzando continuamente i processi utilizzando metodi moderni. Il tuo Mansioni - Leader professionale e personale del Customer Service Center Sales Team in due sedi - Garantire un'elevata accessibilità e qualità dei servizi per i nostri clienti: - Pianificazione, controllo e ottimizzazione continua dei processi quotidiani nel servizio clienti (via piattaforma eB2B/eazle, e-mail e telefono) - Supporto e ulteriore sviluppo del team nel business quotidiano operativo utilizzando i metodi TPM e Lean-Six-Sigma - Coordinamento con interfacce interne come vendite, IT e servizi condivisi - Garantire un supporto fluido per le nostre piattaforme e sistemi digitali (ad esempio CRM, SAP, Webshop) - Responsabilità per la pianificazione delle capacità, le previsioni e la segnalazione nel servizio clienti - cooperazione o gestione di progetti per la digitalizzazione e lo sviluppo del nostro servizio clienti \n• Requisiti - Esperienza pluriennale nel servizio clienti, supporto vendite o centro di contatto – idealmente con esperienza di leadership - Formazione completa e formazione ulteriore nel campo della gestione, della gestione aziendale o della gestione dei progetti - Forte comunicazione e capacità organizzative e gioia nel lavorare con le persone - Interessi nell'ottimizzazione dei processi, digitalizzazione e decisioni basate sui dati - Esperienza con sistemi CRM, ERP o Contact Center - Ottima conoscenza del tedesco e buona conoscenza del francese e dell'inglese Cosa",
-        "en": "Descrizione For our subsidiary Stardrinks AG, we are looking for a dedicated and powerful personality as a team leader:in Customer Service Center Sales at the Lucerne site to strengthen our customer service center. In this versatile role, you will lead a team in customer service that works at two locations (Luzern & Winterthur) and make sure that our customers receive professional and solution-oriented support at any time. At the same time, you are actively driving the further development of our digital customer channels (eB2B platform / Eazle) and continuously optimizing processes using modern methods. Your Mansioni - Professional and personal leadership of the Customer Service Center Sales Team across two locations - Ensuring high accessibility and service quality for our customers: - Planning, control and continuous optimization of the daily processes in the customer service (via eB2B platform/eazle, e-mail and telephone) - Support and further development of the team in operational daily business using TPM and Lean-Six-Sigma methods - Coordination with internal interfaces such as sales, IT and shared services - Ensure smooth support for our digital platforms and systems (e.g. CRM, SAP, Webshop) - Responsibility for capacity planning, forecasts and reporting in customer service - cooperation or management of projects for the digitization and further development of our customer service \n• Requisiti - Multiannual experience in customer service, sales support or contact center – ideally with leadership experience - Complete training and further training in the field of management, business management or project management - Strong communication and organizational skills and joy in working with people - Interest in process optimization, digitization and data-based decisions - Experience with CRM, ERP or Contact Center systems - Very good knowledge of German and good knowledge of French and English \n• Cosa offriamo",
+        "it": "Descrizione Per la nostra affiliata Stardrinks AG, stiamo cercando una personalità dedicata e potente come leader del team: nel Customer Service Center Sales del sito Lucerne per rafforzare il nostro centro assistenza clienti. In questo ruolo versatile, guiderai un team nel servizio clienti che lavora in due sedi (Luzern & Winterthur) e ti assicurerai che i nostri clienti ricevano assistenza professionale e orientata alla soluzione in qualsiasi momento. Allo stesso tempo, stai attivamente guidando l'ulteriore sviluppo dei nostri canali di clienti digitali (piattaforma eB2B / Eazle) e ottimizzando continuamente i processi utilizzando metodi moderni. Il tuo Mansioni - Leader professionale e personale del Customer Service Center Sales Team in due sedi - Garantire un'elevata accessibilità e qualità dei servizi per i nostri clienti: - Pianificazione, controllo e ottimizzazione continua dei processi quotidiani nel servizio clienti (via piattaforma eB2B/eazle, e-mail e telefono) - Supporto e ulteriore sviluppo del team nel business quotidiano operativo utilizzando i metodi TPM e Lean-Six-Sigma - Coordinamento con interfacce interne come vendite, IT e servizi condivisi - Garantire un supporto fluido per le nostre piattaforme e sistemi digitali (ad esempio CRM, SAP, Webshop) - Responsabilità per la pianificazione delle capacità, le previsioni e la segnalazione nel servizio clienti - cooperazione o gestione di progetti per la digitalizzazione e lo sviluppo del nostro servizio clienti\n• Requisiti - Esperienza pluriennale nel servizio clienti, supporto vendite o centro di contatto – idealmente con esperienza di leadership - Formazione completa e formazione ulteriore nel campo della gestione, della gestione aziendale o della gestione dei progetti - Forte comunicazione e capacità organizzative e gioia nel lavorare con le persone - Interessi nell'ottimizzazione dei processi, digitalizzazione e decisioni basate sui dati - Esperienza con sistemi CRM, ERP o Contact Center - Ottima conoscenza del tedesco e buona conoscenza del francese e dell'inglese Cosa",
+        "en": "Descrizione For our subsidiary Stardrinks AG, we are looking for a dedicated and powerful personality as a team leader:in Customer Service Center Sales at the Lucerne site to strengthen our customer service center. In this versatile role, you will lead a team in customer service that works at two locations (Luzern & Winterthur) and make sure that our customers receive professional and solution-oriented support at any time. At the same time, you are actively driving the further development of our digital customer channels (eB2B platform / Eazle) and continuously optimizing processes using modern methods. Your Mansioni - Professional and personal leadership of the Customer Service Center Sales Team across two locations - Ensuring high accessibility and service quality for our customers: - Planning, control and continuous optimization of the daily processes in the customer service (via eB2B platform/eazle, e-mail and telephone) - Support and further development of the team in operational daily business using TPM and Lean-Six-Sigma methods - Coordination with internal interfaces such as sales, IT and shared services - Ensure smooth support for our digital platforms and systems (e.g. CRM, SAP, Webshop) - Responsibility for capacity planning, forecasts and reporting in customer service - cooperation or management of projects for the digitization and further development of our customer service\n• Requisiti - Multiannual experience in customer service, sales support or contact center – ideally with leadership experience - Complete training and further training in the field of management, business management or project management - Strong communication and organizational skills and joy in working with people - Interest in process optimization, digitization and data-based decisions - Experience with CRM, ERP or Contact Center systems - Very good knowledge of German and good knowledge of French and English\n• Cosa offriamo",
         "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir am Standort Luzern zur Verstärkung unseres Kundenservice-Centers eine engagierte und führungsstarke Persönlichkeit als Teamleiter:in Kundenservice-Center Sales. In dieser vielseitigen Rolle führst du ein Team im Kundenservice, das an zwei Standorten (Luzern & Winterthur) tätig ist, und stellst sicher, dass unsere Kund:innen jederzeit einen professionellen und lösungsorientierten Support erhalten. Gleichzeitig treibst du die Weiterentwicklung unserer digitalen Kundenkanäle (z.B. eB2B-Plattform / Eazle) aktiv voran und optimierst Prozesse kontinuierlich mit modernen Methoden. Deine \n• Aufgaben Fachliche und personelle Führung des Kundenservice-Center Sales Teams über zwei Standorte hinweg Sicherstellung einer hohen Erreichbarkeit und Servicequalität für unsere Kund:innen Planung, Steuerung und kontinuierliche Optimierung der täglichen Abläufe im Customer Service (über eB2B-Plattform/Eazle, E-Mail und Telefon) Unterstützung und Weiterentwicklung des Teams im operativen Tagesgeschäft unter Anwendung von TPM- und Lean-Six-Sigma-Methoden Koordination mit internen Schnittstellen wie Sales, IT und Shared Services Sicherstellen eines reibungslosen Supports für unsere digitalen Plattformen und Systeme (z.B. CRM, SAP, Webshop) Verantwortung für Kapazitätsplanung, Forecasts und Reporting im Kundenservice Mitarbeit oder Leitung von Projekten zur Digitalisierung und Weiterentwicklung unseres Kundenservices Das bringst du mit Mehrjährige Erfahrung im Kundenservice, Sales Support oder Contact Center – idealerweise mit Führungserfahrung Abgeschlossene Ausbildung sowie eine Weiterbildung im Bereich Führung, Betriebswirtschaft oder Projektmanagement von Vorteil Starke Kommunikations- und Organisationsfähigkeiten sowie Freude an der Arbeit mit Menschen Interesse an Prozessoptimierung, Digitalisierung und datenbasierten Entscheidungen Erfahrung mit CRM-, ERP- oder Contact-Center-Systemen von Vorteil Sehr gute Deutschkenntnisse sowie gute Französisch- und Englischkenntnisse \n• Das bieten wir dir",
-        "fr": "Descrizione Pour notre filiale Stardrinks AG, nous recherchons une personnalité dévouée et puissante en tant que chef d'équipe : dans Customer Service Center Sales sur le site de Lucerne pour renforcer notre service clientèle. Dans ce rôle polyvalent, vous dirigerez une équipe de service à la clientèle qui travaille à deux endroits (Luzern et Winterthur) et vous assurerez que nos clients reçoivent un soutien professionnel et axé sur la solution à tout moment. En même temps, vous dirigez activement le développement de nos canaux clients numériques (plateforme eB2B / Eazle) et optimisez en permanence nos processus en utilisant des méthodes modernes. Votre Mansioni - Dirigeant professionnel et personnel de l'équipe de vente du Centre de service à la clientèle sur deux sites - Assurer une grande accessibilité et qualité de service à nos clients : - Planification, contrôle et optimisation continue des processus quotidiens dans le service client (via eB2B plate-forme/eazle, e-mail et téléphone) - Soutien et développement de l'équipe dans les activités opérationnelles quotidiennes utilisant les méthodes TPM et Lean-Six-Sigma - Coordination avec les interfaces internes telles que les ventes, les TI et les services partagés - Assurer un support en douceur pour nos plateformes et systèmes numériques (par exemple CRM, SAP, Webshop) - Responsabilité en matière de planification des capacités, de prévisions et de rapports en matière de service à la clientèle - coopération ou gestion de projets pour la numérisation et le développement de notre service à la clientèle \n• Requisiti - Expérience pluriannuelle en service à la clientèle, support commercial ou centre de contact – idéalement avec une expérience de leadership - Formation complète et perfectionnement dans le domaine de la gestion, de la gestion d'entreprise ou de la gestion de projets - Forte capacité de communication et d'organisation et joie de travailler avec les gens - Intérêt pour l'optimisation des processus, la numérisation et les décisions fondées sur les données - Expérience avec les systèmes CRM, ERP ou Contact Center - Très bonne connaissance de l'allemand et bonne connaissance du français et de l'anglais \n• Cosa offriamo"
+        "fr": "Descrizione Pour notre filiale Stardrinks AG, nous recherchons une personnalité dévouée et puissante en tant que chef d'équipe : dans Customer Service Center Sales sur le site de Lucerne pour renforcer notre service clientèle. Dans ce rôle polyvalent, vous dirigerez une équipe de service à la clientèle qui travaille à deux endroits (Luzern et Winterthur) et vous assurerez que nos clients reçoivent un soutien professionnel et axé sur la solution à tout moment. En même temps, vous dirigez activement le développement de nos canaux clients numériques (plateforme eB2B / Eazle) et optimisez en permanence nos processus en utilisant des méthodes modernes. Votre Mansioni - Dirigeant professionnel et personnel de l'équipe de vente du Centre de service à la clientèle sur deux sites - Assurer une grande accessibilité et qualité de service à nos clients : - Planification, contrôle et optimisation continue des processus quotidiens dans le service client (via eB2B plate-forme/eazle, e-mail et téléphone) - Soutien et développement de l'équipe dans les activités opérationnelles quotidiennes utilisant les méthodes TPM et Lean-Six-Sigma - Coordination avec les interfaces internes telles que les ventes, les TI et les services partagés - Assurer un support en douceur pour nos plateformes et systèmes numériques (par exemple CRM, SAP, Webshop) - Responsabilité en matière de planification des capacités, de prévisions et de rapports en matière de service à la clientèle - coopération ou gestion de projets pour la numérisation et le développement de notre service à la clientèle\n• Requisiti - Expérience pluriannuelle en service à la clientèle, support commercial ou centre de contact – idéalement avec une expérience de leadership - Formation complète et perfectionnement dans le domaine de la gestion, de la gestion d'entreprise ou de la gestion de projets - Forte capacité de communication et d'organisation et joie de travailler avec les gens - Intérêt pour l'optimisation des processus, la numérisation et les décisions fondées sur les données - Expérience avec les systèmes CRM, ERP ou Contact Center - Très bonne connaissance de l'allemand et bonne connaissance du français et de l'anglais\n• Cosa offriamo"
       },
       "location": "Luzern",
       "canton": "LU",
@@ -599,7 +603,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:15:52.243Z",
+      "crawledAt": "2026-05-29T12:36:52.044Z",
       "previousSlugs": [
         "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
       ],
@@ -675,7 +679,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:15:44.348Z",
+      "crawledAt": "2026-05-29T12:36:43.075Z",
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern"
       ],
@@ -688,6 +692,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -748,7 +753,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158878&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T23:15:37.034Z",
+      "crawledAt": "2026-05-29T12:36:35.540Z",
+      "previousSlugs": [
+        "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-28T12:46:42.046Z",
       "salaryMin": 49500,
@@ -763,16 +776,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
-        ]
-      },
-      "previousSlugs": [
-        "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
-      ]
+      }
     }
   ]
 }
