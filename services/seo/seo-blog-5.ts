@@ -41180,6 +41180,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-detrazioni-figli-frontalieri-ticino': {
+    title: 'Detrazioni fiscali sui figli solo per residenti in Svizzera',
+    description: 'L\'UDC Ticino propone di limitare le detrazioni fiscali per figli ai residenti in Svizzera. Scopri l\'impatto sui frontalieri e le possibili conseguenze.',
+    keywords: 'frontalieri, ticino, svizzera, italia, detrazioni, fiscali, figli, solo',
+    ogTitle: 'Detrazioni fiscali figli: novità per i frontalieri',
+    ogDescription: 'L\'UDC Ticino propone di limitare le detrazioni fiscali per figli ai residenti in Svizzera. Scopri l\'impatto sui frontalieri e le possibili conseguenze.',
+    canonicalPath: '/articoli-frontaliere/detrazioni-figli-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detrazioni fiscali sui figli solo per residenti in Svizzera",
+      "description": "L'UDC Ticino propone di limitare le detrazioni fiscali per figli ai residenti in Svizzera. Scopri l'impatto sui frontalieri e le possibili conseguenze.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/detrazioni-figli-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia con bambini davanti al Monte Brè, Ticino"
+      },
+      "datePublished": "2026-05-29T11:44:47+00:00",
+      "dateModified": "2026-05-29T11:44:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/detrazioni-figli-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

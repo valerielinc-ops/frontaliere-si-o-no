@@ -7869,6 +7869,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.title': 'Projekt Sintab: Sanierung des Rio-dei-Gioghi-Weges',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.excerpt': 'Die Arbeiten zur Sicherung des CAI-Weges Rio dei Gioghi in Ligurno, Cantello, im Rahmen des Projekts Sintab haben begonnen.',
     'blog.article.progetto-sintab-sentiero-rio-dei-gioghi.imageAlt': 'Wanderweg Rio dei Gioghi mit hölzernen Informationstafeln',
+    'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Steuerabzüge für Kinder nur für Schweizer Wohnhafte',
+    'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'Die Tessiner SVP schlägt vor, Kinderabzüge auf Schweizer Wohnhafte zu beschränken und Grenzgänger auszuschließen. Mögliche Einnahmen: 20 Millionen Franken pro Jahr.',
+    'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Familie mit Kindern vor dem Monte Brè, Tessin',
 };
 
 export default blogMetaDe;

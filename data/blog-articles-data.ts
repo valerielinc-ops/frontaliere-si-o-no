@@ -24986,4 +24986,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'detrazioni-figli-frontalieri-ticino',
+ category: 'fiscale',
+ date: '2026-05-29T11:44:47.156Z',
+ image: '/images/blog/detrazioni-figli-frontalieri-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
