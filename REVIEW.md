@@ -61,19 +61,26 @@ PR body DEVE avere:
 1. **Implementato item** → critical thinking: diff lo implementa? edge case? logica boundary/null/async/ordering? modo più semplice? buco visibile? Code-smell con maintenance debt anche se non blocca il funnel → 🟡 Nit.
 2. **Non implementato item** → filtro scopo: critico per monetizzazione/traffico? SÌ → 🔴 chiedi impl pre-merge o follow-up issue. NO → ignora.
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
-4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale." Termina, no altri finding.
+4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale."
+   - **Tier normal**: termina qui, no altri finding (path basso rischio, review sostanziale rimandata al re-push conforme).
+   - **Tier high (`tests/**`, `.github/workflows/**`, `scripts/**`, `build-plugins/**`): NON terminare.** Posta il 🔴 process E prosegui con la review sostanziale + `## Adversarial check` completi nello stesso pass. Motivo: il 🔴 process blocca solo l'auto-merge (`## LGTM`), non un merge manuale; se la sostanza è deferita ("re-review post-update") e l'autore mergia a mano, il probing non avviene mai e i bug si propagano. Caso reale: #814 deferì idempotency-retry-loop + `rebase --abort` autostash → mergiato a mano dopo 40s → diventati le issue #816/#817. #795/#802 fermati al solo process gate → mergiati → entrambi revertati (#822, +17% wall). Non deferire mai il probing su tier high.
 5. **Cross-file pattern repetition** → quando il diff fix-a un pattern (regex, parsing idiom, assertion shape) in 1 file, `rg`/`grep` su pattern equivalente nel resto repo. Se stesso anti-pattern presente altrove non toccato → 🔴 se file funnel-critico (crawler/build-plugin/test gate), 🟡 altrove. Esempio: A3 fix regex `<link rel="canonical"...>` → cerca regex simili su HTML in altri test/crawler.
 6. **Test plan compliance** → PR body con `## Test plan` o checklist `- [ ]`: ogni voce è verificabile pre-merge o richiede live? Se richiede live, ok merged-without-tick MA flag come 🟡 ricorda spunta post-merge. Se verificabile pre-merge + non spuntata + reviewer non può confermare dal diff → 🟡 chiedi conferma o issue follow-up.
+7. **Claim perf/optimization non validato** → PR perf/build/CI che dichiara uno speedup o riduzione regressione (`atteso 65s → 5-10s`, `~60s sparmiati`, `177s → ~110s`) **senza misura baseline pre-merge** — solo "il profiler misura al prossimo deploy" / numeri "attesi" — su path tier high → 🔴 Important: "claim perf non validato pre-merge; mergi su speculazione. Allega misura pre/post oppure dichiara esplicito revert-risk nel `## Non implementato`." Motivo: #795 (IN_FLIGHT 4→8) e #802 (async BFS walkHtml) mergiati su claim attesi non misurati → entrambi regrediti (+17% post-walk wall) → revertati 24h dopo (#822). Parallelismo/IO-tuning su runner condiviso (4-vCPU GitHub) è il caso classico dove il claim atteso diverge dal misurato. Eccezione: ottimizzazione byte-identica banale (es. dedup-early provabile dal diff) o claim già supportato da un run linkato con numeri pre/post.
 
 ### Pre-output adversarial check (tier high)
 
 PR a tier `high` (`tests/**`, `.github/workflows/**`, `scripts/**`, `build-plugins/**`): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Tier normal: skip questa sezione.
+
+**Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se mentre lo scrivi riconosci che, se vero, l'item impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → promuovilo a 🔴 Important in `## Findings` (vedi Verification → escalation). L'adversarial check è per incertezze residue non-bloccanti, non per parcheggiare bug funnel-critical con un punto di domanda. Caso reale: #829 mise `orphanResult.merged` vs `.mergedCount` (writeJson previousSlugs morto → redirect bridge non persistito) come ❓ qui + `## LGTM` → auto-merge, zero follow-up.
 
 ## Verification
 
 Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 
 **Edge case probing via `❓ q:`** anche quando sei sicuro dell'implementazione: input degenere, race condition, default che diventa permanente, refresh manuale dell'autore. Surface come domanda, non assumere che l'autore l'abbia considerato.
+
+**Escalation ❓ funnel-critical → 🔴.** Un `❓ q` resta `❓` solo se l'impatto, fosse anche vero, è non-funnel o cosmetico. Se il soggetto del dubbio — pre-existing o no — impatta monetizzazione/traffico (gate writeJson/persistenza su dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense placement, indicizzabilità) → NON lasciarlo `❓` passivo accanto a un `## LGTM`. Promuovilo a 🔴 Important (blocca auto-merge) **oppure** apri esplicitamente una follow-up issue e linkala nel finding. Il filtro "pre-existing / out of scope" abbassa la severità del *blocco PR*, non cancella un bug funnel-critical: vale comunque 🔴 o issue. Non affidarti a `post-merge-followup` come rete: può non scattare (storicamente è rimasto fermo) e il finding evapora.
 
 ## Re-review convergence
 
@@ -118,4 +125,4 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 <solo tier high: 3 cose NON verificate>
 ```
 
-Zero 🔴 Important: chiudi con `## LGTM` + frase recap. **Critico:** la stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere mai `## LGTM` se hai aperto un 🔴 in findings o adversarial check.
+Zero 🔴 Important: chiudi con `## LGTM` + frase recap. **Critico:** la stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere mai `## LGTM` se hai aperto un 🔴 in findings o adversarial check, **né se hai un ❓ funnel-critical non escalato** (vedi Verification → escalation): o lo promuovi a 🔴, o apri follow-up issue + lo dichiari, prima di poter scrivere `## LGTM`.
