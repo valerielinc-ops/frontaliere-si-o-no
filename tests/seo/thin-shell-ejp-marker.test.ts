@@ -94,6 +94,43 @@ describe('thin-shell builders emit the EJP_STRIPPED audit-skip marker', () => {
 // above skips them — the marker check runs before feature classification, so a
 // skipped page never reaches the career-landings bucket. (Real company hubs
 // like `entreprise-zurzach-care` sit at 31-67% ratio and were never offenders.)
+// Production-input-shape coverage (reviewer adversarial ❓: the block-replace
+// regexes were only exercised against quoted, un-minified fixtures, but each
+// builder's real input differs):
+//   - cluster: renderClusterPage returns `minifyHtml(buildSimplePage(...))`
+//     (seoPageShell.ts:285), so buildClusterThinHtml receives ALREADY-MINIFIED
+//     HTML — the single-token class is UNQUOTED (`<main class=cluster-seo-prose>`)
+//     with no inter-tag whitespace. The quoted CLUSTER_FULL fixture above does
+//     NOT exercise that shape; only the regex's `["']?` + lookahead does.
+//   - soft-landing / bridge: fed RAW template HTML (jobHtmlCache stores the
+//     pre-minify literal; buildSoftLandingHtml only collapses leading
+//     whitespace), so their classes stay QUOTED multi-token — already matched
+//     by the fixtures.
+// This guards the one divergent path: minified, unquoted cluster input must
+// still match the regex, emit the marker, and be skipped by the auditor. If a
+// future minifier change or regex edit breaks the unquoted match,
+// buildClusterThinHtml silently returns full HTML (no marker) and the deploy
+// goes red again — this test fails first.
+describe('cluster thin builder matches the real minified (unquoted-class) production input', () => {
+  it('minified <main class=cluster-seo-prose> is thinned, marked, and audit-skipped', async () => {
+    const minifiedFull = minifyHtml(CLUSTER_FULL);
+    // Sanity: the input really is the unquoted production shape, not the quoted fixture.
+    expect(minifiedFull).toContain('<main class=cluster-seo-prose>');
+    expect(minifiedFull).not.toContain('<main class="cluster-seo-prose"');
+
+    const thin = buildClusterThinHtml(minifiedFull, 'it');
+    // Regex matched the unquoted form → block was replaced (not returned verbatim).
+    expect(thin).not.toBe(minifiedFull);
+    expect(thin).toContain(MARKER);
+
+    const a = createAuditor({ threshold: 10, failOnOffenders: true });
+    a.collect('dist/cerca-lavoro-ticino/ricerca-foo/index.html', minifyHtml(thin));
+    const r = await a.report();
+    expect(r.extra.skippedEjpStripped).toBe(1);
+    expect(r.offendersTotal).toBe(0);
+  });
+});
+
 describe('career-landings regression is soft-landing thin pages, covered by the marker', () => {
   const azPath =
     'dist/cerca-lavoro-ticino/azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti/index.html';
