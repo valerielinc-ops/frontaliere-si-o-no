@@ -1,16 +1,16 @@
 {
   "key": "csd-engineers",
   "label": "CSD ENGINEERS",
-  "generatedAt": "2026-05-28T22:47:09.337Z",
-  "total": 3,
+  "generatedAt": "2026-05-29T12:07:47.836Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3455,
-  "avgDurationMs": 3455,
+  "durationMs": 3741,
+  "avgDurationMs": 3741,
   "durationHistory": [
-    3455
+    3741
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.csd.ch/jobs/7745880-geologue-chef-de-projets-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-28T22:47:06.876Z",
+      "crawledAt": "2026-05-29T12:07:45.545Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -51,8 +51,46 @@
       }
     },
     {
+      "id": "csd-engineers-add9f0b4483d",
+      "slug": "ingenieur-junior-hydraulique-f-h-d-80-100-csd-engineers-ch",
+      "company": "CSD ENGINEERS",
+      "companyKey": "csd-engineers",
+      "companyDomain": "csd.ch",
+      "title": "Ingénieur Junior Hydraulique (f/h/d) 80-100%",
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
+      "source": "CSD ENGINEERS Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-29T12:07:45.952Z",
+      "addressLocality": "Sion",
+      "postalCode": "1950",
+      "streetAddress": "Rue de l'Industrie 54",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Ingegneria / Ambiente",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-06",
+      "applyUrl": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
+      "firstSeenAt": "2026-04-13T10:23:17.486Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "id": "csd-engineers-8db844f1637a",
-      "slug": "directeur-de-travaux-80-100-f-h-d-csd-engineers-ch",
+      "slug": "direttore-dei-lavori-80-100-f-m-d-csd-engineers-sion",
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
       "companyDomain": "csd.ch",
@@ -78,51 +116,16 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://jobs.csd.ch/jobs/7365412-directeur-de-travaux-80-100-f-h-d",
       "firstSeenAt": "2026-04-13T10:23:17.139Z",
-      "_qualityScore": 80,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "csd-engineers-add9f0b4483d",
-      "slug": "ingenieur-junior-hydraulique-f-h-d-80-100-csd-engineers-ch",
-      "company": "CSD ENGINEERS",
-      "companyKey": "csd-engineers",
-      "companyDomain": "csd.ch",
-      "title": "Ingénieur Junior Hydraulique (f/h/d) 80-100%",
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
-      "source": "CSD ENGINEERS Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-28T22:47:07.580Z",
-      "addressLocality": "Sion",
-      "postalCode": "1950",
-      "streetAddress": "Rue de l'Industrie 54",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Ingegneria / Ambiente",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-06",
-      "applyUrl": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
-      "firstSeenAt": "2026-04-13T10:23:17.486Z",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
