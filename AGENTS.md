@@ -49,6 +49,19 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - Test plan PR body con `- [ ]` non spuntate post-merge → spunta dopo verifica live, oppure converti in issue follow-up. Reviewer flagga come 🟡 quelle non verificabili pre-merge (vedi `REVIEW.md → "Test plan compliance"`).
 - Eccezione drop senza issue: nit puro stilistico-deferibile (non funnel) → reply inline sulla PR review thread con motivo "deferred — non funnel-critical". `post-merge-followup.yml` lo include automaticamente nella sezione "Dropped" del summary.
 
+## Auth automazioni & frugalità quota
+
+- **Auth Claude = SOLO `CLAUDE_CODE_OAUTH_TOKEN`** (subscription Max, zero costo $) per TUTTI i workflow agentici: `pr-review-loop`, `issue-triage`, `issue-fix`, `post-merge-followup`. **Mai aggiungere `ANTHROPIC_API_KEY`** (secret inesistente; l'`ANTHROPIC_API_KEY: ""` vuoto nei log è solo la action che sonda un secret assente, innocuo — non è la causa dei fallimenti).
+- **Quota condivisa**: l'OAuth token attinge alla STESSA quota Max della sessione interattiva owner. Burst di run CI (storm di issue, follow-up a cascata) → session limit esaurito anche per l'uso interattivo. Frugalità = ridurre il **numero di invocazioni Claude**, non solo i token/run.
+- Leve frugalità attive: lo step `Apply agent:fix via PAT` salta le issue dedup-chiuse (no fixer sprecato su storm-dup); concurrency serializzata (`cancel-in-progress: false`); dedup-storm chiude duplicati prima del routing. **Mai** abbassare max-turns di `issue-triage`/`pr-review-loop`/`issue-fix`: turni bassi troncano prima degli step obbligatori → `error_max_turns` (triage non instradato / PR #838 senza review). Lever su turni = claim non misurato (#795/#802 revertati).
+- Driver residuo del consumo = volume di issue auto-generate (es. follow-up storm da `post-merge-followup`). Se la quota resta stretta, la leva più grossa è **batchare i follow-up in 1 issue** invece di N.
+
+## Issue automation (loop autonomo)
+
+- Pipeline: monitor → issue → `issue-triage` (classify+dedup, **applica `agent:fix` via `GITHUB_PAT`** da Remote Config) → `issue-fix` (fix→PR) → `pr-review-loop` (`## LGTM`) → `auto-merge-on-lgtm` (merge via PAT) → deploy. Contratto completo in `ISSUES.md`.
+- **Auto-route consentito**: `crawler`, `follow-up`, `validation-failure` (non-storm). **Mai** `revenue`/`tracker` (giudizio strategico → label manuale o `/fix-issue`).
+- **Handoff triage→fix richiede PAT**: una label `agent:fix` aggiunta via `GITHUB_TOKEN` NON triggera `issue-fix` (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate. Stesso vincolo del cascade merge→deploy (#844/#880). I workflow agentici che devono triggerarne altri caricano `GITHUB_PAT` via `scripts/load-rc-env.mjs` (serve Firebase SA).
+
 ## Build And Test
 
 ```bash

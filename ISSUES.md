@@ -28,17 +28,33 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 
 | Categoria | Azione triage |
 |---|---|
-| `crawler` | **Auto-applica `agent:fix`.** Regen parser è deterministico, basso blast-radius, già coperto da `generate-company-parser.mjs`. |
-| `follow-up` | NO auto-fix. Commento classificazione + "apply `agent:fix` se vuoi tentativo autonomo". |
-| `validation-failure` | NO auto-fix (spesso transiente — verifica prima la run successiva). Dedup aggressivo. Commento. |
-| `revenue` / `tracker` | NO auto-fix MAI. Richiede giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
+| `crawler` | **Auto-route `agent:fix`.** Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. |
+| `follow-up` | **Auto-route `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
+| `validation-failure` | **Auto-route `agent:fix` SOLO se non transiente/storm-dup.** Spesso transiente → in dubbio, no fix. |
+| `revenue` / `tracker` | NO auto-fix MAI. Giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
 | `other` | NO auto-fix. Commento "needs manual triage". |
 
-Razionale opt-in: solo `crawler` è auto-instradato perché è l'unica categoria con un fix-path deterministico e ripetuto. Tutto il resto richiede consenso umano esplicito = aggiunta manuale della label `agent:fix`. Coerente con AGENTS.md (opt-in, no automation cieca su revenue/funnel).
+**Meccanismo di routing (decision-file + PAT)**: l'agent del triage NON applica lui la label `agent:fix`. Scrive la decisione in `triage-decision.json` (`{"autofix": bool, "category": ...}`) come ultimo passo. Lo step CI `Apply agent:fix via PAT` la legge e applica `agent:fix` **via `GITHUB_PAT` in un `run:` diretto** (non dentro la claude-action), con guard `state == OPEN`. Perché così:
+- **PAT, non GITHUB_TOKEN**: un `labeled` da GITHUB_TOKEN non triggera `issue-fix` (anti-ricorsione) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops || claude*`. Col PAT (owner) trigger+gate OK. Pattern identico ad `auto-merge-on-lgtm.yml` (gh in `run:` step).
+- **`run:` diretto, non dentro l'action**: non dipendiamo da come `claude-code-action` propaga `GH_TOKEN` al subprocess `gh` dell'agent (assunzione non verificabile → review #922 ❓). Token deterministico.
+- **Guard `state == OPEN`**: se l'agent ha chiuso l'issue come storm-duplicate, niente `agent:fix` → niente fixer sprecato. Vale per TUTTE le categorie auto-route, non solo validation-failure.
+- Senza PAT (RC non caricato) → skip + warning: routing inerte, mai fixer via GITHUB_TOKEN.
+
+`revenue`/`tracker` restano opt-in manuale (mai automation cieca su revenue/funnel — AGENTS.md).
+
+### Frugalità quota (no ANTHROPIC_API_KEY)
+
+Tutte le automazioni Claude (triage/review/fix/followup) usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, zero costo $) → condividono la quota della sessione interattiva owner. Burst di issue = quota esaurita. Leve attive:
+
+- **No fixer su dup**: lo step `Apply agent:fix via PAT` salta le issue dedup-chiuse (guard `state==OPEN`) → mai un run Claude fixer + branch/PR sprecato su uno storm-duplicate.
+- Concurrency `cancel-in-progress: false` serializza (un run alla volta, no burst parallelo).
+- Dedup-storm chiude i duplicati PRIMA del routing → un solo fixer per canonical.
+- Triage = sonnet, `--max-turns 12` (NON tagliato: budget basso troncherebbe prima dell'`agent:triaged`/decisione obbligatori → `error_max_turns`, cfr. lever non misurate #795/#802 revertate). Review/fix idem (quality gate #838).
+- **Driver residuo non mitigato**: il NUMERO di issue (es. storm follow-up da `post-merge-followup`, #887→4). Ridurre il volume di follow-up issue (batchare in 1 issue invece di N) è la leva più grossa se la quota resta stretta. Vedi PR #922 → "Non implementato".
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
-Trigger SOLO sull'aggiunta della label `agent:fix` da parte dell'owner. La label È il consenso.
+Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può metterla l'owner (manuale) **o il triage** — quest'ultimo solo via `GITHUB_PAT` nello step `Apply agent:fix via PAT` (vedi "Meccanismo di routing" sopra; mai via `GITHUB_TOKEN`).
 
 1. **Pre-check**: PR aperta già citante la issue → skip. Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
@@ -72,19 +88,20 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 
 | Label | Significato | Chi la mette |
 |---|---|---|
-| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (solo `crawler`) o owner manuale |
+| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler`/`follow-up`/`validation-failure` non-storm, **via PAT**) o owner manuale |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
 
 ## Kill-switch
 
-- Disattivare auto-fix crawler: in `issue-triage.yml` rimuovere il ramo che applica `agent:fix`, oppure disabilitare il workflow da GitHub UI.
+- Disattivare auto-fix di una categoria: in `issue-triage.yml` togliere la categoria dal ramo che applica `agent:fix`, oppure disabilitare il workflow da GitHub UI.
+- Disattivare TUTTO l'auto-routing mantenendo classify/dedup: rimuovere il `GITHUB_PAT` da Remote Config (o azzerare la Firebase SA) → triage ripiega su `GITHUB_TOKEN` e le label `agent:fix` smettono di triggerare il fixer.
 - Bloccare un singolo fix: rimuovere `agent:fix` dalla issue prima che il fixer apra la PR (concurrency serializza, c'è una finestra).
 - Pausa totale: disabilitare `issue-fix.yml` / `issue-triage.yml` (Actions → workflow → Disable).
 
 ## Guardrail (da AGENTS.md, vincolanti)
 
-- Opt-in: mai `agent:fix` automatico fuori da `crawler`.
+- Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`. Auto-route consentito solo su `crawler`/`follow-up`/`validation-failure` (non-storm).
 - Concurrency cap: un fixer/triage alla volta (no OOM, no PR concorrenti su stesso data file).
 - PR sempre via reviewer + `## LGTM`; mai bypass auto-merge.
 - Changes chirurgiche, root-cause, no drive-by.
