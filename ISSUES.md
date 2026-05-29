@@ -28,27 +28,33 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 
 | Categoria | Azione triage |
 |---|---|
-| `crawler` | **Auto-applica `agent:fix`.** Regen parser è deterministico, basso blast-radius, già coperto da `generate-company-parser.mjs`. |
-| `follow-up` | **Auto-applica `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
-| `validation-failure` | **Auto-applica `agent:fix` SOLO se non è storm-duplicate appena chiuso.** Spesso transiente → se la issue è dedup-chiusa, niente fix. Dedup aggressivo prima. |
-| `revenue` / `tracker` | NO auto-fix MAI. Richiede giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
+| `crawler` | **Auto-route `agent:fix`.** Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. |
+| `follow-up` | **Auto-route `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
+| `validation-failure` | **Auto-route `agent:fix` SOLO se non transiente/storm-dup.** Spesso transiente → in dubbio, no fix. |
+| `revenue` / `tracker` | NO auto-fix MAI. Giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
 | `other` | NO auto-fix. Commento "needs manual triage". |
 
-Razionale: `crawler` + `follow-up` + `validation-failure` (non-storm) sono auto-instradate — fix-path deterministico o micro-task, basso blast-radius. `revenue`/`tracker` restano opt-in manuale (giudizio strategico, mai automation cieca su revenue/funnel — AGENTS.md). **Token**: ogni auto-route genera un run fixer Claude che consuma la quota Max condivisa; vedi "Frugalità" sotto.
+**Meccanismo di routing (decision-file + PAT)**: l'agent del triage NON applica lui la label `agent:fix`. Scrive la decisione in `triage-decision.json` (`{"autofix": bool, "category": ...}`) come ultimo passo. Lo step CI `Apply agent:fix via PAT` la legge e applica `agent:fix` **via `GITHUB_PAT` in un `run:` diretto** (non dentro la claude-action), con guard `state == OPEN`. Perché così:
+- **PAT, non GITHUB_TOKEN**: un `labeled` da GITHUB_TOKEN non triggera `issue-fix` (anti-ricorsione) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops || claude*`. Col PAT (owner) trigger+gate OK. Pattern identico ad `auto-merge-on-lgtm.yml` (gh in `run:` step).
+- **`run:` diretto, non dentro l'action**: non dipendiamo da come `claude-code-action` propaga `GH_TOKEN` al subprocess `gh` dell'agent (assunzione non verificabile → review #922 ❓). Token deterministico.
+- **Guard `state == OPEN`**: se l'agent ha chiuso l'issue come storm-duplicate, niente `agent:fix` → niente fixer sprecato. Vale per TUTTE le categorie auto-route, non solo validation-failure.
+- Senza PAT (RC non caricato) → skip + warning: routing inerte, mai fixer via GITHUB_TOKEN.
+
+`revenue`/`tracker` restano opt-in manuale (mai automation cieca su revenue/funnel — AGENTS.md).
 
 ### Frugalità quota (no ANTHROPIC_API_KEY)
 
 Tutte le automazioni Claude (triage/review/fix/followup) usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, zero costo $) → condividono la quota della sessione interattiva owner. Burst di issue = quota esaurita. Leve attive:
 
-- Triage `--max-turns 8` (era 12), modello sonnet.
+- **No fixer su dup**: lo step `Apply agent:fix via PAT` salta le issue dedup-chiuse (guard `state==OPEN`) → mai un run Claude fixer + branch/PR sprecato su uno storm-duplicate.
 - Concurrency `cancel-in-progress: false` serializza (un run alla volta, no burst parallelo).
 - Dedup-storm chiude i duplicati PRIMA del routing → un solo fixer per canonical.
-- **Driver residuo non mitigato**: il NUMERO di issue (es. storm follow-up da `post-merge-followup`). Ridurre il volume di follow-up issue è la leva più grossa se la quota resta stretta (follow-up: batchare in 1 issue invece di N).
-- Review/fix NON abbassano max-turns: sono quality gate (AGENTS.md #1) e turni bassi causano `error_max_turns` senza review (PR #838). Frugalità mai a costo del gate.
+- Triage = sonnet, `--max-turns 12` (NON tagliato: budget basso troncherebbe prima dell'`agent:triaged`/decisione obbligatori → `error_max_turns`, cfr. lever non misurate #795/#802 revertate). Review/fix idem (quality gate #838).
+- **Driver residuo non mitigato**: il NUMERO di issue (es. storm follow-up da `post-merge-followup`, #887→4). Ridurre il volume di follow-up issue (batchare in 1 issue invece di N) è la leva più grossa se la quota resta stretta. Vedi PR #922 → "Non implementato".
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
-Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può metterla l'owner (manuale) **o il triage** — ma SOLO via PAT (`GITHUB_PAT` da Remote Config), mai via `GITHUB_TOKEN`: un `labeled` da GITHUB_TOKEN non triggera issue-fix (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops || claude*`. Col PAT (owner) il trigger scatta e il gate passa. Stesso pattern di `auto-merge-on-lgtm.yml`.
+Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può metterla l'owner (manuale) **o il triage** — quest'ultimo solo via `GITHUB_PAT` nello step `Apply agent:fix via PAT` (vedi "Meccanismo di routing" sopra; mai via `GITHUB_TOKEN`).
 
 1. **Pre-check**: PR aperta già citante la issue → skip. Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
