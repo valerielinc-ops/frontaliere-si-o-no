@@ -7852,6 +7852,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumenti-stipendi-ticino-2025.title': 'Switzerland: 2025 Salaries Rise Up to 2% for Specialists',
     'blog.article.aumenti-stipendi-ticino-2025.excerpt': 'According to Adecco, average salaries in Switzerland will increase by up to 2% in 2025, with higher raises for specialists in AI and ESG sustainability.',
     'blog.article.aumenti-stipendi-ticino-2025.imageAlt': 'Panoramic view of Lugano with the Alps in the background on a spring day',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Home Purchase & 2nd & 3rd Pillars: Buying Guide for Frontaliers',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analysis of buying opportunities for homes via the 2nd and 3rd Pillars according to RSI Swiss TV. Analysis of purchasing houses under the 2nd and 3rd Pillars based on Swiss TV\'s RSI. Guide on buying homes through the 2nd and 3rd Pillars. Guide on home acquisition under the cross-border commuter permits. Excerpt: Analysis of home buying possibilities under the 2nd and 3rd Pillars as per Swiss TV\'s RSI.',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Modern house on Lugano hills overlooking the lake.',
 };
 
 export default blogMetaEn;

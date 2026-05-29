@@ -24932,4 +24932,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'acquisto-abitazione-secondo-terzo-pilastro',
+ category: 'pratico',
+ date: '2026-05-29T01:06:40.771Z',
+ image: '/images/blog/acquisto-abitazione-secondo-terzo-pilastro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

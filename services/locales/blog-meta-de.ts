@@ -7851,6 +7851,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumenti-stipendi-ticino-2025.title': 'Schweiz: Löhne 2025 bis zu 2% höher für Spezialisten',
     'blog.article.aumenti-stipendi-ticino-2025.excerpt': 'Laut Adecco steigen die Durchschnittslöhne in der Schweiz 2025 um bis zu 2%, mit höheren Zuwächsen für Spezialisten in KI und ESG-Nachhaltigkeit.',
     'blog.article.aumenti-stipendi-ticino-2025.imageAlt': 'Panoramablick auf Lugano mit den Alpen im Hintergrund an einem Frühlingstag',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Ha Kaufhauswohnung mit 2. und 3. Piloten: Praxisleitfaden für Grenzpendler',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analyse der Kaufmöglichkeiten von Eigenheimen basierend auf der 2. und 3. Piloten nach Angaben des RSI Swiss Television.',
+    'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Modernes Haus auf den Lugano-Hügeln mit Blick auf den See.',
 };
 
 export default blogMetaDe;
