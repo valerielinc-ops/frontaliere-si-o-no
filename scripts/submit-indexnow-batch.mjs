@@ -185,20 +185,28 @@ async function getUrlsFromSitemaps() {
     }
     console.log(`  Source: local ${sitemapDir}`);
   } else {
-    let fetched = 0;
+    const failed = [];
     for (const file of filteredSitemaps) {
       const xml = await fetchSitemapXml(file);
-      if (xml == null) continue;
-      fetched++;
+      // null = unreachable (5xx after retries / 404 / network); an empty but
+      // 200-OK urlset returns '' and is treated as a legitimate empty sitemap.
+      if (xml == null) {
+        failed.push(file);
+        continue;
+      }
       const count = extractUrls(xml, urls);
       console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
     }
     console.log(`  Source: live ${SITEMAP_BASE}`);
-    // Fail loud rather than submitting only the 4 EXTRA_URLS: if every
-    // sitemap fetch failed the site/network is down, and a near-empty
-    // submission would mask that as a successful run.
-    if (fetched === 0) {
-      console.error(`No sitemaps could be fetched from ${SITEMAP_BASE}. Aborting.`);
+    // Abort on ANY expected sub-sitemap failure, not only when all six fail.
+    // A partial fetch would silently drop a whole content type — e.g. if
+    // sitemap-jobs.xml (the job funnel) 5xx/404s after a deploy while the
+    // other five succeed — and still exit 0, masking the gap as a clean run.
+    if (failed.length > 0) {
+      console.error(
+        `Failed to fetch ${failed.length}/${filteredSitemaps.length} sitemap(s) from ${SITEMAP_BASE}: ${failed.join(', ')}.\n` +
+        `Aborting to avoid a partial submission that would drop those URLs silently.`,
+      );
       process.exit(1);
     }
   }
