@@ -24941,4 +24941,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovo-orario-ferroviario-lombardia-2026',
+ category: 'pratico',
+ date: '2026-05-29T09:05:31.214Z',
+ image: '/images/blog/nuovo-orario-ferroviario-lombardia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

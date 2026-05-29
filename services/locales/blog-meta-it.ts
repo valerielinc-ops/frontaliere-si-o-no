@@ -7856,6 +7856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Acquisto abitazione e 2° e 3° pilastro: guida pratica per frontalieri',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analisi delle possibilità di acquisto casa tramite 2° e 3° pilastro secondo RSI Radiotelevisione svizzera.',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Abitazione moderna sulle colline di Lugano con vista sul lago.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Nuovo orario ferroviario in Lombardia: cosa cambia per i frontalieri',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'Cambia l’orario dei treni regionali in Lombardia dal 14 giugno 2026. Regione ha incontrato i comitati dei pendolari per discutere adeguamenti e interruzioni programmate.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Stazione ferroviaria di Lugano al mattino con treni in partenza e arrivo, paesaggio ticinese sullo sfondo',
 };
 
 export default blogMetaIt;
