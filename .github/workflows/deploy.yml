@@ -1052,18 +1052,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
+          # The build job force-pushed dist/ to gh-pages (the deploy). Confirm
+          # the branch exists; GitHub Pages (source = gh-pages) then serves it.
+          # We intentionally don't try to match the orphan commit SHA here —
+          # it isn't in this job's checkout — so the real go-live verification
+          # is validate-live polling build-id.txt on the live site.
           head_sha=$(git ls-remote "https://github.com/${GITHUB_REPOSITORY}.git" gh-pages | cut -f1)
           if [ -z "$head_sha" ]; then
             echo "::error::gh-pages branch missing — build job did not publish."
             exit 1
           fi
-          subject=$(git log -1 --format=%s "$head_sha" 2>/dev/null || echo "")
-          echo "gh-pages HEAD: $head_sha"
-          echo "subject: ${subject:-<not fetched>}"
-          if [ -n "$subject" ] && ! echo "$subject" | grep -q "run ${GITHUB_RUN_ID}"; then
-            echo "::warning::gh-pages HEAD is not this run's commit (a newer concurrent deploy may have superseded it) — proceeding; validate-live checks the live site."
-          fi
-          echo "✅ gh-pages published; GitHub Pages will serve the branch."
+          echo "✅ gh-pages published (HEAD $head_sha); validate-live confirms the live go-live."
 
       - name: Save deploy metadata to Firestore
         if: success()
@@ -1258,6 +1257,15 @@ jobs:
       # may already be live on Pages — reverting our (failed) deploy
       # would clobber a valid newer one. Check the live Pages deployment
       # SHA before proceeding.
+      # ⚠️ KNOWN GAP (branch-based deploy, follow-up tracked): under the new
+      # gh-pages branch deploy the published commit is an orphan authored by
+      # deploy-bot, so it never equals github.sha — this guard therefore always
+      # takes the "newer deploy replaced mine" path and the rollback no-ops.
+      # A bad deploy still surfaces (validate-* go red + a failure issue is
+      # filed) and is overwritten by the next deploy (~20 min cadence), but
+      # there is no automatic revert to last-known-good yet. Rebuilding rollback
+      # for branch-based (snapshot last-good gh-pages, restore via force-push)
+      # is the declared follow-up — see the PR body "Non implementato".
       - name: Verify our deploy is still live (still-live guard)
         id: still-live
         env:
