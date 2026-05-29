@@ -48,7 +48,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.418Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -147,7 +146,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.418Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -208,7 +206,7 @@
       "id": "ghol-52354c0ae92c",
       "slug": "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -250,7 +248,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.417Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -277,22 +274,19 @@
       },
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -313,7 +307,7 @@
       "id": "ghol-ff11106c27c6",
       "slug": "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
       "slugByLocale": {
-        "it": "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "it": "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "en": "care-and-support-assistant-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "de": "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "fr": "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -358,17 +352,15 @@
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
-          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "pflege-und-begleitassistent-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ]
       },
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
@@ -431,7 +423,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.415Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {},
       "previousSlugs": [
         "electricien-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -501,7 +492,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.415Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Residenza nella nostra regione",
@@ -593,7 +583,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.414Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -680,7 +669,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.412Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza di min."
@@ -877,16 +865,16 @@
       "title": "Technicien·ne en analyses biomédicales",
       "titleByLocale": {
         "fr": "Technicien·ne en analyses biomédicales",
-        "it": "Technicien·ne en analyses biomédicales",
-        "en": "Technicien·ne en analyses biomédicales",
-        "de": "Technicien·ne en analyses biomédicales"
+        "it": "Analisi Biomedica Tecnica",
+        "en": "Biomedical Analysis Technician",
+        "de": "Biomedizinische Analysetechnik"
       },
       "description": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
       "descriptionByLocale": {
-        "fr": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
-        "it": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
-        "en": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
-        "de": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences."
+        "fr": "## Descrizione\n\nDans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n## Mansioni\n\n- la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n- le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n- la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n\n## Requisiti\n\n- expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n- maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n- polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n- curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n- Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n- Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n\n## Niveau di formazione\n\n- Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n\n## Cosa offriamo\n\n- Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n- Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
+        "it": "Descrizione\n\nCome parte di un sostituto per il congedo di maternità, si unirà al nostro laboratorio di microbiologia dove si avrà una variegata attività. Sarete coinvolti in:\n\nMansioni\n\n- partecipazione alla risposta collettiva a oltre 100.000 richieste annuali di analisi mediche di laboratorio (tutte le discipline)\n- il monitoraggio, la manutenzione e la manutenzione delle attrezzature secondo le responsabilità matrice definite all'interno del servizio\n- la gestione e lo sviluppo di un campo di attività specifico (ad esempio PCR)\n\nObbligo\n\n- esperienza lavorativa di almeno 2 anni in un ambiente simile, idealmente compreso il lavoro di fine settimana (senza lavoro notturno),\n- padronanza di tecniche e conoscenze chiave di microbiologia, come la semina, la cultura, l'identificazione batterica, la lettura e l'interpretazione di tecniche antibiogrammi e PCR,\n- versatilità riconosciuta che consente di eseguire in modo indipendente, convalidare e trasmettere tutte le analisi di un laboratorio di microbiologia,\n- curiosità professionale e capacità di pensiero che ti portano a mettere in discussione il significato e lo scopo delle tue attività quotidiane.\n- Il tuo spirito di squadra sarà un fattore chiave nel successo. Il vostro entusiasmo faciliterà la vostra integrazione nel team attuale. Attraverso il vostro impegno, contribuirete attivamente ai progetti collettivi e alle missioni a voi affidate.\n- Proattivo e autonomo, si padroneggiano gli strumenti del pacchetto MS Office, hanno un orientamento di qualità forte e sono confortevoli con sistemi informatici e software di laboratorio.\n\nLivello di formazione\n\n- Diploma in analisi biomediche ES (o diploma equivalente riconosciuto dalla Croce Rossa svizzera) richiesto\n\nCosa fare\n\n- Unire il team del laboratorio GHOL è integrare un team di solidarietà, lavorando in trasversalità con tutti i suoi partner di cura. Si evolverà all'interno di una struttura di dimensioni umane, dove versatilità, autonomia e collaborazione hanno un valore reale.\n- Come membro della vostra carriera professionale, potrete beneficiare di un adeguato supporto durante la vostra integrazione, nonché di continue opportunità di formazione che incoraggiano il vostro sviluppo e lo sviluppo delle vostre competenze.",
+        "en": "Descrizione\n\nAs part of a replacement for maternity leave, you will join our microbiology laboratory where you will have a varied activity. You will be involved in:\n\nMansioni\n\n- participation in the collective response to over 100,000 annual requests for laboratory medical analyses (all disciplines)\n- the monitoring, maintenance and maintenance of equipment according to the responsibilities matrix defined within the service\n- the management and development of a specific field of activity (e.g. PCR)\n\nRequired\n\n- work experience of at least 2 years in a similar environment, ideally including weekend work (no night work),\n- mastery of key microbiology techniques and knowledge, such as seeding, culture, bacterial identification, reading and interpretation of antibiograms and PCR techniques,\n- recognized versatility allowing you to independently perform, validate and transmit all analyses of a microbiology laboratory,\n- professional curiosity and thinking ability leading you to question the meaning and purpose of your daily activities.\n- Your team spirit will be a key factor in success. Your enthusiasm will facilitate your integration into the current team. Through your commitment, you will actively contribute to the collective projects and the missions entrusted to you.\n- Proactive and autonomous, you master the tools of the MS Office pack, have a strong quality orientation and are comfortable with computer systems and laboratory software.\n\nLevel of formazione\n\n- Diploma in Biomedical Analysis ES (or equivalent diploma recognized by the Swiss Red Cross) required\n\nCosa offeriamo\n\n- Joining the team of the GHOL laboratory is to integrate a team of solidarity, working in transversality with all its care partners. You will evolve within a structure of human size, where versatility, autonomy and collaboration have real value.\n- As a member of your professional career, you will benefit from appropriate support during your integration as well as from continuing training opportunities that encourage your development and development of your skills.",
+        "de": "Beschreibung\n\nIm Rahmen eines Ersatzes für den Mutterschaftsurlaub werden Sie sich unserem Mikrobiologielabor anschließen, wo Sie eine abwechslungsreiche Aktivität haben werden. Sie werden an:\n\nMansion\n\n- Teilnahme an der kollektiven Reaktion auf über 100.000 jährliche Anfragen für Labormedizinische Analysen (alle Disziplinen)\n- die Überwachung, Wartung und Wartung von Geräten gemäß der im Dienst definierten Verantwortungsmatrix\n- Verwaltung und Entwicklung eines spezifischen Tätigkeitsbereichs (z.B. PCR)\n\nErforderlich\n\n- Arbeitserfahrung von mindestens 2 Jahren in einer ähnlichen Umgebung, ideal einschließlich Wochenendarbeit (keine Nachtarbeit),\n- Beherrschung der wichtigsten Mikrobiologie Techniken und Wissen, wie Saat, Kultur, bakterielle Identifizierung, Lesen und Interpretation von Antibiogrammen und PCR Techniken,\n- anerkannte Vielseitigkeit, die es Ihnen ermöglicht, unabhängig alle Analysen eines Mikrobiologielabors durchzuführen, zu validieren und zu übermitteln,\n- professionelle Neugier und Denkfähigkeit führen Sie dazu, die Bedeutung und den Zweck Ihrer täglichen Aktivitäten zu hinterfragen.\n- Ihr Teamgeist wird ein wesentlicher Erfolgsfaktor sein. Ihre Begeisterung wird Ihre Integration in das aktuelle Team erleichtern. Durch Ihr Engagement werden Sie aktiv zu den kollektiven Projekten und den Ihnen übertragenen Missionen beitragen.\n- Proaktiv und autonom, Sie meistern die Werkzeuge des MS Office-Packs, haben eine starke Qualitätsorientierung und sind komfortabel mit Computersystemen und Laborsoftware.\n\nEbene der Formazione\n\n- Diplom in der biomedizinischen Analyse ES (oder gleichwertiges Diplom vom Schweizer Roten Kreuz anerkannt) erforderlich\n\nCosa offeriamo\n\n- Mit dem Team des GHOL Labors ist es, ein Team von Solidarität zu integrieren und in Transversalität mit allen seinen Pflegepartnern zu arbeiten. Sie entwickeln sich in einer Struktur menschlicher Größe, wo Vielseitigkeit, Autonomie und Zusammenarbeit einen echten Wert haben.\n- Als Mitglied Ihrer beruflichen Karriere profitieren Sie von einer angemessenen Unterstützung während Ihrer Integration sowie von Weiterbildungsmöglichkeiten, die Ihre Entwicklung und Entwicklung Ihrer Fähigkeiten fördern."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -908,7 +896,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-05-29T12:28:12.409Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
