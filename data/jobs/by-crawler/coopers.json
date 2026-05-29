@@ -289,7 +289,6 @@
           "engineering-planner-m-f-d-coopers-wallis"
         ],
         "en": [
-          "engineering-planer-m-f-d-coopers-wallis",
           "engineering-planner-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
@@ -316,12 +315,12 @@
     },
     {
       "id": "coopers-b71f646bfd28",
-      "slug": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+      "slug": "scienziato-analitico-del-laboratorio-m-w-d-coopers-group-ag-wallis",
       "slugByLocale": {
-        "it": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
+        "it": "scienziato-analitico-del-laboratorio-m-w-d-coopers-group-ag-wallis",
         "en": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
         "de": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis",
-        "fr": "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
+        "fr": "physchem-lab-scientifique-analytique-m-p-p-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -392,7 +391,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "previousSlugsByLocale": {
+        "it": [
+          "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
+        ],
+        "fr": [
+          "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
+        ]
+      },
+      "previousSlugs": [
+        "physchem-lab-analytical-scientist-m-w-d-coopers-wallis"
+      ]
     }
   ]
 }

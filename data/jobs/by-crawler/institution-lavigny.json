@@ -383,11 +383,11 @@
     },
     {
       "id": "institution-lavigny-45726ab47219",
-      "slug": "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny",
+      "slug": "assistente-amministrativo-al-50-50-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny",
-        "it": "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny",
-        "en": "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny",
+        "it": "assistente-amministrativo-al-50-50-institution-de-lavigny-lavigny",
+        "en": "administrative-assistant-at-50-50-institution-de-lavigny-lavigny",
         "de": "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
@@ -444,7 +444,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T23:25:34.775Z"
+      "firstSeenAt": "2026-05-28T23:25:34.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-au-service-technique-a-50-50-institution-lavigny-lavigny"
+      ]
     }
   ]
 }
