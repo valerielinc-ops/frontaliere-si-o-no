@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
         "en": "agent-as-agent-receptionist-fromy-night-inter-inter-26-27-ver-marriott-international-verbier",
-        "de": "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
+        "de": "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "agent-d-accueil-receptionniste-jour-et-nuit-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -61,11 +61,12 @@
       },
       "previousSlugsByLocale": {
         "de": [
+          "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
           "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
-        "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
+        "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-28T22:16:13.089Z",
       "salaryMin": 49500,
@@ -86,7 +87,7 @@
       "id": "marriott-42c22aa8b3ba",
       "slug": "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier",
+        "it": "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
         "de": "agent-gastbeziehungen-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier"
@@ -141,12 +142,11 @@
       },
       "previousSlugs": [
         "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
-        "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier"
+        "qualunque-sia-l-agente-relazioni-alla-guida-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier",
-          "agente-relazioni-con-gli-ospiti-inverno-26-27-w-verbier-marriott-international-verbier"
+          "whatever-whenever-agent-guest-relations-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
       "firstSeenAt": "2026-04-28T22:16:13.090Z",
@@ -323,9 +323,9 @@
       "id": "marriott-ff0d7ee52edf",
       "slug": "cameriere-ristorante-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "cameriere-ristorante-w-verbier-marriott-international-verbier",
+        "it": "internship-universitario-europa-marriott-international-zurich",
         "en": "university-intern-europe-marriott-zurich",
-        "de": "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier",
+        "de": "universitatsinternship-europa-marriott-international-zurich",
         "fr": "waiter-tress-restaurant-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -381,11 +381,10 @@
           "waiter-tress-restaurant-w-verbier-marriott-verbier"
         ],
         "it": [
-          "waiter-tress-restaurant-w-verbier-marriott-verbier",
-          "internship-universitario-europa-marriott-international-zurich"
+          "waiter-tress-restaurant-w-verbier-marriott-verbier"
         ],
         "de": [
-          "universitatsinternship-europa-marriott-international-zurich"
+          "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "stage-universitaire-europe-marriott-international-zurich"
@@ -393,9 +392,10 @@
       },
       "previousSlugs": [
         "waiter-tress-restaurant-w-verbier-marriott-verbier",
-        "internship-universitario-europa-marriott-international-zurich",
-        "universitatsinternship-europa-marriott-international-zurich",
-        "stage-universitaire-europe-marriott-international-zurich"
+        "kellner-spannungsrestaurant-w-verbier-marriott-international-verbier",
+        "stage-universitaire-europe-marriott-international-zurich",
+        "cameriere-ristorante-w-verbier-marriott-international-verbier",
+        "waiter-tress-restaurant-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T22:11:20.522Z",
       "salaryMin": 49500,
@@ -416,10 +416,10 @@
       "id": "marriott-60e874aa2d93",
       "slug": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
+        "it": "responsabile-revenue-management-marriott-international-geneva",
         "en": "revenue-manager-marriott-geneva",
         "de": "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
+        "fr": "responsable-revenue-management-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -475,29 +475,29 @@
         ],
         "it": [
           "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
-          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-          "responsabile-revenue-management-marriott-international-geneva"
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
           "umsatzmanager-marriott-international-geneva"
         ],
         "fr": [
-          "responsable-revenue-management-marriott-international-geneva"
+          "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "responsabile-revenue-management-marriott-international-geneva",
         "umsatzmanager-marriott-international-geneva",
-        "responsable-revenue-management-marriott-international-geneva",
+        "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
         "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-tress-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "garcon-mere-matin-hiver-26-27-w-verbier-marriott-international-verbier",
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
-        "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier"
+        "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
+        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
+        "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T11:09:31.158Z",
       "salaryMin": 49500,
@@ -601,10 +601,10 @@
       "id": "marriott-f62411fe05ac",
       "slug": "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier",
+        "it": "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier",
         "en": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
         "de": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-        "fr": "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier"
+        "fr": "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -656,16 +656,15 @@
       },
       "previousSlugs": [
         "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-        "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier",
-        "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
+        "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier",
+        "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-          "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier"
+          "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier"
         ],
         "fr": [
-          "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
+          "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.156Z",
@@ -780,6 +779,7 @@
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
         "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
+        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "cameriera-tress-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "garcon-mere-matin-hiver-26-27-w-verbier-marriott-international-verbier",
@@ -817,7 +817,7 @@
       "slugByLocale": {
         "it": "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "en": "housekeeping-supervisor-intern-marriott-international-geneva",
-        "de": "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
+        "de": "praktikant-hausdienstleiter-marriott-international-geneva",
         "fr": "stagiaire-superviseur-housekeeping-marriott-geneva"
       },
       "company": "Marriott International",
@@ -888,6 +888,7 @@
         ],
         "de": [
           "praktikant-housekeeping-supervisor-marriott-international-geneva",
+          "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
           "praktikant-hausdienstleiter-marriott-international-geneva"
         ]
       },
@@ -895,7 +896,7 @@
         "stagiaire-superviseur-housekeeping-marriott-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier",
         "praktikant-housekeeping-supervisor-marriott-international-geneva",
-        "praktikant-hausdienstleiter-marriott-international-geneva",
+        "praktikum-hauswirtschaftsaufsicht-marriott-international-geneva",
         "storekeeper-winter-26-27-w-verbier-marriott-verbier",
         "sushiman-winter-26-27-w-verbier-marriott-verbier",
         "concierge-hiver-26-27-w-verbier-marriott-international-verbier",
@@ -1121,9 +1122,9 @@
       "id": "marriott-5774481b9f11",
       "slug": "stagiaire-patisse-marriott-international-geneva",
       "slugByLocale": {
-        "it": "stagiaire-patisse-marriott-international-geneva",
+        "it": "stagista-reception-marriott-international-geneva",
         "en": "reception-trainee-marriott-international-geneva",
-        "de": "interne-pastete-marriott-international-geneva",
+        "de": "praktikant-rezeption-marriott-international-geneva",
         "fr": "stagiaire-patisserie-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1179,11 +1180,10 @@
           "stagiaire-patisserie-marriott-geneva"
         ],
         "it": [
-          "stagiaire-patisserie-marriott-geneva",
-          "stagista-reception-marriott-international-geneva"
+          "stagiaire-patisserie-marriott-geneva"
         ],
         "de": [
-          "praktikant-rezeption-marriott-international-geneva"
+          "interne-pastete-marriott-international-geneva"
         ],
         "fr": [
           "stagiaire-reception-marriott-geneva"
@@ -1191,9 +1191,10 @@
       },
       "previousSlugs": [
         "stagiaire-patisserie-marriott-geneva",
-        "stagista-reception-marriott-international-geneva",
-        "praktikant-rezeption-marriott-international-geneva",
-        "stagiaire-reception-marriott-geneva"
+        "interne-pastete-marriott-international-geneva",
+        "stagiaire-reception-marriott-geneva",
+        "stagiaire-patisse-marriott-international-geneva",
+        "stagiaire-patisserie-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-06T22:21:00.982Z",
       "salaryMin": 47658,
@@ -1280,13 +1281,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugs": [
+        "marketing-stagiaire-marriott-international-geneva"
+      ]
     },
     {
       "id": "marriott-19feab2c2379",
       "slug": "tirocinante-m-club-lounge-marriott-international-geneva",
       "slugByLocale": {
-        "it": "tirocinante-m-club-lounge-marriott-international-geneva",
+        "it": "stagista-mclub-lounge-marriott-international-geneva",
         "en": "mclub-lounge-intern-marriott-international-geneva",
         "de": "mclub-lounge-praktikant-marriott-international-geneva",
         "fr": "stagiaire-mclub-lounge-marriott-geneva"
@@ -1344,13 +1348,12 @@
           "stagiaire-mclub-lounge-marriott-geneva"
         ],
         "it": [
-          "stagiaire-mclub-lounge-marriott-geneva",
-          "stagista-mclub-lounge-marriott-international-geneva"
+          "stagiaire-mclub-lounge-marriott-geneva"
         ]
       },
       "previousSlugs": [
         "stagiaire-mclub-lounge-marriott-geneva",
-        "stagista-mclub-lounge-marriott-international-geneva"
+        "tirocinante-m-club-lounge-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
       "salaryMin": 47658,
@@ -1458,7 +1461,7 @@
       "slugByLocale": {
         "it": "tirocinante-finanza-marriott-international-geneva",
         "en": "finance-intern-marriott-international-geneva",
-        "de": "stagiaire-finanzen-marriott-international-geneva",
+        "de": "finanzpraktikant-marriott-international-geneva",
         "fr": "stagiaire-finance-marriott-geneva"
       },
       "company": "Marriott International",
@@ -1540,12 +1543,13 @@
           "stagiaire-finance-marriott-geneva"
         ],
         "de": [
+          "stagiaire-finanzen-marriott-international-geneva",
           "finanzpraktikant-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
         "stagiaire-finance-marriott-geneva",
-        "finanzpraktikant-marriott-international-geneva"
+        "stagiaire-finanzen-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-04-13T10:57:29.147Z",
       "salaryMin": 59500,
@@ -1647,9 +1651,9 @@
       "id": "marriott-da07a119cc99",
       "slug": "supervisore-ristorante-marriott-international-geneva",
       "slugByLocale": {
-        "it": "supervisore-ristorante-marriott-international-geneva",
+        "it": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
         "en": "amb-as-ambassador-bellbo-inter-inter-26-27-ver-marriott-international-verbier",
-        "de": "restaurant-vorgesetzter-marriott-international-geneva",
+        "de": "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "restaurant-supervisor-marriott-international-geneva"
       },
       "company": "Marriott International",
@@ -1705,11 +1709,10 @@
           "restaurant-supervisor-marriott-geneva"
         ],
         "it": [
-          "restaurant-supervisor-marriott-geneva",
-          "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier"
+          "restaurant-supervisor-marriott-geneva"
         ],
         "de": [
-          "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier"
+          "restaurant-vorgesetzter-marriott-international-geneva"
         ],
         "fr": [
           "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -1717,15 +1720,16 @@
       },
       "previousSlugs": [
         "restaurant-supervisor-marriott-geneva",
-        "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
-        "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
+        "restaurant-vorgesetzter-marriott-international-geneva",
         "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier",
         "supervisore-f-b-marriott-international-geneva",
         "supervisor-f-b-marriott-international-geneva",
         "aufsichtsbehorde-f-b-marriott-international-geneva",
         "superviseur-f-b-marriott-international-geneva",
         "supervisor-f-b-marriott-geneva",
-        "vorgesetzter-f-b-marriott-international-geneva"
+        "vorgesetzter-f-b-marriott-international-geneva",
+        "supervisore-ristorante-marriott-international-geneva",
+        "restaurant-supervisor-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-21T23:10:23.782Z",
       "salaryMin": 49500,
@@ -2165,7 +2169,9 @@
         "bar-supervisore-long-term-w-verbier-marriott-international-verbier",
         "bar-supervisor-long-term-w-verbier-marriott-verbier",
         "superviseur-de-bar-long-terme-w-verbier-marriott-international-verbier",
-        "bar-supervisor-lungo-termine-w-verbier-marriott-international-verbier"
+        "bar-supervisor-lungo-termine-w-verbier-marriott-international-verbier",
+        "maitre-d-venue-supervisore-long-term-w-verbier-marriott-international-verbier",
+        "maitre-d-venue-supervisor-long-term-w-verbier-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-04-30T22:11:20.500Z",
       "salaryMin": 49500,
@@ -2584,6 +2590,7 @@
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
         "guest-experience-expert-marriott-zurich",
+        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "esperienza-degli-ospiti-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2814,7 +2821,7 @@
       "id": "marriott-8efd5184da21",
       "slug": "equipisodio-marriott-international-geneva",
       "slugByLocale": {
-        "it": "equipisodio-marriott-international-geneva",
+        "it": "equipier-marriott-geneva",
         "en": "equipier-marriott-international-geneva",
         "de": "ausruster-marriott-international-geneva",
         "fr": "equipement-marriott-international-geneva"
@@ -2873,16 +2880,16 @@
         ],
         "fr": [
           "equipier-marriott-geneva"
-        ],
-        "it": [
-          "equipier-marriott-geneva"
         ]
       },
       "previousSlugs": [
         "equipier-marriott-geneva",
         "gruppi-commerciali-di-coordinamento-marriott-international-geneva",
         "coordinateur-commercial-groupes-marriott-geneva",
-        "handelskoordinatorgruppen-marriott-international-geneva"
+        "handelskoordinatorgruppen-marriott-international-geneva",
+        "equipisodio-marriott-international-geneva",
+        "ausruster-marriott-international-geneva",
+        "equipement-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-28T13:25:12.837Z",
       "salaryMin": 49500,
@@ -3223,8 +3230,8 @@
       "slugByLocale": {
         "it": "responsabile-di-turno-e-qualita-a-lungo-termine-w-verbier-marriott-international-verbier",
         "en": "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
-        "de": "oberkellner-marriott-international-geneva",
-        "fr": "cheffe-de-rang-marriott-international-geneva"
+        "de": "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
+        "fr": "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3276,12 +3283,15 @@
       },
       "previousSlugs": [
         "chef-de-rang-marriott-geneva",
+        "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
+        "oberkellner-marriott-international-geneva",
+        "cheffe-de-rang-marriott-international-geneva-4c4e34",
+        "cheffe-de-rang-marriott-international-geneva",
+        "chef-de-partie-marriott-international-geneva",
+        "kuchenhilfskraft-marriott-international-geneva",
         "chef-de-rang-marriott-international-geneva",
         "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier",
-        "cheffe-de-rang-marriott-international-geneva-4c4e34",
-        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier",
-        "chef-de-partie-marriott-international-geneva",
-        "kuchenhilfskraft-marriott-international-geneva"
+        "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3289,13 +3299,16 @@
         ],
         "en": [
           "chef-de-rang-marriott-geneva",
+          "manager-on-duty-quality-long-term-w-verbier-marriott-verbier",
           "chef-de-rang-marriott-international-geneva"
         ],
         "de": [
+          "oberkellner-marriott-international-geneva",
           "dienstleiter-qualitatsmanager-langfristig-w-verbier-marriott-international-verbier"
         ],
         "fr": [
           "cheffe-de-rang-marriott-international-geneva-4c4e34",
+          "cheffe-de-rang-marriott-international-geneva",
           "responsable-de-service-et-qualite-long-terme-w-verbier-marriott-international-verbier"
         ]
       },
@@ -3570,12 +3583,12 @@
     },
     {
       "id": "marriott-cafe555a4453",
-      "slug": "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva",
+      "slug": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
-        "it": "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva",
-        "fr": "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva",
-        "de": "auszubildende-cfc-cuisine-1-jahr-marriott-international-geneva"
+        "it": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
+        "fr": "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier",
+        "de": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3589,10 +3602,10 @@
       },
       "description": "Prepare ingredients for cooking, including portioning, chopping, and storing food. Wash and peel fresh fruits and vegetables. Weigh, measure, and mix ingredients. Prepare and cook food according to recipes, quality standards, presentation standards, and food preparation checklist. Prepare cold foods. Operate ovens, stoves, grills, microwaves, and fryers. Test foods to determine if they have been cooked sufficiently. Monitor food quality while preparing food. Set-up and break down work station. Serve food in proper portions onto proper receptacles. Wash and disinfect kitchen area, tables, tools, knives, and equipment. Check and ensure the correctness of the temperature of appliances and food.\n\nFollow all company and safety and security policies and procedures; report maintenance needs, accidents, injuries, and unsafe work conditions to manager; complete safety training and certifications. Ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets. Speak with others using clear and professional language. Develop and maintain positive working relationships with others; support team to reach common goals; listen and respond appropriately to the concerns of other employees. Ensure adherence to quality expectations and standards. Stand, sit, or walk for an extended period of time or for an entire work shift. Reach overhead and below the knees, including bending, twisting, pulling, and stooping. Move, lift, carry, push, pull, and place objects weighing less than or equal to 25 pounds without assistance. Perform other reasonable job duties as requested by Supervisors.\n\nPREFERRED QUALIFICATION\n • Education: High school diploma or G.E.D. equivalent.\n • Related Work Experience: At least 1 year of related work experience.\n • Supervisory Experience: No supervisory experience.\n • License or Certification: None\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates.  We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nMarriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
       "descriptionByLocale": {
-        "en": "## Mansioni\n- Prepare ingredients for cooking, including portioning, chopping, and storing food.\n- Wash and peel fresh fruits and vegetables.\n- Weigh, measure, and mix ingredients.\n- Prepare and cook food according to recipes, quality standards, presentation standards, and food preparation checklist.\n- Prepare cold foods.\n- Operate ovens, stoves, grills, microwaves, and fryers.\n- Test foods to determine if they have been cooked sufficiently.\n- Monitor food quality while preparing food.\n- Set-up and break down work station.\n- Serve food in proper portions onto proper receptacles.\n- Wash and disinfect kitchen area, tables, tools, knives, and equipment.\n- Check and ensure the correctness of the temperature of appliances and food.\n\n## Requisiti\n- Follow all company and safety and security policies and procedures; report maintenance needs, accidents, injuries, and unsafe work conditions to manager; complete safety training and certifications.\n- Ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets.\n- Speak with others using clear and professional language.\n- Develop and maintain positive working relationships with others; support team to reach common goals; listen and respond appropriately to the concerns of other employees.\n- Ensure adherence to quality expectations and standards.\n- Stand, sit, or walk for an extended period of time or for an entire work shift.\n- Reach overhead and below the knees, including bending, twisting, pulling, and stooping.\n- Move, lift, carry, push, pull, and place objects weighing less than or equal to 25 pounds without assistance.\n- Perform other reasonable job duties as requested by Supervisors.\n\n## PREFERRED QUALIFICATION\n- Education: High school diploma or G.E.D. equivalent.\n- Related Work Experience: At least 1 year of related work experience.\n- Supervisory Experience: No supervisory experience.\n- License or Certification: None\n\n## Cosa offriamo\n- At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates.  We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n- Marriott Hotels strive to elevate the art of hospitality, innovating at every opportunity while keeping the comfort of the oh-so-familiar all around the globe. As a host with Marriott Hotels, you will help keep the promise of “Wonderful Hospitality. Always.” by delivering thoughtful, heartfelt, forward-thinking service that upholds and builds upon this living legacy. With the name that’s synonymous with hospitality the world over, we are proud to welcome you to explore a career with Marriott Hotels. In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.\n- JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world. JW believes our associates come first. Because if you’re happy, our guests will be happy. JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott. Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers. JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being. Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™. In joining JW Marriott, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.\n\n## Contatto\n- In joining Marriott Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
-        "it": "Mansioni\n- Preparare gli ingredienti per la cottura, tra cui la porzionatura, il taglio e la conservazione del cibo.\n- Lavare e pelare frutta e verdura fresca.\n- Pesare, misurare e mescolare gli ingredienti.\n- Preparare e cucinare il cibo secondo ricette, standard di qualità, standard di presentazione e la lista di controllo di preparazione del cibo.\n- Preparate i cibi freddi.\n- Operare forni, fornelli, griglie, microonde e friggitrici.\n- Testare gli alimenti per determinare se sono stati cucinati abbastanza.\n- Monitorare la qualità alimentare durante la preparazione del cibo.\n- Impostare e distruggere la stazione di lavoro.\n- Servire il cibo in porzioni adeguate su ricettacoli appropriati.\n- Lavare e disinfettare zona cucina, tavoli, strumenti, coltelli e attrezzature.\n- Controllare e garantire la correttezza della temperatura degli apparecchi e del cibo.\n\nRequisiti\n- Seguire tutte le politiche e le procedure aziendali e di sicurezza; segnalare esigenze di manutenzione, incidenti, infortuni e condizioni di lavoro non sicure al gestore; formazione completa e certificazioni di sicurezza.\n- Assicurare l'aspetto uniforme e personale sono puliti e professionali; mantenere la riservatezza delle informazioni proprietarie; proteggere i beni aziendali.\n- Parla con gli altri usando un linguaggio chiaro e professionale.\n- Sviluppare e mantenere rapporti di lavoro positivi con gli altri; team di supporto per raggiungere obiettivi comuni; ascoltare e rispondere adeguatamente alle preoccupazioni di altri dipendenti.\n- Assicurare l'adesione alle aspettative e agli standard di qualità.\n- Stand, sit, o camminare per un lungo periodo di tempo o per un intero turno di lavoro.\n- Raggiungere la testa sopra e sotto le ginocchia, tra cui piegatura, torsione, trazione e stooping.\n- Spostare, sollevare, trasportare, spingere, tirare e posizionare oggetti di peso inferiore o uguale a 25 libbre senza assistenza.\n- Esegui altri ragionevoli doveri di lavoro richiesti dai Supervisori.\n\nQUALIFICAZIONE PREFERRATA\n- Istruzione: diploma di scuola superiore o equivalente G.E.D.\n- Esperienza di lavoro correlata: almeno 1 anno di esperienza lavorativa correlata.\n- Esperienza di supervisione: Nessuna esperienza di supervisione.\n- Licenza o Certificazione: Nessuno\n\nCosa?\n- A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso all'opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n- Marriott Hotels si sforza di elevare l'arte dell'ospitalità, innovando in ogni occasione mantenendo il comfort del oh-so-familiare in tutto il mondo. Come ospite di Marriott Hotels, vi aiuterà a mantenere la promessa di “ospitalità meravigliosa. Sempre.” fornendo un servizio pensieroso, sentito, in avanti che sostiene e costruisce su questa eredità vivente. Con il nome che è sinonimo di ospitalità in tutto il mondo, siamo orgogliosi di darvi il benvenuto per esplorare una carriera con Marriott Hotels. Entrando in Marriott Hotels, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.\n- JW Marriott fa parte del portafoglio di lusso di Marriott International e si compone di oltre 100 belle proprietà nelle città di gateway e località turistiche distintive in tutto il mondo. JW crede che i nostri associati vengano prima. Perché se sei felice, i nostri ospiti saranno felici. I soci JW Marriott sono fiduciosi, innovativi, genuini, intuitivi e portano avanti l’eredità dell’omonimo marchio e del fondatore della società, J.Willard Marriott. I nostri hotel offrono un'esperienza di lavoro a differenza di qualsiasi altro, dove sarete parte di una comunità e godere di vera camaraderie con un gruppo diversificato di colleghi. JW crea opportunità di formazione, sviluppo, riconoscimento e, soprattutto, un luogo in cui è possibile perseguire le vostre passioni in un ambiente di lusso con un focus sul benessere olistico. Trattare gli ospiti eccezionalmente inizia con il modo in cui ci prendiamo cura dei nostri associati. Questo è il JW TreatmentTM. Nell'unione di JW Marriott, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.\n\nContatto\n- Nell'unione con Marriott Hotels, ti unisci a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "de": "Mansion\n- Bereiten Sie Zutaten für das Kochen, einschließlich Portionieren, Häckseln und Lagerung von Lebensmitteln.\n- Frisches Obst und Gemüse waschen und schälen.\n- Wiegen, messen und Zutaten vermischen.\n- Zubereitung und Kochen von Lebensmitteln nach Rezepten, Qualitätsstandards, Präsentationsstandards und Zubereitungs-Checkliste.\n- Bereiten Sie kalte Speisen vor.\n-Ofen, Herde, Grills, Mikrowellen und Friteuse.\n- Testen Sie Lebensmittel, um festzustellen, ob sie ausreichend gekocht wurden.\n- Überwachen Sie die Lebensmittelqualität bei der Zubereitung von Lebensmitteln.\n- Arbeitsstation einrichten und abbrechen.\n- Servieren Sie Lebensmittel in richtigen Portionen auf richtige Behälter.\n- Waschen und desinfizieren Küchenbereich, Tische, Werkzeuge, Messer und Ausrüstung.\n- Überprüfen Sie und stellen Sie die Richtigkeit der Temperatur von Geräten und Lebensmitteln.\n\nVoraussetzungen\n- Befolgen Sie alle Unternehmens- und Sicherheitspolitiken und -verfahren; melden Sie Wartungsanforderungen, Unfälle, Verletzungen und unsichere Arbeitsbedingungen an den Manager; vollständige Sicherheitsausbildung und Zertifizierungen.\n- Stellen Sie sicher, dass einheitliches und persönliches Aussehen sauber und professionell ist; halten Sie die Vertraulichkeit der proprietären Informationen aufrecht; schützen Sie das Unternehmensvermögen.\n- Sprechen Sie mit anderen über klare und professionelle Sprache.\n- Entwicklung und Aufrechterhaltung positiver Arbeitsbeziehungen mit anderen; Unterstützungsteam, um gemeinsame Ziele zu erreichen; hören und reagieren entsprechend auf die Anliegen anderer Mitarbeiter.\n- Gewährleistung der Einhaltung von Qualitätsansprüchen und Standards.\n- Stehen, sitzen oder gehen für eine längere Zeit oder für eine ganze Arbeitsschicht.\n- Greifen Sie über Kopf und unter die Knie, einschließlich Biegen, Verdrehen, Ziehen und Hopfen.\n- Bewegen, heben, tragen, schieben, ziehen und stellen Gegenstände mit einem Gewicht von weniger als 25 Pfund ohne Hilfe.\n- Führen Sie andere angemessene Aufgaben, wie von Aufsichtsbehörden verlangt.\n\nQUALIFIKATION\n- Ausbildung: Hochschuldiplom oder G.E.D.-Äquivalent.\n- Related Work Experience: Mindestens 1 Jahr damit verbundener Arbeitserfahrung.\n- Aufsichtserfahrung: Keine Aufsichtserfahrung.\n- Lizenz oder Zertifizierung: Keine\n\nCosa offriamo\n- Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit. Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage.\n- Marriott Hotels bemühen sich, die Kunst der Gastfreundschaft zu erhöhen, innovieren bei jeder Gelegenheit, während der Komfort der oh-so-familiar auf der ganzen Welt. Als Gastgeber bei Marriott Hotels helfen Sie, das Versprechen von “Wunderbare Hospitality. Immer.“ durch die Bereitstellung von nachdenklichem, herzhaftem, vorausdenkendem Dienst, der auf diesem lebendigen Erbe aufrechterhält und baut. Mit dem Namen, der für die Gastfreundschaft der ganzen Welt synonym ist, sind wir stolz, Sie zu begrüßen, um eine Karriere mit Marriott Hotels zu erkunden. Bei Marriott Hotels werden Sie mit Marriott International ein Portfolio an Marken aufnehmen. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.\n- JW Marriott ist Teil des Luxus-Portfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Gateway-Städten und einzigartigen Resort-Standorten auf der ganzen Welt. JW glaubt, unsere Mitarbeiter kommen zuerst. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein. JW Marriott-Mitarbeiter sind zuversichtlich, innovativ, echt, intuitiv und tragen das Vermächtnis des Markennamens und Firmengründers J.Willard Marriott. Unsere Hotels bieten ein Arbeitserlebnis im Gegensatz zu jedem anderen, wo Sie Teil einer Gemeinschaft sein und genießen echte Camaraderie mit einer Vielzahl von Mitarbeitern. JW schafft Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem einen Ort, an dem Sie Ihre Leidenschaften in einer Luxusumgebung mit einem Fokus auf ganzheitliches Wohlbefinden verfolgen können. Die Gäste zu behandeln beginnt mit der Art, wie wir uns um unsere Mitarbeiter kümmern. Das ist die JW-Behandlung. Bei JW Marriott stoßen Sie mit Marriott International auf ein Markenportfolio. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.\n\nContattoo\n- Bei Marriott Hotels werden Sie mit Marriott International ein Markenportfolio aufnehmen. Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
-        "fr": "Mansioni\n- Préparer les ingrédients pour la cuisson, y compris la portion, la découpe et le stockage des aliments.\n- Laver et éplucher les fruits et légumes frais.\n- Peser, mesurer et mélanger les ingrédients.\n- Préparer et cuire les aliments selon les recettes, les normes de qualité, les normes de présentation et la liste de contrôle de préparation des aliments.\n- Préparez des aliments froids.\n- Utiliser des fours, cuisinières, grillades, micro-ondes et friteuses.\n- Tester les aliments pour déterminer s'ils ont été suffisamment cuits.\n- Surveiller la qualité des aliments pendant la préparation des aliments.\n- Mettez en place et cassez le poste de travail.\n- Servir les aliments dans des portions appropriées sur des récipients appropriés.\n- Laver et désinfecter la cuisine, les tables, les outils, les couteaux et l'équipement.\n- Vérifier et assurer l'exactitude de la température des appareils et des aliments.\n\nRequisiti\n- Suivre toutes les politiques et procédures de l'entreprise en matière de sécurité et de sûreté; signaler les besoins en matière d'entretien, les accidents, les blessures et les conditions de travail dangereuses au gestionnaire; terminer la formation et les certifications en matière de sécurité.\n- S'assurer que l'apparence uniforme et personnelle est propre et professionnelle; préserver la confidentialité des renseignements exclusifs; protéger les biens de l'entreprise.\n- Parlez avec les autres en utilisant un langage clair et professionnel.\n- Développer et maintenir des relations de travail positives avec les autres; appuyer l'équipe pour atteindre des objectifs communs; écouter les préoccupations des autres employés et y répondre de façon appropriée.\n- Assurer le respect des attentes et des normes de qualité.\n- Se tenir debout, s'asseoir ou marcher pendant une longue période ou pendant toute une période de travail.\n- Atteindre au-dessus et au-dessous des genoux, y compris la flexion, la torsion, la traction et l'inclinaison.\n- Déplacer, soulever, transporter, pousser, tirer et placer des objets pesant moins de 25 livres sans assistance.\n- Exécuter d'autres tâches raisonnables à la demande des superviseurs.\n\nQUALIFICATION PRÉFÉRÉE\n- Éducation: diplôme d'études secondaires ou équivalent G.E.D.\n- Expérience professionnelle connexe : Au moins 1 an d'expérience professionnelle connexe.\n- Expérience de supervision: aucune expérience de supervision.\n- Licence ou certification: Aucun\n\nCosa offriamo\n- Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux opportunités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n- Marriott Hotels s'efforce d'élever l'art de l'hospitalité, en innovant à toutes les occasions tout en gardant le confort du oh-so-familiar partout dans le monde. En tant qu'hôte avec Marriott Hotels, vous aiderez à tenir la promesse de l'hospitalité merveilleuse. Toujours en offrant un service réfléchi, sincère et avant-gardiste qui soutient et construit cet héritage vivant. Avec le nom qui est synonyme d'hospitalité dans le monde entier, nous sommes fiers de vous accueillir pour explorer une carrière avec Marriott Hotels. En rejoignant Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous.\n- JW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des sites de villégiature distincts à travers le monde. JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos invités seront heureux. Les associés de JW Marriott sont confiants, innovants, authentiques, intuitifs et perpétuent l'héritage de la marque J.Willard Marriott. Nos hôtels offrent une expérience de travail différente des autres, où vous allez faire partie d'une communauté et profiter d'une véritable camaraderie avec un groupe diversifié de collaborateurs. JW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pouvez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique. Le traitement des invités commence exceptionnellement par la façon dont nous prenons soin de nos associés. C'est le traitement JWTM. En rejoignant JW Marriott, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous.\n\nContatto\n- En rejoignant Marriott Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+        "en": "## Mansioni\n- Prepare ingredients for cooking, including portioning, chopping, and storing food.\n- Wash and peel fresh fruits and vegetables.\n- Weigh, measure, and mix ingredients.\n- Prepare and cook food according to recipes, quality standards, presentation standards, and food preparation checklist.\n- Prepare cold foods.\n- Operate ovens, stoves, grills, microwaves, and fryers.\n- Test foods to determine if they have been cooked sufficiently.\n- Monitor food quality while preparing food.\n- Set-up and break down work station.\n- Serve food in proper portions onto proper receptacles.\n- Wash and disinfect kitchen area, tables, tools, knives, and equipment.\n- Check and ensure the correctness of the temperature of appliances and food.\n\n## Requisiti\n- Follow all company and safety and security policies and procedures; report maintenance needs, accidents, injuries, and unsafe work conditions to manager; complete safety training and certifications.\n- Ensure uniform and personal appearance are clean and professional; maintain confidentiality of proprietary information; protect company assets.\n- Speak with others using clear and professional language.\n- Develop and maintain positive working relationships with others; support team to reach common goals; listen and respond appropriately to the concerns of other employees.\n- Ensure adherence to quality expectations and standards.\n- Stand, sit, or walk for an extended period of time or for an entire work shift.\n- Reach overhead and below the knees, including bending, twisting, pulling, and stooping.\n- Move, lift, carry, push, pull, and place objects weighing less than or equal to 25 pounds without assistance.\n- Perform other reasonable job duties as requested by Supervisors.\n\n## Cosa offriamo\n- At Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity.\n- We actively foster an environment where the unique backgrounds of our associates are valued and celebrated.\n- We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\n## Contatto\n- JW Marriott is part of Marriott International's luxury portfolio and consists of more than 100 beautiful properties in gateway cities and distinctive resort locations around the world.\n- JW believes our associates come first. Because if you’re happy, our guests will be happy.\n- JW Marriott associates are confident, innovative, genuine, intuitive, and carry on the legacy of the brand’s namesake and company founder, J.Willard Marriott.\n- Our hotels offer a work experience unlike any other, where you’ll be part of a community and enjoy true camaraderie with a diverse group of co-workers.\n- JW creates opportunities for training, development, recognition and most importantly, a place where you can pursue your passions in a luxury environment with a focus on holistic well-being.\n- Treating guests exceptionally starts with the way we take care of our associates. That’s The JW Treatment™.\n- Be where you can do your best work, begin your purpose, belong to an amazing global team, and become the best version of you.",
+        "it": "Mansioni\n- Preparare gli ingredienti per la cottura, tra cui la porzionatura, il taglio e la conservazione del cibo.\n- Lavare e pelare frutta e verdura fresca.\n- Pesare, misurare e mescolare gli ingredienti.\n- Preparare e cucinare il cibo secondo ricette, standard di qualità, standard di presentazione e la lista di controllo di preparazione del cibo.\n- Preparate i cibi freddi.\n- Operare forni, fornelli, griglie, microonde e friggitrici.\n- Testare gli alimenti per determinare se sono stati cucinati abbastanza.\n- Monitorare la qualità alimentare durante la preparazione del cibo.\n- Impostare e distruggere la stazione di lavoro.\n- Servire il cibo in porzioni adeguate su ricettacoli appropriati.\n- Lavare e disinfettare zona cucina, tavoli, strumenti, coltelli e attrezzature.\n- Controllare e garantire la correttezza della temperatura degli apparecchi e del cibo.\n\nRequisiti\n- Seguire tutte le politiche e le procedure aziendali e di sicurezza; segnalare esigenze di manutenzione, incidenti, infortuni e condizioni di lavoro non sicure al gestore; formazione completa e certificazioni di sicurezza.\n- Assicurare l'aspetto uniforme e personale sono puliti e professionali; mantenere la riservatezza delle informazioni proprietarie; proteggere i beni aziendali.\n- Parla con gli altri usando un linguaggio chiaro e professionale.\n- Sviluppare e mantenere rapporti di lavoro positivi con gli altri; team di supporto per raggiungere obiettivi comuni; ascoltare e rispondere adeguatamente alle preoccupazioni di altri dipendenti.\n- Assicurare l'adesione alle aspettative e agli standard di qualità.\n- Stand, sit, o camminare per un lungo periodo di tempo o per un intero turno di lavoro.\n- Raggiungere la testa sopra e sotto le ginocchia, tra cui piegatura, torsione, trazione e stooping.\n- Spostare, sollevare, trasportare, spingere, tirare e posizionare oggetti di peso inferiore o uguale a 25 libbre senza assistenza.\n- Esegui altri ragionevoli doveri di lavoro richiesti dai Supervisori.\n\nCosa?\n- A Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso all'opportunità.\n- Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati.\n- Ci impegniamo a non discriminazione su qualsiasi base protetta, tra cui disabilità, status di veterano o altra base protetta dalla legge applicabile.\n\nContatto\n- JW Marriott fa parte del portafoglio di lusso di Marriott International e si compone di oltre 100 belle proprietà nelle città di gateway e località turistiche distintive in tutto il mondo.\n- JW crede che i nostri associati vengano prima. Perché se sei felice, i nostri ospiti saranno felici.\n- I soci JW Marriott sono fiduciosi, innovativi, genuini, intuitivi e portano avanti l’eredità dell’omonimo marchio e del fondatore della società, J.Willard Marriott.\n- I nostri hotel offrono un'esperienza di lavoro a differenza di qualsiasi altro, dove sarete parte di una comunità e godere di vera camaraderie con un gruppo diversificato di colleghi.\n- JW crea opportunità di formazione, sviluppo, riconoscimento e, soprattutto, un luogo in cui è possibile perseguire le vostre passioni in un ambiente di lusso con un focus sul benessere olistico.\n- Trattare ospiti eccezionalmente inizia con il modo in cui ci prendiamo cura dei nostri associati. Questo è il JW TreatmentTM.\n- Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "de": "Mansion\n- Bereiten Sie Zutaten für das Kochen, einschließlich Portionieren, Häckseln und Lagerung von Lebensmitteln.\n- Frisches Obst und Gemüse waschen und schälen.\n- Wiegen, messen und Zutaten vermischen.\n- Zubereitung und Kochen von Lebensmitteln nach Rezepten, Qualitätsstandards, Präsentationsstandards und Zubereitungs-Checkliste.\n- Bereiten Sie kalte Speisen vor.\n-Ofen, Herde, Grills, Mikrowellen und Friteuse.\n- Testen Sie Lebensmittel, um festzustellen, ob sie ausreichend gekocht wurden.\n- Überwachen Sie die Lebensmittelqualität bei der Zubereitung von Lebensmitteln.\n- Arbeitsstation einrichten und abbrechen.\n- Servieren Sie Lebensmittel in richtigen Portionen auf richtige Behälter.\n- Waschen und desinfizieren Küchenbereich, Tische, Werkzeuge, Messer und Ausrüstung.\n- Überprüfen Sie und stellen Sie die Richtigkeit der Temperatur von Geräten und Lebensmitteln.\n\nVoraussetzungen\n- Befolgen Sie alle Unternehmens- und Sicherheitspolitiken und -verfahren; melden Sie Wartungsanforderungen, Unfälle, Verletzungen und unsichere Arbeitsbedingungen an den Manager; vollständige Sicherheitsausbildung und Zertifizierungen.\n- Stellen Sie sicher, dass einheitliches und persönliches Aussehen sauber und professionell ist; halten Sie die Vertraulichkeit der proprietären Informationen aufrecht; schützen Sie das Unternehmensvermögen.\n- Sprechen Sie mit anderen über klare und professionelle Sprache.\n- Entwicklung und Aufrechterhaltung positiver Arbeitsbeziehungen mit anderen; Unterstützungsteam, um gemeinsame Ziele zu erreichen; hören und reagieren entsprechend auf die Anliegen anderer Mitarbeiter.\n- Gewährleistung der Einhaltung von Qualitätsansprüchen und Standards.\n- Stehen, sitzen oder gehen für eine längere Zeit oder für eine ganze Arbeitsschicht.\n- Greifen Sie über Kopf und unter die Knie, einschließlich Biegen, Verdrehen, Ziehen und Hopfen.\n- Bewegen, heben, tragen, schieben, ziehen und stellen Gegenstände mit einem Gewicht von weniger als 25 Pfund ohne Hilfe.\n- Führen Sie andere angemessene Aufgaben, wie von Aufsichtsbehörden verlangt.\n\nCosa offriamo\n- Bei Marriott International widmen wir uns als Arbeitgeber der Chancengleichheit, begrüßen alle und bieten Zugang zur Gelegenheit.\n- Wir fördern aktiv eine Umgebung, in der die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden.\n- Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, veteranischer Status oder anderer durch geltendes Recht geschützter Grundlage.\n\nContattoo\n- JW Marriott ist Teil des Luxus-Portfolios von Marriott International und besteht aus mehr als 100 schönen Immobilien in Gateway-Städten und einzigartigen Resort-Standorten auf der ganzen Welt.\n- JW glaubt, unsere Mitarbeiter kommen zuerst. Denn wenn Sie glücklich sind, werden unsere Gäste glücklich sein.\n- JW Marriott-Mitarbeiter sind zuversichtlich, innovativ, echt, intuitiv und tragen das Vermächtnis des Markennamens und Firmengründers J.Willard Marriott.\n- Unsere Hotels bieten eine Arbeitserfahrung im Gegensatz zu jedem anderen, wo Sie Teil einer Gemeinschaft sein und genießen echte Camaraderie mit einer Vielzahl von Mitarbeitern.\n- JW schafft Möglichkeiten für Training, Entwicklung, Anerkennung und vor allem einen Ort, an dem Sie Ihre Leidenschaften in einer luxuriösen Umgebung mit einem Fokus auf ganzheitliches Wohlbefinden verfolgen können.\n- Die Gäste zu behandeln beginnt mit der Art, wie wir uns um unsere Mitarbeiter kümmern. Das ist die JW-Behandlung.\n- Seien Sie, wo Sie Ihre beste Arbeit tun können, beginnen Sie Ihren Zweck, gehören zu einem erstaunlichen globalen Team und werden die beste Version von Ihnen.",
+        "fr": "Mansioni\n- Préparer les ingrédients pour la cuisson, y compris la portion, la découpe et le stockage des aliments.\n- Laver et éplucher les fruits et légumes frais.\n- Peser, mesurer et mélanger les ingrédients.\n- Préparer et cuire les aliments selon les recettes, les normes de qualité, les normes de présentation et la liste de contrôle de préparation des aliments.\n- Préparez des aliments froids.\n- Utiliser des fours, cuisinières, grillades, micro-ondes et friteuses.\n- Tester les aliments pour déterminer s'ils ont été suffisamment cuits.\n- Surveiller la qualité des aliments pendant la préparation des aliments.\n- Mettez en place et cassez le poste de travail.\n- Servir les aliments dans des portions appropriées sur des récipients appropriés.\n- Laver et désinfecter la cuisine, les tables, les outils, les couteaux et l'équipement.\n- Vérifier et assurer l'exactitude de la température des appareils et des aliments.\n\nRequisiti\n- Suivre toutes les politiques et procédures de l'entreprise en matière de sécurité et de sûreté; signaler les besoins en matière d'entretien, les accidents, les blessures et les conditions de travail dangereuses au gestionnaire; terminer la formation et les certifications en matière de sécurité.\n- S'assurer que l'apparence uniforme et personnelle est propre et professionnelle; préserver la confidentialité des renseignements exclusifs; protéger les biens de l'entreprise.\n- Parlez avec les autres en utilisant un langage clair et professionnel.\n- Développer et maintenir des relations de travail positives avec les autres; appuyer l'équipe pour atteindre des objectifs communs; écouter les préoccupations des autres employés et y répondre de façon appropriée.\n- Assurer le respect des attentes et des normes de qualité.\n- Se tenir debout, s'asseoir ou marcher pendant une longue période ou pendant toute une période de travail.\n- Atteindre au-dessus et au-dessous des genoux, y compris la flexion, la torsion, la traction et l'inclinaison.\n- Déplacer, soulever, transporter, pousser, tirer et placer des objets pesant moins de 25 livres sans assistance.\n- Exécuter d'autres tâches raisonnables à la demande des superviseurs.\n\nCosa offriamo\n- Chez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux opportunités.\n- Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées.\n- Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nContatto\n- JW Marriott fait partie du portefeuille de luxe de Marriott International et se compose de plus de 100 belles propriétés dans des villes portes et des sites de villégiature distincts à travers le monde.\n- JW croit que nos associés viennent en premier. Parce que si vous êtes heureux, nos invités seront heureux.\n- Les associés de JW Marriott sont confiants, innovants, authentiques, intuitifs et perpétuent l'héritage de la marque J.Willard Marriott.\n- Nos hôtels offrent une expérience de travail différente des autres, où vous allez faire partie d'une communauté et profiter d'une véritable camaraderie avec un groupe diversifié de collaborateurs.\n- JW crée des opportunités de formation, de développement, de reconnaissance et surtout, un lieu où vous pouvez poursuivre vos passions dans un environnement de luxe en mettant l'accent sur le bien-être holistique.\n- Traiter les invités exceptionnellement commence par la façon dont nous prenons soin de nos associés. C'est le traitement JWTM.\n- Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
       },
       "location": "Geneva",
       "canton": "GE",
@@ -3629,23 +3642,18 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva",
-          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
+          "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva"
         ],
         "en": [
           "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva"
         ],
         "fr": [
-          "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
-        ],
-        "de": [
-          "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier"
+          "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
         "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva",
-        "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
-        "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
+        "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

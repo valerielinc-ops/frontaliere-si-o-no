@@ -76,7 +76,8 @@
         "assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos",
         "care-assistant-srk-spitex-50-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "unterassistent-in-chirurgie-orthopala-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -306,7 +307,7 @@
       "slug": "sostanza-in-anestesia-100-spital-davos-davos",
       "slugByLocale": {
         "it": "assistente-anestesia-100-spital-davos-davos",
-        "en": "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "en": "anesthesia-assistant-100-spital-davos-davos",
         "de": "unterassistent-in-anasthesie-100-spital-davos-ch",
         "fr": "assistant-en-anesthesie-100-spital-davos-davos"
       },
@@ -377,14 +378,15 @@
       "pensum": "100%",
       "previousSlugs": [
         "unterassistent-in-anasthesie-100-spital-davos-ch",
-        "anesthesia-assistant-100-spital-davos-davos"
+        "subassistance-in-anaesthesia-100-spital-davos-davos",
+        "sostanza-in-anestesia-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistent-in-anasthesie-100-spital-davos-ch"
         ],
         "en": [
-          "anesthesia-assistant-100-spital-davos-davos"
+          "subassistance-in-anaesthesia-100-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-13T11:17:45.941Z",
@@ -913,7 +915,7 @@
       "id": "spital-davos-501ff253ad6d",
       "slug": "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos",
       "slugByLocale": {
-        "it": "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos",
+        "it": "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos",
         "en": "employees-in-stock-management-based-on-hours-unregular-operations-spital-davos-davos",
         "de": "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "fr": "employes-dans-la-gestion-des-stocks-en-fonction-des-heures-operations-irregulieres-spital-davos-davos"
@@ -961,13 +963,12 @@
       "previousSlugs": [
         "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
         "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos",
-        "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos"
+        "dipendenti-nella-gestione-delle-scorte-in-base-alle-ore-operazioni-non-regolari-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-",
-          "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos",
-          "collaboratore-trice-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-davos"
+          "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos"
         ],
         "en": [
           "mitarbeiter-in-lagerbewirtschaftung-auf-stundenbasis-unregelmassige-einsatze-spital-davos-"
@@ -995,7 +996,7 @@
       "id": "spital-davos-9804891a5da1",
       "slug": "spitex-salute-specialistica-50-100-spital-davos-davos",
       "slugByLocale": {
-        "it": "spitex-salute-specialistica-50-100-spital-davos-davos",
+        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
         "en": "spitex-health-care-assistant-50-100-spital-davos-davos",
         "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
         "fr": "spitex-assistant-de-sante-50-100-spital-davos-davos"
@@ -1045,12 +1046,11 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "spitex-assistente-sanitario-50-100-spital-davos-davos"
+        "spitex-salute-specialistica-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-          "spitex-assistente-sanitario-50-100-spital-davos-davos"
+          "spitex-fachperson-gesundheit-50-100-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",
@@ -1128,7 +1128,8 @@
         "assistant-en-chirurgie-et-orthopedie-100-spital-davos-davos",
         "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
         "spitex-assistant-de-sante-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos"
+        "spitex-health-care-assistant-50-100-spital-davos-davos",
+        "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1403,7 +1404,7 @@
       "id": "spital-davos-976c9df256bc",
       "slug": "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos",
       "slugByLocale": {
-        "it": "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos",
+        "it": "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
         "en": "medical-practical-assistant-in-mpa-or-specialist-health-fage-for-daily-clinic-pensum-60-spital-davos-davos",
         "de": "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
         "fr": "medical-assistant-pratique-mpa-ou-specialiste-de-la-sante-fage-pour-la-clinique-quotidienne-pensum-60-spital-davos-davos"
@@ -1454,14 +1455,13 @@
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens",
         "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik",
-        "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos",
-        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
+        "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos",
+        "medico-assistente-pratico-in-mpa-o-salute-specialistica-fage-per-la-clinica-quotidiana-pensum-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pens",
-          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik",
-          "medizinische-r-praxisassistent-in-mpa-o-fachperson-gesundheit-fage-per-tagesklinik-pensum-60-spital-davos-davos"
+          "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-mpa-oder-fachperson-gesundheit-fage-fur-tagesklinik-pensum-60-spital-davos-davos"
@@ -1646,12 +1646,12 @@
     },
     {
       "id": "spital-davos-6ed07a4bdb92",
-      "slug": "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos",
+      "slug": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
-        "it": "medico-assistente-pratico-in-pediatrico-pensum-40-job-sharing-spital-davos-davos",
-        "en": "medical-practical-assistant-in-pediatrics-pensum-40-job-sharing-spital-davos-davos",
-        "fr": "medical-assistant-pratique-en-pediatrie-pensum-40-partage-de-l-emploi-spital-davos-davos"
+        "it": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+        "en": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch",
+        "fr": "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1711,30 +1711,16 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-05-29T13:58:41.353Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
-        ],
-        "en": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
-        ],
-        "fr": [
-          "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-padiatrie-pensum-40-job-sharing-spital-davos-ch"
-      ]
+      "firstSeenAt": "2026-05-29T13:58:41.353Z"
     },
     {
       "id": "spital-davos-80c9d2e1aed9",
-      "slug": "assistente-di-ambulatorio-medico-nel-60-100-spital-davos-davos",
+      "slug": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "it": "assistente-di-ambulatorio-medico-nel-60-100-spital-davos-davos",
-        "en": "medical-practice-assistant-60-100-spital-davos-davos-e070f5",
-        "fr": "assistant-e-medical-e-60-100-spital-davos-davos-e070f5"
+        "it": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "en": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
+        "fr": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1742,15 +1728,15 @@
       "title": "Medizinische:r Praxisassistent:in 60-100%",
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in 60-100%",
-        "it": "Assistente di ambulatorio medico:nel 60-100%",
-        "en": "Medical practice assistant 60-100%",
-        "fr": "Assistant (e) médical (e) :60-100 %"
+        "it": "Assistente Medico 60-100%",
+        "en": "Medical Practice Assistant 60-100%",
+        "fr": "Assistant de pratique médicale 60-100%"
       },
       "description": "Als erfahrene:r medizinische:r Praxisassistent:in EFZ sind Sie Teil unserer Praxiszentrum Davos AG und tragen zur Erfolgsstory der stark wachsenden Hausarztpraxis bei. Die moderne und multidisziplinäre Hausarztpraxis wurde im August 2025 als Tochtergesellschaft der Spital Davos AG gegründet. Sie erfreut sich bereits sehr hoher Beliebtheit und das Team vergrössert sich kontinuierlich, sei es auf Seite der Ärzteschaft wie auch der medizinischen Praxisassistenz. Das Wohlbefinden unserer Patienteninnen und Patienten liegt uns am Herzen, genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Im Praxiszentrum Davos arbeiten Sie in einem kleinen Team und sind dank der unmittelbaren Nähe gleichzeitig gut ins Umfeld der Spital Davos AG eingebettet. Wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos. | Nach Vereinbarung suchen wir eine erfahrene Persönlichkeit als |\n• Organisation und Administration der Hausarztsprechstunden\n• Übernahme der Triage-Funktion der Notfallpatientinnen und Notfallpatienten\n• Medikamentenbewirtschaftung\n• Durchführen von diagnostischen Massnahmen unter ärztlicher Verordnung\n• Durchführen von therapeutischen Massnahmen nach ärztlichen Anweisungen |\n• Ausbildung als med. Praxisassistent:in EFZ\n• Freude an einem dynamischen Praxisalltag\n• Hilfsbereite, selbständige und verantwortungsbewusste Arbeitsweise\n• Sie arbeiten gerne in einem interdisziplinären Team, sind eine empathische Persönlichkeit und bringen ein grosses Engagement mit\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil\n• Gute bis sehr gute IT-/Office-Kenntnisse |\n• Ein spannendes Umfeld, in welchem Ihr fundiertes Fachwissen und -können zum Tragen kommen\n• Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe\n• Interessante Weiterbildungsmöglichkeiten\n• Zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos | Für weitere Auskünfte stehen Ihnen Laura Walser, Medizinische Praxiskoordinatorin der Praxiszentrum Davos AG, unter der Telefonnummer +41 81 414 96 96 wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
       "descriptionByLocale": {
         "de": "Als erfahrene:r medizinische:r Praxisassistent:in EFZ sind Sie Teil unserer Praxiszentrum Davos AG und tragen zur Erfolgsstory der stark wachsenden Hausarztpraxis bei. Die moderne und multidisziplinäre Hausarztpraxis wurde im August 2025 als Tochtergesellschaft der Spital Davos AG gegründet. Sie erfreut sich bereits sehr hoher Beliebtheit und das Team vergrössert sich kontinuierlich, sei es auf Seite der Ärzteschaft wie auch der medizinischen Praxisassistenz. Das Wohlbefinden unserer Patienteninnen und Patienten liegt uns am Herzen, genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Im Praxiszentrum Davos arbeiten Sie in einem kleinen Team und sind dank der unmittelbaren Nähe gleichzeitig gut ins Umfeld der Spital Davos AG eingebettet. Wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos. | Nach Vereinbarung suchen wir eine erfahrene Persönlichkeit als |\n• Organisation und Administration der Hausarztsprechstunden\n• Übernahme der Triage-Funktion der Notfallpatientinnen und Notfallpatienten\n• Medikamentenbewirtschaftung\n• Durchführen von diagnostischen Massnahmen unter ärztlicher Verordnung\n• Durchführen von therapeutischen Massnahmen nach ärztlichen Anweisungen |\n• Ausbildung als med. Praxisassistent:in EFZ\n• Freude an einem dynamischen Praxisalltag\n• Hilfsbereite, selbständige und verantwortungsbewusste Arbeitsweise\n• Sie arbeiten gerne in einem interdisziplinären Team, sind eine empathische Persönlichkeit und bringen ein grosses Engagement mit\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil\n• Gute bis sehr gute IT-/Office-Kenntnisse |\n• Ein spannendes Umfeld, in welchem Ihr fundiertes Fachwissen und -können zum Tragen kommen\n• Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe\n• Interessante Weiterbildungsmöglichkeiten\n• Zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos | Für weitere Auskünfte stehen Ihnen Laura Walser, Medizinische Praxiskoordinatorin der Praxiszentrum Davos AG, unter der Telefonnummer +41 81 414 96 96 wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "it": "Come esperto:r medico:r assistente pratico:in EFZ sei parte del nostro centro di pratica Davos AG e contribuire alla storia di successo della pratica medica fortemente in crescita. La pratica del medico familiare moderno e multidisciplinare fu fondata nell'agosto del 2025 come sussidiaria della Spital Davos AG. Lei gode molto alta popolarità e la squadra continua a crescere, sia esso sul lato della professione medica e stage medico. Il benessere dei nostri pazienti è al nostro cuore, ma ci preoccupiamo anche del benessere dei nostri dipendenti. Nel centro pratica Davos, si lavora in una piccola squadra e si integrano bene nell'ambiente di Spital Davos AG grazie alla sua immediata vicinanza. Manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura, così come le numerose opportunità sportive e ricreative intorno a Davos. # Per accordo, cerchiamo una personalità esperta come organizzazione e amministrazione delle ore mediche • assumere la funzione di triage dei pazienti di emergenza • gestire i farmaci • eseguire misure diagnostiche in base alla regolamentazione medica • eseguire misure terapeutiche secondo le istruzioni mediche | • formazione come medico. Assistente pratico: in EFZ • Gioia in una vita quotidiana dinamica • Lavoro utile, indipendente e responsabile • A loro piace lavorare in un team interdisciplinare, sono una personalità empatica e portare un grande impegno • Molto buone competenze in lingua tedesca e buona inglese, altre lingue straniere di vantaggio • Buono a molto buono IT / Ufficio competenze | • Un ambiente emozionante in cui le vostre competenze e competenze ben fondate possono venire a sopportare • condizioni di lavoro attraenti e benefici sociali; • Interessanti opportunità di formazione • Numerose opportunità di sport e di svago intorno a Davos contatto Per ulteriori informazioni.",
-        "en": "As an experienced:r medical:r practical assistant:in EFZ you are part of our practice center Davos AG and contribute to the success story of the strongly growing medical practice. The modern and multidisciplinary family doctor's practice was founded in August 2025 as a subsidiary of Spital Davos AG. She enjoys very high popularity and the team continues to grow, be it on the side of the medical profession as well as medical internship. The well-being of our patients is at our heart, but we also care about the well-being of our employees. In the Davos practice centre, you work in a small team and are well embedded in the environment of Spital Davos AG thanks to its immediate proximity. We maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities around Davos. | By agreement we seek an experienced personality as |\n• Organisation and administration of the family doctor's hours\n• Takeover of the Triage function of emergency patients\n• Drug management\n• Implementation of diagnostic measures under medical regulation\n• Conducting therapeutic measures according to medical instructions |\n• Training as a med. Practical assistant:in EFZ\n• Joy in a dynamic everyday practice\n• helpful, independent and responsible work\n• They like to work in an interdisciplinary team, are an empathic personality and bring a great commitment with\n• Very good German and good English skills, other foreign languages of advantage\n• Good to very good IT/Office knowledge |\n• An exciting environment in which your well-founded expertise and expertise can come to bear\n• Attractive employment conditions and social benefits; spit-own crèche\n• Interesting training opportunities\n• Numerous sports and leisure facilities around Davos | For further information, please contact Laura Walser, Medical Practice Coordinator at the Davos AG Practice Centre, at +41 81 414 96 96 and our HRM recruitment team at +41 81 414 84 12 or via e-mail jobs@spitaldavos.ch.",
+        "en": "As an experienced:r medical:r practical assistant:in EFZ you are part of our practice center Davos AG and contribute to the success story of the strongly growing medical practice. The modern and multidisciplinary family doctor's practice was founded in August 2025 as a subsidiary of Spital Davos AG. She enjoys very high popularity and the team continues to grow, be it on the side of the medical profession as well as medical internship. The well-being of our patients is at our heart, but we also care about the well-being of our employees. In the Davos practice centre, you work in a small team and are well embedded in the environment of Spital Davos AG thanks to its immediate proximity. We maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities around Davos. | By agreement, we seek an experienced personality as a | • organisation and administration of the medical hours • taking over the triage function of emergency patients • managing drugs • carrying out diagnostic measures under medical regulation • carrying out therapeutic measures according to medical instructions | • training as a med. Practical assistant:in EFZ • Joy in a dynamic everyday life • Helpful, independent and responsible working • They like to work in an interdisciplinary team, are an empathic personality and bring a great commitment • Very good German and good English skills, other foreign languages of advantage • Good to very good IT/Office skills | • An exciting environment in which your well-founded expertise and expertise can come to bear • Attractive employment conditions and social benefits; • Interesting training opportunities • Numerous sports and leisure opportunities around Davos | For further information, please contact Laura Walser, Medical Practice Coordinator at the Davos AG Practice Centre, at +41 81 414 96 96 and our HRM recruitment team at +41 81 414 84 12 or via e-mail jobs@spitaldavos.ch.",
         "fr": "En tant qu'assistant médical:r expérimenté:r pratique:In EFZ vous faites partie de notre centre de pratique Davos AG et contribuez au succès de la pratique médicale en forte croissance. La médecine familiale moderne et multidisciplinaire a été fondée en août 2025 en tant que filiale de Spital Davos AG. Elle jouit d'une très grande popularité et l'équipe continue de croître, que ce soit du côté de la profession médicale ainsi que du stage médical. Le bien-être de nos patients est à notre cœur, mais nous nous soucions aussi du bien-être de nos employés. Dans le centre d'entraînement de Davos, vous travaillez dans une petite équipe et êtes bien intégré dans l'environnement de Spital Davos AG grâce à sa proximité immédiate. Nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs autour de Davos. Autres Par accord, nous recherchons une personnalité expérimentée\n• Organisation et administration des heures du médecin de famille\n• Prise en charge de la fonction Triage des patients d'urgence\n• Gestion des médicaments\n• Mise en œuvre de mesures de diagnostic dans le cadre de la réglementation médicale\n• Mener des mesures thérapeutiques selon les instructions médicales\n• La formation en médecine. Assistant pratique:dans EFZ\n• La joie dans une pratique quotidienne dynamique\n• travail utile, indépendant et responsable\n• Ils aiment travailler dans une équipe interdisciplinaire, sont une personnalité empathique et apportent un grand engagement avec\n• Très bonne maîtrise de l'allemand et de l'anglais, autres langues étrangères d'avantage\n• Bonne à très bonne connaissance informatique/bureautique\n• Un environnement passionnant dans lequel votre expertise et votre savoir-faire fondés peuvent venir à bout\n• Conditions d'emploi attrayantes et prestations sociales; crèche à cracher\n• Possibilités de formation intéressantes\n• De nombreuses installations sportives et de loisirs autour de Davos Pour de plus amples informations, veuillez contacter Laura Walser, Coordonnatrice de la pratique médicale au Centre de pratique de Davos AG, au +41 81 414 96 96 et notre équipe de recrutement HRM au +41 81 414 84 12 ou par e-mail jobs@spitaldavos.ch."
       },
       "location": "Davos",
@@ -1794,21 +1780,7 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-05-29T13:58:40.477Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
-        ],
-        "en": [
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
-        ],
-        "fr": [
-          "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
-      ]
+      "firstSeenAt": "2026-05-29T13:58:40.477Z"
     },
     {
       "id": "spital-davos-be835c12c7ba",
@@ -1817,7 +1789,7 @@
         "de": "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
         "it": "assistente-medico-a-60-100-spital-davos-davos",
         "en": "medical-practice-assistant-60-100-spital-davos-davos",
-        "fr": "medecin-assistant-pratique-en-60-100-spital-davos-davos"
+        "fr": "assistant-e-medical-e-60-100-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1833,7 +1805,7 @@
       "descriptionByLocale": {
         "de": "Als erfahrene:r medizinische:r Praxisassistent:in EFZ sind Sie Teil unserer Praxiszentrum Davos AG und tragen zur Erfolgsstory der stark wachsenden Hausarztpraxis bei. Die moderne und multidisziplinäre Hausarztpraxis wurde im August 2025 als Tochtergesellschaft der Spital Davos AG gegründet. Sie erfreut sich bereits sehr hoher Beliebtheit und das Team vergrössert sich kontinuierlich, sei es auf Seite der Ärzteschaft wie auch der medizinischen Praxisassistenz. Das Wohlbefinden unserer Patienteninnen und Patienten liegt uns am Herzen, genauso wichtig ist uns aber auch das Wohlbefinden unserer Mitarbeitenden. Im Praxiszentrum Davos arbeiten Sie in einem kleinen Team und sind dank der unmittelbaren Nähe gleichzeitig gut ins Umfeld der Spital Davos AG eingebettet. Wir pflegen ein kollegiales Arbeitsklima und schätzen die Nähe zur Natur sowie die zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos. | Zur Verstärkung unseres Teams für die Wintersaison 2026/27 suchen wir eine erfahrene Persönlichkeit als |\n• Organisation und Administration der Hausarztsprechstunden\n• Übernahme der Triage-Funktion der Notfallpatientinnen und Notfallpatienten\n• Medikamentenbewirtschaftung\n• Durchführen von diagnostischen Massnahmen unter ärztlicher Verordnung\n• Durchführen von therapeutischen Massnahmen nach ärztlichen Anweisungen |\n• Ausbildung als med. Praxisassistent:in EFZ\n• Freude an einem dynamischen Praxisalltag\n• Hilfsbereite, selbständige und verantwortungsbewusste Arbeitsweise\n• Sie arbeiten gerne in einem interdisziplinären Team, sind eine empathische Persönlichkeit und bringen ein grosses Engagement mit\n• Sehr gute Deutsch- und gute Englischkenntnisse, weitere Fremdsprachen von Vorteil\n• Gute bis sehr gute IT-/Office-Kenntnisse |\n• Ein spannendes Umfeld, in welchem Ihr fundiertes Fachwissen und -können zum Tragen kommen\n• Attraktive Anstellungsbedingungen und Sozialleistungen; spitaleigene Kinderkrippe\n• Interessante Weiterbildungsmöglichkeiten\n• Zahlreichen Sport- und Freizeitmöglichkeiten rund um Davos | Für weitere Auskünfte stehen Ihnen Laura Walser, Medizinische Praxiskoordinatorin der Praxiszentrum Davos AG, unter der Telefonnummer +41 81 414 96 96 wie auch unser HRM-Rekrutierungsteam unter +41 81 414 84 12 oder via E-Mail jobs@spitaldavos.ch gerne zur Verfügung.",
         "it": "Come esperto:r medico:r assistente pratico:in EFZ sei parte del nostro centro di pratica Davos AG e contribuire alla storia di successo della pratica medica fortemente in crescita. La pratica del medico familiare moderno e multidisciplinare fu fondata nell'agosto del 2025 come sussidiaria della Spital Davos AG. Lei gode molto alta popolarità e la squadra continua a crescere, sia esso sul lato della professione medica e stage medico. Il benessere dei nostri pazienti è al nostro cuore, ma ci preoccupiamo anche del benessere dei nostri dipendenti. Nel centro pratica Davos, si lavora in una piccola squadra e si integrano bene nell'ambiente di Spital Davos AG grazie alla sua immediata vicinanza. Manteniamo un ambiente di lavoro collegiale e apprezziamo la vicinanza alla natura, così come le numerose opportunità sportive e ricreative intorno a Davos. # Per rafforzare il nostro team per la stagione invernale 2026/27 stiamo cercando una personalità esperta come |\n• Organizzazione e amministrazione delle ore del medico di famiglia\n• Assumere la funzione Triage dei pazienti di emergenza\n• Gestione della droga\n• Attuazione delle misure diagnostiche in materia di regolamentazione medica\n• Condurre misure terapeutiche secondo le istruzioni mediche |\n• Formazione come medicina. Assistente pratico: in EFZ\n• Gioia in una pratica quotidiana dinamica\n• lavoro utile, indipendente e responsabile\n• A loro piace lavorare in un team interdisciplinare, sono una personalità empatica e portare un grande impegno con\n• Molto buone competenze in tedesco e inglese, altre lingue straniere di vantaggio\n• Buono a molto buono IT/Office Knowledge |\n• Un ambiente emozionante in cui le vostre competenze e competenze ben fondate possono venire a sopportare\n• Condizioni di lavoro interessanti e vantaggi sociali;\n• Opportunità di formazione interessanti\n• Numerose strutture sportive e ricreative intorno a Davos | Per ulteriori informazioni, si prega di contattare Laura Walser, Medical Practice Coordinator presso il Davos AG Practice Centre, al +41 81 414 96 96 e il nostro team di reclutamento HRM al +41 81 414 84 12 o via e-mail job@spitaldavos.ch.",
-        "en": "As an experienced:r medical:r practical assistant:in EFZ you are part of our practice center Davos AG and contribute to the success story of the strongly growing medical practice. The modern and multidisciplinary family doctor's practice was founded in August 2025 as a subsidiary of Spital Davos AG. She enjoys very high popularity and the team continues to grow, be it on the side of the medical profession as well as medical internship. The well-being of our patients is at our heart, but we also care about the well-being of our employees. In the Davos practice centre, you work in a small team and are well embedded in the environment of Spital Davos AG thanks to its immediate proximity. We maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities around Davos. | To strengthen our team for the winter season 2026/27 we are looking for an experienced personality as |\n• Organisation and administration of the family doctor's hours\n• Takeover of the Triage function of emergency patients\n• Drug management\n• Implementation of diagnostic measures under medical regulation\n• Conducting therapeutic measures according to medical instructions |\n• Training as a med. Practical assistant:in EFZ\n• Joy in a dynamic everyday practice\n• helpful, independent and responsible work\n• They like to work in an interdisciplinary team, are an empathic personality and bring a great commitment with\n• Very good German and good English skills, other foreign languages of advantage\n• Good to very good IT/Office knowledge |\n• An exciting environment in which your well-founded expertise and expertise can come to bear\n• Attractive employment conditions and social benefits; spit-own crèche\n• Interesting training opportunities\n• Numerous sports and leisure facilities around Davos | For further information, please contact Laura Walser, Medical Practice Coordinator at the Davos AG Practice Centre, at +41 81 414 96 96 and our HRM recruitment team at +41 81 414 84 12 or via e-mail jobs@spitaldavos.ch.",
+        "en": "As an experienced:r medical:r practical assistant:in EFZ you are part of our practice center Davos AG and contribute to the success story of the strongly growing medical practice. The modern and multidisciplinary family doctor's practice was founded in August 2025 as a subsidiary of Spital Davos AG. She enjoys very high popularity and the team continues to grow, be it on the side of the medical profession as well as medical internship. The well-being of our patients is at our heart, but we also care about the well-being of our employees. In the Davos practice centre, you work in a small team and are well embedded in the environment of Spital Davos AG thanks to its immediate proximity. We maintain a collegial working environment and appreciate the proximity to nature as well as the numerous sports and leisure opportunities around Davos. | To strengthen our team for the winter season 2026/27, we are looking for an experienced personality as a | • organisation and administration of the family doctor's office • taking over the triage function of emergency patients • managing medicine • performing diagnostic measures under medical regulation • performing therapeutic measures according to medical instructions | • training as a med. Practical assistant:in EFZ • Joy in a dynamic everyday life • Helpful, independent and responsible working • They like to work in an interdisciplinary team, are an empathic personality and bring a great commitment • Very good German and good English skills, other foreign languages of advantage • Good to very good IT/Office skills | • An exciting environment in which your well-founded expertise and expertise can come to bear • Attractive employment conditions and social benefits; • Interesting training opportunities • Numerous sports and leisure opportunities around Davos | For further information, please contact Laura Walser, Medical Practice Coordinator at the Davos AG Practice Centre, at +41 81 414 96 96 and our HRM recruitment team at +41 81 414 84 12 or via e-mail jobs@spitaldavos.ch.",
         "fr": "En tant qu'assistant médical:r expérimenté:r pratique:In EFZ vous faites partie de notre centre de pratique Davos AG et contribuez au succès de la pratique médicale en forte croissance. La médecine familiale moderne et multidisciplinaire a été fondée en août 2025 en tant que filiale de Spital Davos AG. Elle jouit d'une très grande popularité et l'équipe continue de croître, que ce soit du côté de la profession médicale ainsi que du stage médical. Le bien-être de nos patients est à notre cœur, mais nous nous soucions aussi du bien-être de nos employés. Dans le centre d'entraînement de Davos, vous travaillez dans une petite équipe et êtes bien intégré dans l'environnement de Spital Davos AG grâce à sa proximité immédiate. Nous maintenons un environnement de travail collégial et apprécions la proximité de la nature ainsi que les nombreuses possibilités de sports et de loisirs autour de Davos. Autres Pour renforcer notre équipe pour la saison d'hiver 2026/27, nous recherchons une personnalité expérimentée en tant que : • organisation et administration du cabinet du médecin de famille • prise en charge de la fonction de triage des patients d'urgence • gestion de la médecine • réalisation de mesures de diagnostic sous réglementation médicale • exécution de mesures thérapeutiques selon les instructions médicales Assistant pratique:dans EFZ • Joy dans une vie quotidienne dynamique • Travail utile, indépendant et responsable • Ils aiment travailler dans une équipe interdisciplinaire, sont une personnalité empathique et apportent un grand engagement • Très bon allemand et de bonnes compétences en anglais, d'autres langues étrangères d'avantage • Bon à très bonnes compétences en informatique / bureau • Un environnement passionnant dans lequel votre expertise bien fondée et l'expertise peuvent venir à porter • Des conditions d'emploi attrayants et des avantages sociaux; • Possibilités de formation intéressantes • De nombreuses possibilités de sport et de loisirs autour de Davos."
       },
       "location": "Davos",
@@ -1867,14 +1839,10 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
-        ],
-        "fr": [
-          "assistant-e-medical-e-60-100-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch",
-        "assistant-e-medical-e-60-100-spital-davos-davos"
+        "medizinische-r-praxisassistent-in-60-100-spital-davos-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2202,7 +2170,7 @@
         "it": "dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos",
         "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "fr": "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
+        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2253,8 +2221,9 @@
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
-        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+        "dipl-station-de-surveillance-hf-40-60-spital-davos-davos",
+        "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+        "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2269,7 +2238,7 @@
         ],
         "fr": [
           "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
-          "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
+          "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",

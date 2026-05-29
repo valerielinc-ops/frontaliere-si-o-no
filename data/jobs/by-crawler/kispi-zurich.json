@@ -82,10 +82,10 @@
       "id": "kispi-zurich-f2e0b8b7d974",
       "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
         "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -132,19 +132,20 @@
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ],
         "it": [
-          "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-          "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
+          "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
         ],
         "en": [
-          "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
+          "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
-          "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
+          "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
         "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-        "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich"
+        "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich",
+        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "firstSeenAt": "2026-05-20T23:19:34.031Z",
       "salaryMin": 68000,
@@ -694,12 +695,12 @@
     },
     {
       "id": "kispi-zurich-e1a19bf27ae4",
-      "slug": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich-e5741a",
+      "slug": "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
-        "it": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich-e5741a",
-        "en": "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "consultant-principal-m-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "it": "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
+        "fr": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -744,19 +745,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
-          "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "en": [
-          "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
           "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
-        "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

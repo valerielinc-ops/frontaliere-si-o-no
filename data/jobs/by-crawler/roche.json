@@ -3922,10 +3922,10 @@
       "id": "roche-6a22d86ce3f8",
       "slug": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
       "slugByLocale": {
-        "it": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
+        "it": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
         "en": "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
         "de": "employer-brand-content-creation-praktikant-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "fr": "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
+        "fr": "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3966,20 +3966,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-        "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+        "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel",
+        "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "de": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "fr": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+          "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-21T13:09:46.810Z",
@@ -4153,7 +4152,7 @@
         "it": "data-information-architetto-data-platforms-roche-basel",
         "en": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
+        "fr": "data-information-architecte-data-platforms-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4195,7 +4194,7 @@
       "previousSlugs": [
         "data-information-architect-data-platforms-roche-ch",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "data-information-architecte-data-platforms-roche-basel",
+        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
         "data-information-architect-datenplattformen-roche-basel",
         "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e",
@@ -4210,6 +4209,7 @@
         ],
         "fr": [
           "data-information-architect-data-platforms-roche-ch",
+          "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
           "data-information-architecte-data-platforms-roche-basel"
         ]
       },
@@ -5326,7 +5326,7 @@
       "id": "roche-1c76aa4362fa",
       "slug": "ingegnere-di-manutenzione-roche-basel",
       "slugByLocale": {
-        "it": "ingegnere-di-manutenzione-roche-basel",
+        "it": "maintenance-ingegnere-roche-basel",
         "en": "maintenance-engineer-roche-basel",
         "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
@@ -5373,8 +5373,7 @@
           "maintenance-engineer-roche-ch"
         ],
         "it": [
-          "maintenance-engineer-roche-ch",
-          "maintenance-ingegnere-roche-basel"
+          "maintenance-engineer-roche-ch"
         ],
         "de": [
           "maintenance-engineer-roche-ch"
@@ -5382,7 +5381,7 @@
       },
       "previousSlugs": [
         "maintenance-engineer-roche-ch",
-        "maintenance-ingegnere-roche-basel"
+        "ingegnere-di-manutenzione-roche-basel"
       ],
       "firstSeenAt": "2026-05-21T23:38:01.006Z",
       "salaryMin": 49500,
@@ -5740,7 +5739,8 @@
         "it": [
           "global-digital-campaign-expert-talent-pool-roche-ch",
           "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
-          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest"
+          "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
+          "global-digital-campaign-expert-talent-pool-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -5914,7 +5914,7 @@
       "id": "roche-0481c12981e8",
       "slug": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
       "slugByLocale": {
-        "it": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
+        "it": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
         "en": "qa-manager-qualification-and-validation-of-systems-devices-and-systems-roche-basel",
         "de": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
         "fr": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -5958,12 +5958,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-        "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
+        "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-          "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
+          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
         ],
         "en": [
           "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -8383,7 +8382,7 @@
       "id": "roche-5a9a074d622a",
       "slug": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
       "slugByLocale": {
-        "it": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
+        "it": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "en": "practical-internship-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
         "de": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "fr": "stage-en-soutien-manufacturing-assemblage-emballage-septembre-2026-12-mois-roche-kaiseraugst"
@@ -8428,15 +8427,14 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
-        "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "practicum-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
-        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst"
+        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst",
+        "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
-          "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
+          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
@@ -12037,7 +12035,8 @@
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specialista-dell-assistenza-tecnica-specialista-roche-poland",
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -13577,7 +13576,8 @@
       "previousSlugsByLocale": {
         "it": [
           "estagiario-de-pricing-e-contratos-roche-ch",
-          "statistica-dei-prezzi-e-dei-contratti-roche-sao-paulo"
+          "statistica-dei-prezzi-e-dei-contratti-roche-sao-paulo",
+          "estagiario-de-pricing-e-contratos-roche-sao-paulo"
         ]
       },
       "needsRetranslation": true,
@@ -19558,6 +19558,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
+          "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
           "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
         ],
         "it": [
@@ -19572,6 +19573,7 @@
         ]
       },
       "previousSlugs": [
+        "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-e-labor-kaiseraugst-12-monate-roche-kaiseraugst",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
@@ -22446,7 +22448,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "data-insights-enablement-lead-analyst-ui-ux-roche-ch",
-        "data-insights-activation-analyste-principal-ui-ux-roche-basel"
+        "data-insights-activation-analyste-principal-ui-ux-roche-basel",
+        "data-insights-abilitazione-lead-analyst-ui-ux-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22523,7 +22526,8 @@
         "analytics-intelligence-senior-analyst-roche-ch",
         "analytics-intelligence-analista-senior-analisi-medica-roche-basel",
         "analytics-intelligence-senior-analyst-medical-analytics-roche-ch",
-        "analytics-intelligence-senior-analyste-medical-analytics-roche-basel"
+        "analytics-intelligence-senior-analyste-medical-analytics-roche-basel",
+        "analisi-e-intelligenza-senior-analyst-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22966,6 +22970,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "supply-chain-excellence-lead-roche-ch",
+        "chaine-d-approvisionnement-excellence-lead-roche-basel",
         "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -22973,6 +22978,7 @@
           "supply-chain-excellence-lead-roche-ch"
         ],
         "fr": [
+          "chaine-d-approvisionnement-excellence-lead-roche-basel",
           "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
         ]
       },
@@ -23291,10 +23297,10 @@
       "id": "roche-31cbdcfa9541",
       "slug": "principale-ingegnere-principale-principale-roche-basel",
       "slugByLocale": {
-        "it": "principale-ingegnere-principale-principale-roche-basel",
+        "it": "principal-senior-principal-software-ingegnere-roche-basel",
         "en": "principal-senior-principal-software-engineer-roche-ch",
         "de": "principal-senior-principal-software-ingenieur-roche-basel",
-        "fr": "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
+        "fr": "principal-senior-principal-software-ingenieur-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23335,8 +23341,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "principal-senior-principal-software-engineer-roche-ch",
-        "principal-senior-principal-software-ingegnere-roche-basel",
-        "principal-senior-principal-software-ingenieur-roche-basel",
+        "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel",
+        "principale-ingegnere-principale-principale-roche-basel",
         "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
         "principal-site-reliability-engineer-roche-ch",
         "reliability-engineer-des-hauptstandortes-roche-basel",
@@ -23344,15 +23350,14 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-senior-principal-software-engineer-roche-ch",
-          "principal-senior-principal-software-ingegnere-roche-basel"
+          "principal-senior-principal-software-engineer-roche-ch"
         ],
         "de": [
           "principal-senior-principal-software-engineer-roche-ch"
         ],
         "fr": [
           "principal-senior-principal-software-engineer-roche-ch",
-          "principal-senior-principal-software-ingenieur-roche-basel"
+          "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-28T13:58:18.902Z",
@@ -23566,7 +23571,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "riba-praktikum-fur-hochschulstudenten-innen-bei-basel-drug-substance-manufacturing-fur-12"
+        "riba-praktikum-fur-hochschulstudenten-innen-bei-basel-drug-substance-manufacturing-fur-12",
+        "riba-stage-per-studenti-universitari-a-basel-drug-substance-manufacturing-per-12-mesi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24760,7 +24766,7 @@
       "id": "roche-2b285c947522",
       "slug": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
+        "it": "production-expert-befristet-auf-2-jahre-roche-kaiseraugst",
         "en": "production-expert-befristet-auf-2-jahre-roche-ch",
         "de": "production-expert-befristet-auf-2-jahre-roche-ch",
         "fr": "production-expert-befristet-auf-2-jahre-roche-ch"
@@ -24804,12 +24810,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "production-expert-befristet-auf-2-jahre-roche-ch",
-        "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
+        "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-expert-befristet-auf-2-jahre-roche-ch",
-          "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
+          "production-expert-befristet-auf-2-jahre-roche-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:57:59.383Z",
@@ -25338,7 +25343,8 @@
       "previousSlugsByLocale": {
         "it": [
           "r-d-spezialist-m-w-d-hplc-roche-ch",
-          "r-d-specialist-m-f-d-hplc-roche-penzberg"
+          "r-d-specialist-m-f-d-hplc-roche-penzberg",
+          "r-d-spezialist-m-w-d-hplc-roche-penzberg"
         ]
       },
       "needsRetranslation": true,
@@ -25433,7 +25439,7 @@
       "id": "roche-ac28acba74cd",
       "slug": "partner-del-viaggio-paziente-roche-basel",
       "slugByLocale": {
-        "it": "partner-del-viaggio-paziente-roche-basel",
+        "it": "patient-journey-partner-roche-ch-3",
         "en": "patient-journey-partner-roche-ch-3",
         "de": "partner-von-patientenreise-roche-basel",
         "fr": "patient-journey-partner-roche-ch"
@@ -25494,12 +25500,13 @@
         "patient-journey-partner-oncology-sumatra-roche-ch",
         "patient-journey-partner-contratto-roche-hong-kong",
         "patient-journey-partner-contract-roche-ch",
-        "partner-del-viaggio-paziente-oftalmologia-roche-basel"
+        "partner-del-viaggio-paziente-oftalmologia-roche-basel",
+        "partner-del-viaggio-paziente-roche-basel",
+        "partner-von-patientenreise-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "patient-journey-partner-roche-ch",
-          "patient-journey-partner-roche-ch-3"
+          "patient-journey-partner-roche-ch"
         ],
         "de": [
           "patient-journey-partner-roche-ch-3"
@@ -26842,11 +26849,11 @@
     },
     {
       "id": "roche-59b84cd324a9",
-      "slug": "filling-ingegnere-roche-shanghai",
+      "slug": "filling-engineer-roche-ch",
       "slugByLocale": {
         "en": "filling-engineer-roche-shanghai",
-        "it": "filling-ingegnere-roche-shanghai",
-        "de": "filling-ingenieur-roche-shanghai",
+        "it": "filling-engineer-roche-ch",
+        "de": "filling-engineer-roche-ch",
         "fr": "filling-engineer-roche-ch"
       },
       "company": "Roche",
@@ -26903,18 +26910,7 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-05-29T13:47:12.998Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "filling-engineer-roche-ch"
-        ],
-        "de": [
-          "filling-engineer-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "filling-engineer-roche-ch"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "id": "roche-eb6538628b01",
@@ -26988,7 +26984,7 @@
         "en": "global-business-process-specialist-financial-compliance-financial-approvals-roche-ch",
         "it": "global-business-process-specialist-financial-compliance-financial-approvals-roche-ch",
         "de": "global-business-process-specialist-financial-compliance-financial-approvals-roche-ch",
-        "fr": "specialiste-des-processus-operationnels-mondiaux-conformite-financiere-approbations-financieres-roche-basel"
+        "fr": "global-business-process-specialist-financial-compliance-financial-approvals-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27648,12 +27644,12 @@
     },
     {
       "id": "roche-42f1a7c223fa",
-      "slug": "biometrics-tirocinante-roche-shanghai",
+      "slug": "biometrics-intern-roche-ch",
       "slugByLocale": {
         "en": "biometrics-intern-roche-shanghai",
-        "it": "biometrics-tirocinante-roche-shanghai",
-        "de": "biometrics-praktikant-roche-shanghai",
-        "fr": "biometrics-stagiaire-roche-shanghai"
+        "it": "biometrics-intern-roche-ch",
+        "de": "biometrics-intern-roche-ch",
+        "fr": "biometrics-intern-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27709,21 +27705,7 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-05-29T13:46:57.501Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "biometrics-intern-roche-ch"
-        ],
-        "de": [
-          "biometrics-intern-roche-ch"
-        ],
-        "fr": [
-          "biometrics-intern-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "biometrics-intern-roche-ch"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "id": "roche-685ae2be3d82",
@@ -27804,8 +27786,8 @@
       "slugByLocale": {
         "en": "supply-chain-assistant-1-year-contract-roche-ch",
         "it": "supply-chain-assistant-1-year-contract-roche-ch",
-        "de": "lieferkette-assistent-1-year-contract-roche-hong-kong",
-        "fr": "chaine-d-approvisionnement-assistant-1-year-contract-roche-hong-kong"
+        "de": "supply-chain-assistant-1-year-contract-roche-ch",
+        "fr": "supply-chain-assistant-1-year-contract-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28068,10 +28050,10 @@
     },
     {
       "id": "roche-6aafe77a783d",
-      "slug": "capo-squadra-rcsc-roche-burgess-hill",
+      "slug": "team-leader-rcsc-roche-ch",
       "slugByLocale": {
         "en": "team-leader-rcsc-roche-ch",
-        "it": "capo-squadra-rcsc-roche-burgess-hill",
+        "it": "team-leader-rcsc-roche-ch",
         "de": "team-leader-rcsc-roche-ch",
         "fr": "team-leader-rcsc-roche-ch"
       },
@@ -28129,15 +28111,7 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-05-29T13:46:50.913Z",
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "team-leader-rcsc-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "team-leader-rcsc-roche-ch"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "id": "roche-392083a2a950",
@@ -28695,14 +28669,14 @@
       "titleByLocale": {
         "de": "Praktikant (m/w/d) Master-Entwicklungsprogramm / Startup Ihre Karriere",
         "fr": "Trainee Site Management (m/w/d) Master-Entwicklungsprogramm / StartUp Your Career",
-        "it": "Trainee Site Management (m/f/d) Programma di sviluppo master/ StartUp Your Career",
-        "en": "Trainee Site Management (m/f/d) Master Development Programme/ StartUp Your Career"
+        "it": "Gestione del prodotto (m/w/d)",
+        "en": "Projektmanagement (m/w/d)"
       },
       "description": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nRoche Diagnostics Site Management | Wer wir sind\nDas „Biep“ beim Öffnen des Drehtores. Stimmengewirr auf der Baustelle. Das Klirren von Metall auf der Werkbank. Das Glänzen der Photovoltaik auf dem Dach. Der Duft von frischen Bohnen in der Kaffeebar.\nIm Site Management sind wir weit mehr als ein operativer Dienstleister: Wir verstehen uns als aktive Gestalter und Befähiger an unserem Standort. Für alle Mitarbeitenden am Standort, bspw. als Teil unserer Produktions- und Forschungseinheiten – also für unsere Business Units – schaffen wir ein integriertes Ökosystem, das nahtloses Arbeiten ermöglicht, Innovationen fördert und die Produktivität stärkt. Dabei verbinden wir tagtägliche Betriebssicherheit zuverlässig mit zukunftsweisenden Themen wie Digitalisierung, Nachhaltigkeit und modernen Arbeitsumgebungen. So leisten wir einen strategischen Beitrag zu qualitativ hochwertigen Diagnostika und pharmazeutischen Produkten zum Wohle unserer Patient:innen weltweit.\n\nStartUp your Career - bist Du ready? | Das erwartet Dich\nMit unserem StartUp Trainee Programm bieten wir Dir spannende standortübergreifende Projekte und Perspektiven innerhalb der Standortfunktionen wie beispielsweise Facility Management, Instandhaltung, Automation, Risk Management, Safety, Health & Environment Compliance und Engineering. Vom ersten Tag an gestaltest Du Dein 24-monatiges Programm aktiv mit. Dabei übernimmst Du folgende spannende Aufgaben:\n\n• Verantwortung übernehmen: Du arbeitest selbstständig sowie im Team in bis zu sechs verschiedenen Bereichen unserer Standorte und übernimmst von Beginn an eigene Aufgabenpakete.\n\n• Projekte steuern: Du wählst Deine Projektschwerpunkte proaktiv, planst diese selbstorganisiert und führst sie zielgerichtet zum Erfolg.\n\n• Netzwerk aufbauen: Du wirst Teil einer lebendigen Trainee-Community und knüpfst auch darüber hinaus wertvolle Kontakte zu Kolleg:innen über Funktionsgrenzen hinweg.\n\n• Perspektiven erweitern: Du nutzt die Möglichkeit, Deine Fähigkeiten an einem unserer internationalen Roche-Standorte einzubringen und dort ein eigenständiges Projekt zu begleiten.\n\n• Entwicklung gestalten: Du steuerst Deine persönliche und fachliche Weiterentwicklung eigenverantwortlich, unterstützt durch ein personalisiertes Entwicklungsportfolio sowie ein Mentoring aus dem Senior Management.\n\n• Zukunft sichern: Du profitierst von einer langfristigen Förderung – unser StartUp Trainee Programm startet direkt mit einem unbefristeten Arbeitsvertrag.\n\nQualifikationen | Das bringst Du mit\nSo vielfältig wie unsere Services, so vielfältig sind auch unsere Mitarbeitenden. Für unsere Trainees ist ein Master-Abschluss die Grundvoraussetzung - Du musst diesen zum Start abgeschlossen haben, kannst Dich aber noch während des Studiums bewerben. Darüber hinaus suchen wir eine Persönlichkeit mit einem inneren Antrieb und dem Potenzial, Großes zu bewirken. Daher suchen wir Dich:\n\n• Du hast ein Masterstudium im (Wirtschafts-)Ingenieurwesen, in den Wirtschaftswissenschaften oder der Wirtschaftsinformatik erfolgreich abgeschlossen, idealerweise mit einem Schwerpunkt in den Bereichen Facility Management, Data Analytics, Energie-/Ressourcenmanagement oder Automation.\n\n• Du bringst erste praktische Erfahrungen durch relevante Praktika im In- oder Ausland mit, vorzugsweise gesammelt in Ingenieurbüros, Industrie- oder Dienstleistungsunternehmen.\n\n• Du hast Freude daran, innovative Lösungen in einem komplexen Umfeld zu entdecken, denkst unternehmerisch und begreifst Veränderungen als Entwicklungschan",
       "descriptionByLocale": {
         "de": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nRoche Diagnostics Site Management | Wer wir sind\nDas „Biep“ beim Öffnen des Drehtores. Stimmengewirr auf der Baustelle. Das Klirren von Metall auf der Werkbank. Das Glänzen der Photovoltaik auf dem Dach. Der Duft von frischen Bohnen in der Kaffeebar.\nIm Site Management sind wir weit mehr als ein operativer Dienstleister: Wir verstehen uns als aktive Gestalter und Befähiger an unserem Standort. Für alle Mitarbeitenden am Standort, bspw. als Teil unserer Produktions- und Forschungseinheiten – also für unsere Business Units – schaffen wir ein integriertes Ökosystem, das nahtloses Arbeiten ermöglicht, Innovationen fördert und die Produktivität stärkt. Dabei verbinden wir tagtägliche Betriebssicherheit zuverlässig mit zukunftsweisenden Themen wie Digitalisierung, Nachhaltigkeit und modernen Arbeitsumgebungen. So leisten wir einen strategischen Beitrag zu qualitativ hochwertigen Diagnostika und pharmazeutischen Produkten zum Wohle unserer Patient:innen weltweit.\n\nStartUp your Career - bist Du ready? | Das erwartet Dich\nMit unserem StartUp Trainee Programm bieten wir Dir spannende standortübergreifende Projekte und Perspektiven innerhalb der Standortfunktionen wie beispielsweise Facility Management, Instandhaltung, Automation, Risk Management, Safety, Health & Environment Compliance und Engineering. Vom ersten Tag an gestaltest Du Dein 24-monatiges Programm aktiv mit. Dabei übernimmst Du folgende spannende Aufgaben:\n\n• Verantwortung übernehmen: Du arbeitest selbstständig sowie im Team in bis zu sechs verschiedenen Bereichen unserer Standorte und übernimmst von Beginn an eigene Aufgabenpakete.\n\n• Projekte steuern: Du wählst Deine Projektschwerpunkte proaktiv, planst diese selbstorganisiert und führst sie zielgerichtet zum Erfolg.\n\n• Netzwerk aufbauen: Du wirst Teil einer lebendigen Trainee-Community und knüpfst auch darüber hinaus wertvolle Kontakte zu Kolleg:innen über Funktionsgrenzen hinweg.\n\n• Perspektiven erweitern: Du nutzt die Möglichkeit, Deine Fähigkeiten an einem unserer internationalen Roche-Standorte einzubringen und dort ein eigenständiges Projekt zu begleiten.\n\n• Entwicklung gestalten: Du steuerst Deine persönliche und fachliche Weiterentwicklung eigenverantwortlich, unterstützt durch ein personalisiertes Entwicklungsportfolio sowie ein Mentoring aus dem Senior Management.\n\n• Zukunft sichern: Du profitierst von einer langfristigen Förderung – unser StartUp Trainee Programm startet direkt mit einem unbefristeten Arbeitsvertrag.\n\nQualifikationen | Das bringst Du mit\nSo vielfältig wie unsere Services, so vielfältig sind auch unsere Mitarbeitenden. Für unsere Trainees ist ein Master-Abschluss die Grundvoraussetzung - Du musst diesen zum Start abgeschlossen haben, kannst Dich aber noch während des Studiums bewerben. Darüber hinaus suchen wir eine Persönlichkeit mit einem inneren Antrieb und dem Potenzial, Großes zu bewirken. Daher suchen wir Dich:\n\n• Du hast ein Masterstudium im (Wirtschafts-)Ingenieurwesen, in den Wirtschaftswissenschaften oder der Wirtschaftsinformatik erfolgreich abgeschlossen, idealerweise mit einem Schwerpunkt in den Bereichen Facility Management, Data Analytics, Energie-/Ressourcenmanagement oder Automation.\n\n• Du bringst erste praktische Erfahrungen durch relevante Praktika im In- oder Ausland mit, vorzugsweise gesammelt in Ingenieurbüros, Industrie- oder Dienstleistungsunternehmen.\n\n• Du hast Freude daran, innovative Lösungen in einem komplexen Umfeld zu entdecken, denkst unternehmerisch und begreifst Veränderungen als Entwicklungschan",
-        "it": "A Roche puoi presentarti come te stesso, abbracciato per le qualità uniche che porti. La nostra cultura incoraggia l'espressione personale, il dialogo aperto e i legami genuini, dove siete valorizzati, accettati e rispettati per chi siete, permettendovi di prosperare sia personalmente che professionalmente. Questo è il modo in cui vogliamo prevenire, fermare e curare le malattie e garantire che tutti abbiano accesso alla salute oggi e per le generazioni a venire. Unisciti a Roche, dove ogni voce conta. La posizione Roche Diagnostics Site Management | Chi siamo The “Biep” quando si apre il cancello rotante. Votando sul cantiere. Il taglio di metallo sul banco di lavoro. La lucentezza del fotovoltaico sul tetto. Il profumo di fagioli freschi nel bar del caffè. In Site Management, siamo molto più di un fornitore di servizi operativi: ci comprendiamo come progettista attivo e persona capace al nostro sito. Per tutti i dipendenti del sito, ad esempio nell'ambito delle nostre unità di produzione e di ricerca – cioè per le nostre unità di business – creiamo un ecosistema integrato che permette un lavoro senza soluzione di continuità, promuove l'innovazione e rafforza la produttività. Uniamo in modo affidabile l'affidabilità operativa quotidiana con argomenti previsionali come la digitalizzazione, la sostenibilità e gli ambienti di lavoro moderni. Così, forniamo un contributo strategico alla diagnostica di alta qualità e prodotti farmaceutici a beneficio dei nostri pazienti: sia in tutto il mondo. StartUp your Career - sei pronto? | Con il nostro programma StartUp Trainee, vi offriamo interessanti progetti e prospettive multi-sito all'interno delle funzioni di localizzazione come la gestione delle strutture, manutenzione, automazione, gestione dei rischi, sicurezza, salute e conformità dell'ambiente e ingegneria. Dal primo giorno in poi, si forma attivamente il vostro programma di 24 mesi. Prendere le seguenti attività eccitanti: • Assumere la responsabilità: Si lavora in modo indipendente e nel team in fino a sei aree diverse delle nostre posizioni e prendere le proprie attività fin dall'inizio. • Progetti di controllo: selezioni le priorità del progetto in modo proattivo, pianificale auto-organizzate e guidarle al successo. • Costruire una rete: Si diventa parte di una comunità di tirocinanti viventi e anche collegare contatti preziosi ai colleghi attraverso i confini funzionali. • Estendere le prospettive: Si utilizza l'opportunità di introdurre le vostre competenze in una delle nostre sedi Roche internazionali e di accompagnare un progetto indipendente lì. • Sviluppo di progettazione: Si controlla il vostro sviluppo personale e professionale indipendentemente, supportato da un portafoglio di sviluppo personalizzato e un mentoring da senior management. • Assicurare il futuro: Si beneficia di una promozione a lungo termine – il nostro programma StartUp Trainee inizia direttamente con un contratto di lavoro illimitato. Qualificazioni | Questo ti porta con diversi servizi, diversi come i nostri dipendenti. Per i nostri tirocinanti, un master è il requisito di base - si deve aver completato questo all'inizio, ma si può ancora applicare durante i vostri studi. Inoltre, stiamo cercando una personalità con un impulso interiore e il potenziale per raggiungere la grandezza. Pertanto ti stiamo cercando: • Hai completato con successo un master in ingegneria (economica), economia o informatica aziendale, incentrati idealmente sulla gestione delle strutture, analisi dei dati, gestione energetica/risorse o automazione. • Porti la prima esperienza pratica attraverso stage rilevanti in patria o all'estero, preferibilmente raccolti in uffici di ingegneria, aziende industriali o di servizio. Siete lieti di scoprire soluzioni innovative in un ambiente complesso, pensare in modo imprenditoriale e capire i cambiamenti come ingegnere di sviluppo",
-        "en": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters. The position Roche Diagnostics Site Management | Who we are The “Biep” when opening the rotary gate. Voting on the building site. The cutting of metal on the work bench. The gloss of photovoltaics on the roof. The scent of fresh beans in the coffee bar. In Site Management, we are far more than an operating service provider: we understand ourselves as an active designer and capable person at our site. For all employees at the site, for example as part of our production and research units – i.e. for our business units – we create an integrated ecosystem that allows seamless work, promotes innovation and strengthens productivity. We reliably combine daily operational reliability with forward-looking topics such as digitalization, sustainability and modern working environments. Thus, we make a strategic contribution to high-quality diagnostics and pharmaceutical products for the benefit of our patients: both worldwide. StartUp your Career - are you ready? | With our StartUp Trainee program, we offer you exciting multi-site projects and perspectives within the location functions such as facility management, maintenance, automation, risk management, safety, health & environment compliance and engineering. From the first day on, you actively shape your 24-month program. Take the following exciting tasks: • Take responsibility: You work independently as well as in the team in up to six different areas of our locations and take your own tasks from the start. • Control projects: You select your project priorities proactively, plan them self-organized and guide them to success. • Build a network: You become part of a living trainee community and also connect valuable contacts with colleagues across functional boundaries. • Extend perspectives: You use the opportunity to introduce your skills to one of our international Roche locations and to accompany an independent project there. • Designing development: You control your personal and professional development independently, supported by a personalized development portfolio and a mentoring from senior management. • Secure the future: You benefit from a long-term promotion – our StartUp Trainee program starts directly with an indefinite contract. Qualifications | This brings you with as diverse as our services, as diverse as our employees are. For our trainees, a Master degree is the basic requirement - you must have completed this at the start, but you can still apply during your studies. In addition, we are looking for a personality with an inner drive and the potential to achieve greatness. Therefore we are looking for you: • You have successfully completed a master's degree in (economic) engineering, economics or business informatics, ideally focusing on facility management, data analytics, energy/resource management or automation. • You bring first practical experience through relevant internships at home or abroad, preferably collected in engineering offices, industrial or service companies. You are delighted to discover innovative solutions in a complex environment, think entrepreneurially and understand changes as a development engineer",
+        "it": "A Roche puoi apparire come te stesso, abbracciato per le qualità uniche che porti. La nostra cultura incoraggia l'espressione personale, il dialogo aperto e i legami genuini, dove siete valorizzati, accettati e rispettati per chi siete, permettendovi di prosperare sia personalmente che professionalmente. Questo è il modo in cui vogliamo prevenire, fermare e curare le malattie e garantire che tutti abbiano accesso alla salute oggi e per le generazioni a venire. Unisciti a Roche, dove ogni voce conta. La posizione Roche Diagnostics Site Management | Chi siamo The “Biep” quando si apre il cancello rotante. Votando sul cantiere. Il taglio di metallo sul banco di lavoro. La lucentezza del fotovoltaico sul tetto. Il profumo di fagioli freschi nel bar del caffè. In Site Management, siamo molto più di un fornitore di servizi operativi: ci comprendiamo come progettista attivo e persona capace al nostro sito. Per tutti i dipendenti del sito, ad esempio nell'ambito delle nostre unità di produzione e di ricerca – cioè per le nostre unità aziendali – creiamo un ecosistema integrato che permette un lavoro senza soluzione di continuità, promuove l'innovazione e rafforza la produttività. Uniamo in modo affidabile l'affidabilità operativa quotidiana con argomenti previsionali come la digitalizzazione, la sostenibilità e gli ambienti di lavoro moderni. Così, forniamo un contributo strategico alla diagnostica di alta qualità e prodotti farmaceutici a beneficio dei nostri pazienti: sia in tutto il mondo. StartUp your Career - sei pronto? | Con il nostro programma StartUp Trainee, vi offriamo interessanti progetti e prospettive multi-sito all'interno delle funzioni di localizzazione come la gestione delle strutture, manutenzione, automazione, gestione dei rischi, sicurezza, salute e conformità dell'ambiente e ingegneria. Dal primo giorno in poi, si forma attivamente il vostro programma di 24 mesi. Prendere le seguenti attività eccitanti: • Assumere la responsabilità: Si lavora in modo indipendente e nel team in fino a sei aree diverse delle nostre posizioni e prendere le proprie attività fin dall'inizio. • Progetti di controllo: selezioni le priorità del progetto in modo proattivo, pianificale auto-organizzate e guidarle al successo. • Costruire una rete: Si diventa parte di una comunità di tirocinanti viventi e anche collegare contatti preziosi con colleghi attraverso confini funzionali. • Estendere le prospettive: Si utilizza l'opportunità di introdurre le vostre competenze in una delle nostre sedi Roche internazionali e di accompagnare un progetto indipendente lì. • Sviluppo di progettazione: Si controlla il vostro sviluppo personale e professionale in modo indipendente, supportato da un portafoglio di sviluppo personalizzato e un mentoring da senior management. • Assicurare il futuro: Si beneficia di una promozione a lungo termine – il nostro programma StartUp Trainee inizia direttamente con un contratto indefinito. Qualificazioni | Questo ti porta con diversi servizi, diversi come i nostri dipendenti. Per i nostri tirocinanti, una laurea magistrale è il requisito di base - si deve aver completato questo all'inizio, ma si può ancora applicare durante i vostri studi. Inoltre, stiamo cercando una personalità con un'unità interna e il potenziale per raggiungere la grandezza. Pertanto ti stiamo cercando: • Hai completato con successo un master in ingegneria (economica), economia o informatica aziendale, incentrati idealmente sulla gestione delle strutture, analisi dei dati, gestione energetica/risorsa o automazione. • Porti la prima esperienza pratica attraverso stage rilevanti in patria o all'estero, preferibilmente raccolti in uffici di ingegneria, aziende industriali o di servizio. Siete lieti di scoprire soluzioni innovative in un ambiente complesso, pensare imprenditoriale e comprendere i cambiamenti come ingegnere di sviluppo",
+        "en": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters. The position Roche Diagnostics Site Management | Who we are The “Biep” when opening the rotary gate. Voting on the building site. The cutting of metal on the work bench. The gloss of photovoltaics on the roof. The scent of fresh beans in the coffee bar. In Site Management, we are far more than an operating service provider: we understand ourselves as an active designer and capable person at our site. For all employees at the site, for example as part of our production and research units – i.e. for our business units – we create an integrated ecosystem that allows seamless work, promotes innovation and strengthens productivity. We reliably combine daily operational reliability with forward-looking topics such as digitalization, sustainability and modern working environments. Thus, we make a strategic contribution to high-quality diagnostics and pharmaceutical products for the benefit of our patients: both worldwide. StartUp your Career - are you ready? | With our StartUp Trainee program, we offer you exciting multi-site projects and perspectives within the location functions such as facility management, maintenance, automation, risk management, safety, health & environment compliance and engineering. From the first day on, you actively shape your 24-month program. Take the following exciting tasks: • Take responsibility: You work independently as well as in the team in up to six different areas of our locations and take on your own tasks from the start. • Control projects: You select your project priorities proactively, plan them self-organized and guide them to success. • Build a network: You become part of a living trainee community and also connect valuable contacts to colleagues across functional boundaries. • Extend perspectives: You use the opportunity to introduce your skills to one of our international Roche locations and to accompany an independent project there. • Designing development: You control your personal and professional development independently, supported by a personalized development portfolio and a mentoring from senior management. • Ensure the future: You benefit from a long-term promotion – our StartUp Trainee program starts directly with an unlimited work contract. Qualifications | This brings you with as diverse as our services, as diverse as our employees are. For our trainees, a master's degree is the basic requirement - you must have completed this at the start, but you can still apply during your studies. In addition, we are looking for a personality with an inner drive and the potential to achieve greatness. Therefore we are looking for you: • You have successfully completed a master's degree in (economic) engineering, economics or business informatics, ideally focusing on facility management, data analytics, energy/resource management or automation. • You bring first practical experience through relevant internships at home or abroad, preferably collected in engineering offices, industrial or service companies. You are delighted to discover innovative solutions in a complex environment, think entrepreneurially and understand changes as a development engineer",
         "fr": "Chez Roche vous pouvez vous montrer comme vous-même, embrassé pour les qualités uniques que vous apportez. Notre culture encourage l'expression personnelle, le dialogue ouvert et les liens authentiques, où vous êtes apprécié, accepté et respecté pour qui vous êtes, vous permettant de prospérer à la fois personnellement et professionnellement. C'est ainsi que nous visons à prévenir, à arrêter et à guérir les maladies et à garantir que chacun ait accès aux soins de santé aujourd'hui et pour les générations à venir. Rejoignez Roche, où chaque voix compte. La position Roche Diagnostics Gestion du site de Qui sommes-nous? Vote sur le chantier. La coupe de métal sur le banc de travail. La brillance des photovoltaïques sur le toit. Le parfum des haricots frais dans le bar à café. Dans la gestion du site, nous sommes bien plus qu'un fournisseur de services d'exploitation : nous nous comprenons comme un concepteur actif et une personne capable sur notre site. Pour tous les employés du site, par exemple dans le cadre de nos unités de production et de recherche – c'est-à-dire pour nos unités d'affaires – nous créons un écosystème intégré qui permet un travail sans faille, favorise l'innovation et renforce la productivité. Nous combinons de façon fiable la fiabilité opérationnelle quotidienne avec des sujets prospectifs tels que la numérisation, la durabilité et les environnements de travail modernes. Ainsi, nous apportons une contribution stratégique à des diagnostics et à des produits pharmaceutiques de haute qualité au profit de nos patients : tous deux dans le monde entier. Commencez votre carrière - êtes-vous prêt? Avec notre programme StartUp Trainee, nous vous offrons des projets et des perspectives multi-sites passionnants dans les fonctions d'emplacement telles que la gestion des installations, la maintenance, l'automatisation, la gestion des risques, la sécurité, la conformité et l'ingénierie. Dès le premier jour, vous façonnez activement votre programme de 24 mois. Prenez les tâches passionnantes suivantes: • Prenez la responsabilité: Vous travaillez de manière indépendante ainsi que dans l'équipe dans jusqu'à six domaines différents de nos emplacements et prenez vos propres tâches dès le début. • Projets de contrôle : Vous choisissez vos priorités de projet de manière proactive, les planifiez auto-organisées et les guidez vers le succès. • Construire un réseau: Vous devenez membre d'une communauté de stagiaires vivants et connectez également des contacts précieux avec des collègues au-delà des frontières fonctionnelles. • Prolongez les perspectives : vous profitez de l'occasion pour présenter vos compétences à l'un de nos sites internationaux de Roche et y accompagner un projet indépendant. • Développement : vous contrôlez votre perfectionnement personnel et professionnel de manière indépendante, avec le soutien d'un portefeuille de développement personnalisé et d'un encadrement de la haute direction. • Assurer l'avenir: Vous bénéficiez d'une promotion à long terme – notre programme StartUp Trainee commence directement par un contrat de travail illimité. Qualités Cela vous amène avec autant de diversité que nos services, autant de diversité que nos employés. Pour nos stagiaires, une maîtrise est l'exigence de base - vous devez avoir terminé cela au début, mais vous pouvez toujours postuler pendant vos études. En outre, nous recherchons une personnalité avec un élan intérieur et le potentiel d'atteindre la grandeur. Par conséquent, nous vous recherchons: • Vous avez obtenu avec succès une maîtrise en ingénierie (économique), économie ou informatique d'affaires, idéalement axée sur la gestion des installations, l'analyse des données, la gestion de l'énergie/ressources ou l'automatisation. • Vous apportez une première expérience pratique à travers des stages pertinents à domicile ou à l'étranger, de préférence collectés dans des bureaux d'ingénierie, des entreprises industrielles ou de services. Vous êtes heureux de découvrir des solutions innovantes dans un environnement complexe, de penser en entreprise et de comprendre les changements en tant qu'ingénieur en développement"
       },
       "location": "Basel",
@@ -28820,12 +28794,12 @@
     },
     {
       "id": "roche-67c5bf48b88c",
-      "slug": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
+      "slug": "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel",
       "slugByLocale": {
         "de": "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-        "it": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
-        "en": "student-support-for-eval-migration-basel-6-12-months-roche-basel",
-        "fr": "soutien-aux-etudiants-pour-la-migration-eval-bale-6-12-mois-roche-basel"
+        "it": "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel",
+        "en": "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
+        "fr": "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28842,7 +28816,7 @@
         "de": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\nDie Organisation “Site Network Basel/Kaiseraugst”, Teil der globalen Group Function “Corporate Strategy, Sustainability & Sites”, stellt die Infrastruktur und Services für den gesamten Standort bereit und entwickelt diese kontinuierlich und auf innovative Art weiter. Wir arbeiten mit allen Anspruchsgruppen entlang der gesamten Wertschöpfungskette zusammen, von der frühen Forschung bis zur Versorgung der Patient:innen.\n\nWir suchen dich als studentische Aushilfe zur Unterstützung bei der Dokumentenmigration! Im Rahmen der Migration bestehender, technischer Dokumente von einem bisherigen in ein neues Dokumentenmanagementsystem wirst du Teil eines Teams von 2-3 Personen sein.\n\nDie Möglichkeit\nEs erwarten dich folgende spannenden Tätigkeiten bei uns:\n\n• Extraktion der bestehenden, technischen Dokumente aus dem bisherigen Dokumentenmanagementsystem\n\n• Anpassung der Dokumente an neue technische Anforderungen\n\n• Vorbereitung der Dokumente zur Besprechung in einem Fachgremium\n\n• Besprechung der entworfenen Dokumente mit Fachexpert:innen\n\n• Übertragung der Dokumente in das neue Dokumentenmanagementsystem\n\n• Gemeinsam mit Fachexpert:innen wirst du diese neuen Anforderungen umsetzen und wertvolle Erfahrungen sammeln.\n\nWer Du Bist\nDu bist immatrikuliert an einer Hochschule oder Universität, weiterhin hast du:\n\n• Sehr gute Kenntnisse in Deutsch, und sprichst gut Englisch\n\n• Schnelle Auffassungsgabe für technische Zusammenhänge und im Umgang mit spezifischen IT-Systemen im Bereich Dokumentenmanagement. ​\n\nZusätzliche Informationen\nDer Standort ist Basel. Die Stelle basiertauf einem 50%-Vertrag. Die wöchentliche Arbeitszeit darf während dem Semester 15 Stunden nicht überschreiten. Die wöchentliche Arbeitszeit kann in den Semesterferien auf bis zu 40 Stunden erhöht werden.\nDie Bewerbungsvoraussetzung von nicht-EU/EFTA-Bürger*innen ist, dass das Studium an einer Schweizer Bildungseinrichtung erfolgt.\nFrühestes Startdatum: 1 August 2026\n\nBewirb dich jetzt – wir freuen uns!\n\nWho we are\nA healthier future drives us to innovate. Together, more than 100’000 employees across the globe are dedicated to advance science, ensuring everyone has access to healthcare today and for generations to come. Our efforts result in more than 26 million people treated with our medicines and over 30 billion tests conducted using our Diagnostics products. We empower each other to explore new possibilities, foster creativity, and keep our ambitions high, so we can deliver life-changing healthcare solutions that make a global impact.\n\nLet’s build a healthier future, together.\n\nRoche is an Equal Opportunity Employer.",
         "it": "A Roche puoi apparire come te stesso, abbracciato per le qualità uniche che porti. La nostra cultura incoraggia l'espressione personale, il dialogo aperto e i legami genuini, dove siete valorizzati, accettati e rispettati per chi siete, permettendovi di prosperare sia personalmente che professionalmente. Questo è il modo in cui vogliamo prevenire, fermare e curare le malattie e garantire che tutti abbiano accesso alla salute oggi e per le generazioni a venire. Unisciti a Roche, dove ogni voce conta.\n\nLa posizione\nL’organizzazione “Site Network Basel/Kaiseraugst”, parte della funzione “Corporate Strategy, Sustainability & Sites”, fornisce l’infrastruttura e i servizi per l’intero sito e li sviluppa continuamente e in modo innovativo. Lavoriamo con tutti gli stakeholder lungo tutta la catena del valore, dalla ricerca precoce alla cura dei pazienti.\n\nSiamo alla ricerca di voi come supporto per gli studenti per la migrazione dei documenti! Come parte della migrazione di documenti tecnici esistenti da un precedente a un nuovo sistema di gestione dei documenti, sarete parte di un team di 2-3 persone.\n\nLa possibilità\nLe seguenti attività interessanti vi aspettano con noi:\n\n• Estrazione di documenti tecnici esistenti dal precedente sistema di gestione dei documenti\n\n• Adattare documenti a nuovi requisiti tecnici\n\n• Preparazione di documenti per la riunione in un pannello\n\n• Riunione dei documenti progettati con esperto:\n\n• Trasferimento dei documenti al nuovo sistema di gestione dei documenti\n\n• Insieme all'esperto: si attueranno questi nuovi requisiti e acquisiranno un'esperienza preziosa.\n\nChi sei\nSiete immatricolati in un'università o in un'università, ancora avete:\n\n• Molto buona conoscenza in tedesco, e parla buon inglese\n\n• Una rapida comprensione delle relazioni tecniche e dei sistemi informatici specifici nel campo della gestione dei documenti.\n\nUlteriori informazioni\nLa posizione è Basilea. Il corpo si basa su un contratto del 50%. L'orario di lavoro settimanale non deve superare le 15 ore durante il semestre. L'orario di lavoro settimanale può essere aumentato fino a 40 ore durante le vacanze semestrali.\nIl requisito di applicazione dei cittadini non UE/AELS è che lo studio è effettuato presso un istituto scolastico svizzero.\nData di inizio: 1 agosto 2026\n\nIscriviti ora – siamo felici!\n\nChi siamo\nUn futuro più sano ci spinge a innovare. Insieme, più di 100’000 dipendenti in tutto il mondo sono dedicati alla scienza avanzata, assicurando che tutti abbiano accesso alla salute oggi e per le generazioni a venire. I nostri sforzi portano a più di 26 milioni di persone trattate con i nostri farmaci e oltre 30 miliardi di test condotti utilizzando i nostri prodotti diagnostici. Potenziamo l'un l'altro per esplorare nuove possibilità, promuovere la creatività e mantenere alti i nostri ambiziosi, in modo da poter fornire soluzioni sanitarie che cambiano la vita che rendono un impatto globale.\n\nCostruiamo un futuro più sano, insieme.\n\nRoche è un datore di lavoro pari opportunità.",
         "en": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe position\nThe organization “Site Network Basel/Kaiseraugst”, part of the global Group Function “Corporate Strategy, Sustainability & Sites”, provides the infrastructure and services for the entire site and develops them continuously and in an innovative way. We work with all stakeholders along the entire value chain, from early research to patient care.\n\nWe are looking for you as a student support for document migration! As part of the migration of existing technical documents from a previous to a new document management system, you will be part of a team of 2-3 persons.\n\nThe possibility\nThe following exciting activities await you with us:\n\n• Extraction of existing technical documents from previous document management system\n\n• Adapting documents to new technical requirements\n\n• Preparing documents for meeting in a panel\n\n• Meeting of the designed documents with expert:\n\n• Transfer of documents to the new document management system\n\n• Together with expert: you will implement these new requirements and gain valuable experience.\n\nWho you are\nYou are immatriculated at a university or university, still you have:\n\n• Very good knowledge in German, and speaks good English\n\n• Quick understanding for technical relationships and dealing with specific IT systems in the field of document management.\n\nAdditional information\nThe location is Basel. The body is based on a 50% contract. The weekly working time must not exceed 15 hours during the semester. The weekly working hours can be increased to up to 40 hours during the semester holidays.\nThe application requirement of non-EU/EFTA citizens is that the study is carried out at a Swiss educational institution.\nEarly start date: 1 August 2026\n\nJoin now – we are happy!\n\nWho we are\nA healthier future drives us to innovate. Together, more than 100’000 employees across the globe are dedicated to advance science, ensuring everyone has access to healthcare today and for generations to come. Our efforts result in more than 26 million people treated with our medicines and over 30 billion tests conducted using our Diagnostics products. We empower each other to explore new possibilities, foster creativity, and keep our ambitiouss high, so we can deliver life-changing healthcare solutions that make a global impact.\n\nLet’s build a healthier future, together.\n\nRoche is an equal opportunity employer.",
-        "fr": "Chez Roche vous pouvez vous montrer comme vous-même, embrassé pour les qualités uniques que vous apportez. Notre culture encourage l'expression personnelle, le dialogue ouvert et les liens authentiques, où vous êtes apprécié, accepté et respecté pour qui vous êtes, vous permettant de prospérer à la fois personnellement et professionnellement. C'est ainsi que nous visons à prévenir, à arrêter et à guérir les maladies et à veiller à ce que chacun ait accès aux soins de santé aujourd'hui et pour les générations à venir. Rejoignez Roche, où chaque voix compte.\n\nLa position\nL'organisation « Site Network Basel/Kaiseraugst », qui fait partie de la fonction de groupe globale « Corporate Strategy, Sustainability & Sites », fournit l'infrastructure et les services pour l'ensemble du site et les développe continuellement et de manière innovante. Nous travaillons avec tous les intervenants tout au long de la chaîne de valeur, de la recherche précoce aux soins aux patients.\n\nNous vous recherchons comme un soutien étudiant pour la migration de documents! Dans le cadre de la migration des documents techniques existants d'un précédent vers un nouveau système de gestion de documents, vous ferez partie d'une équipe de 2 à 3 personnes.\n\nLa possibilité\nLes activités passionnantes suivantes vous attendent avec nous:\n\n• Extraction des documents techniques existants du système de gestion des documents précédent\n\n• Adaptation des documents aux nouvelles exigences techniques\n\n• Préparation de documents pour une réunion en groupe\n\n• Réunion des documents conçus avec un expert:\n\n• Transfert de documents au nouveau système de gestion des documents\n\n• Avec un expert : vous allez mettre en œuvre ces nouvelles exigences et acquérir une expérience précieuse.\n\nQui vous êtes\nVous êtes immatriculé dans une université ou une université, mais vous avez :\n\n• Très bonne connaissance en allemand, et parle bien anglais\n\n• Une compréhension rapide des relations techniques et des systèmes informatiques spécifiques dans le domaine de la gestion des documents.\n\nInformations complémentaires\nL'emplacement est Bâle. L'organisme est basé sur un contrat de 50 %. Le temps de travail hebdomadaire ne doit pas dépasser 15 heures au cours du semestre. Les heures de travail hebdomadaires peuvent être augmentées jusqu'à 40 heures pendant les vacances du semestre.\nL'exigence d'application des citoyens non membres de l'UE/AELE est que l'étude soit réalisée dans un établissement d'enseignement suisse.\nDate de début : 1er août 2026\n\nRejoignez maintenant – nous sommes heureux!\n\nQui nous sommes\nUn avenir plus sain nous pousse à innover. Ensemble, plus de 100 000 employés à travers le monde se consacrent à faire progresser la science, assurant à chacun l'accès aux soins de santé aujourd'hui et pour les générations à venir. Nos efforts se traduisent par plus de 26 millions de personnes traitées avec nos médicaments et plus de 30 milliards de tests réalisés avec nos produits Diagnostics. Nous nous autorisons mutuellement à explorer de nouvelles possibilités, à encourager la créativité et à maintenir nos ambitions au plus haut niveau, afin de pouvoir offrir des solutions de santé qui changent la vie et qui ont un impact mondial.\n\nConstruisons ensemble un avenir plus sain.\n\nRoche est un employeur à chances égales."
+        "fr": "Chez Roche vous pouvez vous montrer comme vous-même, embrassé pour les qualités uniques que vous apportez. Notre culture encourage l'expression personnelle, le dialogue ouvert et les liens authentiques, où vous êtes apprécié, accepté et respecté pour qui vous êtes, vous permettant de prospérer à la fois personnellement et professionnellement. C'est ainsi que nous visons à prévenir, à arrêter et à guérir les maladies et à garantir que chacun ait accès aux soins de santé aujourd'hui et pour les générations à venir. Rejoignez Roche, où chaque voix compte. La position L'organisation « Site Network Basel/Kaiseraugst », qui fait partie de la fonction globale de groupe « Corporate Strategy, Sustainability & Sites », fournit l'infrastructure et les services pour l'ensemble du site et les développe continuellement et de manière innovante. Nous travaillons avec tous les intervenants tout au long de la chaîne de valeur, de la recherche précoce aux soins aux patients. Nous vous recherchons comme un soutien étudiant pour la migration de documents! Dans le cadre de la migration des documents techniques existants d'un système antérieur à un nouveau système de gestion de documents, vous ferez partie d'une équipe de 2 à 3 personnes. • Extraction des documents techniques existants du système de gestion des documents précédent • Adaptation des documents aux nouvelles exigences techniques • Préparation des documents en vue de leur réunion au sein d'un comité technique • Réunion des documents conçus avec des experts: les femmes • Transfert des documents au nouveau système de gestion des documents • Avec des experts: vous allez mettre en œuvre ces nouvelles exigences et acquérir une expérience précieuse. Qui vous êtes, vous êtes immatriculé dans une université ou une université, vous continuez: • Très bonne connaissance en allemand, et parle bien anglais • Compréhension rapide pour les relations techniques et traiter avec des systèmes informatiques spécifiques dans le domaine de la gestion de documents. Informations complémentaires L'emplacement est Bâle. L'organisme est basé sur un contrat de 50 %. Le temps de travail hebdomadaire ne doit pas dépasser 15 heures au cours du semestre. Les heures de travail hebdomadaires peuvent être augmentées jusqu'à 40 heures pendant les vacances du semestre. L'exigence d'application des citoyens non membres de l'UE/AELE est que l'étude ait lieu dans un établissement d'enseignement suisse. Date de début : 1er août 2026 Rejoignez-nous maintenant – nous sommes heureux! Qui nous sommes Un avenir plus sain nous pousse à innover. Ensemble, plus de 100 000 employés à travers le monde se consacrent à faire progresser la science, assurant à chacun un accès aux soins de santé aujourd'hui et pour les générations à venir. Nos efforts conduisent à plus de 26 millions de personnes traitées avec nos médicaments et à plus de 30 milliards de tests réalisés avec nos produits Diagnostics. Nous nous autorisons mutuellement à explorer de nouvelles possibilités, à encourager la créativité et à maintenir nos ambitieux au sommet, afin de pouvoir offrir des solutions de santé qui changent la vie et qui ont un impact mondial. Construisons ensemble un avenir plus sain. Roche est un employeur à chances égales."
       },
       "location": "Basel",
       "canton": "BS",
@@ -28868,19 +28842,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-          "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
-        ],
-        "en": [
-          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
-        ],
-        "fr": [
           "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
         ]
       },
       "previousSlugs": [
-        "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-        "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
+        "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -28900,12 +28866,12 @@
     },
     {
       "id": "roche-db49b63387be",
-      "slug": "specialista-di-dati-e-analisi-roche-basel",
+      "slug": "data-analytics-specialist-roche-ch",
       "slugByLocale": {
         "en": "data-analytics-specialist-roche-ch",
-        "it": "specialista-di-dati-e-analisi-roche-basel",
-        "de": "daten-analytics-spezialist-roche-basel",
-        "fr": "specialiste-des-donnees-et-des-analyses-roche-basel"
+        "it": "data-analytics-specialist-roche-ch",
+        "de": "data-analytics-specialist-roche-ch",
+        "fr": "data-analytics-specialist-roche-ch"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28960,21 +28926,7 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-05-29T13:46:38.344Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-analytics-specialist-roche-ch"
-        ],
-        "de": [
-          "data-analytics-specialist-roche-ch"
-        ],
-        "fr": [
-          "data-analytics-specialist-roche-ch"
-        ]
-      },
-      "previousSlugs": [
-        "data-analytics-specialist-roche-ch"
-      ]
+      "firstSeenAt": "2026-05-29T13:46:38.344Z"
     },
     {
       "id": "roche-634a6d5dd325",
