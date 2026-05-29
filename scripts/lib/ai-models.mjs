@@ -1190,7 +1190,7 @@ async function _discoverProvider(cfg) {
   for (const id of offeredIds) {
     if (existingIds.has(id)) continue;
     if (cfg.maxAdd && added >= cfg.maxAdd) {
-      console.log(`🔍 [Discovery:${cfg.name}] hit maxAdd cap (${cfg.maxAdd}) — remaining discovered models skipped`);
+      console.error(`🔍 [Discovery:${cfg.name}] hit maxAdd cap (${cfg.maxAdd}) — remaining discovered models skipped`);
       break;
     }
     const fullId = `${cfg.prefix}${id}`;
@@ -1216,7 +1216,9 @@ async function _discoverProvider(cfg) {
   }
 
   if (added > 0 || stale > 0) {
-    console.log(`🔍 [Discovery:${cfg.name}] ${offeredIds.size} usable models, ${added} new added to chain, ${stale} stale pre-exhausted`);
+    // stderr, not stdout: smoke-test-ai-models.mjs redirects this module's stdout
+    // into a JSON file, so a stray stdout line here corrupts that payload.
+    console.error(`🔍 [Discovery:${cfg.name}] ${offeredIds.size} usable models, ${added} new added to chain, ${stale} stale pre-exhausted`);
   }
   return { added, stale };
 }
