@@ -54,7 +54,14 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
+      ]
     },
     {
       "id": "company-i1lex3",
@@ -658,7 +665,9 @@
       "previousSlugs": [
         "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans",
         "jchde-procuratore-con-responsabilita-del-magazzino-a-60-jysk-stans",
-        "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb"
+        "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb",
+        "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans",
+        "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

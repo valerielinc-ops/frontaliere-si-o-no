@@ -270,82 +270,6 @@
     "salaryPeriod": "YEAR"
   },
   {
-    "slug": "assistente-sociale-psychiatrische-dienste-aargau-pdag-windisch",
-    "title": "Sozialarbeiterin / Sozialarbeiter",
-    "titleByLocale": {
-      "de": "Sozialarbeiterin / Sozialarbeiter",
-      "it": "Assistente sociale",
-      "en": "Social worker",
-      "fr": "Travailleuse sociale / travailleur social"
-    },
-    "company": "Psychiatrische Dienste Aargau (PDAG)",
-    "companyKey": "pdag",
-    "location": "Windisch",
-    "addressLocality": "Windisch",
-    "descriptionByLocale": {
-      "de": "Sozialarbeiterin / Sozialarbeiter — Psychiatrische Dienste Aargau (PDAG)"
-    },
-    "slugByLocale": {
-      "de": "sozialarbeiterin-sozialarbeiter-pdag-windisch",
-      "it": "assistente-sociale-psychiatrische-dienste-aargau-pdag-windisch",
-      "en": "social-worker-psychiatrische-dienste-aargau-pdag-windisch",
-      "fr": "travailleuse-sociale-travailleur-social-psychiatrische-dienste-aargau-pdag-windisch"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-05-19T16:18:57.496Z",
-    "previousSlugs": [
-      "sozialarbeiterin-sozialarbeiter-pdag-windisch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "sozialarbeiterin-sozialarbeiter-pdag-windisch"
-      ]
-    },
-    "postalCode": "5210",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "primario-psychiatrische-dienste-aargau-pdag-windisch",
-    "title": "Oberärztin / Oberarzt",
-    "titleByLocale": {
-      "de": "Oberärztin / Oberarzt",
-      "it": "Primario",
-      "en": "Senior Physician",
-      "fr": "Médecin-chef"
-    },
-    "company": "Psychiatrische Dienste Aargau (PDAG)",
-    "companyKey": "pdag",
-    "location": "Windisch",
-    "addressLocality": "Windisch",
-    "descriptionByLocale": {
-      "de": "Oberärztin / Oberarzt — Psychiatrische Dienste Aargau (PDAG)"
-    },
-    "slugByLocale": {
-      "de": "oberarztin-oberarzt-pdag-windisch",
-      "it": "primario-psychiatrische-dienste-aargau-pdag-windisch",
-      "en": "senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
-      "fr": "medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-05-19T16:18:57.496Z",
-    "previousSlugs": [
-      "oberarztin-oberarzt-pdag-windisch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "oberarztin-oberarzt-pdag-windisch"
-      ]
-    },
-    "postalCode": "5210",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
     "slug": "collaboratrice-collaboratore-servizio-alberghiero-stazioni-private-psychiatrische-dienste-aargau-pdag-windisch",
     "title": "Mitarbeiterin / Mitarbeiter Hotellerieservice Privatstationen",
     "titleByLocale": {
@@ -383,44 +307,6 @@
     "postalCode": "5210",
     "salaryMin": 49500,
     "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "dirigente-medico-psychiatrische-dienste-aargau-pdag-windisch",
-    "title": "Leitende Ärztin / Leitender Arzt",
-    "titleByLocale": {
-      "de": "Leitende Ärztin / Leitender Arzt",
-      "it": "Dirigente medico",
-      "en": "Senior Physician",
-      "fr": "Médecin-chef"
-    },
-    "company": "Psychiatrische Dienste Aargau (PDAG)",
-    "companyKey": "pdag",
-    "location": "Windisch",
-    "addressLocality": "Windisch",
-    "descriptionByLocale": {
-      "de": "Leitende Ärztin / Leitender Arzt — Psychiatrische Dienste Aargau (PDAG)"
-    },
-    "slugByLocale": {
-      "de": "leitende-arztin-leitender-arzt-pdag-windisch",
-      "it": "dirigente-medico-psychiatrische-dienste-aargau-pdag-windisch",
-      "en": "senior-physician-psychiatrische-dienste-aargau-pdag-windisch",
-      "fr": "medecin-chef-psychiatrische-dienste-aargau-pdag-windisch"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-05-19T16:18:57.496Z",
-    "previousSlugs": [
-      "leitende-arztin-leitender-arzt-pdag-windisch"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "leitende-arztin-leitender-arzt-pdag-windisch"
-      ]
-    },
-    "postalCode": "5210",
-    "salaryMin": 68000,
-    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   }

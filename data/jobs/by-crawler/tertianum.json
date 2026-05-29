@@ -2572,7 +2572,29 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-bern",
-        "specialista-in-salute-efz-40-100-tertianum-bern"
+        "specialista-in-salute-efz-40-100-tertianum-bern",
+        "operatore-socio-sanitario-80-tertianum-wattwil",
+        "healthcare-assistant-80-tertianum-wattwil",
+        "fachfrau-fachmann-gesundheit-efz-80-tertianum-wattwil",
+        "assistant-en-soins-de-sante-80-tertianum-wattwil",
+        "operatore-socio-sanitario-full-time-60-100-tertianum-berg",
+        "healthcare-assistant-full-time-60-100-tertianum-berg",
+        "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-berg",
+        "assistant-en-soins-de-sante-a-temps-plein-60-100-tertianum-berg",
+        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-solothurn",
+        "specialista-della-salute-efz-40-100-tertianum-solothurn",
+        "healthcare-specialist-efz-40-100-tertianum-solothurn",
+        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-solothurn",
+        "specialiste-en-sante-efz-40-100-tertianum-solothurn",
+        "fachfrau-fachmann-gesundheit-cfc-60-100-tertianum-zizers",
+        "specialista-della-salute-efz-60-100-tertianum-zizers",
+        "healthcare-professional-efz-60-100-tertianum-zizers",
+        "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-zizers",
+        "specialiste-en-sante-efz-60-100-tertianum-zizers",
+        "operatore-socio-sanitario-efc-40-100-tertianum-gampelen",
+        "healthcare-assistant-efz-40-100-tertianum-gampelen",
+        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-gampelen",
+        "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2946,7 +2968,11 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-hauswirtschaft-40-100-tertianum-gommiswald"
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-40-100-tertianum-gommiswald",
+        "addetto-a-alle-pulizie-e-alla-casa-80-tertianum-basel",
+        "housekeeping-assistant-80-tertianum-basel",
+        "mitarbeiterin-mitarbeiter-hauswirtschaft-80-tertianum-basel",
+        "assistant-e-en-maison-80-tertianum-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8674,7 +8700,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50",
-        "pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-afp-50-100-tertianum-bern"
+        "pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-afp-50-100-tertianum-bern",
+        "aiutante-i-alla-persona-srk-o-assistente-a-alla-salute-e-sociale-50-100-tertianum-bern",
+        "pflegehelfer-pflegehelferin-srk-oder-assistentin-assistent-gesundheit-und-soziales-50-100",
+        "srk-care-assistant-or-health-and-social-care-assistant-50-100-tertianum-bern",
+        "assistant-e-en-soins-srk-ou-assistant-e-sante-social-50-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9713,7 +9743,11 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-40-80-im-nachtdienst-tertianum-bern"
+        "fachfrau-fachmann-gesundheit-efz-40-80-im-nachtdienst-tertianum-bern",
+        "operatore-socio-sanitario-efa-80-100-nel-turno-di-notte-tertianum-wald",
+        "healthcare-assistant-efa-80-100-night-shift-tertianum-wald",
+        "fachfrau-fachmann-gesundheit-efz-80-100-im-nachtdienst-tertianum-wald",
+        "assistant-en-soins-de-sante-cfc-80-100-en-service-de-nuit-tertianum-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11095,7 +11129,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-zizers",
+        "dipl-nursing-professional-hf-fh-dnii-80-100-tertianum-zizers",
+        "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-zizers",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-gampelen",
+        "diploma-in-nursing-nursing-diploma-hf-fh-dnii-80-100-tertianum-gampelen",
+        "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-gampelen",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-gampelen",
+        "dipl-nursing-professional-hf-fh-dnii-60-100-tertianum-gampelen",
+        "diplome-e-en-soins-infirmiers-hf-fh-dnii-60-100-tertianum-gampelen",
+        "diplomata-di-assistenza-infermieristica-infermiere-diplomate-con-responsabilita-formative-tertianum-berg",
+        "diploma-in-nursing-nursing-diploma-with-educational-responsibility-tertianum-berg",
+        "dipl-pflegefachfrau-pflegefachmann-hf-dnii-fh-mit-bildungsverantwortung-tertianum-berg",
+        "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-avec-responsabilites-educatives-tertianum-berg"
+      ]
     },
     {
       "id": "tertianum-f83e8e570474",
@@ -12780,7 +12829,11 @@
       },
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-lenzburg",
-        "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg"
+        "apprendistato-come-specialista-in-salute-efz-tertianum-lenzburg",
+        "stage-per-assistente-a-alla-salute-efz-tertianum-orpund",
+        "apprenticeship-as-health-care-assistant-efz-tertianum-orpund",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-orpund",
+        "apprentissage-en-tant-qu-assistant-e-en-soins-infirmiers-cfc-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13308,7 +13361,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "pflegehelferin-pflegehelfer-srk-60-100-tertianum-solothurn",
+        "care-assistant-srk-60-100-tertianum-solothurn",
+        "assistant-e-de-soins-srk-60-100-tertianum-solothurn",
+        "pflegehelferin-pflegehelfer-srk-60-100-tertianum-gampelen",
+        "srk-care-assistant-60-100-tertianum-gampelen",
+        "assistant-e-en-soins-srk-60-100-tertianum-gampelen",
+        "pflegehelferin-pflegehelfer-srk-40-100-tertianum-gampelen",
+        "care-assistant-srk-40-100-tertianum-gampelen",
+        "assistant-e-en-soins-srk-40-100-tertianum-gampelen"
+      ]
     },
     {
       "id": "tertianum-f9e01bd7e007",
@@ -14867,7 +14931,11 @@
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-tertianum-stadel"
+        "assistentin-assistent-gesundheit-und-soziales-tertianum-stadel",
+        "assistente-di-salute-e-sociale-tertianum-emmenbrucke",
+        "health-and-social-care-assistant-tertianum-emmenbrucke",
+        "assistentin-assistent-gesundheit-soziales-tertianum-emmenbrucke",
+        "assistant-e-en-soins-et-social-tertianum-emmenbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
