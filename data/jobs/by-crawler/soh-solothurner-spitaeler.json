@@ -2506,13 +2506,11 @@
         "en": [
           "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
           "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
-          "radiology-technician-m-f-solothurner-spitaler-soh-olten",
           "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
           "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-          "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
           "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
         ]
       },
@@ -2520,10 +2518,8 @@
         "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
         "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
-        "radiology-technician-m-f-solothurner-spitaler-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
         "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
         "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
         "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
       ],
@@ -11784,10 +11780,10 @@
     },
     {
       "id": "soh-solothurner-spitaeler-450dd14edd4f",
-      "slug": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "post-laurea-in-anestesia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "de": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "it": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "post-laurea-in-anestesia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn",
         "fr": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
       },
@@ -11845,13 +11841,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T00:33:11.385Z"
+      "firstSeenAt": "2026-05-29T00:33:11.385Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-d4519b37671b",
-      "slug": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+      "slug": "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
+        "it": "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
         "en": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-ch",
         "fr": "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
@@ -11902,9 +11906,9 @@
         ],
         "it": [
           "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
-          "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
           "consulente-senior-m-d-solothurner-spitaler-ag-soh-olten",
-          "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn"
+          "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
+          "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "en": [
           "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
@@ -11917,9 +11921,9 @@
       },
       "previousSlugs": [
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
-        "postdiploma-sss-cure-d-urgenza-f-m-d-solothurner-spitaler-ag-soh-olten",
         "consulente-senior-m-d-solothurner-spitaler-ag-soh-olten",
-        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn"
+        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-soh-solothurn",
+        "nachdiplomstudium-hf-notfallpflege-w-m-d-solothurner-spitaler-ag-soh-olten"
       ],
       "firstSeenAt": "2026-05-21T13:16:26.167Z",
       "salaryMin": 49500,
@@ -11992,11 +11996,9 @@
         ],
         "en": [
           "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
-          "senior-consultant-m-d-solothurner-spitaler-soh-olten",
           "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
-          "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
           "consultant-principal-m-j-solothurner-spitaler-soh-olten",
           "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
           "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55"
@@ -12005,8 +12007,6 @@
       "previousSlugs": [
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
-        "senior-consultant-m-d-solothurner-spitaler-soh-olten",
-        "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
         "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
@@ -12172,10 +12172,10 @@
     },
     {
       "id": "soh-solothurner-spitaeler-f2ada2b0a4b5",
-      "slug": "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "specialista-in-economia-domestica-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "de": "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "it": "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "specialista-in-economia-domestica-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn",
         "fr": "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn"
       },
@@ -12233,14 +12233,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T00:33:08.778Z"
+      "firstSeenAt": "2026-05-29T00:33:08.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hauswirtschaft-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-96c5cbab4298",
-      "slug": "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "de": "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "it": "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "mpa-ambulatorio-ginecologico-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn",
         "fr": "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn"
       },
@@ -12298,13 +12306,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T00:33:08.276Z"
+      "firstSeenAt": "2026-05-29T00:33:08.276Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-gynakologisches-ambulatorium-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-93ed98ab9416",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler",
+      "slug": "infermiera-dipl-infermiera-reparto-letto-operativo-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler",
+        "it": "infermiera-dipl-infermiera-reparto-letto-operativo-f-m-d-solothurner-spitaler-ag-soh-olten",
         "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler"
@@ -12361,13 +12377,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-1a059ffcc700",
-      "slug": "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "specialista-in-salute-durante-il-servizio-notturno-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "specialista-in-salute-durante-il-servizio-notturno-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-ch",
         "fr": "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn"
@@ -12424,13 +12448,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-im-nachtdienst-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-53502ba84601",
-      "slug": "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "segretario-medico-segretario-medico-neuropsicologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "segretario-medico-segretario-medico-neuropsicologia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-ch",
         "fr": "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn"
@@ -12487,7 +12519,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-neuropsychologie-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     }
   ]
 }

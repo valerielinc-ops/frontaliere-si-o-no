@@ -1035,10 +1035,10 @@
     },
     {
       "id": "imad-4fb2c0bd21e1",
-      "slug": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
+      "slug": "infermiere-di-collegamento-al-100-in-cdm-di-9-mesi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
-        "it": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
+        "it": "infermiere-di-collegamento-al-100-in-cdm-di-9-mesi-imad-geneva",
         "en": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva",
         "de": "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
       },
@@ -1096,7 +1096,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T23:24:39.846Z"
+      "firstSeenAt": "2026-05-28T23:24:39.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois-imad-geneva"
+      ]
     }
   ]
 }

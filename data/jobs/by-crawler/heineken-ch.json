@@ -163,7 +163,7 @@
       "jobReqId": "152911",
       "slug": "logistica-negozio-100-heineken-switzerland-luzern",
       "slugByLocale": {
-        "it": "logistiker-in-getrankelager-100-heineken-switzerland-luzern",
+        "it": "logistica-negozio-100-heineken-switzerland-luzern",
         "en": "logistics-store-100-heineken-switzerland-luzern",
         "de": "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "fr": "magasin-logistique-100-heineken-switzerland-luzern"
@@ -207,11 +207,12 @@
       "crawledAt": "2026-05-28T23:16:32.731Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
-        "logistica-negozio-100-heineken-switzerland-luzern"
+        "logistiker-in-getrankelager-100-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-getrankelager-100-heineken-ch-luzern"
+          "logistiker-in-getrankelager-100-heineken-ch-luzern",
+          "logistiker-in-getrankelager-100-heineken-switzerland-luzern"
         ],
         "en": [
           "logistiker-in-getrankelager-100-heineken-ch-luzern"
@@ -242,7 +243,7 @@
       "slugByLocale": {
         "it": "logistician-heineken-switzerland-denges",
         "en": "logisticsian-heineken-switzerland-denges",
-        "de": "logistician-heineken-ch-denges",
+        "de": "logistik-heineken-switzerland-denges",
         "fr": "logistician-heineken-ch-denges"
       },
       "company": "Heineken Switzerland",
@@ -284,7 +285,6 @@
       "crawledAt": "2026-05-28T23:16:24.474Z",
       "previousSlugsByLocale": {
         "de": [
-          "logistik-heineken-switzerland-denges",
           "logistician-heineken-ch-denges"
         ],
         "it": [
@@ -295,8 +295,7 @@
         ]
       },
       "previousSlugs": [
-        "logistician-heineken-ch-denges",
-        "logistik-heineken-switzerland-denges"
+        "logistician-heineken-ch-denges"
       ],
       "firstSeenAt": "2026-05-13T11:12:42.166Z",
       "salaryMin": 49500,
@@ -706,9 +705,9 @@
     {
       "id": "heineken-ch-a4e8f7d19a3c",
       "jobReqId": "158878",
-      "slug": "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid",
+      "slug": "coordinamento-eventi-regione-zurigo-svizzera-orientale-m-f-d-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid",
+        "it": "coordinamento-eventi-regione-zurigo-svizzera-orientale-m-f-d-heineken-switzerland-fahrweid",
         "en": "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid",
         "de": "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid",
         "fr": "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
@@ -765,7 +764,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
+        ]
+      },
+      "previousSlugs": [
+        "eventkoordination-region-zurich-ostschweiz-m-w-d-heineken-ch-fahrweid"
+      ]
     }
   ]
 }

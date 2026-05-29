@@ -309,8 +309,8 @@
       "slugByLocale": {
         "it": "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "head-of-technical-services-badrutt-s-palace-hotel-st-moritz",
-        "de": "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "responsable-des-services-techniques-badrutt-s-palace-hotel-st-moritz"
+        "de": "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st",
+        "fr": "responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -363,6 +363,9 @@
         "de": [
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "responsable-des-services-techniques-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
@@ -370,7 +373,9 @@
         "head-of-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "head-of-technical-services-badrutt-s-palace-hotel-st-moritz",
         "responsabile-servizio-tecnico-badrutt-s-palace-hotel-st-moritz",
-        "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "leiter-technischer-dienst-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "responsable-des-services-techniques-badrutt-s-palace-hotel-st-moritz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T09:42:03.470Z",
