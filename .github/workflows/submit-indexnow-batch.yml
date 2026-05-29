@@ -71,6 +71,15 @@ jobs:
         env:
           SEQUENTIAL_PROFILE: '1'
           JOBS_SKIP_URL_VALIDATION: '1'
+          # IndexNow submits only page <loc> URLs from the 6 sub-sitemaps
+          # (pages/blog/glossario/jobs/news/guides) — og:image PNGs are HTML
+          # meta tags, not sitemap entries, and this throwaway dist is never
+          # deployed. Skipping jobOgImagesPlugin (508s / ~8.5 min in run
+          # 26634046820, the largest skippable closeBundle cost) drops the
+          # build from 38 min — dangerously close to the 40-min cap — to
+          # ~29 min, restoring a comfortable margin. jobs-seo-pages (714s) and
+          # related-search-clusters (530s) DO feed sitemap URLs, so they stay.
+          SKIP_JOB_OG_IMAGES: '1'
 
       - name: Submit IndexNow batch
         run: |
