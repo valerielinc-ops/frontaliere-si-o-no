@@ -9,11 +9,11 @@ import { describe, it, expect } from 'vitest';
 import { normalizeParsedJobsForSlice } from '../scripts/assemble-jobs-dataset.mjs';
 
 describe('normalizeParsedJobsForSlice — addressLocality "undefined" guard (#900)', () => {
-  it('never persists the literal "undefined" in addressLocality or location', () => {
+  it('rewrites literal "undefined" addressLocality + location to the safe canton default', () => {
     const jobs = [{ slug: 'x', addressLocality: 'undefined', location: 'undefined', canton: 'TI' }];
     normalizeParsedJobsForSlice(jobs);
-    expect(jobs[0].addressLocality.toLowerCase()).not.toBe('undefined');
-    expect(String(jobs[0].location).toLowerCase()).not.toBe('undefined');
+    expect(jobs[0].addressLocality).toBe('Ticino'); // exact: the choke-point fallback
+    expect(jobs[0].location).toBe('Ticino');
   });
 
   it('keeps a valid addressLocality untouched', () => {
@@ -22,10 +22,9 @@ describe('normalizeParsedJobsForSlice — addressLocality "undefined" guard (#90
     expect(jobs[0].addressLocality).toBe('Lugano');
   });
 
-  it('backfills an empty addressLocality from the sanitized location (not "undefined")', () => {
+  it('backfills an empty addressLocality from the sanitized location (→ "Ticino", not "undefined")', () => {
     const jobs = [{ slug: 'x', addressLocality: '', location: 'undefined', canton: 'TI' }];
     normalizeParsedJobsForSlice(jobs);
-    expect(jobs[0].addressLocality.toLowerCase()).not.toBe('undefined');
-    expect(jobs[0].addressLocality.trim()).not.toBe('');
+    expect(jobs[0].addressLocality).toBe('Ticino'); // exact: location sanitized first, then backfilled
   });
 });
