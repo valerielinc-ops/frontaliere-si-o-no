@@ -117,5 +117,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "CI Failure: Refresh BFS Stats — run ${{ github.run_number }}" \
+            --title "CI Failure: Refresh BFS Stats" \
             --description "BFS stats refresh failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -1,28 +1,34 @@
 # Issue Automation Instructions
 
-Contratto operativo per la pipeline issue-agent: `issue-triage.yml` (classify + dedup) e `issue-fix.yml` (fix → PR). Companion locale: `/fix-issue N` (`.claude/commands/fix-issue.md`).
+Contratto operativo per la pipeline issue-agent: `issue-triage.yml` (classify + route **deterministico, no Claude**) e `issue-fix.yml` (fix → PR). Companion locale: `/fix-issue N` (`.claude/commands/fix-issue.md`).
 
 ## Scopo
 
-Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-deploy validate dist/live, crawler-health, rpm-canary, follow-up post-merge). Vanno instradate per categoria, non trattate da un singolo agent indistinto. Obiettivo: ridurre il rumore (dedup storm) + risolvere autonomamente le categorie deterministiche, lasciando alla mano umana solo lo strategico.
+Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-deploy validate dist/live, crawler-health, rpm-canary, follow-up post-merge). Vanno instradate per categoria, non trattate da un singolo agent indistinto. Obiettivo: risolvere autonomamente le categorie deterministiche, lasciando alla mano umana solo lo strategico.
+
+**Dedup a MONTE, non nel triage.** I duplicati non vanno chiusi dal triage (costerebbe un run per duplicato): vanno evitati alla sorgente. I monitor usano `scripts/lib/github-issue-creator.mjs` che, con **titolo stabile** (senza run-number), commenta 🔁 sull'issue canonica invece di aprirne una nuova. I follow-up sono **batchati in 1 issue aggregata per PR** da `post-merge-followup` (vedi `FOLLOWUP.md`, non N issue). Con i duplicati eliminati a monte, il triage si riduce a classificare+instradare → **puro bash, zero Claude, zero quota Max**.
 
 ## Categorie
 
 | Categoria | Segnale (titolo/label) | Natura |
 |---|---|---|
 | `validation-failure` | "Validation Failure (dist\|live)", label `bug`+`priority:urgent` | alert post-deploy, spesso dupe/transiente |
-| `crawler` | "Crawler Failure", "[crawler-health] ...broken", label `priority:high` | selector drift, parser da rigenerare |
+| `crawler` | "Crawler Failure", "[crawler-health]", "[parser-health]", label `parser-broken` o `priority:high`+crawler/parser | selector drift, parser da rigenerare |
 | `follow-up` | "follow-up(#NNN)", label `follow-up` | micro-task / verifica deferred |
 | `revenue` | label `revenue` / `rpm-canary`, "RPM canary" | monetizzazione, strategico |
 | `tracker` | "master tracker", "recovery", senza label automation | piano umano multi-step |
 | `other` | nessun match | da triage manuale |
 
-## Triage flow (`issue-triage.yml`, on `issues: opened`)
+## Triage flow (`issue-triage.yml`, on `issues: opened`) — deterministico, no Claude
 
-1. **Classifica** l'issue in UNA categoria.
-2. **Dedup**: confronta con le issue aperte. Una nuova issue è duplicate-storm se esiste un canonical aperto **più vecchio** della stessa categoria E stesso workflow/target (es. due "Validation Failure (dist)" consecutive, o due "[crawler-health] X broken" stessa company). Chiudi la nuova (`gh issue close --reason "not planned"`) con commento `Duplicate of #<canonical>`, applica label `duplicate`. **Mai chiudere il canonical.**
-3. **Routing** (vedi sotto).
-4. **Sempre** come ultimo step: applica `agent:triaged` (anche su issue chiuse come dup). Idempotenza: il workflow ha `if: !contains(labels,'agent:triaged')`.
+Step bash unico (`Classify and route`), nessuna `claude-code-action`:
+
+1. **Classifica** via regex su titolo+label → UNA categoria (ordine conservativo: revenue/tracker prima, mai auto-fix). Vedi tabella "Categorie".
+2. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`).
+3. **Commento** solo per `revenue`/`tracker`/`validation-failure`/`other` (categorie che restano umane). Nessun commento sulle categorie auto-route (no rumore).
+4. **Routing** (vedi sotto): `agent:fix` via PAT solo per `crawler`/`follow-up`, issue OPEN.
+
+Nessun dedup-close: i duplicati sono evitati a monte (vedi "Scopo"). Misclassificazione regex → fail-safe su `other` (nessun auto-fix). Triage non legge più la lista delle issue aperte (era input-token che cresceva col backlog).
 
 ### Routing policy
 
@@ -30,27 +36,27 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 |---|---|
 | `crawler` | **Auto-route `agent:fix`.** Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. |
 | `follow-up` | **Auto-route `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
-| `validation-failure` | **Auto-route `agent:fix` SOLO se non transiente/storm-dup.** Spesso transiente → in dubbio, no fix. |
+| `validation-failure` | **NO auto-fix.** Spesso transiente; transiente-vs-persistente non è decidibile in modo deterministico (bash). Commento "verifica ricorrenza 🔁 prima di `agent:fix` manuale". |
 | `revenue` / `tracker` | NO auto-fix MAI. Giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
 | `other` | NO auto-fix. Commento "needs manual triage". |
 
-**Meccanismo di routing (decision-file + PAT)**: l'agent del triage NON applica lui la label `agent:fix`. Scrive la decisione in `triage-decision.json` (`{"autofix": bool, "category": ...}`) come ultimo passo. Lo step CI `Apply agent:fix via PAT` la legge e applica `agent:fix` **via `GITHUB_PAT` in un `run:` diretto** (non dentro la claude-action), con guard `state == OPEN`. Perché così:
-- **PAT, non GITHUB_TOKEN**: un `labeled` da GITHUB_TOKEN non triggera `issue-fix` (anti-ricorsione) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops || claude*`. Col PAT (owner) trigger+gate OK. Pattern identico ad `auto-merge-on-lgtm.yml` (gh in `run:` step).
-- **`run:` diretto, non dentro l'action**: non dipendiamo da come `claude-code-action` propaga `GH_TOKEN` al subprocess `gh` dell'agent (assunzione non verificabile → review #922 ❓). Token deterministico.
-- **Guard `state == OPEN`**: se l'agent ha chiuso l'issue come storm-duplicate, niente `agent:fix` → niente fixer sprecato. Vale per TUTTE le categorie auto-route, non solo validation-failure.
+**Meccanismo di routing (PAT in bash)**: lo step `Classify and route` applica `agent:fix` **via `GITHUB_PAT` con `gh` diretto** (non in una claude-action), solo per `crawler`/`follow-up` e solo se l'issue è OPEN. Perché così:
+- **PAT, non GITHUB_TOKEN**: un `labeled` da GITHUB_TOKEN non triggera `issue-fix` (anti-ricorsione) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops`. Col PAT (owner) trigger+gate OK. Pattern identico ad `auto-merge-on-lgtm.yml`.
+- **Guard `state == OPEN`**: belt-and-suspenders contro race; niente `agent:fix` su issue chiuse.
 - Senza PAT (RC non caricato) → skip + warning: routing inerte, mai fixer via GITHUB_TOKEN.
 
 `revenue`/`tracker` restano opt-in manuale (mai automation cieca su revenue/funnel — AGENTS.md).
 
 ### Frugalità quota (no ANTHROPIC_API_KEY)
 
-Tutte le automazioni Claude (triage/review/fix/followup) usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, zero costo $) → condividono la quota della sessione interattiva owner. Burst di issue = quota esaurita. Leve attive:
+Tutte le automazioni Claude usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, zero costo $) → condividono la quota della sessione interattiva owner. Burst di issue = quota esaurita. Frugalità per **architettura** (ridurre il numero di run Claude), non per taglio turni:
 
-- **No fixer su dup**: lo step `Apply agent:fix via PAT` salta le issue dedup-chiuse (guard `state==OPEN`) → mai un run Claude fixer + branch/PR sprecato su uno storm-duplicate.
-- Concurrency `cancel-in-progress: false` serializza (un run alla volta, no burst parallelo).
-- Dedup-storm chiude i duplicati PRIMA del routing → un solo fixer per canonical.
-- Triage = sonnet, `--max-turns 12` (NON tagliato: budget basso troncherebbe prima dell'`agent:triaged`/decisione obbligatori → `error_max_turns`, cfr. lever non misurate #795/#802 revertate). Review/fix idem (quality gate #838).
-- **Driver residuo non mitigato**: il NUMERO di issue (es. storm follow-up da `post-merge-followup`, #887→4). Ridurre il volume di follow-up issue (batchare in 1 issue invece di N) è la leva più grossa se la quota resta stretta. Vedi PR #922 → "Non implementato".
+- **Triage = ZERO Claude**: classificazione regex in bash → eliminati ~50 run Claude/giorno (era il driver principale del session-limit). La quota Max non viene toccata dal triage.
+- **Dedup a monte = meno issue → meno run a valle**: titolo stabile validation-failure (8→1 via 🔁) + batch follow-up 1-per-PR (era N) → molte meno issue aperte → molti meno trigger di `issue-fix`.
+- **No fixer su issue non-OPEN**: il routing salta le issue chiuse.
+- Concurrency `cancel-in-progress: false` serializza i fixer.
+- **fix/review/followup restano Claude** (giudizio necessario): max-turns NON tagliati (quality gate; budget basso → `error_max_turns`, cfr. #795/#802/#838). Sono meno frequenti del triage e producono valore.
+- **Residuo**: l'auto-route `follow-up` può auto-alimentarsi (fix→merge→followup→nuovo follow-up). Bound da: batch 1-issue/PR (meno volume), concurrency 1-alla-volta, gate `## LGTM`. Un fix pulito non genera nuovi follow-up → converge.
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
@@ -88,7 +94,7 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 
 | Label | Significato | Chi la mette |
 |---|---|---|
-| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler`/`follow-up`/`validation-failure` non-storm, **via PAT**) o owner manuale |
+| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler`/`follow-up`, **via PAT**) o owner manuale |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
 
@@ -101,7 +107,7 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 
 ## Guardrail (da AGENTS.md, vincolanti)
 
-- Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`. Auto-route consentito solo su `crawler`/`follow-up`/`validation-failure` (non-storm).
+- Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`/`validation-failure`. Auto-route consentito solo su `crawler`/`follow-up`.
 - Concurrency cap: un fixer/triage alla volta (no OOM, no PR concorrenti su stesso data file).
 - PR sempre via reviewer + `## LGTM`; mai bypass auto-merge.
 - Changes chirurgiche, root-cause, no drive-by.

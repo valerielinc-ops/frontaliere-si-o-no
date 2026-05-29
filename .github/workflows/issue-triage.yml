@@ -1,12 +1,11 @@
-name: Issue triage (Claude classify + dedup)
+name: Issue triage (deterministic classify + route)
 
 on:
   issues:
     types: [opened]
 
-# Anti-storm: solo una run triage alla volta. I monitor (post-deploy validate,
-# crawler-health) aprono issue in burst; serializzare evita due triage che
-# chiudono a vicenda lo stesso canonical come duplicato (race su gh issue close).
+# Anti-storm: una run triage alla volta. I monitor (post-deploy validate,
+# crawler-health) aprono issue in burst; serializzare evita race sul routing.
 concurrency:
   group: issue-triage
   cancel-in-progress: false
@@ -18,32 +17,28 @@ permissions:
 
 jobs:
   triage:
-    # Gate:
-    # - Issue non già triagiata (label agent:triaged assente) → evita loop se un
-    #   altro automation ri-tocca l'issue.
-    # - Auth Claude via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero costo API;
-    #   nessun ANTHROPIC_API_KEY — vedi AGENTS.md → "Auth automazioni").
+    # Gate: issue non già triagiata (anti-loop).
     # Nessun gate sull'autore: le issue sono per lo più auto-generate dai monitor
-    # del repo stesso (post-deploy validate, crawler-health, rpm-canary). Triage è
-    # read-mostly (dedup-close + classify comment + label), basso blast-radius.
+    # del repo stesso. Triage è low-blast-radius (label + commento + route).
     if: ${{ !contains(github.event.issue.labels.*.name, 'agent:triaged') }}
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 6
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
-      # GITHUB_PAT da Remote Config: serve allo step "Apply agent:fix via PAT" sotto.
-      # L'agent:fix DEVE essere applicato via PAT, NON via GITHUB_TOKEN, perché:
-      #   1. Anti-ricorsione GitHub: un `labeled` generato dal GITHUB_TOKEN NON
-      #      triggera issue-fix.yml → il fixer non parte mai.
-      #   2. issue-fix gate `sender == valerielinc-ops || claude*`: una label via
-      #      GITHUB_TOKEN ha sender `github-actions[bot]` → non matcha.
-      # Col PAT (owner) il `labeled` triggera issue-fix E passa il gate. Stesso
-      # meccanismo di auto-merge-on-lgtm.yml (gh in run: step). `node` (npm ci sotto)
-      # serve sia a load-rc-env.mjs (firebase-admin) sia al parse della decisione.
+      # ZERO Claude: il triage classifica con regex su titolo+label (bash puro) →
+      # la quota Max NON viene toccata dal triage (era ~50 run Claude/giorno, il
+      # driver principale del session-limit). Il dedup dei duplicati avviene a
+      # MONTE: i monitor usano scripts/lib/github-issue-creator.mjs che, con
+      # titolo stabile, commenta sull'issue canonica invece di aprirne una nuova;
+      # i follow-up sono batchati 1-per-PR da post-merge-followup. Vedi ISSUES.md.
+      #
+      # GITHUB_PAT (Remote Config) serve SOLO ad applicare agent:fix in modo che
+      # triggeri issue-fix e passi il gate (vedi nota nello step di routing). node
+      # + npm ci servono a load-rc-env.mjs (firebase-admin).
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -61,101 +56,66 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "⚠️ Nessuna credenziale Firebase SA — GITHUB_PAT non caricato; agent:fix via GITHUB_TOKEN non triggererà il fixer (routing inerte)."
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; agent:fix non verrà applicato (routing inerte)."
           fi
 
       - name: Load secrets from Remote Config
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      - name: Run Claude triage
-        uses: anthropics/claude-code-action@v1
+      - name: Classify and route (deterministic, no Claude)
         env:
-          # Operazioni intra-issue (view/list/close/comment/triaged): GITHUB_TOKEN
-          # basta — NON devono triggerare altri workflow. L'unica label che DEVE
-          # triggerare (agent:fix) NON è applicata qui: l'agent scrive solo la
-          # decisione su `triage-decision.json`, e lo step "Apply agent:fix" sotto
-          # la applica via PAT in un `run:` diretto (token deterministico, vedi nota).
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           REPO: ${{ github.repository }}
-        with:
-          # Auth: SOLO CLAUDE_CODE_OAUTH_TOKEN (Max sub, zero API cost). Nessun
-          # ANTHROPIC_API_KEY — il secret non esiste e non va aggiunto.
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          show_full_output: true
-          allowed_bots: '*'
-          # max-turns 12: triage fa read ISSUES.md + view + list(100) + classify +
-          # (close) + 2 label-edit + scrittura decisione. Turni NON tagliati — un
-          # budget basso troncherebbe prima dell'agent:triaged obbligatorio
-          # (rischio error_max_turns, cfr. #795/#802 lever non misurate revertate).
-          # La frugalità qui viene dallo step run successivo (niente fixer su issue
-          # dedup-chiuse), non dal taglio turni. Vedi AGENTS.md → "Frugalità quota".
-          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob,Write'"
-          prompt: |
-            Triage automatico issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
-
-            **Bootstrap:**
-            1. Leggi `ISSUES.md` — contratto operativo completo (categorie, dedup, routing, label policy).
-            2. Carica l'issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,createdAt,state`.
-            3. Carica le issue aperte simili per dedup (vedi ISSUES.md → Dedup):
-               `gh issue list --state open --limit 100 --json number,title,labels,createdAt`.
-
-            **Esegui workflow di triage come specificato in ISSUES.md → "Triage flow":**
-            - Classifica l'issue in UNA categoria (validation-failure | crawler | follow-up | revenue | tracker | other).
-            - Dedup: se è uno storm-duplicate di un canonical aperto più vecchio della stessa categoria/workflow → `gh issue close $ISSUE_NUMBER --comment "Duplicate of #<canonical> — chiudo per ridurre rumore." --reason "not planned"` e applica label `duplicate`. NON chiudere il canonical.
-            - Commento di classificazione: per `revenue`/`tracker`/`other` posta UN commento ("richiede mano umana" / "needs manual triage").
-            - SEMPRE come penultimo passo: `gh issue edit $ISSUE_NUMBER --add-label "agent:triaged"` (anche se chiusa come duplicate).
-            - **ULTIMO passo OBBLIGATORIO — scrivi la decisione di routing** nel file `triage-decision.json` (root del repo) con `Write`. NON applicare tu la label `agent:fix`: la applica lo step CI successivo via PAT. Formato esatto:
-              ```json
-              {"autofix": <true|false>, "category": "<categoria>"}
-              ```
-              `autofix` = `true` SOLO se TUTTE queste condizioni valgono:
-              - categoria ∈ {`crawler`, `follow-up`, `validation-failure`}, E
-              - NON hai chiuso l'issue come duplicate in questo run (storm-dup → `false` per OGNI categoria), E
-              - per `validation-failure`: NON è transiente/già-rimpiazzata (in dubbio → `false`).
-              `autofix` = `false` per `revenue`, `tracker`, `other`, e per qualunque issue chiusa come duplicate.
-
-            **Constraint:**
-            - Read-only eccetto: `gh issue close`, `gh issue edit` (label), `gh issue comment`, e `Write` del solo `triage-decision.json`.
-            - Mai aprire PR, mai modificare codice, mai chiudere il canonical di un dedup.
-            - Una sola classificazione per run.
-            - Incerto sulla categoria → `other` + commento "needs manual triage", `autofix:false`.
-            - Mai `autofix:true` per `revenue`/`tracker` (giudizio strategico).
-
-      # Applica agent:fix via PAT in un run: diretto — NON dentro la claude-action.
-      # Motivo (risolve il ❓ load-bearing della review #922): non dipendiamo da come
-      # claude-code-action propaga GH_TOKEN al subprocess `gh` dell'agent. Qui il
-      # token è deterministico:
-      #   - PAT (owner valerielinc-ops) → il `labeled` triggera issue-fix.yml E ha
-      #     sender che passa il gate `sender == valerielinc-ops`. Stesso meccanismo
-      #     reale di auto-merge-on-lgtm.yml (gh in run: step, non nell'action).
-      #   - Guard `state == OPEN`: se l'agent ha chiuso l'issue come storm-duplicate,
-      #     NON applichiamo agent:fix (niente fixer sprecato su dup — fix 🟡 review).
-      #   - Senza PAT (RC non caricato) → log e skip: routing inerte, mai fixer via
-      #     GITHUB_TOKEN (che non triggererebbe comunque).
-      - name: Apply agent:fix via PAT
-        env:
-          GITHUB_PAT: ${{ env.GITHUB_PAT }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          if [ ! -f triage-decision.json ]; then
-            echo "Nessun triage-decision.json (agent non ha deciso / run troncato) — skip routing."; exit 0
-          fi
-          echo "Decisione triage: $(cat triage-decision.json)"
-          autofix=$(node -e "try{process.stdout.write(String(require('./triage-decision.json').autofix===true))}catch(e){process.stdout.write('false')}")
+          labels_json=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels --jq '[.labels[].name]')
+          state=$(gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json state --jq '.state')
+          title="$ISSUE_TITLE"
+          echo "Issue #$ISSUE_NUMBER state=$state labels=$labels_json title=$title"
+
+          # Classificazione in modulo node testabile (scripts/lib/classify-issue.mjs):
+          # regex JS portabile (no grep GNU `\b`) + label come array (no bug se un
+          # nome contiene virgola). Test: tests/classify-issue.test.ts.
+          decision=$(node scripts/lib/classify-issue.mjs "$title" "$labels_json")
+          echo "decision=$decision"
+          cat=$(node -e "process.stdout.write(JSON.parse(process.argv[1]).category)" "$decision")
+          autofix=$(node -e "process.stdout.write(String(JSON.parse(process.argv[1]).autofix===true))" "$decision")
+          echo "category=$cat autofix=$autofix"
+
+          # --- Label anti-loop sempre (GITHUB_TOKEN: non deve triggerare nulla) ---
+          gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:triaged" || true
+
+          # --- Commento solo per categorie che restano umane (no rumore sul resto) ---
+          case "$cat" in
+            revenue|tracker)
+              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria \`$cat\` — richiede giudizio strategico umano (no auto-fix). Usa \`/fix-issue\` locale o applica \`agent:fix\` a mano per un tentativo." || true ;;
+            validation-failure)
+              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria \`validation-failure\`. Spesso transiente — verifica se ricorre (commenti 🔁) prima di applicare \`agent:fix\` a mano. Nessun auto-fix automatico." || true ;;
+            other)
+              gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria non riconosciuta (\`other\`) — needs manual triage." || true ;;
+          esac
+
+          # --- Routing agent:fix via PAT (solo crawler/follow-up, issue OPEN) -----
+          # agent:fix DEVE essere via PAT, non GITHUB_TOKEN: (1) anti-ricorsione
+          # GitHub — un `labeled` da GITHUB_TOKEN non triggera issue-fix; (2) il
+          # gate issue-fix `sender == valerielinc-ops` non matcha github-actions[bot].
+          # Col PAT (owner) trigger + gate OK. Stesso meccanismo di auto-merge-on-lgtm.
           if [ "$autofix" != "true" ]; then
             echo "autofix=false → nessun agent:fix."; exit 0
           fi
-          if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::warning::GITHUB_PAT assente (RC non caricato) → routing inerte, agent:fix NON applicato (GITHUB_TOKEN non triggererebbe issue-fix)."; exit 0
-          fi
-          state=$(GH_TOKEN="$GITHUB_PAT" gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json state --jq '.state')
           if [ "$state" != "OPEN" ]; then
-            echo "Issue $ISSUE_NUMBER è $state (probabile storm-dup chiusa) → skip agent:fix."; exit 0
+            echo "Issue non OPEN ($state) → skip agent:fix."; exit 0
           fi
-          echo "Applico agent:fix via PAT su #$ISSUE_NUMBER → triggera issue-fix."
-          GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix"
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::warning::GITHUB_PAT assente → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix)."; exit 0
+          fi
+          echo "Applico agent:fix via PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
+          # Non-fatal: se il PAT manca dei permessi issues:write o la label non
+          # esiste, NON rompere il triage (già completato: triaged + commento) —
+          # emetti warning visibile (routing inerte da indagare).
+          GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
+            || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage comunque completato."
