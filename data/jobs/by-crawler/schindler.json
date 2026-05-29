@@ -144,7 +144,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-34d2f8c1f13f",
@@ -218,7 +218,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-5413bd75ca7a",
@@ -292,7 +292,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-2c8c90fbaebd",
@@ -436,7 +436,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-4074703ad060",
@@ -527,9 +527,9 @@
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
-        "de": "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
-        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
+        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -581,20 +581,26 @@
         "responsable-d-installation-m-f-d-80-100-schindler-castione-arbedo",
         "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo-kbzpxd",
         "montageleiter-m-w-d-80-100-schindler-castione-arbedo",
-        "superviseur-d-installation-h-f-d-80-100-schindler-castione-arbedo"
+        "superviseur-d-installation-h-f-d-80-100-schindler-castione-arbedo",
+        "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       ],
       "previousSlugsByLocale": {
         "en": [
           "lift-m-f-d-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+          "elevator-installer-m-f-d-80-100-schindler-castione-arbedo"
         ],
         "de": [
           "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+          "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo"
         ],
         "fr": [
           "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+          "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
+          "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
@@ -1162,7 +1168,7 @@
       "id": "schindler-f5f8b82b905c",
       "slug": "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern",
+        "it": "servicetechniker-in-bern-m-w-d-80-100-schindler-bern",
         "en": "service-technician-in-bern-m-f-d-80-100-schindler-bern",
         "de": "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
         "fr": "technicien-de-service-a-berne-m-f-d-80-100-schindler-bern"
@@ -1208,13 +1214,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
-        "servicetechniker-in-bern-m-w-d-80-100-schindler-bern",
-        "technicien-de-service-a-berne-h-f-d-80-100-schindler-bern"
+        "technicien-de-service-a-berne-h-f-d-80-100-schindler-bern",
+        "tecnico-di-servizio-a-berna-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern",
-          "servicetechniker-in-bern-m-w-d-80-100-schindler-bern"
+          "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "servicetechniker-in-in-bern-m-w-d-80-100-schindler-bern"
@@ -1460,7 +1465,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-ac96edbc5d8e",
@@ -1612,7 +1617,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-bc398172e7ee",
@@ -1688,7 +1693,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-adbfdd5c1c41",
@@ -1768,13 +1773,13 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-04d05415fec4",
       "slug": "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern",
+        "it": "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern",
         "en": "service-technician-escalators-region-be-so-scheduled-assignments-in-upper-valais-m-f-d-80-100-schindler-bern",
         "de": "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
         "fr": "technicien-de-service-escaliers-mecaniques-region-be-so-interventions-planifiees-dans-le-haut-valais-h-f-d-80-100"
@@ -1820,14 +1825,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
-        "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern",
         "service-engineer-in-escalator-region-be-so-planable-inserts-in-the-oberwallis-m-w-d-80-100-schindler-bern",
-        "ingenieur-de-service-dans-la-region-escalator-be-so-inserts-planables-dans-l-oberwallis-m-w-d-80-100-schindler-bern"
+        "ingenieur-de-service-dans-la-region-escalator-be-so-inserts-planables-dans-l-oberwallis-m-w-d-80-100-schindler-bern",
+        "tecnico-di-servizio-scale-mobili-regione-be-so-interventi-programmati-nell-alto-vallese-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
-          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100-schindler-bern"
+          "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100"
         ],
         "en": [
           "servicetechniker-in-fahrtreppen-region-be-so-planbare-einsatze-im-oberwallis-m-w-d-80-100",
@@ -2002,7 +2006,7 @@
       "id": "schindler-5329457d542b",
       "slug": "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich",
+        "it": "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich",
         "en": "elevator-installer-in-the-zurich-area-with-leadership-potential-m-f-d-80-100-schindler-zurich",
         "de": "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
         "fr": "monteur-d-ascenseurs-dans-la-region-de-zurich-avec-potentiel-de-leadership-h-f-d-80-100-schindler-zurich"
@@ -2048,14 +2052,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
-        "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich",
         "monteur-in-for-elevators-in-the-zurich-area-with-leadership-potential-m-w-d-80-100-schindler-zurich",
-        "monteur-in-pour-ascenseurs-dans-la-region-de-zurich-avec-un-potentiel-de-leadership-m-m-j-80-100-schindler-zurich"
+        "monteur-in-pour-ascenseurs-dans-la-region-de-zurich-avec-un-potentiel-de-leadership-m-m-j-80-100-schindler-zurich",
+        "tecnico-installatore-di-ascensori-nella-regione-di-zurigo-con-potenziale-di-leadership-m-f-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
-          "monteur-in-per-aufzugsanlagen-im-grossraum-zurich-con-fuhrungspotenzial-m-w-d-80-100-schindler-zurich"
+          "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100"
         ],
         "en": [
           "monteur-in-fur-aufzugsanlagen-im-grossraum-zurich-mit-fuhrungspotenzial-m-w-d-80-100",
@@ -2087,9 +2090,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
-        "de": "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
-        "fr": "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2131,17 +2134,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+        "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
+        "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
+        "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+          "senior-lift-lift-m-f-d-80-100-schindler-bioggio"
         ],
         "de": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+          "senior-lift-lift-m-w-d-80-100-schindler-bioggio"
         ],
         "fr": [
-          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+          "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
+          "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:48.463Z",
@@ -2239,7 +2248,7 @@
       "id": "schindler-170ffd486c3b",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
@@ -2285,12 +2294,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
@@ -2316,7 +2324,7 @@
       "id": "schindler-6515abb2e0ce",
       "slug": "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
+        "it": "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "en": "elevator-installation-technician-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "technicien-ne-d-installation-d-ascenseurs-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -2363,13 +2371,12 @@
       "previousSlugs": [
         "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
-        "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
+        "tecnico-di-montaggio-per-impianti-di-ascensori-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich",
-          "monteur-in-per-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
+          "monteur-in-per-ascensori-nella-regione-di-zurigo-m-w-d-80-100-schindler-zurich"
         ],
         "en": [
           "monteur-in-fur-aufzugsanlagen-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
@@ -2398,7 +2405,7 @@
       "id": "schindler-d5179197fde9",
       "slug": "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
+        "it": "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "en": "electrician-for-elevator-installation-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "electricien-pour-l-installation-d-ascenseurs-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -2445,15 +2452,14 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
-        "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
         "electrician-for-lift-installation-region-zurich-m-f-d-80-100-schindler-zurich",
-        "electricien-pour-le-montage-des-ascenseurs-region-zurich-h-f-80-100-schindler-zurich"
+        "electricien-pour-le-montage-des-ascenseurs-region-zurich-h-f-80-100-schindler-zurich",
+        "elettricista-per-il-montaggio-di-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
-          "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich",
-          "installatore-trice-elettrico-a-in-per-la-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich"
+          "elettricista-per-il-montaggio-degli-ascensori-regione-zurigo-m-f-d-80-100-schindler-zurich"
         ],
         "en": [
           "elektroinstallateur-in-fur-die-liftmontage-region-zurich-m-w-d-80-100-schindler-zurich",
@@ -2567,7 +2573,7 @@
       "id": "schindler-8c9951e4514b",
       "slug": "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne",
       "slugByLocale": {
-        "it": "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne",
+        "it": "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "en": "learning-polymechanic-ne-cfc-with-specialist-elevator-assembler-for-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
         "de": "lernen-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
         "fr": "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs"
@@ -2614,15 +2620,14 @@
       "previousSlugs": [
         "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
         "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur",
-        "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne",
         "learning-from-polymechanic-ne-cfc-with-specialist-elevator-assembler-for-2026-at-le-mont-sur-lausanne-schindler-le-mont",
-        "lernen-von-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur"
+        "lernen-von-polymechanic-ne-cfc-mit-spezialisierter-aufzugsmontage-fur-2026-in-le-mont-sur-lausanne-schindler-le-mont-sur",
+        "imparare-il-cfc-polymechanic-ne-con-l-assemblatore-di-ascensore-specializzato-per-il-2026-a-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
-          "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur",
-          "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs-pour-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
+          "imparare-da-polymechanic-ne-cfc-con-ascensori-specialistici-per-il-2026-a-le-mont-sur-lausanne-schindler-le-mont-sur"
         ],
         "en": [
           "apprentissage-de-polymecanicien-ne-cfc-avec-specialisation-de-monteur-euse-en-ascenseurs",
@@ -2808,7 +2813,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-14bf366a6524",
@@ -2882,7 +2887,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-13e42ab7884a",
@@ -3192,16 +3197,16 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-b2a53076a29b",
       "slug": "projektleiter-m-w-d-schindler-schonbuhl",
       "slugByLocale": {
-        "it": "projektleiter-m-w-d-schindler-schonbuhl",
-        "en": "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl",
-        "de": "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl",
-        "fr": "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+        "it": "projektleiter-m-w-d-schindler-bern",
+        "en": "elevator-technician-region-bern-m-f-d-80-100-schindler-bern",
+        "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
+        "fr": "technicien-ascensoriste-region-berne-h-f-d-80-100-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3209,16 +3214,16 @@
       "title": "Aufzugsmonteur*in Region Basel (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Projektleiter (m/w/d) %",
-        "en": "Aufzugsmonteur*in Region Basel (m/w/d) 80-100%",
+        "en": "Projektleiter (m/w/d) %",
         "de": "Aufzugsmonteur*in Region Basel (m/w/d) 80-100%",
-        "fr": "Aufzugsmonteur*in Region Basel (m/w/d) 80-100%"
+        "fr": "Projektleiter (m/w/d) %"
       },
       "description": "Wir sind AS Aufzüge\n\nAS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir!\n\nErlebe den AS-Spirit als\n\nAufzugsmonteur*in Region Basel (m/w/d) 80-100%\n\nDurch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video\n\nWas dich erwartet\n\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n\n• Vorbereitung und Feineinstellung bis zur internen Abnahme\n\nWas du mitbringst\n\n• A bgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n\n• Du bist fit und schwindelfrei\n\n• G ültiger Führerschein – ohne geht’s nicht\n\nDeine vielen Vorteile\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\nBefördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen\n\nBei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
       "descriptionByLocale": {
-        "it": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Aufzugsmonteur*in Region Basel (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n• Vorbereitung und Feineinstellung bis zur internen Abnahme Was du mitbringst\n• A bgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n• Du bist fit und schwindelfrei\n• G ültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "en": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Aufzugsmonteur*in Region Basel (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n• Vorbereitung und Feineinstellung bis zur internen Abnahme Was du mitbringst\n• A bgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n• Du bist fit und schwindelfrei\n• G ültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "de": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Aufzugsmonteur*in Region Basel (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n• Vorbereitung und Feineinstellung bis zur internen Abnahme Was du mitbringst\n• A bgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n• Du bist fit und schwindelfrei\n• G ültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "fr": "Wir sind AS Aufzüge AS Aufzüge ist schweizweiter Partner für die Montage, Modernisierung und den Unterhalt von Aufzügen. Die Vielfältigkeit und Individualisierung unserer Produkte zeichnet uns aus. Sei auch du so einzigartig wie wir! Erlebe den AS-Spirit als Aufzugsmonteur*in Region Basel (m/w/d) 80-100% Durch deinen Start bei AS Aufzüge profitierst du von einem wertschätzenden und familiären Umfeld. So fördern wir den Zusammenhalt unter den Mitarbeitenden durch unsere Du-Kultur und verschiedene Events. Mehr zu uns erfährst du hier: Video Was dich erwartet\n• Selbstständige Montage von Aufzügen von A-Z sowohl mechanisch auch als elektrisch\n• Planung und Koordination deiner Aufgaben in Absprache mit der Kundschaft und anderen Ansprechpartnern auf der Baustelle\n• Vorbereitung und Feineinstellung bis zur internen Abnahme Was du mitbringst\n• A bgeschlossene Berufslehre und mehrjährige Berufserfahrung im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• 1-2 Jahre Berufserfahrung im erlernten Beruf\n• Selbstständiges Arbeiten auf der Baustelle macht dir Spass\n• Du bist fit und schwindelfrei\n• G ültiger Führerschein – ohne geht’s nicht Deine vielen Vorteile\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten : Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance : 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n• Gesunde Arbeitsumgebung : Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n• Mitarbeitervergünstigungen : Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen. Befördere dich jetzt selbst und sende uns deine vollständigen Bewerbungsunterlagen Bei AS legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen. Jegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar."
+        "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Come parte della famiglia Schindler, si creano posti per tutti senza barriere, inclusi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Partecipa alla nostra storia di successo di 150 anni e modella il futuro della mobilità. Insieme un pavimento come un mostro ascensore* nella regione Berner Oberland (m/w/d) 80-100% La tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Il vostro strumento moderno vi accompagna.\n• Autovalutazione di ascensori da A-Z sia meccanicamente che elettricamente\n• Pianificazione e coordinamento dei vostri compiti in consultazione con il cliente e altri referenti presso il cantiere\n• Preparazione e fine-tuning fino all'accettazione interna Le vostre condizioni ideali:\n• L'insegnamento professionale completo e l'esperienza professionale pluriennale nel campo meccanico, elettrico o idraulico (ad es. 1-2 anni di esperienza professionale nella professione di apprendimento\n• Il lavoro autonomo sul cantiere È adatto e privo di vertigini\n• patente di guida valida – senza andare ai nostri vantaggi:\n• incorporazione di 2 mesi con salari completi nel nostro campo di sollevamento per la preparazione ottimale per il vostro nuovo lavoro.\n• Compensazione per il vostro pranzo e pulizia dei vostri abiti da lavoro, che sono naturalmente forniti a voi gratuitamente.\n• Eccellente possibilità di sviluppo: lo sviluppo personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo nella formazione e nell'ulteriore formazione.\n• Bilancio della vita lavorativa: 40h settimana, 25-30 giorni festivi, ore di lavoro flessibili, indennità part-time e congedo non retribuito\n• Ambiente di lavoro sano: Elevati standard di salute e sicurezza e la propria gestione della salute professionale, tra cui la consultazione sociale e la promozione della salute\n• Vantaggi dei dipendenti: partecipazione genetica alla salute pubblica e all'abo fitness, sconti della flotta, copertura scontata del denaro Reka, premi assicurativi scontati. Inizia la tua carriera con Schindler! Sei pronto a fare nuove vie? Iscriviti a #TeamSchindler! Se avete domande, Jamin Schuerpf è disponibile al (+41) 414453472. Per maggiori informazioni visitate: www.schindler.ch/karriere",
+        "en": "Over two billion people trust Schindler every day. Our many years of experience and innovative strength make us the number one in the Swiss elevator and escalator business. As part of the Schindler family, you create places for all barrier-free, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Be part of our 150-year success story and shape the future of mobility. Together a floor up as Projektleiter (m/w/d) % Your day – your plan! Design your 40-hour week according to your needs. Your modern tool accompanies you. Learn more in this video Your new challenges:\n• Self-assembly of A-Z lifts both mechanically and electrically\n• Planning and coordination of your tasks in consultation with the customer and other contact persons at the construction site\n• Preparing and fine-tuning up to internal acceptance Your ideal conditions:\n• Complete professional teaching and multiannual professional experience in mechanical, electrical or hydraulic fields (e.g. polymechanics, automechanics, plant and equipment manufacturers*in or electro-installateur*in)\n• 1-2 years of professional experience in the learning profession\n• Self-employed work on the construction site makes you fun\n• You are fit and dizzy-free\n• Valid driving licence – without going Our Benefits:\n• 2-month full wage integration in our lift camp for your optimal preparation for your new job.\n• Compensation for your lunch and cleaning of your work dresses, which are of course provided to you free of charge.\n• Excellent development possibilities: Personal development is lived with us. We provide various national and international talent programmes to our employees and support them in training and further education.\n• Work-Life-Balance: 40h week, 25 to 30 holiday days, flexible working hours, part-time and unpaid leave\n• Healthy working environment: High health & safety standards and own occupational health management including social consultation and health promotion\n• Employee Benefits: Generous participation in the public health and fitness abo, fleet discounts, discounted Reka money, discounted insurance premiums and various benefits. Start your career with Schindler! Are you ready to go new ways? Join #TeamSchindler! If you have any questions, Jamin Schuerpf, is available at (+41) 414453472 or at your disposal. For more information please visit: www.schindler.ch/karriere",
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit. Gemeinsam ein Stockwerk nach oben als Aufzugsmonteur*in Region Berner Oberland (m/w/d) 80-100% Dein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Dein modernes Werkzeug begleitet dich dabei. Mehr erfährst du in diesem Video Deine neuen Herausforderungen:\n• Du bringst Aufzüge zum Leben – von der ersten Schraube bis zur fertigen Anlage\n• Du arbeitest selbstständig an modernen Aufzugssystemen und verbindest Mechanik mit Elektrik\n• Du organisierst deinen Arbeitstag eigenverantwortlich und koordinierst dich direkt mit Kundschaft und Bauleitung\n• Du bist dort unterwegs, wo etwas entsteht – auf spannenden Baustellen und mitten im Geschehen\n• Du sorgst mit deinem Know-how dafür, dass jede Anlage perfekt läuft und bereit für die interne Abnahme ist\n• Kein Tag ist wie der andere: neue Projekte, neue Herausforderungen, neue Lösungen Deine idealen Voraussetzungen:\n• Du hast eine abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n• Idealerweise bringst du bereits 1–2 Jahre Berufserfahrung mit\n• Du liebst es, selbstständig zu arbeiten und Verantwortung zu übernehmen\n• Baustellenluft, Technik und praktisches Arbeiten motivieren dich\n• Du bist körperlich fit, schwindelfrei und gerne unterwegs\n• Führerschein Kategorie B – damit du mobil bleibst\n• Du willst nicht einfach irgendeinen Job, sondern etwas bewegen und sichtbar Resultate schaffen Unsere Benefits:\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n• Entschädigung für deine Mittagsverpflegung und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.",
+        "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous le numéro un de l'entreprise suisse de l'ascenseur et de l'escalator. Dans le cadre de la famille Schindler, vous créez des lieux pour tous sans obstacles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité. Ensemble, un plancher vers le haut comme un monstre d'ascenseur* dans la région Berner Oberland (m/p/j) 80-100% Votre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Votre outil moderne vous accompagne.\n• Auto-assemblage des ascenseurs A-Z mécaniquement et électriquement\n• Planification et coordination de vos tâches en consultation avec le client et d'autres personnes de contact sur le chantier\n• Préparation et réglage fin jusqu'à l'acceptation interne Vos conditions idéales :\n• Enseignement professionnel complet et expérience professionnelle pluriannuelle dans le domaine mécanique, électrique ou hydraulique (par exemple 1-2 ans d'expérience professionnelle dans la profession d'apprentissage\n• Travail indépendant sur le chantier de construction vous fera plaisir\n• Vous êtes en forme et sans étourdissement\n• Permis de conduire valide – sans aller à Nos avantages:\n• 2 mois d'incorporation avec plein salaire dans notre camp de levage pour votre préparation optimale pour votre nouvel emploi.\n• Compensation pour votre déjeuner et le nettoyage de vos robes de travail, qui vous sont bien sûr fournis gratuitement.\n• Excellentes possibilités de développement : le développement personnel est vécu avec nous. Nous offrons à nos employés divers programmes nationaux et internationaux de formation et de perfectionnement.\n• Équilibre travail-vie privée : 40h semaine, 25 à 30 jours de congé, horaires de travail flexibles, allocation à temps partiel et congés non rémunérés\n• Milieu de travail sain : Des normes élevées en matière de santé et de sécurité et sa propre gestion de la santé au travail, y compris la consultation sociale et la promotion de la santé\n• Avantages sociaux: participation généreuse à la santé publique et à la condition physique abo, rabais de flotte, couverture réduite de l'argent de Reka, primes d'assurance actualisées. Commencez votre carrière avec Schindler! Êtes-vous prêt à aller de nouvelles façons ? Rejoignez #TeamSchindler ! Si vous avez des questions, Jamin Schuerpf est disponible au (+41) 414453472. Pour de plus amples informations, veuillez consulter le site www.schindler.ch/karriere"
       },
       "location": "Schönbühl",
       "canton": "BE",
@@ -3243,14 +3248,31 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+        "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl",
+        "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
+        "projektleiter-m-w-d-schindler-bern-7ab342",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern-2",
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
+        "projektleiter-m-w-d-schindler-schonbuhl-7vtlwx",
+        "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-schonbuhl",
+        "projektleiter-m-w-d-schindler-schonbuhl-033b0a",
+        "projektleiter-m-w-d-schindler-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+        ],
+        "en": [
+          "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+        ],
+        "de": [
+          "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+        ],
+        "fr": [
+          "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:33:38.786Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3265,8 +3287,7 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934",
-      "retranslationAttempts": 1
+      "postalCode": "6934"
     },
     {
       "id": "schindler-329a0312ed97",
@@ -3404,7 +3425,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-49dca6a37df8",
@@ -3639,7 +3660,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-9574921475f9",
@@ -3713,7 +3734,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-2691b4dab6c9",
@@ -3791,7 +3812,7 @@
       "id": "schindler-bcae395d112b",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
+        "it": "manager-per-cookie-einwilligungen-schindler-bussigny",
         "en": "manager-fur-cookie-einwilligungen-schindler-bussigny",
         "de": "manager-fur-cookie-einwilligungen-schindler-bussigny",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny"
@@ -3837,12 +3858,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bussigny",
-        "manager-per-cookie-einwilligungen-schindler-bussigny"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-bussigny",
-          "manager-per-cookie-einwilligungen-schindler-bussigny"
+          "manager-fur-cookie-einwilligungen-schindler-bussigny"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bussigny"
@@ -3946,7 +3966,7 @@
       "id": "schindler-94e762288e5d",
       "slug": "responsabile-consent-cookie-schindler-ebikon",
       "slugByLocale": {
-        "it": "responsabile-consent-cookie-schindler-ebikon",
+        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "fr": "responsable-consent-cookies-schindler-ebikon"
@@ -3994,16 +4014,15 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "manager-del-consenso-dei-cookie-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
-        "gestionnaire-du-consentement-des-cookies-schindler-ebikon"
+        "gestionnaire-du-consentement-des-cookies-schindler-ebikon",
+        "responsabile-consent-cookie-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "manager-del-consenso-dei-cookie-schindler-ebikon",
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -4180,7 +4199,7 @@
       "id": "schindler-8f68c9fc6d74",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-basel",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-basel",
+        "it": "manager-per-cookie-einwilligungen-schindler-basel",
         "en": "manager-fur-cookie-einwilligungen-schindler-basel",
         "de": "manager-fur-cookie-einwilligungen-schindler-basel",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-basel"
@@ -4226,12 +4245,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-basel",
-        "manager-per-cookie-einwilligungen-schindler-basel"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-basel",
-          "manager-per-cookie-einwilligungen-schindler-basel"
+          "manager-fur-cookie-einwilligungen-schindler-basel"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-basel"
@@ -4257,7 +4275,7 @@
       "id": "schindler-604676bbf76f",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-fur-cookie-einwilligungen-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern-fd1b8a"
@@ -4305,14 +4323,13 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
-        "manager-per-cookie-einwilligungen-schindler-bern"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-00d690"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "manager-fur-cookie-einwilligungen-schindler-bern",
-          "manager-per-cookie-einwilligungen-schindler-bern-2",
-          "manager-per-cookie-einwilligungen-schindler-bern"
+          "manager-per-cookie-einwilligungen-schindler-bern-2"
         ],
         "fr": [
           "manager-fur-cookie-einwilligungen-schindler-bern"
@@ -4406,7 +4423,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-f2450ccabb86",
@@ -4480,7 +4497,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-0bd40b237b5b",
@@ -4568,7 +4585,7 @@
       "slug": "responsabile-consent-cookie-schindler-ebikon-caf89d",
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "it": "responsabile-consent-cookie-schindler-ebikon-caf89d",
+        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "fr": "responsable-consent-cookies-schindler-ebikon-caf89d"
       },
@@ -4615,8 +4632,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon"
@@ -4630,7 +4646,8 @@
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "responsabile-consent-cookie-schindler-ebikon-caf89d"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -4652,7 +4669,7 @@
       "id": "schindler-75a56cb52f43",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4710,13 +4727,12 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
-        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-3",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4732,8 +4748,7 @@
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
-          "manager-per-cookie-einwilligungen-schindler-winterthur"
+          "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -4929,7 +4944,7 @@
       "id": "schindler-d075d10ff07d",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
+        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4974,14 +4989,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
-        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
+        "responsabile-consent-cookie-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
@@ -4989,11 +5001,13 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon",
+        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-3"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5002,7 +5016,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
           "manager-fur-cookie-einwilligungen-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-          "manager-per-cookie-einwilligungen-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon-i5c82e",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
@@ -5164,11 +5177,12 @@
         "projektleiter-m-w-d-schindler-bern-7ab342",
         "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
         "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern-2",
-        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern",
         "projektleiter-m-w-d-schindler-schonbuhl-7vtlwx",
         "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-schonbuhl",
         "projektleiter-m-w-d-schindler-schonbuhl-033b0a",
-        "projektleiter-m-w-d-schindler-schonbuhl"
+        "projektleiter-m-w-d-schindler-schonbuhl",
+        "projektleiter-m-w-d-schindler-bern",
+        "tecnico-ascensorista-regione-berna-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5203,7 +5217,7 @@
       "id": "schindler-edab4d4f6924",
       "slug": "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
       "slugByLocale": {
-        "it": "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
+        "it": "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "en": "service-technician-with-potential-in-the-zurich-region-m-f-d-80-100-schindler-zurich",
         "de": "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "fr": "technicien-ne-de-service-avec-potentiel-dans-la-region-de-zurich-h-f-d-80-100-schindler-zurich"
@@ -5250,14 +5264,13 @@
       "previousSlugs": [
         "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
         "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
-        "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "technicien-de-service-avec-potentiel-dans-la-region-de-zurich-m-f-d-80-100-schindler-zurich"
+        "technicien-de-service-avec-potentiel-dans-la-region-de-zurich-m-f-d-80-100-schindler-zurich",
+        "tecnico-a-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
-          "servicetechniker-in-con-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
+          "tecnico-di-servizio-con-potenziale-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich"
         ],
         "en": [
           "servicetechniker-in-mit-potenzial-in-der-region-zurich-m-w-d-80-100-schindler-zurich"
@@ -5517,13 +5530,13 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-cb89735d4ad5",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
+        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -5568,6 +5581,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
+        "manager-per-cookie-einwilligungen-schindler-bern",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "responsabile-consent-cookie-schindler-ebikon",
         "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
@@ -5580,14 +5598,14 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "manager-per-cookie-einwilligungen-schindler-winterthur-2",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "manager-fur-cookie-einwilligungen-schindler-bern",
         "responsabile-consent-cookie-schindler-ebikon-caf89d",
         "responsabile-consent-cookie-schindler-ebikon-i5c82e",
-        "cookie-consent-manager-schindler-ebikon",
-        "responsable-consent-cookies-schindler-ebikon-caf89d"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ay3c",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-2",
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5607,7 +5625,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden",
-          "manager-per-cookie-einwilligungen-schindler-winterthur",
           "responsabile-consent-cookie-schindler-ebikon-caf89d",
           "responsabile-consent-cookie-schindler-ebikon-i5c82e"
         ],
@@ -5656,7 +5673,7 @@
       "id": "schindler-3a8dc89d7e9f",
       "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
       "slugByLocale": {
-        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab",
+        "it": "manager-per-cookie-einwilligungen-schindler-oberentfelden",
         "en": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "de": "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-oberentfelden"
@@ -5701,26 +5718,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "responsabile-consent-cookie-schindler-ebikon",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt",
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "manager-per-cookie-einwilligungen-schindler-oberentfelden",
+        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
+        "responsabile-consent-cookie-schindler-ebikon-i5c82e",
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
-        "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "responsable-consent-cookies-schindler-ebikon",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon",
-        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
-        "responsabile-consent-cookie-schindler-ebikon-i5c82e",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a"
+        "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8dbfab"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5734,7 +5750,6 @@
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
           "manager-per-cookie-einwilligungen-schindler-winterthur",
-          "manager-per-cookie-einwilligungen-schindler-oberentfelden",
           "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "responsabile-consent-cookie-schindler-ebikon-i5c82e",
@@ -5926,7 +5941,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-39ebf9ecb139",
@@ -6078,7 +6093,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-9a76658efd3b",
@@ -6162,7 +6177,7 @@
       "id": "schindler-9d0f47bd404c",
       "slug": "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern",
+        "it": "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "en": "team-leader-and-project-manager-for-an-assembly-team-in-upper-valais-m-f-d-80-100-schindler-bern",
         "de": "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "fr": "chef-d-equipe-et-chef-de-projet-pour-une-equipe-de-montage-en-haut-valais-h-f-d-80-100-schindler-bern"
@@ -6209,15 +6224,14 @@
       "previousSlugs": [
         "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern",
-        "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
         "team-leader-and-project-manager-for-a-montage-team-in-the-upper-valais-m-w-d-80-100-schindler-bern",
-        "chef-d-equipe-et-de-projet-pour-une-equipe-de-montage-dans-le-haut-valais-m-w-d-80-100-schindler-bern"
+        "chef-d-equipe-et-de-projet-pour-une-equipe-de-montage-dans-le-haut-valais-m-w-d-80-100-schindler-bern",
+        "responsabile-e-capo-progetto-per-un-team-di-montaggio-nell-alto-vallese-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
-          "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern",
-          "teamleiter-e-projektleiter-per-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern"
+          "capo-squadra-e-progetto-per-un-team-di-montaggio-nel-vallese-m-w-d-80-100-schindler-bern"
         ],
         "en": [
           "teamleiter-und-projektleiter-fur-ein-montageteam-im-oberwallis-m-w-d-80-100-schindler-bern",
@@ -6388,7 +6402,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-aa8845ab590f",
@@ -6540,7 +6554,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-418e13f2b4b6",
@@ -6614,7 +6628,7 @@
       },
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "schindler-d1b9ef9c1ef6",

@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-12T12:24:32.036Z",
-    "label": "before",
-    "total": 4361,
-    "needsRetranslation": 2308,
-    "incomplete": 536,
-    "complete": 3825,
-    "missingByLocale": {
-      "it": 354,
-      "en": 342,
-      "de": 191,
-      "fr": 413
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 87
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 84
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 57
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      },
-      {
-        "company": "Denner",
-        "pending": 8
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-12T15:01:44.186Z",
-    "label": "after",
-    "total": 4361,
-    "needsRetranslation": 996,
-    "incomplete": 371,
-    "complete": 3990,
-    "missingByLocale": {
-      "it": 288,
-      "en": 240,
-      "de": 120,
-      "fr": 305
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 83
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 57
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      },
-      {
-        "company": "UBS",
-        "pending": 8
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 7
-      },
-      {
-        "company": "Tschuggen Collection",
-        "pending": 7
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-12T15:06:09.065Z",
     "label": "before",
     "total": 4361,
@@ -11112,6 +11000,118 @@
       {
         "company": "Geiser AG",
         "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-29T10:16:15.079Z",
+    "label": "before",
+    "total": 8912,
+    "needsRetranslation": 1878,
+    "incomplete": 585,
+    "complete": 8327,
+    "missingByLocale": {
+      "it": 339,
+      "en": 246,
+      "de": 189,
+      "fr": 334
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 72
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-29T11:28:49.222Z",
+    "label": "after",
+    "total": 8912,
+    "needsRetranslation": 1833,
+    "incomplete": 567,
+    "complete": 8345,
+    "missingByLocale": {
+      "it": 325,
+      "en": 238,
+      "de": 179,
+      "fr": 318
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 72
       },
       {
         "company": "Roche",
