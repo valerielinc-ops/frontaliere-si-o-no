@@ -1,6 +1,6 @@
 {
   "crawlerKey": "privatklinik-wyss",
-  "assembledAt": "2026-05-29T00:15:02.348Z",
+  "assembledAt": "2026-05-29T13:36:33.925Z",
   "jobs": [
     {
       "id": "privatklinik-wyss-53276e49b5c3",
@@ -33,7 +33,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/ausbildung-praktika/lehrstelle-fachfrau-fachmann-gesundheit-efz-august-2027-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:00.480Z",
+      "crawledAt": "2026-05-29T13:36:32.201Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -93,7 +93,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "privatklinik-wyss-b5e2dc7af012",
@@ -127,7 +128,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/zusatz-modul-b-zmb-in-der-psychiatrischen-pflege",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:14:59.799Z",
+      "crawledAt": "2026-05-29T13:36:31.505Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -166,7 +167,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "privatklinik-wyss-4b97f140aa04",
@@ -199,7 +201,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:14:59.147Z",
+      "crawledAt": "2026-05-29T13:36:30.846Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -275,7 +277,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "privatklinik-wyss-6de4237cc565",
@@ -308,7 +311,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/dipl-pflegefachperson-hf-fh-w-m-d-auf-der-akutabteilung-1",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:14:58.495Z",
+      "crawledAt": "2026-05-29T13:36:30.178Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -369,7 +372,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     },
     {
       "id": "privatklinik-wyss-90898cf7a479",
@@ -402,7 +406,7 @@
       "url": "https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-pflege-1/try-and-hire-deine-flexible-anstellungsloesung",
       "source": "Privatklinik Wyss Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:14:57.843Z",
+      "crawledAt": "2026-05-29T13:36:29.503Z",
       "addressLocality": "Münchenbuchsee",
       "postalCode": "3053",
       "addressCountry": "CH",
@@ -466,7 +470,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     }
   ]
 }

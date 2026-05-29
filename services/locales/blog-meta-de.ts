@@ -7872,6 +7872,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.detrazioni-figli-frontalieri-ticino.title': 'Steuerabzüge für Kinder nur für Schweizer Wohnhafte',
     'blog.article.detrazioni-figli-frontalieri-ticino.excerpt': 'Die Tessiner SVP schlägt vor, Kinderabzüge auf Schweizer Wohnhafte zu beschränken und Grenzgänger auszuschließen. Mögliche Einnahmen: 20 Millionen Franken pro Jahr.',
     'blog.article.detrazioni-figli-frontalieri-ticino.imageAlt': 'Familie mit Kindern vor dem Monte Brè, Tessin',
+    'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 und S50 durch Busse ersetzt für einen Monat',
+    'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'Vom 7. Juni bis 5. Juli 2024 werden die Verbindungen TILO S40 und S50 zwischen Stabio, Varese, Gallarate und Malpensa Flughafen durch Busse ersetzt.',
+    'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Pendler warten auf Ersatzbusse am Bahnhof',
 };
 
 export default blogMetaDe;

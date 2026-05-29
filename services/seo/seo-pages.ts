@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2679,
+ "numberOfItems": 2680,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7319,7 +7319,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2676, "name": "Caso Nurnberg risolto: RSI paga tutte le pretes...", "url": `${BASE_URL}/articoli-frontaliere/caso-nurnberg-risolto-rsi-paga-pretese` },
           { "@type": "ListItem", "position": 2677, "name": "Occupazione Svizzera: +26.100 posti in un anno,...", "url": `${BASE_URL}/articoli-frontaliere/occupazione-svizzera-dati-2026-trimestre1` },
           { "@type": "ListItem", "position": 2678, "name": "Progetto Sintab: riqualificazione del sentiero ...", "url": `${BASE_URL}/articoli-frontaliere/progetto-sintab-sentiero-rio-dei-gioghi` },
-          { "@type": "ListItem", "position": 2679, "name": "Detrazioni fiscali sui figli solo per residenti...", "url": `${BASE_URL}/articoli-frontaliere/detrazioni-figli-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2679, "name": "Detrazioni fiscali sui figli solo per residenti...", "url": `${BASE_URL}/articoli-frontaliere/detrazioni-figli-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2680, "name": "TILO S40 e S50 sostituiti con bus per un mese t...", "url": `${BASE_URL}/articoli-frontaliere/tilo-collegamenti-sospesi-giugno` }
  ]
  },
  {
@@ -9458,7 +9459,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  title: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
  h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
  description: 'Vacanze scolastiche Ticino 2026-2027: date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per genitori frontalieri.',
- keywords: 'vacanze scolastiche ticino 2026, calendario scolastico ticino 2026, vacanze scolastiche ticino 2027, DECS ticino, carnevale ticino 2026, estate scuole ticino, vacanze pasqua ticino',
+ keywords: 'calendario scolastico ticino 2026, calendario scolastico ticino 2026/27, calendario scolastico ticino 2027, vacanze scolastiche ticino 2026, vacanze scolastiche ticino 2027, DECS ticino, carnevale ticino 2027, estate scuole ticino, vacanze pasqua ticino',
  ogTitle: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
  ogDescription: 'Date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per famiglie frontaliere.',
  canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026/',
@@ -9475,6 +9476,18 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "inLanguage": "it",
  "mainEntityOfPage": `${BASE_URL}/vita-in-ticino/vacanze-scolastiche-ticino-2026/`,
  "speakable": SPEAKABLE_SECTION
+ },
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Quando inizia la scuola in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Per l'anno scolastico 2026-2027 le lezioni in tutte le scuole del Canton Ticino iniziano lunedì 31 agosto 2026, secondo il calendario ufficiale DECS. Fanno eccezione alcune scuole professionali con calendari specifici." } },
+ { "@type": "Question", "name": "Quando finisce la scuola in Ticino nel 2027?", "acceptedAnswer": { "@type": "Answer", "text": "L'anno scolastico 2026-2027 termina mercoledì 16 giugno 2027 per tutte le scuole dell'obbligo del Canton Ticino. Le vacanze estive iniziano quindi da giovedì 17 giugno 2027." } },
+ { "@type": "Question", "name": "Quali sono le vacanze di Carnevale in Ticino nel 2027?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze di Carnevale 2027 in Ticino vanno da sabato 6 febbraio a domenica 14 febbraio 2027 (una settimana), secondo il calendario DECS." } },
+ { "@type": "Question", "name": "Quando sono le vacanze di Pasqua 2027 per le scuole ticinesi?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze di Pasqua 2027 nelle scuole del Canton Ticino vanno da venerdì 26 marzo a domenica 4 aprile 2027. La domenica di Pasqua cade il 28 marzo 2027." } },
+ { "@type": "Question", "name": "Quando sono le vacanze di Natale e autunnali in Ticino 2026-2027?", "acceptedAnswer": { "@type": "Answer", "text": "Le vacanze autunnali vanno da sabato 31 ottobre a domenica 8 novembre 2026; le vacanze di Natale da giovedì 24 dicembre 2026 a mercoledì 6 gennaio 2027. Tutte le date sono stabilite dal DECS del Canton Ticino." } },
+ { "@type": "Question", "name": "Il calendario scolastico ticinese è uguale a quello italiano?", "acceptedAnswer": { "@type": "Answer", "text": "No. Le scuole italiane di confine (Como, Varese, Valtellina) seguono un calendario diverso, con inizio a metà settembre, vacanze estive più lunghe e nessuna vacanza autunnale. I genitori frontalieri con figli nei due sistemi devono incrociare le date per trovare finestre di ferie comuni." } }
+ ]
  }
  ]
  },

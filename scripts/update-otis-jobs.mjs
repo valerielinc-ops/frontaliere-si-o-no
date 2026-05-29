@@ -45,6 +45,7 @@ import {
 } from './lib/otis-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -112,7 +113,7 @@ async function main() {
     // Prefer detail city (from full location text) over listing city
     const city = detail.city || raw.city || 'Ticino';
     const canton = inferAnyCanton(`${city} ${raw.location}`) || detail.canton || DEFAULT_CANTON;
-    const jobSlug = slugify(`${raw.title}-otis-${city}`);
+    const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Ticino')}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,
       slug: jobSlug,

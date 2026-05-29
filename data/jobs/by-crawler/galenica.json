@@ -56,7 +56,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -113,7 +112,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
@@ -170,7 +168,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-mendrisio",
@@ -240,7 +237,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano",
@@ -317,7 +313,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-sun-store-apotheke-galenica-bern",
@@ -379,7 +374,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-coop-vitality-galenica-mendrisio"
@@ -444,7 +438,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-balerna",
@@ -514,7 +507,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-coop-vitality-galenica-canobbio"
@@ -579,7 +571,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-ascona",
@@ -649,7 +640,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugs": [
         "assistente-di-farmacia-afc-coop-vitality-galenica-bern",
@@ -686,9 +676,9 @@
       "slug": "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
       "slugByLocale": {
         "it": "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
-        "en": "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
+        "en": "employee-in-logistics-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
         "de": "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
-        "fr": "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano"
+        "fr": "employe-e-in-logistique-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       },
       "titleByLocale": {
         "it": "Impiegato/a in logistica AFC",
@@ -719,11 +709,9 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "en": [
-          "employee-in-logistics-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
           "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano"
         ],
         "fr": [
-          "employe-e-in-logistique-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano",
           "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano"
         ],
         "it": [
@@ -732,6 +720,8 @@
         ]
       },
       "previousSlugs": [
+        "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
+        "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano",
         "impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-bern",
         "impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       ]

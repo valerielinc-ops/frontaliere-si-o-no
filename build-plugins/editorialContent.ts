@@ -511,6 +511,249 @@ function buildPontiHero(locale: PontiLocale): string {
  ].join('');
 }
 
+// ── Helper: school-calendar hero (visual timeline of the Ticino school year) ──
+// Powers the SEO landing at /vita-in-ticino/vacanze-scolastiche-ticino-2026/.
+// All dates are the OFFICIAL DECS 2026-2027 figures, verified against the
+// cantonal source (ti.ch/decs → Calendario_scolastico_2026_2027.pdf, May 2026):
+//   • Primo giorno  lun 31 ago 2026   • Autunnali  sab 31 ott → dom 8 nov 2026
+//   • Natale  gio 24 dic 2026 → mer 6 gen 2027   • Carnevale  sab 6 → dom 14 feb 2027
+//   • Pasqua  ven 26 mar → dom 4 apr 2027   • Ascensione  gio 6 mag 2027 (+ ponte ven 7)
+//   • Pentecoste  lun 17 mag 2027   • Corpus Domini  gio 27 mag 2027
+//   • Immacolata  mar 8 dic 2026   • San Giuseppe  ven 19 mar 2027
+//   • Ultimo giorno  mer 16 giu 2027
+// Colours bind to the `var(--color-*)` semantic OKLCH tokens in index.css so the
+// page renders correctly in both light and dark mode without inline hex.
+type SchoolLocale = 'it' | 'en' | 'de' | 'fr';
+type SchoolTone = 'accent' | 'success' | 'warning' | 'base';
+
+interface SchoolEvent {
+ readonly emoji: string;
+ readonly tone: SchoolTone;
+ readonly name: string;
+ /** Localised, human-readable date span. */
+ readonly span: string;
+ /** Optional duration chip (empty string = no chip). */
+ readonly dur: string;
+}
+
+interface SchoolCopy {
+ readonly eyebrow: string;
+ readonly lede: string;
+ readonly tiles: ReadonlyArray<{ value: string; label: string; tone: SchoolTone }>;
+ readonly advice: string;
+ readonly timelineHeading: string;
+ readonly events: ReadonlyArray<SchoolEvent>;
+ readonly chipsHeading: string;
+ readonly chips: ReadonlyArray<string>;
+ readonly ctaLabel: string;
+ readonly ctaHref: string;
+ readonly sourceNote: string;
+}
+
+const SCHOOL_COPY: Record<SchoolLocale, SchoolCopy> = {
+ it: {
+ eyebrow: '📚 Calendario scolastico Ticino · 2026-2027',
+ lede: "Tutte le date ufficiali <strong>DECS</strong> dell'anno scolastico <strong>2026-2027</strong> in un colpo d'occhio: primo giorno, vacanze, ponti e ultimo giorno di scuola in Canton Ticino.",
+ tiles: [
+ { value: '31 ago', label: 'Primo giorno · lun 2026', tone: 'accent' },
+ { value: '16 giu', label: 'Ultimo giorno · mer 2027', tone: 'accent' },
+ { value: '5', label: "Vacanze e ponti nell'anno", tone: 'success' },
+ { value: '4', label: 'Festività cantonali (scuola chiusa)', tone: 'warning' },
+ ],
+ advice: "<strong>Genitori frontalieri, attenzione:</strong> le scuole italiane di confine (Como, Varese, Valtellina) seguono un calendario diverso. Incrocia le due date per trovare finestre di ferie comuni ed evitare buchi di custodia.",
+ timelineHeading: "🗓️ L'anno scolastico, tappa per tappa",
+ events: [
+ { emoji: '🎒', tone: 'accent', name: 'Primo giorno di scuola', span: 'lunedì 31 agosto 2026', dur: '' },
+ { emoji: '🍂', tone: 'success', name: 'Vacanze autunnali', span: 'sab 31 ott → dom 8 nov 2026', dur: '9 giorni' },
+ { emoji: '🎄', tone: 'success', name: 'Vacanze di Natale', span: 'gio 24 dic 2026 → mer 6 gen 2027', dur: '2 settimane' },
+ { emoji: '🎭', tone: 'success', name: 'Vacanze di Carnevale', span: 'sab 6 feb → dom 14 feb 2027', dur: '9 giorni' },
+ { emoji: '🐣', tone: 'success', name: 'Vacanze di Pasqua', span: 'ven 26 mar → dom 4 apr 2027', dur: '10 giorni' },
+ { emoji: '☁️', tone: 'warning', name: "Ponte dell'Ascensione", span: 'gio 6 → dom 9 mag 2027', dur: '4 giorni' },
+ { emoji: '🏁', tone: 'accent', name: 'Ultimo giorno di scuola', span: 'mercoledì 16 giugno 2027', dur: '' },
+ { emoji: '☀️', tone: 'success', name: 'Vacanze estive', span: 'da giovedì 17 giugno 2027', dur: '~11 settimane' },
+ ],
+ chipsHeading: '🇨🇭 Altri giorni di scuola chiusa',
+ chips: [
+ '🕯️ Immacolata · mar 8 dic 2026',
+ '✝️ San Giuseppe · ven 19 mar 2027',
+ '🕊️ Lunedì di Pentecoste · lun 17 mag 2027',
+ '🌿 Corpus Domini · gio 27 mag 2027',
+ ],
+ ctaLabel: 'Calcola il tuo stipendio netto da frontaliere',
+ ctaHref: '/calcola-stipendio/',
+ sourceNote: 'Date ufficiali: <a class="s-OsohZU" href="https://www4.ti.ch/decs/cosa-facciamo/calendario-scolastico" rel="noopener" target="_blank">DECS — Calendario scolastico 2026/2027</a>. Fa sempre stato il documento ufficiale cantonale.',
+ },
+ en: {
+ eyebrow: '📚 Ticino school calendar · 2026-2027',
+ lede: 'Every official <strong>DECS</strong> date for the <strong>2026-2027</strong> school year at a glance: first day, holidays, long weekends and the last day of school in Canton Ticino.',
+ tiles: [
+ { value: '31 Aug', label: 'First day · Mon 2026', tone: 'accent' },
+ { value: '16 Jun', label: 'Last day · Wed 2027', tone: 'accent' },
+ { value: '5', label: 'Breaks & long weekends', tone: 'success' },
+ { value: '4', label: 'Cantonal holidays (school closed)', tone: 'warning' },
+ ],
+ advice: '<strong>Cross-border parents, note:</strong> Italian border schools (Como, Varese, Valtellina) follow a different calendar. Cross-check both to find shared holiday windows and avoid childcare gaps.',
+ timelineHeading: '🗓️ The school year, step by step',
+ events: [
+ { emoji: '🎒', tone: 'accent', name: 'First day of school', span: 'Monday 31 August 2026', dur: '' },
+ { emoji: '🍂', tone: 'success', name: 'Autumn break', span: 'Sat 31 Oct → Sun 8 Nov 2026', dur: '9 days' },
+ { emoji: '🎄', tone: 'success', name: 'Christmas holidays', span: 'Thu 24 Dec 2026 → Wed 6 Jan 2027', dur: '2 weeks' },
+ { emoji: '🎭', tone: 'success', name: 'Carnival break', span: 'Sat 6 Feb → Sun 14 Feb 2027', dur: '9 days' },
+ { emoji: '🐣', tone: 'success', name: 'Easter holidays', span: 'Fri 26 Mar → Sun 4 Apr 2027', dur: '10 days' },
+ { emoji: '☁️', tone: 'warning', name: 'Ascension long weekend', span: 'Thu 6 → Sun 9 May 2027', dur: '4 days' },
+ { emoji: '🏁', tone: 'accent', name: 'Last day of school', span: 'Wednesday 16 June 2027', dur: '' },
+ { emoji: '☀️', tone: 'success', name: 'Summer holidays', span: 'from Thursday 17 June 2027', dur: '~11 weeks' },
+ ],
+ chipsHeading: '🇨🇭 Other days school is closed',
+ chips: [
+ '🕯️ Immaculate Conception · Tue 8 Dec 2026',
+ '✝️ St Joseph · Fri 19 Mar 2027',
+ '🕊️ Whit Monday · Mon 17 May 2027',
+ '🌿 Corpus Christi · Thu 27 May 2027',
+ ],
+ ctaLabel: 'Calculate your cross-border net salary',
+ ctaHref: '/en/calculate-salary/',
+ sourceNote: 'Official dates: <a class="s-OsohZU" href="https://www4.ti.ch/decs/cosa-facciamo/calendario-scolastico" rel="noopener" target="_blank">DECS — School calendar 2026/2027</a>. The cantonal document always prevails.',
+ },
+ de: {
+ eyebrow: '📚 Schulkalender Tessin · 2026-2027',
+ lede: 'Alle offiziellen <strong>DECS</strong>-Daten des Schuljahrs <strong>2026-2027</strong> auf einen Blick: erster Tag, Ferien, Brückentage und letzter Schultag im Kanton Tessin.',
+ tiles: [
+ { value: '31. Aug', label: 'Erster Tag · Mo 2026', tone: 'accent' },
+ { value: '16. Juni', label: 'Letzter Tag · Mi 2027', tone: 'accent' },
+ { value: '5', label: 'Ferien & Brücken im Jahr', tone: 'success' },
+ { value: '4', label: 'Kantonale Feiertage (schulfrei)', tone: 'warning' },
+ ],
+ advice: '<strong>Grenzgänger-Eltern, Achtung:</strong> Italienische Grenzschulen (Como, Varese, Valtellina) folgen einem anderen Kalender. Gleichen Sie beide ab, um gemeinsame Ferienfenster zu finden und Betreuungslücken zu vermeiden.',
+ timelineHeading: '🗓️ Das Schuljahr, Schritt für Schritt',
+ events: [
+ { emoji: '🎒', tone: 'accent', name: 'Erster Schultag', span: 'Montag 31. August 2026', dur: '' },
+ { emoji: '🍂', tone: 'success', name: 'Herbstferien', span: 'Sa 31. Okt → So 8. Nov 2026', dur: '9 Tage' },
+ { emoji: '🎄', tone: 'success', name: 'Weihnachtsferien', span: 'Do 24. Dez 2026 → Mi 6. Jan 2027', dur: '2 Wochen' },
+ { emoji: '🎭', tone: 'success', name: 'Fasnachtsferien', span: 'Sa 6. Feb → So 14. Feb 2027', dur: '9 Tage' },
+ { emoji: '🐣', tone: 'success', name: 'Osterferien', span: 'Fr 26. März → So 4. Apr 2027', dur: '10 Tage' },
+ { emoji: '☁️', tone: 'warning', name: 'Auffahrtsbrücke', span: 'Do 6. → So 9. Mai 2027', dur: '4 Tage' },
+ { emoji: '🏁', tone: 'accent', name: 'Letzter Schultag', span: 'Mittwoch 16. Juni 2027', dur: '' },
+ { emoji: '☀️', tone: 'success', name: 'Sommerferien', span: 'ab Donnerstag 17. Juni 2027', dur: '~11 Wochen' },
+ ],
+ chipsHeading: '🇨🇭 Weitere schulfreie Tage',
+ chips: [
+ '🕯️ Mariä Empfängnis · Di 8. Dez 2026',
+ '✝️ Josephstag · Fr 19. März 2027',
+ '🕊️ Pfingstmontag · Mo 17. Mai 2027',
+ '🌿 Fronleichnam · Do 27. Mai 2027',
+ ],
+ ctaLabel: 'Grenzgänger-Nettolohn berechnen',
+ ctaHref: '/de/gehalt-berechnen/',
+ sourceNote: 'Offizielle Daten: <a class="s-OsohZU" href="https://www4.ti.ch/decs/cosa-facciamo/calendario-scolastico" rel="noopener" target="_blank">DECS — Schulkalender 2026/2027</a>. Massgebend ist stets das kantonale Dokument.',
+ },
+ fr: {
+ eyebrow: '📚 Calendrier scolaire Tessin · 2026-2027',
+ lede: "Toutes les dates officielles <strong>DECS</strong> de l'année scolaire <strong>2026-2027</strong> en un coup d'œil : premier jour, vacances, ponts et dernier jour d'école au Tessin.",
+ tiles: [
+ { value: '31 août', label: 'Premier jour · lun 2026', tone: 'accent' },
+ { value: '16 juin', label: 'Dernier jour · mer 2027', tone: 'accent' },
+ { value: '5', label: "Vacances & ponts dans l'année", tone: 'success' },
+ { value: '4', label: 'Fêtes cantonales (école fermée)', tone: 'warning' },
+ ],
+ advice: "<strong>Parents frontaliers, attention :</strong> les écoles italiennes frontalières (Côme, Varèse, Valteline) suivent un calendrier différent. Croisez les deux pour trouver des fenêtres de vacances communes et éviter les trous de garde.",
+ timelineHeading: "🗓️ L'année scolaire, étape par étape",
+ events: [
+ { emoji: '🎒', tone: 'accent', name: "Premier jour d'école", span: 'lundi 31 août 2026', dur: '' },
+ { emoji: '🍂', tone: 'success', name: "Vacances d'automne", span: 'sam 31 oct → dim 8 nov 2026', dur: '9 jours' },
+ { emoji: '🎄', tone: 'success', name: 'Vacances de Noël', span: 'jeu 24 déc 2026 → mer 6 jan 2027', dur: '2 semaines' },
+ { emoji: '🎭', tone: 'success', name: 'Vacances de Carnaval', span: 'sam 6 fév → dim 14 fév 2027', dur: '9 jours' },
+ { emoji: '🐣', tone: 'success', name: 'Vacances de Pâques', span: 'ven 26 mars → dim 4 avr 2027', dur: '10 jours' },
+ { emoji: '☁️', tone: 'warning', name: "Pont de l'Ascension", span: 'jeu 6 → dim 9 mai 2027', dur: '4 jours' },
+ { emoji: '🏁', tone: 'accent', name: "Dernier jour d'école", span: 'mercredi 16 juin 2027', dur: '' },
+ { emoji: '☀️', tone: 'success', name: "Vacances d'été", span: 'dès jeudi 17 juin 2027', dur: '~11 semaines' },
+ ],
+ chipsHeading: '🇨🇭 Autres jours de fermeture',
+ chips: [
+ '🕯️ Immaculée Conception · mar 8 déc 2026',
+ '✝️ Saint-Joseph · ven 19 mars 2027',
+ '🕊️ Lundi de Pentecôte · lun 17 mai 2027',
+ '🌿 Fête-Dieu · jeu 27 mai 2027',
+ ],
+ ctaLabel: 'Calculez votre salaire net frontalier',
+ ctaHref: '/fr/calculer-salaire/',
+ sourceNote: "Dates officielles : <a class=\"s-OsohZU\" href=\"https://www4.ti.ch/decs/cosa-facciamo/calendario-scolastico\" rel=\"noopener\" target=\"_blank\">DECS — Calendrier scolaire 2026/2027</a>. Le document cantonal fait toujours foi.",
+ },
+};
+
+function buildSchoolCalendarHero(locale: SchoolLocale): string {
+ const copy = SCHOOL_COPY[locale];
+ const toneBg: Record<SchoolTone, string> = {
+ accent: 'background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)',
+ success: 'background:var(--color-success-subtle);border:1px solid var(--color-success-border)',
+ warning: 'background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)',
+ base: 'background:var(--color-surface);border:1px solid var(--color-edge)',
+ };
+
+ // (1) Headline panel — warm section-vita identity, generous lede.
+ const panelStyle = 'padding:clamp(1.4rem,4vw,2.1rem);border-radius:20px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);margin:0 0 1.4rem';
+ const eyebrowStyle = 'margin:0 0 .8rem;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--color-section-vita)';
+ const leadStyle = 'margin:0;font-size:clamp(1.05rem,2.5vw,1.5rem);line-height:1.45;color:var(--color-heading);font-weight:500;max-width:48ch;letter-spacing:-.005em';
+ const headlinePanel = `<div style="${panelStyle}"><p style="${eyebrowStyle}">${copy.eyebrow}</p><p style="${leadStyle}">${copy.lede}</p></div>`;
+
+ // (2) Stat-tile grid — CLAUDE.md rule #17 slot 3.
+ const tileGridStyle = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 1.2rem';
+ const tileBaseStyle = 'padding:15px 17px;border-radius:14px;color:var(--color-heading)';
+ const tileValueStyle = 'font-size:clamp(1.4rem,4vw,1.75rem);font-weight:700;line-height:1.1;color:var(--color-heading);font-variant-numeric:tabular-nums;letter-spacing:-.01em';
+ const tileLabelStyle = 'margin-top:6px;font-size:12px;font-weight:600;color:var(--color-body);line-height:1.35';
+ const tileGrid = `<div style="${tileGridStyle}">${copy.tiles
+ .map((t) => `<div style="${tileBaseStyle};${toneBg[t.tone]}"><div style="${tileValueStyle}">${t.value}</div><div style="${tileLabelStyle}">${t.label}</div></div>`)
+ .join('')}</div>`;
+
+ // (3) Advice banner — CLAUDE.md rule #17 slot 4.
+ const adviceStyle = 'margin:0 0 1.2rem;padding:13px 15px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading);line-height:1.55;font-size:.9375rem';
+ const adviceBlock = `<aside style="${adviceStyle}">${copy.advice}</aside>`;
+
+ // (4) Primary CTA — pill, above the fold on mobile.
+ const ctaStyle = 'display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:.9375rem;letter-spacing:.01em';
+ const ctaBlock = `<p style="margin:0 0 2rem"><a href="${copy.ctaHref}" style="${ctaStyle}">${copy.ctaLabel} <span aria-hidden="true">→</span></a></p>`;
+
+ // (5) Visual timeline — one colour-coded card per period.
+ const timelineHeadingStyle = 'margin:0 0 1rem;font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;color:var(--color-heading);letter-spacing:-.01em';
+ const listStyle = 'list-style:none;padding:0;margin:0 0 1.75rem';
+ const itemBase = 'display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.85rem;padding:.8rem 1rem;border-radius:14px;margin-bottom:.55rem';
+ const emojiStyle = 'font-size:1.5rem;line-height:1;width:1.9rem;text-align:center';
+ const nameStyle = 'font-weight:700;color:var(--color-heading);font-size:.95rem;line-height:1.3';
+ const spanStyle = 'margin-top:2px;color:var(--color-body);font-size:.85rem;line-height:1.4;font-variant-numeric:tabular-nums';
+ const chipStyle = 'flex-shrink:0;justify-self:end;font-size:.72rem;font-weight:700;padding:.25rem .55rem;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-subtle);white-space:nowrap;font-variant-numeric:tabular-nums';
+ const items = copy.events
+ .map((e) => {
+ const durChip = e.dur ? `<span style="${chipStyle}">${e.dur}</span>` : '<span></span>';
+ return `<li style="${itemBase};${toneBg[e.tone]}"><span aria-hidden="true" style="${emojiStyle}">${e.emoji}</span><div style="min-width:0"><div style="${nameStyle}">${e.name}</div><div style="${spanStyle}">${e.span}</div></div>${durChip}</li>`;
+ })
+ .join('');
+ const timelineBlock = `<h2 style="${timelineHeadingStyle}">${copy.timelineHeading}</h2><ul style="${listStyle}">${items}</ul>`;
+
+ // (6) Single-day cantonal closures — compact pill row.
+ const chipsHeadingStyle = 'margin:0 0 .8rem;font-size:1rem;font-weight:700;color:var(--color-heading)';
+ const chipsWrapStyle = 'display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem;padding:0;list-style:none';
+ const pillStyle = 'display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .7rem;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);font-size:.8rem;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums';
+ const chipsBlock = `<h3 style="${chipsHeadingStyle}">${copy.chipsHeading}</h3><ul style="${chipsWrapStyle}">${copy.chips
+ .map((c) => `<li style="${pillStyle}">${c}</li>`)
+ .join('')}</ul>`;
+
+ // (7) Source note — quiet footer, official DECS provenance.
+ const sourceStyle = 'margin:0;padding:.9rem 1.1rem;border-radius:14px;background:var(--color-surface-alt);font-size:.85rem;color:var(--color-subtle);line-height:1.55';
+ const sourceBlock = `<p style="${sourceStyle}">${copy.sourceNote}</p>`;
+
+ return [
+ `<section aria-label="${copy.eyebrow}" style="margin:0 0 1.5rem">`,
+ headlinePanel,
+ tileGrid,
+ adviceBlock,
+ ctaBlock,
+ timelineBlock,
+ chipsBlock,
+ sourceBlock,
+ `</section>`,
+ ].join('');
+}
+
 export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Calculator ─────────────────────────────────────────────
  '/calcola-stipendio/simula-busta-paga': {
@@ -2890,10 +3133,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
 
  '/vita-in-ticino/vacanze-scolastiche-ticino-2026': {
  it: [
+ buildSchoolCalendarHero('it'),
  '<h2 class="s-FoMhWG">Calendario scolastico Ticino 2026-2027</h2>',
  '<p>Il calendario delle <strong>vacanze scolastiche in Canton Ticino</strong> è stabilito ogni anno dal <em>Dipartimento dell\'educazione, della cultura e dello sport (DECS)</em> e pubblicato sul sito ti.ch/decs. Si applica alle <strong>scuole dell\'infanzia (3-6 anni), elementari (6-11 anni), medie (11-15 anni)</strong> pubbliche del cantone. Le scuole private seguono generalmente lo stesso calendario ma possono avere deviazioni di 1-2 giorni comunicate ai genitori a inizio anno. Le scuole italiane di confine (Como, Varese, Valtellina) hanno un calendario completamente diverso: chi ha figli divisi tra sistemi svizzero e italiano deve pianificare con attenzione ferie e custodia alternativa.</p>',
  '<h2 class="s-FoMhWG">Date vacanze 2026-2027</h2>',
- '<p>Per l\'anno scolastico <strong>2026-2027</strong> le vacanze ufficiali in Ticino sono: <strong>inizio anno scolastico</strong> lunedì 31 agosto 2026 per scuole elementari e medie; <strong>vacanze autunnali</strong> da lunedì 19 ottobre a domenica 1° novembre 2026 (2 settimane); <strong>vacanze di Natale</strong> da sabato 19 dicembre 2026 a domenica 3 gennaio 2027 (2 settimane); <strong>vacanze di carnevale</strong> da sabato 13 febbraio a domenica 21 febbraio 2027 (1 settimana); <strong>vacanze di Pasqua</strong> da sabato 27 marzo a lunedì 5 aprile 2027 (10 giorni); <strong>Ponte dell\'Ascensione</strong> giovedì 13 e venerdì 14 maggio 2027; <strong>Pentecoste</strong> lunedì 24 maggio 2027; <strong>fine anno scolastico</strong> venerdì 25 giugno 2027. Le vacanze estive durano dal 26 giugno al 30 agosto 2027 (circa 9 settimane).</p>',
+ '<p>Per l\'anno scolastico <strong>2026-2027</strong> le date ufficiali DECS in Canton Ticino sono: <strong>inizio anno scolastico</strong> lunedì 31 agosto 2026; <strong>vacanze autunnali</strong> da sabato 31 ottobre a domenica 8 novembre 2026; <strong>vacanze di Natale</strong> da giovedì 24 dicembre 2026 a mercoledì 6 gennaio 2027; <strong>vacanze di carnevale</strong> da sabato 6 a domenica 14 febbraio 2027; <strong>vacanze di Pasqua</strong> da venerdì 26 marzo a domenica 4 aprile 2027; <strong>Ascensione</strong> giovedì 6 maggio 2027, con ponte fino a domenica 9 maggio (venerdì 7 maggio è giorno di vacanza); <strong>Lunedì di Pentecoste</strong> 17 maggio 2027; <strong>Corpus Domini</strong> giovedì 27 maggio 2027; <strong>fine anno scolastico</strong> mercoledì 16 giugno 2027. Le vacanze estive iniziano da giovedì 17 giugno 2027. Sono inoltre giorni di scuola chiusa l\'Immacolata (martedì 8 dicembre 2026) e San Giuseppe (venerdì 19 marzo 2027).</p>',
  '<h2 class="s-FoMhWG">Scuole dell\'infanzia (SI)</h2>',
  '<p>Le <strong>scuole dell\'infanzia ticinesi</strong> seguono il calendario delle elementari con alcune differenze: inizio più graduale a settembre (prime due settimane "inserimento progressivo"), chiusura estiva anticipata di circa 1 settimana rispetto alle elementari, pausa pranzo più strutturata. Gli orari standard sono 8:30-16:00 lunedì-venerdì con mensa interna facoltativa. Per i genitori frontalieri che lavorano orari lunghi sono disponibili <strong>centri extra-scolastici</strong> e <strong>doposcuola comunali</strong> aperti fino alle 18:00 (tariffa variabile da CHF 5 a CHF 25/giorno in base al reddito). Alcuni Comuni (Lugano, Bellinzona, Mendrisio, Chiasso) offrono anche servizio di <em>colonie diurne</em> durante le vacanze estive (8:00-17:00, CHF 20-40/giorno con pranzo).</p>',
  '<h2 class="s-FoMhWG">Mensa, trasporti e assicurazione scolastica</h2>',
@@ -2901,29 +3145,32 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
  '<h2 class="s-FoMhWG">Iscrizione: requisiti e scadenze</h2>',
  '<p>Per iscrivere un figlio alla scuola pubblica ticinese servono: <strong>residenza del bambino in Canton Ticino</strong> (quindi solo per frontalieri con permesso B, non G), certificato di nascita, documenti di identità dei genitori, certificato vaccinale. Le iscrizioni aprono in <strong>gennaio-febbraio</strong> per l\'anno scolastico successivo con scadenza entro il 31 marzo. Per i figli di frontalieri con permesso G la situazione è più complessa: le scuole svizzere non sono obbligate ad ammettere alunni residenti in Italia, salvo accordi specifici di confine o iscrizione a scuole private. Esistono <strong>scuole bilingui italo-svizzere</strong> a pagamento (SEL Sorengo, Liceo di Lugano) che accettano frontalieri con rette annuali tra CHF 15.000 e CHF 35.000.</p>',
  '<h2 class="s-FoMhWG">Calendario italiano per figli oltre confine</h2>',
- '<p>Per confronto, il calendario scolastico <strong>italiano (Lombardia, Piemonte)</strong> 2026-2027 prevede: inizio anno 14 settembre 2026, vacanze di Natale 24 dicembre - 6 gennaio, carnevale 15-17 febbraio 2027, Pasqua 25 marzo - 6 aprile 2027, fine anno 10 giugno 2027. Le vacanze estive italiane sono più lunghe (quasi 12 settimane contro le 9 svizzere). La mancanza di vacanze autunnali italiane è compensata da numerosi ponti festivi primaverili. Per famiglie divise tra i due sistemi è consigliabile consultare in anticipo il calendario USR (Ufficio Scolastico Regionale) competente e il calendario DECS ticinese per identificare finestre di ferie comuni.</p>',
+ '<p>Per confronto, il calendario scolastico <strong>italiano (Lombardia, Piemonte)</strong> 2026-2027 prevede: inizio anno 14 settembre 2026, vacanze di Natale 24 dicembre - 6 gennaio, carnevale 15-17 febbraio 2027, Pasqua 25 marzo - 6 aprile 2027, fine anno 10 giugno 2027. Le vacanze estive italiane sono leggermente più lunghe (quasi 12 settimane contro le ~11 svizzere). La mancanza di vacanze autunnali italiane è compensata da numerosi ponti festivi primaverili. Per famiglie divise tra i due sistemi è consigliabile consultare in anticipo il calendario USR (Ufficio Scolastico Regionale) competente e il calendario DECS ticinese per identificare finestre di ferie comuni.</p>',
  ],
  en: [
+ buildSchoolCalendarHero('en'),
  '<h2 class="s-FoMhWG">Ticino school calendar 2026-2027</h2>',
  '<p>The <strong>school holiday calendar in Canton Ticino</strong> is set annually by the Department of Education, Culture and Sport (DECS) and applies to public kindergartens (ages 3-6), primary schools (6-11) and lower secondary schools (11-15). Private schools generally follow the same calendar with 1-2 day deviations.</p>',
  '<h2 class="s-FoMhWG">2026-2027 holiday dates</h2>',
- '<p>For the 2026-2027 school year the official Ticino holidays are: school start Monday 31 August 2026; autumn break 19 October - 1 November 2026 (2 weeks); Christmas holidays 19 December 2026 - 3 January 2027 (2 weeks); carnival 13-21 February 2027 (1 week); Easter 27 March - 5 April 2027 (10 days); Ascension bridge 13-14 May 2027; Pentecost 24 May 2027; end of school year 25 June 2027. Summer holidays run from 26 June to 30 August 2027 (approx 9 weeks).</p>',
+ '<p>For the 2026-2027 school year the official DECS dates in Canton Ticino are: school start Monday 31 August 2026; autumn break Saturday 31 October - Sunday 8 November 2026; Christmas holidays Thursday 24 December 2026 - Wednesday 6 January 2027; carnival Saturday 6 - Sunday 14 February 2027; Easter Friday 26 March - Sunday 4 April 2027; Ascension Thursday 6 May 2027 with a long weekend to Sunday 9 May (Friday 7 May is a day off); Whit Monday 17 May 2027; Corpus Christi Thursday 27 May 2027; end of school year Wednesday 16 June 2027. Summer holidays start on Thursday 17 June 2027. The Immaculate Conception (Tuesday 8 December 2026) and St Joseph (Friday 19 March 2027) are additional days off.</p>',
  '<h2 class="s-FoMhWG">Enrolment and cost</h2>',
  '<p>To enrol a child in a Ticino public school the child must be resident in Ticino (so only for B-permit cross-border workers, not G). Enrolment opens in January-February. For G-permit children there are bilingual private schools (SEL Sorengo, Liceo di Lugano) charging CHF 15,000-35,000 per year. School meals cost about CHF 8-12 per meal, subsidies available for low-income families.</p>',
  ],
  de: [
+ buildSchoolCalendarHero('de'),
  '<h2 class="s-FoMhWG">Schulkalender Tessin 2026-2027</h2>',
  '<p>Der <strong>Schulferienkalender im Kanton Tessin</strong> wird jährlich vom Departement für Bildung, Kultur und Sport (DECS) festgelegt und gilt für öffentliche Kindergärten (3-6 Jahre), Primar- (6-11) und Sekundarschulen (11-15). Privatschulen folgen im Allgemeinen demselben Kalender mit Abweichungen von 1-2 Tagen.</p>',
  '<h2 class="s-FoMhWG">Ferientermine 2026-2027</h2>',
- '<p>Für das Schuljahr 2026-2027 gelten folgende offizielle Tessiner Ferien: Schulbeginn Montag 31. August 2026; Herbstferien 19. Oktober - 1. November 2026 (2 Wochen); Weihnachtsferien 19. Dezember 2026 - 3. Januar 2027 (2 Wochen); Fasnacht 13.-21. Februar 2027; Osterferien 27. März - 5. April 2027; Auffahrtsbrücke 13.-14. Mai 2027; Pfingsten 24. Mai 2027; Schulende 25. Juni 2027. Sommerferien vom 26. Juni bis 30. August 2027.</p>',
+ '<p>Für das Schuljahr 2026-2027 gelten folgende offizielle DECS-Daten im Kanton Tessin: Schulbeginn Montag 31. August 2026; Herbstferien Samstag 31. Oktober - Sonntag 8. November 2026; Weihnachtsferien Donnerstag 24. Dezember 2026 - Mittwoch 6. Januar 2027; Fasnacht Samstag 6. - Sonntag 14. Februar 2027; Osterferien Freitag 26. März - Sonntag 4. April 2027; Auffahrt Donnerstag 6. Mai 2027 mit Brücke bis Sonntag 9. Mai (Freitag 7. Mai ist schulfrei); Pfingstmontag 17. Mai 2027; Fronleichnam Donnerstag 27. Mai 2027; Schulende Mittwoch 16. Juni 2027. Die Sommerferien beginnen am Donnerstag 17. Juni 2027. Schulfrei sind ausserdem Mariä Empfängnis (Dienstag 8. Dezember 2026) und Josephstag (Freitag 19. März 2027).</p>',
  '<h2 class="s-FoMhWG">Anmeldung und Kosten</h2>',
  '<p>Für die Anmeldung an einer öffentlichen Tessiner Schule muss das Kind im Tessin wohnhaft sein (also nur für Grenzgänger mit B-Bewilligung, nicht G). Die Anmeldung öffnet im Januar-Februar. Für G-Kinder stehen zweisprachige Privatschulen (SEL Sorengo, Liceo di Lugano) mit Jahresgebühren von CHF 15.000-35.000 zur Verfügung. Schulmahlzeiten kosten etwa CHF 8-12; Subventionen für Familien mit niedrigem Einkommen erhältlich.</p>',
  ],
  fr: [
+ buildSchoolCalendarHero('fr'),
  '<h2 class="s-FoMhWG">Calendrier scolaire Tessin 2026-2027</h2>',
  '<p>Le <strong>calendrier des vacances scolaires au Tessin</strong> est fixé annuellement par le Département de l\'éducation, de la culture et du sport (DECS) et s\'applique aux écoles maternelles publiques (3-6 ans), primaires (6-11 ans) et secondaires (11-15 ans). Les écoles privées suivent généralement le même calendrier avec 1-2 jours d\'écart.</p>',
  '<h2 class="s-FoMhWG">Dates de vacances 2026-2027</h2>',
- '<p>Pour l\'année scolaire 2026-2027 les vacances officielles tessinoises sont : rentrée lundi 31 août 2026 ; vacances d\'automne 19 octobre - 1er novembre 2026 (2 semaines) ; vacances de Noël 19 décembre 2026 - 3 janvier 2027 (2 semaines) ; carnaval 13-21 février 2027 ; Pâques 27 mars - 5 avril 2027 ; pont de l\'Ascension 13-14 mai 2027 ; Pentecôte 24 mai 2027 ; fin d\'année 25 juin 2027. Vacances d\'été du 26 juin au 30 août 2027.</p>',
+ '<p>Pour l\'année scolaire 2026-2027 les dates officielles DECS au Tessin sont : rentrée lundi 31 août 2026 ; vacances d\'automne samedi 31 octobre - dimanche 8 novembre 2026 ; vacances de Noël jeudi 24 décembre 2026 - mercredi 6 janvier 2027 ; carnaval samedi 6 - dimanche 14 février 2027 ; Pâques vendredi 26 mars - dimanche 4 avril 2027 ; Ascension jeudi 6 mai 2027 avec pont jusqu\'au dimanche 9 mai (vendredi 7 mai est un jour de congé) ; lundi de Pentecôte 17 mai 2027 ; Fête-Dieu jeudi 27 mai 2027 ; fin de l\'année mercredi 16 juin 2027. Les vacances d\'été commencent le jeudi 17 juin 2027. L\'Immaculée Conception (mardi 8 décembre 2026) et la Saint-Joseph (vendredi 19 mars 2027) sont aussi des jours sans école.</p>',
  '<h2 class="s-FoMhWG">Inscription et coûts</h2>',
  '<p>Pour inscrire un enfant à l\'école publique tessinoise, l\'enfant doit résider au Tessin (donc uniquement pour les frontaliers avec permis B, pas G). Les inscriptions ouvrent en janvier-février. Pour les enfants de frontaliers G, des écoles privées bilingues (SEL Sorengo, Liceo di Lugano) acceptent les inscriptions avec des frais annuels de CHF 15.000-35.000. Les repas scolaires coûtent CHF 8-12 ; des subventions sont disponibles pour les familles à bas revenus.</p>',
  ],

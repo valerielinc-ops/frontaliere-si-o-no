@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-05-28T23:30:08.501Z",
+  "assembledAt": "2026-05-29T12:50:50.837Z",
   "jobs": [
     {
       "title": "Cluster Sales Manager (m/w)",
@@ -44,7 +44,7 @@
         "de": "vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
         "fr": "directeur-des-ventes-en-grappe-m-m-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-05-28T23:30:08.379Z",
+      "crawledAt": "2026-05-29T12:50:50.715Z",
       "id": "grand-hotel-des-bains-kempinski-f564ef0355f2",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -64,8 +64,8 @@
       "firstSeenAt": "2026-05-13T22:28:38.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "cluster-sales-manager-m-w-451348",
-          "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep"
+          "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep",
+          "cluster-sales-manager-m-w-451348"
         ],
         "de": [
           "cluster-sales-manager-m-w-451348"
@@ -75,8 +75,8 @@
         ]
       },
       "previousSlugs": [
-        "cluster-sales-manager-m-w-451348",
-        "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep"
+        "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep",
+        "cluster-sales-manager-m-w-451348"
       ]
     },
     {
@@ -87,8 +87,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -98,7 +98,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -121,7 +121,7 @@
         "de": "pizza-chef-f-m-d-456455",
         "fr": "pizza-chef-f-m-d-456455"
       },
-      "crawledAt": "2026-05-28T23:30:08.380Z",
+      "crawledAt": "2026-05-29T12:50:50.716Z",
       "id": "grand-hotel-des-bains-kempinski-1e3d6c1b25df",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -154,9 +154,7 @@
         "de": [
           "pizza-chef-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
-      },
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Chef de Partie (f/m/d)",
@@ -166,8 +164,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -177,7 +175,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -200,7 +198,7 @@
         "de": "chef-de-partie-f-m-d-458522",
         "fr": "chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-05-28T23:30:08.381Z",
+      "crawledAt": "2026-05-29T12:50:50.717Z",
       "id": "grand-hotel-des-bains-kempinski-70c0bf5df99d",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -229,9 +227,7 @@
         "de": [
           "chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
         ]
-      },
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      }
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -241,8 +237,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -252,7 +248,7 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -275,7 +271,7 @@
         "de": "in-room-dining-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "in-room-dining-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-05-28T23:30:08.383Z",
+      "crawledAt": "2026-05-29T12:50:50.719Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -316,8 +312,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -327,7 +323,7 @@
       "department": "Rooms Division, Front Office & Guest Services",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
@@ -350,7 +346,7 @@
         "de": "room-attendant-f-m-d-500592",
         "fr": "room-attendant-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-05-28T23:30:08.383Z",
+      "crawledAt": "2026-05-29T12:50:50.720Z",
       "id": "grand-hotel-des-bains-kempinski-a7cceff65a8c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -376,15 +372,13 @@
         "it": [
           "room-attendant-f-m-d-500592"
         ]
-      },
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Assistant Food & Beverage Manager",
-      "slug": "assistente-al-food-beverage-manager-kempinski-palace-engelberg-engelberg",
-      "url": "https://kempinski.pinpointhq.com/en/postings/3afe4c4f-e1ce-4da4-b553-a5efd13d3531",
-      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/3afe4c4f-e1ce-4da4-b553-a5efd13d3531",
+      "slug": "assistente-responsabile-ristorazione-e-bevande-kempinski-palace-engelberg-engelberg",
+      "url": "https://kempinski.pinpointhq.com/en/postings/fc1f1ceb-efd9-47fa-9abb-fa50771d6a99",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/fc1f1ceb-efd9-47fa-9abb-fa50771d6a99",
       "company": "Kempinski Palace Engelberg",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
@@ -399,31 +393,31 @@
       "department": "Food & Beverage",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-30T23:59:59+02:00",
+      "postedDate": "2026-07-31T23:59:59+02:00",
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
-      "description": "Overall Objectives: The job of Assistant Food Beverage Manager is executed satisfactorily when: All rules regulations are strictly established and adhered within the hotel including hotel’s policy on fire and safety as well as hygiene regulations including HACCP. The sales are driven to full potential in specific outlets as appointed by Food Beverage Head of Department. All costs are in line with sales without compromising quality, i.e. minimum 85% score. The department or appointed outlets are driven in an entrepreneurial manner, looking for opportunities to generate more business at all times. Innovation and new ideas are fostered, implemented and shared with other hotels via corporate office. The employee is ready to assume the position of Food Beverage Head of Department in Kempinski Hotel Palace Engelberg. At Kempinski, Talent Development is a management responsibility and consequently an integral and important part of daily activities. The Assistant Food Beverage Manager is responsible of the following Talent Development tasks for their department: Support and implement new Talent Development initiatives. Identify internal and external talents* that match Kempinski’s DNA values. Support in growing talent in order to present candidates in quarterly Talent Transfer Calls. Take the time to meet all new Food Beverage employees. Support Food Beverage Head of Department in conducting yearly performance appraisal TTTT and give employees regular feedback on their job performance. *A Hotel Talent is an employee, who has the ability to do the current job in their hotel and can be promoted to the next level. Mobility is what makes this person a Kempinski Talent. | Key \n• Responsibilities: Set an example by reporting to duty punctually wearing business attire according to the hotels dress code Kempinski grooming standards, maintaining a high standard of personal appearance and hygiene at all times. Provide a professional and courteous service at all times and ensure that all employees follow the example. Be knowledgeable of all services and products offered by the hotel. Have a thorough knowledge and understanding of all food and beverage products and services. Oversee the operations of the outlets appointed by the Food Beverage Head of Department. Assist in preparing/consolidating the yearly budget for the department. Assist in preparing the monthly income statement for each outlet and the department as a whole, attend the monthly performance meeting with the Outlet Management. Manage the consolidated inventory of Food Beverage department. Attend and actively contribute to all relevant staff meetings and hotel trainings. Conduct daily operations briefings with the Executive Chef in the absence of the Food Beverage Head of Department. Attend or conduct (in the absence of the Food Beverage Head of Department) daily or weekly Food Beverage meetings. Review and update all departmental operations manuals annually. Assist in sourcing the best available product",
+      "description": "Overall Objectives: The job of Assistant Food Beverage Manager is executed satisfactorily when: All rules regulations are strictly established and adhered within the hotel including hotel’s policy on fire and safety as well as hygiene regulations including HACCP. The sales are driven to full potential in specific outlets as appointed by Food Beverage Head of Department. All costs are in line with sales without compromising quality, i.e. minimum 85% score. The department or appointed outlets are driven in an entrepreneurial manner, looking for opportunities to generate more business at all times. Innovation and new ideas are fostered, implemented and shared with other hotels via corporate office. The employee is ready to assume the position of Food Beverage Head of Department in Kempinski Hotel Palace Engelberg. | Key \n• Responsibilities:: Set an example by reporting to duty punctually wearing business attire according to the hotels dress code Kempinski grooming standards, maintaining a high standard of personal appearance and hygiene at all times. Provide a professional and courteous service at all times and ensure that all employees follow the example. Be knowledgeable of all services and products offered by the hotel. Have a thorough knowledge and understanding of all food and beverage products and services. Oversee the operations of the outlets appointed by the Food Beverage Head of Department. Assist in preparing/consolidating the yearly budget for the department. Assist in preparing the monthly income statement for each outlet and the department as a whole, attend the monthly performance meeting with the Outlet Management. Manage the consolidated inventory of Food Beverage department. Attend and actively contribute to all relevant staff meetings and hotel trainings. Conduct daily operations briefings with the Executive Chef in the absence of the Food Beverage Head of Department. Attend or conduct (in the absence of the Food Beverage Head of Department) daily or weekly Food Beverage meetings. Review and update all departmental operations manuals annually. Assist in sourcing the best available products, constantly aim to improve quality, communicate about the products both internally and externally. Establish good partnerships with suppliers and involve them in activities that will strengthen working relationships, e.g. invite them to the hotel. Monitor and constantly improve quality and guest satisfaction with the given tools. Assist handling guest complaints. Oversee every service at least once a week (breakfast, lunch, dinner, lobby, banqueting, room service, bar). Prepare a yearly marketing plan for the appointed outlets in cooperation with the Sales Marketing Department including a competitor analysis. Follow the local and global food beverage trends. Ensure that all managers plan and implement effective training programs in the appointed outlets. Be actively involved in the operations of the appointed outlets to ensure regular guest contact",
       "titleByLocale": {
-        "it": "Assistente al Food & Beverage Manager",
         "en": "Assistant Food & Beverage Manager",
+        "it": "Assistente Responsabile Ristorazione e Bevande",
         "de": "Assistent Food & Beverage Manager",
         "fr": "Gestionnaire adjoint des aliments et des boissons"
       },
       "descriptionByLocale": {
-        "it": "Descrizione Il ruolo di Assistente Manager Food Beverage è soddisfacentemente quando: - Tutte le regole e le norme sono fissa e rispettate all'interno dell'hotel, comprese le norme di sicurezza e igiene, compreso HACCP. - Le vendite sono spinte al loro massimo potenziale negli outlet specifici assegnati dal Capo Dipartimento Food Beverage. - Tutti i costi sono in linea con le vendite senza pari la qualità, cioè con un punteggio minimo del 85%. - Il dipartimento o gli outlet assegnati sono capaci in modo imprenditoriale, cercando possibilità per generare più affari. - L'innovazione e le nuove idee sono promosse, implementate e sicure con altri hotel attraverso l'ufficio centrale. - L'impiegato è pronto ad assumere la posizione di Capo Dipartimento Food Beverage presso l'Hotel Kempinski Palace Engelberg. Mansioni - Sostenere e implementare nuove iniziative di sviluppo del talento. - Identificare raccontonti interni esterni che servono ai valori DNA di Kempinski. - Sostenere la crescita del talento per presentare candidati nelle chiamate di trasferimento del talento trimestrali. - Incontrare tutti i nuovi dipendenti Food Beverage. - Sostenere il Capo Dipartimento Food Beverage nella conduzione delle competenze di prestazione annuale e fornire ai dipendenti regolari feedback sul loro rendimento lavorativo.\n• Requisiti - Eseguire un esempio di comportamento, presentandosi in orario e vestendo abbigliamento aziendale secondo il codice di abbigliamento dell'hotel e i standard di cura personale di Kempinski. - Fornire un servizio professionale e cortese in tutte le occasioni e assicurarsi che tutti gli impiegati seguano l'esempio. - Essere a conoscenza di tutti i servizi e i prodotti offerti dall'hotel. - Avere una conoscenza approfondita e comprensione di tutti i prodotti e servizi alimentari e di bevande. - Gestire le operazioni degli outlet assegnati dal Capo Dipartimento Food Beverage. - Assistere nella preparazione e consolidamento del bilancio annuale per il dipartimento. - Assistere nella preparazione dello stato di flusso dei ricavi mensili per ogni uscita e per il suo complesso, partecipare alla riunione mensile di prestazione con la gestione degli outlet. - Gestire il magazzino consolidato del dipartimento Food Beverage. - Partecipare e contribuire attivamente a tutte le riunioni di personale fondamentale e alle formazioni dell'hotel. - Condurre riunioni di briefing giornaliero con il Cuoooco Esecutivo in assenza del Capo Dipartimento Food Beverage. - Partecipare o subire (in assenza del Capo Dipartimento Food Beverage) riunioni quotidiane o settimanali di Food Beverage. - Revisionare e aggiornare annualmente i manuali di operazioni del dipartimento. - Assistere nella ricerca dei migliori prodotti disponibili. Cosa? - Opportunità di carriera e sviluppo professionale. - Ambiente di lavoro dinamico e imprenditoriale. - Possibilità di lavorare in un hotel di lusso con una forte identità e valori. Contatto - Per ulteriori informazioni, contattare il nostro ufficio di personale.",
-        "en": "## Descrizione Il ruolo di Assistente Manager Food Beverage è eseguito soddisfacentemente quando: - Tutte le regole e le norme sono stabilite e rispettate all'interno dell'hotel, comprese le norme di sicurezza e igiene, compreso HACCP. - Le vendite sono spinte al loro massimo potenziale negli outlet specifici assegnati dal Capo Dipartimento Food Beverage. - Tutti i costi sono in linea con le vendite senza compromettere la qualità, cioè con un punteggio minimo del 85%. - Il dipartimento o gli outlet assegnati sono gestiti in modo imprenditoriale, cercando costantemente opportunità per generare più affari. - L'innovazione e le nuove idee sono promosse, implementate e condivise con altri hotel attraverso l'ufficio centrale. - L'impiegato è pronto ad assumere la posizione di Capo Dipartimento Food Beverage presso l'Hotel Kempinski Palace Engelberg. ## Mansioni - Sostenere e implementare nuove iniziative di sviluppo del talento. - Identificare talenti interni ed esterni che corrispondono ai valori DNA di Kempinski. - Sostenere la crescita del talento per presentare candidati nelle chiamate di trasferimento del talento trimestrali. - Incontrare tutti i nuovi dipendenti Food Beverage. - Sostenere il Capo Dipartimento Food Beverage nella conduzione delle valutazioni di prestazione annuale e fornire ai dipendenti regolari feedback sul loro rendimento lavorativo. ##\n• Requisiti - Eseguire un esempio di comportamento, presentandosi in orario e vestendo abbigliamento aziendale secondo il codice di abbigliamento dell'hotel e i standard di cura personale di Kempinski. - Fornire un servizio professionale e cortese in tutte le occasioni e assicurarsi che tutti gli impiegati seguano l'esempio. - Essere a conoscenza di tutti i servizi e i prodotti offerti dall'hotel. - Avere una conoscenza approfondita e comprensione di tutti i prodotti e servizi alimentari e di bevande. - Gestire le operazioni degli outlet assegnati dal Capo Dipartimento Food Beverage. - Assistere nella preparazione e consolidamento del budget annuale per il dipartimento. - Assistere nella preparazione dello stato di flusso dei ricavi mensile per ogni outlet e per il dipartimento nel suo complesso, partecipare alla riunione mensile di prestazione con la gestione degli outlet. - Gestire il magazzino consolidato del dipartimento Food Beverage. - Partecipare e contribuire attivamente a tutte le riunioni di personale rilevanti e alle formazioni dell'hotel. - Condurre riunioni di briefing quotidiane con il Cuooco Esecutivo in assenza del Capo Dipartimento Food Beverage. - Partecipare o condurre (in assenza del Capo Dipartimento Food Beverage) riunioni quotidiane o settimanali di Food Beverage. - Revisionare e aggiornare annualmente i manuali di operazioni del dipartimento. - Assistere nella ricerca dei migliori prodotti disponibili. ##\n• Cosa offriamo - Opportunità di carriera e sviluppo professionale. - Ambiente di lavoro dinamico e imprenditoriale. - Possibilità di lavorare in un hotel di lusso con una forte identità e valori. ## Contatto - Per ulteriori informazioni, contattare il nostro ufficio di personale.",
-        "de": "Beschreibung Il ruolo di Assistante Manager Lebensmittel Getränke è eseguito soddisfacentemente quando: - Tutte le regole e le norme sono stabilite e rispettate all'interno dell'hotel, comprese le norme di sicurezza e igiene, compreso HACCP. - Le vendite sono spinte al loro massimo potenziale negli Auslass specifici assegnati dal Capo Dipartimento Food Beverage. - Tutti i costi sono in linea con le vendite senza compromettere la qualità, cioè con un punteggio minimo del 85%. - Il dipartimento o gli Auslass assegnati sono gestiti in modo imprenditoriale, cercando costantemente opportunità per generare più affari. - L'innovazione e le nuove idee sono promosse, implementate e condivise con altri hotel attraverso l'ufficio centrale. - L'impiegato è pronto ad vermutere la posizione di Capo Dipartimento Food Beverage presso l'Hotel Kempinski Palace Engelberg. Mansion - Sostenere e implementare nuove iniziative di sviluppo del talento. - Identificare talenti interni ed Esterni che corrispondono ai valori DNA di Kempinski. - Sostenere la crescita del talento per presentare candidati nelle chiamate di trasferimento del talento trimestrali. - Incontrare tutti i nuovi dipendenti Food Beverage. - Sostenere il Capo Dipartimento Food Beverage nella conduzione delle valutazioni di prestazione annuale e fornire ai dipendenti regolari Feedback sul loro rendimento lavorativo. Voraussetzungen - Eseguire un esempio di comportamento, presentandosi in orario e vestendo abbigliamento aziendale secondo il codice di abbigliamento dell'hotel e i standard di cura personale di Kempinski. - Fornire un servizio professionale e cortese in tutte le Gelegenheiti e assicurarsi che tutti gli impiegati seguano l'esempio. - Essere a conoscenza di tutti i servizi e i prodotti offerti dall'hotel. - Avere una conoscenza approfondita e comprensione di tutti i prodotti e servizi alimentari e di bevande. - Gestire le operazioni degli Outlet assegnati dal Capo Dipartimento Food Beverage. - Assistere nella preparazione e consolidamento del budget annuale per il dipartimento. - Assistere nella preparazione dello stato di flusso dei ricavi mensile per ogni Auslass e per il dipartimento nel suo complesso, partecipare alla riunione mensile di prestazione con la gestione degli Auslass. - Gestire il magazzino consolidato del dipartimento Food Beverage. - Partecipare e contribuire attivamente a tutte le riunioni di personale rilevanti e alle formazioni dell'hotel. - Condurre riunioni di briefing quotidiane con il Cuooco Esecutivo in assenza del Capo Dipartimento Food Beverage. - Partecipare o condurre (in assenza del Capo Dipartimento Food Beverage) riunioni quotidiane o settimanali di Food Beverage. - Revisionare e aggiornare annualmente i manuali di operazioni del dipartimento. - Assistere nellareirca dei migliori prodotti Verfügbarkeit.\n• Cosa offriamo - Opportunità di carriera e sviluppo professionale. - Ambiente di lavoro dinamico e imprenditoriale. - Possibilità di lavorare im un hotel di lusso mit una forte identità e valori. Contattoo - Per ulteriori informazioni, contattare il nostro ufficio di personale.",
-        "fr": "Descrizione Il ruolo di Assistente Manager Food Beverage è eseguito soddisfacente quando: - Tutte le regole e le standard son stabilite e rispettate all'interno dell'hotel, comprese le standard di sicurezza e igiene, compreso HACCP. - Le vendite sono spinte al loro massimo potenziale negli exutory specifici assegnati dal Capo Dipartimento Food Boissons. - Tutti i costi sono in linea con le vendite senza compromettere la qualité, cioè con un punteggio minimo del 85%. - Il dipartimento o gli exut assegnati sono gestiti in modo imprendorialle, cercando costantemente opportunità per generare più affari. - L'innovazione e le nuove idee sono promosse, implementate e condivise con altri hotel attraverso l'ufficio centrale. - L'impiegato è pronto ad assumere la posizione di Capo Dipartimento Food Boissons presso l'Hotel Kempinski Palace Engelberg. Mansioni - Sostenere e implementare nuove iniziative di sviluppo del talento. - Identificare talenti ed esterni che corrispondono ai valori ADN di Kempinski. - Sostenere la crescita del talento per presentare candidati nelle chiamate di trasferimento del talento trimestrali. - Incontrare tutti i nuovi dipendenti Boissons alimentaires. - Sostenere il Capo Dipartimento Food Boissons nella conduzione delle valutazioni di prestazione annuale e fornire ai dipendenti regolari feedback sul loro rendimento lavorativo.\n• Requisiti - Eseguire un esempio di comportamento, presentandosi in orario e vestendo abbigliamento aziendale secondo il codice di abbigliamento dell'hotel e i standard di cura personale di Kempinski. - Fornire un servizio professionale e cortese in tutte le occasioni e assicurarsi che tutti gli impiegati seguano l'esempio. - Essere a conoscenza di tutti i servizi e i prodotti offerti dall'hotel. - Avere una conoscenza approfondita e comprensione di tutti i prodotti e servizi alimentari e di bevande. - Gestire le opérazioni degli outlet assegnati dal Capo Dipartimento Food Beverage. - Aide nella preparazione e consolidamento del budget annuale per il dipartimento. - Assistere nella preparazione dello stato di flusso dei ricavi mensile per ogni exut e per il dipartimento nel suo complesso, partecipare alla riunione mensile di prestizione con la gestione degli exut. - Gestire il magazzino consolidato del dipartimento Food Boissons. - Partecipare e contribuire attivamente a tutte le riunioni di personale rilevanti e alle formazioni dell'hotel. - Condurre riunioni di briefing quotidiane con il Cuooco Esecutivo in assenza del Capo Dipartimento Food Beverage. - Participare o condurre (dans l'assenza del Capo Dipartimento Food Beverage) riunioni quotidiane o settimanali di Food Beverage. - Révision de l'aggiornare annualmente i manuali di operazioni del dipartimento. - Aide nella ricerca dei migliori prodotti disponibili.\n• Cosa offriamo - Opportunità di carriera e sviluppo professionelle. - Ambiente di lavoro dinamico e imprendtoriale. - Possibilità di lavorare in un hotel di lusso con una forte identità e valori. Contatto - Par ulteriori informazioni, contrecarre il nostro ufficio di personale."
+        "en": "## Mansioni\n\n- Set an example by reporting to duty punctually wearing business attire according to the hotels dress code Kempinski grooming standards, maintaining a high standard of personal appearance and hygiene at all times.\n- Provide a professional and courteous service at all times and ensure that all employees follow the example.\n- Be knowledgeable of all services and products offered by the hotel.\n- Have a thorough knowledge and understanding of all food and beverage products and services.\n- Oversee the operations of the outlets appointed by the Food Beverage Head of Department.\n- Assist in preparing/consolidating the yearly budget for the department.\n- Assist in preparing the monthly income statement for each outlet and the department as a whole, attend the monthly performance meeting with the Outlet Management.\n- Manage the consolidated inventory of Food Beverage department.\n- Attend and actively contribute to all relevant staff meetings and hotel trainings.\n- Conduct daily operations briefings with the Executive Chef in the absence of the Food Beverage Head of Department.\n- Attend or conduct (in the absence of the Food Beverage Head of Department) daily or weekly Food Beverage meetings.\n- Review and update all departmental operations manuals annually.\n- Assist in sourcing the best available products, constantly aim to improve quality, communicate about the products both internally and externally.\n- Establish good partnerships with suppliers and involve them in activities that will strengthen working relationships, e.g. invite them to the hotel.\n- Monitor and constantly improve quality and guest satisfaction with the given tools.\n- Assist handling guest complaints.\n- Oversee every service at least once a week (breakfast, lunch, dinner, lobby, banqueting, room service, bar).\n- Prepare a yearly marketing plan for the appointed outlets in cooperation with the Sales Marketing Department including a competitor analysis.\n- Follow the local and global food beverage trends.\n- Ensure that all managers plan and implement effective training programs in the appointed outlets.\n- Be actively involved in the operations of the appointed outlets to ensure regular guest contact.\n\n## Requisiti\n\n- All rules regulations are strictly established and adhered within the hotel including hotel’s policy on fire and safety as well as hygiene regulations including HACCP.\n- The sales are driven to full potential in specific outlets as appointed by Food Beverage Head of Department.\n- All costs are in line with sales without compromising quality, i.e. minimum 85% score.\n- The department or appointed outlets are driven in an entrepreneurial manner, looking for opportunities to generate more business at all times.\n- Innovation and new ideas are fostered, implemented and shared with other hotels via corporate office.\n- The employee is ready to assume the position of Food Beverage Head of Department in Kempinski Hotel Palace Engelberg.\n\n## Cosa offriamo\n\n- No specific benefits listed in the original text.\n\n## Contatto\n\n- No specific contact information listed in the original text.",
+        "it": "Mansioni\n\n- Impostare un esempio riportando al dovere puntualmente indossando abbigliamento aziendale secondo gli hotel codice abito Kempinski standard di cura, mantenendo un alto standard di aspetto personale e igiene in ogni momento.\n- Fornire un servizio professionale e cortese in ogni momento e garantire che tutti i dipendenti seguono l'esempio.\n- Essere informati di tutti i servizi e prodotti offerti dall'hotel.\n- Avere una conoscenza approfondita e la comprensione di tutti i prodotti e servizi di cibo e bevande.\n- Controllare le operazioni degli sbocchi nominati dal responsabile del reparto bevande alimentari.\n- Assistere nella preparazione/consolidamento del bilancio annuale per il dipartimento.\n- Assistere nella preparazione del conto mensile del reddito per ogni uscita e il reparto nel suo complesso, partecipare alla riunione mensile delle prestazioni con la gestione Outlet.\n- Gestire l'inventario consolidato del reparto Food Beverage.\n- Partecipare e contribuire attivamente a tutte le riunioni del personale e alle formazioni dell'hotel.\n- Condurre i briefing delle operazioni giornaliere con l'Executive Chef in assenza del Food Beverage Head of Department.\n- Partecipare o condurre (in assenza del Food Beverage Head of Department) riunioni giornaliere o settimanali di Food Beverage.\n- Revisione e aggiornamento di tutti i manuali di gestione del reparto ogni anno.\n- Assistere nella sourcing dei migliori prodotti disponibili, mirare costantemente a migliorare la qualità, comunicare sui prodotti sia internamente che esternamente.\n- Stabilire buone partnership con i fornitori e coinvolgerli in attività che rafforzeranno i rapporti di lavoro, ad esempio invitarli all'hotel.\n- Monitorare e migliorare costantemente la qualità e la soddisfazione degli ospiti con gli strumenti forniti.\n- Assistere la gestione dei reclami degli ospiti.\n- Superare ogni servizio almeno una volta alla settimana (colazione, pranzo, cena, lobby, banchetti, servizio in camera, bar).\n- Preparare un piano di marketing annuale per i punti vendita nominati in collaborazione con il Dipartimento Marketing di Vendite, compresa un'analisi concorrente.\n- Seguire le tendenze delle bevande alimentari locali e globali.\n- Assicurarsi che tutti i manager pianino e implementano programmi di formazione efficaci negli outlet nominati.\n- Essere attivamente coinvolti nelle operazioni dei punti vendita nominati per garantire il contatto regolare degli ospiti.\n\nRequisiti\n\n- Tutte le regole sono rigorosamente stabilite e rispettate all'interno dell'hotel, compresa la politica dell'hotel sul fuoco e la sicurezza, così come le norme igieniche, tra cui HACCP.\n- Le vendite sono indirizzate a pieno potenziale in punti specifici, come nominato dal Food Beverage Head of Department.\n- Tutti i costi sono in linea con le vendite senza compromettere la qualità, cioè minimo 85% punteggio.\n- Il dipartimento o i punti vendita nominati sono guidati in modo imprenditoriale, alla ricerca di opportunità per generare più business in ogni momento.\n- L'innovazione e le nuove idee sono incoraggiate, implementate e condivise con altri hotel tramite ufficio aziendale.\n- Il dipendente è pronto ad assumere la posizione di Food Beverage Head of Department in Kempinski Hotel Palace Engelberg.\n\nCosa?\n\n- Nessun beneficio specifico elencato nel testo originale.\n\nContatto\n\n- Nessuna informazione di contatto specifica elencata nel testo originale.",
+        "de": "Mansion\n\n- Setzen Sie ein Beispiel durch die Berichterstattung, um pünktlich zu tragen Geschäft Kleidung nach den Hotels Kleid Code Kempinski Pflegestandards, die Einhaltung eines hohen Standards der persönlichen Aussehen und Hygiene zu jeder Zeit.\n- Geben Sie jederzeit einen professionellen und höflichen Service und stellen Sie sicher, dass alle Mitarbeiter dem Beispiel folgen.\n- Lernen Sie alle vom Hotel angebotenen Dienstleistungen und Produkte kennen.\n- Haben Sie ein gründliches Wissen und Verständnis für alle Lebensmittel und Getränke Produkte und Dienstleistungen.\n- Beaufsichtigen Sie die Operationen der vom Abteilungsleiter für Lebensmittel Getränke ernannten Verkaufsstellen.\n- Assist bei der Vorbereitung/Konsolidierung des jährlichen Budgets für die Abteilung.\n- Assist bei der Erstellung der monatlichen Einkommensrechnung für jede Filiale und die gesamte Abteilung, besuchen Sie die monatliche Leistungssitzung mit dem Outlet Management.\n- Verwalten Sie das konsolidierte Inventar der Food Beverage Abteilung.\n- Beachtet und aktiv zu allen relevanten Personalsitzungen und Hotelausbildungen beitragen.\n- Führen Sie tägliche Betriebsbesprechungen mit dem Chefkoch in Abwesenheit des Food Beverage Abteilungsleiters.\n- Besuchen oder Verhalten (in Abwesenheit des Food Beverage Head of Department) täglich oder wöchentlich Essen Getränke Treffen.\n- Überprüfen und aktualisieren Sie alle Abteilungshandbücher jährlich.\n- Assist bei der Beschaffung der besten verfügbaren Produkte, ständig Ziel, die Qualität zu verbessern, Kommunikation über die Produkte sowohl intern als auch extern.\n- Vereinigen Sie gute Partnerschaften mit Lieferanten und beteiligen Sie sie an Aktivitäten, die die Arbeitsbeziehungen stärken, z.B. laden Sie sie zum Hotel ein.\n- Überwachen Sie und verbessern Sie die Qualität und die Zufriedenheit der Gäste mit den gegebenen Werkzeugen.\n- Assist Umgang mit Gastbeschwerden.\n- Beaufsichtigen Sie jeden Service mindestens einmal pro Woche (Frühstück, Mittagessen, Abendessen, Lobby, Bankett, Zimmerservice, Bar).\n- Bereiten Sie einen jährlichen Marketingplan für die bestellten Verkaufsstellen in Zusammenarbeit mit der Sales Marketing Abteilung einschließlich einer Wettbewerberanalyse vor.\n- Folgen Sie den lokalen und globalen Speisen Getränketrends.\n- Stellen Sie sicher, dass alle Manager effektive Schulungsprogramme in den ernannten Steckdosen planen und durchführen.\n- Werden Sie aktiv an den Operationen der ernannten Steckdosen beteiligt, um regelmäßigen Gastkontakt zu gewährleisten.\n\nVoraussetzungen\n\n- Alle Regeln werden streng festgelegt und im Hotel eingehalten, einschließlich der Politik des Hotels auf Feuer und Sicherheit sowie Hygienevorschriften einschließlich HACCP.\n- Die Verkäufe werden in bestimmten Filialen, die von Food Beverage Head of Department ernannt werden, auf volles Potenzial getrieben.\n- Alle Kosten entsprechen dem Verkauf, ohne die Qualität zu beeinträchtigen, d.h. mindestens 85% Punkt.\n- Die Abteilung oder die bestellten Verkaufsstellen werden auf unternehmerische Art und Weise betrieben und suchen nach Möglichkeiten, immer mehr Unternehmen zu generieren.\n- Innovation und neue Ideen werden gefördert, umgesetzt und über Firmensitz mit anderen Hotels geteilt.\n- Der Mitarbeiter ist bereit, die Position von Food Beverage Leiter der Abteilung in Kempinski Hotel Palace Engelberg zu übernehmen.\n\nCosa offriamo\n\n- Keine spezifischen Vorteile im Originaltext.\n\nContattoo\n\n- Keine spezifischen Kontaktinformationen im Originaltext.",
+        "fr": "Mansioni\n\n- Donner l'exemple en rendant compte de porter ponctuellement des vêtements d'affaires selon le code vestimentaire des hôtels.\n- Fournir un service professionnel et courtois en tout temps et s'assurer que tous les employés suivent l'exemple.\n- Être au courant de tous les services et produits offerts par l'hôtel.\n- Avoir une connaissance et une compréhension approfondies de tous les produits et services alimentaires et de boissons.\n- Surveiller le fonctionnement des points de vente désignés par le chef de service des boissons alimentaires.\n- Aider à préparer/consolider le budget annuel du ministère.\n- Aider à préparer le relevé mensuel des résultats pour chaque point de vente et pour l'ensemble du ministère, assister à la réunion mensuelle de rendement avec la direction de l'outlet.\n- Gérer l'inventaire consolidé du service des boissons alimentaires.\n- Assister et contribuer activement à toutes les réunions du personnel et formations hôtelières pertinentes.\n- Organiser des séances d'information quotidiennes avec le Chef exécutif en l'absence du Chef du Département des boissons alimentaires.\n- Assister ou conduire (en l'absence du chef du département des Boissons alimentaires) des réunions quotidiennes ou hebdomadaires des Boissons alimentaires.\n- Examiner et mettre à jour tous les manuels d'exploitation du Ministère chaque année.\n- Aider à se procurer les meilleurs produits disponibles, constamment viser à améliorer la qualité, communiquer sur les produits à l'interne et à l'externe.\n- Établir de bons partenariats avec les fournisseurs et les associer à des activités qui renforceront les relations de travail, par exemple les inviter à l'hôtel.\n- Surveiller et améliorer constamment la qualité et la satisfaction des clients avec les outils donnés.\n- Aide à traiter les plaintes des clients.\n- Surveiller chaque service au moins une fois par semaine (petit déjeuner, déjeuner, dîner, lobby, banquet, room service, bar).\n- Préparer un plan de commercialisation annuel pour les points de vente désignés, en collaboration avec le département marketing commercial, y compris une analyse des concurrents.\n- Suivez les tendances locales et mondiales des boissons alimentaires.\n- Veiller à ce que tous les gestionnaires planifient et mettent en oeuvre des programmes de formation efficaces dans les points de vente désignés.\n- Participer activement au fonctionnement des points de vente désignés pour assurer un contact régulier avec les clients.\n\nRequisiti\n\n- Tous les règlements sont strictement établis et respectés dans l'hôtel, y compris la politique de l'hôtel sur l'incendie et la sécurité ainsi que les règlements d'hygiène y compris HACCP.\n- Les ventes sont entraînées à plein potentiel dans des points de vente spécifiques tels que nommés par le chef de département des Boissons alimentaires.\n- Tous les coûts sont en ligne avec les ventes sans compromettre la qualité, c'est-à-dire un score minimum de 85 %.\n- Le département ou les points de vente désignés sont animés d'une manière entrepreneuriale, à la recherche d'opportunités pour générer plus d'affaires en tout temps.\n- L'innovation et les nouvelles idées sont encouragées, mises en œuvre et partagées avec d'autres hôtels par le biais de bureaux d'entreprise.\n- L'employé est prêt à occuper le poste de chef de département des boissons alimentaires à Kempinski Hotel Palace Engelberg.\n\nCosa offriamo\n\n- Pas de prestations spécifiques énumérées dans le texte original.\n\nContatto\n\n- Aucune information spécifique sur les personnes-ressources figurant dans le texte original."
       },
       "slugByLocale": {
-        "it": "assistente-al-food-beverage-manager-kempinski-palace-engelberg-engelberg",
-        "en": "assistant-food-beverage-manager-kempinski-palace-engelberg-engelberg",
-        "de": "assistent-food-beverage-manager-kempinski-palace-engelberg-engelberg",
+        "it": "assistente-responsabile-ristorazione-e-bevande-kempinski-palace-engelberg-engelberg",
+        "en": "assistant-restaurant-manager-501552",
+        "de": "assistant-food-beverage-manager-501552",
         "fr": "gestionnaire-adjoint-des-aliments-et-des-boissons-kempinski-palace-engelberg-engelberg"
       },
-      "crawledAt": "2026-05-28T23:30:08.384Z",
-      "id": "grand-hotel-des-bains-kempinski-5a03bef1c9c4",
+      "crawledAt": "2026-05-29T12:50:50.722Z",
+      "id": "grand-hotel-des-bains-kempinski-2d7bfa8f85d1",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -439,22 +433,22 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "firstSeenAt": "2026-05-15T22:05:03.194Z",
+      "firstSeenAt": "2026-05-29T12:50:50.722Z",
       "previousSlugsByLocale": {
-        "it": [
-          "assistant-food-beverage-manager-509229"
+        "en": [
+          "assistant-food-beverage-manager-kempinski-palace-engelberg-engelberg"
         ],
-        "de": [
-          "assistant-food-beverage-manager-509229"
+        "it": [
+          "assistant-food-beverage-manager-501552"
+        ],
+        "fr": [
+          "assistant-restaurant-manager-kempinski-palace-engelberg-engelberg"
         ]
       },
       "previousSlugs": [
-        "assistant-food-beverage-manager-509229",
-        "assistente-direttore-del-ristorante-kempinski-palace-engelberg-engelberg",
-        "restaurant-manager-assistant-kempinski-palace-engelberg-engelberg",
-        "assistent-des-restaurants-kempinski-palace-engelberg-engelberg",
-        "assistant-restaurant-manager-kempinski-palace-engelberg-engelberg",
-        "assistant-restaurant-manager-501552"
+        "assistant-food-beverage-manager-kempinski-palace-engelberg-engelberg",
+        "assistant-food-beverage-manager-501552",
+        "assistant-restaurant-manager-kempinski-palace-engelberg-engelberg"
       ]
     },
     {
@@ -476,7 +470,7 @@
       "department": "Sales & Marketing",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "PART_TIME",
       "contractType": "fixed-term",
@@ -499,7 +493,7 @@
         "de": "vertriebsleiter-uk-europe-luxury-leisure-corporate-offices-genf",
         "fr": "directeur-des-ventes-royaume-uni-et-europe-luxury-leisure-corporate-offices-genf"
       },
-      "crawledAt": "2026-05-28T23:30:08.385Z",
+      "crawledAt": "2026-05-29T12:50:50.722Z",
       "id": "grand-hotel-des-bains-kempinski-518a105f7d7c",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -519,8 +513,8 @@
       "firstSeenAt": "2026-05-19T12:00:48.573Z",
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-uk-europe-luxury-leisure-510854",
-          "responsabile-vendite-regno-unito-ed-europa-tempo-libero-di-lusso-corporate-offices-genf"
+          "responsabile-vendite-regno-unito-ed-europa-tempo-libero-di-lusso-corporate-offices-genf",
+          "sales-manager-uk-europe-luxury-leisure-510854"
         ],
         "de": [
           "sales-manager-uk-europe-luxury-leisure-510854"
@@ -530,8 +524,8 @@
         ]
       },
       "previousSlugs": [
-        "sales-manager-uk-europe-luxury-leisure-510854",
-        "responsabile-vendite-regno-unito-ed-europa-tempo-libero-di-lusso-corporate-offices-genf"
+        "responsabile-vendite-regno-unito-ed-europa-tempo-libero-di-lusso-corporate-offices-genf",
+        "sales-manager-uk-europe-luxury-leisure-510854"
       ]
     },
     {
@@ -542,8 +536,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -553,7 +547,7 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -576,7 +570,7 @@
         "de": "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz",
         "fr": "apprentice-fachfrau-mann-hotellerie-hauswirtschaft-efz-f-m-d-from-august-2027-511313"
       },
-      "crawledAt": "2026-05-28T23:30:08.385Z",
+      "crawledAt": "2026-05-29T12:50:50.723Z",
       "id": "grand-hotel-des-bains-kempinski-f76a49b25e01",
       "previousSlugsByLocale": {
         "it": [
@@ -602,7 +596,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T22:37:17.857Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Apprentice \"Hotel-Kommunikationsfach EFZ\" (f/m/d) from August 2027",
@@ -612,8 +607,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -623,7 +618,7 @@
       "department": "Human Resources & Training",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -646,7 +641,7 @@
         "de": "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprentice-hotel-kommunikationsfach-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-05-28T23:30:08.386Z",
+      "crawledAt": "2026-05-29T12:50:50.723Z",
       "id": "grand-hotel-des-bains-kempinski-a9bbd3ecacbf",
       "previousSlugsByLocale": {
         "it": [
@@ -672,7 +667,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "firstSeenAt": "2026-05-19T22:37:17.858Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2027",
@@ -682,8 +678,8 @@
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
       "companyKey": "grand-hotel-des-bains-kempinski",
       "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
+      "location": "St",
+      "addressLocality": "St",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
@@ -693,7 +689,7 @@
       "department": "Kitchen",
       "source": "kempinski-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-29",
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
@@ -716,7 +712,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2027-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprentice-koch-efz-f-m-d-from-august-2027-511326"
       },
-      "crawledAt": "2026-05-28T23:30:08.387Z",
+      "crawledAt": "2026-05-29T12:50:50.724Z",
       "id": "grand-hotel-des-bains-kempinski-f5bd3c6e6c87",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -742,7 +738,8 @@
       "previousSlugs": [
         "apprentice-koch-efz-f-m-d-from-august-2027-511326"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }

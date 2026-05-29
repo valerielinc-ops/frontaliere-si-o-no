@@ -7,8 +7,8 @@
       "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "en": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "de": "back-office-manager-credits-banque-cantonale-du-valais-sion",
+        "en": "gestionnaire-back-office-credits-bcvs-sion",
+        "de": "gestionnaire-back-office-credits-bcvs-sion",
         "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -69,12 +69,6 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
           "gestionnaire-back-office-credits-bcvs-sion"
         ],
-        "en": [
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
-        "de": [
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
         "fr": [
           "gestionnaire-back-office-credits-bcvs-sion"
         ]
@@ -84,7 +78,6 @@
         "gestionnaire-back-office-credits-bcvs-sion"
       ],
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -164,9 +157,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
-        ],
         "en": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ],
@@ -175,13 +165,15 @@
         ],
         "fr": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ],
+        "it": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ]
       },
       "previousSlugs": [
         "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -245,9 +237,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "bankberater-in-bcvs-zermatt"
-        ],
         "en": [
           "bankberater-in-bcvs-zermatt"
         ],
@@ -255,6 +244,9 @@
           "bankberater-in-bcvs-zermatt"
         ],
         "de": [
+          "bankberater-in-bcvs-zermatt"
+        ],
+        "it": [
           "bankberater-in-bcvs-zermatt"
         ]
       },
@@ -336,9 +328,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
-        ],
         "en": [
           "specialiste-tresorerie-devises-bcvs-sion"
         ],
@@ -346,6 +335,9 @@
           "specialiste-tresorerie-devises-bcvs-sion"
         ],
         "fr": [
+          "specialiste-tresorerie-devises-bcvs-sion"
+        ],
+        "it": [
           "specialiste-tresorerie-devises-bcvs-sion"
         ]
       },
@@ -359,7 +351,6 @@
         "specialiste-en-investissement-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-06T21:27:36.448Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -439,9 +430,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
-        ],
         "en": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ],
@@ -450,13 +438,15 @@
         ],
         "fr": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        ],
+        "it": [
+          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -549,7 +539,6 @@
         "gestionnaire-economat-courrier-et-ged-bcvs-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -571,7 +560,7 @@
         "fr": "assistant-e-asset-management-banque-cantonale-du-valais-sion",
         "it": "assistant-e-asset-management-bcvs-sion",
         "en": "assistant-e-asset-management-bcvs-sion",
-        "de": "assistent-e-asset-management-banque-cantonale-du-valais-sion"
+        "de": "assistentin-des-managements-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -579,16 +568,16 @@
       "title": "Assistant-e Asset management",
       "titleByLocale": {
         "fr": "Assistant-e Asset management",
-        "it": "Assistant-e Asset management",
-        "en": "Assistant-e Asset management",
-        "de": "Assistent-e Asset management"
+        "it": "Asset Management Assistant",
+        "en": "Asset Management Assistant",
+        "de": "Assistentin des Managements"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant-e Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
       "descriptionByLocale": {
         "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant-e Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
-        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant-e Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
-        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant-e Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026.",
-        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nAssistant-e Asset management\n\n• Sion\n\n• 80-100%\n\nVous portez un intérêt pour les marchés financiers et souhaitez être au cœur de la gestion de nos produits de placements ? Vous avez un bon sens de l'analyse et aimez le contact avec les conseillers à la clientèle ? Cette opportunité est faite pour vous.\n\nConcrètement ?\n\n• Vous participez au suivi administratif des portefeuilles et mandats de conseil (gestion administrative, monitoring, préparation de supports).\n\n• Vous mettez en place et assurez la mise à jour des supports de communication de nos différents produits de placements en collaboration avec les équipes du département Asset management & Advisory.\n\n• Vous soutiendrez les teams Investment Management et Investment Solutions & Advisory dans le suivi administratif des mandats de gestion, des mandats de conseil et dans ses autres activités de soutien à nos conseillers. En outre, vous serez une personne de contact pour les demandes internes concernant les marchés financiers et produits d’investissement.\n\n• Vous participerez à des projets au niveau de l’Asset Management.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d’une formation commerciale (Maturité commerciale et/ou HES).\n\n• Les marchés financiers vous attirent et vous avez une affinité avec les systèmes technologiques relatifs à ce secteur d’activité.\n\n• Vous possédez de bonnes connaissances écrites et orales de l’allemand et de l’anglais.\n\n• Vous vous décrivez comme étant une personne flexible sachant s’adapter tant aux situations nouvelles qu’aux personnalités diverses et êtes en mesure de collaborer avec différentes équipes.\n\n• Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch au plus tard pour le 19 juin 2026."
+        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nAsset Management Assistant\n\n• Sion\n\n• 80-100%\n\nHai un interesse per i mercati finanziari e vuoi essere al centro della gestione dei nostri prodotti di investimento? Hai un buon senso di analisi e come il contatto con i consulenti dei clienti? Questa opportunita' e' per te.\n\nIn particolare?\n\n• Partecipa al monitoraggio amministrativo dei portafogli e dei mandati di consulenza (gestione amministrativa, monitoraggio, preparazione del supporto).\n\n• Stai mettendo in atto e aggiornando i media di comunicazione dei nostri vari prodotti di investimento in collaborazione con i team del Dipartimento Asset Management & Advisory.\n\n• Sosterrete i team di Investment Management e Investment Solutions & Advisory nel monitoraggio amministrativo dei mandati di gestione, dei mandati di consulenza e di altre attività a supporto dei nostri consulenti. Inoltre, sarai una persona di contatto per le richieste interne relative ai mercati finanziari e ai prodotti di investimento.\n\n• Parteciperete a progetti a livello di Asset Management.\n\nLa sfida ti sta tentando?\nQuesto post è per voi se...\n\n• L'utente beneficia della formazione commerciale (maturità commerciale e/o HES).\n\n• I mercati finanziari ti attirano e hai un'affinità con i sistemi tecnologici relativi a questo settore.\n\n• Hai una buona conoscenza scritta e orale del tedesco e dell'inglese.\n\n• Si descrive come una persona flessibile che può adattarsi sia a nuove situazioni che a diverse personalità e può collaborare con diverse squadre.\n\n• Hai eccellenti capacità di comunicazione, fornisci soluzioni per migliorare in modo costruttivo.\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch entro il 19 giugno 2026.",
+        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nAsset Management Assistant\n\n• Zion\n\n• 80-100%\n\nDo you have an interest in financial markets and want to be at the heart of managing our investment products? Do you have a good sense of analysis and like contact with customer advisors? This opportunity is for you.\n\nSpecifically?\n\n• You participate in the administrative monitoring of portfolios and advisory mandates (administrative management, monitoring, preparation of support).\n\n• You are putting in place and updating the communication media of our various investment products in collaboration with the teams of the Asset Management & Advisory Department.\n\n• You will support Investment Management and Investment Solutions & Advisory teams in the administrative monitoring of management mandates, consulting mandates and other activities supporting our advisors. In addition, you will be a contact person for internal requests regarding financial markets and investment products.\n\n• You will participate in projects at the level of Asset Management.\n\nThe challenge is tempting you?\nThis post is for you if...\n\n• You benefit from commercial training (Commercial maturity and/or HES).\n\n• The financial markets attract you and you have an affinity with the technological systems related to this industry.\n\n• You have good written and oral knowledge of German and English.\n\n• You describe yourself as a flexible person who can adapt both to new situations and to various personalities and can collaborate with different teams.\n\n• You have excellent communication capabilities, you provide solutions for improvement in a constructive way.\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch no later than June 19, 2026.",
+        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater\n\nRinder\n\nAssistentin des Managements\n\n• Zion\n\n• 80-100%\n\nHaben Sie ein Interesse an den Finanzmärkten und wollen im Mittelpunkt unserer Investitionsprodukte stehen? Haben Sie ein gutes Gefühl der Analyse und wie Kontakt mit Kundenberatern? Diese Gelegenheit ist für Sie.\n\nKonkret?\n\n• Sie nehmen an der administrativen Überwachung von Portfolios und Beratungsaufträgen teil (administratives Management, Monitoring, Vorbereitung der Unterstützung).\n\n• Sie setzen die Kommunikationsmedien unserer verschiedenen Anlageprodukte in Zusammenarbeit mit den Teams der Asset Management & Advisory Abteilung ein und aktualisieren diese.\n\n• Sie unterstützen Investment Management und Investment Solutions & Beiratsteams bei der administrativen Überwachung von Managementmandate, Beratungsmandate und anderen Aktivitäten, die unsere Berater unterstützen. Darüber hinaus sind Sie Ansprechpartner für interne Anfragen zu Finanzmärkten und Investitionsprodukten.\n\n• Sie werden an Projekten auf der Ebene des Asset Management teilnehmen.\n\nDie Herausforderung verlockt dich?\nDieser Beitrag ist für Sie, wenn...\n\n• Sie profitieren von kommerzieller Ausbildung (Commercial Reife und/oder HES).\n\n• Die Finanzmärkte ziehen Sie an und Sie haben eine Affinität mit den technologischen Systemen in Verbindung mit dieser Branche.\n\n• Sie haben gute schriftliche und mündliche Kenntnisse in Deutsch und Englisch.\n\n• Sie beschreiben sich als flexible Person, die sich sowohl an neue Situationen als auch an verschiedene Persönlichkeiten anpassen kann und mit verschiedenen Teams zusammenarbeiten kann.\n\n• Sie haben hervorragende Kommunikationsfähigkeiten, Sie bieten Lösungen für eine konstruktive Verbesserung.\n\nMöchten Sie mitkommen?\nTreffen wir uns!\nWir freuen uns auf Ihre Anwendung zu entdecken.\nZu diesem Zweck senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, spätestens am 19. Juni 2026 an rekrut@bcvs.ch."
       },
       "location": "Sion",
       "canton": "VS",
@@ -626,7 +615,6 @@
           "Vous êtes doté-e d’excellentes capacités de communication, vous apportez des solutions d’améliorations de manière constructive."
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -640,7 +628,15 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-29T11:37:18.594Z"
+      "firstSeenAt": "2026-05-29T11:37:18.594Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "assistent-e-asset-management-banque-cantonale-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-e-asset-management-banque-cantonale-du-valais-sion"
+      ]
     },
     {
       "id": "bcvs-a529502ccd83",
@@ -707,7 +703,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:08:31.768Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -792,7 +787,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T22:15:42.716Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

@@ -1,18 +1,56 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-05-29T00:15:51.472Z",
+  "generatedAt": "2026-05-29T13:37:27.562Z",
   "total": 10,
   "newCount": 1,
   "updatedCount": 9,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13319,
-  "avgDurationMs": 13319,
+  "durationMs": 10413,
+  "avgDurationMs": 10413,
   "durationHistory": [
-    13319
+    10413
   ],
   "newJobs": [
+    {
+      "id": "psgn-094a7e7f8136",
+      "slug": "fachperson-gesundheit-eggfeld-psgn-wil-sg",
+      "company": "Psychiatrie St.Gallen",
+      "companyKey": "psgn",
+      "companyDomain": "psychiatrie-sg.ch",
+      "title": "Fachperson Gesundheit Eggfeld",
+      "needsRetranslation": true,
+      "location": "Wil SG",
+      "canton": "SG",
+      "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit-eggfeld/f27f9104-afad-4326-9e7f-8d676b31e676",
+      "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-29T13:37:18.843Z",
+      "addressLocality": "Wil SG",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9500",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit-eggfeld/f27f9104-afad-4326-9e7f-8d676b31e676",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "psgn-60f65ca926ee",
       "slug": "kaufmannisches-praktikum-psgn-wil-sg",
@@ -20,13 +58,13 @@
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Kaufmännisches Praktikum",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/246367c8-2c2d-47f1-9175-b209804494bd",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:42.235Z",
+      "crawledAt": "2026-05-29T13:37:20.563Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -41,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-05-29",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/246367c8-2c2d-47f1-9175-b209804494bd",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-29T00:15:42.235Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "psgn-063f1a38831c",
       "slug": "leitung-facility-management-psgn-wil-sg",
@@ -64,7 +101,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leitung-facility-management/fcd9f07e-1dc9-4f6b-b0f8-f5a838cc6554",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:40.862Z",
+      "crawledAt": "2026-05-29T13:37:19.730Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/1c1feb2c-2639-4be8-9cc3-e213efbda612",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:43.108Z",
+      "crawledAt": "2026-05-29T13:37:21.321Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachtdienst/4660ceef-7bb2-418c-aa1e-c35b5bc018a3",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:43.836Z",
+      "crawledAt": "2026-05-29T13:37:22.045Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ausbildungsverantwortliche-ausbildungsverantwortlicher-pflege-hf/1d6a033a-45dd-4533-9529-b2f2f3cf9aa2",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:44.720Z",
+      "crawledAt": "2026-05-29T13:37:22.749Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/f0e902ce-ad0d-44d6-b011-c6689d5a8e9e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:45.646Z",
+      "crawledAt": "2026-05-29T13:37:23.463Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/77cbe473-bce1-4c58-8999-fabbd85e4848",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:46.519Z",
+      "crawledAt": "2026-05-29T13:37:24.196Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/kaufmaennisches-praktikum/0bb1a334-5ea3-484e-a2ea-0f54342365b5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:47.410Z",
+      "crawledAt": "2026-05-29T13:37:24.997Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/hr-praktikantin-hr-praktikant/2d0f47a5-0fd6-4e55-9c94-6df8609a14b6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:15:48.279Z",
+      "crawledAt": "2026-05-29T13:37:25.713Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -346,15 +383,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "psgn-0ea3d0281136",
-      "slug": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
+      "slug": "dipl-infermiere-a-hf-fh-psychiatrie-st-gallen-wil-sg",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Dipl. Pflegefachperson HF/FH",
-      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/f815f6b6-daab-4928-8258-4b68180a8fdf",
@@ -376,15 +414,16 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/f815f6b6-daab-4928-8258-4b68180a8fdf",
       "firstSeenAt": "2026-05-19T20:59:48.117Z",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

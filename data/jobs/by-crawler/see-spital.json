@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-05-29T00:30:00.712Z",
+  "assembledAt": "2026-05-29T13:52:05.569Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:58.753Z",
+      "crawledAt": "2026-05-29T13:52:03.232Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -75,7 +75,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-dd3f1efb3f84",
@@ -83,7 +84,7 @@
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
         "en": "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
-        "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "de": "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
         "fr": "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
       },
       "company": "See-Spital",
@@ -108,7 +109,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:57.775Z",
+      "crawledAt": "2026-05-29T13:52:02.096Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -134,18 +135,12 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "previousSlugs": [
-        "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+        ],
         "en": [
           "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
         ],
         "fr": [
           "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
@@ -154,6 +149,12 @@
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
         ]
       },
+      "previousSlugs": [
+        "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
+        "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+      ],
       "firstSeenAt": "2026-05-26T14:56:08.177Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -166,7 +167,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-2005348b822f",
@@ -200,7 +202,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-05-29T00:29:56.815Z",
+      "crawledAt": "2026-05-29T13:52:00.981Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -241,7 +243,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-c5c15d69013f",
@@ -274,7 +277,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:55.816Z",
+      "crawledAt": "2026-05-29T13:51:59.850Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -337,7 +340,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-23aff0d58641",
@@ -370,7 +374,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:54.836Z",
+      "crawledAt": "2026-05-29T13:51:58.718Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -433,7 +437,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-00ed8d5dfb61",
@@ -466,7 +471,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:53.857Z",
+      "crawledAt": "2026-05-29T13:51:57.642Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -526,7 +531,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-ea2110c63b08",
@@ -559,7 +565,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:52.887Z",
+      "crawledAt": "2026-05-29T13:51:56.544Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -624,7 +630,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-34c8b3dc8dd5",
@@ -657,7 +664,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:51.883Z",
+      "crawledAt": "2026-05-29T13:51:55.472Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -739,7 +746,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-74bfb782fc7e",
@@ -772,7 +780,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:50.907Z",
+      "crawledAt": "2026-05-29T13:51:54.371Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -841,7 +849,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-6187b90ced28",
@@ -874,7 +883,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:49.932Z",
+      "crawledAt": "2026-05-29T13:51:53.290Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -957,7 +966,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-407c1c2c9e98",
@@ -990,7 +1000,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:48.980Z",
+      "crawledAt": "2026-05-29T13:51:52.187Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1056,7 +1066,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-edb543d4b531",
@@ -1089,7 +1100,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:48.011Z",
+      "crawledAt": "2026-05-29T13:51:51.079Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1149,7 +1160,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-50f9b4fcb057",
@@ -1182,7 +1194,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:47.050Z",
+      "crawledAt": "2026-05-29T13:51:50.001Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1251,7 +1263,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-d366c216c3fa",
@@ -1284,7 +1297,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:46.049Z",
+      "crawledAt": "2026-05-29T13:51:48.891Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1356,13 +1369,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-e1ca4dda76b5",
       "slug": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen",
+        "it": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
         "en": "dipl-healthcare-assistant-hf-medicine-night-and-day-shifts-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
         "fr": "dipl-assistant-de-sante-hf-medecine-nuit-et-jour-see-spital-horgen"
@@ -1389,7 +1403,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:45.078Z",
+      "crawledAt": "2026-05-29T13:51:47.759Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1438,11 +1452,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
+        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
+          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1457,7 +1473,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-c12e26eed94d",
@@ -1490,7 +1507,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:44.107Z",
+      "crawledAt": "2026-05-29T13:51:46.661Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1559,7 +1576,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-9e120b457cb2",
@@ -1592,7 +1610,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:43.122Z",
+      "crawledAt": "2026-05-29T13:51:45.545Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1650,7 +1668,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-6322c79842ec",
@@ -1683,7 +1702,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:42.135Z",
+      "crawledAt": "2026-05-29T13:51:44.490Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1758,7 +1777,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-ee0a2e2dc56b",
@@ -1791,7 +1811,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:41.160Z",
+      "crawledAt": "2026-05-29T13:51:43.390Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1859,13 +1879,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-b49fdf672641",
       "slug": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachinfermiere-efz-excellence-see-spital-horgen",
+        "it": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
         "en": "healthcare-professional-efz-excellence-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
         "fr": "professionnel-de-la-sante-efz-excellence-see-spital-horgen"
@@ -1892,7 +1913,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:40.191Z",
+      "crawledAt": "2026-05-29T13:51:42.293Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1935,11 +1956,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch"
+        "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
+        "fachinfermiere-efz-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch"
+          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
+          "fachinfermiere-efz-excellence-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1954,13 +1977,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-9f2c8f0ff8f4",
       "slug": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
       "slugByLocale": {
-        "it": "medicina-efz-della-salute-professionale-see-spital-horgen",
+        "it": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
         "en": "healthcare-professional-efz-medicine-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "fr": "professionnel-de-sante-efz-medecine-see-spital-horgen"
@@ -1987,7 +2011,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:39.249Z",
+      "crawledAt": "2026-05-29T13:51:41.172Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2037,11 +2061,13 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch"
+        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
+        "medicina-efz-della-salute-professionale-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch"
+          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
+          "medicina-efz-della-salute-professionale-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:54.431Z",
@@ -2056,7 +2082,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-d1dec150ebdf",
@@ -2089,7 +2116,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:38.304Z",
+      "crawledAt": "2026-05-29T13:51:40.010Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2156,7 +2183,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-0f749a0894fe",
@@ -2189,7 +2217,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:37.323Z",
+      "crawledAt": "2026-05-29T13:51:38.925Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2258,7 +2286,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-65de756ac051",
@@ -2291,7 +2320,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1237/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:36.338Z",
+      "crawledAt": "2026-05-29T13:51:37.818Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2336,7 +2365,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-13f7cd6342bf",
@@ -2369,7 +2399,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1235/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:35.347Z",
+      "crawledAt": "2026-05-29T13:51:36.706Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2438,7 +2468,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-402ad0c03dba",
@@ -2471,7 +2502,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:34.377Z",
+      "crawledAt": "2026-05-29T13:51:35.606Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2537,7 +2568,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-393f16ddea42",
@@ -2570,7 +2602,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:33.384Z",
+      "crawledAt": "2026-05-29T13:51:34.505Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2651,7 +2683,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-7ecd7c97fd05",
@@ -2684,7 +2717,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:32.427Z",
+      "crawledAt": "2026-05-29T13:51:33.424Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2747,7 +2780,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-b72d07539129",
@@ -2780,7 +2814,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:31.460Z",
+      "crawledAt": "2026-05-29T13:51:32.293Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2849,7 +2883,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-2826d1e14f6c",
@@ -2882,7 +2917,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:30.507Z",
+      "crawledAt": "2026-05-29T13:51:31.198Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2951,7 +2986,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-06f48b74a983",
@@ -2984,7 +3020,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1238/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:29.523Z",
+      "crawledAt": "2026-05-29T13:51:30.096Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3052,7 +3088,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-c805b3b8cc84",
@@ -3085,7 +3122,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:28.579Z",
+      "crawledAt": "2026-05-29T13:51:28.973Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3148,7 +3185,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-b45bd3dba0e4",
@@ -3181,7 +3219,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:27.642Z",
+      "crawledAt": "2026-05-29T13:51:27.878Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3247,7 +3285,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-45698c8de3c5",
@@ -3280,7 +3319,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:26.691Z",
+      "crawledAt": "2026-05-29T13:51:26.779Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3349,7 +3388,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-dde80a0f8efe",
@@ -3382,7 +3422,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:25.726Z",
+      "crawledAt": "2026-05-29T13:51:25.653Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3451,7 +3491,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-48dc4c4e1e22",
@@ -3484,7 +3525,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:24.772Z",
+      "crawledAt": "2026-05-29T13:51:24.541Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3553,7 +3594,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-e8c9cc2ea223",
@@ -3586,7 +3628,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:23.791Z",
+      "crawledAt": "2026-05-29T13:51:23.453Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3652,7 +3694,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-b31b0f026929",
@@ -3685,7 +3728,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:22.833Z",
+      "crawledAt": "2026-05-29T13:51:22.332Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3755,7 +3798,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-1bfa5ad69173",
@@ -3788,7 +3832,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:21.857Z",
+      "crawledAt": "2026-05-29T13:51:21.221Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3871,7 +3915,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-40d1260515f2",
@@ -3904,7 +3949,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:20.895Z",
+      "crawledAt": "2026-05-29T13:51:20.124Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3968,7 +4013,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-7593890aa2f5",
@@ -4002,7 +4048,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-05-29T00:29:19.920Z",
+      "crawledAt": "2026-05-29T13:51:19.030Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4048,7 +4094,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "see-spital-96f462a74e05",
@@ -4071,17 +4118,17 @@
       },
       "description": "Ihr Aufgabengebiet\n\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen\n\nIhr Profil\n\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "it": "• Alta cura e cura del paziente • Pianificazione individuale, implementazione e gestione del processo di allattamento • Cooperazione interprofessionale costruttiva con il team medico e altri reparti • Interventi flessibili come funzione di salto interno, se necessario, in particolare per i reparti chirurgici e medici Buona conoscenza dell'utente del PC • Conoscenza molto buona del tedesco e dell'inglese in parola • disponibilità a prendere su tutti gli strati Un posto di lavoro con la migliore connessione ai trasporti pubblici, così come spazi di parcheggio personali convenienti • Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio – vista lago tra cui • Vari vantaggi • Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionale che privato a Lei applicazioni fisiche non può essere preso in considerazione.",
-        "en": "• High level of patient care and care • Individual planning, implementation and management of the nursing process • Constructive interprofessional cooperation with the medical team and other departments • Flexible interventions as an internal jumper function if necessary, in particular for surgical and medical departments Good PC user knowledge • Very good knowledge of German and English in word • readiness to take over all layers What we offer you • Self-responsible work in a motivated and collegial team that supports each other • A working place with the best connection to public transport, as well as cost-effective personal parking spaces • Modern infrastructure and a working environment where you can feel comfortable – lake view including • Various Benefits • A pleasant working environment in an attractive location near Zurich, which has a lot to offer both professional and private to you Physic applications cannot be taken into account.",
-        "de": "Ihr Aufgabengebiet\n\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen\n\nIhr Profil\n\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "• Niveau élevé de soins et de soins aux patients • Planification individuelle, mise en oeuvre et gestion du processus de soins infirmiers • Coopération interprofessionnelle constructive avec l'équipe médicale et d'autres départements • Interventions flexibles en tant que fonction de saut interne si nécessaire, en particulier pour les services chirurgicaux et médicaux Bonne connaissance des utilisateurs de PC • Très bonne connaissance de l'allemand et de l'anglais en paroles • préparation à prendre en charge toutes les couches Ce que nous vous offrons • Un travail autoresponsable dans une équipe motivée et collégiale qui se soutient • Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement personnelles rentables • Une infrastructure moderne et un environnement de travail où vous pouvez vous sentir à l'aise – vue sur le lac y compris • Divers avantages • Un environnement de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnel et privé Applications médicales ne peuvent pas être prises en compte."
+        "it": "• Alta cura e cura del paziente\n• Pianificazione individuale, implementazione e gestione del processo di allattamento\n• Cooperazione interprofessionale costruttiva con il team medico e altri reparti\n• Interventi flessibili come funzione di salto interno, se necessario, in particolare per i reparti chirurgici e medici Buona conoscenza dell'utente del PC\n• Conoscenza molto buona del tedesco e dell'inglese in parola\n• disponibilità a prendere su tutti gli strati Un posto di lavoro con la migliore connessione ai trasporti pubblici, così come spazi di parcheggio personali convenienti\n• Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio – vista lago tra cui\n• Vari vantaggi\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionale che privato a Lei applicazioni fisiche non può essere preso in considerazione.",
+        "en": "• High level of patient care and care\n• Individual planning, implementation and management of the nursing process\n• Constructive interprofessional cooperation with the medical team and other departments\n• Flexible interventions as an internal jumper function if necessary, in particular for surgical and medical departments Good PC user knowledge\n• Very good knowledge of German and English in word\n• readiness to take over all layers What we offer you\n• Self-responsible work in a motivated and collegial team that supports each other\n• A working place with the best connection to public transport, as well as cost-effective personal parking spaces\n• Modern infrastructure and a working environment where you can feel comfortable – lake view including\n• Various Benefits\n• A pleasant working environment in an attractive location near Zurich, which has a lot to offer both professional and private to you Physic applications cannot be taken into account.",
+        "de": "Ihr Aufgabengebiet\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen Ihr Profil\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten Was wir Ihnen bieten\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "• Niveau élevé de soins et de soins aux patients\n• Planification individuelle, mise en oeuvre et gestion du processus de soins infirmiers\n• Coopération interprofessionnelle constructive avec l'équipe médicale et d'autres départements\n• Interventions flexibles en tant que fonction de saut interne si nécessaire, en particulier pour les services chirurgicaux et médicaux Bonne connaissance des utilisateurs de PC\n• Très bonne connaissance de l'allemand et de l'anglais en paroles\n• préparation à prendre en charge toutes les couches Ce que nous vous offrons\n• Un travail autoresponsable dans une équipe motivée et collégiale qui se soutient\n• Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement personnelles rentables\n• Une infrastructure moderne et un environnement de travail où vous pouvez vous sentir à l'aise – vue sur le lac y compris\n• Divers avantages\n• Un environnement de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnel et privé Applications médicales ne peuvent pas être prises en compte."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:29:18.960Z",
+      "crawledAt": "2026-05-29T13:51:17.910Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4127,7 +4174,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "ZH"
     }
   ]
 }

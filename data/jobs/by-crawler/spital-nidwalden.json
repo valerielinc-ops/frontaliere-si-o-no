@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-05-29T00:39:00.135Z",
+  "assembledAt": "2026-05-29T14:01:03.399Z",
   "jobs": [
     {
       "id": "spital-nidwalden-1b47769c9eb4",
@@ -33,7 +33,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/radiologiefachperson/bd25c837-272a-4171-9679-2faf6bcbc10e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:58.004Z",
+      "crawledAt": "2026-05-29T14:01:01.566Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/koch-koechin-efz/bc69d0e7-0225-4077-8e3c-05250fa9c370",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:58.003Z",
+      "crawledAt": "2026-05-29T14:01:01.565Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -249,7 +249,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege-nds-hf-mit-ausbildungsstart-im-februar-2027-an/525dca63-272f-4d19-bb7b-888a859a8016",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:58.001Z",
+      "crawledAt": "2026-05-29T14:01:01.563Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachperson-hf-endoskopie/585de70a-dd02-4201-9679-fa55fdbbf9eb",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:58.000Z",
+      "crawledAt": "2026-05-29T14:01:01.561Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -466,7 +466,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/fachmitarbeiter-in-technik-instandhaltungsfachperson/17dff05b-5a92-4f68-898c-7eda16f07737",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:57.998Z",
+      "crawledAt": "2026-05-29T14:01:01.560Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -574,7 +574,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-efz-fuer-die-notfallpraxis/3e96680e-15c5-45e9-ae5b-a5e033809732",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:57.997Z",
+      "crawledAt": "2026-05-29T14:01:01.547Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -639,107 +639,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:35.874Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-nidwalden-1b29d3c4713d",
-      "slug": "assistente-di-farmacia-afc-o-specialista-in-farmacia-afc-40-spital-nidwalden-stans",
-      "slugByLocale": {
-        "it": "assistente-di-farmacia-afc-o-specialista-in-farmacia-afc-40-spital-nidwalden-stans",
-        "en": "pharma-assistant-efz-or-pharmacy-specialist-efz-40-spital-nidwalden-stans",
-        "de": "pharma-assistent-in-efz-oder-fachperson-apotheke-efz-40-spital-nidwalden-stans",
-        "fr": "assistant-e-en-pharmacie-cfc-ou-specialiste-en-pharmacie-cfc-40-spital-nidwalden-stans"
-      },
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "Pharma-Assistent/-in EFZ oder Fachperson Apotheke EFZ 40%",
-      "titleByLocale": {
-        "it": "Assistente di farmacia AFC o Specialista in farmacia AFC 40%",
-        "en": "Pharma Assistant EFZ or Pharmacy Specialist EFZ 40%",
-        "de": "Pharma-Assistent/-in EFZ oder Fachperson Apotheke EFZ 40%",
-        "fr": "Assistant-e en pharmacie CFC ou Spécialiste en pharmacie CFC 40%"
-      },
-      "description": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Januar 2027 oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sie versorgen die Pflegestationen des Spital Nidwalden mit Arzneimitteln und anderen Apothekengütern\n\n• Sie bestellen und richten die Medikamente in die Tagesdosette unserer Stationär Patienten gemäss Verordnungen\n\n• Sie sind mitverantwortlich für die Einhaltung der spitalinternen Medikamenten- und Apothekengüterliste sowie für den wirtschaftlichen und ökonomischen Medikamenteneinkauf\n\n• Sie tragen mit dem Team die Verantwortung für eine lückenlose Warenadministration (Bestell-, Liefer- sowie Rechnungskontrolle und Dokumentation)\n\n• Sie kontrollieren die administrativen und organisatorischen Tätigkeiten, welche den reibungslosen Ablauf der Spitalapotheke gewährleisten\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pharma-Assistent/in EFZ oder Fachperson Apotheke EFZ\n\n• Sie bezeichnen sich als sehr kundenorientierte Persönlichkeit mit hohem Qualitätsbewusstsein\n\n• Sie haben eine schnelle Auffassungsgabe, sind stark in der Organisation und lieben die Arbeit in einem gut funktionieren und kollegialen Team\n\nWir bieten:\nSie finden bei uns einen Arbeitsplatz mit familiärer Atmosphäre und einer wertschätzenden Kultur. Ausserdem profitieren Sie von zahlreichen Vergünstigungen auf Freizeitaktivitäten (Gratis-Billette bei Bergbahnen, im Verkehrshaus der Schweiz und weitere)",
-      "descriptionByLocale": {
-        "it": "L'ospedale di Nidvaldo è un moderno ospedale acuto con 90 posti letto, circa 600 dipendenti dedicati ed è responsabile dell'assistenza di base estesa. Come azienda del gruppo LUKS, facciamo parte di una rete ad alte prestazioni che fa parte dei gruppi ospedalieri leader in Svizzera. Insieme, garantiamo un'assistenza sanitaria coordinata, digitalmente connessa e accessibile a tutti 24 ore su 24, 7 giorni su 7, con passione e impegno. Cerchiamo per il 1° Gennaio 2027 o su appuntamento:\n• Fornisci ai reparti di cura dell'Ospedale di Nidvaldo farmaci e altri beni farmaceutici\n• Ordini e dirigi i farmaci nelle dosi giornaliere dei nostri pazienti ricoverati secondo le prescrizioni\n• Sei corresponsabile del rispetto dell'elenco interno dei farmaci e dei beni farmaceutici e dell'acquisto economico ed economico dei farmaci\n• Sei responsabile con il team di un'amministrazione delle merci senza lacune (controllo dell'ordine, della consegna e della fattura e documentazione)\n• Controlli le attività amministrative e organizzative che garantiscono il corretto svolgimento della farmacia ospedaliera Requisiti:\n• Hai completato una formazione come assistente farmaceutico/a AFC o specialista in farmacia AFC\n• Ti definisci una personalità molto orientata al cliente con un'elevata consapevolezza della qualità\n• Hai una comprensione rapida, sei",
-        "en": "The Nidwalden Hospital is a modern acute care hospital with 90 beds, around 600 committed employees and is responsible for extended basic care. As a LUKS Group company, we are part of a powerful network that is one of the leading hospital groups in Switzerland. Together, we provide coordinated, digitally networked and accessible healthcare around the clock with passion and commitment. We are looking for January 2027 or by appointment a task/tasks:\n• You supply the nursing wards of the Nidwalden Hospital with medicines and other pharmacy goods\n• You order and direct the medicines into the daily dose of our inpatients according to regulations\n• You are jointly responsible for compliance with the hospital's internal list of medicines and pharmacy goods as well as for the economic and economical purchase of medicines\n• You and the team are responsible for seamless goods administration (order, delivery and invoice control and documentation)\n• You control the administrative and organizational activities that ensure the smooth running of the hospital pharmacy Requirements:\n• You have completed training as a pharmaceutical assistant EFZ or specialist pharmacy EFZ\n• You describe yourself as a very customer-oriented personality with high quality awareness\n• You have a quick comprehension task, are",
-        "de": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Januar 2027 oder nach Vereinbarung eine/n Aufgaben:\n• Sie versorgen die Pflegestationen des Spital Nidwalden mit Arzneimitteln und anderen Apothekengütern\n• Sie bestellen und richten die Medikamente in die Tagesdosette unserer Stationär Patienten gemäss Verordnungen\n• Sie sind mitverantwortlich für die Einhaltung der spitalinternen Medikamenten- und Apothekengüterliste sowie für den wirtschaftlichen und ökonomischen Medikamenteneinkauf\n• Sie tragen mit dem Team die Verantwortung für eine lückenlose Warenadministration (Bestell-, Liefer- sowie Rechnungskontrolle und Dokumentation)\n• Sie kontrollieren die administrativen und organisatorischen Tätigkeiten, welche den reibungslosen Ablauf der Spitalapotheke gewährleisten Anforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als Pharma-Assistent/in EFZ oder Fachperson Apotheke EFZ\n• Sie bezeichnen sich als sehr kundenorientierte Persönlichkeit mit hohem Qualitätsbewusstsein\n• Sie haben eine schnelle Auffassungsgabe, sind stark in der Organisation und lieben die Arbeit in einem gut funktionieren und kollegialen Team Wir bieten: Sie finden bei uns einen Arbeitsplatz mit familiärer Atmosphäre und einer wertschätzenden Kultur. Ausserdem profitieren Sie von zahlreichen Vergünstigungen auf Freizeitaktivitäten (Gratis-Billette bei Bergbahnen, im Verkehrshaus der Schweiz und weitere)",
-        "fr": "L'hôpital de Nidwald est un hôpital de soins aigus moderne avec 90 lits, environ 600 employés engagés et est responsable de l'extension des soins de base. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un réseau performant qui fait partie des principaux groupes hospitaliers de Suisse. Ensemble, nous assurons 24 heures sur 24, avec passion et engagement, des soins de santé coordonnés, connectés numériquement et accessibles à tous. Nous recherchons par 1. Janvier 2027 ou sur rendez-vous une ou plusieurs tâches :\n• Vous approvisionnez les services de soins de l'hôpital de Nidwald en médicaments et autres fournitures pharmaceutiques\n• Vous commandez et alignez les médicaments dans la dose quotidienne de nos patients hospitalisés conformément aux ordonnances\n• Vous êtes co-responsable du respect de la liste des médicaments et des fournitures pharmaceutiques internes à l'hôpital ainsi que de l'achat de médicaments économiques et économiques\n• Vous assumez avec l'équipe la responsabilité d'une administration complète des marchandises (contrôle des commandes, des livraisons et des factures et documentation)\n• Vous contrôlez les activités administratives et organisationnelles qui garantissent le bon fonctionnement de la pharmacie hospitalière Exigences :\n• Vous avez terminé votre formation en tant qu'assistant pharmaceutique EFZ ou spécialiste en pharmacie EFZ\n• Vous vous déclarez comme une personne très axée sur le client et très consciente de la qualité\n• Vous avez une compréhension rapide, vous êtes"
-      },
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/pharma-assistent-in-efz-oder-fachperson-apotheke-efz/d52aa735-e0dc-44d3-9311-ac79a87ab3c1",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:38:57.982Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://jobs.luks.ch/offene-stellen/pharma-assistent-in-efz-oder-fachperson-apotheke-efz/d52aa735-e0dc-44d3-9311-ac79a87ab3c1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione completata come Assistente di farmacia AFC o Specialista in farmacia AFC",
-          "Personalità molto orientata al cliente con alto senso della qualità",
-          "Rapida capacità di apprendimento",
-          "Forti capacità organizzative",
-          "Gradimento del lavoro in team collaborativo",
-          "Esperienza nella gestione di medicinali e beni farmaceutici",
-          "Responsabilità nella gestione amministrativa e documentazione",
-          "Attenzione al rispetto delle liste interne e acquisti economici"
-        ],
-        "en": [
-          "Completed training as Pharma Assistant EFZ or Pharmacy Specialist EFZ",
-          "Highly customer-oriented personality with strong quality awareness",
-          "Quick comprehension skills",
-          "Strong organizational skills",
-          "Enjoy working in a collegial and well-functioning team",
-          "Experience in managing medicines and pharmacy goods",
-          "Responsibility in administrative management and documentation",
-          "Attention to compliance with internal lists and economical purchasing"
-        ],
-        "fr": [
-          "Formation achevée comme Assistant-e en pharmacie CFC ou Spécialiste en pharmacie CFC",
-          "Personnalité très orientée client avec grande conscience de la qualité",
-          "Bonne capacité d'assimilation",
-          "Fort-e en organisation",
-          "Apprécie le travail en équipe collégiale et bien fonctionnelle",
-          "Expérience dans la gestion des médicaments et biens pharmaceutiques",
-          "Responsabilité dans la gestion administrative et la documentation",
-          "Attention au respect des listes internes et aux achats économiques"
-        ]
-      },
-      "previousSlugs": [
-        "pharma-assistent-in-efz-oder-fachperson-apotheke-efz-40-spital-nidwalden-stans"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pharma-assistent-in-efz-oder-fachperson-apotheke-efz-40-spital-nidwalden-stans"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:04:35.859Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

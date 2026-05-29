@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "denner-9b6189109422",
-      "slug": "student-in-come-aiuto-per-le-vacanze-denner-urdorf",
+      "slug": "student-in-come-ferienaushilfe-denner-urdorf",
       "slugByLocale": {
-        "it": "student-in-come-aiuto-per-le-vacanze-denner-urdorf",
+        "it": "student-in-come-ferienaushilfe-denner-urdorf",
         "en": "student-in-als-ferienaushilfe-denner-urdorf",
         "de": "student-in-als-ferienaushilfe-denner",
         "fr": "etudiant-en-vacances-denner-urdorf"
@@ -67,6 +67,7 @@
       "previousSlugs": [
         "student-in-als-ferienaushilfe-denner",
         "student-in-come-ferienaushilfe-denner-horw",
+        "student-in-come-aiuto-per-le-vacanze-denner-urdorf",
         "student-in-als-ferienaushilfe-denner-horw",
         "student-in-come-ferienaushilfe-im-stundenlohn-denner-steffisburg",
         "student-in-als-ferienaushilfe-im-stundenlohn-denner",
@@ -78,18 +79,17 @@
       "previousSlugsByLocale": {
         "it": [
           "student-in-als-ferienaushilfe-denner",
-          "student-in-come-ferienaushilfe-denner-horw"
+          "student-in-come-ferienaushilfe-denner-horw",
+          "student-in-come-aiuto-per-le-vacanze-denner-urdorf"
         ],
         "en": [
-          "student-in-als-ferienaushilfe-denner-horw",
-          "student-in-als-ferienaushilfe-denner-urdorf"
+          "student-in-als-ferienaushilfe-denner-horw"
         ],
         "fr": [
           "student-in-come-ferienaushilfe-denner-horw"
         ]
       },
       "firstSeenAt": "2026-05-28T22:51:55.701Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -192,7 +192,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:41:04.706Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -393,7 +392,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.365Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -488,7 +486,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.364Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -583,12 +580,10 @@
           "vendeur-vendeuse-denner"
         ],
         "fr": [
-          "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner-ecublens-vd"
+          "vendeur-vendeuse-denner-geneve"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:43.849Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -684,12 +679,10 @@
           "adjoint-e-gerant-e-denner"
         ],
         "fr": [
-          "adjoint-e-gerant-e-denner-renens-vd",
-          "adjoint-e-gerant-e-denner-morges"
+          "adjoint-e-gerant-e-denner-renens-vd"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:38.360Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -784,7 +777,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:38.358Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -877,12 +869,10 @@
           "gerant-e-denner"
         ],
         "fr": [
-          "gerant-e-denner-lausanne",
-          "gerant-e-denner-le-mont-sur-lausanne"
+          "gerant-e-denner-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:37.554Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -978,7 +968,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:21:09.209Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -998,9 +987,9 @@
       "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
         "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "en": "assistant-in-branch-management-denner-wadenswil",
         "de": "assistent-in-filialleitung-denner-wadenswil",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1059,29 +1048,24 @@
       "crawledAt": "2026-05-29T12:12:27.382Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistant-in-branch-management-denner-wadenswil",
-        "assistent-in-filialleitung-denner-flims-dorf",
-        "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "assistent-in-filialleitung-denner-flims-dorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
         ],
         "en": [
-          "assistant-in-branch-management-denner-wadenswil",
           "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ],
         "de": [
-          "assistent-in-filialleitung-denner-flims-dorf",
-          "assistent-in-filialleitung-denner-wadenswil"
+          "assistent-in-filialleitung-denner-flims-dorf"
         ],
         "fr": [
-          "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil",
           "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "firstSeenAt": "2026-05-28T22:51:49.071Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1180,7 +1164,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:30.776Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1282,7 +1265,6 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:01:17.577Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
