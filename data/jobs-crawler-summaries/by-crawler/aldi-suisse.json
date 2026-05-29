@@ -1,16 +1,16 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-28T22:03:06.186Z",
+  "generatedAt": "2026-05-29T11:23:22.974Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3579,
-  "avgDurationMs": 3579,
+  "durationMs": 5338,
+  "avgDurationMs": 5338,
   "durationHistory": [
-    3579
+    5338
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,10 +21,10 @@
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
       "title": "Stellvertretender Filialleiter (m/w/d)",
-      "location": "en in elf Ländern weltweit. Seit dem",
+      "location": "en in elf Ländern weltweit",
       "postalCode": "6928",
       "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressLocality": "en in elf Ländern weltweit",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "streetAddress": "Centro Monda 8",
@@ -38,11 +38,12 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:03:04.143Z",
+      "crawledAt": "2026-05-29T11:23:21.319Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
+      "country": "CH",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
