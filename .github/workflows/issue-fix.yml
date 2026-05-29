@@ -1,0 +1,125 @@
+name: Issue fix (Claude → PR)
+
+on:
+  issues:
+    types: [labeled]
+
+# Serializza i fixer: un agent alla volta evita N PR concorrenti sullo stesso
+# data file (crawler config) + rispetta il cap OOM (max parallel agent). Le issue
+# in coda vengono processate appena lo slot si libera.
+concurrency:
+  group: issue-fix
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+jobs:
+  fix:
+    # Gate (tutti necessari):
+    # - L'evento è l'aggiunta della label `agent:fix` (opt-in esplicito, mai
+    #   trigger su qualunque label). Solo collaborator/owner possono labellare,
+    #   quindi la label È il consenso umano.
+    # - sender == owner: belt-and-suspenders contro label aggiunte da automation
+    #   esterne / bot non fidati.
+    # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost).
+    if: |
+      github.event.label.name == 'agent:fix' &&
+      github.event.sender.login == 'valerielinc-ops'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Determine fix tier
+        id: tier
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        # Tier high (opus, max-turns alti): issue che toccherà con ogni probabilità
+        # scripts/crawler/build-plugin/workflow/test (categoria crawler, o body che
+        # cita questi path). Bug lì = rischio propagato su ogni merge. Tier normal
+        # (sonnet) per il resto. Mirror della logica di pr-review-loop.
+        run: |
+          set -euo pipefail
+          body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
+          if echo "$body" | grep -qiE 'crawler|parser|scripts/|build-plugin|\.github/workflows/|test gate|validator|migrator'; then
+            echo "tier=high" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-4-7" >> "$GITHUB_OUTPUT"
+            echo "max_turns=40" >> "$GITHUB_OUTPUT"
+          else
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
+            echo "max_turns=30" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
+
+      - name: Configure git identity
+        run: |
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+
+      - name: Run Claude fix
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          REPO: ${{ github.repository }}
+          FIX_TIER: ${{ steps.tier.outputs.tier }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
+          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --allowedTools 'Bash(gh:*),Bash(git:*),Bash(npm:*),Bash(node:*),Bash(rg:*),Bash(ls:*),Bash(cat:*),Read,Grep,Glob,Edit,Write'"
+          prompt: |
+            Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
+
+            **Bootstrap (in quest'ordine):**
+            1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
+            2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
+            3. Carica la issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
+
+            **Pre-condizioni (abort se falliscono):**
+            - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
+            - Se la issue è categoria `revenue` o `tracker` (strategica) → posta "Richiede giudizio umano, non auto-fixabile. Rimuovere `agent:fix`." e TERMINA.
+
+            **Fix flow (vedi ISSUES.md):**
+            1. Branch isolato: `git checkout -b fix/issue-$ISSUE_NUMBER`.
+            2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body.
+            3. Applica fix CHIRURGICO (AGENTS.md non-negotiable #6: no drive-by refactor, no speculative abstraction).
+            4. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
+            5. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
+            6. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
+            7. Apri PR con `gh pr create`. Body OBBLIGATORIO (REVIEW.md completeness contract):
+               ```
+               ## Implementato
+               - <cosa fa il fix>
+               Closes #$ISSUE_NUMBER
+
+               ## Non implementato (ancora)
+               - <scope NON fatto + motivo: out of scope / follow-up / blocked / posposto>
+               ```
+            8. La PR entra automaticamente in `pr-review-loop` → review → `## LGTM` → `auto-merge-on-lgtm`. NON mergiare a mano.
+
+            **Constraint:**
+            - Changes chirurgiche, root-cause, una issue alla volta.
+            - Mai toccare file fuori scope della issue.
+            - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
+            - Mai committare path home assoluti o email personali (Privacy).
+            - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.
+            - Se il fix richiede credenziali/segreti non disponibili in CI → documenta in commento e TERMINA senza PR.

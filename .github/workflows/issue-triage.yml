@@ -1,0 +1,70 @@
+name: Issue triage (Claude classify + dedup)
+
+on:
+  issues:
+    types: [opened]
+
+# Anti-storm: solo una run triage alla volta. I monitor (post-deploy validate,
+# crawler-health) aprono issue in burst; serializzare evita due triage che
+# chiudono a vicenda lo stesso canonical come duplicato (race su gh issue close).
+concurrency:
+  group: issue-triage
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    # Gate:
+    # - Issue non già triagiata (label agent:triaged assente) → evita loop se un
+    #   altro automation ri-tocca l'issue.
+    # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost), stesso
+    #   pattern di pr-review-loop / post-merge-followup.
+    # Nessun gate sull'autore: le issue sono per lo più auto-generate dai monitor
+    # del repo stesso (post-deploy validate, crawler-health, rpm-canary). Triage è
+    # read-mostly (dedup-close + classify comment + label), basso blast-radius.
+    if: ${{ !contains(github.event.issue.labels.*.name, 'agent:triaged') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude triage
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
+          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          prompt: |
+            Triage automatico issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
+
+            **Bootstrap:**
+            1. Leggi `ISSUES.md` — contratto operativo completo (categorie, dedup, routing, label policy).
+            2. Carica l'issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,createdAt`.
+            3. Carica le issue aperte simili per dedup (vedi ISSUES.md → Dedup):
+               `gh issue list --state open --limit 100 --json number,title,labels,createdAt`.
+
+            **Esegui workflow di triage come specificato in ISSUES.md → "Triage flow":**
+            - Classifica l'issue in UNA categoria (validation-failure | crawler | follow-up | revenue | tracker | other).
+            - Dedup: se è uno storm-duplicate di un canonical aperto più vecchio della stessa categoria/workflow → `gh issue close $ISSUE_NUMBER --comment "Duplicate of #<canonical> — chiudo per ridurre rumore." --reason "not planned"` e applica label `duplicate`. NON chiudere il canonical.
+            - Routing (vedi ISSUES.md → "Routing policy"):
+              - categoria `crawler` → applica `agent:fix` (`gh issue edit $ISSUE_NUMBER --add-label "agent:fix"`). Regen parser è deterministico e basso-rischio.
+              - categoria `follow-up`, `validation-failure`, `revenue`, `tracker` → NON applicare `agent:fix`. Posta UN commento di classificazione con la raccomandazione ("apply `agent:fix` se vuoi tentativo autonomo" / "richiede mano umana").
+            - SEMPRE come ultimo passo: `gh issue edit $ISSUE_NUMBER --add-label "agent:triaged"` (anche se chiusa come duplicate).
+
+            **Constraint:**
+            - Read-only eccetto: `gh issue close`, `gh issue edit` (label), `gh issue comment`.
+            - Mai aprire PR, mai modificare codice, mai chiudere il canonical di un dedup.
+            - Una sola classificazione per run.
+            - Incerto sulla categoria → `other` + commento "needs manual triage", nessun `agent:fix`.
+            - Mai applicare `agent:fix` a categoria `revenue` o `tracker` (richiedono giudizio strategico).
