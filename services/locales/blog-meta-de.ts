@@ -7854,6 +7854,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Ha Kaufhauswohnung mit 2. und 3. Piloten: Praxisleitfaden für Grenzpendler',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analyse der Kaufmöglichkeiten von Eigenheimen basierend auf der 2. und 3. Piloten nach Angaben des RSI Swiss Television.',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Modernes Haus auf den Lugano-Hügeln mit Blick auf den See.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Neuer Fahrplan in der Lombardei: Änderungen für Grenzgänger',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'Ab dem 14. Juni 2026 ändert sich der Fahrplan der Regionalzüge in der Lombardei. Die Region hat sich mit den Pendlerkomitees getroffen, um Anpassungen und geplante Unterbrechungen zu besprechen.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Bahnhof Lugano bei Sonnenaufgang mit Pendlerzügen und Tessiner Landschaft',
 };
 
 export default blogMetaDe;

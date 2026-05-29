@@ -40985,6 +40985,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuovo-orario-ferroviario-lombardia-2026': {
+    title: 'Nuovo orario ferroviario in Lombardia: cosa cambia per i frontalieri',
+    description: 'Dal 14 giugno 2026 cambia l’orario ferroviario in Lombardia: ecco come prepararsi per i pendolari che attraversano il confine con il Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, orario, ferroviario, lombardia',
+    ogTitle: 'Nuovo orario treni Lombardia 2026: cosa cambia per i frontalieri Ticino',
+    ogDescription: 'Scopri come il nuovo orario ferroviario in Lombardia dal 14 giugno 2026 impacterà gli spostamenti dei frontalieri che lavorano in Ticino.',
+    canonicalPath: '/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo orario ferroviario in Lombardia: cosa cambia per i frontalieri",
+      "description": "Dal 14 giugno 2026 cambia l’orario ferroviario in Lombardia: ecco come prepararsi per i pendolari che attraversano il confine con il Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nuovo-orario-ferroviario-lombardia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Lugano al mattino con treni in partenza e arrivo, paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-05-29T09:05:31+00:00",
+      "dateModified": "2026-05-29T09:05:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

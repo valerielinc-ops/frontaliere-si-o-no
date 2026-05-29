@@ -7856,6 +7856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.title': 'Achat maison et 2e/3e pilier : guide frontalier',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.excerpt': 'Analyse des possibilités d\'achat de maison via 2e et 3e pilier selon RSI Radiodiffusion suisse.',
     'blog.article.acquisto-abitazione-secondo-terzo-pilastro.imageAlt': 'Maison moderne sur les collines de Lugano, vue sur le lac.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.title': 'Nouvel horaire ferroviaire en Lombardie : changements pour les frontaliers',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.excerpt': 'L’horaire des trains régionaux en Lombardie change à partir du 14 juin 2026. La Région a rencontré les comités de pendulaires pour discuter des ajustements et des interruptions programmées.',
+    'blog.article.nuovo-orario-ferroviario-lombardia-2026.imageAlt': 'Gare de Lugano au lever du jour avec trains de navetteurs et paysage tessinois',
 };
 
 export default blogMetaFr;

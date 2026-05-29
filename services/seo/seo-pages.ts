@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2673,
+ "numberOfItems": 2674,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7313,7 +7313,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2670, "name": "Paulina riattiva: ripresa scavo secondo tunnel ...", "url": `${BASE_URL}/articoli-frontaliere/paulina-tunnel-san-gottardo-2026` },
           { "@type": "ListItem", "position": 2671, "name": "Gottardo: rallentamenti, costi e impatto sui pe...", "url": `${BASE_URL}/articoli-frontaliere/gottardo-lavoratori-frontalieri` },
           { "@type": "ListItem", "position": 2672, "name": "Svizzera: stipendi 2025 in aumento fino al 2% p...", "url": `${BASE_URL}/articoli-frontaliere/aumenti-stipendi-ticino-2025` },
-          { "@type": "ListItem", "position": 2673, "name": "Acquisto abitazione e 2° e 3° pilastro: guida p...", "url": `${BASE_URL}/articoli-frontaliere/acquisto-abitazione-secondo-terzo-pilastro` }
+          { "@type": "ListItem", "position": 2673, "name": "Acquisto abitazione e 2° e 3° pilastro: guida p...", "url": `${BASE_URL}/articoli-frontaliere/acquisto-abitazione-secondo-terzo-pilastro` },
+          { "@type": "ListItem", "position": 2674, "name": "Nuovo orario ferroviario in Lombardia: cosa cam...", "url": `${BASE_URL}/articoli-frontaliere/nuovo-orario-ferroviario-lombardia-2026` }
  ]
  },
  {
