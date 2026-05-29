@@ -1,16 +1,16 @@
 {
   "key": "bls",
   "label": "BLS AG",
-  "generatedAt": "2026-05-28T22:19:40.852Z",
+  "generatedAt": "2026-05-29T11:40:13.212Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5423,
-  "avgDurationMs": 5423,
+  "durationMs": 6928,
+  "avgDurationMs": 6928,
   "durationHistory": [
-    5423
+    6928
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/35ecd549-177e-4b31-9111-47a688cd0046",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T22:19:38.387Z",
+      "crawledAt": "2026-05-29T11:40:11.036Z",
       "addressLocality": "Ferden",
       "addressCountry": "CH",
       "country": "CH",
@@ -42,13 +42,12 @@
       "validThrough": "2026-07-12",
       "pensum": "80-100%",
       "applyUrl": "https://jobs.bls.ch/apply/ats/35ecd549-177e-4b31-9111-47a688cd0046",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-28T11:50:07.185Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     }
