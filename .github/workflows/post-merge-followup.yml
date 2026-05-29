@@ -86,14 +86,13 @@ jobs:
             - Parse PR body `## Non implementato` (skip motivi `out of scope` / `posposto`).
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
             - Filtro scopo (`REVIEW.md`): item passa se impatta monetizzazione / traffico / funnel.
-            - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip l'item).
-            - **BATCH — UNA sola issue per PR** (anti-storm, vedi FOLLOWUP.md → "Issue format"): NON una issue per item. Raccogli TUTTI i candidate validi in UNA issue `follow-up(#$PR_NUMBER): <N> item post-merge` con checklist `- [ ]` (un bullet per item, con source + funnel + suggested action). Se esiste già una issue aperta `follow-up(#$PR_NUMBER)` → NON crearne un'altra (al massimo skip). Label: `follow-up` + UNO funnel-* se la maggioranza degli item è inferibile a quel funnel.
+            - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
+            - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
             - Posta `## Post-merge follow-up triage` summary commento sulla PR.
 
             **Constraint:**
-            - Read-only eccetto `gh issue create`, `gh issue edit` (solo body della issue follow-up appena creata), `gh pr comment`.
+            - Read-only eccetto `gh issue create`, `gh pr comment`.
             - Mai modificare PR label/state/title.
             - Mai chiudere/riaprire issue.
-            - Incerto sul filtro → includi l'item nella checklist con nota "needs triage".
-            - **MAI più di 1 issue per PR.** Tutti gli item in una checklist unica.
-            - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina (nessuna issue).
+            - Incerto sul filtro → crea con rationale "needs triage".
+            - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.
