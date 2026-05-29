@@ -502,9 +502,14 @@ function renderPage(opts: {
   // (public/assets/seo-static.css → .s-EDtWsL gains min-width:0 +
   // max-width:min(1100px,100%)). .s-EDtWsL is a grid item of the display:grid
   // .seo-static-content wrapper; min-width:auto let wide tables stretch the
-  // track past the viewport (≈1116px on a 382px screen). The shared rule is
-  // used by both this page and comparisonsHubPlugin (whose 520–720px tables
-  // hit the same bug), so fixing it once there covers both.
+  // track past the viewport (≈1116px on a 382px screen). The shared rule fixes
+  // THIS page because its inner main carries ONLY .s-EDtWsL (a single grid
+  // item). It is a NO-OP on comparisonsHubPlugin, whose inner main carried
+  // `seo-static-content s-EDtWsL`: `main.seo-static-content` (0,1,1) beats
+  // `.s-EDtWsL` (0,1,0) and the nested grid leaves min-width:auto at two levels,
+  // so neither min-width:0 nor the max-width cap take effect there. That overflow
+  // is tracked in #961 and fixed structurally (drop seo-static-content from its
+  // inner main, #962), NOT by this shared rule.
   const playfulStyle = `<style>
 .bw-head-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
 .bw-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-strong);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
