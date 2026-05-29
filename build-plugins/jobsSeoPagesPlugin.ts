@@ -11329,6 +11329,10 @@ ${staticAnalyticsHtml}
  // HTML is on disk. Without this, parallel closeBundle lets the cluster
  // sitemap be written before bridge writes flush, leaking non-self-
  // canonical bridge URLs into sitemap-search-clusters.xml.
+ // No early-return path exists in this closeBundle before this line:
+ // the function is monolithic (lines 606–11447) and never returns normally
+ // before reaching this signal, so the await in relatedSearchClustersPlugin
+ // (cache-hit path L2190 + writeSitemap L2029) never hangs. (#947 verified)
  resolveJobsSeoPagesFlushed();
 
  // Print profiler summary in normal profiled CI builds; local opt-out:
