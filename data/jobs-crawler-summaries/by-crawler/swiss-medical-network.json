@@ -1,16 +1,16 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-05-29T00:54:10.430Z",
+  "generatedAt": "2026-05-29T14:16:24.643Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 8961,
-  "avgDurationMs": 8961,
+  "durationMs": 8629,
+  "avgDurationMs": 8629,
   "durationHistory": [
-    8961
+    8629
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -44,6 +44,9 @@
       "currency": "CHF",
       "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:31:18.601Z",
+      "addressLocality": "Sorengo",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,6 +83,9 @@
       "currency": "CHF",
       "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:31:18.601Z",
+      "addressLocality": "Sorengo",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,6 +122,9 @@
       "currency": "CHF",
       "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:31:18.601Z",
+      "addressLocality": "Sorengo",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,6 +161,9 @@
       "currency": "CHF",
       "sourceLang": "it",
       "firstSeenAt": "2026-04-13T22:31:18.601Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "addressRegion": "TI",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
