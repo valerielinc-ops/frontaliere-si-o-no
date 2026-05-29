@@ -35,37 +35,65 @@ jobs:
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
+      # ── Perché tutto questo setup per un semplice merge ──────────────────
+      # Per design GitHub, un push/evento generato dal GITHUB_TOKEN di default
+      # NON triggera altri workflow (anti-ricorsione). Mergiare con GITHUB_TOKEN
+      # quindi:
+      #   - NON fa partire deploy.yml (`on: push: main`) → ogni PR auto-mergiata
+      #     saltava il deploy (es. #829: 0 run deploy per il suo merge commit).
+      #   - NON fa partire post-merge-followup.yml (`on: pull_request: closed`).
+      # Un PAT non ha questo limite: i suoi push/eventi triggerano i workflow.
+      # Il PAT vive in Firebase Remote Config come `GITHUB_PAT` (pattern
+      # zero-cost del repo, NON un Actions secret), caricato in $GITHUB_ENV da
+      # `scripts/load-rc-env.mjs`. Mergiando col PAT, il `pull_request: closed`
+      # fa partire post-merge-followup da solo → niente più dispatch esplicito
+      # (lo step #836/#839 usava `secrets.GH_PAT` che non esiste → era no-op).
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna credenziale Firebase SA — GITHUB_PAT non verrà caricato; il merge ripiega su GITHUB_TOKEN (nessun cascade deploy/followup)."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
       - name: Squash-merge + delete branch
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # env.GITHUB_PAT (da Remote Config) → il push del merge triggera
+          # deploy.yml + tests + lighthouse, e il pull_request:closed triggera
+          # post-merge-followup. Fallback a GITHUB_TOKEN se la RC non carica: il
+          # merge avviene comunque, ma senza cascade (comportamento pre-fix).
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          echo "Auto-merge PR #$PR_NUMBER triggered by Claude LGTM review."
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            echo "Auto-merge PR #$PR_NUMBER via GITHUB_PAT (cascade attivo: deploy + followup)."
+          else
+            echo "::warning::GITHUB_PAT assente — merge via GITHUB_TOKEN, nessun cascade (deploy/followup non partiranno)."
+          fi
           gh pr merge "$PR_NUMBER" \
             --squash \
             --delete-branch \
             --repo "${{ github.repository }}"
 
-      # Il merge sopra usa GITHUB_TOKEN: per design GitHub, eventi generati dal
-      # GITHUB_TOKEN (qui il `pull_request: closed`) NON triggerano altri
-      # workflow. Conseguenza storica: ogni PR auto-mergiata su `## LGTM`
-      # saltava `post-merge-followup.yml` (triage 🟡/❓/Non-implementato) — il
-      # workflow girava SOLO per le PR mergiate a mano (es. #814/#833), non per
-      # quelle auto-mergiate (#822/#828/#829/#831). Verificato: deploy.yml ha la
-      # propria mitigazione via workflow_dispatch, post-merge-followup no.
-      # Fix: dispatch esplicito del path workflow_dispatch (aggiunto in #809)
-      # con GH_PAT — le API autenticate con PAT triggerano i workflow, a
-      # differenza del GITHUB_TOKEN. Non cambiamo il token del merge (resta
-      # github-actions[bot]) per non introdurre un push-triggered deploy
-      # duplicato.
-      - name: Dispatch post-merge follow-up triage
-        if: success()
-        env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: |
-          echo "Dispatching post-merge-followup triage for auto-merged PR #$PR_NUMBER."
-          gh workflow run post-merge-followup.yml \
-            --ref main \
-            -f pr_number="$PR_NUMBER" \
-            --repo "${{ github.repository }}"
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
