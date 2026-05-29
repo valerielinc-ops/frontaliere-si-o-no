@@ -125,15 +125,20 @@ describe('2c — parsePath invariants for static-overlay routes', () => {
     expect(route.staticOverlay).toBe(true);
   });
 
-  it('parsePath /cerca-lavoro-ticino/ returns staticOverlay:true (hub HTML emitted by professionLandingsLinksPlugin)', () => {
-    // Bare TI root hub is a build-time static SEO page: 1 H1, 893 anchor links
-    // to profession/city/sector landings, no interactive form. Without
-    // staticOverlay the SPA replaced the static main with JobBoard on hydration
-    // → CLS 0.702 on Lighthouse 2026-05-28. Canonical URL via
-    // window.location.pathname matches buildPath output for this route, so the
-    // 2c canonical-refresh guarantee still holds.
+  it('parsePath /cerca-lavoro-ticino/ does NOT return staticOverlay (SPA hydrates JobBoard — #828)', () => {
+    // PR #721 set staticOverlay:true on the bare TI root to fix CLS 0.702
+    // (Lighthouse 2026-05-28), but #765 then fixed the HTML shape: the bare
+    // root emits an empty `<div id="root">` with `<main class="seo-static-content">`
+    // OUTSIDE root, and App.tsx's useLayoutEffect flips that sibling to
+    // display:none before paint. With the new shape the SPA hydrates JobBoard
+    // (search bar + canton filters + interactive cards) WITHOUT the CLS shift —
+    // identical choreography to every other canton hub (/cerca-lavoro-basilea/,
+    // /cerca-lavoro-zurigo/, …) which already sit at staticOverlay:false.
+    // #828 dropped staticOverlay on the bare root accordingly; staticOverlay:true
+    // would suppress the JobBoard render and strand users on the static hub.
+    // Subpaths (editorial landings, company/city/sector hubs) keep their overlay.
     const { route } = parsePath('/cerca-lavoro-ticino/');
-    expect(route.staticOverlay).toBe(true);
+    expect(route.staticOverlay).toBeFalsy();
   });
 
   it('parsePath /cerca-lavoro-ticino/software-engineer-x/ does NOT return staticOverlay', () => {
