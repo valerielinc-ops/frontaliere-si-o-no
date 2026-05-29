@@ -102,6 +102,9 @@ export function buildClusterThinHtml(fullHtml: string, locale: string): string {
   // pattern PR #729 introduced for ft-static-article.
   const thinMain =
     `<main class="seo-static-content static-cluster">` +
+    // audit:text-html-ratio skip marker — deliberately-thin shell, same
+    // contract as legacy STRIP_* paths (uppercase survives minifier).
+    `<!--EJP_STRIPPED-->` +
     `<article class="proposal">` +
     `<h1>${h1Text}</h1>` +
     `<p>${prose}</p>` +
