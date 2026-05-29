@@ -29,16 +29,26 @@ Le issue di questo repo sono per lo più **auto-generate dai monitor** (post-dep
 | Categoria | Azione triage |
 |---|---|
 | `crawler` | **Auto-applica `agent:fix`.** Regen parser è deterministico, basso blast-radius, già coperto da `generate-company-parser.mjs`. |
-| `follow-up` | NO auto-fix. Commento classificazione + "apply `agent:fix` se vuoi tentativo autonomo". |
-| `validation-failure` | NO auto-fix (spesso transiente — verifica prima la run successiva). Dedup aggressivo. Commento. |
+| `follow-up` | **Auto-applica `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
+| `validation-failure` | **Auto-applica `agent:fix` SOLO se non è storm-duplicate appena chiuso.** Spesso transiente → se la issue è dedup-chiusa, niente fix. Dedup aggressivo prima. |
 | `revenue` / `tracker` | NO auto-fix MAI. Richiede giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
 | `other` | NO auto-fix. Commento "needs manual triage". |
 
-Razionale opt-in: solo `crawler` è auto-instradato perché è l'unica categoria con un fix-path deterministico e ripetuto. Tutto il resto richiede consenso umano esplicito = aggiunta manuale della label `agent:fix`. Coerente con AGENTS.md (opt-in, no automation cieca su revenue/funnel).
+Razionale: `crawler` + `follow-up` + `validation-failure` (non-storm) sono auto-instradate — fix-path deterministico o micro-task, basso blast-radius. `revenue`/`tracker` restano opt-in manuale (giudizio strategico, mai automation cieca su revenue/funnel — AGENTS.md). **Token**: ogni auto-route genera un run fixer Claude che consuma la quota Max condivisa; vedi "Frugalità" sotto.
+
+### Frugalità quota (no ANTHROPIC_API_KEY)
+
+Tutte le automazioni Claude (triage/review/fix/followup) usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, zero costo $) → condividono la quota della sessione interattiva owner. Burst di issue = quota esaurita. Leve attive:
+
+- Triage `--max-turns 8` (era 12), modello sonnet.
+- Concurrency `cancel-in-progress: false` serializza (un run alla volta, no burst parallelo).
+- Dedup-storm chiude i duplicati PRIMA del routing → un solo fixer per canonical.
+- **Driver residuo non mitigato**: il NUMERO di issue (es. storm follow-up da `post-merge-followup`). Ridurre il volume di follow-up issue è la leva più grossa se la quota resta stretta (follow-up: batchare in 1 issue invece di N).
+- Review/fix NON abbassano max-turns: sono quality gate (AGENTS.md #1) e turni bassi causano `error_max_turns` senza review (PR #838). Frugalità mai a costo del gate.
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
-Trigger SOLO sull'aggiunta della label `agent:fix` da parte dell'owner. La label È il consenso.
+Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può metterla l'owner (manuale) **o il triage** — ma SOLO via PAT (`GITHUB_PAT` da Remote Config), mai via `GITHUB_TOKEN`: un `labeled` da GITHUB_TOKEN non triggera issue-fix (anti-ricorsione GitHub) e ha sender `github-actions[bot]` che non passa il gate `sender == valerielinc-ops || claude*`. Col PAT (owner) il trigger scatta e il gate passa. Stesso pattern di `auto-merge-on-lgtm.yml`.
 
 1. **Pre-check**: PR aperta già citante la issue → skip. Categoria `revenue`/`tracker` → abort con commento.
 2. Branch `fix/issue-<N>`.
@@ -72,19 +82,20 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 
 | Label | Significato | Chi la mette |
 |---|---|---|
-| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (solo `crawler`) o owner manuale |
+| `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler`/`follow-up`/`validation-failure` non-storm, **via PAT**) o owner manuale |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
 | `duplicate` | storm-duplicate, chiusa | triage |
 
 ## Kill-switch
 
-- Disattivare auto-fix crawler: in `issue-triage.yml` rimuovere il ramo che applica `agent:fix`, oppure disabilitare il workflow da GitHub UI.
+- Disattivare auto-fix di una categoria: in `issue-triage.yml` togliere la categoria dal ramo che applica `agent:fix`, oppure disabilitare il workflow da GitHub UI.
+- Disattivare TUTTO l'auto-routing mantenendo classify/dedup: rimuovere il `GITHUB_PAT` da Remote Config (o azzerare la Firebase SA) → triage ripiega su `GITHUB_TOKEN` e le label `agent:fix` smettono di triggerare il fixer.
 - Bloccare un singolo fix: rimuovere `agent:fix` dalla issue prima che il fixer apra la PR (concurrency serializza, c'è una finestra).
 - Pausa totale: disabilitare `issue-fix.yml` / `issue-triage.yml` (Actions → workflow → Disable).
 
 ## Guardrail (da AGENTS.md, vincolanti)
 
-- Opt-in: mai `agent:fix` automatico fuori da `crawler`.
+- Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`. Auto-route consentito solo su `crawler`/`follow-up`/`validation-failure` (non-storm).
 - Concurrency cap: un fixer/triage alla volta (no OOM, no PR concorrenti su stesso data file).
 - PR sempre via reviewer + `## LGTM`; mai bypass auto-merge.
 - Changes chirurgiche, root-cause, no drive-by.

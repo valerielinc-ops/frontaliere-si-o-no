@@ -21,8 +21,8 @@ jobs:
     # Gate:
     # - Issue non già triagiata (label agent:triaged assente) → evita loop se un
     #   altro automation ri-tocca l'issue.
-    # - Auth via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero API cost), stesso
-    #   pattern di pr-review-loop / post-merge-followup.
+    # - Auth Claude via CLAUDE_CODE_OAUTH_TOKEN (subscription Max, zero costo API;
+    #   nessun ANTHROPIC_API_KEY — vedi AGENTS.md → "Auth automazioni").
     # Nessun gate sull'autore: le issue sono per lo più auto-generate dai monitor
     # del repo stesso (post-deploy validate, crawler-health, rpm-canary). Triage è
     # read-mostly (dedup-close + classify comment + label), basso blast-radius.
@@ -35,18 +35,57 @@ jobs:
         with:
           fetch-depth: 1
 
+      # PAT da Remote Config: il triage applica `agent:fix` con questo token, NON
+      # con GITHUB_TOKEN. Due motivi (entrambi rompono il loop autonomo con GITHUB_TOKEN):
+      #   1. Anti-ricorsione GitHub: un evento `labeled` generato dal GITHUB_TOKEN
+      #      NON triggera issue-fix.yml → il fixer non parte mai.
+      #   2. issue-fix gate `sender == valerielinc-ops || claude*`: una label aggiunta
+      #      via GITHUB_TOKEN ha sender `github-actions[bot]` → non matcha.
+      # Col PAT (owner valerielinc-ops) il `labeled` triggera issue-fix E passa il gate.
+      # Stesso pattern di auto-merge-on-lgtm.yml. Fallback su GITHUB_TOKEN se RC non
+      # carica: il triage classifica/dedupa comunque, ma il routing →fix resta inerte.
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna credenziale Firebase SA — GITHUB_PAT non caricato; agent:fix via GITHUB_TOKEN non triggererà il fixer (routing inerte)."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
       - name: Run Claude triage
         uses: anthropics/claude-code-action@v1
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # PAT primario (vedi commento sopra) con fallback GITHUB_TOKEN.
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           REPO: ${{ github.repository }}
         with:
+          # Auth: SOLO CLAUDE_CODE_OAUTH_TOKEN (Max sub, zero API cost). Nessun
+          # ANTHROPIC_API_KEY — il secret non esiste e non va aggiunto.
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
           allowed_bots: '*'
-          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # Frugalità quota: triage = classify+dedup leggero → 8 turni (era 12). La
+          # quota OAuth è condivisa con la sessione interattiva; ogni turno qui
+          # libera limite. Vedi AGENTS.md → "Frugalità quota automazioni".
+          claude_args: "--max-turns 8 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
 
@@ -60,8 +99,9 @@ jobs:
             - Classifica l'issue in UNA categoria (validation-failure | crawler | follow-up | revenue | tracker | other).
             - Dedup: se è uno storm-duplicate di un canonical aperto più vecchio della stessa categoria/workflow → `gh issue close $ISSUE_NUMBER --comment "Duplicate of #<canonical> — chiudo per ridurre rumore." --reason "not planned"` e applica label `duplicate`. NON chiudere il canonical.
             - Routing (vedi ISSUES.md → "Routing policy"):
-              - categoria `crawler` → applica `agent:fix` (`gh issue edit $ISSUE_NUMBER --add-label "agent:fix"`). Regen parser è deterministico e basso-rischio.
-              - categoria `follow-up`, `validation-failure`, `revenue`, `tracker` → NON applicare `agent:fix`. Posta UN commento di classificazione con la raccomandazione ("apply `agent:fix` se vuoi tentativo autonomo" / "richiede mano umana").
+              - categoria `crawler`, `validation-failure`, `follow-up` → applica `agent:fix` (`gh issue edit $ISSUE_NUMBER --add-label "agent:fix"`). Sono deterministiche / micro-task a basso blast-radius → auto-fix abilitato.
+                - ECCEZIONE `validation-failure`: applica `agent:fix` SOLO se NON è uno storm-duplicate appena chiuso al passo Dedup (i validation-failure sono spesso transienti — non aprire un fix per una run già rimpiazzata da una successiva verde). In dubbio → solo commento, no `agent:fix`.
+              - categoria `revenue`, `tracker` → MAI `agent:fix` (giudizio strategico). Posta UN commento di classificazione: "richiede mano umana (`/fix-issue` locale o label manuale)".
             - SEMPRE come ultimo passo: `gh issue edit $ISSUE_NUMBER --add-label "agent:triaged"` (anche se chiusa come duplicate).
 
             **Constraint:**
