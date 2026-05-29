@@ -22,23 +22,12 @@
  * @param {string} url - source URL of the job
  * @returns {string} stable identifier
  */
-const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i;
-const NUM_ID_RE = /\b\d{6,}\b/;
-const HEX_TOKEN_RE = /\b[0-9a-f]{10,}\b/i;
+import { mergeUrlKey } from './job-url-key.mjs';
 
 export function extractStableJobId(url) {
-  if (!url) return '';
-  const u = String(url).trim().replace(/&amp;/g, '&').replace(/\/+$/, '').toLowerCase();
-  if (!u) return '';
-
-  const uuid = u.match(UUID_RE);
-  if (uuid) return `uuid:${uuid[0]}`;
-
-  const num = u.match(NUM_ID_RE);
-  if (num) return `num:${num[0]}`;
-
-  const hex = u.match(HEX_TOKEN_RE);
-  if (hex) return `hex:${hex[0]}`;
-
-  return `url:${u}`;
+  // Delegates to the canonical crawl-time merge-key variant. The logic now
+  // lives in scripts/lib/job-url-key.mjs so all three URL-key normalizations
+  // (merge / assemble / identity) share one home; behavior is unchanged and
+  // pinned byte-for-byte by tests/job-url-key.test.ts.
+  return mergeUrlKey(url);
 }
