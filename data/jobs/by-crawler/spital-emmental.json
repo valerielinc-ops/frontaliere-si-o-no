@@ -88,8 +88,7 @@
       "pensum": "60 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "sicherheitsbeauftragte-r-sicherheitskoordinator-in-sibe-siko-jobsharing-moglich-a-spital",
-        "responsabile-sicurezza-coordinatore-sicurezza-sibe-siko-turno-condiviso-possibile-spital-emmental-burgdorf"
+        "sicherheitsbeauftragte-r-sicherheitskoordinator-in-sibe-siko-jobsharing-moglich-a-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -112,12 +111,12 @@
     },
     {
       "id": "spital-emmental-a28d266f5a2e",
-      "slug": "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf",
+      "slug": "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf",
+        "it": "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf-langnau",
         "en": "apprenticeship-as-healthcare-professional-efz-spital-emmental-burgdorf",
         "de": "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf",
-        "fr": "apprentissage-en-tant-que-professionnel-de-la-sante-efz-spital-emmental-burgdorf"
+        "fr": "apprentissage-de-professionnel-le-en-soins-efz-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -201,9 +200,9 @@
         "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf-langnau",
         "lehrstellen-als-fachperson-gesundheit-efz-a-spital-emmental-burgdorf",
         "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf",
-        "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf-langnau",
-        "apprentissage-de-professionnel-le-en-soins-efz-spital-emmental-burgdorf-langnau",
-        "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf"
+        "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf",
+        "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf",
+        "apprentissage-en-tant-que-professionnel-de-la-sante-efz-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -212,10 +211,11 @@
           "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf-langnau",
           "lehrstellen-als-fachperson-gesundheit-efz-a-spital-emmental-burgdorf",
           "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf",
-          "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf-langnau"
+          "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf",
+          "lehrstellen-come-fachperson-gesundheit-cfc-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "apprentissage-de-professionnel-le-en-soins-efz-spital-emmental-burgdorf-langnau"
+          "apprentissage-en-tant-que-professionnel-de-la-sante-efz-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:26.657Z",
@@ -357,12 +357,12 @@
     },
     {
       "id": "spital-emmental-1641b7f94512",
-      "slug": "professionista-sanitario-a-spital-emmental-burgdorf",
+      "slug": "professionista-della-salute-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "professionista-sanitario-a-spital-emmental-burgdorf",
-        "en": "healthcare-professional-a-spital-emmental-burgdorf",
+        "it": "professionista-della-salute-a-spital-emmental-burgdorf",
+        "en": "health-professional-a-spital-emmental-burgdorf",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
+        "fr": "specialiste-de-la-sante-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -442,20 +442,26 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
-        "professionista-della-salute-a-spital-emmental-burgdorf",
         "operatore-socio-sanitario-oss-spital-emmental-burgdorf",
         "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf"
+        "professionista-sanitario-a-spital-emmental-burgdorf",
+        "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
+        "professionnel-de-la-sante-a-spital-emmental-burgdorf",
+        "healthcare-professional-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
-          "professionista-della-salute-a-spital-emmental-burgdorf",
           "operatore-socio-sanitario-oss-spital-emmental-burgdorf",
-          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf",
+          "professionista-sanitario-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf"
+          "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
+          "professionnel-de-la-sante-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "healthcare-professional-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:25.579Z",
@@ -696,10 +702,10 @@
       "id": "spital-emmental-24a50cc3fddb",
       "slug": "assistente-di-infanzia-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "educatore-educatrice-per-l-infanzia-a-spital-emmental-burgdorf",
+        "it": "assistente-di-infanzia-a-spital-emmental-burgdorf",
         "en": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
         "de": "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
-        "fr": "specialiste-en-garde-d-enfants-a-spital-emmental-burgdorf"
+        "fr": "aide-educatrice-en-petite-enfance-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -780,16 +786,17 @@
       "previousSlugs": [
         "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
         "specialista-in-assistenza-all-infanzia-a-spital-emmental-burgdorf",
-        "aide-educatrice-en-petite-enfance-a-spital-emmental-burgdorf",
-        "assistente-di-infanzia-a-spital-emmental-burgdorf"
+        "educatore-educatrice-per-l-infanzia-a-spital-emmental-burgdorf",
+        "specialiste-en-garde-d-enfants-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kind-a-spital-emmental-burgdorf",
-          "specialista-in-assistenza-all-infanzia-a-spital-emmental-burgdorf"
+          "specialista-in-assistenza-all-infanzia-a-spital-emmental-burgdorf",
+          "educatore-educatrice-per-l-infanzia-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "aide-educatrice-en-petite-enfance-a-spital-emmental-burgdorf"
+          "specialiste-en-garde-d-enfants-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:23.491Z",
@@ -813,7 +820,7 @@
         "it": "diabetesfachexpertin-diabetesfachexperte-o-pflegefachfrau-pflegefachmann-hf-a-spital-emmental-burgdorf",
         "en": "diabetes-specialist-or-registered-nurse-hf-a-spital-emmental-burgdorf",
         "de": "diabetesfachexpertin-diabetesfachexperte-oder-pflegefachfrau-pflegefachmann-hf-a-spital",
-        "fr": "specialiste-en-diabetologie-ou-infirmier-ere-diplome-e-hf-a-spital-emmental-burgdorf"
+        "fr": "expert-e-en-consultation-diabetique-expert-e-en-soins-infirmiers-hf-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -893,14 +900,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "diabetesfachexpertin-diabetesfachexperte-oder-pflegefachfrau-pflegefachmann-hf-a-spital",
-        "expert-e-en-consultation-diabetique-expert-e-en-soins-infirmiers-hf-spital-emmental-burgdorf"
+        "specialiste-en-diabetologie-ou-infirmier-ere-diplome-e-hf-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diabetesfachexpertin-diabetesfachexperte-oder-pflegefachfrau-pflegefachmann-hf-a-spital"
         ],
         "fr": [
-          "expert-e-en-consultation-diabetique-expert-e-en-soins-infirmiers-hf-spital-emmental-burgdorf",
           "specialiste-en-diabetologie-ou-infirmier-ere-diplome-e-hf-a-spital-emmental-burgdorf"
         ]
       },
@@ -1033,8 +1039,8 @@
       "id": "spital-emmental-c494a83e2378",
       "slug": "esperta-esperto-in-anestesia-e-riabilitazione-professionale-in-formazione-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "esperto-a-diplomato-a-in-cure-anestesiologiche-in-formazione-a-spital-emmental-burgdorf",
-        "en": "certified-expert-in-anesthesia-care-in-training-a-spital-emmental-burgdorf",
+        "it": "esperta-esperto-in-anestesia-e-riabilitazione-professionale-in-formazione-spital-emmental-burgdorf",
+        "en": "diploma-anesthesia-nurse-in-training-spital-emmental-burgdorf",
         "de": "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
         "fr": "expert-e-diplome-e-en-soins-anesthesiques-en-formation-a-spital-emmental-burgdorf"
       },
@@ -1116,15 +1122,16 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
-        "diploma-anesthesia-nurse-in-training-spital-emmental-burgdorf",
-        "esperta-esperto-in-anestesia-e-riabilitazione-professionale-in-formazione-spital-emmental-burgdorf"
+        "esperto-a-diplomato-a-in-cure-anestesiologiche-in-formazione-a-spital-emmental-burgdorf",
+        "certified-expert-in-anesthesia-care-in-training-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf"
+          "dipl-expertin-experten-anasthesiepflege-i-a-a-spital-emmental-burgdorf",
+          "esperto-a-diplomato-a-in-cure-anestesiologiche-in-formazione-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "diploma-anesthesia-nurse-in-training-spital-emmental-burgdorf"
+          "certified-expert-in-anesthesia-care-in-training-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:21.990Z",
@@ -1143,12 +1150,12 @@
     },
     {
       "id": "spital-emmental-a2e619b963af",
-      "slug": "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "assistente-di-studio-medico-operatore-sanitario-o-segretario-medico-a-spital-emmental-burgdorf",
+        "it": "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf-langnau",
         "en": "medical-practice-assistant-healthcare-professional-or-medical-secretary-a-spital-emmental-burgdorf",
         "de": "medizinische-n-praxisassistentin-praxisassistenten-fachperson-gesundheit-oder-medizinische",
-        "fr": "assistant-e-medical-e-professionnel-le-de-la-sante-ou-secretaire-medical-e-a-spital-emmental-burgdorf"
+        "fr": "assistant-medical-e-en-cabinet-secretaire-medicale-e-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1228,17 +1235,18 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "medizinische-n-praxisassistentin-praxisassistenten-fachperson-gesundheit-oder-medizinische",
-        "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf-langnau",
-        "assistant-medical-e-en-cabinet-secretaire-medicale-e-spital-emmental-burgdorf-langnau",
-        "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf"
+        "assistente-di-studio-medico-operatore-sanitario-o-segretario-medico-a-spital-emmental-burgdorf",
+        "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf",
+        "assistant-e-medical-e-professionnel-le-de-la-sante-ou-secretaire-medical-e-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-n-praxisassistentin-praxisassistenten-fachperson-gesundheit-oder-medizinische",
-          "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf-langnau"
+          "assistente-di-studio-medico-operatore-sanitario-o-segretario-medico-a-spital-emmental-burgdorf",
+          "assistente-medico-praxis-per-medicina-o-segretaria-medico-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "assistant-medical-e-en-cabinet-secretaire-medicale-e-spital-emmental-burgdorf-langnau"
+          "assistant-e-medical-e-professionnel-le-de-la-sante-ou-secretaire-medical-e-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:21.495Z",
@@ -1259,10 +1267,10 @@
       "id": "spital-emmental-d1144534d190",
       "slug": "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf",
+        "it": "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf",
         "en": "apprenticeship-as-ict-specialist-efz-spital-emmental-burgdorf",
         "de": "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
-        "fr": "apprentissage-en-tant-que-specialiste-ict-cfc-spital-emmental-burgdorf"
+        "fr": "apprentissage-en-tant-qu-expert-e-informatique-efz-expert-e-informatique-efz-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1346,8 +1354,8 @@
         "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
         "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
         "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-a-spital-emmental-burgdorf",
-        "apprentissage-en-tant-qu-expert-e-informatique-efz-expert-e-informatique-efz-spital-emmental-burgdorf",
-        "apprendistato-come-ict-fachperson-cfc-a-spital-emmental-burgdorf"
+        "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf",
+        "apprentissage-en-tant-que-specialiste-ict-cfc-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1355,13 +1363,14 @@
           "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-a-spital-emmental-burgdorf",
           "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
           "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
-          "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-a-spital-emmental-burgdorf"
+          "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-a-spital-emmental-burgdorf",
+          "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf"
         ],
         "de": [
           "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf"
         ],
         "fr": [
-          "apprentissage-en-tant-qu-expert-e-informatique-efz-expert-e-informatique-efz-spital-emmental-burgdorf"
+          "apprentissage-en-tant-que-specialiste-ict-cfc-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:20.886Z",
@@ -1380,9 +1389,9 @@
     },
     {
       "id": "spital-emmental-7b446b727499",
-      "slug": "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
+      "slug": "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "apprendistato-come-operatore-socio-sanitario-efz-psichiatria-a-spital-emmental-burgdorf",
+        "it": "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau",
         "en": "apprenticeship-as-a-certified-health-specialist-efz-psychiatry-a-spital-emmental-burgdorf",
         "de": "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
         "fr": "apprentissage-en-tant-que-specialiste-en-sante-certifie-efz-psychiatrie-a-spital-emmental-burgdorf"
@@ -1466,16 +1475,17 @@
       "previousSlugs": [
         "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
         "borsa-di-apprendistato-come-professionista-sanitario-efz-in-psichiatria-a-spital-emmental-burgdorf",
-        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau",
+        "apprendistato-come-operatore-socio-sanitario-efz-psichiatria-a-spital-emmental-burgdorf",
+        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf",
         "apprenticeship-as-healthcare-specialist-fage-in-psychiatry-spital-emmental-burgdorf-langnau",
-        "apprentissage-d-assistant-e-en-soins-et-sante-communautaire-assc-en-psychiatrie-spital-emmental-burgdorf-langnau",
-        "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf"
+        "apprentissage-d-assistant-e-en-soins-et-sante-communautaire-assc-en-psychiatrie-spital-emmental-burgdorf-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachperson-gesundheit-efz-psychiatrie-a-spital-emmental-burgdorf",
           "borsa-di-apprendistato-come-professionista-sanitario-efz-in-psichiatria-a-spital-emmental-burgdorf",
-          "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf-langnau"
+          "apprendistato-come-operatore-socio-sanitario-efz-psichiatria-a-spital-emmental-burgdorf",
+          "apprendistato-come-fachperson-gesundheit-cfc-psychiatrie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "apprenticeship-as-healthcare-specialist-fage-in-psychiatry-spital-emmental-burgdorf-langnau"
@@ -1623,10 +1633,10 @@
       "id": "spital-emmental-6d315613667e",
       "slug": "co-direttore-area-assistenza-infermieristica-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "co-responsabile-di-reparto-cure-a-spital-emmental-burgdorf",
+        "it": "co-direttore-area-assistenza-infermieristica-a-spital-emmental-burgdorf",
         "en": "co-head-of-nursing-department-a-spital-emmental-burgdorf",
         "de": "co-abteilungsleitung-pflege-a-spital-emmental-burgdorf",
-        "fr": "co-responsable-du-departement-soins-a-spital-emmental-burgdorf"
+        "fr": "co-directrice-co-directeur-service-infirmier-intensif-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1706,15 +1716,16 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "co-abteilungsleitung-pflege-a-spital-emmental-burgdorf",
-        "co-directrice-co-directeur-service-infirmier-intensif-a-spital-emmental-burgdorf",
-        "co-direttore-area-assistenza-infermieristica-a-spital-emmental-burgdorf"
+        "co-responsabile-di-reparto-cure-a-spital-emmental-burgdorf",
+        "co-responsable-du-departement-soins-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "co-abteilungsleitung-pflege-a-spital-emmental-burgdorf"
+          "co-abteilungsleitung-pflege-a-spital-emmental-burgdorf",
+          "co-responsabile-di-reparto-cure-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "co-directrice-co-directeur-service-infirmier-intensif-a-spital-emmental-burgdorf"
+          "co-responsable-du-departement-soins-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:19.222Z",
@@ -1977,10 +1988,10 @@
       "id": "spital-emmental-6ae76caabe89",
       "slug": "consulente-nutrizionale-con-laurea-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dietista-bsc-a-spital-emmental-burgdorf",
+        "it": "consulente-nutrizionale-con-laurea-a-spital-emmental-burgdorf",
         "en": "nutritionist-bsc-a-spital-emmental-burgdorf",
         "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
-        "fr": "dieteticien-ne-bsc-a-spital-emmental-burgdorf"
+        "fr": "conseiller-ere-en-nutrition-bsc-a-spital-emmental-burgdorf-7666ea"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2061,22 +2072,23 @@
       "previousSlugs": [
         "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2",
         "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+        "dietista-bsc-a-spital-emmental-burgdorf",
         "dietitian-bsc-a-spital-emmental-burgdorf",
         "nutritionniste-bsc-a-spital-emmental-burgdorf",
-        "conseiller-ere-en-nutrition-bsc-a-spital-emmental-burgdorf-7666ea",
-        "consulente-nutrizionale-con-laurea-a-spital-emmental-burgdorf"
+        "dieteticien-ne-bsc-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2",
-          "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+          "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+          "dietista-bsc-a-spital-emmental-burgdorf"
         ],
         "en": [
           "dietitian-bsc-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "nutritionniste-bsc-a-spital-emmental-burgdorf",
-          "conseiller-ere-en-nutrition-bsc-a-spital-emmental-burgdorf-7666ea"
+          "dieteticien-ne-bsc-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:17.699Z",
@@ -2098,9 +2110,9 @@
       "slug": "fisioterapista-diplomato-a-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-a-spital-emmental-burgdorf",
-        "en": "dipl-physiotherapist-a-spital-emmental-burgdorf",
+        "en": "registered-physiotherapist-a-spital-emmental-burgdorf-langnau",
         "de": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
-        "fr": "dipl-kinesitherapeute-a-spital-emmental-burgdorf"
+        "fr": "physiotherapeute-diplome-e-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2182,11 +2194,9 @@
         "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
         "dipl-fisioterapista-in-a-spital-emmental-burgdorf-langnau",
         "certified-physiotherapist-a-spital-emmental-burgdorf",
-        "registered-physiotherapist-a-spital-emmental-burgdorf-langnau",
         "dipl-physiotherapist-a-spital-emmental-burgdorf",
-        "physiotherapeute-diplome-e-a-spital-emmental-burgdorf-langnau",
-        "dipl-kinesitherapeute-a-spital-emmental-burgdorf",
         "registered-physiotherapist-a-spital-emmental-burgdorf",
+        "dipl-kinesitherapeute-a-spital-emmental-burgdorf",
         "physiotherapeute-diplome-e-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
@@ -2196,12 +2206,10 @@
         ],
         "en": [
           "certified-physiotherapist-a-spital-emmental-burgdorf",
-          "registered-physiotherapist-a-spital-emmental-burgdorf-langnau",
           "dipl-physiotherapist-a-spital-emmental-burgdorf",
           "registered-physiotherapist-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "physiotherapeute-diplome-e-a-spital-emmental-burgdorf-langnau",
           "dipl-kinesitherapeute-a-spital-emmental-burgdorf",
           "physiotherapeute-diplome-e-a-spital-emmental-burgdorf"
         ]
@@ -2224,10 +2232,10 @@
       "id": "spital-emmental-178df99b2afd",
       "slug": "diplomato-di-assistenza-infermieristica-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-infermiere-a-a-spital-emmental-burgdorf",
+        "it": "diplomato-di-assistenza-infermieristica-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-2",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2277,21 +2285,22 @@
       "previousSlugs": [
         "diplomata-infermiera-professionale-a-spital-emmental-burgdorf",
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf",
+        "dipl-infermiere-a-a-spital-emmental-burgdorf",
+        "infirmier-ere-diplome-e-a-spital-emmental-burgdorf",
         "infermiera-professionale-dipl-a-spital-emmental-burgdorf",
         "diplomato-a-della-cura-infermieristica-a-spital-emmental-burgdorf",
         "diplomato-infermiere-a-a-spital-emmental-burgdorf",
         "infirmier-diplome-e-spital-emmental-burgdorf",
-        "diplome-e-en-soins-infirmiers-a-spital-emmental-burgdorf",
-        "diplomato-di-assistenza-infermieristica-a-spital-emmental-burgdorf"
+        "diplome-e-en-soins-infirmiers-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomata-infermiera-professionale-a-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+          "dipl-infermiere-a-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf"
+          "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-21T23:48:11.197Z",
@@ -2315,7 +2324,7 @@
         "it": "infermiere-a-diplomato-a-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf-3",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf-247514"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2364,14 +2373,13 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf-247514"
+        "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "diplome-en-soins-infirmiers-a-spital-emmental-burgdorf-247514",
           "infirmier-ere-diplome-e-a-spital-emmental-burgdorf"
         ]
       },
@@ -2800,8 +2808,7 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "ict-applikationsmanager-medizinische-applikationen-a-spital-emmental-burgdorf",
-        "responsabile-ict-applicazioni-mediche-spital-emmental-burgdorf"
+        "ict-applikationsmanager-medizinische-applikationen-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2824,12 +2831,12 @@
     },
     {
       "id": "spital-emmental-5f3458009b1f",
-      "slug": "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf",
+      "slug": "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "posto-di-formazione-come-infermiere-diplomato-hf-in-psichiatria-per-persone-in-transizione-professionale-a-spital",
-        "en": "training-position-for-certified-psychiatric-nurse-hf-for-career-changers-a-spital-emmental-burgdorf",
+        "it": "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
+        "en": "training-site-for-dipl-senior-caregiver-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
         "de": "ausbildungsplatz-zur-dipl-pflegefachperson-hf-psychiatrie-fur-quereinsteigende-a-spital",
-        "fr": "poste-de-formation-pour-infirmier-ere-diplome-e-es-en-psychiatrie-pour-professionnels-en-reconversion-a-spital-emmental"
+        "fr": "site-de-formation-pour-dipl-soins-aux-aines-hf-psychiatrie-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2910,28 +2917,29 @@
       "previousSlugs": [
         "ausbildungsplatz-zur-dipl-pflegefachperson-hf-psychiatrie-fur-quereinsteigende-a-spital",
         "posto-di-formazione-per-infermiere-i-diplomato-hf-in-psichiatria-per-professionisti-in-cambio-di-carriera-a-spital",
-        "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
-        "training-site-for-dipl-senior-caregiver-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
+        "posto-di-formazione-come-infermiere-diplomato-hf-in-psichiatria-per-persone-in-transizione-professionale-a-spital",
+        "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf",
+        "training-position-for-certified-psychiatric-nurse-hf-for-career-changers-a-spital-emmental-burgdorf",
         "poste-de-formation-pour-infirmier-diplome-hf-en-psychiatrie-pour-reconversion-professionnelle-a-spital-emmental-burgdorf",
         "poste-de-formation-pour-infirmier-diplome-hf-en-psychiatrie-pour-reconversions-professionnelles-a-spital-emmental",
         "site-de-formation-pour-dipl-soins-aux-aines-hf-psychiatrie-a-spital-emmental-burgdorf",
-        "site-de-formation-pour-dipl-soins-aux-aines-hf-psychiatrie-a-spital-emmental-burgdorf-langnau",
-        "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf"
+        "poste-de-formation-pour-infirmier-ere-diplome-e-es-en-psychiatrie-pour-professionnels-en-reconversion-a-spital-emmental"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsplatz-zur-dipl-pflegefachperson-hf-psychiatrie-fur-quereinsteigende-a-spital",
           "posto-di-formazione-per-infermiere-i-diplomato-hf-in-psichiatria-per-professionisti-in-cambio-di-carriera-a-spital",
-          "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf-langnau"
+          "posto-di-formazione-come-infermiere-diplomato-hf-in-psichiatria-per-persone-in-transizione-professionale-a-spital",
+          "luogo-di-formazione-per-dipl-assistenza-agli-anziani-hf-psychiatrie-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "training-site-for-dipl-senior-caregiver-hf-psychiatrie-a-spital-emmental-burgdorf-langnau"
+          "training-position-for-certified-psychiatric-nurse-hf-for-career-changers-a-spital-emmental-burgdorf"
         ],
         "fr": [
           "poste-de-formation-pour-infirmier-diplome-hf-en-psychiatrie-pour-reconversion-professionnelle-a-spital-emmental-burgdorf",
           "poste-de-formation-pour-infirmier-diplome-hf-en-psychiatrie-pour-reconversions-professionnelles-a-spital-emmental",
           "site-de-formation-pour-dipl-soins-aux-aines-hf-psychiatrie-a-spital-emmental-burgdorf",
-          "site-de-formation-pour-dipl-soins-aux-aines-hf-psychiatrie-a-spital-emmental-burgdorf-langnau"
+          "poste-de-formation-pour-infirmier-ere-diplome-e-es-en-psychiatrie-pour-professionnels-en-reconversion-a-spital-emmental"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:14.455Z",
@@ -3510,9 +3518,9 @@
     },
     {
       "id": "spital-emmental-10b3f1eb58ca",
-      "slug": "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf",
+      "slug": "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "leitung-betriebs-e-gebaudetechnik-a-spital-emmental-burgdorf",
+        "it": "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf-langnau",
         "en": "head-of-business-and-building-technology-a-spital-emmental-burgdorf-langnau",
         "de": "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf",
         "fr": "chef-des-entreprises-et-de-la-technologie-du-batiment-a-spital-emmental-burgdorf-langnau"
@@ -3565,13 +3573,14 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf",
-        "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf-langnau",
+        "leitung-betriebs-e-gebaudetechnik-a-spital-emmental-burgdorf",
         "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf",
-          "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf-langnau"
+          "leitung-betriebs-e-gebaudetechnik-a-spital-emmental-burgdorf",
+          "responsabile-della-tecnologia-aziendale-e-degli-edifici-a-spital-emmental-burgdorf"
         ],
         "en": [
           "leitung-betriebs-und-gebaudetechnik-a-spital-emmental-burgdorf"
@@ -3759,12 +3768,12 @@
     },
     {
       "id": "spital-emmental-31d6b858d235",
-      "slug": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
+      "slug": "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
-        "it": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
+        "it": "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
         "en": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
-        "fr": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+        "fr": "c-est-quoi-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3827,6 +3836,7 @@
       },
       "firstSeenAt": "2026-05-29T00:36:50.557Z",
       "previousSlugs": [
+        "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
         "dipl-persona-di-radiologia-hf-a-spital-emmental-burgdorf",
         "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf",
         "dipl-persona-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
@@ -3836,16 +3846,24 @@
         "diplome-en-radiologie-spital-emmental-burgdorf-langnau",
         "dipl-ing-facharzt-fur-radiologie-hf-a-spital-emmental-burgdorf",
         "diplomata-in-radiologia-spital-emmental-burgdorf-langnau"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-5c6e1ce8135e",
-      "slug": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
+      "slug": "endoscopia-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
-        "it": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
+        "it": "endoscopia-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
-        "fr": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+        "fr": "endoscopie-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3908,21 +3926,30 @@
       },
       "firstSeenAt": "2026-05-29T00:36:49.951Z",
       "previousSlugs": [
+        "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
         "infermiere-a-specializzato-a-endoscopia-a-spital-emmental-burgdorf",
         "diplome-e-en-soins-infirmiers-en-endoscopie-a-spital-emmental-burgdorf",
         "dipl-infirmier-en-endoscopie-a-spital-emmental-burgdorf",
         "dipl-infirmier-e-en-endoscopie-a-spital-emmental-burgdorf",
         "infirmier-ere-specialise-e-endoscopie-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-2d3347be0454",
-      "slug": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+      "slug": "diploma-di-tecniche-di-operazione-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "it": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+        "it": "diploma-di-tecniche-di-operazione-a-spital-emmental-burgdorf",
         "en": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "fr": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-pratique-des-services-d-operations-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3985,19 +4012,28 @@
       },
       "firstSeenAt": "2026-05-29T00:36:49.333Z",
       "previousSlugs": [
+        "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
         "specialista-di-tecnologia-operativa-a-spital-emmental-burgdorf",
         "dipl-ing-fachkraft-betriebstechnik-a-spital-emmental-burgdorf",
         "specialiste-en-technologie-operatoire-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-bcb67d9d93e9",
-      "slug": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
+      "slug": "medico-capo-palliative-care-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
-        "it": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        "it": "medico-capo-palliative-care-spital-emmental-burgdorf-langnau",
+        "en": "head-physician-palliative-care-spital-emmental-burgdorf-langnau",
+        "fr": "medecin-chef-soins-palliatifs-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4060,6 +4096,7 @@
       },
       "firstSeenAt": "2026-05-29T00:36:48.720Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
         "palliativa-care-senior-medico-a-a-spital-emmental-burgdorf-langnau",
         "senior-physician-palliative-care-a-spital-emmental-burgdorf",
         "medecin-chef-medecin-chef-palliative-care-a-spital-emmental-burgdorf",
@@ -4068,16 +4105,27 @@
         "medicin-specialiste-en-soins-palliatifs-a-spital-emmental-burgdorf-langnau",
         "medico-specialiste-en-soins-palliatifs-h-f-spital-emmental-burgdorf-langnau",
         "medecin-e-chef-palliative-care-a-spital-emmental-burgdorf-langnau"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-fdf59d2c081b",
-      "slug": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
+      "slug": "capoclinica-in-cardiologia-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
-        "it": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+        "it": "capoclinica-in-cardiologia-a-spital-emmental-burgdorf",
+        "en": "senior-physician-in-cardiology-a-spital-emmental-burgdorf",
+        "fr": "medecin-chef-de-clinique-en-cardiologie-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4140,21 +4188,33 @@
       },
       "firstSeenAt": "2026-05-29T00:36:48.102Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
         "cardiologo-senior-a-spital-emmental-burgdorf",
         "senior-cardiologist-m-f-spital-emmental-burgdorf",
         "cardiologue-senior-h-f-spital-emmental-burgdorf",
         "primario-a-di-cardiologia-spital-emmental-burgdorf",
         "medico-senior-cardiologia-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-60bb1fac91be",
-      "slug": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
+      "slug": "medico-capo-ambulatorio-psichiatrico-geriatrico-e-servizio-di-consulenza-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "it": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "en": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "fr": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        "it": "medico-capo-ambulatorio-psichiatrico-geriatrico-e-servizio-di-consulenza-spital-emmental-burgdorf",
+        "en": "senior-physician-geriatric-psychiatry-outpatient-clinic-consultation-service-spital-emmental-burgdorf",
+        "fr": "medecin-chef-clinique-ambulatoire-de-psychiatrie-geriatrique-et-service-de-consultation-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4217,6 +4277,7 @@
       },
       "firstSeenAt": "2026-05-29T00:36:47.504Z",
       "previousSlugs": [
+        "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
         "psichiatra-senior-responsabile-ambulatorio-e-servizio-di-consulenza-per-psichiatria-dell-eta-adulta-spital-emmental",
         "senior-physician-senior-psychiatrist-in-geriatric-outpatient-consultation-service-spital-emmental-burgdorf",
         "medecin-chef-ambulatoire-et-service-de-consultation-en-psychiatrie-de-l-age-adulte-spital-emmental-burgdorf",
@@ -4225,16 +4286,27 @@
         "medecin-senior-medecin-psychiatre-en-psychiatrie-geriatrique-consultation-externe-et-service-de-consultation-a-spital",
         "medecin-specialiste-en-psychiatrie-geriatrique-et-service-de-consultation-a-spital-emmental-burgdorf",
         "chef-cheffe-de-service-en-psychiatrie-geriatrique-ambulatoire-et-service-de-consultations-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ],
+        "en": [
+          "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ],
+        "fr": [
+          "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ]
+      }
     },
     {
       "id": "spital-emmental-bb546128720f",
-      "slug": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
+      "slug": "assistente-di-studio-medico-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "it": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "en": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "fr": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+        "it": "assistente-di-studio-medico-spital-emmental-burgdorf",
+        "en": "medical-practice-assistant-spital-emmental-burgdorf",
+        "fr": "assistant-e-de-pratique-medicale-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4297,36 +4369,39 @@
       },
       "firstSeenAt": "2026-05-29T00:36:46.901Z",
       "previousSlugs": [
-        "medizinische-n-praxisassistentin-praxisassistenten-spital-emmental-burgdorf",
-        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "medecin-n-assistant-pratique-spital-emmental-burgdorf",
         "assistente-medico-a-di-studio-spital-emmental-burgdorf",
+        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
         "medical-assistant-spital-emmental-burgdorf",
-        "assistant-e-medical-e-spital-emmental-burgdorf"
+        "medizinische-n-praxisassistentin-praxisassistenten-spital-emmental-burgdorf",
+        "assistant-e-medical-e-spital-emmental-burgdorf",
+        "medecin-n-assistant-pratique-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistente-medico-a-di-studio-spital-emmental-burgdorf"
+          "assistente-medico-a-di-studio-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "medical-assistant-spital-emmental-burgdorf"
+          "medical-assistant-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
         ],
         "de": [
           "medizinische-n-praxisassistentin-praxisassistenten-spital-emmental-burgdorf"
         ],
         "fr": [
-          "assistant-e-medical-e-spital-emmental-burgdorf"
+          "assistant-e-medical-e-spital-emmental-burgdorf",
+          "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
         ]
       }
     },
     {
       "id": "spital-emmental-c7858ff5ccb2",
-      "slug": "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
+      "slug": "leading-n-medical-n-assistente-pratico-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "it": "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "en": "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
-        "fr": "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+        "it": "leading-n-medical-n-assistente-pratico-a-spital-emmental-burgdorf",
+        "en": "leading-n-medical-n-practical-assistant-a-spital-emmental-burgdorf",
+        "fr": "dirigeant-n-medical-n-assistant-pratique-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4390,13 +4465,25 @@
       },
       "firstSeenAt": "2026-05-29T00:36:46.296Z",
       "previousSlugs": [
+        "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf",
         "responsabile-assistente-medico-praxis-rheumatologia-spital-emmental-burgdorf",
         "senior-medical-practice-assistant-a-spital-emmental-burgdorf",
         "responsable-assistante-medical-e-rhumatologie-spital-emmental-burgdorf",
         "assistente-medico-a-di-pratica-senior-a-a-spital-emmental-burgdorf",
         "assistant-e-medical-e-principal-e-en-pratique-a-spital-emmental-burgdorf"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "leitende-n-medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-25727885e8fd",
@@ -4405,7 +4492,7 @@
         "de": "ict-workplace-engineer-a-spital-emmental-burgdorf",
         "it": "ict-workplace-engineer-a-spital-emmental-burgdorf",
         "en": "ict-workplace-engineer-a-spital-emmental-burgdorf",
-        "fr": "ict-workplace-engineer-a-spital-emmental-burgdorf"
+        "fr": "ingenieur-des-tic-sur-le-lieu-de-travail-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4475,12 +4562,12 @@
     },
     {
       "id": "spital-emmental-289d004f046b",
-      "slug": "fachperson-gesundheit-a-spital-emmental-burgdorf",
+      "slug": "salute-specialistica-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "it": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "en": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fr": "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "it": "salute-specialistica-a-spital-emmental-burgdorf",
+        "en": "specialist-health-a-spital-emmental-burgdorf",
+        "fr": "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4543,35 +4630,38 @@
       },
       "firstSeenAt": "2026-05-29T00:36:45.083Z",
       "previousSlugs": [
+        "professionista-sanitario-a-spital-emmental-burgdorf",
+        "fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "healthcare-professional-a-spital-emmental-burgdorf",
+        "professionnel-de-la-sante-a-spital-emmental-burgdorf",
         "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
         "professionista-della-salute-a-spital-emmental-burgdorf",
         "operatore-socio-sanitario-oss-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
-        "professionista-sanitario-a-spital-emmental-burgdorf",
-        "healthcare-professional-a-spital-emmental-burgdorf",
-        "professionnel-de-la-sante-a-spital-emmental-burgdorf"
+        "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "professionista-sanitario-a-spital-emmental-burgdorf"
+          "professionista-sanitario-a-spital-emmental-burgdorf",
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "healthcare-professional-a-spital-emmental-burgdorf"
+          "healthcare-professional-a-spital-emmental-burgdorf",
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "professionnel-de-la-sante-a-spital-emmental-burgdorf"
+          "professionnel-de-la-sante-a-spital-emmental-burgdorf",
+          "fachperson-gesundheit-a-spital-emmental-burgdorf"
         ]
       }
     },
     {
       "id": "spital-emmental-686ff740aaed",
-      "slug": "apotheker-in-a-spital-emmental-burgdorf",
+      "slug": "farmacista-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "apotheker-in-a-spital-emmental-burgdorf",
-        "it": "apotheker-in-a-spital-emmental-burgdorf",
-        "en": "apotheker-in-a-spital-emmental-burgdorf",
-        "fr": "apotheker-in-a-spital-emmental-burgdorf"
+        "it": "farmacista-a-spital-emmental-burgdorf",
+        "en": "pharmacist-a-spital-emmental-burgdorf",
+        "fr": "pharmacien-ne-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4632,16 +4722,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T00:36:44.322Z"
+      "firstSeenAt": "2026-05-29T00:36:44.322Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "apotheker-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "apotheker-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b6ce151b68e1",
-      "slug": "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf",
+      "slug": "responsabile-di-reparto-di-oncologia-ambulatoriale-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf",
-        "it": "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf",
-        "en": "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf",
-        "fr": "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf"
+        "it": "responsabile-di-reparto-di-oncologia-ambulatoriale-a-spital-emmental-burgdorf",
+        "en": "head-of-outpatient-oncology-department-a-spital-emmental-burgdorf",
+        "fr": "responsable-de-departement-d-oncologie-ambulatoire-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4704,20 +4808,32 @@
       },
       "firstSeenAt": "2026-05-29T00:36:43.714Z",
       "previousSlugs": [
+        "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf",
         "responsabile-ambulante-oncologia-a-spital-emmental-burgdorf",
         "department-head-outpatient-oncology-a-spital-emmental-burgdorf",
         "responsable-de-departement-oncologie-ambulatoire-a-spital-emmental-burgdorf",
         "responsabile-di-reparto-oncologia-ambulatoriale-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "abteilungsleitung-ambulante-onkologie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-d2348aef6e4f",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-assistente-medico-alterpsychiatrie-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "it": "assistente-medico-assistente-medico-alterpsychiatrie-a-spital-emmental-burgdorf",
+        "en": "assistant-physician-assistant-physician-alterpsychiatrie-a-spital-emmental-burgdorf",
+        "fr": "medecin-adjoint-medecin-adjoint-alterpsychiatrie-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4780,6 +4896,7 @@
       },
       "firstSeenAt": "2026-05-29T00:36:43.108Z",
       "previousSlugs": [
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
         "assistente-psichiatra-specializzata-in-psichiatria-dell-ancia-spital-emmental-burgdorf",
         "junior-psychiatrist-geriatric-psychiatry-spital-emmental-burgdorf",
         "medecin-assistant-en-psychiatrie-de-l-age-adulte-spital-emmental-burgdorf",
@@ -4788,16 +4905,27 @@
         "assistant-physician-in-geriatric-psychiatry-spital-emmental-burgdorf",
         "medecin-assistant-en-psychiatrie-geriatrique-spital-emmental-burgdorf",
         "medecin-adjoint-en-psychiatrie-de-la-personne-agee-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-25f5a09ea836",
-      "slug": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "psichiatria-senior-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "it": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "en": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "it": "psichiatria-senior-a-spital-emmental-burgdorf",
+        "en": "senior-psychiatry-a-spital-emmental-burgdorf",
+        "fr": "psychiatrie-superieure-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4860,6 +4988,7 @@
       },
       "firstSeenAt": "2026-05-29T00:36:42.506Z",
       "previousSlugs": [
+        "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
         "responsabile-infermieristica-psichiatria-geriatrica-spital-emmental-burgdorf",
         "head-of-nursing-alterspsychiatry-spital-emmental-burgdorf",
         "responsable-du-departement-de-soins-en-psychiatrie-geriatrique-spital-emmental-burgdorf",
@@ -4867,7 +4996,18 @@
         "capo-reparto-cure-geriatria-psichiatrica-a-spital-emmental-burgdorf",
         "responsabile-dipartimento-di-geriatria-psichiatrica-a-spital-emmental-burgdorf",
         "head-of-geriatric-psychiatry-nursing-department-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-e864d351abc3",

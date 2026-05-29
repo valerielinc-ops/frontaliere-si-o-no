@@ -947,7 +947,7 @@
         "it": "casa-di-nascita-spital-bulach-bulach",
         "en": "zweithebamme-geburtshaus-spital-buelach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
+        "fr": "maison-de-naissance-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1010,7 +1010,7 @@
       "previousSlugs": [
         "zweithebamme-geburtshaus-spital-buelach-bulach",
         "parto-in-seconda-posizione-spital-bulach-bulach",
-        "maison-de-naissance-spital-bulach-bulach"
+        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1018,7 +1018,6 @@
           "parto-in-seconda-posizione-spital-bulach-bulach"
         ],
         "fr": [
-          "maison-de-naissance-spital-bulach-bulach",
           "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
         ]
       },
@@ -1477,9 +1476,9 @@
       "slug": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
       "slugByLocale": {
         "it": "studenti-specialista-radiologia-hf-spital-bulach-bulach",
-        "en": "radiology-student-hf-spital-bulach-bulach",
+        "en": "students-radiology-specialist-hf-spital-bulach-bulach",
         "de": "studierende-radiologiefachperson-hf-spital-buelach-bulach",
-        "fr": "etudiant-en-radiologie-hf-spital-bulach-bulach"
+        "fr": "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1553,8 +1552,8 @@
       "previousSlugs": [
         "studierende-radiologiefachperson-hf-spital-buelach-bulach",
         "studente-di-radiologia-hf-spital-bulach-bulach",
-        "students-radiology-specialist-hf-spital-bulach-bulach",
-        "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach"
+        "radiology-student-hf-spital-bulach-bulach",
+        "etudiant-en-radiologie-hf-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1562,11 +1561,9 @@
           "studente-di-radiologia-hf-spital-bulach-bulach"
         ],
         "en": [
-          "students-radiology-specialist-hf-spital-bulach-bulach",
           "radiology-student-hf-spital-bulach-bulach"
         ],
         "fr": [
-          "etudiants-specialiste-en-radiologie-hf-spital-bulach-bulach",
           "etudiant-en-radiologie-hf-spital-bulach-bulach"
         ]
       },
@@ -2236,7 +2233,7 @@
         "it": "dipl-specialista-di-cura-cura-intensiva-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
         "de": "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
-        "fr": "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach"
+        "fr": "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -2308,7 +2305,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-intensivstation-spital-buelach-bulach",
         "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach",
-        "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach",
+        "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach",
         "infermiere-professionale-chirurgia-spital-bulach-bulach",
         "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
         "infirmier-diplome-chirurgie-spital-bulach-bulach"
@@ -2319,7 +2316,6 @@
           "infermiere-specializzata-in-terapia-intensiva-spital-bulach-bulach"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-soins-intensifs-spital-bulach-bulach",
           "infirmier-specialise-en-soins-intensifs-spital-bulach-bulach"
         ]
       },
