@@ -33,7 +33,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:58.753Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -85,8 +84,8 @@
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
         "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
-        "de": "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "fr": "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
+        "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -110,7 +109,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:57.775Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -141,7 +139,10 @@
         "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
         "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
         "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
-        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch",
+        "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
+        "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen",
+        "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -149,10 +150,12 @@
           "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
         ],
         "de": [
-          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
         ],
         "fr": [
-          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+          "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
@@ -278,7 +281,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:55.816Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -375,7 +377,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:54.836Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -472,7 +473,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:53.857Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -566,7 +566,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:52.887Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -665,7 +664,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:51.883Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -782,7 +780,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:50.907Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -885,7 +882,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:49.932Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1002,7 +998,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:48.980Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1102,7 +1097,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:48.011Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1196,7 +1190,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:47.050Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1299,7 +1292,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:46.049Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1378,7 +1370,7 @@
       "id": "see-spital-e1ca4dda76b5",
       "slug": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "it": "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen",
         "en": "dipl-healthcare-assistant-hf-medicine-night-and-day-shifts-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
         "fr": "dipl-assistant-de-sante-hf-medecine-nuit-et-jour-see-spital-horgen"
@@ -1405,7 +1397,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:45.078Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1456,12 +1447,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1509,7 +1499,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:44.107Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1612,7 +1601,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:43.122Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1704,7 +1692,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:42.135Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1815,7 +1802,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:41.160Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1890,7 +1876,7 @@
       "id": "see-spital-b49fdf672641",
       "slug": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+        "it": "fachinfermiere-efz-excellence-see-spital-horgen",
         "en": "healthcare-professional-efz-excellence-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
         "fr": "professionnel-de-la-sante-efz-excellence-see-spital-horgen"
@@ -1917,7 +1903,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:40.191Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -1962,12 +1947,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-        "fachinfermiere-efz-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachinfermiere-efz-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1988,7 +1972,7 @@
       "id": "see-spital-9f2c8f0ff8f4",
       "slug": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "it": "medicina-efz-della-salute-professionale-see-spital-horgen",
         "en": "healthcare-professional-efz-medicine-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "fr": "professionnel-de-sante-efz-medecine-see-spital-horgen"
@@ -2015,7 +1999,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:39.249Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2067,12 +2050,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-        "medicina-efz-della-salute-professionale-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-          "medicina-efz-della-salute-professionale-see-spital-horgen"
+          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:54.431Z",
@@ -2120,7 +2102,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:38.304Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2221,7 +2202,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:37.323Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2324,7 +2304,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1237/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:36.338Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2403,7 +2382,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1235/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:35.347Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2506,7 +2484,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:34.377Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2579,7 +2556,7 @@
       "id": "see-spital-393f16ddea42",
       "slug": "impiegato-a-segreteria-terapie-see-spital-horgen",
       "slugByLocale": {
-        "it": "impiegato-a-segreteria-terapie-see-spital-horgen",
+        "it": "segretaria-terapie-see-spital-horgen",
         "en": "secretary-therapies-see-spital-horgen",
         "de": "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
         "fr": "secretaire-therapeutique-see-spital-horgen"
@@ -2606,7 +2583,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:33.384Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2658,24 +2634,21 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-        "segretaria-terapie-see-spital-horgen",
         "staff-in-secretariat-therapies-see-spital-horgen",
         "employee-for-therapy-secretariat-see-spital-horgen",
-        "employe-e-secretariat-therapies-see-spital-horgen"
+        "employe-e-secretariat-therapies-see-spital-horgen",
+        "impiegato-a-segreteria-terapie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-          "segretaria-terapie-see-spital-horgen"
+          "mitarbeiter-in-sekretariat-therapien-see-spital-ch"
         ],
         "en": [
           "staff-in-secretariat-therapies-see-spital-horgen",
-          "employee-for-therapy-secretariat-see-spital-horgen",
-          "secretary-therapies-see-spital-horgen"
+          "employee-for-therapy-secretariat-see-spital-horgen"
         ],
         "fr": [
-          "employe-e-secretariat-therapies-see-spital-horgen",
-          "secretaire-therapeutique-see-spital-horgen"
+          "employe-e-secretariat-therapies-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:50.484Z",
@@ -2723,7 +2696,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:32.427Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2820,7 +2792,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:31.460Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -2923,7 +2894,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:30.507Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3026,7 +2996,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1238/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:29.523Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3128,7 +3097,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:28.579Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3225,7 +3193,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:27.642Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3325,7 +3292,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:26.691Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3428,7 +3394,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:25.726Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3531,7 +3496,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:24.772Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3634,7 +3598,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:23.791Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3734,7 +3697,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:22.833Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3811,7 +3773,7 @@
       "id": "see-spital-1bfa5ad69173",
       "slug": "operatore-notturno-centro-di-sonno-see-spital-horgen",
       "slugByLocale": {
-        "it": "operatore-notturno-centro-di-sonno-see-spital-horgen",
+        "it": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
         "fr": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
@@ -3838,7 +3800,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:21.857Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -3889,27 +3850,25 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
         "night-shift-staff-sleep-center-see-spital-horgen",
         "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
+        "personnel-de-nuit-centre-de-sommeil-see-spital-horgen",
+        "operatore-notturno-centro-di-sonno-see-spital-horgen",
+        "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
         ],
         "en": [
-          "night-shift-staff-sleep-center-see-spital-horgen",
-          "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "night-shift-staff-sleep-center-see-spital-horgen"
         ],
         "de": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
           "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "personnel-de-nuit-centre-de-sommeil-see-spital-horgen",
-          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
+          "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:43.643Z",
@@ -3957,7 +3916,6 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:20.895Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
@@ -4028,7 +3986,7 @@
       "id": "see-spital-7593890aa2f5",
       "slug": "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
+        "it": "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen",
         "en": "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
         "de": "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
         "fr": "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen"
@@ -4076,12 +4034,11 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen"
+        "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen"
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
@@ -4118,24 +4075,23 @@
       "companyDomain": "see-spital.ch",
       "title": "Dipl. Pflegefachfrau*mann HF - Gynäkologie und Wochenbett",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau*mann HF - Gynäkologie e Wochenbett",
-        "en": "Dipl. Pflegefachfrau*mann HF - Gynäkologie und Wochenbett",
+        "it": "Dipl. Carriera*mann HF - Ginecologia e letto settimanale",
+        "en": "Dipl. Career*mann HF - Gynecology and Weekbed",
         "de": "Dipl. Pflegefachfrau*mann HF - Gynäkologie und Wochenbett",
-        "fr": "Dipl. Pflegefachfrau*mann HF - Gynäkologie und Wochenbett"
+        "fr": "Dipl. Carrière*mann HF - Gynécologie"
       },
       "description": "Ihr Aufgabengebiet\n\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen\n\nIhr Profil\n\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
-        "it": "Ihr Aufgabengebiet\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen Ihr Profil\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten Was wir Ihnen bieten\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
-        "en": "Ihr Aufgabengebiet\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen Ihr Profil\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten Was wir Ihnen bieten\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
-        "de": "Ihr Aufgabengebiet\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen Ihr Profil\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten Was wir Ihnen bieten\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
-        "fr": "Ihr Aufgabengebiet\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen Ihr Profil\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten Was wir Ihnen bieten\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden."
+        "it": "• Alta cura e cura del paziente • Pianificazione individuale, implementazione e gestione del processo di allattamento • Cooperazione interprofessionale costruttiva con il team medico e altri reparti • Interventi flessibili come funzione di salto interno, se necessario, in particolare per i reparti chirurgici e medici Buona conoscenza dell'utente del PC • Conoscenza molto buona del tedesco e dell'inglese in parola • disponibilità a prendere su tutti gli strati Un posto di lavoro con la migliore connessione ai trasporti pubblici, così come spazi di parcheggio personali convenienti • Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio – vista lago tra cui • Vari vantaggi • Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionale che privato a Lei applicazioni fisiche non può essere preso in considerazione.",
+        "en": "• High level of patient care and care • Individual planning, implementation and management of the nursing process • Constructive interprofessional cooperation with the medical team and other departments • Flexible interventions as an internal jumper function if necessary, in particular for surgical and medical departments Good PC user knowledge • Very good knowledge of German and English in word • readiness to take over all layers What we offer you • Self-responsible work in a motivated and collegial team that supports each other • A working place with the best connection to public transport, as well as cost-effective personal parking spaces • Modern infrastructure and a working environment where you can feel comfortable – lake view including • Various Benefits • A pleasant working environment in an attractive location near Zurich, which has a lot to offer both professional and private to you Physic applications cannot be taken into account.",
+        "de": "Ihr Aufgabengebiet\n\n• Fachkompetente Pflege und Betreuung von Wöchnerinnen, Neugeborenen, Risikoschwangeren sowie gynäkologischen Patientinnen\n• Eigenverantwortliche Planung, Umsetzung und Steuerung des Pflegeprozesses\n• Konstruktive interprofessionelle Zusammenarbeit mit dem ärztlichen Team und weiteren Fachbereichen\n• Flexible Einsätze als spitalinterne Springerfunktion bei Bedarf, insbesondere auf chirurgischen und medizinischen Abteilungen\n• Aktive Mitwirkung in der praktischen Ausbildung von Studierenden Hebammen\n\nIhr Profil\n\n• Abgeschlossene und in der Schweiz anerkannte Pflegeausbildung auf Tertiärniveau (HF / FH / DN 2)\n• Mehrjährige Berufserfahrung im Akutspital, vorzugsweise im Wochenbettbereich\n• Hohe Teamfähigkeit, Flexibilität sowie Engagement und Belastbarkeit\n• Ausgeprägte Organisations- und Kommunikationsstärke\n• Hohe Leistungsbereitschaft und Freude am kontinuierlichen Lernen\n• Ausgeprägte Dienstleistungsorientierung zum Wohle der Patientinnen\n• Gute PC-Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse sowie Englischkenntnisse in Wort\n• Bereitschaft zur Übernahme aller Schichten\n\nWas wir Ihnen bieten\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive\n• Vielfältige Benefits\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat Physische Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "• Niveau élevé de soins et de soins aux patients • Planification individuelle, mise en oeuvre et gestion du processus de soins infirmiers • Coopération interprofessionnelle constructive avec l'équipe médicale et d'autres départements • Interventions flexibles en tant que fonction de saut interne si nécessaire, en particulier pour les services chirurgicaux et médicaux Bonne connaissance des utilisateurs de PC • Très bonne connaissance de l'allemand et de l'anglais en paroles • préparation à prendre en charge toutes les couches Ce que nous vous offrons • Un travail autoresponsable dans une équipe motivée et collégiale qui se soutient • Un lieu de travail avec la meilleure connexion aux transports en commun, ainsi que des places de stationnement personnelles rentables • Une infrastructure moderne et un environnement de travail où vous pouvez vous sentir à l'aise – vue sur le lac y compris • Divers avantages • Un environnement de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à vous offrir à la fois professionnel et privé Applications médicales ne peuvent pas être prises en compte."
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "needsRetranslation": true,
       "crawledAt": "2026-05-29T00:29:18.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
