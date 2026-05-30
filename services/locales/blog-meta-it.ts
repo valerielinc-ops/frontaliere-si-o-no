@@ -7877,6 +7877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 e S50 sostituiti con bus per un mese tra Stabio e Malpensa',
     'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'Dal 7 giugno al 5 luglio 2024, i collegamenti TILO S40 e S50 saranno sostituiti da bus tra Stabio, Varese, Gallarate e Malpensa Aeroporto.',
     'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Frontalieri in attesa di bus sostitutivi in stazione',
+    'blog.article.udc-finanze-ticino-aprile-2027.title': 'UDC Ticino: \'Pronti a rilanciare finanze e economia del Cantone\'',
+    'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'L\'UDC annuncia la volontà di guidare il Dipartimento delle finanze e dell\'economia per risanare i conti pubblici e rilanciare il Ticino.',
+    'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Fotografia del Castelgrande di Bellinzona, simbolo di stabilità e visione',
 };
 
 export default blogMetaIt;

@@ -25004,4 +25004,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'udc-finanze-ticino-aprile-2027',
+ category: 'novita',
+ date: '2026-05-30T00:26:14.072Z',
+ image: '/images/blog/udc-finanze-ticino-aprile-2027.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

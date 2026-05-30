@@ -3867,6 +3867,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-progetto-sintab-sentiero-rio-dei-gioghi': { name: 'Progetto Sintab', path: '/articoli-frontaliere/progetto-sintab-sentiero-rio-dei-gioghi', parent: 'blog' },
     'blog-detrazioni-figli-frontalieri-ticino': { name: 'Fiscale Ticino', path: '/articoli-frontaliere/detrazioni-figli-frontalieri-ticino', parent: 'blog' },
     'blog-tilo-collegamenti-sospesi-giugno': { name: 'TILO bus sostitutivi', path: '/articoli-frontaliere/tilo-collegamenti-sospesi-giugno', parent: 'blog' },
+    'blog-udc-finanze-ticino-aprile-2027': { name: 'Politica Ticino', path: '/articoli-frontaliere/udc-finanze-ticino-aprile-2027', parent: 'blog' },
  };
 
  const info = sectionNames[section];

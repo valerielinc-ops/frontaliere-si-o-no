@@ -7877,6 +7877,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tilo-collegamenti-sospesi-giugno.title': 'TILO S40 et S50 remplacés par des bus pendant un mois',
     'blog.article.tilo-collegamenti-sospesi-giugno.excerpt': 'Du 7 juin au 5 juillet 2024, les liaisons TILO S40 et S50 seront remplacées par des bus entre Stabio, Varese, Gallarate et l\'aéroport de Malpensa.',
     'blog.article.tilo-collegamenti-sospesi-giugno.imageAlt': 'Frontaliers attendant des bus de remplacement à la gare',
+    'blog.article.udc-finanze-ticino-aprile-2027.title': 'UDC Tessin : \'Redresser finances et économie du canton\'',
+    'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'L\'UDC annonce sa volonté de diriger le Département des finances et de l\'économie pour assainir les comptes publics et relancer le Tessin.',
+    'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Photo du Castelgrande de Bellinzone, symbole de stabilité et vision',
 };
 
 export default blogMetaFr;
