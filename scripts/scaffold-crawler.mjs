@@ -147,6 +147,27 @@ const companyName =
   getOption('--name') ||
   marquee?.name ||
   companyKey.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+// Guard against a mangled company name. Background: Adullam-Stiftung accumulated
+// 5 open "Crawler Failure" issues because its workflow `name:` had been corrupted
+// into a multi-crawler concatenation — "Update Adullam-Stiftung Basel Update EHC
+// (…) Jobs (Dedicated) Riehen Jobs (Dedicated)". The per-crawler failure reporter
+// builds its issue title from `${{ github.workflow }}` (the `name:`), and
+// github-issue-creator.mjs dedups on the first 60 chars of that title. A name that
+// already carries the "Update …/Jobs (Dedicated)" workflow boilerplate (i.e. a
+// second crawler's full display name pasted in) destroys the stable prefix → a
+// brand-new issue opens every run. The company name MUST be only the company,
+// never a pre-formatted/concatenated workflow title.
+if (/\bjobs\s*\(dedicated\)/i.test(companyName) || /\bupdate\b.*\bupdate\b/i.test(companyName)) {
+  console.error(
+    `❌ --name looks like a workflow title, not a company name: "${companyName}".\n` +
+    '   Pass only the company name (e.g. "Adullam-Stiftung"); the scaffold wraps it\n' +
+    '   as "Update <name> Jobs (Dedicated)". A concatenated/multi-crawler name breaks\n' +
+    '   the stable per-crawler "Crawler Failure: <name>" issue dedup.',
+  );
+  process.exit(1);
+}
+
 const companyDomain = getOption('--domain') || `${companyKey.replace(/-/g, '')}.ch`;
 const sourceLang = getOption('--lang', 'it');
 

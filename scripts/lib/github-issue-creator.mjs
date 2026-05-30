@@ -110,6 +110,12 @@ export async function createGithubIssue({
   priority = 3,
   labels = [],
   workflow,
+  // When set (hours), a recently-closed issue with the same stable title prefix
+  // is REOPENED + commented instead of opening a fresh duplicate. Use for
+  // transient per-run reporters (post-deploy validation) where the issue may
+  // have been auto-closed on a green run and then flaps red again. CLI:
+  // --reopen-within-hours N. Default 0 = disabled (legacy behaviour preserved).
+  reopenWithinHours = 0,
   // `project` accepted for backward compatibility but not used (GH issues
   // don't have a free-form project field comparable to Linear's; the
   // workflow name is preserved in the body for grouping).
@@ -151,6 +157,31 @@ export async function createGithubIssue({
     } catch (err) {
       console.error(`[github-issue-creator] Failed to comment on #${existing.number}: ${err.message}`);
       return existing;
+    }
+  }
+
+  // No OPEN duplicate. For transient reporters, check whether the SAME canonical
+  // issue was recently closed (e.g. auto-closed on a green deploy) and is now
+  // flapping red again. Reopen + comment instead of minting a new issue — this
+  // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
+  if (reopenWithinHours > 0) {
+    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(titlePrefix, reopenWithinHours);
+    if (recentlyClosed) {
+      const reopened = gh(
+        ['issue', 'reopen', String(recentlyClosed.number), ...repoFlag()],
+        { allowFailure: true },
+      );
+      if (reopened !== null) {
+        gh([
+          'issue', 'comment', String(recentlyClosed.number),
+          '--body', `🔁 Reopened — same failure recurred within ${reopenWithinHours}h of being closed.\n\n${body}`,
+          ...repoFlag(),
+        ], { allowFailure: true });
+        console.log(`[github-issue-creator] Reopened #${recentlyClosed.number} — ${recentlyClosed.title}`);
+        return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url };
+      }
+      // Reopen failed (e.g. closed-as-duplicate locked) → fall through to create.
+      console.error(`[github-issue-creator] Could not reopen #${recentlyClosed.number}; creating fresh issue.`);
     }
   }
 
@@ -203,7 +234,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N]');
     process.exit(1);
   }
 
@@ -217,6 +248,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
       return many.length > 0 ? many : (single ? [single] : ['bug']);
     })(),
     workflow: get('--workflow'),
+    reopenWithinHours: Number(get('--reopen-within-hours') || 0),
   }).then(() => {
     // Why: this CLI is a best-effort reporter invoked from `if: failure()`
     // steps after the real failure has already been recorded. Exiting non-zero
