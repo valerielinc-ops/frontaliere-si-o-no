@@ -66,7 +66,6 @@
         "kochin-koch-efz-pdgr-ch",
         "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:12.618Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -80,8 +79,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -146,7 +144,6 @@
       "previousSlugs": [
         "praktikant-in-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -160,14 +157,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-4f88a64e2238",
       "slug": "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
+        "it": "psicologo-specializzato-psychiatrische-dienste-graubunden-chur",
         "en": "specialist-psychologist-psychiatrische-dienste-graubunden-chur",
         "de": "fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
         "fr": "psychologue-specialise-psychiatrische-dienste-graubunden-chur"
@@ -248,13 +244,12 @@
           "fachpsychologe-in-pdgr-ch"
         ],
         "it": [
-          "fachpsychologe-in-pdgr-ch",
-          "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
+          "fachpsychologe-in-pdgr-ch"
         ]
       },
       "previousSlugs": [
         "fachpsychologe-in-pdgr-ch",
-        "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
+        "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 49500,
@@ -276,7 +271,7 @@
       "slug": "assistente-medico-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "assistente-medico-psychiatrische-dienste-graubunden-chur",
-        "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "resident-physician-psychiatrische-dienste-graubunden-chur",
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur",
         "fr": "medecin-resident-psychiatrische-dienste-graubunden-chur"
       },
@@ -347,12 +342,14 @@
           "assistenzarztin-assistenzarzt-pdgr-ch"
         ],
         "en": [
-          "resident-physician-psychiatrische-dienste-graubunden-chur"
+          "resident-physician-psychiatrische-dienste-graubunden-chur",
+          "resident-psychiatrist-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-pdgr-ch",
-        "resident-physician-psychiatrische-dienste-graubunden-chur"
+        "resident-physician-psychiatrische-dienste-graubunden-chur",
+        "resident-psychiatrist-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 49500,
@@ -432,7 +429,6 @@
       "previousSlugs": [
         "unterassistent-in-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -446,8 +442,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -515,7 +510,6 @@
         "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
         "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:07.219Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -529,14 +523,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-6bea78edbd79",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-cazis",
+        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-principal-psychiatrische-dienste-graubunden-cazis"
@@ -615,8 +608,7 @@
           "oberarztin-oberarzt-pdgr-ch"
         ],
         "it": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "en": [
           "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
@@ -627,9 +619,11 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
-        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
+        "medico-senior-psychiatrische-dienste-graubunden-cazis",
+        "senior-doctor-psychiatrische-dienste-graubunden-cazis",
+        "medecin-principal-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 68000,
@@ -1055,7 +1049,7 @@
       "id": "pdgr-72c42eafd6ec",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-chur",
+        "it": "oberarztin-oberarzt-pdgr-ch",
         "en": "senior-doctor-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
         "fr": "medecin-principal-psychiatrische-dienste-graubunden-chur"
@@ -1110,8 +1104,7 @@
         ],
         "it": [
           "medico-senior-psychiatrische-dienste-graubunden-cazis",
-          "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d",
-          "oberarztin-oberarzt-pdgr-ch"
+          "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d"
         ],
         "en": [
           "senior-doctor-psychiatrische-dienste-graubunden-cazis",
@@ -1135,7 +1128,10 @@
         "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
-        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
+        "medico-senior-psychiatrische-dienste-graubunden-chur",
+        "senior-doctor-psychiatrische-dienste-graubunden-chur",
+        "medecin-principal-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
       "salaryMin": 68000,
@@ -1217,7 +1213,6 @@
         "fachpsychologe-in-pdgr-ch",
         "psicologo-clinico-psychiatrische-dienste-graubunden-ilanz"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:51:57.235Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1231,8 +1226,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -2039,7 +2033,6 @@
         "assistenzarztin-assistenzarzt-pdgr-ch",
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T23:09:39.059Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2053,15 +2046,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-d7f7612b1400",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "it": "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
+        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
         "en": "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
         "fr": "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5"
       },
@@ -2112,8 +2104,7 @@
       "pensum": "20 - 50%",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -2127,9 +2118,11 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
         "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
+        "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
+        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+        "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2261,7 +2254,7 @@
       "id": "pdgr-6a8a53547bd0",
       "slug": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-career-hf-for-day-and-night-service-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
         "fr": "dipl-carriere-hf-pour-le-service-de-jour-et-de-nuit-psychiatrische-dienste-graubunden-cazis"
@@ -2314,8 +2307,7 @@
           "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
-          "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
@@ -2326,8 +2318,8 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
-        "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
+        "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 49500,
@@ -2348,7 +2340,7 @@
       "id": "pdgr-3368deccf057",
       "slug": "supervisore-psychiatrische-dienste-graubunden-landquart",
       "slugByLocale": {
-        "it": "supervisore-psychiatrische-dienste-graubunden-landquart",
+        "it": "betreuer-in-pdgr-ch-2",
         "en": "supervisor-psychiatrische-dienste-graubunden-landquart",
         "de": "betreuer-in-psychiatrische-dienste-graubunden-landquart",
         "fr": "superviseur-psychiatrische-dienste-graubunden-landquart"
@@ -2403,8 +2395,7 @@
         ],
         "it": [
           "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
-          "betreuer-in-pdgr-ch",
-          "betreuer-in-pdgr-ch-2"
+          "betreuer-in-pdgr-ch"
         ],
         "en": [
           "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
@@ -2422,7 +2413,10 @@
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
         "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw"
+        "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw",
+        "supervisore-psychiatrische-dienste-graubunden-landquart",
+        "supervisor-psychiatrische-dienste-graubunden-landquart",
+        "superviseur-psychiatrische-dienste-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-23T10:37:07.337Z",
       "salaryMin": 49500,
@@ -2502,7 +2496,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T23:09:25.343Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2516,14 +2509,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-bafc3aaa69de",
       "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-chur"
@@ -2575,8 +2567,7 @@
           "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch",
-          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+          "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "fr": [
           "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur"
@@ -2584,11 +2575,11 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "personnel-d-hotellerie-psychiatrische-dienste-graubunden-chur",
         "addetto-a-all-ospitalita-psychiatrische-dienste-graubunden-chur",
-        "hospitality-staff-psychiatrische-dienste-graubunden-chur"
+        "hospitality-staff-psychiatrische-dienste-graubunden-chur",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-21T12:55:55.883Z",
       "salaryMin": 49500,
@@ -2609,7 +2600,7 @@
       "id": "pdgr-adaa0bd12412",
       "slug": "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-care-specialist-hf-for-night-watch-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "fr": "dipl-specialiste-des-soins-hf-pour-les-montres-de-nuit-psychiatrische-dienste-graubunden-cazis"
@@ -2662,8 +2653,7 @@
           "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-          "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
@@ -2674,9 +2664,9 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-        "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
-        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-11T12:18:40.276Z",
       "salaryMin": 49500,
@@ -2697,7 +2687,7 @@
       "id": "pdgr-e66c255d8449",
       "slug": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
-        "it": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "it": "betreuer-in-pdgr-ch",
         "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
         "de": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "fr": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
@@ -2751,8 +2741,7 @@
           "betreuer-in-pdgr-ch"
         ],
         "it": [
-          "supervisore-psychiatrische-dienste-graubunden-landquart",
-          "betreuer-in-pdgr-ch"
+          "supervisore-psychiatrische-dienste-graubunden-landquart"
         ],
         "en": [
           "supervisor-psychiatrische-dienste-graubunden-landquart",
@@ -2772,7 +2761,10 @@
         "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "firstSeenAt": "2026-05-12T22:44:21.587Z",
       "salaryMin": 49500,
@@ -2794,9 +2786,9 @@
       "slug": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
-        "en": "head-of-textile-psychiatrische-dienste-graubunden-chur",
+        "en": "leiter-in-textil-pdgr-ch",
         "de": "leiter-in-textil-psychiatrische-dienste-graubunden-chur",
-        "fr": "tete-de-textile-psychiatrische-dienste-graubunden-chur"
+        "fr": "leiter-in-textil-pdgr-ch"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2850,15 +2842,19 @@
           "capo-di-tessuto-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "leiter-in-textil-pdgr-ch"
+          "leiter-in-textil-pdgr-ch",
+          "head-of-textile-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "leiter-in-textil-pdgr-ch"
+          "leiter-in-textil-pdgr-ch",
+          "tete-de-textile-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "leiter-in-textil-pdgr-ch",
-        "capo-di-tessuto-psychiatrische-dienste-graubunden-chur"
+        "capo-di-tessuto-psychiatrische-dienste-graubunden-chur",
+        "head-of-textile-psychiatrische-dienste-graubunden-chur",
+        "tete-de-textile-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-13T11:40:26.413Z",
       "salaryMin": 68000,
@@ -2879,7 +2875,7 @@
       "id": "pdgr-8faee1f21651",
       "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis"
@@ -2931,8 +2927,7 @@
           "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch",
-          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
+          "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "fr": [
           "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
@@ -2940,7 +2935,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
         "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
@@ -2952,7 +2946,8 @@
         "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-pdgr-ch-3",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-27T23:56:51.956Z",
       "salaryMin": 49500,
@@ -3033,7 +3028,6 @@
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:55:50.615Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3047,8 +3041,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-b39aa7c0be7e",
@@ -3113,7 +3106,6 @@
       "previousSlugs": [
         "fachpsychologe-in-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:55:49.537Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3127,14 +3119,13 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-8b7dbfbdea53",
       "slug": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
+        "it": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "en": "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
         "de": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "fr": "stage-module-pratique-i-ii-ou-stage-psychiatrische-dienste-graubunden-chur"
@@ -3189,8 +3180,7 @@
         ],
         "it": [
           "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
-          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-          "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
+          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
@@ -3205,7 +3195,6 @@
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
@@ -3213,7 +3202,10 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "intern-practice-module-i-ii-or-pre-internship-psychiatrische-dienste-graubunden-chur",
-        "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur"
+        "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur",
+        "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
+        "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
+        "stage-module-pratique-i-ii-ou-stage-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-23T11:27:47.548Z",
       "salaryMin": 41600,
@@ -3234,7 +3226,7 @@
       "id": "pdgr-79ffc180b41a",
       "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
@@ -3284,12 +3276,13 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch",
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-pdgr-ch"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
@@ -3315,9 +3308,9 @@
       "slug": "responsabile-controlling-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "responsabile-controlling-psychiatrische-dienste-graubunden-chur",
-        "en": "head-in-controlling-psychiatrische-dienste-graubunden-chur",
+        "en": "leiter-in-controlling-pdgr-ch",
         "de": "leiter-in-controlling-psychiatrische-dienste-graubunden-chur",
-        "fr": "tete-en-controle-psychiatrische-dienste-graubunden-chur"
+        "fr": "leiter-in-controlling-pdgr-ch"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3370,10 +3363,12 @@
           "testa-in-controllo-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "leiter-in-controlling-pdgr-ch"
+          "leiter-in-controlling-pdgr-ch",
+          "head-in-controlling-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "leiter-in-controlling-pdgr-ch"
+          "leiter-in-controlling-pdgr-ch",
+          "tete-en-controle-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
@@ -3381,7 +3376,9 @@
         "testa-in-controllo-psychiatrische-dienste-graubunden-chur",
         "responsabile-controllo-psychiatrische-dienste-graubunden-chur",
         "controlling-manager-psychiatrische-dienste-graubunden-chur",
-        "responsable-controle-psychiatrische-dienste-graubunden-chur"
+        "responsable-controle-psychiatrische-dienste-graubunden-chur",
+        "head-in-controlling-psychiatrische-dienste-graubunden-chur",
+        "tete-en-controle-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-28T13:42:08.598Z",
       "salaryMin": 68000,
@@ -3556,7 +3553,8 @@
         "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-pdgr-ch-3",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-11afe2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
