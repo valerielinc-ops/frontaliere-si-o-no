@@ -365,7 +365,7 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `<main class="seo-static-content fh-main">${body}</main>`;
+  const bodyHtml = `<main class="fh-main">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = JSON.stringify({
