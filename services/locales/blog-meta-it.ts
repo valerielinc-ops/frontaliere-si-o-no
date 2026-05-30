@@ -7907,6 +7907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Ecco cosa cambia e perché si vota.',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Vista aerea dei castelli di Bellinzona con la città sullo sfondo',
+    'blog.article.licenziamento-nurnberg-rsi.title': 'Licenziamento di Nurnberg',
+    'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Vertenza chiusa, pagate tutte le pretese avanzate',
+    'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Giornalista in studio',
 };
 
 export default blogMetaIt;

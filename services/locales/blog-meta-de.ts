@@ -7905,6 +7905,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Referendum Festung Bellinzona: Abstimmung am 27. September',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'Die Gemeinde Bellinzona hat 3.738 Unterschriften für das Referendum zur Festung validiert. Hier die Änderungen und warum abgestimmt wird.',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Luftaufnahme der Burgen von Bellinzona mit der Stadt im Hintergrund',
+    'blog.article.licenziamento-nurnberg-rsi.title': 'Nürnberg: Abfindung abgeschlossen',
+    'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Streitfall beendet, alle Forderungen beglichen',
+    'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Journalist bei der Arbeit',
 };
 
 export default blogMetaDe;
