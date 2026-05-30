@@ -531,7 +531,7 @@ function renderPage(opts: {
       <p class="s-y8VKoI">${esc(copy.lede)}</p>
     </section>`;
 
-  const bodyHtml = `<main class="seo-static-content s-xzWvwM">${body}</main>`;
+  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

@@ -90,7 +90,7 @@
     "canton": "AG"
   },
   "AG::it::befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg": {
-    "winnerJobIdentifier": "hitachi-energy-5d85a1eeec2f",
+    "winnerJobIdentifier": "hitachi-energy-fc9f11d843e6",
     "winnerCanonical": "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
@@ -99,7 +99,7 @@
     "canton": "AG"
   },
   "AG::it::befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-5d85a1eeec2f",
+    "winnerJobIdentifier": "hitachi-energy-fc9f11d843e6",
     "winnerCanonical": "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
@@ -2169,12 +2169,12 @@
     "canton": "BE"
   },
   "BE::de::experten-fur-den-au-endienst-100-agie-charmilles-sa-biel-bienne": {
-    "winnerJobIdentifier": "agie-charmilles-a4dfdd439b6e",
-    "winnerCanonical": "field-service-expert-100-agie-charmilles-biel-bienne",
+    "winnerJobIdentifier": "agie-charmilles-3fdadae9c7fe",
+    "winnerCanonical": "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::fachperson-gesundheit-40-100-br-medizin-palliativ-care-sro-langenthal": {
@@ -3047,6 +3047,15 @@
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::senior-physician-mobile-acute-treatment-70-100-sro-ag-spital-region-oberaargau-langenthal": {
+    "winnerJobIdentifier": "sro-034fea6cf308",
+    "winnerCanonical": "head-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5333,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -4581,9 +4590,18 @@
     "canton": "FR"
   },
   "FR::fr::analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane": {
+    "winnerJobIdentifier": "richemont-7de2c39fb4b5",
+    "winnerCanonical": "ingenieur-logiciel-cartier-villars-sur-glane",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 1,
+    "canton": "FR"
+  },
+  "FR::fr::analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane": {
     "winnerJobIdentifier": "richemont-dba794aeabe8",
-    "winnerCanonical": "analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
+    "winnerCanonical": "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4667,
     "candidatesCount": 2,
@@ -4716,12 +4734,12 @@
     "canton": "GE"
   },
   "GE::de::boutique-direktor-piaget-geneva": {
-    "winnerJobIdentifier": "richemont-dee3ae117661",
-    "winnerCanonical": "geschaftsfuhrer-piaget-geneva",
-    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-dbf727ee33c1",
+    "winnerCanonical": "geschaftsfuhrer-vacheron-constantin-geneva",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.1429,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::de::commercio-al-dettaglio-e-partner-piaget-plan-les-ouates": {
@@ -4760,6 +4778,15 @@
     "candidatesCount": 1,
     "canton": "GE"
   },
+  "GE::de::geschaftsfuhrer-piaget-geneva": {
+    "winnerJobIdentifier": "richemont-dbf727ee33c1",
+    "winnerCanonical": "geschaftsfuhrer-vacheron-constantin-geneva",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::de::group-employer-branding-and-university-relations-intern-richemont-bellevue": {
     "winnerJobIdentifier": "richemont-e1278ddb6576",
     "winnerCanonical": "mitarbeiter-branding-und-universitatsbeziehungen-intern-richemont-bellevue",
@@ -4770,11 +4797,20 @@
     "canton": "GE"
   },
   "GE::de::group-talent-systems-operations-projektmanager-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-3469df9ae76e",
-    "winnerCanonical": "gruppentalent-system-operations-projektmanager-richemont-bellevue",
-    "decidedAt": "2026-05-18T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-e1ef685635e0",
+    "winnerCanonical": "leiter-des-teams-fur-definition-und-integration-von-fertigungsprozessen-richemont-meyrin",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.0588,
+    "candidatesCount": 1,
+    "canton": "GE"
+  },
+  "GE::de::gruppe-l-d-intern-richemont-bellevue": {
+    "winnerJobIdentifier": "richemont-c4a05a134548",
+    "winnerCanonical": "gruppe-l-d-praktikant-richemont-bellevue",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -4788,11 +4824,20 @@
     "canton": "GE"
   },
   "GE::de::gruppe-l-d-praktikant-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-c4a05a134548",
-    "winnerCanonical": "gruppe-l-d-intern-richemont-bellevue",
-    "decidedAt": "2026-05-18T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-d9664a82260d",
+    "winnerCanonical": "praktikum-retail-partner-retail-excellence-piaget-plan-les-ouates",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0,
+    "candidatesCount": 1,
+    "canton": "GE"
+  },
+  "GE::de::gruppentalent-system-operations-projektmanager-richemont-bellevue": {
+    "winnerJobIdentifier": "richemont-3469df9ae76e",
+    "winnerCanonical": "group-talent-systems-operations-projektmanager-richemont-bellevue",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -4824,12 +4869,12 @@
     "canton": "GE"
   },
   "GE::de::juwelenmanager-europa-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ecfe43d09d63",
-    "winnerCanonical": "schmuckmanager-europa-richemont-meyrin",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "hospitality-praktikant-richemont-meyrin",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::de::kundenmanager-im-gastgewerbe-vacheron-constantin-plan-les-ouates": {
@@ -4860,12 +4905,12 @@
     "canton": "GE"
   },
   "GE::de::praktikum-im-bereich-business-analytics-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-8c91b1bc286f",
-    "winnerCanonical": "business-analytics-praktikant-richemont-bellevue",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-bd8bad4ac0f7",
+    "winnerCanonical": "verkaufer-roger-dubuis-geneva",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::de::responsabile-progetti-sste-valfleurier-buttes": {
@@ -5058,12 +5103,12 @@
     "canton": "GE"
   },
   "GE::fr::jewelry-manager-europe-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ecfe43d09d63",
-    "winnerCanonical": "responsable-bijoux-europe-richemont-meyrin",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "stagiaire-en-hotellerie-richemont-meyrin",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::fr::ospitalita-interno-richemont-meyrin": {
@@ -5121,12 +5166,12 @@
     "canton": "GE"
   },
   "GE::fr::stagiaire-en-analyse-d-affaires-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-8c91b1bc286f",
-    "winnerCanonical": "stagiaire-en-analyse-des-donnees-d-entreprise-richemont-bellevue",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-bd8bad4ac0f7",
+    "winnerCanonical": "sales-associate-richemont-geneva",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.6,
-    "candidatesCount": 2,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::fr::stagiaire-en-gestion-de-projet-richemont-meyrin": {
@@ -5292,11 +5337,11 @@
     "canton": "GE"
   },
   "GE::it::group-l-d-tirocinante-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-c4a05a134548",
-    "winnerCanonical": "gruppo-l-d-intern-richemont-bellevue",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-d9664a82260d",
+    "winnerCanonical": "retail-partner-retail-excellence-tirocinante-piaget-plan-les-ouates",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.0769,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -5391,9 +5436,9 @@
     "canton": "GE"
   },
   "GE::it::ospitalita-interno-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "hospitality-tirocinante-richemont-meyrin",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
@@ -5526,12 +5571,12 @@
     "canton": "GE"
   },
   "GE::it::stage-in-hospitality-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "hospitality-tirocinante-richemont-meyrin",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::it::stage-l-d-di-gruppo-richemont-bellevue": {
@@ -5544,12 +5589,12 @@
     "canton": "GE"
   },
   "GE::it::stagista-hospitality-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "hospitality-tirocinante-richemont-meyrin",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GL::it::data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal-2": {
@@ -5648,6 +5693,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-de10ccc90ef5",
+    "winnerCanonical": "assembly-operator-80-100-w-m-d-jr-5751",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -6182,12 +6236,21 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
-  "GR::de::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+  "GR::de::vendeur-dans-la-nourriture-coop-genossenschaft-felsberg": {
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-schiers-qfd5dq",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur-vnskkx",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -6201,10 +6264,10 @@
     "canton": "GR"
   },
   "GR::de::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-8ij9x8",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-arosa-8ij9x8",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-schiers-qfd5dq",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "GR"
@@ -6332,6 +6395,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0952,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::en::assembly-operator-80-100-w-m-d-jr-5751": {
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-de10ccc90ef5",
+    "winnerCanonical": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -6732,12 +6804,21 @@
     "canton": "GR"
   },
   "GR::en::seller-in-food-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-0l919m",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-vnskkx",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::en::seller-in-food-coop-genossenschaft-felsberg": {
+    "winnerJobIdentifier": "company-9fezrn",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg-9fezrn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::en::senior-doctor-psychiatrische-dienste-graubunden-cazis": {
@@ -6803,12 +6884,21 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
-  "GR::en::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+  "GR::en::vendeur-dans-la-nourriture-coop-genossenschaft-felsberg": {
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-schiers-qfd5dq",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::en::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-vnskkx",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -6822,11 +6912,11 @@
     "canton": "GR"
   },
   "GR::en::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-8ij9x8",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-arosa",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.3,
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-schiers-qfd5dq",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -6963,6 +7053,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::fr::assembly-operator-80-100-w-m-d-jr-5751": {
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-de10ccc90ef5",
+    "winnerCanonical": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::fr::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
@@ -7470,20 +7569,29 @@
     "canton": "GR"
   },
   "GR::fr::vendeur-dans-la-nourriture-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-0l919m",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.875,
     "candidatesCount": 1,
     "canton": "GR"
   },
-  "GR::fr::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+  "GR::fr::vendeur-dans-la-nourriture-coop-genossenschaft-felsberg": {
+    "winnerJobIdentifier": "company-9fezrn",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-9fezrn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.875,
+    "candidatesCount": 3,
+    "canton": "GR"
+  },
+  "GR::fr::verkaufer-in-food-coop-chur-graubunden-0l919m": {
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-vnskkx",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1538,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -7497,11 +7605,11 @@
     "canton": "GR"
   },
   "GR::fr::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-8ij9x8",
-    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-arosa",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.0769,
+    "winnerJobIdentifier": "company-qfd5dq",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-schiers-qfd5dq",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -8378,6 +8486,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::it::psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol": {
+    "winnerJobIdentifier": "cseb-edfd069cce8c",
+    "winnerCanonical": "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2381,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch": {
     "winnerJobIdentifier": "cseb-7213f4a71705",
     "winnerCanonical": "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol",
@@ -8469,11 +8586,29 @@
     "canton": "GR"
   },
   "GR::it::seller-in-food-coop-genossenschaft-chur-62c54a": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.4444,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::seller-in-food-coop-genossenschaft-felsberg": {
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::seller-in-food-coop-genossenschaft-felsberg-339410": {
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -8520,6 +8655,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::staff-in-gastronomia-chasa-puntota-50-center-da-sanadad-engiadina-bassa-scuol": {
+    "winnerJobIdentifier": "cseb-edfd069cce8c",
+    "winnerCanonical": "candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-da-sanadad-engiadina-bassa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2381,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::staff-in-gastronomy-coop-genossenschaft-chur": {
@@ -8649,12 +8793,12 @@
     "canton": "GR"
   },
   "GR::it::vendeur-dans-la-nourriture-coop-genossenschaft-chur-7ee3d2": {
-    "winnerJobIdentifier": "company-l919m",
+    "winnerJobIdentifier": "company-vnskkx",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2727,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::vendeur-dans-la-nourriture-coop-genossenschaft-felsberg": {
@@ -8666,26 +8810,35 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
-  "GR::it::verkaufer-in-food-coop-chur-graubunden": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+  "GR::it::vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-339410": {
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-food-coop-chur-graubunden": {
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-chur-graubunden-0l919m": {
-    "winnerJobIdentifier": "company-l919m",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-chur",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 3,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-chur-graubunden-vnskkx": {
-    "winnerJobIdentifier": "company-l919m",
+    "winnerJobIdentifier": "company-vnskkx",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
@@ -8729,10 +8882,28 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::it::verkaufer-in-food-coop-genossenschaft-chur-0l919m": {
+    "winnerJobIdentifier": "company-vnskkx",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::verkaufer-in-food-coop-genossenschaft-felsberg-9fezrn": {
     "winnerJobIdentifier": "company-8ij9x8",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
     "decidedAt": "2026-05-29T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3": {
+    "winnerJobIdentifier": "company-8ij9x8",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-arosa",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4444,
     "candidatesCount": 2,
@@ -8918,6 +9089,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::en::civil-service-provider-as-a-chef-duty-number-101150-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-136dcbaf6974",
+    "winnerCanonical": "civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4118,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::civilian-service-performer-as-nursing-assistant-surgical-clinic-specification-101140-luzerner-kantonsspital-luks-luzern": {
     "winnerJobIdentifier": "luks-f71f709c0382",
     "winnerCanonical": "civil-servant-as-an-assistant-physician-chirurgical-clinic-luzerner-kantonsspital-luks-luzern",
@@ -8928,12 +9108,12 @@
     "canton": "LU"
   },
   "LU::en::civilian-service-personnel-as-a-jack-of-all-trades-in-the-drawing-office-position-101157-luzerner-kantonsspital-luks": {
-    "winnerJobIdentifier": "luks-e6eac5d96ceb",
-    "winnerCanonical": "civil-service-provider-as-allrounder-drawing-office-obligation-no-101157-luzerner-kantonsspital-luks-luzern",
+    "winnerJobIdentifier": "luks-4f38659d8fdc",
+    "winnerCanonical": "zivildienstleistende-als-allrounder-lager-ts-pflichtenheft-101156-luks-luzern",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.0385,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern": {
@@ -9078,6 +9258,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::fr::fournisseur-de-services-publics-en-qualite-de-chef-service-numero-101150-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-136dcbaf6974",
+    "winnerCanonical": "personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::leitende-arztin-leitender-arzt-intensivmedizin-spz-nottwil": {
@@ -9441,12 +9630,12 @@
     "canton": "LU"
   },
   "LU::it::zivildienstleistende-als-allrounder-zeichnungsburo-pflichtenheft-101157-luks-luzern": {
-    "winnerJobIdentifier": "luks-e6eac5d96ceb",
-    "winnerCanonical": "zivildienstleistende-come-allrounder-zeichnungsburo-pflichtenheft-101157-luzerner-kantonsspital-luks-luzern",
+    "winnerJobIdentifier": "luks-4f38659d8fdc",
+    "winnerCanonical": "prestatore-di-servizio-civile-come-tuttofare-magazzino-ts-incarico-101156-luzerner-kantonsspital-luks-luzern",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 2,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::zivildienstleistende-als-hilfspfleger-anasthesie-und-ambulantes-operationszentrum": {
@@ -9998,6 +10187,96 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::de::praktikum-in-der-pflege-hoch-health-st-gallen": {
     "winnerJobIdentifier": "hoch-health-777ceeefef9b",
     "winnerCanonical": "praktikum-in-der-pflege-hoch-health-wil",
@@ -10229,6 +10508,114 @@
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-40-100-hoch-health-uznach": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-care-specialist-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5455,
     "candidatesCount": 2,
     "canton": "SG"
   },
@@ -10473,6 +10860,114 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-40-100-hoch-health-uznach": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3125,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-specialiste-des-soins-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::fr::retail-salesperson-interdiscount-grigioni": {
@@ -10853,6 +11348,132 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::it::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-40-100-hoch-health-uznach": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-st-gallen-lr7lrp": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-60-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-pflegefachfrau-mann-80-100-hoch-health-wil": {
+    "winnerJobIdentifier": "hoch-health-da7daea976f6",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::dipl-specialista-di-cura-40-100-hoch-health-ostschweiz-uznach": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-uznach": {
+    "winnerJobIdentifier": "hoch-health-6ea9c257469a",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::retail-salesperson-interdiscount-grigioni": {
     "winnerJobIdentifier": "company-1ceqqh",
     "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
@@ -11204,6 +11825,15 @@
     "candidatesCount": 2,
     "canton": "SO"
   },
+  "SO::de::mpa-poliklinik-orthopadie-m-w-d-soh-solothurner-spitaeler-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::de::nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch": {
     "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
     "winnerCanonical": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten",
@@ -11394,12 +12024,12 @@
     "canton": "SO"
   },
   "SO::en::senior-consultant-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "solothurner-spitaeler-ec7dc4465e18",
-    "winnerCanonical": "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-b0488e",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-5fcc4539ab87",
+    "winnerCanonical": "volunteer-staff-m-f-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::en::senior-consultant-w-m-d-solothurner-spitaler-soh-olten": {
@@ -11421,12 +12051,12 @@
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-olten": {
-    "winnerJobIdentifier": "solothurner-spitaeler-31a48883518e",
-    "winnerCanonical": "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-7fe07452a5e1",
+    "winnerCanonical": "conseiller-principal-m-d-solothurner-spitaler-soh-olten",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 3,
+    "score": 0.6,
+    "candidatesCount": 2,
     "canton": "SO"
   },
   "SO::fr::consultant-principal-m-j-solothurner-spitaler-soh-solothurn": {
@@ -11498,6 +12128,15 @@
     "decidedAt": "2026-05-23T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::fr::projektleiter-m-m-j-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
+    "winnerCanonical": "projektleiter-m-m-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8571,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -11615,6 +12254,15 @@
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::it::nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-0eb1abbd40da",
+    "winnerCanonical": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -11907,12 +12555,12 @@
     "canton": "TG"
   },
   "TG::de::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 1,
-    "candidatesCount": 2,
+    "score": 0.5625,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen": {
@@ -11961,18 +12609,18 @@
     "canton": "TG"
   },
   "TG::de::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.1,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 2,
@@ -11988,12 +12636,12 @@
     "canton": "TG"
   },
   "TG::de::dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.0952,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -12006,12 +12654,12 @@
     "canton": "TG"
   },
   "TG::de::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.35,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -12059,10 +12707,19 @@
     "candidatesCount": 3,
     "canton": "TG"
   },
-  "TG::de::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+  "TG::de::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
     "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0625,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::de::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0625,
     "candidatesCount": 2,
@@ -12132,12 +12789,12 @@
     "canton": "TG"
   },
   "TG::de::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.05,
-    "candidatesCount": 2,
+    "score": 0,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47": {
@@ -12168,12 +12825,12 @@
     "canton": "TG"
   },
   "TG::de::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2174,
-    "candidatesCount": 2,
+    "score": 0.1739,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -12186,12 +12843,12 @@
     "canton": "TG"
   },
   "TG::de::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2,
-    "candidatesCount": 2,
+    "score": 0.16,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -12258,21 +12915,21 @@
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3182,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.2083,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027": {
@@ -12384,20 +13041,20 @@
     "canton": "TG"
   },
   "TG::en::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "training-as-a-specialist-nurse-hf-4-years-part-time-bfgs-starting-january-2027-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.1739,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2308,
+    "score": 0.2143,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -12411,12 +13068,12 @@
     "canton": "TG"
   },
   "TG::en::dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "training-as-a-specialist-nurse-hf-4-years-part-time-bfgs-starting-january-2027-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -12429,12 +13086,12 @@
     "canton": "TG"
   },
   "TG::en::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9333,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -12507,6 +13164,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 3,
+    "canton": "TG"
+  },
+  "TG::en::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "training-as-a-specialist-nurse-hf-4-years-part-time-bfgs-starting-january-2027-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2083,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
@@ -12600,12 +13266,12 @@
     "canton": "TG"
   },
   "TG::en::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2105,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47": {
@@ -12627,21 +13293,21 @@
     "canton": "TG"
   },
   "TG::en::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2609,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3478,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -12654,12 +13320,12 @@
     "canton": "TG"
   },
   "TG::en::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3913,
-    "candidatesCount": 2,
+    "score": 0.375,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -12861,20 +13527,20 @@
     "canton": "TG"
   },
   "TG::fr::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2353,
-    "candidatesCount": 2,
+    "score": 0.12,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2222,
+    "score": 0.2143,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -12906,12 +13572,12 @@
     "canton": "TG"
   },
   "TG::fr::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3913,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -12986,12 +13652,21 @@
     "candidatesCount": 3,
     "canton": "TG"
   },
-  "TG::fr::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+  "TG::fr::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9167,
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1538,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13077,12 +13752,12 @@
     "canton": "TG"
   },
   "TG::fr::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "score": 0.1304,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen-7b2d47": {
@@ -13113,12 +13788,12 @@
     "canton": "TG"
   },
   "TG::fr::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.32,
-    "candidatesCount": 2,
+    "score": 0.2692,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -13131,12 +13806,12 @@
     "canton": "TG"
   },
   "TG::fr::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9444,
-    "candidatesCount": 2,
+    "score": 0.4583,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -13221,20 +13896,20 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.381,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2273,
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13248,12 +13923,12 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2273,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-februar-2027": {
@@ -13275,12 +13950,12 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.1818,
-    "candidatesCount": 2,
+    "score": 0.16,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-": {
@@ -13392,11 +14067,11 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-25T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2857,
+    "score": 0.5455,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13446,29 +14121,29 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
-    "winnerJobIdentifier": "spital-thurgau-63045915dc5f",
-    "winnerCanonical": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.4615,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.125,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.9,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13482,12 +14157,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.12,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -13500,12 +14175,12 @@
     "canton": "TG"
   },
   "TG::it::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.3478,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -13635,29 +14310,29 @@
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9091,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-25T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9091,
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2353,
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13806,12 +14481,12 @@
     "canton": "TG"
   },
   "TG::it::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 2,
+    "score": 0.1905,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -13842,21 +14517,21 @@
     "canton": "TG"
   },
   "TG::it::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.4762,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9333,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
@@ -13869,12 +14544,12 @@
     "canton": "TG"
   },
   "TG::it::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3478,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
@@ -13974,6 +14649,24 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 3,
+    "canton": "TI"
+  },
+  "TI::de::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::de::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -14246,6 +14939,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::fisioterapista-diplomata-o-eoc-ente-ospedaliero-cantonale-locarno-uillzl": {
     "winnerJobIdentifier": "company-uillzl",
     "winnerCanonical": "diplomierte-r-physiotherapeut-in-eoc-ente-ospedaliero-cantonale-locarno",
@@ -14400,29 +15111,29 @@
     "canton": "TI"
   },
   "TI::de::karriere-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "karriere-eoc-ente-ospedaliero-cantonale-novaggio-c88528",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "karriere-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil172",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
+    "winnerJobIdentifier": "company-uikzov",
+    "winnerCanonical": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.7143,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil17y",
-    "winnerCanonical": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.4167,
+    "score": 0.3077,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -14445,12 +15156,12 @@
     "canton": "TI"
   },
   "TI::de::krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil17y",
-    "winnerCanonical": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-novaggio-0cf771",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "krankenschwestern-im-allgemeinen-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.7778,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::kundenberaterin-basis-bern-m-w-d-banca-cler-bellinzona": {
@@ -14543,6 +15254,24 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::de::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d": {
     "winnerJobIdentifier": "company-uikyun",
     "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
@@ -14576,6 +15305,24 @@
     "decidedAt": "2026-05-02T08:37:48.781Z",
     "lastSeenAt": "2026-05-20T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -14616,21 +15363,39 @@
     "canton": "TI"
   },
   "TI::de::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "karriere-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil172",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.5,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::de::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "mitarbeiter-in-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::de::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
@@ -14930,6 +15695,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
     "winnerJobIdentifier": "company-uikzkn",
     "winnerCanonical": "career-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -14967,11 +15750,11 @@
     "canton": "TI"
   },
   "TI::en::assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "career-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "career-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -15075,12 +15858,12 @@
     "canton": "TI"
   },
   "TI::en::career-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "career-eoc-ente-ospedaliero-cantonale-novaggio-c88528",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "career-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::chauffeur-de-camion-heineken-switzerland-content-width-device-width": {
@@ -15180,6 +15963,24 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::en::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::en::full-stack-developer-lwp-ledermann-wieting-partners-lugano": {
@@ -15398,6 +16199,24 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::en::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8889,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::medico-assistente-anestesia-eoc-ente-ospedaliero-cantonale-lugano-uilm18": {
     "winnerJobIdentifier": "company-uilm18",
     "winnerCanonical": "medical-assistant-anesthesia-eoc-ente-ospedaliero-cantonale-lugano",
@@ -15479,6 +16298,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-49a88eb1478c",
     "winnerCanonical": "sap-developer-100-agie-charmilles-biel-bienne",
@@ -15548,6 +16385,24 @@
     "decidedAt": "2026-05-11T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.381,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "cooperator-restaurant-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -15866,6 +16721,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::assistant-d-etude-medicale-service-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-mendrisio": {
     "winnerJobIdentifier": "company-uikzkk",
     "winnerCanonical": "assistant-medical-service-infirmier-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -15876,11 +16749,11 @@
     "canton": "TI"
   },
   "TI::fr::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.4,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -16020,12 +16893,12 @@
     "canton": "TI"
   },
   "TI::fr::carriere-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n57",
-    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-novaggio-c88528",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::chauffeur-de-camion-heineken-switzerland-content-width-device-width": {
@@ -16136,6 +17009,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::full-stack-developpeur-lwp-ledermann-wieting-partners-lugano": {
     "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
     "winnerCanonical": "uno-una-paralegal-o-legal-segretary-lwp-ledermann-wieting-partners-lugano",
@@ -16200,11 +17091,11 @@
     "canton": "TI"
   },
   "TI::fr::infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil17y",
-    "winnerCanonical": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3846,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -16218,12 +17109,12 @@
     "canton": "TI"
   },
   "TI::fr::infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-uil17y",
-    "winnerCanonical": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-0cf771",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.7778,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::ingegnere-di-progetto-project-manager-lombardi-group-giubiasco": {
@@ -16406,6 +17297,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d": {
     "winnerJobIdentifier": "company-uikyun",
     "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
@@ -16447,6 +17356,24 @@
     "winnerCanonical": "candidat-e-en-medecine-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-02T08:37:48.781Z",
     "lastSeenAt": "2026-05-20T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4167,
     "candidatesCount": 2,
     "canton": "TI"
@@ -16514,6 +17441,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::physiotherapeute-eoc-ente-ospedaliero-cantonale-locarno": {
     "winnerJobIdentifier": "company-uillzl",
     "winnerCanonical": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-locarno",
@@ -16530,6 +17466,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::fr::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::fr::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
@@ -16791,6 +17736,24 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.9091,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::it::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::it::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -17126,6 +18089,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::fisioterapista-diplomata-o-eoc-ente-ospedaliero-cantonale-locarno": {
     "winnerJobIdentifier": "company-uikzn4",
     "winnerCanonical": "levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-locarno",
@@ -17414,6 +18395,24 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::it::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano": {
     "winnerJobIdentifier": "company-uilm0d",
     "winnerCanonical": "medico-assistente-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -17504,6 +18503,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-49a88eb1478c",
     "winnerCanonical": "sap-developer-100-agie-charmilles-biel-bienne",
@@ -17555,6 +18572,24 @@
     "decidedAt": "2026-05-11T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n45",
+    "winnerCanonical": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4167,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -19367,6 +20402,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::oberarztin-oberarzt-80-100-clienia-ag-zurich": {
     "winnerJobIdentifier": "clienia-ag-92551d365e10",
     "winnerCanonical": "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon",
@@ -20592,12 +21636,12 @@
     "canton": "ZH"
   },
   "ZH::fr::psychotherapeute-h-f-d-80-forel-klinik-ellikon-an-der-thur": {
-    "winnerJobIdentifier": "forel-klinik-77e386636f17",
-    "winnerCanonical": "psychotherapie-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+    "winnerJobIdentifier": "forel-klinik-e4156f5082f9",
+    "winnerCanonical": "ergotherapeut-in-m-w-d-50-forel-klinik-ellikon-an-der-thur",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.5333,
-    "candidatesCount": 2,
+    "score": 0.4375,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
@@ -21519,12 +22563,12 @@
     "canton": "ZH"
   },
   "ZH::it::psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur": {
-    "winnerJobIdentifier": "forel-klinik-77e386636f17",
-    "winnerCanonical": "psicotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+    "winnerJobIdentifier": "forel-klinik-e4156f5082f9",
+    "winnerCanonical": "terapista-occupazionale-m-f-d-50-forel-klinik-ellikon-an-der-thur",
     "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6429,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur": {
@@ -21546,11 +22590,11 @@
     "canton": "ZH"
   },
   "ZH::it::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich": {
-    "winnerJobIdentifier": "pwc-0054671bedc4",
-    "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zurich",
-    "decidedAt": "2026-05-17T00:00:00.000Z",
-    "lastSeenAt": "2026-05-23T00:00:00.000Z",
-    "score": 0.1364,
+    "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
+    "winnerCanonical": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9091,
     "candidatesCount": 1,
     "canton": "ZH"
   },

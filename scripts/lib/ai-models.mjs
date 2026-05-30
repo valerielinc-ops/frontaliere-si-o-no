@@ -980,7 +980,8 @@ function _decayScore(score, lastUsedISO) {
  */
 const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
 
-const DISCOVERY_PROVIDERS = Object.freeze([
+// Exported for unit testing provider `pick`/alias matching (issue #892).
+export const DISCOVERY_PROVIDERS = Object.freeze([
   {
     name: 'OpenRouter',
     prefix: 'openrouter/',
@@ -1131,6 +1132,46 @@ let _discoveryDone = false;
 const _dynamicModels = [];
 
 /**
+ * Build the set of bare model ids a provider currently offers from its live
+ * listing. The canonical id comes from `cfg.pick(m)`; in addition, when a model
+ * passes the filter we also register any aliases the provider attaches to it.
+ *
+ * Why aliases matter for markStale (issue #892): Mistral's `/v1/models` exposes
+ * `-latest` tags (e.g. `codestral-latest`, `ministral-8b-latest`,
+ * `mistral-medium-latest`) as entries in an `aliases[]` array on a versioned
+ * model (e.g. `{ id: 'mistral-small-2506', aliases: ['codestral-latest'] }`),
+ * not as top-level `m.id`. Our static chain stores those `-latest` ids
+ * verbatim. If only `m.id` were collected, the `-latest` chain entries would be
+ * absent from offeredIds and the markStale loop would pre-exhaust them for the
+ * whole UTC day even though they are live — shortening the chain and degrading
+ * generation availability. Collecting aliases keeps the match robust.
+ *
+ * Groq/Cerebras echo their ids verbatim as `m.id` (no alias layer), so for those
+ * the alias pass is a harmless no-op (`m.aliases` undefined).
+ *
+ * Aliases are only registered for models that already pass `cfg.pick` — an alias
+ * never resurrects a model the filter rejected (non-chat, too small, inactive).
+ * Exported for unit testing the id-match cases.
+ */
+export function collectOfferedIds(cfg, list) {
+  const offeredIds = new Set();
+  for (const m of list) {
+    const id = cfg.pick(m);
+    if (!id) continue;
+    offeredIds.add(id);
+    // Register aliases (Mistral `-latest` tags) so a live model surfaced only
+    // via aliases[] isn't treated as decommissioned by the markStale loop.
+    const aliases = m?.aliases;
+    if (Array.isArray(aliases)) {
+      for (const alias of aliases) {
+        if (typeof alias === 'string' && alias) offeredIds.add(alias);
+      }
+    }
+  }
+  return offeredIds;
+}
+
+/**
  * Discover usable models for a single provider config and merge them into
  * DEFAULT_CHAIN. Returns { added, stale }. Throws on network/API error so the
  * caller can isolate and log per-provider.
@@ -1167,12 +1208,12 @@ async function _discoverProvider(cfg) {
       : Array.isArray(data?.models) ? data.models
       : []);
 
-  // Bare IDs the provider currently offers that pass the chat/size filter.
-  const offeredIds = new Set();
-  for (const m of list) {
-    const id = cfg.pick(m);
-    if (id) offeredIds.add(id);
-  }
+  // Bare IDs the provider currently offers that pass the chat/size filter,
+  // including any `-latest`-style aliases the listing attaches to a versioned
+  // entry (Mistral). Without this, a usable model exposed only via `aliases[]`
+  // (e.g. `codestral-latest` on `id: mistral-small-2506`) is absent from
+  // offeredIds and wrongly pre-exhausted by the markStale loop below.
+  const offeredIds = collectOfferedIds(cfg, list);
 
   // Existing chain entries for this provider (prefix stripped to bare id).
   const prefixLen = cfg.prefix.length;

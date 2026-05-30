@@ -74,6 +74,7 @@ jobs:
           echo "Review tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
 
       - name: Run Claude review
+        id: claude_review
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -123,3 +124,10 @@ jobs:
             - 🔴 aperto → NON scrivere `## LGTM`.
             - ❓ funnel-critical non escalato (né 🔴 né follow-up issue) → NON scrivere `## LGTM`.
             - Incerto → `❓ q:`, no speculazione.
+
+      - name: Claude usage metrics
+        if: always()
+        # Exact token/cost for this run (replaces estimates). Writes a table to
+        # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
+        # Best-effort: never fails the job.
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "pr-review-loop"

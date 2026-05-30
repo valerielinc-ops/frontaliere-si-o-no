@@ -76,6 +76,7 @@ jobs:
           git config user.email "valerielinc@gmail.com"
 
       - name: Run Claude fix
+        id: claude_review
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -130,3 +131,10 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.
             - Se il fix richiede credenziali/segreti non disponibili in CI → documenta in commento e TERMINA senza PR.
+
+      - name: Claude usage metrics
+        if: always()
+        # Exact token/cost for this run (replaces estimates). Writes a table to
+        # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
+        # Best-effort: never fails the job.
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"

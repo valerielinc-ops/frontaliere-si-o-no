@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-05-30T00:25:57.190Z",
+  "assembledAt": "2026-05-30T12:18:32.703Z",
   "jobs": [
     {
       "id": "schulthess-klinik-0ac4796b7a05",
@@ -33,7 +33,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-einkauf/15f353a6-e164-430a-9fe0-be45be1cd718",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.085Z",
+      "crawledAt": "2026-05-30T12:18:30.596Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-op-und-bettendisposition/52da4ff8-cb55-4de1-9028-584cc163f4fc",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.082Z",
+      "crawledAt": "2026-05-30T12:18:30.593Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/chefarztsekretaerin-chefarztsekretaer-stv-praxismanagerin-stv-praxismanager-handchirurgie/4dc150de-df79-40a9-a0ae-b1a862d908df",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.080Z",
+      "crawledAt": "2026-05-30T12:18:30.591Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -310,7 +310,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/teamleitung-med-massage/30e07e1f-96db-4c77-b05c-d029d3bc5084",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.078Z",
+      "crawledAt": "2026-05-30T12:18:30.590Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -386,7 +386,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-masseurin-med-masseur/8d52fd6d-3a13-4681-a0ad-df3bb4054fef",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.076Z",
+      "crawledAt": "2026-05-30T12:18:30.588Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,7 +464,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/disponentin-disponent-fusschirurgie/7b86763b-0a3f-4ef3-bf89-81fc2488da24",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.074Z",
+      "crawledAt": "2026-05-30T12:18:30.585Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -482,13 +482,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "traduzione-schulthess-klinik-lengghalde-2-zurich",
-        "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich"
+        "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
+        "traduzione-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "traduzione-schulthess-klinik-lengghalde-2-zurich",
           "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
+          "traduzione-schulthess-klinik-lengghalde-2-zurich",
           "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
@@ -538,7 +538,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-hueft-und-kniechirurgie/671cc735-c5a4-4d1d-b569-360e97824983",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.073Z",
+      "crawledAt": "2026-05-30T12:18:30.583Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -564,77 +564,6 @@
         ]
       },
       "firstSeenAt": "2026-05-22T23:26:21.569Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "schulthess-klinik-417393578214",
-      "slug": "abteilungsleitung-per-la-bettenstation-schulthess-klinik-lengghalde-2-zurich",
-      "slugByLocale": {
-        "it": "abteilungsleitung-per-la-bettenstation-schulthess-klinik-lengghalde-2-zurich",
-        "en": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich",
-        "de": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
-      },
-      "company": "Schulthess Klinik",
-      "companyKey": "schulthess-klinik",
-      "companyDomain": "schulthess-klinik.ch",
-      "title": "Abteilungsleitung für die Bettenstation",
-      "titleByLocale": {
-        "it": "Abteilungsleitung per la Bettenstation",
-        "en": "Abteilungsleitung für die Bettenstation",
-        "de": "Abteilungsleitung für die Bettenstation",
-        "fr": "Abteilungsleitung für die Bettenstation"
-      },
-      "description": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln\n\nAnforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-      "descriptionByLocale": {
-        "it": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "en": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
-      },
-      "needsRetranslation": true,
-      "location": "Lengghalde 2, Zürich",
-      "canton": "ZH",
-      "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-fuer-die-bettenstation/002c7f46-5932-4f7e-8df2-dc6c993c6e40",
-      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.071Z",
-      "addressLocality": "Lengghalde 2, Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1944",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-05-27T13:46:43.430Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -680,7 +609,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/404b647e-b231-4701-98d9-a2b4ec0da839",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.067Z",
+      "crawledAt": "2026-05-30T12:18:30.580Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -706,6 +635,77 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:46:43.452Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "schulthess-klinik-417393578214",
+      "slug": "abteilungsleitung-per-la-bettenstation-schulthess-klinik-lengghalde-2-zurich",
+      "slugByLocale": {
+        "it": "abteilungsleitung-per-la-bettenstation-schulthess-klinik-lengghalde-2-zurich",
+        "en": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich",
+        "de": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich",
+        "fr": "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
+      },
+      "company": "Schulthess Klinik",
+      "companyKey": "schulthess-klinik",
+      "companyDomain": "schulthess-klinik.ch",
+      "title": "Abteilungsleitung für die Bettenstation",
+      "titleByLocale": {
+        "it": "Abteilungsleitung per la Bettenstation",
+        "en": "Abteilungsleitung für die Bettenstation",
+        "de": "Abteilungsleitung für die Bettenstation",
+        "fr": "Abteilungsleitung für die Bettenstation"
+      },
+      "description": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln\n\nAnforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern\n\nWir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n\n• ZVV-BonusPass / ZVV-BonusPass Flex\n\n• Gleitzeit im Früh-, Spät- und Nachtdienst\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+      "descriptionByLocale": {
+        "it": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "en": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Aufgaben:\n• Verantwortung übernehmen: Du leitest die Abteilung eigenständig und sicher, indem du die Pflegequalität gemäss unserem Leitbild sicherstellst\n• Effizienter Ressourceneinsatz: Du achtest auf den wirtschaftlichen Einsatz von Mitarbeitenden und gewährleistest eine optimale Einsatzplanung\n• Qualitätssicherung: Du sorgst dafür, dass der pflegerische Leistungsauftrag in höchster Qualität erfüllt wird, mit einem besonderen Fokus auf Hygiene und Arbeitsprozesse\n• Förderung deines Teams: Du gehst aktiv auf deine Mitarbeitenden zu, unterstützt ihre berufliche Weiterentwicklung und führst regelmässige Qualifikations- und Fördergespräche\n• Interdisziplinäre Zusammenarbeit: Du arbeitest eng mit den behandelnden Ärzten, dem OP-Team und anderen Abteilungsleitungen zusammen, um die bestmögliche Versorgung der Patientinnen und Patienten zu gewährleisten\n• Optimierung der Abläufe: Du kooperierst eng mit der Leitung der Bettenstationen, um die organisatorischen Abläufe kontinuierlich zu verbessern und den Bereich weiterzuentwickeln Anforderungen:\n• Erfahrung: Du bringst fundierte Kenntnisse im medizintechnischen Pflegebereich eines Akutspitals mit\n• Führungskompetenz: Du bist eine empathische, durchsetzungsstarke Führungspersönlichkeit, die das Team motiviert und bei der täglichen Arbeit unterstützt\n• Organisationstalent: Du behältst auch in stressigen Situationen den Überblick und organisierst deinen Bereich effizient und zielgerichtet\n• Teamgeist: Du förderst die interdisziplinäre Zusammenarbeit und stärkst die Initiative sowie die Eigenverantwortung deiner Mitarbeitenden\n• Kommunikationsstärke: Deine ausgezeichneten kommunikativen Fähigkeiten tragen zu einem positiven Betriebsklima bei und erleichtern die Zusammenarbeit\n• Prozessoptimierung: Du hast Freude daran, Abläufe und Strukturen kontinuierlich zu hinterfragen und aktiv zu verbessern Wir bieten:\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Bezahlte oder kompensierbare Umkleidezeit (15 Min./Tag / 6.5 Freitage/Jahr)\n• 40 Stundenwoche / 12.5 zusätzlich planbare Freitage pro Jahr\n• ZVV-BonusPass / ZVV-BonusPass Flex\n• Gleitzeit im Früh-, Spät- und Nachtdienst Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+      },
+      "needsRetranslation": true,
+      "location": "Lengghalde 2, Zürich",
+      "canton": "ZH",
+      "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-fuer-die-bettenstation/002c7f46-5932-4f7e-8df2-dc6c993c6e40",
+      "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-30T12:18:30.578Z",
+      "addressLocality": "Lengghalde 2, Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-27",
+      "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1944",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-fur-die-bettenstation-schulthess-klinik-lengghalde-2-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-05-27T13:46:43.430Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -751,7 +751,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-kinder-und-jugendorthopaedie/d7f2dc70-c05f-46a4-900a-ddfe35fafd37",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:25:55.046Z",
+      "crawledAt": "2026-05-30T12:18:30.557Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

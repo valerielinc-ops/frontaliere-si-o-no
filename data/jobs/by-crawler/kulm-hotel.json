@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-05-29T23:40:41.619Z",
+  "assembledAt": "2026-05-30T11:33:57.421Z",
   "jobs": [
     {
       "id": "kulm-hotel-4343b98f6093",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/578",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:39.528Z",
+      "crawledAt": "2026-05-30T11:33:55.290Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -102,9 +102,9 @@
     },
     {
       "id": "kulm-hotel-c30b1e229ae1",
-      "slug": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
+      "slug": "partecipante-in-camera-zimmerdame-m-w-d-kulm-hotel-st-moritz-st-254b75",
       "slugByLocale": {
-        "it": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
+        "it": "partecipante-in-camera-zimmerdame-m-w-d-kulm-hotel-st-moritz-st-254b75",
         "en": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
         "de": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
         "fr": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
@@ -114,7 +114,7 @@
       "companyDomain": "kulm.com",
       "title": "Room Attendant / Zimmerdame (m/w/d)",
       "titleByLocale": {
-        "it": "Room Attendant / Zimmerdame (m/w/d)",
+        "it": "Partecipante in camera / Zimmerdame (m/w/d)",
         "en": "Room Attendant / Zimmerdame (m/w/d)",
         "de": "Room Attendant / Zimmerdame (m/w/d)",
         "fr": "Room Attendant / Zimmerdame (m/w/d)"
@@ -131,7 +131,7 @@
       "url": "https://careers.kulm.com/en/vacancies/634",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:39.359Z",
+      "crawledAt": "2026-05-30T11:33:55.089Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -151,6 +151,14 @@
       "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
+      "previousSlugs": [
+        "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:05:07.560Z",
       "salaryMin": 49500,
@@ -198,7 +206,7 @@
       "url": "https://careers.kulm.com/en/vacancies/602",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:38.395Z",
+      "crawledAt": "2026-05-30T11:33:54.112Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -274,7 +282,7 @@
       "url": "https://careers.kulm.com/en/vacancies/663",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:37.428Z",
+      "crawledAt": "2026-05-30T11:33:53.137Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -373,7 +381,7 @@
       "url": "https://careers.kulm.com/en/vacancies/655",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:36.459Z",
+      "crawledAt": "2026-05-30T11:33:52.160Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -452,7 +460,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:35.489Z",
+      "crawledAt": "2026-05-30T11:33:51.184Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -519,7 +527,7 @@
       "url": "https://careers.kulm.com/en/vacancies/651",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:34.521Z",
+      "crawledAt": "2026-05-30T11:33:50.212Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -601,7 +609,7 @@
       "url": "https://careers.kulm.com/en/vacancies/650",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:33.555Z",
+      "crawledAt": "2026-05-30T11:33:49.240Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -717,7 +725,7 @@
       "url": "https://careers.kulm.com/en/vacancies/677",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:32.590Z",
+      "crawledAt": "2026-05-30T11:33:48.260Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -757,34 +765,34 @@
       "id": "kulm-hotel-5c67d8ff269e",
       "slug": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz",
       "slugByLocale": {
-        "fr": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz",
         "it": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz",
         "en": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz",
-        "de": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz"
+        "de": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz",
+        "fr": "assistant-restaurant-manager-chesa-al-parc-m-w-d-kulm-hotel-st-moritz"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
       "companyDomain": "kulm.com",
       "title": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)",
       "titleByLocale": {
-        "fr": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)",
-        "en": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)",
         "it": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)",
-        "de": "Assistent Restaurant Manager – Chesa al Parc (m/w/d)"
+        "en": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)",
+        "de": "Assistent Restaurant Manager – Chesa al Parc (m/w/d)",
+        "fr": "Assistant Restaurant Manager – Chesa al Parc (m/w/d)"
       },
       "description": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
       "descriptionByLocale": {
-        "fr": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "en": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "it": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
-        "de": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+        "it": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10. People at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "en": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10. People at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10. People at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "fr": "Assistant Restaurant Manager – Chesa al Parc (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-06-10. People at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: Chesa al Parc is the culinary oasis for hotel guests, locals, and sports enthusiasts alike. Whether on our spacious sun terrace in summer, by the ice rink in winter, or inside our cozy restaurant, we serve Swiss specialties and international classics at the highest level. As Assistant Restaurant Manager, you are not only the operational backbone of the restaurant, but above all the face of the venue. You live and breathe hospitality and create memorable experiences our guests will cherish long after their visit.Your Responsabilities:\n• Passion for Service: You manage your own station within our upscale à la carte service and anticipate the wishes of our discerning guests before they are even expressed.\n• Leadership: In the absence of the Restaurant Manager, you confidently take charge of operations, coordinate daily service flow, and act as a reliable point of reference for our international team.\n• Quality Assurance: You ensure our high service standards are consistently maintained and support smooth, harmonious cooperation between kitchen and service teams, both front and back of house.\n• Training & Team Spirit: You assist with onboarding and training new team members while leading by example with a positive, hands-on attitude that motivates the entire team. | This is you:\n• Qualifications: Completed training in hospitality, restaurant service, or a comparable qualification.\n• Experience: At least 5 years of solid experience in upscale à la carte service. Initial leadership experience (e.g. as Shift Leader or Chef de Rang with responsibilities) is considered a strong advantage.\n• Languages: Fluent German and good English skills are essential for daily guest interaction. Any additional language, especially Italian, is a valuable asset.\n• Personality: You are highly resilient, remain calm and organized even during busy service periods, and maintain a clear overview at all times.\n• Mindset: You have a natural, elegant, and warm presence. For you, hospitality is not just a job, but a true passion. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
       },
       "location": "St",
       "canton": "GR",
       "url": "https://careers.kulm.com/en/vacancies/676",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:31.627Z",
+      "crawledAt": "2026-05-30T11:33:47.286Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -801,12 +809,11 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://careers.kulm.com/en/vacancies/676",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "department": "Kulm Hotel",
       "pensum": "100%",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-29T23:40:31.627Z",
       "salaryMin": 59500,
       "salaryMax": 81500,
       "baseSalary": {
@@ -819,7 +826,6 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T23:40:31.627Z",
       "retranslationAttempts": 1
     },
     {
@@ -853,7 +859,7 @@
       "url": "https://careers.kulm.com/en/vacancies/665",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:30.656Z",
+      "crawledAt": "2026-05-30T11:33:46.312Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -961,7 +967,7 @@
       "url": "https://careers.kulm.com/en/vacancies/675",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T23:40:29.685Z",
+      "crawledAt": "2026-05-30T11:33:45.318Z",
       "addressLocality": "St",
       "postalCode": "7500",
       "addressRegion": "GR",

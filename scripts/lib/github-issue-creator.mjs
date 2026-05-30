@@ -76,17 +76,16 @@ function ensureLabelsExist(labels) {
   }
 }
 
-function findOpenIssueByTitlePrefix(titlePrefix) {
-  // gh issue list --search title:"prefix" --state open
+function searchIssuesByTitlePrefix(titlePrefix, state) {
   const out = gh([
     'issue', 'list',
-    '--state', 'open',
+    '--state', state,
     '--search', `in:title "${titlePrefix.replace(/"/g, '\\"')}"`,
-    '--limit', '5',
-    '--json', 'number,title,url',
+    '--limit', '10',
+    '--json', 'number,title,url,closedAt,state',
     ...repoFlag(),
   ], { allowFailure: true });
-  if (!out) return null;
+  if (!out) return [];
   try {
     const issues = JSON.parse(out);
     // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
@@ -94,11 +93,32 @@ function findOpenIssueByTitlePrefix(titlePrefix) {
     // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
     // entrambi comparire. Filtra al match esatto di prefisso → niente commento
     // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-    const exact = issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
-    return exact[0] || null;
+    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
   } catch {
-    return null;
+    return [];
   }
+}
+
+function findOpenIssueByTitlePrefix(titlePrefix) {
+  return searchIssuesByTitlePrefix(titlePrefix, 'open')[0] || null;
+}
+
+/**
+ * Find a recently-closed issue with the same stable title prefix, closed within
+ * `withinHours`. Collapses FLAPPING transient failures (fail → auto-close on
+ * green → fail again) onto a single canonical issue instead of spawning a new
+ * one every deploy. This was the residual churn behind #928/#931/#937/#941: the
+ * post-deploy validation titles were already stable, but the dedup matched only
+ * OPEN issues, so each per-deploy transient that had been closed reopened as a
+ * brand-new issue. Returns the most-recently-closed matching issue, or null.
+ */
+function findRecentlyClosedIssueByTitlePrefix(titlePrefix, withinHours) {
+  if (!withinHours || withinHours <= 0) return null;
+  const cutoff = Date.now() - withinHours * 3600 * 1000;
+  const matches = searchIssuesByTitlePrefix(titlePrefix, 'closed')
+    .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
+    .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
+  return matches[0] || null;
 }
 
 /**
@@ -110,6 +130,12 @@ export async function createGithubIssue({
   priority = 3,
   labels = [],
   workflow,
+  // When set (hours), a recently-closed issue with the same stable title prefix
+  // is REOPENED + commented instead of opening a fresh duplicate. Use for
+  // transient per-run reporters (post-deploy validation) where the issue may
+  // have been auto-closed on a green run and then flaps red again. CLI:
+  // --reopen-within-hours N. Default 0 = disabled (legacy behaviour preserved).
+  reopenWithinHours = 0,
   // `project` accepted for backward compatibility but not used (GH issues
   // don't have a free-form project field comparable to Linear's; the
   // workflow name is preserved in the body for grouping).
@@ -151,6 +177,31 @@ export async function createGithubIssue({
     } catch (err) {
       console.error(`[github-issue-creator] Failed to comment on #${existing.number}: ${err.message}`);
       return existing;
+    }
+  }
+
+  // No OPEN duplicate. For transient reporters, check whether the SAME canonical
+  // issue was recently closed (e.g. auto-closed on a green deploy) and is now
+  // flapping red again. Reopen + comment instead of minting a new issue — this
+  // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
+  if (reopenWithinHours > 0) {
+    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(titlePrefix, reopenWithinHours);
+    if (recentlyClosed) {
+      const reopened = gh(
+        ['issue', 'reopen', String(recentlyClosed.number), ...repoFlag()],
+        { allowFailure: true },
+      );
+      if (reopened !== null) {
+        gh([
+          'issue', 'comment', String(recentlyClosed.number),
+          '--body', `🔁 Reopened — same failure recurred within ${reopenWithinHours}h of being closed.\n\n${body}`,
+          ...repoFlag(),
+        ], { allowFailure: true });
+        console.log(`[github-issue-creator] Reopened #${recentlyClosed.number} — ${recentlyClosed.title}`);
+        return { number: recentlyClosed.number, title: recentlyClosed.title, url: recentlyClosed.url };
+      }
+      // Reopen failed (e.g. closed-as-duplicate locked) → fall through to create.
+      console.error(`[github-issue-creator] Could not reopen #${recentlyClosed.number}; creating fresh issue.`);
     }
   }
 
@@ -203,7 +254,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N]');
     process.exit(1);
   }
 
@@ -217,6 +268,7 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
       return many.length > 0 ? many : (single ? [single] : ['bug']);
     })(),
     workflow: get('--workflow'),
+    reopenWithinHours: Number(get('--reopen-within-hours') || 0),
   }).then(() => {
     // Why: this CLI is a best-effort reporter invoked from `if: failure()`
     // steps after the real failure has already been recorded. Exiting non-zero
