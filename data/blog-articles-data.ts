@@ -25058,4 +25058,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'imprese-ticino-classifica-2024',
+ category: 'novita',
+ date: '2026-05-30T01:57:46.783Z',
+ image: '/images/blog/imprese-ticino-classifica-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

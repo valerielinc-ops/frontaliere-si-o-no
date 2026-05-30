@@ -7893,6 +7893,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Zugverkehr zwischen Locarno und Cadenazzo wiederhergestellt',
     'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'Die Störung an einer Weiche zwischen Tenero und Gordola, die den Zugverkehr den ganzen Morgen blockierte, wurde behoben.',
     'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Bahnhof in Tessin mit Zügen und Passagieren',
+    'blog.article.imprese-ticino-classifica-2024.title': 'Tessin auf Platz acht in der Schweiz bei der Unternehmensansiedlung',
+    'blog.article.imprese-ticino-classifica-2024.excerpt': 'Die neuen Crif-Daten zeigen das starke Wachstum des Tessins bei der Ansiedlung von Unternehmen aus anderen Kantonen im Jahr 2024.',
+    'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Panoramablick auf Lugano und den See an einem sonnigen Tag',
 };
 
 export default blogMetaDe;
