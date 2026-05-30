@@ -242,6 +242,16 @@ function buildActiveIndex(activeJobs) {
   // pass that the scoring would still reject (wasted work, not a
   // correctness bug).
   const slugTokenToJobs = new Map();        // token → Set<job>
+  // Inverted index: title-token → Set<job>. Mirrors `slugTokenToJobs`
+  // but keyed on `job.titleByLocale[*]` tokens. Strategy B (title-to-title
+  // cross-locale Jaccard in findBestMatch) can match a job whose
+  // SLUG diverges from the orphan but whose TITLE matches across locales.
+  // The slug-token bucket alone narrows by slug-overlap ≥ 2, which can
+  // EXCLUDE such jobs → missed merge → expired slug stays 404 with no
+  // redirect bridge → organic traffic loss. findBestMatch OR-unions this
+  // bucket with the slug bucket before scoring so Strategy B always sees
+  // its candidates (the 🔴 fix from issue #907).
+  const titleTokenToJobs = new Map();       // token → Set<job>
 
   for (const job of activeJobs) {
     // Index by company key
@@ -293,13 +303,32 @@ function buildActiveIndex(activeJobs) {
     }
 
     // Pre-tokenize all titles (per-locale) — saves repeated `tokenizeTitle`
-    // calls inside `findBestMatch` Strategy B (title-to-title Jaccard).
+    // calls inside `findBestMatch` Strategy B (title-to-title Jaccard). We
+    // also fold every emitted title token into the inverted index
+    // (`titleTokenToJobs`) so Strategy B's candidate set can be derived by
+    // bucket union (slug ∪ title) instead of being limited to the
+    // slug-overlap ≥ 2 set, which would silently drop divergent-slug /
+    // matching-title jobs.
     if (job.titleByLocale) {
       const titleCache = new Map();
+      const titleTokensUnion = new Set();
       for (const [locale, title] of Object.entries(job.titleByLocale)) {
-        if (title) titleCache.set(locale, tokenizeTitle(title));
+        if (!title) continue;
+        const toks = tokenizeTitle(title);
+        titleCache.set(locale, toks);
+        for (const t of toks) titleTokensUnion.add(t);
       }
       titleTokenCache.set(job, titleCache);
+      // Push job into each of its union title tokens' bucket. The union
+      // dedup avoids duplicate inserts when several locales share a token.
+      for (const t of titleTokensUnion) {
+        let bucket = titleTokenToJobs.get(t);
+        if (!bucket) {
+          bucket = new Set();
+          titleTokenToJobs.set(t, bucket);
+        }
+        bucket.add(job);
+      }
     }
   }
 
@@ -309,6 +338,7 @@ function buildActiveIndex(activeJobs) {
     slugTokenCache,
     titleTokenCache,
     slugTokenToJobs,
+    titleTokenToJobs,
   };
 }
 
@@ -380,34 +410,83 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   const slugCompanyKey = extractCompanyFromSlug(orphanSlug, knownCompanyKeys);
   const companyKey = enrichCompanyKey || slugCompanyKey;
 
+  // Orphan title tokens (Strategy B). Computed before candidate selection so
+  // the no-company-match branch can OR the title-token bucket into the set.
+  const orphanLocale = enrichment?.locale || detectSlugLocale(orphanSlug);
+  const orphanTitleTokens = enrichment?.title ? tokenizeTitle(enrichment.title) : null;
+
   // Determine candidate set
   let candidates;
   if (companyKey && index.byCompanyKey[companyKey]) {
     candidates = index.byCompanyKey[companyKey];
     if (verbose) console.log(`  🔍 Company match: "${companyKey}" — ${candidates.length} candidates`);
   } else if (index.slugTokenToJobs) {
-    // No company narrowing — use the inverted slug-token index to derive
-    // candidates whose union of (canonical+locale) slug tokens shares
-    // ≥ 2 tokens with `orphanTokens`. This is a SUPERSET of jobs that
-    // could pass the scoring guard (`overlap < 2 → continue`, line ~386),
-    // so eliminating it costs only wasted score work — never a missed
-    // match. Cuts the no-company path from O(activeJobs.length × …) to
-    // O(orphanTokens.size × avg-bucket + matchedCandidates.size × …),
-    // which on production data shrinks ~6265 to ~50-150 candidates.
-    const candidateOverlap = new Map(); // job → tokens-in-common count
+    // No company narrowing — derive candidates from a UNION of two inverted
+    // indices so both scoring strategies see every job they could match:
+    //
+    //   • Strategy A (slug-to-slug Jaccard): jobs whose union of
+    //     (canonical+locale) slug tokens shares ≥ 2 tokens with
+    //     `orphanTokens` — a SUPERSET of jobs that could pass the slug
+    //     scoring guard (the `overlap < 2 → continue` slug guard in the
+    //     scoring loop).
+    //   • Strategy B (title-to-title cross-locale Jaccard): jobs whose
+    //     `titleByLocale[*]` tokens share ≥ 2 tokens with the orphan's
+    //     TITLE tokens. A job matchable ONLY via Strategy B can have a
+    //     divergent slug (slug-overlap < 2) yet a matching cross-locale
+    //     title; gating candidates on the slug bucket alone would silently
+    //     drop it → missed merge → 404 with no redirect bridge (the 🔴 from
+    //     issue #907). OR-ing the title bucket in fixes that.
+    //
+    // The union is still a SUPERSET of all jobs the scoring loop can accept,
+    // so dropping a non-member only ever removes wasted score work — never a
+    // correct match. Both Strategy A's `overlap < 2` slug guard and Strategy
+    // B's `overlap < 2` title guard re-check inside the scoring loop, so a
+    // job that enters via one bucket but matches via neither is rejected
+    // there. The candidate set stays a fraction of `activeJobs.length`.
+    const candidateSet = new Set();
+    const slugOverlap = new Map(); // job → slug tokens-in-common count
     for (const tok of orphanTokens) {
       const bucket = index.slugTokenToJobs.get(tok);
       if (!bucket) continue;
       for (const j of bucket) {
-        candidateOverlap.set(j, (candidateOverlap.get(j) || 0) + 1);
+        slugOverlap.set(j, (slugOverlap.get(j) || 0) + 1);
       }
     }
-    candidates = [];
-    for (const [j, n] of candidateOverlap) {
-      if (n >= 2) candidates.push(j);
+    // Slug-bucket candidates: keep the ≥ 2 slug-overlap requirement (a
+    // single shared slug token can never clear Strategy A's `overlap < 2`
+    // guard, so admitting it would be pure wasted work).
+    for (const [j, n] of slugOverlap) {
+      if (n >= 2) candidateSet.add(j);
     }
+    // Title-bucket candidates: union in every job whose title tokens overlap
+    // the orphan's title tokens, regardless of slug overlap. Mirrors
+    // Strategy B's own `overlap < 2` title guard so we admit the same set it
+    // can accept (≥ 2 shared title tokens) without re-filtering here.
+    //
+    // INVARIANT: slug-bucket jobs are inserted into `candidateSet` ABOVE,
+    // before these title-only jobs. The scoring loop iterates candidates in
+    // insertion order and `matchCount` increments only on a strict
+    // `score > bestScore`, so a slug winner must establish `bestScore` before
+    // any title-only candidate is scored. Reordering construction (title
+    // bucket first) would let a title candidate bump `matchCount` ahead of a
+    // slug winner → spuriously trip the slug ambiguity guard → dropped
+    // redirect (expired slug 404 instead of bridge). Keep slug-bucket first.
+    if (index.titleTokenToJobs && orphanTitleTokens && orphanTitleTokens.size >= 2) {
+      const titleOverlap = new Map(); // job → title tokens-in-common count
+      for (const tok of orphanTitleTokens) {
+        const bucket = index.titleTokenToJobs.get(tok);
+        if (!bucket) continue;
+        for (const j of bucket) {
+          titleOverlap.set(j, (titleOverlap.get(j) || 0) + 1);
+        }
+      }
+      for (const [j, n] of titleOverlap) {
+        if (n >= 2) candidateSet.add(j);
+      }
+    }
+    candidates = [...candidateSet];
     if (verbose) {
-      console.log(`  🔍 No company match — inverted index narrowed to ${candidates.length} candidates (from ${activeJobs.length})`);
+      console.log(`  🔍 No company match — inverted index (slug ∪ title) narrowed to ${candidates.length} candidates (from ${activeJobs.length})`);
     }
   } else {
     // Defensive fallback for callers that built the index with a code
@@ -415,9 +494,6 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     candidates = activeJobs;
     if (verbose) console.log(`  🔍 No company match — scanning all ${candidates.length} jobs (no inverted index)`);
   }
-
-  const orphanLocale = enrichment?.locale || detectSlugLocale(orphanSlug);
-  const orphanTitleTokens = enrichment?.title ? tokenizeTitle(enrichment.title) : null;
 
   let bestJob = null;
   let bestScore = 0;
@@ -482,29 +558,68 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     }
   }
 
-  // ── One-to-many guard: if multiple candidates scored above threshold, skip ──
-  if (matchCount > 1 && bestJob) {
-    // Re-scan to check if another job is within 0.05 of bestScore
+  // ── One-to-many guard: if another candidate is within 0.05 of bestScore, skip ──
+  //
+  // The TRIGGER and AXIS are split by how the winner was matched, to add the new
+  // title-axis safety WITHOUT regressing the pre-existing slug path:
+  //
+  //   • Slug wins (Strategy A): keep the EXACT pre-PR behavior — gate on
+  //     `matchCount > 1` and re-scan on the SLUG axis. A legit slug winner
+  //     (e.g. 0.90) with a near sibling (0.86) must still merge; broadening the
+  //     trigger to `if (bestJob)` here would newly DROP that redirect → expired
+  //     slug 404 → traffic loss on the existing slug path. A guard may only ADD
+  //     skips, never remove a previously-recovered slug, so the slug path stays
+  //     byte-for-byte equivalent to main.
+  //
+  //   • Title wins (Strategy B): run whenever there's a winner (`bestJob`), NOT
+  //     only when `matchCount > 1`. Strategy B admits title-only candidates with
+  //     DIVERGENT slugs, so two cross-company jobs with identical titles tie at
+  //     the top score and leave `matchCount === 1` (strict `score > bestScore`
+  //     never re-fires) — the `matchCount > 1` gate would let that arbitrary tie
+  //     merge onto whichever job iterated first (301 to the WRONG company page).
+  //     The re-scan therefore measures the TITLE axis (slug-jaccard would be ~0
+  //     for divergent slugs → guard never fires → arbitrary merge of repeated
+  //     cross-company titles like "Sviluppatore Software" / "Buchhalter").
+  const isTitleWin = bestMethod.startsWith('title-');
+  const ambiguityTriggered = isTitleWin ? !!bestJob : !!(matchCount > 1 && bestJob);
+  if (ambiguityTriggered) {
     let closeMatches = 0;
     for (const job of candidates) {
       if (job === bestJob) continue;
-      const allJobSlugs = [
-        job.slug,
-        ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
-      ].filter(Boolean);
-      const cachedSlugTokens = slugTokenCache?.get(job);
-      for (const jobSlug of allJobSlugs) {
-        const score = jaccard(
-          orphanTokens,
-          cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
-        );
-        if (score >= bestScore - 0.05) closeMatches++;
+      let jobBestScore = 0;
+      if (isTitleWin) {
+        // Title axis: best title-Jaccard across the candidate's locale titles.
+        if (orphanTitleTokens && orphanTitleTokens.size >= 2 && job.titleByLocale) {
+          const cachedTitleTokens = titleTokenCache?.get(job);
+          for (const [locale, title] of Object.entries(job.titleByLocale)) {
+            if (!title) continue;
+            const jobTitleTokens =
+              cachedTitleTokens?.get(locale) ?? tokenizeTitle(title);
+            const score = jaccard(orphanTitleTokens, jobTitleTokens);
+            if (score > jobBestScore) jobBestScore = score;
+          }
+        }
+      } else {
+        // Slug axis: best slug-Jaccard across the candidate's locale slugs.
+        const allJobSlugs = [
+          job.slug,
+          ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
+        ].filter(Boolean);
+        const cachedSlugTokens = slugTokenCache?.get(job);
+        for (const jobSlug of allJobSlugs) {
+          const score = jaccard(
+            orphanTokens,
+            cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
+          );
+          if (score > jobBestScore) jobBestScore = score;
+        }
       }
+      if (jobBestScore >= bestScore - 0.05) closeMatches++;
     }
     if (closeMatches > 0) {
       if (verbose) {
         console.log(
-          `  ⚠️ "${orphanSlug}" — ambiguous: ${closeMatches + 1} close matches (best: ${bestScore.toFixed(3)}), skipping`,
+          `  ⚠️ "${orphanSlug}" — ambiguous: ${closeMatches + 1} close ${isTitleWin ? 'title' : 'slug'} matches (best: ${bestScore.toFixed(3)}), skipping`,
         );
       }
       return null;
@@ -512,6 +627,59 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   }
 
   if (!bestJob) return null;
+
+  // ── Title-match company guard (no-company orphan path) ──
+  // A `title-*` win can pair an orphan with an active job purely on a generic
+  // title-Jaccard (e.g. "Software Entwickler", "Buchhalter") with NO company
+  // verification: the main company guard below only fires when the ORPHAN has a
+  // companyKey, but on the no-company candidate path `companyKey` is falsy, so a
+  // single active job of a DIFFERENT company could win the title match → 301 to
+  // the wrong company's page. Derive any available orphan company signal and, if
+  // it is known to DIFFER from the candidate's company, refuse the title merge.
+  // (Slug wins are unaffected: they already carry locale-aligned slug tokens and
+  // are gated by the main company guard + cross-role guard.)
+  if (bestMethod.startsWith('title-') && !companyKey && bestJob.companyKey) {
+    const orphanCompanyKey =
+      enrichment?.companyKey ||
+      (enrichment?.company ? normalizeCompany(enrichment.company) : null);
+    // INTENT (issue #1010 / #971 review): when the orphan has NO company
+    // signal at all (`orphanCompanyKey` falsy), the title merge is allowed to
+    // proceed — we refuse ONLY when the orphan company is KNOWN to differ.
+    // A same-title `title-*` win is already gated by title-Jaccard ≥ 0.70 +
+    // role-overlap, so the persisted 301 lands on a same-role active listing
+    // on the same aggregator: recovery vs a hard 404, net non-negative rather
+    // than a misroute. Hardening this to a hard reject on unknown company
+    // would re-introduce the 404 for legit recoveries and is intentionally
+    // NOT done absent evidence of cross-company misroutes in production.
+    if (orphanCompanyKey) {
+      // Asymmetric, NOT full Jaccard: `bestJob.companyKey` is already normalized
+      // and often truncated to a stem (e.g. "acme"), while the orphan company can
+      // be the verbose enrichment name ("acme-solutions-ag"). Full Jaccard would
+      // score "acme" vs "acme-solutions-ag" at 1/3 = 0.33 and FALSE-REJECT a
+      // same-company orphan (losing the redirect → expired slug 404). Treat the
+      // companies as compatible when the candidate key shares ANY token with the
+      // orphan company (containment), and only refuse on a clear cross-company
+      // split: both token sets non-empty AND zero overlap.
+      const orphanCompanyTokens = tokenizeSlug(orphanCompanyKey);
+      const jobCompanyTokens = tokenizeSlug(bestJob.companyKey);
+      const sharedCompanyTokens = intersectionSize(
+        orphanCompanyTokens,
+        jobCompanyTokens,
+      );
+      if (
+        orphanCompanyTokens.size > 0 &&
+        jobCompanyTokens.size > 0 &&
+        sharedCompanyTokens === 0
+      ) {
+        if (verbose) {
+          console.log(
+            `  ❌ "${orphanSlug}" — title-match company mismatch: "${orphanCompanyKey}" ≠ "${bestJob.companyKey}" (0 shared company tokens)`,
+          );
+        }
+        return null;
+      }
+    }
+  }
 
   // ── Company guard ──
   if (companyKey && bestJob.companyKey && companyKey !== bestJob.companyKey) {
@@ -547,7 +715,17 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   }
 
   // ── Cross-role guard ──
-  // Strip company and location tokens from both slugs; remaining tokens must overlap
+  // Strip company and location tokens from both sides; remaining role tokens
+  // must overlap. The comparison AXIS depends on how the match was made:
+  //
+  //   • Slug matches (Strategy A): compare SLUG role tokens — both sides are
+  //     in the same locale, so role words line up.
+  //   • Title matches (Strategy B): compare TITLE role tokens, NOT slug ones.
+  //     A Strategy B match is cross-locale by design (e.g. DE expired title
+  //     vs IT active slug); its slugs legitimately share zero role tokens, so
+  //     a slug-axis guard would false-reject exactly the merges Strategy B
+  //     exists to recover (issue #907). The title-Jaccard ≥ 0.70 + overlap
+  //     ≥ 2 already gate role compatibility on the correct (title) axis.
   const stripTokens = new Set();
   if (companyKey) {
     for (const t of companyKey.split('-')) {
@@ -559,9 +737,26 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
       if (t.length >= 2) stripTokens.add(t);
     }
   }
-  const orphanRoleTokens = new Set([...orphanTokens].filter((t) => !stripTokens.has(t)));
-  const bestJobSlugTokens = tokenizeSlug(bestJob.slug);
-  const jobRoleTokens = new Set([...bestJobSlugTokens].filter((t) => !stripTokens.has(t)));
+  const isTitleMatch = bestMethod.startsWith('title-');
+  let orphanRoleTokens;
+  let jobRoleTokens;
+  if (isTitleMatch) {
+    // Title axis: orphan title tokens vs the matched locale's job title tokens.
+    const matchedLocale = bestMethod.slice('title-'.length);
+    const jobTitleTokens =
+      titleTokenCache?.get(bestJob)?.get(matchedLocale) ??
+      (bestJob.titleByLocale?.[matchedLocale]
+        ? tokenizeTitle(bestJob.titleByLocale[matchedLocale])
+        : new Set());
+    orphanRoleTokens = new Set(
+      [...(orphanTitleTokens ?? new Set())].filter((t) => !stripTokens.has(t)),
+    );
+    jobRoleTokens = new Set([...jobTitleTokens].filter((t) => !stripTokens.has(t)));
+  } else {
+    orphanRoleTokens = new Set([...orphanTokens].filter((t) => !stripTokens.has(t)));
+    const bestJobSlugTokens = tokenizeSlug(bestJob.slug);
+    jobRoleTokens = new Set([...bestJobSlugTokens].filter((t) => !stripTokens.has(t)));
+  }
 
   if (orphanRoleTokens.size >= 2 && jobRoleTokens.size >= 2) {
     const roleOverlap = intersectionSize(orphanRoleTokens, jobRoleTokens);
