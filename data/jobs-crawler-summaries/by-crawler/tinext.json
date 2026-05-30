@@ -1,18 +1,49 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-05-28T00:40:52.142Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-05-30T12:47:57.067Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 549,
-  "avgDurationMs": 549,
+  "durationMs": 931,
+  "avgDurationMs": 931,
   "durationHistory": [
-    549
+    931
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior Marketing & Communication Specialist",
+      "slug": "senior-marketing-communication-specialist-tinext-lugano-senmrkt",
+      "url": "https://tinext.kenjo.io/senmrkt",
+      "applyUrl": "https://tinext.kenjo.io/senmrkt",
+      "company": "Tinext SA",
+      "companyKey": "tinext",
+      "companyDomain": "tinext.com",
+      "location": "Morbio",
+      "addressLocality": "Morbio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "Marketing & Communication",
+      "sector": "IT & Digital Transformation",
+      "source": "tinext-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-30",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Security & Network Engineer",
@@ -32,7 +63,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-28",
+      "postedDate": "2026-05-30",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
