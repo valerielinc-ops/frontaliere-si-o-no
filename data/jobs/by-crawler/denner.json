@@ -86,7 +86,6 @@
         ]
       },
       "firstSeenAt": "2026-05-29T22:48:05.585Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -288,7 +287,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.365Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -383,7 +381,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.364Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -478,12 +475,10 @@
           "vendeur-vendeuse-denner"
         ],
         "fr": [
-          "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner-ecublens-vd"
+          "vendeur-vendeuse-denner-geneve"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:43.849Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -579,12 +574,10 @@
           "adjoint-e-gerant-e-denner"
         ],
         "fr": [
-          "adjoint-e-gerant-e-denner-renens-vd",
-          "adjoint-e-gerant-e-denner-morges"
+          "adjoint-e-gerant-e-denner-renens-vd"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:38.360Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -679,7 +672,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:38.358Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -696,9 +688,9 @@
     },
     {
       "id": "denner-3d021b9a853b",
-      "slug": "student-in-come-aiuto-per-le-vacanze-denner-regensdorf",
+      "slug": "student-in-come-ferienaushilfe-denner-regensdorf",
       "slugByLocale": {
-        "it": "student-in-come-aiuto-per-le-vacanze-denner-regensdorf",
+        "it": "student-in-come-ferienaushilfe-denner-regensdorf",
         "en": "student-in-als-ferienaushilfe-denner-regensdorf",
         "de": "student-in-als-ferienaushilfe-denner",
         "fr": "etudiant-en-vacances-denner-regensdorf"
@@ -759,6 +751,7 @@
       "previousSlugs": [
         "student-in-als-ferienaushilfe-denner",
         "student-in-come-ferienaushilfe-denner-horw",
+        "student-in-come-aiuto-per-le-vacanze-denner-regensdorf",
         "student-in-als-ferienaushilfe-denner-horw",
         "student-in-come-ferienaushilfe-denner-ibach",
         "student-in-come-ferienaushilfe-denner-gebenstorf",
@@ -779,18 +772,17 @@
       "previousSlugsByLocale": {
         "it": [
           "student-in-als-ferienaushilfe-denner",
-          "student-in-come-ferienaushilfe-denner-horw"
+          "student-in-come-ferienaushilfe-denner-horw",
+          "student-in-come-aiuto-per-le-vacanze-denner-regensdorf"
         ],
         "en": [
-          "student-in-als-ferienaushilfe-denner-horw",
-          "student-in-als-ferienaushilfe-denner-regensdorf"
+          "student-in-als-ferienaushilfe-denner-horw"
         ],
         "fr": [
           "student-in-come-ferienaushilfe-denner-horw"
         ]
       },
       "firstSeenAt": "2026-05-29T22:48:03.175Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -883,12 +875,10 @@
           "gerant-e-denner"
         ],
         "fr": [
-          "gerant-e-denner-lausanne",
-          "gerant-e-denner-le-mont-sur-lausanne"
+          "gerant-e-denner-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:37.554Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -984,7 +974,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:21:09.209Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1004,9 +993,9 @@
       "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
         "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "en": "assistant-in-branch-management-denner-wadenswil",
         "de": "assistent-in-filialleitung-denner-wadenswil",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1065,28 +1054,24 @@
       "crawledAt": "2026-05-30T10:42:34.473Z",
       "previousSlugs": [
         "assistent-in-filialleitung-denner",
-        "assistant-in-branch-management-denner-wadenswil",
-        "assistent-in-filialleitung-denner-flims-dorf",
-        "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "assistent-in-filialleitung-denner-flims-dorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner"
         ],
         "en": [
-          "assistant-in-branch-management-denner-wadenswil",
           "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ],
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
         ],
         "fr": [
-          "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil",
           "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "firstSeenAt": "2026-05-28T22:51:49.071Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1183,7 +1168,6 @@
         ]
       },
       "firstSeenAt": "2026-05-29T22:48:01.108Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1265,7 +1249,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-30T10:42:33.527Z",
       "firstSeenAt": "2026-05-29T22:48:00.573Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "product-manager-wein-schaumwein-w-m-d-denner"
@@ -1375,7 +1358,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:30.776Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -1477,7 +1459,6 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:01:17.577Z",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {

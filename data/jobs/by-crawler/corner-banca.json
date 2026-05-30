@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "customer-consulente-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "de": "customer-berater-40-corner-banca-wallisellen",
+        "fr": "customer-conseiller-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -69,9 +69,7 @@
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
         "customer-advisor-40-corner-banca-wallisellen",
-        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "customer-berater-40-corner-banca-wallisellen",
-        "customer-conseiller-40-corner-banca-wallisellen"
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -83,16 +81,13 @@
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ],
         "de": [
-          "customer-berater-40-corner-banca-wallisellen",
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ],
         "fr": [
-          "customer-conseiller-40-corner-banca-wallisellen",
           "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -117,7 +112,7 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
         "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
@@ -166,11 +161,10 @@
       "sourceLang": "it",
       "crawledAt": "2026-05-30T10:36:38.872Z",
       "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland"
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland",
           "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland"
         ]
       },
@@ -199,9 +193,9 @@
       "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -266,11 +260,8 @@
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "logistics-services-coordinator-technical-office-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-        "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-        "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano",
         "technicien-des-services-logistiques-bureau-technique-corner-banca-lugano",
         "logistikdienstleister-technisches-buro-corner-banca-lugano",
         "coordinateur-services-logistiques-bureau-technique-corner-banca-lugano"
@@ -282,24 +273,20 @@
         ],
         "en": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-          "logistics-services-coordinator-technical-office-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ],
         "de": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-          "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ],
         "fr": [
           "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-          "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano",
           "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -399,7 +386,6 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -512,7 +498,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T10:51:00.114Z",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -635,7 +620,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -738,7 +722,6 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -861,7 +844,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -948,7 +930,6 @@
       "sourceLang": "en",
       "crawledAt": "2026-05-30T10:36:38.865Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1045,7 +1026,6 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1135,7 +1115,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:07.107Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1235,7 +1214,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:39:53.164Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
