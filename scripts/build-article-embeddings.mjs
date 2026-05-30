@@ -107,7 +107,11 @@ function buildHeader(count) {
   return header;
 }
 
-function articleText(article) {
+// Exported so the semantic-dedup gate's `buildDedupText` can be asserted
+// byte-identical against it (tests/scripts/lib/scoring/dedupTextSync.test.ts):
+// the two must produce the same corpus text or the published-vs-candidate
+// cosines drift and the gate degrades to silent false-negatives.
+export function articleText(article) {
   const title = article.title || '';
   const excerpt = article.excerpt || '';
   // Title + first 800 chars of excerpt (proxy for body when full body isn't loaded).
@@ -228,7 +232,13 @@ async function main() {
   process.exit(0);
 }
 
-main().catch((err) => {
-  console.error('EMBEDDINGS_BUILD_UNCAUGHT', err);
-  process.exit(1);
-});
+// Only run the builder when executed directly (`node build-article-embeddings.mjs`),
+// not when imported — tests import `articleText` and must not trigger main().
+const invokedDirectly = process.argv[1]
+  && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('EMBEDDINGS_BUILD_UNCAUGHT', err);
+    process.exit(1);
+  });
+}
