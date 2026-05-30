@@ -5,5 +5,5 @@
 # refresh-thin-promotions.yml is the ONLY automated writer of these files
 # (rebase-retry loop assumes a single writer). Any new writer must go
 # through review so the invariant is not silently broken.
-data/thin-page-promotions-*.json   @valerielinc-ops
+data/thin-page-promotions*.json   @valerielinc-ops
 data/thin-page-promotions.jsonl    @valerielinc-ops
