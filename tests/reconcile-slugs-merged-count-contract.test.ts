@@ -30,7 +30,7 @@ describe('reconcile slug functions — mergedCount return contract', () => {
 });
 
 // The early-return path (above) and the main-loop path return distinct object
-// literals (reconcile-job-slugs.mjs:495 vs :619, :693 vs :808). The static
+// literals (the early-return guard vs the main-loop return in each fn). The static
 // guard in the assemble file only covers the caller, not the function's return
 // shape — so a regression that adds a `merged` alias next to `mergedCount` on
 // the main-loop literal would slip past both. These cases drive non-empty input
