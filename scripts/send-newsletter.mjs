@@ -58,8 +58,15 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
 const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
-// cascade/single = 350/day total (mailjet+unosend disabled), resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 350;
+// cascade ceiling = 550/day (mailgun 100 + resend 100 + mailjet 200 + mailtrap 150), resend = 100.
+// The weekly campaign (campaignId=weekly_{monday}) resumes across daily cron runs and must clear
+// the full active list (~2.5k) before Monday's campaign-ID rollover strands the unsent tail.
+// On healthy days the old 350 cap was the binding limit: 2026-05-26 and 05-27 both hit 350 with
+// mailjet delivering 149-200 and thousands still pending — 550 lets those days clear ~200 more.
+// CAVEAT: on days a provider is down (mailjet "fetch failed" on 05-28..30; 05-29 delivered only
+// 98/350) provider reliability — not this cap — is the binding constraint, and 550 is moot.
+// So 550 is the correct ceiling but not a reliability fix; see follow-up on provider health/unosend.
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 550;
 
 /**
  * Run async tasks with bounded concurrency.

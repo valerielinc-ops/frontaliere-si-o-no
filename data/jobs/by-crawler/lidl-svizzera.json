@@ -32,8 +32,8 @@
       "slugByLocale": {
         "it": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
         "en": "ch-tuttofare-sales-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
-        "de": "ch-tuttofare-verkauf-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
-        "fr": "ch-tuttofare-vente-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w"
+        "de": "ch-allround-verkauf-m-f-d-20-40-1-lidl-svizzera-gravesano",
+        "fr": "ch-vente-integrale-m-f-j-20-40-1-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
         "it": "CH_ Tuttofare vendita (m/f/d) 20-40% 1",
@@ -75,8 +75,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "ch-all-round-sale-m-f-d-20-40-1-lidl-svizzera-gravesano",
-        "ch-allround-verkauf-m-f-d-20-40-1-lidl-svizzera-gravesano",
-        "ch-vente-integrale-m-f-j-20-40-1-lidl-svizzera-gravesano",
+        "ch-tuttofare-verkauf-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
+        "ch-tuttofare-vente-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
         "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano"
       ],
       "previousSlugsByLocale": {
@@ -84,15 +84,12 @@
           "ch-all-round-sale-m-f-d-20-40-1-lidl-svizzera-gravesano"
         ],
         "de": [
-          "ch-allround-verkauf-m-f-d-20-40-1-lidl-svizzera-gravesano",
           "ch-tuttofare-verkauf-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w"
         ],
         "fr": [
-          "ch-vente-integrale-m-f-j-20-40-1-lidl-svizzera-gravesano",
           "ch-tuttofare-vente-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -126,8 +123,8 @@
       "slugByLocale": {
         "it": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
         "en": "ch-tuttofare-sales-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-        "de": "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
-        "fr": "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
+        "de": "ch-allround-verkauf-m-f-d-20-40-lidl-svizzera-lugano",
+        "fr": "ch-vente-integrale-m-f-j-20-40-lidl-svizzera-lugano"
       },
       "titleByLocale": {
         "it": "CH_ Tuttofare vendita (m/f/d) 20-40%",
@@ -172,20 +169,17 @@
           "ch-all-round-sale-m-f-d-20-40-lidl-svizzera-lugano"
         ],
         "de": [
-          "ch-allround-verkauf-m-f-d-20-40-lidl-svizzera-lugano",
           "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
         ],
         "fr": [
-          "ch-vente-integrale-m-f-j-20-40-lidl-svizzera-lugano",
           "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
         ]
       },
       "previousSlugs": [
         "ch-all-round-sale-m-f-d-20-40-lidl-svizzera-lugano",
-        "ch-allround-verkauf-m-f-d-20-40-lidl-svizzera-lugano",
-        "ch-vente-integrale-m-f-j-20-40-lidl-svizzera-lugano"
+        "ch-tuttofare-verkauf-m-w-d-20-40-lidl-svizzera-lugano-csxpwn",
+        "ch-tuttofare-vente-m-w-d-20-40-lidl-svizzera-lugano-csxpwn"
       ],
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500
     },
@@ -654,7 +648,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -781,7 +774,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -898,7 +890,6 @@
           "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1021,7 +1012,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -1153,7 +1143,6 @@
       ],
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000
     }

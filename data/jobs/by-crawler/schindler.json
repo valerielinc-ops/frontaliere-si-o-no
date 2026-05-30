@@ -453,7 +453,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.949Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -839,9 +838,9 @@
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+        "en": "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "de": "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -884,11 +883,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lift-m-f-d-80-100-schindler-castione-arbedo",
-        "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
         "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
         "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-        "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo",
         "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
         "installation-supervisor-m-f-d-80-100-schindler-castione-arbedo",
         "installationsleiter-m-w-d-80-100-schindler-castione-arbedo",
@@ -900,22 +897,18 @@
       "previousSlugsByLocale": {
         "en": [
           "lift-m-f-d-80-100-schindler-castione-arbedo",
-          "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "de": [
           "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-          "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "fr": [
           "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-          "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:10.207Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1419,7 +1412,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-29T00:29:35.480Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1488,8 +1480,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
-          "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
+          "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -1576,7 +1567,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:02.683Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1657,7 +1647,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:04.959Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1873,7 +1862,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:44.765Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1951,7 +1939,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.077Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2501,7 +2488,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:17.660Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3584,7 +3570,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:46:29.633Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3660,7 +3645,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:25.810Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3840,9 +3824,9 @@
     },
     {
       "id": "schindler-d075d10ff07d",
-      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
+      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -3899,14 +3883,13 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
         "manager-per-cookie-einwilligungen-schindler-bern",
-        "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st"
+        "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3922,7 +3905,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
           "manager-per-cookie-einwilligungen-schindler-winterthur"
@@ -4054,7 +4036,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
           "manager-per-cookie-einwilligungen-schindler-winterthur",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822"
         ],
         "en": [
@@ -4156,7 +4137,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.777Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4535,7 +4515,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:59.655Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5233,7 +5212,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:47.721Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5550,7 +5528,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:58.173Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5712,7 +5689,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:56.687Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5791,7 +5767,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:49.986Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5870,7 +5845,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:55.922Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5955,7 +5929,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:08.710Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6182,7 +6155,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-19T12:33:43.279Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6203,9 +6175,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "en": "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
+        "de": "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
+        "fr": "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6247,21 +6219,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
-        "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
-        "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "de": [
-          "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "fr": [
-          "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ]
       },
