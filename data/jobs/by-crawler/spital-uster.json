@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-uster",
-  "assembledAt": "2026-05-30T00:38:14.629Z",
+  "assembledAt": "2026-05-30T12:30:43.187Z",
   "jobs": [
     {
       "id": "spital-uster-772090f363ef",
@@ -33,7 +33,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/zivildienstler-ersatz-militaerdienst/aa169f75-c82c-4b6c-badd-5583ca81f41a",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.589Z",
+      "crawledAt": "2026-05-30T12:30:40.868Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.974Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -126,7 +127,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-medizin/c24f6423-ef54-48b4-9538-32a595e12e68",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.587Z",
+      "crawledAt": "2026-05-30T12:30:40.866Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.972Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -228,7 +230,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-chirurgie/1afcd168-7b56-4ad3-a292-3f7855f6c15c",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.585Z",
+      "crawledAt": "2026-05-30T12:30:40.865Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,6 +279,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.971Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -321,7 +324,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-somatik/7aab9779-bb4a-473f-9ff9-821e12db63c3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.583Z",
+      "crawledAt": "2026-05-30T12:30:40.863Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,6 +373,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.969Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -414,7 +418,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-kjff/9afa70fb-1b76-4473-8469-e247e90ac164",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.582Z",
+      "crawledAt": "2026-05-30T12:30:40.861Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -472,6 +476,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.968Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -516,7 +521,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-anaesthesie/d212b97f-842f-40cd-ac4a-394777e8c4d7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.580Z",
+      "crawledAt": "2026-05-30T12:30:40.860Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -562,6 +567,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.967Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -579,7 +585,7 @@
       "id": "spital-uster-512282578a57",
       "slug": "unterassistent-in-100-orthopala-spital-uster-uster",
       "slugByLocale": {
-        "it": "unterassistent-in-100-ortopedia-spital-uster-uster",
+        "it": "unterassistent-in-100-orthopala-spital-uster-uster",
         "en": "assistant-physician-100-orthopedics-spital-uster-uster",
         "de": "unterassistent-in-100-orthopadie-spital-uster-ch",
         "fr": "assistant-e-medical-e-100-orthopedie-spital-uster-uster"
@@ -606,7 +612,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-orthopaedie/b69c677a-c840-4963-82a1-7d33a84097b3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.578Z",
+      "crawledAt": "2026-05-30T12:30:40.858Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -656,14 +662,17 @@
       },
       "department": "Lernende/Studierende/Praktikanten",
       "previousSlugs": [
-        "unterassistent-in-100-orthopadie-spital-uster-ch"
+        "unterassistent-in-100-orthopadie-spital-uster-ch",
+        "unterassistent-in-100-ortopedia-spital-uster-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-100-orthopadie-spital-uster-ch"
+          "unterassistent-in-100-orthopadie-spital-uster-ch",
+          "unterassistent-in-100-ortopedia-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.965Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -708,7 +717,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-frauenklinik/5d0a760e-202b-4d1a-bd2d-c4c674d52610",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.577Z",
+      "crawledAt": "2026-05-30T12:30:40.857Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -748,6 +757,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.964Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -792,7 +802,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-anaesthesiepflege/6dba62e6-9922-49df-86b8-c9b67a04f636",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.576Z",
+      "crawledAt": "2026-05-30T12:30:40.855Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -850,6 +860,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.962Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -894,7 +905,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-geriatrische-akutrehabilitation/49c3cced-a9da-463f-9633-5fb9e597aa0e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.574Z",
+      "crawledAt": "2026-05-30T12:30:40.854Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -934,6 +945,7 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.961Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -978,7 +990,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-geriatrische-akutrehabilitation/4bca24b6-5e6e-4272-8da4-5e79aa22902d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.573Z",
+      "crawledAt": "2026-05-30T12:30:40.853Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1019,6 +1031,7 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.960Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1063,7 +1076,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/expertin-experte-nds-notfallpflege/3a1913e1-82ca-4053-83c9-e6b4025a3287",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.571Z",
+      "crawledAt": "2026-05-30T12:30:40.851Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1125,6 +1138,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.958Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1169,7 +1183,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/d43ba45f-0147-4f77-b33e-2480420c3c03",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.570Z",
+      "crawledAt": "2026-05-30T12:30:40.849Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1212,6 +1226,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.957Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1256,7 +1271,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitende-aerztin-leitender-arzt-onkologie/dc39791a-5f64-4ddd-ad22-305785894681",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.568Z",
+      "crawledAt": "2026-05-30T12:30:40.847Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1311,6 +1326,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.955Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1355,7 +1371,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-pensum-variabel-fixpool/2c7c8eb0-763e-443b-b25f-fbf0eaa4465e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.566Z",
+      "crawledAt": "2026-05-30T12:30:40.846Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1413,6 +1429,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.953Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1457,7 +1474,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-medizin/77765b05-ee18-4b64-baaa-fc5df230da1d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.564Z",
+      "crawledAt": "2026-05-30T12:30:40.844Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1506,6 +1523,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.952Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1550,7 +1568,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-frauenklinik-zueri-ost/269048af-5fa1-4a7a-bc48-0833dfbed4be",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.563Z",
+      "crawledAt": "2026-05-30T12:30:40.842Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1599,6 +1617,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.951Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1643,7 +1662,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/praktikum-pflege/00cd904e-d99c-4d6b-9c34-8e9b3caa92f0",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.561Z",
+      "crawledAt": "2026-05-30T12:30:40.840Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1689,6 +1708,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.949Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1733,7 +1753,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-intensivpflege/3d7b30ff-8eb9-4ad1-bf0e-b53d91d99c2f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.559Z",
+      "crawledAt": "2026-05-30T12:30:40.839Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1788,6 +1808,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.948Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1832,7 +1853,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie/84f56a30-7034-4bd0-b4a1-70a5622201bf",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.558Z",
+      "crawledAt": "2026-05-30T12:30:40.837Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1875,6 +1896,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.946Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1919,7 +1941,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-hf-fh-notfallpflege/acb5357b-dcea-4167-a3aa-8b88cccfde90",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.556Z",
+      "crawledAt": "2026-05-30T12:30:40.835Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1969,6 +1991,7 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.945Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2013,7 +2036,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-medizin/94c71a53-6010-47ea-8989-1874bf97a8a1",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.554Z",
+      "crawledAt": "2026-05-30T12:30:40.833Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2068,6 +2091,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.943Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2112,7 +2136,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/chefaerztin-chefarzt-frauenklinik-zueri-ost/67012db0-3b24-41a7-81ab-cfe586d37366",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.553Z",
+      "crawledAt": "2026-05-30T12:30:40.832Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2157,6 +2181,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.941Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2201,7 +2226,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-fachexpertin-fachexperten-anaesthesiepflege-nds-hf/ab65234f-70c1-4628-ad30-b1f0f32d5c22",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.551Z",
+      "crawledAt": "2026-05-30T12:30:40.830Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2256,6 +2281,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2300,7 +2326,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/abteilungsleitung-tageskliniken-chir-med-sowie-funktionsdiagnostik/6aa0dda5-e8c3-4657-9c40-2775f9a01a17",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.549Z",
+      "crawledAt": "2026-05-30T12:30:40.829Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2358,6 +2384,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.935Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2402,7 +2429,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-gesundheit-chirurgische-privatstation/0947be57-838c-4d0e-bfc9-31de04c20563",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.548Z",
+      "crawledAt": "2026-05-30T12:30:40.827Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2455,6 +2482,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.934Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2499,7 +2527,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-endoskopie/248e0e4c-5c12-475a-a016-a4153bf2dc64",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.546Z",
+      "crawledAt": "2026-05-30T12:30:40.826Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2560,6 +2588,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.932Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2604,7 +2633,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-akutspital/3e81433a-a493-40e2-af21-ef041bfa0a96",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.544Z",
+      "crawledAt": "2026-05-30T12:30:40.823Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2652,6 +2681,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.930Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2696,7 +2726,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/mitarbeiterin-mitarbeiter-spezialreinigung/81e5c373-c0e7-4f45-904e-ea6f4119f6b7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.543Z",
+      "crawledAt": "2026-05-30T12:30:40.822Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2745,6 +2775,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.928Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2789,7 +2820,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-als-stv-abteilungsleitung-chirurgie/3000d265-c3c5-49f3-a30d-fe7aa958175f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.540Z",
+      "crawledAt": "2026-05-30T12:30:40.819Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2840,6 +2871,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.926Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2884,7 +2916,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/hotelfachassistentin-hotelfachassistent/aefcdaf3-0f7c-42f5-82d8-0fb9632a373a",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.539Z",
+      "crawledAt": "2026-05-30T12:30:40.818Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2925,6 +2957,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.924Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2969,7 +3002,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-kardiologie-innere-medizin/1af85520-19da-4e95-ad1f-4e0bb3059507",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.537Z",
+      "crawledAt": "2026-05-30T12:30:40.816Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3014,6 +3047,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.922Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3058,7 +3092,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/assistenzaerztin-assistenzarzt-altersmedizin-mit-ausbildungsziel-schwerpunkt-geriatrie/cce4b74f-4da5-4295-8b63-6d7d6f92f6ca",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.536Z",
+      "crawledAt": "2026-05-30T12:30:40.815Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3101,6 +3135,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.920Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3145,7 +3180,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/praktikant-in-unternehmensentwicklung/2dc441ac-b00d-49f9-987c-c96613845bc7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.534Z",
+      "crawledAt": "2026-05-30T12:30:40.813Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3193,6 +3228,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.917Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -3237,7 +3273,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pharma-assistent-in/9514c477-6310-4d27-89ee-88dc6df47555",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.532Z",
+      "crawledAt": "2026-05-30T12:30:40.811Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3286,6 +3322,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.914Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3330,7 +3367,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/arztsekretaer-in-kardiologie-med-ambulatorium/4e9a2e51-a4b7-42e1-8b50-68484c21fdba",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.530Z",
+      "crawledAt": "2026-05-30T12:30:40.810Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3382,6 +3419,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.911Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3426,7 +3464,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/mitarbeiter-in-fakturamanagement/5d9a6239-ccba-47f5-bec9-ac3d3ea345da",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.527Z",
+      "crawledAt": "2026-05-30T12:30:40.807Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3478,6 +3516,7 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.888Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3522,7 +3561,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-anaesthesie/a61afddb-1752-4cf7-b791-6cf16834ca20",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.525Z",
+      "crawledAt": "2026-05-30T12:30:40.805Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3599,7 +3638,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/medizinische-r-praxisassistent-in-und-oder-arztsekretaer-in/a581fb89-8400-467b-82be-99803d579c35",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.523Z",
+      "crawledAt": "2026-05-30T12:30:40.802Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3666,17 +3705,17 @@
       },
       "description": "<p>Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze <strong>vorwiegend im Spät- und Nachtdienst</strong> per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.</p>\n\nAufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n\n• Medizintechnische Verrichtungen, sowie administrative Tätigkeiten innerhalb der Station führst du eigenständig aus\n\n• du trägst zu einem lernfreudigen Arbeitsklima und zum gemeinsamen Erreichen der Stationsziele bei. Du prägst eine wertschätzende Teamkultur mit\n\n• Bildung: Du hilfst bei der Wissensvermittlung an Lernende und Praktikanten mit.\n\nAnforderungen:\n• abgeschlossene Ausbildung als Fachperson Gesundheit EFZ mit Interesse an geriatrischer Akutrehabilitation\n\n• engagierte, motivierte und belastbare Persönlichkeit mit hoher Sozialkompetenz\n\n• Veränderungen nimmst du als Herausforderungen an und gestaltest deinen Arbeitsbereich gerne aktiv mit\n\n• Bereitschaft, in allen Schichten zu arbeiten\n\n• gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• verantwortungsvolle Aufgabe in einem offenen, neugierigen, bunten und wertschätzenden Team\n\n• Voll- und Teilzeitanstellung möglich, ganz nach deinen Bedürfnissen\n\n• sorgfältige Einarbeitung und Heranführung in den Arbeitsbereich durch die Diplomierten oder FaGe-Kolleginnen und Kollegen\n\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
       "descriptionByLocale": {
-        "it": "Come risultato della continua espansione e espansione della nostra agopuntura geriatrica, stiamo cercando una personalità flessibile e dedicata per l'uso principalmente nel servizio di tarda e notte da subito o da accordo.\n\nCompiti:\n• si fa parte di un team di trattamento interdisciplinare e si prende cura e partecipa, in tandem con un esperto di infermieristica qualificato, pazienti, durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n\n• si fa parte di un team di trattamento interdisciplinare e si prende cura e partecipa, in tandem con un esperto di infermieristica qualificato, pazienti, durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n\n• Esecuzioni mediche, così come le attività amministrative all'interno della stazione sono svolte in modo indipendente\n\n• contribuire a un ambiente di lavoro di apprendimento e al raggiungimento congiunto degli obiettivi della stazione. Forma una stimata cultura di squadra con\n\n• Istruzione: Aiutate gli studenti e i tirocinanti a insegnare la conoscenza.\n\nRequisiti:\n• formazione completa come specialista Salute EFZ con interesse per l'agopuntura geriatrica\n\n• personalità dedicata, motivata e resiliente con elevata competenza sociale\n\n• Cambiamenti che si prendono come sfide e come modellare attivamente la vostra area di lavoro\n\n• Pronto a lavorare in tutti gli strati\n\n• buona conoscenza del tedesco nella parola e nella scrittura\n\nOffriamo:\n• compito responsabile in un team aperto, curioso, colorato e di valore\n\n• Lavoro a tempo pieno e part-time possibile, secondo le vostre esigenze\n\n• un'attenta integrazione e introduzione nell'area di lavoro da parte di colleghi qualificati o FaGe\n\n• almeno cinque settimane di vacanza e giorni di jolly per il periodo di cambiamento\n\n• ottimo ristorante personale e numerosi sconti\n\n• posizione centrale vicino alla stazione Uster e l'accesso autostradale e comodi parcheggi – con parcheggio max. CHF 4.50 al giorno\n\n• parcheggio gratuito durante il turno di notte (fino alle 07.00)",
-        "en": "As a result of the continuous expansion and expansion of our geriatric acupuncture, we are looking for a flexible and dedicated personality for use mainly in late and night service by immediately or by agreement.\n\nTasks:\n• you are part of an interdisciplinary treatment team and cares and attends, in tandem with a qualified nursing expert, patients, during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n\n• you are part of an interdisciplinary treatment team and cares and attends, in tandem with a qualified nursing expert, patients, during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n\n• Medical executions, as well as administrative activities within the station are carried out independently\n\n• you contribute to a learning working environment and to the joint achievement of the station goals. You shape an esteeming team culture with\n\n• Education: You help learners and trainees to teach knowledge.\n\nRequirements:\n• completed training as a specialist Health EFZ with interest in geriatric acupuncture\n\n• dedicated, motivated and resilient personality with high social competence\n\n• Changes you take as challenges and like to actively shape your work area\n\n• Ready to work in all layers\n\n• good knowledge of German in word and writing\n\nWe offer:\n• responsible task in an open, curious, colorful and value-adding team\n\n• Full and part-time job possible, according to your needs\n\n• careful incorporation and introduction into the work area by qualified or FaGe colleagues\n\n• at least five weeks holiday and joker days for the changing period\n\n• excellent staff restaurant and numerous discounts\n\n• central location near Uster station as well as motorway access as well as convenient parking facilities – with parking max. CHF 4.50 per day\n\n• free parking during the night shift (until 07.00)",
-        "de": "Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze vorwiegend im Spät- und Nachtdienst per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.\n\nAufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n\n• Medizintechnische Verrichtungen, sowie administrative Tätigkeiten innerhalb der Station führst du eigenständig aus\n\n• du trägst zu einem lernfreudigen Arbeitsklima und zum gemeinsamen Erreichen der Stationsziele bei. Du prägst eine wertschätzende Teamkultur mit\n\n• Bildung: Du hilfst bei der Wissensvermittlung an Lernende und Praktikanten mit.\n\nAnforderungen:\n• abgeschlossene Ausbildung als Fachperson Gesundheit EFZ mit Interesse an geriatrischer Akutrehabilitation\n\n• engagierte, motivierte und belastbare Persönlichkeit mit hoher Sozialkompetenz\n\n• Veränderungen nimmst du als Herausforderungen an und gestaltest deinen Arbeitsbereich gerne aktiv mit\n\n• Bereitschaft, in allen Schichten zu arbeiten\n\n• gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• verantwortungsvolle Aufgabe in einem offenen, neugierigen, bunten und wertschätzenden Team\n\n• Voll- und Teilzeitanstellung möglich, ganz nach deinen Bedürfnissen\n\n• sorgfältige Einarbeitung und Heranführung in den Arbeitsbereich durch die Diplomierten oder FaGe-Kolleginnen und Kollegen\n\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
-        "fr": "En raison de l'expansion et de l'expansion continues de notre acupuncture gériatrique, nous recherchons une personnalité flexible et dédiée à l'utilisation principalement dans le service tard et nuit par immédiatement ou par accord.\n\nTâches :\n• vous faites partie d'une équipe de traitement interdisciplinaire et des soins et assistez, en association avec un expert infirmier qualifié, les patients, pendant leur séjour d'une à deux semaines, selon les principes de l'activation et de l'accompagnement thérapeutique\n\n• vous faites partie d'une équipe de traitement interdisciplinaire et des soins et assistez, en association avec un expert infirmier qualifié, les patients, pendant leur séjour d'une à deux semaines, selon les principes de l'activation et de l'accompagnement thérapeutique\n\n• Les exécutions médicales, ainsi que les activités administratives à l'intérieur de la station, sont menées indépendamment\n\n• vous contribuez à un environnement de travail d'apprentissage et à la réalisation conjointe des objectifs de la station. Vous façonnez une culture d'équipe estimée avec\n\n• Éducation: vous aidez les apprenants et les stagiaires à enseigner les connaissances.\n\nExigences:\n• formation en tant que spécialiste de la santé EFZ avec intérêt pour l'acupuncture gériatrique\n\n• personnalité dévouée, motivée et résiliente avec une haute compétence sociale\n\n• Changements que vous prenez comme des défis et que vous aimez façonner activement votre domaine de travail\n\n• Prêt à travailler dans toutes les couches\n\n• bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons:\n• tâche responsable dans une équipe ouverte, curieuse, colorée et valorisante\n\n• Emploi à temps plein et à temps partiel possible, selon vos besoins\n\n• une intégration et une introduction attentives dans le domaine de travail par des collègues qualifiés ou FaGe\n\n• au moins cinq semaines de vacances et jours de blague pour la période de changement\n\n• excellent restaurant du personnel et de nombreuses réductions\n\n• emplacement central près de la gare d'Uster ainsi que l'accès à l'autoroute ainsi que des parkings pratiques – avec parking max. CHF 4,50 par jour\n\n• parking gratuit pendant le quart de nuit (jusqu'à 07.00)"
+        "it": "Come risultato della continua espansione e espansione della nostra agopuntura geriatrica, stiamo cercando una personalità flessibile e dedicata per l'uso principalmente nel servizio di tarda e notte da subito o da accordo. Compiti:\n• si fa parte di un team di trattamento interdisciplinare e si prende cura e partecipa, in tandem con un esperto di infermieristica qualificato, pazienti, durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n• si fa parte di un team di trattamento interdisciplinare e si prende cura e partecipa, in tandem con un esperto di infermieristica qualificato, pazienti, durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n• Esecuzioni mediche, così come le attività amministrative all'interno della stazione sono svolte in modo indipendente\n• contribuire a un ambiente di lavoro di apprendimento e al raggiungimento congiunto degli obiettivi della stazione. Forma una stimata cultura di squadra con\n• Istruzione: Aiutate gli studenti e i tirocinanti a insegnare la conoscenza. Requisiti:\n• formazione completa come specialista Salute EFZ con interesse per l'agopuntura geriatrica\n• personalità dedicata, motivata e resiliente con elevata competenza sociale\n• Cambiamenti che si prendono come sfide e come modellare attivamente la vostra area di lavoro\n• Pronto a lavorare in tutti gli strati\n• buona conoscenza del tedesco nella parola e nella scrittura Offriamo:\n• compito responsabile in un team aperto, curioso, colorato e di valore\n• Lavoro a tempo pieno e part-time possibile, secondo le vostre esigenze\n• un'attenta integrazione e introduzione nell'area di lavoro da parte di colleghi qualificati o FaGe\n• almeno cinque settimane di vacanza e giorni di jolly per il periodo di cambiamento\n• ottimo ristorante personale e numerosi sconti\n• posizione centrale vicino alla stazione Uster e l'accesso autostradale e comodi parcheggi – con parcheggio max. CHF 4.50 al giorno\n• parcheggio gratuito durante il turno di notte (fino alle 07.00)",
+        "en": "As a result of the continuous expansion and expansion of our geriatric acupuncture, we are looking for a flexible and dedicated personality for use mainly in late and night service by immediately or by agreement. Tasks:\n• you are part of an interdisciplinary treatment team and cares and attends, in tandem with a qualified nursing expert, patients, during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n• you are part of an interdisciplinary treatment team and cares and attends, in tandem with a qualified nursing expert, patients, during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n• Medical executions, as well as administrative activities within the station are carried out independently\n• you contribute to a learning working environment and to the joint achievement of the station goals. You shape an esteeming team culture with\n• Education: You help learners and trainees to teach knowledge. Requirements:\n• completed training as a specialist Health EFZ with interest in geriatric acupuncture\n• dedicated, motivated and resilient personality with high social competence\n• Changes you take as challenges and like to actively shape your work area\n• Ready to work in all layers\n• good knowledge of German in word and writing We offer:\n• responsible task in an open, curious, colorful and value-adding team\n• Full and part-time job possible, according to your needs\n• careful incorporation and introduction into the work area by qualified or FaGe colleagues\n• at least five weeks holiday and joker days for the changing period\n• excellent staff restaurant and numerous discounts\n• central location near Uster station as well as motorway access as well as convenient parking facilities – with parking max. CHF 4.50 per day\n• free parking during the night shift (until 07.00)",
+        "de": "<p>Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze <strong>vorwiegend im Spät- und Nachtdienst</strong> per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.</p> Aufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust, im Tandem mit einer Diplomierten Pflegefachperson, Patientinnen und Patienten, während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierenden- therapeutisch- begleitenden Pflege\n• Medizintechnische Verrichtungen, sowie administrative Tätigkeiten innerhalb der Station führst du eigenständig aus\n• du trägst zu einem lernfreudigen Arbeitsklima und zum gemeinsamen Erreichen der Stationsziele bei. Du prägst eine wertschätzende Teamkultur mit\n• Bildung: Du hilfst bei der Wissensvermittlung an Lernende und Praktikanten mit. Anforderungen:\n• abgeschlossene Ausbildung als Fachperson Gesundheit EFZ mit Interesse an geriatrischer Akutrehabilitation\n• engagierte, motivierte und belastbare Persönlichkeit mit hoher Sozialkompetenz\n• Veränderungen nimmst du als Herausforderungen an und gestaltest deinen Arbeitsbereich gerne aktiv mit\n• Bereitschaft, in allen Schichten zu arbeiten\n• gute Deutschkenntnisse in Wort und Schrift Wir bieten:\n• verantwortungsvolle Aufgabe in einem offenen, neugierigen, bunten und wertschätzenden Team\n• Voll- und Teilzeitanstellung möglich, ganz nach deinen Bedürfnissen\n• sorgfältige Einarbeitung und Heranführung in den Arbeitsbereich durch die Diplomierten oder FaGe-Kolleginnen und Kollegen\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
+        "fr": "En raison de l'expansion et de l'expansion continues de notre acupuncture gériatrique, nous recherchons une personnalité flexible et dédiée à l'utilisation principalement dans le service tard et nuit par immédiatement ou par accord. Tâches :\n• vous faites partie d'une équipe de traitement interdisciplinaire et des soins et assistez, en association avec un expert infirmier qualifié, les patients, pendant leur séjour d'une à deux semaines, selon les principes de l'activation et de l'accompagnement thérapeutique\n• vous faites partie d'une équipe de traitement interdisciplinaire et des soins et assistez, en association avec un expert infirmier qualifié, les patients, pendant leur séjour d'une à deux semaines, selon les principes de l'activation et de l'accompagnement thérapeutique\n• Les exécutions médicales, ainsi que les activités administratives à l'intérieur de la station, sont menées indépendamment\n• vous contribuez à un environnement de travail d'apprentissage et à la réalisation conjointe des objectifs de la station. Vous façonnez une culture d'équipe estimée avec\n• Éducation: vous aidez les apprenants et les stagiaires à enseigner les connaissances. Exigences:\n• formation en tant que spécialiste de la santé EFZ avec intérêt pour l'acupuncture gériatrique\n• personnalité dévouée, motivée et résiliente avec une haute compétence sociale\n• Changements que vous prenez comme des défis et que vous aimez façonner activement votre domaine de travail\n• Prêt à travailler dans toutes les couches\n• bonne connaissance de l'allemand en paroles et en écriture Nous offrons:\n• tâche responsable dans une équipe ouverte, curieuse, colorée et valorisante\n• Emploi à temps plein et à temps partiel possible, selon vos besoins\n• une intégration et une introduction attentives dans le domaine de travail par des collègues qualifiés ou FaGe\n• au moins cinq semaines de vacances et jours de blague pour la période de changement\n• excellent restaurant du personnel et de nombreuses réductions\n• emplacement central près de la gare d'Uster ainsi que l'accès à l'autoroute ainsi que des parkings pratiques – avec parking max. CHF 4,50 par jour\n• parking gratuit pendant le quart de nuit (jusqu'à 07.00)"
       },
       "location": "Uster",
       "canton": "ZH",
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-geriatrische-akutrehabilitation-spaet-und-nachtdienst/9b3952d9-4e49-487b-a832-3670e78d8c8e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.520Z",
+      "crawledAt": "2026-05-30T12:30:40.800Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3745,17 +3784,17 @@
       },
       "description": "<p>Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze <strong>vorwiegend im Spät- und Nachtdienst</strong> per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.</p>\n\nAufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust Patientinnen und Patienten während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierend- therapeutisch- begleitenden Pflege\n\n• du verantwortest und steuerst den Pflegeprozess deiner dir anvertrauten Patientinnen und Patienten und koordinierst die Pflege und Betreuung im Tandem mit FaGes, Pflegehilfen sowie Praktikantinnen und Praktikanten\n\n• du arbeitest eng mit weiteren am Behandlungsprozess beteiligten Berufsgruppen zusammen und prägst eine wertschätzende Teamkultur mit\n\n• du arbeitest bei der praktischen Ausbildung von FaGe-Lernenden und Studierenden HF/FH mit\n\nAnforderungen:\n• abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH mit Erfahrung im Akutspital\n\n• aufgeschlossene und teamorientierte Person mit professioneller Arbeitsweise\n\n• Interesse an geriatrischer Akutrehabilitation\n\n• zuverlässiges Teammitglied, das mitdenkt und motiviert ist\n\n• Bereitschaft, in allen Schichten zu arbeiten\n\n• gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• verantwortungsvolle Aufgaben in einem offenen, neugierigen, bunten und wertschätzenden Team mit Unterstützung der Pflegeexpertise\n\n• Voll- oder Teilzeitanstellung, ganz nach deinen Bedürfnissen\n\n• familiäre Atmosphäre und sehr gute Sozialleistungen\n\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
       "descriptionByLocale": {
-        "it": "Come risultato della continua espansione e espansione della nostra agopuntura geriatrica, stiamo cercando una personalità flessibile e dedicata per l'uso principalmente nel servizio di tarda e notte da subito o da accordo.\n\nCompiti:\n• si fa parte di un team di trattamento interdisciplinare e cura e cura i pazienti durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n\n• sei responsabile e controlla il processo di cura dei tuoi pazienti affidati e coordina la cura e la cura in tandem con FaGes, ausili per la cura e gli stagisti\n\n• si lavora a stretto contatto con altri gruppi professionali coinvolti nel processo di trattamento e modellare una preziosa cultura del team con\n\n• si lavora con la formazione pratica degli studenti FaGe e degli studenti HF/FH\n\nRequisiti:\n• formazione completa come dipl. Carriera HF/FH con esperienza in ospedale acuto\n\n• persona aperta e orientata al team con lavoro professionale\n\n• Interessi di agopuntura geriatrica\n\n• Affidabile membro del team coinvolto e motivato\n\n• Pronto a lavorare in tutti gli strati\n\n• buona conoscenza del tedesco nella parola e nella scrittura\n\nOffriamo:\n• compiti responsabili in un team aperto, curioso, colorato e di valore con il supporto dell'esperto di cura\n\n• Lavoro a tempo pieno o part-time, secondo le vostre esigenze\n\n• atmosfera familiare e benefici sociali molto buoni\n\n• almeno cinque settimane di vacanza e giorni di jolly per il periodo di cambiamento\n\n• ottimo ristorante personale e numerosi sconti\n\n• posizione centrale vicino alla stazione di Uster e comodo parcheggio – con Parcheggiopay max. CHF 4.50 al giorno\n\n• parcheggio gratuito durante il turno di notte (fino alle 07.00)",
-        "en": "As a result of the continuous expansion and expansion of our geriatric acupuncture, we are looking for a flexible and dedicated personality for use mainly in late and night service by immediately or by agreement.\n\nTasks:\n• you are part of an interdisciplinary treatment team and cares and treats patients during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n\n• you are responsible for and controlling the care process of your patients entrusted to you and coordinates the care and care in tandem with FaGes, nursing aids and interns\n\n• you work closely with other professional groups involved in the treatment process and shape a valuable team culture with\n\n• you work with the practical training of FaGe students and HF/FH students\n\nRequirements:\n• completed training as a dipl. Career HF/FH with experience in the acute hospital\n\n• open-minded and team-oriented person with professional work\n\n• Interest in geriatric acupuncture\n\n• Reliable team member who is involved and motivated\n\n• Ready to work in all layers\n\n• good knowledge of German in word and writing\n\nWe offer:\n• responsible tasks in an open, curious, colourful and value-adding team with the support of the care expert\n\n• Full or part-time job, according to your needs\n\n• family atmosphere and very good social benefits\n\n• at least five weeks holiday and joker days for the changing period\n\n• excellent staff restaurant and numerous discounts\n\n• central location near Uster station as well as convenient parking facilities – with Parkingpay max. CHF 4.50 per day\n\n• free parking during the night shift (until 07.00)",
-        "de": "Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze vorwiegend im Spät- und Nachtdienst per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.\n\nAufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust Patientinnen und Patienten während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierend- therapeutisch- begleitenden Pflege\n\n• du verantwortest und steuerst den Pflegeprozess deiner dir anvertrauten Patientinnen und Patienten und koordinierst die Pflege und Betreuung im Tandem mit FaGes, Pflegehilfen sowie Praktikantinnen und Praktikanten\n\n• du arbeitest eng mit weiteren am Behandlungsprozess beteiligten Berufsgruppen zusammen und prägst eine wertschätzende Teamkultur mit\n\n• du arbeitest bei der praktischen Ausbildung von FaGe-Lernenden und Studierenden HF/FH mit\n\nAnforderungen:\n• abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH mit Erfahrung im Akutspital\n\n• aufgeschlossene und teamorientierte Person mit professioneller Arbeitsweise\n\n• Interesse an geriatrischer Akutrehabilitation\n\n• zuverlässiges Teammitglied, das mitdenkt und motiviert ist\n\n• Bereitschaft, in allen Schichten zu arbeiten\n\n• gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• verantwortungsvolle Aufgaben in einem offenen, neugierigen, bunten und wertschätzenden Team mit Unterstützung der Pflegeexpertise\n\n• Voll- oder Teilzeitanstellung, ganz nach deinen Bedürfnissen\n\n• familiäre Atmosphäre und sehr gute Sozialleistungen\n\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
-        "fr": "En raison de l'expansion et de l'expansion continues de notre acupuncture gériatrique, nous recherchons une personnalité flexible et dédiée à l'utilisation principalement dans le service tard et nuit par immédiatement ou par accord.\n\nTâches :\n• vous faites partie d'une équipe de traitement interdisciplinaire et soignez et traitez les patients pendant leur séjour d'une à deux semaines, selon les principes d'activation et d'accompagnement thérapeutique\n\n• vous êtes responsable et contrôlez le processus de soins de vos patients qui vous ont été confiés et coordonnez les soins et soins en tandem avec FaGes, aides infirmières et stagiaires\n\n• vous travaillez en étroite collaboration avec d'autres groupes professionnels impliqués dans le processus de traitement et façonnez une culture d'équipe précieuse avec\n\n• vous travaillez avec la formation pratique des étudiants FaGe et des étudiants HF/FH\n\nExigences:\n• formation terminée en tant que dipl. Carrière HF/FH avec expérience dans l'hôpital aigu\n\n• personne ouverte et orientée vers l'équipe avec un travail professionnel\n\n• Intérêt pour l'acupuncture gériatrique\n\n• Membre fiable de l'équipe qui est impliqué et motivé\n\n• Prêt à travailler dans toutes les couches\n\n• bonne connaissance de l'allemand en paroles et en écriture\n\nNous offrons:\n• tâches responsables dans une équipe ouverte, curieuse, colorée et valorisante avec le soutien de l'expert en soins\n\n• Emploi à temps plein ou à temps partiel, selon vos besoins\n\n• ambiance familiale et très bon bénéfice social\n\n• au moins cinq semaines de vacances et jours de blague pour la période de changement\n\n• excellent restaurant du personnel et de nombreuses réductions\n\n• emplacement central près de la gare d'Uster ainsi que des parkings pratiques – avec Parkingpay max. CHF 4,50 par jour\n\n• parking gratuit pendant le quart de nuit (jusqu'à 07.00)"
+        "it": "Come risultato della continua espansione e espansione della nostra agopuntura geriatrica, stiamo cercando una personalità flessibile e dedicata per l'uso principalmente nel servizio di tarda e notte da subito o da accordo. Compiti:\n• si fa parte di un team di trattamento interdisciplinare e cura e cura i pazienti durante il loro soggiorno di una a due settimane, secondo i principi di attivazione e di accompagnamento terapeutico\n• sei responsabile e controlla il processo di cura dei tuoi pazienti affidati e coordina la cura e la cura in tandem con FaGes, ausili per la cura e gli stagisti\n• si lavora a stretto contatto con altri gruppi professionali coinvolti nel processo di trattamento e modellare una preziosa cultura del team con\n• si lavora con la formazione pratica degli studenti FaGe e degli studenti HF/FH Requisiti:\n• formazione completa come dipl. Carriera HF/FH con esperienza in ospedale acuto\n• persona aperta e orientata al team con lavoro professionale\n• Interessi di agopuntura geriatrica\n• Affidabile membro del team coinvolto e motivato\n• Pronto a lavorare in tutti gli strati\n• buona conoscenza del tedesco nella parola e nella scrittura Offriamo:\n• compiti responsabili in un team aperto, curioso, colorato e di valore con il supporto dell'esperto di cura\n• Lavoro a tempo pieno o part-time, secondo le vostre esigenze\n• atmosfera familiare e benefici sociali molto buoni\n• almeno cinque settimane di vacanza e giorni di jolly per il periodo di cambiamento\n• ottimo ristorante personale e numerosi sconti\n• posizione centrale vicino alla stazione di Uster e comodo parcheggio – con Parcheggiopay max. CHF 4.50 al giorno\n• parcheggio gratuito durante il turno di notte (fino alle 07.00)",
+        "en": "As a result of the continuous expansion and expansion of our geriatric acupuncture, we are looking for a flexible and dedicated personality for use mainly in late and night service by immediately or by agreement. Tasks:\n• you are part of an interdisciplinary treatment team and cares and treats patients during their one-to-two-week stay, according to the principles of activating and therapeutically accompanying care\n• you are responsible for and controlling the care process of your patients entrusted to you and coordinates the care and care in tandem with FaGes, nursing aids and interns\n• you work closely with other professional groups involved in the treatment process and shape a valuable team culture with\n• you work with the practical training of FaGe students and HF/FH students Requirements:\n• completed training as a dipl. Career HF/FH with experience in the acute hospital\n• open-minded and team-oriented person with professional work\n• Interest in geriatric acupuncture\n• Reliable team member who is involved and motivated\n• Ready to work in all layers\n• good knowledge of German in word and writing We offer:\n• responsible tasks in an open, curious, colourful and value-adding team with the support of the care expert\n• Full or part-time job, according to your needs\n• family atmosphere and very good social benefits\n• at least five weeks holiday and joker days for the changing period\n• excellent staff restaurant and numerous discounts\n• central location near Uster station as well as convenient parking facilities – with Parkingpay max. CHF 4.50 per day\n• free parking during the night shift (until 07.00)",
+        "de": "<p>Infolge des stetigen Auf- und Ausbaus unserer geriatrischen Akutrehabilitation suchen wir für Einsätze <strong>vorwiegend im Spät- und Nachtdienst</strong> per sofort oder nach Vereinbarung eine flexible und engagierte Persönlichkeit.</p> Aufgaben:\n• du bist Teil eines interdisziplinären Behandlungsteams und pflegst und betreust Patientinnen und Patienten während ihres ein- bis zweiwöchigen Aufenthalts, nach den Grundsätzen der aktivierend- therapeutisch- begleitenden Pflege\n• du verantwortest und steuerst den Pflegeprozess deiner dir anvertrauten Patientinnen und Patienten und koordinierst die Pflege und Betreuung im Tandem mit FaGes, Pflegehilfen sowie Praktikantinnen und Praktikanten\n• du arbeitest eng mit weiteren am Behandlungsprozess beteiligten Berufsgruppen zusammen und prägst eine wertschätzende Teamkultur mit\n• du arbeitest bei der praktischen Ausbildung von FaGe-Lernenden und Studierenden HF/FH mit Anforderungen:\n• abgeschlossene Ausbildung als Dipl. Pflegefachperson HF/FH mit Erfahrung im Akutspital\n• aufgeschlossene und teamorientierte Person mit professioneller Arbeitsweise\n• Interesse an geriatrischer Akutrehabilitation\n• zuverlässiges Teammitglied, das mitdenkt und motiviert ist\n• Bereitschaft, in allen Schichten zu arbeiten\n• gute Deutschkenntnisse in Wort und Schrift Wir bieten:\n• verantwortungsvolle Aufgaben in einem offenen, neugierigen, bunten und wertschätzenden Team mit Unterstützung der Pflegeexpertise\n• Voll- oder Teilzeitanstellung, ganz nach deinen Bedürfnissen\n• familiäre Atmosphäre und sehr gute Sozialleistungen\n• mindestens fünf Wochen Ferien und Jokertage für die Umkleidezeit\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie günstige Parkingmöglichkeiten – mit Parkingpay max. CHF 4.50 pro Tag\n• gratis Parkzeit während der Nachtschicht (bis 07.00 Uhr)",
+        "fr": "En raison de l'expansion et de l'expansion continues de notre acupuncture gériatrique, nous recherchons une personnalité flexible et dédiée à l'utilisation principalement dans le service tard et nuit par immédiatement ou par accord. Tâches :\n• vous faites partie d'une équipe de traitement interdisciplinaire et soignez et traitez les patients pendant leur séjour d'une à deux semaines, selon les principes d'activation et d'accompagnement thérapeutique\n• vous êtes responsable et contrôlez le processus de soins de vos patients qui vous ont été confiés et coordonnez les soins et soins en tandem avec FaGes, aides infirmières et stagiaires\n• vous travaillez en étroite collaboration avec d'autres groupes professionnels impliqués dans le processus de traitement et façonnez une culture d'équipe précieuse avec\n• vous travaillez avec la formation pratique des étudiants FaGe et des étudiants HF/FH Exigences:\n• formation terminée en tant que dipl. Carrière HF/FH avec expérience dans l'hôpital aigu\n• personne ouverte et orientée vers l'équipe avec un travail professionnel\n• Intérêt pour l'acupuncture gériatrique\n• Membre fiable de l'équipe qui est impliqué et motivé\n• Prêt à travailler dans toutes les couches\n• bonne connaissance de l'allemand en paroles et en écriture Nous offrons:\n• tâches responsables dans une équipe ouverte, curieuse, colorée et valorisante avec le soutien de l'expert en soins\n• Emploi à temps plein ou à temps partiel, selon vos besoins\n• ambiance familiale et très bon bénéfice social\n• au moins cinq semaines de vacances et jours de blague pour la période de changement\n• excellent restaurant du personnel et de nombreuses réductions\n• emplacement central près de la gare d'Uster ainsi que des parkings pratiques – avec Parkingpay max. CHF 4,50 par jour\n• parking gratuit pendant le quart de nuit (jusqu'à 07.00)"
       },
       "location": "Uster",
       "canton": "ZH",
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-geriatrische-akutrehabilitation-spaet-und-nachtdienst/722829b3-eacd-41ab-8a8b-41d5ebf0627e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T00:38:12.498Z",
+      "crawledAt": "2026-05-30T12:30:40.777Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
