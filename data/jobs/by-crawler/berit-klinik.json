@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berit-klinik",
-  "assembledAt": "2026-05-29T11:38:16.019Z",
+  "assembledAt": "2026-05-29T22:13:44.515Z",
   "jobs": [
     {
       "title": "Logistiker:in, 100%",
@@ -60,78 +60,6 @@
         ],
         "fr": [
           "logistiker-in-100-berit-klinik"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "title": "Dipl. Fachfrau Fachmann Op Technik 60–80%",
-      "slug": "specialista-in-tecnica-op-60-80-berit-klinik-speicher",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "description": "Berit Klinik sucht für den Standort Speicher eine engagierte Persönlichkeit.\n\nPosition: Dipl. Fachfrau Fachmann Op Technik 60–80%.\n\nBerit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Über die Berit Klinik Die Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Or- thopädie, Wirbelsäulenchirurgie und Re- habilitation. In Wattwil stehen eine 24/7- Notfallstation, eine Tagesklinik, diverse Sprechstunden, Radiologie, ein Labor und die PSA, eine Kurzzeittherapie für Alko- holkranke, zur Verfügung. In Goldach bietet die Klinik Hand- und periphere Nervenchirurgie, Sprechstunden in Augen- heilkunde und Orthopädie sowie ein Ma- gen-Darm-Zentrum an. Die Berit Sportcli- nic ist in Speicher, Arbon und Heerbrugg vertreten. Seit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining. Kontakt bei Fragen Herr Fermin Gomez Leiter Medizinische Dienste T +41 71 335 06 20 fermin.gomez@klinik.ch Bewerbung an Frau Vanessa Grimaldi Leiterin Personaldienst hr@klinik.ch Dipl. Fachfrau/Fachmann OP Technik HF, 60–80% für unseren Standort in Speicher AR | nach Vereinbarung Ihre Aufgaben In modernen Operationssälen decken wir vor allem die grossen Fachgebiete Orthopädie und Wirbelsäulenchirurgie ab. Sie führen Operationstechniken durch, pflegen und betreuen Patientinnen und Patienten im Operationssaal, un- terstützen bei Notfallsituationen und sind bereit Pikett-Dienste zu übernehmen. Ihr Profil\n• Fachfrau/Fachmann für Operationstechnik mit anerkanntem Diplom\n• Belastbarkeit, Selbständigkeit, Flexibilität\n• Teamorientierte, sozialkompetente und engagierte Persönlichkeit\n• Fachliche und menschliche Aufgeschlossenheit\n• Erfahrung in der Orthopädie, Wirbelsäulenchirurgie und Ophthalmologie von Vorteil Wir bieten Ihnen\n• Es erwartet sie ein eingespieltes dynamisches Team in einem professionellem Arbeitsumfeld\n• Mindestens 28 Ferientage\n• OP-Zulage\n• Umfassende Einführung\n• Keine Einsätze nachts, an Wochenenden und Feiertagen (Pikett von zuhause aus)\n\nQuelle (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf\n\nKarriereportal: https://www.beritklinik.ch/de/karriere-offene-stellen\n\nSektor: Gesundheitswesen / Klinik",
-      "titleByLocale": {
-        "it": "Specialista in tecnica op 60–80%",
-        "en": "Dipl. Professional Op Technik 60–80 %",
-        "de": "Dipl. Fachfrau Fachmann Op Technik 60–80%",
-        "fr": "Dipl. Fachfrau Fachmann Op Technik 60-80 %"
-      },
-      "descriptionByLocale": {
-        "it": "Berit Klinik è alla ricerca di una personalità impegnata per la sede di Speicher. Posizione: Specialista in tecnica op 60–80%. Berit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Informazioni sulla Berit Klinik Il gruppo Berit Klinik gestisce sette sedi nella Svizzera orientale ed è leader nella memoria e nelle basse temperature in ortopedia, chirurgia spinale e riabilitazione. A Wattwil sono disponibili un pronto soccorso 24 ore su 24, 7 giorni su 7, un day hospital, varie consultazioni, radiologia, un laboratorio e il PSA, una terapia a breve termine per alcolisti. A Goldach, la clinica offre chirurgia delle mani e dei nervi periferici, visite oculistiche e ortopediche e un centro gastrointestinale. Berit Sportclinik è rappresentata a Speicher, Arbon e Heerbrugg. Dal 2025 il Berit Sportslab di St. Gallen l'offerta nel campo dell'allenamento atletico. Contatto per domande Sig. Fermin Gomez Responsabile dei servizi medici T +41 71 335 06 20 fermin.gomez@klinik.ch Candidatura alla Sig.ra Vanessa Grimaldi Responsabile del servizio del personale hr@klinik.ch Dipl. Specialista in tecnica chirurgica HF, 60–80% per la nostra sede di Speicher AR | su appuntamento I vostri compiti Nelle moderne sale operatorie copriamo principalmente i grandi settori specialistici dell'ortopedia e della chirurgia spinale. Eseguono tecniche chirurgiche, curano e assistono i pazienti in sala operatoria, supportano in situazioni di emergenza e sono pronti",
-        "en": "Berit Klinik is looking for a committed personality for the Speicher site. Position: Dipl. Fachfrau Fachmann Op Technik 60–80%. Berit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch About Berit Klinik The Berit Klinik Group operates seven locations in eastern Switzerland and is a leader in orthopaedics, spinal surgery and rehabilitation in storage and deepening. In Wattwil, a 24/7 emergency ward, a day clinic, various consultation hours, radiology, a laboratory and the PSA, a short-term therapy for alcoholics, are available. In Goldach, the clinic offers hand and peripheral nerve surgery, consultation hours in ophthalmology and orthopaedics as well as a gastrointestinal centre. Berit Sportclinic is represented in Speicher, Arbon and Heerbrugg. Since 2025, the Berit Sportslab in St. Gallen the offer in the field of athletic training. Contact for questions Mr. Fermin Gomez Head of Medical Services T +41 71 335 06 20 fermin.gomez@klinik.ch Application to Mrs. Vanessa Grimaldi Head of Personnel Service hr@klinik.ch Dipl. Specialist in surgical technology HF, 60–80% for our location in Speicher AR | by appointment\n• Your tasks In modern operating theatres, we mainly cover the major areas of orthopaedics and spinal surgery. They perform surgical techniques, nurse and care for patients in the operating room, support in emergency situations and are ready",
-        "de": "Berit Klinik sucht für den Standort Speicher eine engagierte Persönlichkeit. Position: Dipl. Fachfrau Fachmann Op Technik 60–80%. Berit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Über die Berit Klinik Die Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Or- thopädie, Wirbelsäulenchirurgie und Re- habilitation. In Wattwil stehen eine 24/7- Notfallstation, eine Tagesklinik, diverse Sprechstunden, Radiologie, ein Labor und die PSA, eine Kurzzeittherapie für Alko- holkranke, zur Verfügung. In Goldach bietet die Klinik Hand- und periphere Nervenchirurgie, Sprechstunden in Augen- heilkunde und Orthopädie sowie ein Ma- gen-Darm-Zentrum an. Die Berit Sportcli- nic ist in Speicher, Arbon und Heerbrugg vertreten. Seit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining. Kontakt bei Fragen Herr Fermin Gomez Leiter Medizinische Dienste T +41 71 335 06 20 fermin.gomez@klinik.ch Bewerbung an Frau Vanessa Grimaldi Leiterin Personaldienst hr@klinik.ch Dipl. Fachfrau/Fachmann OP Technik HF, 60–80% für unseren Standort in Speicher AR | nach Vereinbarung Ihre Aufgaben In modernen Operationssälen decken wir vor allem die grossen Fachgebiete Orthopädie und Wirbelsäulenchirurgie ab. Sie führen Operationstechniken durch, pflegen und betreuen Patientinnen und Patienten im Operationssaal, un- terstützen bei Notfallsituationen und sind bereit Pikett-Dienste zu übernehmen. Ihr Profil\n• Fachfrau/Fachmann für Operationstechnik mit anerkanntem Diplom\n• Belastbarkeit, Selbständigkeit, Flexibilität\n• Teamorientierte, sozialkompetente und engagierte Persönlichkeit\n• Fachliche und menschliche Aufgeschlossenheit\n• Erfahrung in der Orthopädie, Wirbelsäulenchirurgie und Ophthalmologie von Vorteil Wir bieten Ihnen\n• Es erwartet sie ein eingespieltes dynamisches Team in einem professionellem Arbeitsumfeld\n• Mindestens 28 Ferientage\n• OP-Zulage\n• Umfassende Einführung\n• Keine Einsätze nachts, an Wochenenden und Feiertagen (Pikett von zuhause aus) Quelle (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf Karriereportal: https://www.beritklinik.ch/de/karriere-offene-stellen Sektor: Gesundheitswesen / Klinik",
-        "fr": "La clinique Berit recherche une personnalité engagée pour le site de Speicher. Poste : Dipl. Fachfrau Fachmann Op Technik 60-80 %. Berit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch À propos de Berit Klinik Le groupe Berit Klinik exploite sept sites en Suisse orientale et est leader dans les domaines de l'orthopédie, de la chirurgie de la colonne vertébrale et de la réadaptation. À Wattwil, un service d'urgence 24h/24 et 7j/7, une clinique de jour, diverses consultations, la radiologie, un laboratoire et le PSA, un traitement de courte durée pour les alcooliques, sont disponibles. À Goldach, la clinique propose une chirurgie des mains et des nerfs périphériques, des consultations en ophtalmologie et en orthopédie, ainsi qu'un centre gastro-intestinal. La Berit Sportcli- nic est représentée à Speicher, Arbon et Heerbrugg. Depuis 2025, le Berit Sportslab à St. Jetez un coup d'œil à l'offre dans le domaine de l'entraînement sportif. Contact en cas de questions M. Fermin Gomez Responsable des services médicaux T +41 71 335 06 20 fermin.gomez@klinik.ch Candidature à Mme Vanessa Grimaldi Responsable des services du personnel hr@klinik.ch Dipl. Spécialiste en chirurgie technique ES, 60-80 % pour notre site de Speicher AR | sur rendez-vous\n• Vos tâches Dans les salles d'opération modernes, nous couvrons principalement les grands domaines de l'orthopédie et de la chirurgie de la colonne vertébrale. Ils effectuent des techniques chirurgicales, soignent et soignent les patients dans la salle d'opération, les soutiennent en cas d'urgence et sont prêts"
-      },
-      "slugByLocale": {
-        "it": "specialista-in-tecnica-op-60-80-berit-klinik-speicher",
-        "en": "dipl-professional-op-technik-60-80-berit-klinik-speicher",
-        "de": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik",
-        "fr": "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
-      },
-      "_meta": {
-        "sourceFilename": "stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf"
-      },
-      "id": "berit-klinik-bc1b34bee37c",
-      "previousSlugs": [
-        "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
-        ],
-        "en": [
-          "dipl-fachfrau-fachmann-op-technik-60-80-berit-klinik"
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
@@ -743,7 +671,8 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Koch, 100%",
@@ -1010,6 +939,83 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "title": "Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%",
+      "slug": "psicologo-in-wb-a-per-psicoterapisti-in-o-in-psy-chotherapeut-in-60-berit-klinik-wattwil",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-29",
+      "validThrough": "",
+      "description": "Berit Klinik sucht für den Standort Wattwil eine engagierte Persönlichkeit.\n\nPosition: Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%.\n\nBerit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch Über die Berit Klinik Die Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Or- thopädie, Wirbelsäulenchirurgie und Re- habilitation. In Wattwil stehen eine 24/7- Notfallstation, eine Tagesklinik, diverse Sprechstunden, Radiologie, ein Labor und die PSA, eine Kurzzeittherapie für Alko- holkranke, zur Verfügung. In Goldach bietet die Klinik Hand- und periphere Nervenchirurgie, Sprechstunden in Augen- heilkunde und Orthopädie sowie ein Ma- gen-Darm-Zentrum an. Die Berit Sportcli- nic ist in Speicher, Arbon und Heerbrugg vertreten. Seit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining. Kontakt bei Fragen Frau Priska Eigenmann Leiterin PSA T +41 71 987 32 15 priska.eigenmann@klinik.ch Bewerbung an Frau Vanessa Grimaldi Leiterin Personaldienst hr@klinik.ch Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60% für unseren Standort in Wattwil SG | nach Vereinbarung Ihre Aufgaben\n• Eigenständige Fallführung als Einzeltherapeutin mit Dokumentation und Berichts- wesen\n• In Vertretungssituationen führen von Gruppentherapien nach dem Zürcher Ressourcenmodell\n• Führen von Gruppentherapien z.B. Gendergruppe\n• Vorabklärung und Aufnahme der Patient-/innen\n• Führen von Einzel-, Paar-, Familien- und Arbeitgebergespräch\n• Zusammenarbeit mit zuweisenden und nachbehandelnden Stellen Ihr Profil\n• Abgeschlossenes Studium in Psychologie mit Bereitschaft zur Weiterbildung in Psychotherapie oder abgeschlossene Weiterbildung in Psychotherapie\n• Vorzugsweise Berufserfahrung in stationärer oder ambulanter Suchttherapie\n• Patientenzentrierte und dienstleistungsorientierte Haltung\n• Hohes Mass an Belastbarkeit, Teamfähigkeit und Flexibilität Wir bieten Ihnen\n• Kollegialer und wertschätzender Umgang in einem engagierten und interdisziplinä- ren Team\n• Interessante und Abwechslungsreiche Tätigkeit\n• Interne Supervision und Weiterbildungen\n• Attraktive Anstellungsbedingungen\n\nQuelle (PDF): https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf\n\nKarriereportal: https://www.beritklinik.ch/de/karriere-offene-stellen\n\nSektor: Gesundheitswesen / Klinik",
+      "titleByLocale": {
+        "de": "Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%",
+        "it": "Psicologo: in WB a/per psicoterapisti:in o in Psy- chotherapeut:in, 60%",
+        "en": "Psychologist:in WB to/for psychotherapists:in or Psy- chotherapeut:in, 60%",
+        "fr": "Psychologue en WB pour/pour psychothérapeute/in ou psy-chothérapeute/in, 60%"
+      },
+      "descriptionByLocale": {
+        "de": "## Posizione\n**Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psychotherapeut:in, 60%**\n\n**Sede:** Wattwil SG\n**Tipo di contratto:** nach Vereinbarung\n\n---\n\n## Descrizione\nBerit Klinik sucht für den Standort Wattwil eine engagierte Persönlichkeit.\n\n---\n\n## L’azienda: Berit Klinik\nDie Berit Klinik Gruppe betreibt sieben Standorte in der Ostschweiz und ist in Speicher und Niederteufen führend in Orthopädie, Wirbelsäulenchirurgie und Rehabilitation.\n\nIn Wattwil stehen zur Verfügung:\n- Eine 24/7-Notfallstation\n- Eine Tagesklinik\n- Diverse Sprechstunden\n- Radiologie\n- Ein Labor\n- Die PSA, eine Kurzzeittherapie für Alkoholkranke\n\nIn Goldach bietet die Klinik:\n- Hand- und periphere Nervenchirurgie\n- Sprechstunden in Augenheilkunde und Orthopädie\n- Ein Magen-Darm-Zentrum\n\nDie Berit Sportclinic ist in Speicher, Arbon und Heerbrugg vertreten.\nSeit 2025 ergänzt das Berit Sportslab in St. Gallen das Angebot im Bereich Athletiktraining.\n\n**Sede principale:**\nBerit Klinik AG | Vögelinsegg 5 | 9042 Speicher | +41 71 335 06 06 | info@beritklinik.ch\n\n---\n\n## Mansioni\n- Eigenständige Fallführung als Einzeltherapeutin mit Dokumentation und Berichtswesen\n- In Vertretungssituationen führen von Gruppentherapien nach dem Zürcher Ressourcenmodell\n- Führen von Gruppentherapien z.B. Gendergruppe\n- Vorabklärung und Aufnahme der Patient-/innen\n- Führen von Einzel-, Paar-, Familien- und Arbeitgebergesprächen\n- Zusammenarbeit mit zuweisenden und nachbehandelnden Stellen\n\n---\n\n## Requisiti\n- Abgeschlossenes Studium in Psychologie mit Bereitschaft zur Weiterbildung in Psychotherapie oder abgeschlossene Weiterbildung in Psychotherapie\n- Vorzugsweise Berufserfahrung in stationärer oder ambulanter Suchttherapie\n- Patientenzentrierte und dienstleistungsorientierte Haltung\n- Hohes Mass an Belastbarkeit, Teamfähigkeit und Flexibilität\n\n---\n\n## Cosa offriamo\n- Kollegialer und wertschätzender Umgang in einem engagierten und interdisziplinären Team\n- Interessante und abwechslungsreiche Tätigkeit\n- Interne Supervision und Weiterbildungen\n- Attraktive Anstellungsbedingungen\n\n---\n\n## Contatto\n**Per domande:**\nFrau Priska Eigenmann\nLeiterin PSA\nT +41 71 987 32 15\npriska.eigenmann@klinik.ch\n\n**Per candidature:**\nFrau Vanessa Grimaldi\nLeiterin Personaldienst\nhr@klinik.ch\n\n---\n**Settore:** Gesundheitswesen / Klinik\n\n**Link utili:**\n- [PDF dell’annuncio](https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf)\n- [Portale carriera Berit Klinik](https://www.beritklinik.ch/de/karriere-offene-stellen)",
+        "it": "Posizione\nPsicologo:in WB a/per psicoterapisti:in o psicoterapeuta:in, 60%\n\nSede: Wattwil SG\nTipo di contratto: d'accordo\n\n---\n\nDescrizione\nBerit Klinik è alla ricerca di una personalità dedicata a Wattwil.\n\n---\n\nL’azienda: Berit Clinic\nIl Berit Clinic Group gestisce sette sedi nella Svizzera orientale ed è leader nello stoccaggio e nelle basse temperature in ortopedia, chirurgia spinale e riabilitazione.\n\nIn Wattwil sono disponibili:\n- Una stazione di emergenza 24/7\n- Una clinica quotidiana\n- Varie ore di conversazione\n- Radiologia\n- Un laboratorio\n- Il PSA, una terapia a breve termine per i pazienti alcolici\n\nA Goldach, la clinica offre:\n- Chirurgia del nervo a mano e periferica\n- lezioni di lingua in oftalmologia e ortopedia\n- Un centro gastrointestinale\n\nBerit Sportclinic è rappresentato in Memoria, Arbon e Heerbrugg.\nDal 2025, Berit Sportslab a St. Gallen ha aggiunto l'offerta nel campo della formazione atletica.\n\nSede principale:\nBerit Klinik AG | Vögelinsegg 5 | 9042 Memoria | +41 71 335 06 06 06 | info@beritklinik.ch\n\n---\n\nMansioni\n- gestione indipendente dei casi come unico terapeuta con documentazione e reportistica\n- In situazioni di rappresentazione, le terapie di gruppo seguono il Modello delle risorse di Zurigo\n- Terapie di gruppo principali, ad esempio il gruppo di genere\n- Preclarizzazione e ricezione dei pazienti\n- colloqui individuali, coppia, famiglia e datore di lavoro\n- Cooperazione con organismi di assegnazione e posttrattamento\n\n---\n\nRequisiti\n- Studi completi in psicologia con la volontà di un'ulteriore formazione in psicoterapia o di un'ulteriore formazione in psicoterapia\n- Esperienza professionale preferibilmente nella terapia di dipendenza stazionaria o ambulatorio\n- atteggiamento paziente-centrico e orientato al servizio\n- Alti livelli di carico, capacità e flessibilità del team\n\n---\n\nCosa?\n- Approccio collaborativo e di valore ad un team dedicato e interdisciplinare\n- Attività interessanti e varie\n- Controllo interno e formazione\n- Condizioni di lavoro interessanti\n\n---\n\nContatto\nPer domande:\nSignora Priska Eigenmann\nCapo della PSA\nT +41 71 987 32 15\npriska.eigenmann@klinik.ch\n\nPer candidature:\nSignora Vanessa Grimaldi\nCapo delle risorse umane\nhr@klinik.ch\n\n---\nSettore: Assistenza sanitaria / Clinica\n\nLink utili:\n- PDF dell’annuncio\n- Portale carriera Berit Klinik",
+        "en": "Posizione\nPsychologist:in WB to/for psychotherapists:in or psychotherapist:in, 60%\n\nSede: Wattwil SG\nTipo di contratto: by agreement\n\n---\n\ndescrizione\nBerit Klinik is looking for a dedicated personality for Wattwil.\n\n---\n\nL’azienda: Berit Clinic\nThe Berit Clinic Group operates seven locations in eastern Switzerland and is a leader in storage and low temperatures in orthopaedics, spinal surgery and rehabilitation.\n\nIn Wattwil are available:\n- A 24/7 emergency station\n- A daily clinic\n- Various speaking hours\n- Radiology\n- A laboratory\n- The PSA, a short-term therapy for alcohol patients\n\nIn Goldach, the clinic offers:\n- Hand and peripheral nerve surgery\n- speaking lessons in ophthalmology and orthopedics\n- A gastrointestinal centre\n\nBerit Sportclinic is represented in Memory, Arbon and Heerbrugg.\nSince 2025, Berit Sportslab in St. Gallen has added the offer in the field of athletics training.\n\nSede principale:\nBerit Klinik AG | Vögelinsegg 5 | 9042 Memory | +41 71 335 06 06 06 | info@beritklinik.ch\n\n---\n\nMansioni\n- independent case management as a single therapist with documentation and reporting\n- In representation situations, group therapies follow the Zurich Resource Model\n- Leading group therapies e.g. gender group\n- Pre-clarification and reception of patients\n- Leading individual, couple, family and employer talks\n- Cooperation with assigning and post-treating bodies\n\n---\n\nRequisiti\n- Complete studies in psychology with willingness to further education in psychotherapy or completed further education in psychotherapy\n- Preferably professional experience in stationary or outpatient addiction therapy\n- Patient-centric and service-oriented attitude\n- High levels of loadability, team capacity and flexibility\n\n---\n\nCosa offriamo\n- Collaborative and value-adding approach to a dedicated and interdisciplinary team\n- Interesting and varied activities\n- Internal supervision and training\n- Attractive employment conditions\n\n---\n\nContatto\nPer domande:\nMrs Priska Eigenmann\nHead of PSA\nT +41 71 987 32 15\npriska.eigenmann@klinik.ch\n\nPer candidature:\nMrs Vanessa Grimaldi\nHead of Human Resources\nhr@klinik.ch\n\n---\nSettore: Healthcare / Clinic\n\nLink utili:\n- PDF dell’annuncio\n- Portale carriera Berit Klinik",
+        "fr": "Posizione\nPsychologue:en WB pour/pour les psychothérapeutes:en ou psychothérapeute:in, 60%\n\nSede: Wattwil SG\nTipo di contratto: par accord\n\n---\n\ndescrizione\nBerit Klinik cherche une personnalité dédiée à Wattwil.\n\n---\n\nLizienda: Clinique Berit\nLe Berit Clinic Group exploite sept sites dans l'est de la Suisse et est un leader dans le stockage et les basses températures en orthopédie, chirurgie de la colonne vertébrale et réhabilitation.\n\nÀ Wattwil sont disponibles:\n- Une station d'urgence 24/7\n- Une clinique quotidienne\n- Diverses heures de parole\n- Radiologie\n- Un laboratoire\n- Le PSA, un traitement à court terme pour les patients alcooliques\n\nÀ Goldach, la clinique offre :\n- Chirurgie des mains et des nerfs périphériques\n- Cours d'ophtalmologie et d'orthopédie\n- Un centre gastro-intestinal\n\nBerit Sportclinic est représenté en Mémoire, Arbon et Heerbrugg.\nDepuis 2025, Berit Sportslab à St. Gallen a ajouté l'offre dans le domaine de l'entraînement sportif.\n\nSede principale:\nBerit Klinik AG-Vögelinsegg 5-9042 Mémoire +41 71 335 06 06 06-00 info@beritklinik.ch\n\n---\n\nMansioni\n- gestion de cas indépendante en tant que thérapeute unique avec documentation et rapport\n- Dans les situations de représentation, les thérapies de groupe suivent le modèle de ressource de Zurich\n- Principales thérapies de groupe, par exemple groupe de genre\n- Pré-clarification et accueil des patients\n- Entretien individuel, couple, famille et employeur\n- Coopération avec les organes d ' attribution et de post-traitement\n\n---\n\nRequisiti\n- Achèvement d'études en psychologie avec volonté de poursuivre des études en psychothérapie ou de poursuivre des études en psychothérapie\n- Expérience professionnelle de préférence dans la thérapie de dépendance stationnaire ou externe\n- Une attitude centrée sur le patient et axée sur le service\n- Haute capacité de charge, capacité d'équipe et flexibilité\n\n---\n\nCosa offriamo\n- Approche collaborative et valorisante pour une équipe dédiée et interdisciplinaire\n- Activités intéressantes et variées\n- Supervision et formation internes\n- Conditions d'emploi attrayantes\n\n---\n\nContatto\nPar domande:\nMme Priska Eigenmann\nChef de PSA\nT +41 71 987 32 15\nPriska.eigenmann@klinik.ch\n\nPar candidature :\nMme Vanessa Grimaldi\nChef des ressources humaines\nhr@klinik.ch\n\n---\nSettore: Santé / Clinique\n\nLien utile:\n- PDF à télécharger\n- Portale carriera Berit Klinik"
+      },
+      "slugByLocale": {
+        "de": "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik",
+        "it": "psicologo-in-wb-a-per-psicoterapisti-in-o-in-psy-chotherapeut-in-60-berit-klinik-wattwil",
+        "en": "psychologist-in-wb-to-for-psychotherapists-in-or-psy-chotherapeut-in-60-berit-klinik-wattwil",
+        "fr": "psychologue-en-wb-pour-pour-psychotherapeute-in-ou-psy-chotherapeute-in-60-berit-klinik-wattwil"
+      },
+      "_meta": {
+        "sourceFilename": "stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf"
+      },
+      "id": "berit-klinik-2e837e5b0f2b",
+      "previousSlugsByLocale": {
+        "it": [
+          "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik",
+          "psycholog-in-wb-zur-zum-psychotherapeuten-in-o-psy-chotherapeut-in-60-berit-klinik-wattwil"
+        ],
+        "en": [
+          "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik"
+        ],
+        "fr": [
+          "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik",
+        "psycholog-in-wb-zur-zum-psychotherapeuten-in-o-psy-chotherapeut-in-60-berit-klinik-wattwil"
+      ],
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70500,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-29T22:13:44.514Z"
     }
   ]
 }

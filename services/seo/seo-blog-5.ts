@@ -41258,6 +41258,630 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-udc-finanze-ticino-aprile-2027': {
+    title: 'UDC Ticino: \'Pronti a rilanciare finanze e economia del Cantone\'',
+    description: 'L’UDC Ticino annuncia la volontà di rilanciare le finanze e l’economia del Cantone con un nuovo approccio. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pronti, rilanciare, finanze, economia',
+    ogTitle: 'UDC Ticino: rilancio finanze e economia nel 2027',
+    ogDescription: 'L’UDC Ticino punta a risanare i conti pubblici e rilanciare l’economia del Cantone a partire da aprile 2027.',
+    canonicalPath: '/articoli-frontaliere/udc-finanze-ticino-aprile-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC Ticino: 'Pronti a rilanciare finanze e economia del Cantone'",
+      "description": "L’UDC Ticino annuncia la volontà di rilanciare le finanze e l’economia del Cantone con un nuovo approccio. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/udc-finanze-ticino-aprile-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia del Castelgrande di Bellinzona, simbolo di stabilità e visione"
+      },
+      "datePublished": "2026-05-30T00:26:14+00:00",
+      "dateModified": "2026-05-30T00:26:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/udc-finanze-ticino-aprile-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-apprendisti-lugano': {
+    title: 'Frontalieri anche come apprendisti? «Non lavorano per la Città di Lugano»',
+    description: 'Il Comune di Lugano risponde a un\'interrogazione del consigliere comunale Omar Wicht: nessun apprendista frontaliero attualmente impiegato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, anche, apprendisti, lavorano, città',
+    ogTitle: 'Frontalieri anche come apprendisti? «Non lavorano per la Città di Lugano»',
+    ogDescription: 'Il Comune di Lugano risponde a un\'interrogazione del consigliere comunale Omar Wicht: nessun apprendista frontaliero attualmente impiegato.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-apprendisti-lugano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri anche come apprendisti? «Non lavorano per la Città di Lugano»",
+      "description": "Il Comune di Lugano risponde a un'interrogazione del consigliere comunale Omar Wicht: nessun apprendista frontaliero attualmente impiegato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-apprendisti-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano dal lago con le montagne sullo sfondo"
+      },
+      "datePublished": "2026-05-30T00:38:08+00:00",
+      "dateModified": "2026-05-30T00:38:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-apprendisti-lugano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ethos-compensi-novartis-ceo-boccia': {
+    title: 'Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»',
+    description: 'Ethos critica i compensi del CEO di Novartis: retribuzioni eccessive rispetto ai risultati. Impatto sui frontalieri e strumenti per verificare il proprio',
+    keywords: 'frontalieri, ticino, svizzera, italia, ethos, boccia, compensi, novartis',
+    ogTitle: 'Ethos boccia compensi Novartis: paga CEO eccessiva',
+    ogDescription: 'Ethos invita gli azionisti a votare contro i compensi del top management Novartis. Analisi e strumenti per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»",
+      "description": "Ethos critica i compensi del CEO di Novartis: retribuzioni eccessive rispetto ai risultati. Impatto sui frontalieri e strumenti per verificare il proprio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ethos-compensi-novartis-ceo-boccia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del distretto finanziario di Lugano con la sede Novartis sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-05-30T00:44:27+00:00",
+      "dateModified": "2026-05-30T00:44:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-intelligenza-artificiale-aziende-ticino': {
+    title: 'Intelligenza artificiale nelle aziende ticinesi: efficienza e sviluppo',
+    description: 'Scopri come l\'intelligenza artificiale sta rivoluzionando le aziende ticinesi, migliorando l\'efficienza operativa e liberando i dipendenti dai compiti',
+    keywords: 'frontalieri, ticino, svizzera, italia, intelligenza, artificiale, nelle, aziende',
+    ogTitle: 'Intelligenza artificiale nelle aziende ticinesi: efficienza e sviluppo',
+    ogDescription: 'Scopri come l\'intelligenza artificiale sta rivoluzionando le aziende ticinesi, migliorando l\'efficienza operativa e liberando i dipendenti dai compiti',
+    canonicalPath: '/articoli-frontaliere/intelligenza-artificiale-aziende-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Intelligenza artificiale nelle aziende ticinesi: efficienza e sviluppo",
+      "description": "Scopri come l'intelligenza artificiale sta rivoluzionando le aziende ticinesi, migliorando l'efficienza operativa e liberando i dipendenti dai compiti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/intelligenza-artificiale-aziende-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno a Lugano con dipendenti che lavorano con interfacce AI"
+      },
+      "datePublished": "2026-05-30T01:05:12+00:00",
+      "dateModified": "2026-05-30T01:05:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-aziende-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cinque-atti-parlamentari-ticino-mobilita': {
+    title: 'Cinque atti parlamentari per migliorare la mobilità in Ticino',
+    description: 'I Verdi propongono cinque atti parlamentari per affrontare i prezzi elevati dei carburanti e migliorare la mobilità in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, cinque, atti, parlamentari, migliorare',
+    ogTitle: 'Cinque atti parlamentari per migliorare la mobilità in Ticino',
+    ogDescription: 'I Verdi propongono cinque atti parlamentari per affrontare i prezzi elevati dei carburanti e migliorare la mobilità in Ticino.',
+    canonicalPath: '/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cinque atti parlamentari per migliorare la mobilità in Ticino",
+      "description": "I Verdi propongono cinque atti parlamentari per affrontare i prezzi elevati dei carburanti e migliorare la mobilità in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cinque-atti-parlamentari-ticino-mobilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano durante l'ora di punta con traffico e trasporti pubblici"
+      },
+      "datePublished": "2026-05-30T01:17:09+00:00",
+      "dateModified": "2026-05-30T01:17:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ripristino-treni-locarno-cadenazzo': {
+    title: 'Ripristinato il traffico ferroviario tra Locarno e Cadenazzo',
+    description: 'Risolto il guasto a uno scambio tra Tenero e Gordola. Treno ripristinato a partire da mezzogiorno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ripristinato, traffico, ferroviario, locarno',
+    ogTitle: 'Ripristino traffico ferroviario Locarno-Cadenazzo dopo guasto',
+    ogDescription: 'Risolto il guasto a uno scambio tra Tenero e Gordola. Treno ripristinato a partire da mezzogiorno.',
+    canonicalPath: '/articoli-frontaliere/ripristino-treni-locarno-cadenazzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ripristinato il traffico ferroviario tra Locarno e Cadenazzo",
+      "description": "Risolto il guasto a uno scambio tra Tenero e Gordola. Treno ripristinato a partire da mezzogiorno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ripristino-treni-locarno-cadenazzo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria in Ticino con treni e passeggeri"
+      },
+      "datePublished": "2026-05-30T01:51:32+00:00",
+      "dateModified": "2026-05-30T01:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ripristino-treni-locarno-cadenazzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imprese-ticino-classifica-2024': {
+    title: 'Ticino ottavo in Svizzera per l\'attrazione di aziende',
+    description: 'Il Ticino si conferma attrattivo: 53 nuove aziende in crescita netta nel 2024. Analisi dei dati Crif e implicazioni per il mercato del lavoro transfrontaliero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ottavo, attrazione, aziende, nuovi',
+    ogTitle: 'Ticino ottavo in Svizzera per l\'attrazione di aziende',
+    ogDescription: 'Il Ticino si conferma attrattivo: 53 nuove aziende in crescita netta nel 2024. Analisi dei dati Crif e implicazioni per il mercato del lavoro transfrontaliero.',
+    canonicalPath: '/articoli-frontaliere/imprese-ticino-classifica-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino ottavo in Svizzera per l'attrazione di aziende",
+      "description": "Il Ticino si conferma attrattivo: 53 nuove aziende in crescita netta nel 2024. Analisi dei dati Crif e implicazioni per il mercato del lavoro transfrontaliero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imprese-ticino-classifica-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Lugano e del suo lago in una giornata soleggiata"
+      },
+      "datePublished": "2026-05-30T01:57:46+00:00",
+      "dateModified": "2026-05-30T01:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imprese-ticino-classifica-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tilo-stabio-malpensa-sospensione-2026': {
+    title: 'TILO Stabio-Malpensa: stop ai treni per un mese',
+    description: 'Sospensione treni TILO tra Stabio e Malpensa dal 7 giugno al 5 luglio 2026. Orari bus sostitutivi e tempi di percorrenza per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, stabio-malpensa, stop, treni',
+    ogTitle: 'TILO Stabio-Malpensa: stop ai treni giugno 2026',
+    ogDescription: 'Collegamenti TILO S40 e S50 sospesi tra Stabio e Malpensa per un mese. Scopri gli orari dei bus sostitutivi.',
+    canonicalPath: '/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TILO Stabio-Malpensa: stop ai treni per un mese",
+      "description": "Sospensione treni TILO tra Stabio e Malpensa dal 7 giugno al 5 luglio 2026. Orari bus sostitutivi e tempi di percorrenza per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tilo-stabio-malpensa-sospensione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno TILO alla stazione di Stabio in Ticino"
+      },
+      "datePublished": "2026-05-30T02:03:46+00:00",
+      "dateModified": "2026-05-30T02:03:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzeri-scelgono-capitale-pensione': {
+    title: 'Svizzeri scelgono capitale al posto della rendita',
+    description: 'Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, scelgono, capitale, posto',
+    ogTitle: 'Svizzeri scelgono capitale al posto della rendita',
+    ogDescription: 'Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni',
+    canonicalPath: '/articoli-frontaliere/svizzeri-scelgono-capitale-pensione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri scelgono capitale al posto della rendita",
+      "description": "Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-scelgono-capitale-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona anziana che guarda il lago di Lugano"
+      },
+      "datePublished": "2026-05-30T02:26:35+00:00",
+      "dateModified": "2026-05-30T02:26:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-scelgono-capitale-pensione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-fortezza-bellinzona-27-settembre': {
+    title: 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
+    description: 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, fortezza, bellinzona, vota',
+    ogTitle: 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
+    ogDescription: 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota.',
+    canonicalPath: '/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum Fortezza Bellinzona: si vota il 27 settembre",
+      "description": "Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-fortezza-bellinzona-27-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dei castelli di Bellinzona con la città sullo sfondo"
+      },
+      "datePublished": "2026-05-30T02:31:29+00:00",
+      "dateModified": "2026-05-30T02:31:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenziamento-nurnberg-rsi': {
+    title: 'Licenziamento di Nurnberg | Frontaliere Ticino',
+    description: 'La vertenza riguardante l’ex giornalista della RSI Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese salariali invocate. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziamento, nurnberg, vertenza, chiusa',
+    ogTitle: 'Licenziamento di Nurnberg RSI',
+    ogDescription: 'La vertenza riguardante l’ex giornalista della RSI Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese salariali invocate.',
+    canonicalPath: '/articoli-frontaliere/licenziamento-nurnberg-rsi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenziamento di Nurnberg",
+      "description": "La vertenza riguardante l’ex giornalista della RSI Paola Nurnberg è chiusa. La RSI ha pagato tutte le pretese salariali invocate. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/licenziamento-nurnberg-rsi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giornalista in studio"
+      },
+      "datePublished": "2026-05-30T02:39:31+00:00",
+      "dateModified": "2026-05-30T02:39:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/licenziamento-nurnberg-rsi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-lavoro-stagionale-ticino': {
+    title: 'Frontaliere lavoro stagionale Ticino | Frontaliere Ticino',
+    description: 'Scopri le regole, i diritti e le opportunità per il lavoro stagionale in Ticino: permessi, contratti, fiscalità. Lavoro stagionale in Ticino: permessi',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, stagionale, scopri, regole',
+    ogTitle: 'Frontaliere lavoro stagionale Ticino | Frontaliere Ticino',
+    ogDescription: 'Scopri le regole, i diritti e le opportunità per il lavoro stagionale in Ticino: permessi, contratti, fiscalità.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere lavoro stagionale Ticino",
+      "description": "Scopri le regole, i diritti e le opportunità per il lavoro stagionale in Ticino: permessi, contratti, fiscalità. Lavoro stagionale in Ticino: permessi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-lavoro-stagionale-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che lavora in Ticino durante la stagione estiva"
+      },
+      "datePublished": "2026-05-30T03:02:29+00:00",
+      "dateModified": "2026-05-30T03:02:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-startup-scuola-ticino-frontalieri': {
+    title: 'Startup a scuola in Ticino: opportunità per frontalieri',
+    description: '500 idee imprenditoriali nate in Lombardia: come il modello può ispirarci in Ticino. Formazione, permessi e fiscalità per frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, startup, scuola, opportunità, idee',
+    ogTitle: 'Startup a scuola in Ticino: opportunità per frontalieri',
+    ogDescription: 'Scopri come il progetto lombardo *La mia impresa, il mio futuro* può ispirare i frontalieri in Ticino. Guida pratica su formazione, permessi e fiscalità.',
+    canonicalPath: '/articoli-frontaliere/startup-scuola-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Startup a scuola in Ticino: opportunità per frontalieri",
+      "description": "500 idee imprenditoriali nate in Lombardia: come il modello può ispirarci in Ticino. Formazione, permessi e fiscalità per frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/startup-scuola-ticino-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula moderna a Lugano con studenti che lavorano su laptop, bandiera del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-05-30T03:15:21+00:00",
+      "dateModified": "2026-05-30T03:15:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/startup-scuola-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ritenuta-lpp-intermediario-residente': {
+    title: 'Ritenuta 5% su prestazioni LPP: intermediario irrilevante',
+    description: 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritenuta, prestazioni, intermediario, irrilevante',
+    ogTitle: 'Ritenuta del 5% sulle prestazioni LPP svizzere: irrilevante la presenza dell’intermediario residente',
+    ogDescription: 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ritenuta-lpp-intermediario-residente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritenuta 5% su prestazioni LPP: intermediario irrilevante",
+      "description": "Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ritenuta-lpp-intermediario-residente.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di confine mostra il permesso di lavoro e i documenti fiscali"
+      },
+      "datePublished": "2026-05-30T03:59:46+00:00",
+      "dateModified": "2026-05-30T03:59:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ritenuta-lpp-intermediario-residente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rincari-ticino-percepiti-dolorosi': {
+    title: 'Rincari in Ticino: come i frontalieri percepiscono i aumenti',
+    description: 'I rincari in Ticino sono percepiti come molto dolorosi, con impatti su prezzi e trasporti. Ecco come monitorarli. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, percepiscono, aumenti, sono',
+    ogTitle: 'Rincari in Ticino: percezione e strumenti di controllo',
+    ogDescription: 'Percezione dei rincari in Ticino tra frontaliere e residenti, con focus su strumenti di verifica e normative.',
+    canonicalPath: '/articoli-frontaliere/rincari-ticino-percepiti-dolorosi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincari in Ticino: come i frontalieri percepiscono i aumenti",
+      "description": "I rincari in Ticino sono percepiti come molto dolorosi, con impatti su prezzi e trasporti. Ecco come monitorarli. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rincari-ticino-percepiti-dolorosi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Ticino con lago e montagne, scena fotorealistica, DSLR"
+      },
+      "datePublished": "2026-05-30T04:18:23+00:00",
+      "dateModified": "2026-05-30T04:18:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rincari-ticino-percepiti-dolorosi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crisi-abitativa-ticino-classe-media': {
+    title: 'Crisi abitativa in Ticino: classe media a rischio',
+    description: 'Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, abitativa, classe, media',
+    ogTitle: 'Crisi abitativa Ticino: classe media a rischio',
+    ogDescription: 'Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/crisi-abitativa-ticino-classe-media',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi abitativa in Ticino: classe media a rischio",
+      "description": "Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-abitativa-ticino-classe-media.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e edifici residenziali"
+      },
+      "datePublished": "2026-05-30T06:39:11+00:00",
+      "dateModified": "2026-05-30T06:39:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-abitativa-ticino-classe-media`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

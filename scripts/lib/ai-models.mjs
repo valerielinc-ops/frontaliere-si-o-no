@@ -2525,17 +2525,28 @@ export async function callLLM(messages, opts = {}) {
         console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit, future hits silenced)`);
         _exhaustedLogged.add(model);
       }
+      // Record the skip reason so the aggregate "All AI models failed … Errors:"
+      // message is never empty when every candidate is skipped pre-flight (e.g.
+      // a single-model chain whose only model is exhausted, as in the smoke
+      // test). Without this the harness surfaces a blank cause — undiagnosable.
+      errors.push(`${model}: skipped — exhausted (daily limit / consecutive 429s / timeout circuit-breaker)`);
       continue;
     }
 
     // Skip models whose provider is cooling down (recent 429)
     const provider = getProvider(model);
     if (isProviderCoolingDown(provider)) {
+      errors.push(`${model}: skipped — provider ${provider} cooling down (recent 429)`);
       continue;
     }
 
-    // Skip models without API keys
+    // Skip models without API keys. Distinguish the two reasons isModelAvailable
+    // returns false (missing key vs already-exhausted) so the output is actionable.
     if (!isModelAvailable(model)) {
+      const reason = getApiKeyForProvider(provider)
+        ? 'exhausted'
+        : `no API key for provider ${provider}`;
+      errors.push(`${model}: skipped — ${reason}`);
       continue;
     }
 
@@ -2544,6 +2555,7 @@ export async function callLLM(messages, opts = {}) {
     const apiModelId = getApiModelId(model);
     const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId];
     if (modelLimit && o.maxTokens > modelLimit) {
+      errors.push(`${model}: skipped — model max output ${modelLimit} < requested maxTokens ${o.maxTokens}`);
       continue;
     }
 
@@ -2557,6 +2569,7 @@ export async function callLLM(messages, opts = {}) {
       if (estTokens > reqLimit) {
         // One-line log per skip so ops can see the cascade in the workflow output
         console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
+        errors.push(`${model}: skipped — request ~${estTokens} tokens exceeds ${reqLimit}-token input cap`);
         continue;
       }
     }

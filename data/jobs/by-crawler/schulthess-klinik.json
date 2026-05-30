@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-05-29T13:50:39.082Z",
+  "assembledAt": "2026-05-30T00:25:57.190Z",
   "jobs": [
     {
       "id": "schulthess-klinik-0ac4796b7a05",
@@ -33,7 +33,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-einkauf/15f353a6-e164-430a-9fe0-be45be1cd718",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.170Z",
+      "crawledAt": "2026-05-30T00:25:55.085Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-op-und-bettendisposition/52da4ff8-cb55-4de1-9028-584cc163f4fc",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.167Z",
+      "crawledAt": "2026-05-30T00:25:55.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/chefarztsekretaerin-chefarztsekretaer-stv-praxismanagerin-stv-praxismanager-handchirurgie/4dc150de-df79-40a9-a0ae-b1a862d908df",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.166Z",
+      "crawledAt": "2026-05-30T00:25:55.080Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -310,7 +310,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/teamleitung-med-massage/30e07e1f-96db-4c77-b05c-d029d3bc5084",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.164Z",
+      "crawledAt": "2026-05-30T00:25:55.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -386,7 +386,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-masseurin-med-masseur/8d52fd6d-3a13-4681-a0ad-df3bb4054fef",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.162Z",
+      "crawledAt": "2026-05-30T00:25:55.076Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -434,9 +434,9 @@
     },
     {
       "id": "schulthess-klinik-1420583ef698",
-      "slug": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "traduzione-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
+        "it": "traduzione-schulthess-klinik-lengghalde-2-zurich",
         "en": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
         "de": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
         "fr": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich"
@@ -446,7 +446,7 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Disponentin / Disponent Fusschirurgie",
       "titleByLocale": {
-        "it": "Disponentin / Disponent Fusschirurgie",
+        "it": "Traduzione:",
         "en": "Disponentin / Disponent Fusschirurgie",
         "de": "Disponentin / Disponent Fusschirurgie",
         "fr": "Disponentin / Disponent Fusschirurgie"
@@ -464,7 +464,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/disponentin-disponent-fusschirurgie/7b86763b-0a3f-4ef3-bf89-81fc2488da24",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.160Z",
+      "crawledAt": "2026-05-30T00:25:55.074Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -482,12 +482,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "traduzione-schulthess-klinik-lengghalde-2-zurich",
-        "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich"
+        "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
+        "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "traduzione-schulthess-klinik-lengghalde-2-zurich",
           "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
           "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich"
         ]
@@ -538,7 +537,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-hueft-und-kniechirurgie/671cc735-c5a4-4d1d-b569-360e97824983",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.158Z",
+      "crawledAt": "2026-05-30T00:25:55.073Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -609,7 +608,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-fuer-die-bettenstation/002c7f46-5932-4f7e-8df2-dc6c993c6e40",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.155Z",
+      "crawledAt": "2026-05-30T00:25:55.071Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -680,7 +679,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/404b647e-b231-4701-98d9-a2b4ec0da839",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.150Z",
+      "crawledAt": "2026-05-30T00:25:55.067Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -723,9 +722,9 @@
       "id": "schulthess-klinik-3c837185f3c9",
       "slug": "arztsekretarin-arztsekretar-kinder-e-jugendorthopala-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "de": "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2",
         "it": "arztsekretarin-arztsekretar-kinder-e-jugendorthopala-schulthess-klinik-lengghalde-2-zurich",
         "en": "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2",
+        "de": "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2",
         "fr": "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2"
       },
       "company": "Schulthess Klinik",
@@ -733,17 +732,17 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Arztsekretärin / Arztsekretär Kinder- und Jugendorthopädie",
       "titleByLocale": {
-        "de": "Arztsekretärin / Arztsekretär Kinder- und Jugendorthopädie",
         "it": "Arztsekretärin / Arztsekretär Kinder- e Jugendorthopäla",
         "en": "Arztsekretärin / Arztsekretär Kinder- und Jugendorthopädie",
+        "de": "Arztsekretärin / Arztsekretär Kinder- und Jugendorthopädie",
         "fr": "Arztsekretärin / Arztsekretär Kinder- und Jugendorthopädie"
       },
       "description": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Willkommen heissen unserer Patienten am Empfang\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\n• Ferien- und Krankheitsvertretung im Sekretariatsteam\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n\n• Flexible und teamorientierte Arbeitsweise\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Willkommen heissen unserer Patienten am Empfang\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\n• Ferien- und Krankheitsvertretung im Sekretariatsteam\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n\n• Flexible und teamorientierte Arbeitsweise\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "it": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Willkommen heissen unserer Patienten am Empfang\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\n• Ferien- und Krankheitsvertretung im Sekretariatsteam\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n\n• Flexible und teamorientierte Arbeitsweise\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "en": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Willkommen heissen unserer Patienten am Empfang\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\n• Ferien- und Krankheitsvertretung im Sekretariatsteam\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n\n• Flexible und teamorientierte Arbeitsweise\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "fr": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n\n• Willkommen heissen unserer Patienten am Empfang\n\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n\n• Ferien- und Krankheitsvertretung im Sekretariatsteam\n\nAnforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n\n• Flexible und teamorientierte Arbeitsweise\n\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil\n\nWir bieten:\n• 40 Stundenwoche\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\n• Günstige Verpflegung im Personalrestaurant\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
+        "it": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n• Willkommen heissen unserer Patienten am Empfang\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n• Ferien- und Krankheitsvertretung im Sekretariatsteam Anforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n• Flexible und teamorientierte Arbeitsweise\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil Wir bieten:\n• 40 Stundenwoche\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Teamspirit\n• Work-Life-Balance / Familienfreundlichkeit\n• Günstige Verpflegung im Personalrestaurant Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "en": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n• Willkommen heissen unserer Patienten am Empfang\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n• Ferien- und Krankheitsvertretung im Sekretariatsteam Anforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n• Flexible und teamorientierte Arbeitsweise\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil Wir bieten:\n• 40 Stundenwoche\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Teamspirit\n• Work-Life-Balance / Familienfreundlichkeit\n• Günstige Verpflegung im Personalrestaurant Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "de": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n• Willkommen heissen unserer Patienten am Empfang\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n• Ferien- und Krankheitsvertretung im Sekretariatsteam Anforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n• Flexible und teamorientierte Arbeitsweise\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil Wir bieten:\n• 40 Stundenwoche\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Teamspirit\n• Work-Life-Balance / Familienfreundlichkeit\n• Günstige Verpflegung im Personalrestaurant Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
+        "fr": "Aufgaben:\n• Organisation, Koordination und Vorbereitung der Sprechstunden\n• Willkommen heissen unserer Patienten am Empfang\n• Bestellung fehlender Röntgenbilder und Akten der aufzubietenden Patienten\n• Schreiben von Konsultations-, Austritts-, Operations- und Versicherungsberichten ab Diktaphon und Erfassung der Daten im System\n• Erledigung der eingehenden Post und der telefonischen Anfragen\n• Enge Zusammenarbeit mit dem Ärzteteam und Ansprechpartner/in für ihre Patienten\n• Ferien- und Krankheitsvertretung im Sekretariatsteam Anforderungen:\n• Ausbildung als MPA und/oder Zusatzausbildung als Spital- und Arztsekretär/in mit Berufserfahrung in einer vergleichbaren Position\n• Freude am Schreiben und sichere Anwendung der medizinischen Terminologie\n• Dienstleistungsorientiert und Freude am direkten Patientenkontakt\n• Vertrauensvolle, selbständige, belastbare und kommunikative Persönlichkeit\n• Flexible und teamorientierte Arbeitsweise\n• Sehr gute und stilsichere Deutschkenntnisse, Kenntnisse in Englisch, Französisch oder Italienisch von Vorteil Wir bieten:\n• 40 Stundenwoche\n• Attraktive Sozialleistungen und zahlreiche Benefits\n• Teamspirit\n• Work-Life-Balance / Familienfreundlichkeit\n• Günstige Verpflegung im Personalrestaurant Die Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
       },
       "needsRetranslation": true,
       "location": "Lengghalde 2, Zürich",
@@ -751,7 +750,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-kinder-und-jugendorthopaedie/d7f2dc70-c05f-46a4-900a-ddfe35fafd37",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T13:50:37.127Z",
+      "crawledAt": "2026-05-30T00:25:55.046Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -767,17 +766,16 @@
       "postedDate": "2026-05-29",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1948",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2"
         ]
       },
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-kinder-und-jugendorthopadie-schulthess-klinik-lengghalde-2"
-      ],
+      "firstSeenAt": "2026-05-29T13:50:37.127Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -789,8 +787,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-29T13:50:37.127Z"
+      }
     }
   ]
 }
