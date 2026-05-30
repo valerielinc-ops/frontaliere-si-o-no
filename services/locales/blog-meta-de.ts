@@ -7914,6 +7914,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.startup-scuola-ticino-frontalieri.title': 'Startup-Schulen im Ticino: Chancen für Grenzgänger',
     'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 unternehmerische Ideen aus der Lombardei: Wie junge Menschen uns über grenzüberschreitende Arbeit und soziale Innovation inspirieren können. Fokus auf **Bildung** und Humankapital für Grenzgänger.',
     'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Moderner Unterrichtsraum in Lugano mit Schülern an Laptops, Tessiner Flagge im Hintergrund',
+    'blog.article.ritenuta-lpp-intermediario-residente.title': '5% Abzug auf LPP-Leistungen: Vermittler unerheblich',
+    'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Erfahren Sie, wie der 5%ige Abzug auf Schweizer LPP-Leistungen nicht von der Anwesenheit eines ansässigen Vermittlers abhängt.',
+    'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier an der Grenzkontrolle zeigt Arbeitsgenehmigung und Steuerdokumente',
 };
 
 export default blogMetaDe;

@@ -7916,6 +7916,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.startup-scuola-ticino-frontalieri.title': 'Startups à l’école au Tessin : des opportunités pour les frontaliers',
     'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 idées entrepreneuriales nées en Lombardie : comment les jeunes peuvent nous inspirer sur le travail transfrontalier et l’innovation sociale. Mise en avant de la formation et du **capital humain** pour les travailleurs frontaliers.',
     'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Salle de classe moderne à Lugano avec des élèves travaillant sur des ordinateurs portables, drapeau du Tessin en arrière-plan',
+    'blog.article.ritenuta-lpp-intermediario-residente.title': 'Ritenuta 5 % LPP : l\'intermédiaire n\'est pas déterminant',
+    'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Découvrez que la retenue de 5 % sur les prestations LPP suisses ne dépend pas de la présence d’un intermédiaire résident.',
+    'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier au poste de contrôle frontalier montrant son permis de travail et ses documents fiscaux',
 };
 
 export default blogMetaFr;

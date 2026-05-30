@@ -3880,6 +3880,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-licenziamento-nurnberg-rsi': { name: 'Licenziamento Nurnberg', path: '/articoli-frontaliere/licenziamento-nurnberg-rsi', parent: 'blog' },
     'blog-frontaliere-lavoro-stagionale-ticino': { name: 'Lavoro stagionale in Ticino', path: '/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino', parent: 'blog' },
     'blog-startup-scuola-ticino-frontalieri': { name: 'Opportunità frontalieri', path: '/articoli-frontaliere/startup-scuola-ticino-frontalieri', parent: 'blog' },
+    'blog-ritenuta-lpp-intermediario-residente': { name: 'Ritenuta LPP Svizzera', path: '/articoli-frontaliere/ritenuta-lpp-intermediario-residente', parent: 'blog' },
  };
 
  const info = sectionNames[section];
