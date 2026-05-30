@@ -7901,6 +7901,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-stabio-malpensa-sospensione-2026.title': 'TILO Stabio-Malpensa: stop ai treni per un mese',
     'blog.article.tilo-stabio-malpensa-sospensione-2026.excerpt': 'Dal 7 giugno al 5 luglio 2026 sospesi i collegamenti TILO tra Stabio e Malpensa per lavori RFI. Previsti bus sostitutivi e tempi di percorrenza maggiori.',
     'blog.article.tilo-stabio-malpensa-sospensione-2026.imageAlt': 'Treno TILO alla stazione di Stabio in Ticino',
+    'blog.article.svizzeri-scelgono-capitale-pensione.title': 'Svizzeri scelgono capitale al posto della rendita',
+    'blog.article.svizzeri-scelgono-capitale-pensione.excerpt': 'Erwin Heri avverte dei rischi di restare senza nulla',
+    'blog.article.svizzeri-scelgono-capitale-pensione.imageAlt': 'Persona anziana che guarda il lago di Lugano',
 };
 
 export default blogMetaIt;

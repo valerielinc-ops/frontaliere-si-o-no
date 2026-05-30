@@ -7899,6 +7899,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tilo-stabio-malpensa-sospensione-2026.title': 'TILO Stabio-Malpensa: Keine Züge für einen Monat',
     'blog.article.tilo-stabio-malpensa-sospensione-2026.excerpt': 'Vom 7. Juni bis 5. Juli 2026 sind die TILO-Verbindungen zwischen Stabio und Malpensa wegen RFI-Arbeiten eingestellt. Es sind Ersatzbusse und längere Fahrzeiten vorgesehen.',
     'blog.article.tilo-stabio-malpensa-sospensione-2026.imageAlt': 'TILO-Zug am Bahnhof Stabio im Tessin',
+    'blog.article.svizzeri-scelgono-capitale-pensione.title': 'Schweizer wählen Kapital statt Rente',
+    'blog.article.svizzeri-scelgono-capitale-pensione.excerpt': 'Erwin Heri warnt vor den Risiken, ohne alles zu bleiben',
+    'blog.article.svizzeri-scelgono-capitale-pensione.imageAlt': 'Ältere Person, die den Luganer See betrachtet',
 };
 
 export default blogMetaDe;

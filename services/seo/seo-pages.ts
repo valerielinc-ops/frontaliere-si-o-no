@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2688,
+ "numberOfItems": 2689,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7328,7 +7328,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2685, "name": "Cinque atti parlamentari per migliorare la mobi...", "url": `${BASE_URL}/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita` },
           { "@type": "ListItem", "position": 2686, "name": "Ripristinato il traffico ferroviario tra Locarn...", "url": `${BASE_URL}/articoli-frontaliere/ripristino-treni-locarno-cadenazzo` },
           { "@type": "ListItem", "position": 2687, "name": "Ticino ottavo in Svizzera per l'attrazione di a...", "url": `${BASE_URL}/articoli-frontaliere/imprese-ticino-classifica-2024` },
-          { "@type": "ListItem", "position": 2688, "name": "TILO Stabio-Malpensa: stop ai treni per un mese", "url": `${BASE_URL}/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026` }
+          { "@type": "ListItem", "position": 2688, "name": "TILO Stabio-Malpensa: stop ai treni per un mese", "url": `${BASE_URL}/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026` },
+          { "@type": "ListItem", "position": 2689, "name": "Svizzeri scelgono capitale al posto della rendita", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-scelgono-capitale-pensione` }
  ]
  },
  {

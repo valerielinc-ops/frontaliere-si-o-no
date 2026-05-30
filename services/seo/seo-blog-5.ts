@@ -41570,6 +41570,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-scelgono-capitale-pensione': {
+    title: 'Svizzeri scelgono capitale al posto della rendita',
+    description: 'Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, scelgono, capitale, posto',
+    ogTitle: 'Svizzeri scelgono capitale al posto della rendita',
+    ogDescription: 'Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni',
+    canonicalPath: '/articoli-frontaliere/svizzeri-scelgono-capitale-pensione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzeri scelgono capitale al posto della rendita",
+      "description": "Erwin Heri avverte dei rischi di restare senza nulla. Scopri come gestire correttamente il tuo patrimonio e come evitare problemi con le prestazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-scelgono-capitale-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona anziana che guarda il lago di Lugano"
+      },
+      "datePublished": "2026-05-30T02:26:35+00:00",
+      "dateModified": "2026-05-30T02:26:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-scelgono-capitale-pensione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
