@@ -244,13 +244,13 @@ function buildActiveIndex(activeJobs) {
   const slugTokenToJobs = new Map();        // token → Set<job>
   // Inverted index: title-token → Set<job>. Mirrors `slugTokenToJobs`
   // but keyed on `job.titleByLocale[*]` tokens. Strategy B (title-to-title
-  // cross-locale Jaccard, findBestMatch ~line 462) can match a job whose
+  // cross-locale Jaccard in findBestMatch) can match a job whose
   // SLUG diverges from the orphan but whose TITLE matches across locales.
   // The slug-token bucket alone narrows by slug-overlap ≥ 2, which can
   // EXCLUDE such jobs → missed merge → expired slug stays 404 with no
   // redirect bridge → organic traffic loss. findBestMatch OR-unions this
   // bucket with the slug bucket before scoring so Strategy B always sees
-  // its candidates (the 🔴 fix from PR #896 review / issue #907).
+  // its candidates (the 🔴 fix from issue #907).
   const titleTokenToJobs = new Map();       // token → Set<job>
 
   for (const job of activeJobs) {
@@ -427,14 +427,15 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     //   • Strategy A (slug-to-slug Jaccard): jobs whose union of
     //     (canonical+locale) slug tokens shares ≥ 2 tokens with
     //     `orphanTokens` — a SUPERSET of jobs that could pass the slug
-    //     scoring guard (`overlap < 2 → continue`, ~line 448).
+    //     scoring guard (the `overlap < 2 → continue` slug guard in the
+    //     scoring loop).
     //   • Strategy B (title-to-title cross-locale Jaccard): jobs whose
     //     `titleByLocale[*]` tokens share ≥ 2 tokens with the orphan's
     //     TITLE tokens. A job matchable ONLY via Strategy B can have a
     //     divergent slug (slug-overlap < 2) yet a matching cross-locale
     //     title; gating candidates on the slug bucket alone would silently
     //     drop it → missed merge → 404 with no redirect bridge (the 🔴 from
-    //     PR #896 review, issue #907). OR-ing the title bucket in fixes that.
+    //     issue #907). OR-ing the title bucket in fixes that.
     //
     // The union is still a SUPERSET of all jobs the scoring loop can accept,
     // so dropping a non-member only ever removes wasted score work — never a
@@ -461,6 +462,15 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     // the orphan's title tokens, regardless of slug overlap. Mirrors
     // Strategy B's own `overlap < 2` title guard so we admit the same set it
     // can accept (≥ 2 shared title tokens) without re-filtering here.
+    //
+    // INVARIANT: slug-bucket jobs are inserted into `candidateSet` ABOVE,
+    // before these title-only jobs. The scoring loop iterates candidates in
+    // insertion order and `matchCount` increments only on a strict
+    // `score > bestScore`, so a slug winner must establish `bestScore` before
+    // any title-only candidate is scored. Reordering construction (title
+    // bucket first) would let a title candidate bump `matchCount` ahead of a
+    // slug winner → spuriously trip the slug ambiguity guard → dropped
+    // redirect (expired slug 404 instead of bridge). Keep slug-bucket first.
     if (index.titleTokenToJobs && orphanTitleTokens && orphanTitleTokens.size >= 2) {
       const titleOverlap = new Map(); // job → title tokens-in-common count
       for (const tok of orphanTitleTokens) {
@@ -632,6 +642,15 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     const orphanCompanyKey =
       enrichment?.companyKey ||
       (enrichment?.company ? normalizeCompany(enrichment.company) : null);
+    // INTENT (issue #1010 / #971 review): when the orphan has NO company
+    // signal at all (`orphanCompanyKey` falsy), the title merge is allowed to
+    // proceed — we refuse ONLY when the orphan company is KNOWN to differ.
+    // A same-title `title-*` win is already gated by title-Jaccard ≥ 0.70 +
+    // role-overlap, so the persisted 301 lands on a same-role active listing
+    // on the same aggregator: recovery vs a hard 404, net non-negative rather
+    // than a misroute. Hardening this to a hard reject on unknown company
+    // would re-introduce the 404 for legit recoveries and is intentionally
+    // NOT done absent evidence of cross-company misroutes in production.
     if (orphanCompanyKey) {
       // Asymmetric, NOT full Jaccard: `bestJob.companyKey` is already normalized
       // and often truncated to a stem (e.g. "acme"), while the orphan company can
