@@ -23,6 +23,12 @@ import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Reject cascade output that is clipped/truncated relative to the source.
+// The free cascade (DeepL/SimplyTranslate/etc) can return a string cut to a
+// provider-dependent length cap; a hard `>= 100` floor accepts those clips.
+// A faithful translation stays within a reasonable band of the source length,
+// so anything below this ratio is treated as truncated and skipped.
+const MIN_TRANSLATION_RATIO = 0.6;
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
@@ -93,7 +99,11 @@ async function main() {
           maxRetries: 1,
         });
 
-        if (translated && translated.length >= 100 && translated.toLowerCase() !== sourceDesc.toLowerCase()) {
+        const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
+        const meetsMinLength = translated && translated.length >= 100;
+        const meetsRatio = translated && translated.length >= sourceDesc.length * MIN_TRANSLATION_RATIO;
+
+        if (isNewLanguage && meetsMinLength && meetsRatio) {
           if (!DRY_RUN) {
             dbl[locale] = translated;
             job.descriptionByLocale = dbl;
@@ -106,6 +116,10 @@ async function main() {
             console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
           }
         } else {
+          if (isNewLanguage && meetsMinLength && !meetsRatio) {
+            const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
+            console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: truncated translation (${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
+          }
           totalFailed++;
         }
       }
