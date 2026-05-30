@@ -1,0 +1,19 @@
+{
+  "id": "rincari-ticino-percepiti-dolorosi",
+  "slug": "rincari-ticino-percepiti-dolorosi",
+  "publishedAt": "2026-05-30T04:18:25.175Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 88.0263104,
+    "confidence": 1,
+    "finalScore": 88.0263104,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 11.0032888,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
