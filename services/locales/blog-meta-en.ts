@@ -7897,6 +7897,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imprese-ticino-classifica-2024.title': 'Ticino ranks 8th in Switzerland for attracting companies',
     'blog.article.imprese-ticino-classifica-2024.excerpt': 'New Crif data reveals Ticino\'s net growth in attracting businesses from other cantons in 2024.',
     'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Panoramic view of Lugano and its lake on a sunny day',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.title': 'TILO Stabio-Malpensa: no trains for a month',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.excerpt': 'From June 7 to July 5, 2026, TILO services between Stabio and Malpensa will be suspended for RFI works. Replacement buses and longer travel times are planned.',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.imageAlt': 'TILO train at Stabio station in Ticino',
 };
 
 export default blogMetaEn;

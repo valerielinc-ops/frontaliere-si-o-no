@@ -3874,6 +3874,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cinque-atti-parlamentari-ticino-mobilita': { name: 'Mobilità Ticino', path: '/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita', parent: 'blog' },
     'blog-ripristino-treni-locarno-cadenazzo': { name: 'Ripristino treni', path: '/articoli-frontaliere/ripristino-treni-locarno-cadenazzo', parent: 'blog' },
     'blog-imprese-ticino-classifica-2024': { name: 'Attrattività imprese Ticino', path: '/articoli-frontaliere/imprese-ticino-classifica-2024', parent: 'blog' },
+    'blog-tilo-stabio-malpensa-sospensione-2026': { name: 'TILO Stabio-Malpensa Stop', path: '/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

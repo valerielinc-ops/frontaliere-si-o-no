@@ -25067,4 +25067,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tilo-stabio-malpensa-sospensione-2026',
+ category: 'novita',
+ date: '2026-05-30T02:03:46.553Z',
+ image: '/images/blog/tilo-stabio-malpensa-sospensione-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
