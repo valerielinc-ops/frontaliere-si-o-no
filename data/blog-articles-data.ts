@@ -25085,4 +25085,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'referendum-fortezza-bellinzona-27-settembre',
+ category: 'novita',
+ date: '2026-05-30T02:31:29.344Z',
+ image: '/images/blog/referendum-fortezza-bellinzona-27-settembre.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

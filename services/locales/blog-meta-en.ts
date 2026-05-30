@@ -7903,6 +7903,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzeri-scelgono-capitale-pensione.title': 'Swiss choose capital over income',
     'blog.article.svizzeri-scelgono-capitale-pensione.excerpt': 'Erwin Heri warns of the risks of being left with nothing',
     'blog.article.svizzeri-scelgono-capitale-pensione.imageAlt': 'Elderly person looking at Lake Lugano',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Bellinzona Fortress Referendum: Vote on Sept 27',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'Bellinzona Municipality validated 3,738 signatures for the Fortress referendum. Here\'s what changes and why the vote is happening.',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Aerial view of Bellinzona\'s castles with the city in the background',
 };
 
 export default blogMetaEn;

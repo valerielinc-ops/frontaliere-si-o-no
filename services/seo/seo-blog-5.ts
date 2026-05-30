@@ -41609,6 +41609,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-fortezza-bellinzona-27-settembre': {
+    title: 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
+    description: 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, fortezza, bellinzona, vota',
+    ogTitle: 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
+    ogDescription: 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota.',
+    canonicalPath: '/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum Fortezza Bellinzona: si vota il 27 settembre",
+      "description": "Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Scopri cosa cambia e perché si vota. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-fortezza-bellinzona-27-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea dei castelli di Bellinzona con la città sullo sfondo"
+      },
+      "datePublished": "2026-05-30T02:31:29+00:00",
+      "dateModified": "2026-05-30T02:31:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

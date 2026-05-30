@@ -7904,6 +7904,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzeri-scelgono-capitale-pensione.title': 'Suisse: capitaux préférés aux rentes',
     'blog.article.svizzeri-scelgono-capitale-pensione.excerpt': 'Erwin Heri avertit des risques de rester sans rien',
     'blog.article.svizzeri-scelgono-capitale-pensione.imageAlt': 'Personne âgée regardant le lac de Lugano',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Référendum sur la Forteresse de Bellinzone: vote le 27 septembre',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'La Municipalité de Bellinzone a validé 3.738 signatures pour le référendum sur la Forteresse. Voici ce qui change et pourquoi on vote.',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Vue aérienne des châteaux de Bellinzone avec la ville en arrière-plan',
 };
 
 export default blogMetaFr;
