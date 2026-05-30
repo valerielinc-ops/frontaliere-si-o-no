@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-05-30T12:14:56.905Z",
+  "generatedAt": "2026-05-30T23:28:23.845Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9108,
-  "avgDurationMs": 9108,
+  "durationMs": 12177,
+  "avgDurationMs": 12177,
   "durationHistory": [
-    9108
+    12177
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -76,7 +76,6 @@
       "contractType": "full-time",
       "validThrough": "2053-09-04",
       "id": "ruag-ag-da9a974d02f3",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -84,6 +83,7 @@
       "postalCode": "6517",
       "firstSeenAt": "2026-05-29T13:47:05.918Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -115,7 +115,6 @@
       "contractType": "part-time",
       "validThrough": "2053-10-12",
       "id": "ruag-ag-00edcc7eb3a6",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -123,6 +122,7 @@
       "postalCode": "6517",
       "firstSeenAt": "2026-05-29T13:47:05.918Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
