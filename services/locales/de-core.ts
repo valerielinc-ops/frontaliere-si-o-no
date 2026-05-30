@@ -694,7 +694,7 @@ const deCore: Record<string, string> = {
  'jobBoard.authGateEmailPlaceholder': 'Ihre E-Mail',
  'jobBoard.authGateEmailCta': 'Weiter mit E-Mail',
  'jobBoard.authGateNewsletterNote': 'Mit Eingabe Ihrer E-Mail erhalten Sie auch unseren Newsletter mit Updates für Grenzgänger.',
- 'jobBoard.gate.title': 'Anforderungen und Bewerbung lesen',
+ 'jobBoard.gate.title': 'Weiter zum vollständigen Stellenangebot',
  'jobBoard.gate.subtitle': 'Ein Klick für Zugang. Kostenlos, für immer.',
  'jobBoard.gate.emailCta': 'Weiter mit E-Mail',
  'jobBoard.gate.benefit1': 'Vollständige Beschreibung und Anforderungen',
