@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-05-30T00:09:25.393Z",
+  "generatedAt": "2026-05-30T12:02:16.686Z",
   "total": 68,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 62,
-  "durationMs": 145064,
-  "avgDurationMs": 145064,
+  "durationMs": 154049,
+  "avgDurationMs": 154049,
   "durationHistory": [
-    145064
+    154049
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,18 +37,17 @@
       "contractType": "temporary",
       "validThrough": "2026-06-13",
       "id": "pemsa-03c10619d4a4",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-29T13:34:23.196Z",
-      "_qualityScore": 87,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -263,18 +262,17 @@
       "contractType": "temporary",
       "validThrough": "2026-06-13",
       "id": "pemsa-bfe8d3c3adae",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-29T13:34:23.196Z",
-      "_qualityScore": 92,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -301,18 +299,17 @@
       "contractType": "temporary",
       "validThrough": "2026-06-13",
       "id": "pemsa-dba48bf4a511",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-29T13:34:23.196Z",
-      "_qualityScore": 92,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -974,8 +971,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
