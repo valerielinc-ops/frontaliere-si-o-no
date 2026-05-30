@@ -3871,6 +3871,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-apprendisti-lugano': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-apprendisti-lugano', parent: 'blog' },
     'blog-ethos-compensi-novartis-ceo-boccia': { name: 'Ethos Novartis', path: '/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia', parent: 'blog' },
     'blog-intelligenza-artificiale-aziende-ticino': { name: 'Intelligenza artificiale', path: '/articoli-frontaliere/intelligenza-artificiale-aziende-ticino', parent: 'blog' },
+    'blog-cinque-atti-parlamentari-ticino-mobilita': { name: 'Mobilità Ticino', path: '/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

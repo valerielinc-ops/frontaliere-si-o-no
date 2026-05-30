@@ -7888,6 +7888,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.intelligenza-artificiale-aziende-ticino.title': 'AI in Ticino companies: efficiency and growth',
     'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'Artificial intelligence is revolutionizing Ticino companies, improving operational efficiency and freeing employees from repetitive tasks.',
     'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Modern office in Lugano with employees working with AI interfaces',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Five parliamentary acts to improve mobility in Ticino',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'The Green Party proposes five parliamentary acts to tackle high fuel prices and improve mobility in Ticino.',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Aerial view of Lake Lugano during rush hour with traffic and public transport',
 };
 
 export default blogMetaEn;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2684,
+ "numberOfItems": 2685,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7324,7 +7324,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2681, "name": "UDC Ticino: 'Pronti a rilanciare finanze e econ...", "url": `${BASE_URL}/articoli-frontaliere/udc-finanze-ticino-aprile-2027` },
           { "@type": "ListItem", "position": 2682, "name": "Frontalieri anche come apprendisti? «Non lavora...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-apprendisti-lugano` },
           { "@type": "ListItem", "position": 2683, "name": "Ethos boccia i compensi Novartis: «La busta pag...", "url": `${BASE_URL}/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia` },
-          { "@type": "ListItem", "position": 2684, "name": "Intelligenza artificiale nelle aziende ticinesi...", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-aziende-ticino` }
+          { "@type": "ListItem", "position": 2684, "name": "Intelligenza artificiale nelle aziende ticinesi...", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-aziende-ticino` },
+          { "@type": "ListItem", "position": 2685, "name": "Cinque atti parlamentari per migliorare la mobi...", "url": `${BASE_URL}/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita` }
  ]
  },
  {

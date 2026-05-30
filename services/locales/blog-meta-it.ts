@@ -7889,6 +7889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.intelligenza-artificiale-aziende-ticino.title': 'Intelligenza artificiale nelle aziende ticinesi: efficienza e sviluppo',
     'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'L\'intelligenza artificiale sta rivoluzionando le aziende ticinesi, migliorando l\'efficienza operativa e liberando i dipendenti dai compiti ripetitivi.',
     'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Ufficio moderno a Lugano con dipendenti che lavorano con interfacce AI',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Cinque atti parlamentari per migliorare la mobilità in Ticino',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'I Verdi propongono cinque atti parlamentari per affrontare i prezzi elevati dei carburanti e migliorare la mobilità in Ticino.',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Vista aerea del Lago di Lugano durante l\'ora di punta con traffico e trasporti pubblici',
 };
 
 export default blogMetaIt;
