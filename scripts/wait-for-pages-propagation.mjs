@@ -32,7 +32,11 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 const DEFAULT_LOCAL_PATH = path.join(REPO_ROOT, 'dist', 'build-id.txt');
 const DEFAULT_LIVE_URL = 'https://frontaliereticino.ch/build-id.txt';
-const DEFAULT_TIMEOUT_MS = 4 * 60 * 1000; // 4 min hard ceiling
+// 25 min: for the ~13 GB / ~470k-file site GitHub Pages finishes publishing
+// SERVER-SIDE well past actions/deploy-pages' 10-min action cap (~30 min end to
+// end, measured 2026-05-30). The old 4-min ceiling timed out before our build
+// reached the edge → validate-live failed → publish (IndexNow/indexing) skipped.
+const DEFAULT_TIMEOUT_MS = 25 * 60 * 1000;
 const PER_REQUEST_TIMEOUT_MS = 8_000;
 const UA = 'FrontaliereTicino-PropagationCheck/1.0';
 
@@ -99,6 +103,22 @@ async function main() {
 
   console.log(`[wait-pages] Expecting build-id="${expected}" at ${liveUrl} (timeout ${Math.round(timeoutMs / 1000)}s)`);
 
+  // build-id is a monotonic Date.now() millisecond stamp generated per build.
+  // Accept the live site as "propagated" when it serves a build-id >= ours:
+  // an exact match means our deploy is live; a strictly-greater value means a
+  // NEWER deploy already superseded ours and is live — the site is still at
+  // least as fresh as this run, so the freshness gate is satisfied (under deploy
+  // congestion ours may never be the one that lands, and waiting for an exact
+  // match would time out forever). Falls back to exact string match if either
+  // value isn't a plain number.
+  const expectedNum = /^\d+$/.test(expected) ? Number(expected) : null;
+  const isPropagated = (live) => {
+    if (live == null) return false;
+    if (live === expected) return true;
+    if (expectedNum !== null && /^\d+$/.test(live)) return Number(live) >= expectedNum;
+    return false;
+  };
+
   const startedAt = Date.now();
   let attempt = 0;
   let lastSeen = null;
@@ -106,8 +126,9 @@ async function main() {
     attempt += 1;
     const result = await fetchLiveBuildId(liveUrl);
     const elapsed = Math.round((Date.now() - startedAt) / 1000);
-    if (result.value === expected) {
-      console.log(`[wait-pages] OK — build-id matches after ${elapsed}s (attempt ${attempt})`);
+    if (isPropagated(result.value)) {
+      const how = result.value === expected ? 'matches' : `>= ours (live "${result.value}" ≥ "${expected}", newer deploy live)`;
+      console.log(`[wait-pages] OK — build-id ${how} after ${elapsed}s (attempt ${attempt})`);
       process.exit(0);
     }
     lastSeen = result.value ?? `<status ${result.status}${result.error ? ` ${result.error}` : ''}>`;
