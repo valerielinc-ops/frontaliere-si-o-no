@@ -4104,14 +4104,24 @@
       "department": "Klinischer Bereich A",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-ksw-ch"
+          "arztsekretarin-arztsekretar-ksw-ch",
+          "segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
           "arztsekretarin-arztsekretar-ksw-ch"
+        ],
+        "en": [
+          "medical-secretary-kantonsspital-winterthur-ksw-winterthur-51bce7"
+        ],
+        "fr": [
+          "secretaire-medicale-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch"
+        "arztsekretarin-arztsekretar-ksw-ch",
+        "segretaria-medica-segretario-medico-kantonsspital-winterthur-ksw-winterthur",
+        "medical-secretary-kantonsspital-winterthur-ksw-winterthur-51bce7",
+        "secretaire-medicale-kantonsspital-winterthur-ksw-winterthur"
       ],
       "needsRetranslation": true,
       "salaryMin": 49500,
