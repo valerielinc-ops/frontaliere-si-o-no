@@ -31,8 +31,11 @@
  *      here — IT is already clean — but the guard mirrors the pipeline).
  *
  * Idempotent: re-running finds zero `…-undefined` active slugs and is a no-op.
- * Scope: data/jobs/by-crawler/hilcona.json only. Does NOT run AI translation,
- * does NOT touch other crawlers, does NOT mutate titles/descriptions.
+ * Scope: the Hilcona active slice (data/jobs/by-crawler/hilcona.json) AND the
+ * expired slice (data/jobs/expired/by-crawler/hilcona.json) — the inverted state
+ * also reached the expired slice, whose slugByLocale values feed the expired
+ * soft-landing index. Does NOT run AI translation, does NOT touch other crawlers,
+ * does NOT mutate titles/descriptions.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -41,12 +44,18 @@ import { buildSlug } from './lib/regenerate-slugs-helpers.mjs';
 import { addPreviousSlugForLocale } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SLICE_PATH = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'hilcona.json');
+const SLICE_PATHS = [
+  path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'hilcona.json'),
+  path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler', 'hilcona.json'),
+];
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UNDEFINED_RE = /undefined/;
 
-function main() {
-  const data = JSON.parse(fs.readFileSync(SLICE_PATH, 'utf-8'));
+function scrubSlice(slicePath) {
+  if (!fs.existsSync(slicePath)) {
+    return { fixedSlots: 0, fixedJobs: 0, failures: [] };
+  }
+  const data = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
   const jobs = Array.isArray(data?.jobs) ? data.jobs : [];
 
   let fixedSlots = 0;
@@ -93,19 +102,41 @@ function main() {
     if (jobTouched) fixedJobs += 1;
   }
 
-  if (failures.length > 0) {
+  if (fixedSlots > 0) {
+    fs.writeFileSync(slicePath, JSON.stringify(data, null, 2) + '\n', 'utf-8');
+  }
+  return { fixedSlots, fixedJobs, failures };
+}
+
+function main() {
+  let totalSlots = 0;
+  let totalJobs = 0;
+  const allFailures = [];
+
+  for (const slicePath of SLICE_PATHS) {
+    const label = path.relative(path.resolve(__dirname, '..'), slicePath);
+    const { fixedSlots, fixedJobs, failures } = scrubSlice(slicePath);
+    allFailures.push(...failures);
+    totalSlots += fixedSlots;
+    totalJobs += fixedJobs;
+    if (fixedSlots > 0) {
+      console.log(`📊 ${label}: repaired ${fixedSlots} slug slot(s) across ${fixedJobs} job(s).`);
+    } else {
+      console.log(`✅ ${label}: no …-undefined Hilcona slugs — nothing to do (idempotent).`);
+    }
+  }
+
+  if (allFailures.length > 0) {
     console.error('\n❌ Unable to repair some slots:');
-    for (const f of failures) console.error(`   ${f}`);
+    for (const f of allFailures) console.error(`   ${f}`);
     process.exit(1);
   }
 
-  if (fixedSlots === 0) {
-    console.log('✅ No active …-undefined Hilcona slugs found — nothing to do (idempotent).');
+  if (totalSlots === 0) {
+    console.log('\n✅ All Hilcona slices clean — nothing to do.');
     return;
   }
-
-  fs.writeFileSync(SLICE_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');
-  console.log(`\n📊 Repaired ${fixedSlots} active slug slot(s) across ${fixedJobs} job(s); broken slugs preserved in previousSlugsByLocale for 301 coverage.`);
+  console.log(`\n📊 Total: repaired ${totalSlots} slug slot(s) across ${totalJobs} job(s); broken slugs preserved in previousSlugsByLocale for 301 coverage.`);
 }
 
 main();
