@@ -158,8 +158,7 @@
       "previousSlugs": [
         "consulente-di-moda-part-time-m-f-d-tally-weijl-bern",
         "teilzeit-modeberaterin-m-w-d-tally-weijl-bern",
-        "part-time-fashion-consultant-m-f-d-tally-weijl-bern",
-        "part-time-fashion-consultant-m-w-d-tally-weijl-bern"
+        "part-time-fashion-consultant-m-f-d-tally-weijl-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -267,8 +266,7 @@
       "previousSlugs": [
         "consulente-di-moda-part-time-m-f-d-tally-weijl-basel",
         "teilzeit-modeberaterin-m-w-d-tally-weijl-basel",
-        "part-time-fashion-consultant-m-f-d-tally-weijl-basel",
-        "part-time-fashion-advisor-m-w-d-tally-weijl-basel"
+        "part-time-fashion-consultant-m-f-d-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -375,8 +373,7 @@
       },
       "previousSlugs": [
         "consulente-di-moda-part-time-m-f-d-tally-weijl-solothurn",
-        "teilzeit-modeberaterin-m-w-d-tally-weijl-solothurn",
-        "part-time-fashion-consultant-m-f-d-tally-weijl-solothurn"
+        "teilzeit-modeberaterin-m-w-d-tally-weijl-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1112,7 +1109,7 @@
       "id": "tally-weijl-59950cdafc4d",
       "slug": "assistente-flessibile-tally-weijl-aarau",
       "slugByLocale": {
-        "it": "assistente-flexibile-m-w-d-tally-weijl-aarau",
+        "it": "assistente-flessibile-tally-weijl-aarau",
         "en": "flexible-aushilfe-tally-weijl-aarau",
         "de": "flexible-aushilfe-tally-weijl-aarau",
         "fr": "assistant-flexible-tally-weijl-aarau"
@@ -1185,14 +1182,15 @@
       "previousSlugs": [
         "flexible-aushilfe-tally-weijl-aarau",
         "aushilfe-flessibile-tally-weijl-aarau",
+        "assistente-flexibile-m-w-d-tally-weijl-aarau",
         "aushilfe-fur-die-zukunft-tally-weijl-aarau",
-        "aushilfe-flessibile-m-p-g-tally-weijl-aarau",
-        "assistente-flessibile-tally-weijl-aarau"
+        "aushilfe-flessibile-m-p-g-tally-weijl-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "flexible-aushilfe-tally-weijl-aarau",
-          "aushilfe-flessibile-tally-weijl-aarau"
+          "aushilfe-flessibile-tally-weijl-aarau",
+          "assistente-flexibile-m-w-d-tally-weijl-aarau"
         ],
         "de": [
           "aushilfe-fur-die-zukunft-tally-weijl-aarau"
@@ -1326,12 +1324,12 @@
     },
     {
       "id": "tally-weijl-f2c2a36618fb",
-      "slug": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
+      "slug": "ausiliare-h-f-tw-sierre-tally-weijl-sierre",
       "slugByLocale": {
         "fr": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
-        "it": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
-        "en": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
-        "de": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+        "it": "ausiliare-h-f-tw-sierre-tally-weijl-sierre",
+        "en": "auxiliary-h-f-tw-sierre-tally-weijl-sierre",
+        "de": "hilfsguter-h-f-tw-sierre-tally-weijl-sierre"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1374,11 +1372,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
+          "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre"
+        ],
+        "en": [
+          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+        ],
+        "de": [
           "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+        "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
+        "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

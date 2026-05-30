@@ -728,7 +728,7 @@
       "id": "klinik-lengg-fbae75a38984",
       "slug": "interno-interno-sporttherapie-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "stage-in-terapia-sportiva-klinik-lengg-zurich",
+        "it": "interno-interno-sporttherapie-klinik-lengg-zurich",
         "en": "intern-intern-sporttherapie-klinik-lengg-zurich",
         "de": "praktikantin-praktikant-sporttherapie-klinik-lengg-zurich",
         "fr": "stagiaire-en-therapie-du-sport-klinik-lengg-zurich"
@@ -790,13 +790,13 @@
       },
       "previousSlugs": [
         "praktikantin-praktikant-sporttherapie-klinik-lengg-zurich",
-        "sports-therapy-intern-klinik-lengg-zurich",
-        "interno-interno-sporttherapie-klinik-lengg-zurich",
-        "intern-intern-sporttherapie-klinik-lengg-zurich"
+        "stage-in-terapia-sportiva-klinik-lengg-zurich",
+        "sports-therapy-intern-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-sporttherapie-klinik-lengg-zurich"
+          "praktikantin-praktikant-sporttherapie-klinik-lengg-zurich",
+          "stage-in-terapia-sportiva-klinik-lengg-zurich"
         ],
         "en": [
           "sports-therapy-intern-klinik-lengg-zurich"
@@ -1189,7 +1189,7 @@
       "id": "klinik-lengg-cb7263a1fca7",
       "slug": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich",
+        "it": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
         "en": "nutritionist-nutritionist-svde-a-klinik-lengg-zurich",
         "de": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
         "fr": "nutritionniste-nutritionniste-svde-a-klinik-lengg-zurich"
@@ -1266,13 +1266,13 @@
       },
       "previousSlugs": [
         "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
-        "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich",
-        "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
-        "nutritionniste-nutritionniste-svde-a-klinik-lengg-zurich"
+        "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich",
+        "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+          "consulente-alimentare-consulente-alimentare-svde-a-klinik-lengg-zurich"
         ],
         "fr": [
           "conseiller-en-nutrition-conseiller-en-nutrition-svde-a-klinik-lengg-zurich"
@@ -1386,7 +1386,7 @@
       "id": "klinik-lengg-aef0561ac03d",
       "slug": "segreto-medico-segretario-medico-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "segretaria-medica-segretario-medico-klinik-lengg-zurich",
+        "it": "segreto-medico-segretario-medico-klinik-lengg-zurich",
         "en": "medical-secretary-klinik-lengg-zurich",
         "de": "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
         "fr": "secretaire-medical-secretaire-medicale-klinik-lengg-zurich"
@@ -1445,11 +1445,12 @@
       },
       "previousSlugs": [
         "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
-        "segreto-medico-segretario-medico-klinik-lengg-zurich"
+        "segretaria-medica-segretario-medico-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich"
+          "medizinische-sekretarin-medizinischer-sekretar-klinik-lengg-zurich",
+          "segretaria-medica-segretario-medico-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:17.493Z",
@@ -1470,7 +1471,7 @@
       "id": "klinik-lengg-8e36e2ed28f4",
       "slug": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+        "it": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich",
         "en": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
         "de": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
         "fr": "dipl-carriere-d-oiseau-precoce-ou-de-chouette-nocturne-a-klinik-lengg-zurich"
@@ -1516,11 +1517,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich"
+        "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
+          "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
+          "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich"
         ],
         "fr": [
           "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich"
@@ -1542,10 +1544,10 @@
     },
     {
       "id": "klinik-lengg-0c644b406b7d",
-      "slug": "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+      "slug": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich-03c882",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-        "it": "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
+        "it": "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich-03c882",
         "en": "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
         "fr": "dipl-carriere-d-oiseau-precoce-ou-de-chouette-nocturne-a-klinik-lengg-zurich"
       },
@@ -1593,7 +1595,8 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
-          "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich-2"
+          "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich-2",
+          "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich"
         ],
         "en": [
           "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich-2"
@@ -1605,6 +1608,7 @@
       "previousSlugs": [
         "dipl-pflegefachperson-als-early-bird-oder-night-owl-a-klinik-lengg-zurich",
         "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich-2",
+        "dipl-pflegefachperson-come-early-bird-o-night-owl-a-klinik-lengg-zurich",
         "dipl-carriera-come-uccello-precoce-o-gufo-notturno-a-klinik-lengg-zurich"
       ],
       "salaryMin": 49500,
@@ -1863,7 +1867,7 @@
       "id": "klinik-lengg-5217631b4902",
       "slug": "neuroriabilitazione-della-salute-professionale-a-nella-cura-precoce-e-tardiva-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
+        "it": "neuroriabilitazione-della-salute-professionale-a-nella-cura-precoce-e-tardiva-klinik-lengg-zurich",
         "en": "professional-health-neurorehabilitation-a-in-early-and-late-care-klinik-lengg-zurich",
         "de": "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
         "fr": "sante-professionnelle-neuroreadaptation-a-en-soins-precoces-et-tardifs-klinik-lengg-zurich"
@@ -1910,11 +1914,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
-        "neuroriabilitazione-della-salute-professionale-a-nella-cura-precoce-e-tardiva-klinik-lengg-zurich"
+        "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"
+          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg",
+          "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-e-spatdienst-klinik-lengg-zurich"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-fruh-und-spatdienst-klinik-lengg"

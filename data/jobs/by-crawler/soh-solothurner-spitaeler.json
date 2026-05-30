@@ -2508,13 +2508,11 @@
         "en": [
           "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
           "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
-          "radiology-technician-m-f-solothurner-spitaler-soh-olten",
           "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
           "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-          "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
           "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
         ]
       },
@@ -2522,10 +2520,8 @@
         "radiologiefachfrau-radiologiefachmann-w-m-d-soh-solothurner-spitaeler-olten",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-olten",
         "radiology-technician-male-female-solothurner-spitaler-ag-soh-olten",
-        "radiology-technician-m-f-solothurner-spitaler-soh-olten",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-olten",
         "technicien-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten",
-        "technicien-ne-en-radiologie-h-f-solothurner-spitaler-soh-olten",
         "radiology-technician-m-f-solothurner-spitaler-ag-soh-olten",
         "technicien-ne-en-radiologie-h-f-solothurner-spitaler-ag-soh-olten"
       ],
@@ -11704,9 +11700,9 @@
       "slug": "post-laurea-in-anestesia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
         "it": "post-laurea-in-anestesia-f-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "en": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0",
         "de": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "fr": "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "fr": "projektleiter-m-d-solothurner-spitaler-ag-soh-solothurn-248ac0"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -11750,6 +11746,12 @@
       "firstSeenAt": "2026-05-29T00:33:11.385Z",
       "previousSlugsByLocale": {
         "it": [
+          "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
           "nachdiplomstudium-anasthesiepflege-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
@@ -11915,12 +11917,10 @@
         ],
         "en": [
           "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
-          "senior-consultant-m-d-solothurner-spitaler-soh-olten",
           "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten"
         ],
         "fr": [
           "consultant-principal-m-j-solothurner-spitaler-soh-olten",
-          "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
           "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
           "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55"
         ]
@@ -11928,9 +11928,7 @@
       "previousSlugs": [
         "nachdiplomstudium-hf-notfallpflege-w-m-d-soh-solothurner-spitaeler-olten",
         "senior-consultant-m-d-solothurner-spitaler-soh-olten-bcc53f",
-        "senior-consultant-m-d-solothurner-spitaler-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten",
-        "consultant-principal-m-j-solothurner-spitaler-soh-olten-bcc53f",
         "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten",
         "senior-consultant-m-d-solothurner-spitaler-ag-soh-olten",
         "consultant-principal-m-j-solothurner-spitaler-ag-soh-olten-8c3c55"
