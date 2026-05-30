@@ -328,8 +328,8 @@
       "slugByLocale": {
         "it": "agente-di-vigilanza-ubs",
         "en": "supervisory-officer-ubs",
-        "de": "supervisory-officer-ubs",
-        "fr": "supervisory-officer-ubs"
+        "de": "aufsichtsrat-ubs",
+        "fr": "specialiste-de-la-supervision-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -382,6 +382,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "supervisory-officer-ubs"
+        ],
+        "de": [
+          "supervisory-officer-ubs"
+        ],
+        "fr": [
           "supervisory-officer-ubs"
         ]
       },
@@ -1207,11 +1213,11 @@
     },
     {
       "id": "ubs-8ebd5aac3048",
-      "slug": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs",
+      "slug": "monitoraggio-e-sorveglianza-analista-transfrontaliero-suitability-italiano-ubs",
       "slugByLocale": {
-        "it": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs",
+        "it": "monitoraggio-e-sorveglianza-analista-transfrontaliero-suitability-italiano-ubs",
         "en": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs",
-        "de": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs",
+        "de": "uberwachung-und-uberwachung-analyst-grenzuberschreitende-nachfrage-italienisch-ubs",
         "fr": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs"
       },
       "company": "UBS",
@@ -1272,16 +1278,27 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs"
+        ],
+        "de": [
+          "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs"
+      ]
     },
     {
       "id": "ubs-f48966753723",
       "slug": "bank-now-consulente-cliente-in-loan-privato-berna-80-100-ubs",
       "slugByLocale": {
         "it": "bank-now-consulente-cliente-in-loan-privato-berna-80-100-ubs",
-        "en": "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs",
+        "en": "bank-now-customer-advisor-personal-loan-bern-80-100-ubs",
         "de": "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs",
-        "fr": "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs"
+        "fr": "bank-now-conseiller-ere-en-credit-prive-berne-80-100-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1344,6 +1361,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs"
+        ],
+        "en": [
+          "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs"
+        ],
+        "fr": [
           "bank-now-kundenberater-in-privatkredit-bern-80-100-ubs"
         ]
       },
@@ -1583,9 +1606,9 @@
       "slug": "consulente-clienti-privato-a-affluent-winterthur-ubs",
       "slugByLocale": {
         "it": "consulente-clienti-privato-a-affluent-winterthur-ubs",
-        "en": "privatkundenberater-in-affluent-winterthur-ubs",
+        "en": "private-customer-advisor-in-affluent-winterthur-ubs",
         "de": "privatkundenberater-in-affluent-winterthur-ubs",
-        "fr": "privatkundenberater-in-affluent-winterthur-ubs"
+        "fr": "conseiller-client-prive-en-affluent-winterthur-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1648,6 +1671,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "privatkundenberater-in-affluent-winterthur-ubs"
+        ],
+        "en": [
+          "privatkundenberater-in-affluent-winterthur-ubs"
+        ],
+        "fr": [
           "privatkundenberater-in-affluent-winterthur-ubs"
         ]
       },
@@ -2909,9 +2938,9 @@
       "slug": "consulente-clienti-affluente-80-100-brig-ubs",
       "slugByLocale": {
         "it": "consulente-clienti-affluente-80-100-brig-ubs",
-        "en": "kundenberaterin-kundenberater-affluent-80-100-brig-ubs",
+        "en": "customer-consultant-affluent-80-100-brig-ubs",
         "de": "kundenberaterin-kundenberater-affluent-80-100-brig-ubs-brig",
-        "fr": "kundenberaterin-kundenberater-affluent-80-100-brig-ubs"
+        "fr": "consultant-client-affluent-80-100-brig-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2974,6 +3003,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kundenberaterin-kundenberater-affluent-80-100-brig-ubs"
+        ],
+        "en": [
+          "kundenberaterin-kundenberater-affluent-80-100-brig-ubs"
+        ],
+        "fr": [
           "kundenberaterin-kundenberater-affluent-80-100-brig-ubs"
         ]
       },
@@ -3312,8 +3347,8 @@
       "slugByLocale": {
         "en": "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs",
         "it": "senior-sales-executive-soluzioni-di-liquidita-tokenizzate-mercati-dei-soldi-ubs",
-        "de": "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs",
-        "fr": "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs"
+        "de": "senior-sales-executive-tokenisierte-liquiditatslosungen-geldmarkte-ubs",
+        "fr": "directeur-des-ventes-solutions-de-liquidite-tokenisees-marches-monetaires-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3378,6 +3413,12 @@
       "firstSeenAt": "2026-05-28T00:44:30.967Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs"
+        ],
+        "de": [
+          "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs"
+        ],
+        "fr": [
           "senior-sales-executive-tokenized-liquidity-solutions-money-markets-ubs"
         ]
       },
