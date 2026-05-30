@@ -7882,6 +7882,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-apprendisti-lugano.title': 'Cross-border apprentices? \'They don\'t work for Lugano\'',
     'blog.article.frontalieri-apprendisti-lugano.excerpt': 'The City of Lugano responds to a question from councilor Omar Wicht: no cross-border apprentices currently employed.',
     'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'View of Lugano from the lake with mountains in the background',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos slams Novartis pay: CEO salary \'excessive\'',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'Swiss foundation Ethos criticises Novartis top management compensation, deeming it disproportionate to performance.',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Aerial view of Lugano financial district with Novartis headquarters at golden hour',
 };
 
 export default blogMetaEn;

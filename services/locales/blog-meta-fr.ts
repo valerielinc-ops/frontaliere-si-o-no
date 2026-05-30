@@ -7883,6 +7883,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-apprendisti-lugano.title': 'Frontaliers apprentis ? « Pas pour Lugano »',
     'blog.article.frontalieri-apprendisti-lugano.excerpt': 'La Ville de Lugano répond à une interpellation du conseiller communal Omar Wicht: aucun apprenti frontalier actuellement employé.',
     'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Vue de Lugano depuis le lac avec les montagnes en arrière-plan',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos critique les salaires excessifs chez Novartis',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'La fondation suisse Ethos critique les rémunérations de la direction de Novartis, les jugeant disproportionnées par rapport aux performances.',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Vue aérienne du quartier financier de Lugano avec le siège de Novartis en arrière-plan à l\'heure dorée',
 };
 
 export default blogMetaFr;

@@ -25022,4 +25022,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ethos-compensi-novartis-ceo-boccia',
+ category: 'novita',
+ date: '2026-05-30T00:44:27.818Z',
+ image: '/images/blog/ethos-compensi-novartis-ceo-boccia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
