@@ -1,18 +1,56 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-29T12:09:00.719Z",
-  "total": 159,
-  "newCount": 6,
-  "updatedCount": 83,
+  "generatedAt": "2026-05-29T22:45:41.627Z",
+  "total": 160,
+  "newCount": 1,
+  "updatedCount": 88,
   "removedCount": 0,
-  "unchangedCount": 70,
-  "durationMs": 319829,
-  "avgDurationMs": 319829,
+  "unchangedCount": 71,
+  "durationMs": 389429,
+  "avgDurationMs": 389429,
   "durationHistory": [
-    319829
+    389429
   ],
   "newJobs": [
+    {
+      "id": "company-utbp1c",
+      "slug": "lagerist-in-jumbo-chur-graubunden",
+      "company": "Jumbo, Division der Coop Genossenschaft",
+      "title": "Lagerist:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/lagerist-in/1cfb6932-6f96-4273-9968-24c59cb47a64",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-29T22:42:50.254Z",
+      "firstSeenAt": "2026-05-29T22:42:50.254Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "GR",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-qfd5dq",
       "slug": "verkaufer-in-food-coop-schiers-graubunden",
@@ -41,12 +79,15 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -77,12 +118,15 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -113,12 +157,15 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -149,12 +196,15 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -185,12 +235,15 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -221,16 +274,17 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-givekt",
       "slug": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-klosters-serneus-graubunden",
@@ -261,6 +315,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -299,6 +354,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -333,10 +389,10 @@
       "addressLocality": "Felsberg",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -372,7 +428,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -411,7 +467,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -449,11 +505,10 @@
       "addressLocality": "Chur",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -488,11 +543,10 @@
       "addressLocality": "Chur",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -528,7 +582,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -604,7 +658,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -643,7 +697,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -681,11 +735,10 @@
       "addressLocality": "Sankt Moritz",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -720,11 +773,10 @@
       "addressLocality": "Arosa",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -759,11 +811,10 @@
       "addressLocality": "Landquart",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -798,11 +849,10 @@
       "addressLocality": "Landquart",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -838,47 +888,10 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-lesziv",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-18T21:44:45.062Z",
-      "firstSeenAt": "2026-05-18T21:44:45.062Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -914,7 +927,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -953,7 +966,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -992,7 +1005,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
@@ -1071,6 +1084,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1105,10 +1119,10 @@
       "addressLocality": "Dietlikon",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1190,195 +1204,47 @@
         "translation": 25,
         "completeness": 19
       }
-    },
-    {
-      "id": "company-3og455",
-      "slug": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-      "company": "Marché",
-      "title": "Addetta/o di gastronomia standardizzata CFP",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/5ac98158-274d-494f-a287-7d050ce09fba",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-diq1rr",
-      "slug": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-      "company": "Marché",
-      "title": "Impiegata / Impiegato di gastronomia standardizzata AFC",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/4ce3d6a5-26eb-4d84-a94b-05d05feba8fd",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-mijshv",
-      "slug": "impiegato-a-interdiscount-jegensdorf-mijshv",
-      "company": "Interdiscount",
-      "title": "Impiegato / a",
-      "location": "Jegensdorf",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-15",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/6183ef73-c906-418c-9462-7d68baf6267c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-wtgucu",
-      "slug": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-      "company": "Interdiscount",
-      "title": "Impiegato / a",
-      "location": "Jegensdorf",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-15",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/17b80505-e189-4dfb-879a-038ecc69676e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-yuay7y",
-      "slug": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-      "company": "Interdiscount",
-      "title": "Impiegato / a",
-      "location": "Jegensdorf",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-15",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/9c9cba3a-09d1-4921-ad11-a9bb8cc315c1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-lesziv",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-18T21:44:45.062Z",
+      "firstSeenAt": "2026-05-18T21:44:45.062Z",
+      "addressLocality": "Bellinzona",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "TI",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "id": "company-9y4g1i",
       "slug": "leiter-in-bauprojekte-100-region-ostschweiz-ticino-coop-immobilien-gossau-sankt-gallen",
@@ -1409,6 +1275,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "retranslationAttempts": 1,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1447,6 +1314,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1485,6 +1353,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1523,6 +1392,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1561,6 +1431,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1599,6 +1470,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1637,6 +1509,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1675,6 +1548,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1713,6 +1587,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1751,6 +1626,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1789,6 +1665,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1864,6 +1741,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1902,6 +1780,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1940,6 +1819,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "TI",
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2015,6 +1895,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2053,6 +1934,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2091,6 +1973,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2129,6 +2012,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2167,6 +2051,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2205,6 +2090,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2243,6 +2129,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2281,6 +2168,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2319,6 +2207,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2357,6 +2246,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2395,6 +2285,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2433,6 +2324,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2471,44 +2363,7 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 9,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-p9e0n7",
-      "slug": "detailhandelsassistent-in-eba-coop-grigioni-19",
-      "company": "Coop",
-      "title": "Detailhandelsassistent:in EBA",
-      "location": "Gossau",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/5c882c92-3011-4c1a-8b8f-7eeb408c6f8d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Gossau",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "needsRetranslation": true,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "GR",
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fielmann",
-  "assembledAt": "2026-05-29T12:23:03.182Z",
+  "assembledAt": "2026-05-29T22:58:36.877Z",
   "jobs": [
     {
       "id": "fielmann-df1331dbd7e0",
@@ -34,7 +34,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/St-Gallen/Augenoptiker--w-m-_R-2831",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:23:00.585Z",
+      "crawledAt": "2026-05-29T22:58:34.310Z",
       "addressLocality": "St",
       "addressCountry": "CH",
       "country": "CH",
@@ -78,7 +78,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-4e6719830cb1",
@@ -112,7 +113,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Frauenfeld/Augenoptiker--w-m-_R-2829",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:59.845Z",
+      "crawledAt": "2026-05-29T22:58:33.500Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -197,7 +198,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Burgdorf/Augenoptiker--w-m-_R-2825",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:59.027Z",
+      "crawledAt": "2026-05-29T22:58:32.761Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -256,9 +257,9 @@
       "slug": "projektleiter-m-d-fielmann-group-buchs",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-buchs",
-        "en": "projektleiter-m-d-fielmann-group-buchs",
+        "en": "augenoptiker-w-m-d-fielmann-ch-6",
         "de": "augenoptiker-w-m-d-fielmann-group-buchs",
-        "fr": "projektleiter-m-d-fielmann-group-buchs"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-6"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -283,7 +284,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Buchs/Augenoptiker--w-m-_R-2824",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:58.254Z",
+      "crawledAt": "2026-05-29T22:58:31.877Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -307,12 +308,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-6"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-6"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-6"
         ]
       },
@@ -340,9 +335,9 @@
       "slug": "projektleiter-m-d-fielmann-group-chur",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-chur",
-        "en": "projektleiter-m-d-fielmann-group-chur",
+        "en": "augenoptiker-w-m-d-fielmann-ch-7",
         "de": "augenoptiker-w-m-d-fielmann-group-chur",
-        "fr": "projektleiter-m-d-fielmann-group-chur"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-7"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -367,7 +362,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Chur/Augenoptiker--w-m-_R-2814",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:57.503Z",
+      "crawledAt": "2026-05-29T22:58:31.142Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -391,12 +386,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-7"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-7"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-7"
         ]
       },
@@ -424,9 +413,9 @@
       "slug": "projektleiter-m-d-fielmann-group-altdorf",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-altdorf",
-        "en": "projektleiter-m-d-fielmann-group-altdorf",
+        "en": "augenoptiker-w-m-d-fielmann-ch-9",
         "de": "augenoptiker-w-m-d-fielmann-group-altdorf",
-        "fr": "projektleiter-m-d-fielmann-group-altdorf"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-9"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -451,7 +440,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Altdorf/Augenoptiker--w-m-_R-28050",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:56.733Z",
+      "crawledAt": "2026-05-29T22:58:30.407Z",
       "addressLocality": "Altdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,12 +464,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-9"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-9"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-9"
         ]
       },
@@ -508,9 +491,9 @@
       "slug": "projektleiter-m-d-fielmann-group-brig-glis",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-brig-glis",
-        "en": "projektleiter-m-d-fielmann-group-brig-glis",
+        "en": "augenoptiker-w-m-d-fielmann-ch-10",
         "de": "augenoptiker-w-m-d-fielmann-group-brig-glis",
-        "fr": "projektleiter-m-d-fielmann-group-brig-glis"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-10"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -535,7 +518,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Brig-Glis/Augenoptiker--w-m-_R-19541-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:55.969Z",
+      "crawledAt": "2026-05-29T22:58:29.654Z",
       "addressLocality": "Brig-Glis",
       "addressCountry": "CH",
       "country": "CH",
@@ -559,12 +542,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-10"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-10"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-10"
         ]
       },
@@ -619,7 +596,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Luzern/Augenoptiker--w-m-_R-17099",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:55.203Z",
+      "crawledAt": "2026-05-29T22:58:28.909Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -679,9 +656,9 @@
       "slug": "projektleiter-m-d-fielmann-group-liestal",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-liestal",
-        "en": "projektleiter-m-d-fielmann-group-liestal",
+        "en": "augenoptiker-w-m-d-fielmann-ch-12",
         "de": "augenoptiker-w-m-d-fielmann-group-liestal",
-        "fr": "projektleiter-m-d-fielmann-group-liestal"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-12"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -706,7 +683,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Liestal/Augenoptiker--w-m-_R-13829",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:54.399Z",
+      "crawledAt": "2026-05-29T22:58:28.161Z",
       "addressLocality": "Liestal",
       "addressCountry": "CH",
       "country": "CH",
@@ -730,12 +707,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-12"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-12"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-12"
         ]
       },
@@ -763,9 +734,9 @@
       "slug": "projektleiter-m-d-fielmann-group-sursee",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-sursee",
-        "en": "projektleiter-m-d-fielmann-group-sursee",
+        "en": "augenoptiker-w-m-d-fielmann-ch-13",
         "de": "augenoptiker-w-m-d-fielmann-group-sursee",
-        "fr": "projektleiter-m-d-fielmann-group-sursee"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-13"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -790,7 +761,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Sursee/Augenoptiker--w-m-_R-13742-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:53.614Z",
+      "crawledAt": "2026-05-29T22:58:27.438Z",
       "addressLocality": "Sursee",
       "addressCountry": "CH",
       "country": "CH",
@@ -814,12 +785,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-13"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-13"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-13"
         ]
       },
@@ -874,7 +839,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Schwyz/Augenoptiker--w-m-_R-13286",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:52.860Z",
+      "crawledAt": "2026-05-29T22:58:26.712Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -960,7 +925,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Blach/Augenoptiker--w-m-_R-13285-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:52.095Z",
+      "crawledAt": "2026-05-29T22:58:25.964Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1019,9 +984,9 @@
       "slug": "projektleiter-m-d-fielmann-group-biel",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-biel",
-        "en": "projektleiter-m-d-fielmann-group-biel",
+        "en": "augenoptiker-w-m-d-fielmann-ch-16",
         "de": "augenoptiker-w-m-d-fielmann-group-biel",
-        "fr": "projektleiter-m-d-fielmann-group-biel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-16"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1046,7 +1011,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Biel/Augenoptiker--w-m-_R-13283",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:51.325Z",
+      "crawledAt": "2026-05-29T22:58:25.240Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1070,12 +1035,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-16"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-16"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-16"
         ]
       },
@@ -1130,7 +1089,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Thun/Augenoptiker--w-m-_R-13282",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:50.505Z",
+      "crawledAt": "2026-05-29T22:58:24.510Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1189,9 +1148,9 @@
       "slug": "projektleiter-m-d-fielmann-group-thalwil",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-thalwil",
-        "en": "projektleiter-m-d-fielmann-group-thalwil",
+        "en": "augenoptiker-w-m-d-fielmann-ch-18",
         "de": "augenoptiker-w-m-d-fielmann-group-thalwil",
-        "fr": "projektleiter-m-d-fielmann-group-thalwil"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-18"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1216,7 +1175,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Thalwil/Augenoptiker--w-m-_R-10714",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:49.755Z",
+      "crawledAt": "2026-05-29T22:58:23.765Z",
       "addressLocality": "Thalwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1240,12 +1199,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-18"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-18"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-18"
         ]
       },
@@ -1300,7 +1253,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Uster/Augenoptiker--w-m-_R-10444",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:48.989Z",
+      "crawledAt": "2026-05-29T22:58:23.013Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -1386,7 +1339,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Augenoptiker--w-m-_R-10393-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:48.214Z",
+      "crawledAt": "2026-05-29T22:58:22.253Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1472,7 +1425,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Rapperswil/Augenoptiker--w-m-_R-10092",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:47.388Z",
+      "crawledAt": "2026-05-29T22:58:21.484Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1558,7 +1511,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Olten/Augenoptiker--w-m-_R-10091",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:46.623Z",
+      "crawledAt": "2026-05-29T22:58:20.726Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1617,9 +1570,9 @@
       "slug": "projektleiter-m-d-fielmann-group-langenthal",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-langenthal",
-        "en": "projektleiter-m-d-fielmann-group-langenthal",
+        "en": "augenoptiker-w-m-d-fielmann-ch-23",
         "de": "augenoptiker-w-m-d-fielmann-group-langenthal",
-        "fr": "projektleiter-m-d-fielmann-group-langenthal"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-23"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1644,7 +1597,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Langenthal/Augenoptiker--w-m-_R-10082",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:45.844Z",
+      "crawledAt": "2026-05-29T22:58:19.987Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1668,12 +1621,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-23"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-23"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-23"
         ]
       },
@@ -1701,9 +1648,9 @@
       "slug": "projektleiter-m-d-fielmann-group-basel",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-basel",
-        "en": "projektleiter-m-d-fielmann-group-basel",
+        "en": "augenoptiker-w-m-d-fielmann-ch-24",
         "de": "augenoptiker-w-m-d-fielmann-group-basel",
-        "fr": "projektleiter-m-d-fielmann-group-basel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-24"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1728,7 +1675,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Augenoptiker--w-m-_R-10081",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:45.083Z",
+      "crawledAt": "2026-05-29T22:58:19.256Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1752,12 +1699,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-24"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-24"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-24"
         ]
       },
@@ -1785,9 +1726,9 @@
       "slug": "projektmanager-m-d-fielmann-group-bern",
       "slugByLocale": {
         "it": "projektmanager-m-d-fielmann-group-bern",
-        "en": "projektmanager-m-d-fielmann-group-bern",
+        "en": "horakustiker-w-m-d-fielmann-ch",
         "de": "horakustiker-w-m-d-fielmann-group-bern",
-        "fr": "projektmanager-m-d-fielmann-group-bern"
+        "fr": "horakustiker-w-m-d-fielmann-ch"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1812,7 +1753,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Bern/Hrakustiker--w-m-d-_R-53196",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:44.300Z",
+      "crawledAt": "2026-05-29T22:58:18.505Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1831,16 +1772,10 @@
       "requirementsByLocale": {},
       "jobReqId": "R-53196",
       "previousSlugsByLocale": {
-        "it": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
-        "en": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
-        "fr": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
         "de": [
+          "horakustiker-w-m-d-fielmann-ch"
+        ],
+        "it": [
           "horakustiker-w-m-d-fielmann-ch"
         ]
       },
@@ -1894,7 +1829,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Bern/Hrakustikermeister--w-m-d-_R-60169",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:43.553Z",
+      "crawledAt": "2026-05-29T22:58:17.769Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1978,7 +1913,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Bachelor-of-Science-FHNW-in-Optometrie--w-m-d---schweizweit_R-60320",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:42.792Z",
+      "crawledAt": "2026-05-29T22:58:16.432Z",
       "addressLocality": "Basel Steinenvorstadt",
       "addressCountry": "CH",
       "country": "CH",
@@ -2017,7 +1952,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-36d02ec1883b",
@@ -2051,7 +1987,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Bachelor-of-Science-FHNW-en-Optomtrie--h-f-d---dans-tout-la-Suisse_R-60328",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:42.024Z",
+      "crawledAt": "2026-05-29T22:58:15.670Z",
       "addressLocality": "Basel Steinenvorstadt",
       "addressCountry": "CH",
       "country": "CH",
@@ -2090,7 +2026,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-0f27052f1a48",
@@ -2124,7 +2061,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Wdenswil/Augenoptiker--w-m-d-_R-60519",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:41.242Z",
+      "crawledAt": "2026-05-29T22:58:14.920Z",
       "addressLocality": "Wädenswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2194,7 +2131,7 @@
       "id": "fielmann-9e11f7a3f370",
       "slug": "opticien-ne-f-m-d-fielmann-group-martigny",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-martigny",
+        "it": "opticien-ne-f-h-d-fielmann-ch",
         "en": "optician-f-h-d-fielmann-group-martigny",
         "de": "optimierung-n-f-h-d-fielmann-group-martigny",
         "fr": "opticien-ne-f-h-d-fielmann-group-martigny"
@@ -2222,7 +2159,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Martigny/Opticien--f-h-_R-13287",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:40.496Z",
+      "crawledAt": "2026-05-29T22:58:14.192Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -2242,8 +2179,7 @@
       "jobReqId": "R-13287",
       "previousSlugsByLocale": {
         "it": [
-          "opticien-w-m-d-fielmann-group-st",
-          "opticien-ne-f-h-d-fielmann-ch"
+          "opticien-w-m-d-fielmann-group-st"
         ],
         "en": [
           "opticien-ne-f-h-d-fielmann-ch"
@@ -2306,7 +2242,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Zofingen/Optometrist-Augenoptikermeister--w-m-d-_R-60947",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:39.724Z",
+      "crawledAt": "2026-05-29T22:58:13.462Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2390,7 +2326,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Hrakustiker--w-m-d-_R-36478",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:38.952Z",
+      "crawledAt": "2026-05-29T22:58:12.727Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2471,7 +2407,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Hrakustikermeister--w-m-d-_R-61125",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:38.191Z",
+      "crawledAt": "2026-05-29T22:58:11.979Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2524,7 +2460,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-00dbba3e9007",
@@ -2557,7 +2494,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Interlaken/Quereinstieg-Fachberater-Augenoptik--w-m-d-_R-61339",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:37.434Z",
+      "crawledAt": "2026-05-29T22:58:11.246Z",
       "addressLocality": "Interlaken",
       "addressCountry": "CH",
       "country": "CH",
@@ -2636,7 +2573,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Luzern/Quereinstieg-Fachberater-Augenoptik--w-m-d--fr-Neuerffnung-in-Stans_R-61340-2",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:36.669Z",
+      "crawledAt": "2026-05-29T22:58:10.514Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2717,7 +2654,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/XMLNAME--Senior--Architekt---Projektleiter-Retail--Schweiz---w-m-d-_R-61433",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:35.897Z",
+      "crawledAt": "2026-05-29T22:58:09.774Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2797,7 +2734,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Olten/Formateur-ou-formatrice-spcialis-e--en-optique--h-f-d-_R-54472",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:35.129Z",
+      "crawledAt": "2026-05-29T22:58:09.000Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -2876,7 +2813,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Hrakustikermeister--w-m-d-_R-61458",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:34.369Z",
+      "crawledAt": "2026-05-29T22:58:08.277Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2965,7 +2902,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Lausanne/Optomtriste-Matre-opticien-ne---h-f-d-_R-52919",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:33.597Z",
+      "crawledAt": "2026-05-29T22:58:07.524Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3016,7 +2953,7 @@
       "id": "fielmann-39c75e87eadf",
       "slug": "opticien-ne-f-m-d-fielmann-group-geneve",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-geneve",
+        "it": "opticien-ne-h-f-d-fielmann-ch-2",
         "en": "optician-m-f-d-fielmann-group-geneve",
         "de": "optimierung-n-h-f-d-fielmann-group-geneve",
         "fr": "opticien-ne-h-f-d-fielmann-group-geneve"
@@ -3044,7 +2981,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Genve/Opticien--f-m-_R-4091",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:32.847Z",
+      "crawledAt": "2026-05-29T22:58:06.776Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -3067,8 +3004,7 @@
           "opticien-ne-h-f-d-fielmann-ch"
         ],
         "it": [
-          "opticien-ne-h-f-d-fielmann-ch",
-          "opticien-ne-h-f-d-fielmann-ch-2"
+          "opticien-ne-h-f-d-fielmann-ch"
         ],
         "en": [
           "opticien-ne-h-f-d-fielmann-ch-2"
@@ -3100,7 +3036,7 @@
       "id": "fielmann-9c59a3eeb76f",
       "slug": "opticien-ne-f-m-d-fielmann-group-sion",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-sion",
+        "it": "opticien-ne-h-f-d-fielmann-ch",
         "en": "optician-m-f-d-fielmann-group-sion",
         "de": "optimierung-n-h-f-d-fielmann-group-sion",
         "fr": "opticien-ne-h-f-d-fielmann-group-sion"
@@ -3128,7 +3064,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Sion/Opticien--f-h-_R-13288-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T12:22:32.092Z",
+      "crawledAt": "2026-05-29T22:58:06.044Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -3151,9 +3087,6 @@
           "opticien-ne-h-f-d-fielmann-ch"
         ],
         "de": [
-          "opticien-ne-h-f-d-fielmann-ch"
-        ],
-        "it": [
           "opticien-ne-h-f-d-fielmann-ch"
         ],
         "fr": [
@@ -3183,9 +3116,9 @@
       "slug": "projektleiter-m-d-fielmann-group-zurich",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-zurich",
-        "en": "projektleiter-m-d-fielmann-group-zurich",
+        "en": "augenoptiker-w-m-d-fielmann-ch-8",
         "de": "augenoptiker-w-m-d-fielmann-group-zurich",
-        "fr": "projektleiter-m-d-fielmann-group-zurich"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-8"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -3210,7 +3143,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Zrich/Augenoptiker--w-m-_R-2809",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:31.335Z",
+      "crawledAt": "2026-05-29T22:58:05.299Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3234,12 +3167,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-8"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-8"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-8"
         ]
       },
@@ -3267,9 +3194,9 @@
       "slug": "projektleiter-m-d-fielmann-group-burgdorf",
       "slugByLocale": {
         "it": "projektleiter-m-d-fielmann-group-burgdorf",
-        "en": "projektleiter-m-d-fielmann-group-burgdorf",
+        "en": "augenoptiker-w-m-d-fielmann-ch-2",
         "de": "augenoptiker-w-m-d-fielmann-group-burgdorf",
-        "fr": "projektleiter-m-d-fielmann-group-burgdorf"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-2"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -3294,7 +3221,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Burgdorf/Augenoptiker--w-m-d-_R-61923-3",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:22:30.536Z",
+      "crawledAt": "2026-05-29T22:58:04.532Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -3318,12 +3245,6 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-2"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-2"
-        ],
-        "fr": [
           "augenoptiker-w-m-d-fielmann-ch-2"
         ]
       },

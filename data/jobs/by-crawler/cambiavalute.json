@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-05-29T11:44:37.091Z",
+  "assembledAt": "2026-05-30T10:15:38.060Z",
   "jobs": [
     {
       "id": "company-fooban",
@@ -51,7 +51,7 @@
       },
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
-        "en": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-",
+        "en": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino",
         "de": "sales-marketing-customer-support-assistent-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
         "fr": "assistant-de-vente-marketing-et-support-a-la-clientele-marche-allemand-cambiavalute-ch-chiasso-svizzera-posizione-esclus"
       },
@@ -62,10 +62,12 @@
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w",
           "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-lugano",
           "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
+          "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban"
         ],
         "en": [
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-lugano",
+          "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-",
           "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban"
         ]
       },
@@ -73,9 +75,9 @@
         "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w",
         "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-lugano",
         "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
-        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-lugano",
         "vendite-marketing-e-assistenza-clienti-mercato-tedesco-cambiavalute-ch-ticino",
-        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-ticino"
+        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-lugano",
+        "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -94,7 +96,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -145,7 +148,7 @@
       },
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
-        "en": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
+        "en": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino",
         "de": "sales-marketing-customer-support-assistent-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
         "fr": "assistant-ventes-marketing-service-clientele-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remot-a24znt"
       },
@@ -156,10 +159,12 @@
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote",
           "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-lugano",
           "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
+          "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt"
         ],
         "en": [
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-lugano",
+          "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt"
         ]
       },
@@ -167,9 +172,9 @@
         "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote",
         "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-lugano",
         "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in",
+        "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino",
         "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-lugano",
-        "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino",
-        "vendite-marketing-e-assistenza-clienti-mercato-francese-cambiavalute-ch-ticino"
+        "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -188,7 +193,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }

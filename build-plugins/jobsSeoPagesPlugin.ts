@@ -21,6 +21,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
+import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -593,11 +594,7 @@ const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !==
 // (set STRIP_ACTIVE_JOB_PROSE=0 to keep prose). When on, the same marker
 // is emitted and audits skip the page just like for expired pages.
 const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '0';
-// Use UPPERCASE placeholder-comment form so it survives the HTML minifier's
-// comment-strip pass (htmlMinify.ts preserves only <!--[A-Z][A-Z0-9_]*-->;
-// the prior lowercase `<!--ejp-stripped-->` was being stripped, defeating
-// the audit-text-html-ratio skip).
-const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+// EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
 
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return {
@@ -1294,6 +1291,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  if (!fs.existsSync(jobsPath)) {
  console.warn('[jobs-seo-pages] data/jobs.json not found');
+ // Unblock downstream consumers before bailing. relatedSearchClustersPlugin
+ // `await`s jobsSeoPagesFlushed (writeSitemap L2029 + cache-hit path L2190);
+ // returning here without resolving the signal would hang those awaits
+ // forever (build deadlock, no fail-fast, no deploy). No jobs.json → no
+ // bridge HTML to flush, so resolving now is correct: the consumer proceeds
+ // with an empty/jobless sitemap instead of awaiting writes that never run.
+ resolveJobsSeoPagesFlushed();
  return;
  }
  const jobsRaw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
@@ -11335,6 +11339,13 @@ ${staticAnalyticsHtml}
  // HTML is on disk. Without this, parallel closeBundle lets the cluster
  // sitemap be written before bridge writes flush, leaking non-self-
  // canonical bridge URLs into sitemap-search-clusters.xml.
+ // Signal is also resolved on the jobs.json-missing early-return path above
+ // (search resolveJobsSeoPagesFlushed), so EVERY normal exit of closeBundle
+ // resolves jobsSeoPagesFlushed. The only way to reach this point without
+ // having resolved it earlier is the happy path; the early-return covers the
+ // jobless case. A thrown error propagates to Vite and fails the build
+ // (fail-fast, not a deadlock). Hence the await in relatedSearchClustersPlugin
+ // (cache-hit path L2190 + writeSitemap L2029) never hangs. (#947/#950)
  resolveJobsSeoPagesFlushed();
 
  // Print profiler summary in normal profiled CI builds; local opt-out:
