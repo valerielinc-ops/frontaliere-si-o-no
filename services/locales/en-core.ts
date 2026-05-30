@@ -694,7 +694,7 @@ const enCore: Record<string, string> = {
  'jobBoard.authGateEmailPlaceholder': 'Your email',
  'jobBoard.authGateEmailCta': 'Continue with email',
  'jobBoard.authGateNewsletterNote': 'By entering your email you will also receive our newsletter with updates for cross-border workers.',
- 'jobBoard.gate.title': 'Read requirements and how to apply',
+ 'jobBoard.gate.title': 'Continue to see the full listing',
  'jobBoard.gate.subtitle': 'One click to access. Free, forever.',
  'jobBoard.gate.emailCta': 'Continue with email',
  'jobBoard.gate.benefit1': 'Full description and requirements',

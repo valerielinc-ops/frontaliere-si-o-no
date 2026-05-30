@@ -694,7 +694,7 @@ const frCore: Record<string, string> = {
  'jobBoard.authGateEmailPlaceholder': 'Votre email',
  'jobBoard.authGateEmailCta': 'Continuer avec email',
  'jobBoard.authGateNewsletterNote': 'En entrant votre email, vous recevrez aussi notre newsletter avec des mises à jour pour les frontaliers.',
- 'jobBoard.gate.title': 'Lire les exigences et comment postuler',
+ 'jobBoard.gate.title': "Continuer pour voir l'annonce complète",
  'jobBoard.gate.subtitle': 'Un clic pour y accéder. Gratuit, pour toujours.',
  'jobBoard.gate.emailCta': 'Continuer avec email',
  'jobBoard.gate.benefit1': 'Description complète et exigences',
