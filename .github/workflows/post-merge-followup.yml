@@ -49,6 +49,7 @@ jobs:
           node-version: '22'
 
       - name: Run Claude follow-up triage
+        id: followup
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -98,3 +99,10 @@ jobs:
             - Mai chiudere/riaprire issue (nemmeno le superseded — solo commento).
             - Incerto sul filtro → crea con rationale "needs triage".
             - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.
+
+      - name: Claude usage metrics
+        if: always()
+        # Exact token/cost for this run (replaces estimates). Writes a table to
+        # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
+        # Best-effort: never fails the job.
+        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"
