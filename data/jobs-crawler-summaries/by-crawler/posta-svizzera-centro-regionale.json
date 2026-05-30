@@ -1,18 +1,19 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-29T13:33:58.963Z",
+  "generatedAt": "2026-05-30T12:02:06.588Z",
   "total": 11,
-  "newCount": 2,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 26234,
-  "avgDurationMs": 26234,
+  "durationMs": 27877,
+  "avgDurationMs": 27877,
   "durationHistory": [
-    26234
+    27877
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Servicetechnikerin-Geb%C3%A4udetechnik/73644-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Servicetechnikerin-Geb%C3%A4udetechnik/73644-de_DE",
@@ -22,7 +23,7 @@
       "location": "Chur",
       "canton": "GR",
       "country": "CH",
-      "slug": "servicetechniker-in-gebaudetechnik-post",
+      "slug": "ingegnere-di-servizio-nella-tecnologia-di-costruzione-die-schweizerische-post-chur",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -39,50 +40,24 @@
       },
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 62,
+      "id": "posta-svizzera-centro-regionale-7064e66a7a0d",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Chur",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-29T13:33:58.961Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 6,
-        "completeness": 9
+        "translation": 16,
+        "completeness": 20
       }
     },
-    {
-      "url": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
-      "applyUrl": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
-      "title": "Pianificatore / Pianificatrice d'offerta Sud",
-      "company": "AutoPostale",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "pianificatore-pianificatrice-d-offerta-sud-post",
-      "sourceLang": "it",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-29",
-      "validThrough": "2026-06-19",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Bellinzona"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/E-Mobility-Solution-Engineer/73649-de_DE",
       "applyUrl": "https://job.post.ch/default/job/E-Mobility-Solution-Engineer/73649-de_DE",
@@ -136,7 +111,7 @@
       "location": "Bellinzona",
       "canton": "TI",
       "country": "CH",
-      "slug": "solution-architect-nei-punti-di-contatto-con-i-clienti-die-schweizerische-post-bellinzona",
+      "slug": "soluzione-architetto-nei-punti-di-contatto-del-cliente-die-schweizerische-post-bellinzona",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -434,6 +409,50 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
+      "applyUrl": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
+      "title": "Pianificatore / Pianificatrice d'offerta Sud",
+      "company": "AutoPostale",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
+      "sourceLang": "it",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-29",
+      "validThrough": "2026-06-19",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-83cfb3b84e0a",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-29T13:33:58.961Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 20
       }
     }

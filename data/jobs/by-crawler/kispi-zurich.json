@@ -1,84 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-05-29T12:52:24.828Z",
+  "assembledAt": "2026-05-30T11:21:42.016Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-967714a9f1bc",
-      "slug": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-      "slugByLocale": {
-        "it": "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich-aae99d",
-        "de": "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich",
-        "fr": "consultant-principal-m-m-80-100-universitats-kinderspital-zurich-kispi-zurich-aae99d"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Leiterin Assistenzpool Medizinische Direktion (m/w) 80-100%",
-      "titleByLocale": {
-        "it": "Consulente senior (m/w) 80-100 %",
-        "en": "Senior Consultant (m/w) 80-100 %",
-        "de": "Leiterin Assistenzpool Medizinische Direktion (m/w) 80-100%",
-        "fr": "Consultant principal (m/m) 80-100 %"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.05.2026 Deine Aufgaben\n• Du führst den Assistenzpool selbständig und koordinierst dabei eine grosse Aufgabenvielfalt sowie divergierende Bedürfnisse und Prioritäten.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
-      "descriptionByLocale": {
-        "it": "Mansioni - Condurre il pool di assistenza in modo indipendente e coordinare una vasta gamma di compiti e bisogni e priorità divergenti. Tipi di Durata - Tipo: Tempo pieno - Scadenza: illimitato",
-        "en": "Mansioni - You conduct the assistance pool independently and coordinate a wide range of tasks and divergent needs and priorities. Types of Durata - Type: Full time - Deadline: unlimited",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 22.05.2026 Deine Aufgaben\n• Du führst den Assistenzpool selbständig und koordinierst dabei eine grosse Aufgabenvielfalt sowie divergierende Bedürfnisse und Prioritäten.\n• Art: Vollzeit\n• Befristung: unbefristet",
-        "fr": "Mansioni - Vous dirigez le pool d'assistance indépendamment et coordonnez un large éventail de tâches et de besoins et priorités divergents. Types de Durata - Type: Temps plein - Délai: illimité"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:23.108Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-22",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3676/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich"
-        ],
-        "en": [
-          "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "leiterin-assistenzpool-medizinische-direktion-m-w-80-100-kispi-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-05-22T22:36:12.259Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-f2e0b8b7d974",
       "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
@@ -111,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:22.277Z",
+      "crawledAt": "2026-05-30T11:21:39.791Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,7 +120,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3667/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:21.449Z",
+      "crawledAt": "2026-05-30T11:21:38.735Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,7 +194,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3670/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:20.630Z",
+      "crawledAt": "2026-05-30T11:21:37.709Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,7 +273,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3671/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:19.811Z",
+      "crawledAt": "2026-05-30T11:21:36.698Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -427,7 +350,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:19.040Z",
+      "crawledAt": "2026-05-30T11:21:35.817Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -504,7 +427,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:18.199Z",
+      "crawledAt": "2026-05-30T11:21:34.787Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -572,7 +495,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3679/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:17.396Z",
+      "crawledAt": "2026-05-30T11:21:33.919Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -659,7 +582,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3680/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:16.603Z",
+      "crawledAt": "2026-05-30T11:21:33.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -705,27 +628,27 @@
       "id": "kispi-zurich-e1a19bf27ae4",
       "slug": "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
         "it": "fachbereichsleiter-arbeitssicherheit-e-gesundheitsschutz-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
-        "fr": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
+        "en": "senior-consultant-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
+        "fr": "consultant-principal-m-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
       "title": "Fachbereichsleiter Arbeitssicherheit und Gesundheitsschutz (w/m) 80-100%",
       "titleByLocale": {
-        "de": "Fachbereichsleiter Arbeitssicherheit und Gesundheitsschutz (w/m) 80-100%",
         "it": "Fachbereichsleiter Arbeitssicherheit e Gesundheitsschutz (w/m) 80-100%",
-        "en": "Fachbereichsleiter Arbeitssicherheit und Gesundheitsschutz (w/m) 80-100%",
-        "fr": "Fachbereichsleiter Arbeitssicherheit und Gesundheitsschutz (w/m) 80-100%"
+        "en": "Senior Consultant (m/w) 80-100 %",
+        "de": "Fachbereichsleiter Arbeitssicherheit und Gesundheitsschutz (w/m) 80-100%",
+        "fr": "Consultant principal (m/m) 80-100 %"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n\n• Art: Teilzeit\n• Befristung: unbefristet"
+        "it": "Kinderspital Zürich Eleonorenstiftung | online da: 29.05.2026 Dipartimento di Sicurezza e Ambiente\n• L'utente è responsabile dell'ulteriore sviluppo della sicurezza del lavoro, della protezione della salute e della gestione delle emergenze e delle crisi e consiglia competente la nostra gestione, i dirigenti e i dipendenti.\n• Tipo: Parttime\n• Durata: illimitato",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online since: 29.05.2026 Department of Security and Environment\n• You are responsible for the further development of occupational safety, health protection as well as emergency and crisis management and advise our management, executives and employees competently.\n• Type: Parttime\n• Duration: unlimited",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais) en ligne depuis: 29.05.2026 Département de la sécurité et de l ' environnement\n• Vous êtes responsable de la poursuite du développement de la sécurité au travail, de la protection de la santé ainsi que de la gestion des urgences et des crises et conseillez nos dirigeants, cadres et employés avec compétence.\n• Type: temps partiel\n• Durée: illimitée"
       },
       "needsRetranslation": true,
       "location": "Zürich",
@@ -733,7 +656,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3675/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:15.786Z",
+      "crawledAt": "2026-05-30T11:21:32.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -749,30 +672,120 @@
       "postedDate": "2026-05-29",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3675/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
+        "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich-e5741a",
+        "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "senior-physician-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+        "medecin-aine-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "primario-80-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich",
+          "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich-e5741a",
+          "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
+        ],
+        "fr": [
           "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachbereichsleiter-arbeitssicherheit-und-gesundheitsschutz-w-m-80-100-kispi-zurich-zurich"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-05-29T12:52:15.786Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "kispi-zurich-047d6fb14fc5",
+      "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich-735cb5",
+      "slugByLocale": {
+        "it": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich-735cb5",
+        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich-735cb5",
+        "de": "arztsekretarin-m-w-100-kispi-zurich-zurich",
+        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich-735cb5"
       },
-      "firstSeenAt": "2026-05-29T12:52:15.786Z"
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Arztsekretärin (m/w) 100%",
+      "titleByLocale": {
+        "it": "Consulente senior (m/w)",
+        "en": "Senior Consultant (m/w)",
+        "de": "Arztsekretärin (m/w) 100%",
+        "fr": "Consultant principal (m/m)"
+      },
+      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Fachbereich Orthopädie und Traumatologie Deine Aufgaben\n• Du bist zuständig für 1-2 Ärztinnen und Ärzte, übernimmst die Verantwortung für deren Sprechstunden, unterstützt sie bei organisatorischen Anliegen und bist erste Ansprechperson.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
+      "descriptionByLocale": {
+        "it": "Kinderspital Zürich Eleonorenstiftung | online da: 29.05.2026 Dipartimento Ortopedia e Traumatologia\n• Siete responsabili di 1-2 medici, assumetevi la responsabilità per le loro ore di parola, sostenerli in questioni organizzative e sono la prima persona a parlare.\n• Tipo: Tempo pieno\n• Durata: illimitato",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online since: 29.05.2026 Department Orthopaedics and Traumatology\n• You are responsible for 1-2 doctors, take responsibility for their speaking hours, support them in organizational matters and are the first person to speak.\n• Type: Full time\n• Duration: unlimited",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Fachbereich Orthopädie und Traumatologie Deine Aufgaben\n• Du bist zuständig für 1-2 Ärztinnen und Ärzte, übernimmst die Verantwortung für deren Sprechstunden, unterstützt sie bei organisatorischen Anliegen und bist erste Ansprechperson.\n• Art: Vollzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais) en ligne depuis: 29.05.2026 Département orthopédique et traumatologie\n• Vous êtes responsable de 1-2 médecins, prenez la responsabilité de leurs heures de parole, les soutenez dans les questions d'organisation et êtes la première personne à parler.\n• Type: plein temps\n• Durée: illimitée"
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-30T11:21:31.115Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-29",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "arztsekretarin-m-w-100-kispi-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-05-29T23:28:01.351Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

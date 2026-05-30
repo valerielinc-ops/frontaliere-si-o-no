@@ -35,6 +35,7 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import {
   LINK_ACCENT_STYLE,
+  renderStatGrid,
 } from './shared/seoContentTokens';
 import {
   BORDER_WAIT_CROSSINGS,
@@ -115,6 +116,24 @@ interface Copy {
   breadcrumbGuide: string;
   ctaAll: string;
   ctaCalculator: string;
+  // ── Playful UI copy (Workstream UX: "più giocosa e fun") ──────────
+  /** Animated "real-time" pill next to the updated date. */
+  liveNow: string;
+  /** Stat-tile labels (values are locale-neutral numerals/units). */
+  statCrossingsLabel: string;
+  statRegionsLabel: string;
+  statRefreshLabel: string;
+  statCoverageLabel: string;
+  /** Traffic-light legend. */
+  legendIntro: string;
+  legendFlowing: string;
+  legendSlowing: string;
+  legendQueue: string;
+  /** Short headline shown on each best-time card (the full sentence stays). */
+  bestTimeCard1: string;
+  bestTimeCard2: string;
+  bestTimeCard3: string;
+  bestTimeCard4: string;
 }
 
 const COPY: Record<BorderWaitLocale, Copy> = {
@@ -158,6 +177,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Guida frontaliere',
     ctaAll: 'Tutti i valichi (hub)',
     ctaCalculator: 'Calcola il netto',
+    liveNow: 'In tempo reale',
+    statCrossingsLabel: 'Valichi monitorati',
+    statRegionsLabel: 'Aree di confine',
+    statRefreshLabel: 'Aggiornamento',
+    statCoverageLabel: 'Copertura',
+    legendIntro: 'Come leggere i tempi',
+    legendFlowing: 'Scorre',
+    legendSlowing: 'Rallenta',
+    legendQueue: 'Coda',
+    bestTimeCard1: 'Mattina presto',
+    bestTimeCard2: 'Tarda mattina',
+    bestTimeCard3: 'Primo pomeriggio',
+    bestTimeCard4: 'Sera tardi',
   },
   en: {
     title: 'Live border crossings map — Real-time wait times | Frontaliere Ticino',
@@ -199,6 +231,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Cross-border guide',
     ctaAll: 'All crossings (hub)',
     ctaCalculator: 'Calculate net',
+    liveNow: 'Real-time',
+    statCrossingsLabel: 'Monitored crossings',
+    statRegionsLabel: 'Border areas',
+    statRefreshLabel: 'Refresh',
+    statCoverageLabel: 'Coverage',
+    legendIntro: 'How to read the waits',
+    legendFlowing: 'Flowing',
+    legendSlowing: 'Slowing',
+    legendQueue: 'Queue',
+    bestTimeCard1: 'Early morning',
+    bestTimeCard2: 'Late morning',
+    bestTimeCard3: 'Early afternoon',
+    bestTimeCard4: 'Late evening',
   },
   de: {
     title: 'Live-Karte Grenzübergänge — Echtzeit-Wartezeiten | Frontaliere Ticino',
@@ -240,6 +285,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Grenzgänger-Leitfaden',
     ctaAll: 'Alle Übergänge (Hub)',
     ctaCalculator: 'Netto berechnen',
+    liveNow: 'In Echtzeit',
+    statCrossingsLabel: 'Überwachte Übergänge',
+    statRegionsLabel: 'Grenzregionen',
+    statRefreshLabel: 'Aktualisierung',
+    statCoverageLabel: 'Abdeckung',
+    legendIntro: 'So lesen Sie die Wartezeiten',
+    legendFlowing: 'Fliesst',
+    legendSlowing: 'Zäh',
+    legendQueue: 'Stau',
+    bestTimeCard1: 'Früher Morgen',
+    bestTimeCard2: 'Später Vormittag',
+    bestTimeCard3: 'Früher Nachmittag',
+    bestTimeCard4: 'Später Abend',
   },
   fr: {
     title: "Carte live des passages frontaliers — Temps d'attente en temps réel | Frontaliere Ticino",
@@ -281,6 +339,19 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbGuide: 'Guide frontaliers',
     ctaAll: 'Tous les passages (hub)',
     ctaCalculator: 'Calculer le net',
+    liveNow: 'En temps réel',
+    statCrossingsLabel: 'Passages surveillés',
+    statRegionsLabel: 'Zones frontalières',
+    statRefreshLabel: 'Actualisation',
+    statCoverageLabel: 'Couverture',
+    legendIntro: 'Comment lire les temps',
+    legendFlowing: 'Fluide',
+    legendSlowing: 'Ralenti',
+    legendQueue: 'File',
+    bestTimeCard1: 'Tôt le matin',
+    bestTimeCard2: 'Fin de matinée',
+    bestTimeCard3: 'Début d\'après-midi',
+    bestTimeCard4: 'Fin de soirée',
   },
 };
 
@@ -304,11 +375,13 @@ function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
   const rows = crossings.map((slug) => {
     const name = BORDER_CROSSING_DISPLAY[slug];
     const region = CROSSING_TO_REGION[slug];
-    const regionLabel = region === 'ticino-como' ? copy.comoRegionLabel : copy.vareseRegionLabel;
+    const isComo = region === 'ticino-como';
+    const regionLabel = isComo ? copy.comoRegionLabel : copy.vareseRegionLabel;
+    const chipClass = isComo ? 'bw-chip bw-chip-co' : 'bw-chip bw-chip-va';
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     return `<tr>
-      <td class="s-tcl" style="font-weight:600">${esc(name)}</td>
-      <td class="s-tcl" style="color:var(--color-subtle)">${esc(regionLabel)}</td>
+      <td class="s-tcl" style="font-weight:600;color:var(--color-heading)">${esc(name)}</td>
+      <td class="s-tcl"><span class="${chipClass}">${esc(regionLabel)}</span></td>
       <td class="s-tcl"><a href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.liveLink)}</a></td>
     </tr>`;
   }).join('');
@@ -422,7 +495,73 @@ function renderPage(opts: {
     ],
   });
 
+  // ── Playful UI (Workstream UX) ────────────────────────────────────
+  // Self-contained <style> (no Tailwind — JIT does not scan build-plugins/;
+  // no hex — only semantic --color-* tokens, per no-hex-in-seo-plugins test).
+  // NOTE: the mobile horizontal-overflow fix lives in the SHARED stylesheet
+  // (public/assets/seo-static.css → .s-EDtWsL gains min-width:0 +
+  // max-width:min(1100px,100%)). .s-EDtWsL is a grid item of the display:grid
+  // .seo-static-content wrapper; min-width:auto let wide tables stretch the
+  // track past the viewport (≈1116px on a 382px screen). The shared rule fixes
+  // THIS page because its inner main carries ONLY .s-EDtWsL (a single grid
+  // item). It is a NO-OP on comparisonsHubPlugin, whose inner main carried
+  // `seo-static-content s-EDtWsL`: `main.seo-static-content` (0,1,1) beats
+  // `.s-EDtWsL` (0,1,0) and the nested grid leaves min-width:auto at two levels,
+  // so neither min-width:0 nor the max-width cap take effect there. That overflow
+  // is tracked in #961 and fixed structurally (drop seo-static-content from its
+  // inner main, #962), NOT by this shared rule.
+  const playfulStyle = `<style>
+.bw-head-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 10px}
+.bw-live{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;background:var(--color-success-subtle);color:var(--color-success-strong);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.bw-live-dot{width:8px;height:8px;border-radius:50%;background:var(--color-success-strong);display:inline-block}
+.bw-legend{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 28px}
+.bw-legend-lbl{font-size:13px;font-weight:700;color:var(--color-subtle)}
+.bw-leg{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:700;color:var(--color-heading);background:var(--color-surface);border:1px solid var(--color-edge)}
+.bw-leg-dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.bw-times{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0 0}
+.bw-time{padding:16px 18px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-left:4px solid var(--color-accent)}
+.bw-time-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:0 0 7px}
+.bw-time-emoji{font-size:20px;line-height:1}
+.bw-time-name{font-weight:800;color:var(--color-heading);font-size:15px}
+.bw-time-win{font-variant-numeric:tabular-nums;color:var(--color-accent);font-weight:800;font-size:14px}
+.bw-time-p{margin:0;color:var(--color-body);font-size:14px;line-height:1.6}
+.bw-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.bw-chip-co{background:var(--color-accent-subtle);color:var(--color-accent)}
+.bw-chip-va{background:var(--color-warning-subtle);color:var(--color-warning)}
+@media (prefers-reduced-motion:no-preference){.bw-live-dot{animation:bw-pulse 1.8s ease-in-out infinite}@keyframes bw-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}}
+</style>`;
+
+  const statGrid = renderStatGrid([
+    { label: copy.statCrossingsLabel, value: '24', tone: 'accent' },
+    { label: copy.statRegionsLabel, value: '2', tone: 'neutral' },
+    { label: copy.statRefreshLabel, value: '≈15 min', tone: 'success' },
+    { label: copy.statCoverageLabel, value: '24/7', tone: 'warning' },
+  ]);
+
+  const legend = `<div class="bw-legend" aria-label="${esc(copy.legendIntro)}">
+      <span class="bw-legend-lbl">${esc(copy.legendIntro)}</span>
+      <span class="bw-leg"><span class="bw-leg-dot" style="background:var(--color-success-strong)"></span>${esc(copy.legendFlowing)}</span>
+      <span class="bw-leg"><span class="bw-leg-dot" style="background:var(--color-warning-strong)"></span>${esc(copy.legendSlowing)}</span>
+      <span class="bw-leg"><span class="bw-leg-dot" style="background:var(--color-danger-strong)"></span>${esc(copy.legendQueue)}</span>
+    </div>`;
+
+  // Time windows + emoji are locale-neutral; the descriptive sentence per
+  // window stays unchanged (no SEO content removed, only re-presented).
+  const bestTimeWindows = ['05:45–06:15', '08:30–09:15', '15:15–16:00', '19:45+'];
+  const bestTimeEmojis = ['🌅', '☕', '🏁', '🌙'];
+  const bestTimeNames = [copy.bestTimeCard1, copy.bestTimeCard2, copy.bestTimeCard3, copy.bestTimeCard4];
+  const bestTimeBodies = [copy.bestTime1, copy.bestTime2, copy.bestTime3, copy.bestTime4];
+  const bestTimeCards = `<div class="bw-times">${[0, 1, 2, 3].map((i) => `<div class="bw-time">
+        <div class="bw-time-h">
+          <span class="bw-time-emoji" aria-hidden="true">${bestTimeEmojis[i]}</span>
+          <span class="bw-time-name">${esc(bestTimeNames[i])}</span>
+          <span class="bw-time-win">${esc(bestTimeWindows[i])}</span>
+        </div>
+        <p class="bw-time-p">${esc(bestTimeBodies[i])}</p>
+      </div>`).join('')}</div>`;
+
   const body = `
+    ${playfulStyle}
     <nav class="s-Vigh-K">
       <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
@@ -431,11 +570,16 @@ function renderPage(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p class="s-GMBtq0">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+      <div class="bw-head-row">
+        <p class="s-GMBtq0" style="margin:0">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+        <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span>${esc(copy.liveNow)}</span>
+      </div>
       <h1 class="s-mvYgwu">${esc(copy.h1)}</h1>
       <p class="s-MwAgth">${esc(copy.ledeP1)}</p>
       <p class="s-6tH0Be">${esc(copy.ledeP2)}</p>
     </header>
+    ${statGrid}
+    ${legend}
     <section class="s-KZc0LQ">
       <h2 class="s-ZQhDLv">${esc(copy.crossingsH2)}</h2>
       <p class="s-AMzWJZ">${esc(copy.crossingsP)}</p>
@@ -444,12 +588,7 @@ function renderPage(opts: {
     <section class="s-KZc0LQ">
       <h2 class="s-ZQhDLv">${esc(copy.bestTimesH2)}</h2>
       <p class="s-AMzWJZ">${esc(copy.bestTimesP)}</p>
-      <ul class="s-QkurB0">
-        <li class="s-U2-lJ-">${esc(copy.bestTime1)}</li>
-        <li class="s-U2-lJ-">${esc(copy.bestTime2)}</li>
-        <li class="s-U2-lJ-">${esc(copy.bestTime3)}</li>
-        <li class="s-q3nqK4">${esc(copy.bestTime4)}</li>
-      </ul>
+      ${bestTimeCards}
     </section>
     <section class="s-KZc0LQ">
       <h2 class="s-ZQhDLv">${esc(copy.historyH2)}</h2>
@@ -479,8 +618,8 @@ function renderPage(opts: {
       </details>
     </section>
     <section class="s-p1QaOi">
-      <a href="${esc(hubUrl)}" class="s-cta" style="padding:12px 18px;border-radius:12px;font-weight:700">${esc(copy.ctaAll)}</a>
-      <a class="s-uuWBdZ" href="${esc(homeUrl)}">${esc(copy.ctaCalculator)}</a>
+      <a href="${esc(hubUrl)}" class="s-cta" style="padding:12px 18px;border-radius:12px;font-weight:700"><span aria-hidden="true">🗺️</span> ${esc(copy.ctaAll)}</a>
+      <a class="s-uuWBdZ" href="${esc(homeUrl)}"><span aria-hidden="true">🧮</span> ${esc(copy.ctaCalculator)}</a>
     </section>
   `;
 

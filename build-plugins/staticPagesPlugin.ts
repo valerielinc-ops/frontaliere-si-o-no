@@ -1612,6 +1612,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }).join('\n');
  } catch {
  console.warn('[static-pages] Could not read sitemap files — skipping');
+ // Unblock downstream consumers before bailing. borderMunicipalityPagesPlugin,
+ // professionLandingsLinksPlugin and salaryHubIndexLinkPlugin all `await`
+ // staticPagesFlushed; returning here without resolving the signal would hang
+ // those awaits forever (build deadlock, no fail-fast, no deploy). No sitemap
+ // → no pages to flush, so resolving now is correct. (#947/#950)
+ resolveStaticPagesFlushed();
  return;
  }
 
@@ -1672,6 +1678,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  if (!seoSrc) {
  console.warn('[static-pages] No SEO source files found — skipping');
+ // Unblock downstream consumers before bailing. borderMunicipalityPagesPlugin,
+ // professionLandingsLinksPlugin and salaryHubIndexLinkPlugin all `await`
+ // staticPagesFlushed; returning here without resolving the signal would hang
+ // those awaits forever (build deadlock, no fail-fast, no deploy). No SEO
+ // source → no pages to flush, so resolving now is correct. (#947/#950)
+ resolveStaticPagesFlushed();
  return;
  }
 

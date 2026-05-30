@@ -27,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 
 import { fetchAllBitfinexJobs } from './lib/bitfinex-job-parser.mjs';
 import { fetchAllCsebJobs } from './lib/cseb-job-parser.mjs';
+import { writeJobsCrawlerSlice } from './assemble-jobs-dataset.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -37,12 +38,6 @@ function readSlice(key) {
   if (!fs.existsSync(file)) return [];
   const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
   return Array.isArray(raw) ? raw : (raw.jobs || []);
-}
-
-function writeSlice(key, jobs) {
-  const file = path.join(SLICES_DIR, `${key}.json`);
-  fs.writeFileSync(file, JSON.stringify(jobs, null, 2) + '\n');
-  console.log(`  ✏️  wrote ${jobs.length} jobs to ${path.relative(ROOT, file)}`);
 }
 
 /**
@@ -88,7 +83,12 @@ async function regenBitfinex() {
   console.log(`  existing slice: ${existing.length} jobs`);
   const fresh = await fetchAllBitfinexJobs();
   const merged = mergePreservingTranslations(fresh, existing);
-  writeSlice('bitfinex', merged);
+  // Delegate to the canonical writer so the slice gets the envelope shape
+  // ({ crawlerKey, assembledAt, jobs }) the assembler requires — a bare array
+  // is treated as malformed and hard-fails assemble-jobs-dataset. It also
+  // restores the prev-slug safety net (trackSlugHistoryDrift) and firstSeenAt
+  // backfill that a direct write would bypass.
+  writeJobsCrawlerSlice('bitfinex', merged);
 }
 
 async function regenCseb() {
@@ -97,7 +97,7 @@ async function regenCseb() {
   console.log(`  existing slice: ${existing.length} jobs`);
   const fresh = await fetchAllCsebJobs();
   const merged = mergePreservingTranslations(fresh, existing);
-  writeSlice('cseb', merged);
+  writeJobsCrawlerSlice('cseb', merged);
 }
 
 async function main() {

@@ -77,6 +77,11 @@ on:
         required: false
         type: boolean
         default: false
+      publish_branch_test:
+        description: 'EXPERIMENT (reversible): after build, orphan force-push dist/ to the `gh-pages-test` branch instead of (not in addition to) the normal artifact deploy. Validates whether a ~13 GB site survives a git push to GitHub — the prerequisite for switching off the actions/deploy-pages path (10-min artifact-polling cap that has failed every recent deploy). Does NOT touch the live Pages source or the production gh-pages branch; nothing is published. Off by default.'
+        required: false
+        type: boolean
+        default: false
       parallel_plugins:
         description: 'Force parallel closeBundle even when profile_sequential=true. Default (off) means parallel for production, sequential only for clean profile dispatch runs. Set this to true when you want to dispatch a profile run AND keep the parallel scheduling — useful for measuring parallel build behavior without cron-storm cancellation.'
         required: false
@@ -128,6 +133,16 @@ jobs:
     concurrency:
       group: ${{ github.event.inputs.profile_sequential == 'true' && format('pages-build-profile-{0}', github.run_id) || 'pages-build' }}
       cancel-in-progress: false
+    # contents: write is needed only by the opt-in publish_branch_test step
+    # (orphan force-push of dist/ to gh-pages-test). Mirrors the workflow-level
+    # block otherwise; the bump from read→write also lets the existing
+    # dist-history `git push origin HEAD:main` land (it had been failing on
+    # the inherited contents:read).
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+      issues: write
     runs-on: ubuntu-latest
     # GitHub free runners cap at 360 min — match it explicitly so cold-start
     # builds (e.g. first run with a heavy plugin like jobOgImagesPlugin
@@ -870,6 +885,38 @@ jobs:
           done
           echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
 
+      # ┌────────────────────────────────────────────────────────────────┐
+      # │ EXPERIMENT (opt-in, reversible) — branch-based publish viability │
+      # │ The actions/deploy-pages path caps Pages status-polling at 10    │
+      # │ min; with a ~13 GB dist (1.53 GB artifact) every recent deploy   │
+      # │ hit "Timeout reached, aborting!" → 0/100 runs published. Legacy  │
+      # │ "deploy from branch" has no such artifact-polling cap. Before    │
+      # │ switching the production Pages source we must confirm GitHub     │
+      # │ even ACCEPTS a 13 GB git push. This step force-pushes dist/ as a │
+      # │ single orphan commit to `gh-pages-test` (a throwaway branch) —   │
+      # │ `git init` inside dist/ keeps it a standalone tree, so the main  │
+      # │ repo history is NOT bloated and nothing is published (Pages      │
+      # │ source is untouched). Read the wall time + exit status to decide.│
+      # └────────────────────────────────────────────────────────────────┘
+      - name: "[experiment] Orphan force-push dist/ to gh-pages-test"
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_branch_test == true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          echo "dist size: $(du -sh dist | cut -f1), files: $(find dist -type f | wc -l)"
+          cd dist
+          touch .nojekyll
+          git init -q
+          git checkout -q -b gh-pages-test
+          git config user.email "deploy-bot@frontaliereticino.ch"
+          git config user.name "deploy-bot"
+          git add -A
+          git commit -qm "experiment: branch-based publish ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          echo "Pushing $(du -sh . | cut -f1) as a single orphan commit to gh-pages-test..."
+          time git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages-test
+          echo "✅ 13 GB branch push SUCCEEDED — legacy branch-based Pages deploy is viable"
+
       - name: Upload Pages artifact (compression-level 9)
         if: github.event.inputs.profile_sequential != 'true'
         id: upload-pages-artifact
@@ -937,6 +984,17 @@ jobs:
   # `pages-deploy` concurrency group so build+deploy together hold the
   # serial Pages lock for the upload+publish sequence — but each job
   # individually rilascia la lock when complete.
+  #
+  # ⚠️ KNOWN FUNNEL-CRITICAL GAP — issue #987: at the current site scale
+  # (~13 GB / ~470k files) actions/deploy-pages aborts at its 10-min polling
+  # cap, so this job goes RED even though GitHub Pages often finishes the
+  # publish server-side afterwards. Because validate-live / publish are gated
+  # on `needs: deploy` + success(), a red deploy means the post-deploy steps
+  # (Google Indexing API + IndexNow + GSC, previous-slug-winners sync, and
+  # last_known_good marking) NEVER run. Branch-based deploy was tried and
+  # reverted (#966 → #986: the legacy branch build fails outright on 13 GB).
+  # The real fix lives in #987 (server-side extended polling and/or reducing
+  # deploy congestion), NOT in reducing site size or changing host.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
     needs: build
@@ -963,6 +1021,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
+      deployments: read   # the extended server-side poll reads /deployments + /statuses
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
@@ -1015,9 +1074,9 @@ jobs:
       # with >1M files the Pages backend's `syncing_files` phase can run
       # well past 10 minutes, causing the action to abort with
       # `Timeout reached, aborting!` even though the deployment itself
-      # eventually completes server-side. The marker-based extended
-      # polling below recognises that case and keeps the job green when
-      # the live site actually came up.
+      # eventually completes server-side. The deployment-status extended
+      # poll below recognises that case and keeps the job green when Pages
+      # reports the publish succeeded.
       - name: Deploy to GitHub Pages
         id: deployment_first
         uses: actions/deploy-pages@v5
@@ -1041,17 +1100,63 @@ jobs:
           timeout: 1800000
           error_count: 100
 
-      # Both deploy-pages attempts are `continue-on-error`, so a double
-      # failure would otherwise leave the deploy job green. Fail the job
-      # immediately when both attempts failed (Pages busy or the action's
-      # 10-minute polling cap). The previous marker-file extended-polling
-      # step was removed: across all observed runs it never once rescued a
-      # deploy (the live SHA never matched within the 25-minute poll), so
-      # it only ever burned CI time before exiting 1 anyway.
-      - name: Fail if both deploy attempts failed
+      # actions/deploy-pages aborts at its 10-min polling cap (clamped from our
+      # `timeout: 1800000`), but for a ~13 GB / ~470k-file site GitHub Pages
+      # finishes publishing SERVER-SIDE afterwards. Proven 2026-05-30: run
+      # 26665087347 went red at the cap, yet ~32 min later the github-pages
+      # deployment for its sha reached state=success and the live build-id
+      # advanced (1780052190433 → 1780096323338). So a double action-failure is
+      # NOT a real deploy failure — it just means the publish is still syncing.
+      #
+      # The earlier extended-poll was removed for using a 25-min window (too
+      # short) and matching the wrong signal (live SHA, which is a build-id
+      # timestamp, never equals github.sha). This version polls the github-pages
+      # DEPLOYMENT(s) for THIS sha for up to 40 min and goes GREEN when Pages
+      # reports success — so validate-live → publish (IndexNow, Google Indexing
+      # API, GSC, previous-slug-winners sync, last_known_good) finally run
+      # (issue #987).
+      #
+      # ONLY `success` is a terminal GREEN. The action emits two attempts
+      # (deployment_first + retry) → two Deployment objects per sha; on abort at
+      # the 10-min cap it may stamp a transient `error`/`failure`/cancel status
+      # BEFORE Pages finishes server-side. So `error`/`failure` are NOT treated
+      # as terminal — we keep polling (a genuinely failed publish simply never
+      # reaches success and falls through to the 40-min deadline → red, slow but
+      # correct). We check ALL deployments for the sha and succeed if ANY is
+      # success; we give up early only when EVERY deployment for the sha is
+      # `inactive` (definitively superseded by a newer deploy that carries the
+      # same content).
+      - name: Wait for server-side Pages publish (extended, beyond the 10-min action cap)
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "::error::Both deploy-pages attempts failed (Pages busy or 10-minute polling cap) — treating as a real deploy failure."
+          set -uo pipefail
+          deadline=$(( $(date +%s) + 40*60 ))
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
+            if [ -n "$ids" ]; then
+              any_active=0
+              for d in $ids; do
+                st=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
+                echo "$(date -u +%H:%M:%S) github-pages deployment ${d} state=${st:-<none>}"
+                if [ "$st" = "success" ]; then
+                  echo "✅ GitHub Pages completed the publish server-side (after the action's 10-min cap)."
+                  exit 0
+                fi
+                # error/failure/in_progress/pending/<none> may still reach success → keep waiting
+                if [ "$st" != "inactive" ]; then any_active=1; fi
+              done
+              if [ "$any_active" = "0" ]; then
+                echo "::warning::All github-pages deployments for ${GITHUB_SHA} are inactive (superseded by a newer deploy) — not waiting further."
+                exit 1
+              fi
+            else
+              echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
+            fi
+            sleep 60
+          done
+          echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
           exit 1
 
       - name: Save deploy metadata to Firestore

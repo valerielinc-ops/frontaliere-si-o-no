@@ -3867,6 +3867,22 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-progetto-sintab-sentiero-rio-dei-gioghi': { name: 'Progetto Sintab', path: '/articoli-frontaliere/progetto-sintab-sentiero-rio-dei-gioghi', parent: 'blog' },
     'blog-detrazioni-figli-frontalieri-ticino': { name: 'Fiscale Ticino', path: '/articoli-frontaliere/detrazioni-figli-frontalieri-ticino', parent: 'blog' },
     'blog-tilo-collegamenti-sospesi-giugno': { name: 'TILO bus sostitutivi', path: '/articoli-frontaliere/tilo-collegamenti-sospesi-giugno', parent: 'blog' },
+    'blog-udc-finanze-ticino-aprile-2027': { name: 'Politica Ticino', path: '/articoli-frontaliere/udc-finanze-ticino-aprile-2027', parent: 'blog' },
+    'blog-frontalieri-apprendisti-lugano': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-apprendisti-lugano', parent: 'blog' },
+    'blog-ethos-compensi-novartis-ceo-boccia': { name: 'Ethos Novartis', path: '/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia', parent: 'blog' },
+    'blog-intelligenza-artificiale-aziende-ticino': { name: 'Intelligenza artificiale', path: '/articoli-frontaliere/intelligenza-artificiale-aziende-ticino', parent: 'blog' },
+    'blog-cinque-atti-parlamentari-ticino-mobilita': { name: 'Mobilità Ticino', path: '/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita', parent: 'blog' },
+    'blog-ripristino-treni-locarno-cadenazzo': { name: 'Ripristino treni', path: '/articoli-frontaliere/ripristino-treni-locarno-cadenazzo', parent: 'blog' },
+    'blog-imprese-ticino-classifica-2024': { name: 'Attrattività imprese Ticino', path: '/articoli-frontaliere/imprese-ticino-classifica-2024', parent: 'blog' },
+    'blog-tilo-stabio-malpensa-sospensione-2026': { name: 'TILO Stabio-Malpensa Stop', path: '/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026', parent: 'blog' },
+    'blog-svizzeri-scelgono-capitale-pensione': { name: 'Pensione', path: '/articoli-frontaliere/svizzeri-scelgono-capitale-pensione', parent: 'blog' },
+    'blog-referendum-fortezza-bellinzona-27-settembre': { name: 'Referendum Fortezza', path: '/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre', parent: 'blog' },
+    'blog-licenziamento-nurnberg-rsi': { name: 'Licenziamento Nurnberg', path: '/articoli-frontaliere/licenziamento-nurnberg-rsi', parent: 'blog' },
+    'blog-frontaliere-lavoro-stagionale-ticino': { name: 'Lavoro stagionale in Ticino', path: '/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino', parent: 'blog' },
+    'blog-startup-scuola-ticino-frontalieri': { name: 'Opportunità frontalieri', path: '/articoli-frontaliere/startup-scuola-ticino-frontalieri', parent: 'blog' },
+    'blog-ritenuta-lpp-intermediario-residente': { name: 'Ritenuta LPP Svizzera', path: '/articoli-frontaliere/ritenuta-lpp-intermediario-residente', parent: 'blog' },
+    'blog-rincari-ticino-percepiti-dolorosi': { name: 'Rincari Ticino', path: '/articoli-frontaliere/rincari-ticino-percepiti-dolorosi', parent: 'blog' },
+    'blog-crisi-abitativa-ticino-classe-media': { name: 'Crisi abitativa', path: '/articoli-frontaliere/crisi-abitativa-ticino-classe-media', parent: 'blog' },
  };
 
  const info = sectionNames[section];

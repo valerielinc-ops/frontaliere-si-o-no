@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-sg",
-  "assembledAt": "2026-05-29T12:52:16.489Z",
+  "assembledAt": "2026-05-30T11:21:20.663Z",
   "jobs": [
     {
       "id": "kispi-sg-8e08aef6144e",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/769/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:14.592Z",
+      "crawledAt": "2026-05-30T11:21:18.881Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
         "it": "infermiere-a-per-cure-palliative-pediatriche-e-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
         "en": "nurse-for-pediatric-palliative-and-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
         "de": "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
-        "fr": "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
+        "fr": "infirmiere-specialisee-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -138,7 +138,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/775/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:13.688Z",
+      "crawledAt": "2026-05-30T11:21:18.019Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -192,10 +192,14 @@
         ],
         "it": [
           "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
+        ],
+        "fr": [
+          "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
+        "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen",
+        "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T21:00:04.190Z",
       "salaryMin": 49500,
@@ -243,7 +247,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/779/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:12.827Z",
+      "crawledAt": "2026-05-30T11:21:17.178Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -356,7 +360,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/777/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:11.945Z",
+      "crawledAt": "2026-05-30T11:21:16.313Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -464,7 +468,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/782/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:11.033Z",
+      "crawledAt": "2026-05-30T11:21:15.469Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -525,11 +529,13 @@
         "en": [
           "senior-physician-pediatric-rehabilitation-and-intervention-80-100-ostschweizer-kinderspital-st-gallen",
           "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st-gallen",
+          "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st",
           "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
           "medecin-chef-rehabilitation-et-intervention-pediatrique-80-100-ostschweizer-kinderspital-st-gallen",
           "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st-gallen",
+          "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st",
           "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
@@ -540,8 +546,10 @@
         "sanitario-di-emergenza-in-formazione-see-spital-horgen",
         "senior-physician-pediatric-rehabilitation-and-intervention-80-100-ostschweizer-kinderspital-st-gallen",
         "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st-gallen",
+        "chief-pediatric-rehabilitation-and-intervention-physician-80-100-ostschweizer-kinderspital-st",
         "medecin-chef-rehabilitation-et-intervention-pediatrique-80-100-ostschweizer-kinderspital-st-gallen",
-        "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st-gallen"
+        "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st-gallen",
+        "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st"
       ],
       "firstSeenAt": "2026-05-19T21:00:00.972Z",
       "salaryMin": 68000,
@@ -589,7 +597,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/780/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:10.083Z",
+      "crawledAt": "2026-05-30T11:21:14.642Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -696,7 +704,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/781/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:09.180Z",
+      "crawledAt": "2026-05-30T11:21:13.796Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -802,7 +810,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/787/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:08.277Z",
+      "crawledAt": "2026-05-30T11:21:12.952Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -913,7 +921,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/786/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:07.362Z",
+      "crawledAt": "2026-05-30T11:21:12.134Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -993,7 +1001,7 @@
       "slug": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "it": "direttore-a-intensivpediatria-e-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
-        "en": "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
+        "en": "intensive-care-pediatrics-neonatology-director-80-100-ostschweizer-kinderspital-st",
         "de": "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
         "fr": "directrice-directeur-intensiv-pediatrie-et-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
       },
@@ -1020,7 +1028,7 @@
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/749/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T12:52:05.986Z",
+      "crawledAt": "2026-05-30T11:21:10.851Z",
       "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1076,6 +1084,9 @@
           "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
           "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen"
         ],
+        "en": [
+          "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen"
+        ],
         "fr": [
           "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
         ]
@@ -1083,6 +1094,7 @@
       "previousSlugs": [
         "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
         "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
+        "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
         "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:55.416Z",

@@ -1,16 +1,16 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-29T12:26:14.259Z",
+  "generatedAt": "2026-05-30T10:56:10.414Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 10538,
-  "avgDurationMs": 10538,
+  "durationMs": 15779,
+  "avgDurationMs": 15779,
   "durationHistory": [
-    10538
+    15779
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -48,6 +48,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "country": "CH",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
