@@ -7,6 +7,13 @@ name: Smoke-Test AI Models
 # fallback selector after Google deprecated it).
 on:
   workflow_dispatch: {}
+  # Scheduled so the Mistral `-latest` regression gate (issue #892) actually
+  # protects. A manual-only trigger never catches a silent no-op alias pass;
+  # the daily run fails CI the moment all Mistral `-latest` models go stale.
+  # Early in the UTC day so a regression surfaces before discovery would
+  # pre-exhaust the `-latest` chain for the rest of the day.
+  schedule:
+    - cron: '17 6 * * *'
 
 permissions:
   contents: read

@@ -81,6 +81,31 @@ if (dead.length) {
   for (const d of dead) console.error(`  ${d.model}  →  ${d.detail}`);
 }
 
+// Mistral `-latest` regression gate (issue #892). The discovery alias pass
+// (collectOfferedIds in lib/ai-models.mjs) keeps Mistral `-latest` chain
+// entries from being pre-exhausted by reading the provider listing's
+// `aliases[]` array. If that field name ever drifts, the alias pass becomes a
+// silent no-op and every `-latest` entry gets marked stale for the whole UTC
+// day — a degradation no other signal here catches while the rest of the chain
+// still passes. So: if the Mistral key is present (the `-latest` chain was
+// actually exercised) and EVERY attempted Mistral `-latest` model failed, fail
+// the run so the regression surfaces in CI instead of silently shortening the
+// chain. No-op without the key (nothing attempted) and emits nothing to stdout
+// (still the JSON-only contract). Bare `MISTRAL_API_KEY` check mirrors
+// getMistralApiKey() in lib/ai-models.mjs.
+const hasMistralKey = Boolean((process.env.MISTRAL_API_KEY || '').trim());
+const mistralLatest = results.filter(
+  r => r.model.startsWith('mistral/') && /-latest$/.test(r.model),
+);
+if (hasMistralKey && mistralLatest.length > 0 && mistralLatest.every(r => r.status !== 'pass')) {
+  console.error(
+    `\n❌ Mistral -latest regression: all ${mistralLatest.length} attempted ` +
+      `-latest model(s) failed. Likely the discovery alias pass (aliases[] ` +
+      `field in lib/ai-models.mjs) is a no-op — see issue #892.`,
+  );
+  process.exitCode = 1;
+}
+
 // Emit the JSON payload straight to the real stdout (console.log is patched to
 // stderr above, so this is the ONLY thing the workflow's `> .tmp/smoke.json`
 // redirect captures).
