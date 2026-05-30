@@ -3251,9 +3251,9 @@
     },
     {
       "id": "klinik-barmelweid-a1405921294c",
-      "slug": "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid",
+      "slug": "lavoratore-sociale-m-w-d-klinik-barmelweid-barmelweid",
       "slugByLocale": {
-        "it": "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid",
+        "it": "lavoratore-sociale-m-w-d-klinik-barmelweid-barmelweid",
         "en": "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid",
         "de": "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid",
         "fr": "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid"
@@ -3310,7 +3310,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-m-w-d-klinik-barmelweid-barmelweid"
+      ]
     }
   ]
 }

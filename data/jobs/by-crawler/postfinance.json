@@ -103,9 +103,9 @@
         "de": "Kundenbetreuer:in Customer Center",
         "fr": "Kundenbetreuer:in Customer Center"
       },
-      "slug": "kundenbetreuer-in-customer-center-postfinance",
+      "slug": "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-customer-center-postfinance",
+        "it": "assistenza-clienti-nel-centro-clienti-postfinance-zofingen",
         "en": "kundenbetreuer-in-customer-center-postfinance",
         "de": "kundenbetreuer-in-customer-center-postfinance",
         "fr": "kundenbetreuer-in-customer-center-postfinance"
@@ -144,7 +144,15 @@
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-05-29T13:34:15.377Z"
+      "firstSeenAt": "2026-05-29T13:34:15.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-customer-center-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-customer-center-postfinance"
+      ]
     },
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",

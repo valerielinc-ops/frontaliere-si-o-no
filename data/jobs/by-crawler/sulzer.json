@@ -781,9 +781,9 @@
     },
     {
       "id": "sulzer-d41bf05d100f",
-      "slug": "manual-machinist-sulzer-salt-lake-city",
+      "slug": "macchinista-manuale-sulzer-salt-lake-city",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-salt-lake-city",
+        "it": "macchinista-manuale-sulzer-salt-lake-city",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch",
         "fr": "manual-machinist-sulzer-ch"
@@ -828,12 +828,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch",
-        "macchinista-manuale-sulzer-salt-lake-city"
+        "manual-machinist-sulzer-salt-lake-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch",
-          "macchinista-manuale-sulzer-salt-lake-city"
+          "manual-machinist-sulzer-salt-lake-city"
         ]
       },
       "firstSeenAt": "2026-05-28T14:26:42.362Z",
@@ -2868,9 +2868,9 @@
     },
     {
       "id": "sulzer-f1dc9fe34596",
-      "slug": "manual-machinist-sulzer-la-porte",
+      "slug": "macchinista-manuale-sulzer-la-porte",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-la-porte",
+        "it": "macchinista-manuale-sulzer-la-porte",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch-2",
         "fr": "manual-machinist-sulzer-ch-2"
@@ -2915,12 +2915,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch-2",
-        "macchinista-manuale-sulzer-la-porte"
+        "manual-machinist-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-2",
-          "macchinista-manuale-sulzer-la-porte"
+          "manual-machinist-sulzer-la-porte"
         ]
       },
       "firstSeenAt": "2026-05-28T14:26:17.642Z",
@@ -4745,9 +4745,9 @@
     },
     {
       "id": "sulzer-6be24c14c439",
-      "slug": "manual-machinist-sulzer-pasadena",
+      "slug": "macchinista-manuale-sulzer-pasadena",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-pasadena",
+        "it": "macchinista-manuale-sulzer-pasadena",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch-3",
         "fr": "manual-machinist-sulzer-ch-3"
@@ -4792,12 +4792,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch-3",
-        "macchinista-manuale-sulzer-pasadena"
+        "manual-machinist-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-3",
-          "macchinista-manuale-sulzer-pasadena"
+          "manual-machinist-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:52.776Z",
@@ -13475,10 +13475,10 @@
     },
     {
       "id": "sulzer-cb56b232354b",
-      "slug": "fp-a-controller-sulzer-ch-2",
+      "slug": "controllore-fp-a-sulzer-pune",
       "slugByLocale": {
         "en": "fp-a-controller-sulzer-ch",
-        "it": "fp-a-controller-sulzer-ch-2",
+        "it": "controllore-fp-a-sulzer-pune",
         "de": "fp-a-controller-sulzer-ch-2",
         "fr": "fp-a-controller-sulzer-pune"
       },
@@ -13537,7 +13537,15 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-30T00:47:21.298Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fp-a-controller-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "fp-a-controller-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-895685e866a1",
@@ -14497,9 +14505,9 @@
     },
     {
       "id": "sulzer-602686b926e4",
-      "slug": "welder-nightshift-sulzer-ch",
+      "slug": "rischio-di-notte-piu-vecchio-sulzer-la-porte",
       "slugByLocale": {
-        "it": "welder-nightshift-sulzer-ch",
+        "it": "rischio-di-notte-piu-vecchio-sulzer-la-porte",
         "en": "welder-nightshift-sulzer-ch",
         "de": "welder-nightshift-sulzer-la-porte",
         "fr": "welder-nightshift-sulzer-ch"
@@ -14557,14 +14565,22 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "welder-nightshift-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "welder-nightshift-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-3c1264b28952",
-      "slug": "service-centre-manager-sulzer-ch",
+      "slug": "responsabile-del-centro-assistenza-sulzer-leeds",
       "slugByLocale": {
         "en": "service-centre-manager-sulzer-ch",
-        "it": "service-centre-manager-sulzer-ch",
+        "it": "responsabile-del-centro-assistenza-sulzer-leeds",
         "de": "service-centre-manager-sulzer-ch",
         "fr": "service-centre-manager-sulzer-ch"
       },
@@ -14623,7 +14639,15 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-30T00:47:07.828Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "service-centre-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-centre-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-1cb7dff942eb",
@@ -14871,10 +14895,10 @@
     },
     {
       "id": "sulzer-bb08b0f7ab75",
-      "slug": "instrumentation-controls-i-c-project-sulzer-ch",
+      "slug": "progetto-strumentazione-e-controlli-i-c-sulzer-colton",
       "slugByLocale": {
         "en": "instrumentation-controls-i-c-project-sulzer-ch",
-        "it": "instrumentation-controls-i-c-project-sulzer-ch",
+        "it": "progetto-strumentazione-e-controlli-i-c-sulzer-colton",
         "de": "instrumentation-controls-i-c-project-sulzer-ch",
         "fr": "instrumentation-controls-i-c-project-sulzer-ch"
       },
@@ -14933,14 +14957,22 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-30T00:47:04.529Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "instrumentation-controls-i-c-project-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "instrumentation-controls-i-c-project-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-870747460718",
-      "slug": "mechanic-sulzer-ch-5",
+      "slug": "meccanica-sulzer-orange",
       "slugByLocale": {
         "en": "mechanic-sulzer-orange",
-        "it": "mechanic-sulzer-ch-5",
+        "it": "meccanica-sulzer-orange",
         "de": "mechanic-sulzer-ch-5",
         "fr": "mechanic-sulzer-ch-5"
       },
@@ -14987,10 +15019,14 @@
       "previousSlugsByLocale": {
         "en": [
           "mechanic-sulzer-ch"
+        ],
+        "it": [
+          "mechanic-sulzer-ch-5"
         ]
       },
       "previousSlugs": [
-        "mechanic-sulzer-ch"
+        "mechanic-sulzer-ch",
+        "mechanic-sulzer-ch-5"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

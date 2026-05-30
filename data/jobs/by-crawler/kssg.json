@@ -244,9 +244,9 @@
     },
     {
       "id": "kssg-da7daea976f6",
-      "slug": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-cura-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-cura-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
         "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
@@ -296,7 +296,6 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-          "dipl-specialista-di-cura-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "infermiere-a-diplomato-a-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
           "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -304,9 +303,9 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "dipl-specialista-di-cura-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "infermiere-a-diplomato-a-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
+        "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T13:05:55.042Z",
@@ -921,9 +920,9 @@
     },
     {
       "id": "kssg-1af00de547df",
-      "slug": "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "projektassistenz-bauprojekte-60-80-kssg-ch",
         "fr": "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -969,13 +968,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektassistenz-bauprojekte-60-80-kssg-ch",
-        "progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "assistente-di-progetto-progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "assistente-di-progetto-progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektassistenz-bauprojekte-60-80-kssg-ch",
-          "progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "assistente-di-progetto-progetti-di-costruzione-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "projektassistenz-bauprojekte-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
@@ -1139,9 +1137,9 @@
     },
     {
       "id": "kssg-ae3d8db5ab3f",
-      "slug": "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-cura-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-cura-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-pflegefachfrau-mann-40-100-kssg-ch",
         "de": "dipl-pflegefachfrau-mann-40-100-kssg-ch",
         "fr": "dipl-pflegefachfrau-mann-40-100-kssg-ch"
@@ -1186,11 +1184,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-40-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-40-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-100-kssg-ch"
+          "dipl-pflegefachfrau-mann-40-100-kssg-ch",
+          "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "needsRetranslation": true,
@@ -1281,9 +1281,9 @@
     },
     {
       "id": "kssg-d56e1e8d3210",
-      "slug": "dipl-radiologiefachfrau-mann-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-radiologia-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-radiologia-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch",
         "fr": "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch"
@@ -1329,7 +1329,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch",
-        "specialista-in-radiologia-dipl-sss-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "specialista-in-radiologia-dipl-sss-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-radiologiefachfrau-mann-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1581,9 +1582,9 @@
     },
     {
       "id": "kssg-624ce3666f78",
-      "slug": "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "disponent-in-40-60-kssg-ch",
         "de": "disponent-in-40-60-kssg-ch",
         "fr": "disponent-in-40-60-kssg-ch"
@@ -1629,13 +1630,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "disponent-in-40-60-kssg-ch",
-        "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "organizzatore-trice-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "organizzatore-trice-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-in-40-60-kssg-ch",
-          "40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "organizzatore-trice-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "disponent-in-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
@@ -1735,9 +1735,9 @@
     },
     {
       "id": "kssg-3c423c60a3e6",
-      "slug": "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-cura-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-cura-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-nurse-40-60-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
         "fr": "infirmier-ere-dipl-40-60-hoch-health-ostschweiz-st-gallen"
@@ -1787,7 +1787,6 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-40-60-kssg-ch",
-          "dipl-specialista-di-cura-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "infermiere-a-diplomato-a-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
           "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -1795,9 +1794,9 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-60-kssg-ch",
-        "dipl-specialista-di-cura-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "infermiere-a-diplomato-a-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
+        "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+        "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:15:25.858Z",
@@ -4130,10 +4129,10 @@
     },
     {
       "id": "kssg-a4043a5911e8",
-      "slug": "sott-2027-hoch-health-ostschweiz-st-gallen",
+      "slug": "subassistanza-nel-2027-kantonsspital-st-gallen-kssg-hoch-praktikum-1b914b",
       "slugByLocale": {
         "de": "unterassistent-in-2027-kantonsspital-st-gallen-kssg-hoch-praktikum",
-        "it": "sott-2027-hoch-health-ostschweiz-st-gallen",
+        "it": "subassistanza-nel-2027-kantonsspital-st-gallen-kssg-hoch-praktikum-1b914b",
         "en": "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
         "fr": "assistant-junior-2027-hoch-health-ostschweiz-st-gallen"
       },
@@ -4180,7 +4179,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-2027-kssg-ch"
+          "unterassistent-in-2027-kssg-ch",
+          "sott-2027-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "unterassistent-in-2027-kssg-ch",
@@ -4189,6 +4189,7 @@
       },
       "previousSlugs": [
         "unterassistent-in-2027-kssg-ch",
+        "sott-2027-hoch-health-ostschweiz-st-gallen",
         "unterassistent-in-2027-hoch-health-wil"
       ],
       "needsRetranslation": true,
@@ -4208,10 +4209,10 @@
     },
     {
       "id": "kssg-68499d26ecd3",
-      "slug": "sub-assistente-2026-hoch-health-ostschweiz-wil",
+      "slug": "subassistanza-nel-2026-kantonsspital-st-gallen-kssg-hoch-praktikum-dc0531",
       "slugByLocale": {
         "de": "unterassistent-in-2026-kantonsspital-st-gallen-kssg-hoch-praktikum",
-        "it": "sub-assistente-2026-hoch-health-ostschweiz-wil",
+        "it": "subassistanza-nel-2026-kantonsspital-st-gallen-kssg-hoch-praktikum-dc0531",
         "en": "sub-assistente-2026-hoch-health-ostschweiz-wil",
         "fr": "sub-assistente-2026-hoch-health-ostschweiz-wil"
       },
@@ -4258,7 +4259,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-2026-kssg-ch"
+          "unterassistent-in-2026-kssg-ch",
+          "sub-assistente-2026-hoch-health-ostschweiz-wil"
         ],
         "de": [
           "unterassistent-in-2026-kssg-ch",
@@ -4267,6 +4269,7 @@
       },
       "previousSlugs": [
         "unterassistent-in-2026-kssg-ch",
+        "sub-assistente-2026-hoch-health-ostschweiz-wil",
         "unterassistent-in-2026-hoch-health-wil"
       ],
       "needsRetranslation": true,
@@ -4660,10 +4663,10 @@
     },
     {
       "id": "kssg-e5b5df95e8fd",
-      "slug": "assistente-secondario-hoch-health-ostschweiz-wil",
+      "slug": "sostanze-kantonsspital-st-gallen-kssg-hoch-praktikum-627e5c",
       "slugByLocale": {
         "de": "unterassistent-in-kantonsspital-st-gallen-kssg-hoch-praktikum",
-        "it": "assistente-secondario-hoch-health-ostschweiz-wil",
+        "it": "sostanze-kantonsspital-st-gallen-kssg-hoch-praktikum-627e5c",
         "en": "assistente-secondario-hoch-health-ostschweiz-wil",
         "fr": "assistente-secondario-hoch-health-ostschweiz-wil"
       },
@@ -4710,7 +4713,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-kssg-ch"
+          "unterassistent-in-kssg-ch",
+          "assistente-secondario-hoch-health-ostschweiz-wil"
         ],
         "de": [
           "unterassistent-in-kssg-ch",
@@ -4719,6 +4723,7 @@
       },
       "previousSlugs": [
         "unterassistent-in-kssg-ch",
+        "assistente-secondario-hoch-health-ostschweiz-wil",
         "unterassistent-in-hoch-health-wil"
       ],
       "needsRetranslation": true,
@@ -5032,9 +5037,9 @@
     },
     {
       "id": "kssg-5d22eed30320",
-      "slug": "study-nurse-studienkoordinator-in-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+      "slug": "studio-infermiera-coordinatore-studenti-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
       "slugByLocale": {
-        "it": "study-nurse-studienkoordinator-in-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+        "it": "studio-infermiera-coordinatore-studenti-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
         "en": "study-nurse-studienkoordinator-in-80-100-kssg-ch",
         "de": "study-nurse-studienkoordinator-in-80-100-kssg-ch",
         "fr": "study-nurse-studienkoordinator-in-80-100-kssg-ch"
@@ -5080,13 +5085,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "study-nurse-studienkoordinator-in-80-100-kssg-ch",
-        "studio-infermiera-coordinatore-studenti-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
-        "study-nurse-coordinatore-dello-studio-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
+        "study-nurse-coordinatore-dello-studio-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
+        "study-nurse-studienkoordinator-in-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-studienkoordinator-in-80-100-kssg-ch",
-          "studio-infermiera-coordinatore-studenti-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
           "study-nurse-coordinatore-dello-studio-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung",
           "study-nurse-studienkoordinator-in-80-100-kantonsspital-st-gallen-kssg-hoch-befristete-anstellung"
         ]
@@ -5183,9 +5187,9 @@
     },
     {
       "id": "kssg-e3521b46e711",
-      "slug": "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-cura-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-cura-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
         "fr": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen"
@@ -5235,12 +5239,14 @@
         ],
         "it": [
           "dipl-pflegefachfrau-mann-50-100-kssg-ch",
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs"
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
+          "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-50-100-kssg-ch",
-        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs"
+        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
+        "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:04:39.409Z",
@@ -5623,9 +5629,9 @@
     },
     {
       "id": "kssg-5a30b2286a87",
-      "slug": "medizintechniker-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "tecnico-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "medizintechniker-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "tecnico-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "medical-technician-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "medizintechniker-in-80-100-hoch-health-uznach",
         "fr": "technicien-ne-en-medecine-80-100-hoch-health-ostschweiz-st-gallen"
@@ -5675,15 +5681,14 @@
         ],
         "it": [
           "medizintechniker-in-80-100-kssg-ch",
-          "tecnico-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "medizintechniker-in-80-100-hoch-health-ostschweiz-uznach",
           "medizintechniker-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
         "medizintechniker-in-80-100-kssg-ch",
-        "tecnico-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "medizintechniker-in-80-100-hoch-health-ostschweiz-uznach"
+        "medizintechniker-in-80-100-hoch-health-ostschweiz-uznach",
+        "medizintechniker-in-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T13:04:37.785Z",
@@ -5702,9 +5707,9 @@
     },
     {
       "id": "kssg-c5170f1170d1",
-      "slug": "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-specialista-di-cura-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "dipl-specialista-di-cura-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-pflegefachfrau-mann-60-100-kssg-ch",
         "de": "dipl-pflegefachfrau-mann-60-100-kssg-ch",
         "fr": "dipl-pflegefachfrau-mann-60-100-kssg-ch"
@@ -5750,13 +5755,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-60-100-kssg-ch",
-        "dipl-specialista-di-cura-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "infermiere-a-diplomato-a-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "infermiere-a-diplomato-a-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-60-100-kssg-ch",
-          "dipl-specialista-di-cura-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "infermiere-a-diplomato-a-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-pflegefachfrau-mann-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
@@ -6958,9 +6962,9 @@
     },
     {
       "id": "kssg-3bddcdd7b8e9",
-      "slug": "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
+      "slug": "dipl-expert-expert-emergency-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
+        "it": "dipl-expert-expert-emergency-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
         "de": "dipl-experte-expertin-notfallpflege-50-100-kssg-ch",
         "fr": "dipl-experte-expertin-notfallpflege-50-100-kssg-ch"
@@ -7017,13 +7021,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-expertin-notfallpflege-50-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experte-expertin-notfallpflege-50-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-6637829b5d11",
-      "slug": "administrative-koordinator-in-krebszentrum-50-kssg-ch",
+      "slug": "coordinatore-amministrativo-del-centro-cancro-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "administrative-koordinator-in-krebszentrum-50-kssg-ch",
+        "it": "coordinatore-amministrativo-del-centro-cancro-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "administrative-koordinator-in-krebszentrum-50-kssg-ch",
         "de": "administrative-koordinator-in-krebszentrum-50-kssg-ch",
         "fr": "administrative-koordinator-in-krebszentrum-50-kssg-ch"
@@ -7080,13 +7092,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-koordinator-in-krebszentrum-50-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-koordinator-in-krebszentrum-50-kssg-ch"
+      ]
     },
     {
       "id": "kssg-d12347a399ec",
-      "slug": "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "fachfrau-mann-gesundheit-60-100-kssg-ch",
         "de": "fachfrau-mann-gesundheit-60-100-kssg-ch",
         "fr": "fachfrau-mann-gesundheit-60-100-kssg-ch"
@@ -7131,11 +7151,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-60-100-kssg-ch"
+        "fachfrau-mann-gesundheit-60-100-kssg-ch",
+        "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-60-100-kssg-ch"
+          "fachfrau-mann-gesundheit-60-100-kssg-ch",
+          "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "needsRetranslation": true,
@@ -7155,9 +7177,9 @@
     },
     {
       "id": "kssg-5ec16e1d171e",
-      "slug": "gruppenleiter-in-operationspflege-100-kssg-ch",
+      "slug": "responsabile-operazioni-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "gruppenleiter-in-operationspflege-100-kssg-ch",
+        "it": "responsabile-operazioni-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "gruppenleiter-in-operationspflege-100-kssg-ch",
         "de": "gruppenleiter-in-operationspflege-100-kssg-ch",
         "fr": "gruppenleiter-in-operationspflege-100-kssg-ch"
@@ -7214,7 +7236,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-operationspflege-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-operationspflege-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-63995b1e0f98",
@@ -7281,9 +7311,9 @@
     },
     {
       "id": "kssg-3fc7472e139f",
-      "slug": "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "responsabile-del-dipartimento-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "responsabile-del-dipartimento-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "departementsmanager-in-100-kssg-ch",
         "fr": "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
@@ -7328,11 +7358,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "departementsmanager-in-100-kssg-ch"
+        "departementsmanager-in-100-kssg-ch",
+        "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "departementsmanager-in-100-kssg-ch"
+          "departementsmanager-in-100-kssg-ch",
+          "departementsmanager-in-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "needsRetranslation": true,
@@ -7352,9 +7384,9 @@
     },
     {
       "id": "kssg-700b8db60922",
-      "slug": "esperto-esperta-di-cure-d-emergenza-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "dipl-expert-expert-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "esperto-esperta-di-cure-d-emergenza-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "dipl-expert-expert-emergency-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "dipl-experte-expertin-notfallpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-experte-expertin-notfallpflege-80-100-hoch-health-grabs",
         "fr": "diplome-e-en-soins-d-urgence-80-100-hoch-health-ostschweiz-st-gallen"
@@ -7403,7 +7435,8 @@
           "dipl-experte-expertin-notfallpflege-80-100-kssg-ch"
         ],
         "it": [
-          "dipl-experte-expertin-notfallpflege-80-100-kssg-ch"
+          "dipl-experte-expertin-notfallpflege-80-100-kssg-ch",
+          "esperto-esperta-di-cure-d-emergenza-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "dipl-experte-expertin-notfallpflege-80-100-hoch-health-ostschweiz-grabs"
@@ -7411,6 +7444,7 @@
       },
       "previousSlugs": [
         "dipl-experte-expertin-notfallpflege-80-100-kssg-ch",
+        "esperto-esperta-di-cure-d-emergenza-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-experte-expertin-notfallpflege-80-100-hoch-health-ostschweiz-grabs"
       ],
       "needsRetranslation": true,
@@ -7430,9 +7464,9 @@
     },
     {
       "id": "kssg-c2a7fbfcf567",
-      "slug": "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
+      "slug": "medico-senior-medico-senior-senologie-vice-medico-principale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
+        "it": "medico-senior-medico-senior-senologie-vice-medico-principale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
         "de": "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100",
         "fr": "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100"
@@ -7489,13 +7523,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-senologie-stellvertretende-r-chefarztin-chefarzt-80-100"
+      ]
     },
     {
       "id": "kssg-88a79e6f29c2",
-      "slug": "berufsbildner-in-anasthesiepflege-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "career-educatore-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "berufsbildner-in-anasthesiepflege-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "career-educatore-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "anesthesia-nursing-educator-nds-hf-40-hoch-health-ostschweiz-st-gallen",
         "de": "berufsbildner-in-anasthesiepflege-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fr": "formateur-trice-en-soins-anesthesiques-nds-hf-40-hoch-health-ostschweiz-st-gallen"
@@ -7542,12 +7584,14 @@
       "previousSlugs": [
         "berufsbildner-in-anasthesiepflege-nds-hf-40-kssg-ch",
         "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach",
+        "berufsbildner-in-anasthesiepflege-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "berufsbildner-in-anasthesiepflege-nds-hf-40-hoch-health-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufsbildner-in-anasthesiepflege-nds-hf-40-kssg-ch",
-          "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach"
+          "formatore-a-di-anestesia-infermieristica-nds-hf-40-hoch-health-ostschweiz-uznach",
+          "berufsbildner-in-anasthesiepflege-nds-hf-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ],
         "de": [
           "berufsbildner-in-anasthesiepflege-nds-hf-40-kssg-ch",
@@ -7642,9 +7686,9 @@
     },
     {
       "id": "kssg-c430d3e1194d",
-      "slug": "oberarztin-arzt-infektionspravention-80-100-kssg-ch",
+      "slug": "prevenzione-dell-infezione-medico-senior-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "oberarztin-arzt-infektionspravention-80-100-kssg-ch",
+        "it": "prevenzione-dell-infezione-medico-senior-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "oberarztin-arzt-infektionspravention-80-100-kssg-ch",
         "de": "oberarztin-arzt-infektionspravention-80-100-kssg-ch",
         "fr": "oberarztin-arzt-infektionspravention-80-100-kssg-ch"
@@ -7701,13 +7745,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-infektionspravention-80-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-infektionspravention-80-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-a5e190fee598",
-      "slug": "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "salute-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1170a8",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "it": "salute-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1170a8",
         "en": "fachfrau-mann-gesundheit-80-100-kssg-ch-2",
         "de": "fachfrau-mann-gesundheit-80-100-kssg-ch",
         "fr": "fachfrau-mann-gesundheit-80-100-kssg-ch-2"
@@ -7752,11 +7804,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-80-100-kssg-ch-2"
+        "fachfrau-mann-gesundheit-80-100-kssg-ch-2",
+        "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-80-100-kssg-ch-2"
+          "fachfrau-mann-gesundheit-80-100-kssg-ch-2",
+          "fachfrau-mann-gesundheit-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "needsRetranslation": true,
@@ -7776,9 +7830,9 @@
     },
     {
       "id": "kssg-55c1456a3a91",
-      "slug": "assistente-a-medico-a-del-50-hoch-health-ostschweiz-st-gallen",
+      "slug": "assistente-medico-pratico-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "assistente-a-medico-a-del-50-hoch-health-ostschweiz-st-gallen",
+        "it": "assistente-medico-pratico-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "medical-practice-assistant-50-hoch-health-ostschweiz-st-gallen",
         "de": "medizinische-r-praxisassistent-in-50-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fr": "assistant-e-medical-e-a-50-hoch-health-ostschweiz-st-gallen"
@@ -7828,12 +7882,14 @@
           "medizinische-r-praxisassistent-in-50-hoch-health-rorschach"
         ],
         "it": [
-          "medizinische-r-praxisassistent-in-50-kssg-ch"
+          "medizinische-r-praxisassistent-in-50-kssg-ch",
+          "assistente-a-medico-a-del-50-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-50-kssg-ch",
-        "medizinische-r-praxisassistent-in-50-hoch-health-rorschach"
+        "medizinische-r-praxisassistent-in-50-hoch-health-rorschach",
+        "assistente-a-medico-a-del-50-hoch-health-ostschweiz-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:04:01.670Z",

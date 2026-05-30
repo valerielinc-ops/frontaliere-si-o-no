@@ -226,9 +226,9 @@
     },
     {
       "id": "senevita-707fc74dabc3",
-      "slug": "leitung-betriebsunterhalt-senevita-dietikon-zh",
+      "slug": "servizio-di-gestione-senevita-dietikon-zh",
       "slugByLocale": {
-        "it": "leitung-betriebsunterhalt-senevita-dietikon-zh",
+        "it": "servizio-di-gestione-senevita-dietikon-zh",
         "en": "leitung-betriebsunterhalt-senevita-dietikon-zh",
         "de": "leitung-betriebsunterhalt-senevita-dietikon-zh",
         "fr": "leitung-betriebsunterhalt-senevita-dietikon-zh"
@@ -286,13 +286,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-betriebsunterhalt-senevita-dietikon-zh"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-betriebsunterhalt-senevita-dietikon-zh"
+      ]
     },
     {
       "id": "senevita-5b9f14c32d95",
-      "slug": "leitung-administration-senevita-murten-fr",
+      "slug": "responsabile-amministrazione-senevita-murten-fr",
       "slugByLocale": {
-        "it": "leitung-administration-senevita-murten-fr",
+        "it": "responsabile-amministrazione-senevita-murten-fr",
         "en": "leitung-administration-senevita-murten-fr",
         "de": "leitung-administration-senevita-murten-fr",
         "fr": "leitung-administration-senevita-murten-fr"
@@ -350,7 +358,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-administration-senevita-murten-fr"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-administration-senevita-murten-fr"
+      ]
     },
     {
       "id": "senevita-e9fda97841e6",
@@ -5438,9 +5454,9 @@
     },
     {
       "id": "senevita-32813ac1b6c9",
-      "slug": "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
+      "slug": "salute-professionale-fage-60-80-regione-zurich-city-see-oberland-unterland-senevita-casa-zurich-stadt-see-senevita-casa",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
+        "it": "salute-professionale-fage-60-80-regione-zurich-city-see-oberland-unterland-senevita-casa-zurich-stadt-see-senevita-casa",
         "en": "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
         "de": "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland",
         "fr": "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
@@ -5498,7 +5514,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-60-80-region-zurich-stadt-see-oberland-unterland"
+      ]
     },
     {
       "id": "senevita-2e3c4254ba8f",

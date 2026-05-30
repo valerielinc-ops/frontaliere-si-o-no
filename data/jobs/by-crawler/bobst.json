@@ -3094,9 +3094,9 @@
     },
     {
       "id": "bobst-31df080b815f",
-      "slug": "pmo-chef-de-projet-facility-management-bobst-ch",
+      "slug": "pmo-project-manager-facility-management-bobst-switzerland-mex",
       "slugByLocale": {
-        "it": "pmo-chef-de-projet-facility-management-bobst-ch",
+        "it": "pmo-project-manager-facility-management-bobst-switzerland-mex",
         "en": "pmo-chef-de-projet-facility-management-bobst-ch",
         "de": "pmo-chef-de-projet-facility-management-bobst-ch",
         "fr": "pmo-chef-de-projet-facility-management-bobst-ch"
@@ -3153,7 +3153,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "pmo-chef-de-projet-facility-management-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pmo-chef-de-projet-facility-management-bobst-ch"
+      ]
     }
   ]
 }

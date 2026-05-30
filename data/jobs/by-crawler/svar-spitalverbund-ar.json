@@ -436,9 +436,9 @@
     },
     {
       "id": "svar-spitalverbund-ar-5e4ce0ca323b",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+      "slug": "medicina-interna-generale-40-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
+        "it": "medicina-interna-generale-40-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
         "en": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital",
         "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital"
@@ -496,7 +496,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-40-100-m-w-d-svar-spitalverbund-ar-spital"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-f99fabc89d18",
@@ -644,9 +652,9 @@
     },
     {
       "id": "svar-spitalverbund-ar-155441e7dfc8",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+      "slug": "dipl-assistenza-agli-anziani-hf-fh-clinica-psichiatrica-diurna-80-100-terminata-fino-a-gennaio-2027-m-w-d-spitalverbund",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar",
+        "it": "dipl-assistenza-agli-anziani-hf-fh-clinica-psichiatrica-diurna-80-100-terminata-fino-a-gennaio-2027-m-w-d-spitalverbund",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
         "de": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
         "fr": "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
@@ -693,11 +701,13 @@
       "requirementsByLocale": {},
       "externalId": "4011271",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
+        "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
+        "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m"
+          "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m",
+          "dipl-pflegefachperson-hf-fh-psychiatrische-tagesklinik-80-100-befristet-bis-januar-2027-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-psychiatrisches-zentrum-ar"
         ]
       },
       "firstSeenAt": "2026-05-29T14:15:01.072Z",

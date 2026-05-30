@@ -5607,9 +5607,9 @@
     },
     {
       "id": "hoch-health-40d137d2808f",
-      "slug": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st",
         "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
@@ -5657,13 +5657,15 @@
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
-        "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen"
+        "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
           "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
-          "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen"
+          "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-21T12:10:12.578Z",
@@ -9000,9 +9002,9 @@
     },
     {
       "id": "hoch-health-3c423c60a3e6",
-      "slug": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+      "slug": "dipl-specialista-di-cura-40-60-hoch-health-ostschweiz-wil",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil",
+        "it": "dipl-specialista-di-cura-40-60-hoch-health-ostschweiz-wil",
         "en": "dipl-nurse-40-60-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
         "fr": "infirmier-ere-dipl-40-60-hoch-health-ostschweiz-st-gallen"
@@ -9049,12 +9051,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-        "infermiere-a-diplomato-a-40-60-hoch-health-ostschweiz-wil"
+        "infermiere-a-diplomato-a-40-60-hoch-health-ostschweiz-wil",
+        "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-40-60-hoch-health-wil",
-          "infermiere-a-diplomato-a-40-60-hoch-health-ostschweiz-wil"
+          "infermiere-a-diplomato-a-40-60-hoch-health-ostschweiz-wil",
+          "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-wil"
         ]
       },
       "firstSeenAt": "2026-05-28T23:18:58.543Z",
@@ -14997,9 +15001,9 @@
     },
     {
       "id": "hoch-health-3bddcdd7b8e9",
-      "slug": "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen",
+      "slug": "dipl-expert-expert-emergency-care-50-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
-        "it": "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen",
+        "it": "dipl-expert-expert-emergency-care-50-100-hoch-health-ostschweiz-st",
         "en": "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen",
         "de": "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen",
         "fr": "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen"
@@ -15057,13 +15061,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experte-expertin-notfallpflege-50-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-6637829b5d11",
-      "slug": "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen",
+      "slug": "coordinatore-amministrativo-del-centro-cancro-50-hoch-health-ostschweiz-st",
       "slugByLocale": {
-        "it": "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen",
+        "it": "coordinatore-amministrativo-del-centro-cancro-50-hoch-health-ostschweiz-st",
         "en": "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen",
         "de": "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen",
         "fr": "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen"
@@ -15121,13 +15133,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-koordinator-in-krebszentrum-50-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-d12347a399ec",
-      "slug": "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "salute-professionale-60-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen",
+        "it": "salute-professionale-60-100-hoch-health-ostschweiz-st",
         "en": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
         "de": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen",
         "fr": "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
@@ -15173,11 +15193,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
+        "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+        "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2"
+          "fachfrau-mann-gesundheit-60-100-hoch-health-st-gallen-2",
+          "fachfrau-mann-gesundheit-60-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-05-29T12:39:19.586Z",
@@ -15197,9 +15219,9 @@
     },
     {
       "id": "hoch-health-5ec16e1d171e",
-      "slug": "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
+      "slug": "responsabile-operazioni-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
-        "it": "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
+        "it": "responsabile-operazioni-100-hoch-health-ostschweiz-st",
         "en": "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
         "de": "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
         "fr": "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen"
@@ -15257,7 +15279,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-63995b1e0f98",
@@ -15325,9 +15355,9 @@
     },
     {
       "id": "hoch-health-3fc7472e139f",
-      "slug": "departementsmanager-in-100-hoch-health-uznach",
+      "slug": "responsabile-del-dipartimento-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "departementsmanager-in-100-hoch-health-uznach",
+        "it": "responsabile-del-dipartimento-100-hoch-health-ostschweiz-uznach",
         "en": "departementsmanager-in-100-hoch-health-uznach",
         "de": "departementsmanager-in-100-hoch-health-uznach",
         "fr": "departementsmanager-in-100-hoch-health-uznach"
@@ -15385,7 +15415,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "departementsmanager-in-100-hoch-health-uznach"
+        ]
+      },
+      "previousSlugs": [
+        "departementsmanager-in-100-hoch-health-uznach"
+      ]
     },
     {
       "id": "hoch-health-700b8db60922",

@@ -2400,9 +2400,9 @@
     },
     {
       "id": "cnp-4560e5d97e8b",
-      "slug": "2-agents-de-maintenance-cnp-la-tene",
+      "slug": "2-agenti-di-manutenzione-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
-        "it": "2-agents-de-maintenance-cnp-la-tene",
+        "it": "2-agenti-di-manutenzione-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "en": "2-agents-de-maintenance-cnp-la-tene",
         "de": "2-agents-de-maintenance-cnp-la-tene",
         "fr": "2-agents-de-maintenance-cnp-la-tene"
@@ -2459,7 +2459,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "2-agents-de-maintenance-cnp-la-tene"
+        ]
+      },
+      "previousSlugs": [
+        "2-agents-de-maintenance-cnp-la-tene"
+      ]
     }
   ]
 }
