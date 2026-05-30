@@ -25094,4 +25094,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'licenziamento-nurnberg-rsi',
+ category: 'novita',
+ date: '2026-05-30T02:39:31.480Z',
+ image: '/images/blog/licenziamento-nurnberg-rsi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7907,6 +7907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Référendum sur la Forteresse de Bellinzone: vote le 27 septembre',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'La Municipalité de Bellinzone a validé 3.738 signatures pour le référendum sur la Forteresse. Voici ce qui change et pourquoi on vote.',
     'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Vue aérienne des châteaux de Bellinzone avec la ville en arrière-plan',
+    'blog.article.licenziamento-nurnberg-rsi.title': 'Licenciement de Nurnberg',
+    'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Dossier clos, toutes les revendications payées',
+    'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Journaliste au travail',
 };
 
 export default blogMetaFr;

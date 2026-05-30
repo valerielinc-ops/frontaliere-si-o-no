@@ -3877,6 +3877,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tilo-stabio-malpensa-sospensione-2026': { name: 'TILO Stabio-Malpensa Stop', path: '/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026', parent: 'blog' },
     'blog-svizzeri-scelgono-capitale-pensione': { name: 'Pensione', path: '/articoli-frontaliere/svizzeri-scelgono-capitale-pensione', parent: 'blog' },
     'blog-referendum-fortezza-bellinzona-27-settembre': { name: 'Referendum Fortezza', path: '/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre', parent: 'blog' },
+    'blog-licenziamento-nurnberg-rsi': { name: 'Licenziamento Nurnberg', path: '/articoli-frontaliere/licenziamento-nurnberg-rsi', parent: 'blog' },
  };
 
  const info = sectionNames[section];
