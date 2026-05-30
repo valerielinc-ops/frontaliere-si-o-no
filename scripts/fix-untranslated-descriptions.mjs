@@ -9,7 +9,10 @@
  * Does NOT modify titles, slugs, or needsRetranslation flags.
  *
  * Usage:
- *   node scripts/fix-untranslated-descriptions.mjs [--dry-run] [--max N]
+ *   node scripts/fix-untranslated-descriptions.mjs [--dry-run] [--max N] [--slice <basename>]
+ *
+ *   --slice limits the run to a single by-crawler slice (basename with or without
+ *   .json, e.g. `banca-cler`) for surgical, single-company fixes.
  */
 
 import fs from 'node:fs';
@@ -25,12 +28,25 @@ const MAX = (() => {
   const idx = process.argv.indexOf('--max');
   return idx !== -1 && process.argv[idx + 1] ? Number(process.argv[idx + 1]) : Infinity;
 })();
+const SLICE = (() => {
+  const idx = process.argv.indexOf('--slice');
+  if (idx === -1 || !process.argv[idx + 1]) return null;
+  return process.argv[idx + 1].replace(/\.json$/, '');
+})();
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 function writeJson(p, v) { fs.writeFileSync(p, JSON.stringify(v, null, 2) + '\n', 'utf-8'); }
 
 async function main() {
-  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  let files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json')).sort();
+  if (SLICE) {
+    files = files.filter(f => f.replace(/\.json$/, '') === SLICE);
+    if (files.length === 0) {
+      console.error(`❌ No slice matching --slice "${SLICE}" in ${BY_CRAWLER_DIR}`);
+      process.exit(1);
+    }
+    console.log(`🎯 Scoped to slice: ${SLICE}`);
+  }
   let totalFixed = 0;
   let totalFailed = 0;
   let slicesChanged = 0;
