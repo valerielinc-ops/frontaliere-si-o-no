@@ -548,29 +548,59 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
     }
   }
 
-  // ── One-to-many guard: if multiple candidates scored above threshold, skip ──
-  if (matchCount > 1 && bestJob) {
-    // Re-scan to check if another job is within 0.05 of bestScore
+  // ── One-to-many guard: if another candidate is within 0.05 of bestScore, skip ──
+  //
+  // Runs whenever there's a winner (`bestJob`), NOT only when `matchCount > 1`.
+  // `matchCount` only increments on a STRICT `score > bestScore` improvement, so
+  // two candidates that tie at the top score leave `matchCount === 1` — the old
+  // `matchCount > 1` gate let that arbitrary tie merge onto whichever job was
+  // iterated first, pointing the redirect bridge at the WRONG job (301 to a
+  // non-matching page). Re-scanning on `bestJob` catches equal/near ties too.
+  //
+  // Ambiguity AXIS mirrors the cross-role guard below: a `title-*` win must be
+  // measured on the TITLE axis (Strategy B candidates can have divergent slugs,
+  // so slug-jaccard would be ~0 → guard never fires → arbitrary merge of
+  // repeated cross-company titles like "Sviluppatore Software" / "Buchhalter").
+  // Slug wins keep the slug axis.
+  if (bestJob) {
+    const isTitleWin = bestMethod.startsWith('title-');
     let closeMatches = 0;
     for (const job of candidates) {
       if (job === bestJob) continue;
-      const allJobSlugs = [
-        job.slug,
-        ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
-      ].filter(Boolean);
-      const cachedSlugTokens = slugTokenCache?.get(job);
-      for (const jobSlug of allJobSlugs) {
-        const score = jaccard(
-          orphanTokens,
-          cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
-        );
-        if (score >= bestScore - 0.05) closeMatches++;
+      let jobBestScore = 0;
+      if (isTitleWin) {
+        // Title axis: best title-Jaccard across the candidate's locale titles.
+        if (orphanTitleTokens && orphanTitleTokens.size >= 2 && job.titleByLocale) {
+          const cachedTitleTokens = titleTokenCache?.get(job);
+          for (const [locale, title] of Object.entries(job.titleByLocale)) {
+            if (!title) continue;
+            const jobTitleTokens =
+              cachedTitleTokens?.get(locale) ?? tokenizeTitle(title);
+            const score = jaccard(orphanTitleTokens, jobTitleTokens);
+            if (score > jobBestScore) jobBestScore = score;
+          }
+        }
+      } else {
+        // Slug axis: best slug-Jaccard across the candidate's locale slugs.
+        const allJobSlugs = [
+          job.slug,
+          ...(job.slugByLocale ? Object.values(job.slugByLocale) : []),
+        ].filter(Boolean);
+        const cachedSlugTokens = slugTokenCache?.get(job);
+        for (const jobSlug of allJobSlugs) {
+          const score = jaccard(
+            orphanTokens,
+            cachedSlugTokens?.get(jobSlug) ?? tokenizeSlug(jobSlug),
+          );
+          if (score > jobBestScore) jobBestScore = score;
+        }
       }
+      if (jobBestScore >= bestScore - 0.05) closeMatches++;
     }
     if (closeMatches > 0) {
       if (verbose) {
         console.log(
-          `  ⚠️ "${orphanSlug}" — ambiguous: ${closeMatches + 1} close matches (best: ${bestScore.toFixed(3)}), skipping`,
+          `  ⚠️ "${orphanSlug}" — ambiguous: ${closeMatches + 1} close ${isTitleWin ? 'title' : 'slug'} matches (best: ${bestScore.toFixed(3)}), skipping`,
         );
       }
       return null;
