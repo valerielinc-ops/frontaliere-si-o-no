@@ -1021,6 +1021,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
+      deployments: read   # the extended server-side poll reads /deployments + /statuses
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
@@ -1073,9 +1074,9 @@ jobs:
       # with >1M files the Pages backend's `syncing_files` phase can run
       # well past 10 minutes, causing the action to abort with
       # `Timeout reached, aborting!` even though the deployment itself
-      # eventually completes server-side. The marker-based extended
-      # polling below recognises that case and keeps the job green when
-      # the live site actually came up.
+      # eventually completes server-side. The deployment-status extended
+      # poll below recognises that case and keeps the job green when Pages
+      # reports the publish succeeded.
       - name: Deploy to GitHub Pages
         id: deployment_first
         uses: actions/deploy-pages@v5
@@ -1132,6 +1133,11 @@ jobs:
                   exit 0 ;;
                 failure|error)
                   echo "::error::GitHub Pages deployment ${dep} reported ${state}."
+                  exit 1 ;;
+                inactive)
+                  # A newer deploy superseded this sha's deployment — our publish
+                  # won't land; stop waiting (the newer deploy carries everything).
+                  echo "::warning::Deployment ${dep} is inactive (superseded by a newer deploy) — not waiting further."
                   exit 1 ;;
               esac
             else
