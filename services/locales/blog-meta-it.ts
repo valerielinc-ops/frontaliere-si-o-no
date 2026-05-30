@@ -7883,6 +7883,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-apprendisti-lugano.title': 'Frontalieri anche come apprendisti? «Non lavorano per la Città di Lugano»',
     'blog.article.frontalieri-apprendisti-lugano.excerpt': 'Il Comune di Lugano risponde a un\'interrogazione del consigliere comunale Omar Wicht: nessun apprendista frontaliero attualmente impiegato.',
     'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Vista di Lugano dal lago con le montagne sullo sfondo',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'La fondazione svizzera Ethos critica i compensi del top management di Novartis, giudicandoli sproporzionati rispetto alle performance.',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Veduta aerea del distretto finanziario di Lugano con la sede Novartis sullo sfondo al tramonto',
 };
 
 export default blogMetaIt;

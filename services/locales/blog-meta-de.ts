@@ -7881,6 +7881,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-apprendisti-lugano.title': 'Frontalieri auch als Lehrlinge? «Sie arbeiten nicht für die Stadt Lugano»',
     'blog.article.frontalieri-apprendisti-lugano.excerpt': 'Die Stadt Lugano antwortet auf eine Anfrage des Gemeinderats Omar Wicht: derzeit keine frontalierenden Lehrlinge beschäftigt.',
     'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Blick auf Lugano vom See mit Bergen im Hintergrund',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos kritisiert Novartis-Gehälter: \'CEO-Lohn ist überhöht\'',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'Die Schweizer Stiftung Ethos übt Kritik an den Vergütungen des Novartis-Managements und bewertet sie als unverhältnismäßig im Vergleich zur Leistung.',
+    'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Luftaufnahme des Finanzviertels von Lugano mit Novartis-Hauptsitz im Hintergrund bei Goldener Stunde',
 };
 
 export default blogMetaDe;

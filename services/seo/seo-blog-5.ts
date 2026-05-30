@@ -41336,6 +41336,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ethos-compensi-novartis-ceo-boccia': {
+    title: 'Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»',
+    description: 'Ethos critica i compensi del CEO di Novartis: retribuzioni eccessive rispetto ai risultati. Impatto sui frontalieri e strumenti per verificare il proprio',
+    keywords: 'frontalieri, ticino, svizzera, italia, ethos, boccia, compensi, novartis',
+    ogTitle: 'Ethos boccia compensi Novartis: paga CEO eccessiva',
+    ogDescription: 'Ethos invita gli azionisti a votare contro i compensi del top management Novartis. Analisi e strumenti per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»",
+      "description": "Ethos critica i compensi del CEO di Novartis: retribuzioni eccessive rispetto ai risultati. Impatto sui frontalieri e strumenti per verificare il proprio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ethos-compensi-novartis-ceo-boccia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del distretto finanziario di Lugano con la sede Novartis sullo sfondo al tramonto"
+      },
+      "datePublished": "2026-05-30T00:44:27+00:00",
+      "dateModified": "2026-05-30T00:44:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
