@@ -7889,6 +7889,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.intelligenza-artificiale-aziende-ticino.title': 'L\'intelligence artificielle dans les entreprises tessinoises',
     'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'L\'intelligence artificielle révolutionne les entreprises tessinoises, améliorant l\'efficacité opérationnelle et libérant les employés des tâches répétitives.',
     'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Bureau moderne à Lugano avec des employés travaillant avec des interfaces IA',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Cinq actes parlementaires pour améliorer la mobilité au Tessin',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'Les Verts proposent cinq actes parlementaires pour faire face aux prix élevés des carburants et améliorer la mobilité au Tessin.',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Vue aérienne du lac de Lugano pendant l\'heure de pointe avec trafic et transports publics',
 };
 
 export default blogMetaFr;

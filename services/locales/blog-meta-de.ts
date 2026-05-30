@@ -7887,6 +7887,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.intelligenza-artificiale-aziende-ticino.title': 'KI in Tessiner Unternehmen: Effizienz und Entwicklung',
     'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'Künstliche Intelligenz revolutioniert Tessiner Unternehmen, verbessert die operative Effizienz und befreit Mitarbeiter von repetitiven Aufgaben.',
     'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Modernes Büro in Lugano mit Mitarbeitern, die mit KI-Schnittstellen arbeiten',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Fünf parlamentarische Initiativen für bessere Mobilität im Tessin',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'Die Grünen schlagen fünf parlamentarische Initiativen vor, um die hohen Spritpreise zu bekämpfen und die Mobilität im Tessin zu verbessern.',
+    'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Luftaufnahme des Luganer Sees während der Stoßzeit mit Verkehr und öffentlichen Verkehrsmitteln',
 };
 
 export default blogMetaDe;

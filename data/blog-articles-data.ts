@@ -25040,4 +25040,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cinque-atti-parlamentari-ticino-mobilita',
+ category: 'novita',
+ date: '2026-05-30T01:17:09.432Z',
+ image: '/images/blog/cinque-atti-parlamentari-ticino-mobilita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
