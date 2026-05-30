@@ -88,14 +88,14 @@
       "titleByLocale": {
         "it": "Dipl. Physiotherapeutin / Physiotherapeut come Vertretung",
         "en": "Dipl. Physiotherapeutin / Physiotherapeut als Vertretung",
-        "de": "Dipl. Physiotherapeutin / Physiotherapeut als Vertretung",
+        "de": "Dipl. Physiotherapeutin / Physiotherapeutin als Vertretung",
         "fr": "Dipl. Physiotherapeutin / Physiotherapeute als Vertretung"
       },
       "description": "Dipl. Physiotherapeutin / Physiotherapeut als Vertretung bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n• Bereich: Therapeutischer Dienst\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
       "descriptionByLocale": {
         "it": "Mansioni - Dipl. Fisioterapista / Fisioterapista come rappresentazione presso UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG di Berna (3000, BE), Svizzera. Settore - Servizio terapeutico Tipo - Parttime Durata - Scadenza Posizione - Bern (BE) Candidatura - Applicazione tramite il portale di carriera di Umantis dei Servizi Psichiatrici Universitari Berna (UPD)",
-        "en": "Mansioni - Dipl. Physiotherapist / Physiotherapist as representation at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland. Area - Therapeutic Service Tipo - Parttime Durata - Deadline Posizione - Bern (BE) Candidatura - Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
-        "de": "Dipl. Physiotherapeutin / Physiotherapeut als Vertretung bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n• Bereich: Therapeutischer Dienst\n• Art: Teilzeit\n• Befristung: Befristet\n• Standort: Bern (BE)\n• Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
+        "en": "# Mansioni\n- Dipl. Physiotherapist / Physiotherapist as representation at UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Switzerland.\n\nArea\n- Therapeutic Service\n\n## Tipo\n- Parttime\n\n♪\n- Deadline\n\n= Posizione\n- Bern (BE)\n\n## Candidatura\n- Application via the Umantis career portal of University Psychiatric Services Bern (UPD)",
+        "de": "## Mansioni\n- Dipl. Physiotherapeutin / Physiotherapeut als Vertretung bei UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG in Bern (3000, BE), Schweiz.\n\n## Area\n- Therapeutischer Dienst\n\n## Tipo\n- Teilzeit\n\n## Durata\n- Befristet\n\n## Posizione\n- Bern (BE)\n\n## Candidatura\n- Bewerbung über das Umantis-Karriereportal von Universitäre Psychiatrische Dienste Bern (UPD)",
         "fr": "Mansioni - Dipl. Physiothérapeute / Physiothérapeute représentant à l'UNIVERSITÄRE PSYCHIATRISCHE DIENSTE BERN (UPD) AG à Berne (3000, BE), Suisse. Domaine - Service thérapeutique Tipo - Temps partiel Durata - Délai Posizione - Bern (BE) Candidature - Application via le portail de carrière Umantis des services psychiatriques de l'Université de Berne (UPD)"
       },
       "location": "Bern",
@@ -229,7 +229,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "upd-2617f609680b",

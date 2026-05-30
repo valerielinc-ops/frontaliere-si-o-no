@@ -731,7 +731,7 @@ const translations: Record<string, string> = {
  'jobBoard.authGateEmailPlaceholder': 'La tua email',
  'jobBoard.authGateEmailCta': 'Continua con email',
  'jobBoard.authGateNewsletterNote': 'Inserendo la tua email riceverai anche la newsletter con aggiornamenti per frontalieri.',
- 'jobBoard.gate.title': 'Leggi requisiti e come candidarti',
+ 'jobBoard.gate.title': "Continua per vedere l'annuncio completo",
  'jobBoard.gate.subtitle': 'Un click per accedere. Gratis, per sempre.',
  'jobBoard.gate.emailCta': 'Continua con email',
  'jobBoard.gate.benefit1': 'Descrizione completa e requisiti',
