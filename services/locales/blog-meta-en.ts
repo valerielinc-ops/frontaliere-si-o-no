@@ -7891,6 +7891,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Five parliamentary acts to improve mobility in Ticino',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'The Green Party proposes five parliamentary acts to tackle high fuel prices and improve mobility in Ticino.',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Aerial view of Lake Lugano during rush hour with traffic and public transport',
+    'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Rail traffic restored between Locarno and Cadenazzo',
+    'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'A faulty switch between Tenero and Gordola causing morning delays has been fixed.',
+    'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Train station in Ticino with trains and passengers',
 };
 
 export default blogMetaEn;

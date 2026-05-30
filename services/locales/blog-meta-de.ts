@@ -7890,6 +7890,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Fünf parlamentarische Initiativen für bessere Mobilität im Tessin',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'Die Grünen schlagen fünf parlamentarische Initiativen vor, um die hohen Spritpreise zu bekämpfen und die Mobilität im Tessin zu verbessern.',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Luftaufnahme des Luganer Sees während der Stoßzeit mit Verkehr und öffentlichen Verkehrsmitteln',
+    'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Zugverkehr zwischen Locarno und Cadenazzo wiederhergestellt',
+    'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'Die Störung an einer Weiche zwischen Tenero und Gordola, die den Zugverkehr den ganzen Morgen blockierte, wurde behoben.',
+    'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Bahnhof in Tessin mit Zügen und Passagieren',
 };
 
 export default blogMetaDe;
