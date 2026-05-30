@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-29T12:14:44.060Z",
+  "assembledAt": "2026-05-29T22:50:26.052Z",
   "jobs": [
     {
       "id": "efg-6235",
@@ -89,7 +89,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.594Z",
+      "crawledAt": "2026-05-29T22:50:23.549Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -276,7 +276,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.593Z",
+      "crawledAt": "2026-05-29T22:50:23.548Z",
       "slugByLocale": {
         "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -444,7 +444,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.592Z",
+      "crawledAt": "2026-05-29T22:50:23.547Z",
       "slugByLocale": {
         "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -491,7 +491,7 @@
     },
     {
       "id": "efg-6177",
-      "slug": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
+      "slug": "funzionario-dell-assistenza-clienti-efg-international-ag-st",
       "company": "EFG International AG",
       "title": "Client Support Officer",
       "location": "St",
@@ -538,9 +538,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.591Z",
+      "crawledAt": "2026-05-29T22:50:23.546Z",
       "slugByLocale": {
-        "it": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
+        "it": "funzionario-dell-assistenza-clienti-efg-international-ag-st",
         "en": "client-support-officer-efg-international-ag-st-moritz",
         "de": "client-support-officer-efg-st-moritz",
         "fr": "client-support-officer-efg-st-moritz"
@@ -566,11 +566,13 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-17T10:08:35.143Z",
       "previousSlugs": [
+        "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
         "client-support-officer-efg-st-moritz",
         "responsabile-del-servizio-clienti-efg-international-ag-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
           "client-support-officer-efg-st-moritz"
         ]
       },
@@ -702,7 +704,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.589Z",
+      "crawledAt": "2026-05-29T22:50:23.544Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -908,7 +910,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.588Z",
+      "crawledAt": "2026-05-29T22:50:23.543Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-geneve",
         "en": "talent-acquisition-internship-efg-international-ag-geneve",
@@ -1109,7 +1111,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.587Z",
+      "crawledAt": "2026-05-29T22:50:23.542Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1275,7 +1277,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.586Z",
+      "crawledAt": "2026-05-29T22:50:23.540Z",
       "slugByLocale": {
         "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -1470,7 +1472,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.585Z",
+      "crawledAt": "2026-05-29T22:50:23.539Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1481,7 +1483,6 @@
       "addressCountry": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "international-payroll-specialista-efg-international-ag-lugano",
         "international-payroll-specialiste-efg-international-ag-lugano-n9331q",
         "internationaler-gehaltsabrechnungsspezialist-efg-international-ag-lugano",
         "specialiste-en-paie-internationale-efg-international-ag-lugano",
@@ -1499,7 +1500,9 @@
         "administrative-assistant-efg-international-ag-lugano",
         "esg-administrative-assistent-efg-international-ag-lugano",
         "international-payroll-spezialist-efg-international-ag-lugano",
-        "internationaler-gehaltsabrechnungs-spezialist-efg-international-ag-lugano"
+        "internationaler-gehaltsabrechnungs-spezialist-efg-international-ag-lugano",
+        "internationaler-lohnspezialist-efg-international-ag-lugano",
+        "internationaler-payroll-spezialist-efg-international-ag-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1530,7 +1533,9 @@
           "specialista-payroll-internazionale-efg-international-ag-lugano",
           "specialista-delle-paga-internazionale-efg-international-ag-lugano",
           "specialista-internazionale-di-payroll-efg-international-ag-lugano",
-          "international-payroll-specialista-efg-international-ag-lugano-n9331q"
+          "international-payroll-specialista-efg-international-ag-lugano-n9331q",
+          "internationaler-lohnspezialist-efg-international-ag-lugano",
+          "internationaler-payroll-spezialist-efg-international-ag-lugano"
         ],
         "en": [
           "international-payroll-specialiste-efg-international-ag-lugano-n9331q",
@@ -1688,7 +1693,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.584Z",
+      "crawledAt": "2026-05-29T22:50:23.538Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1777,7 +1782,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.583Z",
+      "crawledAt": "2026-05-29T22:50:23.537Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1872,7 +1877,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.582Z",
+      "crawledAt": "2026-05-29T22:50:23.536Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1966,7 +1971,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.581Z",
+      "crawledAt": "2026-05-29T22:50:23.535Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2055,7 +2060,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.581Z",
+      "crawledAt": "2026-05-29T22:50:23.535Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2261,7 +2266,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.579Z",
+      "crawledAt": "2026-05-29T22:50:23.533Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2476,7 +2481,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.578Z",
+      "crawledAt": "2026-05-29T22:50:23.532Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "pension-fund-manager-efg-international-ag-zurich",
@@ -2538,42 +2543,42 @@
       "country": "CH"
     },
     {
-      "id": "efg-5877",
-      "slug": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
+      "id": "efg-5869",
+      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
       "company": "EFG International AG",
-      "title": "Back-Office Cash reconciliation specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
       "contract": "permanent",
       "currency": "CHF",
-      "description": "General Info\n\n- Department : Back Office Cash Reconciliation Specialist\n\n- Work time Percentage : 100%\n\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n\n- Manually input statements from correspondents not automatically reconciled\n\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n\n- Manage treatment and follow-up of current files\n\n- Claim and recover missing statements from counterparties\n\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n\n- Understand the roles of each counterparty involved in wire payments\n\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n\n- Take responsibility for managing investigations from start to finish\n\n- Apply familiarity with compliance requirements throughout investigations\n\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n\n- General understanding of Back-Office operations within banking\n\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n\n- Proficient in MS Office suite\n\n- Solution-oriented, pragmatic, and precise\n\n- Strong team player, comfortable working in open space environments\n\n- Resilient under pressure, flexible, and adaptable\n\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
+      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n\n- Business analyst and power user of MI data\n\n- Establish and compile presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Design and maintain data models for analysis and forecasting\n\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n\n- Develop strong relationship with business management and business controllers to build a role as business partner\n\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
       "requirements": [],
       "featured": false,
-      "postedDate": "2025-12-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
       "source": "Oracle HCM API",
       "sourceLang": "en",
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "titleByLocale": {
-        "en": "Back-Office Cash reconciliation specialist",
-        "it": "Back-Office Cash reconciliation Specialista",
-        "de": "Back-Office Cash reconciliation Spezialist",
-        "fr": "Back-Office Cash reconciliation Spécialiste"
+        "en": "Strategic Planning Officer",
+        "it": "Ufficiale di Pianificazione Strategica",
+        "de": "Strategischer Planungsbeauftragter",
+        "fr": "Officier de planification stratégique"
       },
       "descriptionByLocale": {
-        "en": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Back Office Cash Riconciliazione Specialist\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\nLa nostra azienda\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\nStiamo cercando un esperto Back Office Cash Riconciliazione Specialist per unirsi al nostro team a Ginevra. Questa posizione offre l'opportunità di contribuire ad un ambiente dinamico in cui precisione, collaborazione e risoluzione proattiva dei problemi sono altamente apprezzati. Tra i compiti principali figurano:\n- Riconciliazione dei contanti\n- Eseguire la riconciliazione dei corrispondenti in contanti per tutte le entità EFG\n- Le dichiarazioni di input manualmente da corrispondenti non riconciliate automaticamente\n- Monitorare, controllare e indagare le differenze di denaro ogni giorno\n- Stabilire e mantenere un elenco di importi in contanti in sospeso\n- Gestire il trattamento e il follow-up dei file attuali\n- Richiedere e recuperare le dichiarazioni mancanti dalle controparti\n- Indagine sui fili dei clienti\n- Dimostrare una forte conoscenza delle attività di trasferimento di denaro (ad esempio, MT103, MT202, ecc.)\n- Comprendere i ruoli di ciascuna controparte coinvolta nei pagamenti via cavo\n- Elaborare e inviare messaggi SWIFT (ad esempio, MTx99, MTx95, MTx96, ecc.) secondo le necessità\n- Prendere la responsabilità di gestire le indagini dall'inizio alla fine\n- Applicare familiarità con i requisiti di conformità durante le indagini\n- Comunicare efficacemente in inglese, sia per via orale che per iscritto\n\nCompetenze ed esperienza\n- Esperienza minima di 2 anni nella riconciliazione in contanti e/o nell’indagine sui trasferimenti di cavi clienti\n- Comprensione generale delle operazioni di back-Office nel settore bancario\n- Lingua madre francese e inglese fluente (spoken e scritto); lingue aggiuntive sono un bene\n- Conoscenza di GTMatch, GTExchange, e Globus è vantaggioso\n- Proficiente nella suite MS Office\n- Soluzione orientata, pragmatica e precisa\n- Giocatore di squadra forte, lavoro confortevole in ambienti open space\n- Resiliente sotto pressione, flessibile e adattabile\n- Proattivo con ottima attenzione ai dettagli\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n- Assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.\nApplicazione\n- Se si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: Back Office Cash Reconciliation Specialist\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\nUnsere Firma\nEFG International ist eine globale Privatbankengruppe, die private Bank- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet ein stimulierendes und dynamisches Arbeitsumfeld und ist bestrebt, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmergeist zu stärken, um Mehrwert zu schaffen – heute und für die Zukunft.\n\nJob Description\nWir suchen einen erfahrenen Back Office Cash Reconciliation Specialist, der unserem Team in Genf beitritt. Diese Position bietet die Möglichkeit, zu einem dynamischen Umfeld beizutragen, in dem Präzision, Zusammenarbeit und proaktive Problemlösung hoch geschätzt werden. Zu den wichtigsten Aufgaben gehören\n- Cash Reconciliation\n- Versöhnung von Geldkorrespondenten für alle EFG-Unternehmen durchführen\n- Manuelle Eingabeaussagen von Korrespondenten nicht automatisch versöhnt\n- Überwachung, Überprüfung und Untersuchung von Bargeldunterschieden täglich\n- Erstellung und Aufrechterhaltung einer Liste anhängiger Barbeträge\n- Behandlung und Nachverfolgung aktueller Dateien verwalten\n- Ansprüche und Rückforderung fehlender Aussagen von Gegenparteien\n- Untersuchung auf Kundendrähte\n- Demonstrieren Sie starke Kenntnisse der Cash-Transfer-Aktivitäten (z.B. MT103, MT202, etc.)\n- Verstehen Sie die Rollen jedes Geschäftspartners, der an den Drahtzahlungen beteiligt ist\n- Entwurf und Versand von SWIFT-Nachrichten (z.B. MTx99, MTx95, MTx96 usw.) nach Bedarf\n- Verantwortung für die Verwaltung von Untersuchungen von Anfang bis Ende\n- Vertrautheit mit Compliance-Anforderungen während der Untersuchungen anwenden\n\n- effektiv in Englisch kommunizieren, sowohl mündlich als auch schriftlich\n\nFähigkeiten und Erfahrung\n- Mindestens 2 Jahre Erfahrung in der Zahlungsabgleichung und/oder Untersuchung von Überweisungen von Kundendraht\n- Allgemeines Verständnis der Back-Office-Operationen im Bankwesen\n- Französische Muttersprache und fließendes Englisch (gesprochen und geschrieben); zusätzliche Sprachen sind ein Vermögenswert\n- Wissen von GTMatch, GTExchange und Globus ist vorteilhaft\n- Profi in der MS Office Suite\n- Lösungsorientiert, pragmatisch und präzise\n- Starker Teamplayer, komfortables Arbeiten in Freiräumen\n- Widerstandsfähig unter Druck, flexibel und anpassungsfähig\n- Proaktiv mit ausgezeichneter Liebe zum Detail\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n- Bitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\nAnwendung\n- Wenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Département : Spécialiste du rapprochement des liquidités\n- Temps de travail Pourcentage : 100%\n- Lieu : Genève\nNotre société\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\nNous sommes à la recherche d'un spécialiste qualifié de la réconciliation de trésorerie back office pour rejoindre notre équipe à Genève. Cette position offre la possibilité de contribuer à un environnement dynamique où la précision, la collaboration et la résolution proactive des problèmes sont très appréciées. Les tâches principales comprennent:\n- Rapprochement des liquidités\n- Effectuer le rapprochement des correspondants en espèces pour toutes les entités du GEF\n- Déclarations d'entrée manuelle des correspondants non automatiquement rapprochées\n- Surveiller, vérifier et examiner quotidiennement les différences de trésorerie\n- Établir et tenir à jour une liste des montants en espèces en attente\n- Gérer le traitement et le suivi des dossiers actuels\n- Réclamation et recouvrement des déclarations manquantes auprès des contreparties\n- Enquête sur les fils clients\n- Démontrer une solide connaissance des activités de transfert de fonds (p. ex. MT103, MT202, etc.)\n- Comprendre les rôles de chaque contrepartie participant aux paiements télégraphiques\n- Ébauche et envoi de messages SWIFT (par exemple MTx99, MTx95, MTx96, etc.) au besoin\n- Prendre la responsabilité de la gestion des enquêtes du début à la fin\n- Appliquer la connaissance des exigences de conformité tout au long des enquêtes\n- Communiquer efficacement en anglais, oralement et par écrit\n\nCompétences et expérience\n- Minimum de 2 ans d'expérience dans le rapprochement des espèces et/ou l'enquête sur les virements électroniques des clients\n- Compréhension générale des opérations back-office dans le secteur bancaire\n- Langue maternelle française et anglais couramment parlé et écrit; les langues supplémentaires sont un atout\n- La connaissance de GTMatch, GTExchange et Globus est avantageuse\n- Compétence dans la suite MS Office\n- Solution orientée, pragmatique et précise\n- Fort joueur d'équipe, confortable de travailler dans des environnements en espace ouvert\n- Résilient sous pression, flexible et adaptable\n- Proactive avec une excellente attention aux détails\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n- Veuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande.\nDemande\n- Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n- Business analyst and power user of MI data\n- Establish and compile presentations to senior management\n- Take active role in the business performance dialogues\n- Design and maintain data models for analysis and forecasting\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n- Develop strong relationship with business management and business controllers to build a role as business partner\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "La nostra azienda EFG International è un gruppo globale di private banking, che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e il nostro scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro L'Ufficiale di Pianificazione Strategica farà parte del Team di Strategia e Sviluppo Aziendale a Lugano e contribuirà a gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di partner aziendale e sfidante delle prestazioni aziendali, si concentrerà sul supporto decisionale a valore aggiunto attraverso un'analisi granulare delle cause profonde delle prestazioni e fornendo informazioni approfondite sui fattori di creazione di valore. L'Ufficiale di Pianificazione Strategica svolgerà un ruolo attivo nei dialoghi sulle prestazioni aziendali, supporterà lo sviluppo aziendale e fornirà supporto decisionale a valore aggiunto utilizzando la modellazione dei dati e l'intelligence previsionale. Responsabilità principali\n- Analista aziendale e utente avanzato dei dati MI\n- Creare e compilare presentazioni per la direzione\n- Partecipare attivamente ai dialoghi sulle prestazioni aziendali\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Collaborazione attiva con l'unità di Pianificazione e Controllo durante il processo di budgeting e previsione\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili dei controlli per costruire un ruolo di partner aziendale\n- Sviluppare analisi di benchmarking ricorrenti in collaborazione con consulenti esterni\n- Collaborazione chiave in progetti di sviluppo aziendale e iniziative strategiche, comprese transazioni M&A Requisiti\n- Avere esperienza professionale nel settore dei servizi finanziari, in particolare nelle attività di Corporate Finance\n- Capacità di comprendere grandi dataset e esperienza di modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di MS-Excel e MS-PowerPoint; Conoscenza dell'uso di Excel Macros, VBA, Python, Power BI come plus\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a prendere nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con gli stakeholder interni a tutti i livelli\n- Fluente in inglese e fluente in italiano I nostri valori\n- Accountability: prendere la proprietà di compiti e sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionate: essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con una mentalità consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
+        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die Private-Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber der Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der Strategische Planungsbeauftragte wird Teil des Teams Strategie und Unternehmensentwicklung in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichterstellungs- und Leistungsüberprüfungsprozess zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als Geschäftspartner und Herausforderer der Geschäftsleistung wird er sich auf die wertschöpfende Entscheidungsunterstützung durch granulare Analyse der Leistungsursachen und durch die Bereitstellung von Erkenntnissen über Wertschöpfungshebel konzentrieren. Der Strategische Planungsbeauftragte wird eine aktive Rolle in den Geschäftsdialogen spielen, die Geschäftsentwicklung unterstützen und eine wertschöpfende Entscheidungsunterstützung unter Verwendung von Datenmodellierung und Prognoseintelligenz bereitstellen. Hauptverantwortungen\n- Unternehmensanalyst und Power-User von MI-Daten\n- Erstellen und Zusammenstellen von Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Geschäftsdialogen\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Aktive Zusammenarbeit mit der Planungs- und Controlling-Einheit während des Budgetierungs- und Prognoseprozesses\n- Aufbau einer starken Beziehung zu den Geschäftsführern und Controllern, um eine Rolle als Geschäftspartner aufzubauen\n- Entwicklung von regelmäßigen Benchmarking-Analysen in Zusammenarbeit mit externen Beratern\n- Schlüsselrolle bei der Zusammenarbeit an Unternehmensentwicklungsprojekten und strategischen Initiativen, einschließlich M&A-Transaktionen Anforderungen\n- Berufserfahrung in der Finanzdienstleistungsbranche, insbesondere in Corporate-Finance-Aktivitäten\n- Fähigkeit, große Datensätze zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von MS-Excel und MS-PowerPoint; Kenntnis der Verwendung von Excel-Makros, VBA, Python, Power BI als Plus\n- Schnelle Lernfähigkeit, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit internen Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Englisch und fließend in Italienisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um schnell Ergebnisse von hoher Qualität zu liefern\n- Passionate: engagiert sein und sich für Exzellenz einsetzen\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
+        "fr": "Notre entreprise EFG International est un groupe mondial de banque privée, offrant des services de banque privée et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste L'Officier de planification stratégique fera partie de l'équipe Stratégie et développement des entreprises à Lugano et contribuera à gérer un processus intégré de planification, de reporting et d'examen des performances pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de partenaire commercial et de challenger de la performance commerciale, il se concentrera sur le soutien à la décision à valeur ajoutée grâce à une analyse granulaire des causes profondes de la performance et en fournissant des informations sur les facteurs de création de valeur. L'Officier de planification stratégique jouera un rôle actif dans les dialogues sur la performance commerciale, soutiendra le développement commercial et fournira un soutien à la décision à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Analyste commercial et utilisateur expérimenté des données MI\n- Établir et compiler des présentations pour la direction\n- Prendre un rôle actif dans les dialogues sur la performance commerciale\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Collaboration active avec l'unité de planification et de contrôle pendant le processus de budgétisation et de prévision\n- Développer une relation solide avec la direction commerciale et les contrôleurs pour construire un rôle de partenaire commercial\n- Développer des analyses de benchmarking récurrentes en collaboration avec des conseillers externes\n- Collaboration clé dans les projets de développement des entreprises et les initiatives stratégiques, y compris les transactions M&A Exigences\n- Expérience professionnelle dans le secteur des services financiers, en particulier dans les activités de finance d'entreprise\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses de données précises\n- Utilisateur expérimenté de MS-Excel et MS-PowerPoint; Connaissance de l'utilisation des macros Excel, VBA, Python, Power BI comme plus\n- Capacité d'apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté de prendre de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes internes à tous les niveaux\n- Courant en anglais et courant en italien Nos valeurs\n- Accountability: prendre la responsabilité des tâches et des défis, ainsi que rechercher l'amélioration continue\n- Hands-on: être proactif pour fournir rapidement des résultats de haute qualité\n- Passionate: être engagé et s'efforcer d'excellence\n- Solution-driven: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Partnership-oriented: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
         "byLocale": {
           "en": {
             "summary": [
-              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
             ],
             "responsibilities": [],
             "requirements": [],
@@ -2586,25 +2591,25 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.577Z",
+      "crawledAt": "2026-05-29T22:50:23.531Z",
       "slugByLocale": {
-        "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
-        "en": "back-office-cash-reconciliation-specialist-efg-geneve",
-        "de": "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
-        "fr": "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
+        "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+        "en": "strategic-planning-officer-efg-lugano",
+        "de": "strategischer-planungsbeauftragter-efg-international-ag-lugano",
+        "fr": "officier-de-planification-strategique-efg-international-ag-lugano"
       },
-      "addressLocality": "Geneve",
+      "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "datePosted": "2025-12-10",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 82500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2612,21 +2617,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.887Z",
       "previousSlugsByLocale": {
         "it": [
-          "back-office-cash-reconciliation-specialist-efg-geneve"
+          "strategic-planning-officer-efg-lugano"
         ],
         "de": [
-          "back-office-cash-reconciliation-specialist-efg-geneve"
+          "strategic-planning-officer-efg-lugano"
         ],
         "fr": [
-          "back-office-cash-reconciliation-specialist-efg-geneve"
+          "strategic-planning-officer-efg-lugano"
         ]
       },
       "previousSlugs": [
-        "back-office-cash-reconciliation-specialist-efg-geneve"
+        "strategic-planning-officer-efg-lugano"
       ],
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
       "country": "CH"
     },
     {
@@ -2769,7 +2774,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.576Z",
+      "crawledAt": "2026-05-29T22:50:23.530Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -2810,98 +2815,6 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-5869",
-      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n\n- Business analyst and power user of MI data\n\n- Establish and compile presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Design and maintain data models for analysis and forecasting\n\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n\n- Develop strong relationship with business management and business controllers to build a role as business partner\n\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Strategic Planning Officer",
-        "it": "Ufficiale di Pianificazione Strategica",
-        "de": "Strategischer Planungsbeauftragter",
-        "fr": "Officier de planification stratégique"
-      },
-      "descriptionByLocale": {
-        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n- Business analyst and power user of MI data\n- Establish and compile presentations to senior management\n- Take active role in the business performance dialogues\n- Design and maintain data models for analysis and forecasting\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n- Develop strong relationship with business management and business controllers to build a role as business partner\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "La nostra azienda EFG International è un gruppo globale di private banking, che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e il nostro scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro L'Ufficiale di Pianificazione Strategica farà parte del Team di Strategia e Sviluppo Aziendale a Lugano e contribuirà a gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di partner aziendale e sfidante delle prestazioni aziendali, si concentrerà sul supporto decisionale a valore aggiunto attraverso un'analisi granulare delle cause profonde delle prestazioni e fornendo informazioni approfondite sui fattori di creazione di valore. L'Ufficiale di Pianificazione Strategica svolgerà un ruolo attivo nei dialoghi sulle prestazioni aziendali, supporterà lo sviluppo aziendale e fornirà supporto decisionale a valore aggiunto utilizzando la modellazione dei dati e l'intelligence previsionale. Responsabilità principali\n- Analista aziendale e utente avanzato dei dati MI\n- Creare e compilare presentazioni per la direzione\n- Partecipare attivamente ai dialoghi sulle prestazioni aziendali\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Collaborazione attiva con l'unità di Pianificazione e Controllo durante il processo di budgeting e previsione\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili dei controlli per costruire un ruolo di partner aziendale\n- Sviluppare analisi di benchmarking ricorrenti in collaborazione con consulenti esterni\n- Collaborazione chiave in progetti di sviluppo aziendale e iniziative strategiche, comprese transazioni M&A Requisiti\n- Avere esperienza professionale nel settore dei servizi finanziari, in particolare nelle attività di Corporate Finance\n- Capacità di comprendere grandi dataset e esperienza di modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di MS-Excel e MS-PowerPoint; Conoscenza dell'uso di Excel Macros, VBA, Python, Power BI come plus\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a prendere nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con gli stakeholder interni a tutti i livelli\n- Fluente in inglese e fluente in italiano I nostri valori\n- Accountability: prendere la proprietà di compiti e sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionate: essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con una mentalità consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
-        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die Private-Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber der Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der Strategische Planungsbeauftragte wird Teil des Teams Strategie und Unternehmensentwicklung in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichterstellungs- und Leistungsüberprüfungsprozess zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als Geschäftspartner und Herausforderer der Geschäftsleistung wird er sich auf die wertschöpfende Entscheidungsunterstützung durch granulare Analyse der Leistungsursachen und durch die Bereitstellung von Erkenntnissen über Wertschöpfungshebel konzentrieren. Der Strategische Planungsbeauftragte wird eine aktive Rolle in den Geschäftsdialogen spielen, die Geschäftsentwicklung unterstützen und eine wertschöpfende Entscheidungsunterstützung unter Verwendung von Datenmodellierung und Prognoseintelligenz bereitstellen. Hauptverantwortungen\n- Unternehmensanalyst und Power-User von MI-Daten\n- Erstellen und Zusammenstellen von Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Geschäftsdialogen\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Aktive Zusammenarbeit mit der Planungs- und Controlling-Einheit während des Budgetierungs- und Prognoseprozesses\n- Aufbau einer starken Beziehung zu den Geschäftsführern und Controllern, um eine Rolle als Geschäftspartner aufzubauen\n- Entwicklung von regelmäßigen Benchmarking-Analysen in Zusammenarbeit mit externen Beratern\n- Schlüsselrolle bei der Zusammenarbeit an Unternehmensentwicklungsprojekten und strategischen Initiativen, einschließlich M&A-Transaktionen Anforderungen\n- Berufserfahrung in der Finanzdienstleistungsbranche, insbesondere in Corporate-Finance-Aktivitäten\n- Fähigkeit, große Datensätze zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von MS-Excel und MS-PowerPoint; Kenntnis der Verwendung von Excel-Makros, VBA, Python, Power BI als Plus\n- Schnelle Lernfähigkeit, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit internen Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Englisch und fließend in Italienisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um schnell Ergebnisse von hoher Qualität zu liefern\n- Passionate: engagiert sein und sich für Exzellenz einsetzen\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
-        "fr": "Notre entreprise EFG International est un groupe mondial de banque privée, offrant des services de banque privée et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste L'Officier de planification stratégique fera partie de l'équipe Stratégie et développement des entreprises à Lugano et contribuera à gérer un processus intégré de planification, de reporting et d'examen des performances pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de partenaire commercial et de challenger de la performance commerciale, il se concentrera sur le soutien à la décision à valeur ajoutée grâce à une analyse granulaire des causes profondes de la performance et en fournissant des informations sur les facteurs de création de valeur. L'Officier de planification stratégique jouera un rôle actif dans les dialogues sur la performance commerciale, soutiendra le développement commercial et fournira un soutien à la décision à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Analyste commercial et utilisateur expérimenté des données MI\n- Établir et compiler des présentations pour la direction\n- Prendre un rôle actif dans les dialogues sur la performance commerciale\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Collaboration active avec l'unité de planification et de contrôle pendant le processus de budgétisation et de prévision\n- Développer une relation solide avec la direction commerciale et les contrôleurs pour construire un rôle de partenaire commercial\n- Développer des analyses de benchmarking récurrentes en collaboration avec des conseillers externes\n- Collaboration clé dans les projets de développement des entreprises et les initiatives stratégiques, y compris les transactions M&A Exigences\n- Expérience professionnelle dans le secteur des services financiers, en particulier dans les activités de finance d'entreprise\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses de données précises\n- Utilisateur expérimenté de MS-Excel et MS-PowerPoint; Connaissance de l'utilisation des macros Excel, VBA, Python, Power BI comme plus\n- Capacité d'apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté de prendre de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes internes à tous les niveaux\n- Courant en anglais et courant en italien Nos valeurs\n- Accountability: prendre la responsabilité des tâches et des défis, ainsi que rechercher l'amélioration continue\n- Hands-on: être proactif pour fournir rapidement des résultats de haute qualité\n- Passionate: être engagé et s'efforcer d'excellence\n- Solution-driven: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Partnership-oriented: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-29T12:14:41.576Z",
-      "slugByLocale": {
-        "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-        "en": "strategic-planning-officer-efg-lugano",
-        "de": "strategischer-planungsbeauftragter-efg-international-ag-lugano",
-        "fr": "officier-de-planification-strategique-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "strategic-planning-officer-efg-lugano"
-        ],
-        "de": [
-          "strategic-planning-officer-efg-lugano"
-        ],
-        "fr": [
-          "strategic-planning-officer-efg-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "strategic-planning-officer-efg-lugano"
-      ],
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
       "country": "CH"
     },
     {
@@ -3069,7 +2982,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.575Z",
+      "crawledAt": "2026-05-29T22:50:23.529Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3158,7 +3071,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.573Z",
+      "crawledAt": "2026-05-29T22:50:23.527Z",
       "slugByLocale": {
         "it": "analista-di-reporting-regolamentare-efg-international-ag-geneve",
         "en": "regulatory-reporting-analyst-efg-geneve",
@@ -3282,7 +3195,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.572Z",
+      "crawledAt": "2026-05-29T22:50:23.526Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -3376,7 +3289,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.570Z",
+      "crawledAt": "2026-05-29T22:50:23.524Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -3579,7 +3492,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.569Z",
+      "crawledAt": "2026-05-29T22:50:23.523Z",
       "slugByLocale": {
         "it": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
         "en": "senior-strategic-transformation-manager-efg-geneve",
@@ -3670,7 +3583,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.566Z",
+      "crawledAt": "2026-05-29T22:50:23.520Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -3781,7 +3694,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-29T12:14:41.565Z",
+      "crawledAt": "2026-05-29T22:50:23.519Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -3821,6 +3734,98 @@
       },
       "previousSlugs": [
         "it-data-service-manager-efg-geneve"
+      ],
+      "country": "CH"
+    },
+    {
+      "id": "efg-5877",
+      "slug": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Back-Office Cash reconciliation specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n- Department : Back Office Cash Reconciliation Specialist\n\n- Work time Percentage : 100%\n\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n\n- Manually input statements from correspondents not automatically reconciled\n\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n\n- Manage treatment and follow-up of current files\n\n- Claim and recover missing statements from counterparties\n\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n\n- Understand the roles of each counterparty involved in wire payments\n\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n\n- Take responsibility for managing investigations from start to finish\n\n- Apply familiarity with compliance requirements throughout investigations\n\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n\n- General understanding of Back-Office operations within banking\n\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n\n- Proficient in MS Office suite\n\n- Solution-oriented, pragmatic, and precise\n\n- Strong team player, comfortable working in open space environments\n\n- Resilient under pressure, flexible, and adaptable\n\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2025-12-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Back-Office Cash reconciliation specialist",
+        "it": "Back-Office Cash reconciliation Specialista",
+        "de": "Back-Office Cash reconciliation Spezialist",
+        "fr": "Back-Office Cash reconciliation Spécialiste"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n- Department : Back Office Cash Reconciliation Specialist\n- Work time Percentage : 100%\n- Location : Geneva\nOur Company\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\nWe are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include\n- Cash Reconciliation\n- Perform reconciliation of cash correspondents for all EFG entities\n- Manually input statements from correspondents not automatically reconciled\n- Monitor, check, and investigate cash differences on a daily basis\n- Establish and maintain a list of pending cash amounts\n- Manage treatment and follow-up of current files\n- Claim and recover missing statements from counterparties\n- Investigation on Customer Wires\n- Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)\n- Understand the roles of each counterparty involved in wire payments\n- Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed\n- Take responsibility for managing investigations from start to finish\n- Apply familiarity with compliance requirements throughout investigations\n- Communicate effectively in English, both orally and in writing\n\nSkills and experience\n- Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers\n- General understanding of Back-Office operations within banking\n- French mother tongue and fluent English (spoken and written); additional languages are an asset\n- Knowledge of GTMatch, GTExchange, and Globus is advantageous\n- Proficient in MS Office suite\n- Solution-oriented, pragmatic, and precise\n- Strong team player, comfortable working in open space environments\n- Resilient under pressure, flexible, and adaptable\n- Proactive with excellent attention to detail\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n- Please ensure to attach a cover letter to your CV when filling the application.\nApplication\n- Should you wish to apply for this position use this link to apply.",
+        "it": "Informazioni generali\n- Dipartimento: Back Office Cash Riconciliazione Specialist\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\nLa nostra azienda\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\nStiamo cercando un esperto Back Office Cash Riconciliazione Specialist per unirsi al nostro team a Ginevra. Questa posizione offre l'opportunità di contribuire ad un ambiente dinamico in cui precisione, collaborazione e risoluzione proattiva dei problemi sono altamente apprezzati. Tra i compiti principali figurano:\n- Riconciliazione dei contanti\n- Eseguire la riconciliazione dei corrispondenti in contanti per tutte le entità EFG\n- Le dichiarazioni di input manualmente da corrispondenti non riconciliate automaticamente\n- Monitorare, controllare e indagare le differenze di denaro ogni giorno\n- Stabilire e mantenere un elenco di importi in contanti in sospeso\n- Gestire il trattamento e il follow-up dei file attuali\n- Richiedere e recuperare le dichiarazioni mancanti dalle controparti\n- Indagine sui fili dei clienti\n- Dimostrare una forte conoscenza delle attività di trasferimento di denaro (ad esempio, MT103, MT202, ecc.)\n- Comprendere i ruoli di ciascuna controparte coinvolta nei pagamenti via cavo\n- Elaborare e inviare messaggi SWIFT (ad esempio, MTx99, MTx95, MTx96, ecc.) secondo le necessità\n- Prendere la responsabilità di gestire le indagini dall'inizio alla fine\n- Applicare familiarità con i requisiti di conformità durante le indagini\n- Comunicare efficacemente in inglese, sia per via orale che per iscritto\n\nCompetenze ed esperienza\n- Esperienza minima di 2 anni nella riconciliazione in contanti e/o nell’indagine sui trasferimenti di cavi clienti\n- Comprensione generale delle operazioni di back-Office nel settore bancario\n- Lingua madre francese e inglese fluente (spoken e scritto); lingue aggiuntive sono un bene\n- Conoscenza di GTMatch, GTExchange, e Globus è vantaggioso\n- Proficiente nella suite MS Office\n- Soluzione orientata, pragmatica e precisa\n- Giocatore di squadra forte, lavoro confortevole in ambienti open space\n- Resiliente sotto pressione, flessibile e adattabile\n- Proattivo con ottima attenzione ai dettagli\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n- Assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.\nApplicazione\n- Se si desidera richiedere per questa posizione utilizzare questo link per applicare.",
+        "de": "Allgemeine Info\n- Abteilung: Back Office Cash Reconciliation Specialist\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\nUnsere Firma\nEFG International ist eine globale Privatbankengruppe, die private Bank- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet ein stimulierendes und dynamisches Arbeitsumfeld und ist bestrebt, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmergeist zu stärken, um Mehrwert zu schaffen – heute und für die Zukunft.\n\nJob Description\nWir suchen einen erfahrenen Back Office Cash Reconciliation Specialist, der unserem Team in Genf beitritt. Diese Position bietet die Möglichkeit, zu einem dynamischen Umfeld beizutragen, in dem Präzision, Zusammenarbeit und proaktive Problemlösung hoch geschätzt werden. Zu den wichtigsten Aufgaben gehören\n- Cash Reconciliation\n- Versöhnung von Geldkorrespondenten für alle EFG-Unternehmen durchführen\n- Manuelle Eingabeaussagen von Korrespondenten nicht automatisch versöhnt\n- Überwachung, Überprüfung und Untersuchung von Bargeldunterschieden täglich\n- Erstellung und Aufrechterhaltung einer Liste anhängiger Barbeträge\n- Behandlung und Nachverfolgung aktueller Dateien verwalten\n- Ansprüche und Rückforderung fehlender Aussagen von Gegenparteien\n- Untersuchung auf Kundendrähte\n- Demonstrieren Sie starke Kenntnisse der Cash-Transfer-Aktivitäten (z.B. MT103, MT202, etc.)\n- Verstehen Sie die Rollen jedes Geschäftspartners, der an den Drahtzahlungen beteiligt ist\n- Entwurf und Versand von SWIFT-Nachrichten (z.B. MTx99, MTx95, MTx96 usw.) nach Bedarf\n- Verantwortung für die Verwaltung von Untersuchungen von Anfang bis Ende\n- Vertrautheit mit Compliance-Anforderungen während der Untersuchungen anwenden\n\n- effektiv in Englisch kommunizieren, sowohl mündlich als auch schriftlich\n\nFähigkeiten und Erfahrung\n- Mindestens 2 Jahre Erfahrung in der Zahlungsabgleichung und/oder Untersuchung von Überweisungen von Kundendraht\n- Allgemeines Verständnis der Back-Office-Operationen im Bankwesen\n- Französische Muttersprache und fließendes Englisch (gesprochen und geschrieben); zusätzliche Sprachen sind ein Vermögenswert\n- Wissen von GTMatch, GTExchange und Globus ist vorteilhaft\n- Profi in der MS Office Suite\n- Lösungsorientiert, pragmatisch und präzise\n- Starker Teamplayer, komfortables Arbeiten in Freiräumen\n- Widerstandsfähig unter Druck, flexibel und anpassungsfähig\n- Proaktiv mit ausgezeichneter Liebe zum Detail\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n- Bitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\nAnwendung\n- Wenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
+        "fr": "Informations générales\n- Département : Spécialiste du rapprochement des liquidités\n- Temps de travail Pourcentage : 100%\n- Lieu : Genève\nNotre société\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\nNous sommes à la recherche d'un spécialiste qualifié de la réconciliation de trésorerie back office pour rejoindre notre équipe à Genève. Cette position offre la possibilité de contribuer à un environnement dynamique où la précision, la collaboration et la résolution proactive des problèmes sont très appréciées. Les tâches principales comprennent:\n- Rapprochement des liquidités\n- Effectuer le rapprochement des correspondants en espèces pour toutes les entités du GEF\n- Déclarations d'entrée manuelle des correspondants non automatiquement rapprochées\n- Surveiller, vérifier et examiner quotidiennement les différences de trésorerie\n- Établir et tenir à jour une liste des montants en espèces en attente\n- Gérer le traitement et le suivi des dossiers actuels\n- Réclamation et recouvrement des déclarations manquantes auprès des contreparties\n- Enquête sur les fils clients\n- Démontrer une solide connaissance des activités de transfert de fonds (p. ex. MT103, MT202, etc.)\n- Comprendre les rôles de chaque contrepartie participant aux paiements télégraphiques\n- Ébauche et envoi de messages SWIFT (par exemple MTx99, MTx95, MTx96, etc.) au besoin\n- Prendre la responsabilité de la gestion des enquêtes du début à la fin\n- Appliquer la connaissance des exigences de conformité tout au long des enquêtes\n- Communiquer efficacement en anglais, oralement et par écrit\n\nCompétences et expérience\n- Minimum de 2 ans d'expérience dans le rapprochement des espèces et/ou l'enquête sur les virements électroniques des clients\n- Compréhension générale des opérations back-office dans le secteur bancaire\n- Langue maternelle française et anglais couramment parlé et écrit; les langues supplémentaires sont un atout\n- La connaissance de GTMatch, GTExchange et Globus est avantageuse\n- Compétence dans la suite MS Office\n- Solution orientée, pragmatique et précise\n- Fort joueur d'équipe, confortable de travailler dans des environnements en espace ouvert\n- Résilient sous pression, flexible et adaptable\n- Proactive avec une excellente attention aux détails\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis, ainsi que recherche d'amélioration continue\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionnée : être engagée et s'efforcer d'excellence\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter les clients avec équité avec un état d'esprit conscient des risques\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n- Veuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande.\nDemande\n- Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-29T12:14:41.577Z",
+      "slugByLocale": {
+        "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
+        "en": "back-office-cash-reconciliation-specialist-efg-geneve",
+        "de": "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
+        "fr": "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2025-12-10",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ],
+        "de": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ],
+        "fr": [
+          "back-office-cash-reconciliation-specialist-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "back-office-cash-reconciliation-specialist-efg-geneve"
       ],
       "country": "CH"
     },
@@ -4739,8 +4744,6 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano",
-          "bankkaufmann-frau-lehrstelle-afc-kaufmann-frau-im-bankgewerbe-efg-international-ag-lugano",
           "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
           "afc-banking-verkauferlehre-efg-international-ag-lugano",
           "banklehrstelle-efg-international-ag-efg-international-ag-lugano",
@@ -4758,11 +4761,11 @@
           "lehre-kaufmann-frau-efz-bankwesen-efg-international-ag-lugano",
           "lehre-kaufmann-frau-efz-bank-efg-international-ag-lugano",
           "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
-          "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano"
+          "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
+          "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+          "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano"
         ],
         "fr": [
-          "apprenti-commercial-afc-banque-efg-international-ag-lugano",
-          "apprenti-apprentie-en-commerce-bancaire-cfc-efg-international-ag-lugano",
           "apprentissage-employe-e-de-commerce-efg-bank-efg-international-ag-lugano",
           "apprenti-e-commercial-e-chez-efg-bank-efg-international-ag-lugano",
           "apprenti-en-commerce-bancaire-efq-efg-international-ag-lugano",
@@ -4780,7 +4783,9 @@
           "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
           "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
           "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
-          "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano"
+          "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
+          "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
+          "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano"
         ],
         "en": [
           "commercial-apprentice-afc-bank-efg-international-ag-lugano",
@@ -4797,10 +4802,6 @@
         ]
       },
       "previousSlugs": [
-        "banklehrstelle-efg-international-ag-efg-international-ag-lugano",
-        "afc-handelslehrling-efg-international-ag-lugano",
-        "afc-bank-commercial-trainee-efg-international-ag-lugano",
-        "bankkaufmann-frau-efg-international-ag-efg-international-ag-lugano",
         "banklehrling-afc-bei-efg-bank-in-lugano-efg-international-ag-lugano",
         "bankkaufmann-frau-efz-kaufmann-frau-im-bankgewerbe-efg-international-ag-lugano",
         "bankkaufmann-frau-efz-ausbildung-efg-international-ag-lugano",
@@ -4816,7 +4817,11 @@
         "bankkaufmann-frau-efq-lehre-efg-international-ag-lugano",
         "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
         "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
-        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano"
+        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
+        "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+        "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
+        "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
+        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "needsRetranslation": true,

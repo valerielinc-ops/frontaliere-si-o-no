@@ -807,7 +807,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tertianum-66b3195a4211",
@@ -2543,8 +2543,6 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-80-tertianum-wattwil",
-        "assistant-en-soins-de-sante-80-tertianum-wattwil",
         "operatore-socio-sanitario-full-time-60-100-tertianum-berg",
         "healthcare-assistant-full-time-60-100-tertianum-berg",
         "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-berg",
@@ -2562,17 +2560,22 @@
         "operatore-socio-sanitario-efc-40-100-tertianum-gampelen",
         "healthcare-assistant-efz-40-100-tertianum-gampelen",
         "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-gampelen",
-        "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen"
+        "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen",
+        "operatore-socio-sanitario-80-tertianum-wattwil",
+        "healthcare-assistant-80-tertianum-wattwil",
+        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-bern",
           "specialiste-en-sante-efz-60-100-tertianum-zizers",
-          "operatore-socio-sanitario-efc-40-100-tertianum-gampelen"
+          "operatore-socio-sanitario-efc-40-100-tertianum-gampelen",
+          "operatore-socio-sanitario-80-tertianum-wattwil"
         ],
         "en": [
           "healthcare-assistant-efz-40-100-tertianum-gampelen",
-          "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen"
+          "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen",
+          "healthcare-assistant-80-tertianum-wattwil"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-gampelen"
@@ -8315,7 +8318,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tertianum-145bf639f3b0",
@@ -17936,7 +17939,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "tertianum-8df69f12f892",
