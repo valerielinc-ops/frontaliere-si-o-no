@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ruag-ag",
-  "assembledAt": "2026-05-30T00:22:24.907Z",
+  "assembledAt": "2026-05-30T12:14:56.904Z",
   "jobs": [
     {
       "title": "Facility Office Manager 80-100 (w/m/d)",
@@ -121,7 +121,6 @@
         "fr": "gebaudetechnikerin-sanitar-heizungsinstallateurin-100-w-m-d-ruag-ag-emmen-ennetmoos-stans"
       },
       "id": "ruag-ag-da9a974d02f3",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -146,7 +145,8 @@
       },
       "previousSlugs": [
         "gebaudetechnikerin-sanitar-heizungsinstallateurin-100-w-m-d-ruag-ag-emmen-ennetmoos-stans"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Reinigungsfachkraft 20 - 50 % (w/m/d)",
@@ -190,7 +190,6 @@
         "fr": "reinigungsfachkraft-20-50-w-m-d-ruag-ag-wilderswil-zweilutschinen"
       },
       "id": "ruag-ag-00edcc7eb3a6",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -215,7 +214,8 @@
       },
       "previousSlugs": [
         "reinigungsfachkraft-20-50-w-m-d-ruag-ag-wilderswil-zweilutschinen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Maintenance Data Engineer 100 (f/m/d)",
