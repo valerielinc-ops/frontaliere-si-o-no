@@ -86,7 +86,9 @@ jobs:
 
       # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
       # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.
-      # Guarded by .github/CODEOWNERS so a future writer is forced through review.
+      # .github/CODEOWNERS requires owner review to add a second writer VIA PR (the data
+      # files + this workflow + the fetch script are owned). It does NOT gate this job's
+      # own direct-push to main; branch protection is the enforcement layer for that.
       - name: Commit if changed
         run: |
           if git diff --quiet -- data/thin-page-promotions-active.json data/thin-page-promotions.jsonl; then
