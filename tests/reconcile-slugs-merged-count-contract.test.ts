@@ -149,6 +149,105 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
   });
 });
 
+// Regression guard for the PR #971 reviewer \u{1F534}: the one-to-many ambiguity
+// guard re-scan computed ONLY slug-jaccard, and only ran when matchCount > 1.
+// After PR #971 admitted title-only candidates with a DIVERGENT slug
+// (Strategy B), two scenarios broke the guard:
+//   (1) a `title-*` win's sibling candidates have slug-jaccard ~0 (divergent
+//       slugs) \u2192 the slug-axis re-scan saw no close match;
+//   (2) two ACTIVE jobs with identical titleByLocale but different companies
+//       tie on score; the strict `score > bestScore` leaves matchCount === 1,
+//       so `if (matchCount > 1)` never ran.
+// Either way the orphan was merged onto an arbitrary (first-iterated) job \u2192
+// previousSlugs / redirect bridge pointed at the WRONG job (301 to a
+// non-matching page, SEO regression). The fix re-scans on the TITLE axis for
+// `title-*` wins and runs whenever there's a winner, skipping the merge when a
+// sibling candidate is within 0.05 of bestScore.
+//
+// NOTE: titles use 3 tokens ("Software Entwickler Backend") because Strategy B
+// only engages at orphanTitleTokens.size >= 3 (reconcile-job-slugs.mjs).
+describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axis)', () => {
+  it('does NOT merge an orphan whose title matches two cross-company jobs equally', () => {
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-acme',
+        slug: 'sviluppatore-software-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-globex',
+        slug: 'sviluppatore-software-backend-globex',
+        slugByLocale: { de: 'software-entwickler-backend-globex' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Globex',
+        companyKey: 'globex',
+      },
+    ];
+    // Orphan carries NO companyKey (no-company path) and a divergent slug, so it
+    // can only match via the cross-locale title bucket \u2014 and it matches BOTH
+    // jobs equally (title-Jaccard 1.0 each). There is no correct single target;
+    // pre-fix this slipped through (slug-axis re-scan saw ~0 overlap AND
+    // matchCount stayed 1) and merged onto job #0 arbitrarily.
+    const orphanSlugs = ['software-entwickler-backend'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+    const result = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, {
+      verbose: true,
+    });
+    expect(result.mergedCount).toBe(0);
+    expect(activeJobs[0].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+    expect(activeJobs[1].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+  });
+
+  // Control: a single unambiguous title match still merges (the widened
+  // `if (bestJob)` trigger must not over-block the Strategy B happy path).
+  it('still merges when the title match is unambiguous (single candidate)', () => {
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-acme',
+        slug: 'sviluppatore-software-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+    ];
+    const orphanSlugs = ['software-entwickler-backend'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+    const result = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, {
+      verbose: true,
+    });
+    expect(result.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler-backend');
+  });
+});
+
 describe('assemble-jobs-dataset reconcile guards read the correct property', () => {
   const source = fs.readFileSync(
     path.resolve(root, 'scripts/assemble-jobs-dataset.mjs'),
