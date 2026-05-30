@@ -4544,6 +4544,38 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  fr: { q: "Les jours feries au Tessin sont-ils identiques a ceux de la Suisse italophone ?", a: "Oui : le Canton du Tessin et les vallees italophones du canton des Grisons (Mesolcina, Calanca, Bregaglia, Poschiavo) partagent le meme calendrier des fetes catholiques, avec Epiphanie, Saint-Joseph, Fete-Dieu, Assomption, Toussaint et Immaculee Conception. La difference apparait par rapport aux cantons protestants (Zurich, Berne, Bale-Ville) ou ces dates ne sont pas des jours feries officiels. Un frontalier qui passe de Lugano a Zurich perd en moyenne 5-7 jours feries par an." }
  },
 
+ // ── Ticino school calendar 2026-2027 (DECS) — seo-pages.ts #955 follow-up ──
+ "Quando inizia la scuola in Ticino nel 2026?": {
+ en: { q: "When does school start in Ticino in 2026?", a: "For the 2026-2027 school year, classes in all schools of Canton Ticino start on Monday 31 August 2026, according to the official DECS calendar. Some vocational schools with specific calendars are an exception." },
+ de: { q: "Wann beginnt die Schule im Tessin 2026?", a: "Für das Schuljahr 2026-2027 beginnt der Unterricht in allen Schulen des Kantons Tessin am Montag, 31. August 2026, gemäss dem offiziellen DECS-Kalender. Einige Berufsschulen mit eigenen Kalendern bilden eine Ausnahme." },
+ fr: { q: "Quand commence l'école au Tessin en 2026 ?", a: "Pour l'année scolaire 2026-2027, les cours dans toutes les écoles du Canton du Tessin débutent le lundi 31 août 2026, selon le calendrier officiel du DECS. Certaines écoles professionnelles avec des calendriers spécifiques font exception." }
+ },
+ "Quando finisce la scuola in Ticino nel 2027?": {
+ en: { q: "When does school end in Ticino in 2027?", a: "The 2026-2027 school year ends on Wednesday 16 June 2027 for all compulsory schools in Canton Ticino. The summer holidays therefore begin on Thursday 17 June 2027." },
+ de: { q: "Wann endet die Schule im Tessin 2027?", a: "Das Schuljahr 2026-2027 endet am Mittwoch, 16. Juni 2027 für alle obligatorischen Schulen des Kantons Tessin. Die Sommerferien beginnen somit am Donnerstag, 17. Juni 2027." },
+ fr: { q: "Quand se termine l'école au Tessin en 2027 ?", a: "L'année scolaire 2026-2027 se termine le mercredi 16 juin 2027 pour toutes les écoles obligatoires du Canton du Tessin. Les vacances d'été commencent donc le jeudi 17 juin 2027." }
+ },
+ "Quali sono le vacanze di Carnevale in Ticino nel 2027?": {
+ en: { q: "What are the Carnival holidays in Ticino in 2027?", a: "The 2027 Carnival holidays in Ticino run from Saturday 6 February to Sunday 14 February 2027 (one week), according to the DECS calendar." },
+ de: { q: "Wann sind die Fasnachtsferien im Tessin 2027?", a: "Die Fasnachtsferien 2027 im Tessin dauern von Samstag, 6. Februar bis Sonntag, 14. Februar 2027 (eine Woche), gemäss dem DECS-Kalender." },
+ fr: { q: "Quelles sont les vacances de Carnaval au Tessin en 2027 ?", a: "Les vacances de Carnaval 2027 au Tessin vont du samedi 6 février au dimanche 14 février 2027 (une semaine), selon le calendrier du DECS." }
+ },
+ "Quando sono le vacanze di Pasqua 2027 per le scuole ticinesi?": {
+ en: { q: "When are the 2027 Easter holidays for Ticino schools?", a: "The 2027 Easter holidays in Canton Ticino schools run from Friday 26 March to Sunday 4 April 2027. Easter Sunday falls on 28 March 2027." },
+ de: { q: "Wann sind die Osterferien 2027 für die Tessiner Schulen?", a: "Die Osterferien 2027 in den Schulen des Kantons Tessin dauern von Freitag, 26. März bis Sonntag, 4. April 2027. Der Ostersonntag fällt auf den 28. März 2027." },
+ fr: { q: "Quand ont lieu les vacances de Pâques 2027 pour les écoles tessinoises ?", a: "Les vacances de Pâques 2027 dans les écoles du Canton du Tessin vont du vendredi 26 mars au dimanche 4 avril 2027. Le dimanche de Pâques tombe le 28 mars 2027." }
+ },
+ "Quando sono le vacanze di Natale e autunnali in Ticino 2026-2027?": {
+ en: { q: "When are the Christmas and autumn holidays in Ticino 2026-2027?", a: "The autumn holidays run from Saturday 31 October to Sunday 8 November 2026; the Christmas holidays from Thursday 24 December 2026 to Wednesday 6 January 2027. All dates are set by the DECS of Canton Ticino." },
+ de: { q: "Wann sind die Weihnachts- und Herbstferien im Tessin 2026-2027?", a: "Die Herbstferien dauern von Samstag, 31. Oktober bis Sonntag, 8. November 2026; die Weihnachtsferien von Donnerstag, 24. Dezember 2026 bis Mittwoch, 6. Januar 2027. Alle Daten werden vom DECS des Kantons Tessin festgelegt." },
+ fr: { q: "Quand ont lieu les vacances de Noël et d'automne au Tessin 2026-2027 ?", a: "Les vacances d'automne vont du samedi 31 octobre au dimanche 8 novembre 2026 ; les vacances de Noël du jeudi 24 décembre 2026 au mercredi 6 janvier 2027. Toutes les dates sont fixées par le DECS du Canton du Tessin." }
+ },
+ "Il calendario scolastico ticinese è uguale a quello italiano?": {
+ en: { q: "Is the Ticino school calendar the same as the Italian one?", a: "No. Italian border schools (Como, Varese, Valtellina) follow a different calendar, with a mid-September start, longer summer holidays and no autumn break. Cross-border parents with children in both systems must cross-reference the dates to find common holiday windows." },
+ de: { q: "Ist der Tessiner Schulkalender gleich wie der italienische?", a: "Nein. Die italienischen Grenzschulen (Como, Varese, Valtellina) folgen einem anderen Kalender, mit Beginn Mitte September, längeren Sommerferien und ohne Herbstferien. Grenzgänger-Eltern mit Kindern in beiden Systemen müssen die Daten abgleichen, um gemeinsame Ferienfenster zu finden." },
+ fr: { q: "Le calendrier scolaire tessinois est-il identique à l'italien ?", a: "Non. Les écoles italiennes frontalières (Côme, Varèse, Valteline) suivent un calendrier différent, avec une rentrée à la mi-septembre, des vacances d'été plus longues et aucune vacance d'automne. Les parents frontaliers ayant des enfants dans les deux systèmes doivent croiser les dates pour trouver des fenêtres de vacances communes." }
+ },
+
 };
 
 /**
