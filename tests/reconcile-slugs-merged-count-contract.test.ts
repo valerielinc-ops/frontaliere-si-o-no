@@ -74,6 +74,180 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
   });
 });
 
+// Regression guard for issue #907 (🔴 from PR #896 review): the no-company
+// candidate set was narrowed ONLY by slug-token overlap ≥ 2. A job matchable
+// solely via Strategy B (title-to-title cross-locale Jaccard) can have a
+// divergent SLUG (slug-overlap < 2) yet a matching cross-locale TITLE — it was
+// silently excluded from the candidate set before scoring, so the merge never
+// happened and the expired/orphan slug stayed a 404 with no redirect bridge.
+// buildActiveIndex now also builds `titleTokenToJobs`, and findBestMatch unions
+// the slug-token and title-token buckets (slug ∪ title) before scoring.
+describe('reconcile slug functions — Strategy B (title-only) candidate union (#907)', () => {
+  it('reconcileOrphanSlugs merges a divergent-slug / matching-title orphan via Strategy B', () => {
+    // Active job: IT slug, but a DE title that matches the orphan's title.
+    const activeJobs = [
+      {
+        slug: 'sviluppatore-software-backend',
+        company: 'Acme',
+        companyKey: 'acme',
+        slugByLocale: { it: 'sviluppatore-software-backend' },
+        titleByLocale: {
+          it: 'Sviluppatore Software',
+          de: 'Software Entwickler Backend',
+        },
+      },
+    ];
+    // Orphan slug shares < 2 tokens with the job slug ({software} only → 1),
+    // so the slug-token bucket alone would NOT surface this candidate. The
+    // match is reachable only because the orphan's enriched DE title matches
+    // the job's `titleByLocale.de` (Strategy B).
+    const orphanSlugs = ['software-entwickler'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+
+    const res = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, { dryRun: false });
+
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler');
+  });
+
+  it('reconcileExpiredSlugs merges a divergent-slug / matching-title expired job via Strategy B', () => {
+    const activeJobs = [
+      {
+        slug: 'contabile-fornitori-pagamenti',
+        company: 'Beta',
+        companyKey: 'beta',
+        slugByLocale: { it: 'contabile-fornitori-pagamenti' },
+        titleByLocale: {
+          it: 'Contabile Fornitori',
+          de: 'Buchhalter Kreditoren Zahlungen',
+        },
+      },
+    ];
+    // Expired slug ({buchhalter, kreditoren}) shares 0 tokens with the active
+    // job's IT slug → excluded by the slug bucket. Reachable only via the
+    // matching DE title.
+    // `reconcileExpiredSlugs` builds enrichment.title from `ej.title`, which
+    // is what Strategy B tokenizes — set it to the DE title.
+    const expiredJobs = [
+      {
+        slug: 'buchhalter-kreditoren',
+        title: 'Buchhalter Kreditoren Zahlungen',
+        titleByLocale: { de: 'Buchhalter Kreditoren Zahlungen' },
+      },
+    ];
+
+    const res = reconcileExpiredSlugs(activeJobs, expiredJobs, { dryRun: false });
+
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('buchhalter-kreditoren');
+  });
+});
+
+// Regression guard for the PR #971 reviewer \u{1F534}: the one-to-many ambiguity
+// guard re-scan computed ONLY slug-jaccard, and only ran when matchCount > 1.
+// After PR #971 admitted title-only candidates with a DIVERGENT slug
+// (Strategy B), two scenarios broke the guard:
+//   (1) a `title-*` win's sibling candidates have slug-jaccard ~0 (divergent
+//       slugs) \u2192 the slug-axis re-scan saw no close match;
+//   (2) two ACTIVE jobs with identical titleByLocale but different companies
+//       tie on score; the strict `score > bestScore` leaves matchCount === 1,
+//       so `if (matchCount > 1)` never ran.
+// Either way the orphan was merged onto an arbitrary (first-iterated) job \u2192
+// previousSlugs / redirect bridge pointed at the WRONG job (301 to a
+// non-matching page, SEO regression). The fix re-scans on the TITLE axis for
+// `title-*` wins and runs whenever there's a winner, skipping the merge when a
+// sibling candidate is within 0.05 of bestScore.
+//
+// NOTE: titles use 3 tokens ("Software Entwickler Backend") because Strategy B
+// only engages at orphanTitleTokens.size >= 3 (reconcile-job-slugs.mjs).
+describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axis)', () => {
+  it('does NOT merge an orphan whose title matches two cross-company jobs equally', () => {
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-acme',
+        slug: 'sviluppatore-software-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-globex',
+        slug: 'sviluppatore-software-backend-globex',
+        slugByLocale: { de: 'software-entwickler-backend-globex' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Globex',
+        companyKey: 'globex',
+      },
+    ];
+    // Orphan carries NO companyKey (no-company path) and a divergent slug, so it
+    // can only match via the cross-locale title bucket \u2014 and it matches BOTH
+    // jobs equally (title-Jaccard 1.0 each). There is no correct single target;
+    // pre-fix this slipped through (slug-axis re-scan saw ~0 overlap AND
+    // matchCount stayed 1) and merged onto job #0 arbitrarily.
+    const orphanSlugs = ['software-entwickler-backend'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+    const result = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, {
+      verbose: true,
+    });
+    expect(result.mergedCount).toBe(0);
+    expect(activeJobs[0].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+    expect(activeJobs[1].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+  });
+
+  // Control: a single unambiguous title match still merges (the widened
+  // `if (bestJob)` trigger must not over-block the Strategy B happy path).
+  it('still merges when the title match is unambiguous (single candidate)', () => {
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/sviluppatore-software-backend-acme',
+        slug: 'sviluppatore-software-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Sviluppatore Software Backend',
+        titleByLocale: {
+          it: 'Sviluppatore Software Backend',
+          de: 'Software Entwickler Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+    ];
+    const orphanSlugs = ['software-entwickler-backend'];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+      },
+    ];
+    const result = reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, {
+      verbose: true,
+    });
+    expect(result.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler-backend');
+  });
+});
+
 describe('assemble-jobs-dataset reconcile guards read the correct property', () => {
   const source = fs.readFileSync(
     path.resolve(root, 'scripts/assemble-jobs-dataset.mjs'),
@@ -86,5 +260,124 @@ describe('assemble-jobs-dataset reconcile guards read the correct property', () 
     // The dead-gate property must not reappear on either result object.
     expect(source).not.toMatch(/orphanResult\.merged\b(?!Count)/);
     expect(source).not.toMatch(/expResult\.merged\b(?!Count)/);
+  });
+});
+
+// Regression guards for the PR #971 reviewer 🔴 (#1 slug-path & #2 no-company
+// title-path), added after the ambiguity guard was split by match axis:
+//
+//   #1: the one-to-many guard's broadened `if (bestJob)` trigger must NOT apply
+//       to SLUG wins — that would newly DROP a legit slug redirect (expired slug
+//       404 → traffic loss). The slug path is restored to the exact pre-PR
+//       `matchCount > 1` + slug-axis behavior; a strong slug winner with only
+//       weak/divergent siblings present must still merge.
+//   #2: a no-company orphan (companyKey falsy) that wins via a generic `title-*`
+//       match must be company-verified — a single active job of a DIFFERENT
+//       company must NOT capture the redirect (301 to the wrong company page).
+describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards', () => {
+  it('#1 still merges a strong slug winner when only divergent siblings are present', () => {
+    // Winner shares 3/4 slug tokens with the orphan → Jaccard 0.75 ≥ 0.70.
+    // The sibling shares zero role tokens (different trade) → slug-Jaccard ~0,
+    // well outside the 0.05 ambiguity band. Under the correct (pre-PR) slug-path
+    // behavior `matchCount` stays 1 → guard skipped → merge. A broadened
+    // `if (bestJob)` slug trigger would risk over-blocking; this asserts it does
+    // not, so the existing slug redirect path is preserved.
+    const activeJobs = [
+      {
+        slug: 'idraulico-manutenzione-impianti-industriali',
+        company: 'Aqua',
+        companyKey: 'aqua',
+        slugByLocale: { it: 'idraulico-manutenzione-impianti-industriali' },
+        titleByLocale: { it: 'Idraulico' },
+      },
+      {
+        slug: 'cuoco-ristorante-stagionale-montagna',
+        company: 'Vetta',
+        companyKey: 'vetta',
+        slugByLocale: { it: 'cuoco-ristorante-stagionale-montagna' },
+        titleByLocale: { it: 'Cuoco' },
+      },
+    ];
+    const res = reconcileOrphanSlugs(
+      activeJobs,
+      ['idraulico-manutenzione-impianti'],
+      [],
+      { dryRun: false, verbose: true },
+    );
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('idraulico-manutenzione-impianti');
+  });
+
+  it('#2 does NOT merge a no-company orphan onto a different-company title homonym', () => {
+    // Orphan takes the no-company candidate path (no known company token in its
+    // slug, no enrichment.companyKey) and matches the single active job purely
+    // via the generic cross-locale title "Software Entwickler Backend". The
+    // enriched orphan company ("Acme Solutions") differs from the candidate's
+    // company ("globex") → the title-match company guard must refuse the merge.
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/software-entwickler-globex',
+        slug: 'software-entwickler-backend-globex',
+        slugByLocale: { de: 'software-entwickler-backend-globex' },
+        title: 'Software Entwickler Backend',
+        titleByLocale: {
+          de: 'Software Entwickler Backend',
+          it: 'Sviluppatore Software Backend',
+        },
+        company: 'Globex AG',
+        companyKey: 'globex',
+      },
+    ];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+        company: 'Acme Solutions',
+      },
+    ];
+    const res = reconcileOrphanSlugs(activeJobs, ['software-entwickler-backend'], enrichedData, {
+      dryRun: false,
+      verbose: true,
+    });
+    expect(res.mergedCount).toBe(0);
+    expect(activeJobs[0].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+  });
+
+  it('#2b still merges a SAME-company orphan when the enriched name is more verbose than the companyKey', () => {
+    // Guards against a false-negative in the title-match company guard: the
+    // candidate companyKey is normalized/truncated ("acme"), while the orphan's
+    // enriched company is the verbose legal name ("Acme Solutions AG"). A full
+    // Jaccard would score 1/3 = 0.33 < 0.80 and WRONGLY reject this same-company
+    // orphan (losing the redirect → 404). The asymmetric containment check
+    // (shared company token ⇒ compatible) must let it merge.
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/software-entwickler-acme',
+        slug: 'software-entwickler-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Software Entwickler Backend',
+        titleByLocale: {
+          de: 'Software Entwickler Backend',
+          it: 'Sviluppatore Software Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+    ];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+        company: 'Acme Solutions AG',
+      },
+    ];
+    const res = reconcileOrphanSlugs(activeJobs, ['software-entwickler-backend'], enrichedData, {
+      dryRun: false,
+      verbose: true,
+    });
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler-backend');
   });
 });
