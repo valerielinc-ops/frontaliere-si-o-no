@@ -1021,6 +1021,7 @@ jobs:
       pages: write
       id-token: write
       contents: read
+      deployments: read   # the extended server-side poll reads /deployments + /statuses
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
@@ -1073,9 +1074,9 @@ jobs:
       # with >1M files the Pages backend's `syncing_files` phase can run
       # well past 10 minutes, causing the action to abort with
       # `Timeout reached, aborting!` even though the deployment itself
-      # eventually completes server-side. The marker-based extended
-      # polling below recognises that case and keeps the job green when
-      # the live site actually came up.
+      # eventually completes server-side. The deployment-status extended
+      # poll below recognises that case and keeps the job green when Pages
+      # reports the publish succeeded.
       - name: Deploy to GitHub Pages
         id: deployment_first
         uses: actions/deploy-pages@v5
@@ -1099,17 +1100,63 @@ jobs:
           timeout: 1800000
           error_count: 100
 
-      # Both deploy-pages attempts are `continue-on-error`, so a double
-      # failure would otherwise leave the deploy job green. Fail the job
-      # immediately when both attempts failed (Pages busy or the action's
-      # 10-minute polling cap). The previous marker-file extended-polling
-      # step was removed: across all observed runs it never once rescued a
-      # deploy (the live SHA never matched within the 25-minute poll), so
-      # it only ever burned CI time before exiting 1 anyway.
-      - name: Fail if both deploy attempts failed
+      # actions/deploy-pages aborts at its 10-min polling cap (clamped from our
+      # `timeout: 1800000`), but for a ~13 GB / ~470k-file site GitHub Pages
+      # finishes publishing SERVER-SIDE afterwards. Proven 2026-05-30: run
+      # 26665087347 went red at the cap, yet ~32 min later the github-pages
+      # deployment for its sha reached state=success and the live build-id
+      # advanced (1780052190433 → 1780096323338). So a double action-failure is
+      # NOT a real deploy failure — it just means the publish is still syncing.
+      #
+      # The earlier extended-poll was removed for using a 25-min window (too
+      # short) and matching the wrong signal (live SHA, which is a build-id
+      # timestamp, never equals github.sha). This version polls the github-pages
+      # DEPLOYMENT(s) for THIS sha for up to 40 min and goes GREEN when Pages
+      # reports success — so validate-live → publish (IndexNow, Google Indexing
+      # API, GSC, previous-slug-winners sync, last_known_good) finally run
+      # (issue #987).
+      #
+      # ONLY `success` is a terminal GREEN. The action emits two attempts
+      # (deployment_first + retry) → two Deployment objects per sha; on abort at
+      # the 10-min cap it may stamp a transient `error`/`failure`/cancel status
+      # BEFORE Pages finishes server-side. So `error`/`failure` are NOT treated
+      # as terminal — we keep polling (a genuinely failed publish simply never
+      # reaches success and falls through to the 40-min deadline → red, slow but
+      # correct). We check ALL deployments for the sha and succeed if ANY is
+      # success; we give up early only when EVERY deployment for the sha is
+      # `inactive` (definitively superseded by a newer deploy that carries the
+      # same content).
+      - name: Wait for server-side Pages publish (extended, beyond the 10-min action cap)
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo "::error::Both deploy-pages attempts failed (Pages busy or 10-minute polling cap) — treating as a real deploy failure."
+          set -uo pipefail
+          deadline=$(( $(date +%s) + 40*60 ))
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            ids=$(gh api "repos/${GITHUB_REPOSITORY}/deployments?environment=github-pages&sha=${GITHUB_SHA}&per_page=20" --jq '.[].id' 2>/dev/null || echo "")
+            if [ -n "$ids" ]; then
+              any_active=0
+              for d in $ids; do
+                st=$(gh api "repos/${GITHUB_REPOSITORY}/deployments/${d}/statuses?per_page=1" --jq '.[0].state // empty' 2>/dev/null || echo "")
+                echo "$(date -u +%H:%M:%S) github-pages deployment ${d} state=${st:-<none>}"
+                if [ "$st" = "success" ]; then
+                  echo "✅ GitHub Pages completed the publish server-side (after the action's 10-min cap)."
+                  exit 0
+                fi
+                # error/failure/in_progress/pending/<none> may still reach success → keep waiting
+                if [ "$st" != "inactive" ]; then any_active=1; fi
+              done
+              if [ "$any_active" = "0" ]; then
+                echo "::warning::All github-pages deployments for ${GITHUB_SHA} are inactive (superseded by a newer deploy) — not waiting further."
+                exit 1
+              fi
+            else
+              echo "$(date -u +%H:%M:%S) no github-pages deployment for ${GITHUB_SHA} yet — waiting"
+            fi
+            sleep 60
+          done
+          echo "::error::GitHub Pages did not report success within 40 min for ${GITHUB_SHA} (publish stuck or genuinely failed)."
           exit 1
 
       - name: Save deploy metadata to Firestore
