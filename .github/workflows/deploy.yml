@@ -1270,16 +1270,28 @@ jobs:
       issues: write     # github-issue-creator on publish failure (PR #772 added to the called job; must be declared at this caller too or the reusable workflow startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
-  # rollback: revert Pages to last_known_good if either validate fails.
+  # rollback: revert Pages to last_known_good if either validate fails for a
+  # reason that means the LIVE SITE IS BAD.
   # Still-live guard: skip rollback if a newer deploy has already replaced
   # ours on Pages — the bad version is gone, no need to clobber the new
   # good one.
+  #
+  # NOT a rollback trigger: validate-live `propagation_timeout`. That means our
+  # build-id never went live within the window (Pages publish backlog under
+  # deploy congestion) — but the live site is an OLDER VALID build the whole
+  # time, not broken. Rolling back to an even-older last_known_good would only
+  # regress the site and add another publish to the backlog (the thrash that
+  # wedged every deploy during the 2026-05-30 dispatch storm). So we gate
+  # rollback OFF when validate-live's ONLY failure reason is propagation_timeout;
+  # the next deploy lands normally once Pages drains. A genuine live-broken
+  # failure (5xx / e2e / CLS / visual) leaves failure_kind empty → rollback fires.
   # ───────────────────────────────────────────────────────────────────────
   rollback:
     needs: [deploy, validate-dist, validate-live]
     if: |
       always() &&
-      (needs.validate-dist.result == 'failure' || needs.validate-live.result == 'failure') &&
+      (needs.validate-dist.result == 'failure' ||
+       (needs.validate-live.result == 'failure' && needs.validate-live.outputs.failure_kind != 'propagation_timeout')) &&
       needs.deploy.result == 'success'
     runs-on: ubuntu-latest
     permissions:

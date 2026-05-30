@@ -28,10 +28,23 @@ on:
         description: 'github.event_name from the caller (workflow_dispatch / push / etc.)'
         required: true
         type: string
+    outputs:
+      # Lets the caller (deploy.yml) distinguish a PROPAGATION-TIMEOUT failure
+      # (our build-id never went live within the window — the live site is an
+      # older VALID build, nothing is broken) from a genuine LIVE-BROKEN failure
+      # (5xx / e2e / CLS / visual regression). Empty on success or on a
+      # live-broken failure; 'propagation_timeout' when only propagation timed
+      # out. deploy.yml gates `rollback` OFF for propagation_timeout — rolling
+      # back to an even-older last_known_good would only regress the site.
+      failure_kind:
+        description: "'propagation_timeout' if the deploy never propagated live; empty otherwise."
+        value: ${{ jobs.validate-live.outputs.failure_kind }}
 
 jobs:
   validate-live:
     runs-on: ubuntu-latest
+    outputs:
+      failure_kind: ${{ steps.classify.outputs.failure_kind }}
     permissions:
       contents: read    # read-only — winners git push moved to publish.yml
       actions: read     # for download-artifact same-run
@@ -101,12 +114,45 @@ jobs:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
         run: npx playwright install --with-deps chromium
 
+      # ── Propagation wait (separated from smoke so we can tell a not-yet-live
+      # deploy apart from a broken one) ──────────────────────────────────────
+      # wait-for-pages-propagation.mjs exits 0 when the live build-id is OURS or
+      # NEWER (a later deploy already superseded us — site still ≥ as fresh), and
+      # exits 1 only when the live build-id stays OLDER than ours for the whole
+      # window (our deploy genuinely hasn't landed on Pages yet). Under deploy
+      # congestion the Pages publish backlog can make ours land minutes-to-hours
+      # after this window — but the live site is an EARLIER VALID build the whole
+      # time, NOT broken. So a propagation timeout must NOT trigger rollback.
+      - name: Wait for Pages propagation (our build-id or newer must be live)
+        id: propagation
+        continue-on-error: true
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: node scripts/wait-for-pages-propagation.mjs
+
+      - name: Classify propagation timeout (no rollback for this)
+        if: steps.propagation.outcome == 'failure'
+        id: classify
+        run: |
+          echo "::warning::[validate-live] Pages propagation timed out — our build-id is not live yet. The live site is an older VALID build (not broken); the next deploy will land once Pages drains. Flagging propagation_timeout → caller skips rollback, and publish is gated off (no IndexNow on not-yet-live URLs)."
+          echo "failure_kind=propagation_timeout" >> "$GITHUB_OUTPUT"
+
+      # Job still FAILS on propagation timeout (so `publish` — gated on
+      # validate-live success — does not submit IndexNow/Google/GSC for URLs that
+      # aren't live yet), but the caller reads `failure_kind` and skips rollback.
+      # Skip the smoke + downstream gates: they would only test the stale live
+      # build, which its own deploy already validated.
+      - name: Fail on propagation timeout (skip smoke against stale live)
+        if: steps.propagation.outcome == 'failure'
+        run: |
+          echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
+          exit 1
+
       - name: Live smoke (probe 5xx + e2e:live)
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
-          node scripts/wait-for-pages-propagation.mjs
           npm run probe:5xx
           npm run test:e2e:live
 
@@ -176,8 +222,11 @@ jobs:
           path: test-results/
           retention-days: 14
 
+      # propagation_timeout is an expected transient under Pages publish
+      # congestion (live is a valid earlier build, not broken) — not a bug, so
+      # don't open/append a "Validation Failure (live)" issue for it.
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && steps.classify.outputs.failure_kind != 'propagation_timeout'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
