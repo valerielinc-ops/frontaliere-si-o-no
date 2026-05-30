@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-05-29T00:55:48.007Z",
+  "assembledAt": "2026-05-30T00:53:02.065Z",
   "jobs": [
     {
       "id": "tally-weijl-451933a0b29d",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxpy/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:45.855Z",
+      "crawledAt": "2026-05-30T00:52:59.608Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -63,6 +63,7 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:43:27.353Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -75,7 +76,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4600"
+      "postalCode": "4600",
+      "addressRegion": "SO"
     },
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -108,7 +110,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:45.259Z",
+      "crawledAt": "2026-05-30T00:52:58.957Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -182,7 +185,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "addressRegion": "BE"
     },
     {
       "id": "tally-weijl-f4dd9e184bb9",
@@ -215,7 +219,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:44.668Z",
+      "crawledAt": "2026-05-30T00:52:58.350Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -277,6 +281,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -289,7 +294,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-efa82b0d7d6a",
@@ -322,7 +328,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:44.025Z",
+      "crawledAt": "2026-05-30T00:52:57.746Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -382,6 +388,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -394,7 +401,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4500"
+      "postalCode": "4500",
+      "addressRegion": "SO"
     },
     {
       "id": "tally-weijl-659034674f82",
@@ -427,7 +435,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvnd/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:43.441Z",
+      "crawledAt": "2026-05-30T00:52:57.080Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,7 +483,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "addressRegion": "GR"
     },
     {
       "id": "tally-weijl-4dad8a1be1b7",
@@ -508,7 +517,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvso/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:42.888Z",
+      "crawledAt": "2026-05-30T00:52:56.500Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,7 +559,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "addressRegion": "ZH"
     },
     {
       "id": "tally-weijl-cbb38c20b361",
@@ -583,7 +593,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:42.323Z",
+      "crawledAt": "2026-05-30T00:52:55.855Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -637,6 +647,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -649,7 +660,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "addressRegion": "LU"
     },
     {
       "id": "tally-weijl-13e4d44ef67f",
@@ -682,7 +694,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:41.670Z",
+      "crawledAt": "2026-05-30T00:52:55.254Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -736,6 +748,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -748,7 +761,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4600"
+      "postalCode": "4600",
+      "addressRegion": "SO"
     },
     {
       "id": "tally-weijl-a19dcc58f55c",
@@ -781,7 +795,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:41.017Z",
+      "crawledAt": "2026-05-30T00:52:54.597Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -835,6 +849,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -847,7 +862,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2501"
+      "postalCode": "2501",
+      "addressRegion": "BE"
     },
     {
       "id": "tally-weijl-89020d9287f4",
@@ -880,7 +896,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:40.385Z",
+      "crawledAt": "2026-05-30T00:52:53.928Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -935,6 +951,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -947,7 +964,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-bf3e64bf2328",
@@ -980,7 +998,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2yl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:39.750Z",
+      "crawledAt": "2026-05-30T00:52:53.330Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1007,6 +1025,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T22:44:04.893Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1019,7 +1038,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "addressRegion": "GR"
     },
     {
       "id": "tally-weijl-4a9ab1655229",
@@ -1052,7 +1072,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2y8/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:39.135Z",
+      "crawledAt": "2026-05-30T00:52:52.694Z",
       "addressLocality": "Baden",
       "addressCountry": "CH",
       "country": "CH",
@@ -1079,6 +1099,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T22:21:29.384Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1091,7 +1112,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-59950cdafc4d",
@@ -1124,7 +1146,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:38.528Z",
+      "crawledAt": "2026-05-30T00:52:52.056Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1185,6 +1207,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1197,7 +1220,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "addressRegion": "AG"
     },
     {
       "id": "tally-weijl-70705703e3d0",
@@ -1230,7 +1254,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:37.976Z",
+      "crawledAt": "2026-05-30T00:52:51.417Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1291,6 +1315,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:44.122Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1303,7 +1328,81 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "addressRegion": "LU"
+    },
+    {
+      "id": "tally-weijl-f2c2a36618fb",
+      "slug": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
+      "slugByLocale": {
+        "fr": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
+        "it": "auxiliaire-m-w-d-tw-sierre-tally-weijl-sierre",
+        "en": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre",
+        "de": "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+      },
+      "company": "TALLY WEiJL",
+      "companyKey": "tally-weijl",
+      "companyDomain": "tally-weijl.com",
+      "title": "Auxiliaire (h/f) TW Sierre",
+      "titleByLocale": {
+        "fr": "Auxiliaire (h/f) TW Sierre",
+        "it": "Auxiliaire (h/f) TW Sierre",
+        "en": "Auxiliaire (h/f) TW Sierre",
+        "de": "Auxiliaire (h/f) TW Sierre"
+      },
+      "description": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+      "descriptionByLocale": {
+        "fr": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "it": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "en": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR",
+        "de": "We're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, Tally Weijl has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 35 markets with over 700+ stores, online presence, and 3m+ fans across social channels. Show us how #UNSTOPPABLE you are!\n\nAuxiliaire (h/f)\n\nTA CONTRIBUTION À NOTRE SUCCÈS COMMUN\n\n· En tant qu'auxiliaire de vente, tu conseilles notre cliente avec beaucoup de motivation et de plaisir\n\n· Tu connais nos collections et les tendances et tu utilises tes connaissances pour conseiller la cliente\n\n· Tu es coresponsable de la réalisation des objectifs fixés et tu soutiens ton équipe avec un engagement total\n\nCE QUI TE CARACTÉRISE\n\n· Tu es orienté à 100% vers la vente et le client\n\n· Tu as déjà pu acquérir de l'expérience dans un poste similaire\n\n· Le monde de la mode branchée est ta passion\n\n· La communication et le travail en équipe font partie de tes points forts\n\n· Tu es fier de ton apparence soignée\n\n· Tu parles couramment l'allemand et toute autre langue est un avantage\n\nTES AVANTAGES CHEZ NOUS\n\n· Nous encourageons le développement professionnel et offrons de nombreuses possibilités de carrière\n\n· Un travail varié dans une culture d'entreprise dynamique, ouverte et axée sur le travail d'équipe\n\n· Remises attrayantes pour les collaborateurs (50%)Ein Arbeitsumfeld, in dem Mode und Spass an der Arbeit im Vordergrund stehen\n\n· Expérience professionnelle internationale\n\n· Minimum 25 jours de congé (+ 3 jours de prime de présence)\n\n· Salaire de base et possibilités de bonus/gratifications\n\nTu veux faire partie de notre Fashion Story et devenir un membre enthousiaste de notre TALLY Family. Alors partage ton talent individuel avec nous et pose ta candidature auprès de HR"
+      },
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr26/",
+      "source": "TALLY WEiJL Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-30T00:52:50.841Z",
+      "addressLocality": "Sierre",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-30",
+      "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr26/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "auxiliaire-h-f-tw-sierre-tally-weijl-sierre"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3960",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-05-30T00:52:50.841Z"
     },
     {
       "id": "tally-weijl-bfa30ecffc38",
@@ -1336,7 +1435,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T00:55:37.433Z",
+      "crawledAt": "2026-05-30T00:52:50.172Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1399,6 +1498,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1411,7 +1511,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "tally-weijl-b85ceed8d4a2",
@@ -1444,7 +1545,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T00:55:36.817Z",
+      "crawledAt": "2026-05-30T00:52:49.505Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,6 +1572,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T12:02:13.616Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1483,7 +1585,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "tally-weijl-61bd4a2ae156",
@@ -1516,7 +1619,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29q/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:36.193Z",
+      "crawledAt": "2026-05-30T00:52:48.925Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1544,7 +1647,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-31b448bccc63",
@@ -1577,7 +1681,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zvp3/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-29T00:55:35.572Z",
+      "crawledAt": "2026-05-30T00:52:48.280Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1607,6 +1711,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T23:06:04.388Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1619,7 +1724,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "addressRegion": "VS"
     },
     {
       "id": "tally-weijl-d34e79917e48",
@@ -1652,7 +1758,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z297/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:34.941Z",
+      "crawledAt": "2026-05-30T00:52:47.678Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1698,7 +1804,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-5281ad34dba6",
@@ -1731,7 +1838,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx56/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:34.333Z",
+      "crawledAt": "2026-05-30T00:52:47.042Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1759,7 +1866,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-bc4674c23aca",
@@ -1792,7 +1900,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zx5h/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:33.765Z",
+      "crawledAt": "2026-05-30T00:52:46.379Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1819,6 +1927,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:42:18.822Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1831,7 +1940,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-002964b35782",
@@ -1864,7 +1974,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zxrc/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:33.199Z",
+      "crawledAt": "2026-05-30T00:52:45.726Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1880,6 +1990,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-28T11:43:35.259Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1892,7 +2003,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-8e5687719d49",
@@ -1925,7 +2037,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T00:55:32.393Z",
+      "crawledAt": "2026-05-30T00:52:45.074Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1982,6 +2094,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1994,7 +2107,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "addressRegion": "SH"
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
@@ -2027,7 +2141,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:31.776Z",
+      "crawledAt": "2026-05-30T00:52:44.492Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2086,6 +2200,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2098,7 +2213,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     },
     {
       "id": "tally-weijl-b17137a0512d",
@@ -2131,7 +2247,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z29i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T00:55:31.138Z",
+      "crawledAt": "2026-05-30T00:52:43.844Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2173,7 +2289,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "addressRegion": "BS"
     }
   ]
 }
