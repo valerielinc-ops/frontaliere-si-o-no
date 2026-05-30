@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-30T10:31:15.932Z",
+  "generatedAt": "2026-05-30T21:43:38.212Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1704,
-  "avgDurationMs": 1704,
+  "durationMs": 1620,
+  "avgDurationMs": 1620,
   "durationHistory": [
-    1704
+    1620
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,8 +80,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T11:34:57.137Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -119,8 +117,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T11:34:57.137Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -195,8 +191,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -234,13 +228,11 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -273,13 +265,11 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -349,8 +339,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-07T10:45:16.573Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -388,6 +376,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -425,6 +415,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -462,6 +454,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
