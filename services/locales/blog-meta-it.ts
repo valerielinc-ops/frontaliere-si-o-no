@@ -7898,6 +7898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imprese-ticino-classifica-2024.title': 'Ticino ottavo in Svizzera per l\'attrazione di aziende',
     'blog.article.imprese-ticino-classifica-2024.excerpt': 'I nuovi dati Crif rivelano la crescita netta del Ticino nell\'attrazione di imprese da altri cantoni nel 2024.',
     'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Veduta panoramica di Lugano e del suo lago in una giornata soleggiata',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.title': 'TILO Stabio-Malpensa: stop ai treni per un mese',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.excerpt': 'Dal 7 giugno al 5 luglio 2026 sospesi i collegamenti TILO tra Stabio e Malpensa per lavori RFI. Previsti bus sostitutivi e tempi di percorrenza maggiori.',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.imageAlt': 'Treno TILO alla stazione di Stabio in Ticino',
 };
 
 export default blogMetaIt;

@@ -41531,6 +41531,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tilo-stabio-malpensa-sospensione-2026': {
+    title: 'TILO Stabio-Malpensa: stop ai treni per un mese',
+    description: 'Sospensione treni TILO tra Stabio e Malpensa dal 7 giugno al 5 luglio 2026. Orari bus sostitutivi e tempi di percorrenza per i frontalieri. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, stabio-malpensa, stop, treni',
+    ogTitle: 'TILO Stabio-Malpensa: stop ai treni giugno 2026',
+    ogDescription: 'Collegamenti TILO S40 e S50 sospesi tra Stabio e Malpensa per un mese. Scopri gli orari dei bus sostitutivi.',
+    canonicalPath: '/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TILO Stabio-Malpensa: stop ai treni per un mese",
+      "description": "Sospensione treni TILO tra Stabio e Malpensa dal 7 giugno al 5 luglio 2026. Orari bus sostitutivi e tempi di percorrenza per i frontalieri. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tilo-stabio-malpensa-sospensione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno TILO alla stazione di Stabio in Ticino"
+      },
+      "datePublished": "2026-05-30T02:03:46+00:00",
+      "dateModified": "2026-05-30T02:03:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-stabio-malpensa-sospensione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7898,6 +7898,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imprese-ticino-classifica-2024.title': 'Le Tessin huitième en Suisse pour l\'attraction des entreprises',
     'blog.article.imprese-ticino-classifica-2024.excerpt': 'Les nouvelles données Crif révèlent la croissance nette du Tessin dans l\'attraction des entreprises en provenance d\'autres cantons en 2024.',
     'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Vue panoramique de Lugano et de son lac par une journée ensoleillée',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.title': 'TILO Stabio-Malpensa: arrêt des trains pendant un mois',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.excerpt': 'Du 7 juin au 5 juillet 2026, les liaisons TILO entre Stabio et Malpensa seront suspendues pour des travaux RFI. Des bus de remplacement et des temps de trajet plus longs sont prévus.',
+    'blog.article.tilo-stabio-malpensa-sospensione-2026.imageAlt': 'Train TILO à la gare de Stabio au Tessin',
 };
 
 export default blogMetaFr;
