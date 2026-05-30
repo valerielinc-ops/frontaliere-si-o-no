@@ -17,8 +17,17 @@ property.
 
 ## Round 1 — `authgate-headline-v1` — CLOSED ✅
 
-Control (`Leggi requisiti e come candidarti` / "Read requirements and how to
-apply") vs `frictionless` (neutral outcome-framed CTA).
+Control (the original `jobBoard.gate.title` copy) vs `frictionless` (neutral
+outcome-framed CTA).
+
+Exact copy tested, all 4 locales:
+
+| locale | control (LOST) | frictionless (WON) |
+| ------ | -------------- | ------------------ |
+| it | Leggi requisiti e come candidarti | Continua per vedere l'annuncio completo |
+| en | Read requirements and how to apply | Continue to see the full listing |
+| de | Anforderungen und Bewerbung lesen | Weiter zum vollständigen Stellenangebot |
+| fr | Lire les exigences et comment postuler | Continuer pour voir l'annonce complète |
 
 Window: 90 days ending 2026-05-30. Variant-attributed persons only.
 
@@ -33,16 +42,7 @@ Window: 90 days ending 2026-05-30. Variant-attributed persons only.
 
 **Decision:** `frictionless` wins. Promoted to 100% by moving its copy into the
 `jobBoard.gate.title` i18n key (it/en/de/fr). From round 2 onward the `control`
-arm therefore *is* the round-1 winner.
-
-Frictionless copy (now the baseline):
-
-| locale | headline |
-| ------ | -------- |
-| it | Continua per vedere l'annuncio completo |
-| en | Continue to see the full listing |
-| de | Weiter zum vollständigen Stellenangebot |
-| fr | Continuer pour voir l'annonce complète |
+arm therefore *is* the round-1 winner (the frictionless copy in the table above).
 
 ---
 
@@ -51,14 +51,23 @@ Frictionless copy (now the baseline):
 Goal: can we beat the round-1 winner? Control (= round-1 frictionless baseline)
 vs two new challengers with different psychological framings.
 
-| variant      | framing | it copy |
-| ------------ | ------- | ------- |
-| control      | round-1 winner (outcome-framed) | Continua per vedere l'annuncio completo |
-| free_unlock  | cost-removal + immediacy | Sblocca gratis l'annuncio completo |
-| apply_now    | goal-proximity (toward applying) | Scopri come candidarti a questo lavoro |
+Framing per variant:
 
-Challenger copy per locale lives in `services/authGateExperiment.ts`
-(`CHALLENGER_HEADLINES`).
+| variant      | framing |
+| ------------ | ------- |
+| control      | round-1 winner (outcome-framed) |
+| free_unlock  | cost-removal + immediacy |
+| apply_now    | goal-proximity (toward applying) |
+
+Exact copy tested, all 4 locales (source of truth: `CHALLENGER_HEADLINES` in
+`services/authGateExperiment.ts`; `control` = the `jobBoard.gate.title` key):
+
+| locale | control | free_unlock | apply_now |
+| ------ | ------- | ----------- | --------- |
+| it | Continua per vedere l'annuncio completo | Sblocca gratis l'annuncio completo | Scopri come candidarti a questo lavoro |
+| en | Continue to see the full listing | Unlock the full listing for free | See how to apply for this job |
+| de | Weiter zum vollständigen Stellenangebot | Vollständiges Stellenangebot gratis freischalten | So bewirbst du dich für diese Stelle |
+| fr | Continuer pour voir l'annonce complète | Débloquez gratuitement l'annonce complète | Découvrez comment postuler à cette offre |
 
 **PostHog setup required to start the round:**
 1. Create feature flag `authgate-headline-v2` with three variant keys:
