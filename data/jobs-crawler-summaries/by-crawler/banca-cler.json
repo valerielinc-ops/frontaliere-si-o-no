@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-05-29T22:28:32.118Z",
+  "generatedAt": "2026-05-30T10:23:50.109Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20732,
-  "avgDurationMs": 20732,
+  "durationMs": 23586,
+  "avgDurationMs": 23586,
   "durationHistory": [
-    20732
+    23586
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Sales- und Kampagnenmanagerin (w/m)",
       "slug": "sales-und-kampagnenmanagerin-w-m-banca-cler",
@@ -38,17 +39,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:13.499Z",
-      "_qualityScore": 71,
+      "crawledAt": "2026-05-30T10:23:28.745Z",
+      "id": "company-nvbo6q",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-05-29T22:28:31.830Z",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Kundenberater Privatkunden Individual Thun (w/m)",
       "slug": "kundenberater-privatkunden-individual-thun-w-m-banca-cler",
@@ -72,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:14.036Z",
+      "crawledAt": "2026-05-30T10:23:29.381Z",
       "id": "company-4gqp43",
       "contract": "full-time",
       "currency": "CHF",
@@ -113,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:14.539Z",
+      "crawledAt": "2026-05-30T10:23:30.213Z",
       "id": "company-1r5az3",
       "contract": "full-time",
       "currency": "CHF",
@@ -154,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:15.210Z",
+      "crawledAt": "2026-05-30T10:23:30.797Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -195,7 +201,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:15.865Z",
+      "crawledAt": "2026-05-30T10:23:31.355Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -236,7 +242,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-29T22:28:16.316Z",
+      "crawledAt": "2026-05-30T10:23:31.934Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
