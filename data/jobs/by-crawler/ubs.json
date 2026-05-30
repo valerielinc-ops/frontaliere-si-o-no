@@ -70,7 +70,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-4a0c74ffbc77",
@@ -148,7 +149,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-49a10e5a3e8d",
@@ -232,7 +234,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-0161b174a938",
@@ -316,7 +319,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-ee2abb33dbbb",
@@ -334,15 +338,15 @@
       "titleByLocale": {
         "it": "Agente di vigilanza",
         "en": "Supervisory Officer",
-        "de": "Supervisory Officer",
-        "fr": "Supervisory Officer"
+        "de": "Aufsichtsrat",
+        "fr": "Spécialiste de la supervision"
       },
       "description": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for someone like this who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
       "descriptionByLocale": {
-        "it": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations? We're looking for someone like this who can:\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-        "en": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations? We're looking for someone like this who can:\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-        "de": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations? We're looking for someone like this who can:\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
-        "fr": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations? We're looking for someone like this who can:\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required"
+        "it": "Descrizione\nSei un esperto di rischio e supervisione? Sai come fare la giusta chiamata in situazioni difficili?\n\nMansioni\n- contribuire a promuovere iniziative relative alla supervisione delle vendite, alla conformità e al rischio di business, compresa l'implementazione e l'istruzione\n- rivedere vari processi di supervisione\n- le filiali di sostegno nei processi di Branch Review e Group Internal Audit, visitando i rami e lavorando su piani d'azione per coloro che hanno audit falliti\n- partner con Compliance, compresa la fornitura di input alla politica e la comunicazione di supporto alle politiche\n- servire come punto di contatto per problemi che non possono essere risolti, e problemi di escalation come richiesto",
+        "en": "## Descrizione\nAre you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\n## Mansioni\n- help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n- review various supervision processes\n- support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n- partner with Compliance, including providing input to policy and supporting communication of policies\n- serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+        "de": "Beschreibung\nSind Sie Experte für Risiko und Aufsicht? Wissen Sie, wie man den richtigen Anruf in herausfordernden Situationen macht?\n\nMansion\n- Unterstützung bei der Umsetzung von Initiativen im Zusammenhang mit der Überwachung der Verkäufe, der Einhaltung und dem Geschäftsrisiko, einschließlich der Umsetzung und Bildung\n- verschiedene Überwachungsprozesse überprüfen\n- Unterstützung der Zweigniederlassungen in den Prozessen Branch Review und Group Intern Audit, Besuch von Filialen und Arbeiten an Aktionsplänen für diejenigen mit gescheiterten Audits\n- Partner mit Compliance, einschließlich der Bereitstellung von Beiträgen zur Politik und der Unterstützung der Kommunikation von Politiken\n- dienen als Ansprechpartner für Probleme, die nicht gelöst werden können, und eskalieren Probleme wie erforderlich",
+        "fr": "Descrizione\nÊtes-vous un expert en risque et supervision? Savez-vous faire le bon choix dans des situations difficiles?\n\nMansioni\n- contribuer à des initiatives liées à la supervision des ventes, à la conformité et aux risques commerciaux, y compris la mise en œuvre et l'éducation\n- examiner divers processus de supervision\n- soutenir les directions générales dans les processus d'examen et de vérification interne de la Direction générale, les directions générales visiteuses et travailler sur des plans d'action pour les personnes ayant échoué aux vérifications\n- s'associer à la conformité, y compris contribuer aux politiques et appuyer la communication des politiques\n- servir de point de contact pour les questions qui ne peuvent être résolues et accroître les problèmes au besoin"
       },
       "location": "",
       "canton": "",
@@ -381,7 +385,6 @@
           "supervisory-officer-ubs"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T00:38:07.416Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -472,7 +475,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-936c9bbefa98",
@@ -552,7 +556,8 @@
       },
       "previousSlugs": [
         "wealth-strategy-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-ae8d653d4777",
@@ -632,7 +637,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-b3bb0470e0f0",
@@ -712,7 +718,8 @@
       },
       "previousSlugs": [
         "branch-office-administrator-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-6f5e1dce8500",
@@ -792,7 +799,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-2"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-1115a26b1679",
@@ -872,7 +880,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-3"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-15423c8c3414",
@@ -944,7 +953,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:31.007Z"
+      "firstSeenAt": "2026-05-28T00:44:31.007Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-146722c98777",
@@ -1028,7 +1038,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-d63915dfd526",
@@ -1112,7 +1123,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-7d60c9b8a2ba",
@@ -1190,7 +1202,8 @@
       },
       "previousSlugs": [
         "management-support-officer-global-investments-german-speaking-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-8ebd5aac3048",
@@ -1206,17 +1219,17 @@
       "companyDomain": "ubs.com",
       "title": "Monitoring & Surveillance Analyst Cross-border/Suitability (Italian)",
       "titleByLocale": {
-        "it": "Monitoring & Surveillance Analista Cross-border/Suitability (Italian)",
+        "it": "Monitoraggio e Sorveglianza Analista transfrontaliero/Suitability (Italiano)",
         "en": "Monitoring & Surveillance Analyst Cross-border/Suitability (Italian)",
-        "de": "Monitoring & Surveillance Analyst Cross-border/Suitability (Italian)",
+        "de": "Überwachung und Überwachung Analyst Grenzüberschreitende/Nachfrage (Italienisch)",
         "fr": "Monitoring & Surveillance Analyste Cross-border/Suitability (Italian)"
       },
       "description": "Do you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n\n• Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n• Document and communicate findings, root causes, risks, and prepare reports for senior management.\n• Develop sound recommendations for stakeholders when agreeing action plans.\n• Proactively share ideas and identify improvements to the surveillance control activities.\n• Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC).",
       "descriptionByLocale": {
-        "it": "Do you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n• Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n• Document and communicate findings, root causes, risks, and prepare reports for senior management.\n• Develop sound recommendations for stakeholders when agreeing action plans.\n• Proactively share ideas and identify improvements to the surveillance control activities.\n• Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC).",
-        "en": "Do you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n• Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n• Document and communicate findings, root causes, risks, and prepare reports for senior management.\n• Develop sound recommendations for stakeholders when agreeing action plans.\n• Proactively share ideas and identify improvements to the surveillance control activities.\n• Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC).",
-        "de": "Do you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n• Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n• Document and communicate findings, root causes, risks, and prepare reports for senior management.\n• Develop sound recommendations for stakeholders when agreeing action plans.\n• Proactively share ideas and identify improvements to the surveillance control activities.\n• Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC).",
-        "fr": "Do you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n• Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n• Document and communicate findings, root causes, risks, and prepare reports for senior management.\n• Develop sound recommendations for stakeholders when agreeing action plans.\n• Proactively share ideas and identify improvements to the surveillance control activities.\n• Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC)."
+        "it": "Descrizione\nHai una solida conoscenza della conformità e senti di poter ancora fare di più nel campo? Puoi indagare su problemi complessi? Stiamo cercando un controllo Analista per il nostro Monitoraggio e Sorveglianza (M&S) EMEA Team per:\n\n- Condurre controlli cross-divisionali per identificare potenziali problemi nell'ambito della Suitability Investment, Cross-Border e Product & Service Lifecycle Rischio tassonomie, accelerando rapidamente potenziali violazioni alla gestione M&S.\n- Documentare e comunicare i risultati, le cause, i rischi e preparare i rapporti per la gestione senior.\n- Sviluppare raccomandazioni solide per le parti interessate quando si accettano piani d'azione.\n- Condividere attivamente idee e identificare miglioramenti alle attività di controllo della sorveglianza.\n- Sviluppare e mantenere relazioni efficaci con le parti interessate, la gestione senior, e i coetanei in tutta la Compliance del Gruppo e il controllo del rischio operativo (GCORC).",
+        "en": "## Descrizione\nDo you have solid compliance knowledge and feel you can still do more in the field? Can you investigate complex problems? We are looking for a control Analyst for our Monitoring & Surveillance (M&S) EMEA Team to:\n\n- Conduct cross-divisional controls to identify potential issues under the Investment Suitability, Cross-Border, and Product & Service Lifecycle risk taxonomies, promptly escalating potential breaches to M&S management.\n- Document and communicate findings, root causes, risks, and prepare reports for senior management.\n- Develop sound recommendations for stakeholders when agreeing action plans.\n- Proactively share ideas and identify improvements to the surveillance control activities.\n- Develop and maintain effective relationships with stakeholders, senior management, and peers across Group Compliance and Operational Risk Control (GCORC).",
+        "de": "Beschreibung\nHaben Sie solide Compliance-Kenntnisse und fühlen Sie sich noch mehr auf dem Gebiet zu tun? Können Sie komplexe Probleme untersuchen? Wir suchen einen Kontrollanalysten für unser Monitoring & Surveillance (M&S) EMEA Team, um:\n\n- Durchführung von grenzübergreifenden Kontrollen, um potenzielle Probleme im Zusammenhang mit der Investitionsaneignung, Cross-Border und Product & Service Lifecycle Risiko taxonomies zu identifizieren und potenzielle Verletzungen der M&S-Verwaltung zu beschleunigen.\n- Dokumente und kommunizieren Ergebnisse, Ursachen, Risiken und erstellen Berichte für Senior Management.\n- Entwickeln Sie bei der Einigung von Aktionsplänen solide Empfehlungen für Stakeholder.\n- Proaktiv teilen Sie Ideen und identifizieren Sie Verbesserungen bei der Überwachungskontrolle.\n- Entwicklung und Aufrechterhaltung effektiver Beziehungen zu Interessenvertretern, Senior Management und Peers über die Gruppen-Compliance und Operational Risk Control (GCORC).",
+        "fr": "Descrizione\nAvez-vous une solide connaissance de la conformité et vous sentez que vous pouvez encore faire plus dans le domaine? Pouvez-vous enquêter sur des problèmes complexes ? Nous sommes à la recherche d'un analyste de contrôle pour notre équipe de surveillance et de surveillance (M&S) de l'EMEA pour :\n\n- Effectuer des contrôles interdivisions afin de cerner les problèmes potentiels dans le cadre des taxonomies sur les caractéristiques de l'investissement, du cycle de vie transfrontalier et du cycle de vie des produits et services, ce qui accroît rapidement les infractions potentielles à la gestion de la M et S.\n- Documenter et communiquer les constatations, les causes profondes, les risques et préparer des rapports à l'intention de la haute direction.\n- Élaborer des recommandations judicieuses à l'intention des intervenants lorsqu'ils conviennent de plans d'action.\n- Partager activement des idées et identifier les améliorations aux activités de contrôle de la surveillance.\n- Établir et maintenir des relations efficaces avec les intervenants, la haute direction et les pairs dans l'ensemble du groupe Conformité et contrôle des risques opérationnels."
       },
       "location": "",
       "canton": "",
@@ -1247,7 +1260,6 @@
         "categoryRaw": "Compliance",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:18:22.836Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1276,17 +1288,17 @@
       "companyDomain": "ubs.com",
       "title": "BANK-now - Kundenberater/in Privatkredit Bern, 80-100%",
       "titleByLocale": {
-        "it": "BANK-now - Consulente cliente/in Loan privato Berna, 80-100 %",
-        "en": "BANK-now - Kundenberater/in Privatkredit Bern, 80-100%",
+        "it": "BANK-now - consulente alla clientela credito privato Berna, 80-100%",
+        "en": "BANK-now - Customer Advisor Personal Loan Bern, 80-100%",
         "de": "BANK-now - Kundenberater/in Privatkredit Bern, 80-100%",
-        "fr": "BANK-now - Kundenberater/in Privatkredit Bern, 80-100%"
+        "fr": "BANK-now - Conseiller/ère en crédit privé Berne, 80-100 %"
       },
       "description": "Laufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n\n• Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n• Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n• Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n• Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n• Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n• Durchführung von Outbound Kampagnen\n• Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten",
       "descriptionByLocale": {
-        "it": "Laufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n• Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n• Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n• Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n• Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n• Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n• Durchführung von Outbound Kampagnen\n• Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten",
-        "en": "Laufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n• Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n• Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n• Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n• Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n• Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n• Durchführung von Outbound Kampagnen\n• Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten",
-        "de": "Laufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n• Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n• Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n• Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n• Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n• Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n• Durchführung von Outbound Kampagnen\n• Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten",
-        "fr": "Laufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n• Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n• Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n• Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n• Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n• Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n• Durchführung von Outbound Kampagnen\n• Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten"
+        "it": "Ragionamento e procedura seguita\n\n1. Identificazione delle sezioni\n- Il testo originale non contiene intestazioni esplicite per “Mansioni”, “Requisiti”, ecc.\n- Ho quindi creato una sezione introduttiva ## Descrizione per mantenere il principio introduttivo così com’è.\n- Le attività elencate sono state collocate sotto una nuova intestazione ## Mansioni, poiché tutte le voci sono compiti da svolgere.\n\nDue. Conversioni dei punti elenco\n- Ho trasformato i simboli “•” in trattini “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato tenuto verbatim, senza alcuna modifica o riformulazione, garantendo che ogni voce sia una singola frase completa.\n\n3. finale di formattazione\n- Ho usato `# per le intestazioni di sezione e `-` per gli incidenti puntati, aggiungendo le necessarie restrizioni di riga per una chiara leggibilità.\n- Non ho aggiunto altre sezioni (es. Requisiti, Cosa offerta) perché il contenuto originale non le previsioni.\n\n---\n\nDescrizione\nStai andando ad alta qualità quando è possibile consigliare i clienti e costruire relazioni a lungo termine? Sai come garantire processi lisci? Stiamo cercando un nuovo collega o collega che prenda il sopravvento dei seguenti compiti fondamentali:\n\nMansioni\n- Consulenza e supporto per i nostri clienti in tutte le questioni di credito privato\n- Sviluppo di soluzioni su misura per le esigenze del cliente\n- il riconoscimento delle opportunità di vendita e la conseguente esaurimento del potenziale\n- La possibilità di utilizzare il tuo flair di vendita per la nostra gamma di prodotti di prima classe\n- Esame verde delle domande di prestito e degli organi interni\n- Attuazione delle campagne in uscita\n- Vari lavori amministrativi quali l'acquisizione e il collaudo dei dati dei clienti",
+        "en": "Ragionamento e procedura seguita\n\n1. Identificazione delle sezioni\n- Il testo originale non contiene intestazioni esplicite per “Mansioni”, “Requisiti”, ecc.\n- Ho quindi creato una sezione introduttiva ## Descrizione per mantenere il paragrafo introduttivo così com’è.\n- Le attività elencate sono state collocate sotto una nuova intestazione ## Mansioni, poiché tutte le voci sono compiti da svolgere.\n\nTwo. Conversions dei punti elenco\n- Ho trasformato i simboli “•” in trattini “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato mantenuto verbatim, senza alcuna modifica o riformulazione, garantendo che ogni voce sia una singola frase completa.\n\n3. formatting finale\n- Ho usato `## per le intestazioni di sezione e `-` per gli elenchi puntati, aggiungendo le necessarie interruzioni di riga per una chiara leggibilità.\n- Non ho aggiunto altre sezioni (es. Requisiti, Cosa offriamo) perché il contenuto originale non le prevede.\n\n---\n\ndescrizione\nAre you going to high-quality when you can advise customers and build long-term relationships? Do you know how to ensure smooth processes? We are looking for a new colleague or colleague who takes over the following core tasks:\n\nMansioni\n- Competent advice and support for our customers in all private credit issues\n- Developing solutions tailored to the customer's needs\n- recognition of sales opportunities and consistent potential exhaustion\n- The possibility to use your sales flair for our first-class product range\n- Green examination of loan applications together with internal bodies\n- Implementation of Outbound Campaigns\n- Various administrative work such as the acquisition and testing of customer data",
+        "de": "Ragionamento e procedura seguita\n\n1. Identificazione delle sezioni\n- Il testo originale non contiene intestazioni esplicite per “Mansioni”, “Requisiti”, ecc.\n- Ho quindi creato una sezione introduttiva ## Descrizione per mantenere il paragrafo introduttivo così com’è.\n- Le attività elencate sono state collocate sotto una nuova intestazione ## Mansioni, poiché tutte le voci sono compiti da svolgere.\n\n2. Conversione dei punti elenco\n- Ho trasformato i simboli “•” in trattini “-” per rispettare la sintassi markdown richiesta.\n- Ogni punto è stato mantenuto verbatim, senza alcuna modifica o riformulazione, garantendo che ogni voce sia una singola frase completa.\n\n3. Formattazione finale\n- Ho usato `##` per le intestazioni di sezione e `-` per gli elenchi puntati, aggiungendo le necessarie interruzioni di riga per una chiara leggibilità.\n- Non ho aggiunto altre sezioni (es. Requisiti, Cosa offriamo) perché il contenuto originale non le prevede.\n\n---\n\nDescrizione\nLaufen Sie zur Hochform auf, wenn Sie Kunden beraten und langfristige Beziehungen aufbauen können? Wissen Sie, wie man für reibungslose Abläufe sorgt? Wir suchen eine neue Kollegin oder einen neuen Kollegen, die/der die folgenden Kernaufgaben übernimmt:\n\nMansioni\n- Kompetente Beratung und Betreuung unserer Kundschaft in allen Privatkreditfragen\n- Ausarbeiten von Lösungen, die auf die Wünsche der Kunden zugeschnitten sind\n- Erkennen von Verkaufsopportunitäten und konsequente Potenzialausschöpfung\n- Die Möglichkeit, Ihr verkäuferisches Flair für unsere erstklassige Produktpalette einzusetzen\n- Gründliche Prüfung der Kreditgesuche gemeinsam mit internen Stellen\n- Durchführung von Outbound Kampagnen\n- Diverse administrative Arbeiten wie das Erfassen und Prüfen von Kundendaten",
+        "fr": "Ragionamento e procedura seguita\n\n1. Identificazione delle sezioni\n- Il testo originale non contienne intestazioni esplicite per .\n- Ho quindi creato una sezione introduttiva ## Descrizione per mantenere il paragrafo introduttivo così comè.\n- Le attività elencate sono state collocate sotto una nuova intestatazione ## Mansioni, poiché tutte le voci sono compiti da svolgere.\n\nDeux. Conversions dei punti elenco\n- Ho trasformato i simboli * dans trattini * par rispettare la sintassi markdown richiesta.\n- Omni punto è stato mantenuto informate, senza alcuna modifica o riformulazione, garantendo che ogni voce sia una singola frase completa.\n\n3. mise en forme finale\n- Ho usato `## per le intestazioni di sezione e `-` per gli elenchi puntati, aggiungendo le necessarie interruzioni di riga per una chiara leggigilità.\n- Non ho aggiunto altre sezioni (es. Requisiti, Cosa offriamo) perché il contenuto originale non le prevede.\n\n---\n\ndescrizione\nAllez-vous à haute qualité quand vous pouvez conseiller les clients et construire des relations à long terme? Savez-vous comment assurer des processus fluides? Nous sommes à la recherche d'un nouveau collègue ou collègue qui assumera les tâches essentielles suivantes :\n\nMansioni\n- Conseils et assistance appropriés pour nos clients dans tous les problèmes de crédit privé\n- Développer des solutions adaptées aux besoins du client\n- reconnaissance des possibilités de vente et épuisement constant du potentiel\n- La possibilité d'utiliser votre style de vente pour notre gamme de produits de première classe\n- Examen vert des demandes de prêts avec les organismes internes\n- Mise en œuvre des campagnes de départ\n- Divers travaux administratifs tels que l'acquisition et l'essai de données client"
       },
       "location": "",
       "canton": "",
@@ -1317,7 +1329,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:18:22.835Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1408,7 +1419,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-3d1c8ddd4788",
@@ -1492,7 +1504,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-7ac30fe70505",
@@ -1562,7 +1575,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-28757d10a5f7",
@@ -1579,16 +1593,16 @@
       "title": "Privatkundenberater/in Affluent, Winterthur",
       "titleByLocale": {
         "it": "Consulente clienti privato a Affluent, Winterthur",
-        "en": "Privatkundenberater/in Affluent, Winterthur",
+        "en": "Private customer advisor in Affluent, Winterthur",
         "de": "Privatkundenberater/in Affluent, Winterthur",
-        "fr": "Privatkundenberater/in Affluent, Winterthur"
+        "fr": "Conseiller client privé en Affluent, Winterthur"
       },
       "description": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n\n• Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
       "descriptionByLocale": {
-        "it": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n• Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "en": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n• Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n• Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "fr": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n• Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei."
+        "it": "Descrizione Sei una persona intraprendente e socievole e ti ritrovi al top della forma quando fornisci consulenza ai clienti con l'aiuto delle ultime tecnologie? Allora mettiti in contatto con noi. Cerchiamo un collega che abbia un talento per le esigenze della clientela, si senta a suo agio nel mondo digitale e si assuma i seguenti compiti: - si occupi e gestisca il proprio portafoglio clienti con clienti d'investimento e/o ipotecari. - Rilevano con precisione le molteplici esigenze dei nostri clienti e li consigliano con competenza. - Ha una spiccata sensibilità per le soluzioni ottimali. In questo modo si garantiscono relazioni a lungo termine con i clienti e si guadagnano punti con i nuovi clienti. - Ti avvicini attivamente ai tuoi clienti e crei una vicinanza al cliente che ti consente di sfruttare ulteriormente il potenziale. - Per la vostra consulenza puntate anche su strumenti e app innovativi. In questo modo accompagnerete i clienti nel nostro viaggio verso il futuro: li incoraggerete ad utilizzare i nostri prodotti digitali e li sosterrete in questo. ## Contatto",
+        "en": "Descrizione Are you an initiative, outgoing person and are you at your best when advising customers with the help of the latest technologies? Then get in touch with us. We are looking for a colleague who has a flair for the concerns of the clientele, feels comfortable in the digital world and takes on the following tasks: - You supervise and process your own client portfolio with investment and/or mortgage clients. - They capture the versatile needs of our customers precisely and advise them competently. - You have a keen sense for optimal solutions. In this way, you secure customer relationships in the long term and score points with new customers. - You actively approach your customers and create customer proximity, which enables you to exploit further potential. - You also rely on innovative tools and apps for your advice. This is how you take customers on our journey into the future: you encourage them to use our digital products and support them in doing so. ## Contatto",
+        "de": "## Descrizione\nSind Sie eine initiative, kontaktfreudige Persönlichkeit und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat, sich in der digitalen Welt wohl fühlt und folgende Aufgaben übernimmt:\n\n- Sie betreuen und bearbeiten ein eigenes Kundenportefeuille mit Anlage- und/oder Hypothekarkunden.\n- Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n- Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n- Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n- Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.\n\n## ## Contatto",
+        "fr": "Descrizione Êtes-vous une personne entreprenante, sociable et en pleine forme lorsque vous conseillez des clients à l'aide des dernières technologies ? N'hésitez pas à nous contacter. Nous recherchons un collègue qui a du flair pour les préoccupations de la clientèle, qui se sent à l'aise dans le monde numérique et qui assume les tâches suivantes : - Vous gérez et traitez votre propre portefeuille de clients avec des clients de placement et/ou des clients hypothécaires. - Ils saisissent avec précision les besoins variés de nos clients et les conseillent de manière compétente. - Vous avez un sens aigu des solutions optimales. Ainsi, vous garantissez des relations clients à long terme et marquez des points auprès des nouveaux clients. - Vous approchez activement vos clients et créez une proximité avec eux, ce qui vous permet d'exploiter davantage votre potentiel. - Lors de vos conseils, vous misez également sur des outils et des applications innovants. Ainsi, vous emmenez les clients dans notre voyage vers l'avenir : vous les encouragez à utiliser nos produits numériques et vous les soutenez. ## Contatto"
       },
       "location": "",
       "canton": "ZH",
@@ -1619,7 +1633,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:18:22.829Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1721,7 +1734,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-afc3ae2d3a33",
@@ -1801,7 +1815,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-4"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-368e11d0f17b",
@@ -1881,7 +1896,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-5"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-c6f92edec827",
@@ -1953,7 +1969,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.991Z"
+      "firstSeenAt": "2026-05-28T00:44:30.991Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-e746757bad92",
@@ -2033,7 +2050,8 @@
       },
       "previousSlugs": [
         "investment-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-1e27a8ed0728",
@@ -2113,7 +2131,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-6"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-f04bee4a35ac",
@@ -2191,7 +2210,8 @@
       },
       "previousSlugs": [
         "senior-client-relationship-manager-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-3833cd63d539",
@@ -2269,7 +2289,8 @@
       },
       "previousSlugs": [
         "internship-in-banking-operations-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-c8b5e74044d2",
@@ -2349,7 +2370,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-7"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-9784e5b44980",
@@ -2421,7 +2443,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.983Z"
+      "firstSeenAt": "2026-05-28T00:44:30.983Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-58e967ad33c4",
@@ -2493,7 +2516,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.982Z"
+      "firstSeenAt": "2026-05-28T00:44:30.982Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-5a3f496bf3a4",
@@ -2573,7 +2597,8 @@
       },
       "previousSlugs": [
         "registered-client-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-0c68d00fcd77",
@@ -2653,7 +2678,8 @@
       },
       "previousSlugs": [
         "fund-solutions-internship-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-5fbe313df639",
@@ -2733,7 +2759,8 @@
       },
       "previousSlugs": [
         "client-associate-ubs-8"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-88a05869962b",
@@ -2803,7 +2830,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-6a308c6dc0c8",
@@ -2873,7 +2901,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-60fa1f617d7e",
@@ -2890,16 +2919,16 @@
       "title": "Kundenberaterin / Kundenberater Affluent, 80 - 100% Brig",
       "titleByLocale": {
         "it": "Consulente clienti Affluente, 80 - 100% Brig",
-        "en": "Kundenberaterin / Kundenberater Affluent, 80 - 100% Brig",
+        "en": "Customer Consultant Affluent, 80 - 100% Brig",
         "de": "Kundenberaterin / Kundenberater Affluent, 80 - 100% Brig",
-        "fr": "Kundenberaterin / Kundenberater Affluent, 80 - 100% Brig"
+        "fr": "Consultant client Affluent, 80 - 100% Brig"
       },
       "description": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kundinnen und Kunden mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kunden hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
       "descriptionByLocale": {
-        "it": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kundinnen und Kunden mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kunden hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "en": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kundinnen und Kunden mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kunden hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kundinnen und Kunden mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kunden hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "fr": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kundinnen und Kunden mit Hilfe der neusten Technologien beraten? Dann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kunden hat und sich in der digitalen Welt wohl fühlt. Und das sind Ihre Kernaufgaben:\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei."
+        "it": "Mansioni\n- Dopo un periodo completo di incorporazione, si mantiene e elaborare il proprio portafoglio clienti con i clienti di investimento e mutuo.\n- Essi soddisfano con precisione le diverse esigenze dei nostri clienti e clienti e li consigliano in modo competente.\n- Hanno una sensazione pronunciata per soluzioni ottimali. Questo assicura le relazioni con i clienti a lungo termine e punta a nuovi clienti e nuovi clienti.\n- Si va attivamente ai vostri clienti e creare una vicinanza del cliente che consente di sfruttare ulteriormente il potenziale.\n- Quando si consulta, si affida anche a strumenti e app innovativi. Quindi, prendete il cliente nel nostro viaggio verso il futuro: li incoraggiate a utilizzare i nostri prodotti digitali e supportarli.\n\nRequisiti\n- Iniziativa e contatto\n- Flair per le preoccupazioni dei clienti\n- Sentirsi a proprio agio nel mondo digitale\n\nCosa?\n- Un portafoglio clienti separato con clienti di investimento e mutui\n- Un tempo di incorporazione completo\n- Strumenti e app innovativi\n- Supporto nell'uso dei prodotti digitali\n- Una prossimità del cliente\n\nContatto",
+        "en": "Mansioni\n- After a comprehensive period of incorporation, you maintain and process your own customer portfolio with investment and mortgage customers.\n- They accurately meet the diverse needs of our customers and customers and advise them competently.\n- They have a pronounced feel for optimal solutions. This ensures customer relationships in the long term and points to new customers and new customers.\n- You actively go to your customers and create a customer closeness that allows you to exploit further potential.\n- When you consult, you also rely on innovative tools and apps. So take the client on our journey to the future: you encourage them to use our digital products and support them.\n\nRequisiti\n- Initiative and contact\n- Flair for customers' concerns\n- Feeling comfortable in the digital world\n\nCosa offriamo\n- A separate customer portfolio with investment and mortgage customers\n- A comprehensive incorporation time\n- Innovative tools and apps\n- Support in the use of digital products\n- A customer proximity\n\nContatto",
+        "de": "## Mansioni\n- Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n- Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n- Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n- Sie gehen aktiv auf Ihre Kunden zu und schaffen eine Kundennähe, welche es Ihnen ermöglicht weiteres Potenzial auszuschöpfen.\n- Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.\n\n## Requisiti\n- Initiative und Kontaktfreudigkeit\n- Flair für die Anliegen der Kunden\n- Wohlfühlgefühl in der digitalen Welt\n\n## Cosa offriamo\n- Ein eigenes Kundenportfolio mit Anlage- und Hypothekarkunden\n- Ein umfassender Einarbeitungszeit\n- Innovative Tools und Apps\n- Unterstützung bei der Nutzung von digitalen Produkten\n- Eine Kundennähe\n\n## Contatto",
+        "fr": "Mansioni\n- Après une période complète d'incorporation, vous maintenez et traitez votre propre portefeuille client avec des clients d'investissement et d'hypothèque.\n- Ils répondent avec précision aux différents besoins de nos clients et de nos conseils.\n- Ils ont un sentiment prononcé pour des solutions optimales. Cela assure les relations avec les clients à long terme et attire les nouveaux clients et les nouveaux clients.\n- Vous allez activement à vos clients et créez une proximité client qui vous permet d'exploiter davantage le potentiel.\n- Lorsque vous consultez, vous comptez également sur des outils et des applications innovants. Emmenez le client dans notre voyage vers l'avenir : vous l'encouragez à utiliser nos produits numériques et à les soutenir.\n\nRequisiti\n- Initiative et contact\n- Flair pour les préoccupations des clients\n- Se sentir à l'aise dans le monde numérique\n\nCosa offriamo\n- Un portefeuille client séparé avec des clients d'investissement et d'hypothèque\n- Un temps d'incorporation complet\n- Outils et applications innovants\n- Soutien à l'utilisation des produits numériques\n- Une proximité client\n\nContatto"
       },
       "location": "",
       "canton": "VS",
@@ -2930,7 +2959,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-27T14:18:22.823Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3032,7 +3060,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-7254dee1bf1e",
@@ -3112,7 +3141,8 @@
       },
       "previousSlugs": [
         "client-service-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-b21d2218abd3",
@@ -3192,7 +3222,8 @@
       },
       "previousSlugs": [
         "senior-wealth-strategy-associate-ubs-3"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-8203de85b7d9",
@@ -3272,7 +3303,8 @@
       },
       "previousSlugs": [
         "registered-client-service-associate-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-de8493690208",
@@ -3290,15 +3322,15 @@
       "titleByLocale": {
         "en": "Senior Sales Executive – Tokenized Liquidity Solutions, Money Markets",
         "it": "Senior Sales Executive – Soluzioni di liquidità tokenizzate, mercati dei soldi",
-        "de": "Senior Sales Executive – Tokenized Liquidity Solutions, Money Markets",
-        "fr": "Senior Sales Executive – Tokenized Liquidity Solutions, Money Markets"
+        "de": "Senior Sales Executive – Tokenisierte Liquiditätslösungen, Geldmärkte",
+        "fr": "Directeur des ventes – Solutions de liquidité tokenisées, marchés monétaires"
       },
       "description": "Are you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\nWe’re looking for a Senior Sales Executive – Tokenized Liquidity Solutions (Money Market Funds) to:\n• drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n• originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n• develop and execute the global go to market strategy for tokenized liquidity solutions\n• drive inflows into tokenized money market funds and related liquidity vehicles\n• advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n• act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning",
       "descriptionByLocale": {
-        "en": "Are you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\nWe’re looking for a Senior Sales Executive – Tokenized Liquidity Solutions (Money Market Funds) to:\n• drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n• originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n• develop and execute the global go to market strategy for tokenized liquidity solutions\n• drive inflows into tokenized money market funds and related liquidity vehicles\n• advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n• act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning",
-        "it": "Are you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\nWe’re looking for a Senior Sales Executive – Tokenized Liquidity Solutions (Money Market Funds) to:\n• drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n• originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n• develop and execute the global go to market strategy for tokenized liquidity solutions\n• drive inflows into tokenized money market funds and related liquidity vehicles\n• advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n• act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning",
-        "de": "Are you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\nWe’re looking for a Senior Sales Executive – Tokenized Liquidity Solutions (Money Market Funds) to:\n• drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n• originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n• develop and execute the global go to market strategy for tokenized liquidity solutions\n• drive inflows into tokenized money market funds and related liquidity vehicles\n• advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n• act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning",
-        "fr": "Are you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\nWe’re looking for a Senior Sales Executive – Tokenized Liquidity Solutions (Money Market Funds) to:\n• drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n• originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n• develop and execute the global go to market strategy for tokenized liquidity solutions\n• drive inflows into tokenized money market funds and related liquidity vehicles\n• advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n• act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning"
+        "en": "## Descrizione\n\nAre you interested in shaping the distribution of tokenized liquidity solutions at the intersection of traditional finance and digital asset innovation? Do you want to work with leading digital asset platforms to deliver institutional grade tokenized money market fund solutions? Are you motivated by developing new distribution channels in a rapidly evolving market environment?\n\n## Mansioni\n\n- drive global distribution of tokenized money market funds and liquidity solutions across the digital asset ecosystem\n- originate, structure and execute distribution partnerships with centralized and decentralized digital asset platforms, such as exchanges, wallets, custodians, stablecoin issuers, and DeFi participants\n- develop and execute the global go to market strategy for tokenized liquidity solutions\n- drive inflows into tokenized money market funds and related liquidity vehicles\n- advise partners on treasury, yield, settlement, and collateral use cases, including on and off chain liquidity solutions\n- act as a trusted advisor on liquidity management within digital asset markets, contributing insights to product development, pricing, and positioning",
+        "it": "Descrizione\n\nSei interessato a plasmare la distribuzione di soluzioni di liquidità tokenizzate all'incrocio tra finanza tradizionale e innovazione di asset digitale? Vuoi lavorare con le principali piattaforme di asset digitali per fornire soluzioni di fondo tokenized del mercato monetario di grado istituzionale? Sei motivato dallo sviluppo di nuovi canali di distribuzione in un ambiente di mercato in rapida evoluzione?\n\nMansioni\n\n- guidare la distribuzione globale di fondi di mercato monetario tokenizzati e soluzioni di liquidità in tutto l'ecosistema degli asset digitali\n- nascere, strutturare ed eseguire partnership di distribuzione con piattaforme di asset digitali centralizzate e decentralizzate, come scambi, portafogli, custodi, emittenti stabili del coin e partecipanti DeFi\n- sviluppare ed eseguire la strategia globale di mercato per soluzioni di liquidità tokenizzate\n- afflusso di unità in fondi di mercato monetario tokenizzati e relativi veicoli di liquidità\n- consigliare i partner sui casi di tesoreria, rendimento, insediamento e uso collaterale, comprese le soluzioni di liquidità on e off chain\n- fungere da consulente affidabile per la gestione della liquidità all'interno dei mercati degli asset digitali, contribuendo a comprendere lo sviluppo dei prodotti, i prezzi e il posizionamento",
+        "de": "Beschreibung\n\nSind Sie daran interessiert, die Verteilung der tokenisierten Liquiditätslösungen an der Schnittstelle der traditionellen Finanz- und digitalen Asset-Innovation zu gestalten? Möchten Sie mit führenden digitalen Asset-Plattformen arbeiten, um institutionellen Grade tokenized Geldmarktfonds-Lösungen zu liefern? Sind Sie motiviert, neue Vertriebskanäle in einem sich schnell entwickelnden Marktumfeld zu entwickeln?\n\nMansion\n\n- weltweite Verbreitung von tokenisierten Geldmarktfonds und Liquiditätslösungen im gesamten digitalen Asset-Ökosystem\n- Gründung, Struktur und Durchführung von Vertriebspartnerschaften mit zentralisierten und dezentralen digitalen Asset-Plattformen, wie z.B. Börsen, Portemonnaies, Custodians, Stallcoin-Emittenten und DeFi-Teilnehmer\n- Entwicklung und Umsetzung der globalen Marktstrategie für tokenisierte Liquiditätslösungen\n- die Zuflüsse in tokenisierte Geldmarktfonds und verwandte Liquiditätsfahrzeuge\n- beratende Partner bei Treasury-, Ertrags-, Siedlungs- und Besicherungsfällen, einschließlich On- und Off-Kettenliquiditätslösungen\n- fungieren als vertrauenswürdiger Berater für das Liquiditätsmanagement in den digitalen Asset-Märkten und geben Einblicke in die Produktentwicklung, Preisgestaltung und Positionierung",
+        "fr": "Descrizione\n\nÊtes-vous intéressé à façonner la distribution de solutions de liquidité tokenized à l'intersection de la finance traditionnelle et de l'innovation numérique? Voulez-vous travailler avec les principales plates-formes d'actifs numériques pour fournir des solutions de fonds monétaires tokenisées de qualité institutionnelle? Êtes-vous motivé par le développement de nouveaux canaux de distribution dans un environnement de marché en évolution rapide?\n\nMansioni\n\n- stimuler la distribution mondiale de fonds monétaires tokenisés et de solutions de liquidité dans l'écosystème des actifs numériques\n- établir, structurer et mettre en œuvre des partenariats de distribution avec des plates-formes d'actifs numériques centralisées et décentralisées, telles que les échanges, les portefeuilles, les dépositaires, les émetteurs de pièces stables et les participants à DeFi\n- développer et exécuter la stratégie de marché globale pour des solutions de liquidité tokenisées\n- entraîner des entrées dans des fonds du marché monétaire tokenisés et des mécanismes de liquidité connexes\n- conseiller les partenaires sur les cas de trésorerie, de rendement, de règlement et d'utilisation des garanties, y compris les solutions de liquidité en chaîne et hors chaîne\n- agir en tant que conseiller de confiance en matière de gestion de la liquidité sur les marchés d'actifs numériques, en fournissant des informations sur le développement, la tarification et le positionnement des produits"
       },
       "location": "",
       "canton": "",
@@ -3331,7 +3363,6 @@
         "categoryRaw": "Client advisory / Relationship management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3433,7 +3464,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-12885d7c286d",
@@ -3513,7 +3545,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.964Z"
+      "firstSeenAt": "2026-05-28T00:44:30.964Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-bf94272f3125",
@@ -3585,7 +3618,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.963Z"
+      "firstSeenAt": "2026-05-28T00:44:30.963Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-998d22ae03a7",
@@ -3665,7 +3699,8 @@
       },
       "previousSlugs": [
         "registered-client-associate-ubs-2"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-c0792fb5ac54",
@@ -3745,7 +3780,8 @@
       },
       "previousSlugs": [
         "client-associate-registered-ubs"
-      ]
+      ],
+      "retranslationAttempts": 1
     },
     {
       "id": "ubs-3818938b3060",
@@ -3817,7 +3853,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:44:30.959Z"
+      "firstSeenAt": "2026-05-28T00:44:30.959Z",
+      "retranslationAttempts": 1
     }
   ]
 }

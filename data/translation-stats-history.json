@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-13T04:34:46.430Z",
-    "label": "before",
-    "total": 4400,
-    "needsRetranslation": 1028,
-    "incomplete": 401,
-    "complete": 3999,
-    "missingByLocale": {
-      "it": 282,
-      "en": 240,
-      "de": 112,
-      "fr": 290
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 85
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 38
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 19
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "UBS",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-13T05:46:31.748Z",
-    "label": "after",
-    "total": 4400,
-    "needsRetranslation": 867,
-    "incomplete": 322,
-    "complete": 4078,
-    "missingByLocale": {
-      "it": 240,
-      "en": 211,
-      "de": 94,
-      "fr": 247
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 85
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "Pictet Group",
-        "pending": 10
-      },
-      {
-        "company": "UBS",
-        "pending": 10
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 8
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 8
-      },
-      {
-        "company": "Lonza",
-        "pending": 7
-      },
-      {
-        "company": "Tschuggen Collection",
-        "pending": 7
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-13T06:36:25.259Z",
     "label": "before",
     "total": 4420,
@@ -11139,6 +11027,118 @@
       },
       {
         "company": "HOCH Health Ostschweiz",
+        "pending": 14
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-30T06:33:45.088Z",
+    "label": "before",
+    "total": 9051,
+    "needsRetranslation": 2059,
+    "incomplete": 595,
+    "complete": 8456,
+    "missingByLocale": {
+      "it": 394,
+      "en": 262,
+      "de": 226,
+      "fr": 389
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 79
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 59
+      },
+      {
+        "company": "Roche",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 27
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "HOCH Health Ostschweiz",
+        "pending": 14
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-30T07:42:19.634Z",
+    "label": "after",
+    "total": 9051,
+    "needsRetranslation": 1902,
+    "incomplete": 550,
+    "complete": 8501,
+    "missingByLocale": {
+      "it": 351,
+      "en": 238,
+      "de": 205,
+      "fr": 347
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Division der Coop Genossenschaft",
+        "pending": 79
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 31
+      },
+      {
+        "company": "Roche",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 27
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
         "pending": 14
       }
     ]
