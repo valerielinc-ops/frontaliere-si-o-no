@@ -344,7 +344,7 @@
       "id": "arxada-0ac9075580d2",
       "slug": "metallbauer-in-cfc-arxada-visp",
       "slugByLocale": {
-        "it": "anlageningenieur-in-arxada-visp",
+        "it": "metallbauer-in-cfc-arxada-visp",
         "en": "plant-engineer-arxada-visp",
         "de": "anlage-ingenieur-in-arxada-visp",
         "fr": "ingenieur-de-l-usine-arxada-visp"
@@ -419,7 +419,8 @@
         ],
         "it": [
           "anlageningenieur-in-arxada-ch",
-          "anlage-ingenieur-in-arxada-ch"
+          "anlage-ingenieur-in-arxada-ch",
+          "anlageningenieur-in-arxada-visp"
         ]
       },
       "previousSlugs": [
@@ -429,8 +430,7 @@
         "metallbauer-in-efz-arxada-visp",
         "anlage-ingenieur-in-arxada-ch",
         "anlageningenieur-in-arxada-ch",
-        "anlage-ingenieur-in-arxada-visp",
-        "metallbauer-in-cfc-arxada-visp"
+        "anlageningenieur-in-arxada-visp"
       ],
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
       "salaryMin": 49500,
@@ -554,10 +554,10 @@
       "id": "arxada-89e7dd4a9ec5",
       "slug": "operatore-in-2-schicht-arxada-visp",
       "slugByLocale": {
-        "it": "operator-in-2-schicht-arxada-visp",
-        "en": "operator-2-shift-arxada-visp",
+        "it": "operatore-in-2-schicht-arxada-visp",
+        "en": "operator-in-2-layer-arxada-visp",
         "de": "operator-in-2-schicht-arxada-visp",
-        "fr": "operateur-2-tours-arxada-visp"
+        "fr": "operateur-in-2-schicht-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -600,15 +600,16 @@
       "previousSlugsByLocale": {
         "it": [
           "operatore-a-2-schicht-arxada-visp",
-          "operator-in-2-schicht-arxada-ch"
+          "operator-in-2-schicht-arxada-ch",
+          "operator-in-2-schicht-arxada-visp"
         ],
         "en": [
           "operator-operator-2-shift-arxada-visp",
-          "operator-in-2-layer-arxada-visp"
+          "operator-2-shift-arxada-visp"
         ],
         "fr": [
           "operateur-operatrice-2-shift-arxada-visp",
-          "operateur-in-2-schicht-arxada-visp"
+          "operateur-2-tours-arxada-visp"
         ],
         "de": [
           "operator-in-2-schicht-arxada-ch"
@@ -617,11 +618,11 @@
       "previousSlugs": [
         "operatore-a-2-schicht-arxada-visp",
         "operator-in-2-schicht-arxada-ch",
+        "operator-in-2-schicht-arxada-visp",
         "operator-operator-2-shift-arxada-visp",
-        "operator-in-2-layer-arxada-visp",
+        "operator-2-shift-arxada-visp",
         "operateur-operatrice-2-shift-arxada-visp",
-        "operateur-in-2-schicht-arxada-visp",
-        "operatore-in-2-schicht-arxada-visp"
+        "operateur-2-tours-arxada-visp"
       ],
       "firstSeenAt": "2026-05-17T09:39:34.264Z",
       "salaryMin": 49500,
@@ -900,7 +901,7 @@
       "id": "arxada-b5337e86f671",
       "slug": "installatore-trice-elettrico-a-automatiker-in-ab-august-2026-arxada-visp",
       "slugByLocale": {
-        "it": "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp",
+        "it": "installatore-trice-elettrico-a-automatiker-in-ab-august-2026-arxada-visp",
         "en": "electrician-automation-technician-arxada-visp",
         "de": "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
         "fr": "electricien-technicien-en-automatisation-arxada-visp"
@@ -973,11 +974,12 @@
       "jobReqId": "R53286",
       "previousSlugs": [
         "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
-        "installatore-trice-elettrico-a-automatiker-in-ab-august-2026-arxada-visp"
+        "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch"
+          "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
+          "elektroinstallateur-automatiker-in-ab-august-2026-arxada-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
@@ -1076,8 +1078,8 @@
       "slugByLocale": {
         "de": "operator-in-2-schicht-arxada-visp",
         "it": "operatore-a-2-schicht-arxada-visp",
-        "en": "operator-operator-2-shift-arxada-visp",
-        "fr": "operateur-operatrice-2-shift-arxada-visp"
+        "en": "operator-in-2-layer-arxada-visp-923d54",
+        "fr": "operateur-en-2-couches-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1125,7 +1127,6 @@
           "operator-in-2-schicht-arxada-visp"
         ],
         "de": [
-          "operator-in-2-schicht-arxada-visp",
           "operator-in-2-schicht-arxada-ch"
         ],
         "en": [
@@ -1141,13 +1142,12 @@
         "operator-in-2-schicht-arxada-ch",
         "operator-in-2-schicht-arxada-visp",
         "operator-operator-2-shift-arxada-visp",
+        "operator-2-shift-arxada-visp",
         "operateur-operatrice-2-shift-arxada-visp",
-        "operatore-a-2-schicht-arxada-visp",
+        "operateur-2-tours-arxada-visp",
         "operatore-in-2-schicht-arxada-visp",
         "operator-in-2-layer-arxada-visp",
-        "operateur-in-2-schicht-arxada-visp",
-        "operator-2-shift-arxada-visp",
-        "operateur-2-tours-arxada-visp"
+        "operateur-in-2-schicht-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
