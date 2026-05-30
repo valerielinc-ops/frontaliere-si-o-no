@@ -1,16 +1,16 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-05-30T12:11:44.893Z",
-  "total": 3,
+  "generatedAt": "2026-05-30T23:25:08.877Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3202,
-  "avgDurationMs": 3202,
+  "durationMs": 3636,
+  "avgDurationMs": 3636,
   "durationHistory": [
-    3202
+    3636
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T12:11:42.866Z",
+      "crawledAt": "2026-05-30T23:25:06.688Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551688&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T12:11:42.867Z",
+      "crawledAt": "2026-05-30T23:25:06.689Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -89,15 +89,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-e958318964a0",
-      "slug": "infirmier-ere-s-du-domaine-operatoire-ido-ou-technicien-ne-s-en-salle-d-operation-tso-a-80",
+      "slug": "infermieri-e-di-sala-operatoria-ido-o-tecnici-e-di-sala-operatoria-tso-a-80-100-reseau-hospitalier-neuchatelois-rhne",
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Infirmier·ère·s du domaine opératoire (IDO) ou technicien·ne·s en salle d'opération (TSO) à 80-100%",
-      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2548977&cat=all",
@@ -120,15 +121,16 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2548977&cat=all",
       "externalId": "2548977",
       "firstSeenAt": "2026-05-19T13:03:18.370Z",
-      "_qualityScore": 81,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
