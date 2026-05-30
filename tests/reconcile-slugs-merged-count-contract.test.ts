@@ -262,3 +262,85 @@ describe('assemble-jobs-dataset reconcile guards read the correct property', () 
     expect(source).not.toMatch(/expResult\.merged\b(?!Count)/);
   });
 });
+
+// Regression guards for the PR #971 reviewer 🔴 (#1 slug-path & #2 no-company
+// title-path), added after the ambiguity guard was split by match axis:
+//
+//   #1: the one-to-many guard's broadened `if (bestJob)` trigger must NOT apply
+//       to SLUG wins — that would newly DROP a legit slug redirect (expired slug
+//       404 → traffic loss). The slug path is restored to the exact pre-PR
+//       `matchCount > 1` + slug-axis behavior; a strong slug winner with only
+//       weak/divergent siblings present must still merge.
+//   #2: a no-company orphan (companyKey falsy) that wins via a generic `title-*`
+//       match must be company-verified — a single active job of a DIFFERENT
+//       company must NOT capture the redirect (301 to the wrong company page).
+describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards', () => {
+  it('#1 still merges a strong slug winner when only divergent siblings are present', () => {
+    // Winner shares 3/4 slug tokens with the orphan → Jaccard 0.75 ≥ 0.70.
+    // The sibling shares zero role tokens (different trade) → slug-Jaccard ~0,
+    // well outside the 0.05 ambiguity band. Under the correct (pre-PR) slug-path
+    // behavior `matchCount` stays 1 → guard skipped → merge. A broadened
+    // `if (bestJob)` slug trigger would risk over-blocking; this asserts it does
+    // not, so the existing slug redirect path is preserved.
+    const activeJobs = [
+      {
+        slug: 'idraulico-manutenzione-impianti-industriali',
+        company: 'Aqua',
+        companyKey: 'aqua',
+        slugByLocale: { it: 'idraulico-manutenzione-impianti-industriali' },
+        titleByLocale: { it: 'Idraulico' },
+      },
+      {
+        slug: 'cuoco-ristorante-stagionale-montagna',
+        company: 'Vetta',
+        companyKey: 'vetta',
+        slugByLocale: { it: 'cuoco-ristorante-stagionale-montagna' },
+        titleByLocale: { it: 'Cuoco' },
+      },
+    ];
+    const res = reconcileOrphanSlugs(
+      activeJobs,
+      ['idraulico-manutenzione-impianti'],
+      [],
+      { dryRun: false, verbose: true },
+    );
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('idraulico-manutenzione-impianti');
+  });
+
+  it('#2 does NOT merge a no-company orphan onto a different-company title homonym', () => {
+    // Orphan takes the no-company candidate path (no known company token in its
+    // slug, no enrichment.companyKey) and matches the single active job purely
+    // via the generic cross-locale title "Software Entwickler Backend". The
+    // enriched orphan company ("Acme Solutions") differs from the candidate's
+    // company ("globex") → the title-match company guard must refuse the merge.
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/software-entwickler-globex',
+        slug: 'software-entwickler-backend-globex',
+        slugByLocale: { de: 'software-entwickler-backend-globex' },
+        title: 'Software Entwickler Backend',
+        titleByLocale: {
+          de: 'Software Entwickler Backend',
+          it: 'Sviluppatore Software Backend',
+        },
+        company: 'Globex AG',
+        companyKey: 'globex',
+      },
+    ];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+        company: 'Acme Solutions',
+      },
+    ];
+    const res = reconcileOrphanSlugs(activeJobs, ['software-entwickler-backend'], enrichedData, {
+      dryRun: false,
+      verbose: true,
+    });
+    expect(res.mergedCount).toBe(0);
+    expect(activeJobs[0].previousSlugs ?? []).not.toContain('software-entwickler-backend');
+  });
+});

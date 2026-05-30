@@ -550,20 +550,29 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
 
   // ── One-to-many guard: if another candidate is within 0.05 of bestScore, skip ──
   //
-  // Runs whenever there's a winner (`bestJob`), NOT only when `matchCount > 1`.
-  // `matchCount` only increments on a STRICT `score > bestScore` improvement, so
-  // two candidates that tie at the top score leave `matchCount === 1` — the old
-  // `matchCount > 1` gate let that arbitrary tie merge onto whichever job was
-  // iterated first, pointing the redirect bridge at the WRONG job (301 to a
-  // non-matching page). Re-scanning on `bestJob` catches equal/near ties too.
+  // The TRIGGER and AXIS are split by how the winner was matched, to add the new
+  // title-axis safety WITHOUT regressing the pre-existing slug path:
   //
-  // Ambiguity AXIS mirrors the cross-role guard below: a `title-*` win must be
-  // measured on the TITLE axis (Strategy B candidates can have divergent slugs,
-  // so slug-jaccard would be ~0 → guard never fires → arbitrary merge of
-  // repeated cross-company titles like "Sviluppatore Software" / "Buchhalter").
-  // Slug wins keep the slug axis.
-  if (bestJob) {
-    const isTitleWin = bestMethod.startsWith('title-');
+  //   • Slug wins (Strategy A): keep the EXACT pre-PR behavior — gate on
+  //     `matchCount > 1` and re-scan on the SLUG axis. A legit slug winner
+  //     (e.g. 0.90) with a near sibling (0.86) must still merge; broadening the
+  //     trigger to `if (bestJob)` here would newly DROP that redirect → expired
+  //     slug 404 → traffic loss on the existing slug path. A guard may only ADD
+  //     skips, never remove a previously-recovered slug, so the slug path stays
+  //     byte-for-byte equivalent to main.
+  //
+  //   • Title wins (Strategy B): run whenever there's a winner (`bestJob`), NOT
+  //     only when `matchCount > 1`. Strategy B admits title-only candidates with
+  //     DIVERGENT slugs, so two cross-company jobs with identical titles tie at
+  //     the top score and leave `matchCount === 1` (strict `score > bestScore`
+  //     never re-fires) — the `matchCount > 1` gate would let that arbitrary tie
+  //     merge onto whichever job iterated first (301 to the WRONG company page).
+  //     The re-scan therefore measures the TITLE axis (slug-jaccard would be ~0
+  //     for divergent slugs → guard never fires → arbitrary merge of repeated
+  //     cross-company titles like "Sviluppatore Software" / "Buchhalter").
+  const isTitleWin = bestMethod.startsWith('title-');
+  const ambiguityTriggered = isTitleWin ? !!bestJob : matchCount > 1 && bestJob;
+  if (ambiguityTriggered) {
     let closeMatches = 0;
     for (const job of candidates) {
       if (job === bestJob) continue;
@@ -608,6 +617,36 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   }
 
   if (!bestJob) return null;
+
+  // ── Title-match company guard (no-company orphan path) ──
+  // A `title-*` win can pair an orphan with an active job purely on a generic
+  // title-Jaccard (e.g. "Software Entwickler", "Buchhalter") with NO company
+  // verification: the main company guard below only fires when the ORPHAN has a
+  // companyKey, but on the no-company candidate path `companyKey` is falsy, so a
+  // single active job of a DIFFERENT company could win the title match → 301 to
+  // the wrong company's page. Derive any available orphan company signal and, if
+  // it is known to DIFFER from the candidate's company, refuse the title merge.
+  // (Slug wins are unaffected: they already carry locale-aligned slug tokens and
+  // are gated by the main company guard + cross-role guard.)
+  if (bestMethod.startsWith('title-') && !companyKey && bestJob.companyKey) {
+    const orphanCompanyKey =
+      enrichment?.companyKey ||
+      (enrichment?.company ? normalizeCompany(enrichment.company) : null);
+    if (orphanCompanyKey) {
+      const companyScore = jaccard(
+        tokenizeSlug(orphanCompanyKey),
+        tokenizeSlug(bestJob.companyKey),
+      );
+      if (companyScore < 0.80) {
+        if (verbose) {
+          console.log(
+            `  ❌ "${orphanSlug}" — title-match company mismatch: "${orphanCompanyKey}" ≠ "${bestJob.companyKey}" (${companyScore.toFixed(3)})`,
+          );
+        }
+        return null;
+      }
+    }
+  }
 
   // ── Company guard ──
   if (companyKey && bestJob.companyKey && companyKey !== bestJob.companyKey) {
