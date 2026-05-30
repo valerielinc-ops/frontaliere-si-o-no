@@ -571,7 +571,7 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
   //     for divergent slugs → guard never fires → arbitrary merge of repeated
   //     cross-company titles like "Sviluppatore Software" / "Buchhalter").
   const isTitleWin = bestMethod.startsWith('title-');
-  const ambiguityTriggered = isTitleWin ? !!bestJob : matchCount > 1 && bestJob;
+  const ambiguityTriggered = isTitleWin ? !!bestJob : !!(matchCount > 1 && bestJob);
   if (ambiguityTriggered) {
     let closeMatches = 0;
     for (const job of candidates) {
@@ -633,14 +633,28 @@ function findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKe
       enrichment?.companyKey ||
       (enrichment?.company ? normalizeCompany(enrichment.company) : null);
     if (orphanCompanyKey) {
-      const companyScore = jaccard(
-        tokenizeSlug(orphanCompanyKey),
-        tokenizeSlug(bestJob.companyKey),
+      // Asymmetric, NOT full Jaccard: `bestJob.companyKey` is already normalized
+      // and often truncated to a stem (e.g. "acme"), while the orphan company can
+      // be the verbose enrichment name ("acme-solutions-ag"). Full Jaccard would
+      // score "acme" vs "acme-solutions-ag" at 1/3 = 0.33 and FALSE-REJECT a
+      // same-company orphan (losing the redirect → expired slug 404). Treat the
+      // companies as compatible when the candidate key shares ANY token with the
+      // orphan company (containment), and only refuse on a clear cross-company
+      // split: both token sets non-empty AND zero overlap.
+      const orphanCompanyTokens = tokenizeSlug(orphanCompanyKey);
+      const jobCompanyTokens = tokenizeSlug(bestJob.companyKey);
+      const sharedCompanyTokens = intersectionSize(
+        orphanCompanyTokens,
+        jobCompanyTokens,
       );
-      if (companyScore < 0.80) {
+      if (
+        orphanCompanyTokens.size > 0 &&
+        jobCompanyTokens.size > 0 &&
+        sharedCompanyTokens === 0
+      ) {
         if (verbose) {
           console.log(
-            `  ❌ "${orphanSlug}" — title-match company mismatch: "${orphanCompanyKey}" ≠ "${bestJob.companyKey}" (${companyScore.toFixed(3)})`,
+            `  ❌ "${orphanSlug}" — title-match company mismatch: "${orphanCompanyKey}" ≠ "${bestJob.companyKey}" (0 shared company tokens)`,
           );
         }
         return null;

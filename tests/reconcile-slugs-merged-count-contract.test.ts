@@ -343,4 +343,41 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     expect(res.mergedCount).toBe(0);
     expect(activeJobs[0].previousSlugs ?? []).not.toContain('software-entwickler-backend');
   });
+
+  it('#2b still merges a SAME-company orphan when the enriched name is more verbose than the companyKey', () => {
+    // Guards against a false-negative in the title-match company guard: the
+    // candidate companyKey is normalized/truncated ("acme"), while the orphan's
+    // enriched company is the verbose legal name ("Acme Solutions AG"). A full
+    // Jaccard would score 1/3 = 0.33 < 0.80 and WRONGLY reject this same-company
+    // orphan (losing the redirect → 404). The asymmetric containment check
+    // (shared company token ⇒ compatible) must let it merge.
+    const activeJobs = [
+      {
+        url: 'https://x/jobs/software-entwickler-acme',
+        slug: 'software-entwickler-backend-acme',
+        slugByLocale: { de: 'software-entwickler-backend-acme' },
+        title: 'Software Entwickler Backend',
+        titleByLocale: {
+          de: 'Software Entwickler Backend',
+          it: 'Sviluppatore Software Backend',
+        },
+        company: 'Acme',
+        companyKey: 'acme',
+      },
+    ];
+    const enrichedData = [
+      {
+        slug: 'software-entwickler-backend',
+        title: 'Software Entwickler Backend',
+        locale: 'de',
+        company: 'Acme Solutions AG',
+      },
+    ];
+    const res = reconcileOrphanSlugs(activeJobs, ['software-entwickler-backend'], enrichedData, {
+      dryRun: false,
+      verbose: true,
+    });
+    expect(res.mergedCount).toBe(1);
+    expect(activeJobs[0].previousSlugs).toContain('software-entwickler-backend');
+  });
 });
