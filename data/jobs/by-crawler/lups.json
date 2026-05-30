@@ -1683,7 +1683,7 @@
       "id": "lups-3670d71dceae",
       "slug": "servizio-civile-100-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
-        "it": "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern",
+        "it": "servizio-civile-100-luzerner-psychiatrie-lups-luzern",
         "en": "civil-service-100-luzerner-psychiatrie-lups-luzern",
         "de": "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern",
         "fr": "fonction-publique-100-luzerner-psychiatrie-lups-luzern"
@@ -1731,14 +1731,13 @@
       "previousSlugs": [
         "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2",
         "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern",
-        "servizio-civile-100-luzerner-psychiatrie-lups-luzern",
-        "civil-service-100-luzerner-psychiatrie-lups-luzern",
-        "fonction-publique-100-luzerner-psychiatrie-lups-luzern"
+        "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2",
-          "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern"
+          "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern",
+          "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern"
         ],
         "en": [
           "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2"
@@ -3008,8 +3007,7 @@
         "psychologist-80-m-f-d-luzerner-psychiatrie-lups-luzern",
         "psychologin-80-m-w-d-luzerner-psychiatrie-lups-luzern",
         "psychologue-80-h-f-luzerner-psychiatrie-lups-luzern",
-        "psychologin-80-m-w-d-lups-luzern",
-        "assistenzarztin-o-psychologin-80-100-m-w-d-luzerner-psychiatrie-lups-luzern"
+        "psychologin-80-m-w-d-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4844,9 +4842,7 @@
       },
       "previousSlugs": [
         "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-luzern",
-        "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-kriens",
-        "medico-psichiatria-ambulatoriale-transizioni-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
-        "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-luzerner-psychiatrie-lups-kriens"
+        "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4954,9 +4950,7 @@
       },
       "previousSlugs": [
         "psychologin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-luzern",
-        "psychologin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-kriens",
-        "psicologa-ambulante-transizioni-psichiatrici-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
-        "psychologin-ambulante-transitionspsychiatrie-80-100-m-w-d-luzerner-psychiatrie-lups-kriens"
+        "psychologin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-kriens"
       ],
       "firstSeenAt": "2026-05-19T13:03:45.910Z",
       "salaryMin": 49500,
@@ -6364,7 +6358,7 @@
       "id": "lups-c6ccc2761e2e",
       "slug": "medico-60-100-terminato-per-1-anno-m-w-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
-        "it": "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee",
+        "it": "medico-60-100-terminato-per-1-anno-m-w-d-luzerner-psychiatrie-lups-sursee",
         "en": "physician-60-100-terminated-for-1-year-m-w-d-luzerner-psychiatrie-lups-sursee",
         "de": "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
         "fr": "medecin-de-60-a-100-ayant-termine-pendant-1-an-m-m-j-luzerner-psychiatrie-lups-sursee"
@@ -6410,11 +6404,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
-        "medico-60-100-terminato-per-1-anno-m-w-d-luzerner-psychiatrie-lups-sursee"
+        "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
+          "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
+          "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee"
         ],
         "en": [
           "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
@@ -6513,7 +6508,7 @@
       "id": "lups-bfc11ca6fc2e",
       "slug": "consulente-senior-m-w-d-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
-        "it": "arztsekretarin-80-m-w-d-lups-luzern",
+        "it": "consulente-senior-m-w-d-luzerner-psychiatrie-lups-luzern",
         "en": "senior-consultant-m-w-d-luzerner-psychiatrie-lups-luzern",
         "de": "arztsekretarin-80-m-w-d-luzerner-psychiatrie-lups-luzern",
         "fr": "consultant-principal-m-m-j-luzerner-psychiatrie-lups-luzern"
@@ -6560,7 +6555,8 @@
       "previousSlugsByLocale": {
         "it": [
           "segretaria-di-studio-medico-80-m-f-d-luzerner-psychiatrie-lups-luzern",
-          "segretaria-di-studio-80-uomo-donna-luzerner-psychiatrie-lups-luzern"
+          "segretaria-di-studio-80-uomo-donna-luzerner-psychiatrie-lups-luzern",
+          "arztsekretarin-80-m-w-d-lups-luzern"
         ],
         "en": [
           "medical-secretary-80-m-f-d-luzerner-psychiatrie-lups-luzern",
@@ -6583,10 +6579,7 @@
         "medical-secretary-80-m-f-d-luzerner-psychiatrie-lups-luzern",
         "medical-secretary-80-male-female-luzerner-psychiatrie-lups-luzern",
         "secretaire-medical-80-h-f-luzerner-psychiatrie-lups-luzern",
-        "secretaire-medical-80-homme-femme-luzerner-psychiatrie-lups-luzern",
-        "consulente-senior-m-w-d-luzerner-psychiatrie-lups-luzern",
-        "senior-consultant-m-w-d-luzerner-psychiatrie-lups-luzern",
-        "consultant-principal-m-m-j-luzerner-psychiatrie-lups-luzern"
+        "secretaire-medical-80-homme-femme-luzerner-psychiatrie-lups-luzern"
       ],
       "firstSeenAt": "2026-05-22T12:22:37.802Z",
       "salaryMin": 68000,
@@ -7210,10 +7203,10 @@
       "id": "lups-0b70328608bb",
       "slug": "consulente-senior-m-w-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
-        "it": "arztsekretarin-80-m-w-d-lups-kriens",
-        "en": "arztsekretarin-80-m-w-d-lups-kriens",
+        "it": "consulente-senior-m-w-d-luzerner-psychiatrie-lups-kriens",
+        "en": "senior-consultant-m-w-d-luzerner-psychiatrie-lups-kriens",
         "de": "arztsekretarin-80-m-w-d-luzerner-psychiatrie-lups-kriens",
-        "fr": "arztsekretarin-80-m-w-d-lups-kriens"
+        "fr": "consultant-principal-m-m-j-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7256,16 +7249,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-consultant-m-w-d-luzerner-psychiatrie-lups-kriens"
+          "arztsekretarin-80-m-w-d-lups-kriens"
         ],
         "fr": [
-          "consultant-principal-m-m-j-luzerner-psychiatrie-lups-kriens"
+          "arztsekretarin-80-m-w-d-lups-kriens"
+        ],
+        "it": [
+          "arztsekretarin-80-m-w-d-lups-kriens"
         ]
       },
       "previousSlugs": [
-        "senior-consultant-m-w-d-luzerner-psychiatrie-lups-kriens",
-        "consultant-principal-m-m-j-luzerner-psychiatrie-lups-kriens",
-        "consulente-senior-m-w-d-luzerner-psychiatrie-lups-kriens"
+        "arztsekretarin-80-m-w-d-lups-kriens"
       ],
       "firstSeenAt": "2026-05-29T13:13:17.373Z",
       "salaryMin": 68000,

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "clinique-de-genolier-43812d195ef3",
-      "slug": "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
+      "slug": "infermiera-esperto-di-cura-intermedia-terapia-intensiva-assistenza-di-emergenza-anestesia-clinique-de-genolier-genolier",
       "slugByLocale": {
         "fr": "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
-        "it": "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
-        "en": "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier",
-        "de": "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
+        "it": "infermiera-esperto-di-cura-intermedia-terapia-intensiva-assistenza-di-emergenza-anestesia-clinique-de-genolier-genolier",
+        "en": "nurse-intermediate-care-expert-intensive-care-emergency-care-anesthesia-care-clinique-de-genolier-genolier",
+        "de": "krankenschwester-zwischenpflegeexperte-intensivpflege-notfallpflege-anasthesiepflege-clinique-de-genolier-genolier"
       },
       "company": "Clinique de Genolier",
       "companyKey": "clinique-de-genolier",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-29T22:31:29.167Z"
+      "firstSeenAt": "2026-05-29T22:31:29.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
+        ],
+        "en": [
+          "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
+        ],
+        "de": [
+          "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-expert-e-en-soins-intermediaires-soins-intensifs-soins-d-urgence-soins-d-anesthesie-clinique-de-genolier"
+      ]
     },
     {
       "id": "clinique-de-genolier-7a567cd3a715",
@@ -449,7 +463,7 @@
       "slug": "infermiere-specializzata-in-emergenza-policlinico-endoscopia-clinique-de-genolier-genolier",
       "slugByLocale": {
         "it": "infermiere-specializzata-in-emergenza-policlinico-endoscopia-clinique-de-genolier-genolier",
-        "en": "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier",
+        "en": "multipurpose-emergency-polyclinical-endoscopy-nurse-clinique-de-genolier-genolier",
         "de": "mehrfachqualifizierte-pflegekraft-fur-notfall-polyklinik-endoskopie-clinique-de-genolier-genolier",
         "fr": "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier"
       },
@@ -526,16 +540,14 @@
       },
       "previousSlugs": [
         "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier",
-        "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier",
-        "multipurpose-emergency-polyclinical-endoscopy-nurse-clinique-de-genolier-genolier"
+        "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-polyvalent-e-urgence-polyclinique-endoscopie-clinique-de-genolier"
         ],
         "en": [
-          "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier",
-          "multipurpose-emergency-polyclinical-endoscopy-nurse-clinique-de-genolier-genolier"
+          "multidisciplinary-nurse-for-emergency-polyclinic-endoscopy-clinique-de-genolier-genolier"
         ]
       },
       "firstSeenAt": "2026-05-26T14:08:09.526Z",
@@ -556,9 +568,9 @@
       "id": "clinique-de-genolier-0c4bcbada8b6",
       "slug": "infermiera-hpci-clinique-de-genolier-genolier",
       "slugByLocale": {
-        "it": "infermiere-hpci-clinique-de-genolier-genolier",
+        "it": "infermiera-hpci-clinique-de-genolier-genolier",
         "en": "hpci-nurse-clinique-de-genolier-genolier",
-        "de": "hpci-krankenpflegerin-clinique-de-genolier-genolier",
+        "de": "hpci-krankenschwester-clinique-de-genolier-genolier",
         "fr": "infirmiere-hpci-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -631,15 +643,16 @@
       },
       "previousSlugs": [
         "infirmiere-hpci-clinique-de-genolier",
-        "hpci-krankenschwester-clinique-de-genolier-genolier",
-        "infermiera-hpci-clinique-de-genolier-genolier"
+        "infermiere-hpci-clinique-de-genolier-genolier",
+        "hpci-krankenpflegerin-clinique-de-genolier-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmiere-hpci-clinique-de-genolier"
+          "infirmiere-hpci-clinique-de-genolier",
+          "infermiere-hpci-clinique-de-genolier-genolier"
         ],
         "de": [
-          "hpci-krankenschwester-clinique-de-genolier-genolier"
+          "hpci-krankenpflegerin-clinique-de-genolier-genolier"
         ]
       },
       "firstSeenAt": "2026-05-26T14:08:08.483Z",

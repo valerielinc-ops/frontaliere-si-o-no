@@ -102,7 +102,7 @@
         "de": "pflegefachperson-hf-fh-mit-demenz-40-80-spitex-gau-oensingen",
         "it": "professionista-della-cura-hf-fh-con-specializzazione-in-demenza-40-80-spitex-gau-oensingen",
         "en": "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
-        "fr": "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
+        "fr": "specialiste-des-soins-hf-fh-avec-accent-sur-la-demence-40-80-spitex-gau-oensingen"
       },
       "company": "Spitex Gäu",
       "companyKey": "spitex-ch",
@@ -152,11 +152,14 @@
         ],
         "de": [
           "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen"
+        ],
+        "fr": [
+          "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-ch-oensingen",
-        "pflegefachperson-hf-fh-mit-schwerpunkt-demenz-40-80-spitex-gau-oensingen",
+        "infirmier-ere-hf-fh-avec-specialisation-en-demence-40-80-spitex-gau-oensingen",
         "specialista-hf-con-focus-sulla-demenza-60-100-spitex-obwalden-sarnen",
         "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen"
       ],
@@ -251,10 +254,10 @@
       "id": "spitex-ch-c897776d150b",
       "slug": "dipl-specialista-hf-fh-60-80-spitex-bodensee-goldach",
       "slugByLocale": {
-        "it": "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
+        "it": "dipl-specialista-hf-fh-60-80-spitex-bodensee-goldach",
         "en": "dipl-pflegefachperson-hf-fh-60-80-spitex-bodensee-goldach",
         "de": "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
-        "fr": "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach"
+        "fr": "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach"
       },
       "company": "Spitex Bodensee",
       "companyKey": "spitex-ch",
@@ -298,22 +301,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
-        "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach",
+        "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
+        "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach",
         "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
         "dipl-specialiste-des-soins-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
         "specialiste-des-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "specialista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "dipl-specialista-hf-fh-60-80-spitex-bodensee-goldach"
+        "specialista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach"
+          "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
+          "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach"
+          "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach"
         ]
       },
       "firstSeenAt": "2026-05-28T14:16:56.700Z",
@@ -542,8 +546,7 @@
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee",
-          "infermiera-laureata-hf-o-fage-40-al-50-spitex-greifensee-zentrum-im-hof-greifensee",
-          "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee"
+          "infermiera-laureata-hf-o-fage-40-al-50-spitex-greifensee-zentrum-im-hof-greifensee"
         ],
         "fr": [
           "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee"
@@ -815,7 +818,7 @@
         "it": "professionista-della-salute-fage-servizio-serale-40-70-spitex-muttenz-ag-muttenz",
         "en": "health-professional-fage-evening-service-40-70-spitex-muttenz-ag-muttenz",
         "de": "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz",
-        "fr": "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz"
+        "fr": "sante-professionnelle-fage-service-du-soir-40-70-spitex-muttenz-ag-muttenz"
       },
       "company": "Spitex Muttenz AG",
       "companyKey": "spitex-ch",
@@ -859,15 +862,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz",
-        "sante-professionnelle-fage-service-du-soir-40-70-spitex-muttenz-ag-muttenz",
-        "salute-professionale-fage-servizio-serale-40-70-spitex-muttenz-ag-muttenz"
+        "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-abenddienst-40-70-spitex-ch-muttenz"
         ],
         "fr": [
-          "sante-professionnelle-fage-service-du-soir-40-70-spitex-muttenz-ag-muttenz"
+          "professionnel-de-la-sante-fage-service-de-soiree-40-70-spitex-muttenz-ag-muttenz"
         ]
       },
       "firstSeenAt": "2026-05-29T00:42:55.861Z",
@@ -962,7 +964,7 @@
       "id": "spitex-ch-98364ed82cd6",
       "slug": "operatrice-operatore-sanitario-cfc-50-80-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "it": "operatrice-operatore-sanitario-cfc-50-80-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
         "en": "healthcare-assistant-cfc-50-80-for-wetzikon-location-spitex-bachtel-ag-wetzikon-zh",
         "de": "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "fr": "assistante-assistant-en-soins-cfc-50-80-pour-le-site-de-wetzikon-spitex-bachtel-ag-wetzikon-zh"
@@ -1010,11 +1012,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "operatrice-operatore-sanitario-cfc-50-80-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
+          "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
@@ -1042,9 +1045,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
+        "en": "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
+        "fr": "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -1105,9 +1108,9 @@
       "slug": "fachperson-gesundheit-cfc-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-con-berufsbildung-spitex-regio-zo",
       "slugByLocale": {
         "it": "fachperson-gesundheit-cfc-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-con-berufsbildung-spitex-regio-zo",
-        "en": "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit",
+        "en": "specialist-health-efz-career-hf-pensum-freely-selectable-preferably-with-vocational-training-spitex-regio-zo-fehraltorf",
         "de": "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit",
-        "fr": "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit"
+        "fr": "specialiste-de-la-sante-efz-career-hf-pensum-librement-selectionnable-de-preference-avec-la-formation-professionnelle"
       },
       "company": "Spitex Regio ZO",
       "companyKey": "spitex-ch",
@@ -1153,6 +1156,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-pflegefachperson-hf-pensum-frei-wahlbar-vorzugsweise-mit"
         ]
       },
       "previousSlugs": [
@@ -1173,12 +1182,12 @@
     },
     {
       "id": "spitex-ch-04cdce502967",
-      "slug": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
+      "slug": "professionisti-della-salute-efz-10-40-a-ore-lavorative-regolate-alla-vostra-vita-privata-spitex-zurichsee-meilen",
       "slugByLocale": {
         "de": "fachleute-gesundheit-efz-fur-unseren-pool-a-10-40-auf-stundenbasis-spitex-ch-meilen",
-        "it": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
-        "en": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
-        "fr": "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
+        "it": "professionisti-della-salute-efz-10-40-a-ore-lavorative-regolate-alla-vostra-vita-privata-spitex-zurichsee-meilen",
+        "en": "health-professionals-efz-10-40-a-working-hours-adjusted-to-your-private-life-spitex-zurichsee-meilen",
+        "fr": "professionnels-de-la-sante-efz-10-40-a-heures-de-travail-ajustees-a-votre-vie-privee-spitex-zurichsee-meilen"
       },
       "company": "Spitex Zürichsee",
       "companyKey": "spitex-ch",
@@ -1224,15 +1233,23 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-ch"
+          "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-ch",
+          "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
         ],
         "de": [
           "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-ch",
           "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-zurichsee-meilen"
+        ],
+        "en": [
+          "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
+        ],
+        "fr": [
+          "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen"
         ]
       },
       "previousSlugs": [
         "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-ch",
+        "fachleute-gesundheit-cfc-per-unseren-pool-a-10-40-auf-stundenbasis-spitex-zurichsee-meilen",
         "fachleute-gesundheit-efz-10-40-a-arbeitszeiten-abgestimmt-auf-dein-privatleben-spitex-zurichsee-meilen"
       ],
       "salaryMin": 51500,
@@ -1255,8 +1272,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil",
         "it": "fachfrau-mann-gesundheit-cfc-60-80-spitex-zimmerberg-ag-thalwil",
-        "en": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil",
-        "fr": "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil"
+        "en": "professional-health-efz-60-80-spitex-zimmerberg-ag-thalwil",
+        "fr": "sante-professionnelle-efz-60-80-spitex-zimmerberg-ag-thalwil"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1302,6 +1319,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-60-80-spitex-ch-thalwil"
         ]
       },
@@ -1472,12 +1495,12 @@
     },
     {
       "id": "spitex-ch-3353a40a8bbd",
-      "slug": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
+      "slug": "professional-health-efz-50-70-con-opzione-ruolo-aggiuntivo-come-istruttore-pratico-in-spitex-zimmerberg-ag-langnau-am",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
-        "it": "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis",
-        "en": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
-        "fr": "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "it": "professional-health-efz-50-70-con-opzione-ruolo-aggiuntivo-come-istruttore-pratico-in-spitex-zimmerberg-ag-langnau-am",
+        "en": "professional-health-efz-50-70-with-option-additional-role-as-a-practical-instructor-in-spitex-zimmerberg-ag-langnau-am",
+        "fr": "sante-professionnelle-efz-50-70-avec-option-de-role-supplementaire-en-tant-qu-instructeur-pratique-spitex-zimmerberg-ag"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -1523,11 +1546,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
+          "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex"
+        "fachfrau-mann-gesundheit-efz-50-70-mit-option-zusatzrolle-als-praxisausbildner-in-spitex",
+        "fachfrau-mann-gesundheit-cfc-50-70-con-option-zusatzrolle-come-praxisausbildner-in-spitex-zimmerberg-ag-langnau-am-albis"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1600,7 +1631,6 @@
           "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach"
         ],
         "de": [
-          "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
           "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach"
         ],
         "en": [
@@ -1618,7 +1648,6 @@
         "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
         "dipl-specialiste-des-soins-hf-fh-40-100-regiospitex-limmattal-schlieren",
-        "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "specialiste-des-soins-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "specialista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
@@ -1645,8 +1674,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh",
         "it": "fachfrau-mann-gesundheit-50-per-den-stutzpunkt-gossau-spitex-bachtel-ag-gossau-zh",
-        "en": "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh",
-        "fr": "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh"
+        "en": "professional-health-50-for-gossau-spitex-bachtel-ag-gossau-zh",
+        "fr": "sante-professionnelle-50-pour-gossau-spitex-bachtel-ag-gossau-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1693,6 +1722,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-50-fur-den-stutzpunkt-gossau-spitex-ch-gossau-zh"
         ]
       },
       "previousSlugs": [
@@ -1714,12 +1749,12 @@
     },
     {
       "id": "spitex-ch-647acda98485",
-      "slug": "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh",
+      "slug": "specialista-hf-per-il-punto-di-supporto-ruti-zh-spitex-bachtel-ag-ruti-zh",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
-        "it": "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh",
-        "en": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
-        "fr": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh"
+        "it": "specialista-hf-per-il-punto-di-supporto-ruti-zh-spitex-bachtel-ag-ruti-zh",
+        "en": "care-specialist-hf-for-the-support-point-ruti-zh-spitex-bachtel-ag-ruti-zh",
+        "fr": "specialiste-des-soins-hf-pour-le-point-d-appui-ruti-zh-spitex-bachtel-ag-ruti-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1765,11 +1800,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
+          "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
+        "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh",
         "infermiera-infermiere-professionale-hf-per-il-punto-di-riferimento-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
         "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "registered-nurse-hf-for-wetzikon-support-point-spitex-bachtel-ag-wetzikon-zh",
@@ -1795,8 +1838,8 @@
       "slugByLocale": {
         "de": "leiter-in-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
         "it": "responsabile-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
-        "en": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal",
-        "fr": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        "en": "head-of-department-home-support-rotes-kreuz-baselland-liestal",
+        "fr": "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
       },
       "company": "Rotes Kreuz Baselland",
       "companyKey": "spitex-ch",
@@ -1846,12 +1889,16 @@
         ],
         "de": [
           "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        ],
+        "en": [
+          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        ],
+        "fr": [
+          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
         ]
       },
       "previousSlugs": [
-        "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal",
-        "head-of-department-home-support-rotes-kreuz-baselland-liestal",
-        "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
+        "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1869,10 +1916,10 @@
     },
     {
       "id": "spitex-ch-2d9bd813b6f8",
-      "slug": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+      "slug": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
-        "it": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
+        "it": "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil",
         "en": "co-teamleitung-pflege-80-100-spitex-ch-thalwil",
         "fr": "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
       },
@@ -1932,8 +1979,13 @@
       },
       "firstSeenAt": "2026-05-30T00:40:10.489Z",
       "previousSlugs": [
-        "co-team-management-care-80-100-spitex-zimmerberg-ag-thalwil"
-      ]
+        "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-80-100-spitex-ch-thalwil"
+        ]
+      }
     },
     {
       "id": "spitex-ch-7159fd819c30",
@@ -2066,14 +2118,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-          "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-          "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+          "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
         ]
       },
       "firstSeenAt": "2026-05-29T00:43:10.994Z",
@@ -2094,10 +2139,10 @@
       "id": "spitex-ch-922cddbe19cb",
       "slug": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
       "slugByLocale": {
-        "it": "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach",
-        "en": "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach",
+        "it": "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach",
+        "en": "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
         "de": "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
-        "fr": "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
+        "fr": "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
       },
       "company": "Spitex Aare",
       "companyKey": "spitex-ch",
@@ -2147,28 +2192,29 @@
         "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau",
         "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-region-aarau-aarau",
         "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
+        "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach",
         "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-region-aarau-aarau",
-        "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach",
+        "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach",
         "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-region-aarau-aarau",
-        "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach",
-        "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-aare-selzach"
+        "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau",
           "infermiere-a-dipl-hf-fh-30-100-spitex-nuovi-ingressi-benvenuti-spitex-region-aarau-aarau",
-          "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach"
+          "dipl-pflegefachperson-hf-50-bis-80-berufsbildner-in-fur-hf-fh-spitex-ch-selzach",
+          "infermiere-dipl-hf-50-80-formatore-per-hf-fh-spitex-aare-selzach"
         ],
         "en": [
           "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-region-aarau-aarau",
-          "registered-nurse-hf-fh-30-100-spitex-newcomers-welcome-spitex-aare-selzach"
+          "registered-nurse-hf-50-80-trainer-for-hf-fh-spitex-aare-selzach"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-30-100-spitex-neueinsteigende-willkommen-spitex-ch-aarau"
         ],
         "fr": [
           "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-region-aarau-aarau",
-          "infirmier-infirmiere-dipl-hf-fh-30-100-spitex-bienvenue-aux-nouveaux-entrants-spitex-aare-selzach"
+          "infirmier-dipl-hf-50-80-formateur-trice-pour-hf-fh-spitex-aare-selzach"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:58.376Z",

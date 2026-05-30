@@ -98,7 +98,7 @@
         "it": "responsabile-di-gruppo-di-residenza-con-comportamenti-complessi-e-sfidanti-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "team-leader-residential-groups-for-individuals-with-complex-cognitive-impairments-and-challenging-behaviors",
         "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "fr": "responsable-d-equipe-de-groupes-d-habitation-pour-personnes-ayant-des-troubles-cognitifs-complexes-et-des-comportements"
+        "fr": "responsable-de-groupe-d-habitation-avec-comportement-complexe-et-defiant-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -142,14 +142,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "responsable-de-groupe-d-habitation-avec-comportement-complexe-et-defiant-schweizerische-epilepsie-stiftung-epi-zurich"
+        "responsable-d-equipe-de-groupes-d-habitation-pour-personnes-ayant-des-troubles-cognitifs-complexes-et-des-comportements"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung"
         ],
         "fr": [
-          "responsable-de-groupe-d-habitation-avec-comportement-complexe-et-defiant-schweizerische-epilepsie-stiftung-epi-zurich",
           "responsable-d-equipe-de-groupes-d-habitation-pour-personnes-ayant-des-troubles-cognitifs-complexes-et-des-comportements"
         ]
       },
@@ -703,8 +702,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich",
-        "fachfrau-fachmann-gesundheit-cfc-schweizerische-epilepsie-stiftung-epi-zurich"
+        "fachfrau-fachmann-gesundheit-efz-epi-stiftung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -994,7 +992,7 @@
       "id": "epi-stiftung-b6c5de5a25f8",
       "slug": "cucina-dipendenti-cucina-dipendenti-stewarding-limitato-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "kuchenangestellte-kuchenangestellter-stewarding-befristet-schweizerische-epilepsie-stiftung-epi-zurich",
+        "it": "cucina-dipendenti-cucina-dipendenti-stewarding-limitato-schweizerische-epilepsie-stiftung-epi-zurich",
         "en": "kitchen-employees-kitchen-employees-stewarding-limited-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "kuchenangestellte-kuchenangestellter-stewarding-befristet-epi-stiftung-zurich",
         "fr": "employes-de-cuisine-employes-de-cuisine-stewarding-limite-schweizerische-epilepsie-stiftung-epi-zurich"
@@ -1041,14 +1039,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kuchenangestellte-kuchenangestellter-stewarding-befristet-epi-stiftung-zurich",
+        "kuchenangestellte-kuchenangestellter-stewarding-befristet-schweizerische-epilepsie-stiftung-epi-zurich",
         "addetto-a-alla-cucina-stewarding-a-tempo-determinato-schweizerische-epilepsie-stiftung-epi-zurich",
         "kitchen-staff-stewarding-fixed-term-schweizerische-epilepsie-stiftung-epi-zurich",
-        "employe-e-de-cuisine-stewarding-contrat-a-duree-determinee-schweizerische-epilepsie-stiftung-epi-zurich",
-        "cucina-dipendenti-cucina-dipendenti-stewarding-limitato-schweizerische-epilepsie-stiftung-epi-zurich"
+        "employe-e-de-cuisine-stewarding-contrat-a-duree-determinee-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenangestellte-kuchenangestellter-stewarding-befristet-epi-stiftung-zurich"
+          "kuchenangestellte-kuchenangestellter-stewarding-befristet-epi-stiftung-zurich",
+          "kuchenangestellte-kuchenangestellter-stewarding-befristet-schweizerische-epilepsie-stiftung-epi-zurich"
         ],
         "en": [
           "kuchenangestellte-kuchenangestellter-stewarding-befristet-epi-stiftung-zurich"
@@ -1152,12 +1151,12 @@
     },
     {
       "id": "epi-stiftung-f1ece441bba6",
-      "slug": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+      "slug": "tirocinanti-in-centri-diurni-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "en": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
+        "it": "tirocinanti-in-centri-diurni-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "interns-for-day-care-centers-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich",
-        "fr": "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        "fr": "stagiaires-en-centres-de-jour-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1210,16 +1209,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "en": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantinnen-praktikanten-tagesstatten-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-539641001483",
       "slug": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "it": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "en": "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "fr": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "fr": "etudiant-dipl-infirmier-ere-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1266,6 +1279,12 @@
       "previousSlugsByLocale": {
         "it": [
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "en": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ]
       },
       "firstSeenAt": "2026-05-29T12:19:06.404Z",
@@ -1289,7 +1308,7 @@
         "de": "recruiterin-recruiter-epi-stiftung-zurich",
         "it": "recruiterin-recruiter-epi-stiftung-zurich",
         "en": "recruiterin-recruiter-epi-stiftung-zurich",
-        "fr": "recruiterin-recruiter-epi-stiftung-zurich"
+        "fr": "recruteur-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
