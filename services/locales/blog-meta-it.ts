@@ -7904,6 +7904,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzeri-scelgono-capitale-pensione.title': 'Svizzeri scelgono capitale al posto della rendita',
     'blog.article.svizzeri-scelgono-capitale-pensione.excerpt': 'Erwin Heri avverte dei rischi di restare senza nulla',
     'blog.article.svizzeri-scelgono-capitale-pensione.imageAlt': 'Persona anziana che guarda il lago di Lugano',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.title': 'Referendum Fortezza Bellinzona: si vota il 27 settembre',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.excerpt': 'Il Municipio di Bellinzona ha convalidato 3.738 firme per il referendum sulla Fortezza. Ecco cosa cambia e perché si vota.',
+    'blog.article.referendum-fortezza-bellinzona-27-settembre.imageAlt': 'Vista aerea dei castelli di Bellinzona con la città sullo sfondo',
 };
 
 export default blogMetaIt;
