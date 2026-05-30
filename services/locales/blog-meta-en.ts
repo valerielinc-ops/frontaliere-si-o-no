@@ -7912,6 +7912,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Cross-Border Work Seasonal Jobs Ticino',
     'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Discover the rules, rights, and opportunities for seasonal work in Ticino: permits, contracts, taxation.',
     'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier working in Ticino during the summer season',
+    'blog.article.startup-scuola-ticino-frontalieri.title': 'Ticino startups in schools: cross-border opportunities',
+    'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 entrepreneurial ideas born in Lombardy: how young innovators can inspire cross-border workers on transfrontier employment and social innovation. A focus on training and human capital for cross-border commuters.',
+    'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Modern classroom in Lugano with students working on laptops, Swiss-Italian flag in background',
 };
 
 export default blogMetaEn;

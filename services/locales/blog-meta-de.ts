@@ -7911,6 +7911,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'GrenzgÃ¤nger Saisonarbeit Tessin',
     'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Entdecken Sie die Regeln, Rechte und Chancen fÃ¼r saisonale Arbeit im Tessin: Genehmigungen, VertrÃ¤ge, Steuern.',
     'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier, der in der Sommersonne in Ticino arbeitet',
+    'blog.article.startup-scuola-ticino-frontalieri.title': 'Startup-Schulen im Ticino: Chancen für Grenzgänger',
+    'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 unternehmerische Ideen aus der Lombardei: Wie junge Menschen uns über grenzüberschreitende Arbeit und soziale Innovation inspirieren können. Fokus auf **Bildung** und Humankapital für Grenzgänger.',
+    'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Moderner Unterrichtsraum in Lugano mit Schülern an Laptops, Tessiner Flagge im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -25112,4 +25112,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'startup-scuola-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-05-30T03:15:21.299Z',
+ image: '/images/blog/startup-scuola-ticino-frontalieri.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

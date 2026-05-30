@@ -7913,6 +7913,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Travail saisonnier frontalier en Suisse romande',
     'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Découvrez les règles, les droits et les opportunités pour le travail saisonnier en Suisse romande : permis, contrats, fiscalité.',
     'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier travaillant en Ticino pendant la saison estivale',
+    'blog.article.startup-scuola-ticino-frontalieri.title': 'Startups à l’école au Tessin : des opportunités pour les frontaliers',
+    'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 idées entrepreneuriales nées en Lombardie : comment les jeunes peuvent nous inspirer sur le travail transfrontalier et l’innovation sociale. Mise en avant de la formation et du **capital humain** pour les travailleurs frontaliers.',
+    'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Salle de classe moderne à Lugano avec des élèves travaillant sur des ordinateurs portables, drapeau du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

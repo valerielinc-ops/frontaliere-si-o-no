@@ -7913,6 +7913,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Frontaliere lavoro stagionale Ticino',
     'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Scopri le regole, i diritti e le opportunità per il lavoro stagionale in Ticino: permessi, contratti, fiscalità.',
     'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontaliere che lavora in Ticino durante la stagione estiva',
+    'blog.article.startup-scuola-ticino-frontalieri.title': 'Startup a scuola in Ticino: opportunità per frontalieri',
+    'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 idee imprenditoriali nate in Lombardia: come i giovani possono ispirarci sul lavoro transfrontaliero e innovazione sociale. Focus su formazione e capitale umano per i frontalieri.',
+    'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Aula moderna a Lugano con studenti che lavorano su laptop, bandiera del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;
