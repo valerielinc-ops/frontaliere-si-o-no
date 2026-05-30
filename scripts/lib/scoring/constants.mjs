@@ -13,6 +13,22 @@ export const GSC_MIN_SIGNAL = 5;
 // signal is too weak to trust embedding-based prediction.
 export const EMBEDDING_MIN_COSINE = 0.4;
 
+// Semantic near-duplicate ceiling (2026-05-30). The lexical Jaccard gates
+// in create-article.mjs (`checkForDuplicates`) miss articles that re-tell
+// the SAME story with different vocabulary — e.g. "Aumento salari Svizzera
+// 2024" vs "Aumenti salariali Ticino 2025" share ~0 title tokens yet sit
+// at cosine 0.876. When a candidate's title+excerpt embedding is at or
+// above this cosine to an already-published article, it's a near-duplicate
+// and is rejected pre-publish. Tunable via env NEAR_DUP_COSINE; degrades
+// to a no-op when the embedding store is missing or the API call fails.
+export const EMBEDDING_NEAR_DUP_COSINE = Math.min(
+  1,
+  Math.max(
+    EMBEDDING_MIN_COSINE,
+    Number.parseFloat(process.env.NEAR_DUP_COSINE || '0.86') || 0.86,
+  ),
+);
+
 // Confidence multipliers per cascade stage. Final score = rawScore * confidence.
 export const CONFIDENCE_GSC = 1.0;
 export const CONFIDENCE_EMBEDDING = 0.8;

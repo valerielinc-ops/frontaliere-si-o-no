@@ -118,6 +118,7 @@ import { extractArticleText } from './lib/extract-article-text.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck.mjs';
+import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -7483,6 +7484,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // Step 3a.2: Check for duplicates BEFORE translating (saves 3 API calls on duplicates)
   console.error('🔍 Verifica duplicati:');
   checkForDuplicates(data);
+  // Step 3a.3: Semantic near-duplicate gate — catches same-story/different-
+  // vocabulary dupes the lexical Jaccard above cannot see (cosine ≥ ceiling).
+  await checkSemanticNearDuplicate(data);
 
   // Step 3b: Translate to EN/DE/FR (only runs if not a duplicate)
   await translateArticle(data);
