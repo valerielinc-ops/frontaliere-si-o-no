@@ -7894,6 +7894,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Rail traffic restored between Locarno and Cadenazzo',
     'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'A faulty switch between Tenero and Gordola causing morning delays has been fixed.',
     'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Train station in Ticino with trains and passengers',
+    'blog.article.imprese-ticino-classifica-2024.title': 'Ticino ranks 8th in Switzerland for attracting companies',
+    'blog.article.imprese-ticino-classifica-2024.excerpt': 'New Crif data reveals Ticino\'s net growth in attracting businesses from other cantons in 2024.',
+    'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Panoramic view of Lugano and its lake on a sunny day',
 };
 
 export default blogMetaEn;

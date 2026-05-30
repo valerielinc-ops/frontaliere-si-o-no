@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2686,
+ "numberOfItems": 2687,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7326,7 +7326,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2683, "name": "Ethos boccia i compensi Novartis: «La busta pag...", "url": `${BASE_URL}/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia` },
           { "@type": "ListItem", "position": 2684, "name": "Intelligenza artificiale nelle aziende ticinesi...", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-aziende-ticino` },
           { "@type": "ListItem", "position": 2685, "name": "Cinque atti parlamentari per migliorare la mobi...", "url": `${BASE_URL}/articoli-frontaliere/cinque-atti-parlamentari-ticino-mobilita` },
-          { "@type": "ListItem", "position": 2686, "name": "Ripristinato il traffico ferroviario tra Locarn...", "url": `${BASE_URL}/articoli-frontaliere/ripristino-treni-locarno-cadenazzo` }
+          { "@type": "ListItem", "position": 2686, "name": "Ripristinato il traffico ferroviario tra Locarn...", "url": `${BASE_URL}/articoli-frontaliere/ripristino-treni-locarno-cadenazzo` },
+          { "@type": "ListItem", "position": 2687, "name": "Ticino ottavo in Svizzera per l'attrazione di a...", "url": `${BASE_URL}/articoli-frontaliere/imprese-ticino-classifica-2024` }
  ]
  },
  {

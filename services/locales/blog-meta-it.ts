@@ -7895,6 +7895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Ripristinato il traffico ferroviario tra Locarno e Cadenazzo',
     'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'Risolto il guasto a uno scambio tra Tenero e Gordola che ha bloccato i treni per tutta la mattina.',
     'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Stazione ferroviaria in Ticino con treni e passeggeri',
+    'blog.article.imprese-ticino-classifica-2024.title': 'Ticino ottavo in Svizzera per l\'attrazione di aziende',
+    'blog.article.imprese-ticino-classifica-2024.excerpt': 'I nuovi dati Crif rivelano la crescita netta del Ticino nell\'attrazione di imprese da altri cantoni nel 2024.',
+    'blog.article.imprese-ticino-classifica-2024.imageAlt': 'Veduta panoramica di Lugano e del suo lago in una giornata soleggiata',
 };
 
 export default blogMetaIt;
