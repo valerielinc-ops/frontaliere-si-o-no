@@ -41765,6 +41765,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ritenuta-lpp-intermediario-residente': {
+    title: 'Ritenuta 5% su prestazioni LPP: intermediario irrilevante',
+    description: 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritenuta, prestazioni, intermediario, irrilevante',
+    ogTitle: 'Ritenuta del 5% sulle prestazioni LPP svizzere: irrilevante la presenza dell’intermediario residente',
+    ogDescription: 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ritenuta-lpp-intermediario-residente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritenuta 5% su prestazioni LPP: intermediario irrilevante",
+      "description": "Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente. Informazioni utili per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ritenuta-lpp-intermediario-residente.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere al valico di confine mostra il permesso di lavoro e i documenti fiscali"
+      },
+      "datePublished": "2026-05-30T03:59:46+00:00",
+      "dateModified": "2026-05-30T03:59:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ritenuta-lpp-intermediario-residente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

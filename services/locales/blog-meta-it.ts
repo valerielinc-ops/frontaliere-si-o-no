@@ -7916,6 +7916,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.startup-scuola-ticino-frontalieri.title': 'Startup a scuola in Ticino: opportunità per frontalieri',
     'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 idee imprenditoriali nate in Lombardia: come i giovani possono ispirarci sul lavoro transfrontaliero e innovazione sociale. Focus su formazione e capitale umano per i frontalieri.',
     'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Aula moderna a Lugano con studenti che lavorano su laptop, bandiera del Ticino sullo sfondo',
+    'blog.article.ritenuta-lpp-intermediario-residente.title': 'Ritenuta 5% su prestazioni LPP: intermediario irrilevante',
+    'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente.',
+    'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontaliere al valico di confine mostra il permesso di lavoro e i documenti fiscali',
 };
 
 export default blogMetaIt;

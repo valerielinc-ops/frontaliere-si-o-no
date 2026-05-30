@@ -25121,4 +25121,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ritenuta-lpp-intermediario-residente',
+ category: 'fiscale',
+ date: '2026-05-30T03:59:46.315Z',
+ image: '/images/blog/ritenuta-lpp-intermediario-residente.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

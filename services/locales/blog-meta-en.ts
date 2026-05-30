@@ -7915,6 +7915,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.startup-scuola-ticino-frontalieri.title': 'Ticino startups in schools: cross-border opportunities',
     'blog.article.startup-scuola-ticino-frontalieri.excerpt': '500 entrepreneurial ideas born in Lombardy: how young innovators can inspire cross-border workers on transfrontier employment and social innovation. A focus on training and human capital for cross-border commuters.',
     'blog.article.startup-scuola-ticino-frontalieri.imageAlt': 'Modern classroom in Lugano with students working on laptops, Swiss-Italian flag in background',
+    'blog.article.ritenuta-lpp-intermediario-residente.title': '5% withholding on LPP benefits: intermediary irrelevant',
+    'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Discover how the 5% withholding tax on Swiss LPP benefits does not depend on the presence of a resident intermediary.',
+    'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier at the border checkpoint showing work permit and tax documents',
 };
 
 export default blogMetaEn;
