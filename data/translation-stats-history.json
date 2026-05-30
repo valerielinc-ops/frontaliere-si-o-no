@@ -11142,5 +11142,117 @@
         "pending": 11
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-30T15:11:49.229Z",
+    "label": "before",
+    "total": 9028,
+    "needsRetranslation": 5979,
+    "incomplete": 624,
+    "complete": 8404,
+    "missingByLocale": {
+      "it": 387,
+      "en": 332,
+      "de": 216,
+      "fr": 412
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 104
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 95
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 22
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 19
+      },
+      {
+        "company": "Nestlé",
+        "pending": 14
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 14
+      },
+      {
+        "company": "Schindler",
+        "pending": 14
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-30T17:42:07.713Z",
+    "label": "after",
+    "total": 9028,
+    "needsRetranslation": 1988,
+    "incomplete": 467,
+    "complete": 8561,
+    "missingByLocale": {
+      "it": 327,
+      "en": 250,
+      "de": 180,
+      "fr": 318
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 93
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 19
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 14
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 14
+      },
+      {
+        "company": "Schindler",
+        "pending": 14
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 11
+      }
+    ]
   }
 ]
