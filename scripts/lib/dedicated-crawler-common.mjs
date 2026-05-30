@@ -21,6 +21,7 @@ import {
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
+import { isAcceptableTranslation } from './translation-quality.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -3053,7 +3054,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             },
             minChars: Math.max(minDescriptionChars, 40),
           });
-          if (translatedDesc) {
+          // Reject clipped/truncated free-cascade output (length-ratio gate)
+          // before writing to the indexed descriptionByLocale dataset. The
+          // isThin re-flag only covers >=500-char sources on the NEXT run,
+          // so a fresh clip for 120-499 char sources would otherwise persist.
+          if (isAcceptableTranslation(sourceDesc, translatedDesc)) {
             job.descriptionByLocale[locale] = translatedDesc;
             jobTranslated = true;
           } else if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
