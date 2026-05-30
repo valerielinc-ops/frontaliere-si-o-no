@@ -84,6 +84,12 @@ jobs:
             --window-hours="${{ github.event.inputs.window_hours || '24' }}" \
             --active-window-days="${{ github.event.inputs.active_window_days || '30' }}"
 
+      # Single-writer invariant (see #794/#801): this is the ONLY automated writer of
+      # data/thin-page-promotions-*.json + .jsonl — a new writer would break the rebase-retry loop.
+      # .github/CODEOWNERS requires owner review to edit the EXISTING writer surface
+      # (this workflow + the fetch script + the data files) in a PR. It does NOT gate
+      # this job.s own direct-push to main, nor a brand-new writer added as new files;
+      # branch protection "Require review from Code Owners" is the enforcement for those.
       - name: Commit if changed
         run: |
           if git diff --quiet -- data/thin-page-promotions-active.json data/thin-page-promotions.jsonl; then
