@@ -7886,6 +7886,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos boccia i compensi Novartis: «La busta paga del CEO è eccessiva»',
     'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'La fondazione svizzera Ethos critica i compensi del top management di Novartis, giudicandoli sproporzionati rispetto alle performance.',
     'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Veduta aerea del distretto finanziario di Lugano con la sede Novartis sullo sfondo al tramonto',
+    'blog.article.intelligenza-artificiale-aziende-ticino.title': 'Intelligenza artificiale nelle aziende ticinesi: efficienza e sviluppo',
+    'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'L\'intelligenza artificiale sta rivoluzionando le aziende ticinesi, migliorando l\'efficienza operativa e liberando i dipendenti dai compiti ripetitivi.',
+    'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Ufficio moderno a Lugano con dipendenti che lavorano con interfacce AI',
 };
 
 export default blogMetaIt;

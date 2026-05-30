@@ -7885,6 +7885,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ethos-compensi-novartis-ceo-boccia.title': 'Ethos slams Novartis pay: CEO salary \'excessive\'',
     'blog.article.ethos-compensi-novartis-ceo-boccia.excerpt': 'Swiss foundation Ethos criticises Novartis top management compensation, deeming it disproportionate to performance.',
     'blog.article.ethos-compensi-novartis-ceo-boccia.imageAlt': 'Aerial view of Lugano financial district with Novartis headquarters at golden hour',
+    'blog.article.intelligenza-artificiale-aziende-ticino.title': 'AI in Ticino companies: efficiency and growth',
+    'blog.article.intelligenza-artificiale-aziende-ticino.excerpt': 'Artificial intelligence is revolutionizing Ticino companies, improving operational efficiency and freeing employees from repetitive tasks.',
+    'blog.article.intelligenza-artificiale-aziende-ticino.imageAlt': 'Modern office in Lugano with employees working with AI interfaces',
 };
 
 export default blogMetaEn;

@@ -3870,6 +3870,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-udc-finanze-ticino-aprile-2027': { name: 'Politica Ticino', path: '/articoli-frontaliere/udc-finanze-ticino-aprile-2027', parent: 'blog' },
     'blog-frontalieri-apprendisti-lugano': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-apprendisti-lugano', parent: 'blog' },
     'blog-ethos-compensi-novartis-ceo-boccia': { name: 'Ethos Novartis', path: '/articoli-frontaliere/ethos-compensi-novartis-ceo-boccia', parent: 'blog' },
+    'blog-intelligenza-artificiale-aziende-ticino': { name: 'Intelligenza artificiale', path: '/articoli-frontaliere/intelligenza-artificiale-aziende-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

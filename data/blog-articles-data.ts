@@ -25031,4 +25031,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'intelligenza-artificiale-aziende-ticino',
+ category: 'novita',
+ date: '2026-05-30T01:05:12.611Z',
+ image: '/images/blog/intelligenza-artificiale-aziende-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
