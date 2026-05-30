@@ -18,10 +18,10 @@
     "canton": "AG"
   },
   "AG::en::befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-fc9f11d843e6",
+    "winnerJobIdentifier": "hitachi-energy-5d85a1eeec2f",
     "winnerCanonical": "limited-automatic-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 1,
     "canton": "AG"
@@ -45,10 +45,10 @@
     "canton": "AG"
   },
   "AG::fr::befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-fc9f11d843e6",
+    "winnerJobIdentifier": "hitachi-energy-5d85a1eeec2f",
     "winnerCanonical": "limite-automatique-80-100-m-j-hitachi-energy-lenzburg-switzerland",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4667,
     "candidatesCount": 1,
     "canton": "AG"
@@ -71,11 +71,20 @@
     "candidatesCount": 2,
     "canton": "AG"
   },
+  "AG::it::aushilfe-flessibile-m-p-g-tally-weijl-aarau": {
+    "winnerJobIdentifier": "tally-weijl-59950cdafc4d",
+    "winnerCanonical": "assistente-flessibile-tally-weijl-aarau",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "AG"
+  },
   "AG::it::befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg": {
-    "winnerJobIdentifier": "hitachi-energy-fc9f11d843e6",
+    "winnerJobIdentifier": "hitachi-energy-5d85a1eeec2f",
     "winnerCanonical": "limitato-automatico-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "AG"
@@ -890,6 +899,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::en::patient-management-billing-coordinator-klinik-sonnenhalde-riehen": {
+    "winnerJobIdentifier": "klinik-sonnenhalde-c131990acb4e",
+    "winnerCanonical": "associate-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag": {
     "winnerJobIdentifier": "unispital-basel-566e9c3c314c",
     "winnerCanonical": "care-assistant-pa-or-assistant-assistant-health-and-social-ags-in-hourly-wage-universitatsspital-basel-basel",
@@ -1070,6 +1088,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen": {
+    "winnerJobIdentifier": "klinik-sonnenhalde-c131990acb4e",
+    "winnerCanonical": "personnel-gestion-des-patients-et-comptabilite-des-patients-klinik-sonnenhalde-riehen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln-847ca8",
@@ -1221,6 +1248,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen": {
+    "winnerJobIdentifier": "klinik-sonnenhalde-f3b6d688b496",
+    "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::fr::logistikerin-logistiker-efz-fachrichtung-lagertechnik-lagerlogistik-lehrstelle-universitatsspital-basel-basel": {
@@ -2132,6 +2168,24 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::de::experten-fur-den-au-endienst-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a4dfdd439b6e",
+    "winnerCanonical": "field-service-expert-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::fachperson-gesundheit-40-100-br-medizin-palliativ-care-sro-langenthal": {
+    "winnerJobIdentifier": "sro-4e52325397bd",
+    "winnerCanonical": "facharztin-facharzt-allgemeine-innere-medizin-notfallpraxis-50-100-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::field-service-expert-100-agie-charmilles-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-3fdadae9c7fe",
     "winnerCanonical": "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne",
@@ -2579,6 +2633,24 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::automatiker-efz-w-m-d-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a702ffc69725",
+    "winnerCanonical": "automatic-efz-w-m-d-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::automatiker-werkzeugmaschinen-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-5049157d2d69",
+    "winnerCanonical": "automatic-machine-tools-100-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -3158,6 +3230,24 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::automatiker-efz-w-m-d-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a702ffc69725",
+    "winnerCanonical": "efz-automatique-w-m-d-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::automatiker-werkzeugmaschinen-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-5049157d2d69",
+    "winnerCanonical": "outils-automatiques-100-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::detailhandelsfachfrau-mann-assistent-in-coop-gossau-bho34r": {
     "winnerJobIdentifier": "company-96xkec",
     "winnerCanonical": "detaillant-homme-interdiscount-jegensdorf-5e5998",
@@ -3443,6 +3533,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal": {
+    "winnerJobIdentifier": "sro-4e52325397bd",
+    "winnerCanonical": "pratique-d-urgence-generale-en-medecine-interne-50-100-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3636,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -3758,6 +3857,15 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::automatiker-efz-w-m-d-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a702ffc69725",
+    "winnerCanonical": "automatiker-cfc-w-m-d-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7273,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -5597,6 +5705,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::de::associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff": {
+    "winnerJobIdentifier": "company-c0vdfl",
+    "winnerCanonical": "mitarbeiter-in-nachtverlad-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::de::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1",
@@ -6236,6 +6353,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::en::associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff": {
+    "winnerJobIdentifier": "company-c0vdfl",
+    "winnerCanonical": "associate-nachtverlad-coop-chur-graubunden-c0vdfl",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur",
@@ -6345,12 +6471,12 @@
     "canton": "GR"
   },
   "GR::en::chef-cook-w-m-d-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-4j1lnt",
-    "winnerCanonical": "chef-cook-m-w-d-coop-genossenschaft-chur-4j1lnt",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-qvpnyt",
+    "winnerCanonical": "chef-with-additional-role-as-deputy-manager-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::chief-psychiatrist-psychiatrische-dienste-graubunden-cazis": {
@@ -6588,12 +6714,12 @@
     "canton": "GR"
   },
   "GR::en::sales-consultant-in-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-ro4syg",
-    "winnerCanonical": "sales-consultant-in-coop-genossenschaft-chur-ro4syg",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-766z9v",
+    "winnerCanonical": "sales-consultant-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::schnupperlehre-diverse-berufe-afp-e-cfc-kantonale-verwaltung-graubunden-chur": {
@@ -6866,6 +6992,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::fr::associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff": {
+    "winnerJobIdentifier": "company-c0vdfl",
+    "winnerCanonical": "collaborateur-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::fr::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-dfa1adf1",
@@ -6957,12 +7092,12 @@
     "canton": "GR"
   },
   "GR::fr::chef-cuisinier-w-m-d-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-4j1lnt",
-    "winnerCanonical": "chef-cuisinier-m-w-d-coop-genossenschaft-chur-4j1lnt",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-qvpnyt",
+    "winnerCanonical": "chef-avec-fonction-supplementaire-de-directeur-trice-adjoint-e-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::collaborateur-trice-gastronomie-coop-ristorante-chur-graubunden-b5lnff": {
@@ -7002,12 +7137,12 @@
     "canton": "GR"
   },
   "GR::fr::consultant-en-ventes-coop-genossenschaft-chur": {
-    "winnerJobIdentifier": "company-ro4syg",
-    "winnerCanonical": "consultant-en-ventes-coop-genossenschaft-chur-ro4syg",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-766z9v",
+    "winnerCanonical": "consultant-en-ventes-in-textil-jumbo-division-der-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
@@ -7637,6 +7772,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::associate-gastronomie-coop-ristorante-chur-graubunden-b5lnff": {
+    "winnerJobIdentifier": "company-c0vdfl",
+    "winnerCanonical": "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -8324,6 +8468,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::it::seller-in-food-coop-genossenschaft-chur-62c54a": {
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::specialista-infermieristico-qualificato-hf-fh-40-90-flury-stiftung-schiers": {
     "winnerJobIdentifier": "flury-stiftung-83adef9174d8",
     "winnerCanonical": "dipl-assistente-sanitario-hf-fh-40-90-flury-stiftung-schiers",
@@ -8469,12 +8622,12 @@
     "canton": "GR"
   },
   "GR::it::unterassistent-in-chirurgie-orthopala-100-spital-davos-davos": {
-    "winnerJobIdentifier": "spital-davos-5a7dd002f54a",
-    "winnerCanonical": "assistente-chirurgia-e-ortopedia-100-spital-davos-davos",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-davos-016659b12606",
+    "winnerCanonical": "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2727,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::unterassistenten-innen-pj-jahr-cseb-ch": {
@@ -8528,6 +8681,15 @@
     "decidedAt": "2026-05-24T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-food-coop-chur-graubunden-vnskkx": {
+    "winnerJobIdentifier": "company-l919m",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -8756,6 +8918,33 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::en::civilian-service-performer-as-nursing-assistant-surgical-clinic-specification-101140-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-f71f709c0382",
+    "winnerCanonical": "civil-servant-as-an-assistant-physician-chirurgical-clinic-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3684,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::civilian-service-personnel-as-a-jack-of-all-trades-in-the-drawing-office-position-101157-luzerner-kantonsspital-luks": {
+    "winnerJobIdentifier": "luks-e6eac5d96ceb",
+    "winnerCanonical": "civil-service-provider-as-allrounder-drawing-office-obligation-no-101157-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::en::civilian-service-personnel-as-cook-position-101150-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-08971abc56a7",
+    "winnerCanonical": "civilian-service-personnel-as-cook-in-main-kitchen-position-51535-luzerner-kantonsspital-luks-sursee",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5625,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon": {
     "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
     "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
@@ -8907,6 +9096,33 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.1176,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::fr::personnel-de-service-civil-en-tant-que-cuisinier-poste-101150-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-08971abc56a7",
+    "winnerCanonical": "employe-de-service-civil-en-tant-que-cuisinier-en-cuisine-principale-poste-51535-luzerner-kantonsspital-luks-sursee",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5789,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::prestataire-de-service-civil-comme-assistant-en-soins-infirmiers-clinique-chirurgicale-specification-101140-luzerner": {
+    "winnerJobIdentifier": "luks-f71f709c0382",
+    "winnerCanonical": "fonctionnaire-en-tant-que-medecin-adjoint-clinique-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1364,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::prestataire-de-service-civil-comme-polyvalent-dans-le-bureau-de-dessin-poste-101157-luzerner-kantonsspital-luks-luzern": {
+    "winnerJobIdentifier": "luks-4f38659d8fdc",
+    "winnerCanonical": "prestataire-de-service-civil-comme-tout-faire-en-entrepot-ts-tache-101156-luzerner-kantonsspital-luks-luzern",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3913,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
@@ -10026,12 +10242,12 @@
     "canton": "SG"
   },
   "SG::en::retailer-man-coop-gossau-207b00": {
-    "winnerJobIdentifier": "company-sz1j6n",
-    "winnerCanonical": "retailer-man-coop-gossau",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ymbv0r",
+    "winnerCanonical": "retailer-man-coop-gossau-c56811",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::retailer-mann-efz-creating-shopping-experiences-coop-gossau": {
@@ -10242,12 +10458,12 @@
     "canton": "SG"
   },
   "SG::fr::detaillant-homme-coop-gossau-207b00": {
-    "winnerJobIdentifier": "company-sz1j6n",
-    "winnerCanonical": "detaillant-homme-coop-gossau",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ymbv0r",
+    "winnerCanonical": "detaillant-homme-coop-gossau-c56811",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau": {
@@ -11042,6 +11258,15 @@
     "candidatesCount": 2,
     "canton": "SO"
   },
+  "SO::de::rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-olten",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::de::specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn": {
     "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-solothurner-spitaeler-solothurn",
@@ -11052,11 +11277,11 @@
     "canton": "SO"
   },
   "SO::en::emergency-medical-technician-male-female-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "solothurner-spitaeler-c832c798bcc0",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
-    "decidedAt": "2026-05-25T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
-    "score": 0.3077,
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "project-manager-client-representative-m-f-d-solothurner-spitaler-soh-olten",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1765,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -11129,6 +11354,15 @@
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6154,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::en::rettungssanitaterin-rettungssanitater-w-m-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-c832c798bcc0",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -11276,6 +11510,15 @@
     "candidatesCount": 2,
     "canton": "SO"
   },
+  "SO::fr::rettungssanitaterin-rettungssanitater-w-m-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-c832c798bcc0",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::fr::rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn": {
     "winnerJobIdentifier": "solothurner-spitaeler-995061b50544",
     "winnerCanonical": "infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn",
@@ -11318,6 +11561,15 @@
     "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::it::freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-59dcd7fc53ff",
+    "winnerCanonical": "mitarbeiterin-collaboratore-trice-kg-archiv-m-w-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -11367,11 +11619,11 @@
     "canton": "SO"
   },
   "SO::it::nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "solothurner-spitaeler-0eb1abbd40da",
-    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
-    "lastSeenAt": "2026-05-24T00:00:00.000Z",
-    "score": 0.6,
+    "winnerJobIdentifier": "solothurner-spitaeler-4fec30d37142",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-olten",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "SO"
   },
@@ -11510,6 +11762,15 @@
     "candidatesCount": 1,
     "canton": "SO"
   },
+  "SO::it::soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-c832c798bcc0",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::it::specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn": {
     "winnerJobIdentifier": "solothurner-spitaeler-96877bc703ba",
     "winnerCanonical": "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
@@ -11637,18 +11898,18 @@
     "canton": "TG"
   },
   "TG::de::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.9286,
-    "candidatesCount": 2,
+    "score": 0.5294,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 1,
     "candidatesCount": 2,
@@ -11745,21 +12006,21 @@
     "canton": "TG"
   },
   "TG::de::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.35,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::de::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.1739,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen": {
@@ -11871,9 +12132,9 @@
     "canton": "TG"
   },
   "TG::de::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.05,
     "candidatesCount": 2,
@@ -11906,6 +12167,15 @@
     "candidatesCount": 2,
     "canton": "TG"
   },
+  "TG::de::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::de::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
     "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
     "winnerCanonical": "psychologe-in-spital-thurgau-stgag-diessenhofen",
@@ -11916,21 +12186,21 @@
     "canton": "TG"
   },
   "TG::de::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::de::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.1923,
-    "candidatesCount": 2,
+    "score": 0.1538,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
@@ -11988,18 +12258,18 @@
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3182,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 2,
@@ -12159,21 +12429,21 @@
     "canton": "TG"
   },
   "TG::en::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.9333,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.6316,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen": {
@@ -12330,9 +12600,9 @@
     "canton": "TG"
   },
   "TG::en::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2105,
     "candidatesCount": 2,
@@ -12357,11 +12627,20 @@
     "canton": "TG"
   },
   "TG::en::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2609,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3636,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -12375,21 +12654,21 @@
     "canton": "TG"
   },
   "TG::en::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3913,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "education-care-specialist-hf-3-years-shortened-working-related-bfgs-january-2026-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.375,
-    "candidatesCount": 2,
+    "score": 0.36,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
@@ -12627,21 +12906,21 @@
     "canton": "TG"
   },
   "TG::fr::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3913,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.375,
-    "candidatesCount": 2,
+    "score": 0.32,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen": {
@@ -12798,9 +13077,9 @@
     "canton": "TG"
   },
   "TG::fr::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 2,
@@ -12833,6 +13112,15 @@
     "candidatesCount": 2,
     "canton": "TG"
   },
+  "TG::fr::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.32,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::fr::specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
     "winnerJobIdentifier": "spital-thurgau-e4dcde94c1f6",
     "winnerCanonical": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
@@ -12843,21 +13131,21 @@
     "canton": "TG"
   },
   "TG::fr::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.9444,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialiste-de-l-education-hf-3-ans-de-raccourcissement-lie-au-travail-bfgs-janvier-2026-spital-thurgau-stgag-munsterlin",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.8947,
-    "candidatesCount": 2,
+    "score": 0.44,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::assistente-medico-in-formazione-specialistica-avanzata-psichiatria-infantile-e-giovanile-e-psicoterapia-con-interesse-ne": {
@@ -12933,36 +13221,36 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.381,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.2174,
-    "candidatesCount": 2,
+    "score": 0.1923,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch-3": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 2,
@@ -12987,9 +13275,9 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.1818,
     "candidatesCount": 2,
@@ -13212,21 +13500,21 @@
     "canton": "TG"
   },
   "TG::it::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.381,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen": {
@@ -13518,9 +13806,9 @@
     "canton": "TG"
   },
   "TG::it::sostanza-in-urologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 2,
@@ -13554,18 +13842,18 @@
     "canton": "TG"
   },
   "TG::it::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-s-r1391v": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.9333,
     "candidatesCount": 2,
@@ -13581,21 +13869,21 @@
     "canton": "TG"
   },
   "TG::it::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3478,
     "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-46997e17bd69",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-abbreviato-legato-al-lavoro-bfgs-gennaio-2026-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.2963,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch": {
@@ -14121,11 +14409,11 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzn5",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-locarno",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.7143,
+    "score": 0.8571,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -14574,7 +14862,7 @@
     "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
     "winnerCanonical": "personalwesen-spezialist-lwp-ledermann-wieting-partners-lugano",
     "decidedAt": "2026-05-15T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 9,
     "canton": "TI"
@@ -14595,6 +14883,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::en::administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::en::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -16190,6 +16487,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::fr::personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
     "winnerJobIdentifier": "company-uikzkn",
     "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -17441,6 +17747,15 @@
     "candidatesCount": 9,
     "canton": "TI"
   },
+  "VD::de::auxiliaire-de-sante-polyvalent-e-pole-sante-pays-enhaut-chateau-d-oex": {
+    "winnerJobIdentifier": "pole-sante-pays-enhaut-1a778bc302ed",
+    "winnerCanonical": "medizinischer-assistent-pole-sante-pays-d-enhaut-chateau-d-oex",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2": {
     "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
@@ -17556,6 +17871,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::en::auxiliaire-de-sante-polyvalent-e-pole-sante-pays-enhaut-chateau-d-oex": {
+    "winnerJobIdentifier": "pole-sante-pays-enhaut-1a778bc302ed",
+    "winnerCanonical": "assistant-e-medical-e-pole-sante-pays-enhaut-chateau-d-oex",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6154,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::en::datenzentrumstechniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne": {
@@ -17697,7 +18021,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 1,
     "canton": "VD"
@@ -17715,7 +18039,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
@@ -17973,11 +18297,11 @@
     "canton": "VS"
   },
   "VS::de::medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc": {
-    "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
-    "winnerCanonical": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hopital-du-valais-6b4230c38cbe",
+    "winnerCanonical": "medizinische-klinik-chefs-oder-krankenhausarzte-zwischen-20-und-100-fur-die-medizinische-klinik-des-krankenhauses-von",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.0435,
+    "score": 0.12,
     "candidatesCount": 1,
     "canton": "VS"
   },
@@ -18090,11 +18414,11 @@
     "canton": "VS"
   },
   "VS::en::medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc": {
-    "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
-    "winnerCanonical": "psychologist-psychotherapist-80-100-hopital-du-valais-brig",
-    "decidedAt": "2026-05-22T00:00:00.000Z",
+    "winnerJobIdentifier": "hopital-du-valais-6b4230c38cbe",
+    "winnerCanonical": "medical-clinic-chiefs-or-hospital-doctors-between-20-and-100-for-the-medical-clinic-of-the-hospital-of-sierre-hopital-du",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
-    "score": 0.0476,
+    "score": 0.0714,
     "candidatesCount": 1,
     "canton": "VS"
   },
@@ -18165,7 +18489,7 @@
     "winnerJobIdentifier": "marriott-60e874aa2d93",
     "winnerCanonical": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
     "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5833,
     "candidatesCount": 1,
     "canton": "VS"
@@ -18185,6 +18509,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.8824,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
+  "VS::fr::medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la": {
+    "winnerJobIdentifier": "hopital-du-valais-6b4230c38cbe",
+    "winnerCanonical": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.7222,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -18246,7 +18579,7 @@
     "winnerJobIdentifier": "marriott-60e874aa2d93",
     "winnerCanonical": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier",
     "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.1429,
     "candidatesCount": 2,
     "canton": "VS"
@@ -18350,6 +18683,15 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::it::medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la": {
+    "winnerJobIdentifier": "hopital-du-valais-6b4230c38cbe",
+    "winnerCanonical": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1034,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::it::medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc": {
     "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
     "winnerCanonical": "psicologo-ca-psicoterapeuta-80-100-hopital-du-valais-brig",
@@ -18366,6 +18708,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.16,
     "candidatesCount": 1,
+    "canton": "VS"
+  },
+  "VS::it::oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig": {
+    "winnerJobIdentifier": "hopital-du-valais-5306ffd988f6",
+    "winnerCanonical": "collaborateur-trice-sante-numerique-80-100-hopital-du-valais-sion",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2941,
+    "candidatesCount": 2,
     "canton": "VS"
   },
   "VS::it::pasticceria-6-mesi-w-verbier-marriott-international-verbier": {
@@ -18656,6 +19007,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::au-endiensttechniker-w-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "mechanischer-designer-80-100-w-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::augenoptiker-w-m-d-fielmann-ch": {
     "winnerJobIdentifier": "fielmann-0f27052f1a48",
     "winnerCanonical": "augenoptiker-w-m-d-fielmann-group-wadenswil",
@@ -18890,6 +19250,33 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::de::field-service-technician-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::field-service-technicien-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::field-service-techniker-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
@@ -18926,12 +19313,75 @@
     "candidatesCount": 17,
     "canton": "ZH"
   },
+  "ZH::de::lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::mechanical-designer-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::med-praxisangestellte-oder-fachangestellte-gesundheit-im-zentralen-belegungsmanagement-60": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0556,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::mitarbeiter-in-patientenservice-60-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::mpa-adipositaszentrum-60-80-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::oberarztin-oberarzt-80-100-clienia-ag-zurich": {
     "winnerJobIdentifier": "clienia-ag-92551d365e10",
     "winnerCanonical": "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon",
     "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::okay-let-s-tackle-this-translation-task-the-user-wants-the-job-title-production-controller-80-100-f-m-d-translated-into": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -18962,12 +19412,39 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::production-controller-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8182,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::project-manager-gis-high-voltage-80-100-hitachi-energy-zurich-switzerland": {
     "winnerJobIdentifier": "hitachi-energy-f830862be0bc",
     "winnerCanonical": "projektleiter-gis-hochspannung-80-100-hitachi-energy-zurich",
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-25T00:00:00.000Z",
     "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19070,12 +19547,57 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::de::servizio-tecnico-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni": {
     "winnerJobIdentifier": "company-7qutu2",
     "winnerCanonical": "systemgastronomiefachfrau-mann-efz-marche-dietlikon",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "teamleitung-patientenaufnahme-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumatologie-und-handchirurgie-spital": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0526,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::de::stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013-schwerpunkt-fuss-und": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-montag-mittwoch-und-donnerstag-spital-limmattal-ch",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0476,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19166,6 +19688,15 @@
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::au-endiensttechniker-w-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19313,6 +19844,33 @@
     "candidatesCount": 4,
     "canton": "ZH"
   },
+  "ZH::en::field-service-technician-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::field-service-technicien-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::field-service-techniker-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
     "winnerJobIdentifier": "hitachi-energy-52872821a354",
     "winnerCanonical": "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
@@ -19367,6 +19925,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::okay-let-s-tackle-this-translation-task-the-user-wants-the-job-title-production-controller-80-100-f-m-d-translated-into": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1923,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -19374,6 +19941,24 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 4,
+    "canton": "ZH"
+  },
+  "ZH::en::production-controller-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8182,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::project-and-team-assistance-kantonsspital-winterthur-ksw-winterthur": {
@@ -19400,6 +19985,15 @@
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19493,12 +20087,30 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::en::servizio-tecnico-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni": {
     "winnerJobIdentifier": "company-2p2jlr",
     "winnerCanonical": "system-gastronomy-technician-technician-marche-dietlikon",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::en::stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "stv-leading-u00c4rztin-stv-senior-doctor-in-the-clinic-f-u00fcr-orthop-u00e4die-traumatology-and-hand-surgery-spital",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.3043,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19551,7 +20163,7 @@
     "winnerJobIdentifier": "hitachi-energy-e5438dfe7558",
     "winnerCanonical": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
     "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.9286,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -19563,6 +20175,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 3,
+    "canton": "ZH"
+  },
+  "ZH::fr::apprentissage-personne-qualifiee-femme-hotellerie-efz-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "collaborateur-trice-patientenservice-60-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2308,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::arztsekretarin-arztsekretar-ksw-ch-3": {
@@ -19607,6 +20228,15 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::au-endiensttechniker-w-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -19781,6 +20411,33 @@
     "candidatesCount": 4,
     "canton": "ZH"
   },
+  "ZH::fr::field-service-technician-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::field-service-technicien-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-mecanique-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::field-service-techniker-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-mecanique-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::gestionnaire-de-projet-sig-haute-tension-80-100-hitachi-energy-zurich-switzerland": {
     "winnerJobIdentifier": "hitachi-energy-8c4503317175",
     "winnerCanonical": "gestionnaire-de-securite-de-cluster-80-100-f-m-d-hitachi-energy-zurich-switzerland",
@@ -19844,6 +20501,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::mechanical-designer-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-mecanique-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2": {
     "winnerJobIdentifier": "ksw-7b72b8163b86",
     "winnerCanonical": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur",
@@ -19871,6 +20537,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::okay-let-s-tackle-this-translation-task-the-user-wants-the-job-title-production-controller-80-100-f-m-d-translated-into": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-mecanique-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1923,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
@@ -19878,6 +20553,24 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0526,
     "candidatesCount": 4,
+    "canton": "ZH"
+  },
+  "ZH::fr::production-controller-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8182,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::project-manager-gis-high-voltage-80-100-hitachi-energy-zurich-switzerland": {
@@ -19895,6 +20588,24 @@
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::psychotherapeute-h-f-d-80-forel-klinik-ellikon-an-der-thur": {
+    "winnerJobIdentifier": "forel-klinik-77e386636f17",
+    "winnerCanonical": "psychotherapie-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5333,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -20015,6 +20726,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::fr::servizio-tecnico-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "concepteur-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni": {
     "winnerJobIdentifier": "company-7qutu2",
     "winnerCanonical": "specialiste-en-gastronomie-systematique-efz-marche-grigioni",
@@ -20022,6 +20742,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "collaborateur-trice-patientenservice-60-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::team-lead-care-and-support-tertianum-zurich": {
@@ -20087,6 +20816,15 @@
     "candidatesCount": 16,
     "canton": "ZH"
   },
+  "ZH::it::apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren": {
     "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
     "winnerCanonical": "apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren",
@@ -20106,10 +20844,10 @@
     "canton": "ZH"
   },
   "ZH::it::assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-4e23a4ed5adc",
-    "winnerCanonical": "umweltspezialist-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "hitachi-energy-1db71a148490",
+    "winnerCanonical": "assemblatore-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -20157,6 +20895,15 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::au-endiensttechniker-w-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::augenoptiker-w-m-d-fielmann-ch": {
@@ -20226,8 +20973,17 @@
     "winnerJobIdentifier": "hitachi-energy-2088aefa9c12",
     "winnerCanonical": "tornio-cnc-80-100-w-m-d-hitachi-energy-zurich",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::collaboratore-trice-in-reinigung-40-50-zun-u00e4chst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.15,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -20501,6 +21257,33 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::field-service-technician-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::field-service-technicien-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-meccanico-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::field-service-techniker-f-m-d-hitachi-energy-zurich": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-meccanico-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::guest-experience-expert-marriott-zurich": {
     "winnerJobIdentifier": "marriott-d770877a6294",
     "winnerCanonical": "esperienza-degli-ospiti-marriott-international-zurich",
@@ -20520,11 +21303,11 @@
     "canton": "ZH"
   },
   "ZH::it::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-52872821a354",
-    "winnerCanonical": "field-service-ingegnere-f-m-d-hitachi-energy-zurich",
-    "decidedAt": "2026-05-17T00:00:00.000Z",
-    "lastSeenAt": "2026-05-18T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "hitachi-energy-5310b070a09e",
+    "winnerCanonical": "ingegnere-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.4667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -20555,6 +21338,33 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::mechanical-designer-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::med-praxisangestellte-o-fachangestellte-gesundheit-im-zentralen-belegungsmanagement-60-100-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::med-praxisangestellte-oder-fachangestellte-gesundheit-im-zentralen-belegungsmanagement-60": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.0667,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2": {
     "winnerJobIdentifier": "ksw-7b72b8163b86",
     "winnerCanonical": "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
@@ -20562,6 +21372,33 @@
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0714,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::mitarbeiter-in-patientenservice-60-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::mitarbeiter-in-servicepoint-facility-management-70-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::mpa-adipositaszentrum-60-80-spital-limmattal-ch": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::oberarztin-arzt-80-100-clienia-ag-zurich": {
@@ -20579,6 +21416,15 @@
     "decidedAt": "2026-05-20T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::okay-let-s-tackle-this-translation-task-the-user-wants-the-job-title-production-controller-80-100-f-m-d-translated-into": {
+    "winnerJobIdentifier": "hitachi-energy-0e454234a925",
+    "winnerCanonical": "designer-meccanico-80-100-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -20600,6 +21446,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::pflegexperte-in-cas-mas-apn-con-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik": {
     "winnerJobIdentifier": "puk-zuerich-fadca51159cb",
     "winnerCanonical": "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
@@ -20618,21 +21473,39 @@
     "candidatesCount": 3,
     "canton": "ZH"
   },
+  "ZH::it::production-controller-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-0591b61ee0b3",
+    "winnerJobIdentifier": "hitachi-energy-f2dba17429f7",
     "winnerCanonical": "responsabile-produzione-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-05-25T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6429,
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::produktionsregler-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.8182,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::project-manager-gis-high-voltage-80-100-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-8c4503317175",
-    "winnerCanonical": "cluster-security-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
-    "score": 0.4375,
+    "winnerJobIdentifier": "hitachi-energy-f830862be0bc",
+    "winnerCanonical": "project-manager-gis-high-tensione-80-100-hitachi-energy-zurich",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -20645,12 +21518,30 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::it::psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur": {
+    "winnerJobIdentifier": "forel-klinik-77e386636f17",
+    "winnerCanonical": "psicotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6429,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::psychotherapeut-in-m-w-d-80-forel-klinik-ellikon-an-der-thur": {
     "winnerJobIdentifier": "forel-klinik-77e386636f17",
     "winnerCanonical": "psicoterapeuta-m-f-d-80-forel-klinik-ellikon-an-der-thur",
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.6429,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::regolatore-di-produzione-80-100-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.6923,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -20789,6 +21680,15 @@
     "candidatesCount": 2,
     "canton": "ZH"
   },
+  "ZH::it::servizio-tecnico-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-616216b02ea3",
+    "winnerCanonical": "designer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::it::specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni": {
     "winnerJobIdentifier": "company-6kplqg",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
@@ -20813,6 +21713,42 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::stationsleiter-in-im-pflegezentrum-f-u00fcr-la-demenzabteilung-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013": {
+    "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
+    "winnerCanonical": "mpa-adipositaszentrum-60-80-spital-limmattal-schlieren",
+    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "score": 0,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -20865,7 +21801,7 @@
     "winnerJobIdentifier": "hitachi-energy-e5438dfe7558",
     "winnerCanonical": "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-25T00:00:00.000Z",
+    "lastSeenAt": "2026-05-30T00:00:00.000Z",
     "score": 0.4286,
     "candidatesCount": 1,
     "canton": "ZH"
