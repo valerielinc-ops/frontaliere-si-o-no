@@ -58,8 +58,11 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
 const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
-// cascade/single = 350/day total (mailjet+unosend disabled), resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 350;
+// cascade = 550/day total (mailgun 100 + resend 100 + mailjet 200 + mailtrap 150), resend = 100.
+// 550 matches the real configured cascade capacity so a weekly campaign (campaignId=weekly_{monday})
+// clears the full active list (~2.5k) in ~4-5 daily runs — before the Monday campaign-ID rollover
+// leaves the tail unsent. At 350 the campaign needed ~7 days and ~25% never received that edition.
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 550;
 
 /**
  * Run async tasks with bounded concurrency.
