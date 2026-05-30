@@ -7919,6 +7919,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ritenuta-lpp-intermediario-residente.title': 'Ritenuta 5 % LPP : l\'intermédiaire n\'est pas déterminant',
     'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Découvrez que la retenue de 5 % sur les prestations LPP suisses ne dépend pas de la présence d’un intermédiaire résident.',
     'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier au poste de contrôle frontalier montrant son permis de travail et ses documents fiscaux',
+    'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Hausses de prix au Tessin : comment les frontaliers les ressentent',
+    'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'Les hausses de prix au Tessin sont perçues comme particulièrement douloureuses, selon des analyses récentes. Voici ce qu’il faut savoir.',
+    'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Paysage du Tessin avec lac et montagnes, scène photoréalistique, qualité DSLR.',
 };
 
 export default blogMetaFr;

@@ -7918,6 +7918,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ritenuta-lpp-intermediario-residente.title': '5% withholding on LPP benefits: intermediary irrelevant',
     'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Discover how the 5% withholding tax on Swiss LPP benefits does not depend on the presence of a resident intermediary.',
     'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier at the border checkpoint showing work permit and tax documents',
+    'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Cost Hikes in Ticino: How Cross-Border Workers Feel the Impact',
+    'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'Cost increases in Ticino are perceived as particularly painful, according to recent analyses. Here\'s what you need to know.',
+    'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Ticino landscape with lake and mountains, photorealistic scene, DSLR quality.',
 };
 
 export default blogMetaEn;
