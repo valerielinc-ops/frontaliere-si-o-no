@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2692,
+ "numberOfItems": 2693,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7332,7 +7332,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2689, "name": "Svizzeri scelgono capitale al posto della rendita", "url": `${BASE_URL}/articoli-frontaliere/svizzeri-scelgono-capitale-pensione` },
           { "@type": "ListItem", "position": 2690, "name": "Referendum Fortezza Bellinzona: si vota il 27 s...", "url": `${BASE_URL}/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre` },
           { "@type": "ListItem", "position": 2691, "name": "Licenziamento di Nurnberg", "url": `${BASE_URL}/articoli-frontaliere/licenziamento-nurnberg-rsi` },
-          { "@type": "ListItem", "position": 2692, "name": "Frontaliere lavoro stagionale Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino` }
+          { "@type": "ListItem", "position": 2692, "name": "Frontaliere lavoro stagionale Ticino", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino` },
+          { "@type": "ListItem", "position": 2693, "name": "Startup a scuola in Ticino: opportunità per fro...", "url": `${BASE_URL}/articoli-frontaliere/startup-scuola-ticino-frontalieri` }
  ]
  },
  {
