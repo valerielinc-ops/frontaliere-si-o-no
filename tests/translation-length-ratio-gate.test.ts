@@ -3,7 +3,7 @@ import {
   isAcceptableTranslation,
   MIN_TRANSLATION_RATIO,
   MIN_TRANSLATION_CHARS,
-} from '../scripts/fix-untranslated-descriptions.mjs';
+} from '../scripts/lib/translation-quality.mjs';
 
 // Guards the source-length-ratio gate shared by the three writers of
 // descriptionByLocale on indexed job pages: fix-untranslated-descriptions,

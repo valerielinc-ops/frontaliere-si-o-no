@@ -19,40 +19,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
-// Reject cascade output that is clipped/truncated relative to the source.
-// The free cascade (DeepL/SimplyTranslate/etc) can return a string cut to a
-// provider-dependent length cap; a hard `>= 100` floor accepts those clips.
-// A faithful translation stays within a reasonable band of the source length,
-// so anything below this ratio is treated as truncated and skipped.
-export const MIN_TRANSLATION_RATIO = 0.6;
-// Absolute character floor: anything shorter is too thin to be a real
-// translation regardless of the source length.
-export const MIN_TRANSLATION_CHARS = 100;
-
-/**
- * Shared gate for cascade/translation output before it is written to the
- * indexed `descriptionByLocale` dataset. Rejects empty, too-short, and
- * truncated (clipped) translations. A hard char floor alone accepts clips, so
- * a faithful translation must also stay within MIN_TRANSLATION_RATIO of the
- * source length. When the source length is unknown (empty/falsy), only the
- * char floor applies.
- *
- * @param {string} source - original (source-language) text being translated
- * @param {string} translated - candidate translation to validate
- * @returns {boolean} true if the candidate is acceptable to persist
- */
-export function isAcceptableTranslation(source, translated) {
-  if (typeof translated !== 'string') return false;
-  const candidate = translated.trim();
-  if (candidate.length < MIN_TRANSLATION_CHARS) return false;
-  const srcLen = (typeof source === 'string' ? source.trim() : '').length;
-  if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
-  return true;
-}
+// Translation-quality gate lives in a shared leaf lib so every writer of the
+// indexed descriptionByLocale dataset uses the SAME thresholds (single source
+// of truth). Re-exported here for back-compat with existing importers/tests.
+export {
+  MIN_TRANSLATION_RATIO,
+  MIN_TRANSLATION_CHARS,
+  isAcceptableTranslation,
+} from './lib/translation-quality.mjs';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
@@ -124,10 +103,10 @@ async function main() {
         });
 
         const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
-        const meetsMinLength = translated && translated.length >= MIN_TRANSLATION_CHARS;
-        const meetsRatio = translated && translated.length >= sourceDesc.length * MIN_TRANSLATION_RATIO;
+        // Single source of truth: same gate the sibling writers use.
+        const isAcceptable = isAcceptableTranslation(sourceDesc, translated);
 
-        if (isNewLanguage && meetsMinLength && meetsRatio) {
+        if (isNewLanguage && isAcceptable) {
           if (!DRY_RUN) {
             dbl[locale] = translated;
             job.descriptionByLocale = dbl;
@@ -140,7 +119,14 @@ async function main() {
             console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
           }
         } else {
-          if (isNewLanguage && meetsMinLength && !meetsRatio) {
+          // Diagnostic: distinguish a clipped/truncated translation (passes the
+          // char floor but fails the source-length ratio) from other failures.
+          const clipped =
+            isNewLanguage &&
+            translated &&
+            translated.length >= MIN_TRANSLATION_CHARS &&
+            !isAcceptable;
+          if (clipped) {
             const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
             console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: truncated translation (${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
           }

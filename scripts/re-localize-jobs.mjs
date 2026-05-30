@@ -16,7 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
-import { isAcceptableTranslation } from './fix-untranslated-descriptions.mjs';
+import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
