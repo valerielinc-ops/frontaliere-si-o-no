@@ -396,7 +396,7 @@ function renderEmployersPage(inp: RenderInputs): string {
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
 
-  const main = `<main class="seo-static-content s-wtIcSy">
+  const main = `<main class="s-wtIcSy">
     ${breadcrumb}
     ${headerBlock}
     ${tilesBlock}

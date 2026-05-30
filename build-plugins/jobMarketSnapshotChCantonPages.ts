@@ -504,7 +504,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     ctaLabel: c.ctaLabel,
   });
 
-  const main = `<main class="seo-static-content s-wtIcSy">
+  const main = `<main class="s-wtIcSy">
     ${breadcrumb}
     ${headerBlock}
     ${tilesBlock}
