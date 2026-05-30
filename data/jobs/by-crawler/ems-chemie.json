@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-05-30T10:45:47.771Z",
+  "assembledAt": "2026-05-30T21:58:25.435Z",
   "jobs": [
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
@@ -130,7 +130,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T12:26:00.141Z"
+      "firstSeenAt": "2026-05-28T12:26:00.141Z",
+      "needsRetranslation": true
     },
     {
       "title": "Anwendungstechniker Technische Fasern 100%",
@@ -273,7 +274,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-26T22:43:22.109Z"
+      "firstSeenAt": "2026-05-26T22:43:22.109Z",
+      "needsRetranslation": true
     },
     {
       "title": "Prozessingenieur / Betriebsentwickler Produktion (m/w/d) 100%",
@@ -472,13 +474,13 @@
       },
       "firstSeenAt": "2026-05-12T22:01:15.395Z",
       "previousSlugsByLocale": {
+        "it": [
+          "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems"
+        ],
         "en": [
           "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems"
         ],
         "fr": [
-          "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems"
-        ],
-        "it": [
           "qualitatssicherungsingenieur-m-w-d-100-ems-chemie-domat-ems"
         ]
       },
@@ -490,7 +492,8 @@
         "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
         "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
         "project-manager-test-materiali-m-f-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Distribution Manager (m/w/d) 100%",
@@ -547,10 +550,10 @@
       },
       "firstSeenAt": "2026-05-11T21:58:29.653Z",
       "previousSlugsByLocale": {
-        "de": [
+        "it": [
           "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
         ],
-        "it": [
+        "de": [
           "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
         ]
       },
