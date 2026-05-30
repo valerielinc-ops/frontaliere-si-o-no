@@ -7879,6 +7879,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.udc-finanze-ticino-aprile-2027.title': 'UDC Ticino: \'Ready to Revitalize Finance and Economy\'',
     'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'The UDC expresses its intention to lead the Department of Finance and Economy to restore public accounts and revitalize Ticino.',
     'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Photo of Castelgrande in Bellinzona, symbolizing stability and vision',
+    'blog.article.frontalieri-apprendisti-lugano.title': 'Cross-border apprentices? \'They don\'t work for Lugano\'',
+    'blog.article.frontalieri-apprendisti-lugano.excerpt': 'The City of Lugano responds to a question from councilor Omar Wicht: no cross-border apprentices currently employed.',
+    'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'View of Lugano from the lake with mountains in the background',
 };
 
 export default blogMetaEn;

@@ -7880,6 +7880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.udc-finanze-ticino-aprile-2027.title': 'UDC Ticino: \'Pronti a rilanciare finanze e economia del Cantone\'',
     'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'L\'UDC annuncia la volontà di guidare il Dipartimento delle finanze e dell\'economia per risanare i conti pubblici e rilanciare il Ticino.',
     'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Fotografia del Castelgrande di Bellinzona, simbolo di stabilità e visione',
+    'blog.article.frontalieri-apprendisti-lugano.title': 'Frontalieri anche come apprendisti? «Non lavorano per la Città di Lugano»',
+    'blog.article.frontalieri-apprendisti-lugano.excerpt': 'Il Comune di Lugano risponde a un\'interrogazione del consigliere comunale Omar Wicht: nessun apprendista frontaliero attualmente impiegato.',
+    'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Vista di Lugano dal lago con le montagne sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -25013,4 +25013,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-apprendisti-lugano',
+ category: 'novita',
+ date: '2026-05-30T00:38:08.604Z',
+ image: '/images/blog/frontalieri-apprendisti-lugano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
