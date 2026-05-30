@@ -1,18 +1,56 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-29T22:21:27.091Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-05-30T10:16:45.295Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 14558,
-  "avgDurationMs": 14558,
+  "durationMs": 14868,
+  "avgDurationMs": 14868,
   "durationHistory": [
-    14558
+    14868
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "payroll-time-attendance-integration-manager-emea-capri-holdings",
+      "category": "management",
+      "datePosted": "2026-05-30",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Manno"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",

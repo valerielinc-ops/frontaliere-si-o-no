@@ -1,15 +1,15 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-05-30T00:12:17.656Z",
+  "assembledAt": "2026-05-30T12:05:06.391Z",
   "jobs": [
     {
       "id": "prosenectute-ti-34a987b1a59e",
       "slug": "concorso-generale-2026-op-socio-assistenziali-pro-senectute-ticino-e-moesano-lugano",
       "slugByLocale": {
         "it": "concorso-generale-2026-op-socio-assistenziali-pro-senectute-ticino-e-moesano-lugano",
-        "en": "general-competition-2026-op-social-assistance-pro-senectute-ticino-e-moesano-lugano",
+        "en": "general-competition-2026-socio-healthcare-operators-pro-senectute-ticino-e-moesano-lugano",
         "de": "allgemeiner-wettbewerb-2026-sozial-und-pflegekrafte-pro-senectute-ticino-e-moesano-lugano",
-        "fr": "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano"
+        "fr": "concours-general-2026-operateurs-socio-assistanciels-pro-senectute-ticino-e-moesano-lugano"
       },
       "company": "Pro Senectute Ticino e Moesano",
       "companyKey": "prosenectute-ti",
@@ -34,7 +34,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T00:12:15.662Z",
+      "crawledAt": "2026-05-30T12:05:04.314Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -53,9 +53,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
+          "general-competition-2026-op-social-assistance-pro-senectute-ticino-e-moesano-lugano",
           "general-competition-2026-socio-healthcare-operators-pro-senectute-ticino-e-moesano-lugano"
         ],
         "fr": [
+          "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano",
           "concours-general-2026-operateurs-socio-assistanciels-pro-senectute-ticino-e-moesano-lugano"
         ],
         "it": [
@@ -63,8 +65,8 @@
         ]
       },
       "previousSlugs": [
-        "general-competition-2026-socio-healthcare-operators-pro-senectute-ticino-e-moesano-lugano",
-        "concours-general-2026-operateurs-socio-assistanciels-pro-senectute-ticino-e-moesano-lugano",
+        "general-competition-2026-op-social-assistance-pro-senectute-ticino-e-moesano-lugano",
+        "concours-general-2026-op-assistance-sociale-pro-senectute-ticino-e-moesano-lugano",
         "concorso-generale-2026-op-socio-assistenziali-prosenectute-ti"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
@@ -113,7 +115,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T00:12:15.339Z",
+      "crawledAt": "2026-05-30T12:05:03.789Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -157,7 +159,7 @@
       "slug": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
       "slugByLocale": {
         "it": "concorso-generale-2025-assistenti-sociali-pro-senectute-ticino-e-moesano-lugano",
-        "en": "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano",
+        "en": "general-contest-2025-social-workers-pro-senectute-ticino-e-moesano-lugano",
         "de": "allgemeine-ausschreibung-2025-sozialarbeiter-pro-senectute-ticino-e-moesano-lugano",
         "fr": "concours-general-2025-assistants-sociaux-pro-senectute-ticino-e-moesano-lugano"
       },
@@ -184,7 +186,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T00:12:14.793Z",
+      "crawledAt": "2026-05-30T12:05:03.111Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -203,6 +205,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
+          "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano",
           "general-contest-2025-social-workers-pro-senectute-ticino-e-moesano-lugano"
         ],
         "it": [
@@ -210,7 +213,7 @@
         ]
       },
       "previousSlugs": [
-        "general-contest-2025-social-workers-pro-senectute-ticino-e-moesano-lugano",
+        "general-competition-2025-social-assistants-pro-senectute-ticino-e-moesano-lugano",
         "concorso-generale-2025-assistenti-sociali-prosenectute-ti"
       ],
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
@@ -259,7 +262,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T00:12:13.535Z",
+      "crawledAt": "2026-05-30T12:05:01.864Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
