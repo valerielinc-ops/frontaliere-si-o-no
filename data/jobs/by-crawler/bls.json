@@ -1,15 +1,15 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-05-29T22:15:47.676Z",
+  "assembledAt": "2026-05-30T10:11:18.249Z",
   "jobs": [
     {
       "id": "bls-5c544ee2cd27",
       "slug": "prelavoratore-in-bls-ag-ferden",
       "slugByLocale": {
         "it": "prelavoratore-in-bls-ag-ferden",
-        "en": "preworker-in-bls-ag-ferden",
+        "en": "vorarbeiter-in-bls-ch",
         "de": "vorarbeiter-in-bls-ag-ferden",
-        "fr": "pretravailleur-bls-ag-ferden"
+        "fr": "vorarbeiter-in-bls-ch"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/35ecd549-177e-4b31-9111-47a688cd0046",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T22:15:45.349Z",
+      "crawledAt": "2026-05-30T10:11:15.751Z",
       "addressLocality": "Ferden",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,16 +75,21 @@
           "vorarbeiter-in-bls-ch"
         ],
         "en": [
+          "preworker-in-bls-ag-ferden",
           "vorarbeiter-in-bls-ch"
         ],
         "fr": [
+          "pretravailleur-bls-ag-ferden",
           "vorarbeiter-in-bls-ch"
         ]
       },
       "previousSlugs": [
-        "vorarbeiter-in-bls-ch"
+        "vorarbeiter-in-bls-ch",
+        "preworker-in-bls-ag-ferden",
+        "pretravailleur-bls-ag-ferden"
       ],
       "firstSeenAt": "2026-05-28T11:50:07.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
