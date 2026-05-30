@@ -16,6 +16,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { callLLM, flushScores } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { isAcceptableTranslation } from './fix-untranslated-descriptions.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -202,7 +203,10 @@ async function main() {
         } else {
           console.log(`  [${locale}] Translating...`);
           const translated = await translateDescription(srcDesc, locale, sourceLang);
-          if (translated && translated.length > before) {
+          // For a missing locale `before` is 0, so `translated.length > before`
+          // alone accepts any clip; the source-ratio gate rejects truncated
+          // translations before they reach the indexed dataset.
+          if (isAcceptableTranslation(srcDesc, translated) && translated.length > before) {
             job.descriptionByLocale[locale] = translated;
             console.log(`  [${locale}] Done: ${before} → ${translated.length} chars`);
             updated++;

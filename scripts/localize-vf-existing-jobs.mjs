@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isAcceptableTranslation } from './fix-untranslated-descriptions.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -191,7 +192,12 @@ async function localizeJob(job) {
       targetLang: locale,
       minChars: 120,
     });
-    if (translatedDesc) out.descriptionByLocale[locale] = translatedDesc;
+    // Reject empty, too-short, and truncated (length-ratio) translations
+    // before they reach the indexed descriptionByLocale dataset; a >=120-char
+    // floor alone accepts provider clips.
+    if (isAcceptableTranslation(sourceDescription, translatedDesc)) {
+      out.descriptionByLocale[locale] = translatedDesc;
+    }
   }
 
   return out;

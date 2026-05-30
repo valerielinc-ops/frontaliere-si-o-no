@@ -28,7 +28,31 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 // provider-dependent length cap; a hard `>= 100` floor accepts those clips.
 // A faithful translation stays within a reasonable band of the source length,
 // so anything below this ratio is treated as truncated and skipped.
-const MIN_TRANSLATION_RATIO = 0.6;
+export const MIN_TRANSLATION_RATIO = 0.6;
+// Absolute character floor: anything shorter is too thin to be a real
+// translation regardless of the source length.
+export const MIN_TRANSLATION_CHARS = 100;
+
+/**
+ * Shared gate for cascade/translation output before it is written to the
+ * indexed `descriptionByLocale` dataset. Rejects empty, too-short, and
+ * truncated (clipped) translations. A hard char floor alone accepts clips, so
+ * a faithful translation must also stay within MIN_TRANSLATION_RATIO of the
+ * source length. When the source length is unknown (empty/falsy), only the
+ * char floor applies.
+ *
+ * @param {string} source - original (source-language) text being translated
+ * @param {string} translated - candidate translation to validate
+ * @returns {boolean} true if the candidate is acceptable to persist
+ */
+export function isAcceptableTranslation(source, translated) {
+  if (typeof translated !== 'string') return false;
+  const candidate = translated.trim();
+  if (candidate.length < MIN_TRANSLATION_CHARS) return false;
+  const srcLen = (typeof source === 'string' ? source.trim() : '').length;
+  if (srcLen > 0 && candidate.length < srcLen * MIN_TRANSLATION_RATIO) return false;
+  return true;
+}
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
@@ -100,7 +124,7 @@ async function main() {
         });
 
         const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
-        const meetsMinLength = translated && translated.length >= 100;
+        const meetsMinLength = translated && translated.length >= MIN_TRANSLATION_CHARS;
         const meetsRatio = translated && translated.length >= sourceDesc.length * MIN_TRANSLATION_RATIO;
 
         if (isNewLanguage && meetsMinLength && meetsRatio) {
@@ -137,4 +161,12 @@ async function main() {
   logCascadeSummary();
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+// Only run the batch when invoked directly as a script; allow the helper above
+// to be imported (e.g. by localize-vf-existing-jobs.mjs / re-localize-jobs.mjs)
+// without side effects.
+const isMainModule =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
+  main().catch(err => { console.error('❌', err.message); process.exit(1); });
+}
