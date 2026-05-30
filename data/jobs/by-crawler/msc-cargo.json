@@ -76,9 +76,9 @@
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
       "slugByLocale": {
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
         "en": "f-b-service-manager-msc-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
@@ -136,7 +136,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
@@ -288,10 +296,10 @@
     },
     {
       "id": "msc-cargo-9469e7860b49",
-      "slug": "multimedia-and-av-manager-msc-geneva",
+      "slug": "gestione-multimediale-e-av-msc-group-geneva",
       "slugByLocale": {
         "en": "multimedia-and-av-manager-msc-geneva",
-        "it": "multimedia-and-av-manager-msc-geneva",
+        "it": "gestione-multimediale-e-av-msc-group-geneva",
         "de": "multimedia-and-av-manager-msc-geneva",
         "fr": "multimedia-and-av-manager-msc-geneva"
       },
@@ -350,7 +358,15 @@
         }
       },
       "firstSeenAt": "2026-05-30T00:01:54.401Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "multimedia-and-av-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "multimedia-and-av-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-37ffd0de68db",
@@ -998,10 +1014,10 @@
     },
     {
       "id": "msc-cargo-32cf9574722c",
-      "slug": "culinary-operations-manager-msc-geneva",
+      "slug": "gestione-delle-operazioni-culinarie-msc-group-geneva",
       "slugByLocale": {
         "en": "culinary-operations-manager-msc-geneva",
-        "it": "culinary-operations-manager-msc-geneva",
+        "it": "gestione-delle-operazioni-culinarie-msc-group-geneva",
         "de": "culinary-operations-manager-msc-geneva",
         "fr": "culinary-operations-manager-msc-geneva"
       },
@@ -1060,7 +1076,15 @@
         }
       },
       "firstSeenAt": "2026-05-30T00:01:42.104Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "culinary-operations-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "culinary-operations-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-d7e4d37de431",

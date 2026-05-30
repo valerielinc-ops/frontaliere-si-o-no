@@ -3168,9 +3168,9 @@
     },
     {
       "id": "nestle-1398542833",
-      "slug": "global-eur-safety-lead-nestle-ch",
+      "slug": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
       "slugByLocale": {
-        "it": "global-eur-safety-lead-nestle-ch",
+        "it": "piombo-di-sicurezza-globale-e-eur-nestle-la-tour-de-peilz-ch",
         "en": "global-eur-safety-lead-nestle-ch",
         "de": "global-eur-safety-lead-nestle-ch",
         "fr": "global-eur-safety-lead-nestle-ch"
@@ -3226,7 +3226,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-eur-safety-lead-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-eur-safety-lead-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1376073533",

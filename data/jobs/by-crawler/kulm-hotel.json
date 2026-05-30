@@ -102,9 +102,9 @@
     },
     {
       "id": "kulm-hotel-c30b1e229ae1",
-      "slug": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
+      "slug": "partecipante-in-camera-zimmerdame-m-w-d-kulm-hotel-st-moritz-st-254b75",
       "slugByLocale": {
-        "it": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
+        "it": "partecipante-in-camera-zimmerdame-m-w-d-kulm-hotel-st-moritz-st-254b75",
         "en": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
         "de": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz",
         "fr": "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
@@ -165,7 +165,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "room-attendant-zimmerdame-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-59df002ccde6",

@@ -441,9 +441,9 @@
     },
     {
       "id": "pictet-f0a8b803e4cc",
-      "slug": "operations-officer-alternative-investments-pictet-geneva",
+      "slug": "operazioni-ufficiale-investimenti-alternativi-pictet-group-geneva",
       "slugByLocale": {
-        "it": "operations-officer-alternative-investments-pictet-geneva",
+        "it": "operazioni-ufficiale-investimenti-alternativi-pictet-group-geneva",
         "en": "operations-officer-alternative-investments-pictet-geneva",
         "de": "operations-officer-alternative-investments-pictet-geneva",
         "fr": "operations-officer-alternative-investments-pictet-geneva"
@@ -500,7 +500,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-officer-alternative-investments-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "operations-officer-alternative-investments-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-dc0727a3f593",
@@ -641,9 +649,9 @@
     },
     {
       "id": "pictet-72002f4e4ec8",
-      "slug": "senior-transfer-agent-fund-operations-pictet-luxembourg",
+      "slug": "agente-di-trasferimento-senior-operazioni-del-fondo-pictet-group-luxembourg",
       "slugByLocale": {
-        "it": "senior-transfer-agent-fund-operations-pictet-luxembourg",
+        "it": "agente-di-trasferimento-senior-operazioni-del-fondo-pictet-group-luxembourg",
         "en": "senior-transfer-agent-fund-operations-pictet-luxembourg",
         "de": "senior-transfer-agent-fund-operations-pictet-luxembourg",
         "fr": "senior-transfer-agent-fund-operations-pictet-luxembourg"
@@ -700,7 +708,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-transfer-agent-fund-operations-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "senior-transfer-agent-fund-operations-pictet-luxembourg"
+      ]
     }
   ]
 }

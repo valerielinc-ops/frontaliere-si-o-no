@@ -1608,9 +1608,9 @@
     },
     {
       "id": "sanatorium-kilchberg-3a7dc18f56b3",
-      "slug": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+      "slug": "medicina-interna-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+        "it": "medicina-interna-sanatorium-kilchberg-kilchberg",
         "en": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
         "de": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
         "fr": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
@@ -1667,7 +1667,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+      ]
     }
   ]
 }
