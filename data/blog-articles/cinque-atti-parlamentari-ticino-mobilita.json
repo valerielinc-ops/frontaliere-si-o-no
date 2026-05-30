@@ -1,0 +1,40 @@
+{
+  "id": "cinque-atti-parlamentari-ticino-mobilita",
+  "slug": "cinque-atti-parlamentari-ticino-mobilita",
+  "publishedAt": "2026-05-30T01:17:10.803Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.036380945708341,
+    "confidence": 0.8,
+    "finalScore": 4.829104756566673,
+    "topK": [
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8623401351011917
+      },
+      {
+        "slug": "svincolo-a2-sigirino-ritardo",
+        "cosine": 0.8558465178793282
+      },
+      {
+        "slug": "gottardo-lavoratori-frontalieri",
+        "cosine": 0.8521176694436763
+      },
+      {
+        "slug": "cantieri-traffico-frontiera",
+        "cosine": 0.8510170498394483
+      },
+      {
+        "slug": "bollino-rosso-a2-chiasso-lugano-2026",
+        "cosine": 0.8506297728167169
+      }
+    ],
+    "score": 4.829104756566673,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

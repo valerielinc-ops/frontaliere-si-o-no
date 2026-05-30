@@ -1,33 +1,34 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-05-29T11:24:00.385Z",
+  "generatedAt": "2026-05-29T21:59:49.451Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12493,
-  "avgDurationMs": 12493,
+  "unchangedCount": 6,
+  "durationMs": 14223,
+  "avgDurationMs": 14223,
   "durationHistory": [
-    12493
+    14223
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
-      "title": "Responsabile vendite per l’agenzia generale Chur, 100%",
-      "slug": "responsabile-vendite-per-l-agenzia-generale-chur-100",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/405/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/405/Application/CheckLogin/4",
+      "title": "| Allianz | Bewerbermanagement",
+      "slug": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Application/CheckLogin/4",
       "company": "Allianz Suisse",
       "companyKey": "allianz-suisse",
       "companyDomain": "umantis.com",
-      "location": "Davos",
-      "addressLocality": "Davos",
+      "location": "Region Graubünden",
+      "addressLocality": "Region Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
       "country": "CH",
-      "category": "sales",
+      "category": "insurance",
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
@@ -35,16 +36,26 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 67,
+      "id": "allianz-suisse-673166e2ef7b",
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-17T09:33:54.522Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 10,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
@@ -194,20 +205,20 @@
       }
     },
     {
-      "title": "| Allianz | Bewerbermanagement",
-      "slug": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Application/CheckLogin/4",
+      "title": "Responsabile vendite per l’agenzia generale Chur, 100%",
+      "slug": "responsabile-vendite-per-l-agenzia-generale-chur-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/405/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/405/Application/CheckLogin/4",
       "company": "Allianz Suisse",
       "companyKey": "allianz-suisse",
       "companyDomain": "umantis.com",
-      "location": "Region Graubünden",
-      "addressLocality": "Region Graubünden",
+      "location": "Davos",
+      "addressLocality": "Davos",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "canton": "GR",
       "country": "CH",
-      "category": "insurance",
+      "category": "sales",
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
@@ -215,19 +226,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "allianz-suisse-673166e2ef7b",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
+      "id": "allianz-suisse-7089f98a6ebe",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-17T09:33:54.522Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-05-29T11:24:00.384Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -268,7 +278,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

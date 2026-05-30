@@ -21,6 +21,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
+import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -593,11 +594,7 @@ const STRIP_EXPIRED_JOB_PROSE = (process.env.STRIP_EXPIRED_JOB_PROSE ?? '1') !==
 // (set STRIP_ACTIVE_JOB_PROSE=0 to keep prose). When on, the same marker
 // is emitted and audits skip the page just like for expired pages.
 const STRIP_ACTIVE_JOB_PROSE = (process.env.STRIP_ACTIVE_JOB_PROSE ?? '1') !== '0';
-// Use UPPERCASE placeholder-comment form so it survives the HTML minifier's
-// comment-strip pass (htmlMinify.ts preserves only <!--[A-Z][A-Z0-9_]*-->;
-// the prior lowercase `<!--ejp-stripped-->` was being stripped, defeating
-// the audit-text-html-ratio skip).
-const EJP_STRIPPED_MARKER = '<!--EJP_STRIPPED-->';
+// EJP_STRIPPED_MARKER imported from ./shared/ejpMarker (single source of truth).
 
 export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return {

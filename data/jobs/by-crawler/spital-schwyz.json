@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-schwyz",
-  "assembledAt": "2026-05-29T14:01:57.495Z",
+  "assembledAt": "2026-05-30T00:37:03.330Z",
   "jobs": [
     {
       "id": "spital-schwyz-5d247ab15806",
@@ -16,7 +16,7 @@
       "companyDomain": "spital-schwyz.ch",
       "title": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
       "titleByLocale": {
-        "it": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
+        "it": "Dipl. Esperto nella cura intensiva NDS HF Spring 2027",
         "en": "Study place Dipl. Expert/in Intensive Care NDS HF Spring 2027",
         "de": "Studienplatz Dipl. Expert:in Intensivpflege NDS HF Frühling 2027",
         "fr": "Place d'étude d'expert diplômé en soins intensifs NDS ES printemps 2027"
@@ -34,7 +34,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Intensivpflege-NDS-HF-Fruehling-de-j525.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-29T14:01:55.267Z",
+      "crawledAt": "2026-05-30T00:37:01.146Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -71,7 +71,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-schwyz-3238a452acff",
@@ -104,7 +105,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Dipl-Expertin-Anaesthesiepflege-NDS-HF-Fruehl-de-j497.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:54.775Z",
+      "crawledAt": "2026-05-30T00:37:00.629Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -188,7 +189,7 @@
       "url": "https://jobs.spital-schwyz.ch/Studienplatz-Ausbildung-dipl-Pflegefachperson-HF-Ausbildun-de-j465.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:54.123Z",
+      "crawledAt": "2026-05-30T00:36:59.921Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -262,7 +263,7 @@
       "url": "https://jobs.spital-schwyz.ch/Pflegefachperson-im-Pflegepool-auf-Abruf-de-j242.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:53.468Z",
+      "crawledAt": "2026-05-30T00:36:59.215Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -305,7 +306,7 @@
       "id": "spital-schwyz-ba1d173f5977",
       "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz-schwyz",
+        "it": "oberarztin-oberarzt-ginecologia-e-ostetricia-60-100-jobsharing-possibile-spital-schwyz-schwyz",
         "en": "senior-physician-gynecology-and-obstetrics-60-100-jobsharing-possible-spital-schwyz-schwyz",
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz",
         "fr": "chef-de-service-gynecologie-et-obstetrique-60-100-jobsharing-possible-spital-schwyz-schwyz"
@@ -332,7 +333,7 @@
       "url": "https://jobs.spital-schwyz.ch/OberaerztinOberarzt-Gynaekologie-und-Geburtshilfe-60-100-J-de-j491.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:52.799Z",
+      "crawledAt": "2026-05-30T00:36:58.563Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -350,13 +351,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz",
-        "oberarztin-oberarzt-ginecologia-e-ostetricia-60-100-jobsharing-possibile-spital-schwyz-schwyz"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz",
-          "oberarztin-oberarzt-ginecologia-e-ostetricia-60-100-jobsharing-possibile-spital-schwyz-schwyz"
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-60-100-jobsharing-moglich-spital-schwyz"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:31.232Z",
@@ -404,7 +403,7 @@
       "url": "https://jobs.spital-schwyz.ch/Oberaerztin-Oberarzt-Onkologie-50-100--de-j521.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:52.144Z",
+      "crawledAt": "2026-05-30T00:36:57.902Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -475,7 +474,7 @@
       "url": "https://jobs.spital-schwyz.ch/Medizinproduktetechnologin-oder-techn-Sterilisationsassist-de-j519.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:51.502Z",
+      "crawledAt": "2026-05-30T00:36:57.221Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -545,7 +544,7 @@
       "url": "https://jobs.spital-schwyz.ch/Medizinischer-Praxisassistentin-Fachperson-Gesundheit-Angi-de-j539.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:51.029Z",
+      "crawledAt": "2026-05-30T00:36:56.708Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -625,7 +624,7 @@
       "url": "https://jobs.spital-schwyz.ch/Medizinischer-Praxisassistentin-MPA-Kardiologie-60-de-j531.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:50.389Z",
+      "crawledAt": "2026-05-30T00:36:56.007Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -720,7 +719,7 @@
       "url": "https://jobs.spital-schwyz.ch/Med-Praxisassistentin-oder-Fachperson-Gesundheit-30-40-Dia-de-j542.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:49.897Z",
+      "crawledAt": "2026-05-30T00:36:55.518Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -793,7 +792,7 @@
       "id": "spital-schwyz-3d21355f8f67",
       "slug": "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-con-start-august-2026-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-con-start-august-2026-spital-schwyz-schwyz",
+        "it": "apprendistato-professionista-hotellerie-hauswirtschaft-efz-con-inizio-agosto-2026-spital-schwyz-schwyz",
         "en": "apprenticeship-position-hotel-and-domestic-services-specialist-efz-starting-august-2026-spital-schwyz-schwyz",
         "de": "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-mit-start-august-2026-spital-schwyz",
         "fr": "apprentissage-specialiste-en-hotellerie-et-services-domestiques-cfc-debutant-en-aout-2026-spital-schwyz-schwyz"
@@ -821,7 +820,7 @@
       "url": "https://jobs.spital-schwyz.ch/Lehrstelle-Fachperson-Hotellerie-Hauswirtschaft-EFZ-mit-St-de-j463.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:49.404Z",
+      "crawledAt": "2026-05-30T00:36:54.985Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -839,13 +838,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-mit-start-august-2026-spital-schwyz",
-        "apprendistato-professionista-hotellerie-hauswirtschaft-efz-con-inizio-agosto-2026-spital-schwyz-schwyz"
+        "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-mit-start-august-2026-spital-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-mit-start-august-2026-spital-schwyz",
-          "apprendistato-professionista-hotellerie-hauswirtschaft-efz-con-inizio-agosto-2026-spital-schwyz-schwyz"
+          "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-mit-start-august-2026-spital-schwyz"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:27.965Z",
@@ -893,7 +890,7 @@
       "url": "https://jobs.spital-schwyz.ch/HR-Assistentin-100-de-j543.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:48.752Z",
+      "crawledAt": "2026-05-30T00:36:54.328Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -969,7 +966,7 @@
       "url": "https://jobs.spital-schwyz.ch/Fachverantwortlicher-Pflege-80-100--de-j479.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:48.107Z",
+      "crawledAt": "2026-05-30T00:36:53.630Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1061,7 +1058,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Pflegefachfrau-mann-HF-50-100-Palliative-Care-Innere--de-j515.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:47.614Z",
+      "crawledAt": "2026-05-30T00:36:53.116Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1162,7 +1159,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Fachperson-Operationstechnik-HF-oder-Dipl-Pflegefachp-de-j95.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:47.123Z",
+      "crawledAt": "2026-05-30T00:36:52.566Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1261,7 +1258,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Expertin-Anaesthesiepflege-NDS-HF-80-100--de-j532.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:46.473Z",
+      "crawledAt": "2026-05-30T00:36:51.852Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1348,7 +1345,7 @@
       "url": "https://jobs.spital-schwyz.ch/Dipl-Ergotherapeutin-FH-60-80-de-j499.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:45.817Z",
+      "crawledAt": "2026-05-30T00:36:51.183Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1439,7 +1436,7 @@
       "url": "https://jobs.spital-schwyz.ch/Diabetesfachberaterin-30-40-de-j541.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:45.163Z",
+      "crawledAt": "2026-05-30T00:36:50.661Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1531,7 +1528,7 @@
       "url": "https://jobs.spital-schwyz.ch/Stv-Oberaerztin-Oberarzt-Innere-Medizin-50-100-de-j527.html",
       "source": "Spital Schwyz Dedicated Parser (rexx systems jobs.spital-schwyz.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-29T14:01:44.503Z",
+      "crawledAt": "2026-05-30T00:36:49.945Z",
       "addressLocality": "Schwyz",
       "addressRegion": "SZ",
       "addressCountry": "CH",
