@@ -16,3 +16,6 @@ data/thin-page-promotions*.json                     @valerielinc-ops
 data/thin-page-promotions.jsonl                     @valerielinc-ops
 .github/workflows/refresh-thin-promotions.yml       @valerielinc-ops
 scripts/fetch-thin-page-promotions.mjs              @valerielinc-ops
+
+# Self-ownership: a PR cannot remove/weaken this guard without owner review.
+/.github/CODEOWNERS                                  @valerielinc-ops
