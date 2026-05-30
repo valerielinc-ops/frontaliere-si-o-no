@@ -1,22 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-29T13:34:27.027Z",
+  "generatedAt": "2026-05-30T00:09:48.443Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6296,
-  "avgDurationMs": 6296,
+  "durationMs": 5005,
+  "avgDurationMs": 5005,
   "durationHistory": [
-    6296
+    5005
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "prada-332f237b0ca4",
-      "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
+      "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -34,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T13:34:23.066Z",
+      "crawledAt": "2026-05-30T00:09:44.946Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 76,
@@ -65,7 +65,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T13:34:22.700Z",
+      "crawledAt": "2026-05-30T00:09:44.692Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -76,42 +76,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-da59ed3b834b",
-      "slug": "addetto-a-produzione-pelletteria-valdarno-prada-group-terranuova-bracciolini-addettoa-produzione-pelletteria",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Addetto/a Produzione Pelletteria - VALDARNO",
-      "location": "Terranuova Bracciolini Addettoa Produzione Pelletteria",
-      "canton": "TI",
-      "addressLocality": "Terranuova Bracciolini Addettoa Produzione Pelletteria",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Addettoa-Produzione-Pelletteria-VALDARNO/1282274701/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-29T00:12:45.941Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-28T13:45:25.154Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "postalCode": "6500",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-332f237b0ca4",
@@ -133,7 +98,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T13:34:23.066Z",
+      "crawledAt": "2026-05-30T00:09:44.946Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 68000,
@@ -169,7 +134,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-29T13:34:22.700Z",
+      "crawledAt": "2026-05-30T00:09:44.692Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
