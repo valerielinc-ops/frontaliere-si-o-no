@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-05-30T11:11:25.422Z",
+  "assembledAt": "2026-05-30T22:24:16.462Z",
   "jobs": [
     {
       "id": "hopital-du-valais-797cf717f9ca",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:23.145Z",
+      "crawledAt": "2026-05-30T22:24:13.853Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -124,7 +125,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:22.757Z",
+      "crawledAt": "2026-05-30T22:24:13.479Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -208,7 +209,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:22.372Z",
+      "crawledAt": "2026-05-30T22:24:13.104Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -234,8 +235,8 @@
         "contact-the-reserve-personnel-team-hopital-du-valais-sion",
         "unisciti-al-team-del-personale-di-riserva-hopital-du-valais-sion"
       ],
-      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -293,7 +294,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c12d59597145290316bb0b71153af70/ATSANN0003701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:21.984Z",
+      "crawledAt": "2026-05-30T22:24:12.683Z",
       "_hvsMeta": {
         "number": "ATSANN0003701",
         "sysId": "1c12d59597145290316bb0b71153af70",
@@ -313,6 +314,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:54:38.186Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -370,7 +372,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:21.598Z",
+      "crawledAt": "2026-05-30T22:24:12.311Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -392,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:29:28.600Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -412,8 +415,8 @@
       "slug": "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
-        "en": "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
-        "de": "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
+        "en": "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho",
+        "de": "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-",
         "fr": "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du"
       },
       "company": "Hôpital du Valais",
@@ -449,7 +452,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:21.191Z",
+      "crawledAt": "2026-05-30T22:24:11.936Z",
       "_hvsMeta": {
         "number": "ATSANN0004595",
         "sysId": "3e42908cc3488354a043be4c05013198",
@@ -460,8 +463,8 @@
       "previousSlugs": [
         "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
         "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro",
-        "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho",
-        "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-",
+        "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
+        "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
         "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e"
       ],
       "previousSlugsByLocale": {
@@ -470,9 +473,11 @@
           "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro"
         ],
         "en": [
+          "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
           "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho"
         ],
         "de": [
+          "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
           "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-"
         ],
         "fr": [
@@ -538,7 +543,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:20.804Z",
+      "crawledAt": "2026-05-30T22:24:11.560Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -618,7 +623,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:20.418Z",
+      "crawledAt": "2026-05-30T22:24:11.186Z",
       "_hvsMeta": {
         "number": "ATSANN0003725",
         "sysId": "c6c4165297e41654316bb0b71153afc3",
@@ -663,7 +668,7 @@
       "slug": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "en": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+        "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "100-assistent-rontgen-spezialist-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       },
@@ -680,7 +685,7 @@
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin adjoint-e spécialiste en radiologie à 100%\n\nLe service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\nMission:\nAssurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n\nPrendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n\nMaintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n\nEncadrer, former et superviser les médecins en formation\n\nParticiper aux réunions multidisciplinaires.\n\nParticiper aux gardes du service de radiologie.\n\nProfil:\nTitre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n\nExpertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n\nExpérience comme chef de clinique dans un hôpital universitaire.\n\nSens de la coopération, engagement et disponibilité.\n\nIntérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\nSeules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
         "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. Mission: Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. Encadrer, former et superviser les médecins en formation Participer aux réunions multidisciplinaires. Participer aux gardes du service de radiologie. Profil: Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. Expérience comme chef de clinique dans un hôpital universitaire. Sens de la coopération, engagement et disponibilité. Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées.",
-        "en": "The canton's first employer, the Valais Hospital has 6,200 employees. The Valais Hospital is looking for the Valais Romand Hospital Centre 100% Assistant X-ray Specialist The diagnostic and intervention imaging service operates in Sion, Sierre and Martigny. Mission: Clinical activity in osteoarticular radiology: standard X-ray, ultrasound, scanner and MRI. Take charge of interventional acts: infiltration, arthrography, biopsies. Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology. Coach, train and supervise physicians in training Participate in multidisciplinary meetings. Attend radiology wardens. \n• Profile: A federal specialist in radiology or equivalent training. Confirmed expertise in osteoarticular radiology, including interventional gestures. Experience as head of clinic in a university hospital. A sense of cooperation, commitment and availability. Interest in quality, patient safety, radiation protection and the development of new imaging techniques. Only offers responding to the profile will be processed.",
+        "en": "The canton's first employer, the Valais Hospital has 6,200 employees. The Valais Hospital is looking for the Valais Romand Hospital Centre 100% Assistant X-ray Specialist The diagnostic and intervention imaging service operates in Sion, Sierre and Martigny. Mission: Clinical activity in osteoarticular radiology: standard X-ray, ultrasound, scanner and MRI. Take charge of interventional acts: infiltration, arthrography, biopsies. Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology. Coach, train and supervise physicians in training Participate in multidisciplinary meetings. Attend radiology wardens.\n• Profile: A federal specialist in radiology or equivalent training. Confirmed expertise in osteoarticular radiology, including interventional gestures. Experience as head of clinic in a university hospital. A sense of cooperation, commitment and availability. Interest in quality, patient safety, radiation protection and the development of new imaging techniques. Only offers responding to the profile will be processed.",
         "de": "Der erste Arbeitgeber des Kantons, das Wallis Hospital, hat 6.200 Mitarbeiter. Das Wallis-Krankenhaus ist auf der Suche nach dem Walliser-Krankenhaus 100% Assistent Röntgen Spezialist Der diagnostische und interventionsbildende Dienst arbeitet in Sion, Sierre und Martigny. Mission: Klinische Aktivität in osteoartikulärer Radiologie: Standard-Röntgen, Ultraschall, Scanner und MRT. Nehmen Sie die Verantwortung für interventionelle Handlungen: Infiltration, Arthrographie, Biopsien. Bewahren Sie die Anerkennung des Walliser Krankenhauses als Ausbildungszentrum in der Radiologie und tragen zur Entwicklung der osteoartikulären Radiologie bei. Coach, Zug und beaufsichtigte Ärzte im Training Nehmen Sie an multidisziplinären Treffen teil. Die Radiologie warden. Profil: Föderaler Spezialist für Radiologie oder gleichwertige Ausbildung. Konfirmierte Expertise in der osteoartikulären Radiologie, einschließlich Interventionsgesten. Erfahrung als Klinikleiter in einem Universitätsklinikum. Ein Gefühl von Kooperation, Engagement und Verfügbarkeit. Interesse an Qualität, Patientensicherheit, Strahlenschutz und Entwicklung neuer Bildgebungsverfahren. Nur Angebote, die auf das Profil reagieren, werden bearbeitet.",
         "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. Mission: Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. Encadrer, former et superviser les médecins en formation Participer aux réunions multidisciplinaires. Participer aux gardes du service de radiologie. Profil: Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. Expérience comme chef de clinique dans un hôpital universitaire. Sens de la coopération, engagement et disponibilité. Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées."
       },
@@ -700,7 +705,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:20.022Z",
+      "crawledAt": "2026-05-30T22:24:10.808Z",
       "_hvsMeta": {
         "number": "ATSANN0004598",
         "sysId": "07c0eee447c0c754ff8065f8736d4369",
@@ -713,22 +718,22 @@
           "100-assistant-x-ray-specialist-hopital-du-valais-sion",
           "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ],
+        "en": [
+          "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+          "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion"
+        ],
         "de": [
           "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
           "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
-        ],
-        "en": [
-          "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
-        "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
-        "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion"
+        "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion"
       ],
-      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -786,7 +791,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:19.613Z",
+      "crawledAt": "2026-05-30T22:24:10.419Z",
       "_hvsMeta": {
         "number": "ATSANN0004603",
         "sysId": "9dfd00d997c047101b87322f2153af63",
@@ -810,6 +815,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:51:11.162Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -867,7 +873,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c805fa947584f90ff8065f8736d43b2/ATSANN0004622/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:19.206Z",
+      "crawledAt": "2026-05-30T22:24:10.018Z",
       "_hvsMeta": {
         "number": "ATSANN0004622",
         "sysId": "3c805fa947584f90ff8065f8736d43b2",
@@ -949,7 +955,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c054fae47d407d0ff8065f8736d43b1/ATSANN0004625/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:18.793Z",
+      "crawledAt": "2026-05-30T22:24:09.643Z",
       "_hvsMeta": {
         "number": "ATSANN0004625",
         "sysId": "5c054fae47d407d0ff8065f8736d43b1",
@@ -968,8 +974,8 @@
           "pflegefachperson-60-80-rehabilitation-2-west-hopital-du-valais-brig"
         ]
       },
-      "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-20T10:47:50.886Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1027,7 +1033,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:18.402Z",
+      "crawledAt": "2026-05-30T22:24:09.268Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -1107,7 +1113,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:18.018Z",
+      "crawledAt": "2026-05-30T22:24:08.891Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -1190,7 +1196,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0cbd33b8972807141b87322f2153aff4/ATSANN0004632/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:17.634Z",
+      "crawledAt": "2026-05-30T22:24:08.516Z",
       "_hvsMeta": {
         "number": "ATSANN0004632",
         "sysId": "0cbd33b8972807141b87322f2153aff4",
@@ -1276,7 +1282,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:17.249Z",
+      "crawledAt": "2026-05-30T22:24:08.141Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -1299,6 +1305,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:03:22.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1356,7 +1363,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:16.849Z",
+      "crawledAt": "2026-05-30T22:24:07.765Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -1438,7 +1445,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:16.442Z",
+      "crawledAt": "2026-05-30T22:24:07.389Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -1520,7 +1527,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:16.040Z",
+      "crawledAt": "2026-05-30T22:24:07.002Z",
       "_hvsMeta": {
         "number": "ATSANN0004456",
         "sysId": "8931be8b9735b25012f9322f2153af59",
@@ -1600,7 +1607,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:15.642Z",
+      "crawledAt": "2026-05-30T22:24:06.626Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -1684,7 +1691,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:15.259Z",
+      "crawledAt": "2026-05-30T22:24:06.250Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -1729,7 +1736,7 @@
       "slug": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
-        "en": "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
+        "en": "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
         "de": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
         "fr": "psychologue-specialiste-ambulatoire-80-100-hopital-du-valais-brig"
       },
@@ -1766,7 +1773,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:14.866Z",
+      "crawledAt": "2026-05-30T22:24:05.854Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -1775,7 +1782,7 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
+        "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
         "assistente-fachpsychologo-80-hopital-du-valais-brig",
         "assistant-fachpsychologist-80-hopital-du-valais-brig",
         "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
@@ -1784,10 +1791,12 @@
       ],
       "previousSlugsByLocale": {
         "en": [
+          "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
           "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1845,7 +1854,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:14.479Z",
+      "crawledAt": "2026-05-30T22:24:05.476Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -1869,6 +1878,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1926,7 +1936,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/38125af197e00b5412f9322f2153af56/ATSANN0004644/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:14.081Z",
+      "crawledAt": "2026-05-30T22:24:05.097Z",
       "_hvsMeta": {
         "number": "ATSANN0004644",
         "sysId": "38125af197e00b5412f9322f2153af56",
@@ -1948,6 +1958,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T10:55:54.039Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2005,7 +2016,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:13.672Z",
+      "crawledAt": "2026-05-30T22:24:04.695Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -2085,7 +2096,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:13.272Z",
+      "crawledAt": "2026-05-30T22:24:04.318Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -2179,7 +2190,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:12.888Z",
+      "crawledAt": "2026-05-30T22:24:03.940Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -2210,6 +2221,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:04.662Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2267,7 +2279,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/912a742b972c83941b87322f2153af09/ATSANN0004651/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:12.493Z",
+      "crawledAt": "2026-05-30T22:24:03.543Z",
       "_hvsMeta": {
         "number": "ATSANN0004651",
         "sysId": "912a742b972c83941b87322f2153af09",
@@ -2294,6 +2306,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:05.416Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2351,7 +2364,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/509e4e8c97f0cf9412f9322f2153af2d/ATSANN0004659/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:12.095Z",
+      "crawledAt": "2026-05-30T22:24:03.143Z",
       "_hvsMeta": {
         "number": "ATSANN0004659",
         "sysId": "509e4e8c97f0cf9412f9322f2153af2d",
@@ -2360,6 +2373,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-05-07T11:11:20.847Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -2380,8 +2394,8 @@
       "slug": "segretario-medico-e-60-per-il-servizio-flux-management-unit-fmu-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "segretario-medico-e-60-per-il-servizio-flux-management-unit-fmu-hopital-du-valais-sion",
-        "en": "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
-        "de": "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion",
+        "en": "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion",
+        "de": "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion",
         "fr": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -2417,7 +2431,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ead6047147733a50296bd1eb736d43ca/ATSANN0004587/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:11.684Z",
+      "crawledAt": "2026-05-30T22:24:02.761Z",
       "_hvsMeta": {
         "number": "ATSANN0004587",
         "sysId": "ead6047147733a50296bd1eb736d43ca",
@@ -2436,9 +2450,11 @@
           "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion"
         ],
         "en": [
+          "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
           "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion"
         ],
         "de": [
+          "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion",
           "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion"
         ]
       },
@@ -2447,8 +2463,8 @@
         "secretaire-medical-e-a-60-80-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du",
         "secretaire-medical-e-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du",
         "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion",
-        "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion",
-        "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion"
+        "medical-secretary-e-60-for-the-flux-management-unit-fmu-service-hopital-du-valais-sion",
+        "arztlicher-sekretar-60-fur-den-service-flux-management-unit-fmu-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-11T11:52:26.584Z",
       "salaryMin": 49500,
@@ -2508,7 +2524,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c5949c35c3740bd0a043be4c0501313f/ATSANN0004667/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:11.301Z",
+      "crawledAt": "2026-05-30T22:24:02.361Z",
       "_hvsMeta": {
         "number": "ATSANN0004667",
         "sysId": "c5949c35c3740bd0a043be4c0501313f",
@@ -2588,7 +2604,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:10.913Z",
+      "crawledAt": "2026-05-30T22:24:01.985Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -2668,7 +2684,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8d8ac1f5973847181b87322f2153af26/ATSANN0004669/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:10.512Z",
+      "crawledAt": "2026-05-30T22:24:01.603Z",
       "_hvsMeta": {
         "number": "ATSANN0004669",
         "sysId": "8d8ac1f5973847181b87322f2153af26",
@@ -2748,7 +2764,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:10.127Z",
+      "crawledAt": "2026-05-30T22:24:01.222Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -2768,6 +2784,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2825,7 +2842,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5dfebfff83bccb1017a39d20ceaad38b/ATSANN0004674/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:09.740Z",
+      "crawledAt": "2026-05-30T22:24:00.848Z",
       "_hvsMeta": {
         "number": "ATSANN0004674",
         "sysId": "5dfebfff83bccb1017a39d20ceaad38b",
@@ -2907,7 +2924,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e637ed48341435017a39d20ceaad340/ATSANN0004676/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:09.356Z",
+      "crawledAt": "2026-05-30T22:24:00.449Z",
       "_hvsMeta": {
         "number": "ATSANN0004676",
         "sysId": "3e637ed48341435017a39d20ceaad340",
@@ -2987,7 +3004,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/81a2a19097c90f10316bb0b71153af01/ATSANN0004675/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:08.973Z",
+      "crawledAt": "2026-05-30T22:24:00.048Z",
       "_hvsMeta": {
         "number": "ATSANN0004675",
         "sysId": "81a2a19097c90f10316bb0b71153af01",
@@ -3059,7 +3076,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f2a0b45683b27a1017a39d20ceaad396/ATSANN0004517/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:08.578Z",
+      "crawledAt": "2026-05-30T22:23:59.674Z",
       "_hvsMeta": {
         "number": "ATSANN0004517",
         "sysId": "f2a0b45683b27a1017a39d20ceaad396",
@@ -3139,7 +3156,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:08.194Z",
+      "crawledAt": "2026-05-30T22:23:59.290Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -3159,6 +3176,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3216,7 +3234,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/82cdff3c830d875017a39d20ceaad3e0/ATSANN0004679/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:07.809Z",
+      "crawledAt": "2026-05-30T22:23:58.915Z",
       "_hvsMeta": {
         "number": "ATSANN0004679",
         "sysId": "82cdff3c830d875017a39d20ceaad3e0",
@@ -3236,6 +3254,7 @@
         ]
       },
       "firstSeenAt": "2026-05-22T22:26:37.851Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3293,7 +3312,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9bc7f6c4785cb50339c9146736d4311/ATSANN0004678/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:07.426Z",
+      "crawledAt": "2026-05-30T22:23:58.536Z",
       "_hvsMeta": {
         "number": "ATSANN0004678",
         "sysId": "a9bc7f6c4785cb50339c9146736d4311",
@@ -3373,7 +3392,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0a711d2297894f50e7ce346e2153afdb/ATSANN0004682/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:07.043Z",
+      "crawledAt": "2026-05-30T22:23:58.161Z",
       "_hvsMeta": {
         "number": "ATSANN0004682",
         "sysId": "0a711d2297894f50e7ce346e2153afdb",
@@ -3453,7 +3472,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93ee5c5697ec0f5412f9322f2153af31/ATSANN0004648/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:06.659Z",
+      "crawledAt": "2026-05-30T22:23:57.786Z",
       "_hvsMeta": {
         "number": "ATSANN0004648",
         "sysId": "93ee5c5697ec0f5412f9322f2153af31",
@@ -3533,7 +3552,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9463f5a697c98f50e7ce346e2153af48/ATSANN0004683/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:06.276Z",
+      "crawledAt": "2026-05-30T22:23:57.409Z",
       "_hvsMeta": {
         "number": "ATSANN0004683",
         "sysId": "9463f5a697c98f50e7ce346e2153af48",
@@ -3613,7 +3632,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/84aa626287814390dbd6ebd30cbb35af/ATSANN0004686/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:05.892Z",
+      "crawledAt": "2026-05-30T22:23:57.032Z",
       "_hvsMeta": {
         "number": "ATSANN0004686",
         "sysId": "84aa626287814390dbd6ebd30cbb35af",
@@ -3695,7 +3714,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:05.510Z",
+      "crawledAt": "2026-05-30T22:23:56.657Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -3775,7 +3794,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b26b9b3283418b9017a39d20ceaad364/ATSANN0004690/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:05.098Z",
+      "crawledAt": "2026-05-30T22:23:56.261Z",
       "_hvsMeta": {
         "number": "ATSANN0004690",
         "sysId": "b26b9b3283418b9017a39d20ceaad364",
@@ -3827,7 +3846,7 @@
       "slugByLocale": {
         "it": "segretario-medico-o-assistente-medico-al-40-per-la-segreteria-delle-consultazioni-dentali-a-martigny-hopital-du-valais",
         "en": "medical-secretary-or-medical-assistant-at-40-for-the-secretariat-of-the-dental-consultations-in-martigny-hopital-du",
-        "de": "medizinischer-sekretar-oder-medizinischer-assistent-bei-40-fur-das-sekretariat-der-zahnarztlichen-beratungen-in-martigny",
+        "de": "secretaire-medical-e-ou-assistent-e-medical-e-a-40-pour-le-secretariat-des-consultations-d-ophtalmologie-a-martigny",
         "fr": "secretaire-medical-e-ou-assistant-e-medical-e-a-40-pour-le-secretariat-des-consultations-d"
       },
       "company": "Hôpital du Valais",
@@ -3863,7 +3882,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8fc1ef3683c18b9017a39d20ceaad33b/ATSANN0004692/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:04.700Z",
+      "crawledAt": "2026-05-30T22:23:55.869Z",
       "_hvsMeta": {
         "number": "ATSANN0004692",
         "sysId": "8fc1ef3683c18b9017a39d20ceaad33b",
@@ -3872,11 +3891,12 @@
         "site": "MARTIGNY"
       },
       "previousSlugs": [
-        "secretaire-medical-e-ou-assistent-e-medical-e-a-40-pour-le-secretariat-des-consultations-d-ophtalmologie-a-martigny",
+        "medizinischer-sekretar-oder-medizinischer-assistent-bei-40-fur-das-sekretariat-der-zahnarztlichen-beratungen-in-martigny",
         "secretaire-medical-e-ou-assistant-e-medical-e-a-40-pour-le-secretariat-des-consultations-d"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "medizinischer-sekretar-oder-medizinischer-assistent-bei-40-fur-das-sekretariat-der-zahnarztlichen-beratungen-in-martigny",
           "secretaire-medical-e-ou-assistent-e-medical-e-a-40-pour-le-secretariat-des-consultations-d-ophtalmologie-a-martigny"
         ],
         "it": [
@@ -3944,7 +3964,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e43eabe83090b9017a39d20ceaad372/ATSANN0004688/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:04.299Z",
+      "crawledAt": "2026-05-30T22:23:55.491Z",
       "_hvsMeta": {
         "number": "ATSANN0004688",
         "sysId": "3e43eabe83090b9017a39d20ceaad372",
@@ -4024,7 +4044,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/33432f3e83c18b9017a39d20ceaad376/ATSANN0004693/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:03.916Z",
+      "crawledAt": "2026-05-30T22:23:55.114Z",
       "_hvsMeta": {
         "number": "ATSANN0004693",
         "sysId": "33432f3e83c18b9017a39d20ceaad376",
@@ -4048,6 +4068,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:51:55.344Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -4105,7 +4126,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f3b2f3a83c58b9017a39d20ceaad307/ATSANN0004695/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:03.528Z",
+      "crawledAt": "2026-05-30T22:23:54.722Z",
       "_hvsMeta": {
         "number": "ATSANN0004695",
         "sysId": "8f3b2f3a83c58b9017a39d20ceaad307",
@@ -4185,7 +4206,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4ef4a33a83058b9017a39d20ceaad348/ATSANN0004694/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:03.141Z",
+      "crawledAt": "2026-05-30T22:23:54.347Z",
       "_hvsMeta": {
         "number": "ATSANN0004694",
         "sysId": "4ef4a33a83058b9017a39d20ceaad348",
@@ -4265,7 +4286,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T11:11:02.759Z",
+      "crawledAt": "2026-05-30T22:23:53.972Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -4273,15 +4294,15 @@
         "famille": "Soins",
         "site": "VISP"
       },
-      "firstSeenAt": "2026-05-29T12:41:35.496Z",
+      "previousSlugs": [
+        "stationsleitung-frau-kind-80-100-hopital-du-valais-visp"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleitung-frau-kind-80-100-hopital-du-valais-visp"
         ]
       },
-      "previousSlugs": [
-        "stationsleitung-frau-kind-80-100-hopital-du-valais-visp"
-      ],
+      "firstSeenAt": "2026-05-29T12:41:35.496Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -4339,7 +4360,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6aef97ba83818b9017a39d20ceaad33b/ATSANN0004691/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:02.372Z",
+      "crawledAt": "2026-05-30T22:23:53.574Z",
       "_hvsMeta": {
         "number": "ATSANN0004691",
         "sysId": "6aef97ba83818b9017a39d20ceaad33b",
@@ -4419,7 +4440,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6599c15747010bd0339c9146736d431c/ATSANN0004697/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T11:11:01.961Z",
+      "crawledAt": "2026-05-30T22:23:53.187Z",
       "_hvsMeta": {
         "number": "ATSANN0004697",
         "sysId": "6599c15747010bd0339c9146736d431c",
