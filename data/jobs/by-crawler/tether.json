@@ -325,7 +325,7 @@
       "slugByLocale": {
         "it": "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma",
         "en": "research-engineer-intern-multimodal-llm-tether-ch",
-        "de": "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan",
+        "de": "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio",
         "fr": "stagiaire-ingenieur-recherche-llm-multimodal-tether-operations-milan"
       },
       "company": "Tether Operations",
@@ -374,7 +374,7 @@
         "ricerca-ingegnere-tirocinante-multimodal-llm-tether-operations-roma-lazio",
         "research-engineer-intern-multimodal-llm-tether-ch",
         "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan",
-        "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio"
+        "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -383,7 +383,6 @@
           "ricercatore-ingegnere-intern-multimodal-llm-tether-operations-milan"
         ],
         "de": [
-          "forschung-ingenieur-praktikant-multimodal-llm-tether-operations-roma-lazio",
           "forschungsingenieur-praktikant-multimodales-llm-tether-operations-milan"
         ]
       },
@@ -2755,7 +2754,7 @@
         "it": "tirocinante-ingegnere-machine-learning-100-da-remoto-tether-operations-london",
         "en": "machine-learning-engineer-intern-100-remote-tether-ch",
         "de": "praktikant-als-machine-learning-engineer-100-remote-tether-operations-london",
-        "fr": "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london"
+        "fr": "machine-learning-ingenieur-stagiaire-100-remote-tether-operations-london-greater-london"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -2801,7 +2800,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "machine-learning-engineer-intern-100-remote-tether-ch",
-        "machine-learning-ingenieur-stagiaire-100-remote-tether-operations-london-greater-london",
+        "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london",
         "ai-optimization-ingegnere-100-remote-tether-operations-lugano"
       ],
       "previousSlugsByLocale": {
@@ -2809,7 +2808,6 @@
           "machine-learning-engineer-intern-100-remote-tether-ch"
         ],
         "fr": [
-          "machine-learning-ingenieur-stagiaire-100-remote-tether-operations-london-greater-london",
           "stagiaire-ingenieur-en-apprentissage-automatique-100-a-distance-tether-operations-london"
         ]
       },
@@ -4289,7 +4287,7 @@
       "slugByLocale": {
         "it": "ai-ricerca-ingegnere-kernel-inference-optimization-tether-operations-zurich-zurich",
         "en": "ai-research-engineer-kernel-inference-optimization-tether-ch",
-        "de": "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich",
+        "de": "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich",
         "fr": "ai-recherche-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
       },
       "company": "Tether Operations",
@@ -4336,7 +4334,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ai-research-engineer-kernel-inference-optimization-tether-ch",
-        "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich"
+        "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4344,7 +4342,6 @@
         ],
         "de": [
           "ai-research-engineer-kernel-inference-optimization-tether-ch",
-          "ki-forscher-in-kernel-inferenz-optimierung-tether-operations-zurich-zurich",
           "ai-forschung-ingenieur-kernel-inference-optimization-tether-operations-zurich-zurich"
         ],
         "fr": [
