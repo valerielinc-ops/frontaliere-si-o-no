@@ -7922,6 +7922,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Hausses de prix au Tessin : comment les frontaliers les ressentent',
     'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'Les hausses de prix au Tessin sont perçues comme particulièrement douloureuses, selon des analyses récentes. Voici ce qu’il faut savoir.',
     'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Paysage du Tessin avec lac et montagnes, scène photoréalistique, qualité DSLR.',
+    'blog.article.crisi-abitativa-ticino-classe-media.title': 'Crise du logement au Tessin: la classe moyenne en danger',
+    'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Un adulte sur cinq craint de perdre son logement en Suisse. Le Tessin moins alarmé mais pas immunisé.',
+    'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Vue aérienne de Lugano avec le lac et des bâtiments résidentiels',
 };
 
 export default blogMetaFr;

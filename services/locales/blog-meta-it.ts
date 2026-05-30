@@ -7922,6 +7922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Rincari in Ticino: come i frontalieri percepiscono i aumenti',
     'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'I rincari in Ticino sono percepiti come particolarmente dolorosi, secondo analisi recenti. Ecco cosa sapere.',
     'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Paesaggio del Ticino con lago e montagne, scena fotorealistica, DSLR',
+    'blog.article.crisi-abitativa-ticino-classe-media.title': 'Crisi abitativa in Ticino: classe media a rischio',
+    'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Un adulto su cinque teme di perdere la casa in Svizzera. Il Ticino meno allarmato ma non immune.',
+    'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Vista aerea di Lugano con il lago e edifici residenziali',
 };
 
 export default blogMetaIt;

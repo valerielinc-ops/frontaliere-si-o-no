@@ -41843,6 +41843,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-crisi-abitativa-ticino-classe-media': {
+    title: 'Crisi abitativa in Ticino: classe media a rischio',
+    description: 'Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, abitativa, classe, media',
+    ogTitle: 'Crisi abitativa Ticino: classe media a rischio',
+    ogDescription: 'Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/crisi-abitativa-ticino-classe-media',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi abitativa in Ticino: classe media a rischio",
+      "description": "Un adulto su cinque teme di perdere la casa in Svizzera. Scopri i dati e le soluzioni per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/crisi-abitativa-ticino-classe-media.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e edifici residenziali"
+      },
+      "datePublished": "2026-05-30T06:39:11+00:00",
+      "dateModified": "2026-05-30T06:39:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-abitativa-ticino-classe-media`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

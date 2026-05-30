@@ -1,0 +1,40 @@
+{
+  "id": "crisi-abitativa-ticino-classe-media",
+  "slug": "crisi-abitativa-ticino-classe-media",
+  "publishedAt": "2026-05-30T06:39:12.931Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.5993953685684956,
+    "confidence": 0.8,
+    "finalScore": 2.0795162948547965,
+    "topK": [
+      {
+        "slug": "guerra-frena-viaggi-estero-2026",
+        "cosine": 0.8664651228561653
+      },
+      {
+        "slug": "frontalieri-casa-zurigo",
+        "cosine": 0.8622697752898663
+      },
+      {
+        "slug": "lavoro-economia-2026",
+        "cosine": 0.8571218982832419
+      },
+      {
+        "slug": "delusi-svizzera-frontalieri-abbandonati",
+        "cosine": 0.8551949481920956
+      },
+      {
+        "slug": "svizzeri-secondo-pilastro-casa",
+        "cosine": 0.8550486545873168
+      }
+    ],
+    "score": 2.0795162948547965,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}
