@@ -7921,6 +7921,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Cost Hikes in Ticino: How Cross-Border Workers Feel the Impact',
     'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'Cost increases in Ticino are perceived as particularly painful, according to recent analyses. Here\'s what you need to know.',
     'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Ticino landscape with lake and mountains, photorealistic scene, DSLR quality.',
+    'blog.article.crisi-abitativa-ticino-classe-media.title': 'Housing crisis in Ticino: middle class at risk',
+    'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'One in five adults fears losing their home in Switzerland. Ticino less alarmed but not immune.',
+    'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Aerial view of Lugano with lake and residential buildings',
 };
 
 export default blogMetaEn;

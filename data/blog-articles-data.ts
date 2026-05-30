@@ -25139,4 +25139,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'crisi-abitativa-ticino-classe-media',
+ category: 'pratico',
+ date: '2026-05-30T06:39:11.311Z',
+ image: '/images/blog/crisi-abitativa-ticino-classe-media.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
