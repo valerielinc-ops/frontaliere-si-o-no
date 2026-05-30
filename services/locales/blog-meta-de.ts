@@ -7908,6 +7908,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.licenziamento-nurnberg-rsi.title': 'Nürnberg: Abfindung abgeschlossen',
     'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Streitfall beendet, alle Forderungen beglichen',
     'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Journalist bei der Arbeit',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'GrenzgÃ¤nger Saisonarbeit Tessin',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Entdecken Sie die Regeln, Rechte und Chancen fÃ¼r saisonale Arbeit im Tessin: Genehmigungen, VertrÃ¤ge, Steuern.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier, der in der Sommersonne in Ticino arbeitet',
 };
 
 export default blogMetaDe;

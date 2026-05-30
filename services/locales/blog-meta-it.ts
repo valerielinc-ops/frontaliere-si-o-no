@@ -7910,6 +7910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.licenziamento-nurnberg-rsi.title': 'Licenziamento di Nurnberg',
     'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Vertenza chiusa, pagate tutte le pretese avanzate',
     'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Giornalista in studio',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Frontaliere lavoro stagionale Ticino',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Scopri le regole, i diritti e le opportunità per il lavoro stagionale in Ticino: permessi, contratti, fiscalità.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontaliere che lavora in Ticino durante la stagione estiva',
 };
 
 export default blogMetaIt;

@@ -7909,6 +7909,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.licenziamento-nurnberg-rsi.title': 'Nurnberg dismissal',
     'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Dispute closed, all claims paid',
     'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Journalist at work',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Cross-Border Work Seasonal Jobs Ticino',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Discover the rules, rights, and opportunities for seasonal work in Ticino: permits, contracts, taxation.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier working in Ticino during the summer season',
 };
 
 export default blogMetaEn;
