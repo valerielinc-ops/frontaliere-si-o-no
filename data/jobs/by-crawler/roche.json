@@ -4058,10 +4058,10 @@
       "id": "roche-6a22d86ce3f8",
       "slug": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
       "slugByLocale": {
-        "it": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
+        "it": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
         "en": "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
         "de": "employer-brand-content-creation-praktikant-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "fr": "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
+        "fr": "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4102,20 +4102,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-        "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+        "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel",
+        "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "de": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "fr": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+          "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-21T13:09:46.810Z",
@@ -4289,7 +4288,7 @@
         "it": "data-information-architetto-data-platforms-roche-basel",
         "en": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
+        "fr": "data-information-architecte-data-platforms-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -4331,7 +4330,7 @@
       "previousSlugs": [
         "data-information-architect-data-platforms-roche-ch",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "data-information-architecte-data-platforms-roche-basel",
+        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
         "data-information-architect-datenplattformen-roche-basel",
         "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e",
@@ -4346,6 +4345,7 @@
         ],
         "fr": [
           "data-information-architect-data-platforms-roche-ch",
+          "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
           "data-information-architecte-data-platforms-roche-basel"
         ]
       },
@@ -5462,7 +5462,7 @@
       "id": "roche-1c76aa4362fa",
       "slug": "ingegnere-di-manutenzione-roche-basel",
       "slugByLocale": {
-        "it": "ingegnere-di-manutenzione-roche-basel",
+        "it": "maintenance-ingegnere-roche-basel",
         "en": "maintenance-engineer-roche-basel",
         "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
@@ -5509,8 +5509,7 @@
           "maintenance-engineer-roche-ch"
         ],
         "it": [
-          "maintenance-engineer-roche-ch",
-          "maintenance-ingegnere-roche-basel"
+          "maintenance-engineer-roche-ch"
         ],
         "de": [
           "maintenance-engineer-roche-ch"
@@ -5518,7 +5517,7 @@
       },
       "previousSlugs": [
         "maintenance-engineer-roche-ch",
-        "maintenance-ingegnere-roche-basel"
+        "ingegnere-di-manutenzione-roche-basel"
       ],
       "firstSeenAt": "2026-05-21T23:38:01.006Z",
       "salaryMin": 49500,
@@ -5876,7 +5875,8 @@
         "it": [
           "global-digital-campaign-expert-talent-pool-roche-ch",
           "esperto-di-campagne-digitali-globali-pool-di-talenti-roche-budapest",
-          "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest"
+          "esperto-globale-di-campagne-digitali-talent-pool-roche-budapest",
+          "global-digital-campaign-expert-talent-pool-roche-budapest"
         ]
       },
       "needsRetranslation": true,
@@ -6050,7 +6050,7 @@
       "id": "roche-0481c12981e8",
       "slug": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
       "slugByLocale": {
-        "it": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
+        "it": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
         "en": "qa-manager-qualification-and-validation-of-systems-devices-and-systems-roche-basel",
         "de": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
         "fr": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -6094,12 +6094,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-        "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
+        "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-          "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
+          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
         ],
         "en": [
           "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -8445,7 +8444,7 @@
       "id": "roche-5a9a074d622a",
       "slug": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
       "slugByLocale": {
-        "it": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
+        "it": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "en": "practical-internship-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
         "de": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "fr": "stage-en-soutien-manufacturing-assemblage-emballage-septembre-2026-12-mois-roche-kaiseraugst"
@@ -8490,15 +8489,14 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
-        "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "practicum-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
-        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst"
+        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst",
+        "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
-          "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
+          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
@@ -11883,7 +11881,8 @@
       "previousSlugsByLocale": {
         "it": [
           "specjalista-specjalistka-ds-serwisu-technicznego-roche-ch",
-          "specialista-dell-assistenza-tecnica-specialista-roche-poland"
+          "specialista-dell-assistenza-tecnica-specialista-roche-poland",
+          "specjalista-specjalistka-ds-serwisu-technicznego-roche-poland"
         ]
       },
       "needsRetranslation": true,
@@ -13423,7 +13422,8 @@
       "previousSlugsByLocale": {
         "it": [
           "estagiario-de-pricing-e-contratos-roche-ch",
-          "statistica-dei-prezzi-e-dei-contratti-roche-sao-paulo"
+          "statistica-dei-prezzi-e-dei-contratti-roche-sao-paulo",
+          "estagiario-de-pricing-e-contratos-roche-sao-paulo"
         ]
       },
       "needsRetranslation": true,
@@ -19410,6 +19410,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
+          "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
           "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
         ],
         "it": [
@@ -19424,6 +19425,7 @@
         ]
       },
       "previousSlugs": [
+        "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-e-labor-kaiseraugst-12-monate-roche-kaiseraugst",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
@@ -22822,6 +22824,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "supply-chain-excellence-lead-roche-ch",
+        "chaine-d-approvisionnement-excellence-lead-roche-basel",
         "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -22829,6 +22832,7 @@
           "supply-chain-excellence-lead-roche-ch"
         ],
         "fr": [
+          "chaine-d-approvisionnement-excellence-lead-roche-basel",
           "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
         ]
       },
@@ -23076,10 +23080,10 @@
       "id": "roche-31cbdcfa9541",
       "slug": "principale-ingegnere-principale-principale-roche-basel",
       "slugByLocale": {
-        "it": "principale-ingegnere-principale-principale-roche-basel",
+        "it": "principal-senior-principal-software-ingegnere-roche-basel",
         "en": "principal-senior-principal-software-engineer-roche-ch",
         "de": "principal-senior-principal-software-ingenieur-roche-basel",
-        "fr": "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
+        "fr": "principal-senior-principal-software-ingenieur-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23120,24 +23124,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "principal-senior-principal-software-engineer-roche-ch",
-        "principal-senior-principal-software-ingegnere-roche-basel",
-        "principal-senior-principal-software-ingenieur-roche-basel",
+        "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel",
         "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
         "principal-site-reliability-engineer-roche-ch",
         "reliability-engineer-des-hauptstandortes-roche-basel",
-        "ingenieur-principal-de-fiabilite-du-site-roche-basel"
+        "ingenieur-principal-de-fiabilite-du-site-roche-basel",
+        "principale-ingegnere-principale-principale-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-senior-principal-software-engineer-roche-ch",
-          "principal-senior-principal-software-ingegnere-roche-basel"
+          "principal-senior-principal-software-engineer-roche-ch"
         ],
         "de": [
           "principal-senior-principal-software-engineer-roche-ch"
         ],
         "fr": [
           "principal-senior-principal-software-engineer-roche-ch",
-          "principal-senior-principal-software-ingenieur-roche-basel"
+          "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-28T13:58:18.902Z",
@@ -24402,7 +24405,7 @@
       "id": "roche-2b285c947522",
       "slug": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
+        "it": "production-expert-befristet-auf-2-jahre-roche-kaiseraugst",
         "en": "production-expert-befristet-auf-2-jahre-roche-ch",
         "de": "production-expert-befristet-auf-2-jahre-roche-ch",
         "fr": "production-expert-befristet-auf-2-jahre-roche-ch"
@@ -24446,12 +24449,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "production-expert-befristet-auf-2-jahre-roche-ch",
-        "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
+        "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-expert-befristet-auf-2-jahre-roche-ch",
-          "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
+          "production-expert-befristet-auf-2-jahre-roche-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:57:59.383Z",
@@ -24905,7 +24907,8 @@
         "it": [
           "r-d-spezialist-m-w-d-hplc-roche-ch",
           "r-d-specialist-m-f-d-hplc-roche-penzberg",
-          "r-d-specialist-m-w-d-hplc-roche-penzberg"
+          "r-d-specialist-m-w-d-hplc-roche-penzberg",
+          "r-d-spezialist-m-w-d-hplc-roche-penzberg"
         ]
       },
       "needsRetranslation": true,
@@ -25000,7 +25003,7 @@
       "id": "roche-ac28acba74cd",
       "slug": "partner-del-viaggio-paziente-roche-basel",
       "slugByLocale": {
-        "it": "partner-del-viaggio-paziente-roche-basel",
+        "it": "patient-journey-partner-roche-ch-3",
         "en": "patient-journey-partner-roche-ch-3",
         "de": "partner-von-patientenreise-roche-basel",
         "fr": "patient-journey-partner-roche-ch"
@@ -25061,7 +25064,9 @@
         "patient-journey-partner-lussemburgo-roche-brussels",
         "patient-journey-partner-luxembourg-roche-ch",
         "patient-journey-partner-oncologia-sumatra-roche-medan",
-        "patient-journey-partner-oncology-sumatra-roche-ch"
+        "patient-journey-partner-oncology-sumatra-roche-ch",
+        "partner-del-viaggio-paziente-roche-basel",
+        "partner-von-patientenreise-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25073,8 +25078,7 @@
           "preis-partner-roche-basel",
           "partenaire-de-tarification-roche-basel",
           "pricing-partner-roche-ch",
-          "patient-journey-partner-roche-ch-2",
-          "patient-journey-partner-roche-ch-3"
+          "patient-journey-partner-roche-ch-2"
         ],
         "de": [
           "patient-journey-partner-roche-ch-3"
@@ -28251,7 +28255,7 @@
       "id": "roche-67c5bf48b88c",
       "slug": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
       "slugByLocale": {
-        "it": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
+        "it": "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel",
         "en": "student-support-for-eval-migration-basel-6-12-months-roche-basel",
         "de": "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
         "fr": "soutien-aux-etudiants-pour-la-migration-eval-bale-6-12-mois-roche-basel"
@@ -28295,12 +28299,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-        "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
+        "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-          "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
+          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
         ],
         "en": [
           "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
@@ -29218,10 +29221,10 @@
       },
       "description": "At Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Position\n\nPrincipal DevOps Engineer (DevOps Lead)\n\nAt Roche, we are passionate about transforming patients’ lives, and we are bold in both decision and action - we believe that good business means a better world. That is why we come to work every single day. We commit ourselves to scientific rigor, unassailable ethics, and access to medical innovations for all. We do this today to build a better tomorrow.\n\nDescription\nAt Roche you can show up as yourself, embraced for the unique qualities you bring. Our culture encourages personal expression, open dialogue, and genuine connections, where you are valued, accepted and respected for who you are, allowing you to thrive both personally and professionally. This is how we aim to prevent, stop and cure diseases and ensure everyone has access to healthcare today and for generations to come. Join Roche, where every voice matters.\n\nThe Opportunity\nThe Principal DevOps​ ​Engineer​ (DevOps Lead) ​is a key member in engineering and DevOps groups and will apply knowledge of design principles, practices in the implementation of complex, enterprise-scale software systems. The Principal engineer is a hands-on leader of the DevOps function. General responsibilities include design concept generation, participating in reviews for components or features, development, and testing of the core software stack, and reliability testing.\n\nKey Responsibilities:\n\n• Software​ ​Development​: This is a software development position to write high quality software that will perform at scale, be supportable, and be extensible\n\n• Process​ ​&​ ​Operations: Ensure the software stack integrates with our existing CI pipeline and contribute to continuous improvement; independently design, plan and deliver high-quality software\n\n• Leadership​: Ensure a culture that values technical excellence together with support and compassion for individuals\n\n• Evangelism: As a key evangelist, you will work to evangelize a healthy DevSecOps software development practice within the Roche Engineering Community\n\nWho You Are:\n\n• BS in Computer Science, or Computer Engineering, or related field.\n\n• 10+ years of hands-on experience in public cloud AWS, Google, or Azure (AWS Preferred) of which at the minimum 5 years of experience in the software industry.\n\n• Scripting experience is required and highly desirable, using shell, python, ruby, or similar languages.\n\n• Experience leading DevOps teams and in building and maturing CI/CD pipelines\n\n• Expertise in overall areas in DevSecOps including CI/CD with build & release, Internal tooling, and production operations.\n\n• Build and operation tools that monitor backend production, Make sure backend services scale economically, Develop tooling framework, Help the dev team resolve production issues\n\n• Hands-on System Administration experience with Unix based systems including experience with system configuration and networking (DNS, DHCP, rout tables and routing).\n\n• Experience automating using infrastructure as code: AWS Cloudformation, Terraform, etc.\n\n• Hands-on automation development using chef or ansible desired\n\n• Experience deploying or managing large scale distributed Unix environments Partake in an on-call rotation alongside the engineers who build our production backends, Comfortable with large scale production systems and technologies, including load balancing, monitoring, distributed systems, and/or configuration management.\n\n• Experience in contemporary platforms extended from cloud such as docker containers, Mesos, and/or Ku",
       "descriptionByLocale": {
-        "en": "## Mansioni\n\nIl ruolo del Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala aziendale complessa. L'ingegnere principale è un leader a mano a mano della funzione DevOps. Le responsabilità generali includono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\n### Responsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo stack software si integri con il nostro pipeline CI esistente e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps salutare all'interno della comunità di ingegneria Roche.\n\n## Requisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, python, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, comprese CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema a mano con sistemi Unix, compresa esperienza di configurazione di sistema e rete (DNS, DHCP, tabelle di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazione a mano utilizzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, comprese bilanciamento di carico, monitoraggio, sistemi distribuiti e/o gestione di configurazione.\n- Esperienza in piattaforme contemporanee estese dal cloud come container Docker, Mesos e/o Ku.\n\n## Cosa offriamo\n\n- Una cultura che incoraggia l'espressione personale, il dialogo aperto e le connessioni genuine, dove sei valorizzato, accettato e rispettato per chi sei, consentendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\n## Contatto\n\n- Per ulteriori informazioni, contattaci.",
-        "it": "Mansioni\n\nIl ruolo del Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala complessa. L'ingegnere principale è un leader a mano a funzione DevOps. Le responsabilità generali comprendono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di qualità alta che eseguirà a scala, sarà support e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo stack software si integri con il nostro pipeline esistente CI e contribuire alla continua miglioramento; pianificazione, pianificazione e ricezione software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps salutare all'interno della comunità di ingegneria Roche.\n\nRequisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, pitone, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, comprese CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Piattaformare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema a mano con sistemi Unix, compresa esperienza di configurazione di sistema e rete (DNS, DHCP, tabelle di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazione a mano utilizzando chef o ansible desidera.\n- Esperienza di distribuzione o gestione di ambienti Unix suddivis a sistemi scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono iscono backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, bilanciamento di carico, monitoraggio, distribuzione e/o gestione di configurazione.\n- Esperienza in piattaforme contemporanee estese dal cloud come contenitore Docker, Mesos e/o Ku.\n\nCosa?\n\n- Una cultura che incoraggia l'espressione personale, il dialogo aperto e le connessioni genuina, dove sei valorizzato, destinata e rispettato per chi sei, volendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\nContatto\n\n- Per ulteriori informazioni, contattare.",
-        "de": "Mansion\n\nIl ruolo del Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala aziendale complessa. L'ingegnere principale è un Leader a mano a mano della funzione DevOps. Le responsabilità generali inkludono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software Stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo Stack Software si integri con il nostro Pipeline CI esistente e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Führung: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps salutare all'interno della comunità di ingegneria Roche.\n\nVoraussetzungen\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, python, ruby o linguaggi simili.\n- Esperienza di guide di team DevOps e nella costruzione e maturazione di Pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, comprese CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema a mano con sistemi Unix, compresa esperienza di configurazione di sistema e rete (DNS, DHCP, tabelle di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudforming, Terraform, ecc.\n- Esperienza di sviluppo di automazione a mano utilizzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, comprese bilanciamento\n- Esperienza in piattaforme contemporanee estese dal cloud kommen container Docker, Mesos e/o Ku.\n\nCosa offriamo\n\n- Una cultura che incoraggia l'espressione personale, il dialogo aperto e le connessioni real, dove sei valorizzato, accettato e rispettato per chi sei, Zustimmungendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\nContattoo\n\n- Per ulteriori informazioni, contattaci.",
-        "fr": "Mansioni\n\nIl ruolo del Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implémentationazione di sistemi software a scala aziendale complessa. L'ingegnere principale è un leader a mano a mano della funzione DevOps. La responsabilité générale inclut la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo empil software si integri con il nostro pipeline CI esiste e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Venez evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps salutare all'interno della comunità di ingegneria Roche.\n\nRequisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industrie logiciel.\n- Esperienza di scripting è richiesta e altamente desiderabile, usingzando shell, python, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, comprese CI/CD con build e rilascio, strumenti interni e opérazioni di produzione.\n- Costruire e opérare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema a mano con sistemi Unix, compresa esperienza di configuration di sistema e rete (DNS, DHCP, tabelle di routage e routage).\n- Esperienza di automazion usingzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazione a mano usingzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, comprese bilancamento di carico, monitoaggio, sistemi distribuiti e/o gestione di configuzione.\n- Esperienza in piattaforme contemporanee estese dal cloud come container Docker, Mesos e/o Ku.\n\nCosa offriamo\n\n- Una cultura che incoraggia l'impressione personale, il dialogo aperto e le connessioni authentique, dove sei valorizzato, accettato e rispettato per chi sei, consentendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare dans un ambiente dinamico e innovativo, colombe ogni voce conta.\n\nContatto\n\n- Par ulteriori informazioni, contattaci."
+        "en": "## Mansioni\n\nIl ruolo di Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala enterprise complessi. L'ingegnere principale è un leader a mano a mano della funzione DevOps. Le responsabilità generali includono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\n### Responsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo stack software si integri con il nostro pipeline CI esistente e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps sana all'interno della comunità di ingegneria Roche.\n\n## Requisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, python, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, inclusi CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema diretta con sistemi Unix, inclusa esperienza con la configurazione del sistema e la rete (DNS, DHCP, tabella di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazione diretta utilizzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, inclusi bilanciamento del carico, monitoraggio, sistemi distribuiti e/o gestione della configurazione.\n- Esperienza in piattaforme contemporanee estese dal cloud come container Docker, Mesos e/o Ku.\n\n## Cosa offriamo\n\n- Una cultura che valorizza l'espressione personale, il dialogo aperto e le connessioni genuine, dove sei valorizzato, accettato e rispettato per chi sei, consentendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\n## Contatto\n\n- Per ulteriori informazioni, contattaci.",
+        "it": "Mansioni\n\nIl ruolo di Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applichiamo conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala enterprise complessi. L'ingegnere principale è un leader a mano a funzione DevOps. Le responsabilità generali comprendono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di qualità alta che eseguirà a scala, sarà support e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo stack software si integri con il nostro pipeline esistente CI e contribuire alla continua miglioramento; pianificazione, pianificazione e ricezione software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps sana all'interno della comunità di ingegneria Roche.\n\nRequisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, pitone, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, inclusi CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Piattaformare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema diretto con sistemi Unix, inclusa esperienza con la configurazione del sistema e la rete (DNS, DHCP, tabella di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazione diretta utilizzando chef o desideri accessibili.\n- Esperienza di distribuzione o gestione di ambienti Unix suddivis a sistemi scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono iscono backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, inclusi bilanciamento del carico, monitoraggio, distribuzione e/o gestione della configurazione.\n- Esperienza in piattaforme contemporanee estese dal cloud come contenitore Docker, Mesos e/o Ku.\n\nCosa?\n\n- Una cultura che valorizza l'espressione personale, il dialogo aperto e le connessioni genuina, dove sei valorizzato, destinata e rispettato per chi sei, voluti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\nContatto\n\n- Per ulteriori informazioni, contattare.",
+        "de": "Mansion\n\nIl ruolo di Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implementazione di sistemi software a scala enterprise complessi. L'ingegnere principale è un Leader a mano a mano della funzione DevOps. Le responsabilità generali inkludono la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software Stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scrivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo Stack Software si integri con il nostro Pipeline CI esistente e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Führung: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Come evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps sana all'interno della comunità di ingegneria Roche.\n\nVoraussetzungen\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industria software.\n- Esperienza di scripting è richiesta e altamente desiderabile, utilizzando shell, python, ruby o linguaggi simili.\n- Esperienza di guide di team DevOps e nella costruzione e maturazione di Pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, inclusi CI/CD con build e rilascio, strumenti interni e operazioni di produzione.\n- Costruire e operare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema diretta con sistemi Unix, inclusa esperienza con la configurazione del sistema e la rete (DNS, DHCP, tabella di routing e routing).\n- Esperienza di automazione utilizzando codice di infrastruttura: AWS Cloudforming, Terraform, ecc.\n- Esperienza di sviluppo di automazione diretta utilizzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, inclusi bilanciamento\n- Esperienza in piattaforme contemporanee estese dal cloud kommen container Docker, Mesos e/o Ku.\n\nCosa offriamo\n\n- Una cultura che valorizza l'espressione personale, il dialogo aperto e le connessioni real, dove sei valorizzato, accettato e rispettato per chi sei, Zustimmungendoti di prosperare sia personalmente che professionalmente.\n- L'opportunità di lavorare in un ambiente dinamico e innovativo, dove ogni voce conta.\n\nContattoo\n\n- Per ulteriori informazioni, contattaci.",
+        "fr": "Mansioni\n\nIl ruolo di Principal DevOps Engineer (DevOps Lead) è un membro chiave dei gruppi di ingegneria e DevOps e applicherà conoscenze di principi di progettazione, pratiche nell'implémentationazione di sistemi software a scala complessi. L'ingegnere principale è un leader a mano a mano della funzione DevOps. La responsabilité générale inclut la generazione di concetti di progettazione, la partecipazione a revisioni per componenti o funzionalità, lo sviluppo e la verifica del core software stack, e la verifica della affidabilità.\n\nResponsabilità chiave:\n\n- Sviluppo software: Questo è un ruolo di sviluppo software per scivere software di alta qualità che eseguirà a scala, sarà supportabile e sarà estensibile.\n- Processi e operazioni: Assicurarsi che lo empil software si integri con il nostro pipeline CI esiste e contribuire alla continua miglioramento; progettare, pianificare e consegnare software di alta qualità in modo indipendente.\n- Leadership: Assicurarsi una cultura che valorizzi l'eccellenza tecnica insieme con il supporto e la compassione per gli individui.\n- Evangelismo: Venez evangelista chiave, lavorerai per evangelizzare una pratica di sviluppo software DevSecOps sana all'interno della comunità di ingegneria Roche.\n\nRequisiti\n\n- Laurea in Ingegneria Informatica, Ingegneria Informatica o campo correlato.\n- 10+ anni di esperienza diretta in cloud pubblico AWS, Google o Azure (AWS Preferito) di cui almeno 5 anni di esperienza nell'industrie logiciel.\n- Esperienza di scripting è richiesta e altamente desiderabile, usingzando shell, python, ruby o linguaggi simili.\n- Esperienza di leadership di team DevOps e nella costruzione e maturazione di pipeline CI/CD.\n- Esperti in aree generali di DevSecOps, y compris CI/CD con build e rilascio, strumenti interni e opérazioni di produzione.\n- Costruire e opérare strumenti di monitoraggio per backend di produzione, Assicurarsi che i servizi backend si scalino economicamente, Sviluppare un framework di strumenti, Aiutare il team di sviluppo a risolvere problemi di produzione.\n- Esperienza di amministrazione di sistema diretta con sistemi Unix, inclusa esperienza con la configurazione del sistema e la rete (DNS, DHCP, tabella di routing e routing).\n- Esperienza di automazion usingzando codice di infrastruttura: AWS Cloudformation, Terraform, ecc.\n- Esperienza di sviluppo di automazion diretta usingzando chef o ansible desiderata.\n- Esperienza di distribuzione o gestione di ambienti Unix distribuiti a larga scala Partecipare a una rotazione di chiamata in on-call insieme agli ingegneri che costruiscono i backend di produzione, Comodo con sistemi di produzione a larga scala e tecnologie, inclusi bilancamento del carico, monitoaggio, sistemi distribuiti e/o gestione della configuzione.\n- Esperienza in piattaforme contemporanee estese dal cloud come container Docker, Mesos e/o Ku.\n\nCosa offriamo\n\n- Una cultura che valorizza l'impressione personnelle, il dialogo aperto e le connessioni authentique, dove sei valorizzato, accettato e rispettato per chi sei, consentendoti di prosperare sia personnalmente che professionalmente.\n- L'opportunità di lavorare dans un ambiente dinamico e innovativo, colombe ogni voce conta.\n\nContatto\n\n- Par ulteriori informazioni, contattaci."
       },
       "location": "Basel",
       "canton": "BS",
