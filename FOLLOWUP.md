@@ -35,6 +35,19 @@ Parse il body markdown della review più recente. Per ogni riga:
 
 Applica `REVIEW.md → "Scopo progetto"`. Item passa SE impatta monetizzazione / traffico organico / funnel reale. Altrimenti drop con rationale loggato nel commento di chiusura sulla PR.
 
+### Hard-exclude: churn non-actionable (mai aprire follow-up)
+
+Prima del filtro funnel, **droppa senza eccezioni** gli item che sono manutenzione documentale o pura igiene del codice, indipendentemente da chi li ha sollevati (PR body o reviewer). Questi non sono funnel-critici e auto-routano a `agent:fix` (#922) bruciando quota Max OAuth condivisa con la sessione interattiva owner. Il caso emblematico: `#896 → #907 → #1010 → PR #1011` ("de-rot line/PR anchors + document intent"), un follow-up doc che ha generato una PR il cui stesso body si dichiarava "puro churn documentale: nessun cambiamento di comportamento". Self-feed da fermare a monte.
+
+Droppa (reason: `non-actionable-churn`) se l'item è essenzialmente uno di:
+
+- **Doc/anchor/line-number rot**: "aggiorna line anchors", "i riferimenti `file:NNN` sono sfasati", "i link a PR #N nel commento sono stale", "de-rot comment".
+- **"Document the intent / rationale"**: aggiungere commenti che spiegano codice già funzionante, senza cambio di comportamento.
+- **Pure style/leggibilità/naming/format** non legati a un bug funnel.
+- **Item che il reviewer stesso marca** `deferred` / `non funnel-critical` / `nit puro` (vedi `AGENTS.md → Post-merge feedback handling`, eccezione "drop senza issue").
+
+Crea un follow-up SOLO quando l'item è **funnel-critico** (monetizzazione/traffico/correttezza) **E azionabile** (esiste un cambiamento di comportamento concreto da fare). Nel dubbio tra "non-actionable-churn" e "azionabile-funnel" pesa sul drop: una doc-nit persa costa zero al funnel, una issue churn-feed costa una run fixer sulla quota condivisa. Questa è la leva anti-burn più alta del workflow.
+
 ## Dedup
 
 Tre livelli, in quest'ordine:

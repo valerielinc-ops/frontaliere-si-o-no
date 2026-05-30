@@ -234,6 +234,10 @@ jobs:
           # Titolo STABILE (senza run-number) → dedup di github-issue-creator.mjs
           # collassa le run successive in commenti 🔁 sulla issue canonica invece
           # di aprire una issue nuova per run. Run-number nella description.
+          # --reopen-within-hours: se la stessa issue canonica è stata chiusa
+          # da poco (es. auto-close su un deploy verde) e il gate ri-fallisce,
+          # la RIAPRE invece di aprirne una nuova → niente storm per-run di issue
+          # transienti (#928/#931/#937/#941, già chiuse). Finestra 6h ~ ritmo deploy.
           node scripts/lib/github-issue-creator.mjs \
             --title "Validation Failure (live): post-deploy" \
             --description "## Live validation post-deploy fallita
@@ -243,5 +247,6 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           **SHA:** ${{ github.sha }}" \
             --priority 1 \
+            --reopen-within-hours 6 \
             --label Bug \
             --workflow "Post-deploy Validate Live"
