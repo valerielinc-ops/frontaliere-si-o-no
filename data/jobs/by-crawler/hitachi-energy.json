@@ -59,9 +59,7 @@
       },
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-29T12:40:06.101Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "firstSeenAt": "2026-05-29T12:40:06.101Z"
     },
     {
       "title": "Service Project & Tender Specialist 80 – 100% (f/m/d)",
@@ -194,7 +192,8 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-28T12:53:51.619Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Vorarbeiter/in Elektromontage 80 - 100% (w/m/d)",
@@ -262,7 +261,8 @@
       "previousSlugs": [
         "vorarbeiter-in-elektromontage-80-100-w-m-d-hitachi-energy-turgi-switzerland"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Shift Equipment Maintenance Engineer – Etching 80 – 100% (f/m/d)",
@@ -756,7 +756,9 @@
       },
       "previousSlugs": [
         "r-d-team-manager-next-generation-grids-transformers-80-100-f-m-d-hitachi-energy-satigny-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 2
     },
     {
       "title": "Environmental and Employee Health & Safety Specialist 80 – 100% (f/m/d)",
@@ -796,8 +798,8 @@
       "slugByLocale": {
         "it": "environmental-and-employee-health-safety-specialista-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
         "en": "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
-        "de": "facharzt-fur-gesundheit-und-arbeitssicherheit-80-100-w-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
-        "fr": "specialiste-de-l-environnement-et-de-la-securite-des-employes-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
+        "de": "environmental-and-employee-health-safety-spezialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
+        "fr": "environmental-and-employee-health-safety-specialiste-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
       },
       "id": "hitachi-energy-418710067a35",
       "salaryMin": 49500,
@@ -822,17 +824,21 @@
         ],
         "de": [
           "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
-          "environmental-and-employee-health-safety-spezialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
+          "environmental-and-employee-health-safety-spezialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
+          "facharzt-fur-gesundheit-und-arbeitssicherheit-80-100-w-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland"
         ],
         "fr": [
           "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
-          "environmental-and-employee-health-safety-specialiste-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
+          "environmental-and-employee-health-safety-specialiste-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
+          "specialiste-de-l-environnement-et-de-la-securite-des-employes-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
         ]
       },
       "previousSlugs": [
         "environmental-and-employee-health-safety-specialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
         "environmental-and-employee-health-safety-spezialist-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
-        "environmental-and-employee-health-safety-specialiste-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
+        "environmental-and-employee-health-safety-specialiste-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio",
+        "facharzt-fur-gesundheit-und-arbeitssicherheit-80-100-w-m-d-hitachi-energy-molinazzo-di-monteggio-switzerland",
+        "specialiste-de-l-environnement-et-de-la-securite-des-employes-80-100-f-m-d-hitachi-energy-molinazzo-di-monteggio"
       ]
     },
     {
@@ -1044,7 +1050,8 @@
       "previousSlugs": [
         "internship-in-reliability-testing-for-sic-based-power-semiconductors-hitachi-energy-baden-daettwil-switzerland"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Umweltspezialist 80 - 100% (w/m/d)",
@@ -1107,7 +1114,9 @@
       "previousSlugs": [
         "specialiste-de-la-soumission-et-de-la-cotation-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "specialiste-de-la-soumission-et-de-la-cotation-80-100-f-m-d-hitachi-energy-zurich-switzerland"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 2
     },
     {
       "title": "Internship in Computational Chemistry 80 - 100% (f/m/d)",
@@ -1175,7 +1184,8 @@
       "previousSlugs": [
         "internship-in-computational-chemistry-80-100-f-m-d-hitachi-energy-baden-daettwil-switzerland"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Cluster Security Manager 80 – 100% (f/m/d)",
@@ -1353,7 +1363,7 @@
         "fr": "L'opportunité Êtes-vous passionné par la transformation des environnements de fabrication au moyen de solutions numériques intelligentes et axées sur les données? En tant qu'analyste IT pour le MES et les systèmes de fabrication au sein de l'équipe de livraison des applications d'intégration du réseau BST, vous jouerez un rôle clé dans la formation de l'épine dorsale numérique de nos usines mondiales. Vous relierez les besoins opérationnels avec la technologie moderne, permettant des processus de production efficaces, sûrs et fiables qui soutiennent notre activité d'intégration du réseau. Vous travaillerez en étroite collaboration avec les intervenants, le développement et les opérations pour vous assurer que notre environnement d'application offre une valeur commerciale maximale, de l'innovation et de la satisfaction des utilisateurs. Cette position est basée à Lenzburg avec l'option pour le travail hybride. Ce rôle offre l'occasion d'influencer l'évolution, la normalisation et l'innovation de nos sites de fabrication. Même si vous ne répondez pas à toutes les exigences, nous vous encourageons à postuler – votre état d'esprit et votre potentiel sont tout aussi importants. Une équipe avec une grande coopération et des antécédents variés vous attend pour rejoindre! Comment vous allez faire un impact Act en tant qu'analyste principal pour les applications de fabrication , en s'assurant qu'ils répondent aux exigences opérationnelles et stratégiques en évolution Collaborer étroitement avec les équipes de production, les ingénieurs de processus, les propriétaires d'applications et les intervenants mondiaux de l'IG pour recueillir les exigences , définir des solutions et assurer l'alignement sur tous les sites Analyser et modéliser les processus (p. ex., flux de production, contrôles de qualité, traçabilité, collecte de données), les traduire en exigences fonctionnelles et techniques claires pour les améliorations du système ou les nouvelles capacités de fabrication Soutenir le cycle de vie complet des applications de fabrication, assurer la sécurité, la conformité, la fiabilité et l'intégration aux systèmes critiques Faciliter les ateliers, effectuer des analyses d'écarts, diriger les réunions des intervenants et créer une documentation claire pour assurer une compréhension partagée et une prise de décision efficace Identifier les possibilités de rationaliser les paysages du système, améliorer la qualité des données, réduire le travail manuel et renforcer l'harmonisation entre les usines Favoriser l'amélioration continue par la surveillance du rendement du système, recueillir les commentaires des utilisateurs et proposer des améliorations pour ne pas accroître la valeur et l'efficacité Votre expérience acquise en tant en tant\n• Nous offrons un package d'avantages concurrentiel suisse conçu pour soutenir votre croissance professionnelle et votre bien-être. Selon l'expérience et le rôle, cela peut comprendre : Régimes de retraite et d'assurance Prime au rendement Modalités de travail flexibles Possibilités d'apprentissage et de perfectionnement"
       },
       "slugByLocale": {
-        "it": "analizzatore-di-affari-it-hitachi-energy-lenzburg-switzerland",
+        "it": "it-business-analista-hitachi-energy-lenzburg-switzerland",
         "en": "it-business-analyst-hitachi-energy-lenzburg-switzerland",
         "de": "it-business-analysten-hitachi-energy-lenzburg",
         "fr": "analyste-des-activites-informatiques-hitachi-energy-lenzburg-switzerland"
@@ -1377,8 +1387,7 @@
       "firstSeenAt": "2026-05-21T22:44:52.776Z",
       "previousSlugsByLocale": {
         "it": [
-          "it-business-analyst-hitachi-energy-lenzburg-switzerland",
-          "it-business-analista-hitachi-energy-lenzburg-switzerland"
+          "it-business-analyst-hitachi-energy-lenzburg-switzerland"
         ],
         "fr": [
           "it-business-analyst-hitachi-energy-lenzburg-switzerland",
@@ -1391,10 +1400,11 @@
       },
       "previousSlugs": [
         "it-business-analyst-hitachi-energy-lenzburg-switzerland",
-        "it-business-analista-hitachi-energy-lenzburg-switzerland",
         "it-business-analyste-hitachi-energy-lenzburg-switzerland",
         "it-business-analysten-hitachi-energy-lenzburg-switzerland",
-        "it-business-intelligence-analyst-100-f-m-d-hitachi-energy-lenzburg-switzerland"
+        "it-business-intelligence-analyst-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+        "analizzatore-di-affari-it-hitachi-energy-lenzburg-switzerland",
+        "analyste-des-activites-informatiques-hitachi-energy-lenzburg-switzerland"
       ]
     },
     {
@@ -2123,7 +2133,9 @@
         ]
       },
       "previousSlugs": [
-        "hse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+        "hse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "hse-spezialist-80-100-w-m-d-hitachi-energy-zurich",
+        "specialiste-hse-80-100-f-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -2162,7 +2174,7 @@
         "fr": "En tant que leader mondial des semi-conducteurs électriques, Hitachi Energy offre l'un des portefeuilles de produits les plus diversifiés. Parmi eux: Thyristors, diodes, thyristors à orifices de sortie (GTO), thyristors intégrés à orifices de sortie (IGCT), transistors bipolaires à orifices isolés (IGBT) et MOSFETs, estimés dans l'industrie, transmission et distribution d'énergie, mobilité et énergies renouvelables pour leur haute qualité et fiabilité. Pour notre équipe, nous sommes à la recherche d'un 'automatique' qui aide à construire et à commander nos systèmes d'essai de semi-conducteurs. Cela vous permet de construire des systèmes d'essai de semi-conducteurs électriques, électriques, pneumatiques et hydrauliques pour effectuer des travaux d'adaptation sur des constructions défectueuses, des pièces de fabrication ou des schémas pour contrôler toutes les fonctions mécaniques, pneumatiques, électriques, programmées et hydrauliques pour effectuer des mesures de mise à la terre (contrôle de la continuité du système d'échelle de protection selon EN 60204-1 18b) Cela vous apporte avec une formation complète en tant que technicien automatique (éventuellement avec une école technique supérieure), idéalement avec une expérience professionnelle dans l'assemblage d'expérience en gestion de projet Savoir-faire financé dans le traitement mécanique des matériaux (tournage, fraisage, forage, sciage, etc.) Confiance avec les semi-conducteurs électriques, la technologie de mesure ainsi que les lignes directrices et normes pertinentes Gestion sûre avec Office 365 Très bon allemand et bonne connaissance de l'anglais dans la parole et l'écriture Plus sur nous Position limitée dans une société de haute technologie de leader international Varié et responsable\n• Tâches dans le domaine des semi-conducteurs électriques Une culture d'entreprise ouverte avec de courtes voies de décision Des avantages sociaux attrayants et des ressources de travail modernes"
       },
       "slugByLocale": {
-        "it": "limitato-automatico-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
+        "it": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg",
         "en": "limited-automatic-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "de": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "fr": "limite-automatique-80-100-m-j-hitachi-energy-lenzburg-switzerland"
@@ -2171,8 +2183,7 @@
       "previousSlugsByLocale": {
         "it": [
           "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
-          "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg",
-          "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg"
+          "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg"
         ],
         "en": [
           "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
@@ -2184,7 +2195,7 @@
       "previousSlugs": [
         "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland",
         "befristet-automatiker-in-80-100-m-w-d-hitachi-energy-lenzburg",
-        "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg"
+        "limitato-automatico-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -2297,16 +2308,16 @@
       "validThrough": "",
       "description": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle \n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel",
       "titleByLocale": {
-        "it": "Befristet: Automatiker/in 80 - 100% (w/m/d)",
-        "en": "Befristet: Automatiker/in 80 - 100% (w/m/d)",
+        "it": "Limitato: Automatico 80 - 100% (w/m/d)",
+        "en": "Limited: Automatic 80 - 100% (w/m/d)",
         "de": "Befristet: Automatiker/in 80 - 100% (w/m/d)",
-        "fr": "Befristet: Automatiker/in 80 - 100% (w/m/d)"
+        "fr": "Limité: Automatique 80 - 100% (m/j)"
       },
       "descriptionByLocale": {
-        "it": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle \n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel",
-        "en": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle \n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel",
-        "de": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle \n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel",
-        "fr": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle \n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel"
+        "it": "Come leader globale nei semiconduttori di potenza, Hitachi Energy offre uno dei più diversi portfolio di prodotti. Tra questi: Tiristori, diodi, tiristori di gate-turn-off (GTO), tiristori integrati a cancello commutato (IGCT), transistor bipolari a cancello isolato (IGBT) e MOSFET, che sono stimati nell'industria, trasmissione e distribuzione di energia, mobilità e energie rinnovabili per la loro alta qualità e affidabilità. Per il nostro team stiamo cercando un 'automatico' che aiuta a costruire e commissionare i nostri sistemi di prova semiconduttore di potenza. Questo consente di costruire sistemi di prova a semiconduttore di potenza tra cui meccanica, elettrica, pneumatica e idraulica per eseguire lavori di adattamento su costruzioni difettose, parti o schemi di produzione per controllare tutte le funzioni meccaniche, pneumatiche, elettriche, programmate e idrauliche per eseguire misurazioni di messa a terra (controllare la continuità del sistema di scale di protezione secondo EN 60204-1 18b) Questo ti porta con una formazione completa come tecnico automatico (forse con una scuola tecnica superiore), idealmente con esperienza professionale nell'esperienza di assemblaggio nella gestione dei progetti Il know-how finanziato nella lavorazione meccanica dei materiali (torno, fresatura, perforazione, segatura, ecc.) Confidenza con semiconduttori di potenza, tecnologia di misura e linee guida e standard rilevanti Gestione sicura con Office 365 Molto buono tedesco e buona conoscenza inglese in parola e scrittura Più su di noi Posizione limitata in una società high-tech leader a livello internazionale Varied e responsabile\n• Compiti nel settore dei semiconduttori di potenza Aprire la cultura aziendale con brevi percorsi decisionali Vantaggi sociali attraenti e risorse di lavoro moderne",
+        "en": "As a global leader in power semiconductors, Hitachi Energy offers one of the most diverse product portfolios. Among them: Thyristors, diodes, gate-turn-off thyristors (GTOs), integrated gate-commutated thyristors (IGCTs), insulated gate bipolar transistors (IGBTs) and MOSFETs, which are estimated in industry, energy transmission and distribution, mobility and renewable energies for their high quality and reliability. For our team we are looking for a 'automatic' that helps to build and commission our power semiconductor test systems. This allows you to build power semiconductor test systems including mechanics, electrical, pneumatic and hydraulics to perform adaptation work on faulty constructions, manufacturing parts or schemes to control all mechanical, pneumatic, electrical, programmed and hydraulic functions to perform grounding measurements (checking the continuity of the protective ladder system according to EN 60204-1 18b) This brings you with completed training as an automatic technician (possibly with a higher technical school), ideally with professional experience in assembly experience in project management Funded know-how in mechanical processing of materials (turning, milling, drilling, sawing, etc.) Confidence with power semiconductors, measurement technology as well as relevant guidelines and standards Safe handling with Office 365 Very good German and good English knowledge in word and writing More about us Limited position in an internationally leading high-tech company Varied and responsible\n• Tasks in the field of power semiconductors Open corporate culture with short decision paths Attractive social benefits and modern work resources",
+        "de": "Über die Position Als weltweit führender Anbieter von Leistungshalbleitern bietet Hitachi Energy eines der vielfältigsten Produktportfolios. Darunter; Thyristoren, Dioden, Gate-Turn-Off-Thyristoren (GTOs), Integrated Gate-Commutated Thyristors (IGCTs), Insulated Gate Bipolar Transistors (IGBTs) und MOSFETs -, die in Industrie, Energieübertragung und -verteilung, Mobilität und erneuerbaren Energien für ihre hohe Qualität und Zuverlässigkeit geschätzt werden. Für unser Team suchen wir befristet eine\\/n Automatiker\\/in, der\\/die beim Aufbau und der Inbetriebnahme unserer Leistungshalbleiter-Testsysteme mitwirkt. Das kannst du bewirken Aufbau von Leistungshalbleiter-Testsystemen inklusive Mechanik, Elektrik, Pneumatik und Hydraulik Durchführung von Anpassungsarbeiten an fehlerhaften Konstruktionen, Fertigungsteilen oder Schemen Kontrolle aller mechanischen, pneumatischen, elektrischen, programmierten und hydraulischen Funktionen Durchführung von Erdungsmessungen (Überprüfung der Durchgängigkeit des Schutzleitersystems nach EN 60204-1 18b) Erstellen von Inbetriebnahme- und Isolationskoordinationsprotokollen Durchführung der Inbetriebnahme und Isolationskoordination von Testsystemen Sicherstellung der Einhaltung von Qualitäts-, Sicherheits- und Normvorgaben Aktive Mitarbeit bei der Optimierung von Prozessen und Systemen Das bringst du mit Abgeschlossene Ausbildung als Automatiker\\/in EFZ (evtl. mit höherer Fachschule), idealerweise mit Berufserfahrung in der Montage Erfahrung im Projektmanagement Fundiertes Know-how in der mechanischen Bearbeitung von Materialien (Drehen, Fräsen, Bohren, Sägen etc.) Vertrautheit mit Leistungshalbleitern, Messtechnik sowie relevanten Richtlinien und Normen Sicherer Umgang mit Office 365 Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift Mehr über uns Befristete Position in einem international führenden Hightech-Unternehmen Abwechslungsreiche und verantwortungsvolle\n• Aufgaben im Bereich Leistungshalbleiter Offene Unternehmenskultur mit kurzen Entscheidungswegen Attraktive Sozialleistungen und moderne Arbeitsmittel",
+        "fr": "En tant que leader mondial des semi-conducteurs électriques, Hitachi Energy offre l'un des portefeuilles de produits les plus diversifiés. Parmi eux: Thyristors, diodes, thyristors à orifices de sortie (GTO), thyristors intégrés à orifices de sortie (IGCT), transistors bipolaires à orifices isolés (IGBT) et MOSFETs, estimés dans l'industrie, transmission et distribution d'énergie, mobilité et énergies renouvelables pour leur haute qualité et fiabilité. Pour notre équipe, nous sommes à la recherche d'un 'automatique' qui aide à construire et à commander nos systèmes d'essai de semi-conducteurs. Cela vous permet de construire des systèmes d'essai de semi-conducteurs électriques, électriques, pneumatiques et hydrauliques pour effectuer des travaux d'adaptation sur des constructions défectueuses, des pièces de fabrication ou des schémas pour contrôler toutes les fonctions mécaniques, pneumatiques, électriques, programmées et hydrauliques pour effectuer des mesures de mise à la terre (contrôle de la continuité du système d'échelle de protection selon EN 60204-1 18b) Cela vous apporte avec une formation complète en tant que technicien automatique (éventuellement avec une école technique supérieure), idéalement avec une expérience professionnelle dans l'assemblage d'expérience en gestion de projet Savoir-faire financé dans le traitement mécanique des matériaux (tournage, fraisage, forage, sciage, etc.) Confiance avec les semi-conducteurs électriques, la technologie de mesure ainsi que les lignes directrices et normes pertinentes Gestion sûre avec Office 365 Très bon allemand et bonne connaissance de l'anglais dans la parole et l'écriture Plus sur nous Position limitée dans une société de haute technologie de leader international Varié et responsable\n• Tâches dans le domaine des semi-conducteurs électriques Une culture d'entreprise ouverte avec de courtes voies de décision Des avantages sociaux attrayants et des ressources de travail modernes"
       },
       "slugByLocale": {
         "it": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg",
@@ -2315,7 +2326,6 @@
         "fr": "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
       },
       "id": "hitachi-energy-fc9f11d843e6",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "befristet-automatiker-in-80-100-w-m-d-hitachi-energy-lenzburg-switzerland"
@@ -2475,7 +2485,8 @@
         ]
       },
       "previousSlugs": [
-        "head-of-bid-proposal-markt-schweiz-80-100-w-m-d-hitachi-energy-baden-switzerland"
+        "head-of-bid-proposal-markt-schweiz-80-100-w-m-d-hitachi-energy-baden-switzerland",
+        "leiterin-des-bid-project-markt-schweiz-w-m-d-hitachi-energy-baden"
       ]
     },
     {
@@ -2732,7 +2743,7 @@
       "slugByLocale": {
         "it": "trasporto-commercio-e-logistica-junior-specialista-esportazione-80-100-w-m-d-hitachi-energy-baden-switzerland",
         "en": "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
-        "de": "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden",
+        "de": "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
         "fr": "transport-commerce-et-logistique-junior-specialiste-export-80-100-m-j-hitachi-energy-baden-switzerland"
       },
       "id": "hitachi-energy-163314de11c7",
@@ -2753,7 +2764,8 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-29T23:19:31.646Z",
       "previousSlugs": [
-        "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland"
+        "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
+        "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2763,7 +2775,8 @@
           "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland"
         ],
         "de": [
-          "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland"
+          "transport-trade-logistics-junior-specialist-export-80-100-w-m-d-hitachi-energy-baden-switzerland",
+          "transport-handel-logistik-junior-spezialist-export-80-100-w-m-d-hitachi-energy-baden"
         ]
       }
     },
@@ -2837,7 +2850,8 @@
         ]
       },
       "previousSlugs": [
-        "semiconductor-shift-maintenance-engineer-or-technician-diffusion-implant-80-100-f-m-d-hitachi-energy-lenzburg-switzerland"
+        "semiconductor-shift-maintenance-engineer-or-technician-diffusion-implant-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+        "semiconductor-shift-maintenance-engineer-oder-techniker-diffusion-implant-80-100-f-m-d-hitachi-energy-lenzburg"
       ]
     },
     {
@@ -2911,7 +2925,8 @@
         ]
       },
       "previousSlugs": [
-        "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland"
+        "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
+        "field-service-ingenieur-f-m-d-hitachi-energy-zurich-switzerland"
       ]
     },
     {
@@ -3043,7 +3058,10 @@
       },
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-29T23:19:31.646Z"
+      "firstSeenAt": "2026-05-29T23:19:31.646Z",
+      "previousSlugs": [
+        "tender-and-quotation-specialista-80-100-f-m-d-hitachi-energy-zurich"
+      ]
     },
     {
       "title": "Account Manager Rolling Stock 80 - 100% (f/m/d)",
@@ -3500,7 +3518,7 @@
       "descriptionByLocale": {
         "it": "Come specialista di assemblaggio in produzione, si gioca un ruolo centrale nella produzione dei nostri prodotti. L'installazione di impianti di produzione, l'esecuzione di lavori di assemblaggio e l'assicurarsi che tutte le fasi di lavoro siano eseguite in conformità con i requisiti in materia di qualità, efficienza e sicurezza. Grazie alla vostra esperienza, riconoscete le deviazioni in anticipo, analizzate le cause e sostenete attivamente il continuo miglioramento dei processi produttivi e l'integrazione di nuovi dipendenti. Questo consente di eseguire lavori di assemblaggio e produzione secondo specifiche, istruzioni di lavoro e standard di qualità Installazione, gestione e monitoraggio di impianti di produzione e attrezzature di lavoro Assicurare un processo di produzione regolare, mantenendo il tempo, i costi e le specifiche di qualità Applicazione dei controlli di qualità, nonché l'identificazione, l'analisi e la correzione di deviazioni Spostamento, smistamento e imballaggio di materiali e prodotti finiti Documentazione dei dati di produzione per supportare l'analisi delle prestazioni Questo ti porta a lavorare con una completa esperienza tecnica e artigianale o professionale comparabile nella produzione Esperienza pluriennale nell'ambiente di produzione industriale, idealmente nell'assemblaggio o nella produzione Buona conoscenza dei processi di produzione, dei flussi di lavoro e degli strumenti Capacità di sviluppare soluzioni strutturate anche in problemi complessi Lavoro autonomo, affidabile e di qualità-consapevole Funzionamento delle competenze del Team, nonché la volontà di assumersi responsabilità e trasmettere conoscenze in funzionamento a 2 turni.",
         "en": "As an assembly specialist in production, you play a central role in the production of our products. You set up production facilities, perform assembly work and make sure that all work steps are carried out in accordance with requirements regarding quality, efficiency and safety. Thanks to your experience, you recognize deviations early, analyze causes and actively support the continuous improvement of production processes and the incorporation of new employees. This allows you to perform assembly and production work according to specifications, work instructions and quality standards Set up, operate and monitor production facilities and work equipment Ensure a smooth production process while maintaining time, cost and quality specifications Implementation of quality controls as well as identification, analysis and correction of deviations Moving, sorting and packaging of materials and finished products Documentation of production data to support performance analysis This brings you to work with completed technical & craftsmanship or comparable professional experience in production Multiannual experience in industrial production environment, ideally in assembly or manufacturing Good knowledge of production processes, workflows and tools Ability to develop structured solutions even in complex problems Self-employed, reliable and quality-conscious functioning Team skills as well as the willingness to take responsibility and pass on knowledge in 2-shift operation More about us We are looking for a safe workplace in a future-oriented company, exciting development opportunities, a collegial and value-adding working environment and attractive social benefits.",
-        "de": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
+        "de": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
         "fr": "En tant que spécialiste de la production, vous jouez un rôle central dans la production de nos produits. Vous créez des installations de production, effectuez des travaux d'assemblage et assurez-vous que toutes les étapes de travail sont effectuées conformément aux exigences en matière de qualité, d'efficacité et de sécurité. Grâce à votre expérience, vous reconnaissez les écarts tôt, analysez les causes et soutenez activement l'amélioration continue des processus de production et l'intégration de nouveaux employés. Cela vous permet d'effectuer des travaux de montage et de production selon les spécifications, les instructions de travail et les normes de qualité Configurer, exploiter et surveiller les installations de production et les équipements de travail Assurer un processus de production fluide tout en maintenant le temps, les coûts et les spécifications de qualité Mise en œuvre des contrôles de qualité ainsi que l'identification, l'analyse et la correction des écarts Déplacement, tri et emballage des matériaux et des produits finis Documentation des données de production pour soutenir l'analyse des performances Cela vous amène à travailler avec un savoir-faire technique & ou une expérience professionnelle comparable dans la production Expérience pluriannuelle dans l'environnement de production industrielle, idéalement dans l'assemblage ou la fabrication Bonne connaissance des processus de production, des workflows et des outils Capacité de développer des solutions structurées même dans des problèmes complexes Travailleur indépendant, fiable et soucieux de la qualité Compétences de l'équipe ainsi que la volonté d'assumer la responsabilité et de transmettre des connaissances dans l'exploitation de 2 équipes Plus sur nous Nous cherchons un lieu de travail sûr dans une entreprise tournée vers l'avenir, des possibilités de développement passionnantes, un environnement de travail collégial et enrichissant et des avantages sociaux attrayants."
       },
       "slugByLocale": {
@@ -3565,16 +3583,16 @@
       "validThrough": "",
       "description": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
       "titleByLocale": {
-        "it": "Produktionsmitarbeiter/in Montage 80–100% (w/m/d)",
-        "en": "Produktionsmitarbeiter/in Montage 80–100% (w/m/d)",
+        "it": "Responsabile produzione 80-100% (w/m/d)",
+        "en": "Production Manager 80–100% (w/m/d)",
         "de": "Produktionsmitarbeiter/in Montage 80–100% (w/m/d)",
-        "fr": "Produktionsmitarbeiter/in Montage 80–100% (w/m/d)"
+        "fr": "Directeur de la production 80–100% (m/j)"
       },
       "descriptionByLocale": {
-        "it": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
-        "en": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
+        "it": "Come specialista di assemblaggio in produzione, si gioca un ruolo centrale nella produzione dei nostri prodotti. L'installazione di impianti di produzione, l'esecuzione di lavori di assemblaggio e l'assicurarsi che tutte le fasi di lavoro siano eseguite in conformità con i requisiti in materia di qualità, efficienza e sicurezza. Grazie alla vostra esperienza, riconoscete le deviazioni in anticipo, analizzate le cause e sostenete attivamente il continuo miglioramento dei processi produttivi e l'integrazione di nuovi dipendenti. Questo consente di eseguire lavori di assemblaggio e produzione secondo specifiche, istruzioni di lavoro e standard di qualità Installazione, gestione e monitoraggio di impianti di produzione e attrezzature di lavoro Assicurare un processo di produzione regolare, mantenendo il tempo, i costi e le specifiche di qualità Applicazione dei controlli di qualità, nonché l'identificazione, l'analisi e la correzione di deviazioni Spostamento, smistamento e imballaggio di materiali e prodotti finiti Documentazione dei dati di produzione per supportare l'analisi delle prestazioni Questo ti porta a lavorare con una completa esperienza tecnica e artigianale o professionale comparabile nella produzione Esperienza pluriennale nell'ambiente di produzione industriale, idealmente nell'assemblaggio o nella produzione Buona conoscenza dei processi di produzione, dei flussi di lavoro e degli strumenti Capacità di sviluppare soluzioni strutturate anche in problemi complessi Lavoro autonomo, affidabile e di qualità-consapevole Funzionamento delle competenze del Team, nonché la volontà di assumersi responsabilità e trasmettere conoscenze in funzionamento a 2 turni.",
+        "en": "As an assembly specialist in production, you play a central role in the production of our products. You set up production facilities, perform assembly work and make sure that all work steps are carried out in accordance with requirements regarding quality, efficiency and safety. Thanks to your experience, you recognize deviations early, analyze causes and actively support the continuous improvement of production processes and the incorporation of new employees. This allows you to perform assembly and production work according to specifications, work instructions and quality standards Set up, operate and monitor production facilities and work equipment Ensure a smooth production process while maintaining time, cost and quality specifications Implementation of quality controls as well as identification, analysis and correction of deviations Moving, sorting and packaging of materials and finished products Documentation of production data to support performance analysis This brings you to work with completed technical & craftsmanship or comparable professional experience in production Multiannual experience in industrial production environment, ideally in assembly or manufacturing Good knowledge of production processes, workflows and tools Ability to develop structured solutions even in complex problems Self-employed, reliable and quality-conscious functioning Team skills as well as the willingness to take responsibility and pass on knowledge in 2-shift operation More about us We are looking for a safe workplace in a future-oriented company, exciting development opportunities, a collegial and value-adding working environment and attractive social benefits.",
         "de": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen.",
-        "fr": "Über die Position Als Montagefachkraft in der Produktion übernimmst du eine zentrale Rolle in der Fertigung unserer Produkte. Du richtest Produktionsanlagen ein, führst Montagearbeiten durch und stellst sicher, dass alle Arbeitsschritte gemäss Vorgaben hinsichtlich Qualität, Effizienz und Sicherheit ausgeführt werden. Dank deiner Erfahrung erkennst du Abweichungen frühzeitig, analysierst Ursachen und unterstützt aktiv die kontinuierliche Verbesserung der Produktionsprozesse sowie die Einarbeitung neuer Mitarbeitender. Das kannst du bewirken Durchführung von Montage- und Produktionsarbeiten gemäss Spezifikationen, Arbeitsanweisungen und Qualitätsstandards Einrichten, Bedienen und Überwachen von Produktionsanlagen und Arbeitsmitteln Sicherstellung eines reibungslosen Produktionsablaufs unter Einhaltung von Termin-, Kosten- und Qualitätsvorgaben Durchführung von Qualitätskontrollen sowie Identifikation, Analyse und Behebung von Abweichungen Bewegen, Sortieren und Verpacken von Materialien und Fertigprodukten Dokumentation von Produktionsdaten zur Unterstützung der Leistungsanalyse Unterstützung bei der Optimierung von Prozessen sowie Einbringen von Verbesserungsvorschlägen Fachliche Unterstützung und Einarbeitung von weniger erfahrenen Mitarbeitenden Das bringst du mit Abgeschlossene technische\\/handwerkliche Berufsausbildung oder vergleichbare Berufserfahrung in der Produktion Mehrjährige Erfahrung im industriellen Produktionsumfeld, idealerweise in Montage oder Fertigung Gute Kenntnisse von Produktionsprozessen, Arbeitsabläufen und Werkzeugen Fähigkeit, auch bei komplexeren Problemen strukturiert Lösungen zu erarbeiten Selbstständige, zuverlässige und qualitätsbewusste Arbeitsweise Teamfähigkeit sowie die Bereitschaft, Verantwortung zu übernehmen und Wissen weiterzugeben Bereitschaft in 2-Schicht Betrieb zu arbeiten Mehr über uns   Hitachi Energy steht für innovative Technologien und nachhaltige Energielösungen weltweit. Bei uns erwartet dich ein sicherer Arbeitsplatz in einem zukunftsorientierten Unternehmen, spannende Entwicklungsmöglichkeiten, ein kollegiales und wertschätzendes Arbeitsumfeld sowie attraktive Sozialleistungen."
+        "fr": "En tant que spécialiste de la production, vous jouez un rôle central dans la production de nos produits. Vous créez des installations de production, effectuez des travaux d'assemblage et assurez-vous que toutes les étapes de travail sont effectuées conformément aux exigences en matière de qualité, d'efficacité et de sécurité. Grâce à votre expérience, vous reconnaissez les écarts tôt, analysez les causes et soutenez activement l'amélioration continue des processus de production et l'intégration de nouveaux employés. Cela vous permet d'effectuer des travaux de montage et de production selon les spécifications, les instructions de travail et les normes de qualité Configurer, exploiter et surveiller les installations de production et les équipements de travail Assurer un processus de production fluide tout en maintenant le temps, les coûts et les spécifications de qualité Mise en œuvre des contrôles de qualité ainsi que l'identification, l'analyse et la correction des écarts Déplacement, tri et emballage des matériaux et des produits finis Documentation des données de production pour soutenir l'analyse des performances Cela vous amène à travailler avec un savoir-faire technique & ou une expérience professionnelle comparable dans la production Expérience pluriannuelle dans l'environnement de production industrielle, idéalement dans l'assemblage ou la fabrication Bonne connaissance des processus de production, des workflows et des outils Capacité de développer des solutions structurées même dans des problèmes complexes Travailleur indépendant, fiable et soucieux de la qualité Compétences de l'équipe ainsi que la volonté d'assumer la responsabilité et de transmettre des connaissances dans l'exploitation de 2 équipes Plus sur nous Nous cherchons un lieu de travail sûr dans une entreprise tournée vers l'avenir, des possibilités de développement passionnantes, un environnement de travail collégial et enrichissant et des avantages sociaux attrayants."
       },
       "slugByLocale": {
         "it": "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland",
@@ -3583,7 +3601,6 @@
         "fr": "produktionsmitarbeiter-in-montage-80-100-w-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-0591b61ee0b3",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -3712,7 +3729,7 @@
       "slugByLocale": {
         "it": "test-ingegnere-80-100-f-m-d-hitachi-energy-zurich",
         "en": "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "prufingenieur-80-100-f-m-d-hitachi-energy-zurich",
+        "de": "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "test-ingenieur-80-100-f-m-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-e8ec88f0fd50",
@@ -3737,14 +3754,21 @@
           "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+          "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+          "prufingenieur-80-100-f-m-d-hitachi-energy-zurich"
         ],
         "fr": [
           "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ]
       },
       "previousSlugs": [
-        "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+        "test-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "prufingenieur-80-100-f-m-d-hitachi-energy-zurich",
+        "collaboratore-trice-endprufung-80-100-m-w-d-hitachi-energy-zurich",
+        "staff-80-100-w-m-d-hitachi-energy-zurich",
+        "mitarbeiter-in-endprufung-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+        "personnel-80-100-m-j-hitachi-energy-zurich",
+        "staff-80-100-w-m-d-hitachi-energy-zurich-switzerland"
       ]
     },
     {
@@ -4014,7 +4038,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-29T23:19:31.646Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "gpg-insulation-components-apqp-leader-hitachi-energy-remote-zurich-switzerland"
@@ -4022,8 +4045,7 @@
       },
       "previousSlugs": [
         "gpg-insulation-components-apqp-leader-hitachi-energy-remote-zurich-switzerland"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "High Voltage Testing Engineer 80 – 100% (f/m/d)",
@@ -4086,7 +4108,8 @@
       "previousSlugs": [
         "high-voltage-testing-engineer-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "high-voltage-testing-and-process-engineer-for-bushings-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "high-voltage-testing-ingegnere-80-100-f-m-d-hitachi-energy-zurich"
+        "high-voltage-testing-ingegnere-80-100-f-m-d-hitachi-energy-zurich",
+        "ingegnere-di-prova-e-processo-ad-alta-tensione-per-boccole-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       ],
       "retranslationAttempts": 1,
       "previousSlugsByLocale": {
@@ -4284,7 +4307,7 @@
       "slugByLocale": {
         "it": "troubleshooting-improvement-specialista-40-50-f-m-d-hitachi-energy-zurich",
         "en": "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich",
+        "de": "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "troubleshooting-improvement-specialiste-40-50-f-m-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-cc74e763ae07",
@@ -4305,14 +4328,16 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-29T23:19:31.646Z",
       "previousSlugs": [
-        "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
+        "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
+        "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
+          "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland",
+          "fehlerbehebung-spezialist-40-50-f-m-d-hitachi-energy-zurich"
         ],
         "fr": [
           "troubleshooting-improvement-specialist-40-50-f-m-d-hitachi-energy-zurich-switzerland"
@@ -4494,7 +4519,7 @@
       "slugByLocale": {
         "it": "assemblatore-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "en": "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland",
-        "de": "montagegerat-80-100-w-m-d-hitachi-energy-zurich",
+        "de": "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "fr": "assemblage-80-100-m-j-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-1db71a148490",
@@ -4522,13 +4547,15 @@
           "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland"
+          "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland",
+          "montagegerat-80-100-w-m-d-hitachi-energy-zurich"
         ]
       },
       "previousSlugs": [
         "assembler-80-100-w-m-d-hitachi-energy-zurich-switzerland",
         "assemblage-80-100-m-j-hitachi-energy-zurich",
-        "assemblatore-80-100-w-m-d-hitachi-energy-zurich"
+        "assemblatore-80-100-w-m-d-hitachi-energy-zurich",
+        "montagegerat-80-100-w-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -4642,7 +4669,7 @@
       "slugByLocale": {
         "it": "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "en": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
+        "de": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-e5438dfe7558",
@@ -4665,14 +4692,16 @@
       "previousSlugs": [
         "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "troubleshooting-process-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
-        "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich"
+        "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich",
+        "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+          "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+          "fehlerbehebung-prozess-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich"
         ]
       }
     },
@@ -4734,7 +4763,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-29T23:19:31.646Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "r-d-transformer-service-operations-domain-expert-f-m-d-hitachi-energy-remote-zurich-switzerland"
@@ -4742,8 +4770,7 @@
       },
       "previousSlugs": [
         "r-d-transformer-service-operations-domain-expert-f-m-d-hitachi-energy-remote-zurich-switzerland"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Warehouse Specialist 80 - 100% (f/m/d)",
@@ -4783,7 +4810,7 @@
       "slugByLocale": {
         "it": "warehouse-specialista-80-100-f-m-d-hitachi-energy-zurich",
         "en": "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich",
+        "de": "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "warehouse-specialiste-80-100-f-m-d-hitachi-energy-zurich"
       },
       "id": "hitachi-energy-d958aaee4dbd",
@@ -4808,14 +4835,17 @@
           "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ],
         "de": [
-          "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+          "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+          "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich"
         ],
         "fr": [
           "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland"
         ]
       },
       "previousSlugs": [
-        "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland"
+        "warehouse-specialist-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "lagerspezialist-80-100-w-m-d-hitachi-energy-zurich",
+        "warehouse-spezialist-80-100-f-m-d-hitachi-energy-zurich"
       ]
     },
     {
@@ -5523,7 +5553,7 @@
       "slugByLocale": {
         "it": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "en": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich",
+        "de": "installation-project-manager-80-100-f-m-d-hitachi-energy-zurich-switzerland",
         "fr": "gestionnaire-de-projet-d-installation-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "id": "hitachi-energy-511281e3ae3d",
@@ -5542,7 +5572,15 @@
       },
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-29T23:19:31.646Z"
+      "firstSeenAt": "2026-05-29T23:19:31.646Z",
+      "previousSlugs": [
+        "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "installationsprojektleiter-80-100-w-m-d-hitachi-energy-zurich"
+        ]
+      }
     },
     {
       "title": "Global AI Prompting Engineer PGTR",
