@@ -86,7 +86,8 @@ jobs:
             **Esegui workflow come specificato in FOLLOWUP.md:**
             - Parse PR body `## Non implementato` (skip motivi `out of scope` / `posposto`).
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
-            - Filtro scopo (`REVIEW.md`): item passa se impatta monetizzazione / traffico / funnel.
+            - **Hard-exclude churn (FOLLOWUP.md → "Hard-exclude: churn non-actionable"):** droppa SEMPRE, prima del filtro funnel, gli item che sono doc/anchor/line-number rot, "document the intent/rationale", "de-rot comments", pure style/naming/format, o che il reviewer stesso marca `deferred`/`non funnel-critical`/nit puro. Questi auto-routano a `agent:fix` e bruciano quota Max condivisa per zero impatto funnel (caso #1010→PR #1011 "puro churn documentale"). NON creare follow-up per essi.
+            - Filtro scopo (`REVIEW.md`): item passa SOLO se è funnel-critico (monetizzazione / traffico / correttezza) **E** azionabile (cambiamento di comportamento concreto). Nel dubbio churn-vs-funnel → drop.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando (`gh pr list --state open` + `gh pr diff <n> --name-only`) → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
             - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
