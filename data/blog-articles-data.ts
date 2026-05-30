@@ -25076,4 +25076,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'svizzeri-scelgono-capitale-pensione',
+ category: 'pensione',
+ date: '2026-05-30T02:26:35.062Z',
+ image: '/images/blog/svizzeri-scelgono-capitale-pensione.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
