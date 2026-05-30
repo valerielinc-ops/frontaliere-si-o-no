@@ -1016,6 +1016,10 @@
         ],
         "fr": [
           "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        ],
+        "it": [
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n55",
+          "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n56"
         ]
       },
       "previousSlugs": [
@@ -1029,7 +1033,9 @@
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
         "healthcare-worker-employee-eoc-ente-ospedaliero-cantonale-novaggio-56991c",
         "gesundheitsarbeiter-arbeitnehmer-eoc-ente-ospedaliero-cantonale-novaggio-56991c",
-        "travailleurs-employes-de-la-sante-eoc-ente-ospedaliero-cantonale-novaggio-56991c"
+        "travailleurs-employes-de-la-sante-eoc-ente-ospedaliero-cantonale-novaggio-56991c",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n55",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n56"
       ]
     },
     {
@@ -2107,17 +2113,29 @@
         "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
         "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
-        "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4"
+        "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona-db0aa4",
+        "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+        "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona-af270e"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+          "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona-af270e"
         ],
         "de": [
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+          "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona-af270e"
         ],
         "fr": [
-          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona-af270e",
+          "depenses-administratives-eoc-ente-ospedaliero-cantonale-bellinzona-af270e"
         ]
       }
     },
@@ -8582,7 +8600,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -8598,7 +8615,11 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s",
+        "physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "physiotherapeute-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -8610,6 +8631,12 @@
         ],
         "fr": [
           "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        ],
+        "it": [
+          "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s",
+          "physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "physiotherapeute-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       }
     },
@@ -12715,7 +12742,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
         "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -12732,7 +12758,10 @@
         "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil177",
-        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-novaggio",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-locarno",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
@@ -12741,6 +12770,11 @@
         ],
         "fr": [
           "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno"
+        ],
+        "it": [
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-novaggio",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-locarno",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano"
         ]
       }
     },
