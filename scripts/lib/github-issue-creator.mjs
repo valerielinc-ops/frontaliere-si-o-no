@@ -76,17 +76,16 @@ function ensureLabelsExist(labels) {
   }
 }
 
-function findOpenIssueByTitlePrefix(titlePrefix) {
-  // gh issue list --search title:"prefix" --state open
+function searchIssuesByTitlePrefix(titlePrefix, state) {
   const out = gh([
     'issue', 'list',
-    '--state', 'open',
+    '--state', state,
     '--search', `in:title "${titlePrefix.replace(/"/g, '\\"')}"`,
-    '--limit', '5',
-    '--json', 'number,title,url',
+    '--limit', '10',
+    '--json', 'number,title,url,closedAt,state',
     ...repoFlag(),
   ], { allowFailure: true });
-  if (!out) return null;
+  if (!out) return [];
   try {
     const issues = JSON.parse(out);
     // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
@@ -94,11 +93,32 @@ function findOpenIssueByTitlePrefix(titlePrefix) {
     // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
     // entrambi comparire. Filtra al match esatto di prefisso → niente commento
     // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
-    const exact = issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
-    return exact[0] || null;
+    return issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(titlePrefix));
   } catch {
-    return null;
+    return [];
   }
+}
+
+function findOpenIssueByTitlePrefix(titlePrefix) {
+  return searchIssuesByTitlePrefix(titlePrefix, 'open')[0] || null;
+}
+
+/**
+ * Find a recently-closed issue with the same stable title prefix, closed within
+ * `withinHours`. Collapses FLAPPING transient failures (fail → auto-close on
+ * green → fail again) onto a single canonical issue instead of spawning a new
+ * one every deploy. This was the residual churn behind #928/#931/#937/#941: the
+ * post-deploy validation titles were already stable, but the dedup matched only
+ * OPEN issues, so each per-deploy transient that had been closed reopened as a
+ * brand-new issue. Returns the most-recently-closed matching issue, or null.
+ */
+function findRecentlyClosedIssueByTitlePrefix(titlePrefix, withinHours) {
+  if (!withinHours || withinHours <= 0) return null;
+  const cutoff = Date.now() - withinHours * 3600 * 1000;
+  const matches = searchIssuesByTitlePrefix(titlePrefix, 'closed')
+    .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
+    .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
+  return matches[0] || null;
 }
 
 /**
