@@ -25130,4 +25130,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'rincari-ticino-percepiti-dolorosi',
+ category: 'pratico',
+ date: '2026-05-30T04:18:23.621Z',
+ image: '/images/blog/rincari-ticino-percepiti-dolorosi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

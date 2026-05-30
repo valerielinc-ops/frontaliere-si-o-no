@@ -7917,6 +7917,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ritenuta-lpp-intermediario-residente.title': '5% Abzug auf LPP-Leistungen: Vermittler unerheblich',
     'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Erfahren Sie, wie der 5%ige Abzug auf Schweizer LPP-Leistungen nicht von der Anwesenheit eines ansässigen Vermittlers abhängt.',
     'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontalier an der Grenzkontrolle zeigt Arbeitsgenehmigung und Steuerdokumente',
+    'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Preise im Tessin: Wie Grenzgänger die Erhöhungen wahrnehmen',
+    'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'Die Preissteigerungen im Tessin werden laut aktuellen Analysen als besonders schmerzhaft empfunden. Hier ist, was man wissen sollte.',
+    'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Landschaft des Tessins mit See und Bergen, fotorealistische Szene, DSLR-Qualität.',
 };
 
 export default blogMetaDe;

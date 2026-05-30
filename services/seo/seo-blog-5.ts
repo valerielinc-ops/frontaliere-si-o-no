@@ -41804,6 +41804,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rincari-ticino-percepiti-dolorosi': {
+    title: 'Rincari in Ticino: come i frontalieri percepiscono i aumenti',
+    description: 'I rincari in Ticino sono percepiti come molto dolorosi, con impatti su prezzi e trasporti. Ecco come monitorarli. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, percepiscono, aumenti, sono',
+    ogTitle: 'Rincari in Ticino: percezione e strumenti di controllo',
+    ogDescription: 'Percezione dei rincari in Ticino tra frontaliere e residenti, con focus su strumenti di verifica e normative.',
+    canonicalPath: '/articoli-frontaliere/rincari-ticino-percepiti-dolorosi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincari in Ticino: come i frontalieri percepiscono i aumenti",
+      "description": "I rincari in Ticino sono percepiti come molto dolorosi, con impatti su prezzi e trasporti. Ecco come monitorarli. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rincari-ticino-percepiti-dolorosi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Ticino con lago e montagne, scena fotorealistica, DSLR"
+      },
+      "datePublished": "2026-05-30T04:18:23+00:00",
+      "dateModified": "2026-05-30T04:18:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rincari-ticino-percepiti-dolorosi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7919,6 +7919,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ritenuta-lpp-intermediario-residente.title': 'Ritenuta 5% su prestazioni LPP: intermediario irrilevante',
     'blog.article.ritenuta-lpp-intermediario-residente.excerpt': 'Scopri come la ritenuta del 5% sulle prestazioni LPP svizzere non dipende dalla presenza di un intermediario residente.',
     'blog.article.ritenuta-lpp-intermediario-residente.imageAlt': 'Frontaliere al valico di confine mostra il permesso di lavoro e i documenti fiscali',
+    'blog.article.rincari-ticino-percepiti-dolorosi.title': 'Rincari in Ticino: come i frontalieri percepiscono i aumenti',
+    'blog.article.rincari-ticino-percepiti-dolorosi.excerpt': 'I rincari in Ticino sono percepiti come particolarmente dolorosi, secondo analisi recenti. Ecco cosa sapere.',
+    'blog.article.rincari-ticino-percepiti-dolorosi.imageAlt': 'Paesaggio del Ticino con lago e montagne, scena fotorealistica, DSLR',
 };
 
 export default blogMetaIt;
