@@ -80,7 +80,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -159,7 +160,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -256,7 +258,6 @@
         "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -356,7 +357,6 @@
         "resident-psychiatrist-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -448,7 +448,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -530,13 +531,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-6bea78edbd79",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-cazis",
+        "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
@@ -615,26 +617,22 @@
           "oberarztin-oberarzt-pdgr-ch"
         ],
         "it": [
-          "oberarztin-oberarzt-pdgr-ch",
-          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
+          "oberarztin-oberarzt-pdgr-ch"
         ],
         "en": [
-          "senior-doctor-psychiatrische-dienste-graubunden-cazis",
-          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+          "senior-doctor-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
-          "medecin-principal-psychiatrische-dienste-graubunden-cazis",
-          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+          "medecin-principal-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis",
-        "medecin-principal-psychiatrische-dienste-graubunden-cazis"
+        "medecin-principal-psychiatrische-dienste-graubunden-cazis",
+        "medico-senior-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -744,7 +742,6 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -844,7 +841,6 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -947,7 +943,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1043,7 +1038,6 @@
         "dipl-pflegefachperson-hf-fh-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1062,7 +1056,7 @@
       "id": "pdgr-72c42eafd6ec",
       "slug": "medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "medico-senior-psychiatrische-dienste-graubunden-chur",
+        "it": "oberarztin-oberarzt-pdgr-ch",
         "en": "senior-doctor-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
         "fr": "medecin-principal-psychiatrische-dienste-graubunden-chur"
@@ -1117,8 +1111,7 @@
         ],
         "it": [
           "medico-senior-psychiatrische-dienste-graubunden-cazis",
-          "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d",
-          "oberarztin-oberarzt-pdgr-ch"
+          "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d"
         ],
         "en": [
           "senior-doctor-psychiatrische-dienste-graubunden-cazis",
@@ -1133,16 +1126,19 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "oberarztin-oberarzt-pdgr-ch",
         "medico-senior-psychiatrische-dienste-graubunden-cazis",
         "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d",
-        "oberarztin-oberarzt-pdgr-ch",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medecin-principal-psychiatrische-dienste-graubunden-cazis",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
-        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
+        "medico-senior-psychiatrische-dienste-graubunden-chur",
+        "senior-doctor-psychiatrische-dienste-graubunden-chur",
+        "medecin-principal-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
       "salaryMin": 68000,
@@ -1239,7 +1235,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -1326,7 +1323,6 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1448,7 +1444,6 @@
         "arztsekretar-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1552,7 +1547,6 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1656,7 +1650,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1756,7 +1749,6 @@
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1863,7 +1855,6 @@
         "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1973,7 +1964,6 @@
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2067,7 +2057,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-d7f7612b1400",
@@ -2084,16 +2075,16 @@
       "title": "Oberärztin / Oberarzt",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt",
-        "it": "Oberärztin / Oberarzt",
-        "en": "Oberärztin / Oberarzt",
-        "fr": "Oberärztin / Oberarzt"
+        "it": "Medico senior",
+        "en": "Senior doctor",
+        "fr": "Médecin principal"
       },
       "description": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
       "descriptionByLocale": {
         "de": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
-        "it": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
-        "en": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
-        "fr": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR"
+        "it": "I dintorni:\nbasso-percentuale, concentrarsi sui fine settimana (daily)\n\nUna funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con elevata auto-responsabilità – ben compatibile con una pratica o altri obblighi professionali. L'AKI è strettamente connesso con le offerte stazionarie e ambulatoriale e fa parte di una moderna struttura di approvvigionamento integrata.\n\nI vostri compiti:\n- Adotti valutazioni psichiatriche acute e interventi di crisi in ambienti ambulatoriali\n\n- Tratta i pazienti che camminano\n\n- Conducono valutazioni consiliari, se necessario anche interventi di crisi prospettico\n\n- Sei coinvolto nella formazione e formazione di colleghi più giovani e supervisiona medici assistenti / medici assistenti e psicologi / psicologi\n\n- Lavori con infermieri esperti nel processo e prendi il controllo del caso.\n\n- Sviluppano insieme piani di trattamento pragmatici e sostenibili\n\nIl nostro profilo di requisito:\n- Hanno completato gli studi in medicina umana e hanno completato la loro formazione specialistica in psichiatria e psicoterapia\n\n- Forniscono sicurezza nella valutazione di situazioni psichiatriche acute con\n\n- Si gode di lavoro autonomo mentre allo stesso tempo chiude il voto del team\n\n- Hanno un chiaro processo decisionale e uno stile di comunicazione collegiale\n\nVi offriamo:\n- Un'attività di fine settimana prevista durante il giorno senza obbligo di notte\n\n- Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi\n\n- Un carico di lavoro che può essere combinato bene con una pratica o altri obblighi\n\n- Un'aggiunta mirata a un team consolidato e consolidato\n\n- Breve procedure e collaborazione diretta con assistenza e assistenza medica\n\n- Integrazione nella moderna struttura di fornitura del PDGR",
+        "en": "Your surroundings:\nlow-percentage, focus on weekends (daily)\n\nA function for (experienced) specialists who are looking for a clearly structured, planable clinical task with high self-responsibility – well compatible with a practice or other professional obligations. The AKI is closely connected with stationary and outpatient offers and is part of a modern integrated supply structure.\n\nYour tasks:\n- You adopt acute psychiatric assessments and crisis interventions in outpatient settings\n\n- You treat walk-in patients\n\n- They conduct consiliary assessments, if necessary also prospective crisis intervention\n\n- You are involved in the training and training of younger colleagues and supervise assistant physicians / assistant physicians and psychologists / psychologists\n\n- You work with experienced nurses in the trial and take over the case\n\n- They develop pragmatic and sustainable treatment plans together\n\nOur requirement profile:\n- They have completed their studies in human medicine and have completed their specialist training in psychiatry and psychotherapy\n\n- They provide security in the assessment of acute psychiatric situations with\n\n- You enjoy self-employed work while at the same time close team voting\n\n- They have a clear decision-making and a collegial communication style\n\nWe offer you:\n- A planned weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practice or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short procedures and direct cooperation with care and medical care\n\n- Embedding in the modern supply structure of the PDGR",
+        "fr": "Votre environnement:\nfaible pourcentage, se concentrer sur les week-ends (par jour)\n\nUne fonction pour les spécialistes (expérimentés) qui cherchent une tâche clinique clairement structurée et planable avec une grande responsabilité d'auto-responsabilité – bien compatible avec une pratique ou d'autres obligations professionnelles. L'AKI est étroitement relié aux offres fixes et externes et fait partie d'une structure d'approvisionnement intégrée moderne.\n\nVos tâches:\n- Vous adoptez des évaluations psychiatriques aiguës et des interventions de crise en milieu ambulatoire\n\n- Vous traitez les patients ambulants\n\n- Ils effectuent des évaluations consiliaires, si nécessaire aussi des interventions de crise prospectives\n\n- Vous participez à la formation et à la formation de jeunes collègues et supervisez des médecins adjoints / médecins adjoints et psychologues / psychologues\n\n- Vous travaillez avec des infirmières expérimentées dans le procès et prenez le contrôle de l'affaire\n\n- Ils élaborent ensemble des plans de traitement pragmatiques et durables\n\nNotre profil d'exigence:\n- Ils ont terminé leurs études en médecine humaine et ont terminé leur formation spécialisée en psychiatrie et psychothérapie\n\n- Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës avec\n\n- Vous aimez le travail indépendant tout en fermant le vote en équipe\n\n- Ils ont un processus décisionnel clair et un style de communication collégial\n\nNous vous offrons:\n- Une activité prévue le week-end pendant la journée sans obligation de nuit\n\n- Flexibilité élevée et options de conception individuelles dans la planification des services\n\n- Une charge de travail qui peut être bien associée à une pratique ou à d'autres obligations\n\n- Un ajout ciblé à une équipe bien établie\n\n- Procédures courtes et coopération directe avec les soins et les soins médicaux\n\n- Intégrer la structure d'approvisionnement moderne du PDGR"
       },
       "location": "Chur",
       "canton": "GR",
@@ -2134,7 +2125,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2247,7 +2237,6 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2266,7 +2255,7 @@
       "id": "pdgr-6a8a53547bd0",
       "slug": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-career-hf-for-day-and-night-service-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
         "fr": "dipl-carriere-hf-pour-le-service-de-jour-et-de-nuit-psychiatrische-dienste-graubunden-cazis"
@@ -2319,8 +2308,7 @@
           "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
-          "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
@@ -2331,11 +2319,10 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
-        "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
+        "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2354,7 +2341,7 @@
       "id": "pdgr-3368deccf057",
       "slug": "supervisore-psychiatrische-dienste-graubunden-landquart",
       "slugByLocale": {
-        "it": "supervisore-psychiatrische-dienste-graubunden-landquart",
+        "it": "betreuer-in-pdgr-ch-2",
         "en": "supervisor-psychiatrische-dienste-graubunden-landquart",
         "de": "betreuer-in-psychiatrische-dienste-graubunden-landquart",
         "fr": "superviseur-psychiatrische-dienste-graubunden-landquart"
@@ -2409,8 +2396,7 @@
         ],
         "it": [
           "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
-          "betreuer-in-pdgr-ch",
-          "betreuer-in-pdgr-ch-2"
+          "betreuer-in-pdgr-ch"
         ],
         "en": [
           "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
@@ -2428,7 +2414,10 @@
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
         "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw"
+        "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw",
+        "supervisore-psychiatrische-dienste-graubunden-landquart",
+        "supervisor-psychiatrische-dienste-graubunden-landquart",
+        "superviseur-psychiatrische-dienste-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-23T10:37:07.337Z",
       "salaryMin": 49500,
@@ -2522,13 +2511,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-bafc3aaa69de",
       "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-chur"
@@ -2580,8 +2570,7 @@
           "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch",
-          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+          "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "fr": [
           "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur"
@@ -2589,11 +2578,11 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "personnel-d-hotellerie-psychiatrische-dienste-graubunden-chur",
         "addetto-a-all-ospitalita-psychiatrische-dienste-graubunden-chur",
-        "hospitality-staff-psychiatrische-dienste-graubunden-chur"
+        "hospitality-staff-psychiatrische-dienste-graubunden-chur",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-21T12:55:55.883Z",
       "salaryMin": 49500,
@@ -2614,7 +2603,7 @@
       "id": "pdgr-adaa0bd12412",
       "slug": "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-care-specialist-hf-for-night-watch-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "fr": "dipl-specialiste-des-soins-hf-pour-les-montres-de-nuit-psychiatrische-dienste-graubunden-cazis"
@@ -2667,8 +2656,7 @@
           "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-          "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis"
@@ -2679,9 +2667,9 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-        "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-cazis",
         "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-cazis",
-        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialista-hf-per-orologio-notturno-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-11T12:18:40.276Z",
       "salaryMin": 49500,
@@ -2702,7 +2690,7 @@
       "id": "pdgr-e66c255d8449",
       "slug": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
-        "it": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "it": "betreuer-in-pdgr-ch",
         "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
         "de": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "fr": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
@@ -2756,8 +2744,7 @@
           "betreuer-in-pdgr-ch"
         ],
         "it": [
-          "supervisore-psychiatrische-dienste-graubunden-landquart",
-          "betreuer-in-pdgr-ch"
+          "supervisore-psychiatrische-dienste-graubunden-landquart"
         ],
         "en": [
           "supervisor-psychiatrische-dienste-graubunden-landquart",
@@ -2770,14 +2757,17 @@
       },
       "previousSlugs": [
         "betreuer-in-psychiatrische-dienste-graubunden-landquart",
-        "supervisore-psychiatrische-dienste-graubunden-landquart",
         "betreuer-in-pdgr-ch",
+        "supervisore-psychiatrische-dienste-graubunden-landquart",
         "supervisor-psychiatrische-dienste-graubunden-landquart",
         "superviseur-psychiatrische-dienste-graubunden-landquart",
         "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen"
+        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
       ],
       "firstSeenAt": "2026-05-12T22:44:21.587Z",
       "salaryMin": 49500,
@@ -2888,7 +2878,7 @@
       "id": "pdgr-8faee1f21651",
       "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis"
@@ -2940,8 +2930,7 @@
           "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch",
-          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
+          "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "fr": [
           "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
@@ -2949,7 +2938,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
         "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
@@ -2961,7 +2949,8 @@
         "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
         "mitarbeiter-in-hotellerie-pdgr-ch-3",
         "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-27T23:56:51.956Z",
       "salaryMin": 49500,
@@ -3056,7 +3045,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-b39aa7c0be7e",
@@ -3135,13 +3125,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-8b7dbfbdea53",
       "slug": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
+        "it": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "en": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "de": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "fr": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch"
@@ -3196,25 +3187,21 @@
         ],
         "it": [
           "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
-          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-          "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
+          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
-          "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
-          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch"
+          "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
-          "stage-module-pratique-i-ii-ou-stage-psychiatrische-dienste-graubunden-chur",
-          "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch"
+          "stage-module-pratique-i-ii-ou-stage-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
         "intern-practice-module-i-ii-or-internship-psychiatrische-dienste-graubunden-chur",
         "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
@@ -3224,7 +3211,8 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "intern-practice-module-i-ii-or-pre-internship-psychiatrische-dienste-graubunden-chur",
-        "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur"
+        "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur",
+        "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-23T11:27:47.548Z",
       "salaryMin": 41600,
@@ -3245,7 +3233,7 @@
       "id": "pdgr-79ffc180b41a",
       "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
@@ -3295,19 +3283,19 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch",
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-pdgr-ch"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:09.668Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3478,7 +3466,6 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:07.525Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3500,7 +3487,7 @@
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "fr": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
+        "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3508,16 +3495,16 @@
       "title": "Mitarbeiter/in Hotellerie",
       "titleByLocale": {
         "de": "Mitarbeiter/in Hotellerie",
-        "it": "Collaboratore/trice Hotellerie",
-        "en": "Mitarbeiter/in Hotellerie",
-        "fr": "Mitarbeiter/in Hotellerie"
+        "it": "Staff/in Hotellerie",
+        "en": "Staff/in Hotellerie",
+        "fr": "Personnel/à Hotellerie"
       },
       "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld in der Klinik Beverin in Cazis und sind Teil eines engagierten Reinigungs-Teams. Durch den Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie führen Grundreinigung und alle anfallenden hauswirtschaftlichen Tätigkeiten im Betrieb selbständig und fachgerecht aus\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Sie arbeiten in der Abwaschküche, reinigen die Stationen oder andere öffentliche Räumlichkeiten und lösen die Mitarbeitenden während den Ferien ab.\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 06.00 – 19.15 Uhr (je nach Abteilung)\n\nUnser Anforderungsprofil:\n- Sie haben bereits Berufserfahrung und sind eine körperlich robuste Persönlichkeit mit hohem Engagement\n\n- Teamwork, Loyalität sowie hohe Kundenorientierung wird bei Ihnen grossgeschrieben\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie haben Freude an abwechslungsreichen Tätigkeiten\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutschkenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld in der Klinik Beverin in Cazis und sind Teil eines engagierten Reinigungs-Teams. Durch den Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie führen Grundreinigung und alle anfallenden hauswirtschaftlichen Tätigkeiten im Betrieb selbständig und fachgerecht aus\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Sie arbeiten in der Abwaschküche, reinigen die Stationen oder andere öffentliche Räumlichkeiten und lösen die Mitarbeitenden während den Ferien ab.\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 06.00 – 19.15 Uhr (je nach Abteilung)\n\nUnser Anforderungsprofil:\n- Sie haben bereits Berufserfahrung und sind eine körperlich robuste Persönlichkeit mit hohem Engagement\n\n- Teamwork, Loyalität sowie hohe Kundenorientierung wird bei Ihnen grossgeschrieben\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie haben Freude an abwechslungsreichen Tätigkeiten\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutschkenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
-        "it": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld in der Klinik Beverin in Cazis und sind Teil eines engagierten Reinigungs-Teams. Durch den Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie führen Grundreinigung und alle anfallenden hauswirtschaftlichen Tätigkeiten im Betrieb selbständig und fachgerecht aus\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Sie arbeiten in der Abwaschküche, reinigen die Stationen oder andere öffentliche Räumlichkeiten und lösen die Mitarbeitenden während den Ferien ab.\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 06.00 – 19.15 Uhr (je nach Abteilung)\n\nUnser Anforderungsprofil:\n- Sie haben bereits Berufserfahrung und sind eine körperlich robuste Persönlichkeit mit hohem Engagement\n\n- Teamwork, Loyalität sowie hohe Kundenorientierung wird bei Ihnen grossgeschrieben\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie haben Freude an abwechslungsreichen Tätigkeiten\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutschkenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
-        "en": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld in der Klinik Beverin in Cazis und sind Teil eines engagierten Reinigungs-Teams. Durch den Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie führen Grundreinigung und alle anfallenden hauswirtschaftlichen Tätigkeiten im Betrieb selbständig und fachgerecht aus\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Sie arbeiten in der Abwaschküche, reinigen die Stationen oder andere öffentliche Räumlichkeiten und lösen die Mitarbeitenden während den Ferien ab.\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 06.00 – 19.15 Uhr (je nach Abteilung)\n\nUnser Anforderungsprofil:\n- Sie haben bereits Berufserfahrung und sind eine körperlich robuste Persönlichkeit mit hohem Engagement\n\n- Teamwork, Loyalität sowie hohe Kundenorientierung wird bei Ihnen grossgeschrieben\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie haben Freude an abwechslungsreichen Tätigkeiten\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutschkenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
-        "fr": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld in der Klinik Beverin in Cazis und sind Teil eines engagierten Reinigungs-Teams. Durch den Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie führen Grundreinigung und alle anfallenden hauswirtschaftlichen Tätigkeiten im Betrieb selbständig und fachgerecht aus\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Sie arbeiten in der Abwaschküche, reinigen die Stationen oder andere öffentliche Räumlichkeiten und lösen die Mitarbeitenden während den Ferien ab.\n\n- Ihre Arbeitszeiten variieren von Montag bis Sonntag von 06.00 – 19.15 Uhr (je nach Abteilung)\n\nUnser Anforderungsprofil:\n- Sie haben bereits Berufserfahrung und sind eine körperlich robuste Persönlichkeit mit hohem Engagement\n\n- Teamwork, Loyalität sowie hohe Kundenorientierung wird bei Ihnen grossgeschrieben\n\n- Hohe Einsatzbereitschaft in einem 7-Tage Betrieb und somit auch am Wochenende sind für Sie selbstverständlich\n\n- Sie haben Freude an abwechslungsreichen Tätigkeiten\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutschkenntnisse\n\nWir bieten Ihnen:\n- Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb\n\n- Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld\n\n- Sie können Ihre Erfahrungen einbringen\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen\n\n- Fort- und Weiterbildungsmöglichkeiten\n\n- Wir fördern die Vereinbarkeit von Berufs- und Privatleben"
+        "de": "Ihre Umgebung: Sie arbeiten in einem modernen Umfeld auf den Stationen der Klinik Beverin in Cazis und sind Teil eines engagierten Hotellerie-Teams. Durch den direkten Kontakt mit unseren Patientinnen und Patienten tragen Sie aktiv zu einem angenehmen Aufenthalt bei. Dabei übernehmen Sie eigenverantwortlich hauswirtschaftliche \n• Aufgaben und profitieren von einem unterstützenden sowie kollegialen Arbeitsumfeld. \n• Ihre Aufgaben: - Sie betreuen unsere Patienten zum Thema Verpflegung (Mahlzeitenbestellung, Mahlzeiten servieren etc.) - Sie führen alle anfallenden hauswirtschaftlichen Tätigkeiten inkl. Grundreinigungen auf der Station selbstständig und fachgerecht aus - Ihr Tätigkeitsbereich sind Arbeiten im Aufenthaltsraum, Zimmer sowie in der Stationsküche - Sie sind verantwortlich für die Einhaltung unserer hohen Qualitätsstandards im Bereich Raumpflege, Sauberkeit und Ordnungssinn - Mit Ihrer engagierten und herzlichen Art sind Sie eine Bereicherung für den Betrieb und somit für unsere Patienten - Ihre Arbeitszeiten variieren von Montag bis Sonntag von 08.00 – 18.30 Uhr Unser Anforderungsprofil: - Sie verfügen vorzugsweise über eine abgeschlossene Ausbildung im Bereich Hotellerie / Gastronomie - Sie sind eine ruhige, geduldige sowie körperlich robuste Persönlichkeit mit einem hohen Engagement und Dienstleistungsbewusstsein - Hohe Einsatzbereitschaft und Flexibilität in einem 7-Tage Betrieb und somit auch an den Wochenenden, sind für Sie selbstverständlich - Teamarbeit, Loyalität und Flexibilität wird bei Ihnen grossgeschrieben - Sie sind zuverlässig, pflichtbewusst und arbeiten speditiv - Sie verfügen über ein gepflegtes Erscheinungsbild sowie über sehr gute Deutsch- und EDV-Kenntnisse \n• Wir bieten Ihnen: - Sie erwartet eine vielseitige Tätigkeit in einem lebhaften Betrieb - Sie arbeiten in einem interessanten, abwechslungsreichen und sozialen Umfeld - Sie können Ihre Erfahrungen einbringen - Sie profitieren von fortschrittlichen Arbeitsbedingungen - Fort- und Weiterbildungsmöglichkeiten - Wir fördern die Vereinbarkeit von Berufs- und Privatleben",
+        "it": "I dintorni: Lavorano in un ambiente moderno alle stazioni della Beverin Clinic di Cazis e fanno parte di un team dedicato all'industria alberghiera. Attraverso il contatto diretto con i nostri pazienti, contribuisce attivamente ad un soggiorno piacevole. In questo modo, si assume compiti economici auto-sponsorizzati e beneficiano di un ambiente di lavoro solidale e collegiale. I vostri compiti: - Servono i nostri pazienti sul tema della ristorazione (incontro, pasti di servizio ecc.) - Effettuano tutte le attività commerciali connesse tra cui la pulizia di base sulla stazione in modo indipendente e professionale - Il vostro campo di attività è il lavoro nel salone, nelle camere e nella cucina della stazione - Sei responsabile del rispetto dei nostri standard di alta qualità nel campo della cura spaziale, pulizia e senso dell'ordine - Con il vostro modo dedicato e caldo, siete un arricchimento per l'operazione e quindi per i nostri pazienti - Le ore di lavoro variano da lunedì a domenica dalle 08.00 alle 18.30 Il nostro profilo di requisito: - Preferibilmente hanno una formazione completa nel settore dell'ospitalità / gastronomia - Sono una personalità calma, paziente e fisicamente robusta con un alto impegno e una consapevolezza del servizio - Alta flessibilità e pronto all'uso in un'operazione di 7 giorni e quindi anche nei fine settimana, sono ovviamente per voi - Lavoro di squadra, lealtà e flessibilità sono importanti per voi - Sono affidabili, convincenti e lavoranti speditive - Hanno un aspetto ben mantenuto così come ottime competenze tedesche e IT Vi offriamo: - Si aspetta un'attività versatile in un'operazione vivace - Lavori in un ambiente interessante, vario e sociale - Puoi inserire le tue esperienze - Lei beneficia di condizioni di lavoro avanzate - Formazione continua e continua - Promuoviamo la riconciliazione della vita professionale e privata",
+        "en": "Your surroundings: They work in a modern environment at the stations of the Beverin Clinic in Cazis and are part of a dedicated hotel industry team. Through direct contact with our patients, you actively contribute to a pleasant stay. In doing so, you take on self-sponsored economic tasks and benefit from a supportive and collegial working environment.\n• Your tasks: - They serve our patients on the topic of catering (meeting, serving meals etc.) - They carry out all related business activities including Basic cleaning on the station independently and professionally - Your field of activity is work in the lounge, rooms and in the station kitchen - You are responsible for compliance with our high quality standards in the field of spatial care, cleanliness and sense of order - With your dedicated and warm way, you are an enrichment for the operation and therefore for our patients - Your working hours vary from Monday to Sunday from 08.00 – 18.30 Our requirement profile: - They preferably have a completed training in the area of hospitality / gastronomy - They are a calm, patient and physically robust personality with a high commitment and service awareness - High ready-to-use and flexibility in a 7-day operation and thus also on weekends, are of course for you - Teamwork, loyalty and flexibility are important to you - They are reliable, compelling and working speditive - They have a well-maintained appearance as well as very good German and IT skills\n• We offer you: - It expects a versatile activity in a lively operation - You work in an interesting, varied and social environment - You can enter your experiences - You benefit from advanced working conditions - Continuing and continuing training - We promote the reconciliation of professional and private life",
+        "fr": "Votre environnement: Ils travaillent dans un environnement moderne aux stations de la clinique Beverin de Cazis et font partie d'une équipe dédiée à l'industrie hôtelière. Grâce à un contact direct avec nos patients, vous contribuez activement à un séjour agréable. Ce faisant, vous assumez des tâches économiques autofinancées et bénéficiez d'un environnement de travail favorable et collégial.\n• Vos tâches: - Ils servent nos patients sur le thème de la restauration (réunion, repas, etc.) - Ils exercent toutes les activités commerciales connexes, y compris le nettoyage de base sur la station de façon indépendante et professionnelle - Votre domaine d'activité est le travail dans le salon, les chambres et la cuisine de la gare - Vous êtes responsable du respect de nos normes de haute qualité dans le domaine des soins spatiaux, de la propreté et du sens de l'ordre - Avec votre façon dédiée et chaleureuse, vous êtes un enrichissement pour l'opération et donc pour nos patients - Vos heures de travail varient du lundi au dimanche de 08h00 à 18h30 Notre profil d'exigence: - Ils ont de préférence une formation complète dans le domaine de l'hospitalité / gastronomie - Il s'agit d'une personnalité calme, patiente et physiquement robuste avec un engagement élevé et une sensibilisation au service - Haute disponibilité et flexibilité dans une opération de 7 jours et donc aussi le week-end, sont bien sûr pour vous - Le travail d'équipe, la loyauté et la flexibilité sont importants pour vous - Ils sont fiables, convaincants et fonctionnels - Ils ont une apparence bien entretenue ainsi que de très bonnes compétences en allemand et en informatique Nous vous offrons: - Il s'attend à une activité polyvalente dans une opération animée - Vous travaillez dans un environnement intéressant, varié et social - Vous pouvez entrer vos expériences - Vous bénéficiez de conditions de travail avancées - Formation continue et continue - Nous favorisons la conciliation de la vie professionnelle et privée"
       },
       "location": "Cazis",
       "canton": "GR",
@@ -3546,17 +3533,32 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hotellerie-pdgr-ch"
         ],
         "de": [
           "mitarbeiter-in-hotellerie-pdgr-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hotellerie-pdgr-ch"
+        "mitarbeiter-in-hotellerie-pdgr-ch",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
+        "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
+        "mitarbeiter-in-hotellerie-pdgr-ch-2",
+        "personale-hotel-psychiatrische-dienste-graubunden-cazis",
+        "hotel-staff-psychiatrische-dienste-graubunden-cazis",
+        "personnel-hotel-psychiatrische-dienste-graubunden-cazis",
+        "personale-cucina-psychiatrische-dienste-graubunden-cazis",
+        "personnel-cuisine-psychiatrische-dienste-graubunden-cazis",
+        "mitarbeiter-in-hotellerie-pdgr-ch-3",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
