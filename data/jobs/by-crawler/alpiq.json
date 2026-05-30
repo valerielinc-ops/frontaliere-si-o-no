@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "product-manager-trading-and-origination-all-100-alpiq-olten",
         "en": "product-manager-trading-and-origination-all-100-alpiq-olten",
-        "de": "product-manager-trading-and-origination-all-100-alpiq-olten",
-        "fr": "product-manager-trading-and-origination-all-100-alpiq-olten"
+        "de": "produktmanager-handel-und-herkunft-alle-100-alpiq-olten",
+        "fr": "gestionnaire-de-produits-trading-et-origine-tous-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -70,9 +70,9 @@
       "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
       "slugByLocale": {
         "it": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
-        "en": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
+        "en": "consejero-juridico-consejero-juridico-senior-alpiq-olten",
         "de": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
-        "fr": "legal-counsel-senior-legal-counsel-all-alpiq-olten"
+        "fr": "conseiller-juridique-conseiller-juridique-principal-tous-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -130,11 +130,11 @@
     },
     {
       "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
+      "slug": "elettricista-automatico-alpiq-martigny",
       "slugByLocale": {
-        "it": "electricien-ne-automaticien-ne-alpiq-martigny",
+        "it": "elettricista-automatico-alpiq-martigny",
         "en": "electricien-ne-automaticien-ne-alpiq-martigny",
-        "de": "electricien-ne-automaticien-ne-alpiq-martigny",
+        "de": "elektriker-automatisch-alpiq-martigny",
         "fr": "electricien-ne-automaticien-ne-alpiq-martigny"
       },
       "company": "Alpiq",
@@ -188,16 +188,27 @@
       },
       "country": "CH",
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "electricien-ne-automaticien-ne-alpiq-martigny"
+        ],
+        "de": [
+          "electricien-ne-automaticien-ne-alpiq-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "electricien-ne-automaticien-ne-alpiq-martigny"
+      ]
     },
     {
       "id": "alpiq-61d919b0f8e1",
-      "slug": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
+      "slug": "analista-aziendale-funzionale-trading-origination-tutti-100-alpiq-olten",
       "slugByLocale": {
-        "it": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
+        "it": "analista-aziendale-funzionale-trading-origination-tutti-100-alpiq-olten",
         "en": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
         "de": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
-        "fr": "functional-business-analyst-trading-origination-all-100-alpiq-olten"
+        "fr": "analyste-operationnel-des-affaires-trading-origination-tous-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -251,7 +262,18 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-05-30T09:56:14.280Z"
+      "firstSeenAt": "2026-05-30T09:56:14.280Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "functional-business-analyst-trading-origination-all-100-alpiq-olten"
+        ],
+        "fr": [
+          "functional-business-analyst-trading-origination-all-100-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "functional-business-analyst-trading-origination-all-100-alpiq-olten"
+      ]
     }
   ]
 }
