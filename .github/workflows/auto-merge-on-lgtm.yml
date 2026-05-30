@@ -75,6 +75,46 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
+      # ── vitest gate guard ────────────────────────────────────────────
+      # PERCHÉ: l'auto-merge scatta appena il reviewer Claude posta `## LGTM`,
+      # SENZA aspettare la CI (design "don't wait for CI" — vedi AGENTS.md). Ma
+      # `tests.yml` (job `vitest (unit + integration)`) si auto-dichiara
+      # "BLOCKING CI gate": se i test sono ROSSI e il reviewer dà comunque LGTM
+      # (es. PR #955, che ha mergiato con `tests/faq-coverage.test.ts` rosso →
+      # main rosso fino al fix di follow-up), il merge avveniva lo stesso.
+      # COSA: prima di mergiare, leggiamo i check-runs della HEAD SHA della PR e
+      # cerchiamo il check `vitest (unit + integration)`.
+      #   - conclusion == failure  → ROSSO NOTO: failiamo il job (no merge).
+      #   - conclusion == success  → verde: si procede.
+      #   - pending/queued/mancante/altro (non ancora concluso) → si procede,
+      #     così NON aggiungiamo latenza nel caso comune (preserva il design
+      #     "don't wait for CI"). Blocchiamo SOLO su un fallimento NOTO.
+      # AUTH: query read-only sui check-runs → basta `GH_TOKEN: github.token`
+      # (non serve il GITHUB_PAT, che resta dedicato al merge col cascade).
+      - name: Block merge if vitest gate is RED
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          # HEAD SHA della PR (il commit che la CI ha effettivamente testato).
+          HEAD_SHA=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid -q .headRefOid)
+          echo "PR #$PR_NUMBER HEAD SHA: $HEAD_SHA"
+          # conclusion del check-run `vitest (unit + integration)` per quella SHA.
+          # Stringa vuota se il check non è ancora stato registrato/concluso.
+          VITEST_CONCLUSION=$(gh api \
+            "repos/$REPO/commits/$HEAD_SHA/check-runs?per_page=100" \
+            --jq '[.check_runs[] | select(.name == "vitest (unit + integration)")][0].conclusion // ""')
+          echo "vitest gate conclusion: '${VITEST_CONCLUSION:-<none>}'"
+          if [ "$VITEST_CONCLUSION" = "failure" ]; then
+            echo "::error::vitest gate is RED — refusing to auto-merge to protect main; fix tests, re-review"
+            exit 1
+          elif [ "$VITEST_CONCLUSION" = "success" ]; then
+            echo "vitest gate è VERDE — procedo col merge."
+          else
+            echo "::warning::vitest gate non ancora concluso (conclusion='${VITEST_CONCLUSION:-<none>}') — procedo (design: non aspetto la CI, blocco solo su fallimento NOTO)."
+          fi
+
       - name: Squash-merge + delete branch
         env:
           # Token primario = env.GITHUB_PAT (da Remote Config): il push del merge
