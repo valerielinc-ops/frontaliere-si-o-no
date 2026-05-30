@@ -7910,6 +7910,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.licenziamento-nurnberg-rsi.title': 'Licenciement de Nurnberg',
     'blog.article.licenziamento-nurnberg-rsi.excerpt': 'Dossier clos, toutes les revendications payées',
     'blog.article.licenziamento-nurnberg-rsi.imageAlt': 'Journaliste au travail',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.title': 'Travail saisonnier frontalier en Suisse romande',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.excerpt': 'Découvrez les règles, les droits et les opportunités pour le travail saisonnier en Suisse romande : permis, contrats, fiscalité.',
+    'blog.article.frontaliere-lavoro-stagionale-ticino.imageAlt': 'Frontalier travaillant en Ticino pendant la saison estivale',
 };
 
 export default blogMetaFr;

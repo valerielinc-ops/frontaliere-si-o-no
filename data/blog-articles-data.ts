@@ -25103,4 +25103,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-lavoro-stagionale-ticino',
+ category: 'pratico',
+ date: '2026-05-30T03:02:29.830Z',
+ image: '/images/blog/frontaliere-lavoro-stagionale-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

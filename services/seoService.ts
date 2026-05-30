@@ -3878,6 +3878,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzeri-scelgono-capitale-pensione': { name: 'Pensione', path: '/articoli-frontaliere/svizzeri-scelgono-capitale-pensione', parent: 'blog' },
     'blog-referendum-fortezza-bellinzona-27-settembre': { name: 'Referendum Fortezza', path: '/articoli-frontaliere/referendum-fortezza-bellinzona-27-settembre', parent: 'blog' },
     'blog-licenziamento-nurnberg-rsi': { name: 'Licenziamento Nurnberg', path: '/articoli-frontaliere/licenziamento-nurnberg-rsi', parent: 'blog' },
+    'blog-frontaliere-lavoro-stagionale-ticino': { name: 'Lavoro stagionale in Ticino', path: '/articoli-frontaliere/frontaliere-lavoro-stagionale-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
