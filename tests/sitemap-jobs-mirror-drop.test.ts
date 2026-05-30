@@ -12,6 +12,13 @@ import { dropUrlBlocksByLoc } from '../build-plugins/relatedSearchClustersPlugin
 const BASE = 'https://frontaliereticino.ch';
 const urlBlock = (loc: string): string =>
   ` <url>\n  <loc>${loc}</loc>\n  <lastmod>2026-05-29</lastmod>\n  <changefreq>weekly</changefreq>\n  <priority>0.5</priority>\n </url>`;
+// Production format from jobsSeoPagesPlugin.ts (L7688/L7462): alternates between <loc> and <lastmod>.
+const urlBlockWithAlternates = (loc: string): string => {
+  const alternates = ['it', 'en', 'de', 'fr']
+    .map((l) => ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE}/cerca-lavoro-ticino/ricerca-test-${l}/" />`)
+    .join('\n');
+  return ` <url>\n <loc>${loc}</loc>\n${alternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${loc}" />\n <lastmod>2026-05-29</lastmod>\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`;
+};
 const wrap = (blocks: string[]): string =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${blocks.join('\n')}\n</urlset>\n`;
 
@@ -60,5 +67,18 @@ describe('dropUrlBlocksByLoc (#911 sitemap-jobs mirror drop)', () => {
     const xml = wrap([urlBlock(JOB)]);
     const { dropped } = dropUrlBlocksByLoc(xml, [TI]);
     expect(dropped).toBe(0);
+  });
+
+  it('drops block with xhtml:link alternates between <loc> and <lastmod> (production format)', () => {
+    // jobsSeoPagesPlugin emits <xhtml:link rel="alternate" hreflang="…"/> lines
+    // between <loc> and <lastmod> (L7688/L7462). Regression guard: LOC_RE must
+    // still match and the block-regex must still span the whole multi-line block.
+    const xml = wrap([urlBlockWithAlternates(TI), urlBlockWithAlternates(CH)]);
+    const { xml: out, dropped } = dropUrlBlocksByLoc(xml, [TI]);
+    expect(dropped).toBe(1);
+    expect(out).not.toContain('cerca-lavoro-ticino/ricerca-projektleiter');
+    expect(out).toContain('cerca-lavoro-svizzera/ricerca-projektleiter'); // CH block survives intact
+    // The surviving CH block must retain its alternates (block not truncated).
+    expect(out).toContain('xhtml:link');
   });
 });

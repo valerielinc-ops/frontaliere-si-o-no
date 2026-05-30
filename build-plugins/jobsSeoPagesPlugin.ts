@@ -1291,6 +1291,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  if (!fs.existsSync(jobsPath)) {
  console.warn('[jobs-seo-pages] data/jobs.json not found');
+ // Unblock downstream consumers before bailing. relatedSearchClustersPlugin
+ // `await`s jobsSeoPagesFlushed (writeSitemap L2029 + cache-hit path L2190);
+ // returning here without resolving the signal would hang those awaits
+ // forever (build deadlock, no fail-fast, no deploy). No jobs.json → no
+ // bridge HTML to flush, so resolving now is correct: the consumer proceeds
+ // with an empty/jobless sitemap instead of awaiting writes that never run.
+ resolveJobsSeoPagesFlushed();
  return;
  }
  const jobsRaw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
@@ -11332,6 +11339,13 @@ ${staticAnalyticsHtml}
  // HTML is on disk. Without this, parallel closeBundle lets the cluster
  // sitemap be written before bridge writes flush, leaking non-self-
  // canonical bridge URLs into sitemap-search-clusters.xml.
+ // Signal is also resolved on the jobs.json-missing early-return path above
+ // (search resolveJobsSeoPagesFlushed), so EVERY normal exit of closeBundle
+ // resolves jobsSeoPagesFlushed. The only way to reach this point without
+ // having resolved it earlier is the happy path; the early-return covers the
+ // jobless case. A thrown error propagates to Vite and fails the build
+ // (fail-fast, not a deadlock). Hence the await in relatedSearchClustersPlugin
+ // (cache-hit path L2190 + writeSitemap L2029) never hangs. (#947/#950)
  resolveJobsSeoPagesFlushed();
 
  // Print profiler summary in normal profiled CI builds; local opt-out:
