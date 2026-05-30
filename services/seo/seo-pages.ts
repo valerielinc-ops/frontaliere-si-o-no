@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2681,
+ "numberOfItems": 2682,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7321,7 +7321,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2678, "name": "Progetto Sintab: riqualificazione del sentiero ...", "url": `${BASE_URL}/articoli-frontaliere/progetto-sintab-sentiero-rio-dei-gioghi` },
           { "@type": "ListItem", "position": 2679, "name": "Detrazioni fiscali sui figli solo per residenti...", "url": `${BASE_URL}/articoli-frontaliere/detrazioni-figli-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2680, "name": "TILO S40 e S50 sostituiti con bus per un mese t...", "url": `${BASE_URL}/articoli-frontaliere/tilo-collegamenti-sospesi-giugno` },
-          { "@type": "ListItem", "position": 2681, "name": "UDC Ticino: 'Pronti a rilanciare finanze e econ...", "url": `${BASE_URL}/articoli-frontaliere/udc-finanze-ticino-aprile-2027` }
+          { "@type": "ListItem", "position": 2681, "name": "UDC Ticino: 'Pronti a rilanciare finanze e econ...", "url": `${BASE_URL}/articoli-frontaliere/udc-finanze-ticino-aprile-2027` },
+          { "@type": "ListItem", "position": 2682, "name": "Frontalieri anche come apprendisti? «Non lavora...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-apprendisti-lugano` }
  ]
  },
  {

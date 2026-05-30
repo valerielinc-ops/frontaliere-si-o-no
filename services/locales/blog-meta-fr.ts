@@ -7880,6 +7880,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.udc-finanze-ticino-aprile-2027.title': 'UDC Tessin : \'Redresser finances et économie du canton\'',
     'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'L\'UDC annonce sa volonté de diriger le Département des finances et de l\'économie pour assainir les comptes publics et relancer le Tessin.',
     'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Photo du Castelgrande de Bellinzone, symbole de stabilité et vision',
+    'blog.article.frontalieri-apprendisti-lugano.title': 'Frontaliers apprentis ? « Pas pour Lugano »',
+    'blog.article.frontalieri-apprendisti-lugano.excerpt': 'La Ville de Lugano répond à une interpellation du conseiller communal Omar Wicht: aucun apprenti frontalier actuellement employé.',
+    'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Vue de Lugano depuis le lac avec les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

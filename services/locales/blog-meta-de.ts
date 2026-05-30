@@ -7878,6 +7878,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.udc-finanze-ticino-aprile-2027.title': 'SVP Tessin: \'Bereit, Finanzen und Wirtschaft zu stärken\'',
     'blog.article.udc-finanze-ticino-aprile-2027.excerpt': 'Die SVP kündigt an, das Departement für Finanzen und Wirtschaft zu leiten, um die öffentlichen Konten zu sanieren und das Tessin wieder voranzubringen.',
     'blog.article.udc-finanze-ticino-aprile-2027.imageAlt': 'Foto des Castelgrande in Bellinzona, Symbol für Stabilität und Vision',
+    'blog.article.frontalieri-apprendisti-lugano.title': 'Frontalieri auch als Lehrlinge? «Sie arbeiten nicht für die Stadt Lugano»',
+    'blog.article.frontalieri-apprendisti-lugano.excerpt': 'Die Stadt Lugano antwortet auf eine Anfrage des Gemeinderats Omar Wicht: derzeit keine frontalierenden Lehrlinge beschäftigt.',
+    'blog.article.frontalieri-apprendisti-lugano.imageAlt': 'Blick auf Lugano vom See mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
