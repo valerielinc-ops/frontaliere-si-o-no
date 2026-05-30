@@ -7892,6 +7892,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.title': 'Cinque atti parlamentari per migliorare la mobilità in Ticino',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.excerpt': 'I Verdi propongono cinque atti parlamentari per affrontare i prezzi elevati dei carburanti e migliorare la mobilità in Ticino.',
     'blog.article.cinque-atti-parlamentari-ticino-mobilita.imageAlt': 'Vista aerea del Lago di Lugano durante l\'ora di punta con traffico e trasporti pubblici',
+    'blog.article.ripristino-treni-locarno-cadenazzo.title': 'Ripristinato il traffico ferroviario tra Locarno e Cadenazzo',
+    'blog.article.ripristino-treni-locarno-cadenazzo.excerpt': 'Risolto il guasto a uno scambio tra Tenero e Gordola che ha bloccato i treni per tutta la mattina.',
+    'blog.article.ripristino-treni-locarno-cadenazzo.imageAlt': 'Stazione ferroviaria in Ticino con treni e passeggeri',
 };
 
 export default blogMetaIt;
