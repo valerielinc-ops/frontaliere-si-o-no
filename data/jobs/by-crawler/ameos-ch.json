@@ -358,6 +358,7 @@
         "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
         "projektleiter-m-w-d-ameos-schweiz-einsiedeln-1f2f0e",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -853,7 +854,7 @@
       "id": "ameos-ch-0ec0846fb3f4",
       "slug": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+        "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
         "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
@@ -899,12 +900,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-m-w-d-ameos-einsiedeln",
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "fr": [
           "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
@@ -1000,7 +1002,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ameos-ch-dfcab33ff3d8",
@@ -1072,7 +1074,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ameos-ch-87e8c354acb4",
@@ -1149,7 +1151,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "ameos-ch-765684bf7f03",
@@ -1221,7 +1223,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     }
   ]
 }
