@@ -78,13 +78,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-4e6719830cb1",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-frauenfeld",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-frauenfeld",
+        "it": "augenoptiker-w-m-d-fielmann-ch-4",
         "en": "optician-m-f-d-fielmann-group-frauenfeld",
         "de": "augenoptiker-w-m-d-fielmann-group-frauenfeld",
         "fr": "opticien-h-f-d-fielmann-group-frauenfeld"
@@ -135,8 +136,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-4"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-4"
@@ -148,7 +148,10 @@
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-4",
-        "ottico-ottico-f-m-d-fielmann-group-frauenfeld"
+        "ottico-ottico-f-m-d-fielmann-group-frauenfeld",
+        "ottico-optometrista-w-m-d-fielmann-group-frauenfeld",
+        "optician-m-f-d-fielmann-group-frauenfeld",
+        "opticien-h-f-d-fielmann-group-frauenfeld"
       ],
       "firstSeenAt": "2026-05-13T11:02:40.405Z",
       "salaryMin": 49500,
@@ -169,7 +172,7 @@
       "id": "fielmann-82ed0a6a24b7",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-burgdorf",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-burgdorf",
+        "it": "augenoptiker-w-m-d-fielmann-ch-5",
         "en": "optician-m-f-d-fielmann-group-burgdorf",
         "de": "augenoptiker-w-m-d-fielmann-group-burgdorf",
         "fr": "opticien-h-f-d-fielmann-group-burgdorf"
@@ -220,8 +223,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-5"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-5"
@@ -234,7 +236,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-5",
         "optician-w-m-d-fielmann-group-burgdorf",
-        "opticien-w-m-d-fielmann-group-burgdorf"
+        "opticien-w-m-d-fielmann-group-burgdorf",
+        "ottico-optometrista-w-m-d-fielmann-group-burgdorf",
+        "optician-m-f-d-fielmann-group-burgdorf",
+        "opticien-h-f-d-fielmann-group-burgdorf"
       ],
       "firstSeenAt": "2026-05-13T11:02:39.684Z",
       "salaryMin": 49500,
@@ -255,10 +260,10 @@
       "id": "fielmann-bbff270dd222",
       "slug": "projektleiter-m-d-fielmann-group-buchs",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-buchs",
-        "en": "projektleiter-m-d-fielmann-group-buchs",
+        "it": "augenoptiker-w-m-d-fielmann-ch-6",
+        "en": "augenoptiker-w-m-d-fielmann-ch-6",
         "de": "augenoptiker-w-m-d-fielmann-group-buchs",
-        "fr": "projektleiter-m-d-fielmann-group-buchs"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-6"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -306,19 +311,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-6"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-6"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-6"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-6"
+        "projektleiter-m-d-fielmann-group-buchs"
       ],
       "firstSeenAt": "2026-05-13T11:02:38.918Z",
       "salaryMin": 49500,
@@ -339,10 +337,10 @@
       "id": "fielmann-576ef49550dc",
       "slug": "projektleiter-m-d-fielmann-group-chur",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-chur",
-        "en": "projektleiter-m-d-fielmann-group-chur",
+        "it": "augenoptiker-w-m-d-fielmann-ch-7",
+        "en": "augenoptiker-w-m-d-fielmann-ch-7",
         "de": "augenoptiker-w-m-d-fielmann-group-chur",
-        "fr": "projektleiter-m-d-fielmann-group-chur"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-7"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -390,19 +388,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-7"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-7"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-7"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-7"
+        "projektleiter-m-d-fielmann-group-chur"
       ],
       "firstSeenAt": "2026-05-13T11:02:38.198Z",
       "salaryMin": 49500,
@@ -423,10 +414,10 @@
       "id": "fielmann-9290a014f280",
       "slug": "projektleiter-m-d-fielmann-group-altdorf",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-altdorf",
-        "en": "projektleiter-m-d-fielmann-group-altdorf",
+        "it": "augenoptiker-w-m-d-fielmann-ch-9",
+        "en": "augenoptiker-w-m-d-fielmann-ch-9",
         "de": "augenoptiker-w-m-d-fielmann-group-altdorf",
-        "fr": "projektleiter-m-d-fielmann-group-altdorf"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-9"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -474,19 +465,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-9"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-9"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-9"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-9"
+        "projektleiter-m-d-fielmann-group-altdorf"
       ],
       "firstSeenAt": "2026-05-13T11:02:36.677Z",
       "salaryMin": 49500,
@@ -507,10 +491,10 @@
       "id": "fielmann-dd7d6a94840b",
       "slug": "projektleiter-m-d-fielmann-group-brig-glis",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-brig-glis",
-        "en": "projektleiter-m-d-fielmann-group-brig-glis",
+        "it": "augenoptiker-w-m-d-fielmann-ch-10",
+        "en": "augenoptiker-w-m-d-fielmann-ch-10",
         "de": "augenoptiker-w-m-d-fielmann-group-brig-glis",
-        "fr": "projektleiter-m-d-fielmann-group-brig-glis"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-10"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -558,19 +542,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-10"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-10"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-10"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-10"
+        "projektleiter-m-d-fielmann-group-brig-glis"
       ],
       "firstSeenAt": "2026-05-13T11:02:35.951Z",
       "salaryMin": 49500,
@@ -591,7 +568,7 @@
       "id": "fielmann-2c1b16734d19",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-luzern",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-luzern",
+        "it": "augenoptiker-w-m-d-fielmann-ch-11",
         "en": "optician-m-f-d-fielmann-group-luzern",
         "de": "augenoptiker-w-m-d-fielmann-group-luzern",
         "fr": "opticien-h-f-d-fielmann-group-luzern"
@@ -642,8 +619,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-11"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-11"
@@ -657,7 +633,10 @@
         "augenoptiker-w-m-d-fielmann-ch-11",
         "optician-fielmann-group-luzern",
         "opticien-fielmann-group-luzern",
-        "ottico-fielmann-group-luzern"
+        "ottico-fielmann-group-luzern",
+        "ottico-optometrista-w-m-d-fielmann-group-luzern",
+        "optician-m-f-d-fielmann-group-luzern",
+        "opticien-h-f-d-fielmann-group-luzern"
       ],
       "firstSeenAt": "2026-05-13T11:02:35.234Z",
       "salaryMin": 49500,
@@ -678,10 +657,10 @@
       "id": "fielmann-a5b7a53a5e68",
       "slug": "projektleiter-m-d-fielmann-group-liestal",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-liestal",
-        "en": "projektleiter-m-d-fielmann-group-liestal",
+        "it": "augenoptiker-w-m-d-fielmann-ch-12",
+        "en": "augenoptiker-w-m-d-fielmann-ch-12",
         "de": "augenoptiker-w-m-d-fielmann-group-liestal",
-        "fr": "projektleiter-m-d-fielmann-group-liestal"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-12"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -729,19 +708,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-12"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-12"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-12"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-12"
+        "projektleiter-m-d-fielmann-group-liestal"
       ],
       "firstSeenAt": "2026-05-13T11:02:34.469Z",
       "salaryMin": 49500,
@@ -762,10 +734,10 @@
       "id": "fielmann-fd597099f135",
       "slug": "projektleiter-m-d-fielmann-group-sursee",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-sursee",
-        "en": "projektleiter-m-d-fielmann-group-sursee",
+        "it": "augenoptiker-w-m-d-fielmann-ch-13",
+        "en": "augenoptiker-w-m-d-fielmann-ch-13",
         "de": "augenoptiker-w-m-d-fielmann-group-sursee",
-        "fr": "projektleiter-m-d-fielmann-group-sursee"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-13"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -813,19 +785,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-13"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-13"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-13"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-13"
+        "projektleiter-m-d-fielmann-group-sursee"
       ],
       "firstSeenAt": "2026-05-13T11:02:33.743Z",
       "salaryMin": 49500,
@@ -846,7 +811,7 @@
       "id": "fielmann-6316e7ac2005",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-schwyz",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-schwyz",
+        "it": "augenoptiker-w-m-d-fielmann-ch-14",
         "en": "optician-m-f-d-fielmann-group-schwyz",
         "de": "augenoptiker-w-m-d-fielmann-group-schwyz",
         "fr": "opticien-h-f-d-fielmann-group-schwyz"
@@ -897,8 +862,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-14"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-14"
@@ -911,7 +875,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-14",
         "optician-w-m-d-fielmann-group-schwyz",
-        "opticien-w-m-d-fielmann-group-schwyz"
+        "opticien-w-m-d-fielmann-group-schwyz",
+        "ottico-optometrista-w-m-d-fielmann-group-schwyz",
+        "optician-m-f-d-fielmann-group-schwyz",
+        "opticien-h-f-d-fielmann-group-schwyz"
       ],
       "firstSeenAt": "2026-05-13T11:02:33.028Z",
       "salaryMin": 49500,
@@ -932,7 +899,7 @@
       "id": "fielmann-5f589d22d49c",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-bulach",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-bulach",
+        "it": "augenoptiker-w-m-d-fielmann-ch-15",
         "en": "optician-m-f-d-fielmann-group-bulach",
         "de": "augenoptiker-w-m-d-fielmann-group-bulach",
         "fr": "opticien-h-f-d-fielmann-group-bulach"
@@ -983,8 +950,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-15"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-15"
@@ -997,7 +963,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-15",
         "optician-w-m-d-fielmann-group-bulach",
-        "opticien-w-m-d-fielmann-group-bulach"
+        "opticien-w-m-d-fielmann-group-bulach",
+        "ottico-optometrista-w-m-d-fielmann-group-bulach",
+        "optician-m-f-d-fielmann-group-bulach",
+        "opticien-h-f-d-fielmann-group-bulach"
       ],
       "firstSeenAt": "2026-05-13T11:02:32.305Z",
       "salaryMin": 49500,
@@ -1018,10 +987,10 @@
       "id": "fielmann-da9cc275eb2f",
       "slug": "projektleiter-m-d-fielmann-group-biel",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-biel",
-        "en": "projektleiter-m-d-fielmann-group-biel",
+        "it": "augenoptiker-w-m-d-fielmann-ch-16",
+        "en": "augenoptiker-w-m-d-fielmann-ch-16",
         "de": "augenoptiker-w-m-d-fielmann-group-biel",
-        "fr": "projektleiter-m-d-fielmann-group-biel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-16"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1069,19 +1038,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-16"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-16"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-16"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-16"
+        "projektleiter-m-d-fielmann-group-biel"
       ],
       "firstSeenAt": "2026-05-13T11:02:31.545Z",
       "salaryMin": 49500,
@@ -1102,7 +1064,7 @@
       "id": "fielmann-4393baa3d2ac",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-thun",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-thun",
+        "it": "augenoptiker-w-m-d-fielmann-ch-17",
         "en": "optician-m-f-d-fielmann-group-thun",
         "de": "augenoptiker-w-m-d-fielmann-group-thun",
         "fr": "opticien-h-f-d-fielmann-group-thun"
@@ -1153,8 +1115,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-17"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-17"
@@ -1167,7 +1128,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-17",
         "optician-w-m-d-fielmann-group-thun",
-        "opticien-w-m-d-fielmann-group-thun"
+        "opticien-w-m-d-fielmann-group-thun",
+        "ottico-optometrista-w-m-d-fielmann-group-thun",
+        "optician-m-f-d-fielmann-group-thun",
+        "opticien-h-f-d-fielmann-group-thun"
       ],
       "firstSeenAt": "2026-05-13T11:02:30.807Z",
       "salaryMin": 49500,
@@ -1188,10 +1152,10 @@
       "id": "fielmann-236deed33e35",
       "slug": "projektleiter-m-d-fielmann-group-thalwil",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-thalwil",
-        "en": "projektleiter-m-d-fielmann-group-thalwil",
+        "it": "augenoptiker-w-m-d-fielmann-ch-18",
+        "en": "augenoptiker-w-m-d-fielmann-ch-18",
         "de": "augenoptiker-w-m-d-fielmann-group-thalwil",
-        "fr": "projektleiter-m-d-fielmann-group-thalwil"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-18"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1239,19 +1203,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-18"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-18"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-18"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-18"
+        "projektleiter-m-d-fielmann-group-thalwil"
       ],
       "firstSeenAt": "2026-05-13T11:02:30.075Z",
       "salaryMin": 49500,
@@ -1272,7 +1229,7 @@
       "id": "fielmann-e7c9246ff502",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-uster",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-uster",
+        "it": "augenoptiker-w-m-d-fielmann-ch-19",
         "en": "optician-m-f-d-fielmann-group-uster",
         "de": "augenoptiker-w-m-d-fielmann-group-uster",
         "fr": "opticien-h-f-d-fielmann-group-uster"
@@ -1323,8 +1280,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-19"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-19"
@@ -1337,7 +1293,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-19",
         "optician-w-m-d-fielmann-group-uster",
-        "opticien-w-m-d-fielmann-group-uster"
+        "opticien-w-m-d-fielmann-group-uster",
+        "ottico-optometrista-w-m-d-fielmann-group-uster",
+        "optician-m-f-d-fielmann-group-uster",
+        "opticien-h-f-d-fielmann-group-uster"
       ],
       "firstSeenAt": "2026-05-13T11:02:29.299Z",
       "salaryMin": 49500,
@@ -1358,7 +1317,7 @@
       "id": "fielmann-d475e052d8eb",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-aarau",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-aarau",
+        "it": "augenoptiker-w-m-d-fielmann-ch-20",
         "en": "optician-m-f-d-fielmann-group-aarau",
         "de": "augenoptiker-w-m-d-fielmann-group-aarau",
         "fr": "opticien-h-f-d-fielmann-group-aarau"
@@ -1409,8 +1368,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-20"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-20"
@@ -1423,7 +1381,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-20",
         "optician-w-m-d-fielmann-group-aarau",
-        "opticien-w-m-d-fielmann-group-aarau"
+        "opticien-w-m-d-fielmann-group-aarau",
+        "ottico-optometrista-w-m-d-fielmann-group-aarau",
+        "optician-m-f-d-fielmann-group-aarau",
+        "opticien-h-f-d-fielmann-group-aarau"
       ],
       "firstSeenAt": "2026-05-13T11:02:28.504Z",
       "salaryMin": 49500,
@@ -1444,7 +1405,7 @@
       "id": "fielmann-4d2cd3bd62c9",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-rapperswil",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-rapperswil",
+        "it": "augenoptiker-w-m-d-fielmann-ch-21",
         "en": "optician-m-f-d-fielmann-group-rapperswil",
         "de": "augenoptiker-w-m-d-fielmann-group-rapperswil",
         "fr": "opticien-h-f-d-fielmann-group-rapperswil"
@@ -1495,8 +1456,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-21"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-21"
@@ -1509,7 +1469,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-21",
         "optician-w-m-d-fielmann-group-rapperswil",
-        "opticien-w-m-d-fielmann-group-rapperswil"
+        "opticien-w-m-d-fielmann-group-rapperswil",
+        "ottico-optometrista-w-m-d-fielmann-group-rapperswil",
+        "optician-m-f-d-fielmann-group-rapperswil",
+        "opticien-h-f-d-fielmann-group-rapperswil"
       ],
       "firstSeenAt": "2026-05-13T11:02:27.757Z",
       "salaryMin": 49500,
@@ -1530,7 +1493,7 @@
       "id": "fielmann-392ed148475c",
       "slug": "ottico-optometrista-w-m-d-fielmann-group-olten",
       "slugByLocale": {
-        "it": "ottico-optometrista-w-m-d-fielmann-group-olten",
+        "it": "augenoptiker-w-m-d-fielmann-ch-22",
         "en": "optician-m-f-d-fielmann-group-olten",
         "de": "augenoptiker-w-m-d-fielmann-group-olten",
         "fr": "opticien-h-f-d-fielmann-group-olten"
@@ -1581,8 +1544,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-22"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-22"
@@ -1595,7 +1557,10 @@
         "augenoptiker-w-m-d-fielmann-ch",
         "augenoptiker-w-m-d-fielmann-ch-22",
         "optician-w-m-d-fielmann-group-olten",
-        "opticien-w-m-d-fielmann-group-olten"
+        "opticien-w-m-d-fielmann-group-olten",
+        "ottico-optometrista-w-m-d-fielmann-group-olten",
+        "optician-m-f-d-fielmann-group-olten",
+        "opticien-h-f-d-fielmann-group-olten"
       ],
       "firstSeenAt": "2026-05-13T11:02:26.825Z",
       "salaryMin": 49500,
@@ -1616,10 +1581,10 @@
       "id": "fielmann-0367b9294303",
       "slug": "projektleiter-m-d-fielmann-group-langenthal",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-langenthal",
-        "en": "projektleiter-m-d-fielmann-group-langenthal",
+        "it": "augenoptiker-w-m-d-fielmann-ch-23",
+        "en": "augenoptiker-w-m-d-fielmann-ch-23",
         "de": "augenoptiker-w-m-d-fielmann-group-langenthal",
-        "fr": "projektleiter-m-d-fielmann-group-langenthal"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-23"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1667,19 +1632,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-23"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-23"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-23"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-23"
+        "projektleiter-m-d-fielmann-group-langenthal"
       ],
       "firstSeenAt": "2026-05-13T11:02:26.035Z",
       "salaryMin": 49500,
@@ -1700,10 +1658,10 @@
       "id": "fielmann-5d4a7edd2905",
       "slug": "projektleiter-m-d-fielmann-group-basel",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-basel",
-        "en": "projektleiter-m-d-fielmann-group-basel",
+        "it": "augenoptiker-w-m-d-fielmann-ch-24",
+        "en": "augenoptiker-w-m-d-fielmann-ch-24",
         "de": "augenoptiker-w-m-d-fielmann-group-basel",
-        "fr": "projektleiter-m-d-fielmann-group-basel"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-24"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1751,19 +1709,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-24"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-24"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-24"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-24"
+        "projektleiter-m-d-fielmann-group-basel"
       ],
       "firstSeenAt": "2026-05-13T11:02:25.313Z",
       "salaryMin": 49500,
@@ -1784,10 +1735,10 @@
       "id": "fielmann-4bd349dfd2db",
       "slug": "projektmanager-m-d-fielmann-group-bern",
       "slugByLocale": {
-        "it": "projektmanager-m-d-fielmann-group-bern",
-        "en": "projektmanager-m-d-fielmann-group-bern",
+        "it": "horakustiker-w-m-d-fielmann-ch",
+        "en": "horakustiker-w-m-d-fielmann-ch",
         "de": "horakustiker-w-m-d-fielmann-group-bern",
-        "fr": "projektmanager-m-d-fielmann-group-bern"
+        "fr": "horakustiker-w-m-d-fielmann-ch"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -1831,21 +1782,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R-53196",
       "previousSlugsByLocale": {
-        "it": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
-        "en": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
-        "fr": [
-          "horakustiker-w-m-d-fielmann-ch"
-        ],
         "de": [
           "horakustiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
-        "horakustiker-w-m-d-fielmann-ch"
+        "horakustiker-w-m-d-fielmann-ch",
+        "projektmanager-m-d-fielmann-group-bern"
       ],
       "firstSeenAt": "2026-05-13T11:02:23.848Z",
       "salaryMin": 49500,
@@ -2017,7 +1960,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-36d02ec1883b",
@@ -2090,13 +2034,14 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-0f27052f1a48",
       "slug": "ottico-w-m-d-fielmann-group-wadenswil",
       "slugByLocale": {
-        "it": "ottico-w-m-d-fielmann-group-wadenswil",
+        "it": "augenoptiker-w-m-d-fielmann-ch-25",
         "en": "optician-m-f-d-fielmann-group-wadenswil",
         "de": "augenoptiker-w-m-d-fielmann-group-wadenswil",
         "fr": "opticien-h-f-d-fielmann-group-wadenswil"
@@ -2147,8 +2092,7 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-25"
+          "augenoptiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "augenoptiker-w-m-d-fielmann-ch-25"
@@ -2173,7 +2117,10 @@
         "augenoptiker-w-m-d-fielmann-group-bern-i",
         "augenoptiker-w-m-d-fielmann-ch-4",
         "optician-w-m-d-fielmann-group-wadenswil",
-        "opticien-w-m-d-fielmann-group-wadenswil"
+        "opticien-w-m-d-fielmann-group-wadenswil",
+        "ottico-w-m-d-fielmann-group-wadenswil",
+        "optician-m-f-d-fielmann-group-wadenswil",
+        "opticien-h-f-d-fielmann-group-wadenswil"
       ],
       "firstSeenAt": "2026-05-13T11:02:20.402Z",
       "salaryMin": 49500,
@@ -2194,7 +2141,7 @@
       "id": "fielmann-9e11f7a3f370",
       "slug": "opticien-ne-f-m-d-fielmann-group-martigny",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-martigny",
+        "it": "opticien-ne-f-h-d-fielmann-ch",
         "en": "optician-f-h-d-fielmann-group-martigny",
         "de": "optimierung-n-f-h-d-fielmann-group-martigny",
         "fr": "opticien-ne-f-h-d-fielmann-group-martigny"
@@ -2242,8 +2189,7 @@
       "jobReqId": "R-13287",
       "previousSlugsByLocale": {
         "it": [
-          "opticien-w-m-d-fielmann-group-st",
-          "opticien-ne-f-h-d-fielmann-ch"
+          "opticien-w-m-d-fielmann-group-st"
         ],
         "en": [
           "opticien-ne-f-h-d-fielmann-ch"
@@ -2258,7 +2204,10 @@
       "previousSlugs": [
         "opticien-w-m-d-fielmann-group-st",
         "opticien-ne-f-h-d-fielmann-ch",
-        "optician-e-h-d-fielmann-group-martigny"
+        "optician-e-h-d-fielmann-group-martigny",
+        "opticien-ne-f-m-d-fielmann-group-martigny",
+        "optician-f-h-d-fielmann-group-martigny",
+        "optimierung-n-f-h-d-fielmann-group-martigny"
       ],
       "firstSeenAt": "2026-05-13T11:02:19.380Z",
       "salaryMin": 49500,
@@ -2362,7 +2311,7 @@
       "id": "fielmann-212b16bf0469",
       "slug": "audioprotesista-w-m-d-fielmann-group-aarau",
       "slugByLocale": {
-        "it": "audioprotesista-w-m-d-fielmann-group-aarau",
+        "it": "horakustiker-w-m-d-fielmann-ch-2",
         "en": "hearing-care-professional-m-f-d-fielmann-group-aarau",
         "de": "horakustiker-w-m-d-fielmann-group-aarau",
         "fr": "audioprothesiste-h-f-d-fielmann-group-aarau"
@@ -2413,8 +2362,7 @@
           "horakustiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "horakustiker-w-m-d-fielmann-ch",
-          "horakustiker-w-m-d-fielmann-ch-2"
+          "horakustiker-w-m-d-fielmann-ch"
         ],
         "en": [
           "horakustiker-w-m-d-fielmann-ch-2"
@@ -2425,7 +2373,10 @@
       },
       "previousSlugs": [
         "horakustiker-w-m-d-fielmann-ch",
-        "horakustiker-w-m-d-fielmann-ch-2"
+        "horakustiker-w-m-d-fielmann-ch-2",
+        "audioprotesista-w-m-d-fielmann-group-aarau",
+        "hearing-care-professional-m-f-d-fielmann-group-aarau",
+        "audioprothesiste-h-f-d-fielmann-group-aarau"
       ],
       "firstSeenAt": "2026-05-13T11:02:17.885Z",
       "salaryMin": 49500,
@@ -2524,7 +2475,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-00dbba3e9007",
@@ -2608,7 +2560,7 @@
       "id": "fielmann-f37797ee6fc2",
       "slug": "reclutamento-per-consulente-ottico-w-m-d-per-nuova-apertura-a-stans-fielmann-group-luzern",
       "slugByLocale": {
-        "it": "reclutamento-per-consulente-ottico-w-m-d-per-nuova-apertura-a-stans-fielmann-group-luzern",
+        "it": "cambio-carriera-fachberater-augenoptik-m-w-d-per-neueroffnung-in-stans-fielmann-group-luzern",
         "en": "entry-level-optical-consultant-w-m-d-for-new-opening-in-stans-fielmann-group-luzern",
         "de": "quereinstieg-fachberater-augenoptik-w-m-d-fur-neueroffnung-in-stans-fielmann-ch",
         "fr": "recrutement-conseiller-optique-h-f-d-pour-nouvelle-ouverture-a-stans-fielmann-group-luzern"
@@ -2656,12 +2608,11 @@
       "jobReqId": "R-61340",
       "previousSlugs": [
         "quereinstieg-fachberater-augenoptik-w-m-d-fur-neueroffnung-in-stans-fielmann-ch",
-        "cambio-carriera-fachberater-augenoptik-m-w-d-per-neueroffnung-in-stans-fielmann-group-luzern"
+        "reclutamento-per-consulente-ottico-w-m-d-per-nuova-apertura-a-stans-fielmann-group-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quereinstieg-fachberater-augenoptik-w-m-d-fur-neueroffnung-in-stans-fielmann-ch",
-          "cambio-carriera-fachberater-augenoptik-m-w-d-per-neueroffnung-in-stans-fielmann-group-luzern"
+          "quereinstieg-fachberater-augenoptik-w-m-d-fur-neueroffnung-in-stans-fielmann-ch"
         ],
         "en": [
           "quereinstieg-fachberater-augenoptik-w-m-d-fur-neueroffnung-in-stans-fielmann-ch"
@@ -2689,7 +2640,7 @@
       "id": "fielmann-ba2f1d96ab60",
       "slug": "architetto-project-manager-senior-retail-svizzera-w-m-d-fielmann-group-basel",
       "slugByLocale": {
-        "it": "architetto-project-manager-senior-retail-svizzera-w-m-d-fielmann-group-basel",
+        "it": "senior-architekt-projektleiter-retail-schweiz-m-w-d-fielmann-group-basel",
         "en": "senior-architect-project-manager-retail-switzerland-m-f-d-fielmann-group-basel",
         "de": "senior-architekt-projektleiter-retail-schweiz-w-m-d-fielmann-ch",
         "fr": "architecte-chef-de-projet-senior-retail-suisse-h-f-d-fielmann-group-basel"
@@ -2737,12 +2688,11 @@
       "jobReqId": "R-61433",
       "previousSlugs": [
         "senior-architekt-projektleiter-retail-schweiz-w-m-d-fielmann-ch",
-        "senior-architekt-projektleiter-retail-schweiz-m-w-d-fielmann-group-basel"
+        "architetto-project-manager-senior-retail-svizzera-w-m-d-fielmann-group-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-architekt-projektleiter-retail-schweiz-w-m-d-fielmann-ch",
-          "senior-architekt-projektleiter-retail-schweiz-m-w-d-fielmann-group-basel"
+          "senior-architekt-projektleiter-retail-schweiz-w-m-d-fielmann-ch"
         ],
         "en": [
           "senior-architekt-projektleiter-retail-schweiz-w-m-d-fielmann-ch"
@@ -2898,7 +2848,8 @@
         "horakustikermeister-w-m-d-fielmann-group-aarau",
         "leitung-eines-horakustikstudios-w-m-d-fielmann-ch",
         "horakustikermeister-w-m-d-fielmann-group-aarau-2",
-        "horakustikermeister-w-m-d-fielmann-ch"
+        "horakustikermeister-w-m-d-fielmann-ch",
+        "leitung-eines-horakustikstudios-w-m-d-fielmann-group-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3016,7 +2967,7 @@
       "id": "fielmann-39c75e87eadf",
       "slug": "opticien-ne-f-m-d-fielmann-group-geneve",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-geneve",
+        "it": "opticien-ne-h-f-d-fielmann-ch-2",
         "en": "optician-m-f-d-fielmann-group-geneve",
         "de": "optimierung-n-h-f-d-fielmann-group-geneve",
         "fr": "opticien-ne-h-f-d-fielmann-group-geneve"
@@ -3067,8 +3018,7 @@
           "opticien-ne-h-f-d-fielmann-ch"
         ],
         "it": [
-          "opticien-ne-h-f-d-fielmann-ch",
-          "opticien-ne-h-f-d-fielmann-ch-2"
+          "opticien-ne-h-f-d-fielmann-ch"
         ],
         "en": [
           "opticien-ne-h-f-d-fielmann-ch-2"
@@ -3079,7 +3029,10 @@
       },
       "previousSlugs": [
         "opticien-ne-h-f-d-fielmann-ch",
-        "opticien-ne-h-f-d-fielmann-ch-2"
+        "opticien-ne-h-f-d-fielmann-ch-2",
+        "opticien-ne-f-m-d-fielmann-group-geneve",
+        "optician-m-f-d-fielmann-group-geneve",
+        "optimierung-n-h-f-d-fielmann-group-geneve"
       ],
       "firstSeenAt": "2026-05-13T11:02:12.496Z",
       "salaryMin": 49500,
@@ -3100,7 +3053,7 @@
       "id": "fielmann-9c59a3eeb76f",
       "slug": "opticien-ne-f-m-d-fielmann-group-sion",
       "slugByLocale": {
-        "it": "opticien-ne-f-m-d-fielmann-group-sion",
+        "it": "opticien-ne-h-f-d-fielmann-ch",
         "en": "optician-m-f-d-fielmann-group-sion",
         "de": "optimierung-n-h-f-d-fielmann-group-sion",
         "fr": "opticien-ne-h-f-d-fielmann-group-sion"
@@ -3147,9 +3100,6 @@
       "requirementsByLocale": {},
       "jobReqId": "R-13288",
       "previousSlugsByLocale": {
-        "it": [
-          "opticien-ne-h-f-d-fielmann-ch"
-        ],
         "en": [
           "opticien-ne-h-f-d-fielmann-ch"
         ],
@@ -3161,7 +3111,10 @@
         ]
       },
       "previousSlugs": [
-        "opticien-ne-h-f-d-fielmann-ch"
+        "opticien-ne-h-f-d-fielmann-ch",
+        "opticien-ne-f-m-d-fielmann-group-sion",
+        "optician-m-f-d-fielmann-group-sion",
+        "optimierung-n-h-f-d-fielmann-group-sion"
       ],
       "firstSeenAt": "2026-05-13T11:02:13.280Z",
       "salaryMin": 49500,
@@ -3182,10 +3135,10 @@
       "id": "fielmann-50d8a0c33218",
       "slug": "projektleiter-m-d-fielmann-group-zurich",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-zurich",
-        "en": "projektleiter-m-d-fielmann-group-zurich",
+        "it": "augenoptiker-w-m-d-fielmann-ch-8",
+        "en": "augenoptiker-w-m-d-fielmann-ch-8",
         "de": "augenoptiker-w-m-d-fielmann-group-zurich",
-        "fr": "projektleiter-m-d-fielmann-group-zurich"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-8"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -3233,19 +3186,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-8"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-8"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-8"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-8"
+        "projektleiter-m-d-fielmann-group-zurich"
       ],
       "firstSeenAt": "2026-05-13T11:02:37.448Z",
       "salaryMin": 49500,
@@ -3266,10 +3212,10 @@
       "id": "fielmann-c8241039e720",
       "slug": "projektleiter-m-d-fielmann-group-burgdorf",
       "slugByLocale": {
-        "it": "projektleiter-m-d-fielmann-group-burgdorf",
-        "en": "projektleiter-m-d-fielmann-group-burgdorf",
+        "it": "augenoptiker-w-m-d-fielmann-ch-2",
+        "en": "augenoptiker-w-m-d-fielmann-ch-2",
         "de": "augenoptiker-w-m-d-fielmann-group-burgdorf",
-        "fr": "projektleiter-m-d-fielmann-group-burgdorf"
+        "fr": "augenoptiker-w-m-d-fielmann-ch-2"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -3317,19 +3263,12 @@
           "augenoptiker-w-m-d-fielmann-ch"
         ],
         "it": [
-          "augenoptiker-w-m-d-fielmann-ch",
-          "augenoptiker-w-m-d-fielmann-ch-2"
-        ],
-        "en": [
-          "augenoptiker-w-m-d-fielmann-ch-2"
-        ],
-        "fr": [
-          "augenoptiker-w-m-d-fielmann-ch-2"
+          "augenoptiker-w-m-d-fielmann-ch"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "augenoptiker-w-m-d-fielmann-ch-2"
+        "projektleiter-m-d-fielmann-group-burgdorf"
       ],
       "firstSeenAt": "2026-05-28T12:32:31.821Z",
       "salaryMin": 49500,
