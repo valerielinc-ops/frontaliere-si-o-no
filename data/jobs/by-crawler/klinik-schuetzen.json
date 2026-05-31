@@ -80,7 +80,7 @@
       "id": "klinik-schuetzen-a12cef6fc64c",
       "slug": "medico-senior-80-100-specialista-specialista-in-psichiatria-e-psicoterapia-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden",
+        "it": "medico-senior-80-100-specialista-specialista-in-psichiatria-e-psicoterapia-klinik-schutzen-rheinfelden-rheinfelden",
         "en": "senior-physician-80-100-specialist-specialist-in-psychiatry-and-psychotherapy-klinik-schutzen-rheinfelden-rheinfelden",
         "de": "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik",
         "fr": "medecin-principal-80-100-klinik-schutzen-rheinfelden-rheinfelden"
@@ -128,15 +128,14 @@
       "previousSlugs": [
         "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
         "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik",
-        "senior-physician-80-100-specialist-in-psychiatry-and-psychotherapy-klinik-schutzen-rheinfelden-rheinfelden",
-        "medico-senior-80-100-specialista-specialista-in-psichiatria-e-psicoterapia-klinik-schutzen-rheinfelden-rheinfelden",
-        "senior-physician-80-100-specialist-specialist-in-psychiatry-and-psychotherapy-klinik-schutzen-rheinfelden-rheinfelden",
-        "medecin-principal-80-100-klinik-schutzen-rheinfelden-rheinfelden"
+        "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden",
+        "senior-physician-80-100-specialist-in-psychiatry-and-psychotherapy-klinik-schutzen-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
-          "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik"
+          "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik",
+          "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2"
@@ -210,8 +209,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik-2",
-        "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik",
-        "oberarztin-oberarzt-80-100-facharztin-facharzt-per-psychiatrie-e-psychotherapie-klinik-schutzen-rheinfelden-rheinfelden"
+        "oberarztin-oberarzt-80-100-facharztin-facharzt-fur-psychiatrie-und-psychotherapie-klinik"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -320,7 +318,7 @@
       "id": "klinik-schuetzen-c0c795f17026",
       "slug": "psicoterapeuta-80-100-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "psicoterapista-psicoterapista-80-100-klinik-schutzen-rheinfelden-rheinfelden",
+        "it": "psicoterapeuta-80-100-klinik-schutzen-rheinfelden-rheinfelden",
         "en": "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden",
         "de": "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden",
         "fr": "psychotherapie-80-a-100-klinik-schutzen-rheinfelden-rheinfelden"
@@ -379,14 +377,14 @@
       },
       "previousSlugs": [
         "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden",
+        "psicoterapista-psicoterapista-80-100-klinik-schutzen-rheinfelden-rheinfelden",
         "psychotherapeutin-psychotherapeutin-80-100-klinik-schutzen-rheinfelden-rheinfelden",
-        "psychotherapeute-80-100-klinik-schutzen-rheinfelden-rheinfelden",
-        "psicoterapeuta-80-100-klinik-schutzen-rheinfelden-rheinfelden",
-        "psychotherapie-80-a-100-klinik-schutzen-rheinfelden-rheinfelden"
+        "psychotherapeute-80-100-klinik-schutzen-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden"
+          "psychotherapeutin-psychotherapeuten-80-100-klinik-schuetzen-rheinfelden",
+          "psicoterapista-psicoterapista-80-100-klinik-schutzen-rheinfelden-rheinfelden"
         ],
         "de": [
           "psychotherapeutin-psychotherapeutin-80-100-klinik-schutzen-rheinfelden-rheinfelden"
@@ -413,10 +411,10 @@
       "id": "klinik-schuetzen-bbb172ed09e0",
       "slug": "specialista-esperto-nell-arte-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden",
-        "en": "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden",
+        "it": "specialista-esperto-nell-arte-klinik-schutzen-rheinfelden-rheinfelden",
+        "en": "specialist-skilled-in-the-art-klinik-schutzen-rheinfelden-rheinfelden",
         "de": "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
-        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
+        "fr": "specialiste-de-l-art-klinik-schutzen-rheinfelden-rheinfelden"
       },
       "company": "Klinik Schützen Rheinfelden",
       "companyKey": "klinik-schuetzen",
@@ -485,19 +483,20 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
-        "specialist-skilled-in-the-art-klinik-schutzen-rheinfelden-rheinfelden",
-        "specialiste-de-l-art-klinik-schutzen-rheinfelden-rheinfelden",
-        "specialista-esperto-nell-arte-klinik-schutzen-rheinfelden-rheinfelden"
+        "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden",
+        "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden",
+        "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden"
+          "fachfrau-fachmann-gesundheit-auf-stundenlohnbasis-klinik-schuetzen-rheinfelden",
+          "operatore-socio-sanitario-oss-su-base-oraria-klinik-schutzen-rheinfelden-rheinfelden"
         ],
         "en": [
-          "specialist-skilled-in-the-art-klinik-schutzen-rheinfelden-rheinfelden"
+          "healthcare-specialist-fage-on-an-hourly-basis-klinik-schutzen-rheinfelden-rheinfelden"
         ],
         "fr": [
-          "specialiste-de-l-art-klinik-schutzen-rheinfelden-rheinfelden"
+          "assistant-e-en-soins-et-sante-communautaire-assc-sur-base-horaire-klinik-schutzen-rheinfelden-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:46.879Z",
@@ -702,7 +701,7 @@
       "id": "klinik-schuetzen-916c48d35efb",
       "slug": "dipendenti-del-segretariato-dell-ambulatory-rheinfelden-60-o-100-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
-        "it": "mitarbeitende-n-per-das-sekretariat-im-ambulatorium-rheinfelden-60-o-100-klinik-schutzen-rheinfelden",
+        "it": "dipendenti-del-segretariato-dell-ambulatory-rheinfelden-60-o-100-klinik-schutzen-rheinfelden-rheinfelden",
         "en": "employees-for-the-secretariat-in-the-ambulatory-rheinfelden-60-or-100-klinik-schutzen-rheinfelden-rheinfelden",
         "de": "mitarbeitende-n-fur-das-sekretariat-im-ambulatorium-rheinfelden-60-oder-100-klinik",
         "fr": "employes-du-secretariat-de-l-ambulatoire-rheinfelden-60-ou-100-klinik-schutzen-rheinfelden-rheinfelden"
@@ -749,11 +748,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeitende-n-fur-das-sekretariat-im-ambulatorium-rheinfelden-60-oder-100-klinik",
-        "dipendenti-del-segretariato-dell-ambulatory-rheinfelden-60-o-100-klinik-schutzen-rheinfelden-rheinfelden"
+        "mitarbeitende-n-per-das-sekretariat-im-ambulatorium-rheinfelden-60-o-100-klinik-schutzen-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeitende-n-fur-das-sekretariat-im-ambulatorium-rheinfelden-60-oder-100-klinik"
+          "mitarbeitende-n-fur-das-sekretariat-im-ambulatorium-rheinfelden-60-oder-100-klinik",
+          "mitarbeitende-n-per-das-sekretariat-im-ambulatorium-rheinfelden-60-o-100-klinik-schutzen-rheinfelden"
         ],
         "en": [
           "mitarbeitende-n-fur-das-sekretariat-im-ambulatorium-rheinfelden-60-oder-100-klinik"

@@ -168,9 +168,9 @@
     },
     {
       "id": "clienia-ag-dd8ece0a57e6",
-      "slug": "oberarztin-oberarzt-80-100-clienia-ag-zurich",
+      "slug": "primario-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-80-100-clienia-ag-zurich",
+        "it": "primario-80-100-clienia-ag-pfaffikon-zh",
         "en": "oberarztin-oberarzt-80-100-clienia-ag-zurich",
         "de": "oberarztin-oberarzt-80-100-clienia-ag-pfaffikon",
         "fr": "oberarztin-oberarzt-80-100-clienia-ag-zurich"
@@ -227,7 +227,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-80-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-80-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-8151ece05c9d",
