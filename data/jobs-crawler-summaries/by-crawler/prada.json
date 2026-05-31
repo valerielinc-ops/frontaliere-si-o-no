@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-31T12:20:45.487Z",
+  "generatedAt": "2026-05-31T23:16:52.389Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6566,
-  "avgDurationMs": 6566,
+  "durationMs": 5042,
+  "avgDurationMs": 5042,
   "durationHistory": [
-    6566
+    5042
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-7be490b3aacc",
       "slug": "stage-hr-industrial-pelletteria-prada-group-terranuova-bracciolini-stage",
@@ -33,17 +34,17 @@
       "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Stage-HR-Industrial-Pelletteria/1370386833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-31T12:20:42.395Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-05-31T23:16:49.625Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-05-31T12:20:42.395Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -64,7 +65,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T12:20:41.263Z",
+      "crawledAt": "2026-05-31T23:16:49.098Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 76,
@@ -95,7 +96,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T12:20:40.888Z",
+      "crawledAt": "2026-05-31T23:16:48.860Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -128,8 +129,9 @@
       "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Stage-HR-Industrial-Pelletteria/1370386833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-31T12:20:42.395Z",
+      "crawledAt": "2026-05-31T23:16:49.625Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-31T12:20:42.395Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "postalCode": "6500",
@@ -163,7 +165,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T12:20:41.263Z",
+      "crawledAt": "2026-05-31T23:16:49.098Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 68000,
@@ -199,7 +201,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T12:20:40.888Z",
+      "crawledAt": "2026-05-31T23:16:48.860Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
