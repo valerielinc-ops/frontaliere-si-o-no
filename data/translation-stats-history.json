@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-14T03:31:53.106Z",
-    "label": "before",
-    "total": 4348,
-    "needsRetranslation": 999,
-    "incomplete": 391,
-    "complete": 3957,
-    "missingByLocale": {
-      "it": 278,
-      "en": 235,
-      "de": 117,
-      "fr": 296
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "UBS",
-        "pending": 23
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 12
-      },
-      {
-        "company": "MSC Group",
-        "pending": 12
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 11
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "PostAuto",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-14T04:38:29.400Z",
-    "label": "after",
-    "total": 4348,
-    "needsRetranslation": 873,
-    "incomplete": 329,
-    "complete": 4019,
-    "missingByLocale": {
-      "it": 239,
-      "en": 206,
-      "de": 95,
-      "fr": 255
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "UBS",
-        "pending": 23
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 12
-      },
-      {
-        "company": "MSC Group",
-        "pending": 11
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 8
-      },
-      {
-        "company": "Tschuggen Collection",
-        "pending": 7
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-14T04:42:27.681Z",
-    "label": "before",
-    "total": 4348,
-    "needsRetranslation": 999,
-    "incomplete": 391,
-    "complete": 3957,
-    "missingByLocale": {
-      "it": 278,
-      "en": 235,
-      "de": 117,
-      "fr": 296
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "UBS",
-        "pending": 23
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 12
-      },
-      {
-        "company": "MSC Group",
-        "pending": 12
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 11
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "PostAuto",
-        "pending": 10
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-14T05:52:39.142Z",
-    "label": "after",
-    "total": 4348,
-    "needsRetranslation": 874,
-    "incomplete": 329,
-    "complete": 4019,
-    "missingByLocale": {
-      "it": 239,
-      "en": 206,
-      "de": 95,
-      "fr": 255
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 75
-      },
-      {
-        "company": "UBS",
-        "pending": 23
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Lonza",
-        "pending": 12
-      },
-      {
-        "company": "MSC Group",
-        "pending": 11
-      },
-      {
-        "company": "IWC",
-        "pending": 11
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 8
-      },
-      {
-        "company": "Tschuggen Collection",
-        "pending": 7
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 6
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-14T06:34:45.105Z",
     "label": "before",
     "total": 4329,
@@ -11216,6 +10992,118 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 94
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "Roche",
+        "pending": 35
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 14
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 12
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-31T07:10:20.995Z",
+    "label": "before",
+    "total": 9051,
+    "needsRetranslation": 1911,
+    "incomplete": 486,
+    "complete": 8565,
+    "missingByLocale": {
+      "it": 328,
+      "en": 260,
+      "de": 175,
+      "fr": 324
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 94
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "Roche",
+        "pending": 35
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 14
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 12
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-31T08:10:50.537Z",
+    "label": "after",
+    "total": 9051,
+    "needsRetranslation": 1771,
+    "incomplete": 466,
+    "complete": 8585,
+    "missingByLocale": {
+      "it": 314,
+      "en": 245,
+      "de": 170,
+      "fr": 309
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 93
       },
       {
         "company": "Geiser AG",
