@@ -299,7 +299,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen"
+        "expertin-notfallpflege-mit-teamleitung-notfallpraxis-fast-track-spitaeler-schaffhausen",
+        "expertin-notfallpflege-con-teamleitung-notfallpraxis-fast-track-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2815,7 +2816,8 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
-        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen"
+        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3616,7 +3618,7 @@
       "id": "spitaeler-schaffhausen-f5e180b17a19",
       "slug": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "it": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
         "en": "emergency-care-leadership-spitaler-schaffhausen-schaffhausen",
         "de": "leitung-notfall-pflege-spitaler-schaffhausen-schaffhausen",
         "fr": "direction-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
@@ -3670,13 +3672,13 @@
         ],
         "de": [
           "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
-        ],
-        "it": [
-          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
+        "direzione-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "emergency-care-leadership-spitaler-schaffhausen-schaffhausen",
+        "direction-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.798Z",
       "salaryMin": 49500,
@@ -4125,7 +4127,7 @@
       "id": "spitaeler-schaffhausen-6c91ac86c86c",
       "slug": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen",
+        "it": "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
         "en": "staff-in-technical-service-spitaler-schaffhausen-schaffhausen-099511",
         "de": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
         "fr": "personnel-des-services-techniques-spitaler-schaffhausen-schaffhausen"
@@ -4176,8 +4178,7 @@
         ],
         "it": [
           "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
-          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
-          "collaboratore-trice-technischer-dienst-spitaler-schaffhausen"
+          "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen"
         ],
         "en": [
           "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
@@ -4189,8 +4190,8 @@
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen",
         "mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen-2",
-        "collaboratore-trice-technischer-dienst-spitaler-schaffhausen",
-        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
+        "personale-in-servizio-tecnico-spitaler-schaffhausen-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:18:10.769Z",
       "salaryMin": 49500,
@@ -4373,8 +4374,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "it": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "en": "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-        "fr": "sante-professionnelle-efz-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
+        "en": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
+        "fr": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4389,9 +4390,9 @@
       "description": "Auf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\nAufgaben:\n• Strukturierte Einführung ins Aufgabengebiet\n\n• Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n\n• Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n\n• Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n\n• Attraktive Fort- und Weiterbildungsmöglichkeiten\n\n• Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\nAnforderungen:\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n\n• Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n\n• Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n\n• Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
       "descriptionByLocale": {
         "de": "## Descrizione\n\nAuf unseren 4 Stationen der Langzeitpsychiatrie mit jeweils 18 Betten werden chronisch psychisch kranke Frauen und Männer mit kognitiven Beeinträchtigungen, Einschränkungen der selbständigen Lebens- und Alltagsgestaltung oder ausgeprägten Verhaltensauffälligkeiten betreut. Im Weiteren bieten die Stationen niederschwellige Rehabilitationsprogramme für Patientinnen und Patienten an, die anschliessend wieder in ihre angestammten Verhältnisse zurückkehren oder in eine andere Institution übertreten.\n\n## Mansioni\n- Strukturierte Einführung ins Aufgabengebiet\n- Interessante und abwechslungsreiche Tätigkeit in einem wertschätzenden Umfeld, in dem ein kollegiales Miteinander und Humor nicht zu kurz kommen\n- Betreuung von Patientinnen und Patienten mit chronischen psychischen Erkrankungen und Einschränkungen in der selbständigen Lebens- und Alltagsgestaltung\n- Unterstützung der pflegerischen Bezugspersonen bei der Umsetzung des Pflegeprozesses unter Gewährleistung einer möglichst hohen Autonomie der Patientinnen und Patienten\n- Attraktive Fort- und Weiterbildungsmöglichkeiten\n- Gut mit öffentlichen Verkehrsmitteln erreichbarer Arbeitsort\n\n## Requisiti\n- Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit EFZ\n- Berufserfahrung in der Psychiatrie und/oder Langzeitpflege sowie Interesse an der ganzheitlichen Betreuung von Menschen mit psychischen Erkrankungen\n- Offene, respektvolle Kommunikation mit allen Anspruchsgruppen\n- Teamgeist, Zuverlässigkeit und eine offene Persönlichkeit, die sich aktiv ins Team einbringt\n- Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n- Engagement für eine teamorientierte und interdisziplinäre Zusammenarbeit\n\n## Cosa offriamo\n- Du willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## Contatto\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "it": "Descrizione\n\nNelle nostre 4 stazioni di psichiatria a lungo termine con 18 letti, donne e uomini affetti da disturbi cognitivi, limitazioni di vita indipendente e design quotidiano o disturbi comportamentali pronunciati sono supervisionati. Inoltre, le stazioni offrono programmi di riabilitazione a basso consumo per i pazienti che successivamente ritornano alle loro condizioni native o entrano in un'altra istituzione.\n\nMansioni\n- Introduzione strutturata al settore della responsabilità\n- Attività interessanti e diversificate in un ambiente stimato in cui una convivenza collegiale e l'umorismo non sono troppo brevi\n- Cura dei pazienti con malattie mentali croniche e limitazioni nella configurazione della vita e della vita quotidiana\n- Supporto per i soggetti infermieri nell'attuazione del processo di cura per garantire la massima autonomia possibile dei pazienti\n- Opportunità di formazione\n- Ben accessibile con i mezzi pubblici\n\nRequisiti\n- Formazione completa allo specialista / alla salute esperta EFZ\n- Esperienza professionale in psichiatria e/o cura a lungo termine e interesse nella cura olistica delle persone con malattie mentali\n- Comunicazione aperta e rispettosa con tutte le parti interessate\n- Spirito di squadra, affidabilità e personalità aperta che contribuisce attivamente al team\n- Flessibilità, senso di responsabilità e resilienza\n- Impegno per la cooperazione interdisciplinare e orientata al team\n\nCosa?\n- Vuoi portare bene famiglia e professione? Con il nostro interno crèche proprio sulla zona dell'ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona ma funziona bene.\n\nContatto\nLa Spitäler Schaffhausen comprende l'Ospedale cantonale, i Servizi psichiatrici, la Radiologia Praxen e la Cardiologia Posthof Neuhausen, nonché il Centro pratica di neurologia Schaffhausen. Con oltre 1.700 dipendenti, garantiamo l'estesa assistenza medica e infermieristica della regione di Schaffhausen. Ogni anno ci interessano 11'000 pazienti stazionari e 90'000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
-        "en": "Descrizione\n\nOn our 4 stations of long-term psychiatry with 18 beds, chronically mentally ill women and men with cognitive impairments, limitations of independent life and everyday design or pronounced behavioral disorders are supervised. Furthermore, the stations offer low-swelling rehabilitation programs for patients who subsequently return to their native conditions or enter another institution.\n\nMansioni\n- Structured introduction to the area of responsibility\n- Interesting and varied activities in an esteeming environment where a collegial coexistence and humor do not come too short\n- Care of patients with chronic mental illnesses and limitations in self-configuring life and everyday life\n- Support for nursing subjects in the implementation of the care process to ensure the highest possible autonomy of patients\n- Attractive further and further training opportunities\n- Well accessible by public transport\n\nRequisiti\n- Complete training to the specialist / to the expert health EFZ\n- Professional experience in psychiatry and/or long-term care and interest in the holistic care of people with mental illnesses\n- Open, respectful communication with all stakeholders\n- Team spirit, reliability and an open personality that actively contributes to the team\n- Flexibility, sense of responsibility and resilience\n- Commitment for team-oriented and interdisciplinary cooperation\n\nCosa offriamo\n- You want to get family and profession well? With our in-house crèche right on the area of the cantonal hospital, we support you for a healthy work-life balance that not only works but does well.\n\nContatto\nThe Spitäler Schaffhausen include the Cantonal Hospital, the Psychiatric Services, the Praxen Radiology and Cardiology Posthof Neuhausen as well as the Practice Neurology Schaffhausen Center. With over 1'700 employees, we secure the extended medical and nursing basic care of the Schaffhausen region. Every year we care about 11'000 stationary and 90'000 outpatient patients. We are also an important training centre in the canton.",
-        "fr": "Descrizione\n\nSur nos 4 stations de psychiatrie à long terme avec 18 lits, les femmes et les hommes souffrant de troubles cognitifs chroniques mentaux, les limitations de la vie indépendante et la conception quotidienne ou les troubles du comportement prononcés sont supervisés. De plus, les stations offrent des programmes de réadaptation pour les patients qui retournent ensuite dans leur état d'origine ou qui entrent dans un autre établissement.\n\nMansioni\n- Introduction structurée au domaine de responsabilité\n- Activités intéressantes et variées dans un environnement estimé où la coexistence collégiale et l'humour ne sont pas trop courts\n- Soins aux patients atteints de maladies mentales chroniques et limitations de la vie autonome et de la vie quotidienne\n- Soutien aux matières infirmières dans la mise en œuvre du processus de soins pour assurer la plus grande autonomie possible des patients\n- Possibilités de formation continue et de perfectionnement\n- Bien accessible par les transports publics\n\nRequisiti\n- Compléter la formation au spécialiste / à l'expert en santé EFZ\n- Expérience professionnelle en psychiatrie et/ou soins de longue durée et intérêt pour les soins holistiques des personnes atteintes de maladies mentales\n- Communication ouverte et respectueuse avec toutes les parties prenantes\n- Esprit d'équipe, fiabilité et personnalité ouverte qui contribue activement à l'équipe\n- Souplesse, sens des responsabilités et résilience\n- Engagement en faveur d ' une coopération en équipe et interdisciplinaire\n\nCosa offriamo\n- Tu veux bien avoir de la famille et de la profession ? Avec notre crèche à l'intérieur du quartier de l'hôpital cantonal, nous vous accompagnons pour un équilibre sain entre vie professionnelle et vie privée qui non seulement fonctionne mais se porte bien.\n\nContatto\nLe Spitäler Schaffhausen comprend l'hôpital cantonal, les services psychiatriques, le Praxen Radiology and Cardiology Posthof Neuhausen ainsi que le Practice Neurology Schaffhausen Center. Avec plus de 1'700 employés, nous garantissons les soins médicaux et infirmiers de base de la région de Schaffhausen. Chaque année, nous nous intéressons à environ 11'000 patients fixes et 90'000 patients externes. Nous sommes également un important centre de formation dans le canton."
+        "it": "Descrizione\n\nNelle nostre 4 stazioni di psichiatria a lungo termine con 18 letti, le donne e gli uomini affetti da disturbi cognitivi, i limiti della vita indipendente e il design quotidiano o i disturbi comportamentali pronunciati sono supervisionati. Inoltre, le stazioni offrono programmi di riabilitazione a basso consumo per i pazienti che successivamente ritornano alle loro condizioni native o entrano in un'altra istituzione.\n\nMansioni\n- Introduzione strutturata all'area attività\n- Attività interessanti e diversificate in un ambiente stimato in cui una convivenza collegiale e l'umorismo non sono troppo brevi\n- Cura dei pazienti con malattie mentali croniche e limitazioni nella configurazione della vita e della vita quotidiana\n- Supporto per i soggetti infermieri nell'attuazione del processo di cura per garantire la massima autonomia possibile dei pazienti\n- Opportunità di formazione\n- Ben accessibile con i mezzi pubblici\n\nRequisiti\n- Formazione completa allo specialista / alla salute esperta EFZ\n- Esperienza professionale in psichiatria e/o cura a lungo termine e interesse nella cura olistica delle persone con malattie mentali\n- Comunicazione aperta e rispettosa con tutte le parti interessate\n- Spirito di squadra, affidabilità e personalità aperta che contribuisce attivamente al team\n- Flessibilità, senso di responsabilità e resilienza\n- Impegno per la cooperazione interdisciplinare e orientata al team\n\nCosa?\n- Vuoi portare bene famiglia e professione? Con il nostro interno crèche proprio sulla zona dell'ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona ma funziona bene.\n\nContatto\nLa Spitäler Schaffhausen comprende l'Ospedale cantonale, i Servizi psichiatrici, la Radiologia Praxen e la Cardiologia Posthof Neuhausen, nonché il Centro pratica di neurologia Schaffhausen. Con oltre 1.700 dipendenti, garantiamo l'estesa assistenza medica e infermieristica della regione di Schaffhausen. Ogni anno ci interessano 11'000 pazienti stazionari e 90'000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
+        "en": "Descrizione\n\nOn our 4 stations of long-term psychiatry with 18 beds, chronically mentally ill women and men with cognitive impairments, limitations of independent life and everyday design or pronounced behavioral disorders are supervised. In addition, the stations offer low-swelling rehabilitation programs for patients who subsequently return to their native conditions or enter another institution.\n\nMansioni\n- Structured introduction to the task area\n- Interesting and varied activities in an esteeming environment where a collegial coexistence and humor do not come too short\n- Care of patients with chronic mental illnesses and limitations in self-configuring life and everyday life\n- Support for nursing subjects in the implementation of the care process to ensure the highest possible autonomy of patients\n- Attractive further and further training opportunities\n- Well accessible by public transport\n\nRequisiti\n- Complete training to the specialist / to the expert health EFZ\n- Professional experience in psychiatry and/or long-term care and interest in the holistic care of people with mental illnesses\n- Open, respectful communication with all stakeholders\n- Team spirit, reliability and an open personality that actively contributes to the team\n- Flexibility, sense of responsibility and resilience\n- Engagement for team-oriented and interdisciplinary cooperation\n\nCosa offriamo\n- You want to get family and profession well? With our in-house crèche right on the area of the cantonal hospital, we support you for a healthy work-life balance that not only works but does well.\n\nContatto\nThe Spitäler Schaffhausen include the Cantonal Hospital, the Psychiatric Services, the Praxen Radiology and Cardiology Posthof Neuhausen as well as the Practice Neurology Schaffhausen Center. With over 1'700 employees, we secure the extended medical and nursing basic care of the Schaffhausen region. Every year we care about 11'000 stationary and 90'000 outpatient patients. We are also an important training centre in the canton.",
+        "fr": "Descrizione\n\nSur nos 4 stations de psychiatrie à long terme avec 18 lits, les femmes et les hommes souffrant de troubles cognitifs chroniques mentaux, les limitations de la vie indépendante et la conception quotidienne ou les troubles du comportement prononcés sont supervisés. De plus, les stations offrent des programmes de réadaptation pour les patients qui retournent par la suite dans leur état d'origine ou qui entrent dans un autre établissement.\n\nMansioni\n- Présentation structurée de la zone de travail\n- Activités intéressantes et variées dans un environnement estimé où la coexistence collégiale et l'humour ne sont pas trop courts\n- Soins aux patients atteints de maladies mentales chroniques et limitations de la vie autonome et de la vie quotidienne\n- Soutien aux matières infirmières dans la mise en œuvre du processus de soins pour assurer la plus grande autonomie possible des patients\n- Possibilités de formation continue et de perfectionnement\n- Bien accessible par les transports publics\n\nRequisiti\n- Compléter la formation au spécialiste / à l'expert en santé EFZ\n- Expérience professionnelle en psychiatrie et/ou soins de longue durée et intérêt pour les soins holistiques des personnes atteintes de maladies mentales\n- Communication ouverte et respectueuse avec toutes les parties prenantes\n- Esprit d'équipe, fiabilité et personnalité ouverte qui contribue activement à l'équipe\n- Souplesse, sens des responsabilités et résilience\n- Engagement pour une coopération interdisciplinaire et axée sur l ' équipe\n\nCosa offriamo\n- Tu veux bien avoir de la famille et de la profession ? Avec notre crèche à l'intérieur du quartier de l'hôpital cantonal, nous vous accompagnons pour un équilibre sain entre vie professionnelle et vie privée qui non seulement fonctionne mais se porte bien.\n\nContatto\nLe Spitäler Schaffhausen comprend l'hôpital cantonal, les services psychiatriques, le Praxen Radiology and Cardiology Posthof Neuhausen ainsi que le Practice Neurology Schaffhausen Center. Avec plus de 1'700 employés, nous garantissons les soins médicaux et infirmiers de base de la région de Schaffhausen. Chaque année, nous nous intéressons à environ 11'000 patients fixes et 90'000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
       "location": "Schaffhausen",
       "canton": "SH",
@@ -4431,12 +4432,13 @@
       },
       "firstSeenAt": "2026-05-31T12:42:31.398Z",
       "previousSlugs": [
-        "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-        "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-        "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
+        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
         "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
-        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen"
+        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4695,7 +4697,7 @@
       "id": "spitaeler-schaffhausen-b55c92dab697",
       "slug": "dottore-principale-principale-radiologia-medico-e-medicina-nucleare-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dottore-principale-principale-radiologia-medico-e-medicina-nucleare-spitaler-schaffhausen-schaffhausen",
+        "it": "leitende-arztin-leitender-arzt-radiologie-e-nuklearmedizin-spitaler-schaffhausen",
         "en": "leading-physician-leading-physician-radiology-and-nuclear-medicine-spitaler-schaffhausen-schaffhausen",
         "de": "leitende-arztin-leitender-arzt-radiologie-und-nuklearmedizin-spitaeler-schaffhausen",
         "fr": "medecin-medecin-chef-de-file-radiologie-et-medecine-nucleaire-spitaler-schaffhausen-schaffhausen"
@@ -4742,12 +4744,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-radiologie-und-nuklearmedizin-spitaeler-schaffhausen",
-        "leitende-arztin-leitender-arzt-radiologie-e-nuklearmedizin-spitaler-schaffhausen"
+        "dottore-principale-principale-radiologia-medico-e-medicina-nucleare-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-radiologie-und-nuklearmedizin-spitaeler-schaffhausen",
-          "leitende-arztin-leitender-arzt-radiologie-e-nuklearmedizin-spitaler-schaffhausen"
+          "leitende-arztin-leitender-arzt-radiologie-und-nuklearmedizin-spitaeler-schaffhausen"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-radiologie-und-nuklearmedizin-spitaeler-schaffhausen"
