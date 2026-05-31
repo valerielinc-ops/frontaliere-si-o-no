@@ -7925,6 +7925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Crisi abitativa in Ticino: classe media a rischio',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Un adulto su cinque teme di perdere la casa in Svizzera. Il Ticino meno allarmato ma non immune.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Vista aerea di Lugano con il lago e edifici residenziali',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Rinascita verde lungo il Ticino: interventi tra Airolo e Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Presentati i lavori di rivitalizzazione e sistemazione idraulica del fiume Ticino in Alta Leventina, con un investimento di 8 milioni di franchi.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Vista del fiume Ticino tra Airolo e Rodi con interventi di rinascita verde',
 };
 
 export default blogMetaIt;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2696,
+ "numberOfItems": 2697,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7336,7 +7336,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2693, "name": "Startup a scuola in Ticino: opportunità per fro...", "url": `${BASE_URL}/articoli-frontaliere/startup-scuola-ticino-frontalieri` },
           { "@type": "ListItem", "position": 2694, "name": "Ritenuta 5% su prestazioni LPP: intermediario i...", "url": `${BASE_URL}/articoli-frontaliere/ritenuta-lpp-intermediario-residente` },
           { "@type": "ListItem", "position": 2695, "name": "Rincari in Ticino: come i frontalieri percepisc...", "url": `${BASE_URL}/articoli-frontaliere/rincari-ticino-percepiti-dolorosi` },
-          { "@type": "ListItem", "position": 2696, "name": "Crisi abitativa in Ticino: classe media a rischio", "url": `${BASE_URL}/articoli-frontaliere/crisi-abitativa-ticino-classe-media` }
+          { "@type": "ListItem", "position": 2696, "name": "Crisi abitativa in Ticino: classe media a rischio", "url": `${BASE_URL}/articoli-frontaliere/crisi-abitativa-ticino-classe-media` },
+          { "@type": "ListItem", "position": 2697, "name": "Rinascita verde lungo il Ticino: interventi tra...", "url": `${BASE_URL}/articoli-frontaliere/rinascita-verde-ticino-airola-rodi` }
  ]
  },
  {

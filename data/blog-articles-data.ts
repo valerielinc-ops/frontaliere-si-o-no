@@ -25148,4 +25148,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rinascita-verde-ticino-airola-rodi',
+ category: 'novita',
+ date: '2026-05-31T15:39:51.735Z',
+ image: '/images/blog/rinascita-verde-ticino-airola-rodi.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
