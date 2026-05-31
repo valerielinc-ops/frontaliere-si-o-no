@@ -648,7 +648,7 @@
         "it": "studenti-studenti-hf-100-asana-spital-ag-menziken-leuggern-leuggern",
         "en": "student-in-nursing-care-hf-100-asana-spital-ag-menziken-leuggern-leuggern",
         "de": "studierende-studierender-pflege-hf-100-asana-spital-leuggern",
-        "fr": "etudiant-e-en-soins-infirmiers-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
+        "fr": "etudiants-soins-aux-etudiants-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -724,7 +724,7 @@
       "previousSlugs": [
         "studierende-studierender-pflege-hf-100-asana-spital-leuggern",
         "studente-studentessa-in-cure-infermieristiche-hf-100-asana-spital-ag-menziken-leuggern-leuggern",
-        "etudiants-soins-aux-etudiants-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
+        "etudiant-e-en-soins-infirmiers-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -732,7 +732,6 @@
           "studente-studentessa-in-cure-infermieristiche-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
         ],
         "fr": [
-          "etudiants-soins-aux-etudiants-hf-100-asana-spital-ag-menziken-leuggern-leuggern",
           "etudiant-e-en-soins-infirmiers-hf-100-asana-spital-ag-menziken-leuggern-leuggern"
         ]
       },
@@ -1308,9 +1307,9 @@
       "slug": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
       "slugByLocale": {
         "it": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
-        "en": "postgraduate-training-in-emergency-nursing-80-100-asana-spital-ag-menziken-leuggern-menziken",
+        "en": "postgraduate-studies-emergency-care-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
         "de": "nachdiplomstudium-notfallpflege-hf-80-100-asana-spital-menziken",
-        "fr": "stage-post-universitaire-en-soins-infirmiers-d-urgence-80-100-asana-spital-ag-menziken-leuggern-menziken"
+        "fr": "etudes-superieures-soins-d-urgence-hf-80-100-asana-spital-ag-menziken-leuggern-menziken"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -1381,16 +1380,14 @@
         ]
       },
       "previousSlugs": [
-        "postgraduate-studies-emergency-care-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
-        "etudes-superieures-soins-d-urgence-hf-80-100-asana-spital-ag-menziken-leuggern-menziken"
+        "postgraduate-training-in-emergency-nursing-80-100-asana-spital-ag-menziken-leuggern-menziken",
+        "stage-post-universitaire-en-soins-infirmiers-d-urgence-80-100-asana-spital-ag-menziken-leuggern-menziken"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "postgraduate-studies-emergency-care-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
           "postgraduate-training-in-emergency-nursing-80-100-asana-spital-ag-menziken-leuggern-menziken"
         ],
         "fr": [
-          "etudes-superieures-soins-d-urgence-hf-80-100-asana-spital-ag-menziken-leuggern-menziken",
           "stage-post-universitaire-en-soins-infirmiers-d-urgence-80-100-asana-spital-ag-menziken-leuggern-menziken"
         ]
       },
