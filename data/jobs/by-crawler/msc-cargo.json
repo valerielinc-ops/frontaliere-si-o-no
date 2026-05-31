@@ -485,8 +485,8 @@
       "slugByLocale": {
         "it": "gestione-dell-acquisizione-digitale-msc-group-geneva",
         "en": "digital-acquisition-manager-msc-geneva",
-        "de": "digitaler-akquisitionsmanager-msc-group-geneva",
-        "fr": "responsable-de-l-acquisition-numerique-msc-group-geneva"
+        "de": "digital-akquisition-manager-msc-group-geneva",
+        "fr": "gestionnaire-d-acquisitions-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -530,8 +530,8 @@
       "previousSlugs": [
         "digital-acquisition-manager-msc-geneva",
         "responsabile-acquisizione-digitale-msc-group-geneva",
-        "digital-akquisition-manager-msc-group-geneva",
-        "gestionnaire-d-acquisitions-numeriques-msc-group-geneva"
+        "digitaler-akquisitionsmanager-msc-group-geneva",
+        "responsable-de-l-acquisition-numerique-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -539,11 +539,9 @@
           "responsabile-acquisizione-digitale-msc-group-geneva"
         ],
         "de": [
-          "digital-akquisition-manager-msc-group-geneva",
           "digitaler-akquisitionsmanager-msc-group-geneva"
         ],
         "fr": [
-          "gestionnaire-d-acquisitions-numeriques-msc-group-geneva",
           "responsable-de-l-acquisition-numerique-msc-group-geneva"
         ]
       },
