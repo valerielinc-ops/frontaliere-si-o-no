@@ -7923,6 +7923,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Wohnungskrise im Tessin: Mittelschicht in Gefahr',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Ein Erwachsener von fünf fürchtet, sein Haus in der Schweiz zu verlieren. Das Tessin weniger alarmiert, aber nicht immun.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Luftaufnahme von Lugano mit See und Wohngebäuden',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Grünes Erneuerung: Ticino-Wasserführung zwischen Airolo und Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Präsentation der Arbeiten zur Wiederbelebung und Wasserversorgung des Ticino-Flusses in der Oberleventina mit einem Budget von 8 Millionen Franken.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Blick auf den Fluss Ticino zwischen Airolo und Rodi mit Grünwiederbelebungsmaßnahmen',
 };
 
 export default blogMetaDe;

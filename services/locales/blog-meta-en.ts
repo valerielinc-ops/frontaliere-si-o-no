@@ -7924,6 +7924,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Housing crisis in Ticino: middle class at risk',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'One in five adults fears losing their home in Switzerland. Ticino less alarmed but not immune.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Aerial view of Lugano with lake and residential buildings',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Revitalization of the Ticino River: Projects between Airolo and Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Present the works of revitalization and hydraulic system improvement of the Ticino River in Alta Leventina, with an investment of 8 million CHF.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'View of the Ticino river between Airolo and Rodi with green revival interventions',
 };
 
 export default blogMetaEn;
