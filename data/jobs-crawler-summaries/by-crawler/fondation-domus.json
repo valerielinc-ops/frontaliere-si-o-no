@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-05-30T22:06:57.871Z",
+  "generatedAt": "2026-05-31T11:11:50.967Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4560,
-  "avgDurationMs": 4560,
+  "durationMs": 4158,
+  "avgDurationMs": 4158,
   "durationHistory": [
-    4560
+    4158
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/8dd6425d-bfab-43de-8817-200922be7821/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-30T22:06:56.026Z",
+      "crawledAt": "2026-05-31T11:11:49.069Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,45 +50,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "fondation-domus-2a8d3e7cca03",
-      "slug": "lavoratore-sociale-60-65-fondation-domus-ardon",
-      "company": "Fondation Domus",
-      "companyKey": "fondation-domus",
-      "companyDomain": "fondation-domus.ch",
-      "title": "Travailleur social (60%-65%)",
-      "location": "Ardon",
-      "canton": "VS",
-      "url": "https://www.jobup.ch/fr/emplois/detail/355a479a-747a-4fa2-8358-6cc0324a2e2f/?source=[platform]",
-      "source": "Fondation Domus Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-30T10:54:21.728Z",
-      "addressLocality": "Ardon",
-      "postalCode": "1957",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Social / Fondation",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-01",
-      "applyUrl": "https://www.jobup.ch/fr/emplois/detail/355a479a-747a-4fa2-8358-6cc0324a2e2f/?source=[platform]",
-      "firstSeenAt": "2026-05-01T10:12:37.158Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressRegion": "VS",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
