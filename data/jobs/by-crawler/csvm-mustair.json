@@ -1,7 +1,78 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-05-30T10:39:14.573Z",
+  "assembledAt": "2026-05-31T21:53:04.677Z",
   "jobs": [
+    {
+      "id": "csvm-mustair-00cba1f47deb",
+      "slug": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "slugByLocale": {
+        "it": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+        "en": "part-time-emergency-medical-technician-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+        "de": "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
+        "fr": "technicien-ne-en-soins-d-urgence-a-temps-partiel-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+      },
+      "company": "Center da Sanda Val Müstair (CSVM)",
+      "companyKey": "csvm-mustair",
+      "companyDomain": "csvm.ch",
+      "title": "Rettungssanitäter(in) auf Teilzeitbasis",
+      "titleByLocale": {
+        "it": "Soccorritore/a a tempo parziale",
+        "en": "Part-Time Emergency Medical Technician",
+        "de": "Rettungssanitäter(in) auf Teilzeitbasis",
+        "fr": "Technicien(ne) en soins d'urgence à temps partiel"
+      },
+      "description": "Rettungssanitäter(in) auf Teilzeitbasis — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
+      "descriptionByLocale": {
+        "it": "Descrizione Soccorritore/a a tempo parziale - Centro da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Maggiori dettagli nel PDF allegato alla pagina https://www.csvm.ch/it/attualita/soccorritore-a-tempo-parziale.html",
+        "en": "Description Part-Time Emergency Medical Technician - Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Full details in the PDF attached to the page https://www.csvm.ch/en/news/part-time-emergency-medical-technician.html",
+        "de": "Rettungssanitäter(in) auf Teilzeitbasis — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
+        "fr": "Description Technicien(ne) en soins d'urgence à temps partiel - Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Détails complets dans le PDF joint à la page https://www.csvm.ch/fr/actualites/technicien-ne-en-soins-d-urgence-a-temps-partiel.html"
+      },
+      "needsRetranslation": true,
+      "location": "Sta",
+      "canton": "GR",
+      "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
+      "source": "CSVM Dedicated Parser (Joomla HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-31T21:53:02.707Z",
+      "addressLocality": "Sta",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7536",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "csvm-mustair-2ca53ce6ff78",
       "slug": "lehrstellen-2026-csvm-mustair-mustair",
@@ -28,12 +99,13 @@
         "de": "Position - Erlernen des Berufs des Zimmermanns - Teamarbeit und Zusammenarbeit mit Kollegen - Realisierung von Projekten und Maßarbeiten - Einsatz von Maschinen und Werkzeugen für die Holzbearbeitung\n• Anforderungen - Mindestalter 18 - Gute manuelle Fähigkeiten und Interesse an der Holzbearbeitung - Verfügbarkeit, in einem dynamischen Team zu arbeiten - Gute Gesundheit und körperliche Ausdauer\n• Was wir bieten - Grundlegende berufliche Ausbildung als Zimmermann - Arbeit in einer modernen und dynamischen Arbeitsumgebung - Möglichkeiten für berufliche und persönliche Entwicklung - Netzwerk von Kontakten in der Holz- und Handwerksbranche Kontakt Für weitere Informationen und Bewerbungen besuchen Sie die CSVM-Website:",
         "fr": "Poste - Apprentissage du métier de menuisier - Travail en équipe et collaboration avec les collègues - Réalisation de projets et de travaux sur mesure - Utilisation de machines et d'outils pour le travail du bois\n• Exigences - Âge minimum de 18 ans - Bonne capacité manuelle et intérêt pour le travail du bois - Disponibilité à travailler dans un environnement dynamique en équipe - Bonne santé et endurance physique Ce que nous offrons - Formation professionnelle de base en tant que menuisier - Travail dans un environnement de travail moderne et dynamique - Possibilités de croissance professionnelle et personnelle - Réseau de contacts dans le secteur du bois et de l'artisanat Contact Pour plus d'informations et pour postuler, visitez le site web du CSVM :"
       },
+      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T10:39:12.750Z",
+      "crawledAt": "2026-05-31T21:53:02.707Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -115,7 +187,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T10:39:12.749Z",
+      "crawledAt": "2026-05-31T21:53:02.706Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -172,12 +244,13 @@
         "de": "Einsatzleitung Spitex — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
         "fr": "Missions - Coordonner et superviser l'équipe de soins à domicile - Garantir la qualité des services et la satisfaction des clients - Collaborer avec les médecins de famille et les autres professionnels de la santé - Gérer l'agenda et les ressources de l'équipe - Responsable de la formation et de l'intégration des nouveaux membres de l'équipe\n• Exigences - Diplôme d'infirmier ou titre équivalent - Expérience professionnelle dans le secteur socio-sanitaire - Connaissance des langues italienne et allemande - Capacité de leadership et de travail d'équipe - Disponibilité pour travailler en horaires décalés et les fins de semaine Ce que nous offrons - Contrat à durée indéterminée - Horaires de travail à temps partiel (60%) - Formation continue et développement professionnel - Environnement de travail dynamique et multiculturel Contact Pour plus d'informations et pour postuler, visitez le site web et téléchargez le PDF joint."
       },
+      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T10:39:12.749Z",
+      "crawledAt": "2026-05-31T21:53:02.706Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -239,76 +312,6 @@
       }
     },
     {
-      "id": "csvm-mustair-00cba1f47deb",
-      "slug": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-      "slugByLocale": {
-        "it": "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "en": "part-time-emergency-medical-technician-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "de": "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
-        "fr": "technicien-ne-en-soins-d-urgence-a-temps-partiel-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
-      },
-      "company": "Center da Sanda Val Müstair (CSVM)",
-      "companyKey": "csvm-mustair",
-      "companyDomain": "csvm.ch",
-      "title": "Rettungssanitäter(in) auf Teilzeitbasis",
-      "titleByLocale": {
-        "it": "Soccorritore/a a tempo parziale",
-        "en": "Part-Time Emergency Medical Technician",
-        "de": "Rettungssanitäter(in) auf Teilzeitbasis",
-        "fr": "Technicien(ne) en soins d'urgence à temps partiel"
-      },
-      "description": "Rettungssanitäter(in) auf Teilzeitbasis — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
-      "descriptionByLocale": {
-        "it": "Descrizione Soccorritore/a a tempo parziale - Centro da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Maggiori dettagli nel PDF allegato alla pagina https://www.csvm.ch/it/attualita/soccorritore-a-tempo-parziale.html",
-        "en": "Description Part-Time Emergency Medical Technician - Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Full details in the PDF attached to the page https://www.csvm.ch/en/news/part-time-emergency-medical-technician.html",
-        "de": "Rettungssanitäter(in) auf Teilzeitbasis — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
-        "fr": "Description Technicien(ne) en soins d'urgence à temps partiel - Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Détails complets dans le PDF joint à la page https://www.csvm.ch/fr/actualites/technicien-ne-en-soins-d-urgence-a-temps-partiel.html"
-      },
-      "location": "Sta",
-      "canton": "GR",
-      "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
-      "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-30T10:39:12.749Z",
-      "addressLocality": "Sta",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7536",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "csvm-mustair-b510abc4e696",
       "slug": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
       "slugByLocale": {
@@ -340,7 +343,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-30T10:39:12.747Z",
+      "crawledAt": "2026-05-31T21:53:02.705Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
