@@ -309,7 +309,8 @@
         ]
       },
       "previousSlugs": [
-        "senior-commissioning-qualification-engineer-sisslerfeld-f-m-d-100-bachem-stein-ag"
+        "senior-commissioning-qualification-engineer-sisslerfeld-f-m-d-100-bachem-stein-ag",
+        "ingegnere-senior-commissioning-qualificazione-sisslerfeld-uomo-donna-diverso-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -337,7 +338,7 @@
         "it": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
         "en": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
         "de": "senior-commissioning-manager-sisslerfeld-f-m-d-100-bachem-stein-ag",
-        "fr": "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
+        "fr": "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -386,11 +387,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
+        "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag",
+        "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag"
+          "senior-manager-de-mise-en-service-sisslerfeld-h-f-x-100-bachem-ag-stein-ag",
+          "gestionnaire-principal-de-la-commission-sisslerfeld-f-m-j-100-bachem-ag-stein-ag"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:47.735Z",
@@ -570,7 +573,9 @@
       },
       "previousSlugs": [
         "process-expert-technical-operations-msat-api-production-sisslerfeld-100-m-w-d-bachem-stein",
-        "scientifique-de-processus-operationnels-techniques-en-aval-api-100-m-w-d-bachem-ag-stein-ag"
+        "scientifique-de-processus-operationnels-techniques-en-aval-api-100-m-w-d-bachem-ag-stein-ag",
+        "process-expert-technical-operations-msat-api-production-sisslerfeld-100-lunedi-mercredo-g-bachem-ag-stein-ag",
+        "operations-techniques-d-experts-en-procedes-msat-production-d-api-sisslerfeld-100-m-p-p-bachem-ag-stein-ag"
       ],
       "firstSeenAt": "2026-05-29T11:35:29.845Z",
       "salaryMin": 49500,
@@ -1406,7 +1411,8 @@
         ]
       },
       "previousSlugs": [
-        "associate-qa-batch-compliance-w-m-d-100-befristet-12-monate-bachem-bubendorf"
+        "associate-qa-batch-compliance-w-m-d-100-befristet-12-monate-bachem-bubendorf",
+        "associate-qa-compliance-batch-f-m-d-100-limitato-12-mesi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2215,7 +2221,7 @@
       "id": "bachem-fe1267f7ed38",
       "slug": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf",
+        "it": "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf",
         "en": "inbound-technical-logistics-technician-m-f-d-100-bachem-ag-bubendorf",
         "de": "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
         "fr": "technicien-technicienne-logistique-inbound-technique-h-f-d-cdi-bachem-ag-bubendorf"
@@ -2262,12 +2268,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
-        "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
+        "tecnico-technica-logistico-inbound-tecnico-m-f-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf",
-          "storage-technician-logistiker-in-cfc-inbound-technical-m-w-d-100-bachem-ag-bubendorf"
+          "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
         ],
         "en": [
           "storage-technician-logistiker-in-efz-inbound-technical-w-m-d-100-bachem-bubendorf"
@@ -2674,7 +2679,8 @@
       },
       "previousSlugs": [
         "process-specialist-manufacturing-process-technology-w-m-d-100-bachem-bubendorf",
-        "prozessspezialist-fertigung-prozesstechnik-w-m-d-100-bachem-ag-bubendorf"
+        "prozessspezialist-fertigung-prozesstechnik-w-m-d-100-bachem-ag-bubendorf",
+        "process-specialista-manufacturing-process-technology-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3096,7 +3102,7 @@
       "id": "bachem-3e39dc9fc519",
       "slug": "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf",
+        "it": "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf",
         "en": "hse-specialist-80-100-m-w-d-bachem-bubendorf",
         "de": "hse-specialist-80-100-m-w-d-bachem-bubendorf",
         "fr": "specialiste-hse-80-100-m-w-d-bachem-ag-bubendorf"
@@ -3173,13 +3179,12 @@
       },
       "previousSlugs": [
         "hse-specialist-80-100-m-w-d-bachem-bubendorf",
-        "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf",
-        "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf"
+        "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf",
+        "specialista-hse-80-100-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hse-specialist-80-100-m-w-d-bachem-bubendorf",
-          "especialista-hse-progetti-m-w-d-bachem-ag-bubendorf"
+          "hse-specialist-80-100-m-w-d-bachem-bubendorf"
         ],
         "de": [
           "hse-spezialist-80-100-m-w-d-bachem-ag-bubendorf"
@@ -3281,7 +3286,8 @@
       "previousSlugs": [
         "scientist-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "wissenschaftler-qualitatskontrolle-spatphase-100-m-w-d-bachem-ag-bubendorf",
-        "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf"
+        "scientiste-qc-phase-de-developpement-tardive-100-h-f-d-bachem-ag-bubendorf",
+        "scientist-qc-fase-avanzata-100-m-f-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3622,7 +3628,7 @@
       "id": "bachem-40b2a7554505",
       "slug": "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf",
+        "it": "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf",
         "en": "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
         "de": "labortechniker-qc-spate-phase-100-w-m-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-phase-tardive-100-h-f-bachem-ag-bubendorf"
@@ -3639,10 +3645,10 @@
       },
       "description": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften.\n\nZur Verstärkung unseres GC/IC-Teams in der Abteilung QC Late Phase suchen wir eine(n) erfahrene(n) Lab Technician für die GC/IC-Analytik (12 Monate befristet)\n\nAls engagierte und motivierte Persönlichkeit sind Sie Teil unserer anspruchsvollen Freigabeanalytik. Es erwarten Sie vielfältige \n• Aufgaben und Fragestellungen in einem dynamischen und spannenden Umfeld. Dabei verantworten Sie im Schwerpunkt die Durchführung von Freigabeanalysen unserer TIDES-Wirkstoffe unter GMP.\n\nIhre Aufgaben:\n\nEigenständige Durchführung, Auswertung und Dokumentation von Freigabeanalysen im Bereich Gaschromatographie (GC) und Ionenchromatographie (IC)\n\nReview und Approval von Freigabeanalysen\n\nEntwicklung, Validierung und Life Cycle Management von GC und IC Analysemethoden\n\nErstellung und Überarbeitung von GMP Dokumenten (z.B. Analysevorschriften, SOP’s)\n\nÜbernahme von Verantwortlichkeiten in der Laborumgebung (u.a. bei der Planung der Routineanalytik, Troubleshooting)\n\nPflege der Stammdaten / Logbucheinträge im LIMS\n\nUnterstützung bei der Analytischen Instrument- und Systemqualifizierung gemäss geltender GMP-Richtlinien und Life Cycle Management der analytischen Geräte\n\nAktive Teilnahme an Massnahmen zur Optimierung und Verbesserung von QC-Prozessen\n\nIhr Profil:\n\nAbgeschlossene Berufsausbildung als Chemielaborant/in, Fachrichtung Analytik\n\nMehrjährige Berufserfahrung im Umfeld chromatographischer GMP-Analytik\n\nKenntnisse im Bereich GC/GCMS und IC von Vorteil\n\nSolide Kenntnisse üblicher IT-Applikationen, z.B. LIMS/LES, CDS (z.B. Chromeleon), SAP, sowie Softwareaffinität\n\nGute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nZuverlässige Persönlichkeit mit Begeisterung für Verantwortung und Eigeninitiative\n\nQualitätsbewusste, exakte und dienstleistungsorientierte Arbeitsweise\n\nOffenheit für Innovationen und Veränderungen\n\nUnser Angebot:\n\nEin dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\nMitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\nZugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\nFrisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\nVielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nWollen Sie Teil des Teams werden? Dann werden Sie Teil der Bachem!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!\n\nAt Bachem , you’ll find a diverse, multicultural team. The (a)  in the job title stands for all . We welcome applications from all candidates. What matters are your skills and motivation—regardless of age, gender, background, religion, or sexual orientation.\n\nPlease note: unsolicited resumes from recruitment agencies will not be considered.\n\nShare this job posting by email\n\nApply now »\n\nFind similar jobs:\n\nHome Page\n\nView All Jobs\n\nOpens in a new tab.\n\n<path fill=\"#004080\" id=\"linkedin1\" d=\"M41,4.1H7A2.9,2.9,0,0,0,4,7V41.1A2.9,2.9,0,0,0,7,44H41a2.9",
       "descriptionByLocale": {
-        "it": "Per far progredire la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati.\n\nPer rafforzare il nostro team GC/IC in QC Late Phase, stiamo cercando un team esperto Lab Technician per l'analisi GC/IC (12 mesi terminati)\n\nCome personalità dedicata e motivata, fai parte della nostra analisi di rilascio esigente. Si può aspettare una varietà di\n• Compiti e domande in un ambiente dinamico ed emozionante. Allo stesso tempo, si è responsabili di condurre analisi di rilascio delle nostre sostanze attive TIDES sotto GMP.\n\nI vostri compiti:\n\nApplicazione indipendente, valutazione e documentazione delle analisi di rilascio nel campo della cromatografia gas (GC) e cromatografia ionica (IC)\n\nRecensione e approvazione dell'analisi del rilascio\n\nSviluppo, convalida e gestione del ciclo di vita dei metodi di analisi GC e IC\n\nCreazione e revisione dei documenti GMP (ad esempio regolamenti di analisi, SOP)\n\nAcquisizione di responsabilità nell'ambiente di laboratorio (compreso nella pianificazione di analisi di routine, risoluzione dei problemi)\n\nManutenzione dei dati master / voci di logbook in LIMS\n\nSupporto per lo strumento analitico e le qualifiche di sistema secondo le attuali linee guida GMP e la gestione del ciclo di vita dei dispositivi analitici\n\nPartecipazione attiva alle misure per ottimizzare e migliorare i processi QC\n\nIl tuo profilo:\n\nFormazione professionale completa come laboratorio chimico, oggetto di analisi\n\nEsperienza professionale pluriennale nel contesto dell'analisi cromatografica GMP\n\nconoscenza di GC/GCMS e IC\n\nConoscenza solida delle applicazioni IT comuni, ad esempio LIMS/LES, CDS (ad esempio Chromeleon), SAP e affinità software\n\nBuona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nPersonalità affidabile con entusiasmo per responsabilità e iniziativa\n\nModalità di funzionamento preciso, preciso e orientato al servizio\n\nApertura per innovazione e cambiamento\n\nLa nostra offerta:\n\nUn ambiente di lavoro dinamico e in crescita con possibilità di sviluppo interno\n\nSupporto dei dipendenti attraverso numerose offerte di formazione interna ed esterna\n\nIl 60% dei contributi dei fondi pensione di Bachem AG e la possibilità di un'offerta extracomunitaria con il nostro piano di risparmio elettorale\n\nAccesso alla piattaforma di vantaggio Swibeco con sconti da partner esterni\n\nCibo fresco, sano e vario nel nostro ristorante personale\n\nVarie attività sportive gratuite sul Campus Bachem\n\nVuoi fare parte della squadra? Allora farai parte del Bachem!\n\nAbbiamo risvegliato il vostro interesse? Quindi non vediamo l'ora che i tuoi documenti applicativi siano completi tramite il nostro portale.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nel nostro sito Bubendorf!\n\nA Bachem troverai una squadra multiculturale e diversificata. Il (a) nel titolo del lavoro sta per tutti. Accogliamo le domande di tutti i candidati. Ciò che conta sono le vostre abilità e motivazione, indipendentemente dall'età, dal sesso, dallo sfondo, dalla religione o dall'orientamento sessuale.\n\nNota: i curriculum non richiesti dalle agenzie non saranno considerati.\n\nCondividi questo lavoro postando via e-mail",
-        "en": "To advance our continuous organic growth, we are constantly looking for highly qualified professionals.\n\nTo strengthen our GC/IC team in QC Late Phase, we are looking for an experienced team Lab Technician for the GC/IC analysis (12 months terminated)\n\nAs a dedicated and motivated personality, you are part of our demanding release analytics. You can expect a variety of\n• Tasks and questions in a dynamic and exciting environment. At the same time, you are responsible for conducting release analyses of our TIDES active substances under GMP.\n\nYour tasks:\n\nIndependent implementation, evaluation and documentation of release analyses in the field of gas chromatography (GC) and ion chromatography (IC)\n\nReview and Approval of Release Analysis\n\nDevelopment, validation and life cycle management of GC and IC analysis methods\n\nCreation and revision of GMP documents (e.g. analysis regulations, SOP’s)\n\nAcquisition of responsibilities in the laboratory environment (including in the planning of routine analysis, troubleshooting)\n\nMaintenance of master data / logbook entries in LIMS\n\nSupport for Analytical Instrument and System Qualification according to current GMP guidelines and Life Cycle Management of Analytical Devices\n\nActive participation in measures to optimize and improve QC processes\n\nYour profile:\n\nCompleted vocational training as a chemical laboratory, subject of analysis\n\nMultiannual professional experience in the context of chromatographic GMP analysis\n\nknowledge of GC/GCMS and IC\n\nSolid knowledge of common IT applications, e.g. LIMS/LES, CDS (e.g. Chromeleon), SAP, and software affinity\n\nGood knowledge of German and English in word and writing\n\nReliable personality with enthusiasm for responsibility and initiative\n\nQuality-conscious, exact and service-oriented mode of operation\n\nOpenness for innovation and change\n\nOur offer:\n\nA dynamic and growing working environment with internal development possibilities\n\nEmployee support through numerous internal and external training offers\n\n60% takeover of pension fund contributions by Bachem AG and possibility of over-compulsory provision with our electoral savings plan\n\nAccess to the advantage platform Swibeco with discounts from external partners\n\nFresh, healthy and varied food in our personal restaurant\n\nVarious free sports activities on the Bachem Campus\n\nDo you want to be part of the team? Then you will be part of the Bachem!\n\nDid we awaken your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our inspiring work environment at our Bubendorf site!\n\nAt Bachem , you’ll find a diverse, multicultural team. The (a) in the job title stands for all . We welcome applications from all candidates. What matters are your skills and motivation—regardless of age, gender, background, religion, or sexual orientation.\n\nPlease note: unsolicited resumes from agencies will not be considered.\n\nShare this job posting by email",
+        "it": "Per far progredire la nostra continua crescita organica, siamo costantemente alla ricerca di professionisti altamente qualificati.\n\nPer rafforzare il nostro team GC/IC in QC Late Phase, stiamo cercando un team esperto Lab Technician per l'analisi GC/IC (12 mesi terminati)\n\nCome personalità dedicata e motivata, fai parte della nostra analisi di rilascio esigente. Si può aspettare una varietà di\n• Compiti e domande in un ambiente dinamico ed emozionante. In questo caso, si è responsabili di condurre analisi di rilascio delle nostre sostanze attive TIDES sotto GMP.\n\nI vostri compiti:\n\nApplicazione indipendente, valutazione e documentazione delle analisi di rilascio nel campo della cromatografia gas (GC) e cromatografia ionica (IC)\n\nRecensione e approvazione dell'analisi del rilascio\n\nSviluppo, convalida e gestione del ciclo di vita dei metodi di analisi GC e IC\n\nCreazione e revisione dei documenti GMP (ad esempio regolamenti di analisi, SOP)\n\nAcquisizione di responsabilità nell'ambiente di laboratorio (compreso nella pianificazione di analisi di routine, risoluzione dei problemi)\n\nManutenzione dei dati master / voci di logbook in LIMS\n\nSupporto per lo strumento analitico e le qualifiche di sistema secondo le attuali linee guida GMP e la gestione del ciclo di vita dei dispositivi analitici\n\nPartecipazione attiva alle misure per ottimizzare e migliorare i processi QC\n\nIl tuo profilo:\n\nFormazione professionale completa come laboratorio chimico, oggetto di analisi\n\nEsperienza professionale pluriennale nel contesto dell'analisi cromatografica GMP\n\nConoscenza di GC/GCMS e IC\n\nConoscenza solida delle applicazioni IT comuni, ad esempio LIMS/LES, CDS (ad esempio Chromeleon), SAP e affinità software\n\nBuona conoscenza del tedesco e dell'inglese in parola e scrittura\n\nPersonalità affidabile con entusiasmo per responsabilità e iniziativa\n\nFunzionamento sicuro, preciso e orientato al servizio\n\nApertura per innovazione e cambiamento\n\nLa nostra offerta:\n\nUn ambiente di lavoro dinamico e in crescita con possibilità di sviluppo interne\n\nSostenere i dipendenti attraverso numerose opportunità di formazione interna ed esterna\n\nIl 60% dei contributi dei fondi pensione da parte di Bachem AG e la possibilità di un'offerta sovraobbligatoria con il nostro piano di risparmio elettorale\n\nAccesso alla piattaforma di vantaggio Swibeco con sconti da partner esterni\n\nCibo fresco, sano e vario nel nostro ristorante personale\n\nVarie attività sportive gratuite sul campus di Bachem\n\nVuoi fare parte della squadra? Allora diventi parte del Bachem!\n\nAbbiamo risvegliato il vostro interesse? Quindi non vediamo l'ora che i vostri documenti applicativi completi tramite il nostro portale di applicazioni.\n\nScopri di più sul Gruppo Bachem e ispirati al nostro ambiente di lavoro stimolante nel nostro sito Bubendorf!\n\nA Bachem troverai una squadra multiculturale e diversificata. Il (a) nel titolo del lavoro sta per tutti. Accogliamo le domande di tutti i candidati. Ciò che conta sono le vostre abilità e motivazione, indipendentemente dall'età, dal sesso, dallo sfondo, dalla religione o dall'orientamento sessuale.\n\nSi prega di notare: i curriculum non richiesti dalle agenzie non saranno considerati.\n\nCondividi questo lavoro postando via e-mail",
+        "en": "To advance our continuous organic growth, we are constantly looking for highly qualified professionals.\n\nTo strengthen our GC/IC team in QC Late Phase, we are looking for an experienced team Lab Technician for GC/IC analysis (12 months terminated)\n\nAs a dedicated and motivated personality, you are part of our demanding release analytics. You can expect a variety of\n• Tasks and questions in a dynamic and exciting environment. In this case, you are responsible for conducting release analyses of our TIDES active substances under GMP.\n\nYour tasks:\n\nIndependent implementation, evaluation and documentation of release analyses in the field of gas chromatography (GC) and ion chromatography (IC)\n\nReview and Approval of Release Analysis\n\nDevelopment, validation and life cycle management of GC and IC analysis methods\n\nCreation and revision of GMP documents (e.g. analysis regulations, SOP’s)\n\nAcquisition of responsibilities in the laboratory environment (including in the planning of routine analysis, troubleshooting)\n\nMaintenance of master data / logbook entries in LIMS\n\nSupport for Analytical Instrument and System Qualification according to current GMP guidelines and Life Cycle Management of Analytical Devices\n\nActive participation in measures to optimize and improve QC processes\n\nYour profile:\n\nCompleted vocational training as a chemical laboratory, subject of analytics\n\nMultiannual professional experience in the context of chromatographic GMP analysis\n\nKnowledge of GC/GCMS and IC\n\nSolid knowledge of common IT applications, e.g. LIMS/LES, CDS (e.g. Chromeleon), SAP, and software affinity\n\nGood knowledge of German and English in word and writing\n\nReliable personality with enthusiasm for responsibility and initiative\n\nQuality-conscious, precise and service-oriented operation\n\nOpenness for innovation and change\n\nOur offer:\n\nA dynamic and growing working environment with internal further development possibilities\n\nSupporting employees through numerous internal and external training opportunities\n\n60% takeover of pension fund contributions by Bachem AG and possibility of overcompulsory provision with our electoral savings plan\n\nAccess to the advantage platform Swibeco with discounts from external partners\n\nFresh, healthy and varied food in our personal restaurant\n\nVarious free sports activities on the Bachem Campus\n\nDo you want to be part of the team? Then you become part of the Bachem!\n\nDid we awaken your interest? Then we look forward to your complete application documents via our application portal.\n\nLearn more about the Bachem Group and get inspired by our inspiring working environment at our Bubendorf site!\n\nAt Bachem , you’ll find a diverse, multicultural team. The (a) in the job title stands for all . We welcome applications from all candidates. What matters are your skills and motivation—regardless of age, gender, background, religion, or sexual orientation.\n\nPlease note: unsolicited resumes from agencies will not be considered.\n\nShare this job posting by email",
         "de": "Um unser kontinuierliches organisches Wachstum voranzutreiben, suchen wir ständig nach hochqualifizierten Fachkräften.\n\nZur Verstärkung unseres GC/IC-Teams in der Abteilung QC Late Phase suchen wir eine(n) erfahrene(n) Lab Technician für die GC/IC-Analytik (12 Monate befristet)\n\nAls engagierte und motivierte Persönlichkeit sind Sie Teil unserer anspruchsvollen Freigabeanalytik. Es erwarten Sie vielfältige\n• Aufgaben und Fragestellungen in einem dynamischen und spannenden Umfeld. Dabei verantworten Sie im Schwerpunkt die Durchführung von Freigabeanalysen unserer TIDES-Wirkstoffe unter GMP.\n\nIhre Aufgaben:\n\nEigenständige Durchführung, Auswertung und Dokumentation von Freigabeanalysen im Bereich Gaschromatographie (GC) und Ionenchromatographie (IC)\n\nReview und Approval von Freigabeanalysen\n\nEntwicklung, Validierung und Life Cycle Management von GC und IC Analysemethoden\n\nErstellung und Überarbeitung von GMP Dokumenten (z.B. Analysevorschriften, SOP’s)\n\nÜbernahme von Verantwortlichkeiten in der Laborumgebung (u.a. bei der Planung der Routineanalytik, Troubleshooting)\n\nPflege der Stammdaten / Logbucheinträge im LIMS\n\nUnterstützung bei der Analytischen Instrument- und Systemqualifizierung gemäss geltender GMP-Richtlinien und Life Cycle Management der analytischen Geräte\n\nAktive Teilnahme an Massnahmen zur Optimierung und Verbesserung von QC-Prozessen\n\nIhr Profil:\n\nAbgeschlossene Berufsausbildung als Chemielaborant/in, Fachrichtung Analytik\n\nMehrjährige Berufserfahrung im Umfeld chromatographischer GMP-Analytik\n\nKenntnisse im Bereich GC/GCMS und IC von Vorteil\n\nSolide Kenntnisse üblicher IT-Applikationen, z.B. LIMS/LES, CDS (z.B. Chromeleon), SAP, sowie Softwareaffinität\n\nGute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nZuverlässige Persönlichkeit mit Begeisterung für Verantwortung und Eigeninitiative\n\nQualitätsbewusste, exakte und dienstleistungsorientierte Arbeitsweise\n\nOffenheit für Innovationen und Veränderungen\n\nUnser Angebot:\n\nEin dynamisches und stark wachsendes Arbeitsumfeld mit internen Weiterentwicklungsmöglichkeiten\n\nMitarbeiterförderung durch zahlreiche interne und externe Weiterbildungsangebote\n\n60%-ige Übernahme der Pensionskassenbeiträge durch Bachem AG sowie Möglichkeit für überobligatorische Vorsorge mit unserem Wahlsparplan\n\nZugang zur Vorteilsplattform Swibeco mit Rabatten bei externen Partnern\n\nFrisches, gesundes und vielfältiges Essen in unserem Personalrestaurant\n\nVielfältige kostenlose Sportaktivitäten auf dem Bachem Campus\n\nWollen Sie Teil des Teams werden? Dann werden Sie Teil der Bachem!\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen über unser Bewerbungsportal.\n\nErfahren Sie mehr über die Bachem Gruppe und lassen Sie sich von unserem inspirierenden Arbeitsumfeld an unserem Standort in Bubendorf begeistern!\n\nAt Bachem , you’ll find a diverse, multicultural team. The (a)  in the job title stands for all . We welcome applications from all candidates. What matters are your skills and motivation—regardless of age, gender, background, religion, or sexual orientation.\n\nPlease note: unsolicited resumes from recruitment agencies will not be considered.\n\nShare this job posting by email\n\nApply now »\n\nFind similar jobs:\n\nHome Page\n\nView All Jobs\n\nOpens in a new tab.\n\n<path fill=\"#004080\" id=\"linkedin1\" d=\"M41,4.1H7A2.9,2.9,0,0,0,4,7V41.1A2.9,2.9,0,0,0,7,44H41a2.9",
-        "fr": "Pour faire progresser notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés.\n\nPour renforcer notre équipe de GC/IC en phase tardive du QC, nous cherchons un technicien de laboratoire expérimenté pour l'analyse GC/IC (12 mois terminés)\n\nEn tant que personnalité dévouée et motivée, vous faites partie de notre analyse de libération exigeante. Vous pouvez vous attendre à une variété de\n• Tâches et questions dans un environnement dynamique et passionnant. En même temps, vous êtes responsable des analyses des rejets de nos substances actives TIDES sous GMP.\n\nVos tâches :\n\nMise en œuvre, évaluation et documentation indépendantes des analyses de libération dans le domaine de la chromatographie en phase gazeuse (GC) et de la chromatographie en phase ionique (IC)\n\nExamen et approbation de l'analyse des rejets\n\nÉlaboration, validation et gestion du cycle de vie des méthodes d'analyse GC et IC\n\nCréation et révision de documents sur les BPF (p. ex. règlements d'analyse, SOP)\n\nAcquisition de responsabilités dans l'environnement de laboratoire (y compris dans la planification de l'analyse de routine, le dépannage)\n\nMaintenance des données maîtresses / entrées du journal de bord dans LIMS\n\nSoutien à la qualification des instruments et systèmes d'analyse conformément aux lignes directrices actuelles sur les BPF et à la gestion du cycle de vie des appareils d'analyse\n\nParticipation active aux mesures visant à optimiser et à améliorer les processus de CQ\n\nVotre profil:\n\nFormation professionnelle complète en tant que laboratoire chimique, objet d'analyse\n\nExpérience professionnelle pluriannuelle dans le contexte de l'analyse chromatographique GMP\n\nconnaissance du GC/GCMS et du CI\n\nConnaissance solide des applications informatiques courantes, par exemple LIMS/LES, CDS (par exemple Chromeleon), SAP, et affinité des logiciels\n\nBonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nPersonnalité fiable avec enthousiasme pour la responsabilité et l'initiative\n\nMode de fonctionnement axé sur la qualité, l'exactitude et le service\n\nOuverture à l'innovation et au changement\n\nNotre offre :\n\nUn environnement de travail dynamique et en expansion avec des possibilités de développement interne\n\nSoutien aux employés grâce à de nombreuses offres de formation interne et externe\n\nPrise en charge de 60% des cotisations des caisses de retraite par Bachem AG et possibilité d'une provision trop obligatoire avec notre plan d'épargne électorale\n\nAccès à la plate-forme d'avantages Swibeco avec des réductions de partenaires externes\n\nDes plats frais, sains et variés dans notre restaurant personnel\n\nDiverses activités sportives gratuites sur le campus de Bachem\n\nTu veux faire partie de l'équipe ? Alors tu feras partie du Bachem !\n\nAvons-nous réveillé votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et s'inspirer de notre environnement de travail inspirant sur notre site de Bubendorf !\n\nChez Bachem, vous trouverez une équipe diversifiée et multiculturelle. Le (a) dans le titre d'emploi représente pour tous . Nous accueillons les candidatures de tous les candidats. Ce qui compte, ce sont vos compétences et votre motivation, peu importe l'âge, le sexe, l'origine, la religion ou l'orientation sexuelle.\n\nVeuillez noter que les curriculum vitae non sollicités des organismes ne seront pas pris en considération.\n\nPartagez cette offre d'emploi par courriel"
+        "fr": "Pour faire progresser notre croissance organique continue, nous recherchons constamment des professionnels hautement qualifiés.\n\nPour renforcer notre équipe de GC/IC à la fin de la phase QC, nous recherchons un technicien de laboratoire expérimenté pour l'analyse GC/IC (12 mois terminés)\n\nEn tant que personnalité dévouée et motivée, vous faites partie de notre analyse de libération exigeante. Vous pouvez vous attendre à une variété de\n• Tâches et questions dans un environnement dynamique et passionnant. Dans ce cas, vous êtes responsable des analyses des rejets de nos substances actives TIDES sous GMP.\n\nVos tâches:\n\nMise en œuvre, évaluation et documentation indépendantes des analyses de libération dans le domaine de la chromatographie en phase gazeuse (GC) et de la chromatographie en phase ionique (IC)\n\nExamen et approbation de l'analyse des rejets\n\nÉlaboration, validation et gestion du cycle de vie des méthodes d'analyse GC et IC\n\nCréation et révision de documents sur les BPF (p. ex. règlements d'analyse, SOP)\n\nAcquisition de responsabilités dans l'environnement de laboratoire (y compris dans la planification de l'analyse de routine, le dépannage)\n\nMaintenance des données de base / entrées du journal de bord dans LIMS\n\nSoutien à la qualification des instruments et systèmes d'analyse conformément aux lignes directrices actuelles sur les BPF et la gestion du cycle de vie des appareils d'analyse\n\nParticipation active aux mesures visant à optimiser et à améliorer les processus de CQ\n\nVotre profil:\n\nAchevé la formation professionnelle comme laboratoire de chimie, sujet d'analyse\n\nExpérience professionnelle pluriannuelle dans le contexte de l'analyse chromatographique GMP\n\nConnaissance du GC/GCMS et du CI\n\nConnaissance approfondie des applications informatiques courantes, par exemple LIMS/LES, CDS (par exemple Chromeleon), SAP, et affinité des logiciels\n\nBonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\nPersonnalité fiable avec enthousiasme pour la responsabilité et l'initiative\n\nOpération axée sur la qualité, la précision et le service\n\nOuverture à l'innovation et au changement\n\nNotre offre :\n\nUn environnement de travail dynamique et en expansion avec des possibilités internes de développement\n\nSoutenir les employés par de nombreuses possibilités de formation interne et externe\n\nPrise en charge de 60% des cotisations des caisses de retraite par Bachem AG et possibilité d'une provision trop obligatoire avec notre plan d'épargne électorale\n\nAccès à la plate-forme d'avantages Swibeco avec des réductions de partenaires externes\n\nDes plats frais, sains et variés dans notre restaurant personnel\n\nDiverses activités sportives gratuites sur le campus de Bachem\n\nTu veux faire partie de l'équipe ? Alors tu fais partie du Bachem !\n\nAvons-nous réveillé votre intérêt ? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail d'applications.\n\nEn savoir plus sur le groupe Bachem et s'inspirer de notre environnement de travail inspirant sur notre site de Bubendorf !\n\nChez Bachem, vous trouverez une équipe diversifiée et multiculturelle. Le (a) dans le titre d'emploi représente pour tous . Nous accueillons les candidatures de tous les candidats. Ce qui compte, ce sont vos compétences et votre motivation, peu importe l'âge, le sexe, l'origine, la religion ou l'orientation sexuelle.\n\nVeuillez noter que les curriculum vitae non sollicités des organismes ne seront pas pris en considération.\n\nPartagez cette offre d'emploi par courriel"
       },
       "location": "Bubendorf",
       "canton": "BL",
@@ -3698,13 +3704,12 @@
       "previousSlugs": [
         "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
         "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
-        "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf"
+        "lab-technician-qc-fase-tardiva-100-w-m-d-terminata-12-mesi-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-qc-late-phase-100-w-m-d-befristet-12-monate-bachem-bubendorf",
-          "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf",
-          "tecnico-di-laboratorio-qc-fase-avanzata-100-f-m-d-prima-di-12-monate-bachem-ag-bubendorf"
+          "tecnico-di-laboro-qc-tardo-fase-100-uomo-donna-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:28.745Z",
@@ -3802,7 +3807,8 @@
       "previousSlugs": [
         "process-specialist-training-leader-chromatography-w-m-d-neubau-gebaude-k-100-bachem",
         "prozessspezialist-ausbildungsleiter-chromatographie-w-m-d-neubau-gebaude-k-100-bachem-ag-bubendorf",
-        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf"
+        "specialiste-de-processus-et-responsable-de-la-formation-chromatographie-h-f-100-batiment-k-nouveau-bachem-ag-bubendorf",
+        "specialista-processi-e-leader-formazione-cromatografia-uomo-donna-diverso-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4341,7 +4347,8 @@
         ]
       },
       "previousSlugs": [
-        "qa-engineering-manager-w-m-d-100-bachem-bubendorf"
+        "qa-engineering-manager-w-m-d-100-bachem-bubendorf",
+        "qa-engineering-manager-f-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5342,7 +5349,7 @@
       "id": "bachem-88078a47fe53",
       "slug": "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf",
+        "it": "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf",
         "en": "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "de": "senior-labortechniker-qc-spate-phase-100-m-w-d-bachem-ag-bubendorf",
         "fr": "technicien-de-laboratoire-qc-senior-phase-tardive-100-m-f-d-bachem-ag-bubendorf"
@@ -5420,13 +5427,12 @@
       "previousSlugs": [
         "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
         "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
-        "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf"
+        "senior-lab-technician-qc-fase-ultima-100-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lab-technician-qc-late-phase-100-m-w-d-bachem-bubendorf",
-          "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf",
-          "senior-tecnico-di-laboratorio-qc-fase-tardiva-u-m-d-bachem-ag-bubendorf"
+          "senior-technico-di-laboratorio-qc-fase-tarda-100-m-f-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:38.814Z",
@@ -5751,7 +5757,7 @@
       "id": "bachem-b2f214a31575",
       "slug": "lab-technician-r-d-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lab-technician-r-d-a-100-bachem-ag-bubendorf",
+        "it": "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
         "de": "labortechniker-f-e-w-m-d-100-bachem-ag-bubendorf",
         "fr": "recherche-et-developpement-de-techniciens-de-laboratoire-a-100-bachem-ag-bubendorf"
@@ -5825,16 +5831,16 @@
       "previousSlugs": [
         "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
         "lab-technician-r-d-a-100-bachem-bubendorf",
-        "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf",
         "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf",
         "r-d-de-technicien-de-laboratoire-p-m-j-100-bachem-ag-bubendorf",
-        "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf"
+        "technicien-de-laboratoire-r-d-h-f-e-temps-plein-bachem-ag-bubendorf",
+        "lab-technician-r-d-a-100-bachem-ag-bubendorf",
+        "recherche-et-developpement-de-techniciens-de-laboratoire-a-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-r-d-w-m-d-100-bachem-bubendorf",
-          "lab-technician-r-d-a-100-bachem-bubendorf",
-          "tecnico-di-laboratorio-r-d-u-m-d-100-bachem-ag-bubendorf"
+          "lab-technician-r-d-a-100-bachem-bubendorf"
         ],
         "fr": [
           "technicien-de-laboratoire-r-d-f-m-d-100-bachem-ag-bubendorf",
@@ -6079,7 +6085,8 @@
       "previousSlugs": [
         "category-manager-capex-w-m-d-100-fur-den-bereich-bauleistungen-bachem-bubendorf",
         "category-manager-capex-m-w-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf",
-        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf"
+        "responsable-de-categorie-capex-h-f-a-100-pour-le-domaine-des-bauleistungen-bachem-ag-bubendorf",
+        "category-manager-capex-w-m-d-100-per-den-bereich-bauleistungen-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6157,7 +6164,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "category-manager-capex-w-m-d-100-fur-den-bereich-external-personnel-services-bachem"
+        "category-manager-capex-w-m-d-100-fur-den-bereich-external-personnel-services-bachem",
+        "category-manager-capex-w-m-d-100-per-den-bereich-external-personnel-services-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6527,7 +6535,7 @@
       "id": "bachem-6e1619a6ee32",
       "slug": "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf",
+        "it": "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf",
         "en": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
         "de": "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
         "fr": "technicien-ne-de-stockage-et-logistique-production-h-f-d-100-en-horaires-variables-bachem-ag-bubendorf"
@@ -6604,13 +6612,12 @@
       },
       "previousSlugs": [
         "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
-        "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf",
-        "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
+        "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf",
+        "tecnico-di-stoccaggio-e-logistica-produzione-m-f-d-100-in-turni-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf",
-          "tecnico-di-magazzino-produzione-fornitura-m-f-d-100-in-turno-bachem-ag-bubendorf"
+          "storage-technician-production-supply-m-w-d-100-im-schichtbetrieb-bachem-bubendorf"
         ],
         "fr": [
           "technicien-de-magasin-alimentation-de-la-production-h-f-d-100-en-service-bachem-ag-bubendorf"
@@ -6782,7 +6789,8 @@
       "previousSlugs": [
         "maintenance-technician-electrotechnics-in-der-gruppe-elektrotechnik-w-m-d-100-bachem",
         "wartungstechniker-elektrotechnik-in-der-gruppe-elektrotechnik-w-m-d-100-bachem-ag-bubendorf",
-        "technicien-de-maintenance-clectrotechnique-dans-le-groupe-clectrotechnique-h-f-100-bachem-ag-bubendorf"
+        "technicien-de-maintenance-clectrotechnique-dans-le-groupe-clectrotechnique-h-f-100-bachem-ag-bubendorf",
+        "manutentore-tecnico-in-elettrotecnica-gruppo-elettrotecnica-100-full-time-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6967,7 +6975,8 @@
       "previousSlugs": [
         "batchdoc-reviewer-w-m-d-100-bachem-bubendorf",
         "revisionista-batchdoc-uomo-donna-bachem-ag-bubendorf",
-        "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf"
+        "relecteur-batchdoc-temps-plein-bachem-ag-bubendorf",
+        "recensione-di-batchdoc-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7421,7 +7430,7 @@
       "id": "bachem-859c3ee81067",
       "slug": "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
+        "it": "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf",
         "en": "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
         "de": "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
         "fr": "chef-de-groupe-service-a-la-clientele-cmc-p-m-d-80-100-bachem-ag-bubendorf"
@@ -7484,14 +7493,14 @@
       },
       "previousSlugs": [
         "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
-        "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf",
         "kundendienst-cmc-w-m-d-80-100-bachem-ag-bubendorf",
-        "responsable-d-equipe-service-client-cmc-h-f-bachem-ag-bubendorf"
+        "responsable-d-equipe-service-client-cmc-h-f-bachem-ag-bubendorf",
+        "gruppo-leader-servizio-clienti-cmc-w-m-d-80-100-bachem-ag-bubendorf",
+        "chef-de-groupe-service-a-la-clientele-cmc-p-m-d-80-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf",
-          "responsabile-di-gruppo-servizio-clienti-cmc-uomo-donna-bachem-ag-bubendorf"
+          "group-leader-customer-service-cmc-w-m-d-80-100-bachem-bubendorf"
         ],
         "de": [
           "kundendienst-cmc-w-m-d-80-100-bachem-ag-bubendorf"
@@ -7594,7 +7603,8 @@
         ]
       },
       "previousSlugs": [
-        "director-gscm-network-demand-center-w-m-d-100-bachem-bubendorf"
+        "director-gscm-network-demand-center-w-m-d-100-bachem-bubendorf",
+        "direttore-gscm-network-demand-center-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7864,7 +7874,7 @@
       "id": "bachem-d0036da9872e",
       "slug": "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz",
       "slugByLocale": {
-        "it": "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz",
+        "it": "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz",
         "en": "cmms-specialist-maintenance-engineering-bachem-vionnaz",
         "de": "cmms-spezialist-wartung-und-ingenieurwesen-bachem-ag-vionnaz",
         "fr": "cmms-specialist-maintenance-engineering-bachem-vionnaz"
@@ -7941,14 +7951,13 @@
       },
       "previousSlugs": [
         "cmms-specialist-maintenance-engineering-bachem-vionnaz",
-        "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz",
         "specialiste-cmms-maintenance-ingenierie-bachem-ag-vionnaz",
-        "specialiste-cmms-maintenance-et-ingenierie-bachem-ag-vionnaz"
+        "specialiste-cmms-maintenance-et-ingenierie-bachem-ag-vionnaz",
+        "cmms-specialista-maintenance-engineering-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cmms-specialist-maintenance-engineering-bachem-vionnaz",
-          "specialista-cmms-manutenzione-e-ingegneria-bachem-ag-vionnaz"
+          "cmms-specialist-maintenance-engineering-bachem-vionnaz"
         ],
         "fr": [
           "specialiste-cmms-maintenance-ingenierie-bachem-ag-vionnaz",
