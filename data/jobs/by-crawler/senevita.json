@@ -79,7 +79,7 @@
       "id": "senevita-fe51cbd9ecf2",
       "slug": "apprendista-koch-kochin-cfc-senevita-bern-be",
       "slugByLocale": {
-        "it": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
+        "it": "apprendista-koch-kochin-cfc-senevita-bern-be",
         "en": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
         "de": "kochin-koch-efz-80-100-senevita-erlenbach-zh",
         "fr": "kochin-koch-efz-80-100-senevita-erlenbach-zh"
@@ -126,11 +126,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-koch-kochin-efz-senevita-bern-be",
-        "apprendista-koch-kochin-cfc-senevita-bern-be"
+        "kochin-koch-efz-80-100-senevita-erlenbach-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-koch-kochin-efz-senevita-bern-be"
+          "lernende-r-koch-kochin-efz-senevita-bern-be",
+          "kochin-koch-efz-80-100-senevita-erlenbach-zh"
         ],
         "en": [
           "lernende-r-koch-kochin-efz-senevita-bern-be"
@@ -158,12 +159,12 @@
     },
     {
       "id": "senevita-619abbc651f0",
-      "slug": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
+      "slug": "imparare-tirocinante-tirocinante-industria-alberghiera-eba-senevita-studen-be",
       "slugByLocale": {
-        "it": "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
-        "en": "apprentice-praktikerin-apprentice-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "it": "imparare-tirocinante-tirocinante-industria-alberghiera-eba-senevita-studen-be",
+        "en": "learning-intern-learning-trainees-hotel-industry-eba-senevita-studen-be",
         "de": "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
-        "fr": "apprenti-e-praktikerin-apprenti-e-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        "fr": "apprentissage-stagiaires-stagiaires-dans-l-hotellerie-eba-senevita-studen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -206,11 +207,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be",
+        "apprentice-praktikerin-apprentice-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+        "apprenti-e-praktikerin-apprenti-e-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+          "lernende-praktikerin-lernender-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be",
+          "apprendista-praktikerin-apprendista-praktiker-hotellerie-hauswirtschaft-afp-senevita-studen-be"
+        ],
+        "en": [
+          "apprentice-praktikerin-apprentice-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
+        ],
+        "fr": [
+          "apprenti-e-praktikerin-apprenti-e-praktiker-hotellerie-hauswirtschaft-eba-senevita-studen-be"
         ]
       },
       "firstSeenAt": "2026-05-30T00:27:24.699Z",
@@ -2891,9 +2902,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-50-100-nachtdienst-senevita-studen-be",
-        "healthcare-professional-efz-50-100-night-shift-senevita-studen-be",
-        "fachperson-gesundheit-cfc-50-100-nachtdienst-senevita-studen-be",
-        "specialist-health-efz-50-100-night-service-senevita-studen-be"
+        "healthcare-professional-efz-50-100-night-shift-senevita-studen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4235,8 +4244,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh",
-        "fachfrau-fachmann-gesundheit-cfc-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
+        "fachfrau-fachmann-gesundheit-efz-30-50-im-stundenlohn-auf-abruf-pool-senevita-buchs-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4631,8 +4639,7 @@
         "formatore-trice-di-professione-infermieristica-efz-senevita-lenk-be",
         "healthcare-professional-educator-efz-senevita-lenk-be",
         "berufsbildner-in-fachfrau-mann-gesundheit-efz-senevita-lenk-be",
-        "formateur-trice-en-soins-infirmiers-cfc-senevita-lenk-be",
-        "fachfrau-mann-gesundheit-cfc-60-100-senevita-erlenbach-zh"
+        "formateur-trice-en-soins-infirmiers-cfc-senevita-lenk-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6653,7 +6660,7 @@
       "id": "senevita-f798a9dca749",
       "slug": "dipl-oggetto-di-cura-50-80-senevita-studen-be",
       "slugByLocale": {
-        "it": "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be",
+        "it": "dipl-oggetto-di-cura-50-80-senevita-studen-be",
         "en": "dipl-pflegefachperson-50-80-senevita-studen-be",
         "de": "dipl-pflegefachperson-50-80-senevita-studen-be",
         "fr": "dipl-sujet-de-soins-50-80-senevita-studen-be"
@@ -6700,13 +6707,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-50-80-senevita-studen-be",
-        "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be",
-        "dipl-oggetto-di-cura-50-80-senevita-studen-be",
-        "dipl-sujet-de-soins-50-80-senevita-studen-be"
+        "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be",
+        "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-50-80-senevita-studen-be"
+          "dipl-pflegefachperson-50-80-senevita-studen-be",
+          "diplomato-di-assistenza-infermieristica-50-80-senevita-studen-be"
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-50-80-senevita-studen-be"
