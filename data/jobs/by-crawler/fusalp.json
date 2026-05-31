@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-05-31T11:13:12.570Z",
+  "assembledAt": "2026-05-31T22:09:29.756Z",
   "jobs": [
     {
       "id": "fusalp-6d79b758876b",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T11:13:10.032Z",
+      "crawledAt": "2026-05-31T22:09:27.180Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -92,6 +92,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:51.057Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -137,7 +138,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T11:13:09.020Z",
+      "crawledAt": "2026-05-31T22:09:26.049Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -197,6 +198,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:50.149Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -242,7 +244,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-sales-consultant-w-m_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T11:13:06.719Z",
+      "crawledAt": "2026-05-31T22:09:23.822Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -267,6 +269,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:50:28.461Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
