@@ -1,16 +1,16 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-05-31T13:01:10.575Z",
+  "generatedAt": "2026-05-31T23:57:12.128Z",
   "total": 5,
   "newCount": 13,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27956,
-  "avgDurationMs": 27956,
+  "durationMs": 20641,
+  "avgDurationMs": 20641,
   "durationHistory": [
-    27956
+    20641
   ],
   "newJobs": [
     {
@@ -42,9 +42,9 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 86,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
-        "cleanliness": 17,
+        "cleanliness": 25,
         "richness": 21,
         "translation": 23,
         "completeness": 25
@@ -79,10 +79,9 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "_qualityScore": 88,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
-        "cleanliness": 17,
+        "cleanliness": 25,
         "richness": 21,
         "translation": 25,
         "completeness": 25
@@ -117,6 +116,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -190,6 +190,7 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
