@@ -404,13 +404,13 @@
         "fr": "Manuel du bâtiment"
       },
       "descriptionByLocale": {
-        "it": "## Mansioni - Manovale Edile ## \n• Requisiti - Esperienza nel settore edile - Disponibilità immediata - Buona conoscenza della lingua italiana ## \n• Cosa offriamo - Condizioni di lavoro ottimali - Supporto professionale durante tutto il processo ## Contatto - Candidati tramite il portale ufficiale\n\nPEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. \n• Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.",
-        "en": "Shipments - Building Manoval \n• Requirements - Experience in the construction industry - Immediate availability - Good knowledge of the Italian language \n• What we offer - Optimal working conditions - Professional support throughout the process Contact - Candidates through the official portal",
+        "it": "## Mansioni\n- Manovale Edile\n\n## Requisiti\n- Esperienza nel settore edile\n- Disponibilità immediata\n- Buona conoscenza della lingua italiana\n\n## Cosa offriamo\n- Condizioni di lavoro ottimali\n- Supporto professionale durante tutto il processo\n\n## Contatto\n- Candidati tramite il portale ufficiale",
+        "en": "♪\n- Building Manoval\n\n♪ Requirements\n- Experience in the construction industry\n- Immediate availability\n- Good knowledge of Italian language\n\n# What are we offering\n- Optimal working conditions\n- Professional support throughout the process\n\n## Contact\n- Candidates through the official portal",
         "de": "Sendungen - Gebäude Manoval \n• Anforderungen - Erfahrung in der Bauindustrie - Sofortige Verfügbarkeit - Gute Kenntnis der italienischen Sprache \n• Was wir bieten - Optimale Arbeitsbedingungen - Professionelle Unterstützung während des gesamten Prozesses Kontakt - Kandidaten durch das offizielle Portal",
         "fr": "Expéditions - Bâtiment Manoval \n• Exigences - Expérience dans le secteur de la construction - Disponibilité immédiate - Bonne connaissance de la langue italienne Ce que nous offrons - Conditions de travail optimales - Soutien professionnel tout au long du processus Coordonnées - Candidats via le portail officiel"
       },
       "slugByLocale": {
-        "it": "manovale-edile-pemsa-chiasso",
+        "it": "manovale-edile-pemsa-bellinzona",
         "en": "building-handbook-pemsa-chiasso",
         "de": "bauarbeiter-pemsa-bellinzona",
         "fr": "manuel-du-batiment-pemsa-chiasso"
@@ -437,9 +437,6 @@
           "construction-worker-pemsa-bellinzona"
         ],
         "fr": [
-          "manovale-edile-pemsa-bellinzona"
-        ],
-        "it": [
           "manovale-edile-pemsa-bellinzona"
         ]
       },
@@ -1587,9 +1584,7 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      "firstSeenAt": "2026-05-19T23:12:33.521Z"
     },
     {
       "title": "INSTALLATORE IDRAULICO",
@@ -2477,7 +2472,7 @@
         "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de GARDEN/AIDE D'AVENIR Mission :\n• L'incarcération temporaire par agence.\n• Entretien du vert, plantation, élagage, semis, coupe d'herbe et haies. Profil :\n• Diplôme AFC de Giardiniere ou expérience antérieure d'au moins 5 ans, mieux si en Suisse. .\n• Une autonomie totale dans la construction et l'entretien des jardins.\n• Grande utilisation des outils de travail.\n• Disponibilité immédiate.\n• Brevet B et auto-immun\n• Résidence au Tessin ou à la frontière."
       },
       "slugByLocale": {
-        "it": "giardini-pemsa-rivera",
+        "it": "giardiniere-aiuto-giardiniere-pemsa-rivera",
         "en": "gardinishing-hying-pemsa-rivera",
         "de": "giardiniere-aiuto-giardiniere-pemsa-rivera",
         "fr": "garantie-pemsa-rivera"
@@ -2501,13 +2496,14 @@
       "firstSeenAt": "2026-05-27T13:31:55.469Z",
       "previousSlugsByLocale": {
         "it": [
-          "giardiniere-aiuto-giardiniere-pemsa-rivera"
+          "giardiniere-aiuto-giardiniere-pemsa-rivera",
+          "giardini-pemsa-rivera"
         ]
       },
       "previousSlugs": [
-        "giardiniere-aiuto-giardiniere-pemsa-rivera"
-      ],
-      "needsRetranslation": true
+        "giardiniere-aiuto-giardiniere-pemsa-rivera",
+        "giardini-pemsa-rivera"
+      ]
     },
     {
       "title": "Installatore Idraulico AFC Riscaldamenti",
@@ -3375,11 +3371,16 @@
         ],
         "de": [
           "bauarbeiter-pemsa-bellinzona"
+        ],
+        "fr": [
+          "manuel-du-batiment-pemsa-chiasso"
         ]
       },
       "previousSlugs": [
         "construction-worker-pemsa-bellinzona",
-        "bauarbeiter-pemsa-bellinzona"
+        "bauarbeiter-pemsa-bellinzona",
+        "manovale-edile-pemsa-bellinzona",
+        "manuel-du-batiment-pemsa-chiasso"
       ]
     },
     {
@@ -3632,9 +3633,9 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metal-constructor-welder-pemsa-bellinzona",
+        "en": "metalcostruttore-saldatore-pemsa-bellinzona",
         "de": "metallbauer-schwei-er-pemsa-bellinzona",
-        "fr": "metallier-soudeur-pemsa-bellinzona"
+        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
       },
       "previousSlugs": [
         "metalcostruttore-saldatore-pemsa-bellinzona",
@@ -3649,7 +3650,9 @@
         "muuratore-amp-8211-charpentier-de-construction-pemsa-bellinzona",
         "metallbauer-amp-8211-schwei-er-pemsa-bellinzona",
         "metalworker-amp-8211-welder-pemsa-bellinzona",
-        "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona"
+        "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona",
+        "metal-constructor-welder-pemsa-bellinzona",
+        "metallier-soudeur-pemsa-bellinzona"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3672,13 +3675,15 @@
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "en": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona",
+          "metal-constructor-welder-pemsa-bellinzona"
         ],
         "de": [
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "fr": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona",
+          "metallier-soudeur-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3783,9 +3788,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "earrings-pemsa-bellinzona",
-        "de": "ohrringe-pemsa-bellinzona",
-        "fr": "boucles-d-oreille-pemsa-bellinzona"
+        "en": "train-master-pemsa-bellinzona",
+        "de": "lokfuhrer-pemsa-bellinzona",
+        "fr": "machiniste-pemsa-bellinzona"
       },
       "id": "pemsa-7aebb676628d",
       "salaryMin": 49500,
@@ -3809,7 +3814,10 @@
         "boucles-d-oreille-pemsa-bellinzona-85e9a3",
         "machiniste-pemsa-bellinzona",
         "train-master-pemsa-bellinzona",
-        "lokfuhrer-pemsa-bellinzona"
+        "lokfuhrer-pemsa-bellinzona",
+        "boucles-d-oreille-pemsa-bellinzona",
+        "earrings-pemsa-bellinzona",
+        "ohrringe-pemsa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3817,13 +3825,16 @@
         ],
         "fr": [
           "boucles-d-oreille-pemsa-bellinzona-85e9a3",
-          "machiniste-pemsa-bellinzona"
+          "machiniste-pemsa-bellinzona",
+          "boucles-d-oreille-pemsa-bellinzona"
         ],
         "en": [
-          "train-master-pemsa-bellinzona"
+          "train-master-pemsa-bellinzona",
+          "earrings-pemsa-bellinzona"
         ],
         "de": [
-          "lokfuhrer-pemsa-bellinzona"
+          "lokfuhrer-pemsa-bellinzona",
+          "ohrringe-pemsa-bellinzona"
         ]
       }
     },
@@ -3866,7 +3877,7 @@
         "it": "rullista-pemsa-bellinzona",
         "en": "rollerist-pemsa-bellinzona",
         "de": "rollenbahn-pemsa-bellinzona",
-        "fr": "convoyeur-a-rouleaux-pemsa-bellinzona"
+        "fr": "rouleau-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3887,7 +3898,8 @@
         "rollerist-pemsa-bellinzona-82esm3",
         "rollenbahn-pemsa-bellinzona-82esm3",
         "rouleau-pemsa-bellinzona-82esm3",
-        "rouleau-pemsa-bellinzona"
+        "rouleau-pemsa-bellinzona",
+        "convoyeur-a-rouleaux-pemsa-bellinzona"
       ],
       "id": "pemsa-ce7bf1905028",
       "previousSlugsByLocale": {
@@ -3910,7 +3922,8 @@
           "rollerist-pemsa-bellinzona-82esm3",
           "rollenbahn-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona-82esm3",
-          "rouleau-pemsa-bellinzona"
+          "rouleau-pemsa-bellinzona",
+          "convoyeur-a-rouleaux-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3953,8 +3966,8 @@
       "slugByLocale": {
         "it": "selciatore-pemsa-bellinzona",
         "en": "pavior-and-kerb-layer-pemsa-bellinzona",
-        "de": "pflaster-pemsa-bellinzona",
-        "fr": "pave-pemsa-bellinzona"
+        "de": "pflasterer-pemsa-bellinzona",
+        "fr": "paveur-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3976,7 +3989,9 @@
         "paveur-pemsa-bellinzona-l71bxi",
         "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
         "pflasterer-pemsa-bellinzona",
-        "paveur-pemsa-bellinzona"
+        "paveur-pemsa-bellinzona",
+        "pflaster-pemsa-bellinzona",
+        "pave-pemsa-bellinzona"
       ],
       "id": "pemsa-0da263d705ed",
       "previousSlugsByLocale": {
@@ -3992,12 +4007,14 @@
         "de": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "pflasterer-pemsa-bellinzona"
+          "pflasterer-pemsa-bellinzona",
+          "pflaster-pemsa-bellinzona"
         ],
         "fr": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona"
+          "paveur-pemsa-bellinzona",
+          "pave-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -4039,8 +4056,8 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-        "en": "meccanico-di-mezzi-weighti-pemsa-bellinzona",
-        "de": "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
+        "en": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+        "de": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
         "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -4064,7 +4081,9 @@
         "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
         "heavy-equipment-mechanic-pemsa-bellinzona",
-        "meccanico-di-mezzi-pesi-pemsa-bellinzona"
+        "meccanico-di-mezzi-pesi-pemsa-bellinzona",
+        "meccanico-di-mezzi-weighti-pemsa-bellinzona",
+        "schwerlastfahrzeugmechaniker-pemsa-bellinzona"
       ],
       "id": "pemsa-a5bdddcb7a6f",
       "previousSlugsByLocale": {
@@ -4077,12 +4096,14 @@
         "en": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-weighti-pemsa-bellinzona"
         ],
         "de": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona"
         ],
         "fr": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
@@ -4090,8 +4111,7 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T22:15:31.704Z"
     },
     {
       "title": "Lattoniere",
@@ -4131,7 +4151,7 @@
       "slugByLocale": {
         "it": "lattoniere-pemsa-bellinzona",
         "en": "sheet-metal-worker-pemsa-bellinzona",
-        "de": "blechschmiede-pemsa-bellinzona",
+        "de": "spengler-pemsa-bellinzona",
         "fr": "ferblantier-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -4159,7 +4179,8 @@
         "sheet-metal-worker-pemsa-lugano",
         "lattoniere-pemsa-lugano",
         "spengler-pemsa-lugano",
-        "ferblantier-pemsa-lugano"
+        "ferblantier-pemsa-lugano",
+        "blechschmiede-pemsa-bellinzona"
       ],
       "id": "pemsa-b68abb58f9a3",
       "previousSlugsByLocale": {
@@ -4175,7 +4196,8 @@
         "de": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
           "spengler-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona"
+          "spengler-pemsa-bellinzona",
+          "blechschmiede-pemsa-bellinzona"
         ],
         "fr": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
@@ -4221,9 +4243,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "electricity-pemsa-lugano",
-        "de": "elektrizitat-pemsa-lugano",
-        "fr": "electricite-pemsa-lugano"
+        "en": "electrician-pemsa-lugano",
+        "de": "elektriker-pemsa-lugano",
+        "fr": "electricien-pemsa-lugano"
       },
       "id": "pemsa-b48712113f67",
       "salaryMin": 49500,
@@ -4245,17 +4267,23 @@
       "previousSlugs": [
         "electrician-pemsa-lugano",
         "elektriker-pemsa-lugano",
-        "electricien-pemsa-lugano"
+        "electricien-pemsa-lugano",
+        "electricity-pemsa-lugano",
+        "elektrizitat-pemsa-lugano",
+        "electricite-pemsa-lugano"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "electrician-pemsa-lugano"
+          "electrician-pemsa-lugano",
+          "electricity-pemsa-lugano"
         ],
         "de": [
-          "elektriker-pemsa-lugano"
+          "elektriker-pemsa-lugano",
+          "elektrizitat-pemsa-lugano"
         ],
         "fr": [
-          "electricien-pemsa-lugano"
+          "electricien-pemsa-lugano",
+          "electricite-pemsa-lugano"
         ]
       }
     },
