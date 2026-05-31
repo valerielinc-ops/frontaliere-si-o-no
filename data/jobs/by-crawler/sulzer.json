@@ -74,7 +74,7 @@
       "slugByLocale": {
         "en": "project-assistant-sulzer-belle-chasse",
         "it": "project-assistant-sulzer-ch",
-        "de": "project-assistant-sulzer-ch",
+        "de": "project-assistent-sulzer-belle-chasse",
         "fr": "project-assistant-sulzer-ch"
       },
       "company": "Sulzer",
@@ -136,12 +136,12 @@
     },
     {
       "id": "sulzer-605a51bcd52c",
-      "slug": "hr-specialist-sulzer-ch",
+      "slug": "risorse-umane-specialista-sulzer-shanghai",
       "slugByLocale": {
         "en": "hr-specialist-sulzer-shanghai",
-        "it": "hr-specialist-sulzer-ch",
-        "de": "hr-specialist-sulzer-ch",
-        "fr": "hr-specialist-sulzer-ch"
+        "it": "risorse-umane-specialista-sulzer-shanghai",
+        "de": "personalwesen-spezialist-sulzer-shanghai",
+        "fr": "ressources-humaines-specialiste-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -198,7 +198,21 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-30T23:55:32.854Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "de": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "hr-specialist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-3d8834f0ceb1",
@@ -359,10 +373,10 @@
       "id": "sulzer-53c99b1598f4",
       "slug": "ingegnere-meccanico-sulzer-winterthur",
       "slugByLocale": {
-        "it": "mechanical-ingegnere-sulzer-winterthur",
+        "it": "ingegnere-meccanico-sulzer-winterthur",
         "en": "mechanical-engineer-sulzer-winterthur",
-        "de": "mechanical-ingenieur-sulzer-winterthur",
-        "fr": "mechanical-ingenieur-sulzer-winterthur"
+        "de": "maschinenbauingenieur-sulzer-winterthur",
+        "fr": "ingenieur-mecanique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -408,23 +422,23 @@
         ],
         "it": [
           "mechanical-engineer-sulzer-ch-2",
-          "mechanical-engineer-sulzer-ch"
+          "mechanical-engineer-sulzer-ch",
+          "mechanical-ingegnere-sulzer-winterthur"
         ],
         "de": [
           "mechanical-engineer-sulzer-ch-2",
-          "maschinenbauingenieur-sulzer-winterthur"
+          "mechanical-ingenieur-sulzer-winterthur"
         ],
         "fr": [
           "mechanical-engineer-sulzer-ch-2",
-          "ingenieur-mecanique-sulzer-winterthur"
+          "mechanical-ingenieur-sulzer-winterthur"
         ]
       },
       "previousSlugs": [
         "mechanical-engineer-sulzer-ch",
         "mechanical-engineer-sulzer-ch-2",
-        "maschinenbauingenieur-sulzer-winterthur",
-        "ingenieur-mecanique-sulzer-winterthur",
-        "ingegnere-meccanico-sulzer-winterthur"
+        "mechanical-ingegnere-sulzer-winterthur",
+        "mechanical-ingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-28T14:26:50.764Z",
       "salaryMin": 49500,
@@ -523,8 +537,8 @@
       "slugByLocale": {
         "it": "servizio-di-campo-technician-hst-sulzer-winterthur",
         "en": "field-service-technician-hst-sulzer-ch",
-        "de": "field-service-techniker-hst-sulzer-winterthur",
-        "fr": "field-service-technicien-hst-sulzer-winterthur"
+        "de": "feldservice-techniker-hst-sulzer-winterthur",
+        "fr": "technicien-du-service-mobile-tvh-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -565,8 +579,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "feldservice-techniker-hst-sulzer-winterthur",
-        "technicien-du-service-mobile-tvh-sulzer-winterthur",
+        "field-service-techniker-hst-sulzer-winterthur",
+        "field-service-technicien-hst-sulzer-winterthur",
         "field-service-technician-hst-sulzer-ch",
         "tecnico-di-servizio-campo-sulzer-arsta",
         "field-service-technician-sulzer-ch",
@@ -575,11 +589,9 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "feldservice-techniker-hst-sulzer-winterthur",
           "field-service-techniker-hst-sulzer-winterthur"
         ],
         "fr": [
-          "technicien-du-service-mobile-tvh-sulzer-winterthur",
           "field-service-technicien-hst-sulzer-winterthur"
         ],
         "it": [
@@ -1863,9 +1875,9 @@
       "id": "sulzer-0c9443800580",
       "slug": "gestione-delle-risorse-sulzer-winterthur",
       "slugByLocale": {
-        "it": "risorse-umane-administration-manager-sulzer-winterthur",
+        "it": "gestione-delle-risorse-sulzer-winterthur",
         "en": "hr-administration-manager-sulzer-winterthur",
-        "de": "personalwesen-administration-manager-sulzer-winterthur",
+        "de": "personalverwaltungsleiter-sulzer-winterthur",
         "fr": "ressources-humaines-administration-manager-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -1911,11 +1923,12 @@
           "hr-administration-manager-sulzer-ch"
         ],
         "it": [
-          "hr-administration-manager-sulzer-ch"
+          "hr-administration-manager-sulzer-ch",
+          "risorse-umane-administration-manager-sulzer-winterthur"
         ],
         "de": [
           "hr-administration-manager-sulzer-ch",
-          "personalverwaltungsleiter-sulzer-winterthur"
+          "personalwesen-administration-manager-sulzer-winterthur"
         ],
         "fr": [
           "hr-administration-manager-sulzer-ch"
@@ -1923,8 +1936,8 @@
       },
       "previousSlugs": [
         "hr-administration-manager-sulzer-ch",
-        "personalverwaltungsleiter-sulzer-winterthur",
-        "gestione-delle-risorse-sulzer-winterthur"
+        "risorse-umane-administration-manager-sulzer-winterthur",
+        "personalwesen-administration-manager-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-28T14:26:32.530Z",
       "salaryMin": 68000,
@@ -2532,7 +2545,7 @@
       "id": "sulzer-addf1469f628",
       "slug": "apprendistato-m-v-x-sulzer-winterthur",
       "slugByLocale": {
-        "it": "it-apprentice-m-v-x-sulzer-ch",
+        "it": "apprendistato-m-v-x-sulzer-winterthur",
         "en": "it-apprentice-m-v-x-sulzer-winterthur",
         "de": "it-ausbildung-m-v-x-sulzer-winterthur",
         "fr": "apprentis-en-informatique-m-v-x-sulzer-winterthur"
@@ -2581,13 +2594,13 @@
         ],
         "fr": [
           "it-apprentice-m-v-x-sulzer-ch"
+        ],
+        "it": [
+          "it-apprentice-m-v-x-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "it-apprentice-m-v-x-sulzer-ch",
-        "apprendistato-m-v-x-sulzer-winterthur",
-        "it-ausbildung-m-v-x-sulzer-winterthur",
-        "apprentis-en-informatique-m-v-x-sulzer-winterthur"
+        "it-apprentice-m-v-x-sulzer-ch"
       ],
       "firstSeenAt": "2026-05-28T14:26:25.559Z",
       "salaryMin": 46000,
@@ -2911,12 +2924,12 @@
     },
     {
       "id": "sulzer-3974e00e32b3",
-      "slug": "sales-manager-sulzer-ch-2",
+      "slug": "responsabile-vendite-sulzer-winterthur-394e0e",
       "slugByLocale": {
         "en": "sales-manager-sulzer-winterthur",
-        "it": "sales-manager-sulzer-ch-2",
-        "de": "sales-manager-sulzer-ch-2",
-        "fr": "sales-manager-sulzer-ch-2"
+        "it": "responsabile-vendite-sulzer-winterthur-394e0e",
+        "de": "vertriebsleiter-sulzer-winterthur",
+        "fr": "directeur-des-ventes-sulzer-winterthur-394e0e"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2959,14 +2972,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sales-manager-sulzer-ch"
+          "sales-manager-sulzer-ch",
+          "sales-manager-sulzer-ch-2"
         ],
         "en": [
           "sales-manager-sulzer-ch"
+        ],
+        "de": [
+          "sales-manager-sulzer-ch-2"
+        ],
+        "fr": [
+          "sales-manager-sulzer-ch-2"
         ]
       },
       "previousSlugs": [
-        "sales-manager-sulzer-ch"
+        "sales-manager-sulzer-ch",
+        "sales-manager-sulzer-ch-2"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -6340,7 +6361,7 @@
         "it": "sales-inventory-operations-planning-business-analista-sulzer-winterthur",
         "en": "sales-inventory-operations-planning-business-analyst-sulzer-ch",
         "de": "vertriebsinventar-betriebsplanung-business-analyst-sulzer-winterthur",
-        "fr": "sales-inventory-operations-planning-business-analyste-sulzer-winterthur"
+        "fr": "inventaire-des-ventes-et-planification-des-operations-analyste-des-activites-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6383,7 +6404,7 @@
       "previousSlugs": [
         "sales-inventory-operations-planning-business-analyst-sulzer-ch",
         "vendite-inventario-operazioni-pianificazione-business-analyst-sulzer-winterthur",
-        "inventaire-des-ventes-et-planification-des-operations-analyste-des-activites-sulzer-winterthur"
+        "sales-inventory-operations-planning-business-analyste-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6395,7 +6416,6 @@
         ],
         "fr": [
           "sales-inventory-operations-planning-business-analyst-sulzer-ch",
-          "inventaire-des-ventes-et-planification-des-operations-analyste-des-activites-sulzer-winterthur",
           "sales-inventory-operations-planning-business-analyste-sulzer-winterthur"
         ]
       },
@@ -8811,8 +8831,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-operational-excellence-development-manager-sulzer-ch",
-        "global-operations-excellence-development-manager-sulzer-winterthur"
+        "global-operational-excellence-development-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9125,9 +9144,7 @@
       "previousSlugs": [
         "feldservice-techniker-hst-sulzer-winterthur",
         "technicien-du-service-mobile-tvh-sulzer-winterthur",
-        "field-service-technician-hst-sulzer-ch",
         "tecnico-di-servizio-campo-sulzer-arsta",
-        "field-service-technician-sulzer-ch",
         "feldservice-techniker-sulzer-arsta",
         "technicien-de-service-sur-le-terrain-sulzer-arsta"
       ]
@@ -9182,9 +9199,7 @@
       "previousSlugs": [
         "process-automation-instrumentation-engineer-sulzer-ch",
         "process-automation-instrumentation-engineer-sulzer-allschwil",
-        "ingenieur-d-automatisation-et-d-instrumentation-de-processus-sulzer-allschwil",
-        "process-automation-instrumentation-ingegnere-sulzer-allschwil",
-        "process-automation-instrumentation-ingenieur-sulzer-allschwil"
+        "ingenieur-d-automatisation-et-d-instrumentation-de-processus-sulzer-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9440,10 +9455,10 @@
       "id": "sulzer-29479b34a728",
       "slug": "payroll-specialista-sulzer-winterthur",
       "slugByLocale": {
-        "it": "specialista-paghe-sulzer-winterthur",
+        "it": "payroll-specialista-sulzer-winterthur",
         "en": "payroll-specialist-sulzer-winterthur",
-        "de": "lohnbuchhaltungsspezialist-sulzer-winterthur",
-        "fr": "specialiste-de-la-paie-sulzer-winterthur"
+        "de": "payroll-spezialist-sulzer-winterthur",
+        "fr": "payroll-specialiste-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9488,20 +9503,21 @@
           "payroll-specialist-sulzer-ch"
         ],
         "it": [
-          "payroll-specialist-sulzer-ch"
+          "payroll-specialist-sulzer-ch",
+          "specialista-paghe-sulzer-winterthur"
         ],
         "de": [
-          "payroll-spezialist-sulzer-winterthur"
+          "lohnbuchhaltungsspezialist-sulzer-winterthur"
         ],
         "fr": [
-          "payroll-specialiste-sulzer-winterthur"
+          "specialiste-de-la-paie-sulzer-winterthur"
         ]
       },
       "previousSlugs": [
         "payroll-specialist-sulzer-ch",
-        "payroll-spezialist-sulzer-winterthur",
-        "payroll-specialiste-sulzer-winterthur",
-        "payroll-specialista-sulzer-winterthur"
+        "specialista-paghe-sulzer-winterthur",
+        "lohnbuchhaltungsspezialist-sulzer-winterthur",
+        "specialiste-de-la-paie-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-28T14:24:56.306Z",
       "salaryMin": 49500,
@@ -10581,10 +10597,10 @@
       "id": "sulzer-72cda1302c27",
       "slug": "ingegnere-di-vendita-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-ingegnere-sulzer-winterthur",
+        "it": "ingegnere-di-vendita-sulzer-winterthur",
         "en": "sales-engineer-sulzer-winterthur",
         "de": "sales-ingenieur-sulzer-winterthur",
-        "fr": "sales-engineer-sulzer-ch"
+        "fr": "ingenieur-commercial-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -10629,21 +10645,21 @@
           "sales-engineer-sulzer-ch"
         ],
         "it": [
-          "sales-engineer-sulzer-ch"
+          "sales-engineer-sulzer-ch",
+          "sales-ingegnere-sulzer-winterthur"
         ],
         "de": [
           "sales-engineer-sulzer-ch",
           "vertriebsingenieur-sulzer-winterthur"
         ],
         "fr": [
-          "ingenieur-commercial-sulzer-winterthur"
+          "sales-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
         "sales-engineer-sulzer-ch",
-        "vertriebsingenieur-sulzer-winterthur",
-        "ingenieur-commercial-sulzer-winterthur",
-        "ingegnere-di-vendita-sulzer-winterthur"
+        "sales-ingegnere-sulzer-winterthur",
+        "vertriebsingenieur-sulzer-winterthur"
       ],
       "firstSeenAt": "2026-05-21T23:58:00.571Z",
       "salaryMin": 49500,
@@ -12282,7 +12298,7 @@
       "id": "sulzer-80659319fac8",
       "slug": "ingegnere-di-gara-sulzer-winterthur",
       "slugByLocale": {
-        "it": "tendering-engineer-sulzer-ch",
+        "it": "ingegnere-di-gara-sulzer-winterthur",
         "en": "tendering-engineer-sulzer-winterthur",
         "de": "ausschreibungsingenieur-sulzer-winterthur",
         "fr": "ingenieur-d-appel-d-offres-sulzer-winterthur"
@@ -12331,13 +12347,13 @@
         ],
         "fr": [
           "tendering-engineer-sulzer-ch"
+        ],
+        "it": [
+          "tendering-engineer-sulzer-ch"
         ]
       },
       "previousSlugs": [
-        "tendering-engineer-sulzer-ch",
-        "ingegnere-di-gara-sulzer-winterthur",
-        "ausschreibungsingenieur-sulzer-winterthur",
-        "ingenieur-d-appel-d-offres-sulzer-winterthur"
+        "tendering-engineer-sulzer-ch"
       ],
       "firstSeenAt": "2026-05-27T00:26:07.386Z",
       "salaryMin": 49500,
@@ -13349,7 +13365,7 @@
       "id": "sulzer-02a21f8ec8a5",
       "slug": "senior-ingegnere-di-vendita-w-m-d-soluzioni-acqua-locali-e-industriali-sulzer-winterthur",
       "slugByLocale": {
-        "it": "senior-sales-ingegnere-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-winterthur",
+        "it": "senior-ingegnere-di-vendita-w-m-d-soluzioni-acqua-locali-e-industriali-sulzer-winterthur",
         "en": "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch",
         "de": "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch",
         "fr": "aine-ingenieur-commercial-w-m-d-local-solutions-industrielles-pour-l-eau-sulzer-winterthur"
@@ -13393,13 +13409,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch",
-        "senior-sales-ingenieur-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-winterthur",
-        "senior-ingegnere-di-vendita-w-m-d-soluzioni-acqua-locali-e-industriali-sulzer-winterthur",
-        "aine-ingenieur-commercial-w-m-d-local-solutions-industrielles-pour-l-eau-sulzer-winterthur"
+        "senior-sales-ingegnere-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-winterthur",
+        "senior-sales-ingenieur-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch"
+          "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch",
+          "senior-sales-ingegnere-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-winterthur"
         ],
         "fr": [
           "senior-sales-engineer-w-m-d-kommunale-industrielle-wasser-abwasserlosungen-sulzer-ch",

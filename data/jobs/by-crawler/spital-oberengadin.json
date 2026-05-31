@@ -815,12 +815,12 @@
     },
     {
       "id": "spital-oberengadin-0b51abde2f00",
-      "slug": "medizinische-r-praxisassistent-in-mpa-onkologie-50-e-notfallpflege-50-spital-oberengadin-samedan",
+      "slug": "assistente-medico-mpa-oncologia-50-e-assistenza-di-emergenza-50-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin",
-        "it": "medizinische-r-praxisassistent-in-mpa-onkologie-50-e-notfallpflege-50-spital-oberengadin-samedan",
-        "en": "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin",
-        "fr": "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin"
+        "it": "assistente-medico-mpa-oncologia-50-e-assistenza-di-emergenza-50-spital-oberengadin-samedan",
+        "en": "medical-assistant-mpa-oncology-50-and-emergency-care-50-spital-oberengadin-samedan",
+        "fr": "assistant-medical-apm-oncologie-50-et-soins-d-urgence-50-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -869,11 +869,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin",
+          "medizinische-r-praxisassistent-in-mpa-onkologie-50-e-notfallpflege-50-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin"
         ]
       },
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-mpa-onkologie-50-und-notfallpflege-50-spital-oberengadin",
+        "medizinische-r-praxisassistent-in-mpa-onkologie-50-e-notfallpflege-50-spital-oberengadin-samedan",
         "assistente-medico-a-di-studio-mpa-oncologia-50-e-assistenza-d-urgenza-50-spital-oberengadin-samedan",
         "medical-practice-assistant-mpa-oncology-50-and-emergency-care-50-spital-oberengadin-samedan",
         "assistant-e-medical-e-mpa-oncologie-50-et-soins-d-urgence-50-spital-oberengadin-samedan"

@@ -568,7 +568,7 @@
         "it": "team-leader-amministrazione-del-personale-100-tertianum-dubendorf",
         "en": "teamleitung-personaladministration-100-tertianum-dubendorf",
         "de": "teamleitung-personaladministration-100-tertianum-dubendorf",
-        "fr": "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
+        "fr": "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -638,7 +638,7 @@
       "previousSlugs": [
         "teamleitung-personaladministration-100-tertianum-dubendorf",
         "personaladministrationsteamleitung-tertianum-dubendorf",
-        "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
+        "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -648,7 +648,6 @@
           "personaladministrationsteamleitung-tertianum-dubendorf"
         ],
         "fr": [
-          "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf",
           "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
         ]
       },
@@ -770,9 +769,9 @@
       "slug": "sachbearbeiterin-sachbearbeiter-finanz-e-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
       "slugByLocale": {
         "it": "sachbearbeiterin-sachbearbeiter-finanz-e-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
-        "en": "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
+        "en": "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
         "de": "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum",
-        "fr": "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
+        "fr": "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -843,8 +842,8 @@
         "personale-personale-azienda-di-finanza-e-contabilita-tessin-80-100-tertianum-dubendorf",
         "addetto-a-alla-contabilita-e-al-bilancio-settore-operazioni-tessin-80-100-tertianum-dubendorf",
         "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
-        "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
-        "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
+        "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
+        "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -854,11 +853,9 @@
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
-          "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
           "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf"
         ],
         "fr": [
-          "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf",
           "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
         ]
       },
@@ -2407,7 +2404,7 @@
         "it": "collaboratore-trice-service-tertianum-winterthur",
         "en": "service-staff-tertianum-winterthur",
         "de": "mitarbeiter-in-service-tertianum-winterthur",
-        "fr": "employe-e-de-service-tertianum-winterthur"
+        "fr": "personnel-en-service-tertianum-winterthur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -2452,7 +2449,7 @@
       "previousSlugs": [
         "mitarbeiter-in-service-tertianum-winterthur",
         "addetto-a-al-servizio-tertianum-winterthur",
-        "personnel-en-service-tertianum-winterthur"
+        "employe-e-de-service-tertianum-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2460,7 +2457,6 @@
           "addetto-a-al-servizio-tertianum-winterthur"
         ],
         "fr": [
-          "personnel-en-service-tertianum-winterthur",
           "employe-e-de-service-tertianum-winterthur"
         ]
       },
@@ -8438,8 +8434,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "restaurationsfachfrau-mann-efz-ca-50-tertianum-basel",
-          "mitarbeiter-in-service-ca-50-tertianum-basel"
+          "restaurationsfachfrau-mann-efz-ca-50-tertianum-basel"
         ],
         "it": [
           "restaurationsfachfrau-mann-efz-ca-50-tertianum-basel",
@@ -19708,9 +19703,9 @@
     },
     {
       "id": "tertianum-ac276c088a9e",
-      "slug": "gestione-personale-home-tertianum-bern",
+      "slug": "collaboratore-trice-hauswirtschaft-tertianum-bern",
       "slugByLocale": {
-        "it": "gestione-personale-home-tertianum-bern",
+        "it": "collaboratore-trice-hauswirtschaft-tertianum-bern",
         "en": "staff-home-management-tertianum-bern",
         "de": "mitarbeiter-in-hauswirtschaft-tertianum-bern",
         "fr": "personnel-gestion-du-domicile-tertianum-bern"
@@ -19757,12 +19752,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-hauswirtschaft-tertianum-bern",
-        "collaboratore-trice-hauswirtschaft-tertianum-bern"
+        "gestione-personale-home-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-tertianum-bern",
-          "collaboratore-trice-hauswirtschaft-tertianum-bern"
+          "gestione-personale-home-tertianum-bern"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-tertianum-bern"
@@ -19790,9 +19785,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-        "en": "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
+        "en": "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
+        "fr": "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -19860,19 +19855,17 @@
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
+        "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
+        "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
           "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
           "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
         ]
       },
@@ -21386,7 +21379,7 @@
       "slug": "fachfrau-fachmann-gesundheit-cfc-50-im-nachtdienst-tertianum-orpund",
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-cfc-50-im-nachtdienst-tertianum-orpund",
-        "en": "healthcare-assistant-efz-50-night-shift-tertianum-orpund",
+        "en": "professional-health-efz-50-at-night-tertianum-orpund",
         "de": "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
         "fr": "assistant-en-soins-de-sante-cfc-50-en-service-de-nuit-tertianum-orpund"
       },
@@ -21460,7 +21453,7 @@
         "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
         "salute-professionale-efz-50-di-notte-tertianum-orpund",
         "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund",
-        "professional-health-efz-50-at-night-tertianum-orpund"
+        "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21469,7 +21462,6 @@
           "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund"
         ],
         "en": [
-          "professional-health-efz-50-at-night-tertianum-orpund",
           "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
         ]
       },
