@@ -1,6 +1,6 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-05-30T23:04:12.073Z",
+  "assembledAt": "2026-05-31T12:09:13.617Z",
   "jobs": [
     {
       "id": "modellstation-somosa-f65bc46c69f6",
@@ -34,7 +34,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/eine-oberaerztin-einen-oberarzt-60-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T23:04:10.408Z",
+      "crawledAt": "2026-05-31T12:09:11.720Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T23:04:09.890Z",
+      "crawledAt": "2026-05-31T12:09:11.179Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -151,9 +151,9 @@
       "slug": "assistente-sociale-assistente-sociale-o-educatore-sociale-per-il-nostro-programma-di-residenza-60-modellstation-somosa",
       "slugByLocale": {
         "it": "assistente-sociale-assistente-sociale-o-educatore-sociale-per-il-nostro-programma-di-residenza-60-modellstation-somosa",
-        "en": "social-worker-social-worker-social-teacher-social-teacher-for-our-housing-training-60-modellstation-somosa-winterthur",
+        "en": "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur",
         "de": "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining",
-        "fr": "travailleurs-sociaux-travailleurs-sociaux-enseignants-sociaux-enseignants-sociaux-pour-notre-formation-au-logement-60"
+        "fr": "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
       },
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
@@ -178,7 +178,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagoge-sozialpaedagogin-fuer-unser-wohntraining-60-70-2",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T23:04:09.378Z",
+      "crawledAt": "2026-05-31T12:09:10.633Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,17 +197,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining",
-        "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur",
-        "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
+        "social-worker-social-worker-social-teacher-social-teacher-for-our-housing-training-60-modellstation-somosa-winterthur",
+        "travailleurs-sociaux-travailleurs-sociaux-enseignants-sociaux-enseignants-sociaux-pour-notre-formation-au-logement-60"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-sozialarbeiterin-oder-sozialpadagoge-sozialpadagogin-fur-unser-wohntraining"
         ],
         "en": [
+          "social-worker-social-worker-social-teacher-social-teacher-for-our-housing-training-60-modellstation-somosa-winterthur",
           "social-worker-or-social-pedagogue-for-our-residential-training-program-60-modellstation-somosa-winterthur"
         ],
         "fr": [
+          "travailleurs-sociaux-travailleurs-sociaux-enseignants-sociaux-enseignants-sociaux-pour-notre-formation-au-logement-60",
           "assistant-social-assistante-sociale-ou-educateur-educatrice-sociale-pour-notre-programme-de-residence-60-modellstation"
         ]
       },
