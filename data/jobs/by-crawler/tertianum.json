@@ -144,7 +144,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-100-tertianum-schwerzenbach"
+        "fachfrau-fachmann-gesundheit-efz-50-100-tertianum-schwerzenbach",
+        "fachfrau-fachmann-gesundheit-cfc-50-100-tertianum-schwerzenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -560,7 +561,7 @@
         "it": "team-leader-amministrazione-del-personale-100-tertianum-dubendorf",
         "en": "teamleitung-personaladministration-100-tertianum-dubendorf",
         "de": "teamleitung-personaladministration-100-tertianum-dubendorf",
-        "fr": "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
+        "fr": "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -629,7 +630,8 @@
       "previousSlugs": [
         "teamleitung-personaladministration-100-tertianum-dubendorf",
         "personaladministrationsteamleitung-tertianum-dubendorf",
-        "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
+        "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf",
+        "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -639,7 +641,8 @@
           "personaladministrationsteamleitung-tertianum-dubendorf"
         ],
         "fr": [
-          "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf"
+          "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf",
+          "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:23.755Z",
@@ -831,7 +834,10 @@
         "personale-personale-azienda-di-finanza-e-contabilita-tessin-80-100-tertianum-dubendorf",
         "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
         "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
-        "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
+        "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf",
+        "sachbearbeiterin-sachbearbeiter-finanz-e-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
+        "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
+        "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2374,7 +2380,7 @@
       "id": "tertianum-e1ae9a0cc55a",
       "slug": "collaboratore-trice-service-tertianum-winterthur",
       "slugByLocale": {
-        "it": "collaboratore-trice-service-tertianum-winterthur",
+        "it": "addetto-a-al-servizio-tertianum-winterthur",
         "en": "service-staff-tertianum-winterthur",
         "de": "mitarbeiter-in-service-tertianum-winterthur",
         "fr": "personnel-en-service-tertianum-winterthur"
@@ -2421,13 +2427,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-service-tertianum-winterthur",
-        "addetto-a-al-servizio-tertianum-winterthur",
-        "employe-e-de-service-tertianum-winterthur"
+        "employe-e-de-service-tertianum-winterthur",
+        "collaboratore-trice-service-tertianum-winterthur",
+        "personnel-en-service-tertianum-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-service-tertianum-winterthur",
-          "addetto-a-al-servizio-tertianum-winterthur"
+          "mitarbeiter-in-service-tertianum-winterthur"
         ],
         "fr": [
           "employe-e-de-service-tertianum-winterthur"
@@ -2788,7 +2794,8 @@
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-administration-100-fur-min-12-monate-tertianum-zurich"
+        "praktikantin-praktikant-administration-100-fur-min-12-monate-tertianum-zurich",
+        "praktikantin-praktikant-administration-100-per-min-12-monate-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2885,7 +2892,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-bern"
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-bern",
+        "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3852,7 +3860,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-60-80-tertianum-zurich"
+        "fachfrau-fachmann-gesundheit-efz-60-80-tertianum-zurich",
+        "fachfrau-fachmann-gesundheit-cfc-60-80-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4058,7 +4067,7 @@
       "id": "tertianum-ac1028caa16e",
       "slug": "gestione-del-team-cura-e-cura-tertianum-zurich",
       "slugByLocale": {
-        "it": "gestione-del-team-cura-e-cura-tertianum-zurich",
+        "it": "teamleitung-pflege-e-betreuung-tertianum-zurich",
         "en": "team-management-care-and-care-tertianum-zurich",
         "de": "teamleitung-pflege-und-betreuung-tertianum-zurich",
         "fr": "gestion-d-equipe-soins-tertianum-zurich"
@@ -4105,16 +4114,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleitung-pflege-und-betreuung-tertianum-zurich",
-        "teamleitung-pflege-e-betreuung-tertianum-zurich",
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
         "team-lead-care-and-support-tertianum-zurich",
         "responsable-d-equipe-soins-et-assistance-tertianum-zurich",
-        "capo-team-assistenza-e-cura-tertianum-zurich"
+        "capo-team-assistenza-e-cura-tertianum-zurich",
+        "gestione-del-team-cura-e-cura-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-und-betreuung-tertianum-zurich",
-          "teamleitung-pflege-e-betreuung-tertianum-zurich"
+          "teamleitung-pflege-und-betreuung-tertianum-zurich"
         ],
         "en": [
           "teamleitung-pflege-und-betreuung-tertianum-zurich"
@@ -4212,7 +4220,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-tertianum-zurich"
+        "fachfrau-mann-gesundheit-efz-tertianum-zurich",
+        "fachfrau-mann-gesundheit-cfc-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4560,7 +4569,7 @@
       "id": "tertianum-bcc5d268bce1",
       "slug": "staff-in-servizio-tecnico-100-tertianum-zurich",
       "slugByLocale": {
-        "it": "staff-in-servizio-tecnico-100-tertianum-zurich",
+        "it": "collaboratore-trice-technischer-dienst-100-tertianum-zurich",
         "en": "staff-in-technical-service-100-tertianum-zurich",
         "de": "mitarbeiter-in-technischer-dienst-100-tertianum-zurich",
         "fr": "personnel-en-service-technique-100-tertianum-zurich"
@@ -4607,12 +4616,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-100-tertianum-zurich",
-        "collaboratore-trice-technischer-dienst-100-tertianum-zurich"
+        "staff-in-servizio-tecnico-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-technischer-dienst-100-tertianum-zurich",
-          "collaboratore-trice-technischer-dienst-100-tertianum-zurich"
+          "mitarbeiter-in-technischer-dienst-100-tertianum-zurich"
         ],
         "en": [
           "mitarbeiter-in-technischer-dienst-100-tertianum-zurich"
@@ -4906,7 +4914,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-80-100-tertianum-zurich"
+        "fachfrau-mann-gesundheit-efz-80-100-tertianum-zurich",
+        "fachfrau-mann-gesundheit-cfc-80-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5082,7 +5091,7 @@
       "id": "tertianum-9dcfb1b75d09",
       "slug": "teamleiter-in-pflege-e-betreuung-tertianum-zurich",
       "slugByLocale": {
-        "it": "teamleiter-in-pflege-e-betreuung-tertianum-zurich",
+        "it": "capo-team-assistenza-e-cura-tertianum-zurich",
         "en": "team-leader-care-and-support-tertianum-zurich",
         "de": "teamleiter-in-pflege-und-betreuung-tertianum-zurich",
         "fr": "responsable-d-equipe-soins-et-assistance-tertianum-zurich"
@@ -5159,16 +5168,15 @@
       "previousSlugs": [
         "teamleiter-in-pflege-und-betreuung-tertianum-zurich",
         "teamleitung-pflege-e-betreuung-tertianum-zurich",
-        "capo-team-assistenza-e-cura-tertianum-zurich",
         "teamleitung-pflege-und-betreuung-tertianum-zurich",
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
-        "team-lead-care-and-support-tertianum-zurich"
+        "team-lead-care-and-support-tertianum-zurich",
+        "teamleiter-in-pflege-e-betreuung-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-pflege-und-betreuung-tertianum-zurich",
-          "teamleitung-pflege-e-betreuung-tertianum-zurich",
-          "capo-team-assistenza-e-cura-tertianum-zurich"
+          "teamleitung-pflege-e-betreuung-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:35.478Z",
@@ -5498,7 +5506,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
+        "fachfrau-fachmann-gesundheit-cfc-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7551,7 +7560,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-40-80-tertianum-schlieren"
+        "fachfrau-fachmann-gesundheit-efz-40-80-tertianum-schlieren",
+        "fachfrau-fachmann-gesundheit-cfc-40-80-tertianum-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7842,7 +7852,9 @@
       "previousSlugs": [
         "assistente-di-salute-e-sociale-tertianum-emmenbrucke",
         "health-and-social-care-assistant-tertianum-emmenbrucke",
-        "assistant-e-en-soins-et-social-tertianum-emmenbrucke"
+        "assistant-e-en-soins-et-social-tertianum-emmenbrucke",
+        "assistentin-assistent-gesundheit-und-soziales-tertianum-stadel",
+        "assistentin-assistent-gesundheit-soziales-tertianum-emmenbrucke"
       ]
     },
     {
@@ -8566,7 +8578,7 @@
       "id": "tertianum-f0f9cd07d374",
       "slug": "staff-20-100-nessuna-ora-di-camera-tertianum-solothurn",
       "slugByLocale": {
-        "it": "staff-20-100-nessuna-ora-di-camera-tertianum-solothurn",
+        "it": "collaboratore-trice-service-20-100-keine-zimmerstunde-tertianum-solothurn",
         "en": "staff-20-100-no-room-hour-tertianum-solothurn",
         "de": "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn",
         "fr": "personnel-20-100-pas-d-heure-de-chambre-tertianum-solothurn"
@@ -8613,12 +8625,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn",
-        "collaboratore-trice-service-20-100-keine-zimmerstunde-tertianum-solothurn"
+        "staff-20-100-nessuna-ora-di-camera-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn",
-          "collaboratore-trice-service-20-100-keine-zimmerstunde-tertianum-solothurn"
+          "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn"
         ],
         "en": [
           "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn"
@@ -9389,7 +9400,8 @@
         ]
       },
       "previousSlugs": [
-        "kochin-koch-eba-efz-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn"
+        "kochin-koch-eba-efz-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn",
+        "kochin-koch-afp-cfc-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9670,7 +9682,8 @@
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-pflege-und-betreuung-stv-leiterin-leiter-pflege-und-betreuung-80"
+        "teamleiterin-teamleiter-pflege-und-betreuung-stv-leiterin-leiter-pflege-und-betreuung-80",
+        "teamleiterin-teamleiter-pflege-e-betreuung-stv-leiterin-leiter-pflege-e-betreuung-80-100-tertianum-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12191,7 +12204,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-meilen"
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-meilen",
+        "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12480,7 +12494,7 @@
       "id": "tertianum-07dffedac253",
       "slug": "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon",
       "slugByLocale": {
-        "it": "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon",
+        "it": "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon",
         "en": "care-assistant-in-the-day-and-or-night-service-tertianum-pfaffikon",
         "de": "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
         "fr": "assistant-dans-le-service-de-jour-et-ou-de-nuit-tertianum-pfaffikon"
@@ -12527,15 +12541,14 @@
       "previousSlugs": [
         "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
         "assistenti-di-cura-nel-servizio-giorno-e-o-notte-tertianum-pfaffikon",
-        "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon",
         "care-helpers-in-the-day-and-or-night-service-tertianum-pfaffikon",
-        "aides-de-jour-et-ou-de-nuit-tertianum-pfaffikon"
+        "aides-de-jour-et-ou-de-nuit-tertianum-pfaffikon",
+        "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
-          "assistenti-di-cura-nel-servizio-giorno-e-o-notte-tertianum-pfaffikon",
-          "pflegehelfer-in-srk-im-tag-e-o-nachtdienst-tertianum-pfaffikon"
+          "assistenti-di-cura-nel-servizio-giorno-e-o-notte-tertianum-pfaffikon"
         ],
         "en": [
           "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
@@ -12905,7 +12918,8 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-50-100-ausschliesslich-im-nachtdienst-tertianum-richterswil",
-        "fachfrau-mann-gesundheit-efz-50-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst-tertianum"
+        "fachfrau-mann-gesundheit-efz-50-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst-tertianum",
+        "fachfrau-mann-gesundheit-cfc-50-100-wahlbar-ob-im-tagdienst-o-im-nachtdienst-tertianum-richterswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13103,7 +13117,7 @@
       "id": "tertianum-775de88590f4",
       "slug": "staff-in-servizio-tecnico-tertianum-horgen",
       "slugByLocale": {
-        "it": "staff-in-servizio-tecnico-tertianum-horgen",
+        "it": "collaboratore-trice-technischer-dienst-tertianum-horgen",
         "en": "staff-in-technical-service-tertianum-horgen",
         "de": "mitarbeiter-in-technischer-dienst-tertianum-horgen",
         "fr": "personnel-en-service-technique-tertianum-horgen"
@@ -13150,12 +13164,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-technischer-dienst-tertianum-horgen",
-        "collaboratore-trice-technischer-dienst-tertianum-horgen"
+        "staff-in-servizio-tecnico-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-technischer-dienst-tertianum-horgen",
-          "collaboratore-trice-technischer-dienst-tertianum-horgen"
+          "mitarbeiter-in-technischer-dienst-tertianum-horgen"
         ],
         "en": [
           "mitarbeiter-in-technischer-dienst-tertianum-horgen"
@@ -13981,7 +13994,6 @@
         "de": "Für das Tertianum Grünegg in Wald (ZH) suchen wir nach Vereinbarung eine/einen Dipl. Pflegefachfrau / Pflegefachmann 60-100% / Stellvertretende Leitung Pflege und Betreuung \n• Ihre Aufgaben Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses Ausführen von behandlungspflegerischen Tätigkeiten Planung und Begleitung von Arztvisiten Elektronische Pflegedokumentation mittels Care-Coach Übernahme von \n• Aufgaben als Bezugsperson Steuerung des Pflegeprozesses Leitung von Fallbesprechungen Bereitschaft für Nachtdienste Übernahme von der Tagesverantwortung, optional: Führung von Pflegemitarbeitenden Übernahme von \n• Aufgaben als Thementräger/in, fachliche Weisungsbefugnis \n• Ihr Profil Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH/DNII oder eine gleichwertige, durch das SRK anerkannte Ausbildung Berufserfahrung in der Langzeitpflege und Spitex/Inhouse Spitex von Vorteil Erfahrung als BESA Tutor oder Verantwortliche/Verantwortlicher erwünscht Eine herzliche und humorvolle Grundeinstellung Freude an vielseitigen Herausforderungen Gute Deutschkenntnisse in Wort und Schrift Warum Tertianum? Uns liegt viel daran, dass unsere Mitarbeitenden ihre berufliche Entwicklung und ihre Lebensgestaltung in Einklang bringen können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.: Interne und externe Weiterbildungsmöglichkeiten Zusätzlicher freier Tag im Geburtstagsmonat Fitnessvergünstigungen SBB Halbtaxabonnement Versicherungsvergünstigungen Flottenrabatte Vergünstigungen bei Sunrise Weitere Benefits finden Sie auf unserer Website . Sind Sie interessiert? Dann bieten wir Ihnen eine spannende Perspektive: Bei uns setzen Sie Ihre individuellen Fähigkeiten und Ihre Professionalität in einem motivierten und flexiblen Team ein. Zudem übernehmen Sie ein hohes Mass an Verantwortung und gestalten so die Zukunft von Tertianum aktiv mit. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams. Wir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool.",
         "fr": "Descrizione Pour le Tertianum Grünegg à Wald (ZH), nous recherchons un accord avec un Dipl. Spécialiste des soins 60-100% / Chef adjoint des soins et des soins Mansioni - Soins et soins complets des invités au sens de notre plan de soins et du processus de soins - Exécution des activités de soins - Planification et supervision des visas médicaux - Documentation de soins électroniques au moyen de Care-Coach - Prise en charge des tâches en tant que personne de référence - Contrôle du processus de soins - Gestion des examens de cas - Facultatif Spécialiste des soins HF/FH/DNII ou une formation équivalente reconnue par le SRK - Expérience professionnelle en soins de longue durée et Spitex/Inhouse Spitex d'avantage - expérience en tant que tuteur BESA ou responsable/responsable - une attitude de base chaleureuse et humoristique - plaisir aux défis polyvalents - bonne connaissance allemande en paroles et en écriture\n• Cosa offriamo - Interne und External Training opportunities - Journée supplémentaire Nous vous offrons une perspective passionnante : avec nous vous utilisez vos compétences individuelles et votre professionnalisme dans une équipe motivée et flexible. En outre, vous assumez un haut niveau de responsabilité et façonnez activement l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe. Nous attendons avec impatience votre candidature complète en ligne via notre outil d'application."
       },
-      "needsRetranslation": true,
       "location": "Wald",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Wald-Dipl_-Pflegefachfrau-Pflegefachmann-60-100-Stellvertretende-Leitung-Pflege-und-Betreuung-Z%C3%BCri-8636/1259567001/",
@@ -14050,8 +14062,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tertianum-4e6bdd94ced9",
@@ -15307,7 +15318,6 @@
         "de": "Das charmante Wohn- und Pflegezentrum Tertianum Blumenaupark in Unterterzen am Walensee mit 60 Pflegebetten bietet Menschen im 4. Lebensalter ein behagliches Zuhause. 48 Pflegegäste finden ein gemütliches Zuhause in der Langzeitpflege und 12 Pflegegäste im geschützten Wohnbereich. Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung welcher für Sie nicht nur die Lebensqualität anderer verbessert, sondern auch eine Befriedigung und Sinnhaftigkeit im eigenen Leben schafft? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kunden zu haben? Dann sind Sie bei uns richtig! Für das Tertianum Blumenaupark in Unterterzen am Walensee suchen wir per sofort oder nach Vereinbarung eine/einen ​ Dipl. Pflegefachfrau / Pflegefachmann HF 80-100% \n• Ihre Aufgaben Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses Elektronische Pflegedokumentation mittels CareCoach Übernahme von \n• Aufgaben als Bezugsperson Pflege Übernahme von der Tagesverantwortung und Koordination des Tagesteams Übernahme von \n• Aufgaben als Thementrägerin/Thementräger einem zugeteilten Fachthema mit fachlicher Weisungsbefugnis \n• Ihr Profil Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/Pflegefachmann HF Abgeschlossener Berufsbildnerkurs und SVEB 1 oder Bereitschaft diese zu absolvieren Berufserfahrung in der Langzeitpflege erwünscht RAI-Kenntnisse erwünscht Freude an vielseitigen Herausforderungen Gute Deutschkenntnisse in Wort und Schrift Warum Tertianum? Uns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.: Interne und externe Weiterbildungsmöglichkeiten Zusätzlicher freier Tag im Geburtstagsmonat Tägliches Mittagessen für CHF 10 Vergünstigte Mobile- und Internet-Abos bei Sunrise Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen SBB-Halbtaxabonnement Diverse Flottenrabatte Weitere Benefits finden Sie auf unserer Website . Sind Sie interessiert? \n• Wir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams. Wir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto. ​",
         "fr": "Das charmante Wohn- und Pflegezentrum Tertianum Blumenaupark in Unterterzen am Walensee mit 60 Pflegebetten bietet Menschen im 4. Lebensalter ein behagliches Zuhause. 48 Pflegegäste finden ein gemütliches Zuhause in der Langzeitpflege und 12 Pflegegäste im geschützten Wohnbereich. Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung welcher für Sie nicht nur die Lebensqualität anderer verbessert, sondern auch eine Befriedigung und Sinnhaftigkeit im eigenen Leben schafft? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kunden zu haben? Dann sind Sie bei uns richtig! Für das Tertianum Blumenaupark in Unterterzen am Walensee suchen wir per sofort oder nach Vereinbarung eine/einen ​ Dipl. Pflegefachfrau / Pflegefachmann HF 80-100%\n• Ihre Aufgaben Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses Elektronische Pflegedokumentation mittels CareCoach Übernahme von\n• Aufgaben als Bezugsperson Pflege Übernahme von der Tagesverantwortung und Koordination des Tagesteams Übernahme von\n• Aufgaben als Thementrägerin/Thementräger einem zugeteilten Fachthema mit fachlicher Weisungsbefugnis\n• Ihr Profil Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/Pflegefachmann HF Abgeschlossener Berufsbildnerkurs und SVEB 1 oder Bereitschaft diese zu absolvieren Berufserfahrung in der Langzeitpflege erwünscht RAI-Kenntnisse erwünscht Freude an vielseitigen Herausforderungen Gute Deutschkenntnisse in Wort und Schrift Warum Tertianum? Uns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.: Interne und externe Weiterbildungsmöglichkeiten Zusätzlicher freier Tag im Geburtstagsmonat Tägliches Mittagessen für CHF 10 Vergünstigte Mobile- und Internet-Abos bei Sunrise Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen SBB-Halbtaxabonnement Diverse Flottenrabatte Weitere Benefits finden Sie auf unserer Website . Sind Sie interessiert?\n• Wir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams. Wir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto. ​"
       },
-      "needsRetranslation": true,
       "location": "Unterterzen",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Unterterzen-Pflegefachfrau-mann-St_-8882/1395121333/",
@@ -15352,8 +15362,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tertianum-28b25104e28b",
@@ -15475,7 +15484,6 @@
         "de": "Das charmante Wohn- und Pflegezentrum Tertianum Blumenaupark in Unterterzen am Walensee mit 60 Pflegebetten bietet Menschen im 4. Lebensalter ein behagliches Zuhause. 48 Pflegegäste finden ein gemütliches Zuhause in der Langzeitpflege und 12 Pflegegäste im geschützten Wohnbereich. \n• Wir bieten Ihnen ein vielfältiges Tätigkeitsfeld in einem innovativen und interdisziplinären Team Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns! Für das Tertianum Blumenaupark in Unterterzen suchen wir per 1. Juni 2026 eine/einen Sous-Chefin / Sous-Chef 100% \n• Ihre Aufgaben Verantwortlich für die fachgerechte Zubereitung und Präsentation aller Kostformen gemäss Menüplan und Spezialwünschen Mitverantwortlich für eine effiziente Lagerbewirtschaftung Einhalten des HACCP–Konzeptes und Arbeitssicherheitsrichtlinien Sach- und fachgerechte Organisation der Arbeit innerhalb des Küchendienstes Mitverantwortung für Wareneinkauf, Budget- und Controlling-Management, Inventur sowie Qualitätsmanagement Stellvertretung bei Abwesenheit des Küchenchefs Mitverantwortung für eine individuelle, abwechslungsreiche, gesunde und zielgruppengerechte Verpflegung im ganzen Gastronomiebereich \n• Ihr Profil Ausbildung zum Koch EFZ und Erfahrung als Sous-Chefin/Sous-Chef Langjähriger Erfahrung im Bereich der warmen und kalten Küche Fertigstellung/Regeneration und der Kommissionierung der Speisen Professionelle und selbständige Arbeitshaltung Flair für das Anrichten und Dekorieren von Speisen Bereitschaft zu Einsätzen an Events und Caterings Eine herzliche und humorvolle Grundeinstellung Freude an vielseitigen Herausforderungen Gute Deutschkenntnisse in Wort und Schrift Warum Tertianum? Uns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.: Interne und externe Weiterbildungsmöglichkeiten Keine Zimmerstunde Zusätzlicher freier Tag im Geburtstagsmonat Vergünstigte Mobile- und Internet-Abos bei Sunrise Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen SBB-Halbtaxabonnement Diverse Flottenrabatte Weitere Benefits finden Sie auf unserer Website . Sind Sie interessiert? \n• Wir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams. Wir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool oder direkt per Mail an D. Mutschler Leitung Küche Tertianum Blumenaupark dominic.mutschler@tertianum.ch",
         "fr": "Das charmante Wohn- und Pflegezentrum Tertianum Blumenaupark in Unterterzen am Walensee mit 60 Pflegebetten bietet Menschen im 4. Lebensalter ein behagliches Zuhause. 48 Pflegegäste finden ein gemütliches Zuhause in der Langzeitpflege und 12 Pflegegäste im geschützten Wohnbereich.\n• Wir bieten Ihnen ein vielfältiges Tätigkeitsfeld in einem innovativen und interdisziplinären Team Ihr Herz schlägt für ältere Menschen? Ist der Kochberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns! Für das Tertianum Blumenaupark in Unterterzen suchen wir per 1. Juni 2026 eine/einen Sous-Chefin / Sous-Chef 100% Ihre Aufgaben Verantwortlich für die fachgerechte Zubereitung und Präsentation aller Kostformen gemäss Menüplan und Spezialwünschen Mitverantwortlich für eine effiziente Lagerbewirtschaftung Einhalten des HACCP–Konzeptes und Arbeitssicherheitsrichtlinien Sach- und fachgerechte Organisation der Arbeit innerhalb des Küchendienstes Mitverantwortung für Wareneinkauf, Budget- und Controlling-Management, Inventur sowie Qualitätsmanagement Stellvertretung bei Abwesenheit des Küchenchefs Mitverantwortung für eine individuelle, abwechslungsreiche, gesunde und zielgruppengerechte Verpflegung im ganzen Gastronomiebereich Ihr Profil Ausbildung zum Koch EFZ und Erfahrung als Sous-Chefin/Sous-Chef Langjähriger Erfahrung im Bereich der warmen und kalten Küche Fertigstellung/Regeneration und der Kommissionierung der Speisen Professionelle und selbständige Arbeitshaltung Flair für das Anrichten und Dekorieren von Speisen Bereitschaft zu Einsätzen an Events und Caterings Eine herzliche und humorvolle Grundeinstellung Freude an vielseitigen Herausforderungen Gute Deutschkenntnisse in Wort und Schrift Warum Tertianum? Uns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.: Interne und externe Weiterbildungsmöglichkeiten Keine Zimmerstunde Zusätzlicher freier Tag im Geburtstagsmonat Vergünstigte Mobile- und Internet-Abos bei Sunrise Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen SBB-Halbtaxabonnement Diverse Flottenrabatte Weitere Benefits finden Sie auf unserer Website . Sind Sie interessiert? Wir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams. Wir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool oder direkt per Mail an D. Mutschler Leitung Küche Tertianum Blumenaupark dominic.mutschler@tertianum.ch"
       },
-      "needsRetranslation": true,
       "location": "Unterterzen",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Unterterzen-Sous-Chefin-St_-8882/1293756701/",
@@ -15518,8 +15526,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "tertianum-189d2772b29e",
@@ -16214,7 +16221,8 @@
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-pflege-und-betreuung-tertianum-wattwil"
+        "praktikantin-praktikant-pflege-und-betreuung-tertianum-wattwil",
+        "praktikantin-praktikant-pflege-e-betreuung-tertianum-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16989,7 +16997,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-lenzburg"
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-lenzburg",
+        "fachfrau-fachmann-gesundheit-cfc-100-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19566,9 +19575,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-        "en": "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
+        "en": "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
-        "fr": "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
+        "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -19636,14 +19645,19 @@
       "previousSlugs": [
         "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
         "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
+        "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
+        "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern"
+          "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
+          "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
+          "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern",
+          "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
@@ -20036,7 +20050,8 @@
         "healthcare-specialist-efz-40-100-tertianum-solothurn",
         "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-solothurn",
         "specialiste-en-sante-efz-40-100-tertianum-solothurn",
-        "fachfrau-fachmann-gesundheit-cfc-60-100-tertianum-zizers"
+        "fachfrau-fachmann-gesundheit-cfc-60-100-tertianum-zizers",
+        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20454,7 +20469,7 @@
       "id": "tertianum-f02b1f45c078",
       "slug": "assistente-sanitario-e-sociale-eba-50-100-tertianum-bern",
       "slugByLocale": {
-        "it": "assistente-sanitario-e-sociale-eba-50-100-tertianum-bern",
+        "it": "pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-afp-50-100-tertianum-bern",
         "en": "care-helper-care-helper-srk-or-assistant-assistant-health-and-social-eba-50-100-tertianum-bern",
         "de": "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50",
         "fr": "aide-aux-soins-aide-aux-soins-srk-ou-assistant-assistant-sante-et-social-eba-50-100-tertianum-bern"
@@ -20500,16 +20515,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50",
-        "pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-afp-50-100-tertianum-bern",
         "aiutante-i-alla-persona-srk-o-assistente-a-alla-salute-e-sociale-50-100-tertianum-bern",
         "pflegehelfer-pflegehelferin-srk-oder-assistentin-assistent-gesundheit-und-soziales-50-100",
         "srk-care-assistant-or-health-and-social-care-assistant-50-100-tertianum-bern",
-        "assistant-e-en-soins-srk-ou-assistant-e-sante-social-50-100-tertianum-bern"
+        "assistant-e-en-soins-srk-ou-assistant-e-sante-social-50-100-tertianum-bern",
+        "assistente-sanitario-e-sociale-eba-50-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50",
-          "pflegehelferin-pflegehelfer-srk-o-assistentin-assistent-gesundheit-e-soziales-afp-50-100-tertianum-bern"
+          "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50"
         ],
         "en": [
           "pflegehelferin-pflegehelfer-srk-oder-assistentin-assistent-gesundheit-und-soziales-eba-50"
@@ -21214,7 +21228,9 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
         "salute-professionale-efz-50-di-notte-tertianum-orpund",
-        "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
+        "healthcare-assistant-efz-50-night-shift-tertianum-orpund",
+        "fachfrau-fachmann-gesundheit-cfc-50-im-nachtdienst-tertianum-orpund",
+        "professional-health-efz-50-at-night-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
         "it": [
