@@ -7928,6 +7928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Rinascita verde lungo il Ticino: interventi tra Airolo e Rodi',
     'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Presentati i lavori di rivitalizzazione e sistemazione idraulica del fiume Ticino in Alta Leventina, con un investimento di 8 milioni di franchi.',
     'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Vista del fiume Ticino tra Airolo e Rodi con interventi di rinascita verde',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Stretta sull’esercito: più effettivi o perdita di civilisti?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti chiede più militari per la sicurezza nazionale, Zeno Casella avverte: la collettività perderà il sostegno dei civilisti.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Vista aerea dei castelli di Bellinzona con bandiere svizzere, simbolo di sicurezza nazionale.',
 };
 
 export default blogMetaIt;

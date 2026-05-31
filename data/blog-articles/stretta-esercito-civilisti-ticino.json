@@ -1,0 +1,40 @@
+{
+  "id": "stretta-esercito-civilisti-ticino",
+  "slug": "stretta-esercito-civilisti-ticino",
+  "publishedAt": "2026-05-31T15:57:58.085Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.892218332376633,
+    "confidence": 0.8,
+    "finalScore": 4.7137746659013064,
+    "topK": [
+      {
+        "slug": "chiasso-valore-economico-aggregazione",
+        "cosine": 0.8417454760538047
+      },
+      {
+        "slug": "tredicesima-avs-stipendio-iva",
+        "cosine": 0.8313403880021413
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8297841403565583
+      },
+      {
+        "slug": "aiuti-energia-proroga-taglio",
+        "cosine": 0.828318701554833
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8264056647719947
+      }
+    ],
+    "score": 4.7137746659013064,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

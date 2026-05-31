@@ -7926,6 +7926,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Grünes Erneuerung: Ticino-Wasserführung zwischen Airolo und Rodi',
     'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Präsentation der Arbeiten zur Wiederbelebung und Wasserversorgung des Ticino-Flusses in der Oberleventina mit einem Budget von 8 Millionen Franken.',
     'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Blick auf den Fluss Ticino zwischen Airolo und Rodi mit Grünwiederbelebungsmaßnahmen',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Streit um Armee: mehr Soldaten oder Zivilisten-Verlust?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti fordert mehr Militär für die nationale Sicherheit, Zeno Casella warnt: die Gemeinschaft wird die Unterstützung der Zivilisten verlieren.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Luftaufnahme der Burgen von Bellinzona mit Schweizer Flaggen, Symbol für nationale Sicherheit.',
 };
 
 export default blogMetaDe;
