@@ -7930,6 +7930,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stretta-esercito-civilisti-ticino.title': 'Army: More soldiers or loss of civil servants?',
     'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti calls for more soldiers for national security, Zeno Casella warns: the community will lose the support of civil servants.',
     'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Aerial view of Bellinzona\'s castles with Swiss flags, symbolizing national security.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Gambarogno Trail: New Interreg Project in Varese',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'The study of feasibility for the Interreg project to create a cross-border trail connecting Gambarogno to Lombardy has been presented in Varese.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Panoramic view of Gambarogno on Lake Maggiore on a sunny day.',
 };
 
 export default blogMetaEn;

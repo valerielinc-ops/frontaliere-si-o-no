@@ -7931,6 +7931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stretta-esercito-civilisti-ticino.title': 'Stretta sull’esercito: più effettivi o perdita di civilisti?',
     'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti chiede più militari per la sicurezza nazionale, Zeno Casella avverte: la collettività perderà il sostegno dei civilisti.',
     'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Vista aerea dei castelli di Bellinzona con bandiere svizzere, simbolo di sicurezza nazionale.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Maggiore Lake Trail: il Gambarogno nel nuovo percorso',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'Presentato a Varese lo studio di fattibilità del progetto Interreg per il trail transfrontaliero che unisce il Gambarogno al territorio lombardo.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Vista panoramica del Gambarogno sul Lago Maggiore in una giornata di sole.',
 };
 
 export default blogMetaIt;

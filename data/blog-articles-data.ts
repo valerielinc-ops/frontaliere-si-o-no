@@ -25166,4 +25166,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'maggiore-lake-trail-gambarogno',
+ category: 'pratico',
+ date: '2026-05-31T16:54:58.083Z',
+ image: '/images/blog/maggiore-lake-trail-gambarogno.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
