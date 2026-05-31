@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-05-30T23:58:00.909Z",
+  "assembledAt": "2026-05-31T13:02:48.602Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Business-Analysis-Avaloq_R-0004999",
@@ -75,7 +75,8 @@
       },
       "previousSlugs": [
         "lead-business-analysis-avaloq-swisscom-zurich-p4qk49"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Avaloq-Consultant_R-0002801-1",
@@ -237,7 +238,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pam-pki-swisscom-bern-jdh6dq"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer_R-0005544",
@@ -394,7 +396,8 @@
       },
       "previousSlugs": [
         "senior-sap-technology-consultant-swisscom-zurich-6txn43"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Escalation-Manager-Operation-Control-Center_R-0004579-1",
@@ -555,7 +558,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-22T00:03:38.031Z"
+      "firstSeenAt": "2026-05-22T00:03:38.031Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Controller_R-0005504",
@@ -630,7 +634,8 @@
       },
       "previousSlugs": [
         "business-controller-swisscom-bern-fljbg2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",
@@ -817,7 +822,7 @@
         "it": "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
         "en": "devops-engineer-swisscom-sede-ticino-bern",
         "de": "devops-ingenieur-swisscom-sede-ticino-bern",
-        "fr": "ingenieur-devops-swisscom-sede-ticino-bern"
+        "fr": "devops-engineer-swisscom-bern-on9t50"
       },
       "category": "technology",
       "datePosted": "2026-05-19",
@@ -859,11 +864,13 @@
           "devops-engineer-swisscom-bern-on9t50"
         ],
         "fr": [
+          "ingenieur-devops-swisscom-sede-ticino-bern",
           "devops-engineer-swisscom-bern-on9t50"
         ]
       },
       "previousSlugs": [
         "devops-engineer-swisscom-bern-on9t50",
+        "ingenieur-devops-swisscom-sede-ticino-bern",
         "devops-engineer-swisscom-bern-manv40",
         "devops-ingegnere-swisscom-sede-ticino-bern"
       ]
@@ -1024,7 +1031,8 @@
       },
       "previousSlugs": [
         "system-architect-ansible-swisscom-bern-5dk2mo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PKI_R-0005527",
@@ -1102,7 +1110,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pki-swisscom-bern-7g85ru"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/DevOps-Engineer-BCA-Cloud_R-0005258-1",
@@ -1183,7 +1192,8 @@
       },
       "previousSlugs": [
         "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner---Kubernetes-Platform_R-0005123",
@@ -1420,7 +1430,8 @@
       },
       "previousSlugs": [
         "solution-sales-large-enterprise-customers-swisscom-zurich-e032jo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Business-Engineer--Syrius-_R-0005211",
@@ -1498,7 +1509,8 @@
       },
       "previousSlugs": [
         "business-engineer-syrius-swisscom-zurich-b0d1aa"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Cyber-Security-Analyst_R-0004250-1",
@@ -1580,7 +1592,8 @@
         "senior-data-analyst-data-engineer-swisscom-sede-ticino-zurich",
         "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g",
         "senior-data-analyste-data-ingenieur-swisscom-sede-ticino-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Design---Multimedia-Specialist-Corporate-Communications_R-0004388",
@@ -1759,7 +1772,8 @@
       },
       "previousSlugs": [
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -1866,8 +1880,8 @@
       "slug": "imparare-swc-retail-manager-swisscom-sede-ticino-monthey",
       "slugByLocale": {
         "it": "imparare-swc-retail-manager-swisscom-sede-ticino-monthey",
-        "en": "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
-        "de": "lernen-swc-retail-manager-swisscom-sede-ticino-monthey",
+        "en": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
+        "de": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
         "fr": "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-monthey"
       },
       "category": "internship",
@@ -1891,16 +1905,20 @@
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia"
         ],
         "en": [
+          "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62"
         ],
         "de": [
+          "lernen-swc-retail-manager-swisscom-sede-ticino-monthey",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62"
         ]
       },
       "previousSlugs": [
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-monthey-tves62",
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-monthey",
-        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia"
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-grancia",
+        "learning-swc-retail-manager-swisscom-sede-ticino-monthey",
+        "lernen-swc-retail-manager-swisscom-sede-ticino-monthey"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1951,7 +1969,7 @@
       "slug": "programma-di-formazione-ict-swisscom-sede-ticino-bern",
       "slugByLocale": {
         "it": "programma-di-formazione-ict-swisscom-sede-ticino-bern",
-        "en": "ict-training-program-swisscom-sede-ticino-bern",
+        "en": "ict-trainee-programm-swisscom-bern-k8ry4t",
         "de": "ict-trainee-programm-swisscom-sede-ticino-bern",
         "fr": "ict-apprenti-programm-swisscom-sede-ticino-bern"
       },
@@ -1996,12 +2014,14 @@
           "ict-trainee-programm-swisscom-bern-k8ry4t"
         ],
         "en": [
+          "ict-training-program-swisscom-sede-ticino-bern",
           "ict-trainee-programm-swisscom-bern-k8ry4t"
         ]
       },
       "previousSlugs": [
         "ict-trainee-programm-swisscom-bern-k8ry4t",
-        "ict-apprendista-programm-swisscom-sede-ticino-bern"
+        "ict-apprendista-programm-swisscom-sede-ticino-bern",
+        "ict-training-program-swisscom-sede-ticino-bern"
       ]
     },
     {
@@ -2083,7 +2103,8 @@
       },
       "previousSlugs": [
         "devops-engineer-open-source-collab-betrieb-swisscom-bern-kv6k1v"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Geneva-Genve/ICT-Supporter_R-0001914",
@@ -2158,7 +2179,8 @@
         "it": [
           "ict-supporter-swisscom-geneva-geneve-12cy45"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Container-Application-Operations_R-0003803-1",
@@ -2233,7 +2255,8 @@
       },
       "previousSlugs": [
         "head-container-application-operations-swisscom-zurich-9pl6kv"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant---Full-Stack-Software-Engineer_R-0004536-1",
@@ -2308,7 +2331,8 @@
       },
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Onsite-IT-Support-Specialist-in-Vevey_R-0003999",
@@ -2389,7 +2413,8 @@
       },
       "previousSlugs": [
         "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",
@@ -2705,7 +2730,8 @@
       },
       "previousSlugs": [
         "microsoft-dynamics-consultant-swisscom-geneva-geneve-cvswb8"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/Apprentissage--Dveloppeur-se-de-business-numrique-CFC_R-0002699",
@@ -2737,8 +2763,8 @@
       "slug": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
         "it": "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-        "en": "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-        "de": "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
+        "en": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
+        "de": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
         "fr": "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
       },
       "category": "internship",
@@ -2761,15 +2787,19 @@
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
+          "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
         ],
         "de": [
+          "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf"
         ]
       },
       "previousSlugs": [
         "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-fowmuf",
-        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne"
+        "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-sede-ticino-lausanne",
+        "learning-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
+        "lernen-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2820,7 +2850,7 @@
       "slug": "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
         "it": "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne",
-        "en": "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne",
+        "en": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
         "de": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
         "fr": "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne"
       },
@@ -2844,12 +2874,14 @@
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
+          "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne",
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii"
         ]
       },
       "previousSlugs": [
         "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-2r02ii",
         "apprentissage-operateur-trice-en-informatique-cfc-swisscom-sede-ticino-lausanne",
+        "learning-computer-operator-cfc-swisscom-sede-ticino-lausanne",
         "apprentissage-operateur-trice-informatique-trice-cfc-swisscom-sede-ticino-bellinzona",
         "learning-computer-operator-afc-swisscom-sede-ticino-bellinzona"
       ],
@@ -2870,7 +2902,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z"
+      "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/OT-Cyber-Security-Sales-Spezialist-in_R-0004118",
@@ -3023,7 +3056,8 @@
       },
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Impiegato-a-del-commercio-al-dettaglio-AFC_R-0002524",
@@ -3102,9 +3136,9 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-bellinzona",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-bellinzona",
-        "en": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona",
-        "de": "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
-        "fr": "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona"
+        "en": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x",
+        "de": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x",
+        "fr": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
       },
       "category": "sales",
       "datePosted": "2025-09-01",
@@ -3187,17 +3221,20 @@
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-balerna",
+          "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ],
         "de": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-balerna",
+          "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ],
         "fr": [
           "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-bellinzona",
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-balerna",
+          "apprentissage-employe-e-de-commerce-de-detail-cfc-swisscom-sede-ticino-bellinzona",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona-56yj6x"
         ]
       },
@@ -3251,7 +3288,7 @@
       "slug": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia",
-        "en": "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
+        "en": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
         "de": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
         "fr": "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
       },
@@ -3272,7 +3309,7 @@
       "previousSlugs": [
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-grancia-56yj6w",
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w",
+        "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
         "lehre-detailhandelsfachmann-frau-efz-swisscom-sede-ticino-grancia",
         "lehre-einzelhandelskaufmann-frau-afc-swisscom-sede-ticino-grancia",
         "apprenticeship-retail-sales-clerk-afc-swisscom-sede-ticino-grancia",
@@ -3302,10 +3339,12 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia"
         ],
         "en": [
+          "apprenticeship-retail-sales-assistant-efz-swisscom-sede-ticino-grancia",
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     }
   ]
 }
