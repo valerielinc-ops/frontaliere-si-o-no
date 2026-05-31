@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-05-31T10:13:23.767Z",
+  "generatedAt": "2026-05-31T21:09:33.502Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2894,
-  "avgDurationMs": 2894,
+  "durationMs": 2730,
+  "avgDurationMs": 2730,
   "durationHistory": [
-    2894
+    2730
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9474&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T10:13:21.847Z",
+      "crawledAt": "2026-05-31T21:09:31.791Z",
       "firstSeenAt": "2026-05-30T09:56:14.280Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -72,8 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T10:13:21.848Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-05-31T21:09:31.792Z",
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "_qualityScore": 54,
       "_qualityBreakdown": {
@@ -107,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T10:13:21.849Z",
+      "crawledAt": "2026-05-31T21:09:31.793Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -141,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T10:13:21.849Z",
+      "crawledAt": "2026-05-31T21:09:31.793Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -257,8 +256,6 @@
       "salaryMax": 104000,
       "country": "CH",
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
