@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-31T12:20:28.765Z",
+  "assembledAt": "2026-05-31T23:16:22.039Z",
   "jobs": [
     {
       "title": "Autista C",
@@ -404,13 +404,13 @@
         "fr": "Manuel du bâtiment"
       },
       "descriptionByLocale": {
-        "it": "## Mansioni\n- Manovale Edile\n\n## Requisiti\n- Esperienza nel settore edile\n- Disponibilità immediata\n- Buona conoscenza della lingua italiana\n\n## Cosa offriamo\n- Condizioni di lavoro ottimali\n- Supporto professionale durante tutto il processo\n\n## Contatto\n- Candidati tramite il portale ufficiale",
-        "en": "♪\n- Building Manoval\n\n♪ Requirements\n- Experience in the construction industry\n- Immediate availability\n- Good knowledge of the Italian language\n\n## What do we offer\n- Optimal working conditions\n- Professional support throughout the process\n\n## Contact\n- Candidates through the official portal",
-        "de": "Sendungen - Gebäude Manoval \n• Anforderungen - Erfahrung in der Bauindustrie - Sofortige Verfügbarkeit - Gute Kenntnis der italienischen Sprache \n• Was wir bieten - Optimale Arbeitsbedingungen - Professionelle Unterstützung während des gesamten Prozesses Kontakt - Kandidaten durch das offizielle Portal",
-        "fr": "Expéditions - Bâtiment Manoval \n• Exigences - Expérience dans le secteur de la construction - Disponibilité immédiate - Bonne connaissance de la langue italienne Ce que nous offrons - Conditions de travail optimales - Soutien professionnel tout au long du processus Coordonnées - Candidats via le portail officiel"
+        "it": "## Mansioni - Manovale Edile ## \n• Requisiti - Esperienza nel settore edile - Disponibilità immediata - Buona conoscenza della lingua italiana ## \n• Cosa offriamo - Condizioni di lavoro ottimali - Supporto professionale durante tutto il processo ## Contatto - Candidati tramite il portale ufficiale\n\nPEMSA è da oltre 30 anni un punto di riferimento nel mercato svizzero per il reclutamento e la gestione di professionisti qualificati nei settori della costruzione, impiantistica, elettrotecnica e meccanica industriale. \n• Offriamo contratti fissi e temporanei, con la sicurezza di un partner stabile e la flessibilità che cerchi.\n\nVantaggi: consulenza personalizzata, accesso a cantieri di prestigio in tutta la Svizzera, supporto amministrativo completo, retribuzione competitiva e opportunità di formazione continua.",
+        "en": "♪ - Building Manoval ♪ \n• Requirements - Experience in the construction industry - Immediate availability - Good knowledge of the Italian language ## What do we offer - Optimal working conditions - Professional support throughout the process ## Contact - Candidates through the official portal",
+        "de": "Sendungen - Gebäude Manoval\n• Anforderungen - Erfahrung in der Bauindustrie - Sofortige Verfügbarkeit - Gute Kenntnis der italienischen Sprache\n• Was wir bieten - Optimale Arbeitsbedingungen - Professionelle Unterstützung während des gesamten Prozesses Kontakt - Kandidaten durch das offizielle Portal",
+        "fr": "Expéditions - Bâtiment Manoval\n• Exigences - Expérience dans le secteur de la construction - Disponibilité immédiate - Bonne connaissance de la langue italienne Ce que nous offrons - Conditions de travail optimales - Soutien professionnel tout au long du processus Coordonnées - Candidats via le portail officiel"
       },
       "slugByLocale": {
-        "it": "manovale-edile-pemsa-bellinzona",
+        "it": "manovale-edile-pemsa-chiasso",
         "en": "building-handbook-pemsa-chiasso",
         "de": "bauarbeiter-pemsa-bellinzona",
         "fr": "manuel-du-batiment-pemsa-chiasso"
@@ -437,6 +437,9 @@
           "construction-worker-pemsa-bellinzona"
         ],
         "fr": [
+          "manovale-edile-pemsa-bellinzona"
+        ],
+        "it": [
           "manovale-edile-pemsa-bellinzona"
         ]
       },
@@ -1584,7 +1587,8 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-19T23:12:33.521Z"
+      "firstSeenAt": "2026-05-19T23:12:33.521Z",
+      "needsRetranslation": true
     },
     {
       "title": "INSTALLATORE IDRAULICO",
@@ -2472,7 +2476,7 @@
         "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de GARDEN/AIDE D'AVENIR Mission :\n• L'incarcération temporaire par agence.\n• Entretien du vert, plantation, élagage, semis, coupe d'herbe et haies. Profil :\n• Diplôme AFC de Giardiniere ou expérience antérieure d'au moins 5 ans, mieux si en Suisse. .\n• Une autonomie totale dans la construction et l'entretien des jardins.\n• Grande utilisation des outils de travail.\n• Disponibilité immédiate.\n• Brevet B et auto-immun\n• Résidence au Tessin ou à la frontière."
       },
       "slugByLocale": {
-        "it": "giardiniere-aiuto-giardiniere-pemsa-rivera",
+        "it": "giardini-pemsa-rivera",
         "en": "gardinishing-hying-pemsa-rivera",
         "de": "giardiniere-aiuto-giardiniere-pemsa-rivera",
         "fr": "garantie-pemsa-rivera"
@@ -2493,7 +2497,16 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-27T13:31:55.469Z"
+      "firstSeenAt": "2026-05-27T13:31:55.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "giardiniere-aiuto-giardiniere-pemsa-rivera"
+        ]
+      },
+      "previousSlugs": [
+        "giardiniere-aiuto-giardiniere-pemsa-rivera"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Installatore Idraulico AFC Riscaldamenti",
@@ -3901,274 +3914,6 @@
           "rollenbahn-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
-    },
-    {
-      "title": "Selciatore",
-      "slug": "selciatore-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/selciatore-2665840/",
-      "applyUrl": "https://www.pemsa.ch/it/job/selciatore-2665840/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-31",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Selciatore\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Pregressa esperienza nella mansione\n• Utilizza principalmente pietra naturale, pietrisco, cubetti di granito o porfido\n• Disponibilità immediata\n\n## Profilo :\n• Pregressa esperienza nei cantieri Svizzeri\n• Conoscenza delle norme di sicurezza sui cantieri\n• Posa in opera di pavimentazioni in pietra naturale, come selci, ciottoli o sampietrini, per strade, piazze e cortili\n• Posa delle pietre secondo motivi specifici e rifiniture finali\n• Patente ed automunito",
-      "titleByLocale": {
-        "it": "Selciatore",
-        "en": "pavior and kerb layer",
-        "de": "Pflaster",
-        "fr": "Pave"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Selciatore ## Missione : - Incarico interinale tramite agenzia - Pregressa esperienza nella mansione - Utilizza principalmente pietra naturale, pietrisco, cubetti di granito o porfido - Disponibilità immediata ## Profilo : - Pregressa esperienza nei cantieri Svizzeri - Conoscenza delle norme di sicurezza sui cantieri - Posa in opera di pavimentazioni in pietra naturale, come selci, ciottoli o sampietrini, per strade, piazze e cortili - Posa delle pietre secondo motivi specifici e rifiniture finali - Patente ed automunito",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Paver ## Mission: - Temporary assignment through an agency - Previous experience in the job - Mainly uses natural stone, crushed stone, granite or porphyry cubes - Immediate availability ##\n• Profile: - Previous experience on Swiss construction sites - Knowledge of safety regulations on construction sites - Installation of natural stone flooring, such as flints, cobblestones or cobblestones, for streets, squares and courtyards - Laying of stones according to specific motifs and final finishing touches - Driving license and car",
-        "de": "Möchten Sie die Freiheit eines befristeten Arbeitsplatzes und die Sicherheit eines unbefristeten Arbeitsplatzes? Seit 30 Jahren betreuen wir schweizweit hunderte Unternehmen aus den technischen Bereichen Bau, Bau und Industrie und bieten ihnen die besten Talente. Wir werden Sie nicht anlügen, aber wir sind anspruchsvoll. Wenn Sie also eine motivierte und begeisterungsfähige Person sind, schließen Sie sich dem Clan für die Position des Pflasterers an. ## Aufgabe: - Temporärer Einsatz durch eine Agentur - Vorherige Berufserfahrung - Verwendet hauptsächlich Natursteine, Schotter, Granit- oder Porphyrwürfel - Sofortige Verfügbarkeit ## Profil: - Vorerfahrung auf Schweizer Baustellen - Kenntnisse der Sicherheitsvorschriften auf Baustellen - Verlegung von Natursteinböden, wie Feuersteinen, Pflastersteinen oder Pflastersteinen, für Straßen, Plätze und Höfe - Verlegen von Steinen nach konkreten Motiven und letzten Feinarbeiten - Führerschein und Auto",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Paveur ## Mission : - Mission temporaire par l'intermédiaire d'une agence - Expérience antérieure dans le métier - Utilise principalement de la pierre naturelle, de la pierre concassée, des cubes de granit ou de porphyre - Disponibilité immédiate ## Profil : - Expérience antérieure sur des chantiers suisses - Connaissance des règles de sécurité sur les chantiers - Pose de revêtements de sol en pierre naturelle, comme des silex, des pavés ou des pavés, pour rues, places et cours - Pose de pierres selon motifs spécifiques et finitions finales - Permis de conduire et voiture"
-      },
-      "slugByLocale": {
-        "it": "selciatore-pemsa-bellinzona",
-        "en": "pavior-and-kerb-layer-pemsa-bellinzona",
-        "de": "pflaster-pemsa-bellinzona",
-        "fr": "pave-pemsa-bellinzona"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "pflasterer-pemsa-bellinzona-l71bxi",
-        "paveur-pemsa-bellinzona-l71bxi",
-        "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
-        "pflasterer-pemsa-bellinzona",
-        "paveur-pemsa-bellinzona"
-      ],
-      "id": "pemsa-0da263d705ed",
-      "previousSlugsByLocale": {
-        "it": [
-          "pflasterer-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona-l71bxi"
-        ],
-        "en": [
-          "pflasterer-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona-l71bxi",
-          "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi"
-        ],
-        "de": [
-          "pflasterer-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona-l71bxi",
-          "pflasterer-pemsa-bellinzona"
-        ],
-        "fr": [
-          "pflasterer-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
-    },
-    {
-      "title": "Meccanico di mezzi pesanti",
-      "slug": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/meccanico-di-mezzi-pesanti-2665809/",
-      "applyUrl": "https://www.pemsa.ch/it/job/meccanico-di-mezzi-pesanti-2665809/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-31",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Meccanico di mezzi pesanti\n\n## Missione :\n• Assunzione temporanea tramite agenzia in vista di un’assunzione a tempo indeterminato\n• Conoscenza delle parti meccaniche, elettroniche e idrauliche\n• Esperienza in svizzera\n\n## Profilo :\n• Molti anni di esperienza nel settore della meccanica dei mezzi pesanti\n• Eseguire le riparazioni di routine e sostituire le parti difettose\n• Ottimo uso degli attrezzi di lavoro",
-      "titleByLocale": {
-        "it": "Meccanico di mezzi pesanti",
-        "en": "Meccanico di mezzi weighti",
-        "de": "Schwerlastfahrzeugmechaniker",
-        "fr": "Meccanico di mezzi pesanti"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Meccanico di mezzi pesanti ## Missione : - Assunzione temporanea tramite agenzia in vista di un’assunzione a tempo indeterminato - Conoscenza delle parti meccaniche, elettroniche e idrauliche - Esperienza in svizzera ## Profilo : - Molti anni di esperienza nel settore della meccanica dei mezzi pesanti - Eseguire le riparazioni di routine e sostituire le parti difettose - Ottimo uso degli attrezzi di lavoro",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Heavy Vehicle Mechanic ## Mission: - Temporary hiring through agency with a view to permanent employment - Knowledge of mechanical, electronic and hydraulic parts - Experience in Switzerland ##\n• Profile: - Many years of experience in the field of heavy vehicle mechanics - Carry out routine repairs and replace defective parts - Excellent use of work tools",
-        "de": "Möchten Sie die Freiheit eines befristeten Arbeitsplatzes und die Sicherheit eines unbefristeten Arbeitsplatzes? Seit 30 Jahren betreuen wir schweizweit hunderte Unternehmen aus den technischen Bereichen Bau, Bau und Industrie und bieten ihnen die besten Talente. Wir werden Sie nicht anlügen, aber wir sind anspruchsvoll. Wenn Sie also eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position des Schwerfahrzeugmechanikers bei. ## Mission: - Temporäre Einstellung über eine Agentur mit der Aussicht auf eine Festanstellung - Kenntnisse über mechanische, elektronische und hydraulische Teile - Erfahrung in der Schweiz ## Profil: - Langjährige Erfahrung im Bereich der Schwerfahrzeugmechanik - Durchführung von Routinereparaturen und Austausch defekter Teile - Hervorragender Einsatz von Arbeitsgeräten",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Mécanicien Véhicules Lourds ## Mission : - Embauche temporaire en agence en vue d'un emploi permanent - Connaissance des pièces mécaniques, électroniques et hydrauliques - Expérience en Suisse ## Profil : - De nombreuses années d'expérience dans le domaine de la mécanique poids lourds - Effectuer les réparations courantes et remplacer les pièces défectueuses - Excellente utilisation des outils de travail"
-      },
-      "slugByLocale": {
-        "it": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-        "en": "meccanico-di-mezzi-weighti-pemsa-bellinzona",
-        "de": "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
-        "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
-        "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-        "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
-        "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
-        "heavy-equipment-mechanic-pemsa-bellinzona",
-        "meccanico-di-mezzi-pesi-pemsa-bellinzona"
-      ],
-      "id": "pemsa-a5bdddcb7a6f",
-      "previousSlugsByLocale": {
-        "it": [
-          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
-        ],
-        "en": [
-          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
-        ],
-        "de": [
-          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
-        ],
-        "fr": [
-          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
-    },
-    {
-      "title": "Lattoniere",
-      "slug": "lattoniere-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/lattoniere-2665734/",
-      "applyUrl": "https://www.pemsa.ch/it/job/lattoniere-2665734/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-31",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Esperienza maturata nella mansione specifica di lattoniere\n• Capacità di lavorare sia in maniera autonoma che in un team\n\n## Profilo :\n• Capacità nel posare canali, tubi, rivestimenti e coperture in lamiera, in rame o in altri materiali\n• Eseguire lavori di riparazione e di sigillatura\n• Saldare a stagno\n• Montaggio degli elementi di lattoneria su tetti piani, tetti a falde e facciate\n• Ottima abilità nell’utilizzo dei vari attrezzi da lavoro",
-      "titleByLocale": {
-        "it": "Lattoniere",
-        "en": "Sheet Metal Worker",
-        "de": "Blechschmiede",
-        "fr": "Ferblantier"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere ## Missione : - Incarico interinale tramite agenzia - Esperienza maturata nella mansione specifica di lattoniere - Capacità di lavorare sia in maniera autonoma che in un team ## Profilo : - Capacità nel posare canali, tubi, rivestimenti e coperture in lamiera, in rame o in altri materiali - Eseguire lavori di riparazione e di sigillatura - Saldare a stagno - Montaggio degli elementi di lattoneria su tetti piani, tetti a falde e facciate - Ottima abilità nell’utilizzo dei vari attrezzi da lavoro",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Tinsmith ## Mission: - Temporary assignment through an agency - Experience gained in the specific job of tinsmith - Ability to work both independently and in a team ##\n• Profile: - Ability to lay channels, pipes, cladding and roofing in sheet metal, copper or other materials - Carry out repair and sealing work - Tin welding - Assembly of the elements of sheet metal work on flat roofs, pitched roofs and facades - Excellent ability to use various work tools",
-        "de": "Willst du die Freiheit eines befristeten Jobs und die Sicherheit eines festen? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen Bauwesen, Bauwesen und Industrie in der gesamten Schweiz und stellen ihnen das beste Talent zur Verfügung. Wir werden Sie nicht belügen, aber wir fordern es. Wenn du also motiviert und begeistert bist, tritt dem Clan für die Position des Blechsmids bei ## Mission: - Vorübergehende Versetzung durch Agentur - Erfahrung in der spezifischen Blechmachertätigkeit - Fähigkeit, sowohl eigenständig als auch im Team zu arbeiten ## Profil: - Fähigkeit, Kanäle, Rohre, Auskleidungen und Dächer aus Blech, Kupfer oder anderen Materialien zu verlegen - Reparatur- und Abdichtungsarbeiten durchzuführen - Zinnschweißen - Montage der Elemente von Blechbearbeitung auf Flachdächern, Geneigdächern und Fassaden – Hervorragende Fähigkeit, verschiedene Arbeitswerkzeuge zu benutzen.",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Ferblantier ## Mission : - Mission temporaire par l'intermédiaire d'une agence - Expérience acquise dans le métier spécifique de ferblantier - Capacité à travailler aussi bien en autonomie qu'en équipe ## Profil : - Capacité à poser des caniveaux, des canalisations, des bardages et des couvertures en tôle, cuivre ou autres matériaux - Réaliser des travaux de réparation et d'étanchéité - Soudure à l'étain - Assemblage des éléments de tôlerie sur toits plats, toits en pente et façades - Excellente capacité d'utilisation divers outils de travail"
-      },
-      "slugByLocale": {
-        "it": "lattoniere-pemsa-bellinzona",
-        "en": "sheet-metal-worker-pemsa-bellinzona",
-        "de": "blechschmiede-pemsa-bellinzona",
-        "fr": "ferblantier-pemsa-bellinzona"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "ferblantier-pemsa-bellinzona-o8tlzm",
-        "spengler-pemsa-bellinzona-o8tlzm",
-        "sheet-metal-worker-pemsa-bellinzona-o8tlzm",
-        "spengler-pemsa-bellinzona",
-        "sheet-metal-worker-pemsa-locarno",
-        "sheet-metal-worker-pemsa-locarno-oah52n",
-        "sheet-metal-worker-pemsa-lugano",
-        "lattoniere-pemsa-lugano",
-        "spengler-pemsa-lugano",
-        "ferblantier-pemsa-lugano"
-      ],
-      "id": "pemsa-b68abb58f9a3",
-      "previousSlugsByLocale": {
-        "it": [
-          "ferblantier-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona-o8tlzm"
-        ],
-        "en": [
-          "ferblantier-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona-o8tlzm",
-          "sheet-metal-worker-pemsa-bellinzona-o8tlzm"
-        ],
-        "de": [
-          "ferblantier-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona"
-        ],
-        "fr": [
-          "ferblantier-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona-o8tlzm"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
