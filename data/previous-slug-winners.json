@@ -1575,11 +1575,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
-    "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln-847ca8",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-29T00:00:00.000Z",
-    "score": 0.4286,
+    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
+    "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.4615,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -2541,7 +2541,7 @@
     "winnerJobIdentifier": "otis-afb91b895add",
     "winnerCanonical": "technischer-sachverstandiger-m-w-d-otis-sa-belp",
     "decidedAt": "2026-05-13T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "BE"
@@ -4548,7 +4548,7 @@
     "winnerJobIdentifier": "agie-charmilles-a2e273efe44c",
     "winnerCanonical": "software-plc-engineer-r-d-100-agie-charmilles-biel-bienne",
     "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8182,
     "candidatesCount": 1,
     "canton": "BE"
@@ -4995,12 +4995,12 @@
     "canton": "GE"
   },
   "GE::de::hospitality-praktikant-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-31697e54915b",
-    "winnerCanonical": "krankenhaus-intern-richemont-meyrin",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerCanonical": "juwelenmanager-europa-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::de::international-rewards-specialist-richemont-meyrin": {
@@ -5019,6 +5019,15 @@
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
+    "canton": "GE"
+  },
+  "GE::de::krankenhaus-intern-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "hospitality-praktikant-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "GE"
   },
   "GE::de::kundenmanager-im-gastgewerbe-vacheron-constantin-plan-les-ouates": {
@@ -5063,6 +5072,15 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::de::schmuckmanager-europa-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerCanonical": "juwelenmanager-europa-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -5318,6 +5336,15 @@
     "candidatesCount": 2,
     "canton": "GE"
   },
+  "GE::fr::stagiaire-de-reception-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "stagiaire-en-hotellerie-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::fr::stagiaire-en-analyse-d-affaires-richemont-bellevue": {
     "winnerJobIdentifier": "richemont-bd8bad4ac0f7",
     "winnerCanonical": "sales-associate-richemont-geneva",
@@ -5337,12 +5364,12 @@
     "canton": "GE"
   },
   "GE::fr::stagiaire-en-hotellerie-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-31697e54915b",
-    "winnerCanonical": "stagiaire-de-reception-richemont-meyrin",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "richemont-ecfe43d09d63",
+    "winnerCanonical": "jewelry-manager-europe-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4286,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::it::analisi-aziendale-interna-richemont-bellevue": {
@@ -5552,6 +5579,15 @@
     "candidatesCount": 1,
     "canton": "GE"
   },
+  "GE::it::hospitality-tirocinante-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "ospitalita-interno-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
   "GE::it::hris-specialist-cdd-richemont-meyrin": {
     "winnerJobIdentifier": "richemont-31697e54915b",
     "winnerCanonical": "ospitalita-interno-richemont-meyrin",
@@ -5684,6 +5720,15 @@
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.6667,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::it::specialista-internazionale-dei-premi-cartier-meyrin": {
+    "winnerJobIdentifier": "richemont-fa60ec6074bb",
+    "winnerCanonical": "risorse-umane-admin-specialista-richemont-meyrin",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -6057,7 +6102,7 @@
     "canton": "GR"
   },
   "GR::de::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
@@ -6066,7 +6111,7 @@
     "canton": "GR"
   },
   "GR::de::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
@@ -6687,12 +6732,12 @@
     "canton": "GR"
   },
   "GR::en::betreuer-in-pdgr-ch-2": {
-    "winnerJobIdentifier": "pdgr-3368deccf057",
-    "winnerCanonical": "supervisor-psychiatrische-dienste-graubunden-landquart",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d": {
@@ -6777,20 +6822,20 @@
     "canton": "GR"
   },
   "GR::en::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "professional-cook-cook-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "professional-cook-cook-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -7371,12 +7416,12 @@
     "canton": "GR"
   },
   "GR::fr::betreuer-in-pdgr-ch-2": {
-    "winnerJobIdentifier": "pdgr-3368deccf057",
-    "winnerCanonical": "superviseur-psychiatrische-dienste-graubunden-landquart",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::candidatura-spontanea-per-professioni-infermieristiche-assistenza-a-lungo-termine-center-d": {
@@ -7452,11 +7497,11 @@
     "canton": "GR"
   },
   "GR::fr::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -7479,11 +7524,11 @@
     "canton": "GR"
   },
   "GR::fr::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -8181,11 +8226,11 @@
     "canton": "GR"
   },
   "GR::it::berufslehre-kochin-koch-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -8199,12 +8244,12 @@
     "canton": "GR"
   },
   "GR::it::betreuer-in-pdgr-ch-2": {
-    "winnerJobIdentifier": "pdgr-3368deccf057",
-    "winnerCanonical": "supervisore-psychiatrische-dienste-graubunden-landquart",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "betreuer-in-pdgr-ch",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0,
-    "candidatesCount": 2,
+    "score": 0.8,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol": {
@@ -8280,12 +8325,12 @@
     "canton": "GR"
   },
   "GR::it::collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur": {
-    "winnerJobIdentifier": "pdgr-bafc3aaa69de",
-    "winnerCanonical": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-8faee1f21651",
+    "winnerCanonical": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.75,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur": {
@@ -8334,20 +8379,20 @@
     "canton": "GR"
   },
   "GR::it::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.5714,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
-    "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+    "winnerJobIdentifier": "9552644",
+    "winnerCanonical": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -8612,13 +8657,22 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
-  "GR::it::medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis": {
+  "GR::it::medico-senior-psychiatrische-dienste-graubunden-cazis": {
     "winnerJobIdentifier": "pdgr-6bea78edbd79",
-    "winnerCanonical": "medico-senior-psychiatrische-dienste-graubunden-cazis",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerCanonical": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-72c42eafd6ec",
+    "winnerCanonical": "oberarztin-oberarzt-pdgr-ch",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur": {
@@ -8685,12 +8739,12 @@
     "canton": "GR"
   },
   "GR::it::praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur": {
-    "winnerJobIdentifier": "pdgr-8b7dbfbdea53",
-    "winnerCanonical": "interno-modulo-di-pratica-i-ii-o-stage-psychiatrische-dienste-graubunden-chur",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "pdgr-4f66cd6d423a",
+    "winnerCanonical": "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4375,
-    "candidatesCount": 2,
+    "score": 0.2778,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch": {
@@ -8979,6 +9033,15 @@
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 6,
+    "canton": "GR"
+  },
+  "GR::it::supervisore-psychiatrische-dienste-graubunden-landquart": {
+    "winnerJobIdentifier": "pdgr-3368deccf057",
+    "winnerCanonical": "betreuer-in-pdgr-ch-2",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::ticketkontrolleur-in-und-kundenberatung-post": {
@@ -9927,12 +9990,12 @@
     "canton": "LU"
   },
   "LU::it::zivildienstleistende-come-koch-pflichtenheft-101150-luzerner-kantonsspital-luks-luzern": {
-    "winnerJobIdentifier": "luks-136dcbaf6974",
-    "winnerCanonical": "personale-di-servizio-civile-come-cuoco-posizione-101150-luzerner-kantonsspital-luks-luzern",
+    "winnerJobIdentifier": "luks-08971abc56a7",
+    "winnerCanonical": "personale-di-servizio-civile-come-cuoco-in-cucina-principale-incarico-51535-luzerner-kantonsspital-luks-sursee",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "NE::de::data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon-2": {
@@ -10017,9 +10080,9 @@
     "canton": "NE"
   },
   "NE::en::stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "richemont-9df2f76334dc",
+    "winnerJobIdentifier": "richemont-444be947b48e",
     "winnerCanonical": "trainee-progress-procedures-procadrans-la-chaux-de-fonds",
-    "decidedAt": "2026-05-24T00:00:00.000Z",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
@@ -10593,12 +10656,12 @@
     "canton": "SG"
   },
   "SG::de::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-2sfgum",
-    "winnerCanonical": "detailhandelsassistent-in-eba-coop-gossau",
+    "winnerJobIdentifier": "company-4iugqw",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.125,
-    "candidatesCount": 2,
+    "score": 0.1111,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::de::stationsleiter-in-80-100-hoch-health-st-gallen": {
@@ -10961,6 +11024,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::en::retailer-man-assistant-in-coop-gossau-611c2c": {
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::retailer-man-coop-gossau-207b00": {
     "winnerJobIdentifier": "company-ymbv0r",
     "winnerCanonical": "retailer-man-coop-gossau-c56811",
@@ -10980,12 +11052,12 @@
     "canton": "SG"
   },
   "SG::en::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-2sfgum",
-    "winnerCanonical": "retailer-man-assistant-in-coop-gossau",
+    "winnerJobIdentifier": "company-4iugqw",
+    "winnerCanonical": "sales-assistant-coop-grigioni",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 1,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::en::sales-assistant-coop-grigioni": {
@@ -11231,6 +11303,24 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::fr::detaillant-homme-assistant-in-coop-gossau": {
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::detaillant-homme-assistant-in-coop-gossau-611c2c": {
+    "winnerJobIdentifier": "company-2sfgum",
+    "winnerCanonical": "assistant-e-de-vente-coop-coop-grigioni",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::fr::detaillant-homme-coop-gossau-207b00": {
     "winnerJobIdentifier": "company-ymbv0r",
     "winnerCanonical": "detaillant-homme-coop-gossau-c56811",
@@ -11367,12 +11457,12 @@
     "canton": "SG"
   },
   "SG::fr::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-2sfgum",
-    "winnerCanonical": "detaillant-homme-assistant-in-coop-gossau",
+    "winnerJobIdentifier": "company-4iugqw",
+    "winnerCanonical": "assistante-de-vente-coop-grigioni",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.25,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::vendeur-e-en-detail-interdiscount-grigioni": {
@@ -11916,12 +12006,12 @@
     "canton": "SG"
   },
   "SG::it::sales-assistant-coop-coop-grigioni": {
-    "winnerJobIdentifier": "company-2sfgum",
-    "winnerCanonical": "detailhandelsassistent-in-afp-coop-gossau",
+    "winnerJobIdentifier": "company-4iugqw",
+    "winnerCanonical": "rivenditore-man-assistente-in-coop-gossau",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.125,
-    "candidatesCount": 2,
+    "score": 0.1111,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::it::vendeur-e-en-detail-interdiscount-grigioni": {
@@ -11987,6 +12077,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::de::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::de::mitarbeiter-in-technischer-dienst-spitaeler-schaffhausen-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-6c91ac86c86c",
     "winnerCanonical": "mitarbeiter-in-technischer-dienst-spitaler-schaffhausen-schaffhausen",
@@ -11994,6 +12093,15 @@
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::de::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-00b321f498f1",
+    "winnerCanonical": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.1333,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::en::dipl-ing-expertin-experte-intensivpflege-nds-hf-spitaler-schaffhausen-schaffhausen": {
@@ -12059,6 +12167,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::en::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.1429,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::en::fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-be229b4d6d08",
     "winnerCanonical": "professional-health-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
@@ -12075,6 +12192,15 @@
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.3,
     "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::en::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-00b321f498f1",
+    "winnerCanonical": "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::fr::dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen": {
@@ -12149,6 +12275,15 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::fr::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "sante-professionnelle-efz-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.1333,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::fr::fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-be229b4d6d08",
     "winnerCanonical": "sante-professionnelle-efz-education-des-adultes-selon-l-art-32-bbv-spitaler-schaffhausen-schaffhausen",
@@ -12165,6 +12300,15 @@
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
+    "canton": "SH"
+  },
+  "SH::fr::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "sante-professionnelle-efz-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.1875,
+    "candidatesCount": 2,
     "canton": "SH"
   },
   "SH::it::dipl-expertin-experte-intensivpflege-nds-hf-spitaeler-schaffhausen-schaffhausen": {
@@ -12239,12 +12383,39 @@
     "candidatesCount": 2,
     "canton": "SH"
   },
+  "SH::it::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-3d1d1992792f",
+    "winnerCanonical": "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
   "SH::it::fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen": {
     "winnerJobIdentifier": "spitaeler-schaffhausen-be229b4d6d08",
     "winnerCanonical": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
     "decidedAt": "2026-05-22T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "SH"
+  },
+  "SH::it::specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen": {
+    "winnerJobIdentifier": "spitaeler-schaffhausen-00b321f498f1",
+    "winnerCanonical": "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.9091,
     "candidatesCount": 2,
     "canton": "SH"
   },
@@ -12626,6 +12797,15 @@
     "candidatesCount": 1,
     "canton": "SO"
   },
+  "SO::fr::infirmier-ere-en-soins-d-urgence-h-f-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-0eb1abbd40da",
+    "winnerCanonical": "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::fr::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
     "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
     "winnerCanonical": "projektleiter-m-m-j-solothurner-spitaler-soh-solothurn",
@@ -12672,12 +12852,12 @@
     "canton": "SO"
   },
   "SO::fr::projektleiter-m-m-j-solothurner-spitaler-soh-solothurn": {
-    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
-    "winnerCanonical": "projektleiter-m-m-solothurner-spitaler-soh-solothurn",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "SO"
   },
   "SO::fr::projektleiterin-projektleiter-bauherrenvertretung-w-m-d-soh-ch": {
@@ -12803,6 +12983,15 @@
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.0625,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::it::medico-di-base-uomo-donna-solothurner-spitaler-soh-solothurn": {
+    "winnerJobIdentifier": "solothurner-spitaeler-8dfc47f841da",
+    "winnerCanonical": "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -13185,12 +13374,12 @@
     "canton": "TG"
   },
   "TG::de::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.0952,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
@@ -13248,21 +13437,21 @@
     "canton": "TG"
   },
   "TG::de::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "oberarzt-arztin-forensik-stgag-ch",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 2,
+    "score": 0.0714,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "oberarzt-arztin-forensik-stgag-ch",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::formazione-infermiere-dipl-sss-2-anni-abbreviati-settembre-2026-zag-spital-thurgau-stgag-kantonsspital-munsterlingen": {
@@ -13284,12 +13473,12 @@
     "canton": "TG"
   },
   "TG::de::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.0625,
-    "candidatesCount": 2,
+    "score": 0.0435,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::de::medico-senior-in-pneumologia-spital-thurgau-stgag-kantonsspital-munsterlingen": {
@@ -13545,12 +13734,12 @@
     "canton": "TG"
   },
   "TG::en::dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-nurse-acute-ward-for-older-patients-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "senior-physician-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1111,
-    "candidatesCount": 3,
+    "score": 0.0667,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch": {
@@ -13617,12 +13806,12 @@
     "canton": "TG"
   },
   "TG::en::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "training-as-a-specialist-nurse-hf-4-years-part-time-bfgs-starting-january-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::en::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
@@ -13698,11 +13887,11 @@
     "canton": "TG"
   },
   "TG::en::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "senior-physician-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3077,
+    "score": 0.0714,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -13779,11 +13968,11 @@
     "canton": "TG"
   },
   "TG::en::oberarzt-arztin-forensik-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "senior-physician-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -14022,12 +14211,12 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-infirmier-ere-service-aigu-pour-personnes-agees-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medecin-principal-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1053,
-    "candidatesCount": 3,
+    "score": 0.0667,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch": {
@@ -14103,12 +14292,12 @@
     "canton": "TG"
   },
   "TG::fr::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen-7b0100",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2222,
-    "candidatesCount": 2,
+    "score": 0.1154,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::fr::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
@@ -14184,11 +14373,11 @@
     "canton": "TG"
   },
   "TG::fr::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medecin-principal-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3077,
+    "score": 0.0714,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -14265,11 +14454,11 @@
     "canton": "TG"
   },
   "TG::fr::oberarzt-arztin-forensik-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
-    "decidedAt": "2026-05-23T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medecin-principal-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1667,
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -14472,11 +14661,11 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-30T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.2273,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -14571,12 +14760,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-carriera-donna-acute-station-all-eta-superiore-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2778,
-    "candidatesCount": 3,
+    "score": 0.2667,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen": {
@@ -14589,21 +14778,21 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2941,
-    "candidatesCount": 3,
+    "score": 0.2857,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
-    "winnerCanonical": "dipl-infermiere-a-reparto-acuto-per-anziani-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-29T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.1111,
-    "candidatesCount": 3,
+    "score": 0.0667,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-con-zusatzfunktion-berufsbildner-in-spital-thurgau-stgag-diessenhofen": {
@@ -14634,12 +14823,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2857,
-    "candidatesCount": 2,
+    "score": 0.1905,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2": {
@@ -14706,12 +14895,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen-r14fca": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "score": 0.1739,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen": {
@@ -14877,30 +15066,30 @@
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-7b0100": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.9091,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.9091,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.2353,
-    "candidatesCount": 2,
+    "score": 0.1667,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::medico-senior-forensik-spital-thurgau-stgag-munsterlingen": {
@@ -15147,12 +15336,12 @@
     "canton": "TI"
   },
   "TI::de::administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -15201,12 +15390,12 @@
     "canton": "TI"
   },
   "TI::de::arzthelferin-eoc-ente-ospedaliero-cantonale-lugano": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.7143,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::arztsekretar-in-unispital-basel-ch": {
@@ -15228,21 +15417,21 @@
     "canton": "TI"
   },
   "TI::de::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -15516,12 +15705,12 @@
     "canton": "TI"
   },
   "TI::de::employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-car": {
@@ -15750,8 +15939,8 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzn5",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-locarno",
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.7143,
@@ -15759,12 +15948,12 @@
     "canton": "TI"
   },
   "TI::de::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -15894,21 +16083,21 @@
     "canton": "TI"
   },
   "TI::de::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d": {
@@ -15939,30 +16128,30 @@
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uilpqn",
-    "winnerCanonical": "medizinstudent-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-05-02T08:37:48.781Z",
-    "lastSeenAt": "2026-05-20T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-uil16d",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::medizinischer-studienassistent-pflegedienst-eoc-ente-ospedaliero-cantonale-mendrisio": {
@@ -16002,12 +16191,12 @@
     "canton": "TI"
   },
   "TI::de::personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -16038,21 +16227,21 @@
     "canton": "TI"
   },
   "TI::de::physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.75,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -16083,12 +16272,12 @@
     "canton": "TI"
   },
   "TI::de::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
@@ -16101,12 +16290,12 @@
     "canton": "TI"
   },
   "TI::de::praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
-    "winnerCanonical": "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::praktikum-vor-der-supsi-ausbildung-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -16218,30 +16407,30 @@
     "canton": "TI"
   },
   "TI::de::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
-    "winnerCanonical": "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n5y",
+    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
-    "winnerCanonical": "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n5y",
+    "winnerCanonical": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.4167,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -16254,39 +16443,39 @@
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uikzn5": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n2m": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil172",
+    "winnerCanonical": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne": {
@@ -16344,21 +16533,21 @@
     "canton": "TI"
   },
   "TI::de::verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzov",
-    "winnerCanonical": "verwaltungsausgaben-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 3,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil169",
+    "winnerCanonical": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.625,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::vollzeitstelle-als-instrumentierungswissenschaftler-ingenieur-usi-universita-della-svizzera-italiana-locarno": {
@@ -16407,21 +16596,21 @@
     "canton": "TI"
   },
   "TI::en::administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikzov",
-    "winnerCanonical": "administrative-expenditure-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 3,
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.5556,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -16461,21 +16650,21 @@
     "canton": "TI"
   },
   "TI::en::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -16578,12 +16767,12 @@
     "canton": "TI"
   },
   "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::assistente-di-studio-medico-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkk": {
@@ -16623,12 +16812,12 @@
     "canton": "TI"
   },
   "TI::en::buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio-a0d147": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::care-assistant-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -16731,12 +16920,12 @@
     "canton": "TI"
   },
   "TI::en::employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-car": {
@@ -16812,21 +17001,21 @@
     "canton": "TI"
   },
   "TI::en::graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n4c",
+    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -16938,12 +17127,12 @@
     "canton": "TI"
   },
   "TI::en::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -17028,21 +17217,21 @@
     "canton": "TI"
   },
   "TI::en::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.8889,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::medico-assistente-anestesia-eoc-ente-ospedaliero-cantonale-lugano-uilm18": {
@@ -17127,21 +17316,21 @@
     "canton": "TI"
   },
   "TI::en::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
@@ -17199,12 +17388,12 @@
     "canton": "TI"
   },
   "TI::en::personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -17235,21 +17424,21 @@
     "canton": "TI"
   },
   "TI::en::physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -17262,12 +17451,12 @@
     "canton": "TI"
   },
   "TI::en::physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fe1cbf": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n4c",
+    "winnerCanonical": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.4545,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -17280,12 +17469,12 @@
     "canton": "TI"
   },
   "TI::en::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::physiotherapist-eoc-ente-ospedaliero-cantonale-locarno": {
@@ -17478,30 +17667,30 @@
     "canton": "TI"
   },
   "TI::en::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4167,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4167,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -17514,39 +17703,39 @@
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uikzn5": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n2m": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::en::stagista-nelle-vendite-digitali-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-v": {
@@ -17631,12 +17820,12 @@
     "canton": "TI"
   },
   "TI::fr::administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -17685,21 +17874,21 @@
     "canton": "TI"
   },
   "TI::fr::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::assistant-d-etude-medicale-service-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-mendrisio": {
@@ -17757,12 +17946,12 @@
     "canton": "TI"
   },
   "TI::fr::assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.8,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -17955,12 +18144,12 @@
     "canton": "TI"
   },
   "TI::fr::employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.6,
-    "candidatesCount": 3,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
@@ -17973,12 +18162,12 @@
     "canton": "TI"
   },
   "TI::fr::employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.6364,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-car": {
@@ -18234,12 +18423,12 @@
     "canton": "TI"
   },
   "TI::fr::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4545,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -18324,21 +18513,21 @@
     "canton": "TI"
   },
   "TI::fr::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano-uilm0d": {
@@ -18387,21 +18576,21 @@
     "canton": "TI"
   },
   "TI::fr::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
@@ -18441,12 +18630,12 @@
     "canton": "TI"
   },
   "TI::fr::personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -18477,21 +18666,21 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -18540,12 +18729,12 @@
     "canton": "TI"
   },
   "TI::fr::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
-    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
@@ -18657,30 +18846,30 @@
     "canton": "TI"
   },
   "TI::fr::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8182,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8182,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -18693,39 +18882,39 @@
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uikzn5": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n2m": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::fr::stagiaire-en-gestion-de-projet-richemont-meyrin": {
@@ -18810,12 +18999,12 @@
     "canton": "TI"
   },
   "TI::it::administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -18891,21 +19080,21 @@
     "canton": "TI"
   },
   "TI::it::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.2667,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -19224,21 +19413,21 @@
     "canton": "TI"
   },
   "TI::it::employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
+    "winnerJobIdentifier": "company-uil169",
     "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.6364,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona-bdaccb": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 2,
+    "score": 0.5455,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-car": {
@@ -19521,12 +19710,12 @@
     "canton": "TI"
   },
   "TI::it::krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40": {
-    "winnerJobIdentifier": "company-uil178",
-    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -19602,21 +19791,21 @@
     "canton": "TI"
   },
   "TI::it::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.3846,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::medico-assistente-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -19710,21 +19899,21 @@
     "canton": "TI"
   },
   "TI::it::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-c98af0": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano-e4137d": {
-    "winnerJobIdentifier": "company-uil2r1",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::messtechniker-in-100-agie-charmilles-sa-biel-bienne": {
@@ -19764,12 +19953,12 @@
     "canton": "TI"
   },
   "TI::it::personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil3cp",
-    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
-    "score": 0.5,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -19800,21 +19989,21 @@
     "canton": "TI"
   },
   "TI::it::physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
+    "winnerJobIdentifier": "company-x29n62",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4545,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
+    "winnerJobIdentifier": "company-x29n62",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio": {
@@ -19845,12 +20034,12 @@
     "canton": "TI"
   },
   "TI::it::physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n63",
+    "winnerJobIdentifier": "company-x29n62",
     "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
@@ -19971,30 +20160,30 @@
     "canton": "TI"
   },
   "TI::it::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5455,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5455,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio": {
-    "winnerJobIdentifier": "company-x29n5z",
+    "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5455,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -20007,39 +20196,39 @@
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uikzn5": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8889,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8889,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n2m": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8889,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-x29n5z": {
-    "winnerJobIdentifier": "company-uil178",
+    "winnerJobIdentifier": "company-uil172",
     "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
     "decidedAt": "2026-05-31T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.8889,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne": {
@@ -20379,7 +20568,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-22T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
@@ -21261,7 +21450,7 @@
     "winnerJobIdentifier": "pwc-ce6b3ed8a76d",
     "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
     "decidedAt": "2026-05-29T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "ZG"
@@ -21351,7 +21540,7 @@
     "winnerJobIdentifier": "ksw-ca5241ac2ac5",
     "winnerCanonical": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
     "decidedAt": "2026-05-25T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -22053,7 +22242,7 @@
     "winnerJobIdentifier": "ksw-ca5241ac2ac5",
     "winnerCanonical": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-43e221",
     "decidedAt": "2026-05-13T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -22566,7 +22755,7 @@
     "winnerJobIdentifier": "ksw-ca5241ac2ac5",
     "winnerCanonical": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-43e221",
     "decidedAt": "2026-05-13T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -23214,7 +23403,7 @@
     "winnerJobIdentifier": "ksw-ca5241ac2ac5",
     "winnerCanonical": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-43e221",
     "decidedAt": "2026-05-13T00:00:00.000Z",
-    "lastSeenAt": "2026-05-30T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -23783,6 +23972,15 @@
     "decidedAt": "2026-05-29T00:00:00.000Z",
     "lastSeenAt": "2026-05-31T00:00:00.000Z",
     "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::oberarztin-oberarzt-80-100-clienia-ag-zurich": {
+    "winnerJobIdentifier": "clienia-ag-dd8ece0a57e6",
+    "winnerCanonical": "primario-80-100-clienia-ag-pfaffikon",
+    "decidedAt": "2026-05-31T00:00:00.000Z",
+    "lastSeenAt": "2026-05-31T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "ZH"
   },
