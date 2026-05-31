@@ -7929,6 +7929,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stretta-esercito-civilisti-ticino.title': 'Streit um Armee: mehr Soldaten oder Zivilisten-Verlust?',
     'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti fordert mehr Militär für die nationale Sicherheit, Zeno Casella warnt: die Gemeinschaft wird die Unterstützung der Zivilisten verlieren.',
     'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Luftaufnahme der Burgen von Bellinzona mit Schweizer Flaggen, Symbol für nationale Sicherheit.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Größere Lake Trail: Gambarogno im neuen Weg',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'In Varese wurde der Machbarkeitsstudie zum Interreg-Projekt für den transfrontaleren Trail vorgestellt, der das Gambarogno mit dem lombardischen Gebiet verbindet.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Panoramablick auf Gambarogno am Lago Maggiore an einem sonnigen Tag.',
 };
 
 export default blogMetaDe;

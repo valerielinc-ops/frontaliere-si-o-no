@@ -41960,6 +41960,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-maggiore-lake-trail-gambarogno': {
+    title: 'Maggiore Lake Trail: il Gambarogno nel nuovo percorso',
+    description: 'Presentato lo studio di fattibilità per il Maggiore Lake Trail: il Gambarogno protagonista del nuovo percorso transfrontaliero tra Svizzera e Italia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, maggiore, lake, trail, gambarogno',
+    ogTitle: 'Maggiore Lake Trail: Gambarogno nel percorso senza frontiere',
+    ogDescription: 'Il progetto Interreg Maggiore Lake Trail unisce il Gambarogno al territorio italiano: i dettagli dello studio di fattibilità presentato a Varese.',
+    canonicalPath: '/articoli-frontaliere/maggiore-lake-trail-gambarogno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Maggiore Lake Trail: il Gambarogno nel nuovo percorso",
+      "description": "Presentato lo studio di fattibilità per il Maggiore Lake Trail: il Gambarogno protagonista del nuovo percorso transfrontaliero tra Svizzera e Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/maggiore-lake-trail-gambarogno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Gambarogno sul Lago Maggiore in una giornata di sole."
+      },
+      "datePublished": "2026-05-31T16:54:58+00:00",
+      "dateModified": "2026-05-31T16:54:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/maggiore-lake-trail-gambarogno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

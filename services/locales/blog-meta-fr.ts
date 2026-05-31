@@ -7931,6 +7931,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stretta-esercito-civilisti-ticino.title': 'Armée sous pression : plus d\'effectifs ou perte des civils ?',
     'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti réclame plus de militaires pour la sécurité nationale, Zeno Casella met en garde : la collectivité perdra le soutien des civils.',
     'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Vue aérienne des châteaux de Bellinzona avec drapeaux suisses, symbole de sécurité nationale.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Trail transfrontalier Gambarogno: nouveau parcours',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'Étude de faisabilité présentée à Varèse pour le projet Interreg du trail transfrontalier reliant le Gambarogno au territoire lombard.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Vue panoramica du Gambarogno sur le lac Majeur par une journée ensoleillée.',
 };
 
 export default blogMetaFr;
