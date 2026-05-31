@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-31T12:20:30.520Z",
+  "generatedAt": "2026-05-31T23:16:39.101Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 12518,
-  "avgDurationMs": 12518,
+  "unchangedCount": 6,
+  "durationMs": 11939,
+  "avgDurationMs": 11939,
   "durationHistory": [
-    12518
+    11939
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -99,7 +99,10 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
@@ -142,21 +145,18 @@
         "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
-      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "title": "Kundenberater:in Privatkunden, Herisau",
+      "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "title": "Conseiller:ère clientèle privée, Carouge",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Herisau",
-      "canton": "AR",
+      "location": "Carouge",
+      "canton": "GE",
       "country": "CH",
-      "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
-      "sourceLang": "de",
+      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "sourceLang": "fr",
       "department": "",
       "category": "servizi-finanziari",
       "datePosted": "2026-05-16",
@@ -164,28 +164,29 @@
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Consulenza",
+      "sector": "Servizi Finanziari",
       "workload": "",
       "_targetScope": {
-        "canton": "AR",
-        "location": "Herisau"
+        "canton": "GE",
+        "location": "Carouge"
       },
       "crawledAt": "",
-      "id": "postfinance-a353cf7a3cd3",
+      "id": "postfinance-5c7d91934019",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
+      "postalCode": "1227",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
       "needsRetranslation": true,
-      "addressLocality": "Herisau",
+      "addressLocality": "Carouge",
       "addressCountry": "CH",
-      "addressRegion": "AR",
-      "_qualityScore": 82,
+      "addressRegion": "GE",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 17
       }
     },
     {
@@ -229,6 +230,48 @@
         "richness": 18,
         "translation": 25,
         "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "title": "Kundenberater:in Privatkunden, Herisau",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Herisau",
+      "canton": "AR",
+      "country": "CH",
+      "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "",
+      "_targetScope": {
+        "canton": "AR",
+        "location": "Herisau"
+      },
+      "crawledAt": "",
+      "id": "postfinance-a353cf7a3cd3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "needsRetranslation": true,
+      "addressLocality": "Herisau",
+      "addressCountry": "CH",
+      "addressRegion": "AR",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
       }
     },
     {
@@ -313,49 +356,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
-      "title": "Conseiller:ère clientèle privée, Carouge",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Carouge",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Carouge"
-      },
-      "crawledAt": "",
-      "id": "postfinance-5c7d91934019",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "1227",
-      "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
-      "addressLocality": "Carouge",
-      "addressCountry": "CH",
-      "addressRegion": "GE",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 17
       }
