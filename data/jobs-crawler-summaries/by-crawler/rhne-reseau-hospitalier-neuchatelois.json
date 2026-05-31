@@ -1,16 +1,16 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-05-31T12:29:40.098Z",
-  "total": 2,
+  "generatedAt": "2026-05-31T23:25:58.039Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2897,
-  "avgDurationMs": 2897,
+  "durationMs": 3122,
+  "avgDurationMs": 3122,
   "durationHistory": [
-    2897
+    3122
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T12:29:38.332Z",
+      "crawledAt": "2026-05-31T23:25:56.222Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -51,15 +51,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a0f5befe7d21",
-      "slug": "stagiaires-pre-heg-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "stage-pre-hes-al-100-presso-il-reseau-hospitalier-neuchatelois-rhne-a-neuchatel-reseau-hospitalier-neuchatelois-rhne",
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Stagiaires pré-HEG à 100%",
-      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551688&cat=all",
@@ -82,15 +83,16 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551688&cat=all",
       "externalId": "2551688",
       "firstSeenAt": "2026-05-19T13:03:18.370Z",
-      "_qualityScore": 81,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
