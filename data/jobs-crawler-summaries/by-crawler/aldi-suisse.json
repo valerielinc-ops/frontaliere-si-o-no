@@ -1,16 +1,16 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-30T21:07:01.489Z",
+  "generatedAt": "2026-05-31T10:12:00.803Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4741,
-  "avgDurationMs": 4741,
+  "durationMs": 8000,
+  "avgDurationMs": 8000,
   "durationHistory": [
-    4741
+    8000
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T21:06:59.627Z",
+      "crawledAt": "2026-05-31T10:11:58.724Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
