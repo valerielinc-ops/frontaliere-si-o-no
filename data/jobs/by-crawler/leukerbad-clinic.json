@@ -1,6 +1,6 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-05-31T11:53:58.294Z",
+  "assembledAt": "2026-05-31T22:49:47.022Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-97372b1445ea",
@@ -47,7 +47,8 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T11:53:56.204Z",
+      "crawledAt": "2026-05-31T22:49:45.213Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
         "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
@@ -120,7 +121,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T11:53:56.204Z",
+      "crawledAt": "2026-05-31T22:49:45.213Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
