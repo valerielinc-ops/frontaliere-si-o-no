@@ -394,12 +394,12 @@
     },
     {
       "id": "csl-behring-a06a53896d18",
-      "slug": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
+      "slug": "scienziato-senior-farmacocinetica-pk-csl-behring-glattbrugg-35069d",
       "slugByLocale": {
         "en": "senior-scientist-pharmacokinetics-pk-csl-behring-ch",
-        "it": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
+        "it": "scienziato-senior-farmacocinetica-pk-csl-behring-glattbrugg-35069d",
         "de": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2",
-        "fr": "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
+        "fr": "chercheur-principal-pharmacocinetique-pk-csl-behring-glattbrugg-35069d"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -444,11 +444,16 @@
       "jobReqId": "Regular",
       "previousSlugsByLocale": {
         "it": [
-          "senior-scientist-pharmacokinetics-pk-csl-behring-ch"
+          "senior-scientist-pharmacokinetics-pk-csl-behring-ch",
+          "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
+        ],
+        "fr": [
+          "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
         ]
       },
       "previousSlugs": [
-        "senior-scientist-pharmacokinetics-pk-csl-behring-ch"
+        "senior-scientist-pharmacokinetics-pk-csl-behring-ch",
+        "senior-scientist-pharmacokinetics-pk-csl-behring-ch-2"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -919,7 +924,7 @@
       "id": "csl-behring-fe51311226e5",
       "slug": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
       "slugByLocale": {
-        "it": "global-ot-partner-engage-csl-behring-bern",
+        "it": "abilitazione-globale-dei-partner-ot-csl-behring-bern",
         "en": "global-ot-partner-enablement-csl-behring-ch",
         "de": "globale-ot-partnerschaft-csl-behring-bern",
         "fr": "global-ot-partner-enablement-csl-behring-ch"
@@ -965,13 +970,13 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "global-ot-partner-enablement-csl-behring-ch",
-        "globaler-ot-partner-engage-csl-behring-bern",
-        "abilitazione-globale-dei-partner-ot-csl-behring-bern",
-        "globale-ot-partnerschaft-csl-behring-bern"
+        "global-ot-partner-engage-csl-behring-bern",
+        "globaler-ot-partner-engage-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-ot-partner-enablement-csl-behring-ch"
+          "global-ot-partner-enablement-csl-behring-ch",
+          "global-ot-partner-engage-csl-behring-bern"
         ],
         "de": [
           "globaler-ot-partner-engage-csl-behring-bern"
@@ -1799,8 +1804,7 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "director-commercial-and-medical-operations-it-product-manager-csl-behring-ch",
-        "direttore-commercial-and-medical-operations-it-product-manager-csl-behring-bern"
+        "director-commercial-and-medical-operations-it-product-manager-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2286,8 +2290,7 @@
       },
       "jobReqId": "Regular",
       "previousSlugs": [
-        "senior-director-search-evaluation-late-ta-lead-immunology-csl-behring-ch",
-        "senior-direttore-search-evaluation-late-ta-lead-immunology-csl-behring-bern"
+        "senior-director-search-evaluation-late-ta-lead-immunology-csl-behring-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2390,8 +2393,7 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "associate-director-statistical-programming-w-m-d-csl-behring-ch",
-        "associate-director-programmation-statistique-h-f-d-csl-behring-bern",
-        "associate-direttore-statistical-programming-w-m-d-csl-behring-bern"
+        "associate-director-programmation-statistique-h-f-d-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2575,10 +2577,7 @@
         "gra-cmc-specialist-csl-behring-ch",
         "gra-cmc-specialist-csl-behring-ch-2",
         "specialista-gra-cmc-csl-behring-bern",
-        "specialiste-gra-cmc-csl-behring-bern",
-        "gra-cmc-specialista-csl-behring-bern",
-        "gra-cmc-spezialist-csl-behring-bern",
-        "gra-cmc-specialiste-csl-behring-bern"
+        "specialiste-gra-cmc-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2613,7 +2612,7 @@
         "it": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
         "de": "leitender-projektmanager-tech-ops-csl-behring-bern",
-        "fr": "chef-de-projet-senior-tech-ops-csl-behring-bern"
+        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2687,16 +2686,14 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "senior-project-manager-tech-ops-csl-behring-ch",
-        "chef-de-projet-senior-tech-ops-csl-behring-bern",
-        "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+        "chef-de-projet-senior-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-tech-ops-csl-behring-ch"
         ],
         "fr": [
-          "chef-de-projet-senior-tech-ops-csl-behring-bern",
-          "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+          "chef-de-projet-senior-tech-ops-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.182Z",

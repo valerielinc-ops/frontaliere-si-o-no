@@ -3620,9 +3620,9 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metalcostruttore-saldatore-pemsa-bellinzona",
+        "en": "metal-constructor-welder-pemsa-bellinzona",
         "de": "metallbauer-schwei-er-pemsa-bellinzona",
-        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
+        "fr": "metallier-soudeur-pemsa-bellinzona"
       },
       "previousSlugs": [
         "metalcostruttore-saldatore-pemsa-bellinzona",
@@ -3637,9 +3637,7 @@
         "muuratore-amp-8211-charpentier-de-construction-pemsa-bellinzona",
         "metallbauer-amp-8211-schwei-er-pemsa-bellinzona",
         "metalworker-amp-8211-welder-pemsa-bellinzona",
-        "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona",
-        "metal-constructor-welder-pemsa-bellinzona",
-        "metallier-soudeur-pemsa-bellinzona"
+        "metalconstructeur-amp-8211-soudeur-pemsa-bellinzona"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3662,15 +3660,13 @@
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "en": [
-          "metalcostruttore-saldatore-pemsa-bellinzona",
-          "metal-constructor-welder-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "de": [
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "fr": [
-          "metalcostruttore-saldatore-pemsa-bellinzona",
-          "metallier-soudeur-pemsa-bellinzona"
+          "metalcostruttore-saldatore-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3775,9 +3771,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "train-master-pemsa-bellinzona",
-        "de": "lokfuhrer-pemsa-bellinzona",
-        "fr": "machiniste-pemsa-bellinzona"
+        "en": "earrings-pemsa-bellinzona",
+        "de": "ohrringe-pemsa-bellinzona",
+        "fr": "boucles-d-oreille-pemsa-bellinzona"
       },
       "id": "pemsa-7aebb676628d",
       "salaryMin": 49500,
@@ -3801,10 +3797,7 @@
         "boucles-d-oreille-pemsa-bellinzona-85e9a3",
         "machiniste-pemsa-bellinzona",
         "train-master-pemsa-bellinzona",
-        "lokfuhrer-pemsa-bellinzona",
-        "boucles-d-oreille-pemsa-bellinzona",
-        "earrings-pemsa-bellinzona",
-        "ohrringe-pemsa-bellinzona"
+        "lokfuhrer-pemsa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3812,16 +3805,13 @@
         ],
         "fr": [
           "boucles-d-oreille-pemsa-bellinzona-85e9a3",
-          "machiniste-pemsa-bellinzona",
-          "boucles-d-oreille-pemsa-bellinzona"
+          "machiniste-pemsa-bellinzona"
         ],
         "en": [
-          "train-master-pemsa-bellinzona",
-          "earrings-pemsa-bellinzona"
+          "train-master-pemsa-bellinzona"
         ],
         "de": [
-          "lokfuhrer-pemsa-bellinzona",
-          "ohrringe-pemsa-bellinzona"
+          "lokfuhrer-pemsa-bellinzona"
         ]
       }
     },
@@ -3864,7 +3854,7 @@
         "it": "rullista-pemsa-bellinzona",
         "en": "rollerist-pemsa-bellinzona",
         "de": "rollenbahn-pemsa-bellinzona",
-        "fr": "rouleau-pemsa-bellinzona"
+        "fr": "convoyeur-a-rouleaux-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3885,8 +3875,7 @@
         "rollerist-pemsa-bellinzona-82esm3",
         "rollenbahn-pemsa-bellinzona-82esm3",
         "rouleau-pemsa-bellinzona-82esm3",
-        "rouleau-pemsa-bellinzona",
-        "convoyeur-a-rouleaux-pemsa-bellinzona"
+        "rouleau-pemsa-bellinzona"
       ],
       "id": "pemsa-ce7bf1905028",
       "previousSlugsByLocale": {
@@ -3909,8 +3898,7 @@
           "rollerist-pemsa-bellinzona-82esm3",
           "rollenbahn-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona-82esm3",
-          "rouleau-pemsa-bellinzona",
-          "convoyeur-a-rouleaux-pemsa-bellinzona"
+          "rouleau-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3953,8 +3941,8 @@
       "slugByLocale": {
         "it": "selciatore-pemsa-bellinzona",
         "en": "pavior-and-kerb-layer-pemsa-bellinzona",
-        "de": "pflasterer-pemsa-bellinzona",
-        "fr": "paveur-pemsa-bellinzona"
+        "de": "pflaster-pemsa-bellinzona",
+        "fr": "pave-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3976,9 +3964,7 @@
         "paveur-pemsa-bellinzona-l71bxi",
         "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
         "pflasterer-pemsa-bellinzona",
-        "paveur-pemsa-bellinzona",
-        "pflaster-pemsa-bellinzona",
-        "pave-pemsa-bellinzona"
+        "paveur-pemsa-bellinzona"
       ],
       "id": "pemsa-0da263d705ed",
       "previousSlugsByLocale": {
@@ -3994,14 +3980,12 @@
         "de": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "pflasterer-pemsa-bellinzona",
-          "pflaster-pemsa-bellinzona"
+          "pflasterer-pemsa-bellinzona"
         ],
         "fr": [
           "pflasterer-pemsa-bellinzona-l71bxi",
           "paveur-pemsa-bellinzona-l71bxi",
-          "paveur-pemsa-bellinzona",
-          "pave-pemsa-bellinzona"
+          "paveur-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -4043,8 +4027,8 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-mezzi-graviti-pemsa-bellinzona",
-        "en": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-        "de": "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+        "en": "meccanico-di-mezzi-weighti-pemsa-bellinzona",
+        "de": "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
         "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -4068,9 +4052,7 @@
         "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
         "heavy-equipment-mechanic-pemsa-bellinzona",
-        "meccanico-di-mezzi-pesi-pemsa-bellinzona",
-        "meccanico-di-mezzi-weighti-pemsa-bellinzona",
-        "schwerlastfahrzeugmechaniker-pemsa-bellinzona"
+        "meccanico-di-mezzi-pesi-pemsa-bellinzona"
       ],
       "id": "pemsa-a5bdddcb7a6f",
       "previousSlugsByLocale": {
@@ -4083,14 +4065,12 @@
         "en": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
-          "meccanico-di-mezzi-weighti-pemsa-bellinzona"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ],
         "de": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
           "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
-          "schwerlastfahrzeugmechaniker-pemsa-bellinzona"
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ],
         "fr": [
           "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
@@ -4138,7 +4118,7 @@
       "slugByLocale": {
         "it": "lattoniere-pemsa-bellinzona",
         "en": "sheet-metal-worker-pemsa-bellinzona",
-        "de": "spengler-pemsa-bellinzona",
+        "de": "blechschmiede-pemsa-bellinzona",
         "fr": "ferblantier-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -4166,8 +4146,7 @@
         "sheet-metal-worker-pemsa-lugano",
         "lattoniere-pemsa-lugano",
         "spengler-pemsa-lugano",
-        "ferblantier-pemsa-lugano",
-        "blechschmiede-pemsa-bellinzona"
+        "ferblantier-pemsa-lugano"
       ],
       "id": "pemsa-b68abb58f9a3",
       "previousSlugsByLocale": {
@@ -4183,8 +4162,7 @@
         "de": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
           "spengler-pemsa-bellinzona-o8tlzm",
-          "spengler-pemsa-bellinzona",
-          "blechschmiede-pemsa-bellinzona"
+          "spengler-pemsa-bellinzona"
         ],
         "fr": [
           "ferblantier-pemsa-bellinzona-o8tlzm",
@@ -4230,9 +4208,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "electrician-pemsa-lugano",
-        "de": "elektriker-pemsa-lugano",
-        "fr": "electricien-pemsa-lugano"
+        "en": "electricity-pemsa-lugano",
+        "de": "elektrizitat-pemsa-lugano",
+        "fr": "electricite-pemsa-lugano"
       },
       "id": "pemsa-b48712113f67",
       "salaryMin": 49500,
@@ -4254,23 +4232,17 @@
       "previousSlugs": [
         "electrician-pemsa-lugano",
         "elektriker-pemsa-lugano",
-        "electricien-pemsa-lugano",
-        "electricity-pemsa-lugano",
-        "elektrizitat-pemsa-lugano",
-        "electricite-pemsa-lugano"
+        "electricien-pemsa-lugano"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "electrician-pemsa-lugano",
-          "electricity-pemsa-lugano"
+          "electrician-pemsa-lugano"
         ],
         "de": [
-          "elektriker-pemsa-lugano",
-          "elektrizitat-pemsa-lugano"
+          "elektriker-pemsa-lugano"
         ],
         "fr": [
-          "electricien-pemsa-lugano",
-          "electricite-pemsa-lugano"
+          "electricien-pemsa-lugano"
         ]
       }
     },
