@@ -25157,4 +25157,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'stretta-esercito-civilisti-ticino',
+ category: 'novita',
+ date: '2026-05-31T15:57:56.482Z',
+ image: '/images/blog/stretta-esercito-civilisti-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

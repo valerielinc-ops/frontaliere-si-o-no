@@ -7927,6 +7927,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Revitalization of the Ticino River: Projects between Airolo and Rodi',
     'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Present the works of revitalization and hydraulic system improvement of the Ticino River in Alta Leventina, with an investment of 8 million CHF.',
     'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'View of the Ticino river between Airolo and Rodi with green revival interventions',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Army: More soldiers or loss of civil servants?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti calls for more soldiers for national security, Zeno Casella warns: the community will lose the support of civil servants.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Aerial view of Bellinzona\'s castles with Swiss flags, symbolizing national security.',
 };
 
 export default blogMetaEn;
