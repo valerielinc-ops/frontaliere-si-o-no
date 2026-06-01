@@ -41,18 +41,51 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
 const CANDIDATES_PATH = path.join(ROOT, 'data', 'related-search-candidates.json');
+const CANTON_SLUGS_PATH = path.join(ROOT, 'data', 'canton-url-slugs.json');
 const DOWNLOADS_DIR = path.join(ROOT, 'download');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
-// Mirror of services/relatedSearchClusters.ts: locale-specific URL prefixes.
-const SECTION_PATTERNS = [
-  // [pathRegex, locale]
-  [/^\/cerca-lavoro-ticino\/(ricerca-[^/]+)\/?$/, 'it'],
-  [/^\/en\/find-jobs-ticino\/(search-[^/]+)\/?$/, 'en'],
-  [/^\/de\/jobs-im-tessin\/(suche-[^/]+)\/?$/, 'de'],
-  [/^\/fr\/trouver-emploi-tessin\/(recherche-[^/]+)\/?$/, 'fr'],
-];
+const LOCALES = ['it', 'en', 'de', 'fr'];
+const SECTION_LEGACY_TI = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+const SECTION_PREFIX = {
+  it: 'cerca-lavoro',
+  en: 'find-jobs',
+  de: 'jobs-in',
+  fr: 'trouver-emploi',
+};
+const SEARCH_PREFIX = {
+  it: 'ricerca',
+  en: 'search',
+  de: 'suche',
+  fr: 'recherche',
+};
+
+function loadJobSectionSlugs() {
+  const raw = JSON.parse(fs.readFileSync(CANTON_SLUGS_PATH, 'utf-8'));
+  const out = Object.fromEntries(LOCALES.map((locale) => [locale, new Set([SECTION_LEGACY_TI[locale]])]));
+  for (const locale of LOCALES) {
+    const aggregateSlug = raw.aggregate?.[locale];
+    if (aggregateSlug) out[locale].add(`${SECTION_PREFIX[locale]}-${aggregateSlug}`);
+  }
+  for (const entry of Object.values(raw.cantons || {})) {
+    for (const locale of LOCALES) {
+      if (locale === 'de' && entry.dePrefix && entry.de) {
+        out.de.add(`${entry.dePrefix}${entry.de}`);
+      } else if (entry[locale]) {
+        out[locale].add(`${SECTION_PREFIX[locale]}-${entry[locale]}`);
+      }
+    }
+  }
+  return out;
+}
+
+const JOB_SECTION_SLUGS = loadJobSectionSlugs();
 
 /** Strip the locale prefix from a slug to produce the slug-core token list. */
 function slugCoreTokens(slug) {
@@ -92,25 +125,30 @@ function urlToCandidate(url, csvBasename) {
   } catch {
     return null;
   }
-  for (const [re, locale] of SECTION_PATTERNS) {
-    const m = pathname.match(re);
-    if (m) {
-      const slug = m[1];
-      const sampleTerm = sampleTermFromSlug(slug);
-      if (!sampleTerm) return null;
-      return {
-        slug,
-        locale,
-        jobCount: 1,
-        sampleJobIds: [],
-        sampleTerms: [sampleTerm],
-        editorialCollision: null,
-        gscMatch: true,
-        gscOrigin: csvBasename,
-      };
-    }
+  const segments = pathname.split('/').filter(Boolean);
+  let locale = 'it';
+  let cursor = 0;
+  if (['en', 'de', 'fr'].includes(segments[0])) {
+    locale = segments[0];
+    cursor = 1;
   }
-  return null;
+  const section = segments[cursor];
+  const slug = segments[cursor + 1];
+  if (!section || !slug || segments.length !== cursor + 2) return null;
+  if (!JOB_SECTION_SLUGS[locale]?.has(section)) return null;
+  if (!slug.startsWith(`${SEARCH_PREFIX[locale]}-`)) return null;
+  const sampleTerm = sampleTermFromSlug(slug);
+  if (!sampleTerm) return null;
+  return {
+    slug,
+    locale,
+    jobCount: 1,
+    sampleJobIds: [],
+    sampleTerms: [sampleTerm],
+    editorialCollision: null,
+    gscMatch: true,
+    gscOrigin: csvBasename,
+  };
 }
 
 function main() {
