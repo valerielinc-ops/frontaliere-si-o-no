@@ -44,7 +44,14 @@ const DATASET = {
         ],
       },
       swiss: {
+        // `cheapestStation` is ranked by benzina (sp95). Its diesel price
+        // (2.327) is NOT the cheapest diesel nearby — ch2 has diesel 1.950.
+        // The verdict must use the true diesel minimum.
         cheapestStation: { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
+        nearbyStations: [
+          { id: 'ch1', name: 'Silo', brand: 'Migrol', address: 'Chiasso', sp95PriceEur: 2.009, dieselPriceEur: 2.327 },
+          { id: 'ch2', name: 'Coop', brand: 'Coop', address: 'Maslianico', sp95PriceEur: 2.099, dieselPriceEur: 1.950 },
+        ],
       },
     },
   ],
@@ -85,11 +92,15 @@ describe('diesel Italian city pages — real diesel prices + clickable stations'
     expect(benzina).toContain('Shell Como');
   });
 
-  it('renders the cross-border verdict banner', () => {
+  it('renders the cross-border verdict banner using the true CH diesel minimum', () => {
     const html = pages['/prezzi-diesel/italia/como/oggi/']!;
     expect(html).toContain('s-itVerdict');
-    // Italy is cheaper for diesel here (1.799 vs CH 2.327) → IT-wins copy.
+    // Italy is cheaper for diesel (IT 1.799 vs true CH diesel min 1.950).
     expect(html).toMatch(/conviene fare il pieno in Italia/);
+    // Saving uses the true diesel min (|1.950−1.799|×50 = 7.55), NOT the
+    // diesel price of the benzina-cheapest station (|2.327−1.799|×50 = 26.40).
+    expect(html).toContain('7,55');
+    expect(html).not.toContain('26,40');
   });
 });
 

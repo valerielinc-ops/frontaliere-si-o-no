@@ -3999,7 +3999,7 @@ interface CityCrossBorder {
   readonly cheaper: 'IT' | 'CH' | 'SAME';
 }
 
-interface DatasetSwissCheapest {
+interface DatasetSwissPriced {
   readonly sp95PriceEur?: number | null;
   readonly dieselPriceEur?: number | null;
 }
@@ -4011,16 +4011,30 @@ function collectCityCrossBorder(
   itPriceEur: number | null,
 ): CityCrossBorder | null {
   if (itPriceEur === null) return null;
+  const priceOf = (s: DatasetSwissPriced): number | null => {
+    const raw = fuel === 'diesel' ? s.dieselPriceEur : s.sp95PriceEur;
+    return typeof raw === 'number' && Number.isFinite(raw) ? raw : null;
+  };
   let chPriceEur: number | null = null;
   for (const row of dataset.municipalities ?? []) {
     if (!row.municipality) continue;
     if (row.municipality.toLowerCase() !== entry.matchKey) continue;
-    const cheapest = (row as unknown as { swiss?: { cheapestStation?: DatasetSwissCheapest } })
-      .swiss?.cheapestStation;
-    if (!cheapest) continue;
-    const raw = fuel === 'diesel' ? cheapest.dieselPriceEur : cheapest.sp95PriceEur;
-    if (typeof raw === 'number' && Number.isFinite(raw)) {
-      chPriceEur = chPriceEur === null ? raw : Math.min(chPriceEur, raw);
+    const swiss = (row as unknown as {
+      swiss?: { cheapestStation?: DatasetSwissPriced; nearbyStations?: DatasetSwissPriced[] };
+    }).swiss;
+    if (!swiss) continue;
+    // `cheapestStation` is ranked by sp95 (benzina), so for the diesel verdict
+    // we must scan every nearby station and take the true minimum diesel
+    // price — not the diesel price of the benzina-cheapest pump. Fall back to
+    // cheapestStation when the per-station list isn't present.
+    const candidates: DatasetSwissPriced[] = Array.isArray(swiss.nearbyStations) && swiss.nearbyStations.length > 0
+      ? swiss.nearbyStations
+      : swiss.cheapestStation
+        ? [swiss.cheapestStation]
+        : [];
+    for (const c of candidates) {
+      const p = priceOf(c);
+      if (p !== null) chPriceEur = chPriceEur === null ? p : Math.min(chPriceEur, p);
     }
   }
   if (chPriceEur === null) return null;
