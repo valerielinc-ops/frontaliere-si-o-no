@@ -221,7 +221,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksb-de0f63fc07c0",
@@ -303,13 +304,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksb-6f0501ceca4a",
       "slug": "operazioni-professionali-moglie-ingegneria-i-a-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "operazioni-professionali-moglie-ingegneria-i-a-kantonsspital-baden-ksb-baden",
+        "it": "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden",
         "en": "professional-wife-operations-engineering-i-a-kantonsspital-baden-ksb-baden",
         "de": "fachmann-frau-operationstechnik-i-a-ksb-ch",
         "fr": "ingenierie-d-exploitation-professionnelle-epouse-kantonsspital-baden-ksb-baden"
@@ -356,12 +358,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-operationstechnik-i-a-ksb-ch",
-        "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden"
+        "operazioni-professionali-moglie-ingegneria-i-a-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-operationstechnik-i-a-ksb-ch",
-          "fachmann-frau-operationstechnik-i-a-kantonsspital-baden-ksb-baden"
+          "fachmann-frau-operationstechnik-i-a-ksb-ch"
         ],
         "en": [
           "fachmann-frau-operationstechnik-i-a-ksb-ch"
@@ -543,7 +544,7 @@
       "id": "ksb-2d32c7a69847",
       "slug": "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden",
         "en": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
         "de": "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
         "fr": "dipl-carriere-femme-manne-hf-fh-cardiologie-nephrologie-infectiologie-kantonsspital-baden-ksb-baden"
@@ -589,12 +590,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden"
+        "dipl-career-donna-mann-hf-fh-cardiologia-nephrology-infectiology-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-kardiologie-nephrologie-infektiologie-ksb-ch"
@@ -618,7 +618,7 @@
       "id": "ksb-e4af11f9f60d",
       "slug": "assistente-medico-ginecologia-e-cura-del-bambino-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "assistente-medico-ginecologia-e-cura-del-bambino-100-kantonsspital-baden-ksb-baden",
+        "it": "assistenzarzt-arztin-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden",
         "en": "assistant-physician-gynaecology-and-child-care-100-kantonsspital-baden-ksb-baden",
         "de": "assistenzarzt-arztin-gynakologie-und-geburtshilfe-100-ksb-ch",
         "fr": "medecin-adjoint-gynecologie-et-garde-d-enfants-100-kantonsspital-baden-ksb-baden"
@@ -665,12 +665,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarzt-arztin-gynakologie-und-geburtshilfe-100-ksb-ch",
-        "assistenzarzt-arztin-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
+        "assistente-medico-ginecologia-e-cura-del-bambino-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-gynakologie-und-geburtshilfe-100-ksb-ch",
-          "assistenzarzt-arztin-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
+          "assistenzarzt-arztin-gynakologie-und-geburtshilfe-100-ksb-ch"
         ],
         "en": [
           "assistenzarzt-arztin-gynakologie-und-geburtshilfe-100-ksb-ch"
@@ -774,7 +773,7 @@
       "id": "ksb-8b399eb83e30",
       "slug": "sostante-in-ginecologia-e-ostetricia-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "sostante-in-ginecologia-e-ostetricia-100-kantonsspital-baden-ksb-baden",
+        "it": "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden",
         "en": "subassistent-in-gynaecology-and-obstetrics-100-kantonsspital-baden-ksb-baden",
         "de": "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch",
         "fr": "subsistance-en-gynecologie-et-en-obstetrique-100-kantonsspital-baden-ksb-baden"
@@ -821,12 +820,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch",
-        "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
+        "sostante-in-ginecologia-e-ostetricia-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch",
-          "unterassistent-in-gynakologie-e-geburtshilfe-100-kantonsspital-baden-ksb-baden"
+          "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch"
         ],
         "en": [
           "unterassistent-in-gynakologie-und-geburtshilfe-100-ksb-ch"
@@ -1547,7 +1545,7 @@
       "id": "ksb-f9bc709c8f51",
       "slug": "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden",
+        "it": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden",
         "en": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
         "de": "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
         "fr": "professionnel-en-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
@@ -1593,12 +1591,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
-        "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
+        "berufsbildner-in-fachfrau-mann-operazionitechnik-hf-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch",
-          "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-kantonsspital-baden-ksb-baden"
+          "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch"
         ],
         "fr": [
           "berufsbildner-in-fachfrau-mann-operationstechnik-hf-80-100-ksb-ch"
@@ -1622,7 +1619,7 @@
       "id": "ksb-a4c10e9dc39e",
       "slug": "medico-per-bambini-e-psichiatria-giovanile-e-psicoterapia-40-60-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "medico-per-bambini-e-psichiatria-giovanile-e-psicoterapia-40-60-kantonsspital-baden-ksb-baden",
+        "it": "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden",
         "en": "physician-for-children-and-youth-psychiatry-and-psychotherapy-40-60-kantonsspital-baden-ksb-baden",
         "de": "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch",
         "fr": "medecin-pour-la-psychiatrie-et-la-psychotherapie-des-enfants-et-des-jeunes-40-60-kantonsspital-baden-ksb-baden"
@@ -1669,12 +1666,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch",
-        "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden"
+        "medico-per-bambini-e-psichiatria-giovanile-e-psicoterapia-40-60-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch",
-          "facharztin-arzt-per-kinder-e-jugendpsychiatrie-e-psychotherapie-40-60-kantonsspital-baden-ksb-baden"
+          "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch"
         ],
         "en": [
           "facharztin-arzt-fur-kinder-und-jugendpsychiatrie-und-psychotherapie-40-60-ksb-ch"
@@ -1701,7 +1697,7 @@
       "id": "ksb-d7e3be10956a",
       "slug": "physiotherapeut-in-con-pensum-desiderato-campo-di-calce-o-calce-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "physiotherapeut-in-con-pensum-desiderato-campo-di-calce-o-calce-kantonsspital-baden-ksb-baden",
+        "it": "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden",
         "en": "physiotherapeut-in-with-desired-pensum-bath-or-lime-field-kantonsspital-baden-ksb-baden",
         "de": "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch",
         "fr": "physiotherapeut-avec-un-stylo-desire-baignoire-ou-champ-de-chaux-kantonsspital-baden-ksb-baden"
@@ -1748,12 +1744,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch",
-        "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden"
+        "physiotherapeut-in-con-pensum-desiderato-campo-di-calce-o-calce-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch",
-          "physiotherapeut-in-con-wunschpensum-baden-o-limmatfeld-kantonsspital-baden-ksb-baden"
+          "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch"
         ],
         "en": [
           "physiotherapeut-in-mit-wunschpensum-baden-oder-limmatfeld-ksb-ch"
@@ -1780,7 +1775,7 @@
       "id": "ksb-2e57d46a5256",
       "slug": "dipl-infermieristica-donna-mann-hf-fh-care-pool-dialisi-nel-salario-orario-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "dipl-infermieristica-donna-mann-hf-fh-care-pool-dialisi-nel-salario-orario-kantonsspital-baden-ksb-baden",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden",
         "en": "dipl-nursing-woman-mann-hf-fh-care-pool-dialysis-in-hourly-wage-kantonsspital-baden-ksb-baden",
         "de": "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch",
         "fr": "dipl-soins-de-sante-pour-les-femmes-kantonsspital-baden-ksb-baden"
@@ -1827,12 +1822,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden"
+        "dipl-infermieristica-donna-mann-hf-fh-care-pool-dialisi-nel-salario-orario-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-pflegepool-dialyse-im-stundenlohn-ksb-ch"
@@ -2240,7 +2234,7 @@
       "id": "ksb-62e708fff4e2",
       "slug": "dipl-infermieristica-donna-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "dipl-infermieristica-donna-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden",
+        "it": "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden",
         "en": "dipl-nursing-woman-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden",
         "de": "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch",
         "fr": "dipl-femmes-allaitantes-en-hf-fh-pediatrie-60-100-kantonsspital-baden-ksb-baden"
@@ -2287,12 +2281,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden"
+        "dipl-infermieristica-donna-mann-hf-fh-paediatrics-60-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-padiatrie-60-100-ksb-ch"
@@ -2395,7 +2388,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "ksb-b02c6511b49a",
@@ -2918,7 +2912,7 @@
       "id": "ksb-f39ed3383b36",
       "slug": "interno-in-logistik-100-1-anno-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "interno-in-logistik-100-1-anno-kantonsspital-baden-ksb-baden",
+        "it": "praktikant-in-logistik-100-1-jahr-ksb-ch-2",
         "en": "intern-in-logistik-100-1-year-kantonsspital-baden-ksb-baden",
         "de": "praktikant-in-logistik-100-1-jahr-ksb-ch",
         "fr": "stagiaire-en-logistik-100-1-an-kantonsspital-baden-ksb-baden"
@@ -2967,12 +2961,14 @@
         "praktikant-in-logistik-100-1-jahr-ksb-ch",
         "praktikant-in-logistik-100-1-jahr-ksb-ch-2",
         "intern-in-logistik-100-1-year-kantonsspital-baden-ksb-baden-2a5ce9",
-        "stagiaire-en-logistik-100-1-an-kantonsspital-baden-ksb-baden-2a5ce9"
+        "stagiaire-en-logistik-100-1-an-kantonsspital-baden-ksb-baden-2a5ce9",
+        "interno-in-logistik-100-1-anno-kantonsspital-baden-ksb-baden",
+        "intern-in-logistik-100-1-year-kantonsspital-baden-ksb-baden",
+        "stagiaire-en-logistik-100-1-an-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-logistik-100-1-jahr-ksb-ch",
-          "praktikant-in-logistik-100-1-jahr-ksb-ch-2"
+          "praktikant-in-logistik-100-1-jahr-ksb-ch"
         ],
         "en": [
           "intern-in-logistik-100-1-year-kantonsspital-baden-ksb-baden-2a5ce9",
@@ -3238,7 +3234,7 @@
       "id": "ksb-0f003f9040be",
       "slug": "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden",
+        "it": "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
         "en": "ergotherapeut-in-handtherapie-80-100-kantonsspital-baden-ksb-baden",
         "de": "ergotherapeut-in-handtherapie-80-100-ksb-ch",
         "fr": "ergotherapeut-en-therapie-manuelle-80-100-kantonsspital-baden-ksb-baden"
@@ -3284,13 +3280,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeut-in-handtherapie-80-100-ksb-ch",
-        "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden",
-        "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden"
+        "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden",
+        "ergotherapeut-in-handtherapy-80-100-kantonsspital-baden-ksb-baden",
+        "ergotherapeut-en-therapie-manuelle-80-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeut-in-handtherapie-80-100-ksb-ch",
-          "ergoterapista-in-terapia-della-mano-80-100-kantonsspital-baden-ksb-baden"
+          "ergotherapeut-in-handtherapie-80-100-ksb-ch"
         ],
         "fr": [
           "ergotherapeute-en-therapie-de-la-main-80-100-kantonsspital-baden-ksb-baden"
@@ -3314,7 +3310,7 @@
       "id": "ksb-2d47834d9557",
       "slug": "ospedale-femminile-mpa-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "ospedale-femminile-mpa-100-kantonsspital-baden-ksb-baden",
+        "it": "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden",
         "en": "mpa-women-s-clinic-100-kantonsspital-baden-ksb-baden",
         "de": "mpa-frauenklinik-100-ksb-ch",
         "fr": "mpa-hopital-pour-femmes-100-kantonsspital-baden-ksb-baden"
@@ -3361,13 +3357,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-frauenklinik-100-ksb-ch",
-        "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden",
-        "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden"
+        "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden",
+        "ospedale-femminile-mpa-100-kantonsspital-baden-ksb-baden",
+        "mpa-hopital-pour-femmes-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-frauenklinik-100-ksb-ch",
-          "mpa-clinica-ginecologica-100-kantonsspital-baden-ksb-baden"
+          "mpa-frauenklinik-100-ksb-ch"
         ],
         "fr": [
           "mpa-clinique-de-gynecologie-100-kantonsspital-baden-ksb-baden"
@@ -3465,7 +3461,7 @@
         "it": "dipl-infermiere-a-hf-fh-chirurgia-vascolare-e-spinale-kantonsspital-baden-ksb-baden",
         "en": "dipl-nurse-hf-fh-vascular-and-spinal-surgery-kantonsspital-baden-ksb-baden",
         "de": "dipl-pflegefachfrau-mann-hf-fh-gefass-und-wirbelsaulenchirurgie-ksb-ch",
-        "fr": "dipl-medecin-specialiste-en-chirurgie-vasculaire-et-epiniere-kantonsspital-baden-ksb-baden"
+        "fr": "dipl-infirmier-ere-hf-fh-chirurgie-vasculaire-et-vertebrale-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -3509,14 +3505,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-gefass-und-wirbelsaulenchirurgie-ksb-ch",
-        "dipl-infirmier-ere-hf-fh-chirurgie-vasculaire-et-vertebrale-kantonsspital-baden-ksb-baden"
+        "dipl-infirmier-ere-hf-fh-chirurgie-vasculaire-et-vertebrale-kantonsspital-baden-ksb-baden",
+        "dipl-medecin-specialiste-en-chirurgie-vasculaire-et-epiniere-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-gefass-und-wirbelsaulenchirurgie-ksb-ch"
         ],
         "fr": [
-          "dipl-infirmier-ere-hf-fh-chirurgie-vasculaire-et-vertebrale-kantonsspital-baden-ksb-baden"
+          "dipl-infirmier-ere-hf-fh-chirurgie-vasculaire-et-vertebrale-kantonsspital-baden-ksb-baden",
+          "dipl-medecin-specialiste-en-chirurgie-vasculaire-et-epiniere-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-05-28T13:13:04.757Z",
@@ -6883,7 +6881,7 @@
       "id": "ksb-33f3eeca8ba2",
       "slug": "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden",
+        "it": "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden",
         "en": "koch-kochin-100-limited-2-months-kantonsspital-baden-ksb-baden",
         "de": "koch-kochin-100-befristet-2-monate-ksb-ch",
         "fr": "koch-kochin-100-limite-a-2-mois-kantonsspital-baden-ksb-baden"
@@ -6930,12 +6928,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "koch-kochin-100-befristet-2-monate-ksb-ch",
-        "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden"
+        "koch-kochin-100-limitato-2-mesi-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-100-befristet-2-monate-ksb-ch",
-          "koch-kochin-100-befristet-2-monate-kantonsspital-baden-ksb-baden"
+          "koch-kochin-100-befristet-2-monate-ksb-ch"
         ],
         "en": [
           "koch-kochin-100-befristet-2-monate-ksb-ch"
@@ -7187,8 +7184,8 @@
       "id": "ksb-3572f61b44db",
       "slug": "mpa-nephrology-60-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "mpa-nephrology-60-kantonsspital-baden-ksb-baden",
-        "en": "mpa-nephrology-60-kantonsspital-baden-ksb-baden",
+        "it": "mpa-nephrologie-60-ksb-ch",
+        "en": "mpa-nephrologie-60-ksb-ch",
         "de": "mpa-nephrologie-60-kantonsspital-baden-ksb-baden",
         "fr": "nephrologie-de-l-amp-60-kantonsspital-baden-ksb-baden"
       },
@@ -7234,11 +7231,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "nefrologia-mpa-60-kantonsspital-baden-ksb-baden",
-          "mpa-nephrologie-60-ksb-ch"
-        ],
-        "en": [
-          "mpa-nephrologie-60-ksb-ch"
+          "nefrologia-mpa-60-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
           "mpa-nephrologie-60-ksb-ch"
@@ -7246,7 +7239,9 @@
       },
       "previousSlugs": [
         "nefrologia-mpa-60-kantonsspital-baden-ksb-baden",
-        "mpa-nephrologie-60-ksb-ch"
+        "mpa-nephrologie-60-ksb-ch",
+        "mpa-nephrology-60-kantonsspital-baden-ksb-baden",
+        "nephrologie-de-l-amp-60-kantonsspital-baden-ksb-baden"
       ],
       "firstSeenAt": "2026-05-29T13:01:52.815Z",
       "salaryMin": 49500,
