@@ -19,10 +19,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Translation-quality gate lives in a shared leaf lib so every writer of the
+// indexed descriptionByLocale dataset uses the SAME thresholds (single source
+// of truth). Re-exported here for back-compat with existing importers/tests.
+export {
+  MIN_TRANSLATION_RATIO,
+  MIN_TRANSLATION_CHARS,
+  isAcceptableTranslation,
+} from './lib/translation-quality.mjs';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MAX = (() => {
   const idx = process.argv.indexOf('--max');
@@ -93,7 +102,11 @@ async function main() {
           maxRetries: 1,
         });
 
-        if (translated && translated.length >= 100 && translated.toLowerCase() !== sourceDesc.toLowerCase()) {
+        const isNewLanguage = translated && translated.toLowerCase() !== sourceDesc.toLowerCase();
+        // Single source of truth: same gate the sibling writers use.
+        const isAcceptable = isAcceptableTranslation(sourceDesc, translated);
+
+        if (isNewLanguage && isAcceptable) {
           if (!DRY_RUN) {
             dbl[locale] = translated;
             job.descriptionByLocale = dbl;
@@ -106,6 +119,17 @@ async function main() {
             console.log(`   ... ${totalFixed} done, ${(charsTranslated / 1000).toFixed(0)}K chars`);
           }
         } else {
+          // Diagnostic: distinguish a clipped/truncated translation (passes the
+          // char floor but fails the source-length ratio) from other failures.
+          const clipped =
+            isNewLanguage &&
+            translated &&
+            translated.length >= MIN_TRANSLATION_CHARS &&
+            !isAcceptable;
+          if (clipped) {
+            const pct = ((translated.length / sourceDesc.length) * 100).toFixed(0);
+            console.log(`  ⚠️  ${file.replace('.json', '')} [${locale}]: truncated translation (${pct}% of source, ${translated.length}/${sourceDesc.length} chars) — skipped`);
+          }
           totalFailed++;
         }
       }
@@ -123,4 +147,12 @@ async function main() {
   logCascadeSummary();
 }
 
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+// Only run the batch when invoked directly as a script; allow the helper above
+// to be imported (e.g. by localize-vf-existing-jobs.mjs / re-localize-jobs.mjs)
+// without side effects.
+const isMainModule =
+  process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMainModule) {
+  main().catch(err => { console.error('❌', err.message); process.exit(1); });
+}

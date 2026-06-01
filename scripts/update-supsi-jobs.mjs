@@ -45,6 +45,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSupsiJobDetail } from './lib/supsi-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -842,7 +843,10 @@ async function fillMissingLocaleDescriptions() {
 
       // eslint-disable-next-line no-await-in-loop
       const translated = await translateTextDirect(sourceDesc, sourceLang, locale);
-      if (translated && translated.length >= MIN_DESC_CHARS && normalize(translated) !== normalize(sourceDesc)) {
+      // Reject clipped/truncated provider output (length-ratio gate) before
+      // writing to the indexed descriptionByLocale dataset; the char floor
+      // (MIN_DESC_CHARS) alone accepts provider clips.
+      if (isAcceptableTranslation(sourceDesc, translated) && normalize(translated) !== normalize(sourceDesc)) {
         if (!job.descriptionByLocale) job.descriptionByLocale = {};
         job.descriptionByLocale[locale] = translated;
         filled += 1;

@@ -21,6 +21,7 @@ import {
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { extractStableJobId } from './job-match-key.mjs';
 import { recordSlugMutation } from './slug-history-journal.mjs';
+import { isAcceptableTranslation } from './translation-quality.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -2307,7 +2308,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
       const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-      if (desc && desc.length >= floor) {
+      if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
         sentinelOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2363,7 +2364,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
       const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-      if (desc && desc.length >= floor) {
+      if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
         out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2411,14 +2412,14 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
         : [];
-      if (desc.length >= floor) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
     }
     const missingLocales = targetLocales.filter((l) => !out[l]);
     if (missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-        if (desc && desc.length >= floor) {
+        if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
           out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2442,7 +2443,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       for (const locale of targetLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale });
-        if (desc && desc.length >= floor) {
+        if (desc && desc.length >= floor && isAcceptableTranslation(cleanedFallback, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
           fallbackOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -3097,7 +3098,11 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
             },
             minChars: Math.max(minDescriptionChars, 40),
           });
-          if (translatedDesc) {
+          // Reject clipped/truncated free-cascade output (length-ratio gate)
+          // before writing to the indexed descriptionByLocale dataset. The
+          // isThin re-flag only covers >=500-char sources on the NEXT run,
+          // so a fresh clip for 120-499 char sources would otherwise persist.
+          if (isAcceptableTranslation(sourceDesc, translatedDesc)) {
             job.descriptionByLocale[locale] = translatedDesc;
             jobTranslated = true;
           } else if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
