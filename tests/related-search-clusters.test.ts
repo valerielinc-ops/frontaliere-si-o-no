@@ -86,6 +86,42 @@ describe('buildSearchSlug + parseSearchSlugFilter — round-trip', () => {
   });
 });
 
+describe('parseSearchSlugFilter — strips job-search boilerplate from seeded query', () => {
+  // GSC queries prepend "offerte (di) lavoro" / "lavoro" etc. Those words
+  // appear in no job title, so they can never satisfy the strict AND-match and
+  // would otherwise force every such landing into the fuzzy "no exact match"
+  // fallback. The parsed query must drop the leading boilerplate.
+  it('strips "offerte lavoro" prefix (the reported addetto-a-cucina case)', () => {
+    expect(parseSearchSlugFilter('ricerca-offerte-lavoro-addetto-a-cucina')).toBe('addetto a cucina');
+  });
+
+  it('strips "offerte di lavoro" prefix', () => {
+    expect(parseSearchSlugFilter('ricerca-offerte-di-lavoro-infermiere')).toBe('infermiere');
+  });
+
+  it('strips a bare leading "lavoro" / "offerte" token', () => {
+    expect(parseSearchSlugFilter('ricerca-lavoro-cuoco')).toBe('cuoco');
+    expect(parseSearchSlugFilter('ricerca-offerte-cuoco')).toBe('cuoco');
+  });
+
+  it('strips locale boilerplate (DE stellenangebote, FR offres emploi)', () => {
+    expect(parseSearchSlugFilter('suche-stellenangebote-koch')).toBe('koch');
+    expect(parseSearchSlugFilter('recherche-offres-emploi-cuisinier')).toBe('cuisinier');
+  });
+
+  it('never empties the query for a boilerplate-only slug (no blank search box)', () => {
+    // "offerte lavoro" → leading "offerte " stripped, "lavoro" kept (non-blank).
+    expect(parseSearchSlugFilter('ricerca-offerte-lavoro')).toBe('lavoro');
+    // "lavoro" alone has no trailing token to strip → returned verbatim.
+    expect(parseSearchSlugFilter('ricerca-lavoro')).toBe('lavoro');
+  });
+
+  it('does not strip boilerplate words that appear mid-query', () => {
+    expect(parseSearchSlugFilter('ricerca-agente-immobiliare')).toBe('agente immobiliare');
+    expect(parseSearchSlugFilter('ricerca-cuoco-offerte')).toBe('cuoco offerte');
+  });
+});
+
 // ── Stopword expansion / token extraction ───────────────────────────────
 
 describe('extractRelatedTopicTokens — stopword + length gate', () => {
