@@ -25193,4 +25193,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ferrovia-retica-taiwan',
+ category: 'novita',
+ date: '2026-06-01T21:43:10.859Z',
+ image: '/images/blog/ferrovia-retica-taiwan.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

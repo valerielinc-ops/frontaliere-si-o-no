@@ -7939,6 +7939,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mostra-piante-rare-comerio-2026.title': 'Rare plant fair in Comerio: a treat for nature lovers',
     'blog.article.mostra-piante-rare-comerio-2026.excerpt': 'On Saturday 6 and Sunday 7 June 2026, the Belvedere in Comerio will host the tenth edition of the rare and tropical plant fair.',
     'blog.article.mostra-piante-rare-comerio-2026.imageAlt': 'Tropical plant market with Lake Lugano in the background',
+    'blog.article.ferrovia-retica-taiwan.title': 'Rhaetian Railway signs new deal with Taiwan',
+    'blog.article.ferrovia-retica-taiwan.excerpt': 'The Rhaetian Railway has signed a collaboration agreement with Taiwan\'s Alishan Forest Railway.',
+    'blog.article.ferrovia-retica-taiwan.imageAlt': 'RhB railway in winter',
 };
 
 export default blogMetaEn;
