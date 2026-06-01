@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-01T13:38:32.209Z",
-  "total": 25,
-  "newCount": 0,
+  "generatedAt": "2026-06-01T22:46:12.908Z",
+  "total": 26,
+  "newCount": 1,
   "updatedCount": 20,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11281,
-  "avgDurationMs": 11281,
+  "durationMs": 10218,
+  "avgDurationMs": 10218,
   "durationHistory": [
-    11281
+    10218
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SALES",
+      "slug": "sales-ariston-group-cd-de-mexico-mx-53390",
+      "url": "https://careers.aristongroup.com/job/Mexico-City-SALES-Cd_D-53390/1395150433/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1395150433/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Cd.De Mexico, MX, 53390",
+      "addressLocality": "Cd.De Mexico, MX, 53390",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-16",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "TEAMLEITER SERVICE WÄRMEPUMPEN (M/W)",
