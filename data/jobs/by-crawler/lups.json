@@ -4855,8 +4855,7 @@
         ],
         "de": [
           "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-kriens",
-          "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-luzerner-psychiatrie-lups-kriens",
-          "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-lups-luzern"
+          "arztin-ambulante-transitionspsychiatrie-80-100-m-w-d-luzerner-psychiatrie-lups-kriens"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:46.434Z",
@@ -6572,9 +6571,6 @@
           "secretaire-medical-80-h-f-luzerner-psychiatrie-lups-luzern",
           "secretaire-medical-80-homme-femme-luzerner-psychiatrie-lups-luzern",
           "consultant-principal-m-m-j-luzerner-psychiatrie-lups-luzern"
-        ],
-        "de": [
-          "arztsekretarin-80-m-w-d-lups-luzern"
         ]
       },
       "previousSlugs": [
@@ -7112,8 +7108,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sozialpadagogin-hf-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban",
-          "sozialpadagogin-hf-w-m-d-60-80-lups-st-urban"
+          "sozialpadagogin-hf-w-m-d-60-80-luzerner-psychiatrie-lups-st-urban"
         ],
         "it": [
           "sozialpadagogin-hf-w-m-d-60-80-lups-st-urban",
@@ -7289,12 +7284,12 @@
     },
     {
       "id": "lups-c2f541da527e",
-      "slug": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
+      "slug": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
         "de": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
-        "it": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
+        "it": "psicomotorik-terapia-40-m-w-d-luzerner-psychiatrie-lups-kriens",
         "en": "psychomotorik-therapeutin-40-m-w-d-lups-kriens",
-        "fr": "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
+        "fr": "psychomotrice-therapeutine-40-m-p-j-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7349,7 +7344,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T15:25:03.751Z"
+      "firstSeenAt": "2026-06-01T15:25:03.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
+        ],
+        "fr": [
+          "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "psychomotorik-therapeutin-40-m-w-d-lups-kriens"
+      ]
     }
   ]
 }

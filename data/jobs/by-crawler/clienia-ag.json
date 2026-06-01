@@ -574,10 +574,10 @@
       "id": "clienia-ag-cbed9aa78ec0",
       "slug": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
+        "it": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "fr": "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
+        "fr": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -621,18 +621,16 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
         "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
-        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh"
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-          "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
+          "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh"
         ],
         "fr": [
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
         ]
       },
@@ -734,7 +732,7 @@
         "it": "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh",
         "en": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "de": "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
-        "fr": "physiotherapeute-60-clienia-ag-pfaffikon"
+        "fr": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -779,6 +777,7 @@
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "physiotherapeute-60-clienia-ag-pfaffikon-zh",
+        "physiotherapeute-60-clienia-ag-pfaffikon",
         "physiotherapeutin-physiotherapeutin-60-clienia-ag-pfaffikon",
         "fisioterapista-60-clienia-ag-pfaffikon"
       ],
@@ -789,7 +788,6 @@
         ],
         "fr": [
           "physiotherapeute-60-clienia-ag-pfaffikon-zh",
-          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
           "physiotherapeute-60-clienia-ag-pfaffikon"
         ]
       },
@@ -948,9 +946,6 @@
         "fr": [
           "medecin-principal-60-100-clienia-ag-pfaffikon-zh",
           "medecin-principal-60-100-clienia-ag-pfaffikon"
-        ],
-        "de": [
-          "oberarztin-oberarzt-60-100-clienia-ag-zurich"
         ]
       },
       "previousSlugs": [

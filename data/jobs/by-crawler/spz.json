@@ -3555,12 +3555,12 @@
     },
     {
       "id": "spz-1c4eb7f087ab",
-      "slug": "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil",
+      "slug": "dipl-carriera-uomo-hf-fh-in-terapia-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil",
-        "it": "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil",
-        "en": "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil",
-        "fr": "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil"
+        "it": "dipl-carriera-uomo-hf-fh-in-terapia-intensiva-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "en": "dipl-career-man-hf-fh-in-intensive-care-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "dipl-carriere-homme-hf-fh-en-soins-intensifs-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3615,7 +3615,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T16:18:22.047Z"
+      "firstSeenAt": "2026-06-01T16:18:22.047Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation-spz-nottwil"
+      ]
     }
   ]
 }

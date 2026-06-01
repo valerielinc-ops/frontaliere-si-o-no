@@ -78,12 +78,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-uomo-donna-die-mobiliar-bern",
-          "product-owner-w-m-d-mobiliar-ch"
+          "product-owner-uomo-donna-die-mobiliar-bern"
         ],
         "fr": [
-          "product-owner-h-f-die-mobiliar-bern",
-          "product-owner-w-m-d-mobiliar-ch"
+          "product-owner-h-f-die-mobiliar-bern"
         ]
       },
       "firstSeenAt": "2026-05-26T23:43:40.907Z",
@@ -104,12 +102,12 @@
     },
     {
       "id": "mobiliar-6d59637de5bb",
-      "slug": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
+      "slug": "assistenza-a-consulenti-soccorso-d-emergenza-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "it": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "en": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch",
-        "fr": "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        "it": "assistenza-a-consulenti-soccorso-d-emergenza-f-m-d-die-mobiliar-bern",
+        "en": "assistance-emergency-help-advisor-m-f-d-die-mobiliar-bern",
+        "fr": "conseiller-assistance-aide-d-urgence-h-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -178,7 +176,21 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-01T15:35:29.961Z"
+      "firstSeenAt": "2026-06-01T15:35:29.961Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-674b933c73e5",
@@ -376,12 +388,12 @@
     },
     {
       "id": "mobiliar-37146b39a960",
-      "slug": "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
+      "slug": "centro-di-contatto-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
+        "it": "centro-di-contatto-m-d-die-mobiliar-bern",
         "en": "sachbearbeiter-contact-center-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+        "fr": "centre-de-contact-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -452,7 +464,18 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-01T15:35:26.388Z"
+      "firstSeenAt": "2026-06-01T15:35:26.388Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-contact-center-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-88cf6a68eb2f",
@@ -460,8 +483,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch",
         "it": "sachbearbeiter-kundendialog-e-triage-m-w-d-die-mobiliar-oder-nach-vereinbarung-und-ist-befristet-auf-ein-jahr",
-        "en": "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
+        "en": "senior-consultant-m-d-die-mobiliar-ticino",
+        "fr": "consultant-principal-m-j-die-mobiliar-ticino"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -521,6 +544,12 @@
       "sfJobId": "1164806655",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "sachbearbeiter-kundendialog-und-triage-w-m-d-mobiliar-ch"
         ]
       },
@@ -1038,12 +1067,12 @@
     },
     {
       "id": "mobiliar-7d06f9938e2d",
-      "slug": "business-analyst-w-m-d-mobiliar-ch",
+      "slug": "business-analista-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "business-analyst-w-m-d-mobiliar-ch",
+        "it": "business-analista-w-m-d-die-mobiliar-bern",
         "en": "business-analyst-w-m-d-die-mobiliar-bern",
         "de": "business-analyst-w-m-d-mobiliar-ch",
-        "fr": "business-analyst-w-m-d-mobiliar-ch"
+        "fr": "analyste-des-activites-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1103,16 +1132,13 @@
       },
       "sfJobId": "1164795755",
       "previousSlugs": [
-        "business-analista-w-m-d-die-mobiliar-bern",
-        "analyste-des-activites-m-j-die-mobiliar-bern"
+        "business-analyst-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analista-w-m-d-die-mobiliar-bern",
           "business-analyst-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "analyste-des-activites-m-j-die-mobiliar-bern",
           "business-analyst-w-m-d-mobiliar-ch"
         ]
       },
@@ -1973,9 +1999,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2033,20 +2059,16 @@
       },
       "sfJobId": "1164779155",
       "previousSlugs": [
-        "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "jurist-wohnen-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "en": [
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
@@ -4237,7 +4259,7 @@
         "it": "devsecops-ingegnere-w-m-d-die-mobiliar-bern",
         "en": "devsecops-engineer-w-m-d-die-mobiliar-bern",
         "de": "devsecops-engineer-w-m-d-mobiliar-ch",
-        "fr": "devsecops-engineer-w-m-d-mobiliar-ch"
+        "fr": "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4306,14 +4328,12 @@
           "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "devsecops-ingenieur-w-m-d-die-mobiliar-bern",
           "devsecops-engineer-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
         "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch",
-        "devsecops-engineer-w-m-d-mobiliar-ch",
-        "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
+        "devsecops-engineer-w-m-d-mobiliar-ch"
       ],
       "firstSeenAt": "2026-05-10T22:09:37.439Z",
       "salaryMin": 49500,
@@ -4873,12 +4893,12 @@
     },
     {
       "id": "mobiliar-3889acc4e655",
-      "slug": "quality-master-w-m-d-mobiliar-ch",
+      "slug": "master-di-qualita-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "quality-master-w-m-d-mobiliar-ch",
+        "it": "master-di-qualita-w-m-d-die-mobiliar-bern",
         "en": "quality-master-w-m-d-die-mobiliar-bern",
         "de": "quality-master-w-m-d-mobiliar-ch",
-        "fr": "quality-master-w-m-d-mobiliar-ch"
+        "fr": "qualite-master-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4938,16 +4958,13 @@
       },
       "sfJobId": "1164709855",
       "previousSlugs": [
-        "master-di-qualita-w-m-d-die-mobiliar-bern",
-        "qualite-master-w-m-d-die-mobiliar-bern"
+        "quality-master-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-di-qualita-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "qualite-master-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ]
       },

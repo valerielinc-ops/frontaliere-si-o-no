@@ -74,12 +74,12 @@
     },
     {
       "id": "ameos-ch-a85bc7023737",
-      "slug": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+      "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "it": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "it": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
         "en": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "fr": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        "fr": "consultant-principal-m-m-j-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -134,7 +134,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T13:37:22.388Z"
+      "firstSeenAt": "2026-06-01T13:37:22.388Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-11b3cd5a81d9",
@@ -684,7 +695,7 @@
         "it": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "en": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
         "de": "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "fr": "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
+        "fr": "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -727,8 +738,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
         "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -736,7 +745,7 @@
           "physiotherapeut-m-w-d-ameos-einsiedeln"
         ],
         "fr": [
-          "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln"
+          "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
         ]
       },
       "firstSeenAt": "2026-05-20T10:54:37.604Z",
