@@ -7,9 +7,9 @@
       "slug": "personale-nella-cura-e-nella-gestione-della-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "addetto-a-alla-cura-e-alla-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "care-and-household-support-worker-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "en": "associate-betreuung-und-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
-        "fr": "employe-e-de-soins-et-d-assistance-domestique-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+        "fr": "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -83,6 +83,9 @@
       "previousSlugs": [
         "mitarbeiter-in-betreuung-und-hauswirtschaft-spitex-gz-dielsdorf-regensdorf",
         "staff-in-care-and-home-management-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "care-and-household-support-worker-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "employe-e-de-soins-et-d-assistance-domestique-spitex-gesundheitszentrum-dielsdorf-regensdorf",
+        "personale-nella-cura-e-nella-gestione-della-casa-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "associate-betreuung-und-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       ],
@@ -92,10 +95,10 @@
         ],
         "en": [
           "staff-in-care-and-home-management-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-          "associate-betreuung-und-hauswirtschaft-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+          "care-and-household-support-worker-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ],
         "fr": [
-          "personnel-soins-et-gestion-a-domicile-spitex-gesundheitszentrum-dielsdorf-regensdorf"
+          "employe-e-de-soins-et-d-assistance-domestique-spitex-gesundheitszentrum-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T17:51:20.865Z",
@@ -215,7 +218,7 @@
       "slug": "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
       "slugByLocale": {
         "it": "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "fr": "assistant-en-soins-de-sante-hf-specialisation-en-soins-de-longue-duree-gesundheitszentrum-dielsdorf-dielsdorf"
       },
@@ -292,6 +295,8 @@
       "previousSlugs": [
         "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
+        "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
         "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
@@ -300,7 +305,7 @@
           "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "en": [
-          "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
+          "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T17:51:20.861Z",
@@ -1448,7 +1453,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
+        "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
+        "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1482,7 +1488,7 @@
         "it": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
         "en": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
         "de": "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf",
-        "fr": "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+        "fr": "chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1526,11 +1532,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
         ]
       },
       "previousSlugs": [
-        "chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+        "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
+        "chef-in-gesundheitszentrum-dielsdorf-dielsdorf",
+        "stv-chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "firstSeenAt": "2026-05-27T23:05:52.372Z",
       "salaryMin": 49500,
@@ -1632,7 +1640,7 @@
       "id": "gz-dielsdorf-1f252d1fc6a5",
       "slug": "orologio-notturno-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "orologio-notturno-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
         "fr": "nachtwache-gesundheitszentrum-dielsdorf-regensdorf"
@@ -1684,13 +1692,15 @@
         ],
         "it": [
           "nachtwache-gz-dielsdorf-regensdorf",
-          "nachtwache-gesundheitszentrum-dielsdorf-regensdorf"
+          "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
+          "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "previousSlugs": [
         "nachtwache-gz-dielsdorf-regensdorf",
+        "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
         "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
-        "nachtwache-gesundheitszentrum-dielsdorf-regensdorf"
+        "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-05-29T12:33:18.356Z",
       "salaryMin": 49500,
