@@ -1,10 +1,10 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-05-31T22:42:22.864Z",
+  "assembledAt": "2026-06-01T15:10:56.053Z",
   "jobs": [
     {
       "title": "Stv. Leitung Behandlung 02/2026",
-      "slug": "trattamento-della-linea-stv-traduzione-klinik-wyssholzli-herzogenbuchsee",
+      "slug": "vicedirettore-trattamento-02-2026-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Stv.-Leitung-Behandlung_02_2026.pdf",
       "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
       "company": "Klinik Wysshölzli",
@@ -50,12 +50,14 @@
       "id": "klinik-wyssholzli-47477469c16f",
       "previousSlugs": [
         "stv-leitung-behandlung-02-2026-klinik-wyssholzli",
+        "trattamento-della-linea-stv-traduzione-klinik-wyssholzli-herzogenbuchsee",
         "stv-line-treatment-02-2026-klinik-wyssholzli-herzogenbuchsee",
         "traitement-de-la-ligne-stv-02-2026-klinik-wyssholzli-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-behandlung-02-2026-klinik-wyssholzli"
+          "stv-leitung-behandlung-02-2026-klinik-wyssholzli",
+          "trattamento-della-linea-stv-traduzione-klinik-wyssholzli-herzogenbuchsee"
         ],
         "en": [
           "stv-leitung-behandlung-02-2026-klinik-wyssholzli",
@@ -151,11 +153,12 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
-      "slug": "psichiatria-negli-ambulatoriali-2025-60-80-klinik-wyssholzli-herzogenbuchsee",
+      "slug": "psichiatra-in-ambulant-2025-60-80-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Psychiater_in-ambulant_2025_60-80.pdf",
       "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
       "company": "Klinik Wysshölzli",
@@ -201,11 +204,13 @@
       "id": "klinik-wyssholzli-491031fe725a",
       "previousSlugs": [
         "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli",
+        "psichiatria-negli-ambulatoriali-2025-60-80-klinik-wyssholzli-herzogenbuchsee",
         "psychiatrics-in-outpatients-2025-60-80-klinik-wyssholzli-herzogenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli"
+          "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli",
+          "psichiatria-negli-ambulatoriali-2025-60-80-klinik-wyssholzli-herzogenbuchsee"
         ],
         "en": [
           "psychiater-in-ambulant-2025-60-80-klinik-wyssholzli",
@@ -225,7 +230,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -372,7 +378,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Personalassistentin 60–100%",
