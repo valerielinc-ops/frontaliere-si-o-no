@@ -132,6 +132,42 @@ describe('cluster thin builder matches the real minified (unquoted-class) produc
   });
 });
 
+// #930 item 2 — EJP-marked shells are excluded from the offender ratchet, so
+// they never enter `samples` and the nearFloor band can't see them. The
+// auditor now samples the index,follow ones into a separate `extra.ejpDrift`
+// band so a silent regression on indexed thin pages stays visible (the prior
+// "keep nearFloor un-suppressed" mitigation was a no-op). noindex marked pages
+// are out of Google's index → not tracked.
+describe('EJP-marked index,follow shells get drift visibility (extra.ejpDrift)', () => {
+  const markedThin = (robots = '') =>
+    `<!doctype html><html><head><title>x</title>${robots}` +
+    `<link rel="canonical" href="https://frontaliereticino.ch/cerca-lavoro-ticino/foo/">` +
+    `</head><body><!--EJP_STRIPPED--><h1>Y</h1>${'<div></div>'.repeat(2000)}</body></html>`;
+
+  it('an index,follow marked shell is tracked for drift but never an offender', async () => {
+    const a = createAuditor({ threshold: 10, failOnOffenders: true });
+    a.collect('dist/cerca-lavoro-ticino/foo/index.html', markedThin());
+    const r = await a.report();
+    expect(r.extra.skippedEjpStripped).toBe(1);
+    expect(r.offendersTotal).toBe(0);
+    expect(r.extra.scanned).toBe(0);
+    expect(r.extra.ejpDrift.total).toBe(1);
+    expect(r.extra.ejpDrift.lowest[0].path).toBe('dist/cerca-lavoro-ticino/foo/index.html');
+    expect(r.passed).toBe(true);
+  });
+
+  it('a noindex marked shell is NOT tracked for drift (out of Google index)', async () => {
+    const a = createAuditor({ threshold: 10, failOnOffenders: true });
+    a.collect(
+      'dist/cerca-lavoro-ticino/foo/index.html',
+      markedThin('<meta name="robots" content="noindex,follow">'),
+    );
+    const r = await a.report();
+    expect(r.extra.skippedEjpStripped).toBe(1);
+    expect(r.extra.ejpDrift.total).toBe(0);
+  });
+});
+
 describe('career-landings regression is soft-landing thin pages, covered by the marker', () => {
   const azPath =
     'dist/cerca-lavoro-ticino/azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti/index.html';

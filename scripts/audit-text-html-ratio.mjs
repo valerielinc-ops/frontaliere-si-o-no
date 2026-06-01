@@ -96,6 +96,7 @@ export function createAuditor(opts = {}) {
   const writeBaselinePath = opts.writeBaselinePath ?? null;
 
   const samples = [];
+  const ejpSamples = [];
   let skippedNoindex = 0;
   let skippedEjpStripped = 0;
 
@@ -115,6 +116,25 @@ export function createAuditor(opts = {}) {
       // form as well for backward compat with un-minified test fixtures.
       if (html.includes(EJP_STRIPPED_MARKER) || html.includes('<!--ejp-stripped-->')) {
         skippedEjpStripped++;
+        // Drift visibility: marked shells are excluded from the offender
+        // ratchet by design, so they never enter `samples` — which left them
+        // invisible to the nearFloor band (the prior "keep nearFloor
+        // un-suppressed" mitigation was a no-op because skipped pages never
+        // reach sampling). The index,follow ones stay in Google's index, so a
+        // silent further shrink (prose-helper/template regression) must still
+        // be seen. Sample their ratio into a separate, non-blocking band.
+        // noindex/redirect marked pages are out of the index → no SEO drift.
+        if (includeNoindex || !(NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
+          const textBytes = Buffer.byteLength(extractVisibleText(html), 'utf8');
+          const rel = relative(ROOT, file);
+          ejpSamples.push({
+            file: rel,
+            feature: classifyFeature(rel),
+            htmlBytes,
+            textBytes,
+            ratio: (textBytes / htmlBytes) * 100,
+          });
+        }
         return;
       }
       if (!includeNoindex && (NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
@@ -212,8 +232,31 @@ export function createAuditor(opts = {}) {
         })),
       };
 
+      // Drift band for EJP-marked index,follow shells. They are excluded from
+      // the offender ratchet by design (intentionally thin), so they never
+      // enter `samples` and the nearFloor band can't see them. This band
+      // restores that visibility WITHOUT gating — it surfaces the marked
+      // shells' ratios (lowest first) so a silent regression on indexed thin
+      // pages is caught before Google does. Never affects `passed`.
+      const ejpDriftSorted = [...ejpSamples].sort((a, b) => a.ratio - b.ratio);
+      const ejpDriftByFeature = {};
+      for (const r of ejpSamples) {
+        ejpDriftByFeature[r.feature] = (ejpDriftByFeature[r.feature] ?? 0) + 1;
+      }
+      const ejpDrift = {
+        total: ejpSamples.length,
+        byFeature: ejpDriftByFeature,
+        lowest: ejpDriftSorted.slice(0, limit).map((r) => ({
+          path: r.file,
+          feature: r.feature,
+          ratio: Number(r.ratio.toFixed(2)),
+          htmlBytes: r.htmlBytes,
+          textBytes: r.textBytes,
+        })),
+      };
+
       const humanSummary = passed
-        ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %)`
+        ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %), ${ejpDrift.total} EJP-marked index,follow shell(s) tracked for drift`
         : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => `${r.feature}(${r.count}>${r.max})`).join(', ') || 'total cap exceeded'}`;
 
       return {
@@ -224,7 +267,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, warnThreshold, nearFloor, rawSamples: samples },
+        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, warnThreshold, nearFloor, ejpDrift, rawSamples: samples },
         humanSummary,
       };
     },
