@@ -92,24 +92,40 @@ function getOccurredAt(event) {
 // ── Persist a single event to Firestore ──────────────────────
 
 export async function persistMailerooEvent(db, event) {
-  const email = getRecipient(event);
-  if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
-
   const type = mapMailerooEvent(event.event_type);
   if (!type) return { skipped: true, reason: `unknown_event: ${event.event_type}` };
 
-  const campaignId = extractCampaignId(event);
+  const FieldValue = admin.firestore.FieldValue;
+  const refId = event.message_reference_id || event.message_id || '';
+
+  // Maileroo 'opened'/'clicked' events carry NEITHER the recipient nor tags —
+  // only message_reference_id. The send pipeline (persistDelivery) writes an
+  // authoritative lookup record at maileroo_message_meta/{referenceId} with the
+  // real recipient, campaign id and job-alert flag. Read it (keyed by refId) to
+  // resolve the subscriber for opens/clicks and to enrich campaign/routing that
+  // the webhook payload itself omits. Falls back to the event fields when the
+  // record is absent (e.g. an 'accepted'/'delivered' event, which does carry the
+  // recipient in event_data.to).
+  const metaDoc = refId
+    ? (await db.collection('maileroo_message_meta').doc(refId).get()).data()
+    : null;
+  // The lookup record is only authoritative if it actually resolved an email.
+  const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
+  const email = meta ? meta.email : getRecipient(event);
+  if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
+
+  const isJobAlert = meta ? !!meta.is_job_alert : isJobAlertEvent(event);
+  const campaignId = (meta && meta.campaign_id) ? meta.campaign_id : extractCampaignId(event);
   const messageId = event.message_id || event.message_reference_id || '';
   const occurredAt = getOccurredAt(event);
   const data = event.event_data || {};
   const clickedUrl = data.original_url || data.url || '';
   const bounceReason = data.reason || data.reject_reason || '';
 
-  if (isJobAlertEvent(event)) {
-    return persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl });
+  if (isJobAlert) {
+    return persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl, campaignId });
   }
 
-  const FieldValue = admin.firestore.FieldValue;
   const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
   const subscriberUpdate = {

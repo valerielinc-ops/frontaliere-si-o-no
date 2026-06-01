@@ -1428,6 +1428,18 @@ async function persistDelivery(recipient, messageId, meta) {
       sector_interest: recipient.sectorInterest || null,
       sent_at: new Date(),
     }, { merge: true });
+    // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
+    // no tags). Persist an authoritative lookup keyed by that id so the webhook can
+    // resolve the subscriber + real campaign for opens/clicks. See
+    // functions/src/newsletterMailerooWebhookCore.js.
+    if (meta.provider === 'maileroo' && messageId) {
+      await db.collection('maileroo_message_meta').doc(String(messageId)).set({
+        email,
+        campaign_id: meta.campaignId,
+        is_job_alert: false,
+        updated_at: new Date(),
+      }, { merge: true });
+    }
     // Update subscriber-level counters
     await subRef.set({
       last_sent_at: new Date(),
