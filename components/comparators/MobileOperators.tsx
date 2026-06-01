@@ -75,8 +75,8 @@ const operators: MobileOperator[] = [
  sms: 200,
  roamingInSwitzerland: {
  included: true,
- dataLimit: 14,
- notes: 'Roaming CH gratuito come UE dall\'8 settembre 2025 (Roam Like At Home esteso). FUP UE applicata ai GB del piano.'
+ dataLimit: 11.4,
+ notes: 'Roaming CH gratuito come UE dall\'8 settembre 2025 (Roam Like At Home esteso). FUP roaming UE/CH 11.4 GB per la fascia 6.95€ (calcolata sul prezzo del piano).'
  },
  setupCost: 2.99,
  contractType: 'prepagato',
@@ -95,9 +95,9 @@ const operators: MobileOperator[] = [
  roamingInSwitzerland: {
  included: true,
  dataLimit: 32,
- notes: 'Roaming CH come Italia dal 5 settembre 2025 per clienti offerte Privati. Vodafone Start: 32 GB UE+UK+Svizzera inclusi.'
+ notes: 'Roaming CH come Italia dal 5 settembre 2025 per clienti offerte Privati. Vodafone Start: 32 GB UE+UK+Svizzera inclusi (17 GB normativi + 15 extra).'
  },
- setupCost: 6.99,
+ setupCost: 10,
  contractType: 'prepagato',
  color: 'from-danger-strong to-danger-strong-hover',
  features: ['32 GB roaming CH inclusi', 'Roam Like Home CH dal 09/2025', '5G disponibile'],
@@ -155,12 +155,12 @@ const operators: MobileOperator[] = [
  included: false,
  costPerMB: 4.88,
  costPerMinute: 0.49,
- notes: 'Nessun roaming CH incluso e nessuna opzione dedicata. Extra UE: 0.49€/min, 0.16€/SMS, 4.88€/MB.'
+ notes: 'Roaming CH non in Roam-Like-Home, ma opzione "Giga Svizzera" 10 GB a 4.99€/settimana (attivazione gratis, si rinnova solo se usata). Senza opzione: tariffe Extra UE 0.49€/min, 0.16€/SMS, 4.88€/MB.'
  },
  setupCost: 0,
  contractType: 'prepagato',
  color: 'from-danger-strong to-danger-strong-hover',
- features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH non incluso'],
+ features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Opzione Giga Svizzera 10 GB 4.99€/sett'],
  website: 'https://www.verymobile.it/offerte'
  },
  {
@@ -489,7 +489,7 @@ const MobileOperators: React.FC = () => {
  <p className="text-muted text-lg">
  {t('mobile.subtitle')}
  </p>
- <div className="mt-3"><DataFreshness lastUpdated="2026-05" source="Operatori ufficiali" variant="badge" /></div>
+ <div className="mt-3"><DataFreshness lastUpdated="2026-06" source="Operatori ufficiali" variant="badge" /></div>
  </div>
 
  {/* Warning Banner */}
