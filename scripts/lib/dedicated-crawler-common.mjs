@@ -1569,6 +1569,23 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     }
 
     for (const locale of DEFAULT_LOCALES) {
+      // Registry pin (same authority as the first locale loop above): a locale
+      // whose immutable registry slug is a real translation is governed solely
+      // by the registry — never quality-repaired toward a title-derived form.
+      // Without this guard a registered job whose registry slug is itself
+      // low-quality (boilerplate / federal-placeholder / German-word) would be
+      // "repaired" here, demoting the indexed registry slug to previousSlugs and
+      // churning the canonical away from the indexed URL — exactly the drift
+      // this fix exists to prevent. Re-assert the pin defensively in case an
+      // earlier pass left it unset.
+      const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang);
+      if (pinnedSlug) {
+        if (String(job.slugByLocale[locale] || '').trim() !== pinnedSlug) {
+          job.slugByLocale[locale] = pinnedSlug;
+          jobChanged = true;
+        }
+        continue;
+      }
       const localizedTitle = String(job.titleByLocale[locale] || '').trim();
       const localizedSlug = String(job.slugByLocale[locale] || '').trim();
       if (!localizedTitle) continue;
@@ -4313,17 +4330,25 @@ const SLUG_REGISTRY_PATH = path.resolve(
   '..', '..', 'data', 'slug-registry.json',
 );
 
+// Resolved at call time so tests can point load/save at a controlled fixture via
+// SLUG_REGISTRY_PATH_OVERRIDE. Unset in all prod/CI paths → identical behavior.
+function resolveSlugRegistryPath() {
+  const override = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+  return override ? path.resolve(override) : SLUG_REGISTRY_PATH;
+}
+
 export function loadSlugRegistry() {
   try {
-    if (fs.existsSync(SLUG_REGISTRY_PATH)) {
-      return JSON.parse(fs.readFileSync(SLUG_REGISTRY_PATH, 'utf-8'));
+    const registryPath = resolveSlugRegistryPath();
+    if (fs.existsSync(registryPath)) {
+      return JSON.parse(fs.readFileSync(registryPath, 'utf-8'));
     }
   } catch { /* ignore malformed file */ }
   return {};
 }
 
 export function saveSlugRegistry(registry) {
-  fs.writeFileSync(SLUG_REGISTRY_PATH, JSON.stringify(registry, null, 2) + '\n');
+  fs.writeFileSync(resolveSlugRegistryPath(), JSON.stringify(registry, null, 2) + '\n');
 }
 
 export function getRegisteredSlug(job, registry) {
@@ -4333,8 +4358,11 @@ export function getRegisteredSlug(job, registry) {
 }
 
 /**
- * Single source of truth for "the immutable registry slug beats any slug
- * re-derived from a (possibly re-translated) title".
+ * Shared decision for "the immutable registry slug beats any slug re-derived
+ * from a (possibly re-translated) title", used by both title→slug derivation
+ * paths (hardenJobLocaleFields, regenerate-slugs-by-locale.mjs). The same
+ * source-copy rule is also applied inline by mergeAndDeduplicate and the post-AI
+ * backfill in shared-jobs-crawler.mjs; keep those in sync if this changes.
  *
  * Root cause of slug instability: a job's localized slug is derived from its
  * AI-translated title, and AI translation is non-deterministic (temperature +

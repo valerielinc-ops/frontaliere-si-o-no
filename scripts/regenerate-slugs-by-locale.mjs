@@ -139,9 +139,17 @@ async function main() {
         // then skip title-based regeneration for this locale entirely.
         const pinnedSlug = registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
         if (pinnedSlug) {
+          // Defense-in-depth: the registry pin bypasses the cross-job
+          // disambiguator the title-derivation path applies below, so surface a
+          // pre-existing registry collision (two job ids registered to the same
+          // per-locale slug) instead of silently minting two identical URLs.
+          const slugMap = usedSlugs.get(locale);
+          const owner = slugMap.get(pinnedSlug);
+          if (owner && owner !== job.id) {
+            console.warn(`[registry-pin] ${locale} slug "${pinnedSlug}" registered to ${job.id} also owned by ${owner} — canonical split (pre-existing registry collision)`);
+          }
           if (currentSlug && currentSlug !== pinnedSlug) {
             addPreviousSlugForLocale(job, locale, currentSlug, 20);
-            const slugMap = usedSlugs.get(locale);
             if (slugMap.get(currentSlug) === job.id) slugMap.delete(currentSlug);
             slugMap.set(pinnedSlug, job.id);
             sbl[locale] = pinnedSlug;
@@ -151,7 +159,7 @@ async function main() {
           } else if (!currentSlug) {
             sbl[locale] = pinnedSlug;
             job.slugByLocale = sbl;
-            usedSlugs.get(locale).set(pinnedSlug, job.id);
+            slugMap.set(pinnedSlug, job.id);
             sliceChanged = true;
             totalPinned++;
           }
