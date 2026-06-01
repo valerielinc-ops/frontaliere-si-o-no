@@ -1110,7 +1110,7 @@
       "slugByLocale": {
         "fr": "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-fur-12",
         "it": "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-per-12-monate-hopital-fribourgeois-hfr-fribourg",
-        "en": "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-fur-12",
+        "en": "nurse-12-month-fixed-term-contract-60-100-hopital-fribourgeois-hfr-fribourg",
         "de": "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-fur-12"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -1157,6 +1157,9 @@
       "externalId": "f1381a7c2acb",
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-fur-12"
+        ],
+        "en": [
           "infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60-100-befristet-fur-12"
         ]
       },

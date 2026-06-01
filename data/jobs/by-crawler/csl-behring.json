@@ -4058,12 +4058,12 @@
     },
     {
       "id": "csl-behring-af167fa55778",
-      "slug": "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch",
+      "slug": "direttore-associato-farmacologia-non-clinica-cvr-csl-behring-schlieren",
       "slugByLocale": {
         "en": "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch",
-        "it": "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch",
+        "it": "direttore-associato-farmacologia-non-clinica-cvr-csl-behring-schlieren",
         "de": "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch",
-        "fr": "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch"
+        "fr": "directeur-associe-pharmacologie-non-clinique-cvr-csl-behring-schlieren"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4119,16 +4119,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-01T14:18:25.272Z"
+      "firstSeenAt": "2026-06-01T14:18:25.272Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-non-clinical-pharmacology-cvr-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-f9160d3390f4",
-      "slug": "senior-quality-associate-csl-behring-ch",
+      "slug": "associato-senior-per-la-qualita-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-quality-associate-csl-behring-ch",
-        "it": "senior-quality-associate-csl-behring-ch",
+        "it": "associato-senior-per-la-qualita-csl-behring-bern",
         "de": "senior-quality-associate-csl-behring-ch",
-        "fr": "senior-quality-associate-csl-behring-ch"
+        "fr": "associe-principal-de-qualite-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4184,7 +4195,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-01T14:18:24.295Z"
+      "firstSeenAt": "2026-06-01T14:18:24.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-quality-associate-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-quality-associate-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-quality-associate-csl-behring-ch"
+      ]
     }
   ]
 }

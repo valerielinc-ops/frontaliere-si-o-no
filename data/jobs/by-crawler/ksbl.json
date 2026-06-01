@@ -5865,12 +5865,12 @@
     },
     {
       "id": "ksbl-6f896ef5218d",
-      "slug": "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
+      "slug": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
-        "it": "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
+        "it": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
         "en": "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
-        "fr": "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal"
+        "fr": "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5927,17 +5927,16 @@
       },
       "firstSeenAt": "2026-06-01T15:14:13.735Z",
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
-        "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
-        "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+        "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+        "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
+          "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+          "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal"
         ],
         "en": [
           "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
@@ -5946,7 +5945,8 @@
           "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal"
         ],
         "fr": [
-          "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
+          "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
+          "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal"
         ]
       }
     },
@@ -6720,12 +6720,12 @@
     },
     {
       "id": "ksbl-4642567fd7ce",
-      "slug": "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+      "slug": "interno-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
-        "it": "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
-        "en": "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
-        "fr": "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        "it": "interno-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "internship-ambulatory-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "stages-oncologie-ambulatoire-et-hematologie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6780,7 +6780,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T15:14:05.768Z"
+      "firstSeenAt": "2026-06-01T15:14:05.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "en": [
+          "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "fr": [
+          "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+      ]
     }
   ]
 }

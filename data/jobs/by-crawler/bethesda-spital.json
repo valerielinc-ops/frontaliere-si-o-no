@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital",
         "it": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-bethesda-spital-basel",
-        "en": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital",
-        "fr": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital"
+        "en": "assistant-physician-clinic-rheumatology-and-pain-medicine-100-bethesda-spital-basel",
+        "fr": "medecin-adjoint-clinique-rheumatologie-et-medecine-de-la-douleur-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -54,6 +54,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-bethesda-spital"
         ]
       },
@@ -143,8 +149,7 @@
           "tecnico-di-radiologia-dipl-60-bethesda-spital-basel"
         ],
         "de": [
-          "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel",
-          "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+          "dipl-radiologiefachfrau-fachmann-60-bethesda-spital-basel"
         ],
         "fr": [
           "specialiste-en-radiologie-dipl-60-bethesda-spital-basel"
@@ -530,8 +535,7 @@
           "anesthesia-nursing-trainer-80-100-bethesda-spital-basel"
         ],
         "de": [
-          "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel",
-          "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen"
+          "berufsbildner-in-anasthesiepflege-80-100-bethesda-spital-basel"
         ],
         "fr": [
           "formateur-trice-en-soins-anesthesie-80-100-bethesda-spital-basel"
