@@ -1,16 +1,16 @@
 {
   "key": "clinique-la-source",
   "label": "Clinique de La Source",
-  "generatedAt": "2026-06-01T14:07:49.396Z",
+  "generatedAt": "2026-06-01T23:14:34.501Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5173,
-  "avgDurationMs": 5173,
+  "durationMs": 5734,
+  "avgDurationMs": 5734,
   "durationHistory": [
-    5173
+    5734
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=762",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:07:47.610Z",
+      "crawledAt": "2026-06-01T23:14:32.582Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=760",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:07:45.945Z",
+      "crawledAt": "2026-06-01T23:14:30.809Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=750",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:07:46.506Z",
+      "crawledAt": "2026-06-01T23:14:31.371Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -141,7 +141,7 @@
       "url": "https://emploi.lasource.ch/?page=advertisement_display&id=746",
       "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:07:47.051Z",
+      "crawledAt": "2026-06-01T23:14:31.975Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -167,47 +167,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-la-source-972be1cabb98",
-      "slug": "assistente-medica-per-i-nostri-laboratori-clinique-de-la-source-lausanne",
-      "company": "Clinique de La Source",
-      "companyKey": "clinique-la-source",
-      "companyDomain": "lasource.ch",
-      "title": "Assistant·e médical·e pour nos laboratoires",
-      "needsRetranslation": false,
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://emploi.lasource.ch/?page=advertisement_display&id=755",
-      "source": "Clinique de La Source Dedicated Parser (eRecruit RSS + advertisement_display detail)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-31T21:42:16.377Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1004",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://emploi.lasource.ch/?page=advertisement_display&id=755",
-      "careerSiteUrl": "https://emploi.lasource.ch/",
-      "firstSeenAt": "2026-05-19T11:37:53.484Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
