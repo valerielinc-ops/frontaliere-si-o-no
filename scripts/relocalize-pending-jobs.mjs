@@ -118,21 +118,32 @@ function sourceChangedSinceSuppression(job) {
 }
 
 /**
- * Per-run state machine that drives the needsRetranslation give-up cycle.
- * Mutates `job` in place and returns the outcome. Runs for EVERY job in EVERY
- * slice on EVERY run (unlike the per-company sync path, which the throughput /
- * time budget can skip — that gap is what let stuck jobs loop forever).
+ * State machine for the needsRetranslation give-up cycle. Mutates `job` in place
+ * and returns the outcome.
+ *
+ * CRITICAL: the give-up counter must only advance when a translation was actually
+ * ATTEMPTED on this job and still failed — NOT merely because the job sat in the
+ * queue. relocalize runs with `--max-jobs 100` against thousands of flagged jobs,
+ * so most are never reached by the throughput budget on a given run. Counting an
+ * attempt per-run (per queue presence) would suppress the entire un-reached
+ * backlog after a few runs, permanently pulling translatable jobs out of the pool
+ * (source-language text frozen on IT/EN/FR pages — a duplicate-content / indexing
+ * regression). Hence `attempted`:
+ *   - direct-scan over all slices → attempted=false (reset + clear only)
+ *   - per-company sync of jobs actually translated this run → attempted=true
  *
  *   'reset'   — a re-crawl rewrote a suppressed job → give-up lifted, retry
  *   'cleared' — flagged job now passes isIncomplete() → flag + bookkeeping cleared
- *   'gaveup'  — flagged job still incomplete after MAX_RETRANSLATION_ATTEMPTS → suppressed
- *   'counted' — flagged job still incomplete, attempt counter bumped
+ *   'gaveup'  — attempted, still incomplete after MAX_RETRANSLATION_ATTEMPTS → suppressed
+ *   'counted' — attempted, still incomplete → attempt counter bumped
+ *   'waiting' — still incomplete but NOT attempted this run → left flagged, no count
  *   'noop'    — nothing to do
  *
  * @param {object} job
- * @returns {'reset'|'cleared'|'gaveup'|'counted'|'noop'}
+ * @param {{ attempted?: boolean }} [opts]
+ * @returns {'reset'|'cleared'|'gaveup'|'counted'|'waiting'|'noop'}
  */
-export function reconcileRetranslationState(job) {
+export function reconcileRetranslationState(job, { attempted = false } = {}) {
   let outcome = 'noop';
   // A re-crawl rewrote a previously-suppressed job → drop the give-up so the
   // fresh content gets a new translation attempt.
@@ -151,7 +162,9 @@ export function reconcileRetranslationState(job) {
     delete job.localeMismatchSuppressedLen;
     return 'cleared';
   }
-  // Still incomplete after being flagged. Count one give-up attempt for this run.
+  // Still incomplete. Only advance the give-up counter if a translation was
+  // actually attempted on this job this run — otherwise leave it queued.
+  if (!attempted) return 'waiting';
   const attempts = (job.retranslationAttempts || 0) + 1;
   job.retranslationAttempts = attempts;
   if (attempts >= MAX_RETRANSLATION_ATTEMPTS) {
@@ -559,30 +572,18 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
       }
     }
 
-    // Clear needsRetranslation flag only if job is now complete (all locales translated)
-    if (crawlerJob.needsRetranslation && !isIncomplete(crawlerJob)) {
+    // This job was actually translated this run (attempted=true): clear its flag
+    // if now complete, otherwise advance the give-up counter and suppress after
+    // MAX_RETRANSLATION_ATTEMPTS real failed attempts.
+    const outcome = reconcileRetranslationState(crawlerJob, { attempted: true });
+    if (outcome === 'cleared') {
       console.log(`     ✅ Cleared needsRetranslation for: ${crawlerJob.slug?.slice(0, 60)}`);
-      delete crawlerJob.needsRetranslation;
-      delete crawlerJob.retranslationAttempts;
-      delete crawlerJob.localeMismatchSuppressed;
-      delete crawlerJob.localeMismatchSuppressedLen;
       changed = true;
-    }
-
-    // Break infinite retry loop: if the pipeline has tried MAX_RETRANSLATION_ATTEMPTS
-    // times and still can't produce translations that pass isIncomplete(), suppress
-    // the job (localeMismatchSuppressed) so the flaggers stop re-queuing it. Auto-
-    // resets on the next crawl cycle when fresh source data arrives.
-    if (crawlerJob.needsRetranslation && isIncomplete(crawlerJob)) {
-      const attempts = (crawlerJob.retranslationAttempts || 0) + 1;
-      crawlerJob.retranslationAttempts = attempts;
+    } else if (outcome === 'gaveup') {
+      console.log(`     🛑 Giving up after ${MAX_RETRANSLATION_ATTEMPTS} attempts: ${crawlerJob.slug?.slice(0, 60)}`);
       changed = true;
-      if (attempts >= MAX_RETRANSLATION_ATTEMPTS) {
-        console.log(`     🛑 Giving up after ${attempts} attempts: ${crawlerJob.slug?.slice(0, 60)}`);
-        delete crawlerJob.needsRetranslation;
-        crawlerJob.localeMismatchSuppressed = true;
-        crawlerJob.localeMismatchSuppressedLen = (crawlerJob.description || '').trim().length;
-      }
+    } else if (outcome === 'counted' || outcome === 'reset') {
+      changed = true;
     }
 
     if (changed) updated += 1;
@@ -612,21 +613,17 @@ function incrementRetryCounterOnCrawlerFile(companyKey, handledSlugs) {
   let changed = false;
   for (const job of crawlerData.jobs) {
     if (!job.needsRetranslation) continue;
-    if (!isIncomplete(job)) continue;
     // Skip jobs already handled by syncTranslationsToCrawlerFile to avoid
     // double-incrementing the retry counter in the same pipeline run.
     if (handledSlugs && handledSlugs.has(job.slug)) continue;
 
-    const attempts = (job.retranslationAttempts || 0) + 1;
-    job.retranslationAttempts = attempts;
-    changed = true;
-
-    if (attempts >= MAX_RETRANSLATION_ATTEMPTS) {
-      console.log(`     🛑 Giving up after ${attempts} direct attempts: ${String(job.slug || '').slice(0, 60)}`);
-      delete job.needsRetranslation;
-      job.localeMismatchSuppressed = true;
-      job.localeMismatchSuppressedLen = (job.description || '').trim().length;
+    // This company was processed this run (attempted=true): advance the give-up
+    // counter for jobs still incomplete, suppress after MAX attempts.
+    const outcome = reconcileRetranslationState(job, { attempted: true });
+    if (outcome === 'gaveup') {
+      console.log(`     🛑 Giving up after ${MAX_RETRANSLATION_ATTEMPTS} direct attempts: ${String(job.slug || '').slice(0, 60)}`);
     }
+    if (outcome !== 'noop' && outcome !== 'waiting') changed = true;
   }
 
   if (changed) {
@@ -679,8 +676,13 @@ async function main() {
   // FIRST: scan per-crawler files DIRECTLY for orphaned needsRetranslation flags.
   // Some crawler files have jobs that don't make it into the assembled dataset
   // (e.g. failed quality gate). This runs unconditionally before any early exit.
+  // attempted=false here: this scan does NOT translate, so it only clears flags on
+  // now-complete jobs and lifts give-up on re-crawled ones — it must NEVER count a
+  // give-up attempt (that would suppress un-reached backlog; see
+  // reconcileRetranslationState). Give-up counting happens only in the per-company
+  // sync paths below, which run on jobs actually translated this run.
   let directCleared = 0;
-  let directGivenUp = 0;
+  let directReset = 0;
   if (fs.existsSync(BY_CRAWLER_DIR)) {
     for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))) {
       const filePath = path.join(BY_CRAWLER_DIR, file);
@@ -688,10 +690,10 @@ async function main() {
       if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;
       let fileChanged = false;
       for (const job of crawlerData.jobs) {
-        const outcome = reconcileRetranslationState(job);
-        if (outcome !== 'noop') fileChanged = true;
+        const outcome = reconcileRetranslationState(job, { attempted: false });
+        if (outcome === 'reset' || outcome === 'cleared') fileChanged = true;
         if (outcome === 'cleared') directCleared++;
-        else if (outcome === 'gaveup') directGivenUp++;
+        else if (outcome === 'reset') directReset++;
       }
       if (fileChanged) {
         fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
@@ -701,8 +703,8 @@ async function main() {
   if (directCleared > 0) {
     console.log(`⚡ Cleared ${directCleared} stale needsRetranslation flags from per-crawler files`);
   }
-  if (directGivenUp > 0) {
-    console.log(`🛑 Suppressed ${directGivenUp} job(s) after ${MAX_RETRANSLATION_ATTEMPTS} failed retranslation runs (locale detectors unsatisfiable)`);
+  if (directReset > 0) {
+    console.log(`♻️  Lifted give-up on ${directReset} re-crawled job(s) (source changed)`);
   }
 
   // Find all jobs needing translation (flagged or incomplete)
@@ -1010,8 +1012,11 @@ async function main() {
 // Importing the module (e.g. from tests, to exercise reconcileRetranslationState /
 // isIncomplete) must NOT trigger a full relocalization that mutates slice files.
 const invokedDirectly = (() => {
-  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
-  catch { return false; }
+  try {
+    const entry = process.argv[1];
+    if (!entry) return false; // node REPL / no script → not a direct invocation
+    return import.meta.url === `file://${entry}` || import.meta.url.endsWith(entry);
+  } catch { return false; }
 })();
 
 if (invokedDirectly) {

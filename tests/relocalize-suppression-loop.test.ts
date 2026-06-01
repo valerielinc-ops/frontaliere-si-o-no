@@ -9,9 +9,13 @@ import { reconcileRetranslationState, isIncomplete } from '../scripts/relocalize
  * every run while the per-company give-up only ran for companies the throughput
  * budget actually processed — so stuck jobs (LibreTranslate can't satisfy the
  * locale detectors) bounced between flagged and cleared forever, keeping the
- * backlog pinned at ~2000–5700. reconcileRetranslationState() runs for every
- * slice every run and suppresses a job after MAX_RETRANSLATION_ATTEMPTS so the
- * flaggers stop re-queuing it. This test pins that convergence.
+ * backlog pinned at ~2000–5700.
+ *
+ * The give-up counter must ONLY advance when a translation was actually attempted
+ * on a job (`attempted: true`) — never for mere queue presence (`attempted:
+ * false`), or the un-reached backlog (relocalize runs --max-jobs 100 against
+ * thousands of flagged jobs) would be mass-suppressed, freezing source-language
+ * text on IT/EN/FR pages. These tests pin both halves.
  */
 
 // A job that is permanently incomplete: the EN locale is missing entirely, so
@@ -29,44 +33,54 @@ function stuckJob() {
 }
 
 describe('reconcileRetranslationState — give-up convergence', () => {
-  it('a permanently-incomplete flagged job is suppressed after MAX attempts, then stops looping', () => {
+  it('an ATTEMPTED, permanently-incomplete job is suppressed after MAX attempts, then stops looping', () => {
     const job = stuckJob();
     expect(isIncomplete(job)).toBe(true);
 
-    // Run 1 and 2: attempt counter bumps, still flagged.
-    expect(reconcileRetranslationState(job)).toBe('counted');
+    // Runs 1 and 2: a real translation was attempted and failed → counter bumps.
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('counted');
     expect(job.needsRetranslation).toBe(true);
-    expect(reconcileRetranslationState(job)).toBe('counted');
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('counted');
     expect(job.needsRetranslation).toBe(true);
 
     // Run 3: give up — flag dropped, suppression marker set.
-    expect(reconcileRetranslationState(job)).toBe('gaveup');
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('gaveup');
     expect(job.needsRetranslation).toBeUndefined();
     expect(job.localeMismatchSuppressed).toBe(true);
     expect(typeof job.localeMismatchSuppressedLen).toBe('number');
 
     // Subsequent runs: no flag, source unchanged → no work, no re-flag loop.
-    expect(reconcileRetranslationState(job)).toBe('noop');
-    expect(job.needsRetranslation).toBeUndefined();
+    expect(reconcileRetranslationState(job, { attempted: true })).toBe('noop');
     expect(job.localeMismatchSuppressed).toBe(true);
   });
 
-  it('a re-crawl (source length drift >15%) lifts the give-up so the job retries', () => {
+  it('an UN-ATTEMPTED incomplete job is NEVER suppressed — it stays queued (no mass-suppression of the backlog)', () => {
     const job = stuckJob();
-    reconcileRetranslationState(job);
-    reconcileRetranslationState(job);
-    reconcileRetranslationState(job); // suppressed
-    expect(job.localeMismatchSuppressed).toBe(true);
-
-    // Re-crawl rewrites the source description (much shorter now).
-    job.description = 'Kurzbeschreibung.';
-    const outcome = reconcileRetranslationState(job);
-    expect(outcome).toBe('reset');
+    // Simulate many runs where the throughput budget never reaches this job.
+    for (let i = 0; i < 10; i++) {
+      expect(reconcileRetranslationState(job, { attempted: false })).toBe('waiting');
+    }
+    // Still flagged, never counted, never suppressed → drains later via throughput.
+    expect(job.needsRetranslation).toBe(true);
     expect(job.localeMismatchSuppressed).toBeUndefined();
     expect(job.retranslationAttempts).toBeUndefined();
   });
 
-  it('a flagged job that becomes complete is cleared, not suppressed', () => {
+  it('a re-crawl (source length drift >15%) lifts the give-up so the job retries', () => {
+    const job = stuckJob();
+    reconcileRetranslationState(job, { attempted: true });
+    reconcileRetranslationState(job, { attempted: true });
+    reconcileRetranslationState(job, { attempted: true }); // suppressed
+    expect(job.localeMismatchSuppressed).toBe(true);
+
+    // Re-crawl rewrites the source description (much shorter now).
+    job.description = 'Kurzbeschreibung.';
+    expect(reconcileRetranslationState(job, { attempted: false })).toBe('reset');
+    expect(job.localeMismatchSuppressed).toBeUndefined();
+    expect(job.retranslationAttempts).toBeUndefined();
+  });
+
+  it('a flagged job that is now complete is cleared (not suppressed), regardless of attempted', () => {
     const job = {
       slug: 'recovered',
       sourceLang: 'it',
@@ -87,13 +101,13 @@ describe('reconcileRetranslationState — give-up convergence', () => {
         fr: 'Description complète du poste de soins infirmiers dans un hôpital avec des responsabilités cliniques et organisationnelles quotidiennes très importantes ici.',
       },
     };
-    // Only assert the clearing path if the fixture is genuinely complete by the
-    // production detector; otherwise the give-up path is the correct behaviour.
-    if (!isIncomplete(job)) {
-      expect(reconcileRetranslationState(job)).toBe('cleared');
-      expect(job.needsRetranslation).toBeUndefined();
-      expect(job.retranslationAttempts).toBeUndefined();
-      expect(job.localeMismatchSuppressed).toBeUndefined();
-    }
+    // The fixture must be genuinely complete by the production detector — assert
+    // it so a detector change can't turn the test below into a vacuous no-op.
+    expect(isIncomplete(job)).toBe(false);
+
+    expect(reconcileRetranslationState(job, { attempted: false })).toBe('cleared');
+    expect(job.needsRetranslation).toBeUndefined();
+    expect(job.retranslationAttempts).toBeUndefined();
+    expect(job.localeMismatchSuppressed).toBeUndefined();
   });
 });

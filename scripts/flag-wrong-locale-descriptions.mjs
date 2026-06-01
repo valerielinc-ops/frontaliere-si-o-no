@@ -77,7 +77,9 @@ function processFile(filePath, label) {
 
   let flagged = 0;
   for (const job of jobs) {
-    if (job.needsRetranslation) continue;
+    // Skip already-flagged and jobs the pipeline gave up on (relocalize sets
+    // localeMismatchSuppressed) — re-flagging suppressed jobs reopens the loop.
+    if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
     if (hasWrongLocaleDescription(job)) {
       job.needsRetranslation = true;
       flagged += 1;
