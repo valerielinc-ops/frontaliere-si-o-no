@@ -456,7 +456,7 @@ const MobileOperators: React.FC = () => {
  if (aUnlimited && bUnlimited) return a.monthlyCost - b.monthlyCost;
  const aGB = typeof aLimit === 'number' ? aLimit : 0;
  const bGB = typeof bLimit === 'number' ? bLimit : 0;
- return bGB / b.monthlyCost - aGB / a.monthlyCost;
+ return bGB / (b.monthlyCost || 1) - aGB / (a.monthlyCost || 1);
  });
 
  // Riga compatta e scansionabile per il riepilogo "Migliori opzioni"
