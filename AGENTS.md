@@ -41,7 +41,8 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 - Mai `send-newsletter.mjs --send` locale. Usa `--preview` o `--test --target-email <email>`.
 - Nuovi GitHub Actions workflow → run live su `main` post-merge: `gh workflow run <workflow>.yml --ref main`.
 - E2E: Playwright CLI o Codex Browser. No preview-only tools.
-- Touch function/class/method → GitNexus impact analysis prima. Pre-commit → GitNexus detect changes.
+- Playwright MCP (`browser_*`): artifact (screenshot/network dump) SOLO in `$CLAUDE_JOB_DIR/tmp` o worktree root — MAI `/tmp` (fuori allowed-roots → "File access denied") né `file://` (protocol blocked, servi via http). Prima di `browser_click`/`browser_evaluate` su pagina dinamica → `browser_snapshot` fresco (ref vecchi → "Ref eXXX not found"). MCP gira `--isolated` (profilo in-memory) → niente lock "Browser already in use" tra job paralleli.
+- Touch function/class/method → GitNexus impact analysis prima. Pre-commit → GitNexus detect changes. **In worktree** passa esplicito `repo:"frontaliere-si-o-no"` a `detect_changes`/`impact`/`context`: l'index è keyed sul nome del repo principale, l'auto-detect manda il path del worktree → `Repository "...wt..." not found. Available: frontaliere-si-o-no`.
 - Mai full build locale; trigger/validate via GitHub Actions.
 
 ## Post-merge feedback handling
