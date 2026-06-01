@@ -3887,6 +3887,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-stretta-esercito-civilisti-ticino': { name: 'Stretta esercito', path: '/articoli-frontaliere/stretta-esercito-civilisti-ticino', parent: 'blog' },
     'blog-maggiore-lake-trail-gambarogno': { name: 'Maggiore Lake Trail', path: '/articoli-frontaliere/maggiore-lake-trail-gambarogno', parent: 'blog' },
     'blog-ammodernamento-fa-18-svizzera': { name: 'Ammodernamento F/A-18', path: '/articoli-frontaliere/ammodernamento-fa-18-svizzera', parent: 'blog' },
+    'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
