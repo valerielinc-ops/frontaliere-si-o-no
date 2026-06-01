@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-05-31T23:34:22.028Z",
+  "assembledAt": "2026-06-01T16:04:20.906Z",
   "jobs": [
     {
       "id": "siegfried-32003d941376",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:19.637Z",
+      "crawledAt": "2026-06-01T16:04:18.659Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -116,7 +117,7 @@
         "it": "operatore-di-produzione-4-8-siegfried-evionnaz",
         "en": "4-8-production-operator-siegfried-evionnaz",
         "de": "produktionsmitarbeiter-4-8-siegfried-evionnaz",
-        "fr": "operateur-de-production-4-8-siegfried-evionnaz"
+        "fr": "operateur-de-production-4-8-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -140,7 +141,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:18.934Z",
+      "crawledAt": "2026-06-01T16:04:17.927Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -159,6 +160,7 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
         "fr": [
+          "operateur-de-production-4-8-siegfried-evionnaz",
           "operateur-de-production-4-8-siegfried-ch"
         ],
         "it": [
@@ -167,6 +169,7 @@
       },
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
+        "operateur-de-production-4-8-siegfried-evionnaz",
         "wechseltechniker-3-8-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-04-13T11:14:42.687Z",
@@ -216,7 +219,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:18.249Z",
+      "crawledAt": "2026-06-01T16:04:17.125Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,6 +251,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -294,7 +298,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:17.499Z",
+      "crawledAt": "2026-06-01T16:04:16.389Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -350,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -371,7 +376,7 @@
       "slugByLocale": {
         "it": "team-leader-protezione-delle-piante-siegfried-zofingen",
         "en": "team-leader-security-siegfried-zofingen",
-        "de": "teamleiter-werkschutz-siegfried-zofingen",
+        "de": "teamleiter-werkschutz-siegfried-ch",
         "fr": "chef-de-securite-siegfried-zofingen"
       },
       "company": "Siegfried",
@@ -396,7 +401,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:16.805Z",
+      "crawledAt": "2026-06-01T16:04:15.643Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -437,6 +442,7 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugsByLocale": {
         "de": [
+          "teamleiter-werkschutz-siegfried-zofingen",
           "teamleiter-werkschutz-siegfried-ch"
         ],
         "it": [
@@ -444,9 +450,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-werkschutz-siegfried-ch"
+        "teamleiter-werkschutz-siegfried-ch",
+        "teamleiter-werkschutz-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -493,7 +501,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:16.115Z",
+      "crawledAt": "2026-06-01T16:04:14.913Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -519,6 +527,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -536,7 +545,7 @@
     },
     {
       "id": "siegfried-55cfaa7c15d3",
-      "slug": "meccanico-m-f-d-siegfried-zofingen",
+      "slug": "ingegnere-m-w-d-siegfried-zofingen",
       "slugByLocale": {
         "it": "ingegnere-m-w-d-siegfried-zofingen",
         "en": "engineer-m-w-d-siegfried-zofingen",
@@ -565,7 +574,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:15.380Z",
+      "crawledAt": "2026-06-01T16:04:14.030Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -587,7 +596,8 @@
           "mechaniker-m-w-d-siegfried-ch"
         ],
         "it": [
-          "mechaniker-m-w-d-siegfried-ch"
+          "mechaniker-m-w-d-siegfried-ch",
+          "meccanico-m-f-d-siegfried-zofingen"
         ],
         "en": [
           "mechaniker-m-w-d-siegfried-ch",
@@ -600,10 +610,12 @@
       },
       "previousSlugs": [
         "mechaniker-m-w-d-siegfried-ch",
+        "meccanico-m-f-d-siegfried-zofingen",
         "mechanic-m-f-d-siegfried-zofingen",
         "mecanicien-m-f-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -650,7 +662,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:14.576Z",
+      "crawledAt": "2026-06-01T16:04:13.343Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -687,6 +699,7 @@
         "kalibriertechniker-m-w-d-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -733,7 +746,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:13.611Z",
+      "crawledAt": "2026-06-01T16:04:12.590Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -751,6 +764,7 @@
       "jobReqId": "R26_406",
       "hiringOrganization": "Siegfried AG",
       "firstSeenAt": "2026-05-01T22:19:23.354Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -797,7 +811,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T23:34:12.918Z",
+      "crawledAt": "2026-06-01T16:04:11.888Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -875,7 +889,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:12.227Z",
+      "crawledAt": "2026-06-01T16:04:11.133Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,6 +918,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -923,10 +938,10 @@
       "id": "siegfried-8bf702f14b39",
       "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
-        "it": "betriebsingenieur-in-siegfried-zofingen",
+        "it": "ingegnere-di-produzione-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "betriebsingenieur-in-siegfried-zofingen"
+        "fr": "ingenieur-de-production-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -950,7 +965,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:11.419Z",
+      "crawledAt": "2026-06-01T16:04:10.287Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -969,17 +984,20 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-de-production-siegfried-zofingen"
+        "betriebsingenieur-in-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch"
+          "betriebsingenieur-in-siegfried-ch",
+          "betriebsingenieur-in-siegfried-zofingen"
         ],
         "fr": [
+          "betriebsingenieur-in-siegfried-zofingen",
           "ingenieur-de-production-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +1019,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-software-senior-m-w-d-siegfried-zofingen",
         "en": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
-        "de": "spezialist-in-geratewartung-labor-m-w-d-siegfried-zofingen",
+        "de": "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
         "fr": "senior-lab-technicien-metrologie-m-w-d-siegfried-zofingen"
       },
       "company": "Siegfried",
@@ -1026,7 +1044,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:10.627Z",
+      "crawledAt": "2026-06-01T16:04:09.305Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1045,7 +1063,8 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "senior-lab-technician-metrologie-m-w-d-siegfried-ch",
-        "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch"
+        "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch",
+        "spezialist-in-geratewartung-labor-m-w-d-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1053,6 +1072,7 @@
           "spezialist-in-geratewartung-labor-m-w-d-siegfried-ch"
         ],
         "de": [
+          "spezialist-in-geratewartung-labor-m-w-d-siegfried-zofingen",
           "senior-lab-technician-metrologie-m-w-d-siegfried-ch"
         ],
         "fr": [
@@ -1060,6 +1080,7 @@
         ]
       },
       "firstSeenAt": "2026-05-01T22:19:22.405Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1106,7 +1127,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:09.867Z",
+      "crawledAt": "2026-06-01T16:04:08.531Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1135,6 +1156,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1181,7 +1203,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:09.166Z",
+      "crawledAt": "2026-06-01T16:04:07.694Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1232,70 +1254,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "addressRegion": "VS"
-    },
-    {
-      "id": "siegfried-05bd32181a69",
-      "slug": "logistic-professionnal-temporary-siegfried-ch",
-      "slugByLocale": {
-        "it": "logistic-professionnal-temporary-siegfried-ch",
-        "en": "logistics-professional-temporary-siegfried-evionnaz",
-        "de": "logistik-professional-zeitalter-siegfried-evionnaz",
-        "fr": "logistic-professionnal-temporary-siegfried-ch"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Logistic Professionnal (temporary)",
-      "titleByLocale": {
-        "it": "Logistic Professionnal (temporary)",
-        "en": "Logistics Professional (temporary)",
-        "de": "Logistik Professional (Zeitalter)",
-        "fr": "Logistic Professionnal (temporary)"
-      },
-      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\n•\tRéceptionner les matières premières : Charger et décharger le camion interne. Charger et décharger les camions de matières premières en vérifiant la conformité des arrivages.\n•\tParticiper à l’approvisionnement des usines : Livrer les charges solides aux différentes usines. Livrer les matières premières liquides aux différentes usines.\n•\tPréparer les détails pour la production : Préparer les matières premières solides selon les feuilles de charges.\n•\tContribuer aux inventaires.\n•\tAssurer l’ordre et la propreté des magasins.\n•\tRespecter et faire respecter les exigences HSE, qualité, coûts et délais.\n Your Profile:\n\n• CFC de Gestionnaire en logistique ou formation équivalente.\n\n• Minimum 2 ans d’expérience dans un environnement industriel.\n\n• Permis de cariste indispensable.\n\nYour Benefits:\n N/A\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto. Il tuo ruolo:\n• Ricezione di materie prime: carico e scarico del camion interno. Caricare e scaricare camion di materie prime controllando la conformità degli arrivi.\n• Partecipare all'alimentazione degli impianti: consegnare carichi solidi a diverse piante. Fornire materie prime liquide a diverse piante.\n• Preparare i dettagli per la produzione: preparare materie prime solide in base a fogli di carico.\n• Contribuire agli inventari.\n• Assicurare l'ordine e la pulizia dei negozi.\n• Rispetto e applicazione dei requisiti HSE, qualità, costi e scadenze. Il tuo profilo:\n• Manager SWC in logistica o formazione equivalente.\n• Minimo 2 anni di esperienza in un ambiente industriale.\n• Permesso di carist essenziale. I tuoi vantaggi: N/A Fondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 13 siti sparsi su tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici sulla scala industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact. Your Role:\n• Receiving raw materials: Load and unload the internal truck. Load and unload trucks of raw materials by checking the conformity of arrivals.\n• Participate in plant supply: Deliver solid loads to different plants. Deliver liquid raw materials to different plants.\n• Prepare details for production: Prepare solid raw materials according to load sheets.\n• Contribute to inventories.\n• Ensure order and cleanliness of shops.\n• Respect and enforce HSE requirements, quality, costs and deadlines. Your Profile:\n• Manager SWC in logistics or equivalent training.\n• Minimum 2 years of experience in an industrial environment.\n• Essential carist permit. Your Benefits: N/A Founded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 13 sites spread over three continents. With a team of more than 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner in der pharmazeutischen Industrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit, während wir eine Kultur kultivieren, die es Ihnen ermöglicht, zu blühen. Begleiten Sie ein wachsendes globales Unternehmen, in dem unterschiedliche Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der kollektiven Erfolg so gut wie Ihre einzelnen Beiträge wertet – mit langfristigen Möglichkeiten zur Entwicklung und Wirkung. Ihre Rolle:\n• Rohstoffaufnahme: Laden und Entladen des internen LKW. Last- und Lastkraftwagen von Rohstoffen durch Überprüfung der Konformität der Ankunft.\n• Beteiligen Sie sich an der Pflanzenversorgung: liefern Sie feste Belastungen an verschiedene Pflanzen. Liefern Sie flüssige Rohstoffe in verschiedene Pflanzen.\n• Bereiten Sie Details für die Produktion vor: Bereiten Sie feste Rohstoffe nach Lastblättern vor.\n• Beitrag zu Inventaren.\n• Ordnung und Sauberkeit der Geschäfte gewährleisten.\n• Einhaltung und Durchsetzung von HSE-Anforderungen, Qualität, Kosten und Fristen. Ihr Profil:\n• Manager SWC in der Logistik oder gleichwertigen Ausbildung.\n• Mindestens 2 Jahre Erfahrung in einem industriellen Umfeld.\n• Essential Carist Genehmigung. Ihre Vorteile: N/A Siegfried wurde 1873 in Zofingue, Schweiz gegründet und ist zu einem weltweiten Netzwerk von 13 Standorten auf drei Kontinenten. Mit einem Team von mehr als 3.800 hochqualifizierten Fachleuten bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und produzieren sichere Medikamente für Patienten auf der ganzen Welt. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen galenischen Formen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie. Siegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Die Betreiber produzieren Standorte in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich).",
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• Réceptionner les matières premières : Charger et décharger le camion interne. Charger et décharger les camions de matières premières en vérifiant la conformité des arrivages.\n• Participer à l’approvisionnement des usines : Livrer les charges solides aux différentes usines. Livrer les matières premières liquides aux différentes usines.\n• Préparer les détails pour la production : Préparer les matières premières solides selon les feuilles de charges.\n• Contribuer aux inventaires.\n• Assurer l’ordre et la propreté des magasins.\n• Respecter et faire respecter les exigences HSE, qualité, coûts et délais. Your Profile:\n• CFC de Gestionnaire en logistique ou formation équivalente.\n• Minimum 2 ans d’expérience dans un environnement industriel.\n• Permis de cariste indispensable. Your Benefits: N/A Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
-      },
-      "location": "Evionnaz",
-      "canton": "VS",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:08.432Z",
-      "addressLocality": "Evionnaz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_434",
-      "hiringOrganization": "Siegfried Evionnaz SA",
-      "firstSeenAt": "2026-05-13T11:50:27.648Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1313,7 +1272,7 @@
     },
     {
       "id": "siegfried-5242db5ae6b0",
-      "slug": "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen",
+      "slug": "laborant-in-cfc-chemie-siegfried-zofingen",
       "slugByLocale": {
         "it": "laborant-in-cfc-chemie-siegfried-zofingen",
         "en": "laboratory-technician-efz-chemie-siegfried-zofingen",
@@ -1342,7 +1301,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:07.731Z",
+      "crawledAt": "2026-06-01T16:04:07.006Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,11 +1319,13 @@
       "jobReqId": "R26_410",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "laborant-in-efz-chemie-siegfried-ch"
+        "laborant-in-efz-chemie-siegfried-ch",
+        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-efz-chemie-siegfried-ch"
+          "laborant-in-efz-chemie-siegfried-ch",
+          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -1391,9 +1352,9 @@
     },
     {
       "id": "siegfried-612b054c6700",
-      "slug": "laboratorio-tecnico-r-d-siegfried-evionnaz",
+      "slug": "lab-technician-r-d-siegfried-ch",
       "slugByLocale": {
-        "it": "laboratorio-tecnico-r-d-siegfried-evionnaz",
+        "it": "lab-technician-r-d-siegfried-ch",
         "en": "lab-technician-r-d-siegfried-evionnaz",
         "de": "lab-techniker-r-d-siegfried-evionnaz",
         "fr": "lab-technician-r-d-siegfried-ch"
@@ -1420,7 +1381,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:07.042Z",
+      "crawledAt": "2026-06-01T16:04:06.041Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,14 +1399,16 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "lab-technician-r-d-siegfried-ch"
+        "laboratorio-tecnico-r-d-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "laboratorio-tecnico-r-d-siegfried-evionnaz",
           "lab-technician-r-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1463,9 +1426,9 @@
     },
     {
       "id": "siegfried-ac6024cfb924",
-      "slug": "assistente-esecutivo-siegfried-zofingen",
+      "slug": "executive-assistant-siegfried-ch",
       "slugByLocale": {
-        "it": "assistente-esecutivo-siegfried-zofingen",
+        "it": "executive-assistant-siegfried-ch",
         "en": "executive-assistant-siegfried-ch",
         "de": "executive-assistant-siegfried-ch",
         "fr": "executive-assistant-siegfried-zofingen"
@@ -1492,7 +1455,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T23:34:06.088Z",
+      "crawledAt": "2026-06-01T16:04:05.221Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1510,14 +1473,16 @@
       "jobReqId": "R26_413",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "executive-assistant-siegfried-ch"
+        "assistente-esecutivo-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistente-esecutivo-siegfried-zofingen",
           "executive-assistant-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1535,7 +1500,7 @@
     },
     {
       "id": "siegfried-14522a97c162",
-      "slug": "controllo-del-laboratorio-qc-siegfried-evionnaz",
+      "slug": "lab-supervisore-qc-siegfried-evionnaz",
       "slugByLocale": {
         "it": "lab-supervisore-qc-siegfried-evionnaz",
         "en": "lab-supervisor-qc-siegfried-ch",
@@ -1564,7 +1529,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-QC_R26_463",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:05.287Z",
+      "crawledAt": "2026-06-01T16:04:04.460Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1586,7 +1551,8 @@
           "lab-supervisor-qc-siegfried-ch"
         ],
         "it": [
-          "lab-supervisor-qc-siegfried-ch"
+          "lab-supervisor-qc-siegfried-ch",
+          "controllo-del-laboratorio-qc-siegfried-evionnaz"
         ],
         "en": [
           "quality-control-laboratory-supervisor-siegfried-evionnaz"
@@ -1598,6 +1564,7 @@
       },
       "previousSlugs": [
         "lab-supervisor-qc-siegfried-ch",
+        "controllo-del-laboratorio-qc-siegfried-evionnaz",
         "quality-control-laboratory-supervisor-siegfried-evionnaz",
         "laborleiter-qc-siegfried-evionnaz"
       ],
@@ -1618,84 +1585,8 @@
       "addressRegion": "VS"
     },
     {
-      "id": "siegfried-ee237d9d6dd7",
-      "slug": "allenatore-qs-siegfried-evionnaz",
-      "slugByLocale": {
-        "it": "stagiaire-qs-siegfried-ch",
-        "en": "stagiaire-qs-siegfried-ch",
-        "de": "stagiaire-qs-siegfried-ch",
-        "fr": "stagiaire-qs-siegfried-evionnaz"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Stagiaire QS",
-      "titleByLocale": {
-        "it": "Allenatore QS",
-        "en": "Trainee QS",
-        "de": "Praktikant QS",
-        "fr": "Stagiaire QS"
-      },
-      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nok\n Your \n• Profile:\n ok\n\nYour Benefits:\n ok\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto. Il tuo ruolo: Ok. Il tuo\n• Profilo: Ok. I tuoi vantaggi: Ok. Fondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 16 siti sparsi su tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a livello industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact. Your Role: Okay. Your\n• Profile: Okay. Your Benefits: Okay. Founded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread over three continents. With a team of more than 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner in der pharmazeutischen Industrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit, während wir eine Kultur kultivieren, die es Ihnen ermöglicht, zu blühen. Begleiten Sie ein wachsendes globales Unternehmen, in dem unterschiedliche Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der kollektiven Erfolg so gut wie Ihre einzelnen Beiträge wertet – mit langfristigen Möglichkeiten zur Entwicklung und Wirkung. Ihre Rolle: Okay. Ihr\n• Profil: Okay. Ihre Vorteile: Okay. Siegfried wurde 1873 in Zofingue in der Schweiz gegründet und ist zu einem weltweiten Netzwerk von 16 Standorten auf drei Kontinenten. Mit einem Team von mehr als 4.200 hochqualifizierten Fachleuten bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und produzieren sichere Medikamente für Patienten auf der ganzen Welt. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen galenischen Formen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie. Siegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Die Betreiber produzieren Standorte in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich).",
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role: ok Your \n• Profile: ok Your Benefits: ok Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
-      },
-      "location": "Evionnaz",
-      "canton": "VS",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-QS_R26_464",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:34:04.533Z",
-      "addressLocality": "Evionnaz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-QS_R26_464",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_464",
-      "hiringOrganization": "Siegfried Evionnaz SA",
-      "previousSlugsByLocale": {
-        "en": [
-          "trainee-qs-siegfried-evionnaz"
-        ],
-        "de": [
-          "praktikant-qs-siegfried-evionnaz"
-        ]
-      },
-      "previousSlugs": [
-        "trainee-qs-siegfried-evionnaz",
-        "praktikant-qs-siegfried-evionnaz"
-      ],
-      "firstSeenAt": "2026-05-28T14:03:21.810Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1950",
-      "addressRegion": "VS"
-    },
-    {
       "id": "siegfried-49ca434545fe",
-      "slug": "piombo-opex-siegfried-evionnaz",
+      "slug": "opex-lead-siegfried-ch",
       "slugByLocale": {
         "it": "opex-lead-siegfried-ch",
         "en": "opex-lead-siegfried-evionnaz",
@@ -1724,7 +1615,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/OPEX-Lead_R26_432",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T23:34:03.791Z",
+      "crawledAt": "2026-06-01T16:04:03.668Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1747,11 +1638,15 @@
         ],
         "fr": [
           "chef-d-equipe-siegfried-evionnaz"
+        ],
+        "it": [
+          "piombo-opex-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
         "op-leitung-siegfried-evionnaz",
-        "chef-d-equipe-siegfried-evionnaz"
+        "chef-d-equipe-siegfried-evionnaz",
+        "piombo-opex-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-05-29T00:30:06.196Z",
       "salaryMin": 68000,
