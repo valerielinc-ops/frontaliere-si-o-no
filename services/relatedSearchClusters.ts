@@ -20,6 +20,14 @@ export function sanitizeJobTitle(raw: string): string {
 
  const normalizedInclusive = decoded
  .replace(/\b([A-Za-zÀ-ÖØ-öø-ÿ]{3,})\/([A-Za-zÀ-ÖØ-öø-ÿ]{1,3})\b/g, '$1 $2')
+ // Strip dangling gender-suffix remnants the inclusive rule above can't reach:
+ // " /-a", " /-in", or a bare " /" left when the slashed gender form
+ // (e.g. "Responsabile Neurologia /-a") was split off. Only fires at end or
+ // before punctuation, so a legit " / " separator ("Manager / Director") and
+ // mid-token slashes ("TCP/IP", "24/7", "(m/w/d)") are untouched.
+ .replace(/\s+\/-?[a-zà-ÿ]{0,3}(?=[,;.)]|$)/gi, '')
+ .replace(/\/-[a-zà-ÿ]{1,3}\b/gi, '')
+ .replace(/\s{2,}/g, ' ')
  .replace(/\s+,/g, ',')
  .trim();
 
@@ -81,7 +89,10 @@ export function buildSearchSlug(term: string, locale: Locale): string {
 // Strip only a single leading boilerplate phrase, and only when meaningful
 // query text remains after it.
 const SEARCH_QUERY_BOILERPLATE_PREFIX =
- /^(?:offerte\s+(?:di\s+)?lavoro|posti\s+di\s+lavoro|lavoro|offerte|jobs?|stellenangebote|stellen|offres?\s+(?:d['e]\s*)?emplois?|emplois?|recherche\s+emploi)\s+/i;
+ // Slugs strip apostrophes to hyphens → spaces, so the canonical FR
+ // "offres d'emploi" reaches us as "offres d emploi": match an optional bare
+ // "d" token, not an apostrophe.
+ /^(?:offerte\s+(?:di\s+)?lavoro|posti\s+di\s+lavoro|lavoro|offerte|jobs?|stellenangebote|stellen|offres?\s+(?:d\s+)?emplois?|emplois?|recherche\s+emploi)\s+/i;
 
 function stripSearchQueryBoilerplate(query: string): string {
  // Never empty the query: a slug that is *only* boilerplate (e.g.
@@ -105,7 +116,9 @@ export function parseSearchSlugFilter(initialJobSlug?: string): string | null {
  }
  const query = decoded.replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
  if (!query) return null;
- return stripSearchQueryBoilerplate(query) || null;
+ // stripSearchQueryBoilerplate never returns empty (falls back to the
+ // original term), so no extra null-guard is needed here.
+ return stripSearchQueryBoilerplate(query);
 }
 
 // Tokens are filtered by `t.length >= 4` upstream, so 1-3 char stopwords are
