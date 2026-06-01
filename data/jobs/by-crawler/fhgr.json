@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-06-01T14:32:18.836Z",
+  "assembledAt": "2026-06-01T23:38:17.832Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:16.478Z",
+      "crawledAt": "2026-06-01T23:38:15.671Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -99,6 +99,7 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -144,7 +145,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:15.593Z",
+      "crawledAt": "2026-06-01T23:38:14.804Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -202,6 +203,7 @@
         "bauingenieur-in-fhgr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -247,7 +249,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:14.701Z",
+      "crawledAt": "2026-06-01T23:38:13.926Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -305,7 +307,7 @@
         "it": "lehrauftrag-per-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
         "en": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fachhochschule-graubunden-chur",
         "de": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
-        "fr": "attribution-d-enseignement-pour-le-module-developpement-et-operations-de-l-it-devops-fachhochschule-graubunden-chur"
+        "fr": "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
       },
       "company": "Fachhochschule Graubünden",
       "companyKey": "fhgr",
@@ -329,7 +331,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/788/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:13.694Z",
+      "crawledAt": "2026-06-01T23:38:12.971Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -349,7 +351,8 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch",
-        "insegnamento-per-il-modulo-it-development-and-operations-devops-fachhochschule-graubunden-chur"
+        "insegnamento-per-il-modulo-it-development-and-operations-devops-fachhochschule-graubunden-chur",
+        "attribution-d-enseignement-pour-le-module-developpement-et-operations-de-l-it-devops-fachhochschule-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -357,10 +360,12 @@
           "insegnamento-per-il-modulo-it-development-and-operations-devops-fachhochschule-graubunden-chur"
         ],
         "fr": [
+          "attribution-d-enseignement-pour-le-module-developpement-et-operations-de-l-it-devops-fachhochschule-graubunden-chur",
           "lehrauftrag-fur-das-modul-it-development-and-operations-devops-fhgr-ch"
         ]
       },
       "firstSeenAt": "2026-05-21T11:54:08.911Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -406,7 +411,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/789/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:12.740Z",
+      "crawledAt": "2026-06-01T23:38:11.990Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -490,7 +495,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/790/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:11.725Z",
+      "crawledAt": "2026-06-01T23:38:11.050Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -574,7 +579,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/791/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:10.736Z",
+      "crawledAt": "2026-06-01T23:38:10.109Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -658,7 +663,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/786/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:32:09.751Z",
+      "crawledAt": "2026-06-01T23:38:09.152Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
