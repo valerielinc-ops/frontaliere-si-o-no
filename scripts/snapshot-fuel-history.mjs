@@ -120,32 +120,46 @@ function dieselCoverageStats(stations) {
 }
 
 /**
- * Compute per-curated-city average benzina price from the Italian station
- * data. Dedupes by station id (each station appears twice: self + served)
- * keeping the cheapest variant. Returns null when a city has no stations
- * (e.g. Cernobbio). Only benzina is tracked — MIMIT diesel ingestion is
- * not yet wired into generate-fuel-prices-dataset.mjs.
+ * Compute per-curated-city average benzina + diesel prices from the Italian
+ * station data. Dedupes by station id (each station appears twice: self +
+ * served) keeping the cheapest variant per fuel. Returns null averages when a
+ * city has no stations (e.g. Cernobbio). `stationCount` reflects the benzina
+ * coverage (every Italian station entry is benzina-anchored — see
+ * generate-fuel-prices-dataset.mjs); `dieselStationCount` tracks how many of
+ * those also reported a MIMIT Gasolio price. Capturing diesel here is
+ * append-only history (it can't be backfilled) and brings italianCities in
+ * line with the regional/zone/station series, which already track diesel.
  */
 function computeItalianCityAverages(dataset) {
   const out = {};
   for (const city of ITALIAN_CITIES) {
-    const seen = new Map();
+    const benzinaById = new Map();
+    const dieselById = new Map();
     for (const row of dataset?.municipalities ?? []) {
       const muniKey = String(row?.municipality || '').toLowerCase();
       if (muniKey !== city.matchKey) continue;
       const stations = row?.italy?.stations ?? [];
       for (const s of stations) {
         if (!s?.id || typeof s.priceEur !== 'number') continue;
-        const existing = seen.get(s.id);
-        if (!existing || existing > s.priceEur) {
-          seen.set(s.id, s.priceEur);
+        const benzina = benzinaById.get(s.id);
+        if (benzina === undefined || benzina > s.priceEur) {
+          benzinaById.set(s.id, s.priceEur);
+        }
+        if (typeof s.dieselPriceEur === 'number') {
+          const diesel = dieselById.get(s.id);
+          if (diesel === undefined || diesel > s.dieselPriceEur) {
+            dieselById.set(s.id, s.dieselPriceEur);
+          }
         }
       }
     }
-    const prices = Array.from(seen.values());
+    const benzinaPrices = Array.from(benzinaById.values());
+    const dieselPrices = Array.from(dieselById.values());
     out[city.slug] = {
-      benzina: mean(prices),
-      stationCount: prices.length,
+      benzina: mean(benzinaPrices),
+      diesel: mean(dieselPrices),
+      stationCount: benzinaPrices.length,
+      dieselStationCount: dieselPrices.length,
     };
   }
   return out;
@@ -216,7 +230,7 @@ function main() {
     };
   }
 
-  // Italian per-city averages (benzina only — see comment on computeItalianCityAverages)
+  // Italian per-city averages (benzina + diesel — see computeItalianCityAverages)
   snapshot.italianCities = computeItalianCityAverages(dataset);
 
   // Per-station prices (added 2026-05-18). Keyed by the same slug the SEO
