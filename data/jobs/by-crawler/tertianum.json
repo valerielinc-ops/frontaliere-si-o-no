@@ -72,8 +72,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen",
         "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-berlingen",
-        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen",
-        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen"
+        "en": "teaching-as-a-specialist-health-fage-efz-tertianum-berlingen",
+        "fr": "enseignement-en-tant-que-specialiste-de-la-sante-fage-efz-tertianum-berlingen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -118,6 +118,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen"
+        ],
+        "fr": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-berlingen"
         ]
       },
@@ -1074,8 +1080,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-meilen",
-        "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-meilen"
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1341,8 +1346,7 @@
         "pflegehelfer-in-srk-im-tag-und-oder-nachtdienst-tertianum-pfaffikon",
         "assistenti-di-cura-nel-servizio-giorno-e-o-notte-tertianum-pfaffikon",
         "care-helpers-in-the-day-and-or-night-service-tertianum-pfaffikon",
-        "aides-de-jour-et-ou-de-nuit-tertianum-pfaffikon",
-        "assistente-di-cura-nel-servizio-diurno-e-o-notte-tertianum-pfaffikon"
+        "aides-de-jour-et-ou-de-nuit-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1717,8 +1721,7 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-50-100-ausschliesslich-im-nachtdienst-tertianum-richterswil",
-        "fachfrau-mann-gesundheit-efz-50-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst-tertianum",
-        "fachfrau-mann-gesundheit-cfc-50-100-wahlbar-ob-im-tagdienst-o-im-nachtdienst-tertianum-richterswil"
+        "fachfrau-mann-gesundheit-efz-50-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst-tertianum"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1962,8 +1965,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-tertianum-horgen",
-        "staff-in-servizio-tecnico-tertianum-horgen"
+        "mitarbeiter-in-technischer-dienst-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4769,8 +4771,7 @@
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-pflege-und-betreuung-tertianum-wattwil",
-        "praktikantin-praktikant-pflege-e-betreuung-tertianum-wattwil"
+        "praktikantin-praktikant-pflege-und-betreuung-tertianum-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5545,8 +5546,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-lenzburg",
-        "fachfrau-fachmann-gesundheit-cfc-100-tertianum-lenzburg"
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7450,8 +7450,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-40-80-tertianum-schlieren",
-        "fachfrau-fachmann-gesundheit-cfc-40-80-tertianum-schlieren"
+        "fachfrau-fachmann-gesundheit-efz-40-80-tertianum-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8173,8 +8172,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-100-tertianum-schwerzenbach",
-        "fachfrau-fachmann-gesundheit-cfc-50-100-tertianum-schwerzenbach"
+        "fachfrau-fachmann-gesundheit-efz-50-100-tertianum-schwerzenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8659,7 +8657,6 @@
       "previousSlugs": [
         "teamleitung-personaladministration-100-tertianum-dubendorf",
         "personaladministrationsteamleitung-tertianum-dubendorf",
-        "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf",
         "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
       ],
       "previousSlugsByLocale": {
@@ -8670,7 +8667,6 @@
           "personaladministrationsteamleitung-tertianum-dubendorf"
         ],
         "fr": [
-          "responsable-d-equipe-administration-des-ressources-humaines-100-tertianum-dubendorf",
           "gestion-de-l-equipe-administration-du-personnel-100-tertianum-dubendorf"
         ]
       },
@@ -8791,9 +8787,9 @@
       "slug": "sachbearbeiterin-sachbearbeiter-finanz-e-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
       "slugByLocale": {
         "it": "addetto-a-alla-contabilita-e-al-bilancio-settore-operazioni-tessin-80-100-tertianum-dubendorf",
-        "en": "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
+        "en": "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
         "de": "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum",
-        "fr": "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
+        "fr": "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -8862,9 +8858,6 @@
         "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum",
         "personale-personale-azienda-di-finanza-e-contabilita-tessin-80-100-tertianum-dubendorf",
         "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
-        "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf",
-        "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf",
-        "sachbearbeiterin-sachbearbeiter-finanz-e-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
         "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf",
         "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
       ],
@@ -8875,10 +8868,10 @@
         ],
         "en": [
           "sachbearbeiterin-sachbearbeiter-finanz-und-rechnungswesen-betriebe-tessin-80-100-tertianum-dubendorf",
-          "financial-and-accounting-officer-operations-tessin-80-100-tertianum-dubendorf"
+          "personnel-personnel-finance-and-accounting-company-tessin-80-100-tertianum-dubendorf"
         ],
         "fr": [
-          "responsable-financier-et-comptable-operations-tessin-80-100-tertianum-dubendorf"
+          "personnel-personnel-finances-et-comptabilite-societe-tessin-80-100-tertianum-dubendorf"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:11.954Z",
@@ -10258,7 +10251,7 @@
         "it": "addetto-a-al-servizio-tertianum-winterthur",
         "en": "service-staff-tertianum-winterthur",
         "de": "mitarbeiter-in-service-tertianum-winterthur",
-        "fr": "personnel-en-service-tertianum-winterthur"
+        "fr": "employe-e-de-service-tertianum-winterthur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -10302,8 +10295,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-service-tertianum-winterthur",
-        "employe-e-de-service-tertianum-winterthur",
-        "collaboratore-trice-service-tertianum-winterthur",
         "personnel-en-service-tertianum-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -10311,7 +10302,7 @@
           "mitarbeiter-in-service-tertianum-winterthur"
         ],
         "fr": [
-          "employe-e-de-service-tertianum-winterthur"
+          "personnel-en-service-tertianum-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-30T12:48:18.159Z",
@@ -10669,8 +10660,7 @@
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-administration-100-fur-min-12-monate-tertianum-zurich",
-        "praktikantin-praktikant-administration-100-per-min-12-monate-tertianum-zurich"
+        "praktikantin-praktikant-administration-100-fur-min-12-monate-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10767,8 +10757,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-bern",
-        "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-bern"
+        "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11735,8 +11724,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-60-80-tertianum-zurich",
-        "fachfrau-fachmann-gesundheit-cfc-60-80-tertianum-zurich"
+        "fachfrau-fachmann-gesundheit-efz-60-80-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11992,8 +11980,7 @@
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
         "team-lead-care-and-support-tertianum-zurich",
         "responsable-d-equipe-soins-et-assistance-tertianum-zurich",
-        "capo-team-assistenza-e-cura-tertianum-zurich",
-        "gestione-del-team-cura-e-cura-tertianum-zurich"
+        "capo-team-assistenza-e-cura-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12095,8 +12082,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-tertianum-zurich",
-        "fachfrau-mann-gesundheit-cfc-tertianum-zurich"
+        "fachfrau-mann-gesundheit-efz-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12490,8 +12476,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-technischer-dienst-100-tertianum-zurich",
-        "staff-in-servizio-tecnico-100-tertianum-zurich"
+        "mitarbeiter-in-technischer-dienst-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12789,8 +12774,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-80-100-tertianum-zurich",
-        "fachfrau-mann-gesundheit-cfc-80-100-tertianum-zurich"
+        "fachfrau-mann-gesundheit-efz-80-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13045,8 +13029,7 @@
         "teamleitung-pflege-e-betreuung-tertianum-zurich",
         "teamleitung-pflege-und-betreuung-tertianum-zurich",
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
-        "team-lead-care-and-support-tertianum-zurich",
-        "teamleiter-in-pflege-e-betreuung-tertianum-zurich"
+        "team-lead-care-and-support-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13381,8 +13364,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-        "fachfrau-fachmann-gesundheit-cfc-100-tertianum-zurich"
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15163,7 +15145,6 @@
           "mitarbeiter-in-service-ca-50-tertianum-basel"
         ],
         "de": [
-          "restaurationsfachfrau-mann-efz-ca-50-tertianum-basel",
           "mitarbeiter-in-service-ca-50-tertianum-basel"
         ]
       },
@@ -15431,8 +15412,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn",
-        "staff-20-100-nessuna-ora-di-camera-tertianum-solothurn"
+        "mitarbeiter-in-service-20-100-keine-zimmerstunde-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16207,8 +16187,7 @@
         ]
       },
       "previousSlugs": [
-        "kochin-koch-eba-efz-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn",
-        "kochin-koch-afp-cfc-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn"
+        "kochin-koch-eba-efz-60-100-ohne-teildienst-zimmerstunde-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16489,8 +16468,7 @@
         ]
       },
       "previousSlugs": [
-        "teamleiterin-teamleiter-pflege-und-betreuung-stv-leiterin-leiter-pflege-und-betreuung-80",
-        "teamleiterin-teamleiter-pflege-e-betreuung-stv-leiterin-leiter-pflege-e-betreuung-80-100-tertianum-olten"
+        "teamleiterin-teamleiter-pflege-und-betreuung-stv-leiterin-leiter-pflege-und-betreuung-80"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19696,20 +19674,15 @@
         ]
       },
       "previousSlugs": [
-        "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
-        "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
           "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern",
           "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern"
         ],
         "it": [
@@ -20103,8 +20076,7 @@
         "healthcare-assistant-full-time-60-100-tertianum-berg",
         "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-berg",
         "assistant-en-soins-de-sante-a-temps-plein-60-100-tertianum-berg",
-        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-solothurn",
-        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-bern"
+        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20476,8 +20448,7 @@
         "aiutante-i-alla-persona-srk-o-assistente-a-alla-salute-e-sociale-50-100-tertianum-bern",
         "pflegehelfer-pflegehelferin-srk-oder-assistentin-assistent-gesundheit-und-soziales-50-100",
         "srk-care-assistant-or-health-and-social-care-assistant-50-100-tertianum-bern",
-        "assistant-e-en-soins-srk-ou-assistant-e-sante-social-50-100-tertianum-bern",
-        "assistente-sanitario-e-sociale-eba-50-100-tertianum-bern"
+        "assistant-e-en-soins-srk-ou-assistant-e-sante-social-50-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21114,7 +21085,7 @@
       "slug": "fachfrau-fachmann-gesundheit-cfc-50-im-nachtdienst-tertianum-orpund",
       "slugByLocale": {
         "it": "operatore-socio-sanitario-efz-50-nel-turno-notturno-tertianum-orpund",
-        "en": "professional-health-efz-50-at-night-tertianum-orpund",
+        "en": "healthcare-assistant-efz-50-night-shift-tertianum-orpund",
         "de": "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
         "fr": "assistant-en-soins-de-sante-cfc-50-en-service-de-nuit-tertianum-orpund"
       },
@@ -21186,8 +21157,6 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-50-im-nachtdienst-tertianum-orpund",
         "salute-professionale-efz-50-di-notte-tertianum-orpund",
-        "healthcare-assistant-efz-50-night-shift-tertianum-orpund",
-        "fachfrau-fachmann-gesundheit-cfc-50-im-nachtdienst-tertianum-orpund",
         "professional-health-efz-50-at-night-tertianum-orpund"
       ],
       "previousSlugsByLocale": {
@@ -21196,7 +21165,7 @@
           "salute-professionale-efz-50-di-notte-tertianum-orpund"
         ],
         "en": [
-          "healthcare-assistant-efz-50-night-shift-tertianum-orpund"
+          "professional-health-efz-50-at-night-tertianum-orpund"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:38.781Z",
