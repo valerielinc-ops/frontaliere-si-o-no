@@ -113,6 +113,16 @@ Per le categorie strategiche (`revenue`, `tracker`) o issue HIGH-risk dove vuoi 
 - Bloccare un singolo fix: rimuovere `agent:fix` dalla issue prima che il fixer apra la PR (concurrency serializza, c'è una finestra).
 - Pausa totale: disabilitare `issue-fix.yml` / `issue-triage.yml` (Actions → workflow → Disable).
 
+## Auto-improvement loop (`lessons-harvester.yml`, daily)
+
+Chiude il feedback loop: i pattern ricorrenti rientrano nelle istruzioni → reviewer/fixer smettono di ripeterli → turnaround più basso. I doc (`AGENTS.md` iniettato ogni sessione, `ISSUES.md`/`REVIEW.md` letti nei prompt) **sono** il canale verso gli agent.
+
+- **Telemetria (deterministica, no Claude)**: il fixer chiude ogni run con un marker `<!-- FIX_OUTCOME: <code> -->` nel commento (codici: `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`). I reviewer-finding stanno già nei review body in formato 🔴/🟡/❓ (REVIEW.md). Lo store è GitHub stesso (commenti/review), nessun file accumulatore.
+- **Aggregazione**: `scripts/ci/harvest-agent-lessons.mjs` (zero-Claude, daily) conta su finestra 14gg, soglia ≥3: bucket reviewer-finding (tassonomia regex fissa) + fix-outcome bloccati. Le issue-class (crawler/follow-up/validation) sono **volume operativo, non lezioni** → contesto, mai driver di proposta. Dedup vs i doc-contract esistenti → tiene solo i cluster `novel`.
+- **Proposta (1 turno Claude, solo se `has_novel`)**: redige aggiunte chirurgiche ai doc → apre **1 PR** `lessons/auto-harvest-*`. Frugalità: nessun cluster nuovo = zero token (il giorno comune costa 0). Una sola proposta pendente alla volta (guard su PR aperte).
+- **Gate umano OBBLIGATORIO**: la PR di regole non è mai auto-mergiata (un'istruzione sbagliata degrada *tutti* gli agent). La rivede un umano. Solo `.md`, mai logica.
+- **Kill-switch**: disabilita `lessons-harvester.yml` da Actions UI; oppure alza `THRESHOLD`/abbassa `WINDOW_DAYS` via `workflow_dispatch`.
+
 ## Guardrail (da AGENTS.md, vincolanti)
 
 - Opt-in strategico: mai `agent:fix` automatico su `revenue`/`tracker`/`validation-failure`. Auto-route consentito solo su `crawler`/`follow-up`.
