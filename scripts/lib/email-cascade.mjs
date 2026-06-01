@@ -2,7 +2,7 @@
 /**
  * email-cascade.mjs — Multi-provider email sending with daily quota tracking.
  *
- * Cascade order: Mailgun → Resend → Mailtrap → Unosend
+ * Cascade order: Mailgun → Resend → Mailjet → Mailtrap → Maileroo
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
@@ -23,6 +23,7 @@
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   UNOSEND_API_KEY          — Unosend API key (6000/mo free tier)
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (1000/mo free tier)
+ *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
  */
 
@@ -33,6 +34,7 @@ const PROVIDERS = [
   { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
+  { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
   // unosend: disabled — re-enable when needed.
   // { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
@@ -158,6 +160,15 @@ async function fetchResendDailyUsage() {
   } catch { return 0; }
 }
 
+async function fetchMailerooDailyUsage() {
+  // Maileroo's v2 API exposes no public usage/statistics endpoint (only
+  // send + scheduled-email management). Daily cap is therefore enforced by the
+  // in-memory counter alone — starting from 0 each run is safe (may overshoot
+  // the daily quota slightly across separate runs on the same day, same as the
+  // fallback behaviour of every other provider on API error).
+  return 0;
+}
+
 /**
  * Sync in-memory counters with real provider usage for today.
  * Called once per cascade run. Falls back to 0 on API errors (safe: may overshoot quota slightly).
@@ -166,12 +177,13 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, unosend, resend] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, unosend, resend, maileroo] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
     fetchMailtrapDailyUsage(),
     fetchUnosendDailyUsage(),
     fetchResendDailyUsage(),
+    fetchMailerooDailyUsage(),
   ]);
 
   _counterDate = getTodayUTC();
@@ -180,9 +192,10 @@ async function syncQuotasFromAPIs() {
   _counters.mailtrap = mailtrap;
   _counters.unosend = unosend;
   _counters.resend = resend;
+  _counters.maileroo = maileroo;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100, maileroo=${maileroo}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -192,6 +205,7 @@ function isProviderConfigured(providerId) {
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'mailtrap':   return !!process.env.MAILTRAP_API_TOKEN;
+    case 'maileroo':   return !!process.env.MAILEROO_API_KEY;
     case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
     default: return false;
@@ -356,6 +370,54 @@ async function sendViaMailtrap(email) {
   return { messageId: data?.message_ids?.[0] || `mailtrap-${Date.now()}`, provider: 'mailtrap' };
 }
 
+// ── Maileroo API (v2) ────────────────────────────────────────
+// Docs: https://maileroo.com/docs/email-api/send-basic-email/
+// Auth: X-Api-Key header. Free tier 3000/mo with custom DKIM domain.
+
+async function sendViaMaileroo(email) {
+  const apiKey = process.env.MAILEROO_API_KEY;
+  const fromParsed = parseEmailAddress(email.from);
+
+  const body = {
+    from: { address: fromParsed.email, display_name: fromParsed.name || undefined },
+    to: (Array.isArray(email.to) ? email.to : [email.to]).map(addr => ({ address: addr })),
+    subject: email.subject,
+    html: email.html,
+    // Enable open + click tracking (parity with Mailgun/Resend).
+    tracking: true,
+  };
+  if (email.text) body.plain = email.text;
+  // Maileroo tags are an object map; cascade tags are [{name, value}].
+  if (email.tags?.length) {
+    body.tags = {};
+    for (const tag of email.tags) {
+      if (tag?.name) body.tags[tag.name] = String(tag.value ?? '');
+    }
+  }
+  // Forward custom email headers (List-Unsubscribe, Feedback-ID, etc.).
+  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+
+  const res = await fetch('https://smtp.maileroo.com/api/v2/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Api-Key': apiKey,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const err = await res.text().catch(() => '');
+    throw new Error(`Maileroo ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  if (data?.success === false) {
+    throw new Error(`Maileroo error: ${String(data.message || 'unknown').slice(0, 200)}`);
+  }
+  return { messageId: data?.data?.reference_id || `maileroo-${Date.now()}`, provider: 'maileroo' };
+}
+
 // ── Resend API (fallback) ────────────────────────────────────
 // Same as existing implementation but single-email
 
@@ -393,6 +455,7 @@ const SEND_FNS = {
   mailgun: sendViaMailgun,
   mailjet: sendViaMailjet,
   mailtrap: sendViaMailtrap,
+  maileroo: sendViaMaileroo,
   unosend: sendViaUnosend,
   resend: sendViaResend,
 };

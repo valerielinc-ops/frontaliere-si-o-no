@@ -53,12 +53,14 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// mailgun/mailjet/mailtrap = force a specific cascade provider
+// mailgun/mailjet/mailtrap/maileroo = force a specific cascade provider
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap'];
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'mailtrap', 'maileroo'];
 const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
-// cascade ceiling = 550/day (mailgun 100 + resend 100 + mailjet 200 + mailtrap 150), resend = 100.
+// cascade ceiling = 650/day (mailgun 100 + resend 100 + mailjet 200 + mailtrap 150 + maileroo 100),
+// resend-only = 100. DAILY_SEND_LIMIT stays 550 (a deliberate per-run cap below the raw ceiling;
+// maileroo adds headroom/redundancy when another provider is down rather than raising the cap).
 // The weekly campaign (campaignId=weekly_{monday}) resumes across daily cron runs and must clear
 // the full active list (~2.5k) before Monday's campaign-ID rollover strands the unsent tail.
 // On healthy days the old 350 cap was the binding limit: 2026-05-26 and 05-27 both hit 350 with
