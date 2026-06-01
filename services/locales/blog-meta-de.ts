@@ -7923,6 +7923,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Wohnungskrise im Tessin: Mittelschicht in Gefahr',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Ein Erwachsener von fünf fürchtet, sein Haus in der Schweiz zu verlieren. Das Tessin weniger alarmiert, aber nicht immun.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Luftaufnahme von Lugano mit See und Wohngebäuden',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Grünes Erneuerung: Ticino-Wasserführung zwischen Airolo und Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Präsentation der Arbeiten zur Wiederbelebung und Wasserversorgung des Ticino-Flusses in der Oberleventina mit einem Budget von 8 Millionen Franken.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Blick auf den Fluss Ticino zwischen Airolo und Rodi mit Grünwiederbelebungsmaßnahmen',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Streit um Armee: mehr Soldaten oder Zivilisten-Verlust?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti fordert mehr Militär für die nationale Sicherheit, Zeno Casella warnt: die Gemeinschaft wird die Unterstützung der Zivilisten verlieren.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Luftaufnahme der Burgen von Bellinzona mit Schweizer Flaggen, Symbol für nationale Sicherheit.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Größere Lake Trail: Gambarogno im neuen Weg',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'In Varese wurde der Machbarkeitsstudie zum Interreg-Projekt für den transfrontaleren Trail vorgestellt, der das Gambarogno mit dem lombardischen Gebiet verbindet.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Panoramablick auf Gambarogno am Lago Maggiore an einem sonnigen Tag.',
 };
 
 export default blogMetaDe;

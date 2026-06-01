@@ -7925,6 +7925,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Crisi abitativa in Ticino: classe media a rischio',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'Un adulto su cinque teme di perdere la casa in Svizzera. Il Ticino meno allarmato ma non immune.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Vista aerea di Lugano con il lago e edifici residenziali',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Rinascita verde lungo il Ticino: interventi tra Airolo e Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Presentati i lavori di rivitalizzazione e sistemazione idraulica del fiume Ticino in Alta Leventina, con un investimento di 8 milioni di franchi.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'Vista del fiume Ticino tra Airolo e Rodi con interventi di rinascita verde',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Stretta sull’esercito: più effettivi o perdita di civilisti?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti chiede più militari per la sicurezza nazionale, Zeno Casella avverte: la collettività perderà il sostegno dei civilisti.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Vista aerea dei castelli di Bellinzona con bandiere svizzere, simbolo di sicurezza nazionale.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Maggiore Lake Trail: il Gambarogno nel nuovo percorso',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'Presentato a Varese lo studio di fattibilità del progetto Interreg per il trail transfrontaliero che unisce il Gambarogno al territorio lombardo.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Vista panoramica del Gambarogno sul Lago Maggiore in una giornata di sole.',
 };
 
 export default blogMetaIt;

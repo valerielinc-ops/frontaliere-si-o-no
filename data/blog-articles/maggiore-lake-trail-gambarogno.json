@@ -1,0 +1,40 @@
+{
+  "id": "maggiore-lake-trail-gambarogno",
+  "slug": "maggiore-lake-trail-gambarogno",
+  "publishedAt": "2026-05-31T16:54:59.681Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.736950223347033,
+    "confidence": 0.8,
+    "finalScore": 2.9895601786776265,
+    "topK": [
+      {
+        "slug": "25-centimetri-lago-maggiore-frontalieri",
+        "cosine": 0.8303582616528289
+      },
+      {
+        "slug": "innalzamento-lago-maggiore-140-metri",
+        "cosine": 0.8294675374225631
+      },
+      {
+        "slug": "lago-maggiore-accesso-tutto-l-anno",
+        "cosine": 0.828117903166149
+      },
+      {
+        "slug": "accordo-lago-maggiore-italia-svizzera-2026",
+        "cosine": 0.8267906293263745
+      },
+      {
+        "slug": "lago-maggiore-innalzamento-2026",
+        "cosine": 0.8237144283251158
+      }
+    ],
+    "score": 2.9895601786776265,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

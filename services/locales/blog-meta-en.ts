@@ -7924,6 +7924,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crisi-abitativa-ticino-classe-media.title': 'Housing crisis in Ticino: middle class at risk',
     'blog.article.crisi-abitativa-ticino-classe-media.excerpt': 'One in five adults fears losing their home in Switzerland. Ticino less alarmed but not immune.',
     'blog.article.crisi-abitativa-ticino-classe-media.imageAlt': 'Aerial view of Lugano with lake and residential buildings',
+    'blog.article.rinascita-verde-ticino-airola-rodi.title': 'Revitalization of the Ticino River: Projects between Airolo and Rodi',
+    'blog.article.rinascita-verde-ticino-airola-rodi.excerpt': 'Present the works of revitalization and hydraulic system improvement of the Ticino River in Alta Leventina, with an investment of 8 million CHF.',
+    'blog.article.rinascita-verde-ticino-airola-rodi.imageAlt': 'View of the Ticino river between Airolo and Rodi with green revival interventions',
+    'blog.article.stretta-esercito-civilisti-ticino.title': 'Army: More soldiers or loss of civil servants?',
+    'blog.article.stretta-esercito-civilisti-ticino.excerpt': 'Diego Baratti calls for more soldiers for national security, Zeno Casella warns: the community will lose the support of civil servants.',
+    'blog.article.stretta-esercito-civilisti-ticino.imageAlt': 'Aerial view of Bellinzona\'s castles with Swiss flags, symbolizing national security.',
+    'blog.article.maggiore-lake-trail-gambarogno.title': 'Gambarogno Trail: New Interreg Project in Varese',
+    'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'The study of feasibility for the Interreg project to create a cross-border trail connecting Gambarogno to Lombardy has been presented in Varese.',
+    'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Panoramic view of Gambarogno on Lake Maggiore on a sunny day.',
 };
 
 export default blogMetaEn;

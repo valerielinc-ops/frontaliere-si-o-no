@@ -1,18 +1,19 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-05-30T09:56:16.324Z",
+  "generatedAt": "2026-05-31T21:09:33.502Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3189,
-  "avgDurationMs": 3189,
+  "durationMs": 2730,
+  "avgDurationMs": 2730,
   "durationHistory": [
-    3189
+    2730
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alpiq-61d919b0f8e1",
       "slug": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
@@ -37,12 +38,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9474&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-30T09:56:14.280Z",
-      "_qualityScore": 60,
+      "crawledAt": "2026-05-31T21:09:31.791Z",
+      "firstSeenAt": "2026-05-30T09:56:14.280Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -70,12 +72,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-30T09:56:14.281Z",
-      "_qualityScore": 43,
+      "crawledAt": "2026-05-31T21:09:31.792Z",
+      "firstSeenAt": "2026-05-30T09:56:14.281Z",
+      "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 4,
+        "translation": 15,
         "completeness": 14
       }
     },
@@ -103,12 +106,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-30T09:56:14.282Z",
-      "_qualityScore": 60,
+      "crawledAt": "2026-05-31T21:09:31.793Z",
+      "firstSeenAt": "2026-05-30T09:56:14.282Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -136,17 +140,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T09:56:14.282Z",
-      "_qualityScore": 60,
+      "crawledAt": "2026-05-31T21:09:31.793Z",
+      "firstSeenAt": "2026-05-30T09:56:14.282Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -174,15 +178,15 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-05-30T09:56:14.282Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146500,
       "country": "CH",
-      "_qualityScore": 77,
+      "firstSeenAt": "2026-05-30T09:56:14.282Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -211,21 +215,21 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-05-30T09:56:14.282Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146500,
       "country": "CH",
-      "_qualityScore": 77,
+      "firstSeenAt": "2026-05-30T09:56:14.282Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "id": "alpiq-70d91ad872b7",
-      "slug": "electricien-ne-automaticien-ne-alpiq-martigny",
+      "slug": "elettricista-automatico-alpiq-martigny",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
@@ -248,21 +252,21 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-05-30T09:56:14.281Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 104000,
       "country": "CH",
-      "_qualityScore": 57,
+      "firstSeenAt": "2026-05-30T09:56:14.281Z",
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
-        "translation": 10,
+        "translation": 15,
         "completeness": 22
       }
     },
     {
       "id": "alpiq-61d919b0f8e1",
-      "slug": "functional-business-analyst-trading-origination-all-100-alpiq-olten",
+      "slug": "analista-aziendale-funzionale-trading-origination-tutti-100-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
@@ -285,15 +289,15 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-05-30T09:56:14.280Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 104000,
       "country": "CH",
-      "_qualityScore": 82,
+      "firstSeenAt": "2026-05-30T09:56:14.280Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }

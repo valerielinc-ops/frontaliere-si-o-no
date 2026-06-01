@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-30T12:42:18.856Z",
-  "total": 19,
-  "newCount": 19,
+  "generatedAt": "2026-05-31T23:57:46.695Z",
+  "total": 18,
+  "newCount": 18,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 50449,
-  "avgDurationMs": 50449,
+  "durationMs": 112121,
+  "avgDurationMs": 112121,
   "durationHistory": [
-    50449
+    112121
   ],
   "newJobs": [
     {
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-30T12:41:49.400Z",
       "firstSeenAt": "2026-05-30T12:41:49.400Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -640,48 +640,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4rl5a",
-      "slug": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-      "company": "SUPSI / DTI",
-      "title": "Assistente con Master per il Master of Arts in Interaction design",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://www.supsi.ch/bando26_1012",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "cMendrisio",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-21T00:28:42.108Z",
-      "firstSeenAt": "2026-05-21T00:28:42.108Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
         "completeness": 25
       }
     },

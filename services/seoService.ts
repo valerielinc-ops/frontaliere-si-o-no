@@ -3883,6 +3883,9 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ritenuta-lpp-intermediario-residente': { name: 'Ritenuta LPP Svizzera', path: '/articoli-frontaliere/ritenuta-lpp-intermediario-residente', parent: 'blog' },
     'blog-rincari-ticino-percepiti-dolorosi': { name: 'Rincari Ticino', path: '/articoli-frontaliere/rincari-ticino-percepiti-dolorosi', parent: 'blog' },
     'blog-crisi-abitativa-ticino-classe-media': { name: 'Crisi abitativa', path: '/articoli-frontaliere/crisi-abitativa-ticino-classe-media', parent: 'blog' },
+    'blog-rinascita-verde-ticino-airola-rodi': { name: 'Rinascita verde', path: '/articoli-frontaliere/rinascita-verde-ticino-airola-rodi', parent: 'blog' },
+    'blog-stretta-esercito-civilisti-ticino': { name: 'Stretta esercito', path: '/articoli-frontaliere/stretta-esercito-civilisti-ticino', parent: 'blog' },
+    'blog-maggiore-lake-trail-gambarogno': { name: 'Maggiore Lake Trail', path: '/articoli-frontaliere/maggiore-lake-trail-gambarogno', parent: 'blog' },
  };
 
  const info = sectionNames[section];
