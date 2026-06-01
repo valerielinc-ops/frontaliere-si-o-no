@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-06-01T13:45:42.252Z",
+  "assembledAt": "2026-06-01T22:53:37.784Z",
   "jobs": [
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -120,6 +120,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
+      "previousSlugs": [
+        "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano",
+        "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano",
+        "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
+        "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "global-wealth-management-private-banker-lugano-banca-del-sempione-lugano"
@@ -130,13 +136,7 @@
         "de": [
           "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano"
         ]
-      },
-      "previousSlugs": [
-        "global-wealth-management-client-advisor-private-banker-banca-del-sempione-lugano",
-        "global-wealth-management-kundenberater-private-banker-banca-del-sempione-lugano",
-        "global-wealth-management-privatbanker-lugano-banca-del-sempione-lugano",
-        "global-wealth-management-consulente-alla-clientela-private-banker-banca-del-sempione-lugano"
-      ]
+      }
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
