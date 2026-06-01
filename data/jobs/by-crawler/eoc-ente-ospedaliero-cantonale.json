@@ -245,7 +245,19 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+        ],
+        "de": [
+          "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona-c72886",
+        "verwaltungspersonal-eoc-ente-ospedaliero-cantonale-bellinzona-c72886"
+      ]
     },
     {
       "id": "company-uil2r1",
@@ -916,11 +928,13 @@
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
         ],
         "fr": [
-          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
+          "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ]
       },
       "previousSlugs": [
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1265,14 +1279,18 @@
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
         ],
         "de": [
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+          "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "fr": [
-          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
+          "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ]
       },
       "previousSlugs": [
-        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
+        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+        "graduierten-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -12111,15 +12129,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona-c86b40",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio-x29n5y",
-        "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178",
-        "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
-        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172",
         "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
         "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -12138,14 +12147,16 @@
         "stage-de-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio",
         "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-novaggio",
         "buhnenpflege-service-eoc-ente-ospedaliero-cantonale-novaggio-a0d147",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil177"
       ],
       "country": "CH",
       "previousSlugsByLocale": {
         "it": [
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-novaggio",
           "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-locarno",
-          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano"
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-lugano",
+          "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil177"
         ],
         "de": [
           "krankenpflegepraktikum-eoc-ente-ospedaliero-cantonale-locarno"
