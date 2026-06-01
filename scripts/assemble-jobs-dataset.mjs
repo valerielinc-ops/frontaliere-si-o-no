@@ -1738,7 +1738,9 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     // translate-pending pipeline fills the missing locales.
     let partialDescriptionFlags = 0;
     for (const job of assembled) {
-      if (job.needsRetranslation) continue;
+      // Skip already-flagged and jobs the pipeline gave up on (localeMismatchSuppressed)
+      // — re-flagging suppressed jobs keeps needsRetranslation set on them.
+      if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
       const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
         ? job.descriptionByLocale
         : {};

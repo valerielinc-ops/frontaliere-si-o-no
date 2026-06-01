@@ -1,6 +1,11 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .mjs script, no type declarations
-import { reconcileRetranslationState, isIncomplete } from '../scripts/relocalize-pending-jobs.mjs';
+import {
+  reconcileRetranslationState,
+  isIncomplete,
+  snapshotCompanySignatures,
+  changedSlugsSince,
+  // @ts-expect-error — plain .mjs script, no type declarations
+} from '../scripts/relocalize-pending-jobs.mjs';
 
 /**
  * Regression gate for the needsRetranslation give-up loop.
@@ -109,5 +114,32 @@ describe('reconcileRetranslationState — give-up convergence', () => {
     expect(job.needsRetranslation).toBeUndefined();
     expect(job.retranslationAttempts).toBeUndefined();
     expect(job.localeMismatchSuppressed).toBeUndefined();
+  });
+});
+
+describe('attempted-detection — only crawler-touched jobs count as attempted', () => {
+  // Pins the call-site wiring: relocalize runs --max-jobs N against a company
+  // slice with more flagged jobs than the budget reaches. Only the jobs whose
+  // locale content actually changed must be marked attempted; the un-reached
+  // tail must NOT be (else it gets mass-suppressed).
+  it('changedSlugsSince returns only the jobs whose locale content changed', () => {
+    const before = [
+      { slug: 'reached', companyKey: 'acme', titleByLocale: { it: 'A' }, descriptionByLocale: { it: 'x' } },
+      { slug: 'untouched', companyKey: 'acme', titleByLocale: { it: 'B' }, descriptionByLocale: { it: 'y' } },
+      { slug: 'other-co', companyKey: 'globex', titleByLocale: { it: 'C' }, descriptionByLocale: { it: 'z' } },
+    ];
+    const snap = snapshotCompanySignatures(before, 'acme');
+
+    // Crawler translated only 'reached'; 'untouched' (budget-unreached) is unchanged.
+    const after = [
+      { slug: 'reached', companyKey: 'acme', titleByLocale: { it: 'A', en: 'A-en' }, descriptionByLocale: { it: 'x', en: 'x-en' } },
+      { slug: 'untouched', companyKey: 'acme', titleByLocale: { it: 'B' }, descriptionByLocale: { it: 'y' } },
+      { slug: 'other-co', companyKey: 'globex', titleByLocale: { it: 'C', en: 'C-en' }, descriptionByLocale: { it: 'z' } },
+    ];
+    const attempted = changedSlugsSince(snap, after, 'acme');
+
+    expect(attempted.has('reached')).toBe(true);
+    expect(attempted.has('untouched')).toBe(false); // un-reached tail → never suppressed
+    expect(attempted.has('other-co')).toBe(false);  // different company, ignored
   });
 });
