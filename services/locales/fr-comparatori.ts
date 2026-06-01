@@ -345,7 +345,7 @@ const frComparatori: Record<string, string> = {
  'mobile.whichOperator': 'Quel opérateur choisir ?',
  'mobile.operatorTip1': 'Résidence en Italie, travail en Suisse : Vodafone, Fastweb et ho. Mobile appliquent Roam-Like-Home à la CH depuis septembre 2025 (jusqu\'à 32 Go inclus). Spusu Oltreconfine inclut 10 Go CH dédiés à 9,98€/mois.',
  'mobile.operatorTip2': 'Résidence en Suisse, travail en Italie : Wingo Europe Go et Sunrise Swiss Travel+ (illimité dans 8 pays UE dont IT) offrent le meilleur rapport qualité-prix.',
- 'mobile.operatorTip3': 'TIM et WindTre n\'incluent pas la CH dans le Roam Like Home : pass dédiés requis (TIM Opzione Svizzera 5€/5Go, WindTre Travel Pass 19,99€/15Go). Very Mobile n\'offre aucun pass CH.',
+ 'mobile.operatorTip3': 'TIM et WindTre n\'incluent pas la CH dans le Roam Like Home : pass dédiés requis (TIM Opzione Svizzera 5€/5Go, WindTre Travel Pass 19,99€/15Go). Very Mobile propose l\'option Giga Svizzera (10 Go à 4,99€/semaine).',
  'mobile.tricksTitle': 'Trucs et astuces',
  'mobile.trick1': 'Double SIM : De nombreux frontaliers utilisent 2 SIM (une IT + une CH) pour la meilleure couverture',
  'mobile.trick2': 'WiFi Calling : Activez-le pour utiliser le réseau italien en Suisse via le WiFi (gratuit)',
