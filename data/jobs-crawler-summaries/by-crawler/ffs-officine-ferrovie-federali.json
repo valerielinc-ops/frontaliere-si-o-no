@@ -1,18 +1,47 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-05-31T23:31:09.473Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-06-01T16:01:17.915Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36154,
-  "avgDurationMs": 36154,
+  "durationMs": 49741,
+  "avgDurationMs": 49741,
   "durationHistory": [
-    36154
+    49741
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "sbb-6947fc349476",
+      "slug": "impiegato-in-logistica-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Impiegato in logistica (m/f/d)",
+      "location": "Giubiasco",
+      "canton": "TI",
+      "addressLocality": "Giubiasco",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/impiegato-in-logistica-m-f-d/d29fd7bf-40a2-43e2-bd85-a78c48405e6e",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-06-01T16:00:39.946Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 23,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "sbb-f8c4bf625995",
@@ -33,7 +62,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-immobilien-development/6581a2cb-a00d-4f8a-9d8e-d3699891c828",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-05-31T23:30:45.743Z",
+      "crawledAt": "2026-06-01T16:00:39.031Z",
       "firstSeenAt": "2026-05-07T22:28:47.416Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -62,7 +91,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-generale-immobili-m-f-d/4ceb3d72-b043-4b0e-96d7-2b721351df44",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-05-31T23:31:03.936Z",
+      "crawledAt": "2026-06-01T16:00:40.951Z",
       "firstSeenAt": "2026-05-07T22:29:03.851Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -91,7 +120,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chef-de-projet-general-immobilier-m-f-d/aa5b5720-9265-4767-af29-1ad2f0f46dfa",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-05-31T23:31:04.892Z",
+      "crawledAt": "2026-06-01T16:01:17.766Z",
       "firstSeenAt": "2026-05-07T22:29:08.604Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -120,7 +149,7 @@
       "postedDate": "2026-05-05",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-impianti-accesso-ai-treni-m-f-d/6aba9124-180b-42c8-a98e-eeba601f5c59",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-05-31T23:31:09.381Z",
+      "crawledAt": "2026-06-01T16:01:10.411Z",
       "firstSeenAt": "2026-05-05T11:20:28.055Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -149,7 +178,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-05-31T23:30:58.734Z",
+      "crawledAt": "2026-06-01T16:00:40.884Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
