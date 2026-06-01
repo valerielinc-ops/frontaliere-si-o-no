@@ -277,6 +277,10 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
         delete job.titleByLocale[locale];
       }
       job.needsRetranslation = true;
+      // We just invalidated a hallucinated title → the job genuinely needs work
+      // again, so lift any prior give-up suppression.
+      delete job.localeMismatchSuppressed;
+      delete job.localeMismatchSuppressedLen;
       count++;
       if (details.length < 10) {
         details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner}`);
@@ -708,7 +712,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   };
   let flagged = 0;
   for (const job of jobs) {
-    if (job.needsRetranslation) continue;
+    // Skip already-flagged and jobs the pipeline gave up on (relocalize sets
+    // localeMismatchSuppressed after repeated failed retranslation runs) —
+    // re-flagging suppressed jobs is what kept the backlog looping.
+    if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
     const sl = job.sourceLang || 'it';
     const titles = job.titleByLocale || {};
     let needsFlag = false;
@@ -1731,7 +1738,9 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     // translate-pending pipeline fills the missing locales.
     let partialDescriptionFlags = 0;
     for (const job of assembled) {
-      if (job.needsRetranslation) continue;
+      // Skip already-flagged and jobs the pipeline gave up on (localeMismatchSuppressed)
+      // — re-flagging suppressed jobs keeps needsRetranslation set on them.
+      if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
       const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
         ? job.descriptionByLocale
         : {};

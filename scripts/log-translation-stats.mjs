@@ -49,6 +49,7 @@ const files = fs.existsSync(CRAWLERS_DIR)
 
 let total = 0;
 let needsRetranslation = 0;
+let suppressed = 0;
 let incomplete = 0;
 const byLocale = { it: 0, en: 0, de: 0, fr: 0 };
 const topCompanies = [];
@@ -64,6 +65,7 @@ for (const file of files) {
     const flagged = !!job.needsRetranslation;
     const inc = isIncomplete(job);
     if (flagged) needsRetranslation++;
+    if (job.localeMismatchSuppressed) suppressed++;
     if (inc) {
       incomplete++;
       companyPending++;
@@ -95,6 +97,7 @@ const entry = {
   label,
   total,
   needsRetranslation,
+  suppressed,
   incomplete,
   complete: total - incomplete,
   missingByLocale: byLocale,
@@ -106,6 +109,7 @@ console.log(`   Total jobs:          ${total}`);
 console.log(`   Complete:            ${entry.complete} (${Math.round(entry.complete/total*100)}%)`);
 console.log(`   Incomplete:          ${incomplete}`);
 console.log(`     needsRetranslation:  ${needsRetranslation}`);
+console.log(`     suppressed (gave up): ${suppressed}`);
 console.log(`     Missing by locale:   IT=${byLocale.it} EN=${byLocale.en} DE=${byLocale.de} FR=${byLocale.fr}`);
 if (topCompanies.length > 0) {
   console.log(`   Top pending companies:`);

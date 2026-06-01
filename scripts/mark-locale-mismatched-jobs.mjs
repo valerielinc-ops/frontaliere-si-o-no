@@ -23,7 +23,10 @@ const jobs = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
 let flagged = 0;
 
 for (const job of jobs) {
-  if (job.needsRetranslation) continue;
+  // Skip jobs already flagged, and jobs the pipeline gave up on after repeated
+  // failed retranslation runs (relocalize-pending-jobs sets localeMismatchSuppressed).
+  // Re-flagging the latter is what made the needsRetranslation backlog loop forever.
+  if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
   let jobHasMismatch = false;
   for (const locale of LOCALES) {
     const description = String(job.descriptionByLocale?.[locale] || '').trim();
