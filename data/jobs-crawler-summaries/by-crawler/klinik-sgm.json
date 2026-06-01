@@ -1,18 +1,55 @@
 {
   "key": "klinik-sgm",
   "label": "Klinik SGM Langenthal",
-  "generatedAt": "2026-05-31T22:40:40.338Z",
+  "generatedAt": "2026-06-01T15:09:22.090Z",
   "total": 9,
-  "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2593,
-  "avgDurationMs": 2593,
+  "durationMs": 3176,
+  "avgDurationMs": 3176,
   "durationHistory": [
-    2593
+    3176
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "klinik-sgm-b958a3a0346c",
+      "slug": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm",
+      "company": "Klinik SGM Langenthal",
+      "companyKey": "klinik-sgm",
+      "companyDomain": "klinik-sgm.ch",
+      "title": "Chief Financial Officer & Leitung Betriebe (w/m) - Mitglied der Klinikleitung",
+      "needsRetranslation": true,
+      "location": "Langenthal",
+      "canton": "BE",
+      "url": "https://jobs.klinik-sgm.ch/offene-stellen/chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung/4968b7e9-0faa-43c9-a075-7ba07b5a7b81",
+      "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-01T15:09:19.883Z",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4900",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "applyUrl": "https://k42459.coveto.de/public/bewerbung/?standort=1&id=706&i18nLocale=de_DE",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "klinik-sgm-eab65503a230",
@@ -27,7 +64,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachverantwortliche-r-qualitaetsmanagement-sicherung/ae330468-4f1e-44bc-9804-aa803fb33c42",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.453Z",
+      "crawledAt": "2026-06-01T15:09:19.887Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/0ceb3049-ecc4-4ee2-805a-a738a2e09c75",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.457Z",
+      "crawledAt": "2026-06-01T15:09:19.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-bern/6af8f0a9-f83d-4daf-b015-e1bd3794d10c",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.458Z",
+      "crawledAt": "2026-06-01T15:09:19.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/0e5bca5b-1ce0-4772-901c-be0ff2d0a41f",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.468Z",
+      "crawledAt": "2026-06-01T15:09:19.899Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/ac43f41f-53b9-4fac-9413-4f36c75ed500",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.469Z",
+      "crawledAt": "2026-06-01T15:09:19.900Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/b0f5dcfa-9c91-49d3-b9c7-64c9267ea91a",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.470Z",
+      "crawledAt": "2026-06-01T15:09:19.901Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/66f8035e-c024-4a5e-af5a-fe2a9cf8a095",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.470Z",
+      "crawledAt": "2026-06-01T15:09:19.902Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/130bd04a-6315-44e3-a2ce-80e90f16179e",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:40:38.471Z",
+      "crawledAt": "2026-06-01T15:09:19.903Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -309,15 +346,16 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "klinik-sgm-785b41939b71",
-      "slug": "kochin-koch-efz-klinik-sgm-langenthal",
+      "slug": "cuoca-cuoco-efz-klinik-sgm-langenthal-langenthal",
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
       "companyDomain": "klinik-sgm.ch",
       "title": "Köchin / Koch EFZ",
-      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/koechin-koch-efz/3768e277-4e9d-4183-8b26-4e590eb69b7e",
@@ -339,15 +377,16 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://k61225.coveto.de/public/bewerbung/?id=1062",
       "firstSeenAt": "2026-05-19T17:18:34.890Z",
-      "_qualityScore": 87,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
