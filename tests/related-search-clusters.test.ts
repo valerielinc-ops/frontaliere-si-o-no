@@ -105,9 +105,12 @@ describe('parseSearchSlugFilter — strips job-search boilerplate from seeded qu
     expect(parseSearchSlugFilter('ricerca-offerte-cuoco')).toBe('cuoco');
   });
 
-  it('strips locale boilerplate (DE stellenangebote, FR offres emploi)', () => {
+  it('strips locale boilerplate (DE stellenangebote, FR offres (d) emploi)', () => {
     expect(parseSearchSlugFilter('suche-stellenangebote-koch')).toBe('koch');
     expect(parseSearchSlugFilter('recherche-offres-emploi-cuisinier')).toBe('cuisinier');
+    // Canonical FR "offres d'emploi" → slug strips the apostrophe to a hyphen
+    // (`offres-d-emploi`), reaching the parser as "offres d emploi".
+    expect(parseSearchSlugFilter('recherche-offres-d-emploi-cuisinier')).toBe('cuisinier');
   });
 
   it('never empties the query for a boilerplate-only slug (no blank search box)', () => {
