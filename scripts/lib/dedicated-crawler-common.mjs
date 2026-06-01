@@ -2264,7 +2264,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
       const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-      if (desc && desc.length >= floor) {
+      if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
         sentinelOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2320,7 +2320,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
       const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-      if (desc && desc.length >= floor) {
+      if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
         out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2368,14 +2368,14 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
         : [];
-      if (desc.length >= floor) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
+      if (desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) out[locale] = { title: localizedTitle || title, description: desc, requirements: req };
     }
     const missingLocales = targetLocales.filter((l) => !out[l]);
     if (missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
-        if (desc && desc.length >= floor) {
+        if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
           out[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
@@ -2399,7 +2399,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       for (const locale of targetLocales) {
         // eslint-disable-next-line no-await-in-loop
         const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale });
-        if (desc && desc.length >= floor) {
+        if (desc && desc.length >= floor && isAcceptableTranslation(cleanedFallback, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
           fallbackOut[locale] = { title: localizedTitle || title, description: desc, requirements: [] };
