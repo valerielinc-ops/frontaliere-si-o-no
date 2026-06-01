@@ -461,6 +461,32 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
         expect(query!.length, `slug "${page.slug}" parsed to empty string`).toBeGreaterThan(0);
       }
     });
+
+    it('no cluster slug has a leading term silently truncated by stripSearchQueryBoilerplate', () => {
+      // Verifies slug↔query identity across ALL emitted pages.
+      // parseSearchSlugFilter strips boilerplate prefixes (e.g. "offerte lavoro",
+      // "stellen") before seeding the search box.  Words like "offerte", "offres",
+      // "stellen", "stellenangebote" are in SEARCH_QUERY_BOILERPLATE_PREFIX but
+      // NOT in RELATED_SEARCH_STOPWORDS — so a cluster term that starts with one
+      // of them passes the generation length-gate yet gets silently truncated at
+      // query time, producing a slug↔query mismatch undetected by the non-empty
+      // length check above.
+      const offenders: string[] = [];
+      for (const loc of LOCALES) {
+        const prefixHyphen = `${getSearchSlugPrefix(loc)}-`;
+        for (const page of loadClusterPages(loc)) {
+          if (!page.slug || !page.slug.startsWith(prefixHyphen)) continue;
+          const expectedTerm = page.slug.slice(prefixHyphen.length).replace(/-/g, ' ').trim();
+          const parsedQuery = parseSearchSlugFilter(page.slug);
+          if (parsedQuery !== expectedTerm) {
+            offenders.push(
+              `${page.file} — slug "${page.slug}" → query "${parsedQuery}" (expected "${expectedTerm}")`,
+            );
+          }
+        }
+      }
+      expect(offenders, offenders.slice(0, 5).join('\n')).toEqual([]);
+    });
   },
 );
 
