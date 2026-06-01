@@ -327,7 +327,7 @@ function summarizeItalyStations(stations) {
   };
 }
 
-function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
+export function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
   const filtered = [];
   for (const station of swissStations) {
     let closestMunicipality = null;
@@ -354,7 +354,7 @@ function buildSwissBorderStations(municipalities, swissStations, eurPerChf) {
   return filtered.sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
 }
 
-function buildDataset({
+export function buildDataset({
   municipalities,
   italyExtractedAt,
   swissStations,
@@ -634,7 +634,11 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+// Only run main() when invoked as a CLI, not when imported (e.g. by tests).
+const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (invokedAsCli) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
