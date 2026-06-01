@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-01T11:07:32.099Z",
+  "generatedAt": "2026-06-01T11:44:12.898Z",
   "sources": {
     "jobsPath": "data/jobs.json",
     "gscClustersPath": "data/gsc-orphan-queries-clusters.json"
@@ -10,10 +10,10 @@
     "totalGscClusters": 842
   },
   "summary": {
-    "totalUniqueSlugs": 203424,
+    "totalUniqueSlugs": 203568,
     "totalEmissions": 229577,
     "editorialCollisions": 16,
-    "gscMatches": 1262,
+    "gscMatches": 1422,
     "byLocale": {
       "it": 53140,
       "en": 50992,
@@ -2745115,6 +2745115,1926 @@
       "gscMatch": true,
       "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-05-11",
       "editorialCollision": null
+    },
+    {
+      "slug": "recherche-inconnus-lausanne",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "inconnus lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-cohesion-liestal",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "cohesion liestal"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-innovation-bellevue",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "innovation bellevue"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-innovons-lausanne",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "innovons lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-project-bellinzona",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "project bellinzona"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-priorisez-zurich",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "priorisez zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-rechnungsdienst-bellinzona",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "rechnungsdienst bellinzona"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-dalla-plan-les-ouates",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "dalla plan les ouates"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-pensum-emmen",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "pensum emmen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-lugano-relewant",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "lugano relewant"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-psychiatrische-dienste-graubunden",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "psychiatrische dienste graubunden"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-responsabile-operativo-sud",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "responsabile operativo sud"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-autonomamente-aadorf",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "autonomamente aadorf"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-clinic-fribourg",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "clinic fribourg"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-solothurner-spitaler-soh-solothurn",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "solothurner spitaler soh solothurn"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-arsante-clinique-de-carouge-le-square",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "arsante clinique de carouge le square"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-principali-bern",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "principali bern"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-arbeitsweise-visp",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "arbeitsweise visp"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-alta-biel-bienne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "alta biel bienne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-junior-facility-manager-mendrisio",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "junior facility manager mendrisio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-spezialist-bioggio",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "spezialist bioggio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-zuger-kantonsspital",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "zuger kantonsspital"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-rhone-collombey-muraz",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "rhone collombey muraz"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-congedo-martigny",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "congedo martigny"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-swiss-life-visp",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "swiss life visp"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-chiasso-part-time",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "chiasso part time"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-lombard-odier-geneva",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "lombard odier geneva"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-reboot-monkey-meyrin",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "reboot monkey meyrin"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-fnz-switzerland-ag-zurich",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "fnz switzerland ag zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-klinik-schutzen-rheinfelden",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "klinik schutzen rheinfelden"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-tagtaglich-eyholz",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "tagtaglich eyholz"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-spitaler-fmi-ag",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "spitaler fmi ag"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-vigueur-bulle",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "vigueur bulle"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-sergio-lo-stanco-elektro-ag",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sergio lo stanco elektro ag"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-the-swatch-group-malaysia-sdn-bhd-ticino",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "the swatch group malaysia sdn bhd ticino"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-cheseaux-cheseaux-sur-lausanne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "cheseaux cheseaux sur lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-whether-mannedorf",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "whether mannedorf"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-roger-dubuis-geneva",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "roger dubuis geneva"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-stellenbeschreibung-geneva",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "stellenbeschreibung geneva"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-meccanismi-lausanne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "meccanismi lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-profession-luzern",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "profession luzern"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-secondo-martigny",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "secondo martigny"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-medartis",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "medartis"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-iniziativa-zurich",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "iniziativa zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-hitachi-energy-zurich-switzerland",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "hitachi energy zurich switzerland"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-pflegeassistent-novaggio",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "pflegeassistent novaggio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-luzerner-kantonsspital-luks-wolhusen",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "luzerner kantonsspital luks wolhusen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-unserer-landquart",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "unserer landquart"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-internship-in-tax-consulting-6-months",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "internship in tax consulting 6 months"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-light-zurich",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "light zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-schindler-steinach",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "schindler steinach"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-erheben-bioggio",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "erheben bioggio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-sro-ag-spital-region-oberaargau",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sro ag spital region oberaargau"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-gasheizungen-rivera",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "gasheizungen rivera"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-switzerlandlocation-dietlikon",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "switzerlandlocation dietlikon"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-arzt-pfaffikon-zh",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "arzt pfaffikon zh"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-preference-samedan",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "preference samedan"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-unique-basel",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "unique basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-rejouissez-anniviers",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "rejouissez anniviers"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-denner-pfungen",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "denner pfungen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-hochschule-zurich",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "hochschule zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-robert-widmer-ag-elektrische-anlagen",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "robert widmer ag elektrische anlagen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-welt-locarno",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "welt locarno"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-ticino",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ticino"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-lugano-pemsa",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "lugano pemsa"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-berit-klinik",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "berit klinik"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-sexy-chur",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sexy chur"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-specialiste-castel-san-pietro",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "specialiste castel san pietro"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-future-sierre",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "future sierre"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-sociali-basel",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sociali basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-aufgaben-rivera",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "aufgaben rivera"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-piace-schlieren",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "piace schlieren"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-emea-che-stabio-vf-campus-vf1",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "emea che stabio vf campus vf1"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-zurich-tether-operations",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "zurich tether operations"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-chiasso-apprendistato",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "chiasso apprendistato"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-chur-coop",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "chur coop"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-servicetechniker-fossil-region-tessin-w-m-div-rivera",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "servicetechniker fossil region tessin w m div rivera"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-servicetechniker-fossil-region-tessin-w-m-div",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "servicetechniker fossil region tessin w m div"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-mendrisio-usi-universita-della-svizzera-italiana",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "mendrisio usi universita della svizzera italiana"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-impiegato-a-nel-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "impiegato a nel commercio al dettaglio afc creazione di esperienze di acquisto"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-fabricant-luzern",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "fabricant luzern"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-controlli-steinach",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "controlli steinach"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-parola-bottighofen",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "parola bottighofen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-idee-gravesano",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "idee gravesano"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-runde-meyrin",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "runde meyrin"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-tsmg-zurich",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "tsmg zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-mendrisio-eoc-ente-ospedaliero-cantonale",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "mendrisio eoc ente ospedaliero cantonale"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-klinik-schloss-mammern",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "klinik schloss mammern"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-principal-grancia",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "principal grancia"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-vaudoise-assurances-berne",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "vaudoise assurances berne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-developpeur-bioggio",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "developpeur bioggio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-ameliorez-geneve",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ameliorez geneve"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-postes-basel",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "postes basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-nehmen-rivera",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "nehmen rivera"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-unsere-dotzigen",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "unsere dotzigen"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-acquise-pregassona",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "acquise pregassona"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-qualification-martigny",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "qualification martigny"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-ameliorer-bonaduz",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ameliorer bonaduz"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-sexy-olten",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sexy olten"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-programmes-glarus",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "programmes glarus"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-mikron-group",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "mikron group"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-commencer-walenstadt",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "commencer walenstadt"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-linguistiche-pontresina",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "linguistiche pontresina"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-grigioni",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "grigioni"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-health-ticino",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "health ticino"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-spitex-lenzburg",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "spitex lenzburg"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-matterhorn-gotthard-bahn-brig",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "matterhorn gotthard bahn brig"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-laboratorio-baltschieder",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "laboratorio baltschieder"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-maintenance-bubendorf",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "maintenance bubendorf"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-supply-bubendorf",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "supply bubendorf"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-geiser-ag-schlieren",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "geiser ag schlieren"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-bedienen-maienfeld",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "bedienen maienfeld"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-maturita-olten",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "maturita olten"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-ch-tether-operations",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ch tether operations"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-dedicato-winterthur",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "dedicato winterthur"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-ubersicht-zurich",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ubersicht zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-employe-grancia",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "employe grancia"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-linux-winterthur",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "linux winterthur"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-swisscom-sede-ticino-bern",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "swisscom sede ticino bern"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-warme-chur",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "warme chur"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-bi-geneve",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "bi geneve"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-tasks-binn",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "tasks binn"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-grandi-lausanne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "grandi lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-rete-morbio",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "rete morbio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-suchthilfe-region-basel",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "suchthilfe region basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-capri-holdings-michael-kors-versace-zurich",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "capri holdings michael kors versace zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-diagnostischen-solothurn",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "diagnostischen solothurn"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-acheteur-acheteuse-food-bell-schweiz-ag",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "acheteur acheteuse food bell schweiz ag"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-sequestro-martigny",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sequestro martigny"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-commerce-balerna",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "commerce balerna"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-ouvrir-bioggio",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ouvrir bioggio"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-nell-biel-bienne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "nell biel bienne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "search-ausschreibung-lugano",
+      "locale": "en",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ausschreibung lugano"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-sexy-aarau",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "sexy aarau"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-environnements-lenzburg-switzerland",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "environnements lenzburg switzerland"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-nearly-grusch",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "nearly grusch"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-technics-zurich",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "technics zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-passionne-lenzburg-switzerland",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "passionne lenzburg switzerland"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-vantaggio-biel-bienne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "vantaggio biel bienne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-qualities-basel",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "qualities basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-oberland-fehraltorf",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "oberland fehraltorf"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-julius-baer",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "julius baer"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-devenez-zurich",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "devenez zurich"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-indagini-chur",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "indagini chur"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-ulteriore-langenthal",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "ulteriore langenthal"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-servizio-le-mont-sur-lausanne",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "servizio le mont sur lausanne"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-personnellement-evionnaz",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "personnellement evionnaz"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-jumbo-ilanz-glion",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "jumbo ilanz glion"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-auslass-engelberg",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "auslass engelberg"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-code-morbio-inferiore",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "code morbio inferiore"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-atelier-morbio-inferiore",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "atelier morbio inferiore"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-organisatorischen-basel",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "organisatorischen basel"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-resolvez-landquart",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "resolvez landquart"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-leidenschaft-eyholz",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "leidenschaft eyholz"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-mendrisio-eoc-ente-ospedaliero-cantonale",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "mendrisio eoc ente ospedaliero cantonale"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-competent-mullheim",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "competent mullheim"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "suche-evidenzbasierte-solothurn",
+      "locale": "de",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "evidenzbasierte solothurn"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "recherche-regionale-dornach",
+      "locale": "fr",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "regionale dornach"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-locarno-pemsa",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "locarno pemsa"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
+    },
+    {
+      "slug": "ricerca-locarno-eoc-ente-ospedaliero-cantonale",
+      "locale": "it",
+      "jobCount": 1,
+      "sampleJobIds": [],
+      "sampleTerms": [
+        "locarno eoc ente ospedaliero cantonale"
+      ],
+      "editorialCollision": null,
+      "gscMatch": true,
+      "gscOrigin": "frontaliereticino.ch-Coverage-Drilldown-2026-06-01"
     }
   ]
 }
