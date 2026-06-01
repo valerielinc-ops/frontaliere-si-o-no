@@ -2297,7 +2297,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         for (const cand of candidates) {
           const sampleTerm = (cand.sampleTerms || [])[0] || '';
           if (!sampleTerm) continue;
-          const tokens = tokenizeQuery(sampleTerm);
+          // Warm the SAME stripped tokens buildClusterContext queries (L923).
+          // Seeding the raw term would build posting lists for the highest-
+          // frequency boilerplate tokens ("lavoro"/"offerte"/"emploi"/"stellen")
+          // — the most expensive cold builds — that the matcher never requests.
+          const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
           if (tokens.length === 0) continue;
           let set = tokensByLocale.get(cand.locale);
           if (!set) {
