@@ -618,7 +618,7 @@ interface ClusterContext {
 // substring — the same `haystack.includes(token)` condition the prior
 // per-candidate scan applied via queryMatchScore. Stemming is intentionally
 // skipped (matches plurals/feminines via substring, like the SPA filter).
-class TokenIndex {
+export class TokenIndex {
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
@@ -894,7 +894,7 @@ function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {
   return Array.from(bySlug.values());
 }
 
-function buildClusterContext(
+export function buildClusterContext(
   candidate: CandidateEntry,
   index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
