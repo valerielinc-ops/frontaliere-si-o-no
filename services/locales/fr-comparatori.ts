@@ -327,6 +327,8 @@ const frComparatori: Record<string, string> = {
  'mobile.price': 'Prix',
  'mobile.priceWithRoaming': 'Prix + Roaming inclus',
  'mobile.bestOptions': 'Meilleures options pour les frontaliers',
+ 'mobile.bestOptionsHint': 'Le top 3 par rapport Go de roaming / prix. Comparatif complet ci-dessous.',
+ 'mobile.roamingUnlimited': 'roaming illimité',
  'mobile.italianWithRoaming': 'Opérateurs italiens avec roaming CH',
  'mobile.swissWithRoaming': 'Opérateurs suisses avec roaming UE',
  'mobile.realCostMonth': 'coût réel/mois',

@@ -270,8 +270,8 @@ const operators: MobileOperator[] = [
  sms: 'illimitati',
  roamingInItaly: {
  included: true,
- dataLimit: 3,
- notes: 'Illim dati/min in 8 paesi UE (DE/AT/FR/IT/LI/GR/ES/PT) + 3 GB extra in Europa/USA/CAN. Esente da rincaro 08/2026.'
+ dataLimit: 'illimitati',
+ notes: 'Dati/min illimitati in 8 paesi UE — Italia inclusa (DE/AT/FR/IT/LI/GR/ES/PT). + 3 GB extra nel resto di Europa/USA/CAN. Esente da rincaro 08/2026.'
  },
  setupCost: 0,
  contractType: 'abbonamento',
@@ -435,18 +435,48 @@ const MobileOperators: React.FC = () => {
  }
  }), [filterCountry, sortBy]);
 
+ // Limite dati roaming rilevante per il frontaliere (IT→CH oppure CH→IT)
+ const roamingDataLimit = (op: MobileOperator): number | string | undefined =>
+ op.country === 'IT' ? op.roamingInSwitzerland?.dataLimit : op.roamingInItaly?.dataLimit;
+
+ // Ranking "migliori opzioni": roaming illimitato prima (più economico in cima),
+ // poi miglior rapporto GB roaming / prezzo. NON solo GB: così non promuove i piani
+ // costosi (es. Swisscom 81.80 CHF) né i micro-roaming da 1 GB.
  const bestForFrontierWorkers = operators
  .filter(op =>
  (op.country === 'IT' && op.roamingInSwitzerland?.included) ||
  (op.country === 'CH' && op.roamingInItaly?.included)
  )
  .sort((a, b) => {
- const aLimit = a.country === 'IT' ? a.roamingInSwitzerland?.dataLimit : a.roamingInItaly?.dataLimit;
- const bLimit = b.country === 'IT' ? b.roamingInSwitzerland?.dataLimit : b.roamingInItaly?.dataLimit;
- const aScore = aLimit === 'illimitati' ? Infinity : (typeof aLimit === 'number' ? aLimit : 0);
- const bScore = bLimit === 'illimitati' ? Infinity : (typeof bLimit === 'number' ? bLimit : 0);
- return bScore - aScore;
+ const aLimit = roamingDataLimit(a);
+ const bLimit = roamingDataLimit(b);
+ const aUnlimited = aLimit === 'illimitati';
+ const bUnlimited = bLimit === 'illimitati';
+ if (aUnlimited !== bUnlimited) return aUnlimited ? -1 : 1;
+ if (aUnlimited && bUnlimited) return a.monthlyCost - b.monthlyCost;
+ const aGB = typeof aLimit === 'number' ? aLimit : 0;
+ const bGB = typeof bLimit === 'number' ? bLimit : 0;
+ return bGB / b.monthlyCost - aGB / a.monthlyCost;
  });
+
+ // Riga compatta e scansionabile per il riepilogo "Migliori opzioni"
+ const renderBestRow = (op: MobileOperator, rank: number) => {
+ const limit = roamingDataLimit(op);
+ const currency = op.country === 'IT' ? '€' : 'CHF';
+ const roamingLabel = limit === 'illimitati' ? t('mobile.roamingUnlimited') : `${limit} GB`;
+ return (
+ <li key={op.name} className="flex items-baseline justify-between gap-3">
+ <span className="flex items-baseline gap-2 min-w-0">
+ <span className="text-success font-bold tabular-nums">{rank}.</span>
+ <strong className="text-strong truncate">{op.name}</strong>
+ </span>
+ <span className="flex items-baseline gap-2 flex-shrink-0">
+ <span className="text-body font-bold tabular-nums whitespace-nowrap">{op.monthlyCost} {currency}</span>
+ <span className="px-2 py-0.5 rounded-full bg-success-strong text-on-accent text-xs font-medium whitespace-nowrap">{roamingLabel}</span>
+ </span>
+ </li>
+ );
+ };
 
  return (
  <div className="space-y-6 pb-8">
@@ -526,30 +556,23 @@ const MobileOperators: React.FC = () => {
  </div>
 
  {/* Best Options Summary */}
- <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
- <h3 className="text-xl font-bold font-display text-strong mb-4 flex items-center gap-2">
+ <div className="bg-success-subtle rounded-2xl border border-success-border p-6">
+ <h3 className="text-xl font-bold font-display text-strong mb-1 flex items-center gap-2">
  <CheckCircle2 size={20} className="text-success" />
  {t('mobile.bestOptions')}
  </h3>
+ <p className="text-sm text-muted mb-4">{t('mobile.bestOptionsHint')}</p>
  <div className="grid md:grid-cols-2 gap-4">
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-success mb-2">🇮🇹 {t('mobile.italianWithRoaming')}:</p>
- <ul className="space-y-1 text-sm text-body">
- {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
- <li key={op.name}>
- <strong>{op.name}</strong> - {op.monthlyCost}€/mese - {op.roamingInSwitzerland?.dataLimit === 'illimitati' ? '∞' : op.roamingInSwitzerland?.dataLimit} GB roaming
- </li>
- ))}
+ <p className="font-bold text-success mb-3">🇮🇹 {t('mobile.italianWithRoaming')}</p>
+ <ul className="space-y-2.5 text-sm">
+ {bestForFrontierWorkers.filter(op => op.country === 'IT').slice(0, 3).map((op, i) => renderBestRow(op, i + 1))}
  </ul>
  </div>
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-success mb-2">🇨🇭 {t('mobile.swissWithRoaming')}:</p>
- <ul className="space-y-1 text-sm text-body">
- {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
- <li key={op.name}>
- <strong>{op.name}</strong> - {op.monthlyCost} CHF/mese - {op.roamingInItaly?.dataLimit === 'illimitati' ? '∞' : op.roamingInItaly?.dataLimit} GB roaming
- </li>
- ))}
+ <p className="font-bold text-success mb-3">🇨🇭 {t('mobile.swissWithRoaming')}</p>
+ <ul className="space-y-2.5 text-sm">
+ {bestForFrontierWorkers.filter(op => op.country === 'CH').slice(0, 3).map((op, i) => renderBestRow(op, i + 1))}
  </ul>
  </div>
  </div>
