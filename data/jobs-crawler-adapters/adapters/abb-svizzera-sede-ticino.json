@@ -22,10 +22,11 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034241EXTERNALENGLOBAL/Customer-Quality-Specialist",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00034865EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00035139EXTERNALENGLOBAL/Position-76059728-Production-Engineering-Technician"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-05-31T21:03:24.519Z",
+  "updatedAt": "2026-06-01T13:27:48.963Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034548EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
       "location": "Quartino, Ticino, Switzerland",
@@ -99,6 +100,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018698EXTERNALENGLOBAL/Process-Quality-Specialist--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -115,7 +124,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00034865EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
