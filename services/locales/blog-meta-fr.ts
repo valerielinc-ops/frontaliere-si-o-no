@@ -7940,6 +7940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mostra-piante-rare-comerio-2026.title': 'Marché d\'exposition de plantes rares à Comerio',
     'blog.article.mostra-piante-rare-comerio-2026.excerpt': 'Samedi 6 et dimanche 7 juin 2026, le Belvédère de Comerio accueille la dixième édition du marché d\'exposition de plantes rares et tropicales.',
     'blog.article.mostra-piante-rare-comerio-2026.imageAlt': 'Marché de plantes tropicales avec le lac de Lugano en arrière-plan',
+    'blog.article.ferrovia-retica-taiwan.title': 'Ferrovia retica: partenariat avec Taiwan',
+    'blog.article.ferrovia-retica-taiwan.excerpt': 'La Ferrovia retica a signé un accord de collaboration avec la taiwanaise Alishan Forest Railway.',
+    'blog.article.ferrovia-retica-taiwan.imageAlt': 'Chemins de fer rhétiques en hiver',
 };
 
 export default blogMetaFr;

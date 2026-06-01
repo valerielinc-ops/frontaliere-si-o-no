@@ -7938,6 +7938,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mostra-piante-rare-comerio-2026.title': 'Seltener Pflanzenmarkt in Comerio: Ein Event für Naturliebhaber',
     'blog.article.mostra-piante-rare-comerio-2026.excerpt': 'Am Samstag, den 6. und Sonntag, den 7. Juni 2026, findet auf dem Belvedere von Comerio die zehnte Ausgabe des Marktes für seltene und tropische Pflanzen statt.',
     'blog.article.mostra-piante-rare-comerio-2026.imageAlt': 'Tropischer Pflanzenmarkt mit Blick auf den Luganersee',
+    'blog.article.ferrovia-retica-taiwan.title': 'RhB: Kooperation mit Taiwan',
+    'blog.article.ferrovia-retica-taiwan.excerpt': 'Die Rhätische Bahn hat eine Kooperationsvereinbarung mit der taiwanesischen Alishan Forest Railway unterzeichnet.',
+    'blog.article.ferrovia-retica-taiwan.imageAlt': 'RhB-Eisenbahn im Winter',
 };
 
 export default blogMetaDe;
