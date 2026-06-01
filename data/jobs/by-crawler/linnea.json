@@ -1,6 +1,6 @@
 {
   "crawlerKey": "linnea",
-  "assembledAt": "2026-05-31T22:51:25.816Z",
+  "assembledAt": "2026-06-01T15:20:26.178Z",
   "jobs": [
     {
       "url": "https://www.linnea.ch/careers/?position=1",
@@ -24,7 +24,7 @@
         "de": "ERP-Systemadministrator und IT-Projektleiter",
         "fr": "Administrateur système ERP et chef de projet IT"
       },
-      "slug": "amministratore-di-sistema-erp-e-progetto-it-lead-linnea-sa-riazzino",
+      "slug": "erp-system-administrator-and-it-project-lead-linnea",
       "slugByLocale": {
         "it": "erp-system-administrator-and-it-project-lead-linnea",
         "en": "erp-system-administrator-and-it-project-lead-linnea-sa-riazzino-vo395d",
@@ -65,7 +65,7 @@
       "previousSlugs": [
         "amministratore-di-sistema-erp-e-responsabile-di-progetto-it-linnea-sa-riazzino",
         "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino",
-        "erp-system-administrator-and-it-project-lead-linnea",
+        "amministratore-di-sistema-erp-e-progetto-it-lead-linnea-sa-riazzino",
         "erp-system-administrator-and-it-project-lead-linnea-sa-riazzino-vo395d",
         "amministratore-di-sistema-erp-e-responsabile-di-progetti-it-linnea-sa-riazzino",
         "amministratore-erp-e-leader-progetto-it-linnea-sa-riazzino",
@@ -75,7 +75,8 @@
       "previousSlugsByLocale": {
         "it": [
           "amministratore-di-sistema-erp-e-responsabile-di-progetto-it-linnea-sa-riazzino",
-          "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino"
+          "amministratore-di-sistema-erp-e-responsabile-progetti-it-linnea-sa-riazzino",
+          "amministratore-di-sistema-erp-e-progetto-it-lead-linnea-sa-riazzino"
         ],
         "de": [
           "erp-system-administrator-and-it-project-lead-linnea-sa-riazzino-vo395d"
@@ -87,7 +88,8 @@
           "erp-system-administrator-and-it-project-lead-linnea"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:01:51.867Z"
+      "firstSeenAt": "2026-04-13T22:01:51.867Z",
+      "needsRetranslation": true
     }
   ]
 }
