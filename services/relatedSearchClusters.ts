@@ -73,6 +73,23 @@ export function buildSearchSlug(term: string, locale: Locale): string {
  return `${prefix}-${core || 'lavoro'}`;
 }
 
+// Job-search boilerplate that GSC queries routinely prepend to the real
+// intent ("offerte di lavoro cuoco", "lavoro infermiere", "stellenangebote
+// koch"). These words never occur in job titles, so leaving them in the
+// seeded query makes the strict AND-match impossible to satisfy and forces
+// every such slug-landing into the "Nessun risultato esatto" fuzzy fallback.
+// Strip only a single leading boilerplate phrase, and only when meaningful
+// query text remains after it.
+const SEARCH_QUERY_BOILERPLATE_PREFIX =
+ /^(?:offerte\s+(?:di\s+)?lavoro|posti\s+di\s+lavoro|lavoro|offerte|jobs?|stellenangebote|stellen|offres?\s+(?:d['e]\s*)?emplois?|emplois?|recherche\s+emploi)\s+/i;
+
+function stripSearchQueryBoilerplate(query: string): string {
+ // Never empty the query: a slug that is *only* boilerplate (e.g.
+ // /ricerca-lavoro/) keeps its original term so the box is not left blank.
+ const stripped = query.replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '').trim();
+ return stripped || query;
+}
+
 export function parseSearchSlugFilter(initialJobSlug?: string): string | null {
  if (!initialJobSlug) return null;
  const prefixes = ['ricerca-', 'search-', 'suche-', 'recherche-'];
@@ -87,7 +104,8 @@ export function parseSearchSlugFilter(initialJobSlug?: string): string | null {
  // keep raw
  }
  const query = decoded.replace(/-/g, ' ').replace(/\s+/g, ' ').trim();
- return query || null;
+ if (!query) return null;
+ return stripSearchQueryBoilerplate(query) || null;
 }
 
 // Tokens are filtered by `t.length >= 4` upstream, so 1-3 char stopwords are
