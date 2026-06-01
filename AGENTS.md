@@ -92,6 +92,9 @@ gh workflow run audit-dist-from-run.yml -f deploy_run_id=<run_id> -f audits=<aud
 
 CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node scripts/migrate-all-known-job-slugs-canton-aware.mjs`, `npm test`.
 
+- **Test fixture: mai date assolute.** Test con pipeline a stale-prune temporale (es. `cleanup-jobs.mjs`, soglia 60gg) → `crawledAt`/`datePosted` **relativi a now** (`daysAgo(n)`), mai literal tipo `'2026-04-01'`. Date hardcoded = time-bomb: superata la soglia il job viene pruned-stale invece di seguire il path testato → suite rossa su **puro confine di calendario**, senza code change (outage main-red 2026-06-01, fix #1035: green 05-30 → red 06-01 quando le date crossarono i 60gg).
+- **main rosso blocca a cascata.** `auto-merge-on-lgtm` fira su `## LGTM` **senza attendere vitest**, ma il vitest-red su `main` resta e **ogni branch lo eredita** finché non fa `merge origin/main`. Quindi un main rosso ferma di fatto il drain (PR mergiano red, la red non si pulisce). Priorità assoluta: tenere `main` verde; se rosso, fixare la root cause prima di ogni altro lavoro di pipeline.
+
 ## Architecture
 
 - React 19 + TypeScript + Vite + Tailwind.
