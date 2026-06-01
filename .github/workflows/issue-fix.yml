@@ -140,3 +140,26 @@ jobs:
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"
+
+      - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
+        if: always()
+        # The agent SHOULD post a granular `<!-- FIX_OUTCOME: <code> -->` marker,
+        # but prompt-emitted markers are unreliable (observed: #974 ran with the
+        # marker prompt on main yet posted none). This backstop guarantees the
+        # lessons-harvester always has a queryable marker: pr-created if this run
+        # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
+        # overwrites the agent's own granular marker. Best-effort: never fails.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -uo pipefail
+          HAS=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length' 2>/dev/null || echo 0)
+          if [ "${HAS:-0}" != "0" ]; then
+            echo "FIX_OUTCOME marker already present (agent-posted) — no backstop needed."
+            exit 0
+          fi
+          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
+          echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
+          gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
