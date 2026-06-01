@@ -7,6 +7,7 @@ import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.
 import { handleMailjetWebhookRequest } from './src/newsletterMailjetWebhookCore.js';
 import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.js';
 import { handleMailtrapWebhookRequest } from './src/newsletterMailtrapWebhookCore.js';
+import { handleMailerooWebhookRequest } from './src/newsletterMailerooWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { handleSendCalculatorReport } from './src/sendCalculatorReport.js';
@@ -186,6 +187,43 @@ export const newsletterMailtrapWebhook = onRequest(
  const message = error instanceof Error ? error.message : String(error || 'unknown_error');
  const status = /secret/i.test(message) ? 401 : 500;
  console.error('[newsletterMailtrapWebhook] Error:', message);
+ res.status(status).json({ ok: false, error: message });
+ }
+ },
+);
+
+// Maileroo delivery event webhooks
+export const newsletterMailerooWebhook = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 60,
+ cors: false,
+ },
+ async (req, res) => {
+ if (req.method !== 'POST') {
+ res.status(405).json({ ok: false, error: 'method_not_allowed' });
+ return;
+ }
+
+ const payload = Buffer.isBuffer(req.rawBody)
+ ? req.rawBody.toString('utf8')
+ : typeof req.rawBody === 'string'
+ ? req.rawBody
+ : JSON.stringify(req.body || {});
+
+ try {
+ const signingSecret = await getRemoteConfigValue('MAILEROO_WEBHOOK_SECRET');
+ const result = await handleMailerooWebhookRequest({
+ payload,
+ headers: req.headers,
+ signingSecret,
+ });
+ res.status(200).json({ ok: true, result });
+ } catch (error) {
+ const message = error instanceof Error ? error.message : String(error || 'unknown_error');
+ const status = /signature/i.test(message) ? 401 : 500;
+ console.error('[newsletterMailerooWebhook] Error:', message);
  res.status(status).json({ ok: false, error: message });
  }
  },
