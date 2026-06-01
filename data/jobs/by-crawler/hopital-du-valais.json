@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-06-01T14:52:11.764Z",
+  "assembledAt": "2026-06-01T23:57:53.352Z",
   "jobs": [
     {
       "id": "hopital-du-valais-3b38c4acb26b",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:09.462Z",
+      "crawledAt": "2026-06-01T23:57:51.101Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -128,7 +128,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:09.111Z",
+      "crawledAt": "2026-06-01T23:57:50.775Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -154,8 +154,8 @@
         "contact-the-reserve-personnel-team-hopital-du-valais-sion",
         "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion"
       ],
-      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:52:21.439Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -213,7 +213,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:08.740Z",
+      "crawledAt": "2026-06-01T23:57:50.453Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -235,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:29:28.600Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -292,7 +293,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:08.389Z",
+      "crawledAt": "2026-06-01T23:57:50.133Z",
       "_hvsMeta": {
         "number": "ATSANN0004595",
         "sysId": "3e42908cc3488354a043be4c05013198",
@@ -300,14 +301,12 @@
         "famille": "Administratif, Soins",
         "site": "SION"
       },
-      "previousSlugs": [
-        "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
-        "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
-        "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
-        "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion",
-        "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
+          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du",
+          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e"
+        ],
         "it": [
           "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
           "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion"
@@ -317,13 +316,15 @@
         ],
         "de": [
           "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion"
-        ],
-        "fr": [
-          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
-          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du",
-          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e"
         ]
       },
+      "previousSlugs": [
+        "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
+        "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du",
+        "capo-dei-segretariati-di-consultazione-e-centro-per-il-seno-con-assistente-medico-cfc-hopital-du-valais-sion",
+        "head-of-secretariats-of-consultation-and-breast-centre-with-cfc-medical-assistant-hopital-du-valais-sion",
+        "leiter-der-sekretariate-der-beratung-und-des-brustzentrums-mit-cfc-medical-assistant-hopital-du-valais-sion"
+      ],
       "firstSeenAt": "2026-05-26T23:06:41.128Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -382,7 +383,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:08.036Z",
+      "crawledAt": "2026-06-01T23:57:49.766Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -424,27 +425,27 @@
       "id": "hopital-du-valais-b54c4b48da2a",
       "slug": "medico-ospedaliero-con-afc-acupuntura-e-farmacoterapia-cinese-asa-al-30-per-il-centro-di-trattamento-del-dolore-hopital-",
       "slugByLocale": {
-        "fr": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce",
         "it": "medico-ospedaliero-con-afc-acupuntura-e-farmacoterapia-cinese-asa-al-30-per-il-centro-di-trattamento-del-dolore-hopital-",
         "en": "hospital-physician-with-afc-acupuncture-and-chinese-pharmacotherapy-asa-at-30-for-the-pain-treatment-center-hopital-du-v",
-        "de": "krankenhausarzt-mit-afc-akupunktur-und-chinesischer-pharmakotherapie-asa-zu-30-fur-das-schmerzbehandlungszentrum-hopital"
+        "de": "krankenhausarzt-mit-afc-akupunktur-und-chinesischer-pharmakotherapie-asa-zu-30-fur-das-schmerzbehandlungszentrum-hopital",
+        "fr": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur",
       "titleByLocale": {
-        "fr": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur",
         "it": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur",
         "en": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur",
-        "de": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur"
+        "de": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur",
+        "fr": "Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30%\n pour son Centre du Traitement de la Douleur\n\nLe centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes.\n\nMission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n\n• Participer à la gestion et au développement du centre\n\nProfil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n\n• Des connaissances en douleur chronique sont les bienvenues\n\n• Bonne connaissance de la langue française\n\nOffre:\n• Une rémunération selon le contrat des médecins de l’HVS\n\n• Un travail collégial au sein d’une équipe innovante et dynamique\n\n• Une balance « work-life » équilibrée",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30%\n pour son Centre du Traitement de la Douleur\n\nLe centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes.\n\nMission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n\n• Participer à la gestion et au développement du centre\n\nProfil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n\n• Des connaissances en douleur chronique sont les bienvenues\n\n• Bonne connaissance de la langue française\n\nOffre:\n• Une rémunération selon le contrat des médecins de l’HVS\n\n• Un travail collégial au sein d’une équipe innovante et dynamique\n\n• Une balance « work-life » équilibrée",
-        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30%\n pour son Centre du Traitement de la Douleur\n\nLe centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes.\n\nMission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n\n• Participer à la gestion et au développement du centre\n\nProfil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n\n• Des connaissances en douleur chronique sont les bienvenues\n\n• Bonne connaissance de la langue française\n\nOffre:\n• Une rémunération selon le contrat des médecins de l’HVS\n\n• Un travail collégial au sein d’une équipe innovante et dynamique\n\n• Une balance « work-life » équilibrée",
-        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30%\n pour son Centre du Traitement de la Douleur\n\nLe centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes.\n\nMission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n\n• Participer à la gestion et au développement du centre\n\nProfil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n\n• Des connaissances en douleur chronique sont les bienvenues\n\n• Bonne connaissance de la langue française\n\nOffre:\n• Une rémunération selon le contrat des médecins de l’HVS\n\n• Un travail collégial au sein d’une équipe innovante et dynamique\n\n• Une balance « work-life » équilibrée",
-        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30%\n pour son Centre du Traitement de la Douleur\n\nLe centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes.\n\nMission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n\n• Participer à la gestion et au développement du centre\n\nProfil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n\n• Des connaissances en douleur chronique sont les bienvenues\n\n• Bonne connaissance de la langue française\n\nOffre:\n• Une rémunération selon le contrat des médecins de l’HVS\n\n• Un travail collégial au sein d’une équipe innovante et dynamique\n\n• Une balance « work-life » équilibrée"
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur Le centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes. Mission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n• Participer à la gestion et au développement du centre Profil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n• Des connaissances en douleur chronique sont les bienvenues\n• Bonne connaissance de la langue française Offre:\n• Une rémunération selon le contrat des médecins de l’HVS\n• Un travail collégial au sein d’une équipe innovante et dynamique\n• Une balance « work-life » équilibrée",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur Le centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes. Mission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n• Participer à la gestion et au développement du centre Profil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n• Des connaissances en douleur chronique sont les bienvenues\n• Bonne connaissance de la langue française Offre:\n• Une rémunération selon le contrat des médecins de l’HVS\n• Un travail collégial au sein d’une équipe innovante et dynamique\n• Une balance « work-life » équilibrée",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur Le centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes. Mission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n• Participer à la gestion et au développement du centre Profil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n• Des connaissances en douleur chronique sont les bienvenues\n• Bonne connaissance de la langue française Offre:\n• Une rémunération selon le contrat des médecins de l’HVS\n• Un travail collégial au sein d’une équipe innovante et dynamique\n• Une balance « work-life » équilibrée",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin hospitalier avec AFC acupuncture et pharmacothérapie chinoise (ASA) à 30% pour son Centre du Traitement de la Douleur Le centre du traitement de la douleur fait partie du service d’anesthésiologie et de réanimation. Basé à Martigny, il déploie ses activités sur Sion, Sierre et Martigny. Avec plus de 6500 consultations par année, il prend en charge des patients dans tous les domaines de la douleur chronique selon une approche globale multi-disciplinaire avec l’aide de divers spécialistes. Mission:\n• Assurer la prise en charge ambulatoire de l’acupuncture pour les patients du centre\n• Faire partie d’une équipe multidisciplinaire (médecins-antalgistes, psychologue, médecins-réhabilitateur, etc)\n• Participer à la gestion et au développement du centre Profil:\n• Spécialiste FMH avec AFC acupuncture et pharmacothérapie chinoise\n• Des connaissances en douleur chronique sont les bienvenues\n• Bonne connaissance de la langue française Offre:\n• Une rémunération selon le contrat des médecins de l’HVS\n• Un travail collégial au sein d’une équipe innovante et dynamique\n• Une balance « work-life » équilibrée"
       },
       "location": "Martigny",
       "canton": "VS",
@@ -462,7 +463,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:07.674Z",
+      "crawledAt": "2026-06-01T23:57:49.428Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -470,6 +471,9 @@
         "famille": "Médecins",
         "site": "MARTIGNY"
       },
+      "previousSlugs": [
+        "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son"
@@ -478,10 +482,8 @@
           "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son"
         ]
       },
-      "previousSlugs": [
-        "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:52:07.674Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -495,16 +497,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:52:07.674Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-6cc78097e02b",
       "slug": "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig",
       "slugByLocale": {
-        "de": "oberarztin-arzt-80-100-hopital-du-valais-brig",
         "it": "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig",
         "en": "child-and-adolescent-psychiatrist-hopital-du-valais-brig",
+        "de": "oberarztin-arzt-80-100-hopital-du-valais-brig",
         "fr": "medecin-specialiste-en-psychiatrie-infantile-et-adolescente-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
@@ -512,17 +513,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Oberärztin/-arzt 80-100 %, Kinder- und Jugendpsychiatrie / Psychotherapie",
       "titleByLocale": {
-        "de": "Oberärztin/-arzt 80-100 %, Kinder- und Jugendpsychiatrie / Psychotherapie",
         "it": "Oberärztin/-arzt 80-100 %, Kinder- e Jugendpsychiatrie / Psychotherapie",
         "en": "Oberärztin/-arzt 80-100 %, Kinder- und Jugendpsychiatrie / Psychotherapie",
+        "de": "Oberärztin/-arzt 80-100 %, Kinder- und Jugendpsychiatrie / Psychotherapie",
         "fr": "Oberärztin/-arzt 80-100 %, Kinder- und Jugendpsychiatrie / Psychotherapie"
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n:\n\nOberärztin/-arzt 80-100 %\n\nDas PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren.\n\nMission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n\n• Teilnahme am Konsiliar- und Liaisondienst\n\n• Beteiligung am Pikettdienst\n\n• Engagement in der klinikinternen Fort- und Weiterbildung\n\n• Supervision der Assistenzärzte und Assistenzpsychologen\n\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte\n\nProfil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\nOffre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Attraktive Anstellungsbedingungen\n\n• Hoher Freizeitwert in einer attraktiven Umgebung",
       "descriptionByLocale": {
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n:\n\nOberärztin/-arzt 80-100 %\n\nDas PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren.\n\nMission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n\n• Teilnahme am Konsiliar- und Liaisondienst\n\n• Beteiligung am Pikettdienst\n\n• Engagement in der klinikinternen Fort- und Weiterbildung\n\n• Supervision der Assistenzärzte und Assistenzpsychologen\n\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte\n\nProfil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\nOffre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Attraktive Anstellungsbedingungen\n\n• Hoher Freizeitwert in einer attraktiven Umgebung",
-        "it": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n:\n\nOberärztin/-arzt 80-100 %\n\nDas PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren.\n\nMission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n\n• Teilnahme am Konsiliar- und Liaisondienst\n\n• Beteiligung am Pikettdienst\n\n• Engagement in der klinikinternen Fort- und Weiterbildung\n\n• Supervision der Assistenzärzte und Assistenzpsychologen\n\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte\n\nProfil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\nOffre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Attraktive Anstellungsbedingungen\n\n• Hoher Freizeitwert in einer attraktiven Umgebung",
-        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n:\n\nOberärztin/-arzt 80-100 %\n\nDas PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren.\n\nMission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n\n• Teilnahme am Konsiliar- und Liaisondienst\n\n• Beteiligung am Pikettdienst\n\n• Engagement in der klinikinternen Fort- und Weiterbildung\n\n• Supervision der Assistenzärzte und Assistenzpsychologen\n\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte\n\nProfil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\nOffre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Attraktive Anstellungsbedingungen\n\n• Hoher Freizeitwert in einer attraktiven Umgebung",
-        "fr": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n:\n\nOberärztin/-arzt 80-100 %\n\nDas PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren.\n\nMission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n\n• Teilnahme am Konsiliar- und Liaisondienst\n\n• Beteiligung am Pikettdienst\n\n• Engagement in der klinikinternen Fort- und Weiterbildung\n\n• Supervision der Assistenzärzte und Assistenzpsychologen\n\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte\n\nProfil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\nOffre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n\n• Berufliche Entwicklungsmöglichkeiten\n\n• Attraktive Anstellungsbedingungen\n\n• Hoher Freizeitwert in einer attraktiven Umgebung"
+        "it": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n: Oberärztin/-arzt 80-100 % Das PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren. Mission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n• Teilnahme am Konsiliar- und Liaisondienst\n• Beteiligung am Pikettdienst\n• Engagement in der klinikinternen Fort- und Weiterbildung\n• Supervision der Assistenzärzte und Assistenzpsychologen\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte Profil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit Offre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n• Berufliche Entwicklungsmöglichkeiten\n• Attraktive Anstellungsbedingungen\n• Hoher Freizeitwert in einer attraktiven Umgebung",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n: Oberärztin/-arzt 80-100 % Das PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren. Mission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n• Teilnahme am Konsiliar- und Liaisondienst\n• Beteiligung am Pikettdienst\n• Engagement in der klinikinternen Fort- und Weiterbildung\n• Supervision der Assistenzärzte und Assistenzpsychologen\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte Profil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit Offre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n• Berufliche Entwicklungsmöglichkeiten\n• Attraktive Anstellungsbedingungen\n• Hoher Freizeitwert in einer attraktiven Umgebung",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n: Oberärztin/-arzt 80-100 % Das PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren. Mission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n• Teilnahme am Konsiliar- und Liaisondienst\n• Beteiligung am Pikettdienst\n• Engagement in der klinikinternen Fort- und Weiterbildung\n• Supervision der Assistenzärzte und Assistenzpsychologen\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte Profil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit Offre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n• Berufliche Entwicklungsmöglichkeiten\n• Attraktive Anstellungsbedingungen\n• Hoher Freizeitwert in einer attraktiven Umgebung",
+        "fr": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Psychiatrie, Abteilung Kinder- und Jugendpsychiatrie / Psychotherapie eine/n: Oberärztin/-arzt 80-100 % Das PZO ist verantwortlich für die psychiatrische Grundversorgung der Oberwalliser Bevölkerung (80’000 Einwohner). Als eine von vier Abteilungen betreut die KJP auf der Basis unseres systemisch-integrativen Behandlungskonzepts die Altersgruppe von 0-18 Jahren. Mission:\n• Professionelle, psychiatrisch-psychotherapeutische Patientenversorgung im stationären, teilstationären und ambulanten Bereich auf Basis der Therapeutenkontinuität\n• Teilnahme am Konsiliar- und Liaisondienst\n• Beteiligung am Pikettdienst\n• Engagement in der klinikinternen Fort- und Weiterbildung\n• Supervision der Assistenzärzte und Assistenzpsychologen\n• Mitarbeit bei der Weiterentwicklung der Behandlungskonzepte Profil:\n• Facharzt für Kinder- und Jugendpsychiatrie und Psychotherapie oder fortgeschrittene Weiterbildung in Kinder- und Jugendpsychiatrie\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit Offre:\n• Vielseitige und verantwortungsvolle Tätigkeit\n• Berufliche Entwicklungsmöglichkeiten\n• Attraktive Anstellungsbedingungen\n• Hoher Freizeitwert in einer attraktiven Umgebung"
       },
       "location": "Brig",
       "canton": "VS",
@@ -540,7 +541,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:07.312Z",
+      "crawledAt": "2026-06-01T23:57:49.107Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -548,6 +549,9 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
+      "previousSlugs": [
+        "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
@@ -556,10 +560,8 @@
           "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:52:07.312Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -573,34 +575,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:52:07.312Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-6b4230c38cbe",
       "slug": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
       "slugByLocale": {
-        "fr": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie",
         "it": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
         "en": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "de": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        "de": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
+        "fr": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre",
       "titleByLocale": {
-        "fr": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre",
         "it": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre",
         "en": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre",
-        "de": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre"
+        "de": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre",
+        "fr": "Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nMédecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre\n\nMission:\nPrise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre\n\nActivité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours.\n\nParticipation aux formations et colloques du service interprofessionnel.\n\nParticipation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier\n\nOpportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants.\n\nProfil:\nDiplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE\n\nUn titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO)\n\nDe bonnes compétences en communication interprofessionnelle\n\nBonne maîtrise du français (allemand un atout)\n\nAutonomie, flexibilité et travail en équipe\n\nVéhiculé\n\nSeules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nMédecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre\n\nMission:\nPrise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre\n\nActivité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours.\n\nParticipation aux formations et colloques du service interprofessionnel.\n\nParticipation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier\n\nOpportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants.\n\nProfil:\nDiplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE\n\nUn titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO)\n\nDe bonnes compétences en communication interprofessionnelle\n\nBonne maîtrise du français (allemand un atout)\n\nAutonomie, flexibilité et travail en équipe\n\nVéhiculé\n\nSeules les offres répondant au profil seront traitées.",
-        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nMédecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre\n\nMission:\nPrise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre\n\nActivité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours.\n\nParticipation aux formations et colloques du service interprofessionnel.\n\nParticipation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier\n\nOpportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants.\n\nProfil:\nDiplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE\n\nUn titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO)\n\nDe bonnes compétences en communication interprofessionnelle\n\nBonne maîtrise du français (allemand un atout)\n\nAutonomie, flexibilité et travail en équipe\n\nVéhiculé\n\nSeules les offres répondant au profil seront traitées.",
-        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nMédecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre\n\nMission:\nPrise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre\n\nActivité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours.\n\nParticipation aux formations et colloques du service interprofessionnel.\n\nParticipation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier\n\nOpportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants.\n\nProfil:\nDiplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE\n\nUn titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO)\n\nDe bonnes compétences en communication interprofessionnelle\n\nBonne maîtrise du français (allemand un atout)\n\nAutonomie, flexibilité et travail en équipe\n\nVéhiculé\n\nSeules les offres répondant au profil seront traitées.",
-        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nMédecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre\n\nMission:\nPrise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre\n\nActivité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours.\n\nParticipation aux formations et colloques du service interprofessionnel.\n\nParticipation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier\n\nOpportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants.\n\nProfil:\nDiplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE\n\nUn titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO)\n\nDe bonnes compétences en communication interprofessionnelle\n\nBonne maîtrise du français (allemand un atout)\n\nAutonomie, flexibilité et travail en équipe\n\nVéhiculé\n\nSeules les offres répondant au profil seront traitées."
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre Mission: Prise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre Activité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours. Participation aux formations et colloques du service interprofessionnel. Participation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier Opportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants. Profil: Diplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE Un titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO) De bonnes compétences en communication interprofessionnelle Bonne maîtrise du français (allemand un atout) Autonomie, flexibilité et travail en équipe Véhiculé Seules les offres répondant au profil seront traitées.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre Mission: Prise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre Activité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours. Participation aux formations et colloques du service interprofessionnel. Participation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier Opportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants. Profil: Diplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE Un titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO) De bonnes compétences en communication interprofessionnelle Bonne maîtrise du français (allemand un atout) Autonomie, flexibilité et travail en équipe Véhiculé Seules les offres répondant au profil seront traitées.",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre Mission: Prise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre Activité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours. Participation aux formations et colloques du service interprofessionnel. Participation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier Opportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants. Profil: Diplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE Un titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO) De bonnes compétences en communication interprofessionnelle Bonne maîtrise du français (allemand un atout) Autonomie, flexibilité et travail en équipe Véhiculé Seules les offres répondant au profil seront traitées.",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. Chaque année, 41’500 patient-e-s sont pris-e-s en charge et près de 652’700 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Médecins chefs-fes de clinique ou médecins hospitalières entre 20 et 100 % pour la permanence médicale de l’Hôpital de Sierre Mission: Prise en charge des patients ambulatoires sans rendez-vous à la permanence de Sierre Activité de consultations possible sites de Monthey, Martigny et de Sion dans le cadre du déploiement d’un nouveau service de médecine de premier recours. Participation aux formations et colloques du service interprofessionnel. Participation aux piquets du service en soutien à la Médecine des Migrations et Médecine pénitencier Opportunité de participer à des projets de déploiement en médecine de premier recours et de contribuer à la formation par la supervision de stagiaires et de médecins assistants. Profil: Diplôme fédéral de médecin ou porteur d'un diplôme équivalent de l'UE Un titre de spécialiste ISFM en Médecine Interne ou une formation jugée équivalente (MEBEKO) De bonnes compétences en communication interprofessionnelle Bonne maîtrise du français (allemand un atout) Autonomie, flexibilité et travail en équipe Véhiculé Seules les offres répondant au profil seront traitées."
       },
       "location": "Sierre",
       "canton": "VS",
@@ -618,7 +619,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:06.959Z",
+      "crawledAt": "2026-06-01T23:57:48.727Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -626,6 +627,9 @@
         "famille": "Médecins",
         "site": "SIERRE"
       },
+      "previousSlugs": [
+        "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la"
@@ -634,10 +638,8 @@
           "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la"
         ]
       },
-      "previousSlugs": [
-        "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:52:06.959Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -651,8 +653,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:52:06.959Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-20db485a577e",
@@ -696,7 +697,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c5949c35c3740bd0a043be4c0501313f/ATSANN0004667/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:06.609Z",
+      "crawledAt": "2026-06-01T23:57:48.406Z",
       "_hvsMeta": {
         "number": "ATSANN0004667",
         "sysId": "c5949c35c3740bd0a043be4c0501313f",
@@ -776,7 +777,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:06.255Z",
+      "crawledAt": "2026-06-01T23:57:48.085Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -856,7 +857,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:05.903Z",
+      "crawledAt": "2026-06-01T23:57:47.747Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -876,6 +877,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -933,7 +935,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5dfebfff83bccb1017a39d20ceaad38b/ATSANN0004674/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:05.536Z",
+      "crawledAt": "2026-06-01T23:57:47.420Z",
       "_hvsMeta": {
         "number": "ATSANN0004674",
         "sysId": "5dfebfff83bccb1017a39d20ceaad38b",
@@ -1015,7 +1017,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/81a2a19097c90f10316bb0b71153af01/ATSANN0004675/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:05.184Z",
+      "crawledAt": "2026-06-01T23:57:47.099Z",
       "_hvsMeta": {
         "number": "ATSANN0004675",
         "sysId": "81a2a19097c90f10316bb0b71153af01",
@@ -1087,7 +1089,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f2a0b45683b27a1017a39d20ceaad396/ATSANN0004517/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:04.828Z",
+      "crawledAt": "2026-06-01T23:57:46.779Z",
       "_hvsMeta": {
         "number": "ATSANN0004517",
         "sysId": "f2a0b45683b27a1017a39d20ceaad396",
@@ -1167,7 +1169,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e637ed48341435017a39d20ceaad340/ATSANN0004676/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:04.473Z",
+      "crawledAt": "2026-06-01T23:57:46.455Z",
       "_hvsMeta": {
         "number": "ATSANN0004676",
         "sysId": "3e637ed48341435017a39d20ceaad340",
@@ -1247,7 +1249,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:04.121Z",
+      "crawledAt": "2026-06-01T23:57:46.132Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -1267,6 +1269,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1324,7 +1327,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9bc7f6c4785cb50339c9146736d4311/ATSANN0004678/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:03.752Z",
+      "crawledAt": "2026-06-01T23:57:45.754Z",
       "_hvsMeta": {
         "number": "ATSANN0004678",
         "sysId": "a9bc7f6c4785cb50339c9146736d4311",
@@ -1404,7 +1407,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0a711d2297894f50e7ce346e2153afdb/ATSANN0004682/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:03.397Z",
+      "crawledAt": "2026-06-01T23:57:45.428Z",
       "_hvsMeta": {
         "number": "ATSANN0004682",
         "sysId": "0a711d2297894f50e7ce346e2153afdb",
@@ -1484,7 +1487,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93ee5c5697ec0f5412f9322f2153af31/ATSANN0004648/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:03.046Z",
+      "crawledAt": "2026-06-01T23:57:45.071Z",
       "_hvsMeta": {
         "number": "ATSANN0004648",
         "sysId": "93ee5c5697ec0f5412f9322f2153af31",
@@ -1564,7 +1567,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/84aa626287814390dbd6ebd30cbb35af/ATSANN0004686/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:02.695Z",
+      "crawledAt": "2026-06-01T23:57:44.735Z",
       "_hvsMeta": {
         "number": "ATSANN0004686",
         "sysId": "84aa626287814390dbd6ebd30cbb35af",
@@ -1646,7 +1649,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9463f5a697c98f50e7ce346e2153af48/ATSANN0004683/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:02.334Z",
+      "crawledAt": "2026-06-01T23:57:44.386Z",
       "_hvsMeta": {
         "number": "ATSANN0004683",
         "sysId": "9463f5a697c98f50e7ce346e2153af48",
@@ -1726,7 +1729,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/45483162978d8f50e7ce346e2153af79/ATSANN0004684/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:01.985Z",
+      "crawledAt": "2026-06-01T23:57:44.064Z",
       "_hvsMeta": {
         "number": "ATSANN0004684",
         "sysId": "45483162978d8f50e7ce346e2153af79",
@@ -1806,7 +1809,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b26b9b3283418b9017a39d20ceaad364/ATSANN0004690/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:01.627Z",
+      "crawledAt": "2026-06-01T23:57:43.718Z",
       "_hvsMeta": {
         "number": "ATSANN0004690",
         "sysId": "b26b9b3283418b9017a39d20ceaad364",
@@ -1894,7 +1897,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/33432f3e83c18b9017a39d20ceaad376/ATSANN0004693/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:01.273Z",
+      "crawledAt": "2026-06-01T23:57:43.376Z",
       "_hvsMeta": {
         "number": "ATSANN0004693",
         "sysId": "33432f3e83c18b9017a39d20ceaad376",
@@ -1918,6 +1921,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:51:55.344Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1975,7 +1979,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f3b2f3a83c58b9017a39d20ceaad307/ATSANN0004695/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:00.918Z",
+      "crawledAt": "2026-06-01T23:57:43.054Z",
       "_hvsMeta": {
         "number": "ATSANN0004695",
         "sysId": "8f3b2f3a83c58b9017a39d20ceaad307",
@@ -2055,7 +2059,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4ef4a33a83058b9017a39d20ceaad348/ATSANN0004694/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:52:00.567Z",
+      "crawledAt": "2026-06-01T23:57:42.731Z",
       "_hvsMeta": {
         "number": "ATSANN0004694",
         "sysId": "4ef4a33a83058b9017a39d20ceaad348",
@@ -2135,7 +2139,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T14:52:00.214Z",
+      "crawledAt": "2026-06-01T23:57:42.409Z",
       "_hvsMeta": {
         "number": "ATSANN0004696",
         "sysId": "e771404b8301cb9017a39d20ceaad319",
@@ -2209,7 +2213,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8fc1ef3683c18b9017a39d20ceaad33b/ATSANN0004692/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:59.859Z",
+      "crawledAt": "2026-06-01T23:57:42.088Z",
       "_hvsMeta": {
         "number": "ATSANN0004692",
         "sysId": "8fc1ef3683c18b9017a39d20ceaad33b",
@@ -2290,7 +2294,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6aef97ba83818b9017a39d20ceaad33b/ATSANN0004691/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:59.491Z",
+      "crawledAt": "2026-06-01T23:57:41.763Z",
       "_hvsMeta": {
         "number": "ATSANN0004691",
         "sysId": "6aef97ba83818b9017a39d20ceaad33b",
@@ -2370,7 +2374,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e43eabe83090b9017a39d20ceaad372/ATSANN0004688/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:59.121Z",
+      "crawledAt": "2026-06-01T23:57:41.442Z",
       "_hvsMeta": {
         "number": "ATSANN0004688",
         "sysId": "3e43eabe83090b9017a39d20ceaad372",
@@ -2450,7 +2454,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6599c15747010bd0339c9146736d431c/ATSANN0004697/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:58.758Z",
+      "crawledAt": "2026-06-01T23:57:41.119Z",
       "_hvsMeta": {
         "number": "ATSANN0004697",
         "sysId": "6599c15747010bd0339c9146736d431c",
@@ -2492,27 +2496,27 @@
       "id": "hopital-du-valais-9a05c7bc2692",
       "slug": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
       "slugByLocale": {
-        "fr": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
         "it": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
         "en": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
-        "de": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
+        "de": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
+        "fr": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny.",
       "titleByLocale": {
-        "fr": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny.",
         "it": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny.",
         "en": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny.",
-        "de": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny."
+        "de": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny.",
+        "fr": "Infirmier-ère diplômé-e du domaine opératoire (IDDO), (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny."
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100%\n pour le bloc opératoire de Martigny.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Assurer les activités techniques liées aux interventions chirurgicales.\n\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients.\n\nProfil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n\n• Connaissances de la langue allemande, un atout.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération du temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100%\n pour le bloc opératoire de Martigny.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Assurer les activités techniques liées aux interventions chirurgicales.\n\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients.\n\nProfil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n\n• Connaissances de la langue allemande, un atout.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération du temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
-        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100%\n pour le bloc opératoire de Martigny.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Assurer les activités techniques liées aux interventions chirurgicales.\n\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients.\n\nProfil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n\n• Connaissances de la langue allemande, un atout.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération du temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
-        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100%\n pour le bloc opératoire de Martigny.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Assurer les activités techniques liées aux interventions chirurgicales.\n\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients.\n\nProfil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n\n• Connaissances de la langue allemande, un atout.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération du temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
-        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nInfirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100%\n pour le bloc opératoire de Martigny.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Assurer les activités techniques liées aux interventions chirurgicales.\n\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients.\n\nProfil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n\n• Connaissances de la langue allemande, un atout.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération du temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV"
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Infirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Assurer les activités techniques liées aux interventions chirurgicales.\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients. Profil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n• Connaissances de la langue allemande, un atout. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération du temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Infirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Assurer les activités techniques liées aux interventions chirurgicales.\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients. Profil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n• Connaissances de la langue allemande, un atout. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération du temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Infirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Assurer les activités techniques liées aux interventions chirurgicales.\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients. Profil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n• Connaissances de la langue allemande, un atout. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération du temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6'260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Infirmier-ère diplômé-e du domaine opératoire (IDDO), Infirmier-ère diplômé-e du domaine opératoire (IBODE) ou Technicien-ne en salle d’opération (TSO) à 100% pour le bloc opératoire de Martigny. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Assurer les activités techniques liées aux interventions chirurgicales.\n• Veiller à la sécurité, à la matériovigilance et au bien-être psychique et physique des patients. Profil:\n• Infirmier-ère diplômé-e du domaine opératoire (IDDO ou IBODE) ou Technicien-ne en salle d’opération (TSO).\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation.\n• Connaissance du matériel : instruments et dispositifs médicaux utilisés au bloc opératoire.\n• Aptitude à travailler en équipe, sens de la collaboration, polyvalence et dynamisme.\n• Connaissances de la langue allemande, un atout. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine, favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération du temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté\n• Choix du plan de prévoyance professionnelle LPP « de base » ou « maxi »\n• Préretraite : le personnel est assuré auprès du RETASV et cotise aux conditions du RETASV"
       },
       "location": "Martigny",
       "canton": "VS",
@@ -2530,7 +2534,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d7b4201097d187d0316bb0b71153af69/ATSANN0004702/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:58.405Z",
+      "crawledAt": "2026-06-01T23:57:40.790Z",
       "_hvsMeta": {
         "number": "ATSANN0004702",
         "sysId": "d7b4201097d187d0316bb0b71153af69",
@@ -2539,6 +2543,7 @@
         "site": "MARTIGNY"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:51:58.405Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2552,34 +2557,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:51:58.405Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-13ad2562e207",
       "slug": "it-support-a-50-hopital-du-valais-sion",
       "slugByLocale": {
-        "fr": "it-support-a-50-hopital-du-valais-sion",
         "it": "it-support-a-50-hopital-du-valais-sion",
         "en": "it-support-a-50-hopital-du-valais-sion",
-        "de": "it-support-a-50-hopital-du-valais-sion"
+        "de": "it-support-a-50-hopital-du-valais-sion",
+        "fr": "it-support-a-50-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "IT Support à 50%",
       "titleByLocale": {
-        "fr": "IT Support à 50%",
         "it": "IT Support à 50%",
         "en": "IT Support à 50%",
-        "de": "IT Support à 50%"
+        "de": "IT Support à 50%",
+        "fr": "IT Support à 50%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nIT Support à 50%\n\nAu service Data Management & Analytics, unité Data Engineering\n\nCurieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous.\n\nMission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ».\n\nProfil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n\n• capacité d’analyse et sens inné de l’organisation ;\n\n• esprit de collaboration marqué, innovateur et motivé ;\n\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "fr": "L’Hôpital du Valais cherche un-e :\n\nIT Support à 50%\n\nAu service Data Management & Analytics, unité Data Engineering\n\nCurieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous.\n\nMission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ».\n\nProfil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n\n• capacité d’analyse et sens inné de l’organisation ;\n\n• esprit de collaboration marqué, innovateur et motivé ;\n\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "it": "L’Hôpital du Valais cherche un-e :\n\nIT Support à 50%\n\nAu service Data Management & Analytics, unité Data Engineering\n\nCurieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous.\n\nMission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ».\n\nProfil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n\n• capacité d’analyse et sens inné de l’organisation ;\n\n• esprit de collaboration marqué, innovateur et motivé ;\n\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "en": "L’Hôpital du Valais cherche un-e :\n\nIT Support à 50%\n\nAu service Data Management & Analytics, unité Data Engineering\n\nCurieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous.\n\nMission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ».\n\nProfil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n\n• capacité d’analyse et sens inné de l’organisation ;\n\n• esprit de collaboration marqué, innovateur et motivé ;\n\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "de": "L’Hôpital du Valais cherche un-e :\n\nIT Support à 50%\n\nAu service Data Management & Analytics, unité Data Engineering\n\nCurieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous.\n\nMission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ».\n\nProfil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n\n• capacité d’analyse et sens inné de l’organisation ;\n\n• esprit de collaboration marqué, innovateur et motivé ;\n\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+        "it": "L’Hôpital du Valais cherche un-e : IT Support à 50% Au service Data Management & Analytics, unité Data Engineering Curieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous. Mission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ». Profil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n• capacité d’analyse et sens inné de l’organisation ;\n• esprit de collaboration marqué, innovateur et motivé ;\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "L’Hôpital du Valais cherche un-e : IT Support à 50% Au service Data Management & Analytics, unité Data Engineering Curieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous. Mission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ». Profil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n• capacité d’analyse et sens inné de l’organisation ;\n• esprit de collaboration marqué, innovateur et motivé ;\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "de": "L’Hôpital du Valais cherche un-e : IT Support à 50% Au service Data Management & Analytics, unité Data Engineering Curieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous. Mission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ». Profil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n• capacité d’analyse et sens inné de l’organisation ;\n• esprit de collaboration marqué, innovateur et motivé ;\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "fr": "L’Hôpital du Valais cherche un-e : IT Support à 50% Au service Data Management & Analytics, unité Data Engineering Curieux·se, motivé·e et attiré·e par le monde de la data et du support IT ? Vous souhaitez acquérir une première expérience professionnelle tout en développant vos compétences techniques ? Alors cette opportunité est faite pour vous. Mission:\n• Effectuer des extractions, des transformations de données et assurer leur mise à disposition auprès des utilisateurs via les applications institutionnelles ;\n• participer activement à la mise en place de la plateforme de gestion de données de l’Hôpital du Valais ;\n• assurer la qualité des chargements et de la mise à disposition des données en collaboration avec les applications owner et la commission « Gestion des accès ». Profil:\n• Vous débutez prochainement un cursus (Bachelor ou Master) en Informatique de Gestion, HES ou université ;\n• CFC ou maturité gymnasiale ou formation jugée équivalente ;\n• avoir un intérêt pour les outils de data virtualisation et data management (catalog, master data management, lineage, dictionnary) et le langage SQL ;\n• capacité d’analyse et sens inné de l’organisation ;\n• esprit de collaboration marqué, innovateur et motivé ;\n• de langue maternelle allemande ou française avec d’excellentes connaissances de la deuxième langue. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -2597,7 +2601,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1292a7c4835d8bd017a39d20ceaad3f5/ATSANN0004698/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:58.054Z",
+      "crawledAt": "2026-06-01T23:57:40.465Z",
       "_hvsMeta": {
         "number": "ATSANN0004698",
         "sysId": "1292a7c4835d8bd017a39d20ceaad3f5",
@@ -2606,6 +2610,7 @@
         "site": "SION"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:51:58.054Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2619,34 +2624,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:51:58.054Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-269eac877d08",
       "slug": "network-engineer-administrator-80-90-hopital-du-valais-sion",
       "slugByLocale": {
-        "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion",
         "it": "network-engineer-administrator-80-90-hopital-du-valais-sion",
         "en": "network-engineer-administrator-80-90-hopital-du-valais-sion",
-        "de": "network-engineer-administrator-80-90-hopital-du-valais-sion"
+        "de": "network-engineer-administrator-80-90-hopital-du-valais-sion",
+        "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Network Engineer/Administrator 80% - 90%",
       "titleByLocale": {
-        "fr": "Network Ingénieur/Administrator 80% - 90%",
-        "en": "Network Engineer/Administrator 80% - 90%",
         "it": "Network Ingegnere/Administrator 80% - 90%",
-        "de": "Network Ingenieur/Administrator 80% - 90%"
+        "en": "Network Engineer/Administrator 80% - 90%",
+        "de": "Network Ingenieur/Administrator 80% - 90%",
+        "fr": "Network Ingénieur/Administrator 80% - 90%"
       },
       "description": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
       "descriptionByLocale": {
-        "fr": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "it": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "en": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
-        "de": "L’Hôpital du Valais cherche un-e :\n\nNetwork Engineer/Administrator 80% - 90%\n\nCDD de 18 mois pour le service Informatique, unité Opérations\n\nVous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique.\n\nPrêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre !\n\nMission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n\n• veiller à la sécurité opérationnelle des systèmes ;\n\n• suivre l’évolution technologique et participer à l’innovation des services ;\n\n• participer au service de support niveau 2 et 3 ;\n\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n\n• collaborer aux projets en lien avec le service informatique et les métiers.\n\nProfil:\n• Formation ES/HES en informatique ou télécommunication ;\n\n• 1-2 ans d’expérience dans un poste similaire ;\n\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n\n• permis de conduire catégorie B ou équivalent ;\n\n• attitude can-do, rigoureux et intègre ;\n\n• bonnes capacités d'analyse et d'organisation ;\n\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais.\n\nOffre:\nUn environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
+        "it": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "en": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "de": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices.",
+        "fr": "L’Hôpital du Valais cherche un-e : Network Engineer/Administrator 80% - 90% CDD de 18 mois pour le service Informatique, unité Opérations Vous jouez un rôle essentiel dans la modernisation et la sécurisation des infrastructures IT, tout en accompagnant des projets innovants à fort impact humain et technologique. Prêt·e à relever des défis techniques variés et à collaborer avec des équipes passionnées ? Rejoignez-nous sans attendre ! Mission:\n• Participer à la gestion et à l’évolution des infrastructures IT, ainsi qu’aux projets innovants relatifs aux nouveaux hôpitaux et centres de calcul ;\n• mettre en œuvre des solutions performantes, sûres et hautement disponibles ;\n• veiller à la sécurité opérationnelle des systèmes ;\n• suivre l’évolution technologique et participer à l’innovation des services ;\n• participer au service de support niveau 2 et 3 ;\n• automatiser et orchestrer les activités (infrastructure as a code) ;\n• collaborer aux projets en lien avec le service informatique et les métiers. Profil:\n• Formation ES/HES en informatique ou télécommunication ;\n• 1-2 ans d’expérience dans un poste similaire ;\n• excellentes compétences dans la gestion de réseaux informatiques, notamment les projets de migration et l’exploitation d’une infrastructure LAN et W-LAN ;\n• bonne expérience dans le remplacement physique d’équipements et la coordination de travaux télématiques (Layer1) avec les parties prenantes ;\n• maîtrise des protocoles (L2-L7) et des normes en vigueur ainsi qu’une plateforme NAC ;\n• connaissances du système Linux ainsi que l’écriture et le maintien de playbook Ansible ;\n• permis de conduire catégorie B ou équivalent ;\n• attitude can-do, rigoureux et intègre ;\n• bonnes capacités d'analyse et d'organisation ;\n• de langue maternelle française avec de bonnes connaissances de la deuxième langue et de l’anglais. Offre: Un environnement stimulant et diversifié avec la possibilité de mettre à profit vos connaissances et votre expérience ; des conditions d’emploi attrayantes ; des possibilités de formation continue et de perfectionnement. Retrouvez ici tous les avantages pour nos collaborateurs-trices."
       },
       "location": "Sion",
       "canton": "VS",
@@ -2664,7 +2668,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:57.681Z",
+      "crawledAt": "2026-06-01T23:57:40.123Z",
       "_hvsMeta": {
         "number": "ATSANN0004699",
         "sysId": "73f1ff408315cbd017a39d20ceaad318",
@@ -2673,6 +2677,7 @@
         "site": "SION"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:51:57.681Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2686,34 +2691,33 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:51:57.681Z"
+      "addressRegion": "VS"
     },
     {
       "id": "hopital-du-valais-99aee9f73762",
       "slug": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
       "slugByLocale": {
-        "fr": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
         "it": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
         "en": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
-        "de": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        "de": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
+        "fr": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
       "title": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
       "titleByLocale": {
-        "fr": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
         "it": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
         "en": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
-        "de": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire."
+        "de": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire.",
+        "fr": "Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire."
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
       "descriptionByLocale": {
-        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
-        "it": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
-        "en": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
-        "de": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des\n\nAssistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100%\n pour le bloc opératoire.\n\nMission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux.\n\nProfil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n\n• Expérience en Suisse de minimum 1 an serait un atout.\n\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n\n• Maîtrise orale et écrite de la langue française.\n\nOffre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n\n• Une politique salariale équitable, basée sur le respect et la transparence.\n\n• De nombreux avantages employeur, tels que :\n\n• La récupération de temps passé au vestiaire\n\n• Le report des jours fériés tombant sur des jours non-ouvrables\n\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté."
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
+        "en": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
+        "de": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté.",
+        "fr": "1er employeur du canton, l’Hôpital du Valais compte 6’260 collaborateurs-trices. Chaque année, 41’800 patient-e-s sont pris-e-s en charge et près de 670’300 visites ambulatoires sont assurées. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand des Assistants-es techniques spécialisés-es en salle d’opération (ATSSO) ou aides de salle d’opération à 80-100% pour le bloc opératoire. Mission:\n• Garantir une prise en charge adéquate pour tous les patients selon la stratégie de l’Hôpital du Valais, le modèle de pratique professionnelle des soins et les règles de fonctionnement du bloc opératoire.\n• Maitriser les techniques d’installations des patients ainsi que la gestion et l’entretien des différents dispositifs médicaux. Profil:\n• Assistant technique spécialisé en salle d’opération diplômé (ATSSO) ou expérience d’aide de salle.\n• Expérience en Suisse de minimum 1 an serait un atout.\n• Conscience professionnelle, sens des responsabilités, discipline dans le travail.\n• Disponibilité, flexibilité et une grande capacité d’adaptation et de gestion du stress.\n• Aptitude à travailler en équipe, polyvalence et dynamisme.\n• Connaissance des dispositifs médicaux actuels et intérêt pour les nouvelles technologies.\n• Maîtrise orale et écrite de la langue française. Offre:\n• Un environnement de travail convivial au sein d’une équipe à taille humaine et favorisant un management participatif.\n• Une politique salariale équitable, basée sur le respect et la transparence.\n• De nombreux avantages employeur, tels que :\n• La récupération de temps passé au vestiaire\n• Le report des jours fériés tombant sur des jours non-ouvrables\n• Cinq semaines de congés annuels, six semaines dès 40 ans ou après 15 ans d’ancienneté."
       },
       "location": "Martigny",
       "canton": "VS",
@@ -2731,7 +2735,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5ac264d4975187d0316bb0b71153afaf/ATSANN0004701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T14:51:57.329Z",
+      "crawledAt": "2026-06-01T23:57:39.791Z",
       "_hvsMeta": {
         "number": "ATSANN0004701",
         "sysId": "5ac264d4975187d0316bb0b71153afaf",
@@ -2740,6 +2744,7 @@
         "site": "MARTIGNY"
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T14:51:57.329Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2753,8 +2758,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T14:51:57.329Z"
+      "addressRegion": "VS"
     }
   ]
 }
