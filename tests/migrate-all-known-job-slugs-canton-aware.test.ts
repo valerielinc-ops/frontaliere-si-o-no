@@ -57,8 +57,13 @@ describe('migrate-all-known-job-slugs-canton-aware', () => {
     const out = JSON.parse(fs.readFileSync(path.join(dataDir, 'all-known-job-slugs.json'), 'utf-8'));
     const entry = out[SLUG];
 
-    // Section prefix migrated TI → ZH (zurigo / zurich / zuerich / zurich).
-    expect(entry.it).toBe(`/cerca-lavoro-zurigo/${SLUG}/`);
+    // Section prefix migrated TI → ZH. Derive the expected ZH it-slug from the
+    // loaded fixture rather than hardcoding it, so the assertion tracks the
+    // reference data instead of aging against it.
+    const cantonSlugs = JSON.parse(fs.readFileSync(path.join(dataDir, 'canton-url-slugs.json'), 'utf-8'));
+    const zhItSlug = cantonSlugs.cantons.ZH.it;
+    expect(entry.it).toBe(`/cerca-lavoro-${zhItSlug}/${SLUG}/`);
+    expect(entry.it).not.toContain('cerca-lavoro-ticino');
     expect(entry.en).toContain('/find-jobs-');
     expect(entry.en).not.toContain('find-jobs-ticino');
 
