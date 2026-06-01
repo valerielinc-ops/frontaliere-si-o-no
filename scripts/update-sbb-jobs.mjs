@@ -50,6 +50,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
+import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
@@ -878,7 +879,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         targetLang: locale,
         maxRetries: 2,
       });
-      if (translatedDescription) localeDescriptions[locale] = translatedDescription;
+      if (translatedDescription && isAcceptableTranslation(localeDescriptions[resolvedSourceLocale], translatedDescription)) localeDescriptions[locale] = translatedDescription;
     }
   }
   const localeRequirements = { it: requirements, en: requirements, de: requirements, fr: requirements };
