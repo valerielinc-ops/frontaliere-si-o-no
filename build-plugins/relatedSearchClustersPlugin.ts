@@ -947,7 +947,13 @@ function buildClusterContext(
   // still carries ≥2 content tokens, require ≥2 token matches so a single
   // generic token can't pull in off-topic listings. Single-content-token
   // keywords keep minScore=1 so the legitimate city-drop recovery still works.
-  const keywordTokenCount = tokenizeQuery(keyword).length;
+  //
+  // Count CONTENT tokens only: strip the same leading boilerplate as the
+  // matching tokens above. Otherwise `offerte lavoro <role>` inflates the count
+  // by +2 ("offerte","lavoro") → minOrScore=2 even when the post-strip content
+  // is a single token, which would suppress the very city-drop recovery this
+  // floor means to preserve (and re-diverge the static page from the SPA).
+  const keywordTokenCount = tokenizeQuery(stripSearchQueryBoilerplate(keyword)).length;
   const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
 
   const __tMatch = profileStart();

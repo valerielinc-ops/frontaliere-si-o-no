@@ -101,8 +101,17 @@ export const SEARCH_QUERY_BOILERPLATE_PHRASES: readonly string[] = [
  'offerte di lavoro',
  'posti di lavoro',
  'offerte lavoro',
+ // FR: full parity with the prior /offres?\s+(?:d\s+)?emplois?/ — singular
+ // "offre", optional bare "d" (apostrophe hyphenated by slugs), plural
+ // "emplois". Longest forms first so the alternation strips the most.
+ 'offres d emplois',
+ 'offre d emplois',
  'offres d emploi',
+ 'offre d emploi',
+ 'offres emplois',
+ 'offre emplois',
  'offres emploi',
+ 'offre emploi',
  'recherche emploi',
  'stellenangebote',
  'stellen',
