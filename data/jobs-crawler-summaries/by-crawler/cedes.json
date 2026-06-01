@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-05-31T21:32:34.641Z",
+  "generatedAt": "2026-06-01T13:57:38.010Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3814,
-  "avgDurationMs": 3814,
+  "durationMs": 3889,
+  "avgDurationMs": 3889,
   "durationHistory": [
-    3814
+    3889
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T21:32:32.626Z",
+      "crawledAt": "2026-06-01T13:57:35.659Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -64,7 +64,7 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T21:32:32.956Z",
+      "crawledAt": "2026-06-01T13:57:36.000Z",
       "firstSeenAt": "2026-04-22T09:37:08.541Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -97,7 +97,7 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T21:32:32.956Z",
+      "crawledAt": "2026-06-01T13:57:36.000Z",
       "firstSeenAt": "2026-04-22T09:37:08.541Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -114,7 +114,7 @@
     },
     {
       "id": "cedes-3fa516c3ca31",
-      "slug": "candidature-non-richiesta-cedes-ag-landquart",
+      "slug": "unsolicited-applications-cedes-landquart",
       "company": "CEDES AG",
       "companyKey": "cedes",
       "companyDomain": "cedes.com",
@@ -132,7 +132,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-31T21:32:32.626Z",
+      "crawledAt": "2026-06-01T13:57:35.659Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
