@@ -574,6 +574,11 @@ async function main() {
                 job.description = fallback;
               }
               job.needsRetranslation = true;
+              // We just rewrote the description (genuine content change) → lift any
+              // prior give-up so the fresh text gets a new translation attempt and
+              // the suppressed counter isn't inflated by a now-stale marker.
+              delete job.localeMismatchSuppressed;
+              delete job.localeMismatchSuppressedLen;
               enriched++;
             }
           }

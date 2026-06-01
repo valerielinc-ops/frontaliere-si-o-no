@@ -4831,6 +4831,21 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.needsRetranslation = true;
     }
 
+    // Carry over the retranslation give-up state (relocalize-pending-jobs sets
+    // localeMismatchSuppressed after MAX failed attempts). Without this, every
+    // re-crawl silently drops the marker, bypassing the >15% source-drift
+    // auto-reset gate and reopening the re-flag loop. reconcileRetranslationState
+    // still lifts it on the next run if the fresh source actually drifted.
+    if (old.localeMismatchSuppressed && !fresh.localeMismatchSuppressed) {
+      fresh.localeMismatchSuppressed = true;
+      if (typeof old.localeMismatchSuppressedLen === 'number') {
+        fresh.localeMismatchSuppressedLen = old.localeMismatchSuppressedLen;
+      }
+      if (typeof old.retranslationAttempts === 'number') {
+        fresh.retranslationAttempts = old.retranslationAttempts;
+      }
+    }
+
     // Translation stability lock (Fix 2): when the source-locale title is
     // bytewise unchanged from the previous crawl AND the previous record has
     // full locale coverage for titles/descriptions/slugs, clear
