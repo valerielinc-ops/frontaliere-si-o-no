@@ -1061,9 +1061,9 @@
     },
     {
       "id": "sulzer-d41bf05d100f",
-      "slug": "manual-machinist-sulzer-salt-lake-city",
+      "slug": "meccanico-manuale-sulzer-salt-lake-city",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-salt-lake-city",
+        "it": "meccanico-manuale-sulzer-salt-lake-city",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch",
         "fr": "manual-machinist-sulzer-ch"
@@ -1108,12 +1108,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch",
-        "macchinista-manuale-sulzer-salt-lake-city"
+        "macchinista-manuale-sulzer-salt-lake-city",
+        "manual-machinist-sulzer-salt-lake-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch",
-          "macchinista-manuale-sulzer-salt-lake-city"
+          "macchinista-manuale-sulzer-salt-lake-city",
+          "manual-machinist-sulzer-salt-lake-city"
         ]
       },
       "firstSeenAt": "2026-05-28T14:26:42.362Z",
@@ -3066,9 +3068,9 @@
     },
     {
       "id": "sulzer-f1dc9fe34596",
-      "slug": "manual-machinist-sulzer-la-porte",
+      "slug": "meccanico-manuale-sulzer-la-porte",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-la-porte",
+        "it": "meccanico-manuale-sulzer-la-porte",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch-2",
         "fr": "manual-machinist-sulzer-ch-2"
@@ -3113,12 +3115,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch-2",
-        "macchinista-manuale-sulzer-la-porte"
+        "macchinista-manuale-sulzer-la-porte",
+        "manual-machinist-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-2",
-          "macchinista-manuale-sulzer-la-porte"
+          "macchinista-manuale-sulzer-la-porte",
+          "manual-machinist-sulzer-la-porte"
         ]
       },
       "firstSeenAt": "2026-05-28T14:26:17.642Z",
@@ -4710,9 +4714,9 @@
     },
     {
       "id": "sulzer-6be24c14c439",
-      "slug": "manual-machinist-sulzer-pasadena",
+      "slug": "meccanico-manuale-sulzer-pasadena",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-pasadena",
+        "it": "meccanico-manuale-sulzer-pasadena",
         "en": "manual-machinist-sulzer-ch",
         "de": "manual-machinist-sulzer-ch-3",
         "fr": "manual-machinist-sulzer-ch-3"
@@ -4757,12 +4761,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manual-machinist-sulzer-ch-3",
-        "macchinista-manuale-sulzer-pasadena"
+        "macchinista-manuale-sulzer-pasadena",
+        "manual-machinist-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-3",
-          "macchinista-manuale-sulzer-pasadena"
+          "macchinista-manuale-sulzer-pasadena",
+          "manual-machinist-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:52.776Z",
@@ -8343,9 +8349,9 @@
     },
     {
       "id": "sulzer-c50108337a9b",
-      "slug": "service-center-administrator-sulzer-piedmont",
+      "slug": "amministratore-del-centro-di-servizio-sulzer-piedmont",
       "slugByLocale": {
-        "it": "service-center-administrator-sulzer-piedmont",
+        "it": "amministratore-del-centro-di-servizio-sulzer-piedmont",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -8390,12 +8396,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-center-administrator-sulzer-ch",
-        "amministratore-del-centro-servizi-sulzer-piedmont"
+        "amministratore-del-centro-servizi-sulzer-piedmont",
+        "service-center-administrator-sulzer-piedmont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
-          "amministratore-del-centro-servizi-sulzer-piedmont"
+          "amministratore-del-centro-servizi-sulzer-piedmont",
+          "service-center-administrator-sulzer-piedmont"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:08.032Z",
@@ -11749,9 +11757,9 @@
     },
     {
       "id": "sulzer-d000d155539e",
-      "slug": "service-center-administrator-sulzer-pasadena",
+      "slug": "amministratore-del-centro-di-servizio-sulzer-pasadena",
       "slugByLocale": {
-        "it": "service-center-administrator-sulzer-pasadena",
+        "it": "amministratore-del-centro-di-servizio-sulzer-pasadena",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -11797,13 +11805,15 @@
       "previousSlugs": [
         "service-center-administrator-sulzer-ch",
         "amministratore-del-centro-servizi-sulzer-pasadena",
-        "service-center-administrator-sulzer-ch-2"
+        "service-center-administrator-sulzer-ch-2",
+        "service-center-administrator-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
           "amministratore-del-centro-servizi-sulzer-pasadena",
-          "service-center-administrator-sulzer-ch-2"
+          "service-center-administrator-sulzer-ch-2",
+          "service-center-administrator-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-22T23:43:00.083Z",
@@ -14914,10 +14924,10 @@
     },
     {
       "id": "sulzer-f1bbf32bd3b4",
-      "slug": "commercial-manager-sulzer-ch",
+      "slug": "direttore-commerciale-sulzer-johannesburg",
       "slugByLocale": {
         "en": "commercial-manager-sulzer-johannesburg",
-        "it": "commercial-manager-sulzer-ch",
+        "it": "direttore-commerciale-sulzer-johannesburg",
         "de": "commercial-manager-sulzer-ch",
         "fr": "commercial-manager-sulzer-ch"
       },
@@ -14976,7 +14986,15 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-31T23:53:32.730Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-manager-sulzer-ch"
+      ]
     }
   ]
 }

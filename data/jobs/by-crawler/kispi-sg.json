@@ -771,10 +771,10 @@
       "id": "kispi-sg-fef0b8bdcec5",
       "slug": "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "segretaria-medica-60-ostschweizer-kinderspital-st-gallen",
-        "en": "medical-secretary-60-ostschweizer-kinderspital-st-gallen",
+        "it": "medico-specialista-con-esperienza-in-anestesia-per-adulti-e-bambini-60-80-nsn-medical-group-zurich",
+        "en": "specialist-physician-with-experience-in-adult-and-pediatric-anesthesia-60-80-nsn-medical-group-zurich",
         "de": "arztsekretar-in-60-ostschweizer-kinderspital-st-gallen",
-        "fr": "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen"
+        "fr": "medecin-specialiste-avec-experience-en-anesthesie-adulte-et-pediatrique-60-80-nsn-medical-group-zurich"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -855,13 +855,19 @@
           "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen"
         ],
         "fr": [
-          "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen"
+          "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen",
+          "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "medical-secretary-60-ostschweizer-kinderspital-st-gallen"
         ]
       },
       "previousSlugs": [
         "arztsekretar-in-60-kispi-sg-st-gallen",
         "segretario-a-medico-a-60-ostschweizer-kinderspital-st-gallen",
-        "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen"
+        "secretaire-medical-e-60-ostschweizer-kinderspital-st-gallen",
+        "secretaire-medicale-60-ostschweizer-kinderspital-st-gallen",
+        "medical-secretary-60-ostschweizer-kinderspital-st-gallen"
       ],
       "firstSeenAt": "2026-05-19T20:59:57.899Z",
       "salaryMin": 49500,
