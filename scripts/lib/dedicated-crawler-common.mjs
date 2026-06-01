@@ -1203,8 +1203,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   let repaired = 0;
   const slugChangeCount = {};
 
+  // Immutable slug-registry: when a job is registered with a real per-locale
+  // translation, that slug wins over anything re-derived from the (possibly
+  // re-translated) title below — preventing the AI-translation-drift that
+  // strands old job URLs. See registryPinnedLocaleSlug().
+  const slugRegistry = loadSlugRegistry();
+
   for (const job of raw) {
     let jobChanged = false;
+    const registeredSlug = getRegisteredSlug(job, slugRegistry);
 
     // Auto-generate id if missing — use url or slug as seed
     if (!job.id) {
@@ -1445,6 +1452,26 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         const existingSlug = String(job.slugByLocale[locale] || '').trim();
         const localizedTitle = String(job.titleByLocale[locale] || '').trim();
         const isSourceLocale = locale === titleSourceLang;
+        // ── Registry pin (root-cause fix for AI-translation slug drift) ──────
+        // Evaluated for EVERY registered locale, independent of the stale-slug
+        // heuristic below. AI title translation is non-deterministic, so a
+        // re-crawl can mint a different — yet self-consistent — slug that the
+        // heuristic would never flag as "stale" (it matches its own new title).
+        // The immutable registry slug is authoritative: force it whenever it
+        // differs from the current slug, and skip the title-based re-derivation
+        // entirely for registered locales. The drifted slug is demoted to
+        // previousSlugs by captureLostSlugs at the end of the job loop, so the
+        // legacy URL keeps resolving via the slug-bridge.
+        const pinnedSlug = registryPinnedLocaleSlug(registeredSlug, locale, titleSourceLang);
+        if (pinnedSlug) {
+          if (pinnedSlug !== existingSlug) {
+            slugChangeCount.registry_pin = (slugChangeCount.registry_pin || 0) + 1;
+            console.log(`  🔄 SLUG [${locale}] registry_pin: ${job.companyKey || job.company} | ${existingSlug} → ${pinnedSlug}`);
+            job.slugByLocale[locale] = pinnedSlug;
+            jobChanged = true;
+          }
+          continue;
+        }
         // FRO-284: Detect foreign words in slug (e.g. German compound words in IT slug)
         // Two checks: (1) long compound words (15+ chars), (2) known German job title words.
         // IMPORTANT: Only flag when the LOCALE doesn't match the word's language.
@@ -4303,6 +4330,48 @@ export function getRegisteredSlug(job, registry) {
   const fp = fingerprintJob(job);
   if (!fp || !registry[fp]) return null;
   return registry[fp];
+}
+
+/**
+ * Single source of truth for "the immutable registry slug beats any slug
+ * re-derived from a (possibly re-translated) title".
+ *
+ * Root cause of slug instability: a job's localized slug is derived from its
+ * AI-translated title, and AI translation is non-deterministic (temperature +
+ * backend fallback chain) — so the same German posting can yield a different
+ * EN/IT/FR title across crawls, hence a different slug. `mergeAndDeduplicate`
+ * and the post-AI backfill already re-pin from the immutable slug-registry, but
+ * the title→slug derivation in `hardenJobLocaleFields` and
+ * `regenerate-slugs-by-locale.mjs` did not consult the registry, so a fresh
+ * translation could silently overwrite the registered slug and strand the old
+ * URL (no redirect). This helper lets both derivation paths converge on the
+ * same locked slug.
+ *
+ * Returns the registry-pinned slug for `locale`, or null when there is no real
+ * translation to pin (no entry, or the per-locale entry is just a byte copy of
+ * the source-locale slug — early entries registered before AI localization
+ * finished; pinning those would revert a real translation to the source slug).
+ *
+ * @param {object|null} registered  registry entry from getRegisteredSlug()
+ * @param {string} locale           target locale (it/en/de/fr)
+ * @param {string|null} sourceLang  job source language, to detect source copies
+ * @returns {string|null}
+ */
+export function registryPinnedLocaleSlug(registered, locale, sourceLang) {
+  if (!registered || !registered.slugByLocale || typeof registered.slugByLocale !== 'object') {
+    return null;
+  }
+  const regLoc = normalizeSpace(String(registered.slugByLocale[locale] || ''));
+  if (!regLoc) return null;
+  const src = sourceLang || null;
+  if (src && locale !== src) {
+    const regSrc = normalizeSpace(String(registered.slugByLocale[src] || ''));
+    // Source-copy guard: mirror mergeAndDeduplicate + post-AI backfill. A
+    // non-source-locale entry identical to the source slug = no real
+    // translation was registered → keep whatever the current crawl has.
+    if (regSrc && regLoc === regSrc) return null;
+  }
+  return regLoc;
 }
 
 export function registerJobSlug(job, registry) {
