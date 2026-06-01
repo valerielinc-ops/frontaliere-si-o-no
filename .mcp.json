@@ -1,13 +1,5 @@
 {
   "mcpServers": {
-    "code-review-graph": {
-      "type": "stdio",
-      "command": "uvx",
-      "args": [
-        "code-review-graph",
-        "serve"
-      ]
-    },
     "context7": {
       "type": "stdio",
       "command": "npx",
