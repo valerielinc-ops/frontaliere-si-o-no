@@ -836,9 +836,9 @@
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
-        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
+        "en": "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "de": "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
+        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -881,11 +881,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lift-m-f-d-80-100-schindler-castione-arbedo",
-        "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
+        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc",
         "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-        "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
         "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-        "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo",
         "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
         "installation-supervisor-m-f-d-80-100-schindler-castione-arbedo",
         "installationsleiter-m-w-d-80-100-schindler-castione-arbedo",
@@ -897,17 +895,14 @@
       "previousSlugsByLocale": {
         "en": [
           "lift-m-f-d-80-100-schindler-castione-arbedo",
-          "elevator-installer-m-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "de": [
           "aufzug-m-w-d-80-100-schindler-castione-arbedo",
-          "aufzugsmonteur-m-w-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ],
         "fr": [
           "ascenseur-m-f-j-80-100-schindler-castione-arbedo",
-          "monteur-d-ascenseurs-h-f-d-80-100-schindler-castione-arbedo",
           "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo-ws9hyc"
         ]
       },
@@ -2681,8 +2676,7 @@
           "manager-del-consenso-dei-cookie-schindler-ebikon"
         ],
         "en": [
-          "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon"
+          "manager-fur-cookie-einwilligungen-schindler-ebikon"
         ],
         "fr": [
           "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
@@ -3150,9 +3144,6 @@
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-basel",
           "manager-per-il-consenso-dei-cookie-schindler-basel"
-        ],
-        "en": [
-          "manager-per-cookie-einwilligungen-schindler-basel"
         ]
       },
       "firstSeenAt": "2026-05-30T12:18:38.744Z",
@@ -4080,9 +4071,9 @@
     },
     {
       "id": "schindler-d075d10ff07d",
-      "slug": "manager-per-cookie-einwilligungen-schindler-winterthur",
+      "slug": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
+        "it": "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
@@ -4139,14 +4130,13 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
         "manager-per-cookie-einwilligungen-schindler-winterthur-2",
+        "manager-per-cookie-einwilligungen-schindler-winterthur",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
-        "manager-per-cookie-einwilligungen-schindler-bern",
-        "manager-fur-cookie-einwilligungen-schindler-oberentfelden"
+        "manager-per-cookie-einwilligungen-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4162,7 +4152,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur",
           "manager-per-cookie-einwilligungen-schindler-winterthur-2",
@@ -4294,8 +4283,7 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
           "manager-per-cookie-einwilligungen-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
-          "manager-per-cookie-einwilligungen-schindler-winterthur",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur"
+          "manager-per-cookie-einwilligungen-schindler-winterthur"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -6484,9 +6472,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50",
-        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
+        "en": "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
+        "de": "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
+        "fr": "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6528,21 +6516,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
-        "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
-        "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio"
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "senior-lift-lift-m-f-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "de": [
-          "senior-lift-lift-m-w-d-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ],
         "fr": [
-          "soulevant-ascenseur-m-f-j-80-100-schindler-bioggio",
           "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio-lukq50"
         ]
       },
