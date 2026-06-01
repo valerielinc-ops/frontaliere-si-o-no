@@ -39,6 +39,7 @@ async function runCleanup(slicePath: string, expiredDir: string): Promise<RunRes
         JOBS_SLICE_FILE: slicePath,
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_SKIP_URL_VALIDATION: '1',
+        JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
       },
     });

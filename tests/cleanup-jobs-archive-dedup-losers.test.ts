@@ -64,6 +64,7 @@ async function runCleanupSlice(slicePath: string, expiredDir: string): Promise<R
         JOBS_SLICE_FILE: slicePath,
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_SKIP_URL_VALIDATION: '1',
+        JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
       },
     });
@@ -90,6 +91,7 @@ async function runCleanupSliceWithUrlValidation(slicePath: string, expiredDir: s
         ...process.env,
         JOBS_SLICE_FILE: slicePath,
         JOBS_SKIP_LOCALE_HARDENING: '1',
+        JOBS_STALE_DAYS: '60',
         JOBS_EXPIRED_SLICES_DIR: expiredDir,
       },
     });
@@ -428,6 +430,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
           ...process.env,
           JOBS_SKIP_LOCALE_HARDENING: '1',
           JOBS_SKIP_URL_VALIDATION: '1',
+          JOBS_STALE_DAYS: '60',
           JOBS_EXPIRED_JOBS_PATH: expiredJobsPath,
           JOBS_PUBLIC_EXPIRED_JOBS_PATH: publicExpiredJobsPath,
         },
