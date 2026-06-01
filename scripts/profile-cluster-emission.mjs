@@ -73,6 +73,28 @@ function tokenizeQuery(query) {
     .filter((tok) => tok.length >= 2);
 }
 
+// Boilerplate strip — keep in sync with services/relatedSearchClusters.ts
+// (SEARCH_QUERY_BOILERPLATE_PHRASES). Duplicated here for the same reason as
+// tokenizeQuery: this profiler runs under plain `node` and can't import the
+// .ts source. buildClusterContext strips these leading job-search prefixes
+// before matching (since #1061), so the profiler must too or its AND/OR
+// buckets diverge from production.
+const SEARCH_QUERY_BOILERPLATE_PHRASES = [
+  'offerte di lavoro', 'posti di lavoro', 'offerte lavoro',
+  'offres d emplois', 'offre d emplois', 'offres d emploi', 'offre d emploi',
+  'offres emplois', 'offre emplois', 'offres emploi', 'offre emploi',
+  'recherche emploi', 'stellenangebote', 'stellen',
+  'lavoro', 'offerte', 'jobs', 'job', 'emplois', 'emploi',
+];
+const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
+  `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
+  'i',
+);
+function stripSearchQueryBoilerplate(query) {
+  const stripped = query.replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '').trim();
+  return stripped || query;
+}
+
 function queryMatchScore(haystack, queryTokens) {
   if (queryTokens.length === 0) return 0;
   let score = 0;
@@ -134,7 +156,9 @@ function filterAndDedupeCandidates(all, minJobCount) {
 function countMatchesForCluster(candidate, jobs, haystackCache) {
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
   if (!sampleTerm) return 0;
-  const tokens = tokenizeQuery(sampleTerm);
+  // Strip leading boilerplate to mirror buildClusterContext (L923) — match on
+  // content tokens only, not the inflated "offerte lavoro <role>" superset.
+  const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
   if (tokens.length === 0) return 0;
 
   const fullScore = tokens.length;
