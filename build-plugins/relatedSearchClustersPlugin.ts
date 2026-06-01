@@ -63,6 +63,7 @@ import {
 import {
   getJobBoardSectionSlug,
   getSearchSlugPrefix,
+  stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
 import {
   AGGREGATE_KEY,
@@ -912,7 +913,14 @@ function buildClusterContext(
     return null;
   }
 
-  const tokens = tokenizeQuery(sampleTerm);
+  // Match jobs on the boilerplate-stripped term so the static job set mirrors
+  // what the SPA shows after hydration (parseSearchSlugFilter strips the same
+  // leading "offerte lavoro" / "offres d emploi" prefix). Without this, the AND
+  // phase here matched [offerte, lavoro, <role>] → 0 and the OR-fill surfaced
+  // any job mentioning "offerta"/"lavoro" in its description, diluting the page
+  // with off-intent listings the hydrated board no longer shows. The displayed
+  // keyword/H1 (and thus the canonical slug) are intentionally left untouched.
+  const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
   profileRecord('bc:tokenize', __tTokenize);
   if (tokens.length === 0) return null;
 
