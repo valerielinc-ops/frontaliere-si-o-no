@@ -1,18 +1,53 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-31T21:03:53.277Z",
-  "total": 12,
-  "newCount": 0,
+  "generatedAt": "2026-06-01T13:28:30.278Z",
+  "total": 13,
+  "newCount": 1,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31055,
-  "avgDurationMs": 31055,
+  "durationMs": 46962,
+  "avgDurationMs": 46962,
   "durationHistory": [
-    31055
+    46962
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-2eqea5",
+      "slug": "continuous-improvement-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Continuous Improvement Specialist (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00034865EXTERNALENGLOBAL/Continuous-Improvement-Specialist--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-06-01T13:28:29.003Z",
+      "firstSeenAt": "2026-06-01T13:28:29.003Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "en",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 21,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-j6oli2",
