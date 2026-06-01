@@ -569,7 +569,7 @@
       "slugByLocale": {
         "it": "infermiera-hpci-clinique-de-genolier-genolier",
         "en": "hpci-nurse-clinique-de-genolier-genolier",
-        "de": "hpci-krankenpflegerin-clinique-de-genolier-genolier",
+        "de": "hpci-krankenschwester-clinique-de-genolier-genolier",
         "fr": "infirmiere-hpci-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -643,7 +643,7 @@
       "previousSlugs": [
         "infirmiere-hpci-clinique-de-genolier",
         "infermiere-hpci-clinique-de-genolier-genolier",
-        "hpci-krankenschwester-clinique-de-genolier-genolier"
+        "hpci-krankenpflegerin-clinique-de-genolier-genolier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -651,7 +651,6 @@
           "infermiere-hpci-clinique-de-genolier-genolier"
         ],
         "de": [
-          "hpci-krankenschwester-clinique-de-genolier-genolier",
           "hpci-krankenpflegerin-clinique-de-genolier-genolier"
         ]
       },

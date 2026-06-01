@@ -539,9 +539,9 @@
       "slug": "meccanico-m-f-d-siegfried-zofingen",
       "slugByLocale": {
         "it": "meccanico-m-f-d-siegfried-zofingen",
-        "en": "engineer-m-w-d-siegfried-zofingen",
+        "en": "mechanic-m-f-d-siegfried-zofingen",
         "de": "mechaniker-m-w-d-siegfried-zofingen",
-        "fr": "ingenieur-m-m-j-siegfried-zofingen"
+        "fr": "mecanicien-m-f-d-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -592,20 +592,18 @@
         ],
         "en": [
           "mechaniker-m-w-d-siegfried-ch",
-          "mechanic-m-f-d-siegfried-zofingen",
           "engineer-m-w-d-siegfried-zofingen"
         ],
         "fr": [
           "mechaniker-m-w-d-siegfried-ch",
-          "mecanicien-m-f-d-siegfried-zofingen",
           "ingenieur-m-m-j-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "mechaniker-m-w-d-siegfried-ch",
         "ingegnere-m-w-d-siegfried-zofingen",
-        "mechanic-m-f-d-siegfried-zofingen",
-        "mecanicien-m-f-d-siegfried-zofingen"
+        "engineer-m-w-d-siegfried-zofingen",
+        "ingenieur-m-m-j-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
       "salaryMin": 49500,
@@ -1545,8 +1543,8 @@
       "slug": "controllo-del-laboratorio-qc-siegfried-evionnaz",
       "slugByLocale": {
         "it": "controllo-del-laboratorio-qc-siegfried-evionnaz",
-        "en": "lab-supervisor-qc-siegfried-ch",
-        "de": "lab-vorgesetzter-qc-siegfried-evionnaz",
+        "en": "quality-control-laboratory-supervisor-siegfried-evionnaz",
+        "de": "laborleiter-qc-siegfried-evionnaz",
         "fr": "lab-supervisor-qc-siegfried-evionnaz"
       },
       "company": "Siegfried",
@@ -1597,20 +1595,17 @@
           "lab-supervisore-qc-siegfried-evionnaz"
         ],
         "en": [
-          "quality-control-laboratory-supervisor-siegfried-evionnaz",
           "lab-supervisor-qc-siegfried-ch"
         ],
         "de": [
           "lab-supervisor-qc-siegfried-ch",
-          "laborleiter-qc-siegfried-evionnaz",
           "lab-vorgesetzter-qc-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
         "lab-supervisor-qc-siegfried-ch",
         "lab-supervisore-qc-siegfried-evionnaz",
-        "quality-control-laboratory-supervisor-siegfried-evionnaz",
-        "laborleiter-qc-siegfried-evionnaz"
+        "lab-vorgesetzter-qc-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-05-28T14:03:22.586Z",
       "salaryMin": 49500,

@@ -2600,10 +2600,10 @@
       "id": "roche-6a22d86ce3f8",
       "slug": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
       "slugByLocale": {
-        "it": "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "it": "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel",
         "en": "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
         "de": "employer-brand-content-creation-praktikant-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
-        "fr": "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
+        "fr": "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -2644,19 +2644,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-        "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel",
-        "interno-di-creazione-di-marchi-e-contenuti-dal-2026-luglio-per-9-12-mesi-a-basilea-roche-basel"
+        "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel",
+        "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
+          "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
+          "employer-brand-content-creation-tirocinante-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ],
         "de": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch"
         ],
         "fr": [
           "employer-brand-content-creation-intern-as-of-july-2026-for-9-12-month-in-basel-roche-ch",
-          "stage-de-creation-de-marque-et-de-contenu-de-l-employeur-en-date-de-juillet-2026-pour-9-12-mois-a-bale-roche-basel"
+          "employer-brand-content-creation-stagiaire-as-of-july-2026-for-9-12-month-in-basel-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-21T13:09:46.810Z",
@@ -2830,7 +2831,7 @@
         "it": "data-information-architetto-data-platforms-roche-basel",
         "en": "data-information-architect-data-platforms-roche-ch",
         "de": "data-information-architect-data-platforms-roche-ch",
-        "fr": "data-information-architecte-data-platforms-roche-basel"
+        "fr": "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -2872,7 +2873,7 @@
       "previousSlugs": [
         "data-information-architect-data-platforms-roche-ch",
         "data-information-architect-piattaforme-di-dati-roche-basel",
-        "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
+        "data-information-architecte-data-platforms-roche-basel",
         "data-information-architect-piattaforme-di-dati-roche-basel-sjekzs",
         "data-information-architect-datenplattformen-roche-basel",
         "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel-e88a1e",
@@ -2887,7 +2888,6 @@
         ],
         "fr": [
           "data-information-architect-data-platforms-roche-ch",
-          "architecte-de-donnees-d-information-plateformes-de-donnees-roche-basel",
           "data-information-architecte-data-platforms-roche-basel"
         ]
       },
@@ -4004,7 +4004,7 @@
       "id": "roche-1c76aa4362fa",
       "slug": "ingegnere-di-manutenzione-roche-basel",
       "slugByLocale": {
-        "it": "maintenance-ingegnere-roche-basel",
+        "it": "ingegnere-di-manutenzione-roche-basel",
         "en": "maintenance-engineer-roche-basel",
         "de": "maintenance-ingenieur-roche-basel",
         "fr": "maintenance-engineer-roche-ch"
@@ -4051,7 +4051,8 @@
           "maintenance-engineer-roche-ch"
         ],
         "it": [
-          "maintenance-engineer-roche-ch"
+          "maintenance-engineer-roche-ch",
+          "maintenance-ingegnere-roche-basel"
         ],
         "de": [
           "maintenance-engineer-roche-ch"
@@ -4059,7 +4060,7 @@
       },
       "previousSlugs": [
         "maintenance-engineer-roche-ch",
-        "ingegnere-di-manutenzione-roche-basel"
+        "maintenance-ingegnere-roche-basel"
       ],
       "firstSeenAt": "2026-05-21T23:38:01.006Z",
       "salaryMin": 49500,
@@ -4591,7 +4592,7 @@
       "id": "roche-0481c12981e8",
       "slug": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
       "slugByLocale": {
-        "it": "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel",
+        "it": "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel",
         "en": "qa-manager-qualification-and-validation-of-systems-devices-and-systems-roche-basel",
         "de": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
         "fr": "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -4635,11 +4636,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
-        "qa-manager-qualificazione-e-convalida-di-sistemi-dispositivi-e-sistemi-roche-basel"
+        "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
+          "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch",
+          "qa-manager-qualifizierung-e-validierung-von-anlagen-geraten-e-systemen-roche-basel"
         ],
         "en": [
           "qa-manager-qualifizierung-und-validierung-von-anlagen-geraten-und-systemen-roche-ch"
@@ -6987,7 +6989,7 @@
       "id": "roche-5a9a074d622a",
       "slug": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
       "slugByLocale": {
-        "it": "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
+        "it": "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche",
         "en": "practical-internship-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
         "de": "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "fr": "stage-en-soutien-manufacturing-assemblage-emballage-septembre-2026-12-mois-roche-kaiseraugst"
@@ -7032,14 +7034,15 @@
       "previousSlugs": [
         "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
         "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
+        "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst",
         "practicum-in-manufacturing-support-assembly-packaging-september-2026-12-months-roche-kaiseraugst",
-        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst",
-        "prakticante-per-support-manufacturing-nell-unita-di-assemblaggio-e-confezionamento-da-settembre-2026-12-mesi-roche"
+        "stage-dans-le-domaine-du-support-de-production-montage-et-emballage-septembre-2026-12-mois-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
-          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst"
+          "prakticante-nell-ambito-supporto-alla-produzione-assemblaggio-e-imballaggio-settembre-2026-12-mesi-roche-kaiseraugst",
+          "praktikum-per-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit-assembly-packaging-ab-september-2026-12-monate-roche-kaiseraugst"
         ],
         "en": [
           "praktikum-fur-studierende-im-bereich-manufacturing-support-in-der-manufacturing-unit",
@@ -16983,12 +16986,12 @@
     },
     {
       "id": "roche-a2bed5c4d644",
-      "slug": "regulatory-operation-intern-roche-ch-2",
+      "slug": "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
       "slugByLocale": {
         "en": "regulatory-operation-intern-roche-ch",
-        "it": "regulatory-operation-intern-roche-ch-2",
+        "it": "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
         "de": "regulatory-operation-intern-roche-ch-2",
-        "fr": "regulatory-operation-intern-roche-ch-2"
+        "fr": "operation-de-reglementation-interne-roche-basel-74ec59"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -17032,27 +17035,27 @@
       "previousSlugsByLocale": {
         "it": [
           "regulatory-operation-intern-roche-ch",
-          "interno-di-funzionamento-del-regolatore-roche-basel"
+          "interno-di-funzionamento-del-regolatore-roche-basel",
+          "regulatory-operation-intern-roche-ch-2"
         ],
         "de": [
           "regulatory-operation-praktikant-roche-basel"
         ],
         "fr": [
-          "operation-de-reglementation-interne-roche-basel"
+          "operation-de-reglementation-interne-roche-basel",
+          "regulatory-operation-intern-roche-ch-2"
         ]
       },
       "previousSlugs": [
         "regulatory-operation-intern-roche-ch",
+        "interno-di-funzionamento-del-regolatore-roche-basel",
+        "regulatory-operation-intern-roche-ch-2",
+        "regulatory-operation-praktikant-roche-basel",
+        "operation-de-reglementation-interne-roche-basel",
         "regulatorische-operation-intern-roche-basel",
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
-        "interno-di-funzionamento-del-regolatore-roche-basel-74ec59",
-        "regulatory-operation-intern-roche-ch-2",
-        "operation-de-reglementation-interne-roche-basel-74ec59",
         "regulatory-operation-stagiaire-roche-basel",
-        "regulatory-operation-tirocinante-roche-basel",
-        "interno-di-funzionamento-del-regolatore-roche-basel",
-        "regulatory-operation-praktikant-roche-basel",
-        "operation-de-reglementation-interne-roche-basel"
+        "regulatory-operation-tirocinante-roche-basel"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -17848,7 +17851,6 @@
       "previousSlugs": [
         "praktikum-im-bereich-mint-bildung-e-labor-kaiseraugst-12-monate-roche-kaiseraugst",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-ch",
-        "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
         "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
@@ -17857,7 +17859,6 @@
           "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-ch"
         ],
         "de": [
-          "praktikumsstelle-im-schullabor-experio-roche-kaiseraugst-12-monate-roche-ch",
           "praktikum-im-bereich-mint-bildung-und-labor-kaiseraugst-12-monate-roche-kaiseraugst"
         ],
         "en": [
@@ -21184,13 +21185,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chaine-d-approvisionnement-excellence-lead-roche-basel",
         "supply-chain-excellence-lead-roche-ch",
         "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "chaine-d-approvisionnement-excellence-lead-roche-basel",
           "chef-de-file-en-excellence-de-la-chaine-d-approvisionnement-roche-basel"
         ],
         "it": [
@@ -21443,10 +21442,10 @@
       "id": "roche-31cbdcfa9541",
       "slug": "principale-ingegnere-principale-principale-roche-basel",
       "slugByLocale": {
-        "it": "principal-senior-principal-software-ingegnere-roche-basel",
+        "it": "principale-ingegnere-principale-principale-roche-basel",
         "en": "principal-senior-principal-software-engineer-roche-ch",
         "de": "principal-senior-principal-software-ingenieur-roche-basel",
-        "fr": "principal-senior-principal-software-ingenieur-roche-basel"
+        "fr": "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -21487,23 +21486,24 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "principal-senior-principal-software-engineer-roche-ch",
-        "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel",
+        "principal-senior-principal-software-ingegnere-roche-basel",
+        "principal-senior-principal-software-ingenieur-roche-basel",
         "ingegnere-principale-di-affidabilita-del-sito-roche-basel",
         "principal-site-reliability-engineer-roche-ch",
         "reliability-engineer-des-hauptstandortes-roche-basel",
-        "ingenieur-principal-de-fiabilite-du-site-roche-basel",
-        "principale-ingegnere-principale-principale-roche-basel"
+        "ingenieur-principal-de-fiabilite-du-site-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-senior-principal-software-engineer-roche-ch"
+          "principal-senior-principal-software-engineer-roche-ch",
+          "principal-senior-principal-software-ingegnere-roche-basel"
         ],
         "de": [
           "principal-senior-principal-software-engineer-roche-ch"
         ],
         "fr": [
           "principal-senior-principal-software-engineer-roche-ch",
-          "directeur-principal-ingenieur-principal-principal-en-logiciels-roche-basel"
+          "principal-senior-principal-software-ingenieur-roche-basel"
         ]
       },
       "firstSeenAt": "2026-05-28T13:58:18.902Z",
@@ -22768,7 +22768,7 @@
       "id": "roche-2b285c947522",
       "slug": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "production-expert-befristet-auf-2-jahre-roche-kaiseraugst",
+        "it": "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst",
         "en": "production-expert-befristet-auf-2-jahre-roche-ch",
         "de": "production-expert-befristet-auf-2-jahre-roche-ch",
         "fr": "production-expert-befristet-auf-2-jahre-roche-ch"
@@ -22812,11 +22812,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "production-expert-befristet-auf-2-jahre-roche-ch",
-        "esperto-di-produzione-befristet-auf-2-jahre-roche-kaiseraugst"
+        "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-expert-befristet-auf-2-jahre-roche-ch"
+          "production-expert-befristet-auf-2-jahre-roche-ch",
+          "production-expert-befristet-auf-2-jahre-roche-kaiseraugst"
         ]
       },
       "firstSeenAt": "2026-05-28T13:57:59.383Z",
@@ -23365,7 +23366,7 @@
       "id": "roche-ac28acba74cd",
       "slug": "partner-del-viaggio-paziente-roche-basel",
       "slugByLocale": {
-        "it": "patient-journey-partner-roche-ch-3",
+        "it": "partner-del-viaggio-paziente-roche-basel",
         "en": "patient-journey-partner-roche-ch-3",
         "de": "partner-von-patientenreise-roche-basel",
         "fr": "patient-journey-partner-roche-ch"
@@ -23426,9 +23427,7 @@
         "partner-commerciale-roche-basel",
         "commercial-business-partner-roche-ch",
         "patient-journey-partner-roche-ch-3",
-        "handelspartner-roche-basel",
-        "partner-del-viaggio-paziente-roche-basel",
-        "partner-von-patientenreise-roche-basel"
+        "handelspartner-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23448,7 +23447,8 @@
           "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch",
           "patient-journey-partner-hematologie-hemophilie-timisoara-roche-basel",
           "partner-commerciale-roche-basel",
-          "commercial-business-partner-roche-ch"
+          "commercial-business-partner-roche-ch",
+          "patient-journey-partner-roche-ch-3"
         ],
         "de": [
           "patient-journey-partner-roche-ch-3"
@@ -26629,7 +26629,7 @@
       "id": "roche-67c5bf48b88c",
       "slug": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
       "slugByLocale": {
-        "it": "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel",
+        "it": "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel",
         "en": "student-support-for-eval-migration-basel-6-12-months-roche-basel",
         "de": "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
         "fr": "soutien-aux-etudiants-pour-la-migration-eval-bale-6-12-mois-roche-basel"
@@ -26673,11 +26673,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
-        "supporto-per-gli-studenti-per-la-migrazione-eval-basel-6-12-mesi-roche-basel"
+        "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
+          "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch",
+          "studentische-aushilfe-per-eval-migration-basel-6-12-monate-roche-basel"
         ],
         "en": [
           "studentische-aushilfe-fur-eval-migration-basel-6-12-monate-roche-ch"
@@ -29367,11 +29368,11 @@
     },
     {
       "id": "roche-87d24a175246",
-      "slug": "ux-frontend-engineer-roche-ch",
+      "slug": "ux-frontend-ingegnere-roche-sant-cugat-del-valles",
       "slugByLocale": {
         "en": "ux-frontend-engineer-roche-sant-cugat-del-valles",
-        "it": "ux-frontend-engineer-roche-ch",
-        "de": "ux-frontend-engineer-roche-ch",
+        "it": "ux-frontend-ingegnere-roche-sant-cugat-del-valles",
+        "de": "ux-frontend-ingenieur-roche-sant-cugat-del-valles",
         "fr": "ux-frontend-engineer-roche-ch"
       },
       "company": "Roche",
@@ -29428,7 +29429,18 @@
       },
       "addressRegion": "BS",
       "firstSeenAt": "2026-05-31T23:28:52.192Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ux-frontend-engineer-roche-ch"
+        ],
+        "de": [
+          "ux-frontend-engineer-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ux-frontend-engineer-roche-ch"
+      ]
     },
     {
       "id": "roche-a37a4012c5a1",
