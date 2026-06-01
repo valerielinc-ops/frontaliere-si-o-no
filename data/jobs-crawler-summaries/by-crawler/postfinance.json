@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-31T23:16:39.101Z",
+  "generatedAt": "2026-06-01T15:46:14.006Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 11939,
-  "avgDurationMs": 11939,
+  "unchangedCount": 5,
+  "durationMs": 11887,
+  "avgDurationMs": 11887,
   "durationHistory": [
-    11939
+    11887
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -99,10 +99,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
@@ -112,7 +109,7 @@
       "location": "Zofingen",
       "canton": "AG",
       "country": "CH",
-      "slug": "responsabile-dell-assistenza-clienti-in-customer-center-postfinance-zofingen",
+      "slug": "responsabile-del-centro-clienti-postfinance-zofingen",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-finanziari",
@@ -145,7 +142,10 @@
         "translation": 16,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
