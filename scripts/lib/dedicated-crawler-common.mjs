@@ -5643,13 +5643,13 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       const prevSlug = job.slug || '';
       if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
       if (registered.slugByLocale && typeof registered.slugByLocale === 'object') {
-        for (const [loc, s] of Object.entries(registered.slugByLocale)) {
-          const norm = normalizeSpace(String(s || ''));
-          if (!norm) continue;
-          // Non-source-locale entry that just copies the source slug = no real
-          // translation was registered. Keep whatever the current crawl has.
-          if (srcLang && loc !== srcLang && regSrcSlug && norm === regSrcSlug) continue;
-          job.slugByLocale[loc] = norm;
+        // Per-locale source-copy rule lives in registryPinnedLocaleSlug (single
+        // definition shared with hardenJobLocaleFields, the post-AI backfill, and
+        // regenerate-slugs-by-locale). Returns null for an empty entry or a
+        // non-source-locale entry that merely copies the source slug.
+        for (const loc of Object.keys(registered.slugByLocale)) {
+          const pinned = registryPinnedLocaleSlug(registered, loc, srcLang);
+          if (pinned) job.slugByLocale[loc] = pinned;
         }
       }
       // Master slug is used by the IT path on canton sections. Only enforce
