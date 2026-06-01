@@ -27,6 +27,7 @@ import {
   buildRelatedSearches,
   pickBestRelatedSearchForPrompt,
   DEFAULT_CANTON_DISPLAY,
+  stripSearchQueryBoilerplate,
 } from '@/services/relatedSearchClusters';
 import { renderSearchQueryIntro } from '../build-plugins/shared/jobBoardCommuterContext';
 
@@ -123,6 +124,47 @@ describe('parseSearchSlugFilter — strips job-search boilerplate from seeded qu
   it('does not strip boilerplate words that appear mid-query', () => {
     expect(parseSearchSlugFilter('ricerca-agente-immobiliare')).toBe('agente immobiliare');
     expect(parseSearchSlugFilter('ricerca-cuoco-offerte')).toBe('cuoco offerte');
+  });
+});
+
+describe('stripSearchQueryBoilerplate — UNDER-strip guard (shared by SPA seed + static cluster matching)', () => {
+  // Both parseSearchSlugFilter (SPA) and buildClusterContext (build-plugin job
+  // matching) call this function, so a future narrowing of the phrase list that
+  // stopped stripping a real boilerplate form would silently reintroduce the
+  // static/SPA divergence. These assertions lock that each canonical form is
+  // still removed — the inverse direction of the corpus over-strip guard in
+  // tests/seo/related-search-clusters-emitted.test.ts.
+  it('removes the canonical IT job-search prefixes', () => {
+    expect(stripSearchQueryBoilerplate('offerte lavoro medico')).toBe('medico');
+    expect(stripSearchQueryBoilerplate('offerte di lavoro infermiere')).toBe('infermiere');
+    expect(stripSearchQueryBoilerplate('posti di lavoro saldatore')).toBe('saldatore');
+    expect(stripSearchQueryBoilerplate('lavoro cuoco')).toBe('cuoco');
+    expect(stripSearchQueryBoilerplate('offerte cadro lugano')).toBe('cadro lugano');
+  });
+
+  it('removes the canonical DE prefixes', () => {
+    expect(stripSearchQueryBoilerplate('stellenangebote koch')).toBe('koch');
+    expect(stripSearchQueryBoilerplate('stellen pflege')).toBe('pflege');
+    expect(stripSearchQueryBoilerplate('jobs verkauf')).toBe('verkauf');
+  });
+
+  it('removes FR offre(s) (d) emploi(s) — full parity with the prior regex', () => {
+    for (const form of [
+      'offres d emploi cuisinier',
+      'offre d emploi cuisinier',
+      'offres emploi cuisinier',
+      'offre emploi cuisinier',
+      'offres d emplois cuisinier',
+      'offres emplois cuisinier',
+      'recherche emploi cuisinier',
+    ]) {
+      expect(stripSearchQueryBoilerplate(form), `not stripped: "${form}"`).toBe('cuisinier');
+    }
+  });
+
+  it('leaves a non-boilerplate term untouched (matching path stays intact)', () => {
+    expect(stripSearchQueryBoilerplate('tecnico data center')).toBe('tecnico data center');
+    expect(stripSearchQueryBoilerplate('responsabile neurologia')).toBe('responsabile neurologia');
   });
 });
 

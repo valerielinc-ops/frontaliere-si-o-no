@@ -63,6 +63,7 @@ import {
 import {
   getJobBoardSectionSlug,
   getSearchSlugPrefix,
+  stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
 import {
   AGGREGATE_KEY,
@@ -912,7 +913,14 @@ export function buildClusterContext(
     return null;
   }
 
-  const tokens = tokenizeQuery(sampleTerm);
+  // Match jobs on the boilerplate-stripped term so the static job set mirrors
+  // what the SPA shows after hydration (parseSearchSlugFilter strips the same
+  // leading "offerte lavoro" / "offres d emploi" prefix). Without this, the AND
+  // phase here matched [offerte, lavoro, <role>] → 0 and the OR-fill surfaced
+  // any job mentioning "offerta"/"lavoro" in its description, diluting the page
+  // with off-intent listings the hydrated board no longer shows. The displayed
+  // keyword/H1 (and thus the canonical slug) are intentionally left untouched.
+  const tokens = tokenizeQuery(stripSearchQueryBoilerplate(sampleTerm));
   profileRecord('bc:tokenize', __tTokenize);
   if (tokens.length === 0) return null;
 
@@ -939,7 +947,13 @@ export function buildClusterContext(
   // still carries ≥2 content tokens, require ≥2 token matches so a single
   // generic token can't pull in off-topic listings. Single-content-token
   // keywords keep minScore=1 so the legitimate city-drop recovery still works.
-  const keywordTokenCount = tokenizeQuery(keyword).length;
+  //
+  // Count CONTENT tokens only: strip the same leading boilerplate as the
+  // matching tokens above. Otherwise `offerte lavoro <role>` inflates the count
+  // by +2 ("offerte","lavoro") → minOrScore=2 even when the post-strip content
+  // is a single token, which would suppress the very city-drop recovery this
+  // floor means to preserve (and re-diverge the static page from the SPA).
+  const keywordTokenCount = tokenizeQuery(stripSearchQueryBoilerplate(keyword)).length;
   const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
 
   const __tMatch = profileStart();
