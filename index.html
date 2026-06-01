@@ -93,12 +93,15 @@
 
     <!-- Security Headers (meta-based, GitHub Pages doesn't support HTTP headers)
          CSP: upgrade-insecure-requests auto-upgrades any stray http:// asset to
-         https://; frame-ancestors 'self' blocks clickjacking (modern X-Frame-Options).
+         https:// — this directive DOES work via <meta>.
          Restrictive script-src/style-src deliberately omitted — would break
          Firebase, AdSense, PostHog, Clarity, GTM and Vite inline styles.
-         NOTE: HSTS cannot be set via meta (requires a real HTTP header, not
-         supported by GitHub Pages). Future: Cloudflare proxy / edge worker. -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; frame-ancestors 'self';">
+         NOTE: frame-ancestors (anti-clickjacking) and HSTS are IGNORED when
+         delivered via <meta> (spec: header-only) — they logged a console error
+         on every load and enforced nothing, so they are not set here. Real
+         anti-framing/HSTS needs an HTTP-header layer (future: Cloudflare proxy
+         / edge worker in front of GitHub Pages). -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
