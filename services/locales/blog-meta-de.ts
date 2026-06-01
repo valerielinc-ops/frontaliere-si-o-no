@@ -7935,6 +7935,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ammodernamento-fa-18-svizzera.title': 'Modernisierung F/A-18: Schweizer Flotte bis 2030 einsatzbereit',
     'blog.article.ammodernamento-fa-18-svizzera.excerpt': 'Die Flotte von 30 F/A-18C/D Flugzeugen wurde für den Einsatz bis in die frühen 2030er Jahre modernisiert, mit einer Investition von 450 Millionen Franken.',
     'blog.article.ammodernamento-fa-18-svizzera.imageAlt': 'Ein Schweizer F/A-18 Flugzeu fliegt bei Sonnenuntergang über den Luganersee',
+    'blog.article.mostra-piante-rare-comerio-2026.title': 'Seltener Pflanzenmarkt in Comerio: Ein Event für Naturliebhaber',
+    'blog.article.mostra-piante-rare-comerio-2026.excerpt': 'Am Samstag, den 6. und Sonntag, den 7. Juni 2026, findet auf dem Belvedere von Comerio die zehnte Ausgabe des Marktes für seltene und tropische Pflanzen statt.',
+    'blog.article.mostra-piante-rare-comerio-2026.imageAlt': 'Tropischer Pflanzenmarkt mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

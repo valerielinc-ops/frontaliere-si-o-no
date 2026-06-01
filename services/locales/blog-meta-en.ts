@@ -7936,6 +7936,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ammodernamento-fa-18-svizzera.title': 'F/A-18 upgrade: Swiss fleet ready until 2030',
     'blog.article.ammodernamento-fa-18-svizzera.excerpt': 'The fleet of 30 F/A-18C/D aircraft has been modernized to operate until the early 2030s, with an investment of 450 million francs.',
     'blog.article.ammodernamento-fa-18-svizzera.imageAlt': 'A Swiss F/A-18 aircraft flying over Lake Lugano at sunset',
+    'blog.article.mostra-piante-rare-comerio-2026.title': 'Rare plant fair in Comerio: a treat for nature lovers',
+    'blog.article.mostra-piante-rare-comerio-2026.excerpt': 'On Saturday 6 and Sunday 7 June 2026, the Belvedere in Comerio will host the tenth edition of the rare and tropical plant fair.',
+    'blog.article.mostra-piante-rare-comerio-2026.imageAlt': 'Tropical plant market with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -25184,4 +25184,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mostra-piante-rare-comerio-2026',
+ category: 'pratico',
+ date: '2026-06-01T19:53:47.551Z',
+ image: '/images/blog/mostra-piante-rare-comerio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
