@@ -3999,7 +3999,7 @@ interface CityCrossBorder {
   readonly cheaper: 'IT' | 'CH' | 'SAME';
 }
 
-interface DatasetSwissCheapest {
+interface DatasetSwissPriced {
   readonly sp95PriceEur?: number | null;
   readonly dieselPriceEur?: number | null;
 }
@@ -4011,16 +4011,37 @@ function collectCityCrossBorder(
   itPriceEur: number | null,
 ): CityCrossBorder | null {
   if (itPriceEur === null) return null;
+  const priceOf = (s: DatasetSwissPriced): number | null => {
+    const raw = fuel === 'diesel' ? s.dieselPriceEur : s.sp95PriceEur;
+    return typeof raw === 'number' && Number.isFinite(raw) ? raw : null;
+  };
   let chPriceEur: number | null = null;
   for (const row of dataset.municipalities ?? []) {
     if (!row.municipality) continue;
     if (row.municipality.toLowerCase() !== entry.matchKey) continue;
-    const cheapest = (row as unknown as { swiss?: { cheapestStation?: DatasetSwissCheapest } })
-      .swiss?.cheapestStation;
-    if (!cheapest) continue;
-    const raw = fuel === 'diesel' ? cheapest.dieselPriceEur : cheapest.sp95PriceEur;
-    if (typeof raw === 'number' && Number.isFinite(raw)) {
-      chPriceEur = chPriceEur === null ? raw : Math.min(chPriceEur, raw);
+    const swiss = (row as unknown as {
+      swiss?: {
+        cheapestStation?: DatasetSwissPriced;
+        cheapestDieselStation?: DatasetSwissPriced;
+        nearbyStations?: DatasetSwissPriced[];
+      };
+    }).swiss;
+    if (!swiss) continue;
+    // `cheapestStation`/`nearbyStations` are ranked + truncated by sp95
+    // (benzina), so the genuinely diesel-cheapest pump can be absent from
+    // them. The generator now persists `cheapestDieselStation` (diesel-ranked
+    // over the full candidate set) — prefer it for the diesel verdict. We
+    // still fold in nearbyStations + cheapestStation as a fallback for
+    // datasets emitted before that field existed; Math.min keeps the true
+    // minimum regardless of which sources are present.
+    const candidates: DatasetSwissPriced[] = [
+      ...(fuel === 'diesel' && swiss.cheapestDieselStation ? [swiss.cheapestDieselStation] : []),
+      ...(Array.isArray(swiss.nearbyStations) ? swiss.nearbyStations : []),
+      ...(swiss.cheapestStation ? [swiss.cheapestStation] : []),
+    ];
+    for (const c of candidates) {
+      const p = priceOf(c);
+      if (p !== null) chPriceEur = chPriceEur === null ? p : Math.min(chPriceEur, p);
     }
   }
   if (chPriceEur === null) return null;
