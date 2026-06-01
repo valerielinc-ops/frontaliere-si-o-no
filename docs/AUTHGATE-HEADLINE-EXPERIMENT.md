@@ -69,11 +69,16 @@ Exact copy tested, all 4 locales (source of truth: `CHALLENGER_HEADLINES` in
 | de | Weiter zum vollständigen Stellenangebot | Vollständiges Stellenangebot gratis freischalten | So bewirbst du dich für diese Stelle |
 | fr | Continuer pour voir l'annonce complète | Débloquez gratuitement l'annonce complète | Découvrez comment postuler à cette offre |
 
-**PostHog setup required to start the round:**
-1. Create feature flag `authgate-headline-v2` with three variant keys:
-   `control`, `free_unlock`, `apply_now` (even split, e.g. 34/33/33).
-2. Roll out to the same audience as v1 (gate viewers).
-3. Disable / archive `authgate-headline-v1` (round closed).
+**PostHog setup — DONE, round launched 2026-06-01:**
+1. ✅ Feature flag `authgate-headline-v2` created (PostHog flag id `196322`),
+   three variant keys `control` / `free_unlock` / `apply_now`, split 34/33/33,
+   rollout 100%.
+2. ✅ Same audience as v1 (gate viewers — no property filter, bucketed in
+   `services/authGateExperiment.ts`).
+3. ✅ `authgate-headline-v1` deactivated (round 1 closed).
+
+Bucketing is live from 2026-06-01; first attributed events accrue from then.
+Re-run `node scripts/query-authgate-experiment.mjs` to read the round-2 arms.
 
 **Calling the round (when to stop):**
 - Wait for ≥ ~1500–2000 attributed persons per arm (round 1 reached
