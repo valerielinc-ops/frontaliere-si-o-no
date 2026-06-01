@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-05-31T21:54:41.448Z",
+  "assembledAt": "2026-06-01T14:20:30.741Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-b351d51b46e0",
@@ -43,7 +43,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Montana_j_3885730",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:39.722Z",
+      "crawledAt": "2026-06-01T14:20:28.616Z",
       "previousSlugs": [
         "mitarbeiter-in-front-office-hotel-montana-davos-klosters-bergbahnen-davos",
         "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos",
@@ -73,7 +73,7 @@
     },
     {
       "id": "davos-klosters-bergbahnen-1cccd6bd8eee",
-      "slug": "personale-nella-casa-dell-hotel-joseph-davos-klosters-bergbahnen-ag-davos",
+      "slug": "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "it": "collaboratore-trice-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-ag-davos",
         "en": "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
@@ -112,19 +112,22 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Joseph-s-House_j_2808394",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:39.476Z",
+      "crawledAt": "2026-06-01T14:20:28.324Z",
       "previousSlugs": [
-        "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos"
+        "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
+        "personale-nella-casa-dell-hotel-joseph-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos"
+          "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos",
+          "personale-nella-casa-dell-hotel-joseph-davos-klosters-bergbahnen-ag-davos"
         ],
         "fr": [
           "mitarbeiter-in-front-office-hotel-joseph-s-house-davos-klosters-bergbahnen-davos"
         ]
       },
       "firstSeenAt": "2026-05-28T12:20:51.529Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -182,7 +185,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Bolgenhof_j_2652066",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:39.226Z",
+      "crawledAt": "2026-06-01T14:20:28.043Z",
       "previousSlugs": [
         "mitarbeiter-in-front-office-bolgenhof-davos-klosters-bergbahnen-davos",
         "personale-in-ufficio-anteriore-bolgenhof-davos-klosters-bergbahnen-ag-davos"
@@ -197,6 +200,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:20:51.220Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -254,7 +258,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:38.997Z",
+      "crawledAt": "2026-06-01T14:20:27.738Z",
       "previousSlugs": [
         "associate-front-office-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-front-office-davos-klosters-bergbahnen-ag-davos",
@@ -337,7 +341,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:38.760Z",
+      "crawledAt": "2026-06-01T14:20:27.455Z",
       "previousSlugs": [
         "mitarbeiter-in-booking-office-davos-klosters-bergbahnen-davos"
       ],
@@ -350,6 +354,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:20:50.604Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -368,7 +373,7 @@
     },
     {
       "id": "davos-klosters-bergbahnen-905031e06da3",
-      "slug": "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos",
+      "slug": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "it": "collaboratore-trice-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
         "en": "associate-bahnanlagen-davos-klosters-bergbahnen-ag-davos",
@@ -407,9 +412,10 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bahnanlagen_j_3022544",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:38.506Z",
+      "crawledAt": "2026-06-01T14:20:27.175Z",
       "previousSlugs": [
         "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
+        "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos",
         "staff-in-railway-systems-davos-klosters-bergbahnen-ag-davos",
         "collaboratore-trice-it-davos-klosters-bergbahnen-ag-davos",
         "associate-it-davos-klosters-bergbahnen-ag-davos",
@@ -422,7 +428,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos"
+          "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
+          "personale-nei-sistemi-ferroviari-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "mitarbeiter-in-bahnanlagen-davos-klosters-bergbahnen-davos",
@@ -451,7 +458,7 @@
     },
     {
       "id": "davos-klosters-bergbahnen-e3676e5fd118",
-      "slug": "responsabile-manutenzione-e-infrastrutture-edilizia-davos-klosters-bergbahnen-ag-davos",
+      "slug": "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "it": "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
         "en": "head-of-building-maintenance-infrastructure-davos-klosters-bergbahnen-ag-davos",
@@ -490,14 +497,16 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:38.260Z",
+      "crawledAt": "2026-06-01T14:20:26.907Z",
       "previousSlugs": [
         "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos",
+        "responsabile-manutenzione-e-infrastrutture-edilizia-davos-klosters-bergbahnen-ag-davos",
         "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos"
+          "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos",
+          "responsabile-manutenzione-e-infrastrutture-edilizia-davos-klosters-bergbahnen-ag-davos"
         ],
         "en": [
           "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
@@ -567,7 +576,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3024838",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:38.013Z",
+      "crawledAt": "2026-06-01T14:20:26.615Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos",
         "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos",
@@ -586,6 +595,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:32:55.604Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -643,7 +653,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T21:54:37.762Z",
+      "crawledAt": "2026-06-01T14:20:26.320Z",
       "previousSlugs": [
         "betriebselektriker-in-davos-klosters-bergbahnen-ag-davos",
         "betriebselektriker-in-davos-klosters-bergbahnen-davos"
