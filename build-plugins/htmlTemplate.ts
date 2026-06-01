@@ -18,16 +18,17 @@ import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDI
  *  - Referrer-Policy: limits referrer info leaked to third parties.
  *  - Permissions-Policy: disables sensor APIs we don't use.
  *  - Content-Security-Policy: `upgrade-insecure-requests` auto-upgrades any
- *    stray http:// asset to https:// + `frame-ancestors 'self'` blocks
- *    clickjacking (modern replacement for X-Frame-Options).
- *  NOTE: HSTS cannot be set via meta tag — requires a real HTTP header,
- *  not supported by GitHub Pages. Future: Cloudflare proxy / edge worker.
+ *    stray http:// asset to https:// (this directive works via <meta>).
+ *  NOTE: frame-ancestors (anti-clickjacking) and HSTS are IGNORED when set via
+ *  <meta> (spec: header-only) — they logged a console error on every page load
+ *  and enforced nothing, so they are omitted. Real anti-framing/HSTS needs an
+ *  HTTP-header layer (future: Cloudflare proxy / edge worker).
  *  Restrictive script-src/style-src deliberately omitted — would break
  *  Firebase, AdSense, PostHog, Clarity, GTM and Vite inline styles.
  */
 export const HEAD_PREFIX = `<meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; frame-ancestors 'self';">
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests;">
  <meta http-equiv="X-Content-Type-Options" content="nosniff">
  <meta name="referrer" content="strict-origin-when-cross-origin">
  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">

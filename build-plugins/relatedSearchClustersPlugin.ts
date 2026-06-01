@@ -684,7 +684,7 @@ class TokenIndex {
    * corpus-order tie breaks. The page only renders MAX_JOBS_PER_PAGE jobs, so
    * avoid materializing/sorting the full match universe for every candidate.
    */
-  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number): RawJob[] {
+  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore = 1): RawJob[] {
     const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
     profileRecord('bc:mj-postings-batch', __tPostings);
@@ -702,7 +702,7 @@ class TokenIndex {
     profileRecord('bc:mj-and', __tAnd);
     if (matchingIdx.length < maxJobs) {
       const __tOr = profileStart();
-      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs);
+      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs, minOrScore);
       profileRecord('bc:mj-or', __tOr);
     }
 
@@ -815,6 +815,7 @@ class TokenIndex {
     fullScore: number,
     out: number[],
     maxJobs: number,
+    minScore: number,
   ): void {
     const scores = this.scratchScores;
     const touched = this.touchedIdx;
@@ -834,7 +835,14 @@ class TokenIndex {
     // the sort variant added +11s across 161,542 OR-merge calls vs the
     // straight scan. Keep the scan; the scratchScores typed array is
     // cache-friendly and bounded by jobs.length (5819).
-    for (let score = fullScore - 1; score >= 1 && out.length < maxJobs; score--) {
+    // `minScore` is the relevance floor: OR-fill only appends jobs matching at
+    // least this many query tokens. For multi-token *content* queries it is 2,
+    // so a job matching only the generic role word ("responsabile") but not the
+    // domain word ("neurologia") is no longer pulled in — that single-token
+    // OR-fill is what flooded "Responsabile Neurologia" with Chef de Rang / Spa
+    // / Vendite listings. For single-content-token queries (e.g. "koch davos",
+    // where the city token is droppable) it stays 1 to preserve recovery.
+    for (let score = fullScore - 1; score >= minScore && out.length < maxJobs; score--) {
       for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
         if (scores[idx] === score) out.push(idx);
       }
@@ -924,11 +932,27 @@ function buildClusterContext(
   // then selects only the first MAX_JOBS_PER_PAGE results in the same order as
   // the former full Map+sort path: AND matches in corpus order, then OR
   // matches by score desc with corpus-order tie breaks.
+  // Relevance floor for OR-fill. The recovery case the OR-fill exists for
+  // drops a *city* token ("koch davos" → surface "koch" jobs); the pollution
+  // case drops a *domain* token ("responsabile neurologia" → surface bare
+  // "responsabile" jobs). Distinguish via the city-stripped keyword: when it
+  // still carries ≥2 content tokens, require ≥2 token matches so a single
+  // generic token can't pull in off-topic listings. Single-content-token
+  // keywords keep minScore=1 so the legitimate city-drop recovery still works.
+  const keywordTokenCount = tokenizeQuery(keyword).length;
+  const minOrScore = keywordTokenCount >= 2 ? 2 : 1;
+
   const __tMatch = profileStart();
-  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE);
+  const matching = index.matchingJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore);
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
+  // Relevance guard: a multi-content-token query that ends up with zero jobs
+  // (no AND-core and nothing clears the ≥2 OR-floor) would otherwise emit a
+  // thin "0 offerte" doorway under MIN_MATCHING_JOBS=0. Suppress it — there is
+  // no honest, relevant page to serve. Single-token recovery pages are
+  // unaffected (they keep minOrScore=1 and surface their OR matches).
+  if (keywordTokenCount >= 2 && matching.length === 0) return null;
   // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
   // never negative). Kept as a literal expression of the floor so the
   // constant stays the single source of truth — flip it back to ≥1 here
@@ -1143,7 +1167,12 @@ interface ClusterChromeCopy {
   contextSummary: string;
   /** Region fallback when no city is detected (used for commuter copy). */
   regionFallback: string;
-  /** "Frontaliere region" — used inside H1 to differ from <title>. */
+  /**
+   * Region phrase appended to the H1 to differ from <title>. Only used on the
+   * non-city (Switzerland-aggregate) clusters — canonical `/cerca-lavoro-
+   * svizzera/…` whose job set is nation-wide — so it must read nation-wide
+   * ("in Svizzera"), not "in Ticino", to match the cross-canton listings.
+   */
   regionH1Suffix: string;
   /** Aria label for active filters group. */
   activeFiltersLabel: string;
@@ -1158,7 +1187,7 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
     filterChipPrefix: 'ricerca',
     contextSummary: 'Approfondimento: come funziona questa ricerca per i frontalieri',
     regionFallback: 'Ticino',
-    regionH1Suffix: 'in Ticino',
+    regionH1Suffix: 'in Svizzera',
     activeFiltersLabel: 'Filtri attivi',
     resultsCountLabel: (n) => `${n} ${n === 1 ? 'offerta trovata' : 'offerte trovate'}`,
   },
@@ -1168,7 +1197,7 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
     filterChipPrefix: 'search',
     contextSummary: 'More about this search for cross-border applicants',
     regionFallback: 'Ticino',
-    regionH1Suffix: 'in Ticino',
+    regionH1Suffix: 'across Switzerland',
     activeFiltersLabel: 'Active filters',
     resultsCountLabel: (n) => `${n} ${n === 1 ? 'job found' : 'jobs found'}`,
   },
@@ -1178,7 +1207,7 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
     filterChipPrefix: 'Suche',
     contextSummary: 'Mehr zu dieser Suche für Grenzgänger',
     regionFallback: 'Tessin',
-    regionH1Suffix: 'im Tessin',
+    regionH1Suffix: 'in der Schweiz',
     activeFiltersLabel: 'Aktive Filter',
     resultsCountLabel: (n) => `${n} ${n === 1 ? 'Stelle gefunden' : 'Stellen gefunden'}`,
   },
@@ -1188,7 +1217,7 @@ const CHROME_COPY: Record<Locale, ClusterChromeCopy> = {
     filterChipPrefix: 'recherche',
     contextSummary: 'En savoir plus sur cette recherche pour les frontaliers',
     regionFallback: 'Tessin',
-    regionH1Suffix: 'au Tessin',
+    regionH1Suffix: 'en Suisse',
     activeFiltersLabel: 'Filtres actifs',
     resultsCountLabel: (n) => `${n} ${n === 1 ? 'offre trouvée' : 'offres trouvées'}`,
   },
@@ -1390,6 +1419,9 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
         ctx.matchingJobs.length,
         ctx.topCompanies,
         topCities,
+        // City clusters are TI cities (Lugano, Mendrisio, …) → keep "in Ticino";
+        // non-city clusters are the Switzerland-aggregate canonical → "in Svizzera".
+        ctx.city ? 'ticino' : 'svizzera',
       );
 
   // AI-enriched FAQ block (when available). Rendered as <dl> for clarity;

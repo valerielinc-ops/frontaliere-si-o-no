@@ -535,6 +535,19 @@ describe('sanitizeJobTitle', () => {
     // The regex matches a 3+ letter word, slash, then 1-3 letters
     expect(sanitizeJobTitle('Maintenance/IT')).toBe('Maintenance IT');
   });
+
+  it('strips dangling gender-suffix slash remnants ("/-a", bare " /")', () => {
+    // Source titles like "Responsabile Neurologia /-a, 100%" leaked a bare " /"
+    // into the cluster term shown in <title>/H1/description. Clean it.
+    expect(sanitizeJobTitle('Responsabile Neurologia /-a, 100%')).toBe('Responsabile Neurologia, 100%');
+    expect(sanitizeJobTitle('Responsabile Neurologia /')).toBe('Responsabile Neurologia');
+    expect(sanitizeJobTitle('Infermiere /-in')).toBe('Infermiere');
+  });
+
+  it('leaves legitimate mid-token slashes intact', () => {
+    expect(sanitizeJobTitle('Disponibilità 24/7')).toBe('Disponibilità 24/7');
+    expect(sanitizeJobTitle('Manager (m/w/d)')).toBe('Manager (m/w/d)');
+  });
 });
 
 // ── cleanCanonicalItems ────────────────────────────────────────────────
