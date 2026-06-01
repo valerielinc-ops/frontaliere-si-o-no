@@ -132,7 +132,8 @@
       },
       "previousSlugs": [
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-        "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4"
+        "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern-tbkyw4",
+        "ufficiale-in-armor-e-sviluppo-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -525,7 +526,8 @@
       "previousSlugs": [
         "fachspezialist-in-hr-swiss-armed-forces-vtg-bern",
         "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
-        "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern"
+        "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern",
+        "specialista-in-hr-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -735,7 +737,7 @@
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "titleByLocale": {
         "de": "Rechenzentrum-Spezialist/-in IKT",
-        "it": "Rechenzentrum-Spezialist/-in IKT",
+        "it": "Specialista del Data Center/in ICT",
         "en": "Data center specialist/in ICT",
         "fr": "Spécialiste des centres de données/TIC"
       },
@@ -931,7 +933,8 @@
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
-        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1014,7 +1017,8 @@
         "your-profession-should-offer-more-become-a-professional-assistant-swiss-armed-forces-vtg-bern",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-        "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern"
+        "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern",
+        "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1123,7 +1127,9 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "company-4hynmv",
@@ -1608,7 +1614,8 @@
       "previousSlugs": [
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern",
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o",
-        "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona"
+        "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona",
+        "squadre-e-quadri-di-tutti-i-livelli-nel-campo-della-costruzione-alta-bassa-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2290,7 +2297,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
         "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
-        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona"
+        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona",
+        "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
