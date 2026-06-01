@@ -373,6 +373,16 @@ function buildDataset({
       .sort((a, b) => a.sp95PriceChf - b.sp95PriceChf);
 
     const cheapestSwiss = swissCandidates[0] || null;
+    // `cheapestStation`/`nearbyStations` are ranked + truncated by sp95
+    // (benzina). For an accurate diesel verdict we must rank the FULL 20km
+    // candidate set by diesel and persist the genuinely diesel-cheapest pump,
+    // since it can fall outside the sp95 top-5.
+    const dieselCandidates = swissCandidates.filter(
+      (station) => typeof station.dieselPriceEur === 'number' && Number.isFinite(station.dieselPriceEur),
+    );
+    const cheapestDieselSwiss = dieselCandidates.length
+      ? dieselCandidates.reduce((min, station) => (station.dieselPriceEur < min.dieselPriceEur ? station : min))
+      : null;
     let cheaperCountry = 'NO_DATA';
     let priceDeltaEur = null;
     let saving50LEur = null;
@@ -398,6 +408,10 @@ function buildDataset({
         nearbyStations: swissCandidates.slice(0, TOP_SWISS_OPTIONS),
         minPriceChf: cheapestSwiss ? round(cheapestSwiss.sp95PriceChf) : null,
         minPriceEur: cheapestSwiss ? round(cheapestSwiss.sp95PriceEur) : null,
+        // Diesel-ranked over the full candidate set (not sp95-truncated).
+        cheapestDieselStation: cheapestDieselSwiss,
+        minDieselPriceChf: cheapestDieselSwiss ? round(cheapestDieselSwiss.dieselPriceChf) : null,
+        minDieselPriceEur: cheapestDieselSwiss ? round(cheapestDieselSwiss.dieselPriceEur) : null,
       },
       comparison: {
         cheaperCountry,
