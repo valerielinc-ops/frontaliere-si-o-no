@@ -4020,18 +4020,25 @@ function collectCityCrossBorder(
     if (!row.municipality) continue;
     if (row.municipality.toLowerCase() !== entry.matchKey) continue;
     const swiss = (row as unknown as {
-      swiss?: { cheapestStation?: DatasetSwissPriced; nearbyStations?: DatasetSwissPriced[] };
+      swiss?: {
+        cheapestStation?: DatasetSwissPriced;
+        cheapestDieselStation?: DatasetSwissPriced;
+        nearbyStations?: DatasetSwissPriced[];
+      };
     }).swiss;
     if (!swiss) continue;
-    // `cheapestStation` is ranked by sp95 (benzina), so for the diesel verdict
-    // we must scan every nearby station and take the true minimum diesel
-    // price — not the diesel price of the benzina-cheapest pump. Fall back to
-    // cheapestStation when the per-station list isn't present.
-    const candidates: DatasetSwissPriced[] = Array.isArray(swiss.nearbyStations) && swiss.nearbyStations.length > 0
-      ? swiss.nearbyStations
-      : swiss.cheapestStation
-        ? [swiss.cheapestStation]
-        : [];
+    // `cheapestStation`/`nearbyStations` are ranked + truncated by sp95
+    // (benzina), so the genuinely diesel-cheapest pump can be absent from
+    // them. The generator now persists `cheapestDieselStation` (diesel-ranked
+    // over the full candidate set) — prefer it for the diesel verdict. We
+    // still fold in nearbyStations + cheapestStation as a fallback for
+    // datasets emitted before that field existed; Math.min keeps the true
+    // minimum regardless of which sources are present.
+    const candidates: DatasetSwissPriced[] = [
+      ...(fuel === 'diesel' && swiss.cheapestDieselStation ? [swiss.cheapestDieselStation] : []),
+      ...(Array.isArray(swiss.nearbyStations) ? swiss.nearbyStations : []),
+      ...(swiss.cheapestStation ? [swiss.cheapestStation] : []),
+    ];
     for (const c of candidates) {
       const p = priceOf(c);
       if (p !== null) chPriceEur = chPriceEur === null ? p : Math.min(chPriceEur, p);
