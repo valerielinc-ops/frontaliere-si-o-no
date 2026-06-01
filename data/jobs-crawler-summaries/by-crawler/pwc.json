@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-31T23:20:25.811Z",
-  "total": 146,
+  "generatedAt": "2026-06-01T15:50:16.435Z",
+  "total": 145,
   "newCount": 1,
-  "updatedCount": 104,
-  "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 2313,
-  "avgDurationMs": 2313,
+  "updatedCount": 102,
+  "removedCount": 1,
+  "unchangedCount": 10,
+  "durationMs": 2366,
+  "avgDurationMs": 2366,
   "durationHistory": [
-    2313
+    2366
   ],
   "newJobs": [
     {
@@ -67,12 +67,17 @@
       "validThrough": "2026-06-27",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-311c28947999",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -97,12 +102,17 @@
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-c8d370000ed7",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -127,12 +137,17 @@
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-8d4e51c20519",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -493,42 +508,6 @@
       }
     },
     {
-      "title": "Manager / Senior Manager - Financial Risk Management Consulting",
-      "slug": "manager-senior-manager-financial-risk-management-consulting-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-financial-risk-management-consulting/0a10aa44-8e42-4b07-a1a4-b74a6f87e0dc",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/FY26---ADV---ADV-Risk---Reg---Zrich---Senior-Manager---Start-01062026_729363WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-19",
-      "validThrough": "2036-05-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-aace2d899aef",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-19T12:26:40.275Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Manager GBS",
       "slug": "manager-gbs-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/manager-gbs/c6f7f73e-5f52-44cc-bdd0-056458650fff",
@@ -729,12 +708,17 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-3aa7523d85ec",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-08T10:28:56.294Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -1096,9 +1080,82 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Associate / Senior Associate – Assurance, Audit Proposal Manager (German & English)",
+      "slug": "associate-senior-associate-assurance-audit-proposal-manager-german-english-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-assurance-audit-proposal-manager-german-english/469b42d6-7fcf-4521-b9bf-ad82be469cd1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/ASR-AH-DE-speaking-resource_725770WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-30",
+      "validThrough": "2036-04-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-ea39feda7301",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-30T22:21:46.118Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Manager / Senior Manager - Financial Risk Management Consulting",
+      "slug": "manager-senior-manager-consulenza-in-gestione-del-rischio-finanziario-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-financial-risk-management-consulting/0a10aa44-8e42-4b07-a1a4-b74a6f87e0dc",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/FY26---ADV---ADV-Risk---Reg---Zrich---Senior-Manager---Start-01062026_729363WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-19",
+      "validThrough": "2036-05-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-aace2d899aef",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-05-19T12:26:40.275Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate – IFRS & US GAAP Audit (Asset Management)",
@@ -1245,6 +1302,42 @@
       }
     },
     {
+      "title": "Director in Quality & Regulatory Management - Advisory Services",
+      "slug": "director-in-quality-regulatory-management-advisory-services-pwc-basel",
+      "url": "https://jobs.pwc.ch/job-vacancies/director-in-quality-regulatory-management-advisory-services/9cef594b-b3b6-4cbc-b9a8-e4eaaddd8a45",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Director-in-Quality---Regulatory-Management---Advisory-Services_710305WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Basel",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "canton": "BS",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-03-03",
+      "validThrough": "2036-02-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-14357198dc0e",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "4001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
       "slug": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-geneva",
       "url": "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a",
@@ -1272,6 +1365,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1411,17 +1505,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-82014fee6d7e",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 120500,
       "currency": "CHF",
       "postalCode": "1201",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
