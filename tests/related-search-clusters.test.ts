@@ -28,6 +28,7 @@ import {
   pickBestRelatedSearchForPrompt,
   DEFAULT_CANTON_DISPLAY,
 } from '@/services/relatedSearchClusters';
+import { renderSearchQueryIntro } from '../build-plugins/shared/jobBoardCommuterContext';
 
 // ── Slug round-trip ─────────────────────────────────────────────────────
 
@@ -547,6 +548,9 @@ describe('sanitizeJobTitle', () => {
   it('leaves legitimate mid-token slashes intact', () => {
     expect(sanitizeJobTitle('Disponibilità 24/7')).toBe('Disponibilità 24/7');
     expect(sanitizeJobTitle('Manager (m/w/d)')).toBe('Manager (m/w/d)');
+    // A real " / " separator (not a dangling gender remnant) must survive —
+    // the strip only fires at end / before punctuation.
+    expect(sanitizeJobTitle('Manager / Director')).toBe('Manager / Director');
   });
 });
 
@@ -598,5 +602,41 @@ describe('RELATED_SEARCH_STOPWORDS — sentinel entries', () => {
   it('contains documented domain-noise words', () => {
     expect(RELATED_SEARCH_STOPWORDS.has('clients')).toBe(true);
     expect(RELATED_SEARCH_STOPWORDS.has('team')).toBe(true);
+  });
+});
+
+// ── renderSearchQueryIntro — geo scope (honest region label) ──────────────
+
+describe('renderSearchQueryIntro — geo scope', () => {
+  // The intro picks one of 3 opening angles via a stable hash; only angles 0/1
+  // carry a region phrase, so assert angle-independent invariants across a
+  // fixed query set (hash is pure → deterministic for these exact inputs).
+  const QUERIES = ['Responsabile Neurologia', 'Infermiere', 'Cuoco', 'Ingegnere Civile', 'Magazziniere', 'Operaio Edile'];
+  const render = (q: string, scope: 'ticino' | 'svizzera') =>
+    renderSearchQueryIntro('it', q, 3, ['EOC'], ['Lugano'], scope);
+
+  it('never mislabels the scope on any angle', () => {
+    for (const q of QUERIES) {
+      expect(render(q, 'svizzera')).not.toContain('in Ticino');
+      expect(render(q, 'ticino')).not.toContain('in Svizzera');
+    }
+  });
+
+  it('emits the national label on region-bearing angles', () => {
+    expect(QUERIES.some((q) => render(q, 'svizzera').includes('in Svizzera'))).toBe(true);
+    expect(QUERIES.some((q) => render(q, 'ticino').includes('in Ticino'))).toBe(true);
+  });
+
+  it('defaults to ticino scope (other callers unchanged)', () => {
+    for (const q of QUERIES) {
+      expect(renderSearchQueryIntro('it', q, 3, ['EOC'], ['Lugano'])).toBe(render(q, 'ticino'));
+    }
+  });
+
+  it('localizes the national label per locale on region-bearing angles', () => {
+    const someEn = QUERIES.some((q) => renderSearchQueryIntro('en', q, 3, ['EOC'], ['Lugano'], 'svizzera').includes('Switzerland'));
+    const someDe = QUERIES.some((q) => renderSearchQueryIntro('de', q, 3, ['EOC'], ['Lugano'], 'svizzera').includes('in der Schweiz'));
+    const someFr = QUERIES.some((q) => renderSearchQueryIntro('fr', q, 3, ['EOC'], ['Lugano'], 'svizzera').includes('en Suisse'));
+    expect(someEn && someDe && someFr).toBe(true);
   });
 });

@@ -947,12 +947,13 @@ function buildClusterContext(
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
-  // Relevance guard: a multi-content-token query that ends up with zero jobs
-  // (no AND-core and nothing clears the ≥2 OR-floor) would otherwise emit a
-  // thin "0 offerte" doorway under MIN_MATCHING_JOBS=0. Suppress it — there is
-  // no honest, relevant page to serve. Single-token recovery pages are
-  // unaffected (they keep minOrScore=1 and surface their OR matches).
-  if (keywordTokenCount >= 2 && matching.length === 0) return null;
+  // NB: deliberately NO zero-match suppression here. A multi-content-token
+  // query that now clears to zero jobs (the ≥2 OR-floor drops the single-token
+  // pollution) keeps emitting as the existing n=0 soft-landing (200 + alert
+  // CTA + intro prose), NOT a 404. Suppressing it (return null) would de-index
+  // already-indexed `/cerca-lavoro-svizzera/ricerca-…/` URLs without a
+  // 410/redirect — flagged 🔴 in PR review. The relevance win is that those
+  // pages no longer list off-topic jobs, not that they vanish from the index.
   // Note: with MIN_MATCHING_JOBS=0 the line above is a no-op (length is
   // never negative). Kept as a literal expression of the floor so the
   // constant stays the single source of truth — flip it back to ≥1 here
