@@ -170,6 +170,12 @@ function sanitizeJobTitle(raw) {
     .trim();
   return decoded
     .replace(/\b([A-Za-zÀ-ÖØ-öø-ÿ]{3,})\/([A-Za-zÀ-ÖØ-öø-ÿ]{1,3})\b/g, '$1 $2')
+    // Mirror of services/relatedSearchClusters.ts: strip dangling " /-a" / " /"
+    // gender remnants only at end / before punctuation (leaves "Manager /
+    // Director", "TCP/IP", "24/7", "(m/w/d)" intact).
+    .replace(/\s+\/-?[a-zà-ÿ]{0,3}(?=[,;.)]|$)/gi, '')
+    .replace(/\/-[a-zà-ÿ]{1,3}\b/gi, '')
+    .replace(/\s{2,}/g, ' ')
     .replace(/\s+,/g, ',')
     .trim() || decoded;
 }

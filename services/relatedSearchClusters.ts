@@ -20,6 +20,14 @@ export function sanitizeJobTitle(raw: string): string {
 
  const normalizedInclusive = decoded
  .replace(/\b([A-Za-zÀ-ÖØ-öø-ÿ]{3,})\/([A-Za-zÀ-ÖØ-öø-ÿ]{1,3})\b/g, '$1 $2')
+ // Strip dangling gender-suffix remnants the inclusive rule above can't reach:
+ // " /-a", " /-in", or a bare " /" left when the slashed gender form
+ // (e.g. "Responsabile Neurologia /-a") was split off. Only fires at end or
+ // before punctuation, so a legit " / " separator ("Manager / Director") and
+ // mid-token slashes ("TCP/IP", "24/7", "(m/w/d)") are untouched.
+ .replace(/\s+\/-?[a-zà-ÿ]{0,3}(?=[,;.)]|$)/gi, '')
+ .replace(/\/-[a-zà-ÿ]{1,3}\b/gi, '')
+ .replace(/\s{2,}/g, ' ')
  .replace(/\s+,/g, ',')
  .trim();
 
