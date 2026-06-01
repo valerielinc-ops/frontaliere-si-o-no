@@ -20061,9 +20061,6 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-bern",
-        "specialiste-en-sante-efz-60-100-tertianum-zizers",
-        "operatore-socio-sanitario-efc-40-100-tertianum-gampelen",
         "operatore-socio-sanitario-80-tertianum-wattwil",
         "specialista-della-salute-efz-60-100-tertianum-zizers",
         "healthcare-professional-efz-60-100-tertianum-zizers",
@@ -20078,7 +20075,12 @@
         "healthcare-assistant-full-time-60-100-tertianum-berg",
         "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-berg",
         "assistant-en-soins-de-sante-a-temps-plein-60-100-tertianum-berg",
-        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-solothurn"
+        "fachfrau-fachmann-gesundheit-cfc-40-100-tertianum-solothurn",
+        "specialista-della-salute-efz-40-100-tertianum-solothurn",
+        "healthcare-specialist-efz-40-100-tertianum-solothurn",
+        "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-solothurn",
+        "specialiste-en-sante-efz-40-100-tertianum-solothurn",
+        "fachfrau-fachmann-gesundheit-cfc-60-100-tertianum-zizers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20087,18 +20089,23 @@
           "operatore-socio-sanitario-efc-40-100-tertianum-gampelen",
           "operatore-socio-sanitario-80-tertianum-wattwil",
           "specialista-della-salute-efz-60-100-tertianum-zizers",
-          "healthcare-professional-efz-60-100-tertianum-zizers"
+          "healthcare-professional-efz-60-100-tertianum-zizers",
+          "specialista-della-salute-efz-40-100-tertianum-solothurn",
+          "specialiste-en-sante-efz-40-100-tertianum-solothurn"
         ],
         "en": [
           "healthcare-assistant-efz-40-100-tertianum-gampelen",
           "assistant-en-soins-de-sante-cfc-40-100-tertianum-gampelen",
           "healthcare-assistant-80-tertianum-wattwil",
-          "assistant-en-soins-de-sante-80-tertianum-wattwil"
+          "assistant-en-soins-de-sante-80-tertianum-wattwil",
+          "healthcare-specialist-efz-40-100-tertianum-solothurn"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-gampelen",
           "fachfrau-fachmann-gesundheit-efz-60-100-tertianum-zizers",
-          "fachfrau-fachmann-gesundheit-efz-80-tertianum-wattwil"
+          "fachfrau-fachmann-gesundheit-efz-80-tertianum-wattwil",
+          "fachfrau-fachmann-gesundheit-efz-40-100-tertianum-solothurn",
+          "fachfrau-fachmann-gesundheit-cfc-60-100-tertianum-zizers"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:29.784Z",
