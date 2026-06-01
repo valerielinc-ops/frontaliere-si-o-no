@@ -58,6 +58,15 @@ async function runCleanup(slicePath: string, expiredDir: string): Promise<RunRes
   });
 }
 
+// Recency relative to "now" so fixtures never age past cleanup-jobs.mjs's
+// 60-day stale-prune, which runs BEFORE slug-dedup. Absolute dates were a
+// time-bomb: once past the 60-day window the older jobs were pruned as stale
+// instead of surfacing as slug collisions, so the audit-count line went red on
+// a pure calendar boundary. Keep relative ordering — the newest crawl wins.
+function daysAgo(n: number): string {
+  return new Date(Date.now() - n * 86_400_000).toISOString();
+}
+
 describe('cleanup-jobs slice slug dedup audit logging', () => {
   it('logs a clear count line listing within-slice slug collisions', async () => {
     const dir = makeTempDir();
@@ -79,7 +88,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
           title: 'Engineer Lugano (older)',
           company: 'TestCo',
           location: 'Lugano',
-          crawledAt: '2026-04-01T00:00:00.000Z',
+          crawledAt: daysAgo(10),
         },
         {
           id: 'job-2-newest',
@@ -88,7 +97,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
           title: 'Engineer Lugano (newest)',
           company: 'TestCo',
           location: 'Lugano',
-          crawledAt: '2026-04-05T00:00:00.000Z',
+          crawledAt: daysAgo(5),
         },
         {
           id: 'job-3-mid',
@@ -97,7 +106,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
           title: 'Engineer Lugano (middle)',
           company: 'TestCo',
           location: 'Lugano',
-          crawledAt: '2026-04-03T00:00:00.000Z',
+          crawledAt: daysAgo(8),
         },
         {
           id: 'job-4-unique',
@@ -106,7 +115,7 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
           title: 'Designer Bellinzona',
           company: 'TestCo',
           location: 'Bellinzona',
-          crawledAt: '2026-04-04T00:00:00.000Z',
+          crawledAt: daysAgo(7),
         },
       ],
     };
