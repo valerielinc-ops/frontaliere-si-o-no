@@ -140,6 +140,16 @@ function buildJob(overrides: Partial<CleanupSliceJob> & Pick<CleanupSliceJob, 'i
   };
 }
 
+// Recency relative to "now" so fixtures never age past cleanup-jobs.mjs's
+// 60-day stale-prune, which runs BEFORE slug-dedup. Absolute dates here were a
+// time-bomb: once they crossed the 60-day window the older job was pruned as
+// stale instead of archived as a dedup-loser, so the archive assertions went
+// red on a pure calendar boundary (last green 2026-05-30, red 2026-06-01).
+// Keep the relative ordering — the winner is the most recent crawl.
+function daysAgo(n: number): string {
+  return new Date(Date.now() - n * 86_400_000).toISOString();
+}
+
 describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', () => {
   it('keeps a job when the canonical URL is dead but applyUrl is live', async () => {
     const server = http.createServer((req, res) => {
@@ -200,13 +210,13 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         id: 'job-loser-001',
         slug: 'engineer-lugano',
         title: 'Engineer Lugano (older)',
-        crawledAt: '2026-04-01T00:00:00.000Z',
+        crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'job-winner-002',
         slug: 'engineer-lugano',
         title: 'Engineer Lugano (winner)',
-        crawledAt: '2026-04-05T00:00:00.000Z',
+        crawledAt: daysAgo(5),
       }),
       buildJob({
         id: 'job-unique-003',
@@ -214,7 +224,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         title: 'Designer Bellinzona',
         location: 'Bellinzona',
         addressLocality: 'Bellinzona',
-        crawledAt: '2026-04-04T00:00:00.000Z',
+        crawledAt: daysAgo(7),
       }),
     ];
 
@@ -275,13 +285,13 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         id: 'job-A',
         slug: 'role-shared',
         title: 'Role A',
-        crawledAt: '2026-04-01T00:00:00.000Z',
+        crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'job-B',
         slug: 'role-shared',
         title: 'Role B',
-        crawledAt: '2026-04-05T00:00:00.000Z',
+        crawledAt: daysAgo(5),
       }),
     ];
 
@@ -316,7 +326,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
       id: 'job-A',
       slug: 'role-shared',
       title: 'Role A',
-      crawledAt: '2026-04-01T00:00:00.000Z',
+      crawledAt: daysAgo(10),
     }));
     fs.writeFileSync(slicePath, JSON.stringify({ crawlerKey, jobs: keptJobs }, null, 2), 'utf-8');
 
@@ -341,7 +351,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
           id: 'job-loser',
           slug: 'lead-engineer',
           title: 'Lead Engineer (loser)',
-          crawledAt: '2026-04-01T00:00:00.000Z',
+          crawledAt: daysAgo(10),
         }),
         previousSlugs: ['legacy-lead-engineer-2025'],
       },
@@ -349,7 +359,7 @@ describe('cleanup-jobs slice mode — archives within-slice slug-dedup losers', 
         id: 'job-winner',
         slug: 'lead-engineer',
         title: 'Lead Engineer (winner)',
-        crawledAt: '2026-04-05T00:00:00.000Z',
+        crawledAt: daysAgo(5),
       }),
     ];
 
@@ -390,13 +400,13 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
         id: 'std-loser',
         slug: 'data-scientist-lugano',
         title: 'Data Scientist Lugano (loser)',
-        crawledAt: '2026-04-01T00:00:00.000Z',
+        crawledAt: daysAgo(10),
       }),
       buildJob({
         id: 'std-winner',
         slug: 'data-scientist-lugano',
         title: 'Data Scientist Lugano (winner)',
-        crawledAt: '2026-04-05T00:00:00.000Z',
+        crawledAt: daysAgo(5),
       }),
       buildJob({
         id: 'std-unique',
@@ -404,7 +414,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
         title: 'Designer Bellinzona',
         location: 'Bellinzona',
         addressLocality: 'Bellinzona',
-        crawledAt: '2026-04-04T00:00:00.000Z',
+        crawledAt: daysAgo(7),
       }),
     ];
 
