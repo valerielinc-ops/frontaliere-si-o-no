@@ -85,16 +85,58 @@ export function buildSearchSlug(term: string, locale: Locale): string {
 // intent ("offerte di lavoro cuoco", "lavoro infermiere", "stellenangebote
 // koch"). These words never occur in job titles, so leaving them in the
 // seeded query makes the strict AND-match impossible to satisfy and forces
-// every such slug-landing into the "Nessun risultato esatto" fuzzy fallback.
-// Strip only a single leading boilerplate phrase, and only when meaningful
-// query text remains after it.
-const SEARCH_QUERY_BOILERPLATE_PREFIX =
- // Slugs strip apostrophes to hyphens → spaces, so the canonical FR
- // "offres d'emploi" reaches us as "offres d emploi": match an optional bare
- // "d" token, not an apostrophe.
- /^(?:offerte\s+(?:di\s+)?lavoro|posti\s+di\s+lavoro|lavoro|offerte|jobs?|stellenangebote|stellen|offres?\s+(?:d\s+)?emplois?|emplois?|recherche\s+emploi)\s+/i;
+// every such slug-landing into the "Nessun risultato esatto" fuzzy fallback —
+// and, on the static cluster pages, into the same OR-fallback dilution. The
+// same strip is therefore applied both here (SPA query seed) and at build time
+// (build-plugins/relatedSearchClustersPlugin.ts, related-search matching) so
+// the static and hydrated job sets stay in lockstep.
+//
+// Single source of truth: the phrase list below derives BOTH the strip regex
+// and the token allow-list asserted by the cluster guard test
+// (tests/seo/related-search-clusters-emitted.test.ts). Multi-word phrases come
+// first so the alternation strips the longest leading match. Slugs hyphenate
+// apostrophes, so the canonical FR "offres d'emploi" arrives as "offres d
+// emploi" — listed verbatim with a bare "d" token.
+export const SEARCH_QUERY_BOILERPLATE_PHRASES: readonly string[] = [
+ 'offerte di lavoro',
+ 'posti di lavoro',
+ 'offerte lavoro',
+ // FR: full parity with the prior /offres?\s+(?:d\s+)?emplois?/ — singular
+ // "offre", optional bare "d" (apostrophe hyphenated by slugs), plural
+ // "emplois". Longest forms first so the alternation strips the most.
+ 'offres d emplois',
+ 'offre d emplois',
+ 'offres d emploi',
+ 'offre d emploi',
+ 'offres emplois',
+ 'offre emplois',
+ 'offres emploi',
+ 'offre emploi',
+ 'recherche emploi',
+ 'stellenangebote',
+ 'stellen',
+ 'lavoro',
+ 'offerte',
+ 'jobs',
+ 'job',
+ 'emplois',
+ 'emploi',
+];
 
-function stripSearchQueryBoilerplate(query: string): string {
+// Every individual word that may legitimately be stripped as boilerplate.
+// The guard test asserts no slug-seeded query ever loses a word outside this
+// set, so an over-broad phrase (or a cluster term that genuinely starts with
+// one of these words) is caught instead of being silently truncated.
+export const SEARCH_QUERY_BOILERPLATE_TOKENS: ReadonlySet<string> = new Set(
+ SEARCH_QUERY_BOILERPLATE_PHRASES.flatMap((p) => p.split(' ')),
+);
+
+const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
+ `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
+ 'i',
+);
+
+export function stripSearchQueryBoilerplate(query: string): string {
  // Never empty the query: a slug that is *only* boilerplate (e.g.
  // /ricerca-lavoro/) keeps its original term so the box is not left blank.
  const stripped = query.replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '').trim();

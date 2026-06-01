@@ -29,6 +29,7 @@ import {
   parseSearchSlugFilter,
   getSearchSlugPrefix,
   getJobBoardSectionSlug,
+  SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '@/services/relatedSearchClusters';
 import type { Locale } from '@/services/i18n';
 
@@ -474,3 +475,99 @@ describe.skipIf(RUN_DIST_GATES && HAS_DIST && HAS_PAGES)(
     });
   },
 );
+
+// Data-driven boilerplate-strip invariant. Runs WITHOUT a dist build: it reads
+// the candidate corpus directly, so it gates every CI run rather than only
+// RUN_DIST_GATES builds.
+//
+// `parseSearchSlugFilter` strips a leading job-search boilerplate prefix
+// ("offerte lavoro", "offres d emploi", …) from the slug-seeded query so the
+// strict AND-match can succeed (see services/relatedSearchClusters.ts). The
+// risk this guard locks: the strip must NEVER silently drop a real content word
+// — only recognised boilerplate tokens. A slug like ricerca-offerte-lavoro-medico
+// must yield "medico" (3 boilerplate words removed), and a future over-broad
+// phrase, or a cluster term legitimately starting with a content word that the
+// pattern happens to match, is caught here instead of shipping a slug↔query
+// desync to thousands of indexed pages.
+//
+// NOTE: the "offerte speciali" → "speciali" case from #1045 is, by design,
+// indistinguishable from the intentional "offerte lavoro X" strip — "offerte"
+// is genuine boilerplate in this job-board corpus and no such non-job term is
+// emitted. This guard asserts the boundary that IS decidable: only allow-listed
+// tokens are ever removed.
+const CANDIDATES_PATH = resolve(__dirname, '..', '..', 'data', 'related-search-candidates.json');
+
+const SEARCH_PREFIXES = ['ricerca-', 'search-', 'suche-', 'recherche-'] as const;
+
+/** Reproduce parseSearchSlugFilter's pre-strip query (prefix removed, dashes → spaces). */
+function rawQueryFromSlug(slug: string): string | null {
+  const hit = SEARCH_PREFIXES.find((p) => slug.startsWith(p));
+  if (!hit) return null;
+  const rest = slug.slice(hit.length).trim();
+  if (!rest) return null;
+  let decoded = rest;
+  try {
+    decoded = decodeURIComponent(rest);
+  } catch {
+    /* keep raw */
+  }
+  return decoded.replace(/-/g, ' ').replace(/\s+/g, ' ').trim() || null;
+}
+
+describe('related-search boilerplate strip — corpus invariant (no dist build needed)', () => {
+  function loadCandidateSlugs(): string[] {
+    if (!existsSync(CANDIDATES_PATH)) return [];
+    const parsed: unknown = JSON.parse(readFileSync(CANDIDATES_PATH, 'utf8'));
+    const arr = Array.isArray(parsed)
+      ? parsed
+      : (parsed as { candidates?: unknown[] })?.candidates
+        ?? Object.values(parsed as Record<string, unknown>).find(Array.isArray) as unknown[]
+        ?? [];
+    const slugs = new Set<string>();
+    for (const c of arr) {
+      const slug = (c as { slug?: unknown })?.slug;
+      if (typeof slug === 'string' && slug) slugs.add(slug);
+    }
+    return [...slugs];
+  }
+
+  it('strips ONLY allow-listed boilerplate tokens — never a content word', () => {
+    const slugs = loadCandidateSlugs();
+    expect(slugs.length, 'no candidate slugs loaded from related-search-candidates.json').toBeGreaterThan(0);
+
+    const offenders: string[] = [];
+    let strippedCount = 0;
+    for (const slug of slugs) {
+      const raw = rawQueryFromSlug(slug);
+      if (raw === null) continue; // not a search slug
+      const parsed = parseSearchSlugFilter(slug);
+      // Every search slug must still seed a non-empty query (no blank box).
+      if (!parsed) {
+        offenders.push(`${slug} → null/empty query`);
+        continue;
+      }
+      if (parsed === raw) continue; // nothing stripped
+      strippedCount++;
+      // The strip only removes a LEADING prefix, so the result is a suffix.
+      if (!raw.endsWith(parsed)) {
+        offenders.push(`${slug} → "${parsed}" is not a trailing slice of "${raw}"`);
+        continue;
+      }
+      const removed = raw.slice(0, raw.length - parsed.length).trim();
+      const removedWords = removed.split(' ').filter(Boolean);
+      const bad = removedWords.filter((w) => !SEARCH_QUERY_BOILERPLATE_TOKENS.has(w.toLowerCase()));
+      if (bad.length > 0) {
+        offenders.push(`${slug} → removed non-boilerplate word(s) [${bad.join(', ')}] (raw="${raw}", parsed="${parsed}")`);
+      }
+    }
+
+    // Sanity: the IT "offerte lavoro …" corpus guarantees real strips happen,
+    // otherwise the assertion would pass vacuously.
+    expect(strippedCount, 'no slug was stripped — corpus or strip pattern changed unexpectedly').toBeGreaterThan(0);
+    expect(offenders, `boilerplate strip touched non-allow-listed words:\n${offenders.slice(0, 15).join('\n')}`).toEqual([]);
+  });
+
+  it('the reported addetto-a-cucina slug seeds the real intent', () => {
+    expect(parseSearchSlugFilter('ricerca-offerte-lavoro-addetto-a-cucina')).toBe('addetto a cucina');
+  });
+});
