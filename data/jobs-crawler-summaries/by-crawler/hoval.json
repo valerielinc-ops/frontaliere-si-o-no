@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-31T22:25:44.750Z",
+  "generatedAt": "2026-06-01T14:53:00.500Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12491,
-  "avgDurationMs": 12491,
+  "unchangedCount": 0,
+  "durationMs": 12823,
+  "avgDurationMs": 12823,
   "durationHistory": [
-    12491
+    12823
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -143,7 +143,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -181,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -220,7 +220,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -238,10 +238,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -260,7 +257,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -297,7 +294,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -316,5 +313,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
