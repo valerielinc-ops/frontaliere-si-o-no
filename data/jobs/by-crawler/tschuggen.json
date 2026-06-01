@@ -430,7 +430,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "tschuggen-aab5770d3181",
@@ -689,7 +691,8 @@
       },
       "previousSlugs": [
         "etagen-portier-m-w-d-tschuggen-ch",
-        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
+        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona",
+        "account-manager-m-w-d-tschuggen-collection-ascona"
       ],
       "firstSeenAt": "2026-05-06T11:50:09.955Z",
       "salaryMin": 68000,
