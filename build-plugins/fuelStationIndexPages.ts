@@ -24,9 +24,10 @@
  *   /{section}/stazioni-italia/    — Italian-station index (grouped by city)
  *   /{section}/citta-italiane/     — Italian-city index (alphabetical hub)
  *
- * The IT-station dataset is benzina-only (see fuelDailyPagesPlugin.ts comment
- * at generateFuelItalianStationPages) so the IT-station index is only emitted
- * under the benzina section.
+ * The IT-station index is emitted per fuel that has station coverage: always
+ * benzina, plus diesel once the MIMIT-Gasolio ingestion provides diesel
+ * leaves (passed via `italianStationsByFuel`). With no diesel leaves the
+ * diesel IT-station index is skipped (no orphans).
  *
  * Each index contains:
  *   - Full <head> with title, description, canonical, hreflang (4 locales +
@@ -37,11 +38,11 @@
  *   - Hub chrome and the same SPA shell as the daily pages (via
  *     buildSeoPageHtml).
  *
- * Counts (steady state):
+ * Counts (steady state, when diesel coverage exists):
  *   Swiss-stations: 4 locales × 2 fuels = 8 indexes
- *   IT-stations:    4 locales × 1 fuel  = 4 indexes (benzina-only)
+ *   IT-stations:    4 locales × ≤2 fuels = up to 8 indexes (benzina + diesel)
  *   IT-cities:      4 locales × 2 fuels = 8 indexes
- *   Total:          20 indexes
+ *   Total:          up to 24 indexes
  */
 
 import {
@@ -217,7 +218,17 @@ export interface FuelIndexInputs {
   readonly rootDir?: string;
   readonly today: Date;
   readonly swissStations: readonly SwissStationLeaf[];
+  /**
+   * Benzina Italian-station leaves. Kept as the back-compat default: callers
+   * that don't pass `italianStationsByFuel` get benzina-only behaviour.
+   */
   readonly italianStations: readonly ItalianStationLeaf[];
+  /**
+   * Per-fuel Italian-station leaves. When provided, the Italian-stations index
+   * is emitted for every fuel that has at least one leaf (diesel appears once
+   * MIMIT-Gasolio coverage lands). Absent ⇒ benzina-only (legacy behaviour).
+   */
+  readonly italianStationsByFuel?: Partial<Record<FuelType, readonly ItalianStationLeaf[]>>;
 }
 
 /**
@@ -594,7 +605,7 @@ function titleFor(
       description: `Indice delle stazioni italiane ${lower} delle città di confine (Como, Varese, Luino, Lavena Ponte Tresa…) con prezzi MIMIT aggiornati ogni giorno.`,
       h1: `Stazioni ${lower} Italia confine — indice completo`,
       lede: `Indice di ogni stazione di rifornimento italiana ${lower} delle città di confine che monitoriamo. Raggruppato per comune così puoi confrontare prima di passare il valico.`,
-      methodology: `I prezzi delle stazioni italiane provengono dal portale "Osservaprezzi Carburanti" del MIMIT (Ministero delle Imprese e del Made in Italy), aggiornato ogni giorno dai gestori. La nostra pipeline filtra le stazioni dei 15 comuni di confine, dedupla per id e pubblica una pagina dedicata per ognuna. La benzina è il taglio carburante con copertura più completa: per il diesel italiano (Gasolio) la disponibilità è parziale, motivo per cui questo indice esiste solo nella sezione benzina.`,
+      methodology: `I prezzi delle stazioni italiane provengono dal portale "Osservaprezzi Carburanti" del MIMIT (Ministero delle Imprese e del Made in Italy), aggiornato ogni giorno dai gestori. La nostra pipeline filtra le stazioni dei 15 comuni di confine, dedupla per id e pubblica una pagina dedicata per ognuna. La benzina è il taglio carburante con copertura più completa; per il diesel italiano (Gasolio) pubblichiamo le stazioni che riportano un prezzo Gasolio nel feed MIMIT del giorno.`,
       frontaliereContext: `Se vivi in Italia e lavori in Ticino, scegliere se fare il pieno prima del confine o dopo dipende dallo spread CHF/EUR del giorno. Storicamente il ${lower} svizzero costa di più al litro nominale ma, con il franco forte e i prezzi italiani in linea con la media UE, lo spread si è ristretto. Questo indice ti dà tutte le opzioni delle città di confine in un colpo d'occhio: dalle stazioni vicino al casello di Como Centro alle pompe self-service di Lavena Ponte Tresa che molti frontalieri usano nel ritorno serale.`,
     };
     if (locale === 'en') return {
@@ -602,7 +613,7 @@ function titleFor(
       description: `Index of Italian ${lower} stations across border-zone cities (Como, Varese, Luino, Lavena Ponte Tresa…). Daily MIMIT prices.`,
       h1: `Italian ${lower} border stations — full index`,
       lede: `Browse every Italian ${lower} station we track across border-zone cities. Grouped by municipality so you can compare before you cross.`,
-      methodology: `Italian station prices come from the MIMIT "Osservaprezzi Carburanti" portal (Italian Ministry of Enterprises), updated daily by station operators. Our pipeline filters stations across 15 border-zone municipalities, deduplicates by station id, and publishes one dedicated page per station. Petrol (Benzina) has the most complete coverage; Italian diesel (Gasolio) has partial availability, which is why this index only exists in the petrol section.`,
+      methodology: `Italian station prices come from the MIMIT "Osservaprezzi Carburanti" portal (Italian Ministry of Enterprises), updated daily by station operators. Our pipeline filters stations across 15 border-zone municipalities, deduplicates by station id, and publishes one dedicated page per station. Petrol (Benzina) has the most complete coverage; for Italian diesel (Gasolio) we publish the stations that report a Gasolio price in the day's MIMIT feed.`,
       frontaliereContext: `If you live in Italy and work in Ticino, deciding whether to fill up before crossing or after depends on the daily CHF/EUR spread. Swiss ${lower} historically costs more per litre nominally, but with a strong franc and Italian prices tracking the EU average, the spread has tightened. This index lays out every border-city option: stations near the Como Centro toll, self-service pumps in Lavena Ponte Tresa that many commuters use on the evening leg, and everything in between.`,
     };
     if (locale === 'de') return {
@@ -610,7 +621,7 @@ function titleFor(
       description: `Index der italienischen ${lower}-Tankstellen in Grenzstädten (Como, Varese, Luino, Lavena Ponte Tresa…). Tägliche MIMIT-Daten.`,
       h1: `Italienische ${lower}-Tankstellen am Grenzgebiet — Index`,
       lede: `Durchsuche jede italienische ${lower}-Tankstelle, die wir in den Grenzstädten erfassen. Nach Gemeinde gruppiert, damit du vor dem Übergang vergleichen kannst.`,
-      methodology: `Die italienischen Stationspreise stammen vom Portal "Osservaprezzi Carburanti" des MIMIT (italienisches Ministerium für Unternehmen), das die Betreiber täglich aktualisieren. Unsere Pipeline filtert die Stationen der 15 Grenzgemeinden, dedupliziert nach Station-ID und veröffentlicht eine eigene Seite pro Station. Benzin (Benzina) hat die umfassendste Abdeckung; der italienische Diesel (Gasolio) ist nur teilweise verfügbar, weshalb dieser Index nur in der Benzin-Sektion existiert.`,
+      methodology: `Die italienischen Stationspreise stammen vom Portal "Osservaprezzi Carburanti" des MIMIT (italienisches Ministerium für Unternehmen), das die Betreiber täglich aktualisieren. Unsere Pipeline filtert die Stationen der 15 Grenzgemeinden, dedupliziert nach Station-ID und veröffentlicht eine eigene Seite pro Station. Benzin (Benzina) hat die umfassendste Abdeckung; für italienischen Diesel (Gasolio) veröffentlichen wir die Stationen, die im heutigen MIMIT-Feed einen Gasolio-Preis melden.`,
       frontaliereContext: `Wenn du in Italien wohnst und im Tessin arbeitest, hängt die Entscheidung, vor oder nach der Grenze zu tanken, vom täglichen CHF/EUR-Kurs ab. Schweizer ${lower} kostet pro Liter nominal mehr, aber bei starkem Franken und EU-konformen italienischen Preisen ist der Abstand kleiner geworden. Dieser Index zeigt alle Grenzstadt-Optionen auf einen Blick: von den Stationen am Mautknoten Como Centro bis zu den Self-Service-Pumpen in Lavena Ponte Tresa, die viele Pendler am Abend nutzen.`,
     };
     return {
@@ -618,7 +629,7 @@ function titleFor(
       description: `Index des stations ${lower} italiennes des villes frontalières (Como, Varese, Luino, Lavena Ponte Tresa…). Données MIMIT quotidiennes.`,
       h1: `Stations ${lower} italiennes frontalières — index complet`,
       lede: `Parcourez chaque station ${lower} italienne suivie dans les villes frontalières. Groupée par commune pour comparer avant de passer la frontière.`,
-      methodology: `Les prix des stations italiennes proviennent du portail "Osservaprezzi Carburanti" du MIMIT (Ministère italien des Entreprises), mis à jour quotidiennement par les exploitants. Notre pipeline filtre les stations de 15 communes frontalières, déduplique par identifiant et publie une page dédiée par station. L'essence (Benzina) a la couverture la plus complète ; le gazole italien (Gasolio) est partiellement disponible, raison pour laquelle cet index n'existe que dans la section essence.`,
+      methodology: `Les prix des stations italiennes proviennent du portail "Osservaprezzi Carburanti" du MIMIT (Ministère italien des Entreprises), mis à jour quotidiennement par les exploitants. Notre pipeline filtre les stations de 15 communes frontalières, déduplique par identifiant et publie une page dédiée par station. L'essence (Benzina) a la couverture la plus complète ; pour le gazole italien (Gasolio) nous publions les stations qui indiquent un prix Gasolio dans le flux MIMIT du jour.`,
       frontaliereContext: `Si vous vivez en Italie et travaillez au Tessin, le choix de faire le plein avant ou après la frontière dépend de l'écart CHF/EUR du jour. Le ${lower} suisse coûte historiquement plus par litre nominal, mais avec un franc fort et des prix italiens alignés sur la moyenne UE, l'écart s'est réduit. Cet index présente toutes les options des villes frontalières en un coup d'œil : des stations près du péage de Como Centro aux pompes en self-service de Lavena Ponte Tresa que beaucoup de frontaliers utilisent au retour.`,
     };
   }
@@ -1028,13 +1039,19 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
  * Returns Record<canonicalPath, html> ready to be written to dist/.
  */
 export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, string> {
-  const { swissStations, italianStations, today, distDir, rootDir } = inp;
+  const { swissStations, italianStations, italianStationsByFuel, today, distDir, rootDir } = inp;
   const out: Record<string, string> = {};
 
   const swissByZone = groupSwissByZone(swissStations);
-  const italianByCity = groupItalianByCity(italianStations);
 
   for (const fuel of FUEL_TYPES) {
+    // Per-fuel Italian leaves: prefer the explicit map; fall back to the legacy
+    // benzina-only `italianStations` so existing callers keep working.
+    const italianLeavesForFuel: readonly ItalianStationLeaf[] =
+      italianStationsByFuel?.[fuel] ?? (fuel === 'benzina' ? italianStations : []);
+    const italianByCity = groupItalianByCity(italianLeavesForFuel);
+    const hasItalianStationIndex = italianLeavesForFuel.length > 0;
+
     for (const locale of FUEL_DAILY_LOCALES) {
       const copy = COPY[locale];
 
@@ -1056,9 +1073,9 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
             label: copy.relatedLinkLabels.swissStations,
           });
         }
-        // IT-stations index only exists for benzina; only cross-link when the
-        // current page is benzina.
-        if (kind !== 'italianStations' && fuel === 'benzina') {
+        // IT-stations index exists per-fuel only when that fuel has station
+        // coverage; only cross-link when the index is actually emitted.
+        if (kind !== 'italianStations' && hasItalianStationIndex) {
           links.push({
             href: buildFuelIndexPath(locale, fuel, 'italianStations'),
             label: copy.relatedLinkLabels.italianStations,
@@ -1146,8 +1163,8 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
         });
       }
 
-      // ── Italian-stations index (benzina only) ──────────────────
-      if (fuel === 'benzina') {
+      // ── Italian-stations index (per-fuel, when coverage exists) ─
+      if (hasItalianStationIndex) {
         const groups: GroupedAnchors[] = [];
         for (const c of FUEL_ITALIAN_CITIES) {
           const list = italianByCity.get(c.slug) ?? [];
