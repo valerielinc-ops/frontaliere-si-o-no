@@ -54,6 +54,8 @@ const RC_TO_ENV = {
   MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
   UNOSEND_API_KEY:                ['UNOSEND_API_KEY'],
   MAILTRAP_API_TOKEN:             ['MAILTRAP_API_TOKEN'],
+  MAILEROO_API_KEY:               ['MAILEROO_API_KEY'],
+  MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
 
 
   // Server-only keys (stored with SERVER_ prefix in RC)

@@ -1,0 +1,256 @@
+import admin from 'firebase-admin';
+import crypto from 'crypto';
+import { refreshEngagementScore } from './lib/engagementScore.js';
+
+/**
+ * Maileroo webhook handler — receives delivery events and stores them in Firestore.
+ *
+ * Maileroo signs each webhook with HMAC-SHA256 over the raw request body using a
+ * shared secret (Maileroo dashboard → Webhooks). The signature is sent in the
+ * `x-maileroo-signature` header as a hex digest (optionally prefixed "sha256=").
+ *
+ * Event types (Maileroo): accepted, delivered, rejected, deferred, failed,
+ * opened, clicked, complained. Payloads may be a single event object or a
+ * batch under { events: [...] }.
+ *
+ * Firestore paths (same as other provider webhooks):
+ *   newsletter_subscribers/{email}/events/{auto-id}
+ *   newsletter_subscribers/{email}/campaign_deliveries/{campaign-id}
+ *   newsletter_subscribers/{email} (status updates: bounced, complained)
+ *   job_alert_subscribers/{email} (when tagged type=job-alert)
+ */
+
+function normalizeEmail(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+// ── Signature verification ───────────────────────────────────
+// HMAC-SHA256(rawBody, secret) → hex, compared against x-maileroo-signature.
+
+export function verifyMailerooSignature({ payload, signature, signingSecret }) {
+  if (!signingSecret || !payload || !signature) return false;
+  const provided = String(signature).replace(/^sha256=/i, '').trim();
+  const expected = crypto
+    .createHmac('sha256', signingSecret)
+    .update(payload, 'utf8')
+    .digest('hex');
+  try {
+    return provided.length === expected.length
+      && crypto.timingSafeEqual(Buffer.from(provided), Buffer.from(expected));
+  } catch {
+    return false;
+  }
+}
+
+// ── Event type mapping (Maileroo → normalized types) ─────────
+
+function mapMailerooEvent(type) {
+  switch (String(type || '').toLowerCase()) {
+    case 'accepted':   return 'send';
+    case 'delivered':  return 'delivered';
+    case 'opened':     return 'open';
+    case 'clicked':    return 'click';
+    case 'rejected':   return 'bounce';
+    case 'failed':     return 'bounce';
+    case 'complained': return 'complaint';
+    // 'deferred' is transient (retry in progress) — no terminal state to record.
+    default: return null;
+  }
+}
+
+// ── Extract identifiers from a Maileroo event ────────────────
+
+function extractCampaignId(event) {
+  const tags = event.tags || {};
+  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
+    if (tags.campaign_id) return String(tags.campaign_id);
+    if (tags.campaign) return String(tags.campaign);
+  }
+  return event.message_reference_id || event.message_id || 'unknown';
+}
+
+function getRecipient(event) {
+  const data = event.event_data || {};
+  return normalizeEmail(data.to || event.to);
+}
+
+function isJobAlertEvent(event) {
+  const tags = event.tags || {};
+  if (tags && typeof tags === 'object' && !Array.isArray(tags)) {
+    return tags.type === 'job-alert' || tags.type === 'job-alert-retry';
+  }
+  return false;
+}
+
+function getOccurredAt(event) {
+  const t = event.event_time ?? event.inserted_at;
+  if (typeof t === 'number') return new Date(t * 1000).toISOString();
+  if (typeof t === 'string' && t) return t;
+  return new Date().toISOString();
+}
+
+// ── Persist a single event to Firestore ──────────────────────
+
+export async function persistMailerooEvent(db, event) {
+  const email = getRecipient(event);
+  if (!email || !email.includes('@')) return { skipped: true, reason: 'invalid_email' };
+
+  const type = mapMailerooEvent(event.event_type);
+  if (!type) return { skipped: true, reason: `unknown_event: ${event.event_type}` };
+
+  const campaignId = extractCampaignId(event);
+  const messageId = event.message_id || event.message_reference_id || '';
+  const occurredAt = getOccurredAt(event);
+  const data = event.event_data || {};
+  const clickedUrl = data.original_url || data.url || '';
+  const bounceReason = data.reason || data.reject_reason || '';
+
+  if (isJobAlertEvent(event)) {
+    return persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl });
+  }
+
+  const FieldValue = admin.firestore.FieldValue;
+  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
+
+  const subscriberUpdate = {
+    updated_at: FieldValue.serverTimestamp(),
+  };
+
+  if (type === 'delivered') {
+    subscriberUpdate.last_delivered_at = FieldValue.serverTimestamp();
+  } else if (type === 'open') {
+    subscriberUpdate.last_open_at = FieldValue.serverTimestamp();
+    subscriberUpdate.open_count = FieldValue.increment(1);
+  } else if (type === 'click') {
+    subscriberUpdate.last_click_at = FieldValue.serverTimestamp();
+    subscriberUpdate.click_count = FieldValue.increment(1);
+    subscriberUpdate.last_clicked_url = clickedUrl;
+  } else if (type === 'bounce') {
+    subscriberUpdate.status = 'bounced';
+    subscriberUpdate.bounced_at = FieldValue.serverTimestamp();
+    subscriberUpdate.bounce_reason = bounceReason;
+  } else if (type === 'complaint') {
+    subscriberUpdate.status = 'complained';
+    subscriberUpdate.complained_at = FieldValue.serverTimestamp();
+  }
+
+  await subscriberRef.set(subscriberUpdate, { merge: true });
+
+  // Refresh engagement score after counter changes (FRO-17)
+  if (type === 'open' || type === 'click' || type === 'send') {
+    await refreshEngagementScore(subscriberRef, FieldValue);
+  }
+
+  const deliveryData = {
+    email,
+    campaign_id: campaignId,
+    message_id: messageId,
+    provider: 'maileroo',
+    updated_at: FieldValue.serverTimestamp(),
+  };
+
+  if (type === 'send') deliveryData.sent_at = FieldValue.serverTimestamp();
+  if (type === 'delivered') deliveryData.delivered_at = FieldValue.serverTimestamp();
+  if (type === 'open') deliveryData.opened_at = FieldValue.serverTimestamp();
+  if (type === 'bounce') deliveryData.bounced_at = FieldValue.serverTimestamp();
+  if (type === 'complaint') deliveryData.complained_at = FieldValue.serverTimestamp();
+  if (type === 'click') {
+    deliveryData.clicked_at = FieldValue.serverTimestamp();
+    deliveryData.last_clicked_url = clickedUrl;
+    deliveryData.clicked_links = FieldValue.increment(1);
+  }
+
+  const deliveryDocId = `${campaignId}_${email}`.replace(/[/\\]/g, '_').slice(0, 200);
+  await subscriberRef.collection('campaign_deliveries').doc(deliveryDocId).set(deliveryData, { merge: true });
+
+  await subscriberRef.collection('events').add({
+    email,
+    event_type: type,
+    maileroo_event: event.event_type,
+    campaign_id: campaignId,
+    message_id: messageId,
+    provider: 'maileroo',
+    metadata: {
+      event_id: event.event_id || null,
+      reason: bounceReason || null,
+      original_url: clickedUrl || null,
+      ip: data.ip || null,
+      user_agent: data.user_agent || null,
+      tags: event.tags || null,
+    },
+    timestamp: FieldValue.serverTimestamp(),
+    occurred_at: occurredAt,
+  });
+
+  return { processed: true, type, email, campaignId };
+}
+
+// ── Job alert event handler (mirrors newsletter pattern) ─────
+
+async function persistJobAlertMailerooEvent(db, { email, type, event, messageId, occurredAt, clickedUrl }) {
+  const FieldValue = admin.firestore.FieldValue;
+  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+
+  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
+  if (type === 'delivered') { topUpdate.last_delivered_at = FieldValue.serverTimestamp(); topUpdate.delivered_count = FieldValue.increment(1); }
+  if (type === 'open') { topUpdate.last_open_at = FieldValue.serverTimestamp(); topUpdate.open_count = FieldValue.increment(1); }
+  if (type === 'click') { topUpdate.last_click_at = FieldValue.serverTimestamp(); topUpdate.click_count = FieldValue.increment(1); topUpdate.last_clicked_url = clickedUrl; }
+  if (type === 'bounce') { topUpdate.status = 'bounced'; topUpdate.last_bounced_at = FieldValue.serverTimestamp(); topUpdate.bounce_count = FieldValue.increment(1); }
+  if (type === 'complaint') { topUpdate.status = 'complained'; topUpdate.last_complained_at = FieldValue.serverTimestamp(); }
+  if (type === 'delivered' || type === 'open' || type === 'click') topUpdate.status = 'active';
+
+  await subscriberRef.set(topUpdate, { merge: true });
+
+  await subscriberRef.collection('events').add({
+    email,
+    event_type: type,
+    maileroo_event: event.event_type,
+    message_id: messageId,
+    provider: 'maileroo',
+    metadata: {
+      original_url: clickedUrl || null,
+      tags: event.tags || null,
+    },
+    timestamp: FieldValue.serverTimestamp(),
+    occurred_at: occurredAt,
+  });
+
+  return { processed: true, type, email, collection: 'job_alert_subscribers' };
+}
+
+// ── Request handler ──────────────────────────────────────────
+
+export async function handleMailerooWebhookRequest({ payload, headers, signingSecret }) {
+  const sigHeader = headers?.['x-maileroo-signature'] || headers?.['X-Maileroo-Signature'];
+
+  if (signingSecret) {
+    if (!verifyMailerooSignature({ payload, signature: sigHeader, signingSecret })) {
+      console.warn('[mailerooWebhook] Signature mismatch or missing');
+      throw new Error('Invalid Maileroo webhook signature');
+    }
+  }
+
+  const body = typeof payload === 'string' ? JSON.parse(payload) : (payload || {});
+
+  // Support both a single event object and a batched { events: [...] } payload.
+  const events = Array.isArray(body.events) ? body.events : (body.event_type ? [body] : []);
+  if (events.length === 0) {
+    console.log('[mailerooWebhook] No events in payload (ping or empty batch)');
+    return { ok: true, ping: true };
+  }
+
+  const db = admin.firestore();
+  const results = [];
+  for (const event of events) {
+    try {
+      const result = await persistMailerooEvent(db, event);
+      results.push(result);
+      console.log(`[mailerooWebhook] ${event.event_type} → ${result.type || 'skipped'} for ${getRecipient(event) || '?'}`);
+    } catch (err) {
+      console.error(`[mailerooWebhook] Error processing ${event.event_type}: ${err.message}`);
+      results.push({ error: err.message, event: event.event_type });
+    }
+  }
+
+  return { processed: results.length, results };
+}
