@@ -85,7 +85,12 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 
 - Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
 - Fix richiede credenziali/segreti non in CI → documenta + termina.
+- **Capability-guard scope `.github/workflows/**` (valuta a turno ~1, PRIMA di implementare).** L'ambiente `issue-fix` ha solo `GH_TOKEN` (GitHub App, **senza scope `workflows`**) e nessun PAT → il push di file workflow fallisce **sempre**. Se la diagnosi mostra che il fix toccherebbe `.github/workflows/**` → posta il diff proposto + "serve PAT con scope `workflows` / mano umana" e **TERMINA SUBITO**, senza implementare. Idem per repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403). Razionale (misurato): fare il fix completo e scoprire il blocco al push spreca ~1M token/run — #983 tier-high opus, 23 turni, $0.55, **0 PR**; contro #1009 early-exit normal, 7 turni, $0.22. Il guard è nel prompt di `issue-fix.yml` (#1033).
 - Mai un fix speculativo pur di produrre una PR.
+
+### Drenare il backlog `agent:fix` (re-label sequenziale)
+
+`issue-fix` ha `concurrency: { group: issue-fix, cancel-in-progress: false }`: GitHub tiene **un solo run pending** per gruppo e un nuovo trigger **cancella (supersede) il pending precedente**. Re-labelare in raffica N issue → sopravvivono solo la prima (già `in_progress`) e l'ultima (pending); quelle in mezzo finiscono `cancelled` **silenziosamente** (osservato: #974/#959/#960 droppate). Per ri-processare più issue: re-applica `agent:fix` **una alla volta**, aspettando che la precedente sia almeno `in_progress` prima della successiva. È anche la protezione anti-pile-up (no N agent concorrenti = no OOM / no burst quota Max condivisa).
 
 ## Local fixer (`/fix-issue N`)
 
