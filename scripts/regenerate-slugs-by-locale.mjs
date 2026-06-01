@@ -26,7 +26,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-import { addPreviousSlugForLocale, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
+import {
+  addPreviousSlugForLocale,
+  cleanPreviousSlugsPerLocale,
+  getRegisteredSlug,
+  loadSlugRegistry,
+  registryPinnedLocaleSlug,
+} from './lib/dedicated-crawler-common.mjs';
 import {
   appendDisambiguatorTail,
   buildSlug,
@@ -87,9 +93,17 @@ async function main() {
   }
   console.log(`🗺️  Pre-scan: ${preScanJobs} jobs, ${preScanMappings} unique (locale, slug) mappings indexed`);
 
+  // Immutable slug-registry: a job already registered with a real per-locale
+  // translation must keep that slug even if its title was re-translated into a
+  // different form on a later crawl. Without this pin, a non-deterministic AI
+  // re-translation here mints a brand-new slug (old URL only survives via the
+  // previousSlugs bridge) — the exact instability this script otherwise feeds.
+  const slugRegistry = loadSlugRegistry();
+
   let totalFixed = 0;
   let totalJobs = 0;
   let totalDisambiguated = 0;
+  let totalPinned = 0;
   let slicesChanged = 0;
 
   for (const file of files) {
@@ -116,6 +130,33 @@ async function main() {
 
         const title = (tbl[locale] || '').trim();
         const currentSlug = (sbl[locale] || '').trim();
+
+        // ── Registry pin ────────────────────────────────────────────────────
+        // If this job is registered with a real translation for this locale,
+        // the immutable registry slug wins over anything derived from the
+        // (possibly re-translated) title below. Restore it when the current
+        // slice drifted, preserving the drifted slug as a previousSlug bridge,
+        // then skip title-based regeneration for this locale entirely.
+        const pinnedSlug = registryPinnedLocaleSlug(getRegisteredSlug(job, slugRegistry), locale, sourceLang);
+        if (pinnedSlug) {
+          if (currentSlug && currentSlug !== pinnedSlug) {
+            addPreviousSlugForLocale(job, locale, currentSlug, 20);
+            const slugMap = usedSlugs.get(locale);
+            if (slugMap.get(currentSlug) === job.id) slugMap.delete(currentSlug);
+            slugMap.set(pinnedSlug, job.id);
+            sbl[locale] = pinnedSlug;
+            job.slugByLocale = sbl;
+            sliceChanged = true;
+            totalPinned++;
+          } else if (!currentSlug) {
+            sbl[locale] = pinnedSlug;
+            job.slugByLocale = sbl;
+            usedSlugs.get(locale).set(pinnedSlug, job.id);
+            sliceChanged = true;
+            totalPinned++;
+          }
+          continue;
+        }
 
         // No title → can't generate slug
         if (!title || title.length < 3) continue;
@@ -220,6 +261,9 @@ async function main() {
   }
 
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
+  if (totalPinned > 0) {
+    console.log(`🔒 Registry pin: ${totalPinned} locale slug(s) restored to the immutable registry value (drift demoted to previousSlugs)`);
+  }
   if (totalDisambiguated > 0) {
     console.log(`🔠 Cross-job uniqueness: ${totalDisambiguated} slug(s) acquired a -<hash> tail to avoid colliding with another job's slug for the same locale`);
   }
