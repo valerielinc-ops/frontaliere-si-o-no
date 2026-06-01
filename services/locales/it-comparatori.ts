@@ -339,6 +339,8 @@ const translations: Record<string, string> = {
  'mobile.price': 'Prezzo',
  'mobile.priceWithRoaming': 'Prezzo + Roaming incluso',
  'mobile.bestOptions': 'Migliori Opzioni per Frontalieri',
+ 'mobile.bestOptionsHint': 'Le 3 migliori per rapporto GB roaming / prezzo. Confronto completo qui sotto.',
+ 'mobile.roamingUnlimited': 'roaming illimitato',
  'mobile.italianWithRoaming': 'Operatori Italiani con Roaming CH',
  'mobile.swissWithRoaming': 'Operatori Svizzeri con Roaming UE',
  'mobile.realCostMonth': 'costo reale/mese',

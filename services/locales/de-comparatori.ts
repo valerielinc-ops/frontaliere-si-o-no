@@ -327,6 +327,8 @@ const deComparatori: Record<string, string> = {
  'mobile.price': 'Preis',
  'mobile.priceWithRoaming': 'Preis + Roaming inklusive',
  'mobile.bestOptions': 'Beste Optionen für Grenzgänger',
+ 'mobile.bestOptionsHint': 'Die Top 3 nach Verhältnis Roaming-GB / Preis. Vollständiger Vergleich unten.',
+ 'mobile.roamingUnlimited': 'unbegrenztes Roaming',
  'mobile.italianWithRoaming': 'Italienische Anbieter mit CH-Roaming',
  'mobile.swissWithRoaming': 'Schweizer Anbieter mit EU-Roaming',
  'mobile.realCostMonth': 'reale Kosten/Monat',
