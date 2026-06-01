@@ -6,10 +6,10 @@
       "id": "denner-acba4fe20301",
       "slug": "stv-branch-manager-in-denner-zurich",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-denner-zurich",
-        "en": "stv-branch-manager-in-denner-zurich",
+        "it": "stv-filialleiter-in-denner",
+        "en": "stv-filialleiter-in-denner",
         "de": "stv-filialleiter-in-denner-zurich",
-        "fr": "directeur-de-succursale-stv-in-denner-zurich"
+        "fr": "stv-filialleiter-in-denner"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,22 +67,18 @@
       "crawledAt": "2026-05-31T21:56:27.386Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner-zurich",
-        "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-basel"
+        "stv-filialleiter-in-denner-basel",
+        "directeur-de-succursale-stv-in-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner-zurich",
-          "stv-filialleiter-in-denner"
-        ],
-        "en": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner-zurich"
         ],
         "de": [
           "stv-filialleiter-in-denner-basel"
         ],
         "fr": [
-          "stv-filialleiter-in-denner"
+          "directeur-de-succursale-stv-in-denner-zurich"
         ]
       },
       "firstSeenAt": "2026-05-29T22:48:05.585Z",
@@ -104,10 +100,10 @@
       "id": "denner-fc423f4f9179",
       "slug": "venditore-denner-glis",
       "slugByLocale": {
-        "it": "venditore-denner-glis",
-        "en": "verkaufer-in-denner-glis",
+        "it": "verkaufer-in-denner",
+        "en": "verkaufer-in-denner",
         "de": "verkaufer-in-denner-glis",
-        "fr": "verkaufer-in-denner-glis"
+        "fr": "verkaufer-in-denner"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -165,22 +161,20 @@
       "crawledAt": "2026-05-31T21:56:27.384Z",
       "previousSlugs": [
         "verkaufer-in-denner-glis",
-        "verkaufer-in-denner",
         "verkaufer-in-denner-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-glis",
-          "verkaufer-in-denner"
+          "verkaufer-in-denner-glis"
         ],
         "en": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner-glis"
         ],
         "de": [
           "verkaufer-in-denner-rubigen"
         ],
         "fr": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner-glis"
         ]
       },
       "needsRetranslation": true,
@@ -203,10 +197,10 @@
       "id": "denner-6953fe375390",
       "slug": "venditore-in-salario-orario-denner-visp",
       "slugByLocale": {
-        "it": "venditore-in-salario-orario-denner-visp",
-        "en": "seller-in-in-hourly-wage-denner-visp",
+        "it": "verkaufer-in-im-stundenlohn-denner",
+        "en": "verkaufer-in-im-stundenlohn-denner",
         "de": "verkaufer-in-im-stundenlohn-denner-visp",
-        "fr": "vendeur-en-salaire-horaire-denner-visp"
+        "fr": "verkaufer-in-im-stundenlohn-denner"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -264,8 +258,9 @@
       "crawledAt": "2026-05-31T21:56:26.800Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-visp",
-        "verkaufer-in-im-stundenlohn-denner",
+        "seller-in-in-hourly-wage-denner-visp",
         "verkaufer-in-im-stundenlohn-denner-worb",
+        "vendeur-en-salaire-horaire-denner-visp",
         "venditore-in-salario-orario-denner-effretikon",
         "venditore-in-salario-orario-denner-monchaltorf",
         "venditore-in-salario-orario-denner-winterthur",
@@ -273,17 +268,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-visp",
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner-visp"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "seller-in-in-hourly-wage-denner-visp"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "vendeur-en-salaire-horaire-denner-visp"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.365Z",
@@ -305,10 +299,10 @@
       "id": "denner-91d409b14295",
       "slug": "capofila-dell-istruzione-denner-allschwil",
       "slugByLocale": {
-        "it": "capofila-dell-istruzione-denner-allschwil",
-        "en": "head-of-branch-in-education-denner-allschwil",
+        "it": "filialleiter-in-in-ausbildung-denner",
+        "en": "filialleiter-in-in-ausbildung-denner",
         "de": "filialleiter-in-in-ausbildung-denner-allschwil",
-        "fr": "chef-de-division-en-education-denner-allschwil"
+        "fr": "filialleiter-in-in-ausbildung-denner"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -366,18 +360,18 @@
       "crawledAt": "2026-05-31T21:56:26.799Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner-allschwil",
-        "filialleiter-in-in-ausbildung-denner"
+        "head-of-branch-in-education-denner-allschwil",
+        "chef-de-division-en-education-denner-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner-allschwil",
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "head-of-branch-in-education-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "chef-de-division-en-education-denner-allschwil"
         ]
       },
       "firstSeenAt": "2026-05-26T22:40:49.364Z",
@@ -400,8 +394,8 @@
       "slug": "venditore-venditore-denner-ecublens-vd",
       "slugByLocale": {
         "it": "venditore-venditore-denner-ecublens-vd",
-        "en": "seller-seller-denner-ecublens-vd",
-        "de": "verkaufer-denner-ecublens-vd",
+        "en": "vendeur-vendeuse-denner",
+        "de": "vendeur-vendeuse-denner",
         "fr": "vendeur-vendeuse-denner-ecublens-vd"
       },
       "company": "Denner",
@@ -460,6 +454,8 @@
       "previousSlugs": [
         "vendeur-vendeuse-denner-ecublens-vd",
         "vendeur-vendeuse-denner",
+        "seller-seller-denner-ecublens-vd",
+        "verkaufer-denner-ecublens-vd",
         "vendeur-vendeuse-denner-geneve",
         "vendeur-vendeuse-denner-champlan"
       ],
@@ -469,10 +465,10 @@
           "vendeur-vendeuse-denner"
         ],
         "en": [
-          "vendeur-vendeuse-denner"
+          "seller-seller-denner-ecublens-vd"
         ],
         "de": [
-          "vendeur-vendeuse-denner"
+          "verkaufer-denner-ecublens-vd"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
@@ -498,8 +494,8 @@
       "slug": "amministratore-delegato-denner-morges",
       "slugByLocale": {
         "it": "amministratore-delegato-denner-morges",
-        "en": "deputy-managing-officer-denner-morges",
-        "de": "stellvertretender-direktor-denner-morges",
+        "en": "adjoint-e-gerant-e-denner",
+        "de": "adjoint-e-gerant-e-denner",
         "fr": "adjoint-e-gerant-e-denner-morges"
       },
       "company": "Denner",
@@ -557,6 +553,8 @@
       "previousSlugs": [
         "adjoint-e-gerant-e-denner-morges",
         "adjoint-e-gerant-e-denner",
+        "deputy-managing-officer-denner-morges",
+        "stellvertretender-direktor-denner-morges",
         "adjoint-e-gerant-e-denner-renens-vd",
         "amministratore-delegato-denner-renens-vd",
         "deputy-managing-officer-denner-renens-vd",
@@ -568,10 +566,10 @@
           "adjoint-e-gerant-e-denner"
         ],
         "en": [
-          "adjoint-e-gerant-e-denner"
+          "deputy-managing-officer-denner-morges"
         ],
         "de": [
-          "adjoint-e-gerant-e-denner"
+          "stellvertretender-direktor-denner-morges"
         ],
         "fr": [
           "adjoint-e-gerant-e-denner-renens-vd"
@@ -690,8 +688,8 @@
       "id": "denner-3d021b9a853b",
       "slug": "student-in-come-ferienaushilfe-denner-regensdorf",
       "slugByLocale": {
-        "it": "student-in-come-ferienaushilfe-denner-regensdorf",
-        "en": "student-in-als-ferienaushilfe-denner-regensdorf",
+        "it": "student-in-come-ferienaushilfe-denner-horw",
+        "en": "student-in-als-ferienaushilfe-denner-horw",
         "de": "student-in-als-ferienaushilfe-denner",
         "fr": "etudiant-en-vacances-denner-regensdorf"
       },
@@ -752,7 +750,7 @@
         "student-in-als-ferienaushilfe-denner",
         "student-in-come-aiuto-per-le-vacanze-denner-regensdorf",
         "student-in-come-ferienaushilfe-denner-horw",
-        "student-in-als-ferienaushilfe-denner-horw",
+        "student-in-als-ferienaushilfe-denner-regensdorf",
         "student-in-come-ferienaushilfe-denner-ibach",
         "student-in-come-ferienaushilfe-denner-gebenstorf",
         "student-in-come-ferienaushilfe-denner-zug",
@@ -766,17 +764,15 @@
         "student-in-come-ferienaushilfe-denner-buchs-sg",
         "student-in-come-ferienaushilfe-denner-thalwil",
         "student-in-come-ferienaushilfe-denner-zurich",
-        "student-in-come-ferienaushilfe-denner-oensingen",
-        "student-in-come-ferienaushilfe-denner-thun"
+        "student-in-come-ferienaushilfe-denner-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "student-in-als-ferienaushilfe-denner",
-          "student-in-come-aiuto-per-le-vacanze-denner-regensdorf",
-          "student-in-come-ferienaushilfe-denner-horw"
+          "student-in-come-aiuto-per-le-vacanze-denner-regensdorf"
         ],
         "en": [
-          "student-in-als-ferienaushilfe-denner-horw"
+          "student-in-als-ferienaushilfe-denner-regensdorf"
         ],
         "fr": [
           "student-in-come-ferienaushilfe-denner-horw"
@@ -802,8 +798,8 @@
       "slug": "gestione-denner-le-mont-sur-lausanne",
       "slugByLocale": {
         "it": "gestione-denner-le-mont-sur-lausanne",
-        "en": "managing-denner-le-mont-sur-lausanne",
-        "de": "verwaltung-denner-le-mont-sur-lausanne",
+        "en": "gerant-e-denner",
+        "de": "gerant-e-denner",
         "fr": "gerant-e-denner-le-mont-sur-lausanne"
       },
       "company": "Denner",
@@ -861,6 +857,8 @@
       "previousSlugs": [
         "gerant-e-denner-le-mont-sur-lausanne",
         "gerant-e-denner",
+        "managing-denner-le-mont-sur-lausanne",
+        "verwaltung-denner-le-mont-sur-lausanne",
         "gerant-e-denner-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -869,10 +867,10 @@
           "gerant-e-denner"
         ],
         "en": [
-          "gerant-e-denner"
+          "managing-denner-le-mont-sur-lausanne"
         ],
         "de": [
-          "gerant-e-denner"
+          "verwaltung-denner-le-mont-sur-lausanne"
         ],
         "fr": [
           "gerant-e-denner-lausanne"
@@ -898,9 +896,9 @@
       "slug": "project-manager-in-promozioni-denner-zurich",
       "slugByLocale": {
         "it": "project-manager-in-promozioni-denner-zurich",
-        "en": "project-manager-in-promotions-denner-zurich",
+        "en": "projektleiter-in-promotions-denner",
         "de": "projektleiter-in-promotions-denner-zurich",
-        "fr": "gestionnaire-de-projet-dans-les-promotions-denner-zurich"
+        "fr": "projektleiter-in-promotions-denner"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -959,7 +957,9 @@
       "crawledAt": "2026-05-31T21:56:24.738Z",
       "previousSlugs": [
         "projektleiter-in-promotions-denner-zurich",
-        "projektleiter-in-promotions-denner"
+        "projektleiter-in-promotions-denner",
+        "project-manager-in-promotions-denner-zurich",
+        "gestionnaire-de-projet-dans-les-promotions-denner-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -967,10 +967,10 @@
           "projektleiter-in-promotions-denner"
         ],
         "en": [
-          "projektleiter-in-promotions-denner"
+          "project-manager-in-promotions-denner-zurich"
         ],
         "fr": [
-          "projektleiter-in-promotions-denner"
+          "gestionnaire-de-projet-dans-les-promotions-denner-zurich"
         ]
       },
       "firstSeenAt": "2026-05-27T12:21:09.209Z",
@@ -992,10 +992,10 @@
       "id": "denner-0f13c61b036b",
       "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
-        "en": "assistant-in-branch-management-denner-wadenswil",
+        "it": "assistent-in-filialleitung-denner",
+        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
         "de": "assistent-in-filialleitung-denner-wadenswil",
-        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
+        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1053,22 +1053,19 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-31T21:56:23.541Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner",
-        "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistant-in-branch-management-denner-wadenswil",
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-filialleitung-denner"
-        ],
         "en": [
-          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+          "assistant-in-branch-management-denner-wadenswil"
         ],
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
         ],
         "fr": [
-          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+          "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
         ]
       },
       "firstSeenAt": "2026-05-28T22:51:49.071Z",
@@ -1278,7 +1275,7 @@
       "id": "denner-a3b6fd22c11d",
       "slug": "capofila-denner-schluein",
       "slugByLocale": {
-        "it": "capofila-denner-schluein",
+        "it": "responsabile-di-filiale-denner-schluein",
         "en": "head-of-branch-in-denner-schluein",
         "de": "filialleiter-in-denner-schluein",
         "fr": "chef-de-branche-denner-schluein"
@@ -1344,8 +1341,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-denner",
-          "responsabile-di-filiale-denner-schluein"
+          "filialleiter-in-denner"
         ],
         "de": [
           "filialleiter-in-denner-schluein-7k8gx6"
@@ -1376,7 +1372,7 @@
       "id": "denner-c81d819efe2a",
       "slug": "stv-branch-manager-in-formazione-denner-chur",
       "slugByLocale": {
-        "it": "stv-branch-manager-in-formazione-denner-chur",
+        "it": "vice-responsabile-di-filiale-in-formazione-denner-chur",
         "en": "stv-branch-manager-in-in-training-denner-chur",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
         "fr": "directeur-de-la-branche-stv-en-formation-denner-chur"
@@ -1438,7 +1434,6 @@
       "previousSlugs": [
         "stv-filialleiter-in-in-ausbildung-denner",
         "stv-filialleiter-in-in-ausbildung-denner-lyssach",
-        "vice-responsabile-di-filiale-in-formazione-denner-chur",
         "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
         "stv-branch-manager-in-denner-schaffhausen",
         "stv-branch-manager-in-formazione-denner-lyssach",
@@ -1448,8 +1443,7 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-in-ausbildung-denner",
-          "stv-filialleiter-in-in-ausbildung-denner-lyssach",
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "stv-filialleiter-in-in-ausbildung-denner-lyssach"
         ],
         "en": [
           "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"

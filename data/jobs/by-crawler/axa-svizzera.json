@@ -40,7 +40,7 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
-        "en": "insurance-consultant-for-lugano-axa-svizzera-svizzera",
+        "en": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
         "de": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
         "fr": "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb"
       },
@@ -62,11 +62,15 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "previousSlugs": [
-        "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
+        "consulente-assicurativo-per-il-luganese-axa-svizzera-axa",
+        "insurance-consultant-for-lugano-axa-svizzera-svizzera"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
+        ],
+        "en": [
+          "insurance-consultant-for-lugano-axa-svizzera-svizzera"
         ]
       },
       "retranslationAttempts": 2,
@@ -110,9 +114,9 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-        "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "de": "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo",
-        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
+        "en": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+        "de": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
       },
       "id": "axa-svizzera-782259b279bd",
       "salaryMin": 49500,
@@ -132,11 +136,19 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "previousSlugs": [
-        "consulente-assicurativo-axa-svizzera-axa"
+        "consulente-assicurativo-axa-svizzera-axa",
+        "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-axa-svizzera-axa"
+        ],
+        "en": [
+          "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
+        ],
+        "fr": [
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
         ]
       },
       "retranslationAttempts": 2,
@@ -254,9 +266,9 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-per-il-mendrisiotto-axa-agenzia-generale-andrea-tarello-bkvc6m",
-        "en": "insurance-consultant-for-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello",
-        "de": "consulente-assicurativo-per-il-mendrisiotto-axa-agenzia-generale-andrea-tarello-bkvc6m",
-        "fr": "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
+        "en": "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m",
+        "de": "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m",
+        "fr": "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
       },
       "id": "axa-svizzera-c5749f058085",
       "salaryMin": 49500,
@@ -277,12 +289,20 @@
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "previousSlugs": [
         "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-axa",
-        "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
+        "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m",
+        "insurance-consultant-for-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello",
+        "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-axa",
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
+        ],
+        "en": [
+          "insurance-consultant-for-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
+        ],
+        "fr": [
+          "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
         ]
       },
       "retranslationAttempts": 2,
@@ -325,19 +345,18 @@
         "fr": "Venez à AXA, la première compagnie d'assurance en Suisse - comme AXA-ARAG, l'une des principales compagnies d'assurances de protection juridique suisses, se développe rapidement. Notre service juridique avec environ 200 employés est représenté à trois endroits en Suisse et résout plus de 100'000 problèmes juridiques chaque année. Notre objectif principal est d'améliorer constamment l'expérience client à un niveau élevé en allant de nouvelles façons, en pensant de manière créative et en nous transformant par la transformation numérique. Notre culture est caractérisée par l'ouverture, la flexibilité et l'appréciation. Votre entrée compte avec nous – toujours. Nous vous offrons des modèles de travail modernes et de l'espace pour votre développement individuel. Vous aimez prendre des responsabilités et vouloir jouer un rôle clé dans votre équipe? Aimeriez-vous accompagner les clients dans leurs défis juridiques, aller à l'innovation et grandir avec le changement numérique?– Alors vous êtes la personnalité avec la bonne mentalité que nous recherchons! Dans la zone Propriété & Casualty, nous créons des espaces libres pour nos clients privés et corporatifs avec des produits innovants, des services convaincants et des processus numériques simples.\n• Nous offrons une large gamme d'assurances standardisées et individuelles, la protection juridique et la sécurité financière dans le domaine du crédit et de la sécurité. Votre contribution - Traitement des affaires autopropriétés : Vous traitez les affaires juridiques de clients privés et d'entreprises, en particulier de la zone XX. Votre conseil est principalement par téléphone - Utilisation de l'IA: Dans votre travail quotidien, des outils intelligents d'IA sont à votre disposition pour que vous puissiez travailler efficacement et vous concentrer sur les éléments essentiels - Conseils juridiques avec une touche moderne : Vous analysez différents faits et résolvez des problèmes simples, pragmatiques et au sens de la clientèle - Négociations : Vous conduisez des négociations orales et écrites avec des assurés, des contreparties, des avocats/demandeurs\n• Vos compétences et talents - Diplôme universitaire suisse en droit ou en droit économique - Expérience professionnelle sur le terrain et/ou dans la gestion des clients - Vous êtes fort dans la communication et pouvez transmettre des faits complexes d'une manière compréhensible et empathique. Vous avez aussi une compétence de négociation imbattable. Les langues étrangères (italien/français) présentent un avantage - La satisfaction de votre clientèle est votre cœur et vous êtes désireux de répondre à vos préoccupations le plus possible - En même temps, vous apportez une compréhension de base économique et comprenez comment équilibrer les coûts et les avantages dans le traitement des cas et interpréter les chiffres pertinents - Les heures de briefing ne sont pas votre style – vous travaillez de manière efficace, orientée vers la solution et pragmatique - Tu te tais aussi dans les temps agités - Vous êtes IT-affin et ouvert pour intégrer les outils d'IA dans votre journée de travail Notre processus de demande Apprenez à connaître notre processus de demande et obtenez des réponses aux questions que les candidats nous posent souvent. Si vous avez besoin d'aide pendant le processus de demande, connectez-vous simplement. Le recrutement de collègues sera heureux de vous aider. Travail intelligent Chez AXA, nous comptons sur la confiance, la flexibilité et le travail d'équipe. Au cœur de notre nouveau modèle de travail \"Smart Working\" est votre contribution aux objectifs de l'entreprise et non l'endroit où vous travaillez. Diversité et inclusion La variété, les opportunités et l'inclusion sont nos cœurs chez AXA. Notre culture d'entreprise favorise le respect et l'ouverture afin que chaque personne puisse développer son plein potentiel avec nous."
       },
       "slugByLocale": {
-        "it": "senior-specialist-legal-service-con-focus-sul-lavoro-e-sul-diritto-immobiliare-tutti-i-sessi-axa-svizzera-ticino",
+        "it": "senior-specialista-rechtsdienst-con-schwerpunkt-arbeits-e-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs-monate-mutterschutz-start-voraussichtlich-per-1-9-2026-zurich",
         "en": "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs",
         "de": "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-alle-geschlechter-axa-svizzera-befristet-fur",
-        "fr": "service-juridique-specialise-principal-axe-sur-le-droit-de-l-emploi-et-de-l-immobilier-tous-les-sexes-axa-svizzera"
+        "fr": "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs"
       },
       "id": "axa-svizzera-f0e9beec7bda",
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-gend-c1dy6j",
-          "senior-specialista-rechtsdienst-con-schwerpunkt-arbeits-e-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs-monate-mutterschutz-start-voraussichtlich-per-1-9-2026-zurich"
+          "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-gend-c1dy6j"
         ],
         "fr": [
-          "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs"
+          "service-juridique-specialise-principal-axe-sur-le-droit-de-l-emploi-et-de-l-immobilier-tous-les-sexes-axa-svizzera"
         ],
         "de": [
           "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-gend-c1dy6j"
@@ -345,8 +364,7 @@
       },
       "previousSlugs": [
         "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-gend-c1dy6j",
-        "senior-specialista-rechtsdienst-con-schwerpunkt-arbeits-e-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs-monate-mutterschutz-start-voraussichtlich-per-1-9-2026-zurich",
-        "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs"
+        "service-juridique-specialise-principal-axe-sur-le-droit-de-l-emploi-et-de-l-immobilier-tous-les-sexes-axa-svizzera"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

@@ -40,9 +40,9 @@
       },
       "slugByLocale": {
         "it": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "financial-planning-trainee-side-entry-indefinite-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -61,11 +61,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno"
+        "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno",
+        "financial-planning-trainee-side-entry-indefinite-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno"
+        ],
+        "en": [
+          "financial-planning-trainee-side-entry-indefinite-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -108,9 +112,9 @@
       },
       "slugByLocale": {
         "it": "tirocinante-consulenza-previdenziale-formazione-gratuita-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "trainee-social-security-consultancy-free-training-homeoffice-possible-convit-holding-gmbh-via-al-mulino-22a-6814",
-        "de": "tirocinante-consulenza-previdenziale-formazione-gratuita-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "tirocinante-consulenza-previdenziale-formazione-gratuita-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -128,7 +132,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "trainee-social-security-consultancy-free-training-homeoffice-possible-convit-holding-gmbh-via-al-mulino-22a-6814"
+        ]
+      },
+      "previousSlugs": [
+        "trainee-social-security-consultancy-free-training-homeoffice-possible-convit-holding-gmbh-via-al-mulino-22a-6814"
+      ]
     },
     {
       "id": "convit-c1169f315f41",
@@ -359,9 +371,9 @@
       },
       "slugByLocale": {
         "it": "posizione-di-ingresso-consulenza-finanziaria-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "entry-position-financial-advice-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "posizione-di-ingresso-consulenza-finanziaria-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "posizione-di-ingresso-consulenza-finanziaria-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -379,7 +391,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "entry-position-financial-advice-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "entry-position-financial-advice-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-449bd0ca970e",
@@ -419,9 +439,9 @@
       },
       "slugByLocale": {
         "it": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "financial-planning-junior-mentoring-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -440,11 +460,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola"
+        "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola",
+        "financial-planning-junior-mentoring-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola"
+        ],
+        "en": [
+          "financial-planning-junior-mentoring-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -487,9 +511,9 @@
       },
       "slugByLocale": {
         "it": "pianificatore-finanziario-regionale-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "regional-financial-planner-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "pianificatore-finanziario-regionale-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "pianificatore-finanziario-regionale-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -509,12 +533,16 @@
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
         "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino",
-        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a"
+        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a",
+        "regional-financial-planner-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino",
           "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a"
+        ],
+        "en": [
+          "regional-financial-planner-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -685,9 +713,9 @@
       },
       "slugByLocale": {
         "it": "ingresso-consulenza-previdenziale-formazione-gratuita-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "entrance-to-social-security-consultancy-free-training-part-time-or-100-convit-holding-gmbh-via-al-mulino-22a-6814",
-        "de": "ingresso-consulenza-previdenziale-formazione-gratuita-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "ingresso-consulenza-previdenziale-formazione-gratuita-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -705,7 +733,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "entrance-to-social-security-consultancy-free-training-part-time-or-100-convit-holding-gmbh-via-al-mulino-22a-6814"
+        ]
+      },
+      "previousSlugs": [
+        "entrance-to-social-security-consultancy-free-training-part-time-or-100-convit-holding-gmbh-via-al-mulino-22a-6814"
+      ]
     },
     {
       "id": "convit-215362568962",
@@ -745,9 +781,9 @@
       },
       "slugByLocale": {
         "it": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "financial-advice-entry-3a-3b-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -766,11 +802,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte"
+        "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte",
+        "financial-advice-entry-3a-3b-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte"
+        ],
+        "en": [
+          "financial-advice-entry-3a-3b-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -813,9 +853,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-via-al-mulino-22a-6814-cadempino",
-        "de": "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -950,9 +990,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "de": "berater-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "fr": "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola",
+        "de": "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
+        "fr": "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -975,11 +1015,19 @@
           "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
         ],
         "de": [
+          "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
+          "berater-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ],
+        "en": [
+          "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        ],
+        "fr": [
           "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "previousSlugs": [
-        "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "consultant-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
+        "berater-previdenza-per-la-vecchiaia-3a-3b-ibrido-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ]
     },
     {
@@ -1158,9 +1206,9 @@
       },
       "slugByLocale": {
         "it": "consultant-patrimonio-junior-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-patrimonio-junior-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
-        "de": "consultant-patrimonio-junior-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consultant-patrimonio-junior-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -1217,9 +1265,9 @@
       },
       "slugByLocale": {
         "it": "consulente-finanza-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "de": "berater-finanzen-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "fr": "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1242,11 +1290,19 @@
           "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
         ],
         "de": [
+          "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
+          "berater-finanzen-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ],
+        "en": [
+          "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        ],
+        "fr": [
           "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "previousSlugs": [
-        "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "consultant-finance-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
+        "berater-finanzen-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ]
     },
     {
@@ -1287,9 +1343,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-vendite-finanza-previdenza-fisso-bonus-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "sales-consultancy-finance-fixed-pension-bonus-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulenza-vendite-finanza-previdenza-fisso-bonus-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulenza-vendite-finanza-previdenza-fisso-bonus-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1307,7 +1363,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "sales-consultancy-finance-fixed-pension-bonus-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "sales-consultancy-finance-fixed-pension-bonus-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-a4637c9069b8",
@@ -1347,9 +1411,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultancy-3a-3b-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola",
+        "de": "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
+        "fr": "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1368,11 +1432,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+        "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "social-security-consultancy-3a-3b-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+        ],
+        "en": [
+          "social-security-consultancy-3a-3b-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -1483,9 +1551,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-finanziaria-starter-senza-esperienza-tempo-parziale-o-100-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "starter-financial-consulting-inexperienced-part-time-or-100-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulenza-finanziaria-starter-senza-esperienza-tempo-parziale-o-100-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulenza-finanziaria-starter-senza-esperienza-tempo-parziale-o-100-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1503,7 +1571,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "starter-financial-consulting-inexperienced-part-time-or-100-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "starter-financial-consulting-inexperienced-part-time-or-100-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-a762fbb5e1b9",
@@ -1603,9 +1679,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "online-financial-advice-side-entry-hybrid-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1625,12 +1701,16 @@
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
         "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
-        "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbed"
+        "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbed",
+        "online-financial-advice-side-entry-hybrid-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbed"
+        ],
+        "en": [
+          "online-financial-advice-side-entry-hybrid-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -1793,9 +1873,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-clienti-finanza-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "finance-client-consulting-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulenza-clienti-finanza-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulenza-clienti-finanza-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1813,7 +1893,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "finance-client-consulting-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "finance-client-consulting-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-61e45957498d",
@@ -1913,9 +2001,9 @@
       },
       "slugByLocale": {
         "it": "consulente-risparmio-previdenza-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "savings-social-security-consultant-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-risparmio-previdenza-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-risparmio-previdenza-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -1933,7 +2021,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "savings-social-security-consultant-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "savings-social-security-consultant-junior-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-f442c148c570",
@@ -1973,9 +2069,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-without-training-hybrid-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1993,7 +2089,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-without-training-hybrid-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-consultant-without-training-hybrid-fixed-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-7587b9c18242",
@@ -2033,9 +2137,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-inexperienced-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2053,7 +2157,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-inexperienced-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-consultant-inexperienced-free-training-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-2686a4fe2751",
@@ -2093,9 +2205,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-hybrid-planning-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -2114,11 +2226,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+        "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+        "social-security-consultant-hybrid-planning-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
+        ],
+        "en": [
+          "social-security-consultant-hybrid-planning-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -2161,9 +2277,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814",
-        "de": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2183,12 +2299,16 @@
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
-        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca-hohte2"
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca-hohte2",
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca-hohte2"
+        ],
+        "en": [
+          "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814"
         ]
       },
       "needsRetranslation": true
@@ -2291,9 +2411,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-junior-career-path-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -2312,11 +2432,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo"
+        "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo",
+        "social-security-consultant-junior-career-path-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo"
+        ],
+        "en": [
+          "social-security-consultant-junior-career-path-bonus-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -2419,9 +2543,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-junior-side-entry-mentoring-coaching-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -2441,12 +2565,16 @@
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
         "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
-        "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
+        "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca",
+        "social-security-consultant-junior-side-entry-mentoring-coaching-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
+        ],
+        "en": [
+          "social-security-consultant-junior-side-entry-mentoring-coaching-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -2489,9 +2617,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-advisor-junior-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -2509,7 +2637,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-advisor-junior-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-advisor-junior-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-a8bd8aa65c8c",
@@ -2549,9 +2685,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-10-100-formazione-e-certificazione-vbv-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-junior-10-100-free-vbv-training-and-certification-convit-holding-gmbh-via-al-mulino-22a-6814",
-        "de": "consulente-previdenziale-junior-10-100-formazione-e-certificazione-vbv-gratuita-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-junior-10-100-formazione-e-certificazione-vbv-gratuita-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -2569,7 +2705,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-junior-10-100-free-vbv-training-and-certification-convit-holding-gmbh-via-al-mulino-22a-6814"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-consultant-junior-10-100-free-vbv-training-and-certification-convit-holding-gmbh-via-al-mulino-22a-6814"
+      ]
     },
     {
       "id": "convit-1e872e1a4221",
@@ -2609,9 +2753,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "untrained-entry-social-security-advisor-ote-up-to-chf-7-500-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2632,13 +2776,17 @@
       "previousSlugs": [
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
-        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca-hohte1"
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca-hohte1",
+        "untrained-entry-social-security-advisor-ote-up-to-chf-7-500-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca-hohte1"
+        ],
+        "en": [
+          "untrained-entry-social-security-advisor-ote-up-to-chf-7-500-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -2869,9 +3017,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola",
+        "de": "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
+        "fr": "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2889,7 +3037,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-consultant-3a-lateral-entry-indefinite-time-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-cdf168c2d43b",
@@ -2929,9 +3085,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-advisor-3a-3b-open-ended-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca",
+        "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -2949,7 +3105,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-advisor-3a-3b-open-ended-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-advisor-3a-3b-open-ended-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-b02f1a7392f5",
@@ -3049,9 +3213,9 @@
       },
       "slugByLocale": {
         "it": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "pension-planning-budget-consultant-side-entry-home-office-possible-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -3069,7 +3233,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "pension-planning-budget-consultant-side-entry-home-office-possible-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "pension-planning-budget-consultant-side-entry-home-office-possible-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-69e3cc554668",
@@ -3229,9 +3401,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-pianificazione-patrimoniale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-estate-planning-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-per-clienti-privati-pianificazione-patrimoniale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-pianificazione-patrimoniale-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -3249,7 +3421,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "consultant-for-private-clients-estate-planning-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-for-private-clients-estate-planning-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-c522c29389dc",
@@ -3289,9 +3469,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "social-security-consultant-side-entry-hybrid-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-previdenziale-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-previdenziale-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consulenza-finanziaria-entrata-lateral-fisso-bonus-part-time-o-100-convit-holding-gmbh-losone",
+        "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-teilzeit-o-100-convit-holding-gmbh-losone",
+        "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-part-time-o-100-convit-losone"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -3309,7 +3489,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "social-security-consultant-side-entry-hybrid-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "social-security-consultant-side-entry-hybrid-home-office-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-1c41290844c3",
@@ -3349,9 +3537,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-financial-planning-junior-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814",
-        "de": "consulente-per-clienti-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -3372,13 +3560,17 @@
       "previousSlugs": [
         "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano",
         "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-",
-        "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano-29vs9q"
+        "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano-29vs9q",
+        "consultant-for-private-clients-financial-planning-junior-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano",
           "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-",
           "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano-29vs9q"
+        ],
+        "en": [
+          "consultant-for-private-clients-financial-planning-junior-flexible-hours-convit-holding-gmbh-via-al-mulino-22a-6814"
         ]
       },
       "needsRetranslation": true
@@ -3421,9 +3613,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-piani-di-risparmio-junior-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-savings-plans-junior-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-per-clienti-privati-piani-di-risparmio-junior-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-piani-di-risparmio-junior-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
+        "fr": "consultant-prevention-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       },
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -3442,11 +3634,15 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
       "previousSlugs": [
-        "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio"
+        "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio",
+        "consultant-for-private-clients-savings-plans-junior-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio"
+        ],
+        "en": [
+          "consultant-for-private-clients-savings-plans-junior-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
         ]
       },
       "needsRetranslation": true
@@ -3609,9 +3805,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-finanza-junior-homeoffice-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-finance-junior-homeoffice-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-per-clienti-privati-finanza-junior-homeoffice-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-finanza-junior-homeoffice-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
+        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "fr": "consultant-prevention-et-remboursement-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -3629,7 +3825,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "consultant-for-private-clients-finance-junior-homeoffice-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-for-private-clients-finance-junior-homeoffice-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-08fe4147e1c3",
@@ -3669,9 +3873,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-finanza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-finance-side-entry-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-per-clienti-privati-finanza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-finanza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca",
+        "de": "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "consultant-en-securite-sociale-h-f-d-entree-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -3689,7 +3893,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "consultant-for-private-clients-finance-side-entry-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-for-private-clients-finance-side-entry-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     },
     {
       "id": "convit-3acf0ffc799f",
@@ -3797,9 +4009,9 @@
       },
       "slugByLocale": {
         "it": "consulente-per-clienti-privati-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consultant-for-private-clients-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
-        "de": "consulente-per-clienti-privati-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
-        "fr": "consulente-per-clienti-privati-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
+        "en": "social-security-consultant-hybrid-planning-convit-holding-gmbh-montagnola",
+        "de": "vorsorgeberater-hybridplanung-convit-holding-gmbh-montagnola",
+        "fr": "conseiller-en-prevoyance-planification-hybride-convit-holding-gmbh-montagnola"
       },
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -3817,7 +4029,15 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "consultant-for-private-clients-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-for-private-clients-3a-3b-hybrid-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino"
+      ]
     }
   ]
 }

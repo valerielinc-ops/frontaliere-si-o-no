@@ -3624,12 +3624,14 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metal-constructor-welder-pemsa-bellinzona",
+        "en": "metalcostruttore-saldatore-pemsa-bellinzona",
         "de": "metallbauer-schwei-er-pemsa-bellinzona",
-        "fr": "metallier-soudeur-pemsa-bellinzona"
+        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
       },
       "previousSlugs": [
         "metalcostruttore-saldatore-pemsa-bellinzona",
+        "metal-constructor-welder-pemsa-bellinzona",
+        "metallier-soudeur-pemsa-bellinzona",
         "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "cartongessista-gessatore-pemsa-bellinzona",
         "mason-amp-8211-carpenter-pemsa-bellinzona",
@@ -3664,13 +3666,13 @@
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "en": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metal-constructor-welder-pemsa-bellinzona"
         ],
         "de": [
           "metalcostruttore-saldatore-pemsa-bellinzona"
         ],
         "fr": [
-          "metalcostruttore-saldatore-pemsa-bellinzona"
+          "metallier-soudeur-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3775,9 +3777,9 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "earrings-pemsa-bellinzona",
-        "de": "ohrringe-pemsa-bellinzona",
-        "fr": "boucles-d-oreille-pemsa-bellinzona"
+        "en": "train-master-pemsa-bellinzona",
+        "de": "lokfuhrer-pemsa-bellinzona",
+        "fr": "machiniste-pemsa-bellinzona"
       },
       "id": "pemsa-7aebb676628d",
       "salaryMin": 49500,
@@ -3799,9 +3801,9 @@
       "previousSlugs": [
         "macchinista-pemsa-mendrisio",
         "boucles-d-oreille-pemsa-bellinzona-85e9a3",
-        "machiniste-pemsa-bellinzona",
-        "train-master-pemsa-bellinzona",
-        "lokfuhrer-pemsa-bellinzona"
+        "boucles-d-oreille-pemsa-bellinzona",
+        "earrings-pemsa-bellinzona",
+        "ohrringe-pemsa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3809,13 +3811,13 @@
         ],
         "fr": [
           "boucles-d-oreille-pemsa-bellinzona-85e9a3",
-          "machiniste-pemsa-bellinzona"
+          "boucles-d-oreille-pemsa-bellinzona"
         ],
         "en": [
-          "train-master-pemsa-bellinzona"
+          "earrings-pemsa-bellinzona"
         ],
         "de": [
-          "lokfuhrer-pemsa-bellinzona"
+          "ohrringe-pemsa-bellinzona"
         ]
       }
     },
@@ -3858,7 +3860,7 @@
         "it": "rullista-pemsa-bellinzona",
         "en": "rollerist-pemsa-bellinzona",
         "de": "rollenbahn-pemsa-bellinzona",
-        "fr": "convoyeur-a-rouleaux-pemsa-bellinzona"
+        "fr": "rouleau-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3879,7 +3881,7 @@
         "rollerist-pemsa-bellinzona-82esm3",
         "rollenbahn-pemsa-bellinzona-82esm3",
         "rouleau-pemsa-bellinzona-82esm3",
-        "rouleau-pemsa-bellinzona"
+        "convoyeur-a-rouleaux-pemsa-bellinzona"
       ],
       "id": "pemsa-ce7bf1905028",
       "previousSlugsByLocale": {
@@ -3902,7 +3904,7 @@
           "rollerist-pemsa-bellinzona-82esm3",
           "rollenbahn-pemsa-bellinzona-82esm3",
           "rouleau-pemsa-bellinzona-82esm3",
-          "rouleau-pemsa-bellinzona"
+          "convoyeur-a-rouleaux-pemsa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-04-13T22:15:31.704Z"
@@ -3944,9 +3946,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "electricity-pemsa-lugano",
-        "de": "elektrizitat-pemsa-lugano",
-        "fr": "electricite-pemsa-lugano"
+        "en": "electrician-pemsa-lugano",
+        "de": "elektriker-pemsa-lugano",
+        "fr": "electricien-pemsa-lugano"
       },
       "id": "pemsa-b48712113f67",
       "salaryMin": 49500,
@@ -3966,19 +3968,19 @@
       "postalCode": "6807",
       "firstSeenAt": "2026-05-05T22:23:14.484Z",
       "previousSlugs": [
-        "electrician-pemsa-lugano",
-        "elektriker-pemsa-lugano",
-        "electricien-pemsa-lugano"
+        "electricity-pemsa-lugano",
+        "elektrizitat-pemsa-lugano",
+        "electricite-pemsa-lugano"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "electrician-pemsa-lugano"
+          "electricity-pemsa-lugano"
         ],
         "de": [
-          "elektriker-pemsa-lugano"
+          "elektrizitat-pemsa-lugano"
         ],
         "fr": [
-          "electricien-pemsa-lugano"
+          "electricite-pemsa-lugano"
         ]
       }
     },

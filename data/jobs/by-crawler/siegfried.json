@@ -538,10 +538,10 @@
       "id": "siegfried-55cfaa7c15d3",
       "slug": "meccanico-m-f-d-siegfried-zofingen",
       "slugByLocale": {
-        "it": "meccanico-m-f-d-siegfried-zofingen",
-        "en": "mechanic-m-f-d-siegfried-zofingen",
+        "it": "ingegnere-m-w-d-siegfried-zofingen",
+        "en": "engineer-m-w-d-siegfried-zofingen",
         "de": "mechaniker-m-w-d-siegfried-zofingen",
-        "fr": "mecanicien-m-f-d-siegfried-zofingen"
+        "fr": "ingenieur-m-m-j-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -587,23 +587,21 @@
           "mechaniker-m-w-d-siegfried-ch"
         ],
         "it": [
-          "mechaniker-m-w-d-siegfried-ch",
-          "ingegnere-m-w-d-siegfried-zofingen"
+          "mechaniker-m-w-d-siegfried-ch"
         ],
         "en": [
           "mechaniker-m-w-d-siegfried-ch",
-          "engineer-m-w-d-siegfried-zofingen"
+          "mechanic-m-f-d-siegfried-zofingen"
         ],
         "fr": [
           "mechaniker-m-w-d-siegfried-ch",
-          "ingenieur-m-m-j-siegfried-zofingen"
+          "mecanicien-m-f-d-siegfried-zofingen"
         ]
       },
       "previousSlugs": [
         "mechaniker-m-w-d-siegfried-ch",
-        "ingegnere-m-w-d-siegfried-zofingen",
-        "engineer-m-w-d-siegfried-zofingen",
-        "ingenieur-m-m-j-siegfried-zofingen"
+        "mechanic-m-f-d-siegfried-zofingen",
+        "mecanicien-m-f-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
       "salaryMin": 49500,
@@ -925,10 +923,10 @@
       "id": "siegfried-8bf702f14b39",
       "slug": "ingegnere-di-produzione-siegfried-zofingen",
       "slugByLocale": {
-        "it": "ingegnere-di-produzione-siegfried-zofingen",
+        "it": "betriebsingenieur-in-siegfried-zofingen",
         "en": "betriebsingenieur-in-siegfried-zofingen",
         "de": "betriebsingenieur-in-siegfried-ch",
-        "fr": "ingenieur-de-production-siegfried-zofingen"
+        "fr": "betriebsingenieur-in-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -971,15 +969,14 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "betriebsingenieur-in-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsingenieur-in-siegfried-ch",
-          "betriebsingenieur-in-siegfried-zofingen"
+          "betriebsingenieur-in-siegfried-ch"
         ],
         "fr": [
-          "betriebsingenieur-in-siegfried-zofingen"
+          "ingenieur-de-production-siegfried-zofingen"
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
@@ -1318,7 +1315,7 @@
       "id": "siegfried-5242db5ae6b0",
       "slug": "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen",
+        "it": "laborant-in-cfc-chemie-siegfried-zofingen",
         "en": "laboratory-technician-efz-chemie-siegfried-zofingen",
         "de": "laborant-in-efz-chemie-siegfried-ch",
         "fr": "technicien-de-laboratoire-efz-chemie-siegfried-zofingen"
@@ -1363,13 +1360,11 @@
       "jobReqId": "R26_410",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen"
+        "laborant-in-efz-chemie-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen"
+          "laborant-in-efz-chemie-siegfried-ch"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -1542,9 +1537,9 @@
       "id": "siegfried-14522a97c162",
       "slug": "controllo-del-laboratorio-qc-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "controllo-del-laboratorio-qc-siegfried-evionnaz",
-        "en": "quality-control-laboratory-supervisor-siegfried-evionnaz",
-        "de": "laborleiter-qc-siegfried-evionnaz",
+        "it": "lab-supervisore-qc-siegfried-evionnaz",
+        "en": "lab-supervisor-qc-siegfried-ch",
+        "de": "lab-vorgesetzter-qc-siegfried-evionnaz",
         "fr": "lab-supervisor-qc-siegfried-evionnaz"
       },
       "company": "Siegfried",
@@ -1591,21 +1586,20 @@
           "lab-supervisor-qc-siegfried-ch"
         ],
         "it": [
-          "lab-supervisor-qc-siegfried-ch",
-          "lab-supervisore-qc-siegfried-evionnaz"
+          "lab-supervisor-qc-siegfried-ch"
         ],
         "en": [
-          "lab-supervisor-qc-siegfried-ch"
+          "quality-control-laboratory-supervisor-siegfried-evionnaz"
         ],
         "de": [
           "lab-supervisor-qc-siegfried-ch",
-          "lab-vorgesetzter-qc-siegfried-evionnaz"
+          "laborleiter-qc-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
         "lab-supervisor-qc-siegfried-ch",
-        "lab-supervisore-qc-siegfried-evionnaz",
-        "lab-vorgesetzter-qc-siegfried-evionnaz"
+        "quality-control-laboratory-supervisor-siegfried-evionnaz",
+        "laborleiter-qc-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-05-28T14:03:22.586Z",
       "salaryMin": 49500,
@@ -1627,9 +1621,9 @@
       "id": "siegfried-ee237d9d6dd7",
       "slug": "allenatore-qs-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "allenatore-qs-siegfried-evionnaz",
-        "en": "trainee-qs-siegfried-evionnaz",
-        "de": "praktikant-qs-siegfried-evionnaz",
+        "it": "stagiaire-qs-siegfried-ch",
+        "en": "stagiaire-qs-siegfried-ch",
+        "de": "stagiaire-qs-siegfried-ch",
         "fr": "stagiaire-qs-siegfried-evionnaz"
       },
       "company": "Siegfried",
@@ -1672,18 +1666,16 @@
       "jobReqId": "R26_464",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-qs-siegfried-ch"
-        ],
         "en": [
-          "stagiaire-qs-siegfried-ch"
+          "trainee-qs-siegfried-evionnaz"
         ],
         "de": [
-          "stagiaire-qs-siegfried-ch"
+          "praktikant-qs-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "stagiaire-qs-siegfried-ch"
+        "trainee-qs-siegfried-evionnaz",
+        "praktikant-qs-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-05-28T14:03:21.810Z",
       "salaryMin": 41600,
@@ -1705,10 +1697,10 @@
       "id": "siegfried-49ca434545fe",
       "slug": "piombo-opex-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "piombo-opex-siegfried-evionnaz",
+        "it": "opex-lead-siegfried-ch",
         "en": "opex-lead-siegfried-evionnaz",
-        "de": "op-leitung-siegfried-evionnaz",
-        "fr": "chef-d-equipe-siegfried-evionnaz"
+        "de": "opex-lead-siegfried-ch",
+        "fr": "opex-lead-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1750,18 +1742,16 @@
       "jobReqId": "R26_432",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugsByLocale": {
-        "it": [
-          "opex-lead-siegfried-ch"
-        ],
         "de": [
-          "opex-lead-siegfried-ch"
+          "op-leitung-siegfried-evionnaz"
         ],
         "fr": [
-          "opex-lead-siegfried-ch"
+          "chef-d-equipe-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "opex-lead-siegfried-ch"
+        "op-leitung-siegfried-evionnaz",
+        "chef-d-equipe-siegfried-evionnaz"
       ],
       "firstSeenAt": "2026-05-29T00:30:06.196Z",
       "salaryMin": 68000,

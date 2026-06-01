@@ -182,7 +182,7 @@
       "slugByLocale": {
         "it": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
         "en": "refinery-department-operator-mks-pamp-castel-san-pietro",
-        "de": "veranstalter-raffineria-mks-pamp-castel-san-pietro",
+        "de": "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
         "fr": "operateur-service-raffinerie-mks-pamp-castel-san-pietro"
       },
       "id": "mks-pamp-6b726144ffd1",
@@ -206,7 +206,7 @@
         "operator-treatments-reflui-mks-pamp-castel-san-pietro",
         "operator-department-raffineria-mks-pamp-castel-san-pietro",
         "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro",
-        "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
+        "veranstalter-raffineria-mks-pamp-castel-san-pietro",
         "traitements-de-l-operateur-reflui-mks-pamp-castel-san-pietro",
         "service-operateur-raffineria-mks-pamp-castel-san-pietro",
         "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro"
@@ -218,7 +218,7 @@
         ],
         "de": [
           "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro",
-          "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro"
+          "veranstalter-raffineria-mks-pamp-castel-san-pietro"
         ],
         "fr": [
           "traitements-de-l-operateur-reflui-mks-pamp-castel-san-pietro",
@@ -267,8 +267,8 @@
       "slugByLocale": {
         "it": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro",
         "en": "technical-chemical-specialist-responsible-for-plant-management-mks-pamp-castel-san-pietro",
-        "de": "chemietechnischer-spezialist-betriebsleiter-der-anlage-mks-pamp-castel-san-pietro",
-        "fr": "specialiste-technique-en-chimie-responsable-d-exploitation-d-usine-mks-pamp-castel-san-pietro"
+        "de": "technischer-spezialist-fur-chemie-verantwortlich-fur-den-betrieb-der-anlage-mks-pamp-castel-san-pietro",
+        "fr": "specialiste-technique-chimiste-responsable-de-la-conduite-de-l-installation-mks-pamp-castel-san-pietro"
       },
       "salaryMin": 92000,
       "salaryMax": 125000,
@@ -290,9 +290,9 @@
         "specialista-technician-chimico-manager-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
         "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pietro",
         "chemical-technical-specialist-plant-operations-manager-mks-pamp-castel-san-pietro",
-        "technischer-spezialist-fur-chemie-verantwortlich-fur-den-betrieb-der-anlage-mks-pamp-castel-san-pietro",
+        "chemietechnischer-spezialist-betriebsleiter-der-anlage-mks-pamp-castel-san-pietro",
         "specialista-technicien-chimico-responsable-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
-        "specialiste-technique-chimiste-responsable-de-la-conduite-de-l-installation-mks-pamp-castel-san-pietro",
+        "specialiste-technique-en-chimie-responsable-d-exploitation-d-usine-mks-pamp-castel-san-pietro",
         "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pie",
         "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy"
       ],
@@ -313,14 +313,14 @@
           "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
           "specialista-technician-chimico-manager-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
           "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pietro",
-          "technischer-spezialist-fur-chemie-verantwortlich-fur-den-betrieb-der-anlage-mks-pamp-castel-san-pietro"
+          "chemietechnischer-spezialist-betriebsleiter-der-anlage-mks-pamp-castel-san-pietro"
         ],
         "fr": [
           "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
           "specialista-technician-chimico-manager-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
           "specialista-techniker-chimico-verantwortlicher-conduzione-impianto-mks-pamp-castel-san-pietro",
           "specialista-technicien-chimico-responsable-conduzione-impianto-mks-pamp-castel-san-pietro-whwlwy",
-          "specialiste-technique-chimiste-responsable-de-la-conduite-de-l-installation-mks-pamp-castel-san-pietro"
+          "specialiste-technique-en-chimie-responsable-d-exploitation-d-usine-mks-pamp-castel-san-pietro"
         ]
       },
       "firstSeenAt": "2026-04-13T22:10:50.570Z"

@@ -7,8 +7,8 @@
       "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "en": "back-office-manager-credits-banque-cantonale-du-valais-sion",
-        "de": "back-office-manager-credits-banque-cantonale-du-valais-sion",
+        "en": "gestionnaire-back-office-credits-bcvs-sion",
+        "de": "gestionnaire-back-office-credits-bcvs-sion",
         "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -69,12 +69,6 @@
           "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
           "gestionnaire-back-office-credits-bcvs-sion"
         ],
-        "en": [
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
-        "de": [
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
         "fr": [
           "gestionnaire-back-office-credits-bcvs-sion"
         ]
@@ -102,9 +96,9 @@
       "id": "bcvs-3b0c960c56d3",
       "slug": "capo-dell-agenzia-assistente-nella-gestione-del-capitale-banque-cantonale-du-valais-crans-montana",
       "slugByLocale": {
-        "it": "capo-dell-agenzia-assistente-nella-gestione-del-capitale-banque-cantonale-du-valais-crans-montana",
-        "en": "head-of-agency-assistant-in-capital-management-banque-cantonale-du-valais-crans-montana",
-        "de": "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana",
+        "it": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
+        "en": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
+        "de": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
         "fr": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-banque-cantonale-du-valais-crans-montana"
       },
       "company": "Banque Cantonale du Valais",
@@ -163,21 +157,20 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
-        ],
         "en": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+          "head-of-agency-assistant-in-capital-management-banque-cantonale-du-valais-crans-montana"
         ],
         "de": [
-          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+          "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
         ],
         "fr": [
           "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
         ]
       },
       "previousSlugs": [
-        "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
+        "head-of-agency-assistant-in-capital-management-banque-cantonale-du-valais-crans-montana",
+        "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
       ],
       "firstSeenAt": "2026-04-14T09:26:21.120Z",
       "salaryMin": 68000,
@@ -198,10 +191,10 @@
       "id": "bcvs-a77e32d049a9",
       "slug": "consulente-bancario-banque-cantonale-du-valais-zermatt",
       "slugByLocale": {
-        "it": "consulente-bancario-banque-cantonale-du-valais-zermatt",
-        "en": "bank-consultant-banque-cantonale-du-valais-zermatt",
+        "it": "bankberater-in-bcvs-zermatt",
+        "en": "bankberater-in-bcvs-zermatt",
         "de": "bankberater-in-banque-cantonale-du-valais-zermatt",
-        "fr": "consultant-bancaire-banque-cantonale-du-valais-zermatt"
+        "fr": "bankberater-in-bcvs-zermatt"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -243,21 +236,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "bankberater-in-bcvs-zermatt"
-        ],
         "en": [
-          "bankberater-in-bcvs-zermatt"
+          "bank-consultant-banque-cantonale-du-valais-zermatt"
         ],
         "fr": [
-          "bankberater-in-bcvs-zermatt"
+          "consultant-bancaire-banque-cantonale-du-valais-zermatt"
         ],
         "de": [
           "bankberater-in-bcvs-zermatt"
         ]
       },
       "previousSlugs": [
-        "bankberater-in-bcvs-zermatt"
+        "bankberater-in-bcvs-zermatt",
+        "bank-consultant-banque-cantonale-du-valais-zermatt",
+        "consultant-bancaire-banque-cantonale-du-valais-zermatt"
       ],
       "firstSeenAt": "2026-04-16T21:06:21.138Z",
       "salaryMin": 49500,
@@ -278,9 +270,9 @@
       "id": "bcvs-eb1d10e603b7",
       "slug": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "tesore-specializzato-valuta-banque-cantonale-du-valais-sion",
-        "en": "specialist-treasury-currency-banque-cantonale-du-valais-sion",
-        "de": "fachhandel-wahrung-banque-cantonale-du-valais-sion",
+        "it": "specialiste-tresorerie-devises-bcvs-sion",
+        "en": "specialiste-tresorerie-devises-bcvs-sion",
+        "de": "specialiste-tresorerie-devises-bcvs-sion",
         "fr": "specialiste-tresorerie-devises-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -334,14 +326,11 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "specialiste-tresorerie-devises-bcvs-sion"
-        ],
         "en": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "specialist-treasury-currency-banque-cantonale-du-valais-sion"
         ],
         "de": [
-          "specialiste-tresorerie-devises-bcvs-sion"
+          "fachhandel-wahrung-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "specialiste-tresorerie-devises-bcvs-sion"
@@ -349,6 +338,8 @@
       },
       "previousSlugs": [
         "specialiste-tresorerie-devises-bcvs-sion",
+        "specialist-treasury-currency-banque-cantonale-du-valais-sion",
+        "fachhandel-wahrung-banque-cantonale-du-valais-sion",
         "investment-specialista-banque-cantonale-du-valais-sion",
         "investment-specialist-banque-cantonale-du-valais-sion",
         "investment-spezialist-banque-cantonale-du-valais-sion",
@@ -375,9 +366,9 @@
       "id": "bcvs-f28da0f28442",
       "slug": "consigliere-per-la-gestione-dei-capitali-banque-cantonale-du-valais-martigny",
       "slugByLocale": {
-        "it": "consigliere-per-la-gestione-dei-capitali-banque-cantonale-du-valais-martigny",
-        "en": "capital-management-advisor-banque-cantonale-du-valais-martigny",
-        "de": "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny",
+        "it": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
+        "en": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
+        "de": "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
         "fr": "conseiller-conseillere-en-gestion-de-fortune-banque-cantonale-du-valais-martigny"
       },
       "company": "Banque Cantonale du Valais",
@@ -436,21 +427,20 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
-        ],
         "en": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+          "capital-management-advisor-banque-cantonale-du-valais-martigny"
         ],
         "de": [
-          "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+          "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
         ],
         "fr": [
           "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny"
+        "conseiller-conseillere-en-gestion-de-fortune-bcvs-martigny",
+        "capital-management-advisor-banque-cantonale-du-valais-martigny",
+        "berater-fur-das-management-von-kapital-banque-cantonale-du-valais-martigny"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.966Z",
       "salaryMin": 49500,
@@ -472,8 +462,8 @@
       "slug": "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "it": "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion",
-        "en": "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion",
-        "de": "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion",
+        "en": "gestionnaire-economat-courrier-et-ged-bcvs-sion",
+        "de": "gestionnaire-economat-courrier-et-ged-bcvs-sion",
         "fr": "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -531,10 +521,10 @@
           "gestionnaire-economat-courrier-et-ged-bcvs-sion"
         ],
         "en": [
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+          "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion"
         ],
         "de": [
-          "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+          "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "gestionnaire-economat-courrier-et-ged-bcvs-sion"
@@ -542,7 +532,9 @@
       },
       "previousSlugs": [
         "gestionnaire-economat-courrier-et-ged-banque-cantonale-du-valais-sion",
-        "gestionnaire-economat-courrier-et-ged-bcvs-sion"
+        "gestionnaire-economat-courrier-et-ged-bcvs-sion",
+        "economy-manager-mail-and-gol-banque-cantonale-du-valais-sion",
+        "economy-manager-mail-und-gol-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-07T10:31:53.489Z",
       "salaryMin": 68000,
@@ -563,8 +555,8 @@
       "id": "bcvs-97d5f89e7f93",
       "slug": "asset-management-assistant-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "it": "asset-management-assistant-banque-cantonale-du-valais-sion",
-        "en": "asset-management-assistant-banque-cantonale-du-valais-sion",
+        "it": "assistant-e-asset-management-bcvs-sion",
+        "en": "assistant-e-asset-management-bcvs-sion",
         "de": "assistent-e-asset-management-banque-cantonale-du-valais-sion",
         "fr": "assistant-e-asset-management-banque-cantonale-du-valais-sion"
       },
@@ -619,19 +611,11 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-asset-management-bcvs-sion"
-        ],
-        "en": [
-          "assistant-e-asset-management-bcvs-sion"
-        ],
         "de": [
-          "assistentin-des-managements-banque-cantonale-du-valais-sion",
-          "assistent-e-asset-management-banque-cantonale-du-valais-sion"
+          "assistentin-des-managements-banque-cantonale-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "assistant-e-asset-management-bcvs-sion",
         "assistentin-des-managements-banque-cantonale-du-valais-sion"
       ],
       "firstSeenAt": "2026-05-29T11:37:18.594Z",

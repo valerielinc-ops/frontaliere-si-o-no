@@ -7,7 +7,7 @@
       "slug": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
       "slugByLocale": {
         "it": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-        "en": "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
       },
@@ -52,12 +52,12 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
         "pj-absolvens-in-chirurgie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "sub-assistant-pj-graduate-surgery-see-spital-horgen"
+          "pj-absolvent-in-chirurgies-see-spital-horgen"
         ],
         "de": [
           "pj-absolvens-in-chirurgie-see-spital-horgen"
@@ -83,9 +83,9 @@
       "slug": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-per-il-pool-di-assistenza-max-60-see-spital-horgen",
-        "en": "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
+        "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
         "de": "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-        "fr": "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
+        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -136,20 +136,20 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
+        "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen",
         "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-        "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen",
+        "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen",
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen"
+          "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen"
         ],
         "de": [
           "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
         ],
         "fr": [
-          "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+          "infirmier-diplome-es-pour-le-bassin-de-soins-max-60-see-spital-horgen"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
@@ -637,10 +637,10 @@
       "id": "see-spital-34c8b3dc8dd5",
       "slug": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-persona-di-cura-hf-chirurgia-see-spital-horgen",
-        "en": "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "it": "spitex-assistente-sanitario-50-100-spital-davos-davos",
+        "en": "spitex-health-care-assistant-50-100-spital-davos-davos",
         "de": "spitex-fachperson-gesundheit-50-100-spital-davos-ch",
-        "fr": "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
+        "fr": "spitex-assistant-de-sante-50-100-spital-davos-davos"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -718,21 +718,19 @@
           "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-          "spitex-assistente-sanitario-50-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-ch"
         ],
         "en": [
-          "spitex-health-care-assistant-50-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen"
         ],
         "fr": [
-          "spitex-assistant-de-sante-50-100-spital-davos-davos"
+          "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-chirurgie-see-spital-ch",
-        "spitex-assistente-sanitario-50-100-spital-davos-davos",
-        "spitex-health-care-assistant-50-100-spital-davos-davos",
-        "spitex-assistant-de-sante-50-100-spital-davos-davos"
+        "dipl-pflegefachperson-hf-chirurgie-see-spital-horgen",
+        "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:56:02.178Z",
       "salaryMin": 49500,
@@ -856,10 +854,10 @@
       "id": "see-spital-6187b90ced28",
       "slug": "medico-senior-see-spital-horgen",
       "slugByLocale": {
-        "it": "medico-senior-see-spital-horgen",
-        "en": "gynecologist-and-obstetrician-see-spital-horgen",
+        "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "oberarzt-arztin-frauenklinik-see-spital-horgen",
-        "fr": "gynecologue-et-obstetricien-see-spital-horgen"
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -932,26 +930,24 @@
       "previousSlugs": [
         "oberarzt-arztin-frauenklinik-see-spital-ch",
         "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
-        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "gynecologist-and-obstetrician-see-spital-horgen",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "gynecologue-et-obstetricien-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
-          "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
-          "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
+          "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen"
         ],
         "en": [
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "gynecologist-and-obstetrician-see-spital-horgen"
         ],
         "de": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "gynecologue-et-obstetricien-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
@@ -1376,7 +1372,7 @@
       "id": "see-spital-e1ca4dda76b5",
       "slug": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-medizin-uberwiegend-per-den-nachtdienst-im-wechsel-con-tagdiensten-see-spital-horgen",
+        "it": "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen",
         "en": "dipl-healthcare-assistant-hf-medicine-night-and-day-shifts-see-spital-horgen",
         "de": "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
         "fr": "dipl-assistant-de-sante-hf-medecine-nuit-et-jour-see-spital-horgen"
@@ -1452,13 +1448,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-        "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+        "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit",
-          "dipl-persona-di-cura-hf-medicina-notturna-e-giornaliera-see-spital-horgen"
+          "dipl-pflegefachperson-hf-medizin-uberwiegend-fur-den-nachtdienst-im-wechsel-mit"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
@@ -1675,10 +1669,10 @@
       "id": "see-spital-6322c79842ec",
       "slug": "medico-di-medicina-interna-nefrologia-see-spital-horgen",
       "slugByLocale": {
-        "it": "medico-di-medicina-interna-nefrologia-see-spital-horgen",
-        "en": "assistant-physician-nephrology-see-spital-horgen",
+        "it": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
+        "en": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
         "de": "assistenzarzt-arztin-nephrologie-see-spital-horgen",
-        "fr": "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
+        "fr": "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -1744,25 +1738,23 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "assistenzarzt-arztin-nephrologie-see-spital-ch",
-        "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
-        "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
+        "assistant-physician-nephrology-see-spital-horgen",
         "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
-        "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
+        "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno"
+          "assistenzarzt-arztin-nephrologie-see-spital-ch"
         ],
         "en": [
-          "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg"
+          "assistant-physician-nephrology-see-spital-horgen"
         ],
         "de": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
           "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
+          "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.950Z",
@@ -1886,7 +1878,7 @@
       "id": "see-spital-b49fdf672641",
       "slug": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+        "it": "fachinfermiere-efz-excellence-see-spital-horgen",
         "en": "healthcare-professional-efz-excellence-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
         "fr": "professionnel-de-la-sante-efz-excellence-see-spital-horgen"
@@ -1956,13 +1948,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-        "fachinfermiere-efz-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-          "fachinfermiere-efz-excellence-see-spital-horgen"
+          "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
@@ -1984,7 +1974,7 @@
       "id": "see-spital-9f2c8f0ff8f4",
       "slug": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen",
+        "it": "medicina-efz-della-salute-professionale-see-spital-horgen",
         "en": "healthcare-professional-efz-medicine-see-spital-horgen",
         "de": "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
         "fr": "professionnel-de-sante-efz-medecine-see-spital-horgen"
@@ -2061,13 +2051,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-        "medicina-efz-della-salute-professionale-see-spital-horgen"
+        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-          "medicina-efz-della-salute-professionale-see-spital-horgen"
+          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:54.431Z",
@@ -2575,10 +2563,10 @@
       "id": "see-spital-393f16ddea42",
       "slug": "impiegato-a-segreteria-terapie-see-spital-horgen",
       "slugByLocale": {
-        "it": "impiegato-a-segreteria-terapie-see-spital-horgen",
-        "en": "employee-for-therapy-secretariat-see-spital-horgen",
+        "it": "segretaria-terapie-see-spital-horgen",
+        "en": "secretary-therapies-see-spital-horgen",
         "de": "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-        "fr": "employe-e-secretariat-therapies-see-spital-horgen"
+        "fr": "secretaire-therapeutique-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -2653,22 +2641,20 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-        "segretaria-terapie-see-spital-horgen",
         "staff-in-secretariat-therapies-see-spital-horgen",
-        "secretary-therapies-see-spital-horgen",
-        "secretaire-therapeutique-see-spital-horgen"
+        "employee-for-therapy-secretariat-see-spital-horgen",
+        "employe-e-secretariat-therapies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-sekretariat-therapien-see-spital-ch",
-          "segretaria-terapie-see-spital-horgen"
+          "mitarbeiter-in-sekretariat-therapien-see-spital-ch"
         ],
         "en": [
           "staff-in-secretariat-therapies-see-spital-horgen",
-          "secretary-therapies-see-spital-horgen"
+          "employee-for-therapy-secretariat-see-spital-horgen"
         ],
         "fr": [
-          "secretaire-therapeutique-see-spital-horgen"
+          "employe-e-secretariat-therapies-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:50.484Z",
@@ -3805,10 +3791,10 @@
       "id": "see-spital-1bfa5ad69173",
       "slug": "operatore-notturno-centro-di-sonno-see-spital-horgen",
       "slugByLocale": {
-        "it": "operatore-notturno-centro-di-sonno-see-spital-horgen",
-        "en": "night-shift-staff-sleep-center-see-spital-horgen",
+        "it": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
+        "en": "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
-        "fr": "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
+        "fr": "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3882,25 +3868,23 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno",
+        "night-shift-staff-sleep-center-see-spital-horgen",
         "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
+        "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch"
         ],
         "en": [
-          "internship-for-commercial-professional-maturity-52-weeks-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "night-shift-staff-sleep-center-see-spital-horgen"
         ],
         "de": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
           "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno"
         ],
         "fr": [
-          "stagiaire-per-l-ottenimento-della-maturita-professionale-commerciale-52-settimane-100-eoc-ente-ospedaliero-cantonale-locarno-uil0fk"
+          "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:43.643Z",
@@ -4020,7 +4004,7 @@
       "id": "see-spital-7593890aa2f5",
       "slug": "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-mann-hf-excellence-principalmente-in-servizio-notturno-see-spital-horgen",
+        "it": "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen",
         "en": "dipl-care-specialist-mann-hf-excellence-mainly-in-night-service-see-spital-horgen",
         "de": "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
         "fr": "dipl-specialiste-des-soins-mann-hf-excellence-principalement-en-service-de-nuit-see-spital-horgen"
@@ -4067,13 +4051,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen"
+        "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-horgen"
+          "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-excellence-uberwiegend-im-nachtdienst-see-spital-ch"
@@ -4101,7 +4083,7 @@
       "id": "see-spital-96f462a74e05",
       "slug": "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
       "slugByLocale": {
-        "it": "dipl-carriera-mann-hf-ginecologia-e-letto-settimanale-see-spital-horgen",
+        "it": "dipl-pflegefachfrau-mann-hf-gynakologie-e-wochenbett-see-spital-horgen",
         "en": "dipl-career-mann-hf-gynecology-and-weekbed-see-spital-horgen",
         "de": "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
         "fr": "dipl-carriere-mann-hf-gynecologie-see-spital-horgen"
@@ -4147,13 +4129,11 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
-        "dipl-pflegefachfrau-mann-hf-gynakologie-e-wochenbett-see-spital-horgen"
+        "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch",
-          "dipl-pflegefachfrau-mann-hf-gynakologie-e-wochenbett-see-spital-horgen"
+          "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-gynakologie-und-wochenbett-see-spital-ch"

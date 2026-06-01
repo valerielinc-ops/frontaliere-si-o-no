@@ -793,7 +793,7 @@
       "slug": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
       "slugByLocale": {
         "it": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
-        "en": "planner-south-supply-planner-autopostale-bellinzona",
+        "en": "pianificatore-pianificatrice-d-offerta-sud-post",
         "de": "pianificatore-pianificatrice-d-offerta-sud-post",
         "fr": "pianificatore-pianificatrice-d-offerta-sud-post"
       },
@@ -819,11 +819,12 @@
           "pianificatore-pianificatrice-d-offerta-sud-post"
         ],
         "en": [
-          "pianificatore-pianificatrice-d-offerta-sud-post"
+          "planner-south-supply-planner-autopostale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "pianificatore-pianificatrice-d-offerta-sud-post"
+        "pianificatore-pianificatrice-d-offerta-sud-post",
+        "planner-south-supply-planner-autopostale-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
