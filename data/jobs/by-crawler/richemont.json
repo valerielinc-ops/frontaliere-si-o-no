@@ -9,7 +9,7 @@
         "it": "consulente-clienti-iwc-zurich",
         "en": "client-advisor-iwc-zurich",
         "de": "kundenberater-iwc-zurich",
-        "fr": "conseiller-clientele-iwc-zurich"
+        "fr": "conseillere-clientele-iwc-zurich"
       },
       "company": "IWC",
       "companyKey": "richemont",
@@ -58,13 +58,11 @@
           "client-advisor-richemont-zurich"
         ],
         "fr": [
-          "conseillere-clientele-iwc-zurich"
+          "conseiller-clientele-iwc-zurich"
         ]
       },
       "previousSlugs": [
         "client-advisor-richemont-zurich",
-        "conseillere-clientele-iwc-zurich",
-        "client-consulente-iwc-zurich",
         "conseiller-clientele-iwc-zurich"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.574Z",
@@ -160,7 +158,6 @@
       },
       "previousSlugs": [
         "sap-authorizations-engineer-richemont-meyrin",
-        "sap-berechtigungsingenieur-richemont-meyrin",
         "sap-autorisierungen-ingenieur-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -168,7 +165,6 @@
           "sap-authorizations-engineer-richemont-meyrin"
         ],
         "de": [
-          "sap-berechtigungsingenieur-richemont-meyrin",
           "sap-autorisierungen-ingenieur-richemont-meyrin"
         ]
       },
@@ -240,7 +236,6 @@
           "manager-de-ventes-cartier-geneva",
           "gestionnaire-de-vente-cartier-geneva",
           "responsable-des-ventes-cartier-geneva",
-          "sales-manager-richemont-geneva",
           "directeur-des-ventes-cartier-geneva"
         ],
         "it": [
@@ -250,7 +245,6 @@
           "vertriebsleiter-in-cartier-geneva",
           "verkaufsmanager-cartier-geneva",
           "verkaufsleiter-cartier-geneva",
-          "sales-managerin-cartier-geneva",
           "vertriebsleiter-cartier-geneva"
         ]
       },
@@ -263,7 +257,6 @@
         "vertriebsleiter-in-cartier-geneva",
         "verkaufsmanager-cartier-geneva",
         "verkaufsleiter-cartier-geneva",
-        "sales-managerin-cartier-geneva",
         "directeur-des-ventes-cartier-geneva",
         "vertriebsleiter-cartier-geneva"
       ],
@@ -335,7 +328,6 @@
           "stage-pre-heg-comptabilite-richemont-villars-sur-glane"
         ],
         "de": [
-          "praktikum-vor-heg-buchhaltung-richemont-villars-sur-glane",
           "pre-heg-platzierung-accounting-richemont-villars-sur-glane"
         ],
         "it": [
@@ -345,7 +337,6 @@
       "previousSlugs": [
         "pre-heg-internship-accounting-richemont-villars-sur-glane",
         "stage-pre-heg-comptabilite-richemont-villars-sur-glane",
-        "praktikum-vor-heg-buchhaltung-richemont-villars-sur-glane",
         "pre-heg-platzierung-accounting-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.573Z",
@@ -488,8 +479,7 @@
       "previousSlugs": [
         "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
-        "incastonatore-m-f-jaeger-lecoultre-le-sentier",
-        "dwp-unified-communications-messaging-tirocinante-richemont-meyrin"
+        "incastonatore-m-f-jaeger-lecoultre-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -515,7 +505,7 @@
       "id": "richemont-7d49e9e9e2fc",
       "slug": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
+        "it": "incastonatore-m-f-jaeger-lecoultre-le-sentier",
         "en": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "de": "dwp-unified-communications-messaging-intern-richemont-meyrin",
         "fr": "sertisseur-h-f-jaeger-lecoultre-le-sentier"
@@ -566,7 +556,8 @@
         ],
         "it": [
           "sertisseur-h-f-richemont-le-sentier",
-          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin"
+          "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
+          "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin"
         ],
         "en": [
           "sertisseur-h-f-richemont-le-sentier"
@@ -579,9 +570,8 @@
         "sertisseur-h-f-richemont-le-sentier",
         "communications-unifiees-dwp-stagiaire-en-messagerie-richemont-meyrin",
         "dwp-comunicazione-unificata-interno-messaggistica-richemont-meyrin",
-        "dwp-unified-communications-messaging-tirocinante-richemont-meyrin",
-        "dwp-unified-communications-messaging-intern-richemont-meyrin",
-        "incastonatore-m-f-jaeger-lecoultre-le-sentier"
+        "comunicazioni-unificate-dwp-stagista-di-messaggistica-richemont-meyrin",
+        "dwp-unified-communications-messaging-tirocinante-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.186Z",
       "salaryMin": 41600,
@@ -680,7 +670,6 @@
         "fr": [
           "associe-principal-aux-ventes-roger-dubuis-geneva",
           "associe-des-ventes-senior-roger-dubuis-geneva",
-          "senior-sales-associate-richemont-geneva",
           "avocat-principal-roger-dubuis-geneva"
         ],
         "it": [
@@ -821,8 +810,8 @@
       "slugByLocale": {
         "it": "societa-commerciale-roger-dubuis-geneva",
         "en": "sales-associate-roger-dubuis-geneva",
-        "de": "vertriebsmitarbeiter-in-roger-dubuis-geneva",
-        "fr": "associe-de-vente-roger-dubuis-geneva"
+        "de": "verkaufer-roger-dubuis-geneva",
+        "fr": "sales-associate-richemont-geneva"
       },
       "company": "Roger Dubuis",
       "companyKey": "richemont",
@@ -897,7 +886,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "stagiaire-en-analyse-d-affaires-richemont-bellevue",
-          "sales-associate-richemont-geneva"
+          "associe-de-vente-roger-dubuis-geneva"
         ],
         "it": [
           "business-analytics-intern-richemont-bellevue",
@@ -907,21 +896,19 @@
         ],
         "de": [
           "praktikum-im-bereich-business-analytics-richemont-bellevue",
-          "verkaufer-roger-dubuis-geneva"
+          "vertriebsmitarbeiter-in-roger-dubuis-geneva"
         ]
       },
       "previousSlugs": [
         "stagiaire-en-analyse-d-affaires-richemont-bellevue",
         "sales-associate-richemont-geneva",
+        "associe-de-vente-roger-dubuis-geneva",
         "business-analytics-intern-richemont-bellevue",
         "stage-in-business-analytics-richemont-bellevue",
         "analisi-aziendale-interna-richemont-bellevue",
         "praktikum-im-bereich-business-analytics-richemont-bellevue",
-        "verkaufer-roger-dubuis-geneva",
-        "conseiller-ere-de-vente-roger-dubuis-geneva",
-        "associe-de-vente-roger-dubuis-geneva",
-        "addetto-alle-vendite-roger-dubuis-geneva",
-        "vertriebsmitarbeiter-in-roger-dubuis-geneva"
+        "vertriebsmitarbeiter-in-roger-dubuis-geneva",
+        "conseiller-ere-de-vente-roger-dubuis-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.561Z",
       "salaryMin": 49500,
@@ -942,8 +929,8 @@
       "slug": "specialista-di-lucidatura-professionale-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "specialiste-metier-polissage-richemont-les-breuleux",
-        "en": "professional-polishing-specialist-donze-baume-les-breuleux",
-        "de": "professional-polierspezialist-donze-baume-les-breuleux",
+        "en": "specialiste-metier-polissage-richemont-les-breuleux",
+        "de": "specialiste-metier-polissage-richemont-les-breuleux",
         "fr": "specialiste-metier-polissage-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -987,17 +974,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "specialiste-metier-polissage-richemont-les-breuleux"
+          "professional-polishing-specialist-donze-baume-les-breuleux"
         ],
         "de": [
-          "specialiste-metier-polissage-richemont-les-breuleux"
+          "professional-polierspezialist-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
-        "specialiste-metier-polissage-richemont-les-breuleux",
         "professional-polishing-specialist-donze-baume-les-breuleux",
-        "professional-polierspezialist-donze-baume-les-breuleux",
-        "specialista-di-lucidatura-professionale-donze-baume-les-breuleux"
+        "professional-polierspezialist-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-05-27T00:11:33.816Z",
       "salaryMin": 49500,
@@ -1107,7 +1092,6 @@
         "data-automation-senior-analyst-finanza-richemont-villars-sur-glane",
         "apprendistato-cadranografo-h-f-x-corso-di-2-anni-procadrans-la-chaux-de-fonds",
         "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane",
-        "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
         "apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds",
         "zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds",
         "ingegnere-dati-cartier-villars-sur-glane",
@@ -1122,7 +1106,6 @@
           "analista-senior-dati-automazione-finanza-richemont-villars-sur-glane"
         ],
         "fr": [
-          "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
           "analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane"
         ]
       },
@@ -1146,8 +1129,8 @@
       "slugByLocale": {
         "it": "stage-in-business-analytics-richemont-bellevue",
         "en": "business-analytics-intern-richemont-bellevue",
-        "de": "business-analytics-praktikant-richemont-bellevue",
-        "fr": "stagiaire-en-analyse-des-donnees-d-entreprise-richemont-bellevue"
+        "de": "praktikum-im-bereich-business-analytics-richemont-bellevue",
+        "fr": "stagiaire-en-analyse-d-affaires-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -1222,9 +1205,6 @@
       "previousSlugs": [
         "business-analytics-intern-richemont-bellevue",
         "analisi-aziendale-interna-richemont-bellevue",
-        "praktikum-im-bereich-business-analytics-richemont-bellevue",
-        "stagiaire-en-analyse-d-affaires-richemont-bellevue",
-        "business-analytics-tirocinante-richemont-bellevue",
         "business-analytics-praktikant-richemont-bellevue",
         "stagiaire-en-analyse-des-donnees-d-entreprise-richemont-bellevue"
       ],
@@ -1234,10 +1214,10 @@
           "analisi-aziendale-interna-richemont-bellevue"
         ],
         "de": [
-          "praktikum-im-bereich-business-analytics-richemont-bellevue"
+          "business-analytics-praktikant-richemont-bellevue"
         ],
         "fr": [
-          "stagiaire-en-analyse-d-affaires-richemont-bellevue"
+          "stagiaire-en-analyse-des-donnees-d-entreprise-richemont-bellevue"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.561Z",
@@ -1259,7 +1239,7 @@
       "slug": "progettista-gioielliere-cartier-manufacture-le-locle",
       "slugByLocale": {
         "it": "designer-gioielliere-cartier-manufacture-le-locle",
-        "en": "jewelry-designer-cartier-manufacture-le-locle",
+        "en": "designer-jeweler-cartier-manufacture-le-locle",
         "de": "designer-schmuckdesigner-cartier-manufacture-le-locle",
         "fr": "concepteur-joaillier-cartier-manufacture-le-locle"
       },
@@ -1310,13 +1290,11 @@
           "concepteur-joaillier-richemont-le-locle"
         ],
         "en": [
-          "designer-jeweler-cartier-manufacture-le-locle"
+          "jewelry-designer-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
         "concepteur-joaillier-richemont-le-locle",
-        "designer-jeweler-cartier-manufacture-le-locle",
-        "progettista-gioielliere-cartier-manufacture-le-locle",
         "jewelry-designer-cartier-manufacture-le-locle"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.560Z",
@@ -1393,7 +1371,6 @@
         "de": [
           "softwareingenieur-cartier-villars-sur-glane",
           "softwareentwickler-cartier-villars-sur-glane",
-          "software-ingenieur-cartier-villars-sur-glane",
           "softwaretechniker-cartier-villars-sur-glane"
         ]
       },
@@ -1405,7 +1382,6 @@
         "software-engineer-richemont-villars-sur-glane",
         "softwareingenieur-cartier-villars-sur-glane",
         "softwareentwickler-cartier-villars-sur-glane",
-        "software-ingenieur-cartier-villars-sur-glane",
         "apprentissage-cadranographe-h-f-x-cursus-2-ans-richemont-la-chaux-de-fonds",
         "zifferblattmacher-lehre-h-f-x-2-jahres-kurs-procadrans-la-chaux-de-fonds",
         "ingegnere-dati-cartier-villars-sur-glane",
@@ -1413,7 +1389,6 @@
         "data-automation-senior-analyst-finanza-richemont-villars-sur-glane",
         "analyste-principal-des-donnees-et-de-l-automatisation-finances-richemont-villars-sur-glane",
         "analyste-senior-donnees-automatisation-finance-richemont-villars-sur-glane",
-        "ingegnere-di-software-cartier-villars-sur-glane",
         "analista-senior-di-dati-e-automazione-finanza-richemont-villars-sur-glane",
         "softwaretechniker-cartier-villars-sur-glane"
       ],
@@ -1437,8 +1412,8 @@
       "slugByLocale": {
         "it": "responsabile-tecnico-logistica-produzione-richemont-meyrin",
         "en": "logistics-manufacturing-tech-team-lead-richemont-meyrin",
-        "de": "leiter-logistik-manufacturing-tech-team-richemont-meyrin",
-        "fr": "responsable-technique-manufacturing-logistique-richemont-meyrin"
+        "de": "logistik-produktions-teamleiter-richemont-meyrin",
+        "fr": "chef-d-equipe-technique-de-fabrication-logistique-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -1513,12 +1488,9 @@
       "previousSlugs": [
         "logistics-manufacturing-tech-team-lead-richemont-meyrin",
         "logistica-manufacturing-tech-team-lead-richemont-meyrin",
-        "logistik-produktions-teamleiter-richemont-meyrin",
-        "chef-d-equipe-technique-de-fabrication-logistique-richemont-meyrin",
-        "apprendista-responsabile-progetti-sste-valfleurier-buttes",
-        "responsabile-tecnico-manufacturing-logistico-richemont-meyrin",
         "leiter-logistik-manufacturing-tech-team-richemont-meyrin",
-        "responsable-technique-manufacturing-logistique-richemont-meyrin"
+        "responsable-technique-manufacturing-logistique-richemont-meyrin",
+        "apprendista-responsabile-progetti-sste-valfleurier-buttes"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1526,10 +1498,10 @@
           "logistica-manufacturing-tech-team-lead-richemont-meyrin"
         ],
         "de": [
-          "logistik-produktions-teamleiter-richemont-meyrin"
+          "leiter-logistik-manufacturing-tech-team-richemont-meyrin"
         ],
         "fr": [
-          "chef-d-equipe-technique-de-fabrication-logistique-richemont-meyrin"
+          "responsable-technique-manufacturing-logistique-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.559Z",
@@ -1553,7 +1525,7 @@
         "it": "responsabile-del-team-di-tecnologia-di-produzione-digitale-richemont-meyrin",
         "en": "digital-manufacturing-tech-team-lead-richemont-meyrin",
         "de": "leiter-des-digital-manufacturing-tech-teams-richemont-meyrin",
-        "fr": "responsable-equipe-tech-manufacturing-numerique-richemont-meyrin"
+        "fr": "chef-d-equipe-de-la-technologie-de-fabrication-numerique-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -1596,17 +1568,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "digital-manufacturing-tech-team-lead-richemont-meyrin",
-        "chef-d-equipe-de-la-technologie-de-fabrication-numerique-richemont-meyrin",
-        "apprendista-responsabile-progetti-sste-valfleurier-buttes",
-        "responsabile-tecnologico-della-produzione-digitale-richemont-meyrin",
-        "responsable-equipe-tech-manufacturing-numerique-richemont-meyrin"
+        "responsable-equipe-tech-manufacturing-numerique-richemont-meyrin",
+        "apprendista-responsabile-progetti-sste-valfleurier-buttes"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digital-manufacturing-tech-team-lead-richemont-meyrin"
         ],
         "fr": [
-          "chef-d-equipe-de-la-technologie-de-fabrication-numerique-richemont-meyrin"
+          "responsable-equipe-tech-manufacturing-numerique-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.559Z",
@@ -1784,21 +1754,16 @@
           "pick-pack-capo-squadra-richemont-villars-sur-glane"
         ],
         "en": [
-          "movement-constructor-h-f-van-cleef-arpels-meyrin",
           "movement-builder-h-f-van-cleef-arpels-meyrin"
         ],
         "de": [
-          "bewegungsbauer-h-f-van-cleef-arpels-meyrin",
           "uhrwerkbauer-h-f-van-cleef-arpels-meyrin"
         ]
       },
       "previousSlugs": [
         "constructeur-mouvement-h-f-richemont-meyrin",
-        "movement-constructor-h-f-van-cleef-arpels-meyrin",
-        "bewegungsbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
         "team-leader-picking-and-packing-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane",
         "movement-builder-h-f-van-cleef-arpels-meyrin",
         "uhrwerkbauer-h-f-van-cleef-arpels-meyrin"
@@ -1906,7 +1871,6 @@
           "team-leader-pick-pack-richemont-villars-sur-glane"
         ],
         "en": [
-          "team-leader-pick-pack-richemont-villars-sur-glane",
           "team-leader-picking-and-packing-richemont-villars-sur-glane"
         ]
       },
@@ -1974,7 +1938,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manufacturing-controlling-tech-team-lead-richemont-meyrin",
-        "chef-d-equipe-technique-de-controle-de-la-fabrication-richemont-meyrin",
         "responsable-technique-controle-manufacturing-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -1982,7 +1945,6 @@
           "manufacturing-controlling-tech-team-lead-richemont-meyrin"
         ],
         "fr": [
-          "chef-d-equipe-technique-de-controle-de-la-fabrication-richemont-meyrin",
           "responsable-technique-controle-manufacturing-richemont-meyrin"
         ]
       },
@@ -2006,8 +1968,8 @@
       "slugByLocale": {
         "it": "responsabile-tecnico-del-team-di-pianificazione-della-catena-di-approvvigionamento-upstream-richemont-meyrin",
         "en": "upstream-supply-chain-planning-tech-team-lead-richemont-meyrin",
-        "de": "technischer-leiter-des-upstream-supply-chain-planning-teams-richemont-meyrin",
-        "fr": "upstream-chaine-d-approvisionnement-planning-tech-chef-d-equipe-richemont-meyrin"
+        "de": "leiter-des-technischen-teams-fur-die-planung-der-lieferkette-upstream-richemont-meyrin",
+        "fr": "chef-d-equipe-technique-de-planification-de-la-chaine-d-approvisionnement-en-amont-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -2051,11 +2013,8 @@
       "previousSlugs": [
         "upstream-supply-chain-planning-tech-team-lead-richemont-meyrin",
         "leader-tecnico-di-pianificazione-della-catena-di-fornitura-a-monte-richemont-meyrin",
-        "leiter-des-technischen-teams-fur-die-planung-der-lieferkette-upstream-richemont-meyrin",
-        "chef-d-equipe-technique-de-la-planification-de-la-supply-chain-en-amont-richemont-meyrin",
-        "chef-d-equipe-technique-de-planification-de-la-chaine-d-approvisionnement-en-amont-richemont-meyrin",
-        "responsabile-tecnico-del-team-di-pianificazione-della-supply-chain-a-monte-richemont-meyrin",
         "technischer-leiter-des-upstream-supply-chain-planning-teams-richemont-meyrin",
+        "chef-d-equipe-technique-de-la-planification-de-la-supply-chain-en-amont-richemont-meyrin",
         "upstream-chaine-d-approvisionnement-planning-tech-chef-d-equipe-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -2064,11 +2023,11 @@
           "leader-tecnico-di-pianificazione-della-catena-di-fornitura-a-monte-richemont-meyrin"
         ],
         "de": [
-          "leiter-des-technischen-teams-fur-die-planung-der-lieferkette-upstream-richemont-meyrin"
+          "technischer-leiter-des-upstream-supply-chain-planning-teams-richemont-meyrin"
         ],
         "fr": [
           "chef-d-equipe-technique-de-la-planification-de-la-supply-chain-en-amont-richemont-meyrin",
-          "chef-d-equipe-technique-de-planification-de-la-chaine-d-approvisionnement-en-amont-richemont-meyrin"
+          "upstream-chaine-d-approvisionnement-planning-tech-chef-d-equipe-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -2213,7 +2172,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "group-talent-systems-operations-projektmanager-richemont-bellevue",
         "group-talent-systems-operations-project-manager-richemont-bellevue",
         "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sste-valfleurier-buttes",
@@ -2222,7 +2180,6 @@
       "previousSlugsByLocale": {
         "de": [
           "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-          "group-talent-systems-operations-projektmanager-richemont-bellevue",
           "gruppentalent-system-operations-projektmanager-richemont-bellevue"
         ],
         "it": [
@@ -2247,7 +2204,7 @@
       "id": "richemont-ef1447d5c244",
       "slug": "responsabile-progetti-sste-valfleurier-buttes",
       "slugByLocale": {
-        "it": "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
+        "it": "responsabile-progetti-sste-valfleurier-buttes",
         "en": "group-talent-systems-operations-project-manager-richemont-bellevue",
         "de": "gruppentalent-system-operations-projektmanager-valfleurier-buttes",
         "fr": "chef-de-projet-des-systemes-de-gestion-des-talents-et-des-operations-du-groupe-richemont-bellevue"
@@ -2298,7 +2255,8 @@
           "group-talent-systems-operations-projektmanager-richemont-bellevue"
         ],
         "it": [
-          "charge-de-projets-sste-richemont-buttes"
+          "charge-de-projets-sste-richemont-buttes",
+          "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
         ],
         "en": [
           "charge-de-projets-sste-richemont-buttes"
@@ -2311,11 +2269,10 @@
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "charge-de-projets-sste-richemont-buttes",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
+        "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
         "charge-de-projets-sste-valfleurier-buttes",
         "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
-        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "group-talent-systems-operations-project-manager-richemont-bellevue",
-        "responsabile-progetti-sste-valfleurier-buttes"
+        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.168Z",
       "salaryMin": 68000,
@@ -2418,7 +2375,6 @@
         "responsabile-progetti-sste-valfleurier-buttes",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -2621,14 +2577,12 @@
           "operateur-cadran-experimente-richemont-la-chaux-de-fonds"
         ],
         "de": [
-          "erfahrener-zifferblattoperator-procadrans-la-chaux-de-fonds",
           "benutzer-erfahrenes-zifferblatt-procadrans-la-chaux-de-fonds"
         ]
       },
       "previousSlugs": [
         "experienced-dial-operator-procadrans-la-chaux-de-fonds",
         "operateur-cadran-experimente-richemont-la-chaux-de-fonds",
-        "erfahrener-zifferblattoperator-procadrans-la-chaux-de-fonds",
         "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
         "benutzer-erfahrenes-zifferblatt-procadrans-la-chaux-de-fonds"
       ],
@@ -2776,10 +2730,10 @@
       "id": "richemont-f5002a78c9dd",
       "slug": "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
       "slugByLocale": {
-        "it": "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
+        "it": "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
         "en": "upstream-procurement-product-tech-team-lead-richemont-meyrin",
-        "de": "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin",
-        "fr": "responsable-equipe-tech-achats-en-amont-richemont-meyrin"
+        "de": "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
+        "fr": "responsable-de-l-equipe-technique-des-produits-d-approvisionnement-en-amont-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -2824,10 +2778,10 @@
         "upstream-procurement-product-tech-team-lead-richemont-meyrin",
         "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
         "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
-        "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin",
+        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
         "produkt-tech-team-lead-richemont-meyrin",
-        "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin",
-        "responsable-de-l-equipe-technique-des-produits-d-approvisionnement-en-amont-richemont-meyrin",
+        "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin",
+        "responsable-equipe-tech-achats-en-amont-richemont-meyrin",
         "cao-plm-fao-referenz-creo-windchill-panerai-neuchatel",
         "cad-plm-fao-spezialist-creo-windchill-panerai-neuchatel",
         "referent-e-cao-plm-fao-creo-windchill-richemont-neuchatel",
@@ -2835,22 +2789,21 @@
         "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
         "cad-plm-cam-spezialist-creo-windchill-panerai-neuchatel",
         "cad-plm-cam-specialist-creo-windchill-panerai-neuchatel",
-        "cad-plm-cam-referent-creo-windchill-panerai-neuchatel",
-        "responsabile-team-tech-acquisti-a-monte-richemont-meyrin"
+        "cad-plm-cam-referent-creo-windchill-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "upstream-procurement-product-tech-team-lead-richemont-meyrin",
           "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
           "referente-cad-plm-cam-creo-windchill-panerai-neuchatel",
-          "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin"
+          "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel"
         ],
         "de": [
           "produkt-tech-team-lead-richemont-meyrin",
-          "leiter-des-upstream-procurement-produkttechnik-teams-richemont-meyrin"
+          "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin"
         ],
         "fr": [
-          "responsable-de-l-equipe-technique-des-produits-d-approvisionnement-en-amont-richemont-meyrin"
+          "responsable-equipe-tech-achats-en-amont-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.545Z",
@@ -3044,13 +2997,11 @@
           "boutique-director-richemont-geneva"
         ],
         "de": [
-          "boutique-direktor-piaget-geneva",
           "geschaftsfuhrer-piaget-geneva"
         ]
       },
       "previousSlugs": [
         "boutique-director-richemont-geneva",
-        "boutique-direktor-piaget-geneva",
         "geschaftsfuhrer-piaget-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.537Z",
@@ -3161,8 +3112,7 @@
       "previousSlugs": [
         "stage-assistant-e-supply-chain-demand-planning-richemont-geneva",
         "praktikum-assistenz-supply-chain-demand-planning-van-cleef-arpels-geneva",
-        "ausbildung-supply-chain-demand-planning-assistant-van-cleef-arpels-geneva",
-        "formazione-supply-chain-demand-planning-assistant-van-cleef-arpels-geneva"
+        "ausbildung-supply-chain-demand-planning-assistant-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.534Z",
       "salaryMin": 41600,
@@ -3246,7 +3196,6 @@
         "stagiaire-demarches-de-progres-richemont-la-chaux-de-fonds",
         "stagiaire-demarches-de-progres-procadrans-la-chaux-de-fonds",
         "auszubildende-verfahren-procadrans-la-chaux-de-fonds",
-        "procedure-di-formazione-procadrans-la-chaux-de-fonds",
         "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
         "trainee-progress-procedures-procadrans-la-chaux-de-fonds-142a0c"
       ],
@@ -3313,8 +3262,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "boutique-jeweler-richemont-geneva",
-        "gioielli-boutique-richemont-geneva"
+        "boutique-jeweler-richemont-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3402,8 +3350,7 @@
         "stage-assistente-o-supply-planner-van-cleef-arpels-geneva",
         "stage-assistente-a-pianificazione-supply-van-cleef-arpels-geneva",
         "traineeship-addestramento-planner-assistente-van-cleef-arpels-geneva",
-        "traineeship-assistente-del-progettista-di-alimentazione-van-cleef-arpels-geneva",
-        "traineeship-provide-planner-assistant-van-cleef-arpels-geneva"
+        "traineeship-assistente-del-progettista-di-alimentazione-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.533Z",
       "salaryMin": 41600,
@@ -3642,7 +3589,7 @@
       "id": "richemont-fd939e29e6e6",
       "slug": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
       "slugByLocale": {
-        "it": "stage-di-gestione-del-programma-richemont-meyrin",
+        "it": "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes",
         "en": "program-management-intern-richemont-meyrin",
         "de": "program-management-praktikant-richemont-meyrin",
         "fr": "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -3690,20 +3637,20 @@
         "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
         "tirocinante-in-program-management-richemont-meyrin",
         "stage-in-program-management-richemont-meyrin",
+        "stage-di-gestione-del-programma-richemont-meyrin",
         "program-management-intern-richemont-meyrin",
         "praktikum-im-programmmanagement-richemont-meyrin",
         "stagiaire-en-gestion-de-programme-richemont-meyrin",
         "stagiaire-en-gestion-de-programmes-richemont-meyrin",
         "program-management-tirocinante-richemont-meyrin",
-        "programmleitung-intern-richemont-meyrin",
-        "program-management-praktikant-richemont-meyrin",
-        "stage-r-i-comprensione-dell-organo-motore-di-un-orologio-meccanico-richemont-buttes"
+        "programmleitung-intern-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes",
           "tirocinante-in-program-management-richemont-meyrin",
-          "stage-in-program-management-richemont-meyrin"
+          "stage-in-program-management-richemont-meyrin",
+          "stage-di-gestione-del-programma-richemont-meyrin"
         ],
         "en": [
           "stage-r-i-comprehension-de-l-organe-moteur-d-une-montre-mecanique-richemont-buttes"
@@ -3736,7 +3683,7 @@
         "it": "associate-di-vendita-vhernier-geneva",
         "en": "sales-associate-vhernier-geneva",
         "de": "vertriebsmitarbeiter-vhernier-geneva",
-        "fr": "associe-de-vente-vhernier-geneva"
+        "fr": "sales-associate-richemont-geneva"
       },
       "company": "Vhernier",
       "companyKey": "richemont",
@@ -3811,7 +3758,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "conseiller-de-vente-vhernier-geneva",
-          "sales-associate-richemont-geneva"
+          "associe-de-vente-vhernier-geneva"
         ],
         "it": [
           "sales-associate-richemont-geneva-2",
@@ -3821,9 +3768,8 @@
       "previousSlugs": [
         "conseiller-de-vente-vhernier-geneva",
         "sales-associate-richemont-geneva",
-        "sales-associate-richemont-geneva-2",
         "associe-de-vente-vhernier-geneva",
-        "addetto-alle-vendite-vhernier-geneva"
+        "sales-associate-richemont-geneva-2"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.514Z",
       "salaryMin": 49500,
@@ -3925,8 +3871,7 @@
         "fachkraft-fur-zerspanungstechnik-procadrans-la-chaux-de-fonds",
         "fachkraft-fur-mechanische-bearbeitung-procadrans-la-chaux-de-fonds",
         "spezialist-fur-werkzeugmaschinen-procadrans-la-chaux-de-fonds",
-        "specialiste-metier-usinage-richemont-la-chaux-de-fonds",
-        "specialista-di-lavorazioni-meccaniche-procadrans-la-chaux-de-fonds"
+        "specialiste-metier-usinage-richemont-la-chaux-de-fonds"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.511Z",
       "salaryMin": 49500,
@@ -4029,7 +3974,6 @@
         ],
         "de": [
           "leiter-strategischer-lieferantenvertrage-richemont-meyrin",
-          "strategische-anbieter-kontradiktorisch-fuhrend-richemont-meyrin",
           "strategische-anbieter-vertragsleitung-richemont-meyrin"
         ]
       },
@@ -4038,7 +3982,6 @@
         "responsabile-contratti-fornitori-strategici-richemont-meyrin",
         "strategic-vendors-contract-lead-richemont-meyrin",
         "leiter-strategischer-lieferantenvertrage-richemont-meyrin",
-        "strategische-anbieter-kontradiktorisch-fuhrend-richemont-meyrin",
         "strategische-anbieter-vertragsleitung-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.509Z",
@@ -4061,7 +4004,7 @@
       "slugByLocale": {
         "it": "specialista-in-compensation-di-gruppo-richemont-bellevue",
         "en": "group-compensation-specialist-richemont-bellevue",
-        "de": "group-compensation-spezialist-richemont-bellevue",
+        "de": "gruppenvergutungsspezialist-richemont-bellevue",
         "fr": "specialiste-de-la-remuneration-du-groupe-richemont-bellevue"
       },
       "company": "Richemont",
@@ -4106,8 +4049,6 @@
       "previousSlugs": [
         "group-compensation-specialist-richemont-bellevue",
         "gruppenkompensation-spezialist-richemont-bellevue",
-        "gruppenvergutungsspezialist-richemont-bellevue",
-        "group-compensation-specialista-richemont-bellevue",
         "group-compensation-spezialist-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -4116,7 +4057,7 @@
         ],
         "de": [
           "gruppenkompensation-spezialist-richemont-bellevue",
-          "gruppenvergutungsspezialist-richemont-bellevue"
+          "group-compensation-spezialist-richemont-bellevue"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.510Z",
@@ -4139,7 +4080,7 @@
       "slugByLocale": {
         "it": "controller-di-gestione-h-f-x-cartier-manufacture-le-locle",
         "en": "management-controller-h-f-x-cartier-manufacture-le-locle",
-        "de": "controlling-h-f-x-cartier-manufacture-le-locle",
+        "de": "controller-h-f-x-cartier-manufacture-le-locle",
         "fr": "controleur-de-gestion-h-f-x-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -4210,13 +4151,11 @@
           "controleur-de-gestion-h-f-x-richemont-le-locle"
         ],
         "de": [
-          "controller-h-f-x-cartier-manufacture-le-locle"
+          "controlling-h-f-x-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
         "controleur-de-gestion-h-f-x-richemont-le-locle",
-        "controller-h-f-x-cartier-manufacture-le-locle",
-        "controllore-di-gestione-h-f-x-cartier-manufacture-le-locle",
         "controlling-h-f-x-cartier-manufacture-le-locle"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.508Z",
@@ -4376,7 +4315,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "group-internal-communication-senior-manager-richemont-bellevue",
-        "directeur-principal-de-la-communication-interne-du-groupe-richemont-bellevue",
         "senior-manager-communication-interne-groupe-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -4384,7 +4322,6 @@
           "group-internal-communication-senior-manager-richemont-bellevue"
         ],
         "fr": [
-          "directeur-principal-de-la-communication-interne-du-groupe-richemont-bellevue",
           "senior-manager-communication-interne-groupe-richemont-bellevue"
         ]
       },
@@ -4481,7 +4418,7 @@
       "slugByLocale": {
         "it": "stage-in-project-management-it-richemont-meyrin",
         "en": "it-project-management-intern-richemont-meyrin",
-        "de": "it-project-management-praktikant-richemont-meyrin",
+        "de": "it-projektmanagement-praktikant-richemont-meyrin",
         "fr": "it-project-management-intern-richemont-meyrin"
       },
       "company": "Richemont",
@@ -4558,11 +4495,9 @@
         "it-project-management-intern-richemont-meyrin",
         "tirocinante-in-gestione-progetti-it-richemont-meyrin",
         "it-project-management-tirocinante-richemont-meyrin",
-        "it-projektmanagement-praktikant-richemont-meyrin",
+        "it-project-management-praktikant-richemont-meyrin",
         "stagiaire-en-gestion-de-projet-richemont-meyrin",
-        "stagiaire-en-gestion-de-projets-it-richemont-meyrin",
-        "stage-di-progettazione-di-progetti-it-richemont-meyrin",
-        "it-project-management-praktikant-richemont-meyrin"
+        "stagiaire-en-gestion-de-projets-it-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4571,7 +4506,7 @@
           "it-project-management-tirocinante-richemont-meyrin"
         ],
         "de": [
-          "it-projektmanagement-praktikant-richemont-meyrin"
+          "it-project-management-praktikant-richemont-meyrin"
         ],
         "fr": [
           "stagiaire-en-gestion-de-projet-richemont-meyrin",
@@ -4670,7 +4605,7 @@
       "slugByLocale": {
         "it": "stage-excellence-operativa-h-f-x-cartier-manufacture-le-locle",
         "en": "operational-excellence-intern-h-f-x-cartier-manufacture-le-locle",
-        "de": "praktikant-fur-operative-exzellenz-h-f-x-cartier-manufacture-le-locle",
+        "de": "praktikant-operational-excellence-h-f-x-cartier-manufacture-le-locle",
         "fr": "stagiaire-excellence-operationnelle-h-f-x-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -4751,13 +4686,11 @@
           "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle"
         ],
         "de": [
-          "praktikant-operational-excellence-h-f-x-cartier-manufacture-le-locle"
+          "praktikant-fur-operative-exzellenz-h-f-x-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
         "stagiaire-excellence-operationnelle-h-f-x-richemont-le-locle",
-        "praktikant-operational-excellence-h-f-x-cartier-manufacture-le-locle",
-        "tirocinante-in-eccellenza-operativa-h-f-x-cartier-manufacture-le-locle",
         "praktikant-fur-operative-exzellenz-h-f-x-cartier-manufacture-le-locle"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.506Z",
@@ -4861,13 +4794,11 @@
           "responsable-developpement-montres-richemont-neuchatel"
         ],
         "de": [
-          "leiter-uhrentwicklung-panerai-neuchatel",
           "uhr-entwicklungsmanager-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel",
         "uhr-entwicklungsmanager-panerai-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.502Z",
@@ -5161,8 +5092,6 @@
         "payroll-and-social-insurance-specialist-richemont-meyrin",
         "payroll-e-social-insurance-specialist-richemont-meyrin",
         "specialista-paghe-e-assicurazioni-sociali-richemont-meyrin",
-        "lohn-und-sozialversicherungsspezialist-richemont-meyrin",
-        "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-meyrin",
         "lohn-und-sozialversicherungsfachkraft-richemont-meyrin",
         "specialiste-paie-et-assurances-sociales-richemont-meyrin"
       ],
@@ -5173,11 +5102,9 @@
           "specialista-paghe-e-assicurazioni-sociali-richemont-meyrin"
         ],
         "de": [
-          "lohn-und-sozialversicherungsspezialist-richemont-meyrin",
           "lohn-und-sozialversicherungsfachkraft-richemont-meyrin"
         ],
         "fr": [
-          "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-meyrin",
           "specialiste-paie-et-assurances-sociales-richemont-meyrin"
         ]
       },
@@ -5252,8 +5179,7 @@
         ]
       },
       "previousSlugs": [
-        "associate-watch-advisor-richemont-geneva",
-        "associate-watch-consulente-a-lange-und-sohne-geneva"
+        "associate-watch-advisor-richemont-geneva"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.729Z",
       "salaryMin": 49500,
@@ -5319,20 +5245,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "metrologue-richemont-plan-les-ouates",
           "metrologist-vacheron-constantin-plan-les-ouates"
         ],
         "it": [
           "metrologue-richemont-plan-les-ouates"
         ],
         "de": [
-          "metrologe-vacheron-constantin-plan-les-ouates",
           "methologen-vacheron-constantin-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "metrologue-richemont-plan-les-ouates",
-        "metrologe-vacheron-constantin-plan-les-ouates",
         "internal-warehousing-tech-team-lead-richemont-meyrin",
         "metrologist-vacheron-constantin-plan-les-ouates",
         "methologen-vacheron-constantin-plan-les-ouates"
@@ -5439,8 +5362,7 @@
         ]
       },
       "previousSlugs": [
-        "assistant-boutique-manager-richemont-geneva",
-        "assistente-responsabile-boutique-a-lange-und-sohne-geneva"
+        "assistant-boutique-manager-richemont-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.498Z",
       "salaryMin": 68000,
@@ -5462,8 +5384,8 @@
       "slugByLocale": {
         "it": "hospitality-clients-manager-richemont-plan-les-ouates",
         "en": "hospitality-clients-manager-vacheron-constantin-plan-les-ouates",
-        "de": "hospitality-kundenmanager-vacheron-constantin-plan-les-ouates",
-        "fr": "gestionnaire-des-clients-d-accueil-vacheron-constantin-plan-les-ouates"
+        "de": "kundenmanager-im-gastgewerbe-vacheron-constantin-plan-les-ouates",
+        "fr": "responsable-clients-hospitalite-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -5547,11 +5469,11 @@
         ],
         "de": [
           "associate-watch-berater-a-lange-und-sohne-geneva",
-          "kundenmanager-im-gastgewerbe-vacheron-constantin-plan-les-ouates"
+          "hospitality-kundenmanager-vacheron-constantin-plan-les-ouates"
         ],
         "fr": [
           "conseiller-watch-associe-a-lange-und-sohne-geneva",
-          "responsable-clients-hospitalite-vacheron-constantin-plan-les-ouates"
+          "gestionnaire-des-clients-d-accueil-vacheron-constantin-plan-les-ouates"
         ]
       },
       "previousSlugs": [
@@ -5561,15 +5483,12 @@
         "consulente-orologi-associato-a-lange-und-sohne-geneva",
         "associate-watch-advisor-a-lange-und-sohne-geneva",
         "associate-watch-berater-a-lange-und-sohne-geneva",
-        "kundenmanager-im-gastgewerbe-vacheron-constantin-plan-les-ouates",
+        "hospitality-kundenmanager-vacheron-constantin-plan-les-ouates",
         "conseiller-watch-associe-a-lange-und-sohne-geneva",
-        "responsable-clients-hospitalite-vacheron-constantin-plan-les-ouates",
+        "gestionnaire-des-clients-d-accueil-vacheron-constantin-plan-les-ouates",
         "associate-watch-advisor-richemont-geneva",
         "consigliere-di-vigilanza-associato-a-lange-und-sohne-geneva",
-        "assoziierter-beobachterberater-a-lange-und-sohne-geneva",
-        "gestione-clienti-dell-ospitalita-vacheron-constantin-plan-les-ouates",
-        "hospitality-kundenmanager-vacheron-constantin-plan-les-ouates",
-        "gestionnaire-des-clients-d-accueil-vacheron-constantin-plan-les-ouates"
+        "assoziierter-beobachterberater-a-lange-und-sohne-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.498Z",
       "salaryMin": 68000,
@@ -5692,7 +5611,7 @@
       "slugByLocale": {
         "it": "responsabile-marketing-specialties-high-end-offer-vacheron-constantin-plan-les-ouates",
         "en": "head-of-marketing-specialties-high-end-offer-richemont-plan-les-ouates",
-        "de": "leiter-marketing-spezialitaten-luxusangebote-vacheron-constantin-plan-les-ouates",
+        "de": "leiter-marketing-spezialitaten-high-end-angebot-vacheron-constantin-plan-les-ouates",
         "fr": "responsable-des-specialites-marketing-offre-haut-de-gamme-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
@@ -5768,8 +5687,6 @@
       "previousSlugs": [
         "head-of-marketing-specialties-high-end-offer-richemont-plan-les-ouates",
         "entwicklung-der-marktspezialitaten-und-highendangebot-vacheron-constantin-plan-les-ouates",
-        "leiter-marketing-spezialitaten-high-end-angebot-vacheron-constantin-plan-les-ouates",
-        "responsabile-marketing-specialita-offerta-di-lusso-vacheron-constantin-plan-les-ouates",
         "leiter-marketing-spezialitaten-luxusangebote-vacheron-constantin-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
@@ -5778,7 +5695,7 @@
         ],
         "de": [
           "entwicklung-der-marktspezialitaten-und-highendangebot-vacheron-constantin-plan-les-ouates",
-          "leiter-marketing-spezialitaten-high-end-angebot-vacheron-constantin-plan-les-ouates"
+          "leiter-marketing-spezialitaten-luxusangebote-vacheron-constantin-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.497Z",
@@ -5801,7 +5718,7 @@
       "slugByLocale": {
         "it": "specialista-in-paghe-e-assicurazioni-sociali-richemont-schaffhausen",
         "en": "payroll-and-social-insurance-specialist-richemont-schaffhausen",
-        "de": "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
+        "de": "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
         "fr": "specialiste-de-la-paie-et-de-l-assurance-sociale-richemont-schaffhausen"
       },
       "company": "Richemont",
@@ -5888,13 +5805,11 @@
         "payroll-and-social-insurance-specialist-richemont-schaffhausen",
         "payroll-e-social-insurance-specialist-richemont-schaffhausen",
         "assistente-manager-del-salone-a-lange-und-sohne-zurich",
-        "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen",
+        "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen",
         "assistant-salon-manager-richemont-zurich",
         "assistente-al-salon-manager-a-lange-und-sohne-zurich",
         "stellvertretender-salonleiter-a-lange-und-sohne-zurich",
-        "assistent-des-salons-a-lange-und-sohne-zurich",
-        "specialista-paga-e-assicurazione-sociale-richemont-schaffhausen",
-        "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen"
+        "assistent-des-salons-a-lange-und-sohne-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5903,7 +5818,7 @@
           "assistente-manager-del-salone-a-lange-und-sohne-zurich"
         ],
         "de": [
-          "lohn-und-sozialversicherungsspezialist-richemont-schaffhausen"
+          "spezialist-fur-gehalt-und-sozialversicherung-richemont-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.493Z",
@@ -6002,7 +5917,6 @@
       },
       "previousSlugs": [
         "gl-vat-accountant-richemont-meyrin",
-        "gl-vat-buchhalter-richemont-meyrin",
         "gl-vat-accounting-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -6010,7 +5924,6 @@
           "gl-vat-accountant-richemont-meyrin"
         ],
         "de": [
-          "gl-vat-buchhalter-richemont-meyrin",
           "gl-vat-accounting-richemont-meyrin"
         ]
       },
@@ -6276,13 +6189,11 @@
         ]
       },
       "previousSlugs": [
-        "krankenhaus-zug-richemont-villars-sur-glane",
         "gastfreundschaft-trainee-richemont-villars-sur-glane",
         "hospitalit-tra-richemont-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "krankenhaus-zug-richemont-villars-sur-glane",
           "gastfreundschaft-trainee-richemont-villars-sur-glane"
         ],
         "en": [
@@ -6392,8 +6303,7 @@
       },
       "previousSlugs": [
         "head-of-public-relations-press-richemont-plan-les-ouates",
-        "responsable-des-relations-publiques-et-de-la-presse-piaget-plan-les-ouates",
-        "responsabile-public-relations-press-piaget-plan-les-ouates"
+        "responsable-des-relations-publiques-et-de-la-presse-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6514,7 +6424,6 @@
         ],
         "fr": [
           "stagiaire-en-m-a-richemont-bellevue",
-          "stagiaire-en-fusions-et-acquisitions-richemont-bellevue",
           "m-a-stagiaire-richemont-bellevue"
         ]
       },
@@ -6523,7 +6432,6 @@
         "stagista-m-a-richemont-bellevue",
         "m-a-intern-richemont-bellevue",
         "stagiaire-en-m-a-richemont-bellevue",
-        "stagiaire-en-fusions-et-acquisitions-richemont-bellevue",
         "sustainability-engagement-tirocinante-richemont-bellevue",
         "stage-sustainability-engagement-richemont-bellevue",
         "sustainability-engagement-intern-richemont-bellevue",
@@ -6627,8 +6535,7 @@
       "previousSlugs": [
         "fhh-academy-international-development-junior-manager-richemont-geneva",
         "responsable-junior-du-developpement-international-de-la-fhh-academy-fondation-de-la-haute-horlogerie-geneva",
-        "directeur-junior-du-developpement-international-de-l-academie-fhh-fondation-de-la-haute-horlogerie-geneva",
-        "fh-academy-international-development-junior-manager-fondation-de-la-haute-horlogerie-geneva"
+        "directeur-junior-du-developpement-international-de-l-academie-fhh-fondation-de-la-haute-horlogerie-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6747,7 +6654,6 @@
         "marketing-intern-jewellery-high-jewellery-piaget-plan-les-ouates",
         "jewellery-high-jewellery-product-marketing-intern-richemont-plan-les-ouates",
         "schmuck-high-schmuck-produktmarketing-intern-piaget-plan-les-ouates",
-        "praktikum-marketing-fur-schmuck-hochjuwelen-piaget-plan-les-ouates",
         "schmuck-hochschmuck-produktmarketing-intern-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
@@ -6758,7 +6664,6 @@
         ],
         "de": [
           "schmuck-high-schmuck-produktmarketing-intern-piaget-plan-les-ouates",
-          "praktikum-marketing-fur-schmuck-hochjuwelen-piaget-plan-les-ouates",
           "schmuck-hochschmuck-produktmarketing-intern-piaget-plan-les-ouates"
         ]
       },
@@ -6864,7 +6769,6 @@
       },
       "previousSlugs": [
         "cs-technischer-projektleiter-piaget-la-cote-aux-fees",
-        "directeur-technique-de-projet-piaget-la-cote-aux-fees",
         "gestionnaire-de-projets-techniques-cs-piaget-la-cote-aux-fees"
       ],
       "previousSlugsByLocale": {
@@ -6872,7 +6776,6 @@
           "cs-technischer-projektleiter-piaget-la-cote-aux-fees"
         ],
         "fr": [
-          "directeur-technique-de-projet-piaget-la-cote-aux-fees",
           "gestionnaire-de-projets-techniques-cs-piaget-la-cote-aux-fees"
         ]
       },
@@ -7055,7 +6958,6 @@
       "previousSlugs": [
         "hr-senior-project-portfolio-manager-richemont-bellevue",
         "hr-senior-projekt-portfoliomanager-richemont-bellevue",
-        "personalwesen-senior-project-portfolio-manager-richemont-bellevue",
         "hr-senior-projekt-und-portfoliomanager-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -7064,7 +6966,6 @@
         ],
         "de": [
           "hr-senior-projekt-portfoliomanager-richemont-bellevue",
-          "personalwesen-senior-project-portfolio-manager-richemont-bellevue",
           "hr-senior-projekt-und-portfoliomanager-richemont-bellevue"
         ]
       },
@@ -7253,7 +7154,7 @@
       "slugByLocale": {
         "it": "responsabile-team-sicurezza-cloud-richemont-meyrin",
         "en": "cloud-security-team-lead-richemont-meyrin",
-        "de": "fuhrer-der-cloud-sicherheits-team-richemont-meyrin",
+        "de": "leiter-cloud-sicherheitsteam-richemont-meyrin",
         "fr": "chef-d-equipe-de-securite-cloud-richemont-meyrin"
       },
       "company": "Richemont",
@@ -7337,8 +7238,6 @@
       "previousSlugs": [
         "cloud-security-team-lead-richemont-meyrin",
         "lead-di-team-cloud-security-richemont-meyrin",
-        "leiter-cloud-sicherheitsteam-richemont-meyrin",
-        "cloud-security-capo-team-richemont-meyrin",
         "fuhrer-der-cloud-sicherheits-team-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -7347,7 +7246,7 @@
           "lead-di-team-cloud-security-richemont-meyrin"
         ],
         "de": [
-          "leiter-cloud-sicherheitsteam-richemont-meyrin"
+          "fuhrer-der-cloud-sicherheits-team-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.477Z",
@@ -7370,7 +7269,7 @@
       "slugByLocale": {
         "it": "responsabile-gioielli-europa-richemont-meyrin",
         "en": "jewelry-manager-europe-richemont-meyrin",
-        "de": "schmuckmanager-europa-richemont-meyrin",
+        "de": "juwelenmanager-europa-richemont-meyrin",
         "fr": "responsable-bijoux-europe-richemont-meyrin"
       },
       "company": "Richemont",
@@ -7479,7 +7378,7 @@
         "de": [
           "krankenhaus-intern-richemont-meyrin",
           "hospitality-praktikant-richemont-meyrin",
-          "juwelenmanager-europa-richemont-meyrin"
+          "schmuckmanager-europa-richemont-meyrin"
         ]
       },
       "previousSlugs": [
@@ -7501,7 +7400,7 @@
         "hris-specialist-cdd-richemont-meyrin",
         "krankenhaus-intern-richemont-meyrin",
         "hospitality-praktikant-richemont-meyrin",
-        "hospitality-tirocinante-richemont-meyrin"
+        "schmuckmanager-europa-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.476Z",
       "salaryMin": 68000,
@@ -7687,7 +7586,6 @@
         ],
         "de": [
           "schmuckmanager-europa-richemont-meyrin",
-          "hospitality-praktikant-richemont-meyrin",
           "juwelenmanager-europa-richemont-meyrin",
           "krankenhaus-intern-richemont-meyrin"
         ],
@@ -7695,7 +7593,6 @@
           "responsable-bijoux-europe-richemont-meyrin",
           "gestionnaire-de-joaillerie-europe-richemont-meyrin",
           "stagiaire-d-accueil-richemont-meyrin",
-          "stagiaire-en-hotellerie-richemont-meyrin",
           "jewelry-manager-europe-richemont-meyrin",
           "stagiaire-de-reception-richemont-meyrin"
         ]
@@ -7714,12 +7611,10 @@
         "manager-giadelli-europe-richemont-meyrin",
         "jewelry-manager-europe-richemont-meyrin",
         "schmuckmanager-europa-richemont-meyrin",
-        "hospitality-praktikant-richemont-meyrin",
         "juwelenmanager-europa-richemont-meyrin",
         "responsable-bijoux-europe-richemont-meyrin",
         "gestionnaire-de-joaillerie-europe-richemont-meyrin",
         "stagiaire-d-accueil-richemont-meyrin",
-        "ospitalita-interno-richemont-meyrin",
         "hris-specialist-cdd-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.709Z",
@@ -7846,7 +7741,7 @@
       "slugByLocale": {
         "it": "associate-di-vendita-part-time-20-cartier-zurich",
         "en": "sales-associate-part-time-20-richemont-zurich",
-        "de": "verkaufsassistent-teilzeit-20-cartier-zurich",
+        "de": "vertriebsmitarbeiter-teilzeit-20-cartier-zurich",
         "fr": "associe-de-vente-temps-partiel-20-cartier-zurich"
       },
       "company": "Cartier",
@@ -7898,17 +7793,15 @@
           "sales-associate-part-time-20-richemont-zurich"
         ],
         "de": [
-          "vertriebsmitarbeiter-teilzeit-20-cartier-zurich"
+          "verkaufsassistent-teilzeit-20-cartier-zurich"
         ]
       },
       "previousSlugs": [
         "associe-aux-ventes-temps-partiel-20-cartier-zurich",
         "associe-vente-temps-partiel-20-cartier-zurich",
         "sales-associate-part-time-20-richemont-zurich",
-        "vertriebsmitarbeiter-teilzeit-20-cartier-zurich",
-        "venditore-part-time-40-cartier-zurich",
-        "assistente-vendita-parte-tempo-20-cartier-zurich",
-        "verkaufsassistent-teilzeit-20-cartier-zurich"
+        "verkaufsassistent-teilzeit-20-cartier-zurich",
+        "venditore-part-time-40-cartier-zurich"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.474Z",
       "salaryMin": 49500,
@@ -7931,8 +7824,8 @@
       "slugByLocale": {
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
-        "de": "senior-verkaufsmitarbeiter-cartier-geneva",
-        "fr": "avocat-principal-cartier-geneva"
+        "de": "leitender-vertriebsmitarbeiter-cartier-geneva",
+        "fr": "senior-sales-associate-richemont-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -8016,23 +7909,21 @@
       "previousSlugsByLocale": {
         "fr": [
           "associe-de-vente-senior-cartier-geneva",
-          "senior-sales-associate-richemont-geneva"
+          "avocat-principal-cartier-geneva"
         ],
         "it": [
           "senior-sales-associate-richemont-geneva-2",
           "senior-sales-associate-richemont-geneva"
         ],
         "de": [
-          "leitender-vertriebsmitarbeiter-cartier-geneva"
+          "senior-verkaufsmitarbeiter-cartier-geneva"
         ]
       },
       "previousSlugs": [
         "associe-de-vente-senior-cartier-geneva",
         "senior-sales-associate-richemont-geneva",
-        "senior-sales-associate-richemont-geneva-2",
-        "leitender-vertriebsmitarbeiter-cartier-geneva",
         "avocat-principal-cartier-geneva",
-        "assistente-vendite-senior-cartier-geneva",
+        "senior-sales-associate-richemont-geneva-2",
         "senior-verkaufsmitarbeiter-cartier-geneva"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -8106,14 +7997,12 @@
           "sales-associate-part-time-40-richemont-zurich"
         ],
         "de": [
-          "sales-associate-teilzeit-40-cartier-zurich",
           "vertriebspartner-teilzeit-40-cartier-zurich"
         ]
       },
       "previousSlugs": [
         "ventes-temps-partiel-40-cartier-zurich",
         "sales-associate-part-time-40-richemont-zurich",
-        "sales-associate-teilzeit-40-cartier-zurich",
         "sales-associate-temps-partiel-20-cartier-zurich",
         "vertriebspartner-teilzeit-40-cartier-zurich"
       ],
@@ -8209,7 +8098,7 @@
         "it": "financial-analytics-engineer-18-mesi-cartier-meyrin",
         "en": "financial-analytics-engineer-18-months-richemont-meyrin",
         "de": "financial-analytics-engineer-18-months-richemont-meyrin",
-        "fr": "ingenieur-analytics-financiers-18-mois-cartier-meyrin"
+        "fr": "ingenieur-en-analyse-financiere-18-mois-cartier-meyrin"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -8293,8 +8182,6 @@
       "previousSlugs": [
         "financial-analytics-engineer-18-months-richemont-meyrin",
         "financial-analytics-engineer-18-monate-cartier-meyrin",
-        "ingenieur-en-analyse-financiere-18-mois-cartier-meyrin",
-        "financial-analytics-ingegnere-18-months-cartier-meyrin",
         "ingenieur-analytics-financiers-18-mois-cartier-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -8305,7 +8192,7 @@
           "financial-analytics-engineer-18-monate-cartier-meyrin"
         ],
         "fr": [
-          "ingenieur-en-analyse-financiere-18-mois-cartier-meyrin"
+          "ingenieur-analytics-financiers-18-mois-cartier-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.469Z",
@@ -8328,7 +8215,7 @@
       "slugByLocale": {
         "it": "stage-r-i-padronanza-di-un-processo-di-produzione-innovativo-per-l-industria-del-lusso-richemont-delemont",
         "en": "r-i-internship-mastery-of-an-innovative-manufacturing-process-for-the-luxury-industry-richemont-delemont",
-        "de": "stage-r-i-meistereiung-eines-innovativen-herstellungsprozesses-fur-die-luxusindustrie-richemont-delemont",
+        "de": "praktikum-r-i-beherrschung-eines-innovativen-herstellungsverfahrens-fur-die-luxusindustrie-richemont-delemont",
         "fr": "stage-r-i-maitrise-d-un-procede-de-fabrication-innovant-pour-l-industrie-du-luxe-richemont"
       },
       "company": "Richemont",
@@ -8372,8 +8259,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stage-r-i-maitrise-d-un-procede-de-fabrication-innovant-pour-l-industrie-du-luxe-richemont",
-        "praktikum-r-i-beherrschung-eines-innovativen-herstellungsverfahrens-fur-die-luxusindustrie-richemont-delemont",
-        "stage-r-i-maestria-di-un-processo-di-fabbricazione-innovativo-per-l-industria-di-lusso-richemont-delemont",
         "stage-r-i-meistereiung-eines-innovativen-herstellungsprozesses-fur-die-luxusindustrie-richemont-delemont"
       ],
       "previousSlugsByLocale": {
@@ -8381,7 +8266,7 @@
           "stage-r-i-maitrise-d-un-procede-de-fabrication-innovant-pour-l-industrie-du-luxe-richemont"
         ],
         "de": [
-          "praktikum-r-i-beherrschung-eines-innovativen-herstellungsverfahrens-fur-die-luxusindustrie-richemont-delemont"
+          "stage-r-i-meistereiung-eines-innovativen-herstellungsprozesses-fur-die-luxusindustrie-richemont-delemont"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.469Z",
@@ -8452,7 +8337,6 @@
         "fornitore-master-data-specialist-richemont-villars-sur-glane",
         "fachkraft-fur-lieferant-stammdaten-richemont-villars-sur-glane",
         "kreditorenstammdatenspezialist-richemont-villars-sur-glane",
-        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane",
         "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
         "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane"
       ],
@@ -8467,7 +8351,6 @@
           "kreditorenstammdatenspezialist-richemont-villars-sur-glane"
         ],
         "fr": [
-          "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane",
           "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane"
         ]
       },
@@ -8558,8 +8441,7 @@
       "previousSlugs": [
         "project-manager-work-place-flachenplanung-60-richemont-schaffhausen",
         "projektleiter-workplace-flachenplanung-60-iwc-schaffhausen",
-        "projektleiter-work-place-flachenplanung-60-iwc-schaffhausen",
-        "luogo-di-lavoro-del-responsabile-del-progetto-flachenplanung-60-iwc-schaffhausen"
+        "projektleiter-work-place-flachenplanung-60-iwc-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8661,7 +8543,7 @@
       "id": "richemont-387ef2b9e61b",
       "slug": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
       "slugByLocale": {
-        "it": "vendor-master-data-specialista-richemont-villars-sur-glane",
+        "it": "responsabile-meccanica-e-prototipazione-valfleurier-buttes",
         "en": "vendor-master-data-specialist-richemont-villars-sur-glane",
         "de": "vendor-master-data-spezialist-valfleurier-buttes",
         "fr": "responsable-mecanique-et-prototypage-valfleurier-buttes"
@@ -8712,7 +8594,8 @@
         ],
         "it": [
           "responsable-mecanique-et-prototypage-richemont-buttes",
-          "fornitore-master-data-specialist-richemont-villars-sur-glane"
+          "fornitore-master-data-specialist-richemont-villars-sur-glane",
+          "vendor-master-data-specialista-richemont-villars-sur-glane"
         ],
         "en": [
           "responsable-mecanique-et-prototypage-richemont-buttes"
@@ -8726,13 +8609,13 @@
         "responsable-mecanique-et-prototypage-richemont-buttes",
         "specialiste-principal-des-donnees-du-fournisseur-richemont-villars-sur-glane",
         "fornitore-master-data-specialist-richemont-villars-sur-glane",
+        "vendor-master-data-specialista-richemont-villars-sur-glane",
         "vendor-master-data-specialist-richemont-villars-sur-glane",
         "responsabile-mecanico-e-prototipazione-valfleurier-buttes",
         "specialista-dati-principali-fornitori-richemont-villars-sur-glane",
         "fachkraft-fur-lieferant-stammdaten-richemont-villars-sur-glane",
         "kreditorenstammdatenspezialist-richemont-villars-sur-glane",
-        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane",
-        "responsabile-meccanica-e-prototipazione-valfleurier-buttes"
+        "specialiste-des-donnees-de-base-des-fournisseurs-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-17T11:06:21.080Z",
       "salaryMin": 68000,
@@ -8825,8 +8708,7 @@
         ]
       },
       "previousSlugs": [
-        "credit-controller-richemont-villars-sur-glane",
-        "controllore-di-credito-richemont-villars-sur-glane"
+        "credit-controller-richemont-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9182,8 +9064,7 @@
       },
       "previousSlugs": [
         "marketing-intern-richemont-bellevue",
-        "stagista-di-marketing-richemont-bellevue",
-        "marketing-tirocinante-richemont-bellevue"
+        "stagista-di-marketing-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9255,18 +9136,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "orafo-richemont-morbio-inferiore",
           "honour-buccellati-morbio-inferiore"
         ],
         "it": [
           "orafo-richemont-morbio-inferiore"
         ],
         "de": [
-          "orafo-richemont-morbio-inferiore",
           "ehren-buccellati-morbio-inferiore"
         ],
         "fr": [
-          "orafo-richemont-morbio-inferiore",
           "honneur-buccellati-morbio-inferiore"
         ]
       },
@@ -9378,7 +9256,6 @@
           "chef-fe-de-projet-r-i-materiaux-precieux-richemont-delemont"
         ],
         "de": [
-          "projektleiter-r-i-edelmetalle-richemont-delemont",
           "r-i-projektleiter-vorlaufige-materialien-richemont-delemont"
         ]
       },
@@ -9387,7 +9264,6 @@
         "chef-fe-di-progetto-r-i-materiali-preziosi-richemont-delemont",
         "project-leader-r-i-precious-materials-richemont-delemont",
         "chef-fe-de-projet-r-i-materiaux-precieux-richemont-delemont",
-        "projektleiter-r-i-edelmetalle-richemont-delemont",
         "r-i-projektleiter-vorlaufige-materialien-richemont-delemont"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.452Z",
@@ -9409,8 +9285,8 @@
       "slug": "stage-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-l-orologiaria-decorativa-richemont-la-chaux-de",
       "slugByLocale": {
         "it": "stage-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-la-decorazione-orologiera-richemont-la-chaux-de-",
-        "en": "stage-r-i-development-and-industrialization-of-innovative-coatings-for-horological-decoration-richemont-la-chaux-de",
-        "de": "stage-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-horologische-dekoration-richemont-la-chaux",
+        "en": "r-i-internship-development-and-industrialization-of-innovative-coatings-for-watch-decoration-richemont-la-chaux-de-fonds",
+        "de": "praktikum-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-die-uhrenverzierung-richemont-la-chaux-d",
         "fr": "stage-r-i-developpement-et-industrialisation-de-revetements-innovants-pour-la-decoration-h"
       },
       "company": "Richemont",
@@ -9482,9 +9358,6 @@
         "stage-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-l-orologiaria-decorativa-richemont-la-chaux-de-f",
         "stage-r-i-developpement-et-industrialisation-de-revetements-innovants-pour-la-decoration",
         "stage-r-i-development-and-industrialization-of-innovative-coatings-for-horological-decoration-richemont-la-chaux-de-fond",
-        "r-i-internship-development-and-industrialization-of-innovative-coatings-for-watch-decoration-richemont-la-chaux-de-fonds",
-        "praktikum-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-die-uhrenverzierung-richemont-la-chaux-d",
-        "stage-r-i-sviluppo-e-industrializzazione-di-rivestimenti-innovativi-per-l-orologiaria-decorativa-richemont-la-chaux-de",
         "stage-r-i-development-and-industrialization-of-innovative-coatings-for-horological-decoration-richemont-la-chaux-de",
         "stage-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-horologische-dekoration-richemont-la-chaux"
       ],
@@ -9496,10 +9369,10 @@
         ],
         "en": [
           "stage-r-i-development-and-industrialization-of-innovative-coatings-for-horological-decoration-richemont-la-chaux-de-fond",
-          "r-i-internship-development-and-industrialization-of-innovative-coatings-for-watch-decoration-richemont-la-chaux-de-fonds"
+          "stage-r-i-development-and-industrialization-of-innovative-coatings-for-horological-decoration-richemont-la-chaux-de"
         ],
         "de": [
-          "praktikum-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-die-uhrenverzierung-richemont-la-chaux-d"
+          "stage-r-i-entwicklung-und-industrialisierung-innovativer-beschichtungen-fur-horologische-dekoration-richemont-la-chaux"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.451Z",
@@ -9523,7 +9396,7 @@
         "it": "stage-f-a-omnichannel-richemont-bellevue",
         "en": "f-a-intern-omnichannel-richemont-bellevue",
         "de": "f-a-praktikant-omnichannel-richemont-bellevue",
-        "fr": "stagiaire-f-a-omnichannel-richemont-bellevue"
+        "fr": "stagiaire-f-a-omnicanal-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -9613,14 +9486,12 @@
           "stagista-f-a-omnichannel-richemont-bellevue"
         ],
         "fr": [
-          "stagiaire-f-a-omnicanal-richemont-bellevue"
+          "stagiaire-f-a-omnichannel-richemont-bellevue"
         ]
       },
       "previousSlugs": [
         "f-a-intern-omnichannel-richemont-bellevue",
         "stagista-f-a-omnichannel-richemont-bellevue",
-        "stagiaire-f-a-omnicanal-richemont-bellevue",
-        "f-a-tirocinante-omnichannel-richemont-bellevue",
         "stagiaire-f-a-omnichannel-richemont-bellevue"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.450Z",
@@ -9691,7 +9562,6 @@
       },
       "previousSlugs": [
         "trade-compliance-expert-richemont-villars-sur-glane",
-        "experte-fur-handelscompliance-richemont-villars-sur-glane",
         "experte-fur-compliance-richemont-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
@@ -9699,7 +9569,6 @@
           "trade-compliance-expert-richemont-villars-sur-glane"
         ],
         "de": [
-          "experte-fur-handelscompliance-richemont-villars-sur-glane",
           "experte-fur-compliance-richemont-villars-sur-glane"
         ],
         "fr": [
@@ -9726,7 +9595,7 @@
       "slugByLocale": {
         "it": "responsabile-processo-acquisti-richemont-plan-les-ouates",
         "en": "procurement-process-manager-richemont-plan-les-ouates",
-        "de": "verwaltungsleiter-fur-den-beschaffungsprozess-richemont-plan-les-ouates",
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
         "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -9814,7 +9683,7 @@
           "manager-del-processo-di-acquisto-richemont-plan-les-ouates"
         ],
         "de": [
-          "beschaffungsprozessmanager-richemont-plan-les-ouates"
+          "verwaltungsleiter-fur-den-beschaffungsprozess-richemont-plan-les-ouates"
         ]
       },
       "previousSlugs": [
@@ -9822,8 +9691,6 @@
         "gestionnaire-du-processus-d-achat-richemont-plan-les-ouates",
         "procurement-process-manager-richemont-plan-les-ouates",
         "manager-del-processo-di-acquisto-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates",
-        "gestione-del-processo-di-approvvigionamento-richemont-plan-les-ouates",
         "verwaltungsleiter-fur-den-beschaffungsprozess-richemont-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.449Z",
@@ -10074,7 +9941,7 @@
         "it": "ai-solutions-ingegnere-f-m-van-cleef-arpels-geneva",
         "en": "ai-solutions-engineer-f-m-van-cleef-arpels-geneva",
         "de": "ki-losungsingenieur-f-m-van-cleef-arpels-geneva",
-        "fr": "ingenieur-de-solutions-ai-f-m-van-cleef-arpels-geneva"
+        "fr": "ai-solutions-engineer-f-m-richemont-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -10129,7 +9996,7 @@
           "ingenieur-solutions-ia-f-m-van-cleef-arpels-geneva",
           "ai-solutions-ingenieur-f-m-van-cleef-arpels-geneva",
           "ingenieur-en-solutions-ai-f-m-van-cleef-arpels-geneva",
-          "ai-solutions-engineer-f-m-richemont-geneva"
+          "ingenieur-de-solutions-ai-f-m-van-cleef-arpels-geneva"
         ],
         "it": [
           "ai-solutions-engineer-f-m-richemont-geneva"
@@ -10143,8 +10010,7 @@
         "ai-solutions-ingenieur-f-m-van-cleef-arpels-geneva",
         "ingenieur-en-solutions-ai-f-m-van-cleef-arpels-geneva",
         "ai-solutions-engineer-f-m-richemont-geneva",
-        "ingenieur-de-solutions-ai-f-m-van-cleef-arpels-geneva",
-        "ingegnere-soluzioni-ai-f-m-van-cleef-arpels-geneva"
+        "ingenieur-de-solutions-ai-f-m-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.721Z",
       "salaryMin": 49500,
@@ -10165,8 +10031,8 @@
       "slug": "innovazione-interna-cartier-manufacture-le-locle",
       "slugByLocale": {
         "it": "tirocinante-innovazione-cartier-manufacture-le-locle",
-        "en": "intern-innovation-cartier-manufacture-le-locle",
-        "de": "interne-innovation-cartier-manufacture-le-locle",
+        "en": "stagiaire-innovation-richemont-le-locle",
+        "de": "innovationspraktikant-cartier-manufacture-le-locle",
         "fr": "stagiaire-innovation-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -10211,21 +10077,19 @@
       "previousSlugsByLocale": {
         "en": [
           "innovation-intern-cartier-manufacture-le-locle",
-          "stagiaire-innovation-richemont-le-locle"
+          "intern-innovation-cartier-manufacture-le-locle"
         ],
         "it": [
           "stagiaire-innovation-richemont-le-locle"
         ],
         "de": [
-          "innovationspraktikant-cartier-manufacture-le-locle"
+          "interne-innovation-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
         "innovation-intern-cartier-manufacture-le-locle",
         "stagiaire-innovation-richemont-le-locle",
-        "innovationspraktikant-cartier-manufacture-le-locle",
         "intern-innovation-cartier-manufacture-le-locle",
-        "innovazione-interna-cartier-manufacture-le-locle",
         "interne-innovation-cartier-manufacture-le-locle"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.446Z",
@@ -10247,8 +10111,8 @@
       "slug": "project-manager-r-i-modeling-materials-richemont-delemont",
       "slugByLocale": {
         "it": "responsabile-progetto-r-i-modellazione-materiali-richemont-delemont",
-        "en": "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont",
-        "de": "projektmanager-r-i-materialmodellierung-richemont-delemont",
+        "en": "project-manager-r-i-modeling-materials-richemont-delemont",
+        "de": "projektleiter-r-i-materialmodellierung-richemont-delemont",
         "fr": "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont"
       },
       "company": "Richemont",
@@ -10320,14 +10184,15 @@
         "en": [
           "r-i-materials-modeling-project-manager-richemont-delemont",
           "project-manager-r-i-materials-modeling-richemont-delemont",
-          "project-manager-r-i-modelling-materials-richemont-delemont"
+          "project-manager-r-i-modelling-materials-richemont-delemont",
+          "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont"
         ],
         "it": [
           "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont",
           "charge-e-de-progetto-r-i-modellazione-materiali-richemont-delemont"
         ],
         "de": [
-          "projektleiter-r-i-materialmodellierung-richemont-delemont"
+          "projektmanager-r-i-materialmodellierung-richemont-delemont"
         ]
       },
       "previousSlugs": [
@@ -10336,8 +10201,6 @@
         "project-manager-r-i-modelling-materials-richemont-delemont",
         "charge-e-de-projet-r-i-modelisation-materiaux-richemont-delemont",
         "charge-e-de-progetto-r-i-modellazione-materiali-richemont-delemont",
-        "projektleiter-r-i-materialmodellierung-richemont-delemont",
-        "project-manager-r-i-modeling-materials-richemont-delemont",
         "projektmanager-r-i-materialmodellierung-richemont-delemont"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.445Z",
@@ -10435,8 +10298,7 @@
       },
       "previousSlugs": [
         "ingenieur-data-richemont-les-breuleux",
-        "big-data-engineer-donze-baume-les-breuleux",
-        "data-engineer-donze-baume-les-breuleux"
+        "big-data-engineer-donze-baume-les-breuleux"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10546,7 +10408,6 @@
           "chef-de-projet-r-i-qualite-richemont-neuchatel"
         ],
         "de": [
-          "r-i-qualitatsprojektleiter-richemont-neuchatel",
           "projektleiter-r-i-qualitat-richemont-neuchatel"
         ]
       },
@@ -10554,7 +10415,6 @@
         "project-manager-r-i-qualita-richemont-neuchatel",
         "responsabile-di-progetto-r-i-qualita-richemont-neuchatel",
         "chef-de-projet-r-i-qualite-richemont-neuchatel",
-        "r-i-qualitatsprojektleiter-richemont-neuchatel",
         "projektleiter-r-i-qualitat-richemont-neuchatel"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.443Z",
@@ -10652,8 +10512,7 @@
         "gruppo-l-d-richemont-bellevue",
         "stage-l-d-di-gruppo-richemont-bellevue",
         "group-l-d-tirocinante-richemont-bellevue",
-        "gruppe-l-d-intern-richemont-bellevue-034384",
-        "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates"
+        "gruppe-l-d-intern-richemont-bellevue-034384"
       ],
       "firstSeenAt": "2026-05-25T13:59:54.525Z",
       "salaryMin": 41600,
@@ -10728,7 +10587,6 @@
         ],
         "de": [
           "gruppe-l-d-intern-richemont-bellevue-034384",
-          "gruppe-l-d-praktikant-richemont-bellevue",
           "praktikum-retail-partner-retail-excellence-piaget-plan-les-ouates",
           "gruppe-l-d-intern-richemont-bellevue"
         ],
@@ -10746,15 +10604,12 @@
         "group-l-d-tirocinante-richemont-bellevue",
         "group-l-d-intern-richemont-bellevue",
         "gruppe-l-d-intern-richemont-bellevue-034384",
-        "gruppe-l-d-praktikant-richemont-bellevue",
         "praktikum-retail-partner-retail-excellence-piaget-plan-les-ouates",
         "retail-partner-retail-excellence-intern-richemont-plan-les-ouates",
         "commercio-al-dettaglio-e-partner-piaget-plan-les-ouates",
         "stage-d-excellence-en-commerce-de-detail-et-partenaire-piaget-plan-les-ouates",
         "retail-partner-retail-excellence-intern-piaget-plan-les-ouates",
         "group-l-d-intern-richemont-bellevue-e8uyst",
-        "stagiaire-l-d-du-groupe-richemont-bellevue",
-        "gruppo-l-d-intern-richemont-bellevue",
         "gruppe-l-d-intern-richemont-bellevue",
         "stage-retail-partner-retail-excellence-piaget-plan-les-ouates"
       ],
@@ -10778,7 +10633,7 @@
       "slugByLocale": {
         "it": "pianificatore-responsabile-di-progetto-logistica-cartier-manufacture-le-locle",
         "en": "planner-logistics-project-manager-cartier-manufacture-le-locle",
-        "de": "logistik-projektplaner-manager-cartier-manufacture-le-locle",
+        "de": "planer-logistik-projektleiter-cartier-manufacture-le-locle",
         "fr": "planificateur-trice-chef-fe-de-projet-logistique-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -10850,13 +10705,11 @@
           "planificateur-trice-chef-fe-de-projet-logistique-richemont-le-locle"
         ],
         "de": [
-          "planer-logistik-projektleiter-cartier-manufacture-le-locle"
+          "logistik-projektplaner-manager-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
         "planificateur-trice-chef-fe-de-projet-logistique-richemont-le-locle",
-        "planer-logistik-projektleiter-cartier-manufacture-le-locle",
-        "pianificatore-capo-progetto-logistico-cartier-manufacture-le-locle",
         "logistik-projektplaner-manager-cartier-manufacture-le-locle"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.441Z",
@@ -10879,7 +10732,7 @@
       "slugByLocale": {
         "it": "stage-assistente-di-supply-chain-amont-van-cleef-arpels-geneva",
         "en": "stage-assistant-e-supply-chain-amont-van-cleef-arpels-geneva",
-        "de": "stage-assistent-e-lieferkette-amont-van-cleef-arpels-geneva",
+        "de": "praktikant-assistenz-der-supply-chain-aufwarts-van-cleef-arpels-geneva",
         "fr": "etape-assistant-e-supply-chain-amont-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
@@ -10960,13 +10813,11 @@
           "stage-assistant-e-supply-chain-amont-richemont-geneva"
         ],
         "de": [
-          "praktikant-assistenz-der-supply-chain-aufwarts-van-cleef-arpels-geneva"
+          "stage-assistent-e-lieferkette-amont-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
         "stage-assistant-e-supply-chain-amont-richemont-geneva",
-        "praktikant-assistenz-der-supply-chain-aufwarts-van-cleef-arpels-geneva",
-        "formazione-supply-chain-amont-assistant-van-cleef-arpels-geneva",
         "stage-assistent-e-lieferkette-amont-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-12T09:39:10.323Z",
@@ -11066,8 +10917,7 @@
         "intern-test-engineering-ai-surface-inspection-80-100-richemont-schaffhausen",
         "ispezione-superficiale-ai-80-100-iwc-schaffhausen",
         "ispezione-delle-superfici-ai-per-l-ingegneria-dei-test-interni-80-100-iwc-schaffhausen",
-        "interne-pruftechnik-ai-oberflacheninspektion-80-100-iwc-schaffhausen",
-        "ispezione-di-superficie-dell-ia-di-ingegneria-di-prova-interna-80-100-iwc-schaffhausen"
+        "interne-pruftechnik-ai-oberflacheninspektion-80-100-iwc-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11150,13 +11000,11 @@
           "hr-business-partner-richemont-plan-les-ouates"
         ],
         "de": [
-          "hr-geschaftspartner-piaget-plan-les-ouates",
           "ansprechpartner-fur-das-personal-piaget-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "hr-business-partner-richemont-plan-les-ouates",
-        "hr-geschaftspartner-piaget-plan-les-ouates",
         "ansprechpartner-fur-das-personal-piaget-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.669Z",
@@ -11178,7 +11026,7 @@
       "slug": "rfo-apprendista-richemont-meyrin",
       "slugByLocale": {
         "it": "tirocinante-rfo-richemont-meyrin",
-        "en": "rfo-traine-richemont-meyrin",
+        "en": "rfmo-trainee-richemont-meyrin",
         "de": "rfo-trainee-richemont-meyrin",
         "fr": "stagiaire-rfo-richemont-meyrin"
       },
@@ -11244,8 +11092,6 @@
       },
       "previousSlugs": [
         "rfo-trainee-richemont-meyrin",
-        "rfmo-trainee-richemont-meyrin",
-        "rfo-apprendista-richemont-meyrin",
         "rfo-traine-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -11253,7 +11099,7 @@
           "rfo-trainee-richemont-meyrin"
         ],
         "en": [
-          "rfmo-trainee-richemont-meyrin"
+          "rfo-traine-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.437Z",
@@ -11351,8 +11197,8 @@
       "slug": "gestione-del-progetto-di-sviluppo-orologi-h-f-vacheron-constantin-plan-les-ouates",
       "slugByLocale": {
         "it": "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates",
-        "en": "development-project-manager-watches-h-f-vacheron-constantin-plan-les-ouates",
-        "de": "entwicklungsprojektleiter-uhren-h-f-vacheron-constantin-plan-les-ouates",
+        "en": "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates",
+        "de": "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates",
         "fr": "chef-de-projet-developpement-montres-h-f-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
@@ -11396,10 +11242,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates"
+          "development-project-manager-watches-h-f-vacheron-constantin-plan-les-ouates"
         ],
         "de": [
-          "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates"
+          "entwicklungsprojektleiter-uhren-h-f-vacheron-constantin-plan-les-ouates"
         ],
         "fr": [
           "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates"
@@ -11408,8 +11254,7 @@
       "previousSlugs": [
         "chef-de-projet-developpement-montres-h-f-richemont-plan-les-ouates",
         "development-project-manager-watches-h-f-vacheron-constantin-plan-les-ouates",
-        "entwicklungsprojektleiter-uhren-h-f-vacheron-constantin-plan-les-ouates",
-        "gestione-del-progetto-di-sviluppo-orologi-h-f-vacheron-constantin-plan-les-ouates"
+        "entwicklungsprojektleiter-uhren-h-f-vacheron-constantin-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-13T11:55:19.236Z",
       "salaryMin": 68000,
@@ -11626,14 +11471,12 @@
           "physical-security-coordinator-europe-richemont-meyrin"
         ],
         "de": [
-          "koordinator-fur-physische-sicherheit-europa-richemont-meyrin",
           "sicherheitskoordinator-europa-richemont-meyrin"
         ]
       },
       "previousSlugs": [
         "coordinatore-di-sicurezza-fisica-europa-richemont-meyrin",
         "physical-security-coordinator-europe-richemont-meyrin",
-        "koordinator-fur-physische-sicherheit-europa-richemont-meyrin",
         "sicherheitskoordinator-europa-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.433Z",
@@ -11731,19 +11574,15 @@
       },
       "previousSlugs": [
         "control-trainee-richemont-meyrin",
-        "controlling-train-richemont-meyrin",
-        "zugsteuerung-richemont-meyrin",
         "controlling-trainingee-richemont-meyrin",
         "steuerungstraining-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "en": [
           "control-trainee-richemont-meyrin",
-          "controlling-train-richemont-meyrin",
           "controlling-trainingee-richemont-meyrin"
         ],
         "de": [
-          "zugsteuerung-richemont-meyrin",
           "steuerungstraining-richemont-meyrin"
         ]
       },
@@ -11817,13 +11656,11 @@
           "specialiste-metier-polissage-richemont-villars-sur-glane"
         ],
         "de": [
-          "polierfachmann-frau-cartier-manufacture-villars-sur-glane",
           "polier-spezialist-cartier-manufacture-villars-sur-glane"
         ]
       },
       "previousSlugs": [
         "specialiste-metier-polissage-richemont-villars-sur-glane",
-        "polierfachmann-frau-cartier-manufacture-villars-sur-glane",
         "polier-spezialist-cartier-manufacture-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.432Z",
@@ -11939,7 +11776,7 @@
       "slugByLocale": {
         "it": "leader-performance-decolletage-richemont-plan-les-ouates",
         "en": "leader-performance-decolletage-richemont-plan-les-ouates",
-        "de": "fuhrende-leistung-vacheron-constantin-plan-les-ouates",
+        "de": "leader-performance-decolletage-richemont-plan-les-ouates",
         "fr": "leader-performance-decolletage-vacheron-constantin-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
@@ -11982,13 +11819,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leader-performance-decolletage-richemont-plan-les-ouates",
-        "fuhrende-leistung-vacheron-constantin-plan-les-ouates",
-        "leader-performance-unrolling-vacheron-constantin-plan-les-ouates"
+        "fuhrende-leistung-vacheron-constantin-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "leader-performance-decolletage-richemont-plan-les-ouates"
+          "fuhrende-leistung-vacheron-constantin-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-05-13T11:55:19.231Z",
@@ -12306,8 +12141,8 @@
       "slugByLocale": {
         "it": "international-rewards-specialist-richemont-meyrin",
         "en": "international-rewards-specialist-cartier-meyrin",
-        "de": "international-rewards-spezialist-cartier-meyrin",
-        "fr": "specialiste-des-recompenses-internationales-cartier-meyrin"
+        "de": "international-rewards-specialist-richemont-meyrin",
+        "fr": "international-rewards-specialist-richemont-meyrin"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -12353,10 +12188,10 @@
           "specialista-internazionale-dei-premi-cartier-meyrin-ec3bed"
         ],
         "de": [
-          "international-rewards-specialist-richemont-meyrin"
+          "international-rewards-spezialist-cartier-meyrin"
         ],
         "fr": [
-          "international-rewards-specialist-richemont-meyrin"
+          "specialiste-des-recompenses-internationales-cartier-meyrin"
         ],
         "en": [
           "international-rewards-specialist-richemont-meyrin"
@@ -12365,10 +12200,9 @@
       "previousSlugs": [
         "specialista-internazionale-dei-premi-cartier-meyrin-ec3bed",
         "international-rewards-specialist-richemont-meyrin",
-        "risorse-umane-admin-specialista-richemont-meyrin",
-        "specialista-internazionale-dei-premi-cartier-meyrin",
         "international-rewards-spezialist-cartier-meyrin",
-        "specialiste-des-recompenses-internationales-cartier-meyrin"
+        "specialiste-des-recompenses-internationales-cartier-meyrin",
+        "risorse-umane-admin-specialista-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-12T22:59:06.735Z",
       "salaryMin": 49500,
@@ -12390,7 +12224,7 @@
       "slugByLocale": {
         "it": "stage-in-learning-development-svizzera-richemont-bellevue",
         "en": "swiss-learning-development-intern-richemont-bellevue",
-        "de": "ausbildung-in-der-personalentwicklung-schweiz-richemont-bellevue",
+        "de": "schweizer-lern-und-entwicklungsintern-richemont-bellevue",
         "fr": "stagiaire-suisse-en-apprentissage-et-developpement-richemont-bellevue"
       },
       "company": "Richemont",
@@ -12476,8 +12310,6 @@
       "previousSlugs": [
         "swiss-learning-development-intern-richemont-bellevue",
         "interno-svizzero-per-l-apprendimento-e-lo-sviluppo-richemont-bellevue",
-        "schweizer-lern-und-entwicklungsintern-richemont-bellevue",
-        "swiss-learning-development-tirocinante-richemont-bellevue",
         "ausbildung-in-der-personalentwicklung-schweiz-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -12486,7 +12318,7 @@
           "interno-svizzero-per-l-apprendimento-e-lo-sviluppo-richemont-bellevue"
         ],
         "de": [
-          "schweizer-lern-und-entwicklungsintern-richemont-bellevue"
+          "ausbildung-in-der-personalentwicklung-schweiz-richemont-bellevue"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.427Z",
@@ -12564,7 +12396,6 @@
         "international-rewards-spezialist-cartier-meyrin",
         "specialiste-des-recompenses-internationales-cartier-meyrin",
         "specialista-internazionale-dei-premi-cartier-meyrin-ec3bed",
-        "risorse-umane-admin-specialista-richemont-meyrin",
         "international-rewards-specialist-richemont-meyrin"
       ],
       "firstSeenAt": "2026-05-12T22:59:06.734Z",
@@ -12877,9 +12708,9 @@
       "id": "richemont-827c23219cf0",
       "slug": "smaltatore-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "smaltatore-cartier-manufacture-le-cret-du-locle",
+        "it": "emaillatore-cartier-manufacture-la-chaux-de-fonds",
         "en": "emailleur-richemont-la-chaux-de-fonds",
-        "de": "e-mail-senden-cartier-manufacture-le-cret-du-locle",
+        "de": "emaillieur-cartier-manufacture-la-chaux-de-fonds",
         "fr": "emailleur-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -12959,13 +12790,12 @@
           "emailleur-richemont-la-chaux-de-fonds",
           "gestione-delle-relazioni-con-i-clienti-in-europa-vacheron-constantin-plan-les-ouates",
           "smaltatore-cartier-manufacture-la-chaux-de-fonds",
-          "emailleur-richemont-le-cret-du-locle",
-          "emaillatore-cartier-manufacture-la-chaux-de-fonds"
+          "emailleur-richemont-le-cret-du-locle"
         ],
         "de": [
           "kundenbeziehungsmanager-fur-europa-vacheron-constantin-plan-les-ouates",
           "e-mail-senden-cartier-manufacture-la-chaux-de-fonds",
-          "emaillieur-cartier-manufacture-la-chaux-de-fonds"
+          "e-mail-senden-cartier-manufacture-le-cret-du-locle"
         ],
         "fr": [
           "europe-client-relationship-manager-richemont-plan-les-ouates",
@@ -12982,10 +12812,9 @@
         "emailleur-richemont-la-chaux-de-fonds",
         "gestione-delle-relazioni-con-i-clienti-in-europa-vacheron-constantin-plan-les-ouates",
         "smaltatore-cartier-manufacture-la-chaux-de-fonds",
-        "emaillatore-cartier-manufacture-la-chaux-de-fonds",
         "kundenbeziehungsmanager-fur-europa-vacheron-constantin-plan-les-ouates",
         "e-mail-senden-cartier-manufacture-la-chaux-de-fonds",
-        "emaillieur-cartier-manufacture-la-chaux-de-fonds",
+        "e-mail-senden-cartier-manufacture-le-cret-du-locle",
         "europe-client-relationship-manager-richemont-plan-les-ouates",
         "emailleur-cartier-manufacture-la-chaux-de-fonds",
         "directeur-des-relations-client-europe-vacheron-constantin-plan-les-ouates"
@@ -13012,7 +12841,7 @@
       "slugByLocale": {
         "it": "assistente-supply-chain-f-m-x-donze-baume-les-breuleux",
         "en": "assistant-supply-chain-f-m-x-donze-baume-les-breuleux",
-        "de": "assistent-der-lieferkette-f-m-x-donze-baume-les-breuleux",
+        "de": "supply-chain-assistent-f-m-x-donze-baume-les-breuleux",
         "fr": "assistant-supply-chain-f-h-x-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -13093,13 +12922,11 @@
           "assistant-supply-chain-f-m-x-richemont-les-breuleux"
         ],
         "de": [
-          "supply-chain-assistent-f-m-x-donze-baume-les-breuleux"
+          "assistent-der-lieferkette-f-m-x-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
         "assistant-supply-chain-f-m-x-richemont-les-breuleux",
-        "supply-chain-assistent-f-m-x-donze-baume-les-breuleux",
-        "assistente-alla-catena-di-fornitura-f-m-x-donze-baume-les-breuleux",
         "assistent-der-lieferkette-f-m-x-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.420Z",
@@ -13511,8 +13338,8 @@
       "slug": "responsabile-logistica-servizi-clienti-m-f-x-cartier-manufacture-le-locle",
       "slugByLocale": {
         "it": "gestionnaire-logistique-services-clients-m-w-d-cartier-manufacture-le-locle",
-        "en": "client-services-logistics-manager-m-f-x-cartier-manufacture-le-locle",
-        "de": "kundenbetreuungs-logistikmanager-m-f-x-cartier-manufacture-le-locle",
+        "en": "gestionnaire-logistique-services-clients-h-f-x-richemont-le-locle",
+        "de": "gestionnaire-logistique-services-clients-h-f-x-richemont-le-locle",
         "fr": "gestionnaire-logistique-services-clients-h-f-x-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -13565,11 +13392,11 @@
         ],
         "en": [
           "logistics-manager-customer-services-h-f-x-cartier-manufacture-le-locle",
-          "gestionnaire-logistique-services-clients-h-f-x-richemont-le-locle"
+          "client-services-logistics-manager-m-f-x-cartier-manufacture-le-locle"
         ],
         "de": [
           "logistikmanager-customer-services-h-f-x-cartier-manufacture-le-locle",
-          "gestionnaire-logistique-services-clients-h-f-x-richemont-le-locle"
+          "kundenbetreuungs-logistikmanager-m-f-x-cartier-manufacture-le-locle"
         ]
       },
       "previousSlugs": [
@@ -13577,12 +13404,11 @@
         "servizi-clienti-del-responsabile-della-logistica-h-f-x-cartier-manufacture-le-locle",
         "interno-della-catena-di-fornitura-richemont-bellevue",
         "logistics-manager-customer-services-h-f-x-cartier-manufacture-le-locle",
-        "logistikmanager-customer-services-h-f-x-cartier-manufacture-le-locle",
-        "supply-chain-intern-richemont-bellevue",
-        "lieferkette-praktikant-richemont-bellevue",
-        "responsabile-logistica-servizi-clienti-m-f-x-cartier-manufacture-le-locle",
         "client-services-logistics-manager-m-f-x-cartier-manufacture-le-locle",
-        "kundenbetreuungs-logistikmanager-m-f-x-cartier-manufacture-le-locle"
+        "logistikmanager-customer-services-h-f-x-cartier-manufacture-le-locle",
+        "kundenbetreuungs-logistikmanager-m-f-x-cartier-manufacture-le-locle",
+        "supply-chain-intern-richemont-bellevue",
+        "lieferkette-praktikant-richemont-bellevue"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.687Z",
       "salaryMin": 68000,
@@ -13604,8 +13430,8 @@
       "slugByLocale": {
         "it": "boutique-manager-richemont-st-moritz",
         "en": "boutique-manager-cartier-st-moritz",
-        "de": "manager-cartier-st-moritz",
-        "fr": "directeur-de-la-boutique-cartier-st-moritz"
+        "de": "boutique-manager-richemont-st-moritz",
+        "fr": "boutique-manager-richemont-st-moritz"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -13671,22 +13497,20 @@
         "fr": [
           "manager-de-boutique-cartier-st-moritz",
           "gestionnaire-de-boutiques-cartier-st-moritz",
-          "boutique-manager-richemont-st-moritz"
+          "directeur-de-la-boutique-cartier-st-moritz"
         ],
         "it": [
           "responsabile-negozio-cartier-st-moritz"
         ],
         "de": [
-          "boutique-manager-richemont-st-moritz"
+          "manager-cartier-st-moritz"
         ]
       },
       "previousSlugs": [
         "manager-de-boutique-cartier-st-moritz",
         "gestionnaire-de-boutiques-cartier-st-moritz",
-        "boutique-manager-richemont-st-moritz",
-        "responsabile-negozio-cartier-st-moritz",
         "directeur-de-la-boutique-cartier-st-moritz",
-        "manager-di-boutique-cartier-st-moritz",
+        "responsabile-negozio-cartier-st-moritz",
         "manager-cartier-st-moritz"
       ],
       "firstSeenAt": "2026-05-11T22:47:08.685Z",
@@ -14027,8 +13851,8 @@
       "slug": "responsabile-d-atelier-panerai-neuchatel",
       "slugByLocale": {
         "it": "responsable-d-ateliers-richemont-neuchatel",
-        "en": "workshop-manager-panerai-neuchatel",
-        "de": "workshopleiter-panerai-neuchatel",
+        "en": "responsable-d-ateliers-richemont-neuchatel",
+        "de": "responsable-d-ateliers-richemont-neuchatel",
         "fr": "responsable-d-ateliers-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -14072,17 +13896,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "responsable-d-ateliers-richemont-neuchatel"
+          "workshop-manager-panerai-neuchatel"
         ],
         "de": [
-          "responsable-d-ateliers-richemont-neuchatel"
+          "workshopleiter-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
-        "responsable-d-ateliers-richemont-neuchatel",
         "workshop-manager-panerai-neuchatel",
-        "workshopleiter-panerai-neuchatel",
-        "responsabile-d-atelier-panerai-neuchatel"
+        "workshopleiter-panerai-neuchatel"
       ],
       "firstSeenAt": "2026-05-12T22:59:06.676Z",
       "salaryMin": 68000,
@@ -14105,8 +13927,8 @@
       "slugByLocale": {
         "it": "clienteling-data-project-manager-richemont-meyrin",
         "en": "clienteling-data-project-manager-roger-dubuis-meyrin",
-        "de": "clienting-data-project-manager-roger-dubuis-meyrin",
-        "fr": "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin"
+        "de": "clienteling-data-project-manager-richemont-meyrin",
+        "fr": "clienteling-data-project-manager-richemont-meyrin"
       },
       "company": "Roger Dubuis",
       "companyKey": "richemont",
@@ -14149,10 +13971,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "clienteling-data-project-manager-richemont-meyrin"
+          "clienting-data-project-manager-roger-dubuis-meyrin"
         ],
         "fr": [
-          "clienteling-data-project-manager-richemont-meyrin"
+          "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin"
         ],
         "en": [
           "clienteling-data-project-manager-richemont-meyrin"
@@ -14161,8 +13983,7 @@
       "previousSlugs": [
         "clienteling-data-project-manager-richemont-meyrin",
         "clienting-data-project-manager-roger-dubuis-meyrin",
-        "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin",
-        "gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin"
+        "clientele-gestionnaire-de-projet-de-donnees-roger-dubuis-meyrin"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.630Z",
       "salaryMin": 79500,
@@ -14184,8 +14005,8 @@
       "slugByLocale": {
         "it": "high-watchmaking-operations-specialist-richemont-meyrin",
         "en": "high-watchmaking-operations-specialist-jaeger-lecoultre-meyrin",
-        "de": "spezialist-fur-uhrenbearbeitung-jaeger-lecoultre-meyrin",
-        "fr": "specialiste-des-operations-horlogeres-jaeger-lecoultre-meyrin"
+        "de": "high-watchmaking-operations-specialist-richemont-meyrin",
+        "fr": "high-watchmaking-operations-specialist-richemont-meyrin"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -14228,10 +14049,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "high-watchmaking-operations-specialist-richemont-meyrin"
+          "spezialist-fur-uhrenbearbeitung-jaeger-lecoultre-meyrin"
         ],
         "fr": [
-          "high-watchmaking-operations-specialist-richemont-meyrin"
+          "specialiste-des-operations-horlogeres-jaeger-lecoultre-meyrin"
         ],
         "en": [
           "high-watchmaking-operations-specialist-richemont-meyrin"
@@ -14240,8 +14061,7 @@
       "previousSlugs": [
         "high-watchmaking-operations-specialist-richemont-meyrin",
         "spezialist-fur-uhrenbearbeitung-jaeger-lecoultre-meyrin",
-        "specialiste-des-operations-horlogeres-jaeger-lecoultre-meyrin",
-        "specialista-delle-operazioni-di-orologeria-jaeger-lecoultre-meyrin"
+        "specialiste-des-operations-horlogeres-jaeger-lecoultre-meyrin"
       ],
       "firstSeenAt": "2026-05-13T23:05:17.403Z",
       "salaryMin": 49500,
@@ -14263,8 +14083,8 @@
       "slugByLocale": {
         "it": "boutique-assistant-intern-richemont-zurich",
         "en": "boutique-assistant-intern-cartier-zurich",
-        "de": "assistent-der-abteilung-cartier-zurich",
-        "fr": "boutique-assistant-stagiaire-cartier-zurich"
+        "de": "boutique-assistant-intern-richemont-zurich",
+        "fr": "boutique-assistant-intern-richemont-zurich"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -14307,10 +14127,10 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "boutique-assistant-intern-richemont-zurich"
+          "assistent-der-abteilung-cartier-zurich"
         ],
         "fr": [
-          "boutique-assistant-intern-richemont-zurich"
+          "boutique-assistant-stagiaire-cartier-zurich"
         ],
         "en": [
           "boutique-assistant-intern-richemont-zurich"
@@ -14318,6 +14138,8 @@
       },
       "previousSlugs": [
         "boutique-assistant-intern-richemont-zurich",
+        "assistent-der-abteilung-cartier-zurich",
+        "boutique-assistant-stagiaire-cartier-zurich",
         "assistente-di-boutique-intern-cartier-geneva",
         "boutique-assistant-intern-cartier-geneva",
         "assistent-der-abteilung-cartier-geneva",
@@ -14325,10 +14147,7 @@
         "boutique-assistant-intern-richemont-geneva",
         "intern-cs-care-project-manager-100-richemont-schaffhausen",
         "responsabile-del-progetto-interno-cs-care-100-iwc-schaffhausen",
-        "stage-cs-care-project-manager-100-iwc-schaffhausen",
-        "assistent-der-abteilung-cartier-zurich",
-        "boutique-assistant-stagiaire-cartier-zurich",
-        "assistente-di-boutique-intern-cartier-zurich"
+        "stage-cs-care-project-manager-100-iwc-schaffhausen"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.628Z",
       "salaryMin": 41600,
@@ -14572,8 +14391,8 @@
       "slugByLocale": {
         "it": "crm-intern-richemont-plan-les-ouates",
         "en": "crm-intern-piaget-plan-les-ouates",
-        "de": "crm-praktikant-piaget-plan-les-ouates",
-        "fr": "stage-crm-piaget-plan-les-ouates"
+        "de": "crm-intern-richemont-plan-les-ouates",
+        "fr": "crm-intern-richemont-plan-les-ouates"
       },
       "company": "Piaget",
       "companyKey": "richemont",
@@ -14620,17 +14439,15 @@
         ],
         "fr": [
           "crm-stagiaire-piaget-plan-les-ouates",
-          "crm-intern-richemont-plan-les-ouates"
+          "stage-crm-piaget-plan-les-ouates"
         ],
         "de": [
-          "crm-intern-richemont-plan-les-ouates"
+          "crm-praktikant-piaget-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "crm-tirocinante-piaget-plan-les-ouates",
-        "crm-intern-richemont-plan-les-ouates",
         "crm-stagiaire-piaget-plan-les-ouates",
-        "interno-crm-piaget-plan-les-ouates",
         "stage-crm-piaget-plan-les-ouates",
         "crm-praktikant-piaget-plan-les-ouates"
       ],
@@ -14654,8 +14471,8 @@
       "slugByLocale": {
         "it": "client-services-project-manager-europe-cis-richemont-geneva",
         "en": "client-services-project-manager-europe-cis-van-cleef-arpels-geneva",
-        "de": "client-services-projektleiter-europa-cis-van-cleef-arpels-geneva",
-        "fr": "chef-de-projet-des-services-a-la-clientele-europe-cis-van-cleef-arpels-geneva"
+        "de": "client-services-project-manager-europe-cis-richemont-geneva",
+        "fr": "client-services-project-manager-europe-cis-richemont-geneva"
       },
       "company": "Van Cleef & Arpels",
       "companyKey": "richemont",
@@ -14699,23 +14516,21 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-projets-services-clients-europe-cis-van-cleef-arpels-geneva",
-          "client-services-project-manager-europe-cis-richemont-geneva"
+          "chef-de-projet-des-services-a-la-clientele-europe-cis-van-cleef-arpels-geneva"
         ],
         "it": [
           "servizio-clienti-project-manager-europa-cis-van-cleef-arpels-geneva"
         ],
         "de": [
           "projektleiter-in-client-services-europa-cis-van-cleef-arpels-geneva",
-          "client-services-project-manager-europe-cis-richemont-geneva"
+          "client-services-projektleiter-europa-cis-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
         "responsable-projets-services-clients-europe-cis-van-cleef-arpels-geneva",
-        "client-services-project-manager-europe-cis-richemont-geneva",
+        "chef-de-projet-des-services-a-la-clientele-europe-cis-van-cleef-arpels-geneva",
         "servizio-clienti-project-manager-europa-cis-van-cleef-arpels-geneva",
         "projektleiter-in-client-services-europa-cis-van-cleef-arpels-geneva",
-        "chef-de-projet-des-services-a-la-clientele-europe-cis-van-cleef-arpels-geneva",
-        "responsabile-progetti-servizi-clienti-europa-cis-van-cleef-arpels-geneva",
         "client-services-projektleiter-europa-cis-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-21T13:16:42.596Z",
@@ -14738,7 +14553,7 @@
       "slugByLocale": {
         "it": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
         "en": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
-        "de": "personal-project-manager-h-f-hom-cartier-manufacture-le-locle",
+        "de": "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
         "fr": "charge-de-projets-rh-h-f-cdm-cartier-manufacture-le-locle"
       },
       "company": "Cartier Manufacture",
@@ -14781,13 +14596,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-de-projets-rh-h-f-cdm-richemont-le-locle",
-        "personal-project-manager-h-f-hom-cartier-manufacture-le-locle",
-        "hr-project-manager-h-f-hom-cartier-manufacture-le-locle"
+        "personal-project-manager-h-f-hom-cartier-manufacture-le-locle"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "charge-de-projets-rh-h-f-cdm-richemont-le-locle"
+          "personal-project-manager-h-f-hom-cartier-manufacture-le-locle"
         ]
       },
       "firstSeenAt": "2026-05-18T13:14:11.206Z",
@@ -14959,8 +14772,8 @@
       "slugByLocale": {
         "it": "supply-chain-engineer-richemont-plan-les-ouates",
         "en": "supply-chain-engineer-vacheron-constantin-plan-les-ouates",
-        "de": "lieferkette-ingenieur-vacheron-constantin-plan-les-ouates",
-        "fr": "ingenieur-de-la-chaine-logistique-vacheron-constantin-plan-les-ouates"
+        "de": "supply-chain-engineer-richemont-plan-les-ouates",
+        "fr": "supply-chain-engineer-richemont-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -15003,17 +14816,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "supply-chain-engineer-richemont-plan-les-ouates"
+          "lieferkette-ingenieur-vacheron-constantin-plan-les-ouates"
         ],
         "fr": [
-          "supply-chain-engineer-richemont-plan-les-ouates"
+          "ingenieur-de-la-chaine-logistique-vacheron-constantin-plan-les-ouates"
         ]
       },
       "previousSlugs": [
-        "supply-chain-engineer-richemont-plan-les-ouates",
         "lieferkette-ingenieur-vacheron-constantin-plan-les-ouates",
-        "ingenieur-de-la-chaine-logistique-vacheron-constantin-plan-les-ouates",
-        "ingegnere-della-catena-di-alimentazione-vacheron-constantin-plan-les-ouates"
+        "ingenieur-de-la-chaine-logistique-vacheron-constantin-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-27T13:51:01.609Z",
       "salaryMin": 49500,
@@ -15345,8 +15156,8 @@
       "slug": "organizzazione-di-project-manager-van-cleef-arpels-geneva",
       "slugByLocale": {
         "it": "chef-de-projet-organisation-richemont-geneva",
-        "en": "project-manager-organization-van-cleef-arpels-geneva",
-        "de": "projektleiter-organisation-van-cleef-arpels-geneva",
+        "en": "chef-de-projet-organisation-richemont-geneva",
+        "de": "chef-de-projet-organisation-richemont-geneva",
         "fr": "chef-de-projet-organisation-van-cleef-arpels-geneva"
       },
       "company": "Van Cleef & Arpels",
@@ -15390,17 +15201,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "chef-de-projet-organisation-richemont-geneva"
+          "project-manager-organization-van-cleef-arpels-geneva"
         ],
         "de": [
-          "chef-de-projet-organisation-richemont-geneva"
+          "projektleiter-organisation-van-cleef-arpels-geneva"
         ]
       },
       "previousSlugs": [
-        "chef-de-projet-organisation-richemont-geneva",
         "project-manager-organization-van-cleef-arpels-geneva",
-        "projektleiter-organisation-van-cleef-arpels-geneva",
-        "organizzazione-di-project-manager-van-cleef-arpels-geneva"
+        "projektleiter-organisation-van-cleef-arpels-geneva"
       ],
       "firstSeenAt": "2026-05-21T23:45:51.756Z",
       "salaryMin": 68000,
@@ -15493,7 +15302,7 @@
       "id": "richemont-c8741386121f",
       "slug": "prototypiste-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "prototypiste-cartier-manufacture-le-cret-du-locle",
+        "it": "prototypiste-cartier-manufacture-la-chaux-de-fonds",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
         "de": "prototypen-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-la-chaux-de-fonds"
@@ -15540,8 +15349,7 @@
       "previousSlugsByLocale": {
         "it": [
           "prototypiste-richemont-la-chaux-de-fonds",
-          "prototypiste-richemont-le-cret-du-locle",
-          "prototypiste-cartier-manufacture-la-chaux-de-fonds"
+          "prototypiste-richemont-le-cret-du-locle"
         ],
         "en": [
           "prototypist-cartier-manufacture-la-chaux-de-fonds",
@@ -15558,7 +15366,6 @@
       "previousSlugs": [
         "prototypiste-richemont-la-chaux-de-fonds",
         "prototypiste-richemont-le-cret-du-locle",
-        "prototypiste-cartier-manufacture-la-chaux-de-fonds",
         "prototypist-cartier-manufacture-la-chaux-de-fonds",
         "prototypen-cartier-manufacture-la-chaux-de-fonds",
         "prototyliste-cartier-manufacture-la-chaux-de-fonds"
@@ -15958,8 +15765,8 @@
       "slugByLocale": {
         "it": "hwm-planning-sales-operations-specialist-richemont-meyrin",
         "en": "hwm-planning-sales-operations-specialist-jaeger-lecoultre-meyrin",
-        "de": "hwm-planung-und-vertrieb-spezialist-jaeger-lecoultre-meyrin",
-        "fr": "specialiste-de-la-planification-et-des-operations-commerciales-de-hwm-jaeger-lecoultre-meyrin"
+        "de": "hwm-planning-sales-operations-specialist-richemont-meyrin",
+        "fr": "hwm-planning-sales-operations-specialist-richemont-meyrin"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -16002,17 +15809,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "hwm-planning-sales-operations-specialist-richemont-meyrin"
+          "hwm-planung-und-vertrieb-spezialist-jaeger-lecoultre-meyrin"
         ],
         "fr": [
-          "hwm-planning-sales-operations-specialist-richemont-meyrin"
+          "specialiste-de-la-planification-et-des-operations-commerciales-de-hwm-jaeger-lecoultre-meyrin"
         ]
       },
       "previousSlugs": [
-        "hwm-planning-sales-operations-specialist-richemont-meyrin",
         "hwm-planung-und-vertrieb-spezialist-jaeger-lecoultre-meyrin",
-        "specialiste-de-la-planification-et-des-operations-commerciales-de-hwm-jaeger-lecoultre-meyrin",
-        "hwm-planning-sales-operations-specialista-jaeger-lecoultre-meyrin"
+        "specialiste-de-la-planification-et-des-operations-commerciales-de-hwm-jaeger-lecoultre-meyrin"
       ],
       "firstSeenAt": "2026-05-27T00:11:33.603Z",
       "salaryMin": 49500,
@@ -16337,8 +16142,8 @@
       "slugByLocale": {
         "it": "product-marketing-intern-richemont-plan-les-ouates",
         "en": "product-marketing-intern-vacheron-constantin-plan-les-ouates",
-        "de": "product-marketing-praktikant-vacheron-constantin-plan-les-ouates",
-        "fr": "commercialisation-des-produits-vacheron-constantin-plan-les-ouates"
+        "de": "product-marketing-intern-richemont-plan-les-ouates",
+        "fr": "product-marketing-intern-richemont-plan-les-ouates"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -16382,24 +16187,22 @@
       "previousSlugsByLocale": {
         "de": [
           "erzeugnisse-vacheron-constantin-plan-les-ouates",
-          "product-marketing-intern-richemont-plan-les-ouates"
+          "product-marketing-praktikant-vacheron-constantin-plan-les-ouates"
         ],
         "fr": [
-          "product-marketing-intern-richemont-plan-les-ouates"
+          "commercialisation-des-produits-vacheron-constantin-plan-les-ouates"
         ]
       },
       "previousSlugs": [
         "erzeugnisse-vacheron-constantin-plan-les-ouates",
-        "product-marketing-intern-richemont-plan-les-ouates",
+        "product-marketing-praktikant-vacheron-constantin-plan-les-ouates",
+        "commercialisation-des-produits-vacheron-constantin-plan-les-ouates",
         "interno-finanziario-vacheron-constantin-plan-les-ouates",
         "finance-intern-vacheron-constantin-plan-les-ouates",
         "finanz-intern-vacheron-constantin-plan-les-ouates",
         "stagiaire-en-finance-vacheron-constantin-plan-les-ouates",
         "stage-in-finanza-vacheron-constantin-plan-les-ouates",
-        "finance-intern-richemont-plan-les-ouates",
-        "product-marketing-praktikant-vacheron-constantin-plan-les-ouates",
-        "commercialisation-des-produits-vacheron-constantin-plan-les-ouates",
-        "mercato-del-prodotto-interno-vacheron-constantin-plan-les-ouates"
+        "finance-intern-richemont-plan-les-ouates"
       ],
       "firstSeenAt": "2026-05-28T00:18:08.370Z",
       "salaryMin": 41600,
