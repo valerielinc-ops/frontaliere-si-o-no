@@ -137,6 +137,61 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__sets.some((s) => s.collection === 'newsletter_subscribers')).toBe(false);
   });
 
+  it('resolves recipient for opened/clicked events (no recipient/tags in payload) via maileroo_message_meta', async () => {
+    // Maileroo opened/clicked webhooks carry only message_reference_id — the send
+    // pipeline pre-seeds the lookup record. Verify the click is attributed.
+    const db = createFakeDb({
+      maileroo_message_meta: {
+        ref_abc: { email: 'resolved@example.com', campaign_id: 'weekly_2026-06-01', is_job_alert: false },
+      },
+    });
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'clicked',
+      message_id: '<rfc-id@maileroo>',
+      message_reference_id: 'ref_abc',
+      event_time: 1748764800,
+      tags: null,
+      event_data: { original_url: 'https://frontaliereticino.ch/x', ip: '9.9.9.9' },
+    });
+
+    expect(result).toMatchObject({
+      processed: true,
+      type: 'click',
+      email: 'resolved@example.com',
+      campaignId: 'weekly_2026-06-01',
+    });
+    expect(db.__sets.some((e) => e.collection === 'newsletter_subscribers' && e.docId === 'resolved@example.com')).toBe(true);
+  });
+
+  it('routes opened/clicked to job_alert_subscribers when the lookup record flags job-alert', async () => {
+    const db = createFakeDb({
+      maileroo_message_meta: {
+        ref_ja: { email: 'seeker@example.com', campaign_id: 'job_alert_x', is_job_alert: true },
+      },
+    });
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'opened',
+      message_reference_id: 'ref_ja',
+      tags: null,
+      event_data: { ip: '8.8.8.8' },
+    });
+
+    expect(result).toMatchObject({ processed: true, type: 'open', collection: 'job_alert_subscribers' });
+  });
+
+  it('skips opened/clicked when no lookup record exists (unattributable)', async () => {
+    const db = createFakeDb();
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'clicked',
+      message_reference_id: 'ref_unknown',
+      tags: null,
+      event_data: { original_url: 'https://x/y' },
+    });
+    expect(result).toMatchObject({ skipped: true, reason: 'invalid_email' });
+  });
+
   it('skips deferred (transient) and unknown event types', async () => {
     const db = createFakeDb();
     const deferred = await persistMailerooEvent(db as any, {
