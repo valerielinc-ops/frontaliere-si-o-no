@@ -6,7 +6,7 @@
       "id": "spitex-ch-98364ed82cd6",
       "slug": "operatrice-operatore-sanitario-cfc-50-80-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
-        "it": "operatrice-operatore-sanitario-cfc-50-80-per-la-sede-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
+        "it": "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
         "en": "healthcare-assistant-cfc-50-80-for-wetzikon-location-spitex-bachtel-ag-wetzikon-zh",
         "de": "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "fr": "assistante-assistant-en-soins-cfc-50-80-pour-le-site-de-wetzikon-spitex-bachtel-ag-wetzikon-zh"
@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+        "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-          "fachfrau-fachmann-gesundheit-cfc-50-80-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh"
+          "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-50-80-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
@@ -782,7 +780,7 @@
       "id": "spitex-ch-647acda98485",
       "slug": "specialista-hf-per-il-punto-di-supporto-ruti-zh-spitex-bachtel-ag-ruti-zh",
       "slugByLocale": {
-        "it": "specialista-hf-per-il-punto-di-supporto-ruti-zh-spitex-bachtel-ag-ruti-zh",
+        "it": "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh",
         "en": "care-specialist-hf-for-the-support-point-ruti-zh-spitex-bachtel-ag-ruti-zh",
         "de": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
         "fr": "specialiste-des-soins-hf-pour-le-point-d-appui-ruti-zh-spitex-bachtel-ag-ruti-zh"
@@ -830,7 +828,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
-        "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh",
         "infermiera-infermiere-professionale-hf-per-il-punto-di-riferimento-di-wetzikon-spitex-bachtel-ag-wetzikon-zh",
         "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "registered-nurse-hf-for-wetzikon-support-point-spitex-bachtel-ag-wetzikon-zh",
@@ -838,8 +835,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh",
-          "pflegefachfrau-mann-hf-per-den-stutzpunkt-ruti-zh-spitex-bachtel-ag-ruti-zh"
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh"
         ],
         "en": [
           "pflegefachfrau-mann-hf-fur-den-stutzpunkt-ruti-zh-spitex-ch-ruti-zh"
@@ -867,9 +863,9 @@
       "slug": "responsabile-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
       "slugByLocale": {
         "it": "responsabile-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
-        "en": "head-of-department-home-support-rotes-kreuz-baselland-liestal",
+        "en": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal",
         "de": "leiter-in-der-abteilung-unterstutzung-zu-hause-rotes-kreuz-baselland-liestal",
-        "fr": "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
+        "fr": "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
       },
       "company": "Rotes Kreuz Baselland",
       "companyKey": "spitex-ch",
@@ -920,14 +916,16 @@
           "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
         ],
         "en": [
-          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+          "head-of-department-home-support-rotes-kreuz-baselland-liestal"
         ],
         "fr": [
-          "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+          "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal"
+        "leiter-in-der-abteilung-unterstutzung-zu-hause-spitex-ch-liestal",
+        "head-of-department-home-support-rotes-kreuz-baselland-liestal",
+        "chef-du-departement-soutien-a-domicile-rotes-kreuz-baselland-liestal"
       ],
       "firstSeenAt": "2026-05-30T00:40:11.312Z",
       "salaryMin": 68000,
@@ -1413,7 +1411,7 @@
       "slug": "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-        "it": "salute-professionale-efz-psichiatria-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "it": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
         "en": "professional-health-efz-psychiatry-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
         "fr": "sante-professionnelle-efz-psychiatrie-m-p-j-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
@@ -1461,8 +1459,7 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
-          "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+          "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen"
         ],
         "en": [
           "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
@@ -1659,10 +1656,10 @@
       "id": "spitex-ch-c897776d150b",
       "slug": "dipl-specialista-hf-fh-60-80-spitex-bodensee-goldach",
       "slugByLocale": {
-        "it": "dipl-specialista-hf-fh-60-80-spitex-bodensee-goldach",
+        "it": "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
         "en": "dipl-pflegefachperson-hf-fh-60-80-spitex-bodensee-goldach",
         "de": "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
-        "fr": "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach"
+        "fr": "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach"
       },
       "company": "Spitex Bodensee",
       "companyKey": "spitex-ch",
@@ -1707,9 +1704,8 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
         "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-        "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
-        "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach",
+        "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach",
         "dipl-pflegefachperson-hf-fh-40-100-regiospitex-limmattal-schlieren",
         "dipl-pflegefachperson-hf-fh-40-100-spitex-ch-schlieren",
         "dipl-specialiste-des-soins-hf-fh-40-100-regiospitex-limmattal-schlieren",
@@ -1719,8 +1715,7 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-60-80-spitex-ch-goldach",
-          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
-          "dipl-professionista-della-cura-hf-fh-60-80-spitex-bodensee-goldach"
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
         ],
         "en": [
           "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
@@ -1729,8 +1724,8 @@
           "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil"
         ],
         "fr": [
-          "dipl-infirmier-ere-specialiste-hf-fh-60-80-spitex-bodensee-goldach",
-          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+          "dipl-specialiste-des-soins-hf-fh-60-80-spitex-bodensee-goldach"
         ]
       },
       "firstSeenAt": "2026-05-31T12:50:20.670Z",

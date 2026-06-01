@@ -32,10 +32,10 @@
       "crawledAt": "2026-05-17T10:36:25.314Z",
       "firstSeenAt": "2026-05-17T10:36:25.314Z",
       "slugByLocale": {
-        "it": "global-payroll-risorse-umane-systems-manager-switzerlandteam",
+        "it": "responsabile-globale-payroll-e-sistemi-hr-chiasso",
         "en": "global-payroll-hr-systems-manager-switzerlandteam",
-        "de": "global-payroll-personalwesen-systems-manager-switzerlandteam",
-        "fr": "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam"
+        "de": "global-payroll-hr-systemmanager-chiasso",
+        "fr": "responsable-globale-paie-et-systemes-rh-chiasso"
       },
       "titleByLocale": {
         "en": "Global Payroll & HR Systems Manager",
@@ -69,10 +69,14 @@
           "global-payroll-hr-systems-manager-lastminute-com-chiasso"
         ],
         "fr": [
-          "global-payroll-ressources-humaines-systems-manager-chiasso"
+          "global-payroll-ressources-humaines-systems-manager-chiasso",
+          "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam"
         ],
         "en": [
           "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam"
+        ],
+        "de": [
+          "global-payroll-personalwesen-systems-manager-switzerlandteam"
         ]
       },
       "previousSlugs": [
@@ -80,7 +84,9 @@
         "global-payroll-hr-systems-manager-switzerlandteam",
         "global-payroll-hr-systems-manager-lastminute-com-chiasso",
         "global-payroll-ressources-humaines-systems-manager-chiasso",
-        "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam"
+        "gestionnaire-mondial-des-systemes-de-paye-et-de-rh-switzerlandteam",
+        "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam",
+        "global-payroll-personalwesen-systems-manager-switzerlandteam"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -158,30 +164,29 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "ingegnere-dati-chiasso",
+        "it": "data-ingegnere-chiasso",
         "en": "data-engineer-lastminute-com-chiasso",
         "de": "data-ingenieur-chiasso",
-        "fr": "ingenieur-de-donnees-chiasso"
+        "fr": "data-ingenieur-chiasso"
       },
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-chiasso",
-          "data-ingegnere-chiasso"
+          "data-engineer-chiasso"
         ],
         "en": [
           "data-engineer-chiasso"
         ],
         "fr": [
-          "data-ingenieur-chiasso"
+          "ingenieur-de-donnees-chiasso"
         ]
       },
       "previousSlugs": [
         "data-engineer-chiasso",
-        "ingegnere-dei-dati-lastminute-com-chiasso",
-        "data-ingegnere-chiasso"
+        "ingenieur-de-donnees-chiasso",
+        "ingegnere-dei-dati-lastminute-com-chiasso"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

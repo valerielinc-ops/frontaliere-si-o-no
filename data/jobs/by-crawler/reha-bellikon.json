@@ -1131,7 +1131,7 @@
       "id": "reha-bellikon-7cc3a2846519",
       "slug": "risorse-umane-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "risorse-umane-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-rehaklinik-bellikon-bellikon",
+        "it": "specialista-hr-in-gestione-della-salute-aziendale-rehaklinik-bellikon-bellikon",
         "en": "health-management-specialist-rehaklinik-bellikon-bellikon",
         "de": "hr-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-reha-bellikon",
         "fr": "specialiste-en-gestion-de-la-sante-au-travail-rehaklinik-bellikon-bellikon"
@@ -1186,14 +1186,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "hr-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-reha-bellikon",
-        "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon",
-        "specialista-hr-in-gestione-della-salute-aziendale-rehaklinik-bellikon-bellikon"
+        "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-fachspezialistin-fachspezialist-betriebliches-gesundheitsmanagement-reha-bellikon",
-          "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon",
-          "specialista-hr-in-gestione-della-salute-aziendale-rehaklinik-bellikon-bellikon"
+          "hr-specialista-specialist-business-health-management-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-05-19T14:36:44.881Z",
@@ -1214,10 +1212,10 @@
       "id": "reha-bellikon-9d3bbc52411e",
       "slug": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
-        "en": "cook-cook-efz-rehaklinik-bellikon-bellikon",
+        "it": "koch-kochin-efz-reha-bellikon-bellikon",
+        "en": "koch-kochin-efz-reha-bellikon-bellikon",
         "de": "koch-kochin-efz-rehaklinik-bellikon-bellikon",
-        "fr": "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
+        "fr": "koch-kochin-efz-reha-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1266,14 +1264,13 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-          "koch-kochin-efz-reha-bellikon-bellikon"
+          "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon"
         ],
         "en": [
-          "koch-kochin-efz-reha-bellikon-bellikon"
+          "cook-cook-efz-rehaklinik-bellikon-bellikon"
         ],
         "fr": [
-          "koch-kochin-efz-reha-bellikon-bellikon"
+          "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
         ],
         "de": [
           "koch-kochin-efz-reha-bellikon-bellikon"
@@ -1281,7 +1278,9 @@
       },
       "previousSlugs": [
         "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-        "koch-kochin-efz-reha-bellikon-bellikon"
+        "koch-kochin-efz-reha-bellikon-bellikon",
+        "cook-cook-efz-rehaklinik-bellikon-bellikon",
+        "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
       ],
       "firstSeenAt": "2026-05-24T23:03:38.539Z",
       "salaryMin": 51500,
@@ -1301,7 +1300,7 @@
       "id": "reha-bellikon-c5c59a56df9f",
       "slug": "istruttore-r-assistente-in-salute-e-sociale-eba-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "istruttore-r-assistente-in-salute-e-sociale-eba-rehaklinik-bellikon-bellikon",
+        "it": "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon",
         "en": "learner-r-assistant-in-health-and-social-eba-rehaklinik-bellikon-bellikon",
         "de": "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
         "fr": "apprentis-r-assistant-en-sante-et-social-eba-rehaklinik-bellikon-bellikon"
@@ -1352,13 +1351,11 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
-        "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon"
+        "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon",
-          "apprendista-r-assistent-in-gesundheit-e-soziales-afp-rehaklinik-bellikon"
+          "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"
         ],
         "en": [
           "lernende-r-assistent-in-gesundheit-und-soziales-eba-reha-bellikon-bellikon"

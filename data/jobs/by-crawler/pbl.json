@@ -791,9 +791,9 @@
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-psychiatrie-baselland-liestal",
-        "en": "dipl-career-dipl-senior-consultant-m-w-d-psychiatrie-baselland-liestal",
+        "en": "dipl-nurse-m-f-d-hf-70-100-psychiatrie-baselland-liestal",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-pbl-liestal",
-        "fr": "dipl-carriere-dipl-consultant-principal-m-w-d-psychiatrie-baselland-liestal"
+        "fr": "infirmier-infirmiere-dipl-hf-h-f-d-70-100-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -836,22 +836,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-pbl-liestal",
-        "dipl-nurse-m-f-d-hf-70-100-psychiatrie-baselland-liestal",
+        "dipl-career-dipl-senior-consultant-m-w-d-psychiatrie-baselland-liestal",
         "dipl-ing-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-psychiatrie-baselland-liestal",
-        "infirmier-infirmiere-dipl-hf-h-f-d-70-100-psychiatrie-baselland-liestal"
+        "dipl-carriere-dipl-consultant-principal-m-w-d-psychiatrie-baselland-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-pbl-liestal"
         ],
         "en": [
-          "dipl-nurse-m-f-d-hf-70-100-psychiatrie-baselland-liestal"
+          "dipl-career-dipl-senior-consultant-m-w-d-psychiatrie-baselland-liestal"
         ],
         "de": [
           "dipl-ing-pflegefachfrau-dipl-pflegefachmann-hf-m-w-d-70-100-psychiatrie-baselland-liestal"
         ],
         "fr": [
-          "infirmier-infirmiere-dipl-hf-h-f-d-70-100-psychiatrie-baselland-liestal"
+          "dipl-carriere-dipl-consultant-principal-m-w-d-psychiatrie-baselland-liestal"
         ]
       },
       "firstSeenAt": "2026-05-19T20:46:20.992Z",
@@ -3601,7 +3601,7 @@
       "id": "pbl-ee12bdee5f24",
       "slug": "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
       "slugByLocale": {
-        "it": "personale-qualificato-specialista-efz-o-dipl-carriera-dipl-infermiere-per-l-orologio-notturno-m-w-d-60-80-psychiatrie",
+        "it": "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal",
         "en": "person-skilled-specialist-care-efz-or-dipl-career-dipl-nurse-for-night-watch-m-w-d-60-80-psychiatrie-baselland-liestal",
         "de": "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
         "fr": "personne-qualifiee-soins-specialises-efz-ou-dipl-carriere-dipl-infirmiere-pour-veille-de-nuit-m-w-d-60-80-psychiatrie"
@@ -3647,13 +3647,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-        "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal"
+        "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur",
-          "fachmann-fachfrau-betreuung-cfc-o-dipl-pflegefachfrau-per-nachtwache-m-w-d-60-80-psychiatrie-baselland-liestal"
+          "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
         ],
         "en": [
           "fachmann-fachfrau-betreuung-efz-oder-dipl-pflegefachfrau-dipl-pflegefachfrau-fur"
@@ -4001,7 +3999,7 @@
         "de": "praktikantin-praktikant-fh-studiengang-soziale-arbeit-m-w-d-80-psychiatrie-baselland-liestal",
         "it": "praktikantin-praktikant-fh-studiengang-soziale-arbeit-m-w-d-80-pbl-liestal",
         "en": "praktikantin-praktikant-fh-studiengang-soziale-arbeit-m-w-d-80-pbl-liestal",
-        "fr": "praktikan-praticant-fh-studiengang-soziale-arbeit-m-p-d-80-psychiatrie-baselland-liestal"
+        "fr": "praktikantin-praktikant-fh-studiengang-soziale-arbeit-m-w-d-80-pbl-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4056,7 +4054,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-31T23:12:48.193Z"
+      "firstSeenAt": "2026-05-31T23:12:48.193Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "praktikan-praticant-fh-studiengang-soziale-arbeit-m-p-d-80-psychiatrie-baselland-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "praktikan-praticant-fh-studiengang-soziale-arbeit-m-p-d-80-psychiatrie-baselland-liestal"
+      ]
     }
   ]
 }

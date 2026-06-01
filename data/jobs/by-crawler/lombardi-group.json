@@ -168,7 +168,7 @@
       },
       "slugByLocale": {
         "it": "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco",
-        "en": "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco",
+        "en": "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
         "de": "planer-techniker-rvcs-m-f-x-lombardi-group-giubiasco",
         "fr": "concepteur-technicien-rvcs-m-f-x-lombardi-group-giubiasco"
       },
@@ -176,6 +176,7 @@
         "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
         "designer-technician-rvcs-m-f-x-lombardi-group-giubiasco",
         "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
+        "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco",
         "progettista-techniker-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
         "progettista-techniker-rvcs-m-f-x-lombardi-group-giubiasco",
         "progettista-technicien-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
@@ -212,7 +213,7 @@
         "en": [
           "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
           "designer-technician-rvcs-m-f-x-lombardi-group-giubiasco",
-          "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy"
+          "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco"
         ],
         "de": [
           "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
@@ -268,14 +269,14 @@
       "slugByLocale": {
         "it": "ingegnere-di-progetto-m-f-x-lombardi-giubiasco",
         "en": "project-engineer-m-f-x-lombardi-group-giubiasco",
-        "de": "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco",
+        "de": "projektingenieur-m-f-x-lombardi-group-giubiasco",
         "fr": "ingenieur-de-projet-m-f-x-lombardi-group-giubiasco"
       },
       "previousSlugs": [
         "engineer-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
         "projekt-ingenieur-m-f-x-lombardi-group-giubiasco",
         "engineer-di-progetto-m-f-x-lombardi-group-giubiasco",
-        "projektingenieur-m-f-x-lombardi-group-giubiasco",
+        "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco",
         "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
         "projektingenieur-projektmanager-lombardi-group-giubiasco",
         "ingegnere-di-progetto-project-manager-lombardi-group-giubiasco",
@@ -320,7 +321,7 @@
         "de": [
           "engineer-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
           "projekt-ingenieur-m-f-x-lombardi-group-giubiasco",
-          "projektingenieur-m-f-x-lombardi-group-giubiasco"
+          "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco"
         ],
         "fr": [
           "engineer-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
@@ -369,7 +370,7 @@
         "it": "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
         "en": "co-lead-energy-water-department-lombardi-giubiasco",
         "de": "co-leiter-energie-und-wasserabteilung-lombardi-group-giubiasco",
-        "fr": "co-directeur-departement-energie-et-eau-lombardi-group-giubiasco-pdn3ku"
+        "fr": "co-responsable-du-departement-energie-et-eau-lombardi-group-giubiasco"
       },
       "salaryMin": 92000,
       "salaryMax": 125000,
@@ -390,7 +391,7 @@
         "co-leiter-energie-und-wasserabteilung-lombardi-group-giubiasco-pdn3ku",
         "co-lead-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
         "co-lead-energy-water-department-lombardi-giubiasco",
-        "co-responsable-du-departement-energie-et-eau-lombardi-group-giubiasco",
+        "co-directeur-departement-energie-et-eau-lombardi-group-giubiasco-pdn3ku",
         "co-responsabile-del-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
         "co-leiter-der-energie-und-wasserabteilung-lombardi-group-giubiasco",
         "co-lead-energy-water-department-lombardi-group-giubiasco",
@@ -399,19 +400,16 @@
       "id": "lombardi-group-26762b52183c",
       "previousSlugsByLocale": {
         "de": [
-          "co-leiter-energie-und-wasserabteilung-lombardi-group-giubiasco-pdn3ku",
-          "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco"
+          "co-leiter-energie-und-wasserabteilung-lombardi-group-giubiasco-pdn3ku"
         ],
         "en": [
-          "co-lead-dipartimento-energia-e-acqua-lombardi-group-giubiasco",
-          "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco"
+          "co-lead-dipartimento-energia-e-acqua-lombardi-group-giubiasco"
         ],
         "it": [
           "co-lead-energy-water-department-lombardi-giubiasco"
         ],
         "fr": [
-          "co-responsable-du-departement-energie-et-eau-lombardi-group-giubiasco",
-          "condurre-congiuntamente-il-dipartimento-energia-e-acqua-lombardi-group-giubiasco"
+          "co-directeur-departement-energie-et-eau-lombardi-group-giubiasco-pdn3ku"
         ]
       },
       "firstSeenAt": "2026-04-13T22:03:39.621Z"
@@ -484,9 +482,6 @@
         ],
         "de": [
           "senior-electrical-engineer-lombardi-giubiasco"
-        ],
-        "en": [
-          "senior-electrical-engineer-in-giubiasco-or-rotkreuz-or-lausanne-fribourg-lombardi-giubiasco"
         ]
       },
       "previousSlugs": [
@@ -532,12 +527,12 @@
       "slugByLocale": {
         "it": "disegnatore-di-ingegneria-civile-m-f-x-ticino-lombardi-giubiasco",
         "en": "civil-engineering-designer-m-f-x-lombardi-group-giubiasco",
-        "de": "konstrukteur-fur-bauingenieurwesen-m-f-x-lombardi-group-giubiasco",
+        "de": "bauzeichner-m-f-x-lombardi-group-giubiasco",
         "fr": "dessinateur-en-genie-civil-m-f-x-lombardi-group-giubiasco"
       },
       "previousSlugs": [
         "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
-        "bauzeichner-m-f-x-lombardi-group-giubiasco",
+        "konstrukteur-fur-bauingenieurwesen-m-f-x-lombardi-group-giubiasco",
         "concepteur-en-genie-civil-m-f-x-lombardi-group-giubiasco",
         "disegnatore-di-ingegneria-civile-m-f-x-lombardi-group-giubiasco",
         "civil-engineering-draftsman-m-f-x-lombardi-group-giubiasco",
@@ -565,7 +560,7 @@
         ],
         "de": [
           "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
-          "bauzeichner-m-f-x-lombardi-group-giubiasco"
+          "konstrukteur-fur-bauingenieurwesen-m-f-x-lombardi-group-giubiasco"
         ],
         "fr": [
           "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
@@ -611,7 +606,7 @@
       },
       "slugByLocale": {
         "it": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco",
-        "en": "project-lead-engineer-in-safety-and-operations-m-f-x-lombardi-group-giubiasco",
+        "en": "chief-project-engineer-in-the-safety-and-operation-section-m-f-x-lombardi-group-giubiasco",
         "de": "projektleiter-im-bereich-sicherheit-und-betrieb-m-f-x-lombardi-group-giubiasco",
         "fr": "ingenieur-en-chef-de-projet-dans-la-section-securite-et-exploitation-m-f-x-lombardi-group-giubiasco"
       },
@@ -635,7 +630,7 @@
         "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco",
         "engineer-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco",
         "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy",
-        "chief-project-engineer-in-the-safety-and-operation-section-m-f-x-lombardi-group-giubiasco",
+        "project-lead-engineer-in-safety-and-operations-m-f-x-lombardi-group-giubiasco",
         "projektleiter-ingenieur-im-bereich-sicherheit-und-betrieb-m-f-x-lombardi-group-giubiasco",
         "ingenieur-chef-de-projet-dans-le-domaine-de-la-securite-et-de-l-exploitation-m-f-x-lombardi-group-giubiasco",
         "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco",
@@ -652,7 +647,7 @@
           "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy"
         ],
         "en": [
-          "chief-project-engineer-in-the-safety-and-operation-section-m-f-x-lombardi-group-giubiasco"
+          "project-lead-engineer-in-safety-and-operations-m-f-x-lombardi-group-giubiasco"
         ],
         "de": [
           "projektleiter-ingenieur-im-bereich-sicherheit-und-betrieb-m-f-x-lombardi-group-giubiasco"

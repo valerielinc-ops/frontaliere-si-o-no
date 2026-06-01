@@ -179,10 +179,10 @@
       "id": "suedhang-3a1e35768983",
       "slug": "fachfrau-fachmann-gesundheit-cfc-im-nachtdienst-klinik-sudhang-kirchlindach",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "en": "professional-health-efz-at-night-service-klinik-sudhang-kirchlindach",
+        "it": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
+        "en": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
         "de": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-klinik-sudhang-kirchlindach",
-        "fr": "sante-professionnelle-efz-au-service-de-nuit-klinik-sudhang-kirchlindach"
+        "fr": "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -227,14 +227,13 @@
       "pensum": "50%",
       "previousSlugsByLocale": {
         "it": [
-          "salute-professionale-efz-al-servizio-notturno-klinik-sudhang-kirchlindach",
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+          "salute-professionale-efz-al-servizio-notturno-klinik-sudhang-kirchlindach"
         ],
         "en": [
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+          "professional-health-efz-at-night-service-klinik-sudhang-kirchlindach"
         ],
         "fr": [
-          "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+          "sante-professionnelle-efz-au-service-de-nuit-klinik-sudhang-kirchlindach"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
@@ -242,7 +241,9 @@
       },
       "previousSlugs": [
         "salute-professionale-efz-al-servizio-notturno-klinik-sudhang-kirchlindach",
-        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch"
+        "fachfrau-fachmann-gesundheit-efz-im-nachtdienst-suedhang-ch",
+        "professional-health-efz-at-night-service-klinik-sudhang-kirchlindach",
+        "sante-professionnelle-efz-au-service-de-nuit-klinik-sudhang-kirchlindach"
       ],
       "firstSeenAt": "2026-05-21T00:25:20.697Z",
       "salaryMin": 51500,
@@ -263,10 +264,10 @@
       "id": "suedhang-ee3546c9cc28",
       "slug": "team-leader-in-dipl-specialista-di-cura-hf-psichiatria-klinik-sudhang-kirchlindach",
       "slugByLocale": {
-        "it": "team-leader-in-dipl-specialista-di-cura-hf-psichiatria-klinik-sudhang-kirchlindach",
+        "it": "team-leader-in-day-hospital-dipl-infermiere-sss-psichiatria-klinik-sudhang-kirchlindach",
         "en": "team-leader-day-clinic-dipl-nursing-specialist-hf-psychiatry-klinik-sudhang-kirchlindach",
         "de": "teamleiter-in-tagesklinik-dipl-pflegefachperson-hf-psychiatrie-klinik-sudhang-kirchlindach",
-        "fr": "chef-d-equipe-dans-dipl-specialiste-des-soins-hf-psychiatrie-klinik-sudhang-kirchlindach"
+        "fr": "responsable-d-equipe-clinique-de-jour-dipl-infirmier-specialiste-hf-psychiatrie-klinik-sudhang-kirchlindach"
       },
       "company": "Klinik Südhang",
       "companyKey": "suedhang",
@@ -314,17 +315,15 @@
           "teamleiter-in-tagesklinik-dipl-pflegefachperson-hf-psychiatrie-suedhang-ch"
         ],
         "it": [
-          "teamleiter-in-tagesklinik-dipl-pflegefachperson-hf-psychiatrie-suedhang-ch",
-          "team-leader-in-day-hospital-dipl-infermiere-sss-psichiatria-klinik-sudhang-kirchlindach"
+          "teamleiter-in-tagesklinik-dipl-pflegefachperson-hf-psychiatrie-suedhang-ch"
         ],
         "fr": [
-          "responsable-d-equipe-clinique-de-jour-dipl-infirmier-specialiste-hf-psychiatrie-klinik-sudhang-kirchlindach"
+          "chef-d-equipe-dans-dipl-specialiste-des-soins-hf-psychiatrie-klinik-sudhang-kirchlindach"
         ]
       },
       "previousSlugs": [
         "teamleiter-in-tagesklinik-dipl-pflegefachperson-hf-psychiatrie-suedhang-ch",
-        "team-leader-in-day-hospital-dipl-infermiere-sss-psichiatria-klinik-sudhang-kirchlindach",
-        "responsable-d-equipe-clinique-de-jour-dipl-infirmier-specialiste-hf-psychiatrie-klinik-sudhang-kirchlindach"
+        "chef-d-equipe-dans-dipl-specialiste-des-soins-hf-psychiatrie-klinik-sudhang-kirchlindach"
       ],
       "firstSeenAt": "2026-05-21T13:29:32.333Z",
       "salaryMin": 49500,

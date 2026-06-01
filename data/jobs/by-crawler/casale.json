@@ -32,7 +32,7 @@
       "slug": "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano",
       "slugByLocale": {
         "en": "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano-ticino-cmrb0l",
-        "it": "apprendistato-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano",
+        "it": "apprendistato-tecnico-di-laboratorio-in-chimica-afc-tecnologo-chimico-e-farmaceutico-afc-casale-sa-lugano",
         "de": "ausbildung-laboratory-techniker-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano-ticino-cmrb0l",
         "fr": "apprentissage-laboratory-technicien-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-sa-lugano-ticino-cmrb0l"
       },
@@ -50,7 +50,6 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "apprendistato-tecnico-di-laboratorio-in-chimica-afc-tecnologo-chimico-e-farmaceutico-afc-casale-sa-lugano",
         "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano"
       ],
       "salaryMin": 54500,
@@ -67,9 +66,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "apprendistato-tecnico-di-laboratorio-in-chimica-afc-tecnologo-chimico-e-farmaceutico-afc-casale-sa-lugano"
-        ],
         "en": [
           "apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc-casale-lugano"
         ]
@@ -107,7 +103,7 @@
       "slug": "spedizione-casale-sa-lugano",
       "slugByLocale": {
         "en": "expediter-casale-sa-lugano",
-        "it": "spedizione-casale-sa-lugano",
+        "it": "expediter-casale-lugano",
         "de": "beschleuniger-casale-sa-lugano-ticino",
         "fr": "expediteur-casale-sa-lugano-ticino"
       },
@@ -127,7 +123,6 @@
         "expediter-casale-sa-lugano-ticino-qj6jpx",
         "expediter-casale-sa-lugano-ticino",
         "search-casale-sa-lugano-ticino",
-        "expediter-casale-lugano",
         "spedizione-casale-sa-lugano-ticino"
       ],
       "sourceLang": "en",
@@ -149,7 +144,6 @@
           "expediter-casale-sa-lugano-ticino-qj6jpx",
           "expediter-casale-sa-lugano-ticino",
           "search-casale-sa-lugano-ticino",
-          "expediter-casale-lugano",
           "spedizione-casale-sa-lugano-ticino"
         ],
         "en": [
@@ -201,8 +195,8 @@
       "slug": "instrument-ingegnere-casale-sa-lugano",
       "slugByLocale": {
         "en": "instrument-engineer-casale-sa-lugano",
-        "it": "instrument-ingegnere-casale-sa-lugano",
-        "de": "instrument-ingenieur-casale-sa-lugano-ticino",
+        "it": "ingegnere-di-strumentazione-casale-sa-lugano",
+        "de": "instrument-ingenieur-casale-sa-lugano-ticino-oqzh91",
         "fr": "instrument-ingenieur-casale-sa-lugano-ticino-oqzh91"
       },
       "category": "engineering",
@@ -219,18 +213,17 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "ingegnere-di-strumentazione-casale-sa-lugano",
+        "instrument-engineer-casale-sa-lugano-ticino",
         "instrument-engineer-casale-lugano",
         "instrument-engineer-casale-sa-lugano-ticino-oqzh91",
-        "instrument-ingenieur-casale-sa-lugano-ticino-oqzh91",
+        "instrument-ingenieur-casale-sa-lugano-ticino",
         "electrical-ingegnere-casale-sa-lugano",
         "electrical-engineer-casale-sa-lugano",
         "electrical-ingenieur-casale-sa-lugano-ticino",
         "electrical-ingenieur-casale-sa-lugano-ticino-oqzh90",
         "ingegnere-elettrotecnico-casale-sa-lugano",
         "electrical-engineer-casale-lugano",
-        "electrical-engineer-casale-sa-lugano-ticino-oqzh90",
-        "instrument-engineer-casale-sa-lugano-ticino"
+        "electrical-engineer-casale-sa-lugano-ticino-oqzh90"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -247,7 +240,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-di-strumentazione-casale-sa-lugano",
           "instrument-engineer-casale-sa-lugano-ticino"
         ],
         "en": [
@@ -255,7 +247,7 @@
           "instrument-engineer-casale-sa-lugano-ticino-oqzh91"
         ],
         "de": [
-          "instrument-ingenieur-casale-sa-lugano-ticino-oqzh91"
+          "instrument-ingenieur-casale-sa-lugano-ticino"
         ]
       },
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
@@ -291,9 +283,9 @@
       "slug": "hse-specialista-casale-sa-lugano",
       "slugByLocale": {
         "en": "hse-specialist-casale-sa-lugano",
-        "it": "hse-specialista-casale-sa-lugano",
-        "de": "hse-spezialist-casale-sa-lugano-ticino",
-        "fr": "hse-specialiste-casale-sa-lugano-ticino"
+        "it": "specialista-hse-casale-sa-lugano",
+        "de": "hse-spezialist-casale-sa-lugano-ticino-b892fl",
+        "fr": "hse-specialiste-casale-sa-lugano-ticino-b892fl"
       },
       "category": "quality",
       "datePosted": "2025-05-20",
@@ -309,12 +301,13 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "specialista-hse-casale-sa-lugano",
         "hse-spezialist-casale-sa-lugano-ticino-b892fl",
         "hse-specialiste-casale-sa-lugano-ticino-b892fl",
+        "hse-specialist-casale-sa-lugano-ticino",
         "hse-specialist-casale-lugano",
         "hse-specialist-casale-sa-lugano-ticino-b892fl",
-        "hse-specialist-casale-sa-lugano-ticino"
+        "hse-spezialist-casale-sa-lugano-ticino",
+        "hse-specialiste-casale-sa-lugano-ticino"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -331,7 +324,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "specialista-hse-casale-sa-lugano",
           "hse-spezialist-casale-sa-lugano-ticino-b892fl",
           "hse-specialiste-casale-sa-lugano-ticino-b892fl",
           "hse-specialist-casale-sa-lugano-ticino"
@@ -343,12 +335,12 @@
           "hse-specialiste-casale-sa-lugano-ticino-b892fl"
         ],
         "de": [
-          "hse-spezialist-casale-sa-lugano-ticino-b892fl",
-          "hse-specialiste-casale-sa-lugano-ticino-b892fl"
+          "hse-specialiste-casale-sa-lugano-ticino-b892fl",
+          "hse-spezialist-casale-sa-lugano-ticino"
         ],
         "fr": [
           "hse-spezialist-casale-sa-lugano-ticino-b892fl",
-          "hse-specialiste-casale-sa-lugano-ticino-b892fl"
+          "hse-specialiste-casale-sa-lugano-ticino"
         ]
       },
       "firstSeenAt": "2026-04-13T21:19:25.409Z",
@@ -384,7 +376,7 @@
       "slug": "home-office-construction-ingegnere-casale-sa-lugano",
       "slugByLocale": {
         "en": "home-office-construction-engineer-casale-sa-lugano-ticino-gpc4qj",
-        "it": "home-office-construction-ingegnere-casale-sa-lugano",
+        "it": "ingegnere-di-costruzione-home-office-casale-sa-lugano",
         "de": "home-office-construction-ingenieur-casale-sa-lugano-ticino-gpc4qj",
         "fr": "home-office-construction-ingenieur-casale-sa-lugano-ticino-gpc4qj"
       },
@@ -402,7 +394,6 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "ingegnere-di-costruzione-home-office-casale-sa-lugano",
         "home-office-construction-engineer-casale-lugano"
       ],
       "salaryMin": 72000,
@@ -419,9 +410,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "ingegnere-di-costruzione-home-office-casale-sa-lugano"
-        ],
         "en": [
           "home-office-construction-engineer-casale-lugano"
         ]
@@ -459,7 +447,7 @@
       "slug": "lavora-con-noi-casale-sa-lugano-ticino",
       "slugByLocale": {
         "en": "work-with-us-casale-sa-lugano",
-        "it": "lavora-con-noi-casale-sa-lugano-ticino",
+        "it": "lavora-con-noi-casale-sa-lugano",
         "de": "arbeite-mit-uns-casale-sa-lugano-ticino",
         "fr": "travaillez-avec-nous-casale-sa-lugano-ticino"
       },
@@ -477,10 +465,9 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "lavora-con-noi-casale-sa-lugano",
-        "work-with-us-casale-sa-lugano-ticino-m65zo7",
         "work-with-us-casale-lugano",
-        "work-with-us-casale-sa-lugano-ticino"
+        "work-with-us-casale-sa-lugano-ticino",
+        "work-with-us-casale-sa-lugano-ticino-m65zo7"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -497,7 +484,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lavora-con-noi-casale-sa-lugano",
           "work-with-us-casale-lugano",
           "work-with-us-casale-sa-lugano-ticino"
         ],
@@ -544,7 +530,7 @@
       "slug": "responsabile-della-proposta-casale-sa-lugano-ticino",
       "slugByLocale": {
         "en": "proposal-manager-casale-sa-lugano",
-        "it": "responsabile-della-proposta-casale-sa-lugano-ticino",
+        "it": "responsabile-delle-proposte-casale-sa-lugano",
         "de": "proposal-manager-casale-sa-lugano-ticino-slm01t",
         "fr": "proposal-manager-casale-sa-lugano-ticino-slm01t"
       },
@@ -562,7 +548,6 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "responsabile-delle-proposte-casale-sa-lugano",
         "proposal-manager-casale-lugano",
         "proposal-manager-casale-sa-lugano-ticino-slm01t"
       ],
@@ -581,7 +566,6 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-proposte-casale-sa-lugano",
           "proposal-manager-casale-lugano"
         ],
         "en": [
