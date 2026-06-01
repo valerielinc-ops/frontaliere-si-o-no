@@ -48,6 +48,7 @@ import {
   loadSlugRegistry as _loadSlugRegistry,
   saveSlugRegistry as _saveSlugRegistry,
   getRegisteredSlug as _getRegisteredSlug,
+  registryPinnedLocaleSlug as _registryPinnedLocaleSlug,
   registerJobSlug as _registerJobSlug,
   // FRO-232: merge/dedup utilities extracted from this file
   LOCALES as _LOCALES,
@@ -140,6 +141,7 @@ const buildStableId = _buildStableId;
 const loadSlugRegistry = _loadSlugRegistry;
 const saveSlugRegistry = _saveSlugRegistry;
 const getRegisteredSlug = _getRegisteredSlug;
+const registryPinnedLocaleSlug = _registryPinnedLocaleSlug;
 const registerJobSlug = _registerJobSlug;
 // FRO-232: merge/dedup utilities re-aliases
 const LOCALES = _LOCALES;
@@ -5150,11 +5152,12 @@ async function main() {
                   enriched.slugByLocale = {};
                 }
                 if (pin.slugByLocale && typeof pin.slugByLocale === 'object') {
-                  for (const [loc, s] of Object.entries(pin.slugByLocale)) {
-                    const norm = String(s || '').trim();
-                    if (!norm) continue;
-                    if (srcLang && loc !== srcLang && regSrc && norm === regSrc) continue;
-                    enriched.slugByLocale[loc] = norm;
+                  // Per-locale source-copy rule lives in registryPinnedLocaleSlug
+                  // (single definition shared with mergeAndDeduplicate,
+                  // hardenJobLocaleFields, and regenerate-slugs-by-locale).
+                  for (const loc of Object.keys(pin.slugByLocale)) {
+                    const pinned = registryPinnedLocaleSlug(pin, loc, srcLang);
+                    if (pinned) enriched.slugByLocale[loc] = pinned;
                   }
                 }
                 const enforceMaster = !srcLang
