@@ -3886,6 +3886,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rinascita-verde-ticino-airola-rodi': { name: 'Rinascita verde', path: '/articoli-frontaliere/rinascita-verde-ticino-airola-rodi', parent: 'blog' },
     'blog-stretta-esercito-civilisti-ticino': { name: 'Stretta esercito', path: '/articoli-frontaliere/stretta-esercito-civilisti-ticino', parent: 'blog' },
     'blog-maggiore-lake-trail-gambarogno': { name: 'Maggiore Lake Trail', path: '/articoli-frontaliere/maggiore-lake-trail-gambarogno', parent: 'blog' },
+    'blog-ammodernamento-fa-18-svizzera': { name: 'Ammodernamento F/A-18', path: '/articoli-frontaliere/ammodernamento-fa-18-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

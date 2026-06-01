@@ -7934,6 +7934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.maggiore-lake-trail-gambarogno.title': 'Maggiore Lake Trail: il Gambarogno nel nuovo percorso',
     'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'Presentato a Varese lo studio di fattibilità del progetto Interreg per il trail transfrontaliero che unisce il Gambarogno al territorio lombardo.',
     'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Vista panoramica del Gambarogno sul Lago Maggiore in una giornata di sole.',
+    'blog.article.ammodernamento-fa-18-svizzera.title': 'Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030',
+    'blog.article.ammodernamento-fa-18-svizzera.excerpt': 'La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi.',
+    'blog.article.ammodernamento-fa-18-svizzera.imageAlt': 'Un aereo F/A-18 svizzero sorvola il Lago di Lugano al tramonto',
 };
 
 export default blogMetaIt;
