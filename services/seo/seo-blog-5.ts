@@ -41999,6 +41999,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ammodernamento-fa-18-svizzera': {
+    title: 'Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030',
+    description: 'La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ammodernamento, a-18, flotta, pronta',
+    ogTitle: 'Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030',
+    ogDescription: 'La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/ammodernamento-fa-18-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030",
+      "description": "La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ammodernamento-fa-18-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un aereo F/A-18 svizzero sorvola il Lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-06-01T12:34:46+00:00",
+      "dateModified": "2026-06-01T12:34:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ammodernamento-fa-18-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

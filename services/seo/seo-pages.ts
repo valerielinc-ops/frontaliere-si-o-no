@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2699,
+ "numberOfItems": 2700,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7339,7 +7339,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2696, "name": "Crisi abitativa in Ticino: classe media a rischio", "url": `${BASE_URL}/articoli-frontaliere/crisi-abitativa-ticino-classe-media` },
           { "@type": "ListItem", "position": 2697, "name": "Rinascita verde lungo il Ticino: interventi tra...", "url": `${BASE_URL}/articoli-frontaliere/rinascita-verde-ticino-airola-rodi` },
           { "@type": "ListItem", "position": 2698, "name": "Stretta sull’esercito: più effettivi o perdita ...", "url": `${BASE_URL}/articoli-frontaliere/stretta-esercito-civilisti-ticino` },
-          { "@type": "ListItem", "position": 2699, "name": "Maggiore Lake Trail: il Gambarogno nel nuovo pe...", "url": `${BASE_URL}/articoli-frontaliere/maggiore-lake-trail-gambarogno` }
+          { "@type": "ListItem", "position": 2699, "name": "Maggiore Lake Trail: il Gambarogno nel nuovo pe...", "url": `${BASE_URL}/articoli-frontaliere/maggiore-lake-trail-gambarogno` },
+          { "@type": "ListItem", "position": 2700, "name": "Ammodernamento F/A-18: la flotta svizzera pront...", "url": `${BASE_URL}/articoli-frontaliere/ammodernamento-fa-18-svizzera` }
  ]
  },
  {

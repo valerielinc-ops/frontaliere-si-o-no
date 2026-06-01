@@ -7933,6 +7933,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.maggiore-lake-trail-gambarogno.title': 'Gambarogno Trail: New Interreg Project in Varese',
     'blog.article.maggiore-lake-trail-gambarogno.excerpt': 'The study of feasibility for the Interreg project to create a cross-border trail connecting Gambarogno to Lombardy has been presented in Varese.',
     'blog.article.maggiore-lake-trail-gambarogno.imageAlt': 'Panoramic view of Gambarogno on Lake Maggiore on a sunny day.',
+    'blog.article.ammodernamento-fa-18-svizzera.title': 'F/A-18 upgrade: Swiss fleet ready until 2030',
+    'blog.article.ammodernamento-fa-18-svizzera.excerpt': 'The fleet of 30 F/A-18C/D aircraft has been modernized to operate until the early 2030s, with an investment of 450 million francs.',
+    'blog.article.ammodernamento-fa-18-svizzera.imageAlt': 'A Swiss F/A-18 aircraft flying over Lake Lugano at sunset',
 };
 
 export default blogMetaEn;

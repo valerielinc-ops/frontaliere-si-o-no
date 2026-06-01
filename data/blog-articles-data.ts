@@ -25175,4 +25175,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ammodernamento-fa-18-svizzera',
+ category: 'novita',
+ date: '2026-06-01T12:34:46.341Z',
+ image: '/images/blog/ammodernamento-fa-18-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
