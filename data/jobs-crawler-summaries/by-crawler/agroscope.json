@@ -1,58 +1,20 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-01T13:30:07.115Z",
+  "generatedAt": "2026-06-01T22:37:47.249Z",
   "total": 17,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 17,
-  "durationMs": 1262,
-  "avgDurationMs": 1262,
+  "durationMs": 1129,
+  "avgDurationMs": 1129,
   "durationHistory": [
-    1262
+    1129
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Stage universitario: analisi genomica e proteomica di batteri promotori della crescita vegetale",
-      "slug": "stage-universitario-analisi-genomica-e-proteomica-di-batteri-promotori-della-crescita-vegetale-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/stage-universitario-analisi-genomica-e-proteomica-di-batteri-promotori-della-crescita-vegetale/98610bfe-ecc3-4dd2-9bbf-6feb0a9a83bd",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19017",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8046 Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-08",
-      "validThrough": "2026-06-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-7c32de959305",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Ramon Bentina 16",
-      "postalCode": "6593",
-      "firstSeenAt": "2026-05-10T20:52:32.514Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Collaboratore/trice scientifico/a in scienza dei dati, scienze ambientali, agronomia",
