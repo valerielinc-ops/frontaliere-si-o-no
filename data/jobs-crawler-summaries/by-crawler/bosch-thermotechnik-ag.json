@@ -1,49 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-31T21:26:47.432Z",
+  "generatedAt": "2026-06-01T13:51:17.946Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 16852,
-  "avgDurationMs": 16852,
+  "durationMs": 15173,
+  "avgDurationMs": 15173,
   "durationHistory": [
-    16852
+    15173
   ],
-  "newJobs": [
-    {
-      "title": "Instandhaltung (w/m/div.) - REF285547A",
-      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-07",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Kaufmann/-frau 2027 REF286890O",
@@ -260,6 +229,43 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Instandhaltung (w/m/div.) - REF285547A",
+      "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div-ref285547a",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125158826-instandhaltung-w-m-div-ref285547a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-07",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-d1984318ab03",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-31T21:26:47.431Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
         "completeness": 22
       }
     }
