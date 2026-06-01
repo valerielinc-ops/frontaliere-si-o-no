@@ -1,21 +1,22 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-06-01T13:28:30.278Z",
+  "generatedAt": "2026-06-01T22:35:46.618Z",
   "total": 13,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 46962,
-  "avgDurationMs": 46962,
+  "unchangedCount": 1,
+  "durationMs": 34426,
+  "avgDurationMs": 34426,
   "durationHistory": [
-    46962
+    34426
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-2eqea5",
-      "slug": "continuous-improvement-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "continuous-improvement-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-2eqea5",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Continuous Improvement Specialist (80-100%)",
       "location": "Quartino, Ticino",
@@ -39,16 +40,22 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
-      "_qualityScore": 67,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 21,
         "translation": 15,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-j6oli2",
       "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
@@ -386,48 +393,6 @@
       }
     },
     {
-      "id": "company-w5vlie",
-      "slug": "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Senior Power Systems Computer-Aided Engineer",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-16",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00018668EXTERNALENGLOBAL/Senior-Power-Systems-Computer-Aided-Engineer",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-05-17T09:30:56.153Z",
-      "firstSeenAt": "2026-05-17T09:30:56.153Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-noo56s",
       "slug": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
       "company": "ABB Svizzera (sede Ticino)",
@@ -558,5 +523,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "company-w5vlie",
+      "slug": "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Senior Power Systems Computer-Aided Engineer",
+      "location": "Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-16",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00018668EXTERNALENGLOBAL/Senior-Power-Systems-Computer-Aided-Engineer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-05-17T09:30:56.153Z",
+      "firstSeenAt": "2026-05-17T09:30:56.153Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
