@@ -249,24 +249,52 @@ function buildItalyStations(municipalities, stationsRows, pricesRows) {
     });
   }
 
-  const pricesByMunicipality = new Map();
+  // Merge the per-fuel MIMIT price rows into one entry per
+  // station + service-mode (self/served). Each station publishes up to four
+  // rows (self/served × Benzina/Gasolio). We keep `priceEur` = Benzina (the
+  // historically-tracked cut, consumed by FuelPriceStats + snapshot history)
+  // and add `dieselPriceEur` = Gasolio alongside so the diesel pages can show
+  // real diesel prices and link per-station detail pages.
+  const entryByKey = new Map();
   for (const row of pricesRows) {
-    if (String(row.descCarburante || '') !== 'Benzina') continue;
+    const desc = String(row.descCarburante || '');
+    if (desc !== 'Benzina' && desc !== 'Gasolio') continue;
     const station = stationsById.get(String(row.idImpianto));
     const price = toNumber(row.prezzo);
     if (!station || price == null) continue;
-    const entry = {
-      id: station.id,
-      stationName: station.name,
-      brand: station.brand,
-      address: station.address,
-      lat: station.lat,
-      lng: station.lng,
-      priceEur: price,
-      isSelf: String(row.isSelf || '') === '1',
-      updatedAt: row.dtComu || null,
-    };
-    const key = `${station.municipalityName}:${station.province}`;
+    const isSelf = String(row.isSelf || '') === '1';
+    const key = `${station.id}:${isSelf ? 'self' : 'served'}`;
+    let entry = entryByKey.get(key);
+    if (!entry) {
+      entry = {
+        id: station.id,
+        stationName: station.name,
+        brand: station.brand,
+        address: station.address,
+        lat: station.lat,
+        lng: station.lng,
+        priceEur: null,
+        dieselPriceEur: null,
+        isSelf,
+        updatedAt: row.dtComu || null,
+        municipalityKey: `${station.municipalityName}:${station.province}`,
+      };
+      entryByKey.set(key, entry);
+    }
+    if (desc === 'Benzina') entry.priceEur = price;
+    else entry.dieselPriceEur = price;
+    if (row.dtComu) entry.updatedAt = row.dtComu;
+  }
+
+  const pricesByMunicipality = new Map();
+  for (const entry of entryByKey.values()) {
+    // Keep `italy.stations` benzina-anchored: only emit entries that carry a
+    // Benzina price (every downstream benzina consumer assumes `priceEur` is a
+    // number). Diesel-only stations are dropped — extremely rare at the border
+    // and not worth the null-guard churn across FuelPriceStats/snapshot.
+    if (entry.priceEur == null) continue;
+    const key = entry.municipalityKey;
+    delete entry.municipalityKey;
     if (!pricesByMunicipality.has(key)) pricesByMunicipality.set(key, []);
     pricesByMunicipality.get(key).push(entry);
   }
@@ -279,6 +307,11 @@ function summarizeItalyStations(stations) {
   const servedPrices = stations.filter((station) => !station.isSelf).map((station) => station.priceEur);
   const sorted = [...stations].sort((a, b) => a.priceEur - b.priceEur);
   const cheapest = sorted[0] || null;
+  // Diesel (Gasolio) aggregates — computed only over stations that reported a
+  // diesel price. Used by the diesel city pages' cross-border verdict.
+  const dieselPrices = stations
+    .map((station) => station.dieselPriceEur)
+    .filter((p) => typeof p === 'number' && Number.isFinite(p));
   return {
     stationCount: stations.length,
     minPriceEur: cheapest ? round(cheapest.priceEur) : null,
@@ -286,6 +319,9 @@ function summarizeItalyStations(stations) {
     maxPriceEur: round(allPrices.length ? Math.max(...allPrices) : null),
     minSelfPriceEur: selfPrices.length ? round(Math.min(...selfPrices)) : null,
     minServedPriceEur: servedPrices.length ? round(Math.min(...servedPrices)) : null,
+    minDieselPriceEur: dieselPrices.length ? round(Math.min(...dieselPrices)) : null,
+    avgDieselPriceEur: dieselPrices.length ? round(average(dieselPrices)) : null,
+    dieselStationCount: dieselPrices.length,
     cheapestStation: cheapest,
     stations: sorted,
   };
