@@ -654,10 +654,10 @@
     },
     {
       "id": "svar-spitalverbund-ar-3ee611f66cb7",
-      "slug": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar",
+      "slug": "tecnica-chirurgica-ic-toa-50-100-lun-f-giorno-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
       "slugByLocale": {
         "de": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar",
-        "it": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar",
+        "it": "tecnica-chirurgica-ic-toa-50-100-lun-f-giorno-spitalverbund-appenzell-ausserrhoden-svar-spital-herisau",
         "en": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar",
         "fr": "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar"
       },
@@ -716,7 +716,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-31T23:56:26.216Z"
+      "firstSeenAt": "2026-05-31T23:56:26.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-hf-toa-50-100-m-w-d-svar-spitalverbund-ar"
+      ]
     }
   ]
 }

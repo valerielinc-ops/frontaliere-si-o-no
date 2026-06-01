@@ -3762,9 +3762,9 @@
     },
     {
       "id": "nestle-1381548133",
-      "slug": "barista-coffee-bard-nestle-ch",
+      "slug": "barista-bardo-del-caffe-nestle-basel-ch",
       "slugByLocale": {
-        "it": "barista-coffee-bard-nestle-ch",
+        "it": "barista-bardo-del-caffe-nestle-basel-ch",
         "en": "barista-coffee-bard-nestle-ch",
         "de": "barista-coffee-bard-nestle-ch",
         "fr": "barista-coffee-bard-nestle-ch"
@@ -3821,7 +3821,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "barista-coffee-bard-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "barista-coffee-bard-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1387253333",
