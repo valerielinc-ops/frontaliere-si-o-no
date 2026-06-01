@@ -1,0 +1,113 @@
+name: Lessons harvester (auto-improve agent docs)
+
+# Daily self-improvement loop: aggregate recurring reviewer findings + issue-fix
+# blocked-outcomes (deterministic, zero Claude), drop anything already in the
+# doc-contracts, and — only when a GENUINELY NEW recurring pattern survives —
+# spend ONE Claude turn to draft a surgical rule addition and open a docs PR.
+# Human-gated: the PR is never auto-merged (instructions are high-leverage).
+# Contract: ISSUES.md → "Auto-improvement loop (lessons-harvester)".
+
+on:
+  schedule:
+    - cron: '17 5 * * *' # daily 05:17 UTC
+  workflow_dispatch:
+    inputs:
+      window_days:
+        description: 'Lookback window in days (default 14).'
+        required: false
+        default: '14'
+      threshold:
+        description: 'Min recurrences to count a cluster (default 3).'
+        required: false
+        default: '3'
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+  id-token: write
+
+concurrency:
+  group: lessons-harvester
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # One pending proposal at a time: if a harvest PR is already open and
+      # awaiting human review, don't pile up a duplicate every day.
+      - name: Guard — existing open proposal
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          OPEN=$(gh pr list --state open --search 'head:lessons/auto-harvest' --json number --jq 'length')
+          echo "open_proposals=$OPEN" >> "$GITHUB_OUTPUT"
+          if [ "$OPEN" != "0" ]; then
+            echo "A harvest proposal PR is already open — skipping today's run."
+          fi
+
+      - name: Aggregate recurring patterns (deterministic, zero Claude)
+        id: harvest
+        if: steps.guard.outputs.open_proposals == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WINDOW_DAYS: ${{ github.event.inputs.window_days || '14' }}
+          THRESHOLD: ${{ github.event.inputs.threshold || '3' }}
+          HARVEST_OUT: harvest-clusters.json
+        run: node scripts/ci/harvest-agent-lessons.mjs
+
+      - name: Draft doc-rule proposal (Claude — only if novel patterns)
+        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          show_full_output: true
+          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
+          prompt: |
+            Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
+
+            **Bootstrap:**
+            1. Leggi `harvest-clusters.json` (output deterministico di `scripts/ci/harvest-agent-lessons.mjs`). Considera SOLO i cluster con `"novel": true` (gli altri sono già documentati o sono volume operativo).
+            2. Leggi `AGENTS.md`, `ISSUES.md`, `REVIEW.md`, `FOLLOWUP.md` (il loro stile è terse-italiano; rispettalo).
+
+            **Per ogni cluster novel:**
+            - `reviewer-finding/<bucket>` (es. ×N review con 🔴/🟡 sullo stesso tema) → significa che gli agent producono ripetutamente codice che il reviewer corregge sullo stesso punto. Aggiungi una regola PREVENTIVA nel posto giusto (di solito AGENTS.md non-negotiables/Build-And-Test, o REVIEW.md, o il prompt che genera quel codice).
+            - `fix-outcome/<code>` (es. ×N issue-fix bloccati con lo stesso `<code>`) → significa che il fixer sbatte sullo stesso muro. Aggiungi/affina la regola in ISSUES.md → "Abort senza PR" o il capability-guard, così esce frugale o evita di essere instradato.
+
+            **Vincoli (CRITICI):**
+            - CHIRURGICO: poche righe, nello stile esistente. No drive-by, no riscritture. AGENTS.md è iniettato ogni sessione → ogni riga costa token: massima densità.
+            - DEDUP: se rileggendo i doc la regola è di fatto già presente (anche con parole diverse) → NON aggiungerla. Meglio zero modifiche che rumore.
+            - Se NESSUN cluster produce una regola genuinamente nuova e azionabile → **NON aprire PR**, posta nulla, esci. Va benissimo "niente da migliorare oggi".
+            - Mai abbassare gate/quality. Mai toccare logica/codice: SOLO file `.md`.
+
+            **Se (e solo se) hai ≥1 regola nuova utile:**
+            1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
+            2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
+            3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.
+            4. Commit conventional (`docs(process): auto-harvested lessons — <temi>`). In fondo: `Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>`.
+            5. `git push -u origin HEAD`.
+            6. `gh pr create` con body OBBLIGATORIO:
+               ```
+               ## Implementato
+               - <regola aggiunta> ← cluster <source/bucket> ×<count> (es. PR/issue #...)
+               ## Non implementato (ancora)
+               - <cluster scartati e perché: già coperto / troppo vago / volume non-istruzione>
+               ```
+               Aggiungi in fondo: "⚠️ Proposta auto-generata dal lessons-harvester. Human-gated: rivedere prima di mergere. Se modifica `.github/workflows/` non è prevista (solo `.md`)."
+            7. NON mergiare. È una proposta: la rivede un umano.
