@@ -51,6 +51,7 @@ const COMP_PREFIX: Record<Locale, string> = {
   de: 'unternehmen',
   fr: 'entreprise',
 };
+const COMPANY_SEGMENT_PREFIXES = new Set(['azienda', 'company', 'unternehmen', 'firma', 'entreprise', 'societe']);
 
 const LOCALE_PREFIX: Record<Locale, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 const OG_LOCALE: Record<Locale, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
@@ -146,8 +147,44 @@ function buildHubPath(locale: Locale, companySlug: string): string {
   return `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${COMP_PREFIX[locale]}-${companySlug}/`.replace(/\/+/g, '/');
 }
 
-function buildSectionCanonical(locale: Locale): string {
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
+function withLeadingTrailingSlash(pathname: string): string {
+  const clean = `/${String(pathname || '').replace(/^\/+|\/+$/g, '')}/`;
+  return clean.replace(/\/+/g, '/');
+}
+
+function pathFromHubUrl(entry: HubEntry): string | null {
+  try {
+    const pathname = new URL(entry.url).pathname;
+    const segments = pathname.split('/').filter(Boolean);
+    let cursor = 0;
+    const expectedLocalePrefix = LOCALE_PREFIX[entry.locale].replace(/^\//, '');
+    if (entry.locale !== 'it') {
+      if (segments[0] !== expectedLocalePrefix) return null;
+      cursor = 1;
+    }
+    if (segments.length !== cursor + 2) return null;
+    const companySegment = segments[cursor + 1];
+    const dashIdx = companySegment.indexOf('-');
+    if (dashIdx <= 0) return null;
+    const prefix = companySegment.slice(0, dashIdx);
+    const slug = companySegment.slice(dashIdx + 1);
+    if (!COMPANY_SEGMENT_PREFIXES.has(prefix) || slug !== entry.companySlug) return null;
+    return withLeadingTrailingSlash(pathname);
+  } catch {
+    return null;
+  }
+}
+
+function buildEntryHubPath(entry: HubEntry): string {
+  return pathFromHubUrl(entry) ?? buildHubPath(entry.locale, entry.companySlug);
+}
+
+function sectionPathFromEntry(entry: HubEntry): string {
+  const hubPath = buildEntryHubPath(entry);
+  const parts = hubPath.split('/').filter(Boolean);
+  const sectionParts = entry.locale === 'it' ? parts.slice(0, 1) : parts.slice(0, 2);
+  if (sectionParts.length > 0) return withLeadingTrailingSlash(sectionParts.join('/'));
+  return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
 }
 
 function buildAggregatorCanonical(locale: Locale): string {
@@ -161,13 +198,6 @@ const SECTION_TO_LOCALE: ReadonlyArray<readonly [string, Locale]> =
   (Object.entries(SECTION_SLUG) as Array<[Locale, string]>).map(
     ([loc, slug]) => [slug, loc] as const,
   );
-
-const COMP_PREFIX_TO_LOCALE: Record<string, Locale> = {
-  azienda: 'it',
-  company: 'en',
-  unternehmen: 'de',
-  entreprise: 'fr',
-};
 
 /**
  * Slug-segment normalizer mirroring runtime `slugifyCompany` in
@@ -220,15 +250,14 @@ function parseCompanyHubUrl(rawUrl: string): ParsedCompanyHubUrl | null {
   const sectionSeg = segments[cursor];
   const companySeg = segments[cursor + 1];
   if (!sectionSeg || !companySeg) return null;
-  const sectionMatch = SECTION_TO_LOCALE.find(([s]) => s === sectionSeg);
-  if (!sectionMatch) return null;
-  const sectionLocale = sectionMatch[1];
+  const sectionLocale = (segments[0] === 'en' || segments[0] === 'de' || segments[0] === 'fr')
+    ? segments[0] as Locale
+    : (SECTION_TO_LOCALE.find(([s]) => s === sectionSeg)?.[1] ?? 'it');
   const dashIdx = companySeg.indexOf('-');
   if (dashIdx <= 0) return null;
   const prefix = companySeg.slice(0, dashIdx);
   const slug = companySeg.slice(dashIdx + 1);
-  const prefixLocale = COMP_PREFIX_TO_LOCALE[prefix];
-  if (!prefixLocale || prefixLocale !== sectionLocale) return null;
+  if (!COMPANY_SEGMENT_PREFIXES.has(prefix)) return null;
   if (!slug) return null;
   return { locale: sectionLocale, companySlug: slug };
 }
@@ -292,7 +321,7 @@ function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
     seen.set(key, {
       locale: parsed.locale,
       companySlug: parsed.companySlug,
-      url: `${BASE_URL}${buildHubPath(parsed.locale, parsed.companySlug)}`,
+      url: rawUrl.startsWith('http') ? rawUrl : `${BASE_URL}${withLeadingTrailingSlash(rawUrl)}`,
       kind: 'unmatched',
       displayName: display,
       jobCount: 0,
@@ -329,8 +358,9 @@ function autoDiscoverCompanyHubs(rootDir: string): HubEntry[] {
 function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  const hubPath = buildHubPath(locale, entry.companySlug);
+  const hubPath = buildEntryHubPath(entry);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
+  const sectionPath = sectionPathFromEntry(entry);
   // ── audit:text-html-ratio gate (Semrush "low text/HTML") ──────────
   // The matched bridge page was emitting ~6.5 KB of HTML with ~400 bytes
   // of visible prose (~6 % ratio). Append the canton-aware SEO prose
@@ -345,21 +375,21 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     slot: 'company-landing' as const,
     entityName: entry.displayName,
     countHint: entry.jobCount,
-    ctaHref: buildSectionCanonical(locale),
+    ctaHref: `${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/'),
     ctaLabel: copy.browseAllLabel,
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
   const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
     <header class="s-v0ohjg"><h1 class="s-hiC5FI">${esc(copy.matchedH1(entry.displayName, entry.jobCount))}</h1></header>
     <p class="s-cbFAda">${esc(copy.matchedLede(entry.displayName, entry.jobCount))}</p>
-    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale))}">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(`${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/'))}">${esc(copy.browseAllLabel)} →</a></p>
     ${proseHtml}
   </main>`;
   const breadcrumbLd = buildBridgeBreadcrumbLd({
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath,
     pageLabel: entry.displayName,
     canonicalUrl,
   });
@@ -385,8 +415,8 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   // onto the Swiss-wide hub instead of the TI section landing. The
   // BreadcrumbList still describes the bridge URL the visitor landed on.
   const canonicalUrl = buildAggregatorCanonical(locale);
-  const sectionPath = buildSectionCanonical(locale);
-  const hubAbsoluteUrl = `${BASE_URL}${buildHubPath(locale, entry.companySlug)}`;
+  const sectionPath = `${BASE_URL}${sectionPathFromEntry(entry)}`.replace(/(?<!:)\/+/g, '/');
+  const hubAbsoluteUrl = `${BASE_URL}${buildEntryHubPath(entry)}`;
   // ── audit:text-html-ratio gate ────────────────────────────────────
   // Unmatched bridge pages emitted ~6.4 KB of HTML with ~350 bytes
   // visible text (~5.4 % ratio). Append canton-aware prose helper for
@@ -411,7 +441,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath: sectionPathFromEntry(entry),
     pageLabel: entry.displayName,
     canonicalUrl: hubAbsoluteUrl,
   });
@@ -467,7 +497,7 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
       const start = Date.now();
 
       for (const entry of merged) {
-        const hubPath = buildHubPath(entry.locale, entry.companySlug);
+        const hubPath = buildEntryHubPath(entry);
         const indexTarget = path.join(distDir, hubPath, 'index.html');
         const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
         if (fs.existsSync(indexTarget)) { skipped++; continue; }

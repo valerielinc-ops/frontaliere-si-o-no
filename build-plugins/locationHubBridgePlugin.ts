@@ -62,6 +62,7 @@ const LOC_PREFIX: Record<Locale, string> = {
   de: 'standort',
   fr: 'localite',
 };
+const LOCATION_SEGMENT_PREFIXES = new Set(['localita', 'location', 'standort', 'ort', 'stadt', 'localite', 'ville', 'lieu']);
 
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',
@@ -164,15 +165,52 @@ function buildHubPath(locale: Locale, citySlug: string): string {
   return `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${LOC_PREFIX[locale]}-${citySlug}/`.replace(/\/+/g, '/');
 }
 
-function buildSectionCanonical(locale: Locale): string {
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/(?<!:)\/+/g, '/');
+function withLeadingTrailingSlash(pathname: string): string {
+  const clean = `/${String(pathname || '').replace(/^\/+|\/+$/g, '')}/`;
+  return clean.replace(/\/+/g, '/');
+}
+
+function pathFromHubUrl(entry: HubEntry): string | null {
+  try {
+    const pathname = new URL(entry.url).pathname;
+    const segments = pathname.split('/').filter(Boolean);
+    let cursor = 0;
+    const expectedLocalePrefix = LOCALE_PREFIX[entry.locale].replace(/^\//, '');
+    if (entry.locale !== 'it') {
+      if (segments[0] !== expectedLocalePrefix) return null;
+      cursor = 1;
+    }
+    if (segments.length !== cursor + 2) return null;
+    const citySegment = segments[cursor + 1];
+    const dashIdx = citySegment.indexOf('-');
+    if (dashIdx <= 0) return null;
+    const prefix = citySegment.slice(0, dashIdx);
+    const slug = citySegment.slice(dashIdx + 1);
+    if (!LOCATION_SEGMENT_PREFIXES.has(prefix) || slug !== entry.citySlug) return null;
+    return withLeadingTrailingSlash(pathname);
+  } catch {
+    return null;
+  }
+}
+
+function buildEntryHubPath(entry: HubEntry): string {
+  return pathFromHubUrl(entry) ?? buildHubPath(entry.locale, entry.citySlug);
+}
+
+function sectionPathFromEntry(entry: HubEntry): string {
+  const hubPath = buildEntryHubPath(entry);
+  const parts = hubPath.split('/').filter(Boolean);
+  const sectionParts = entry.locale === 'it' ? parts.slice(0, 1) : parts.slice(0, 2);
+  if (sectionParts.length > 0) return withLeadingTrailingSlash(sectionParts.join('/'));
+  return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
 }
 
 function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  const hubPath = buildHubPath(locale, entry.citySlug);
+  const hubPath = buildEntryHubPath(entry);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
+  const sectionPath = sectionPathFromEntry(entry);
   const city = entry.displayName;
   const n = entry.jobCount;
 
@@ -186,7 +224,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     slot: 'city-landing' as const,
     entityName: city,
     countHint: n,
-    ctaHref: buildSectionCanonical(locale),
+    ctaHref: `${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/'),
     ctaLabel: copy.browseAllLabel,
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
@@ -195,7 +233,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
       <h1 class="s-hiC5FI">${esc(copy.matchedH1(city, n))}</h1>
     </header>
     <p class="s-cbFAda">${esc(copy.matchedLede(city, n))}</p>
-    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale))}">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(`${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/'))}">${esc(copy.browseAllLabel)} →</a></p>
     ${proseHtml}
   </main>`;
 
@@ -203,7 +241,7 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath,
     pageLabel: city,
     canonicalUrl,
   });
@@ -236,10 +274,11 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   // Canonical points to the section landing for unmatched entries
   // (they consolidate into the section), but the BreadcrumbList still
   // describes the bridge URL the visitor actually landed on.
-  const canonicalUrl = buildSectionCanonical(locale);
-  const sectionPath = buildSectionCanonical(locale);
+  const sectionPathOnly = sectionPathFromEntry(entry);
+  const canonicalUrl = `${BASE_URL}${sectionPathOnly}`.replace(/(?<!:)\/+/g, '/');
+  const sectionPath = canonicalUrl;
   const city = entry.displayName;
-  const hubPath = buildHubPath(locale, entry.citySlug);
+  const hubPath = buildEntryHubPath(entry);
   const hubAbsoluteUrl = `${BASE_URL}${hubPath}`;
 
   // ── audit:text-html-ratio gate ────────────────────────────────────
@@ -268,7 +307,7 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath: sectionPathOnly,
     pageLabel: city,
     canonicalUrl: hubAbsoluteUrl,
   });
@@ -326,7 +365,7 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
       const start = Date.now();
 
       for (const entry of file.hubs) {
-        const hubPath = buildHubPath(entry.locale, entry.citySlug);
+        const hubPath = buildEntryHubPath(entry);
         const indexTarget = path.join(distDir, hubPath, 'index.html');
         const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
 
