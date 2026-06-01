@@ -631,4 +631,14 @@ function parseEmailAddress(from) {
   return { email: String(from).trim() };
 }
 
+/**
+ * Total theoretical daily send capacity across the whole cascade —
+ * the sum of every provider's daily limit (currently mailgun 100 + resend 100
+ * + mailjet 200 + mailtrap 150 + maileroo 100 = 650). Single source of truth so
+ * callers (e.g. the newsletter per-run cap) stay in sync when providers change.
+ */
+export function getCascadeDailyCapacity() {
+  return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
+}
+
 export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs };
