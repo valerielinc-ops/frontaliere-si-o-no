@@ -128,6 +128,7 @@ jobs:
             **Constraint:**
             - Changes chirurgiche, root-cause, una issue alla volta.
             - Mai toccare file fuori scope della issue.
+            - **CODE vs DATA — no scroll dei blob (ISSUES.md → "CODE vs DATA", mirror #1096 del reviewer):** i file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (asset), `reports/**`, `_newsletter_variants/**` NON sono code da leggere riga-per-riga. Se la root cause è un drift di output dati → fixa il CODE che li genera (parser/crawler/build-plugin), non `cat`/scorrere il blob né editarlo a mano. Campione → `Read` mirato (offset/limit). `rg`/`grep` scopati al code: `rg <pattern> scripts build-plugins components services -g '!data/**' -g '!public/**' -g '!reports/**'` — cercare nei blob dati = token bruciati. Eccezione: un `data/**` config/fixture checked-in editato a mano dal fix.
             - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.
