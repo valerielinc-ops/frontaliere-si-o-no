@@ -12,6 +12,7 @@
  */
 
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import { ARTICLE_SECTIONS } from '../services/articleSections';
 
 export type HubLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -99,6 +100,43 @@ export const HUB_SLUGS: Record<HubLocale, HubSlugs> = {
   },
 };
 
+/**
+ * Per-locale trailing "all" slug shared by the jobs/articles archives
+ * (`tutti` / `all` / `alle` / `tous`). Mirrors `HUB_SLUG_BY_LOCALE[loc].tutti`
+ * and the trailing component of every `HUB_SLUGS[loc].articlesAll` above.
+ */
+const ARCHIVE_ALL_SLUG: Record<HubLocale, string> = {
+  it: 'tutti',
+  en: 'all',
+  de: 'alle',
+  fr: 'tous',
+};
+
+/**
+ * Base paths for the svizzera (Switzerland-wide) article archive — the
+ * second article section mirroring the frontaliere `articlesAll` hub. Derived
+ * from `ARTICLE_SECTIONS.svizzera.indexSlug` so the slug table stays in one
+ * place (`services/articleSections.ts`). Shape matches `HUB_SLUGS.*.articlesAll`:
+ *
+ *   it → /articoli-svizzera/tutti/
+ *   en → /en/swiss-articles/all/
+ *   de → /de/schweiz-artikel/alle/
+ *   fr → /fr/articles-suisse/tous/
+ *
+ * The bare hub (`/articoli-svizzera/`) and individual articles route via the
+ * SPA blog tab (`router.ts` topMatch `blogCh` branch), so they are NOT hub
+ * paths — only the paginated archive below is `staticOverlay` SEO-hub HTML.
+ */
+export function svizzeraArticlesArchiveBasePaths(): Record<HubLocale, string> {
+  const cfg = ARTICLE_SECTIONS.svizzera.indexSlug;
+  const out = {} as Record<HubLocale, string>;
+  for (const loc of HUB_LOCALES) {
+    const prefix = loc === 'it' ? '' : `/${loc}`;
+    out[loc] = `${prefix}/${cfg[loc]}/${ARCHIVE_ALL_SLUG[loc]}/`;
+  }
+  return out;
+}
+
 /** Path-based pagination helper (we cannot rely on ?query for static prerender). */
 export function paginatedPath(basePath: string, page: number): string {
   if (page <= 1) return basePath;
@@ -148,9 +186,14 @@ export const SEO_HUB_RESERVED_SLUGS: readonly string[] = (() => {
 /** Returns true when the path matches any hub base or paginated variant. */
 export function isSeoHubPath(pathname: string): boolean {
   const norm = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  const svizzeraArchive = svizzeraArticlesArchiveBasePaths();
   for (const loc of HUB_LOCALES) {
     const s = HUB_SLUGS[loc];
-    for (const base of [s.jobsAll, s.sectorsAll, s.companiesAll, s.articlesAll]) {
+    // Frontaliere hubs (jobs/sectors/companies/articles) + the svizzera
+    // article archive share the same base-or-/page-N/ matcher. The bare
+    // svizzera hub and individual articles are intentionally excluded — they
+    // route via the SPA blog tab, not as staticOverlay hub HTML.
+    for (const base of [s.jobsAll, s.sectorsAll, s.companiesAll, s.articlesAll, svizzeraArchive[loc]]) {
       if (norm === base) return true;
       const trimmed = base.endsWith('/') ? base.slice(0, -1) : base;
       if (new RegExp(`^${trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/page-\\d+/?$`).test(norm)) {

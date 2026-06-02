@@ -29,8 +29,10 @@ import {
   JOBS_PAGE_SIZE,
   hubSlugFor,
   paginatedPath,
+  svizzeraArticlesArchiveBasePaths,
   type HubLocale,
 } from './seoHubsData';
+import { ARTICLE_SECTIONS } from '../services/articleSections';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import {
   resolveBrandLogoUrl,
@@ -110,6 +112,40 @@ const HUB_DESCRIPTIONS: Record<HubLocale, { jobs: string; sectors: string; compa
     sectors: 'Offres d’emploi par secteur : santé, ingénierie, banque, restauration, construction et plus de 40 catégories.',
     companies: 'Index alphabétique de plus de 200 entreprises qui recrutent des frontaliers au Tessin.',
     articles: 'Archive complète de guides, analyses fiscales et actualités pour les frontaliers italo-suisses.',
+  },
+};
+
+/**
+ * Localized copy for the svizzera (Switzerland-wide) article archive — the
+ * second article section. Mirrors the `articles` rows of `SECTION_LABEL` /
+ * `HUB_TITLES` / `HUB_DESCRIPTIONS` but national-scope (not frontaliere). Kept
+ * as literals (the plugin emits static literals, not runtime i18n) aligned
+ * with the `blog.svizzera.title` / `blog.svizzera.subtitle` i18n keys.
+ */
+const SVIZZERA_ARTICLES_COPY: Record<HubLocale, { sectionLabel: string; title: string; h1: string; description: string }> = {
+  it: {
+    sectionLabel: 'Articoli Svizzera',
+    title: 'Tutti gli articoli sulla Svizzera',
+    h1: 'Notizie e guide da tutta la Svizzera',
+    description: 'Archivio completo di notizie, analisi e guide dedicate alla vita e al lavoro in tutta la Svizzera.',
+  },
+  en: {
+    sectionLabel: 'Switzerland Articles',
+    title: 'All Switzerland articles',
+    h1: 'News and guides from all of Switzerland',
+    description: 'Full archive of news, analysis and guides on living and working across Switzerland.',
+  },
+  de: {
+    sectionLabel: 'Schweiz-Artikel',
+    title: 'Alle Schweiz-Artikel',
+    h1: 'Nachrichten und Ratgeber aus der ganzen Schweiz',
+    description: 'Vollständiges Archiv von Nachrichten, Analysen und Ratgebern zum Leben und Arbeiten in der ganzen Schweiz.',
+  },
+  fr: {
+    sectionLabel: 'Articles Suisse',
+    title: 'Tous les articles sur la Suisse',
+    h1: 'Actualités et guides de toute la Suisse',
+    description: 'Archive complète d’actualités, d’analyses et de guides sur la vie et le travail dans toute la Suisse.',
   },
 };
 
@@ -879,8 +915,9 @@ function readArticleSlugs(
   np: typeof npT,
   rootDir: string,
   locale: HubLocale,
+  metaPrefix = 'blog-meta',
 ): Array<{ slug: string; title: string }> {
-  const file = np.resolve(rootDir, 'services/locales', `blog-meta-${locale}.ts`);
+  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
   const out: Array<{ slug: string; title: string }> = [];
   try {
     if (!fs.existsSync(file)) return out;
@@ -896,7 +933,7 @@ function readArticleSlugs(
       out.push({ slug, title });
     }
   } catch (err) {
-    console.warn(`[seo-hubs] failed to read blog-meta-${locale}.ts`, err);
+    console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
   }
   return out;
 }
@@ -911,8 +948,9 @@ function readArticleExcerpts(
   np: typeof npT,
   rootDir: string,
   locale: HubLocale,
+  metaPrefix = 'blog-meta',
 ): Map<string, string> {
-  const file = np.resolve(rootDir, 'services/locales', `blog-meta-${locale}.ts`);
+  const file = np.resolve(rootDir, 'services/locales', `${metaPrefix}-${locale}.ts`);
   const out = new Map<string, string>();
   try {
     if (!fs.existsSync(file)) return out;
@@ -925,7 +963,7 @@ function readArticleExcerpts(
       out.set(slug, excerpt);
     }
   } catch (err) {
-    console.warn(`[seo-hubs] failed to read excerpts from blog-meta-${locale}.ts`, err);
+    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
   }
   return out;
 }
@@ -951,13 +989,15 @@ function readBlogUrlSlugs(
   fs: typeof fsT,
   np: typeof npT,
   rootDir: string,
+  slugDataFile = 'services/routerBlogData.ts',
+  slugConst = 'BLOG_SLUGS',
 ): Record<string, Record<HubLocale, string>> {
-  const file = np.resolve(rootDir, 'services/routerBlogData.ts');
+  const file = np.resolve(rootDir, slugDataFile);
   const out: Record<string, Record<HubLocale, string>> = {};
   try {
     if (!fs.existsSync(file)) return out;
     const src = fs.readFileSync(file, 'utf-8');
-    const block = src.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
+    const block = src.match(new RegExp(`const ${slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
     if (!block) return out;
     const rx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
     let bm: RegExpExecArray | null;
@@ -965,7 +1005,7 @@ function readBlogUrlSlugs(
       out[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
     }
   } catch (err) {
-    console.warn('[seo-hubs] failed to read BLOG_SLUGS from routerBlogData.ts', err);
+    console.warn(`[seo-hubs] failed to read ${slugConst} from ${slugDataFile}`, err);
   }
   return out;
 }
@@ -991,12 +1031,32 @@ interface BuildHtmlArgs {
   hasSpaBundle: boolean;
   entryJs: string;
   entryCss: string;
+  /**
+   * Optional overrides for a SECOND article section (svizzera) that reuses the
+   * `articles` hub chrome but with its own slugs/titles. When omitted (every
+   * frontaliere/jobs/sectors/companies call), behaviour is byte-identical to
+   * the original. Only set by {@link emitSvizzeraArticlesHub}.
+   */
+  sectionOverride?: ArticleSectionOverride;
+}
+
+/**
+ * Override bundle that lets {@link buildHtml} emit the svizzera article archive
+ * with the same template as the frontaliere `articles` hub. `hreflangBases`
+ * is the page-1 alternate map (locale → base path) for THIS section.
+ */
+interface ArticleSectionOverride {
+  readonly title: string;
+  readonly description: string;
+  readonly sectionLabel: string;
+  readonly h1: string;
+  readonly hreflangBases: Record<HubLocale, string>;
 }
 
 function buildHtml(args: BuildHtmlArgs): string {
-  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss } = args;
-  const title = HUB_TITLES[locale][hubKey];
-  const description = HUB_DESCRIPTIONS[locale][hubKey];
+  const { locale, hubKey, basePath, page, totalPages, pageItems, totalItems, hasSpaBundle, entryJs, entryCss, sectionOverride } = args;
+  const title = sectionOverride ? sectionOverride.title : HUB_TITLES[locale][hubKey];
+  const description = sectionOverride ? sectionOverride.description : HUB_DESCRIPTIONS[locale][hubKey];
   // Title ≤60 char (Semrush W2): drop "| Frontaliere Ticino" suffix when adding it
   // would push us over budget. Page-N suffix is also keyword for SEO.
   const baseTitle = page > 1 ? `${title} — ${pageLabel(locale, page)}` : title;
@@ -1010,19 +1070,23 @@ function buildHtml(args: BuildHtmlArgs): string {
   const hreflangs = page === 1
     ? HUB_LOCALES
         .map((loc) => {
-          const slugs = HUB_SLUGS[loc];
-          const altPath =
-            hubKey === 'jobs' ? slugs.jobsAll
-            : hubKey === 'sectors' ? slugs.sectorsAll
-            : hubKey === 'companies' ? slugs.companiesAll
-            : slugs.articlesAll;
+          const altPath = sectionOverride
+            ? sectionOverride.hreflangBases[loc]
+            : (() => {
+                const slugs = HUB_SLUGS[loc];
+                return hubKey === 'jobs' ? slugs.jobsAll
+                  : hubKey === 'sectors' ? slugs.sectorsAll
+                  : hubKey === 'companies' ? slugs.companiesAll
+                  : slugs.articlesAll;
+              })();
           return `    <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${altPath}">`;
         })
         .join('\n')
     : '';
   const xDefault = page === 1
     ? `\n    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${
-        hubKey === 'jobs' ? HUB_SLUGS.it.jobsAll
+        sectionOverride ? sectionOverride.hreflangBases.it
+        : hubKey === 'jobs' ? HUB_SLUGS.it.jobsAll
         : hubKey === 'sectors' ? HUB_SLUGS.it.sectorsAll
         : hubKey === 'companies' ? HUB_SLUGS.it.companiesAll
         : HUB_SLUGS.it.articlesAll
@@ -1033,7 +1097,9 @@ function buildHtml(args: BuildHtmlArgs): string {
   const nextLink = page < totalPages ? `\n    <link rel="next" href="${BASE_URL}${paginatedPath(basePath, page + 1)}">` : '';
 
   // BreadcrumbList JSON-LD
-  const sectionLabel = hubKey === 'companies'
+  const sectionLabel = sectionOverride
+    ? sectionOverride.sectionLabel
+    : hubKey === 'companies'
     ? SECTION_LABEL[locale].companies
     : hubKey === 'articles'
     ? SECTION_LABEL[locale].articles
@@ -1181,7 +1247,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         <span>${esc(sectionLabel)}</span>
       </nav>
       <header class="s-S1RSUf">
-        <h1 class="s-e3gkVi">${esc(buildHubH1(locale, hubKey, totalItems, page))}</h1>
+        <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, totalItems, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
         <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
@@ -2053,6 +2119,111 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
   }
 }
 
+interface EmitSvizzeraArgs {
+  readonly fs: typeof fsT;
+  readonly np: typeof npT;
+  readonly rootDir: string;
+  readonly distDir: string;
+  readonly qw: (filePath: string, content: string) => void;
+  readonly sitemapEntries: string[];
+  readonly dateStamp: string;
+  readonly entryJs: string;
+  readonly entryCss: string;
+  readonly hasSpaBundle: boolean;
+  readonly onPageEmitted: () => void;
+}
+
+/**
+ * Emits the svizzera (Switzerland-wide) article archive — the second article
+ * section mirroring the frontaliere `articles` hub. Reuses {@link buildHtml}
+ * via `sectionOverride` so the chrome/templating is shared; only the slugs,
+ * registry (`blog-meta-ch-*` + `routerSwissData.ts`/`SWISS_SLUGS`), output
+ * path (`/{loc}/articoli-svizzera/tutti/`) and copy differ.
+ *
+ * Empty-svizzera safety: with an empty registry `masterSlugs` is empty →
+ * `total = 0` → `totalPages = Math.max(1, 0) = 1`, so a single zero-article
+ * archive page is emitted per locale (with the polite empty-state list),
+ * matching the frontaliere `articles` hub behaviour (it EMITS-EMPTY, never
+ * skips). No crash, no warning spam (the readers return `[]`/empty maps when
+ * the seed files are present-but-empty).
+ */
+function emitSvizzeraArticlesHub(args: EmitSvizzeraArgs): void {
+  const { fs, np, rootDir, distDir, qw, sitemapEntries, dateStamp, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
+  const cfg = ARTICLE_SECTIONS.svizzera;
+  const archiveBases = svizzeraArticlesArchiveBasePaths();
+  const pageSize = ARTICLES_PAGE_SIZE;
+
+  for (const locale of HUB_LOCALES) {
+    const basePath = archiveBases[locale];
+    const prefix = locale === 'it' ? '' : `/${locale}`;
+    const blogSection = cfg.indexSlug[locale];
+
+    // Master list = UNION of `blog-meta-ch-it.ts` slugs and `SWISS_SLUGS`
+    // keys (same orphan-avoidance contract as the frontaliere articles hub).
+    const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
+    const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale, cfg.metaPrefix);
+    const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
+    const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
+    const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale, cfg.metaPrefix);
+    const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+    const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, 'SWISS_SLUGS');
+
+    const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
+    for (const slug of Object.keys(blogUrlSlugs)) masterSlugs.add(slug);
+
+    const items: Array<{ href: string; label: string; excerpt?: string }> = [];
+    for (const slug of masterSlugs) {
+      const label = localeBySlug.get(slug) ?? itBySlug.get(slug) ?? humanizeSlug(slug);
+      const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
+      const rawExcerpt = localeExcerpts.get(slug) ?? itExcerpts.get(slug);
+      const excerpt = rawExcerpt && rawExcerpt.length > 140
+        ? rawExcerpt.slice(0, 137).trimEnd() + '…'
+        : rawExcerpt;
+      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
+    }
+
+    const total = items.length;
+    const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    const copy = SVIZZERA_ARTICLES_COPY[locale];
+    const sectionOverride: ArticleSectionOverride = {
+      title: copy.title,
+      description: copy.description,
+      sectionLabel: copy.sectionLabel,
+      h1: copy.h1,
+      hreflangBases: archiveBases,
+    };
+
+    // Mirror the master-articles emission gate: IT keeps every page-N as
+    // static HTML; non-IT locales emit only page-1 (page-N routes via SPA).
+    const emitNonItPageN = false;
+    for (let page = 1; page <= totalPages; page++) {
+      if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
+      const slice = items.slice((page - 1) * pageSize, page * pageSize);
+      const html = buildHtml({
+        locale, hubKey: 'articles', basePath, page, totalPages,
+        pageItems: slice, totalItems: total, hasSpaBundle, entryJs, entryCss,
+        sectionOverride,
+      });
+      const canonicalPath = paginatedPath(basePath, page);
+      qw(np.join(distDir, canonicalPath.slice(1), 'index.html'), html);
+      onPageEmitted();
+
+      if (locale === 'it') {
+        const altLinks = page === 1
+          ? HUB_LOCALES.map((alt) =>
+              `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${archiveBases[alt]}" />`,
+            ).join('\n')
+          : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+        const url = `${BASE_URL}${canonicalPath}`;
+        const priority = page === 1 ? '0.7' : '0.5';
+        sitemapEntries.push(
+          `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        );
+      }
+    }
+  }
+}
+
 /**
  * Emits all 4 hub families × 4 locales × all paginated pages to dist/.
  * Returns the number of pages written and the sitemap entries to append.
@@ -2251,6 +2422,25 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     emitHub('companies', locale);
     emitHub('articles', locale);
   }
+
+  // ── Second article section: svizzera (Switzerland-wide) archive ──
+  // Mirrors the frontaliere `articles` hub above, reading the `blog-meta-ch-*`
+  // meta chunks + `routerSwissData.ts`/`SWISS_SLUGS`, output under
+  // `/{loc}/articoli-svizzera/tutti/{page-N}`. Emits a single empty archive
+  // page per locale while the svizzera registry is empty (see fn doc).
+  emitSvizzeraArticlesHub({
+    fs,
+    np,
+    rootDir,
+    distDir,
+    qw,
+    sitemapEntries,
+    dateStamp,
+    entryJs,
+    entryCss,
+    hasSpaBundle,
+    onPageEmitted: () => { pagesEmitted++; },
+  });
 
   // ── Phase 7.2 — Canton-aware THIN hub pages ──
   // For every non-TI canton with ≥ MIN_JOBS_FOR_CANTON_PAGE jobs, emit a

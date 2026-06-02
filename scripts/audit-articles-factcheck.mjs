@@ -25,9 +25,25 @@ const GH_MODELS_URL = 'https://models.github.ai/inference/chat/completions';
 const MODEL = 'openai/gpt-4.1-mini';
 const CONCURRENCY = 3; // parallel batches
 
-// Load all Italian article bodies
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+function _sectionArg() {
+  let section = 'frontaliere';
+  for (const a of process.argv.slice(2)) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = _sectionArg();
+const SECTION_BODY_SUBDIR = SECTION === 'svizzera' ? 'blog-body-ch' : 'blog-body';
+
+// Load all Italian article bodies (active section)
 function loadArticles() {
-  const dir = 'services/locales/blog-body/it';
+  const dir = `services/locales/${SECTION_BODY_SUBDIR}/it`;
   const files = readdirSync(dir).filter(f => f.endsWith('.ts'));
   const articles = [];
 

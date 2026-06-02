@@ -45,6 +45,27 @@ const SKIP_TRANSLATE = args.includes('--skip-translate');
 const LIMIT = getArg('--limit') ? parseInt(getArg('--limit'), 10) : Infinity;
 const CONCURRENCY = getArg('--concurrency') ? parseInt(getArg('--concurrency'), 10) : 3;
 
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+// Switches the body-dir enumeration source between the cross-border and the
+// Switzerland-wide article sets. The i18n key namespace (blog.article.{id}.*)
+// is shared, so only the directory differs. frontaliere = byte-identical.
+function getSectionArg() {
+  let section = 'frontaliere';
+  for (const a of args) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  const inline = getArg('--section');
+  if (inline) section = inline;
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = getSectionArg();
+const SECTION_BODY_DIR = SECTION === 'svizzera' ? 'blog-body-ch' : 'blog-body';
+
 if (HELP) {
   console.log(`
 batch-add-faq-to-articles.mjs — Add AI-generated FAQ to existing blog articles
@@ -58,6 +79,8 @@ OPTIONS:
   --limit N         Process only the first N articles (useful for testing)
   --concurrency N   Number of articles to process in parallel (default: 3)
   --skip-translate  Only generate Italian FAQ, skip EN/DE/FR translation
+  --section NAME    Article section: frontaliere (default) | svizzera.
+                    svizzera scans services/locales/blog-body-ch instead.
 
 ENVIRONMENT:
   GH_MODELS_PAT     GitHub Models token (required, or other AI provider keys)
@@ -86,8 +109,12 @@ EXAMPLES:
 
 // ── Constants ────────────────────────────────────────────────
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const BODY_DIR = 'services/locales/blog-body';
-const PROGRESS_FILE = 'data/batch-faq-progress.json';
+const BODY_DIR = `services/locales/${SECTION_BODY_DIR}`;
+// Section-keyed progress file so a svizzera run does not skip frontaliere
+// articles (and vice versa). frontaliere keeps the original filename.
+const PROGRESS_FILE = SECTION === 'svizzera'
+  ? 'data/batch-faq-progress-ch.json'
+  : 'data/batch-faq-progress.json';
 
 // ── Helpers ──────────────────────────────────────────────────
 
@@ -225,7 +252,7 @@ const COMMIT_EVERY = 25;
 function gitCommitAndPush(label) {
   try {
     execSync(
-      'git add services/locales/blog-body/ && git add -f data/batch-faq-progress.json 2>/dev/null; ' +
+      `git add services/locales/${SECTION_BODY_DIR}/ && git add -f ${PROGRESS_FILE} 2>/dev/null; ` +
       `git diff --cached --quiet || git commit -m "❓ FAQ batch checkpoint (${label})"`,
       { cwd: ROOT, stdio: 'pipe', timeout: 30000 }
     );

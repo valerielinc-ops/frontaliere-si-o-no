@@ -15,10 +15,19 @@
  *   - sort desc, keep top 50 (client filters to top 12 + validIds intersection)
  *
  * Usage:
- *   node scripts/fetch-article-trending.mjs
+ *   node scripts/fetch-article-trending.mjs                 # frontaliere → public/article-trending.json
+ *   node scripts/fetch-article-trending.mjs --section=svizzera  # → public/article-trending-ch.json
  *
  * Requires GOOGLE_APPLICATION_CREDENTIALS for Firebase Admin SDK.
  * Graceful fallback: writes empty array if Firestore is unavailable.
+ *
+ * Section note: the `article_views` Firestore collection is keyed by article
+ * id with NO section discriminator. There is therefore no view-level field to
+ * split frontaliere vs svizzera. For --section=svizzera we intersect doc ids
+ * against the SWISS_ARTICLES registry so only svizzera articles enter
+ * article-trending-ch.json; frontaliere keeps the original (unfiltered) output.
+ * When the svizzera registry is empty (no articles yet), the result is an
+ * empty trending file — the runtime already tolerates that gracefully.
  */
 
 import fs from 'node:fs';
@@ -27,7 +36,47 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const OUTPUT_PATH = path.join(ROOT, 'public', 'article-trending.json');
+
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+function _sectionArg() {
+  let section = 'frontaliere';
+  for (const a of process.argv.slice(2)) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = _sectionArg();
+const OUTPUT_PATH = path.join(
+  ROOT,
+  'public',
+  SECTION === 'svizzera' ? 'article-trending-ch.json' : 'article-trending.json',
+);
+
+/**
+ * For svizzera, build the set of valid article ids from swiss-articles-data.ts
+ * so Firestore views for frontaliere articles don't leak into the CH file.
+ * Returns null for frontaliere (no filtering = byte-identical behavior).
+ */
+function loadSectionIdFilter() {
+  if (SECTION !== 'svizzera') return null;
+  try {
+    const src = fs.readFileSync(
+      path.join(ROOT, 'data', 'swiss-articles-data.ts'),
+      'utf-8',
+    );
+    const ids = new Set([...src.matchAll(/\bid:\s*'([^']+)'/g)].map((m) => m[1]));
+    return ids;
+  } catch (err) {
+    console.warn(`⚠️  Could not read swiss-articles-data.ts for id filter: ${err.message}`);
+    return new Set();
+  }
+}
+const SECTION_ID_FILTER = loadSectionIdFilter();
 
 const TOP_N = 50;
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
@@ -66,6 +115,8 @@ async function main() {
     const entries = [];
 
     snap.forEach((doc) => {
+      // svizzera: keep only views for ids present in the SWISS_ARTICLES registry.
+      if (SECTION_ID_FILTER && !SECTION_ID_FILTER.has(doc.id)) return;
       const data = doc.data();
       const lastViewedRaw = data.lastViewed;
       const lastViewed = lastViewedRaw?.toMillis?.()

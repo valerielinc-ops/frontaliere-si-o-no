@@ -26,7 +26,29 @@ const DRY_RUN = args.includes('--dry-run');
 const limitIdx = args.indexOf('--limit');
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
-const BODY_DIR = resolve(ROOT, 'services/locales/blog-body');
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+// Switches the body-dir enumeration between the cross-border and the
+// Switzerland-wide article sets. frontaliere is byte-identical.
+function getSectionArg() {
+  let section = 'frontaliere';
+  for (const a of args) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  const inlineIdx = args.indexOf('--section');
+  if (inlineIdx >= 0 && args[inlineIdx + 1] && !args[inlineIdx + 1].startsWith('--')) {
+    section = args[inlineIdx + 1];
+  }
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = getSectionArg();
+const SECTION_BODY_SUBDIR = SECTION === 'svizzera' ? 'blog-body-ch' : 'blog-body';
+
+const BODY_DIR = resolve(ROOT, `services/locales/${SECTION_BODY_SUBDIR}`);
 
 // ── File helpers ────────────────────────────────────────────
 

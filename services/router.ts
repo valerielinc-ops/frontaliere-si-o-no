@@ -593,6 +593,17 @@ export interface AppRoute {
  blogArticle?: BlogArticleId;
  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
  blogSlug?: string;
+ /**
+  * Which article section the `blog` tab is showing: the cross-border
+  * (`frontaliere`, default/absent) hub or the Switzerland-wide (`svizzera`)
+  * mirror. Drives the sub-tab toggle, the index slug and the registry the
+  * shared component reads. See `services/articleSections.ts`.
+  */
+ blogSection?: 'frontaliere' | 'svizzera';
+ /** Selected svizzera-section article id (loosely typed; validated via REVERSE_SWISS). */
+ swissArticle?: string;
+ /** Unresolved svizzera article slug when swiss data hasn't loaded yet. */
+ swissSlug?: string;
  /** SEO landing identifier for long-tail routes (e.g. /calcola-stipendio/stipendio-netto-80000-chf). */
  seoLanding?: SeoLandingId;
  /** Glossary term deep-link (e.g. /glossario/imposta-alla-fonte). */
@@ -760,6 +771,8 @@ interface SlugTable {
  salaryQuiz: string;
  // top-level extra slugs
  blog: string;
+ /** Switzerland-wide articles hub slug (sibling section of `blog`). */
+ blogCh: string;
 
  // glossario standalone page
  glossario: string;
@@ -1100,6 +1113,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  healthPremiums: 'premi-malattia-comuni',
  salaryQuiz: 'quanto-guadagneresti-in-svizzera',
  blog: 'articoli-frontaliere',
+ blogCh: 'articoli-svizzera',
 
  glossario: 'glossario-frontaliere',
  dialetto: 'dialetto-ticinese',
@@ -1201,6 +1215,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  healthPremiums: 'health-insurance-premiums-by-commune',
  salaryQuiz: 'how-much-would-you-earn-in-switzerland',
  blog: 'cross-border-articles',
+ blogCh: 'swiss-articles',
 
  glossario: 'cross-border-glossary',
  dialetto: 'ticinese-dialect',
@@ -1302,6 +1317,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  healthPremiums: 'krankenkassentraemien-nach-gemeinde',
  salaryQuiz: 'verdienst-in-der-schweiz',
  blog: 'grenzgaenger-artikel',
+ blogCh: 'schweiz-artikel',
 
  glossario: 'grenzgaenger-glossar',
  dialetto: 'tessiner-dialekt',
@@ -1403,6 +1419,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
  healthPremiums: 'primes-assurance-maladie-communes',
  salaryQuiz: 'combien-gagneriez-vous-en-suisse',
  blog: 'articles-frontalier',
+ blogCh: 'articles-suisse',
 
  glossario: 'glossaire-frontalier',
  dialetto: 'dialecte-tessinois',
@@ -1703,6 +1720,28 @@ export function resolveBlogSlug(slug: string, locale: Locale): BlogArticleId | u
  return _reverseBlog?.[locale]?.[slug];
 }
 
+// ── Lazy-loaded svizzera (Switzerland-wide) article data (routerSwissData.ts) ──
+let _swissSlugs: Record<string, Record<Locale, string>> | null = null;
+let _reverseSwiss: Record<Locale, Record<string, string>> | null = null;
+let _swissDataPromise: Promise<void> | null = null;
+
+/** Trigger lazy load of svizzera article slug data. Safe to call multiple times. */
+export function preloadSwissData(): Promise<void> {
+ if (_swissSlugs) return Promise.resolve();
+ if (!_swissDataPromise) {
+ _swissDataPromise = import('./routerSwissData').then(m => {
+ _swissSlugs = m.SWISS_SLUGS;
+ _reverseSwiss = m.REVERSE_SWISS;
+ });
+ }
+ return _swissDataPromise;
+}
+
+/** Resolve a svizzera article slug to its id (undefined if data not loaded or slug unknown). */
+export function resolveSwissSlug(slug: string, locale: Locale): string | undefined {
+ return _reverseSwiss?.[locale]?.[slug];
+}
+
 const REVERSE_CALCOLATORE = buildLocaleReverses(CALCOLATORE_SUB_TO_SLUG);
 const REVERSE_CONFRONTI = buildLocaleReverses(CONFRONTI_SUB_TO_SLUG);
 // Widened to Record<string, string> because tax-return country variants
@@ -1954,6 +1993,7 @@ function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap
  [table.profile]: { tab: 'profile' },
  [table.morning]: { tab: 'morning' },
  [table.blog]: { tab: 'blog' },
+ [table.blogCh]: { tab: 'blog' },
  [table.glossario]: { tab: 'glossario' },
  [table.dialetto]: { tab: 'dialetto' },
  [table.faq]: { tab: 'faq' },
@@ -2434,8 +2474,11 @@ export function parsePath(pathname: string): ParseResult {
    const hubLocale = localeFromHubPath(pathname);
    // Articles hub maps to blog tab; everything else to job-board.
    const isArticles = /\/articoli-frontaliere\/|\/cross-border-articles\/|\/grenzgaenger-artikel\/|\/articles-frontalier\//.test(pathname);
+   const isSwissArticles = /\/articoli-svizzera\/|\/swiss-articles\/|\/schweiz-artikel\/|\/articles-suisse\//.test(pathname);
    return {
-     route: isArticles
+     route: isSwissArticles
+       ? { activeTab: 'blog', blogSection: 'svizzera', staticOverlay: true }
+       : isArticles
        ? { activeTab: 'blog', staticOverlay: true }
        : { activeTab: 'job-board', staticOverlay: true },
      locale: hubLocale as Locale,
@@ -2771,6 +2814,17 @@ export function parsePath(pathname: string): ParseResult {
  return { route: { activeTab: 'blog', blogSlug: second }, locale };
  }
  return { route: { activeTab: 'blog' }, locale };
+ }
+ if (first === table.blogCh) {
+ if (second) {
+ const swissId = _reverseSwiss?.[locale]?.[second];
+ if (swissId) {
+ return { route: { activeTab: 'blog', blogSection: 'svizzera', swissArticle: swissId }, locale };
+ }
+ // Swiss data not loaded yet — store raw slug for deferred resolution
+ return { route: { activeTab: 'blog', blogSection: 'svizzera', swissSlug: second }, locale };
+ }
+ return { route: { activeTab: 'blog', blogSection: 'svizzera' }, locale };
  }
  }
 
@@ -3254,6 +3308,18 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  case 'morning':
  return finish(`${prefix}/${table.morning}${hashSuffix}`);
  case 'blog': {
+ // Switzerland-wide (svizzera) mirror section.
+ if (route.blogSection === 'svizzera') {
+ const swissId = route.swissArticle;
+ if (swissId) {
+ const slug = _swissSlugs?.[swissId]?.[lang] ?? swissId;
+ return finish(`${prefix}/${table.blogCh}/${slug}${hashSuffix}`);
+ }
+ if (route.swissSlug) {
+ return finish(`${prefix}/${table.blogCh}/${route.swissSlug}${hashSuffix}`);
+ }
+ return finish(`${prefix}/${table.blogCh}${hashSuffix}`);
+ }
  const article = route.blogArticle;
  if (article) {
  const slug = _blogSlugs?.[article]?.[lang] ?? article;
@@ -3372,6 +3438,9 @@ export function getSeoSection(route: AppRoute): string {
  case 'profile':
  return 'dashboard';
  case 'blog':
+ if (route.blogSection === 'svizzera') {
+ return route.swissArticle ? `blog-${route.swissArticle}` : 'blog';
+ }
  return route.blogArticle ? `blog-${route.blogArticle}` : 'blog';
  case 'glossario':
  return route.glossaryTerm ? `glossario-${route.glossaryTerm}` : 'glossario';

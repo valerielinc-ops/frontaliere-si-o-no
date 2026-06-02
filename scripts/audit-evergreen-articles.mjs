@@ -15,7 +15,25 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ARTICLES_PATH = resolve(__dirname, '..', 'data', 'blog-articles-data.ts');
+
+// ── Section selection (--section=frontaliere|svizzera, default frontaliere) ──
+function _sectionArg() {
+  let section = 'frontaliere';
+  for (const a of process.argv.slice(2)) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  if (!['frontaliere', 'svizzera'].includes(section)) {
+    console.error(`Invalid --section="${section}". Valid: frontaliere, svizzera`);
+    process.exit(1);
+  }
+  return section;
+}
+const SECTION = _sectionArg();
+const ARTICLES_PATH = SECTION === 'svizzera'
+  ? resolve(__dirname, '..', 'data', 'swiss-articles-data.ts')
+  : resolve(__dirname, '..', 'data', 'blog-articles-data.ts');
+const ARTICLES_CONST = SECTION === 'svizzera' ? 'SWISS_ARTICLES' : 'ARTICLES';
 
 const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
 const STALE_THRESHOLD_MONTHS = 6;
@@ -28,6 +46,7 @@ function parseArticles() {
   const stripped = raw
     .replace(/^import\s+.*$/gm, '')
     .replace(/^export\s+interface\s+\w+\s*\{[^}]*\}/gm, '')
+    .replace(/^export\s+type\s+.*$/gm, '')
     .replace(/export\s+const/g, 'const')
     .replace(/:\s*Article\[\]/g, '')
     // Remove "as const" assertions
@@ -35,8 +54,8 @@ function parseArticles() {
     // Remove trailing type annotations on properties (e.g. `id: 'foo' as BlogArticleId`)
     .replace(/as\s+BlogArticleId/g, '');
 
-  // Wrap in a function that returns the ARTICLES array
-  const fn = new Function(`${stripped}; return ARTICLES;`);
+  // Wrap in a function that returns the section's articles array.
+  const fn = new Function(`${stripped}; return ${ARTICLES_CONST};`);
   return fn();
 }
 

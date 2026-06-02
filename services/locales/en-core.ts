@@ -595,6 +595,10 @@ const enCore: Record<string, string> = {
  'consulting.footerLink': 'Consulting',
  'blog.title': 'Cross-Border Guide',
  'blog.subtitle': 'Practical articles for Ticino cross-border workers',
+ 'blog.section.frontalieri': 'Cross-border',
+ 'blog.section.svizzera': 'Switzerland',
+ 'blog.svizzera.title': 'Switzerland Articles',
+ 'blog.svizzera.subtitle': 'News and guides from all of Switzerland',
  'blog.statsArticles': 'articles',
  'blog.statsNews': 'news',
  'blog.statsUpdated': 'Updated daily',
@@ -2456,6 +2460,9 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3490.title': 'New Switzerland Articles section',
+ 'whatsNew.v3490.svizzeraSection.title': 'Articles from all of Switzerland',
+ 'whatsNew.v3490.svizzeraSection.desc': 'A new article section on economy, taxes, work and living for anyone living or working in Switzerland — not just cross-border workers. Find it under the "Switzerland" toggle inside Articles.',
  'whatsNew.v3480.title': 'Job alerts that actually work + more hospitals + open blog',
  'whatsNew.v3480.jobAlertSimpler.title': '1-click job alerts',
  'whatsNew.v3480.jobAlertSimpler.desc': 'The job alert form now only asks for the keyword. Location, sector, contract and cantons became optional filters behind a toggle — type a word and subscribe in one second.',

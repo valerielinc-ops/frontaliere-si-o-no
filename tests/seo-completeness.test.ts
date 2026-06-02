@@ -18,6 +18,7 @@ import {
   buildPath,
   getSeoSection,
   preloadBlogData,
+  preloadSwissData,
   ALL_CALCOLATORE_SUBTABS,
   ALL_CONFRONTI_SUBTABS,
   ALL_FISCO_SUBTABS,
@@ -29,11 +30,13 @@ import {
   ALL_BORDER_CROSSING_IDS,
 } from '@/services/router';
 import { ALL_BLOG_ARTICLE_IDS } from '@/services/routerBlogData';
+import { ALL_SWISS_ARTICLE_IDS } from '@/services/routerSwissData';
 import { AUTHORS } from '@/data/authors';
 import type { AppRoute } from '@/services/router';
 
-// Preload blog data so buildPath can resolve blog slugs
+// Preload blog data so buildPath can resolve blog slugs (both sections)
 await preloadBlogData();
+await preloadSwissData();
 
 // Import SEO_METADATA bypassing the global mock from setup.tsx
 // getAllSeoMetadata() eagerly loads core + blog + landing chunks for exhaustive testing
@@ -141,12 +144,21 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
     });
   }
 
-  // Blog list + individual articles
+  // Blog list + individual articles (frontaliere section)
   routes.push({ route: { activeTab: 'blog' }, label: 'blog' });
   for (const id of ALL_BLOG_ARTICLE_IDS) {
     routes.push({
       route: { activeTab: 'blog', blogArticle: id },
       label: `blog/${id}`,
+    });
+  }
+
+  // Switzerland-wide article section (svizzera) — mirror of the blog routes.
+  routes.push({ route: { activeTab: 'blog', blogSection: 'svizzera' }, label: 'blog/svizzera' });
+  for (const id of ALL_SWISS_ARTICLE_IDS) {
+    routes.push({
+      route: { activeTab: 'blog', blogSection: 'svizzera', swissArticle: id },
+      label: `blog/svizzera/${id}`,
     });
   }
 
@@ -165,7 +177,7 @@ function getAllRoutes(): { route: AppRoute; label: string }[] {
 
 const ALL_ROUTES = getAllRoutes();
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
-const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-glossario.xml']
+const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
   .map(f => { try { return readProjectFile(f); } catch { return ''; } }).join('\n');
 const indexNowContent = readProjectFile('scripts/submit-indexnow.js');
 const llmsTxtContent = readProjectFile('public/llms.txt');
