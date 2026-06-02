@@ -1,161 +1,7 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-06-02T13:33:54.319Z",
+  "assembledAt": "2026-06-02T23:58:21.588Z",
   "jobs": [
-    {
-      "id": "kispi-zurich-1a58604068df",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "en": "dipl-career-dipl-care-specialist-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "en": "Dipl. Career / Dipl. Care specialist 80-100 %",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100%",
-        "fr": "Dipl. Carrière / Dipl. Spécialiste des soins 80-100 %"
-      },
-      "description": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-      "descriptionByLocale": {
-        "it": "Dipl. Carriera / Dipl. Specialista di cura 80-100% presso Kinderspital Zürich Eleonorenstiftung a Zurigo (8032, ZH), Svizzera.\n• Durata: illimitato\n• Posizione: Zurigo (ZH)\n• Applicazione tramite Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "en": "Dipl. Career / Dipl. Care specialist 80-100% at Kinderspital Zürich Eleonorenstiftung in Zurich (8032, ZH), Switzerland.\n• Duration: unlimited\n• Location: Zurich (ZH)\n• Application via the Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann 80-100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
-        "fr": "Dipl. Carrière / Dipl. Spécialiste des soins 80-100% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:52.300Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
-        "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "firstSeenAt": "2026-05-28T13:02:51.012Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kispi-zurich-f3b4d03c6d0c",
-      "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich-ea768e",
-      "slugByLocale": {
-        "it": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich-ea768e",
-        "en": "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich-ea768e",
-        "de": "pflegeberaterin-m-w-20-40-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich-ea768e"
-      },
-      "company": "Universitäts-Kinderspital Zürich (Kispi)",
-      "companyKey": "kispi-zurich",
-      "companyDomain": "kispi.uzh.ch",
-      "title": "Pflegeberaterin (m/w) 20-40%",
-      "titleByLocale": {
-        "it": "Consulente senior (m/w) %",
-        "en": "Senior Consultant (m/w) %",
-        "de": "Pflegeberaterin (m/w) 20-40%",
-        "fr": "Consultant principal (m/m) %"
-      },
-      "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026 mit klinischer Koordination Neuroorthopädie befristet bis Ende Jahr und Aussicht auf Verlängerung Deine Aufgaben\n• Dein Schwerpunkt liegt in der klinischen Koordination sowie Begleitung der mehrfachbetroffenen Patienten und Patientinnen mit komplexem Unterstützungsbedarf, sowie deren Familien, vor/während und nach orthopädischen Eingriffen.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-      "descriptionByLocale": {
-        "it": "Kinderspital Zürich Eleonorenstiftung | online da: 28.05.2026 con coordinamento clinico Neuroorthopaedia terminato entro la fine dell'anno e prospettiva di proroga\n• Il vostro obiettivo è il coordinamento clinico e l'accompagnamento di più pazienti con complesse esigenze di supporto, così come le loro famiglie, sia prima che dopo interventi ortopedici.\n• Tipo: Parttime\n• Durata: illimitato",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online since : 28.05.2026 with clinical coordination Neuroorthopaedia terminated by the end of year and prospect of extension Your tasks\n• Your focus is on clinical coordination and accompaniment of multiple patients with complex support needs, as well as their families, both before and after orthopedic interventions.\n• Type: Parttime\n• Duration: unlimited",
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 28.05.2026 mit klinischer Koordination Neuroorthopädie befristet bis Ende Jahr und Aussicht auf Verlängerung Deine Aufgaben\n• Dein Schwerpunkt liegt in der klinischen Koordination sowie Begleitung der mehrfachbetroffenen Patienten und Patientinnen mit komplexem Unterstützungsbedarf, sowie deren Familien, vor/während und nach orthopädischen Eingriffen.\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "fr": "Kinderspital Zürich Eleonorenstiftung en ligne depuis : 28.05.2026 avec coordination clinique Neuroorthopédie terminée à la fin de l'année et perspective d'extension Vos tâches\n• Votre attention porte sur la coordination clinique et l'accompagnement de plusieurs patients ayant des besoins de soutien complexes, ainsi que de leur famille, avant et après les interventions orthopédiques.\n• Type: temps partiel\n• Durée: illimitée"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3679/Description/1",
-      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:51.292Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3679/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeberaterin-m-w-20-40-universitats-kinderspital-zurich-kispi-zurich",
-          "pflegeberaterin-m-w-20-40-kispi-zurich-zurich"
-        ],
-        "en": [
-          "pflegeberaterin-m-w-20-40-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "fr": [
-          "pflegeberaterin-m-w-20-40-universitats-kinderspital-zurich-kispi-zurich"
-        ],
-        "de": [
-          "pflegeberaterin-m-w-20-40-kispi-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "pflegeberaterin-m-w-20-40-universitats-kinderspital-zurich-kispi-zurich",
-        "pflegeberaterin-m-w-20-40-kispi-zurich-zurich",
-        "disponentin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
-        "dispatcher-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "disponentin-m-w-80-kispi-zurich-zurich",
-        "repartiteur-h-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "ausgestattet-m-w-80-universitats-kinderspital-zurich-kispi-zurich"
-      ],
-      "firstSeenAt": "2026-05-28T23:31:22.170Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "kispi-zurich-4c7c83a2c513",
       "slug": "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich-28d8c7",
@@ -182,12 +28,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 EEG/Neuropsychologie befristet für 4 Monate Deine Aufgaben\n• Du bereitest das EEG-Zimmer sowie die benötigten Materialien vor und sorgst für einen reibungslosen Ablauf der Untersuchungen.\n• Art: Vollzeit\n• Befristung: befristet",
         "fr": "Votre navigateur ne peut pas afficher les cadres intégrés http://www.kispi.uzh.ch Actions Je suis intéressé et j'aimerais appliquer Retour en haut Votre navigateur peut malheureusement ne pas afficher les cadres intégrés\n• Type: plein temps\n• Date limite: fixée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3680/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:50.285Z",
+      "crawledAt": "2026-06-02T23:58:19.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -255,12 +102,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 29.05.2026 Abteilung Sicherheit und Umwelt Deine Aufgaben\n• Du verantwortest die Weiterentwicklung von Arbeitssicherheit, Gesundheitsschutz sowie Notfall- und Krisenmanagement und berätst dabei unsere Geschäftsleitung, Führungskräfte wie auch Mitarbeitende kompetent.\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais) en ligne depuis: 29.05.2026 Département de la sécurité et de l ' environnement\n• Vous êtes responsable de la poursuite du développement de la sécurité au travail, de la protection de la santé ainsi que de la gestion des urgences et des crises et conseillez nos dirigeants, cadres et employés avec compétence.\n• Type: temps partiel\n• Durée: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3675/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:49.277Z",
+      "crawledAt": "2026-06-02T23:58:19.054Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -350,7 +198,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3681/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:48.258Z",
+      "crawledAt": "2026-06-02T23:58:18.343Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -421,12 +269,13 @@
         "de": "Mitarbeiterin Patientenaufnahme (w/m) 60-80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Consultant senior (m/m) 60-80% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n• Type: temps partiel\n• Durée: illimitée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:47.256Z",
+      "crawledAt": "2026-06-02T23:58:17.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -507,7 +356,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3683/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:46.261Z",
+      "crawledAt": "2026-06-02T23:58:16.994Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -572,12 +421,13 @@
         "de": "Biomed. Analytikerin (m/w) 90% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Biomed. Analyste (m/w) 90% à Kinderspital Zürich Eleonorenstiftung à Zürich (8032, ZH), Suisse.\n• Type: temps partiel\n• Date limite: fixée\n• Lieu: Zurich (ZH)\n• Demande via le Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3682/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:45.255Z",
+      "crawledAt": "2026-06-02T23:58:16.207Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -631,7 +481,7 @@
         "it": "disponentin-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "disponentin-m-w-80-100-kispi-zurich-zurich",
         "de": "disponentin-m-w-80-100-kispi-zurich-zurich",
-        "fr": "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "disponentin-m-w-80-100-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -650,12 +500,13 @@
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 01.06.2026 Werde das organisatorische Herz unserer Sonographie Deine Aufgaben\n• Du empfängst Patienten, Patientinnen, Angehörige und Zuweisende freundlich und professionell und bist die erste Ansprechperson sowie das Aushängeschild der Abteilung.\n• Art: Teilzeit\n• Befristung: unbefristet",
         "fr": "Kinderspital Zürich Eleonorenstiftung (en anglais seulement) seit en ligne : 01.06.2026 Devenez le cœur organisationnel de notre sonographie\n• Vous recevez les patients, les patients, les proches et les cessionnaires gentiment et professionnellement et êtes le premier répondant et le phare du département.\n• Type: temps partiel\n• Durée: illimitée"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3666/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:44.241Z",
+      "crawledAt": "2026-06-02T23:58:15.421Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -674,7 +525,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "disponentin-m-w-80-100-kispi-zurich-zurich",
-        "variante-m-p-universitats-kinderspital-zurich-kispi-zurich"
+        "variante-m-p-universitats-kinderspital-zurich-kispi-zurich",
+        "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -682,6 +534,7 @@
         ],
         "fr": [
           "variante-m-p-universitats-kinderspital-zurich-kispi-zurich",
+          "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich",
           "disponentin-m-w-80-100-kispi-zurich-zurich"
         ]
       },
@@ -703,9 +556,9 @@
       "id": "kispi-zurich-f2e0b8b7d974",
       "slug": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "it": "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "en": "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+        "de": "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "fr": "arztsekretarin-m-w-60-80-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -713,24 +566,25 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Arztsekretärin (m/w) 60-80%",
       "titleByLocale": {
-        "de": "Arztsekretärin (m/w) 60-80%",
         "it": "Consulente senior (m/w) %",
         "en": "Senior Consultant (m/w) %",
+        "de": "Arztsekretärin (m/w) 60-80%",
         "fr": "Consultant principal (m/m) %"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.06.2026 Logopädie Deine Aufgaben\n• Mit Sorgfalt und Engagement bearbeitest du Zuweisungen und unterstützt unser logopädisches Team organisatorisch. Dabei arbeitest Du eng mit anderen Fachpersonen des Kinderspitals zusammen und übernimmst die komplexe Koordination aller Termine. Deine Sorgfalt auf dieser Ebene ist von essentieller Bedeutung für einen reibungslosen Ablauf.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.06.2026 Logopädie Deine Aufgaben\n• Mit Sorgfalt und Engagement bearbeitest du Zuweisungen und unterstützt unser logopädisches Team organisatorisch. Dabei arbeitest Du eng mit anderen Fachpersonen des Kinderspitals zusammen und übernimmst die komplexe Koordination aller Termine. Deine Sorgfalt auf dieser Ebene ist von essentieller Bedeutung für einen reibungslosen Ablauf.\n\n• Art: Teilzeit\n• Befristung: unbefristet",
-        "it": "Kinderspital Zürich Eleonorenstiftung | online seit: 02.06.2026 Logopädie Your Tasks\n• Con la cura e l'impegno, si lavorerà su incarichi e sostenere il nostro team logoped organizzativamente. Lavorate a stretto contatto con altri specialisti dell'Ospedale dei Bambini e assumete il complesso coordinamento di tutte le date. La vostra cura a questo livello è essenziale per un processo liscio.\n\n• Tipo: Parttime\n• Durata: illimitato",
-        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.06.2026 Logopädie Your Tasks\n• With care and commitment, you will work on assignments and support our logoped team organizationally. You work closely with other specialists at the Children's Hospital and take over the complex coordination of all dates. Your care at this level is essential for a smooth process.\n\n• Type: Parttime\n• Duration: unlimited",
-        "fr": "Kinderspital Zürich Eleonorenstiftung , seit en ligne : 02.06.2026 Logopädie Vos tâches\n• Avec soin et engagement, vous travaillerez sur des missions et soutenirz notre équipe logodé organisationnellement. Vous travaillez en étroite collaboration avec d'autres spécialistes de l'Hôpital pour enfants et prenez en charge la coordination complexe de toutes les dates. Votre soin à ce niveau est essentiel pour un processus en douceur.\n\n• Type: temps partiel\n• Durée: illimitée"
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit: 02.06.2026 Logopädie Your Tasks\n• Con la cura e l'impegno, si lavorerà su incarichi e sostenere il nostro team logoped organizzativamente. Lavorate a stretto contatto con altri specialisti dell'Ospedale dei Bambini e assumete il complesso coordinamento di tutte le date. La vostra cura a questo livello è essenziale per un processo liscio.\n• Tipo: Parttime\n• Durata: illimitato",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.06.2026 Logopädie Your Tasks\n• With care and commitment, you will work on assignments and support our logoped team organizationally. You work closely with other specialists at the Children's Hospital and take over the complex coordination of all dates. Your care at this level is essential for a smooth process.\n• Type: Parttime\n• Duration: unlimited",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.06.2026 Logopädie Deine Aufgaben\n• Mit Sorgfalt und Engagement bearbeitest du Zuweisungen und unterstützt unser logopädisches Team organisatorisch. Dabei arbeitest Du eng mit anderen Fachpersonen des Kinderspitals zusammen und übernimmst die komplexe Koordination aller Termine. Deine Sorgfalt auf dieser Ebene ist von essentieller Bedeutung für einen reibungslosen Ablauf.\n• Art: Teilzeit\n• Befristung: unbefristet",
+        "fr": "Kinderspital Zürich Eleonorenstiftung , seit en ligne : 02.06.2026 Logopädie Vos tâches\n• Avec soin et engagement, vous travaillerez sur des missions et soutenirz notre équipe logodé organisationnellement. Vous travaillez en étroite collaboration avec d'autres spécialistes de l'Hôpital pour enfants et prenez en charge la coordination complexe de toutes les dates. Votre soin à ce niveau est essentiel pour un processus en douceur.\n• Type: temps partiel\n• Durée: illimitée"
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:33:43.205Z",
+      "crawledAt": "2026-06-02T23:58:14.598Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -746,17 +600,15 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3672/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
-          "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
-        ],
         "de": [
           "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
           "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        ],
+        "it": [
+          "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+          "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
         ],
         "en": [
           "arztsekretarin-m-w-100-kispi-zurich-zurich-2"
@@ -767,12 +619,77 @@
       },
       "previousSlugs": [
         "arztsekretarin-m-w-60-80-kispi-zurich-zurich",
+        "arztsekretarin-m-w-100-kispi-zurich-zurich",
+        "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
         "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
         "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
-        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich",
-        "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
-        "arztsekretarin-m-w-100-kispi-zurich-zurich"
+        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
       ],
+      "firstSeenAt": "2026-06-02T13:33:43.205Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kispi-zurich-d456771c7784",
+      "slug": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
+        "it": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
+        "en": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
+        "fr": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Assistenzärztin / Assistenzarzt ORL 100%",
+      "titleByLocale": {
+        "de": "Assistenzärztin / Assistenzarzt ORL 100%",
+        "it": "Assistenzärztin / Assistenzarzt ORL 100%",
+        "en": "Assistenzärztin / Assistenzarzt ORL 100%",
+        "fr": "Assistenzärztin / Assistenzarzt ORL 100%"
+      },
+      "description": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Assistenzärztin / Assistenzarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3678/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-02T23:58:13.827Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3678/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -785,7 +702,72 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:33:43.205Z"
+      "firstSeenAt": "2026-06-02T23:58:13.827Z"
+    },
+    {
+      "id": "kispi-zurich-54b759192d40",
+      "slug": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
+        "it": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
+        "en": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
+        "fr": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Oberärztin / Oberarzt ORL 100%",
+      "titleByLocale": {
+        "de": "Oberärztin / Oberarzt ORL 100%",
+        "it": "Oberärztin / Oberarzt ORL 100%",
+        "en": "Oberärztin / Oberarzt ORL 100%",
+        "fr": "Oberärztin / Oberarzt ORL 100%"
+      },
+      "description": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Oberärztin / Oberarzt ORL 100% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3653/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-02T23:58:12.995Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3653/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-02T23:58:12.995Z"
     }
   ]
 }
