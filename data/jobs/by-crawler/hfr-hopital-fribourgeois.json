@@ -85,9 +85,9 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-893db23568ea",
-      "slug": "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz",
+      "slug": "fisioterapista-fisioterapista-in-hopital-fribourgeois-hfr-hfr-riaz",
       "slugByLocale": {
-        "it": "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz",
+        "it": "fisioterapista-fisioterapista-in-hopital-fribourgeois-hfr-hfr-riaz",
         "en": "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz",
         "de": "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz",
         "fr": "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz"
@@ -145,7 +145,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-physiotherapeut-in-hfr-hopital-fribourgeois-hfr-riaz"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-a23f8840ce01",

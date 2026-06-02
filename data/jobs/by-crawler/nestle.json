@@ -2218,9 +2218,9 @@
     },
     {
       "id": "nestle-1399285033",
-      "slug": "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch",
+      "slug": "responsabile-delle-richieste-di-visto-e-posta-nestle-vevey-ch",
       "slugByLocale": {
-        "it": "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch",
+        "it": "responsabile-delle-richieste-di-visto-e-posta-nestle-vevey-ch",
         "en": "gestionnaire-des-demandes-visas-courriers-nestle-ch",
         "de": "gestionnaire-des-demandes-visas-courriers-nestle-ch",
         "fr": "gestionnaire-des-demandes-visas-courriers-nestle-ch"
@@ -2263,11 +2263,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-des-demandes-visas-courriers-nestle-ch"
+        "gestionnaire-des-demandes-visas-courriers-nestle-ch",
+        "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-des-demandes-visas-courriers-nestle-ch"
+          "gestionnaire-des-demandes-visas-courriers-nestle-ch",
+          "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch"
         ]
       },
       "needsRetranslation": true,

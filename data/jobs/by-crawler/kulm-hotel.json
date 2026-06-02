@@ -429,9 +429,9 @@
     },
     {
       "id": "kulm-hotel-515cf45462f0",
-      "slug": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
+      "slug": "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
+        "it": "impiegato-di-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
         "de": "laundry-employee-m-w-d-kulm-hotel-st-moritz",
         "fr": "laundry-employee-m-w-d-kulm-hotel-st-moritz"
@@ -491,7 +491,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-d0995712e416",

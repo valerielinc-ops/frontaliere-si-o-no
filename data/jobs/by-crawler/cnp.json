@@ -2393,10 +2393,10 @@
     },
     {
       "id": "cnp-2ef0834ca059",
-      "slug": "dieteticien-ne-cnp-la-tene",
+      "slug": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
         "fr": "dieteticien-ne-cnp-la-tene",
-        "it": "dieteticien-ne-cnp-la-tene",
+        "it": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "en": "dieteticien-ne-cnp-la-tene",
         "de": "dieteticien-ne-cnp-la-tene"
       },
@@ -2454,7 +2454,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T23:15:16.651Z"
+      "firstSeenAt": "2026-06-01T23:15:16.651Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-cnp-la-tene"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ne-cnp-la-tene"
+      ]
     }
   ]
 }

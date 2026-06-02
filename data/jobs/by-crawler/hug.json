@@ -3798,9 +3798,9 @@
     },
     {
       "id": "hug-8d66c2c1de54",
-      "slug": "responsable-informatique-departemental-50-hug-geneva",
+      "slug": "responsabile-it-50-del-dipartimento-hug-geneva",
       "slugByLocale": {
-        "it": "responsable-informatique-departemental-50-hug-geneva",
+        "it": "responsabile-it-50-del-dipartimento-hug-geneva",
         "en": "responsable-informatique-departemental-50-hug-geneva",
         "de": "responsable-informatique-departemental-50-hug-geneva",
         "fr": "responsable-informatique-departemental-50-hug-geneva"
@@ -3857,7 +3857,15 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-informatique-departemental-50-hug-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-informatique-departemental-50-hug-geneva"
+      ]
     },
     {
       "id": "hug-0bccd17a3c85",
