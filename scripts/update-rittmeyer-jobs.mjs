@@ -45,7 +45,8 @@ const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Rittmeyer AG';
 const COMPANY_HOST = 'karriere.rittmeyer.com';
 const COMPANY_DOMAIN = 'rittmeyer.com';
-const CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/?suche=&location=23&country=1';
+// No `location` filter → all Swiss Rittmeyer sites (country=1 keeps it Swiss-only).
+const CAREERS_URL = 'https://karriere.rittmeyer.com/offene-stellen/?suche=&country=1';
 const DETAIL_BASE = 'https://karriere.rittmeyer.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 

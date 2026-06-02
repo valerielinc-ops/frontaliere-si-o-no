@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -101,19 +101,6 @@ function detectEmploymentType(text = '') {
   if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
   return 'OTHER';
 }
-
-/* ── Valais keywords for location filtering ──────────────── */
-
-// Canton VS (Valais) locations where BLS operates. Goppenstein is the south
-// portal of the Lötschberg tunnel (VS) — BLS lists it as "Goppenstein" on the
-// careers page, so it must match here. Kandersteg is BE but kept for the
-// adjacent Lötschberg corridor where BLS rotates VS-side staff.
-const VALAIS_KEYWORDS = [
-  'brig', 'visp', 'sion', 'sierre', 'martigny', 'monthey',
-  'naters', 'glis', 'wallis', 'valais', 'steg', 'raron',
-  'leuk', 'gampel', 'kandersteg', 'lötschberg', 'loetschberg',
-  'goppenstein', 'iselle', 'hohtenn', 'ausserberg',
-];
 
 /* ── HTTP helpers ─────────────────────────────────────────── */
 
@@ -208,14 +195,6 @@ function parseListingPage(html = '') {
 }
 
 /**
- * Check if a job is in a Valais location based on listing page context.
- */
-function isValaisJob(entry) {
-  const combined = `${entry.locationRaw} ${entry.title}`.toLowerCase();
-  return VALAIS_KEYWORDS.some((kw) => combined.includes(kw));
-}
-
-/**
  * Extract JSON-LD JobPosting data from a detail page HTML.
  */
 function extractJsonLd(html = '') {
@@ -301,10 +280,10 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
 }
 
 /**
- * Fetch all BLS AG jobs in Valais.
+ * Fetch all BLS AG jobs in Switzerland.
  * Strategy:
  *   1. Fetch the BLS listing page (inline HTML with job links)
- *   2. Filter for Valais locations
+ *   2. Filter for Swiss locations
  *   3. Fetch each detail page at jobs.bls.ch for JSON-LD data
  *   4. Build ParsedJob objects
  *
@@ -317,24 +296,24 @@ export async function fetchAllBlsJobs() {
   console.log(`🔍 Fetching BLS AG jobs`);
   console.log(`   Listing: ${LISTING_URL}`);
   console.log(`   Detail:  ${JOBS_BASE}/offene-stellen/{slug}/{uuid}`);
-  console.log(`   Strategy: Listing page → filter Valais → detail JSON-LD\n`);
+  console.log(`   Strategy: Listing page → filter Switzerland → detail JSON-LD\n`);
 
   const listingHtml = await fetchHtml(LISTING_URL);
   const allEntries = parseListingPage(listingHtml);
   console.log(`  📋 Total jobs on listing page: ${allEntries.length}`);
 
-  const valaisEntries = allEntries.filter(isValaisJob);
-  console.log(`  🏔️ Valais jobs: ${valaisEntries.length}`);
+  const swissEntries = allEntries.filter((e) => isTargetSwissLocation(`${e.locationRaw} ${e.title}`));
+  console.log(`  🇨🇭 Swiss jobs: ${swissEntries.length}`);
 
-  if (valaisEntries.length === 0) {
-    console.warn('⚠️ No Valais BLS job listings found.');
+  if (swissEntries.length === 0) {
+    console.warn('⚠️ No Swiss BLS job listings found.');
     return [];
   }
 
-  console.log(`\n  📋 Fetching ${valaisEntries.length} detail pages...\n`);
+  console.log(`\n  📋 Fetching ${swissEntries.length} detail pages...\n`);
 
   const jobs = [];
-  for (const entry of valaisEntries) {
+  for (const entry of swissEntries) {
     try {
       const detailHtml = await fetchHtml(entry.url);
       const jsonLd = extractJsonLd(detailHtml);
@@ -348,8 +327,8 @@ export async function fetchAllBlsJobs() {
       if (!title || title.length < 3) continue;
 
       const loc = extractLocation(jsonLd);
-      const location = loc.locality || entry.locationRaw || 'Brig';
-      const canton = inferAnyCanton(location) || 'VS';
+      const location = loc.locality || entry.locationRaw || '';
+      const canton = inferAnyCanton(location) || '';
       const descriptionText = buildDescription(jsonLd);
       const requirements = extractRequirements(jsonLd);
 
@@ -423,6 +402,6 @@ export async function fetchAllBlsJobs() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  console.log(`\n📋 Total BLS AG Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total BLS AG Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }
