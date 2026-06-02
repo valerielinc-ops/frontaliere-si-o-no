@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prada",
-  "assembledAt": "2026-06-01T15:46:40.403Z",
+  "assembledAt": "2026-06-02T00:50:37.752Z",
   "jobs": [
     {
       "id": "prada-7be490b3aacc",
@@ -43,18 +43,18 @@
       "url": "https://jobs.pradagroup.com/job/Terranuova-Bracciolini-Stage-HR-Industrial-Pelletteria/1370386833/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-01T15:46:37.516Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-31T12:20:42.395Z",
+      "crawledAt": "2026-06-02T00:50:35.536Z",
+      "previousSlugs": [
+        "stage-hr-industrial-pelletteria-prada-group-terranuova-bracciolini-stage"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-hr-industrial-pelletteria-prada-group-terranuova-bracciolini-stage",
           "stage-hr-industrial-pelletteria-prada-group-mendrisio"
         ]
       },
-      "previousSlugs": [
-        "stage-hr-industrial-pelletteria-prada-group-terranuova-bracciolini-stage"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-31T12:20:42.395Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -112,13 +112,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:46:35.998Z",
-      "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
-        "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
-        "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz"
-      ],
+      "crawledAt": "2026-06-02T00:50:34.383Z",
       "previousSlugsByLocale": {
         "it": [
           "miu-miu-store-manager-saint-moritz-prada-mendrisio",
@@ -129,6 +123,12 @@
           "miu-miu-store-manager-saint-moritz-prada-mendrisio"
         ]
       },
+      "previousSlugs": [
+        "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+        "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
+        "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
+        "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 68000,
@@ -188,7 +188,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:46:35.612Z",
+      "crawledAt": "2026-06-02T00:50:34.072Z",
       "previousSlugs": [
         "store-manager-zurich-prada-group-zurich-store-manager-zurich",
         "prada-store-manager-zurich-prada-group-zurich"
