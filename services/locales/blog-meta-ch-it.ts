@@ -17,6 +17,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.iniziative-casse-malati-2026.title': 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
     'blog.article.iniziative-casse-malati-2026.excerpt': 'Il Consiglio di Stato non può subordinare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo a specifiche fonti di finanziamento.',
     'blog.article.iniziative-casse-malati-2026.imageAlt': 'Strada animata a Bellinzona con persone che camminano e usano dispositivi digitali, evidenziando gli aspetti finanziari e amministrativi delle iniziative per le casse malati in Ticino.',
+    'blog.article.candidatura-lavoro-estero-ticino.title': 'Il segreto di una candidatura di successo per un posto di lavoro all’estero',
+    'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Consigli pratici per preparare un dossier di candidatura convincente per lavorare all\'estero.',
+    'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Una persona che prepara il suo curriculum vitae in un ufficio moderno a Lugano, Ticino.',
 };
 
 export default blogMetaChIt;

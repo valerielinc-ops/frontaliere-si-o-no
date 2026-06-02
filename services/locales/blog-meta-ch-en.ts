@@ -17,6 +17,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziative-casse-malati-2026.title': 'CMS initiatives 2026: Government cannot block their implementation',
     'blog.article.iniziative-casse-malati-2026.excerpt': 'The Federal Council cannot subordinate the implementation of the people-approved CMS initiatives to specific funding sources.',
     'blog.article.iniziative-casse-malati-2026.imageAlt': 'Busy Bellinzona street with people walking and using digital devices, highlighting the financial and administrative aspects of health insurance initiatives in Ticino.',
+    'blog.article.candidatura-lavoro-estero-ticino.title': 'The secret to a successful job application abroad',
+    'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Practical tips to prepare a convincing application dossier for working abroad.',
+    'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'A person preparing their resume in a modern office in Lugano, Ticino.',
 };
 
 export default blogMetaChEn;

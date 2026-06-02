@@ -1,0 +1,19 @@
+{
+  "id": "candidatura-lavoro-estero-ticino",
+  "slug": "candidatura-lavoro-estero-ticino",
+  "publishedAt": "2026-06-02T21:47:30.498Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 96.23427814000001,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}
