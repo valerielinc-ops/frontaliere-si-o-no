@@ -2862,6 +2862,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (companyBroadenFetchAttempted.current) return;
  if (jobsLoading) return;
  if (!companySlugFilter) return;
+ if (deferredSearchQuery.trim()) return; // search active → cross-locale tier owns the pool fetch
  if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
  if (unscopedJobs.length > 0) return; // pool already available
  companyBroadenFetchAttempted.current = true;
@@ -2886,7 +2887,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  })();
  return () => { cancelled = true; };
- }, [companySlugFilter, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale]);
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale]);
 
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
@@ -2944,8 +2945,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // so the page shows real listings + AdSense instead of the empty-state. No
  // search query required — distinct from the search-driven Tiers 3/4. The
  // company filter itself is still enforced via `passingNonSearchFilters`.
+ //
+ // Gated to the NO-query case: when the user types a search on a company hub
+ // this tier stays out so the search-driven cross-locale Tier 4 can answer
+ // the keyword instead of dumping every Swiss-wide opening for the employer
+ // (which would ignore the query and mislead the "N positions" banner).
  const companyBroadeningFallbackJobs = useMemo<JobListing[]>(() => {
  if (!companySlugFilter) return [];
+ if (deferredSearchQuery.trim()) return [];
  if (strictFilteredJobs.length > 0) return [];
  if (orFallbackInCantonJobs.length > 0) return [];
  if (crossCantonFallbackJobs.length > 0) return [];
@@ -2969,7 +2976,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  matches.push(job);
  }
  return matches.slice(0, MAX_FALLBACK_RESULTS);
- }, [companySlugFilter, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, selectedDateRange, passingNonSearchFilters]);
+ }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, selectedDateRange, passingNonSearchFilters]);
 
  // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
