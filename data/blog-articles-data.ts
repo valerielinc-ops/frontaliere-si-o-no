@@ -25202,4 +25202,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sedia-rotelle-genny-zero-design',
+ category: 'novita',
+ date: '2026-06-02T11:40:00.900Z',
+ image: '/images/blog/sedia-rotelle-genny-zero-design.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7942,6 +7942,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ferrovia-retica-taiwan.title': 'Rhaetian Railway signs new deal with Taiwan',
     'blog.article.ferrovia-retica-taiwan.excerpt': 'The Rhaetian Railway has signed a collaboration agreement with Taiwan\'s Alishan Forest Railway.',
     'blog.article.ferrovia-retica-taiwan.imageAlt': 'RhB railway in winter',
+    'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: the wheelchair revolutionizing mobility',
+    'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'The Genny Zero electric wheelchair, produced in Ticino, wins the Compasso d’Oro for its innovative design and Italian-Swiss technology.',
+    'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'A modern wheelchair in a Ticino landscape with Lake Lugano in the background.',
 };
 
 export default blogMetaEn;
