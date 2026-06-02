@@ -91,7 +91,7 @@ async function main() {
     windowDays,
     gsc: gscResult.error
       ? {}
-      : { queries: gscResult.queries, orphanQueries: gscResult.orphanQueries },
+      : { queries: gscResult.queries, orphanQueries: gscResult.orphanQueries, pages: gscResult.pages || {} },
     ga4: ga4Result.error ? {} : { pages: ga4Result.pages },
     posthog: posthogResult.error ? {} : { pages: posthogResult.pages },
     clusterStats,
@@ -101,12 +101,13 @@ async function main() {
   atomicWriteJson(OUTPUT_PATH, index);
 
   const queryCount = Object.keys(gscResult.queries || {}).length;
+  const gscPageCount = Object.keys(gscResult.pages || {}).length;
   const ga4PageCount = Object.keys(ga4Result.pages || {}).length;
   const posthogPageCount = Object.keys(posthogResult.pages || {}).length;
   const clusterCount = Object.keys(clusterStats).length;
 
   console.error(
-    `EVIDENCE_BUILD_DONE queries=${queryCount} ga4Pages=${ga4PageCount} `
+    `EVIDENCE_BUILD_DONE queries=${queryCount} gscPages=${gscPageCount} ga4Pages=${ga4PageCount} `
     + `posthogPages=${posthogPageCount} clusters=${clusterCount} failures=${failures.length}`,
   );
 

@@ -79,7 +79,7 @@ function pathFromGscPage(value) {
  * @param {number} [options.rowLimit=25000]
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
- * @returns {Promise<{queries: object, orphanQueries: array, error?: string}>}
+ * @returns {Promise<{queries: object, orphanQueries: array, pages: object, error?: string}>}
  */
 export async function fetchGscQueries({
   startDate,
@@ -157,6 +157,46 @@ export async function fetchGscQueries({
       if (startRow >= rowLimit * 10) break;
     }
 
+    // Pass 3 — page-only aggregation. The full set of URLs Google has shown
+    // at least once in the window (page dimension, not just the per-query
+    // top-1 landing page captured in Pass 2). This is the comprehensive
+    // page-level impression signal the traffic-evidence filter needs to gate
+    // thinning correctly: Pass 2's `topLandingPage` only surfaces ~one page
+    // per query (a few thousand), whereas the page dimension surfaces every
+    // impressed URL (tens of thousands), including long-tail pages that rank
+    // #2+ for any query and never own a query outright. Without this, those
+    // pages are invisible to the "has-traffic" gate and risk being thinned
+    // despite confirmed Google interest. Threshold at 1 impression so any
+    // page Google has shown is protected.
+    const pages = {};
+    startRow = 0;
+    while (true) {
+      const data = await gscQuery(
+        token,
+        {
+          startDate,
+          endDate,
+          dimensions: ['page'],
+          rowLimit,
+          startRow,
+        },
+        fetchImpl,
+      );
+      const rows = data.rows || [];
+      for (const r of rows) {
+        const path = pathFromGscPage(r.keys?.[0] || '');
+        if (!path) continue;
+        const imp = r.impressions || 0;
+        if (imp < 1) continue;
+        // Store impressions as a compact number (key presence is what the
+        // filter checks; the count aids diagnostics/tuning).
+        pages[path] = imp;
+      }
+      if (rows.length < rowLimit) break;
+      startRow += rowLimit;
+      if (startRow >= rowLimit * 10) break;
+    }
+
     const queries = {};
     const orphanQueries = [];
     for (const [q, agg] of queryAgg) {
@@ -183,9 +223,9 @@ export async function fetchGscQueries({
         });
       }
     }
-    return { queries, orphanQueries };
+    return { queries, orphanQueries, pages };
   } catch (err) {
     const reason = err && err.message ? err.message : String(err);
-    return { queries: {}, orphanQueries: [], error: reason };
+    return { queries: {}, orphanQueries: [], pages: {}, error: reason };
   }
 }

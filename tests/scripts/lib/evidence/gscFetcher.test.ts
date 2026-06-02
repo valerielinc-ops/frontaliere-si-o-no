@@ -55,6 +55,49 @@ describe('fetchGscQueries', () => {
     expect(result.orphanQueries[0].query).toBe('orphan query');
   });
 
+  it('Pass 3: aggregates the full page-level impression set (Buco G)', async () => {
+    // Pass 1 (query), Pass 2 (query+page), Pass 3 (page) — the new pass
+    // returns every impressed URL keyed by path → impressions.
+    const queryRows = {
+      rows: [{ keys: ['ticino lavoro'], impressions: 80, clicks: 5, position: 6, ctr: 0.06 }],
+    };
+    const queryPageRows = {
+      rows: [{ keys: ['ticino lavoro', '/cerca-lavoro-ticino/'], impressions: 80 }],
+    };
+    const pageRows = {
+      rows: [
+        { keys: ['https://frontaliereticino.ch/cerca-lavoro-ticino/'], impressions: 80 },
+        { keys: ['/cerca-lavoro-ticino/ricerca-infermiere/'], impressions: 3 },
+        { keys: ['/cerca-lavoro-ticino/zero-imp/'], impressions: 0 }, // dropped (<1)
+      ],
+    };
+
+    let call = 0;
+    const fetchImpl = vi.fn(async () => {
+      call++;
+      if (call === 1) return jsonRes(queryRows);
+      if (call === 2) return jsonRes(queryPageRows);
+      if (call === 3) return jsonRes(pageRows);
+      return jsonRes({ rows: [] });
+    });
+
+    const result = await fetchGscQueries({
+      startDate: '2026-02-01',
+      endDate: '2026-05-01',
+      fetchImpl,
+      getTokenImpl: async () => 'fake-token',
+    });
+
+    expect(result.error).toBeUndefined();
+    expect(result.pages).toBeDefined();
+    // absolute URL normalized to path
+    expect(result.pages['/cerca-lavoro-ticino/']).toBe(80);
+    // long-tail page that never owns a query is still captured
+    expect(result.pages['/cerca-lavoro-ticino/ricerca-infermiere/']).toBe(3);
+    // zero-impression rows are dropped
+    expect(result.pages['/cerca-lavoro-ticino/zero-imp/']).toBeUndefined();
+  });
+
   it('returns error key when token mint fails (does not throw)', async () => {
     const result = await fetchGscQueries({
       startDate: '2026-02-01',
