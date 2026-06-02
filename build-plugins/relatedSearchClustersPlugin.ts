@@ -50,6 +50,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
@@ -907,7 +908,11 @@ export function buildClusterContext(
     return null;
   }
   const city = detectCity(sampleTerm);
-  const keyword = stripCityFromKeyword(sampleTerm, city);
+  // Strip literal markdown (`**Requisitos:**`) leaked from crawler
+  // descriptions into the harvested sample term BEFORE it flows into the
+  // displayed keyword (H1, title, hub link, intro, JSON-LD). The slug stays
+  // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
+  const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
   if (!keyword) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
