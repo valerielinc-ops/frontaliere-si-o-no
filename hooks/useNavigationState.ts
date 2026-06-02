@@ -200,6 +200,14 @@ export function useNavigationState(): NavigationState {
  }
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+ // Eagerly load svizzera slug data whenever the section becomes svizzera —
+ // a client-side sub-tab switch (not an initial svizzera URL) must populate
+ // `_swissSlugs` so buildPath emits localized en/de/fr slugs (not the it-slug
+ // fallback) for canonical + article URLs.
+ useEffect(() => {
+ if (blogSection === 'svizzera') preloadSwissData().catch(() => {});
+ }, [blogSection]);
+
  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
  useEffect(() => {
  if (notFoundPath) {
