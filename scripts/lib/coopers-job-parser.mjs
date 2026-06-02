@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -282,8 +282,10 @@ export async function fetchAllCoopersJobs() {
 
   console.log(`  📋 Total listings on page: ${allListings.length}`);
 
-  // Step 2: Keep all Swiss listings (nationwide crawl)
-  const swissListings = allListings;
+  // Step 2: Keep Swiss listings only (nationwide; coopers.ch has no country
+  // param and the dedicated pipeline applies no geo validation, so gate here —
+  // a staffing agency may list cross-border placements).
+  const swissListings = allListings.filter((l) => isTargetSwissLocation(l.location));
 
   if (swissListings.length === 0) {
     console.warn('⚠️ No job listings found.');
