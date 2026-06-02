@@ -7340,7 +7340,25 @@ ${staticAnalyticsHtml}
  // role / city / employer hubs. The Italian landing preserves its curated
  // `itCopy.title` because that was hand-tuned per query in keyword config.
  const kwTitle = locale === 'it'
- ? buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''))
+ ? (() => {
+ // Curated IT title = heading + " | Frontaliere Ticino" brand suffix.
+ // For long headings the brand is dropped (buildTitleWithBrand 66-char
+ // cap) and the title collapses to the bare heading — byte-identical to
+ // the <h1> (itCopy.heading), tripping the 0-tolerance
+ // audit:h1-title-duplicates ratchet. When that collision happens, fall
+ // back to the count+year role-hub title (already used for EN/DE/FR):
+ // it stays ≤66 chars (audit:title-length) and is structurally distinct
+ // from the descriptive heading, so title can never equal h1.
+ const curated = buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''));
+ const norm = (s: string) => String(s).replace(/\s+/g, ' ').trim().toLowerCase();
+ if (norm(curated) !== norm(String(itCopy.heading || ''))) return curated;
+ return buildRoleHubTitle({
+ locale,
+ roleDisplay: kwQueryDisplay || 'Jobs',
+ count: kwJobs.length,
+ year: new Date().getFullYear(),
+ });
+ })()
  : buildRoleHubTitle({
  locale,
  roleDisplay: kwQueryDisplay || 'Jobs',

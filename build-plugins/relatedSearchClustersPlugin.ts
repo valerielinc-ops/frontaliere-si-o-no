@@ -203,6 +203,34 @@ function capitalize(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
+/**
+ * Strip literal markdown bold/separator tokens that leak from AI-translated
+ * crawler descriptions into the harvested `sampleTerms` (e.g. a job whose
+ * description starts `**Requisitos:**` becomes a candidate term and lands in
+ * the cluster H1 / hub link / intro prose inside `<main>`). Mirrors the
+ * documented contract of `stripLiteralMarkdownFromTitle` in
+ * `build-plugins/jobsSeoPagesPlugin.ts`, kept local so this hot render path
+ * carries no cross-plugin import. Without this the literal `**` survives
+ * `esc()` (HTML-escape only) and trips the 0-tolerance
+ * `audit-no-literal-markdown` gate. Idempotent.
+ */
+function stripLiteralMarkdown(value: string): string {
+  if (!value) return value;
+  let t = String(value);
+  // 1. Unwrap balanced bold, keeping the inner text (`**Requisitos:**` → `Requisitos:`).
+  t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
+  // 2. Nuke any remaining run of 2+ asterisks anywhere. Harvested GSC terms
+  //    carry orphaned `**` mid-string (e.g. `Requisitos:** svizzera`) that the
+  //    paired unwrap above can't reach; left in place two such occurrences on
+  //    one page pair up under `audit-no-literal-markdown`'s global `\*\*…\*\*`
+  //    scan and re-trip the 0-tolerance gate.
+  t = t.replace(/\*{2,}/g, '');
+  t = t.replace(/[_=~]{3,}/g, ' ');
+  t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
+  t = t.replace(/[ \t]{2,}/g, ' ');
+  return t.trim();
+}
+
 // ── Cache (skip slow emit when inputs unchanged) ────────────────────────
 
 /**
@@ -907,7 +935,11 @@ export function buildClusterContext(
     return null;
   }
   const city = detectCity(sampleTerm);
-  const keyword = stripCityFromKeyword(sampleTerm, city);
+  // Strip literal markdown (`**Requisitos:**`) leaked from crawler
+  // descriptions into the harvested sample term BEFORE it flows into the
+  // displayed keyword (H1, title, hub link, intro, JSON-LD). The slug stays
+  // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
+  const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
   if (!keyword) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
