@@ -595,6 +595,10 @@ const frCore: Record<string, string> = {
  'consulting.footerLink': 'Consultations',
  'blog.title': 'Guide Frontalier',
  'blog.subtitle': 'Articles pratiques pour le frontalier au Tessin',
+ 'blog.section.frontalieri': 'Frontaliers',
+ 'blog.section.svizzera': 'Suisse',
+ 'blog.svizzera.title': 'Articles Suisse',
+ 'blog.svizzera.subtitle': 'Actualités et guides de toute la Suisse',
  'blog.statsArticles': 'articles',
  'blog.statsNews': 'actualités',
  'blog.statsUpdated': 'Mis à jour quotidiennement',
@@ -2456,6 +2460,9 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3490.title': 'Nouvelle section Articles Suisse',
+ 'whatsNew.v3490.svizzeraSection.title': 'Articles de toute la Suisse',
+ 'whatsNew.v3490.svizzeraSection.desc': 'Une nouvelle section d\'articles sur l\'économie, la fiscalité, le travail et la vie pour toute personne vivant ou travaillant en Suisse — pas seulement les frontaliers. À trouver sous le bouton "Suisse" dans Articles.',
  'whatsNew.v3480.title': 'Alertes emploi qui fonctionnent + plus d\'hôpitaux + blog ouvert',
  'whatsNew.v3480.jobAlertSimpler.title': 'Alertes emploi en 1 clic',
  'whatsNew.v3480.jobAlertSimpler.desc': 'Le formulaire d\'alerte emploi ne demande plus que le mot-clé. Lieu, secteur, contrat et cantons sont devenus des filtres optionnels derrière un toggle — tapez un mot, abonnez-vous en une seconde.',

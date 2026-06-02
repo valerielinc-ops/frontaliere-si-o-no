@@ -19,6 +19,7 @@ import {
  parsePath, parseHashToPath, pushRoute, getSeoSection,
  updatePathForLocale, scrollToAnchor, AppRoute,
  preloadBlogData, resolveBlogSlug, getLocalizedJobSlug,
+ preloadSwissData, resolveSwissSlug,
 } from '@/services/router';
 import type {
  ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab,
@@ -55,6 +56,10 @@ export interface NavigationState {
  vitaSubTab: VitaSubTab;
  statsSubTab: StatsSubTab;
  blogArticle: BlogArticleId | null;
+ /** Active article section for the `blog` tab: cross-border or Switzerland-wide. */
+ blogSection: 'frontaliere' | 'svizzera';
+ /** Selected svizzera-section article id (when blogSection === 'svizzera'). */
+ swissArticle: string | null;
  seoLanding: SeoLandingId | null;
  glossaryTerm: GlossaryTermId | null;
  borderCrossing: BorderCrossingId | null;
@@ -82,6 +87,8 @@ export interface NavigationState {
  setVitaSubTab: Dispatch<SetStateAction<VitaSubTab>>;
  setStatsSubTab: Dispatch<SetStateAction<StatsSubTab>>;
  setBlogArticle: Dispatch<SetStateAction<BlogArticleId | null>>;
+ setBlogSection: Dispatch<SetStateAction<'frontaliere' | 'svizzera'>>;
+ setSwissArticle: Dispatch<SetStateAction<string | null>>;
  setSeoLanding: Dispatch<SetStateAction<SeoLandingId | null>>;
  setGlossaryTerm: Dispatch<SetStateAction<GlossaryTermId | null>>;
  setBorderCrossing: Dispatch<SetStateAction<BorderCrossingId | null>>;
@@ -127,6 +134,8 @@ export function useNavigationState(): NavigationState {
  const [vitaSubTab, setVitaSubTab] = useState<VitaSubTab>(initialRoute.route.vitaSubTab || 'living-ch');
  const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
  const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
+ const [blogSection, setBlogSection] = useState<'frontaliere' | 'svizzera'>(initialRoute.route.blogSection || 'frontaliere');
+ const [swissArticle, setSwissArticle] = useState<string | null>(initialRoute.route.swissArticle || null);
  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
  const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
@@ -180,6 +189,15 @@ export function useNavigationState(): NavigationState {
  if (resolved) setBlogArticle(resolved);
  }
  }).catch(() => {});
+ if (initialRoute.route.blogSection === 'svizzera') {
+ preloadSwissData().then(() => {
+ const slug = initialRoute.route.swissSlug;
+ if (slug && !initialRoute.route.swissArticle) {
+ const resolved = resolveSwissSlug(slug, initialRoute.locale);
+ if (resolved) setSwissArticle(resolved);
+ }
+ }).catch(() => {});
+ }
  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection)
@@ -252,11 +270,20 @@ export function useNavigationState(): NavigationState {
  if (route.vitaSubTab) setVitaSubTab(route.vitaSubTab);
  if (route.statsSubTab) setStatsSubTab(route.statsSubTab);
  setBlogArticle(route.blogArticle || null);
+ setBlogSection(route.blogSection || 'frontaliere');
+ setSwissArticle(route.swissArticle || null);
  // If blog data wasn't loaded yet, resolve the deferred slug
  if (route.blogSlug && !route.blogArticle) {
  preloadBlogData().then(() => {
  const resolved = resolveBlogSlug(route.blogSlug!, urlLocale);
  if (resolved) setBlogArticle(resolved);
+ }).catch(() => {});
+ }
+ // Same deferred-resolution for the svizzera section.
+ if (route.swissSlug && !route.swissArticle) {
+ preloadSwissData().then(() => {
+ const resolved = resolveSwissSlug(route.swissSlug!, urlLocale);
+ if (resolved) setSwissArticle(resolved);
  }).catch(() => {});
  }
  setSeoLanding(route.seoLanding || null);
@@ -519,7 +546,7 @@ export function useNavigationState(): NavigationState {
  if (tab !== 'glossario') setGlossaryTerm(null);
  if (tab !== 'job-board') setJobSlug(null);
  if (tab !== 'autore') setAuthor(null);
- if (tab === 'blog') setBlogArticle(null);
+ if (tab === 'blog') { setBlogArticle(null); setSwissArticle(null); setBlogSection('frontaliere'); }
 
  // Build route and push to history
  const route: AppRoute = { activeTab: tab };
@@ -741,6 +768,19 @@ export function useNavigationState(): NavigationState {
  suppressNextRouteSyncForTabRef.current = null;
  return;
  }
+ let route: AppRoute;
+ if (blogSection === 'svizzera') {
+ // Switzerland-wide mirror: same deferred-slug recovery as frontaliere.
+ const pendingSlug = swissArticle
+ ? undefined
+ : parsePath(window.location.pathname).route.swissSlug;
+ route = {
+ activeTab: 'blog',
+ blogSection: 'svizzera',
+ swissArticle: swissArticle || undefined,
+ ...(pendingSlug ? { swissSlug: pendingSlug } : {}),
+ };
+ } else {
  // When the lazy-loaded blog data hasn't resolved the URL slug yet,
  // the URL contains `/articoli-frontaliere/<slug>/` but `blogArticle`
  // is still null. Re-parse the current URL to recover the pending slug
@@ -749,11 +789,12 @@ export function useNavigationState(): NavigationState {
  const pendingSlug = blogArticle
  ? undefined
  : parsePath(window.location.pathname).route.blogSlug;
- const route: AppRoute = {
+ route = {
  activeTab: 'blog',
  blogArticle: blogArticle || undefined,
  ...(pendingSlug ? { blogSlug: pendingSlug } : {}),
  };
+ }
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);
@@ -762,7 +803,7 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }
- }, [blogArticle]);
+ }, [blogArticle, swissArticle, blogSection]);
 
  // Clear initial-mount flag AFTER all sub-tab effects have fired
  useEffect(() => { isInitialMount.current = false; }, []);
@@ -795,13 +836,13 @@ export function useNavigationState(): NavigationState {
  return {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, statsSubTab,
- blogArticle, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus,
  notFoundPath, jobBoardFilterParams, staticOverlay,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
- setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
 

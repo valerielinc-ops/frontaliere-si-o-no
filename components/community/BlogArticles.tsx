@@ -3,7 +3,8 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
-import type { BlogArticleId } from '@/services/router';
+import type { BlogArticleId, AppRoute } from '@/services/router';
+import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 
@@ -66,10 +67,12 @@ interface TrendingEntry { id: string; views: number; lastViewed: number }
 const TRENDING_CACHE_KEY = 'blog_trending_cache';
 const TRENDING_CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
-async function fetchTrendingArticles(validIds: Set<string>): Promise<TrendingEntry[]> {
+async function fetchTrendingArticles(validIds: Set<string>, section: 'frontaliere' | 'svizzera' = 'frontaliere'): Promise<TrendingEntry[]> {
+ const cacheKey = section === 'svizzera' ? `${TRENDING_CACHE_KEY}_ch` : TRENDING_CACHE_KEY;
+ const trendingFile = section === 'svizzera' ? '/article-trending-ch.json' : '/article-trending.json';
  // Check localStorage cache first
  try {
- const cached = localStorage.getItem(TRENDING_CACHE_KEY);
+ const cached = localStorage.getItem(cacheKey);
  if (cached) {
  const { ts, data } = JSON.parse(cached);
  if (Date.now() - ts < TRENDING_CACHE_TTL && Array.isArray(data)) {
@@ -86,14 +89,14 @@ async function fetchTrendingArticles(validIds: Set<string>): Promise<TrendingEnt
  // (~1377 docs/cache-miss with `allow read: if true` rules) — dominant
  // Firestore read cost post-May-8 fix.
  try {
- const res = await fetch('/article-trending.json', { cache: 'no-cache' });
+ const res = await fetch(trendingFile, { cache: 'no-cache' });
  if (!res.ok) return [];
  const payload = await res.json();
  const rawEntries: TrendingEntry[] = Array.isArray(payload?.entries) ? payload.entries : [];
  const top = rawEntries.slice(0, 12);
 
  try {
- localStorage.setItem(TRENDING_CACHE_KEY, JSON.stringify({ ts: Date.now(), data: top }));
+ localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), data: top }));
  } catch { /* quota — ignore */ }
 
  return top.filter(e => validIds.has(e.id));
@@ -936,6 +939,12 @@ interface BlogArticlesProps {
  selectedArticle?: BlogArticleId | null;
  /** Navigate to an individual article (updates URL) */
  onSelectArticle?: (articleId: BlogArticleId | null) => void;
+ /**
+  * Which article section to render: the cross-border hub (`frontaliere`,
+  * default) or the Switzerland-wide mirror (`svizzera`). Drives the registry,
+  * body directory, meta chunk and URL the shared component reads.
+  */
+ section?: ArticleSection;
 }
 
 /* CTA widget config */
@@ -1033,7 +1042,14 @@ const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
 function BlogArticles({
  selectedArticle = null,
  onSelectArticle,
+ section = 'frontaliere',
 }: BlogArticlesProps) {
+ // Build the route for an article in the active section (frontaliere or svizzera).
+ const buildArticleRoute = useCallback((id: string): AppRoute => (
+ section === 'svizzera'
+ ? { activeTab: 'blog', blogSection: 'svizzera', swissArticle: id }
+ : { activeTab: 'blog', blogArticle: id as BlogArticleId }
+ ), [section]);
  const nav = useNavigation();
  const { t } = useTranslation();
  const [locale] = useLocale();
@@ -1093,22 +1109,25 @@ function BlogArticles({
  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
  // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
  useEffect(() => {
+ const articlesPromise = section === 'svizzera'
+ ? import('@/data/swiss-articles-data').then(m => m.SWISS_ARTICLES)
+ : import('@/data/blog-articles-data').then(m => m.ARTICLES);
  Promise.all([
- loadBlogMeta(),
- import('@/data/blog-articles-data').then(m => m.ARTICLES),
+ loadBlogMeta(section),
+ articlesPromise,
  ]).then(([, data]) => {
  setArticles(data);
  setBlogReady(true);
  }).catch(() => {});
- }, []);
+ }, [section]);
 
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
  if (!selectedArticle) { setBodyReady(false); return; }
  setBodyReady(false);
- loadArticleBody(selectedArticle).then(() => setBodyReady(true)).catch(() => {});
+ loadArticleBody(selectedArticle, section).then(() => setBodyReady(true)).catch(() => {});
  trackArticleView(selectedArticle);
- }, [selectedArticle]);
+ }, [selectedArticle, section]);
 
  // Fetch job listings for cross-linking (related jobs in article view)
  const [crossLinkJobs, setCrossLinkJobs] = useState<JobPreview[]>([]);
@@ -1142,8 +1161,8 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) return;
  const validIds = new Set<string>(articles.map(a => a.id));
- fetchTrendingArticles(validIds).then(setTrendingArticles).catch(() => {});
- }, [selectedArticle]);
+ fetchTrendingArticles(validIds, section).then(setTrendingArticles).catch(() => {});
+ }, [selectedArticle, section]);
 
  // Reading progress bar — passive scroll listener for article view
  const scrollRafId = useRef(0);
@@ -1202,7 +1221,7 @@ function BlogArticles({
  const excerpt = t(`blog.article.${article.id}.excerpt`);
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
- const canonicalUrl = `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: article.id })}`;
+ const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleRoute(article.id))}`;
  const articleBodyText = collectBodyParts(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
@@ -1539,7 +1558,7 @@ function BlogArticles({
  };
 
  const getArticleUrl = (articleId: BlogArticleId): string => {
- return `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: articleId })}`;
+ return `https://frontaliereticino.ch${buildPath(buildArticleRoute(articleId))}`;
  };
 
  const handleCopyLink = async (articleId: BlogArticleId) => {

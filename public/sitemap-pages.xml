@@ -1284,6 +1284,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://frontaliereticino.ch/articoli-svizzera/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-svizzera/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/swiss-articles/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/schweiz-artikel/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-suisse/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/articoli-svizzera/" />
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- FAQ standalone page -->
   <url>
