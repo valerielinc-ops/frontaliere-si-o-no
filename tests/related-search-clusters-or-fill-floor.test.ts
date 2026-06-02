@@ -26,6 +26,8 @@ import type {
   CandidateEntry,
   RawJob,
 } from '../build-plugins/relatedSearchClustersData';
+import { stripSearchQueryBoilerplate } from '@/services/relatedSearchClusters';
+import { normalizeSearchText, stemSearchToken } from '@/services/textUtils';
 
 // Synthetic corpus exercising the floor:
 //   - and        → matches BOTH "responsabile" and "neurologia" (AND core)
@@ -87,5 +89,67 @@ describe('OR-fill relevance floor — buildClusterContext derivation', () => {
     const ctx = buildClusterContext(makeCandidate('infermiere Lugano'), index, JOBS);
     expect(ctx).not.toBeNull();
     expect(ids(ctx!.matchingJobs)).toEqual(['infOnly']);
+  });
+});
+
+/**
+ * SPA OR-fallback floor↔scoring consistency (issue #1109, follow-up to PR #1107).
+ *
+ * The SPA OR-fallback tiers in components/community/JobBoard.tsx derive their
+ * relevance floor (`orFallbackMinScore`) from the CONTENT-token count of the
+ * boilerplate-STRIPPED query, but used to score the RAW query against the job
+ * haystack. That asymmetry let a *manually typed* boilerplate query
+ * ("pizzaiolo salary switzerland", entered in the search box rather than via a
+ * pre-stripped slug) reach the floor on boilerplate tokens alone — a job whose
+ * haystack contains only "salary" + "switzerland" scored 2 ≥ floor 2 with zero
+ * real content match. The fix scores the SAME stripped query the floor is
+ * computed from. These tests lock that contract by replicating the exact SPA
+ * token pipeline (strip → normalize → stem) shared by all three OR-fallback
+ * tiers; if a future edit reverts to scoring the raw query, the boilerplate-only
+ * haystack would score ≥ floor again and these assertions fail.
+ */
+describe('SPA OR-fallback floor↔scoring consistency (#1109)', () => {
+  // Mirror of the JobBoard tier pipeline: boilerplate-strip the query, then
+  // normalize + stem into the tokens scored against the (already stemmed)
+  // haystack with a leading-space word-boundary anchor.
+  const orFallbackTokens = (query: string): string[] =>
+    normalizeSearchText(stripSearchQueryBoilerplate(query.trim()))
+      .split(' ')
+      .filter(Boolean)
+      .map(stemSearchToken);
+
+  const stemHaystack = (text: string): string =>
+    ` ${normalizeSearchText(text).split(' ').filter(Boolean).map(stemSearchToken).join(' ')} `;
+
+  const scoreAgainst = (queryTokens: string[], haystack: string): number => {
+    const hay = stemHaystack(haystack);
+    let score = 0;
+    for (const t of queryTokens) if (hay.includes(` ${t}`)) score++;
+    return score;
+  };
+
+  it('boilerplate-only query strips to its real content token (floor stays 1)', () => {
+    // "pizzaiolo salary switzerland" → "pizzaiolo": a single content token, so
+    // the floor stays 1 and only the role word is ever scored.
+    expect(orFallbackTokens('pizzaiolo salary switzerland')).toEqual(['pizzaiol']);
+  });
+
+  it('a haystack matching ONLY boilerplate tokens no longer reaches the floor', () => {
+    const queryTokens = orFallbackTokens('pizzaiolo salary switzerland');
+    // A job whose haystack carries the boilerplate words (salary + switzerland)
+    // but NOT the role word scores 0 — pre-fix it scored 2 (raw tokens), enough
+    // to clear the floor with zero content overlap.
+    expect(scoreAgainst(queryTokens, 'Salary report Switzerland office')).toBe(0);
+    // The on-intent job (carries "pizzaiolo") still scores its one real token.
+    expect(scoreAgainst(queryTokens, 'Pizzaiolo per ristorante')).toBe(1);
+  });
+
+  it('legitimate multi-content-token manual query is unaffected (no regression)', () => {
+    // No boilerplate to strip → both real tokens survive and score normally,
+    // so the floor of 2 is reachable exactly as before the fix.
+    const queryTokens = orFallbackTokens('responsabile neurologia');
+    expect(queryTokens).toEqual(['responsabil', 'neurolog']);
+    expect(scoreAgainst(queryTokens, 'Responsabile Neurologia EOC')).toBe(2);
+    expect(scoreAgainst(queryTokens, 'Responsabile Vendite')).toBe(1);
   });
 });
