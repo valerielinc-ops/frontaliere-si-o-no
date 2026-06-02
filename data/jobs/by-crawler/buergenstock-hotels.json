@@ -3389,9 +3389,9 @@
     },
     {
       "id": "buergenstock-hotels-c37d04e61e54",
-      "slug": "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "cuoco-di-specialita-tailandesi-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "cuoco-di-specialita-tailandesi-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen"
@@ -3448,13 +3448,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "thailandischer-spezialitaten-koch-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-502fbda69212",
-      "slug": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
@@ -3511,7 +3519,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-38010f52e989",
@@ -3727,10 +3743,10 @@
     },
     {
       "id": "buergenstock-hotels-461c2e8e2ea0",
-      "slug": "conference-events-sales-manager-buergenstock-hotels-obburgen",
+      "slug": "responsabile-vendite-conferenze-ed-eventi-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "conference-events-sales-manager-buergenstock-hotels-obburgen",
-        "it": "conference-events-sales-manager-buergenstock-hotels-obburgen",
+        "it": "responsabile-vendite-conferenze-ed-eventi-burgenstock-hotels-ag-obburgen",
         "en": "conference-events-sales-manager-buergenstock-hotels-obburgen",
         "fr": "conference-events-sales-manager-buergenstock-hotels-obburgen"
       },
@@ -3788,7 +3804,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T23:00:03.740Z"
+      "firstSeenAt": "2026-06-01T23:00:03.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conference-events-sales-manager-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "conference-events-sales-manager-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }

@@ -7308,9 +7308,9 @@
     },
     {
       "id": "hoch-health-d56e1e8d3210",
-      "slug": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
         "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2"
@@ -7356,11 +7356,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2"
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2",
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2"
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen-2",
+          "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ]
       },
       "firstSeenAt": "2026-06-01T14:50:37.735Z",
@@ -17515,9 +17517,9 @@
     },
     {
       "id": "hoch-health-de4036d2f831",
-      "slug": "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-ostschweiz-uznach",
+      "slug": "specialista-in-infermieristica-nds-pronto-soccorso-80-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-ostschweiz-uznach",
+        "it": "specialista-in-infermieristica-nds-pronto-soccorso-80-100-hoch-health-ostschweiz-uznach",
         "en": "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach",
         "de": "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach",
         "fr": "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach"
@@ -17563,11 +17565,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach"
+        "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach",
+        "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach"
+          "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-uznach",
+          "dipl-pflegefachfrau-mann-nds-notfallpflege-80-100-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-06-01T14:49:30.254Z",
@@ -17657,9 +17661,9 @@
     },
     {
       "id": "hoch-health-8f9b5bfd3f3f",
-      "slug": "oberarztin-arzt-neurologie-80-hoch-health-st-gallen",
+      "slug": "medico-senior-neurologia-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "oberarztin-arzt-neurologie-80-hoch-health-st-gallen",
+        "it": "medico-senior-neurologia-80-hoch-health-ostschweiz-st-gallen",
         "en": "oberarztin-arzt-neurologie-80-hoch-health-st-gallen",
         "de": "oberarztin-arzt-neurologie-80-hoch-health-st-gallen",
         "fr": "oberarztin-arzt-neurologie-80-hoch-health-st-gallen"
@@ -17716,7 +17720,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-neurologie-80-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-neurologie-80-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-1ce45aa7a61f",
