@@ -7945,6 +7945,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: the wheelchair revolutionizing mobility',
     'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'The Genny Zero electric wheelchair, produced in Ticino, wins the Compasso d’Oro for its innovative design and Italian-Swiss technology.',
     'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'A modern wheelchair in a Ticino landscape with Lake Lugano in the background.',
+    'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: Neutralise 2026 estimates and middle class',
+    'blog.article.referendum-neutrale-stime-2026.excerpt': 'Vote on 14 June 2026. Neutralise estimates. Yes to the middle class.',
+    'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande in Bellinzona at sunset, symbol of stability and home.',
 };
 
 export default blogMetaEn;

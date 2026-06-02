@@ -42155,6 +42155,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-referendum-neutrale-stime-2026': {
+    title: 'Referendum: neutralizzazione stime 2026 e classe media',
+    description: 'Voto 14 giugno 2026 sulla neutralizzazione delle stime in Ticino. Impatto su tasse, casa e classe media. Analisi dell\'Iniziativa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, neutralizzazione, stime, classe',
+    ogTitle: 'Referendum neutralizzazione stime 2026',
+    ogDescription: 'Il voto del 14 giugno 2026 sulla neutralizzazione delle stime: difendere la casa e alleggerire la pressione fiscale in Ticino.',
+    canonicalPath: '/articoli-frontaliere/referendum-neutrale-stime-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum: neutralizzazione stime 2026 e classe media",
+      "description": "Voto 14 giugno 2026 sulla neutralizzazione delle stime in Ticino. Impatto su tasse, casa e classe media. Analisi dell'Iniziativa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-neutrale-stime-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona al tramonto, simbolo di stabilità e casa."
+      },
+      "datePublished": "2026-06-02T21:00:19+00:00",
+      "dateModified": "2026-06-02T21:00:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-neutrale-stime-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

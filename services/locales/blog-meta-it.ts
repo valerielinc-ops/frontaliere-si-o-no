@@ -7946,6 +7946,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: la sedia a rotelle che rivoluziona la mobilità',
     'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'La sedia a rotelle elettrica Genny Zero, prodotta in Ticino, vince il Compasso d’Oro per il design innovativo e la tecnologia italo-svizzera.',
     'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Una sedia a rotelle moderna in un paesaggio del Ticino con il lago di Lugano sullo sfondo.',
+    'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: neutralizzazione stime 2026 e classe media',
+    'blog.article.referendum-neutrale-stime-2026.excerpt': 'Voto 14 giugno 2026. Neutralizza stime. Sì alla classe media.',
+    'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande a Bellinzona al tramonto, simbolo di stabilità e casa.',
 };
 
 export default blogMetaIt;

@@ -7944,6 +7944,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: Der Rollstuhl, der Mobilität revolutioniert',
     'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'Der elektrische Rollstuhl Genny Zero, hergestellt im Tessin, gewinnt den Compasso d’Oro für innovatives Design und italienisch-schweizerische Technologie.',
     'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Ein moderner Rollstuhl in einer Landschaft im Tessin mit dem Luganersee im Hintergrund.',
+    'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: Schätzungen 2026 neutralisieren & Mittelschicht',
+    'blog.article.referendum-neutrale-stime-2026.excerpt': 'Abstimmung am 14. Juni 2026. Schätzungen neutralisieren. Ja zur Mittelschicht.',
+    'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang, Symbol für Stabilität und Zuhause.',
 };
 
 export default blogMetaDe;
