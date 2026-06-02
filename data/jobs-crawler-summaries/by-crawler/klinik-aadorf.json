@@ -1,18 +1,19 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-06-01T15:04:34.293Z",
+  "generatedAt": "2026-06-02T00:09:26.405Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5168,
-  "avgDurationMs": 5168,
+  "durationMs": 4286,
+  "avgDurationMs": 4286,
   "durationHistory": [
-    5168
+    4286
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-aadorf-093f4e92ba45",
       "slug": "essbegleiterin-essbegleiter-m-w-d-40-50-klinik-aadorf-aadorf",
@@ -20,13 +21,13 @@
       "companyKey": "klinik-aadorf",
       "companyDomain": "klinik-aadorf.ch",
       "title": "Essbegleiterin / Essbegleiter m/w/d 40-50%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Aadorf",
       "canton": "TG",
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/af339bff-6451-4460-bfcc-935ee92ee2e8/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:04:30.023Z",
+      "crawledAt": "2026-06-02T00:09:22.672Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-06-01",
       "applyUrl": "https://jobs.dualoo.com/portal/3ibnwlo9/af339bff-6451-4460-bfcc-935ee92ee2e8/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-01T15:04:30.023Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-aadorf-036e5900dc7c",
       "slug": "assistenzarztin-assistenzarzt-70-100-klinik-aadorf-aadorf",
@@ -64,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/b83b7258-5abb-43a0-bcf0-4cf836b8d140/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:04:30.528Z",
+      "crawledAt": "2026-06-02T00:09:23.106Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/3ad10aff-6faf-49e6-850a-ef073d05bd7b/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:04:31.032Z",
+      "crawledAt": "2026-06-02T00:09:23.555Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -138,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/1727a35a-ab32-4a43-a153-c4de9cf74c12/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:04:31.539Z",
+      "crawledAt": "2026-06-02T00:09:23.999Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/fdb14f3b-867c-4c86-b15d-6eb7fbdf338d/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:04:32.038Z",
+      "crawledAt": "2026-06-02T00:09:24.636Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
