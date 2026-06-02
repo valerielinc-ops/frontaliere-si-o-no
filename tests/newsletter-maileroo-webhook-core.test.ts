@@ -172,9 +172,12 @@ describe('newsletterMailerooWebhookCore', () => {
   });
 
   it('routes opened/clicked to job_alert_subscribers when the lookup record flags job-alert', async () => {
+    // send-job-alerts.mjs (sendBatch onSent) writes exactly { email, is_job_alert: true }
+    // to newsletter_subscribers/_meta_/maileroo_refs/{referenceId} — no campaign_id
+    // (job-alerts have no campaign concept). Mirror that prod shape here.
     const db = createFakeDb({
       'newsletter_subscribers/_meta_/maileroo_refs': {
-        ref_ja: { email: 'seeker@example.com', campaign_id: 'job_alert_x', is_job_alert: true },
+        ref_ja: { email: 'seeker@example.com', is_job_alert: true },
       },
     });
 
