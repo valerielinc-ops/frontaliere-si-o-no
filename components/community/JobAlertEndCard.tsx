@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { BellRing, ArrowRight } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -8,6 +9,15 @@ interface JobAlertEndCardProps {
 
 export default function JobAlertEndCard({ keyword }: JobAlertEndCardProps) {
  const { t } = useTranslation();
+ // Impression: the card renders when the user has reached the end of the
+ // listings. Track once on mount so the end-card funnel has a `shown`
+ // denominator (previously only the click was tracked).
+ const shownTrackedRef = useRef(false);
+ useEffect(() => {
+ if (shownTrackedRef.current) return;
+ shownTrackedRef.current = true;
+ Analytics.trackJobAlertCtaShown('end_card', keyword);
+ }, [keyword]);
  const handleClick = () => {
  Analytics.trackJobAlertCtaClick('end_card', 'open', keyword);
  window.dispatchEvent(new CustomEvent('openJobAlert'));
