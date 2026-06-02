@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swatch-group-assembly",
-  "assembledAt": "2026-06-01T11:40:20.912Z",
+  "assembledAt": "2026-06-02T01:31:41.808Z",
   "jobs": [
     {
       "id": "company-7uarki",
@@ -30,7 +30,7 @@
       "firstSeenAt": "2026-05-29T00:53:43.167Z",
       "slugByLocale": {
         "it": "dirigente-del-marchio-the-swatch-group-malaysia-sdn-bhd-ticino",
-        "en": "brand-executive-the-swatch-group-malaysia-sdn-bhd-ticino",
+        "en": "brand-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-malaysia-company-address-the-swatch-group-mal-7uarki",
         "de": "marke-executive-the-swatch-group-malaysia-sdn-bhd-ticino",
         "fr": "marque-executive-the-swatch-group-malaysia-sdn-bhd-ticino"
       },
@@ -87,6 +87,7 @@
           "marque-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-kuala-lumpur-malaysia-company-address-the-swatch"
         ],
         "en": [
+          "brand-executive-the-swatch-group-malaysia-sdn-bhd-ticino",
           "brand-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-malaysia-company-address-the-swatch-group-mal-7uarki"
         ]
       },
@@ -95,6 +96,7 @@
         "dirigente-del-marchio-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-kuala-lumpur-malaysia-company-address-the",
         "marke-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-kuala-lumpur-malaysia-company-address-the-swatch",
         "marque-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-kuala-lumpur-malaysia-company-address-the-swatch",
+        "brand-executive-the-swatch-group-malaysia-sdn-bhd-ticino",
         "brand-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-malaysia-company-address-the-swatch-group-mal",
         "dirigente-del-marchio-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-kuala-lumpur-malaysia-company-address-the-swa",
         "marke-executive-the-swatch-group-malaysia-sdn-bhd-50200-kuala-lumpur-malaysia-company-address-the-swatch-group-mal-7uarki",
@@ -103,7 +105,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uap9s",
@@ -228,7 +231,7 @@
       "slugByLocale": {
         "it": "swatch-part-time-portachiavi-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offe",
         "en": "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk",
-        "de": "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-ticino",
+        "de": "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk",
         "fr": "swatch-temps-partiel-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-7ua6vk"
       },
       "sourceLang": "en",
@@ -238,12 +241,14 @@
           "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk"
         ],
         "de": [
+          "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-ticino",
           "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk"
         ]
       },
       "previousSlugs": [
         "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat",
-        "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk"
+        "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swat-7ua6vk",
+        "swatch-part-time-keyholder-garden-state-plaza-nj-the-swatch-group-u-s-inc-ticino"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -262,7 +267,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "FR",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaq34",
@@ -310,7 +316,7 @@
         "it": "swatch-part-time-portachiavi-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-san",
         "en": "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34",
         "de": "swatch-teilzeit-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34",
-        "fr": "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-ticino"
+        "fr": "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34"
       },
       "sourceLang": "en",
       "previousSlugsByLocale": {
@@ -319,12 +325,14 @@
           "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34"
         ],
         "fr": [
+          "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-ticino",
           "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34"
         ]
       },
       "previousSlugs": [
         "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california",
-        "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34"
+        "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-job-location-stevens-creek-boulevard-2855-95050-santa-clara-ca-california-7uaq34",
+        "swatch-part-time-keyholder-valley-fair-ca-the-swatch-group-u-s-inc-ticino"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -343,11 +351,12 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaqq5",
-      "slug": "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino",
+      "slug": "swatch-tempo-pieno-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-sw-7uaqq5",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Full Time Keyholder - Roosevelt Fields (NY)",
       "location": "Ticino",
@@ -392,7 +401,7 @@
       "slugByLocale": {
         "it": "swatch-tempo-pieno-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-sw-7uaqq5",
         "en": "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat-7uaqq5",
-        "de": "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino",
+        "de": "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat-7uaqq5",
         "fr": "swatch-temps-plein-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-sw-7uaqq5"
       },
       "sourceLang": "en",
@@ -400,13 +409,15 @@
         "it": [
           "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat",
           "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-co",
-          "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states"
+          "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states",
+          "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino"
         ],
         "fr": [
           "porte-cles-swatch-a-temps-plein-champs-roosevelt-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states",
           "porte-cles-swatch-a-temps-plein-champs-roosevelt-ny-the-swatch-group-u-s-inc-ticino"
         ],
         "de": [
+          "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino",
           "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat-7uaqq5"
         ]
       },
@@ -414,9 +425,10 @@
         "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat",
         "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-co",
         "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states",
+        "swatch-full-time-portachiavi-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino",
         "porte-cles-swatch-a-temps-plein-champs-roosevelt-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states",
         "porte-cles-swatch-a-temps-plein-champs-roosevelt-ny-the-swatch-group-u-s-inc-ticino",
-        "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-11530-garden-city-ny-new-york-united-states-company-address-the-swat-7uaqq5"
+        "swatch-full-time-keyholder-roosevelt-fields-ny-the-swatch-group-u-s-inc-ticino"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -435,11 +447,12 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "FR",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaqs4",
-      "slug": "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-ticino",
+      "slug": "swatch-tempo-pieno-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-7uaqs4",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Full Time Keyholder - Aventura Mall",
       "location": "Ticino",
@@ -484,7 +497,7 @@
       "slugByLocale": {
         "it": "swatch-tempo-pieno-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-7uaqs4",
         "en": "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u-7uaqs4",
-        "de": "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-ticino",
+        "de": "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u-7uaqs4",
         "fr": "swatch-temps-plein-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-7uaqs4"
       },
       "sourceLang": "en",
@@ -492,12 +505,14 @@
         "it": [
           "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u",
           "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-addr",
-          "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company"
+          "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company",
+          "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-ticino"
         ],
         "fr": [
           "swatch-temps-plein-keyholder-aventura-mall-the-swatch-group-u-s-inc-ticino"
         ],
         "de": [
+          "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-ticino",
           "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u-7uaqs4"
         ]
       },
@@ -505,8 +520,9 @@
         "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u",
         "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-addr",
         "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company",
+        "swatch-full-time-portachiavi-aventura-mall-the-swatch-group-u-s-inc-ticino",
         "swatch-temps-plein-keyholder-aventura-mall-the-swatch-group-u-s-inc-ticino",
-        "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-33180-aventura-fl-florida-united-states-company-address-the-swatch-group-u-7uaqs4"
+        "swatch-full-time-keyholder-aventura-mall-the-swatch-group-u-s-inc-ticino"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -525,7 +541,8 @@
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "FR",
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "needsRetranslation": true
     }
   ]
 }
