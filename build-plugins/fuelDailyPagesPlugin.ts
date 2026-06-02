@@ -421,18 +421,32 @@ function formatDelta(delta: number | null, locale: FuelDailyLocale): string {
 }
 
 /**
- * Daily-zone-page delta presentation: same as {@link formatDelta} but renders
- * an explicit "unchanged" word for an exact-zero delta instead of "0,000 CHF",
- * which users read as "no data" (see the live Locarno case). Display-only —
- * NOT used by station/Italian-city pages, which parse formatDelta's numeric
- * output (strip sign + "CHF"/"EUR"), so the raw helper stays untouched there.
+ * Localised "no change over time" word, used in place of a literal "0,000 CHF"
+ * delta — which users read as "no data" (see the live Locarno case). Applies
+ * ONLY to TIME comparisons (vs yesterday / vs 7 days): "stabile" means the
+ * price held steady. It is NOT correct for the station/Italian-city
+ * spatial delta (station vs zone/city average), where zero means "in line with
+ * the average" — a different concept handled there by the advice "median"
+ * branch. All daily-zone consuming frames are adjective-position ("<word> vs
+ * ieri", "è <word>") so this single adjective fits each surface grammatically.
  */
-function formatDeltaDisplay(
-  delta: number | null,
-  locale: FuelDailyLocale,
-  copy: FuelCopy,
-): string {
-  if (delta === 0) return copy.unchangedLabel;
+const DELTA_UNCHANGED_LABEL: Record<FuelDailyLocale, string> = {
+  it: 'stabile',
+  en: 'unchanged',
+  de: 'unverändert',
+  fr: 'stable',
+};
+
+/**
+ * Time-delta presentation for visible copy: same as {@link formatDelta} but
+ * renders the localised "unchanged" word for an exact-zero day-over-day /
+ * 7-day delta instead of "0,000 CHF". Display-only — callers that PARSE the
+ * delta (renderStationAdvice strips sign + "CHF"/"EUR") must keep using
+ * {@link formatDelta}, and the station/city spatial delta keeps formatDelta
+ * because "stabile" would misdescribe a station-vs-average comparison.
+ */
+function formatDeltaDisplay(delta: number | null, locale: FuelDailyLocale): string {
+  if (delta === 0) return DELTA_UNCHANGED_LABEL[locale];
   return formatDelta(delta, locale);
 }
 
@@ -473,12 +487,6 @@ interface FuelCopy {
   avgLabel: string;
   vsYesterday: string;
   vs7d: string;
-  /**
-   * Word shown in place of a "0,000 CHF" delta when the price is unchanged
-   * vs the comparison point. A literal "0,000 CHF" reads like missing data;
-   * an explicit "stabile"/"unchanged" word reads as "no change".
-   */
-  unchangedLabel: string;
   top3Label: string;
   trendLabel: string;
   trendEmpty: string;
@@ -518,7 +526,6 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Prezzo medio oggi',
     vsYesterday: 'vs ieri',
     vs7d: 'vs 7 giorni fa',
-    unchangedLabel: 'stabile',
     top3Label: 'Le 3 stazioni più economiche',
     trendLabel: 'Andamento storico del prezzo',
     trendEmpty: 'Storico in costruzione: il grafico si aggiorna ogni giorno a partire da oggi.',
@@ -564,7 +571,6 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Average price today',
     vsYesterday: 'vs yesterday',
     vs7d: 'vs 7 days ago',
-    unchangedLabel: 'unchanged',
     top3Label: 'Top 3 cheapest stations',
     trendLabel: 'Historical price trend',
     trendEmpty: 'History is being collected: the chart fills in day by day.',
@@ -610,7 +616,6 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Durchschnittspreis heute',
     vsYesterday: 'vs gestern',
     vs7d: 'vs 7 Tage',
-    unchangedLabel: 'unverändert',
     top3Label: 'Top 3 günstigste Tankstellen',
     trendLabel: 'Historischer Preisverlauf',
     trendEmpty: 'Historie wird aufgebaut: das Diagramm füllt sich Tag für Tag.',
@@ -656,7 +661,6 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Prix moyen aujourd\'hui',
     vsYesterday: 'vs hier',
     vs7d: 'vs 7 jours',
-    unchangedLabel: 'stable',
     top3Label: 'Top 3 stations les moins chères',
     trendLabel: 'Tendance historique du prix',
     trendEmpty: 'Historique en cours de construction : le graphique se remplit jour par jour.',
@@ -1295,7 +1299,7 @@ function renderFuelTodayFrontalierContext(args: {
   const copy: Record<FuelDailyLocale, { h: string; p1: string; p2: string }> = {
     it: {
       h: `${fuelLabel} ${where}: cosa significa il prezzo di oggi per i frontalieri`,
-      p1: `Per i frontalieri italiani che attraversano quotidianamente il confine per lavorare in Ticino, ${fuelLabel.toLowerCase()} ${where} a ${priceFmt} è una voce di costo ricorrente che incide direttamente sul netto. Su un serbatoio standard da 50 litri, una variazione di CHF 0.10 al litro significa CHF 5 in più o in meno per ogni rifornimento — su una media di 4 rifornimenti al mese diventano CHF 240 all'anno. Il delta rispetto a ieri è di ${deltaYestFmt} e quello settimanale è di ${delta7Fmt}: monitorare queste fluttuazioni aiuta a decidere se conviene fare il pieno oggi o aspettare. I prezzi più bassi nel ${zoneLabel} sono pubblicati in tempo reale dal nostro crawler, che attinge al registro federale dei prezzi (FCA) e ai listini delle compagnie petrolifere. Per ottimizzare il pendolarismo, confronta il prezzo medio della tua zona di lavoro con quello dei distributori sui valichi italiani lato Como e Varese: la differenza tra i due lati del confine oscilla normalmente tra CHF 0.20 e CHF 0.40 per litro a seconda del cambio del giorno.`,
+      p1: `Per i frontalieri italiani che attraversano quotidianamente il confine per lavorare in Ticino, ${fuelLabel.toLowerCase()} ${where} a ${priceFmt} è una voce di costo ricorrente che incide direttamente sul netto. Su un serbatoio standard da 50 litri, una variazione di CHF 0.10 al litro significa CHF 5 in più o in meno per ogni rifornimento — su una media di 4 rifornimenti al mese diventano CHF 240 all'anno. Il delta rispetto a ieri è ${deltaYestFmt} e quello settimanale è ${delta7Fmt}: monitorare queste fluttuazioni aiuta a decidere se conviene fare il pieno oggi o aspettare. I prezzi più bassi nel ${zoneLabel} sono pubblicati in tempo reale dal nostro crawler, che attinge al registro federale dei prezzi (FCA) e ai listini delle compagnie petrolifere. Per ottimizzare il pendolarismo, confronta il prezzo medio della tua zona di lavoro con quello dei distributori sui valichi italiani lato Como e Varese: la differenza tra i due lati del confine oscilla normalmente tra CHF 0.20 e CHF 0.40 per litro a seconda del cambio del giorno.`,
       p2: `Cambio CHF/EUR e convenienza del rifornimento. Il franco svizzero forte ha attenuato negli ultimi mesi il vantaggio strutturale del rifornimento in Italia per chi è pagato in CHF: con il cambio CHF/EUR favorevole, un litro pagato in Svizzera può costare in euro reali meno di un litro italiano per un frontaliere con stipendio sopra i CHF 4'500 mensili. Il punto di pareggio dipende da tre variabili — il cambio del giorno, il consumo della propria auto, la lunghezza della deviazione necessaria. Con consumi di 6 L/100 km, oltre i 50 km di deviazione per cercare il distributore più economico l'operazione raramente conviene una volta sommati tempo e usura del veicolo. Per pianificare meglio, verifica sempre i tempi di attesa ai valichi sulla mappa dei valichi prima del rifornimento — una coda di 30 minuti al confine può azzerare il vantaggio del prezzo italiano. Per il calcolo netto-lordo dello stipendio considera anche queste spese ricorrenti nel <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a>.`,
     },
     en: {
@@ -1305,12 +1309,12 @@ function renderFuelTodayFrontalierContext(args: {
     },
     de: {
       h: `${fuelLabel} ${where === 'in Ticino' ? 'im Tessin' : `in ${zoneLabel}`}: was der heutige Preis für Grenzgänger bedeutet`,
-      p1: `Für italienische Grenzgänger, die täglich die Grenze überqueren, um im Tessin zu arbeiten, ist ${fuelLabel.toLowerCase()} bei CHF ${priceFmt} eine wiederkehrende Ausgabe, die direkt das Nettoeinkommen beeinflusst. Bei einem Standard-50-Liter-Tank bedeutet eine Schwankung von CHF 0.10 pro Liter CHF 5 mehr oder weniger pro Tankfüllung — bei rund 4 Tankfüllungen pro Monat sind das CHF 240 pro Jahr. Die Tagesveränderung beträgt ${deltaYestFmt} und die Wochenveränderung ${delta7Fmt}: das Verfolgen dieser Schwankungen hilft bei der Entscheidung, ob heute zu tanken oder zu warten ist. Die günstigsten Tankstellen in ${zoneLabel} listet unser Crawler in Echtzeit auf, der auf das Bundesregister der Treibstoffpreise (FCA) und die Preislisten der Mineralölgesellschaften zugreift. Um den Arbeitsweg zu optimieren, vergleichen Sie den Median Ihrer Arbeitszone mit italienischen Tankstellen an den Übergängen Como und Varese: die Differenz zwischen beiden Grenzseiten schwankt typischerweise zwischen CHF 0.20 und CHF 0.40 pro Liter je nach Tageskurs.`,
+      p1: `Für italienische Grenzgänger, die täglich die Grenze überqueren, um im Tessin zu arbeiten, ist ${fuelLabel.toLowerCase()} bei CHF ${priceFmt} eine wiederkehrende Ausgabe, die direkt das Nettoeinkommen beeinflusst. Bei einem Standard-50-Liter-Tank bedeutet eine Schwankung von CHF 0.10 pro Liter CHF 5 mehr oder weniger pro Tankfüllung — bei rund 4 Tankfüllungen pro Monat sind das CHF 240 pro Jahr. Die Tagesveränderung ist ${deltaYestFmt} und die Wochenveränderung ist ${delta7Fmt}: das Verfolgen dieser Schwankungen hilft bei der Entscheidung, ob heute zu tanken oder zu warten ist. Die günstigsten Tankstellen in ${zoneLabel} listet unser Crawler in Echtzeit auf, der auf das Bundesregister der Treibstoffpreise (FCA) und die Preislisten der Mineralölgesellschaften zugreift. Um den Arbeitsweg zu optimieren, vergleichen Sie den Median Ihrer Arbeitszone mit italienischen Tankstellen an den Übergängen Como und Varese: die Differenz zwischen beiden Grenzseiten schwankt typischerweise zwischen CHF 0.20 und CHF 0.40 pro Liter je nach Tageskurs.`,
       p2: `CHF/EUR-Wechselkurs und Tank-Wirtschaftlichkeit. Der starke Schweizer Franken hat in den letzten Monaten den strukturellen Vorteil des Tankens in Italien für CHF-bezahlte Grenzgänger gemindert: bei einem günstigen CHF/EUR-Kurs kann ein Schweizer Liter in realen EUR weniger kosten als ein italienischer Liter für Personen mit Gehältern über CHF 4'500/Monat. Der Break-Even-Punkt hängt von drei Variablen ab — Tageskurs, Fahrzeugverbrauch und Länge des nötigen Umwegs. Bei einem Verbrauch von 6 L/100 km lohnen sich Umwege von mehr als 50 km zur Suche einer günstigeren Tankstelle selten, wenn Zeit und Fahrzeugverschleiss eingerechnet werden. Zur besseren Planung prüfen Sie immer die Live-Wartezeiten auf der Übergangskarte vor dem Tanken — eine 30-minütige Wartezeit an der Grenze kann den italienischen Preisvorteil neutralisieren. Für die Brutto-Netto-Berechnung des Lohns berücksichtigen Sie diese laufenden Kosten im <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a>.`,
     },
     fr: {
       h: `${fuelLabel} ${where === 'in Ticino' ? 'au Tessin' : `à ${zoneLabel}`} : ce que le prix d'aujourd'hui signifie pour les frontaliers`,
-      p1: `Pour les frontaliers italiens qui traversent quotidiennement la frontière pour travailler au Tessin, ${fuelLabel.toLowerCase()} à CHF ${priceFmt} est une dépense récurrente qui pèse directement sur le salaire net. Sur un réservoir standard de 50 litres, une variation de CHF 0.10 par litre représente CHF 5 de plus ou de moins par plein — sur environ 4 pleins par mois cela représente CHF 240 par an. La variation par rapport à hier est de ${deltaYestFmt} et celle par rapport à la semaine dernière de ${delta7Fmt} : surveiller ces fluctuations aide à décider de faire le plein aujourd'hui ou d'attendre. Les stations les moins chères à ${zoneLabel} sont listées en temps réel par notre crawler, qui s'appuie sur le registre fédéral des prix des carburants (FCA) et les listes de prix des compagnies pétrolières. Pour optimiser votre trajet, comparez la médiane de votre zone de travail avec les stations italiennes près des passages Côme et Varèse : l'écart entre les deux côtés de la frontière oscille normalement entre CHF 0.20 et CHF 0.40 par litre selon le taux du jour.`,
+      p1: `Pour les frontaliers italiens qui traversent quotidiennement la frontière pour travailler au Tessin, ${fuelLabel.toLowerCase()} à CHF ${priceFmt} est une dépense récurrente qui pèse directement sur le salaire net. Sur un réservoir standard de 50 litres, une variation de CHF 0.10 par litre représente CHF 5 de plus ou de moins par plein — sur environ 4 pleins par mois cela représente CHF 240 par an. La variation par rapport à hier est ${deltaYestFmt} et celle par rapport à la semaine dernière est ${delta7Fmt} : surveiller ces fluctuations aide à décider de faire le plein aujourd'hui ou d'attendre. Les stations les moins chères à ${zoneLabel} sont listées en temps réel par notre crawler, qui s'appuie sur le registre fédéral des prix des carburants (FCA) et les listes de prix des compagnies pétrolières. Pour optimiser votre trajet, comparez la médiane de votre zone de travail avec les stations italiennes près des passages Côme et Varèse : l'écart entre les deux côtés de la frontière oscille normalement entre CHF 0.20 et CHF 0.40 par litre selon le taux du jour.`,
       p2: `Taux CHF/EUR et économie du plein. Le franc suisse fort a atténué ces derniers mois l'avantage structurel du plein en Italie pour les frontaliers payés en CHF : avec un taux CHF/EUR favorable, un litre payé en Suisse peut coûter en EUR réels moins qu'un litre italien pour quelqu'un gagnant plus de CHF 4'500/mois. Le seuil de rentabilité dépend de trois variables — taux du jour, consommation du véhicule, longueur du détour nécessaire. Avec une consommation de 6 L/100 km, des détours de plus de 50 km à la recherche d'une pompe moins chère sont rarement rentables une fois pris en compte le temps et l'usure du véhicule. Pour mieux planifier, vérifiez toujours les temps d'attente en direct sur la carte des passages avant de faire le plein — une file de 30 minutes à la frontière peut annuler l'avantage du prix italien. Pour le calcul brut-net du salaire, intégrez ces coûts récurrents dans le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a>.`,
     },
   };
@@ -1597,8 +1601,8 @@ function renderPage(inp: PageInputs): string {
   const delta7 = computeDeltaVsYesterday(avg, weekAgo);
 
   const priceFmt = formatPrice(avg, locale);
-  const deltaYestFmt = formatDeltaDisplay(deltaYest, locale, copy);
-  const delta7Fmt = formatDeltaDisplay(delta7, locale, copy);
+  const deltaYestFmt = formatDeltaDisplay(deltaYest, locale);
+  const delta7Fmt = formatDeltaDisplay(delta7, locale);
 
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const intro = copy.intro(fuelLabel, zoneLabel, priceFmt, dateStamp);
@@ -1609,10 +1613,10 @@ function renderPage(inp: PageInputs): string {
   // moves to the paragraph block below the action area, preserving
   // text-to-HTML ratio.
   const fuelTaglineByLocale: Record<FuelDailyLocale, string> = {
-    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · variazione vs ieri ${deltaYestFmt}, vs 7 giorni ${delta7Fmt}.`,
-    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · change vs yesterday ${deltaYestFmt}, vs 7 days ${delta7Fmt}.`,
-    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · Veränderung vs gestern ${deltaYestFmt}, vs 7 Tagen ${delta7Fmt}.`,
-    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · variation vs hier ${deltaYestFmt}, vs 7 jours ${delta7Fmt}.`,
+    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · ${deltaYestFmt} vs ieri, ${delta7Fmt} vs 7 giorni.`,
+    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · ${deltaYestFmt} vs yesterday, ${delta7Fmt} vs 7 days.`,
+    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · ${deltaYestFmt} vs gestern, ${delta7Fmt} vs 7 Tagen.`,
+    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · ${deltaYestFmt} vs hier, ${delta7Fmt} vs 7 jours.`,
   };
   const introTagline = fuelTaglineByLocale[locale];
   const historyCopy = copy.historySection;
