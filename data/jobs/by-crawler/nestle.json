@@ -1,7 +1,72 @@
 {
   "crawlerKey": "nestle",
-  "assembledAt": "2026-06-01T15:37:39.517Z",
+  "assembledAt": "2026-06-02T00:41:51.194Z",
   "jobs": [
+    {
+      "id": "nestle-1399460633",
+      "slug": "laborant-in-mikrobiologie-nestle-ch",
+      "slugByLocale": {
+        "en": "laborant-in-mikrobiologie-nestle-ch",
+        "it": "laborant-in-mikrobiologie-nestle-ch",
+        "de": "laborant-in-mikrobiologie-nestle-konolfingen-ch",
+        "fr": "laborant-in-mikrobiologie-nestle-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Laborant:in Mikrobiologie",
+      "titleByLocale": {
+        "en": "Laborant:in Mikrobiologie",
+        "de": "Laborant:in Mikrobiologie",
+        "it": "Laborant:in Mikrobiologie",
+        "fr": "Laborant:in Mikrobiologie"
+      },
+      "description": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+      "descriptionByLocale": {
+        "en": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "it": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "de": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active.",
+        "fr": "Laborant:in Mikrobiologie — Nestlé, Konolfingen, CH.\n\nKey details:\n• Location: Konolfingen, CH, BE canton, Switzerland\n• Employer: Nestlé — world's largest food and beverage company\n• Apply on: Nestlé careers portal\n\nThis listing is part of Nestlé’s official Swiss careers feed. Review the role requirements, team context, contract details, and application instructions directly on the Nestlé job page before applying. The position is kept in this dataset only while the official careers portal keeps the requisition active."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-02T00:41:48.853Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-Mikrobiologie/1399460633/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-02T00:41:48.853Z"
+    },
     {
       "id": "nestle-1398219033",
       "slug": "laborant-in-cfc-chemie-nestle-konolfingen-ch",
@@ -33,7 +98,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Laborantin-EFZ-Chemie/1398219033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:36.842Z",
+      "crawledAt": "2026-06-02T00:41:48.172Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,7 +169,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Automatikerin-Automationsfachmann-frau/1283886901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:36.080Z",
+      "crawledAt": "2026-06-02T00:41:47.505Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,7 +239,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrer-in-Special-Products-100/1293641201/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:35.313Z",
+      "crawledAt": "2026-06-02T00:41:46.829Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -245,7 +310,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Technicien-M%C3%A9trologie-%28HFD%29/1390255633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:34.415Z",
+      "crawledAt": "2026-06-02T00:41:46.132Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -260,19 +325,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Technicien-M%C3%A9trologie-%28HFD%29/1390255633/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "technicien-metrologie-h-f-d-nestle-avenches-ch",
-          "technicien-metrologie-h-f-d-nestle-ch"
-        ],
-        "it": [
-          "technicien-metrologie-h-f-d-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "technicien-metrologie-h-f-d-nestle-ch",
         "technicien-metrologie-h-f-d-nestle-avenches-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-metrologie-h-f-d-nestle-ch"
+        ],
+        "fr": [
+          "technicien-metrologie-h-f-d-nestle-avenches-ch",
+          "technicien-metrologie-h-f-d-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-29T13:25:54.182Z",
       "salaryMin": 49500,
@@ -320,7 +385,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Technicien-de-maintenance-5x8/1378330133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:33.623Z",
+      "crawledAt": "2026-06-02T00:41:45.498Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -390,7 +455,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:32.845Z",
+      "crawledAt": "2026-06-02T00:41:44.881Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -405,19 +470,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Avenches-Op%C3%A9rateur-de-production-48-%28HFD%29/1378138333/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "operateur-de-production-4-8-h-f-d-nestle-avenches-ch",
-          "operateur-de-production-4-8-h-f-d-nestle-ch"
-        ],
-        "it": [
-          "operateur-de-production-4-8-h-f-d-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "operateur-de-production-4-8-h-f-d-nestle-ch",
         "operateur-de-production-4-8-h-f-d-nestle-avenches-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-de-production-4-8-h-f-d-nestle-ch"
+        ],
+        "fr": [
+          "operateur-de-production-4-8-h-f-d-nestle-avenches-ch",
+          "operateur-de-production-4-8-h-f-d-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:34:03.874Z",
       "salaryMin": 49500,
@@ -465,7 +530,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Vivier-de-talent-Op%C3%A9rateur%C2%B7trice-de-production-5x8/1167106701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:31.998Z",
+      "crawledAt": "2026-06-02T00:41:44.219Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -535,7 +600,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Betriebselektrikerin/1220980901/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:37:31.251Z",
+      "crawledAt": "2026-06-02T00:41:43.589Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -608,7 +673,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Planificateur%C2%B7trice-de-maintenance-Services-Industriels-%28SI%29/1393207333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:30.390Z",
+      "crawledAt": "2026-06-02T00:41:42.936Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -678,7 +743,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:37:29.602Z",
+      "crawledAt": "2026-06-02T00:41:42.264Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -693,19 +758,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Wangen-Anlagenf%C3%BChrerin/1374185733/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "anlagenfuhrer-in-nestle-wangen-ch",
-          "anlagenfuhrer-in-nestle-ch"
-        ],
-        "it": [
-          "anlagenfuhrer-in-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "anlagenfuhrer-in-nestle-ch",
         "anlagenfuhrer-in-nestle-wangen-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-nestle-ch"
+        ],
+        "de": [
+          "anlagenfuhrer-in-nestle-wangen-ch",
+          "anlagenfuhrer-in-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:41.073Z",
       "salaryMin": 49500,
@@ -753,7 +818,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-cost-control-%28HFD%29/1383917033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:28.843Z",
+      "crawledAt": "2026-06-02T00:41:41.596Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -815,7 +880,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:28.091Z",
+      "crawledAt": "2026-06-02T00:41:40.927Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,19 +895,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-R&D-Project-Manager/1386977033/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "r-d-project-manager-nestle-konolfingen-ch",
-          "r-d-project-manager-nestle-ch"
-        ],
-        "it": [
-          "r-d-project-manager-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "r-d-project-manager-nestle-ch",
         "r-d-project-manager-nestle-konolfingen-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-project-manager-nestle-ch"
+        ],
+        "en": [
+          "r-d-project-manager-nestle-konolfingen-ch",
+          "r-d-project-manager-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:32.795Z",
       "salaryMin": 68000,
@@ -891,7 +956,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Smart-Sensors-Specialist/1398041633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:27.323Z",
+      "crawledAt": "2026-06-02T00:41:40.269Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -967,7 +1032,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Electrical-&-Automation-Technician/1388469333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:26.582Z",
+      "crawledAt": "2026-06-02T00:41:39.606Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1030,7 +1095,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Early-Life-Nutrition-&-Growth-Data-Science-Intern/1398035633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:25.825Z",
+      "crawledAt": "2026-06-02T00:41:38.965Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1093,7 +1158,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Specialist-Macronutrient-Physiology/1392977733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:25.024Z",
+      "crawledAt": "2026-06-02T00:41:38.324Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1170,7 +1235,7 @@
       "url": "https://jobdetails.nestle.com/job/Wangen-Teamleiterin-Produktion-%283-Schicht%29/1388899233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:24.265Z",
+      "crawledAt": "2026-06-02T00:41:37.652Z",
       "addressLocality": "Wangen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1232,7 +1297,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-Packaging-Materials-Specialist/1391913333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:23.479Z",
+      "crawledAt": "2026-06-02T00:41:37.025Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1309,7 +1374,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:22.708Z",
+      "crawledAt": "2026-06-02T00:41:36.364Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1324,19 +1389,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Audit-Manager/1389798633/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "audit-manager-nestle-vevey-ch",
-          "audit-manager-nestle-ch"
-        ],
-        "it": [
-          "audit-manager-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "audit-manager-nestle-ch",
         "audit-manager-nestle-vevey-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "audit-manager-nestle-ch"
+        ],
+        "en": [
+          "audit-manager-nestle-vevey-ch",
+          "audit-manager-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:52.775Z",
       "salaryMin": 68000,
@@ -1385,7 +1450,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Legal-Counsel-Employment-and-Labour-Law/1365350433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:21.908Z",
+      "crawledAt": "2026-06-02T00:41:35.736Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1456,7 +1521,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:21.115Z",
+      "crawledAt": "2026-06-02T00:41:35.093Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,19 +1536,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-International-Auditor/1376630333/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "international-auditor-nestle-vevey-ch",
-          "international-auditor-nestle-ch"
-        ],
-        "it": [
-          "international-auditor-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "international-auditor-nestle-ch",
         "international-auditor-nestle-vevey-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "international-auditor-nestle-ch"
+        ],
+        "en": [
+          "international-auditor-nestle-vevey-ch",
+          "international-auditor-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:21.891Z",
       "salaryMin": 49500,
@@ -1532,7 +1597,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Procurement-Strategy-and-Transformation-Project-Lead/1393809833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:20.335Z",
+      "crawledAt": "2026-06-02T00:41:34.449Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1602,7 +1667,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Global-&-EUR-Safety-Lead/1398542833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:19.589Z",
+      "crawledAt": "2026-06-02T00:41:33.789Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1672,7 +1737,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Stagiaire-Pr%C3%A9-HES-Food-Technology-%28Youth%29/1160674301/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:18.816Z",
+      "crawledAt": "2026-06-02T00:41:33.136Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1742,7 +1807,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Tierarztberaterin-Vet-Advisor/1392313033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:37:17.997Z",
+      "crawledAt": "2026-06-02T00:41:32.485Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1815,7 +1880,7 @@
       "url": "https://jobdetails.nestle.com/job/La-Tour-de-Peilz-Senior-Key-Account-Manager/1391905133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:17.235Z",
+      "crawledAt": "2026-06-02T00:41:31.813Z",
       "addressLocality": "La Tour-de-Peilz, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1845,6 +1910,156 @@
         }
       },
       "addressRegion": "VD"
+    },
+    {
+      "id": "nestle-1370956633",
+      "slug": "senior-engineering-specialista-nestle-konolfingen-ch",
+      "slugByLocale": {
+        "it": "senior-engineering-specialista-nestle-konolfingen-ch",
+        "en": "senior-engineering-specialist-nestle-ch",
+        "de": "senior-engineering-spezialist-nestle-konolfingen-ch",
+        "fr": "senior-engineering-specialiste-nestle-konolfingen-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Senior Engineering Specialist",
+      "titleByLocale": {
+        "it": "Senior Engineering Specialista",
+        "en": "Senior Engineering Specialist",
+        "de": "Senior Engineering Spezialist",
+        "fr": "Senior Engineering Spécialiste"
+      },
+      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+      "descriptionByLocale": {
+        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
+        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
+      },
+      "location": "Konolfingen, CH",
+      "canton": "BE",
+      "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-02T00:41:31.192Z",
+      "addressLocality": "Konolfingen, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-03",
+      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-engineering-specialist-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-engineering-specialist-nestle-ch"
+        ],
+        "de": [
+          "senior-engineering-specialist-nestle-ch"
+        ],
+        "fr": [
+          "senior-engineering-specialist-nestle-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-25T13:33:36.955Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "addressRegion": "BE"
+    },
+    {
+      "id": "nestle-1399480733",
+      "slug": "addetto-a-alla-logistica-nestle-basel-ch",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-logistik-nestle-ch",
+        "it": "addetto-a-alla-logistica-nestle-basel-ch",
+        "en": "mitarbeiter-in-logistik-nestle-basel-ch",
+        "fr": "mitarbeiter-in-logistik-nestle-basel-ch"
+      },
+      "company": "Nestlé",
+      "companyKey": "nestle",
+      "companyDomain": "nestle.com",
+      "title": "Mitarbeiter:in Logistik",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Logistik",
+        "it": "Addetto/a alla logistica",
+        "en": "Associate Logistik",
+        "fr": "Collaborateur/trice Logistik"
+      },
+      "description": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+      "descriptionByLocale": {
+        "de": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "it": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "en": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu.",
+        "fr": "Positions Übersicht\n\nStandort: Basel, Schweiz\n\nUnternehmen: Nestlé Suisse SA\nBeschäftigungsgrad: 100%\nVertragsart: Befristet\n\nAnstellungsbeginn: per sofort oder nach Vereinbarung\n\nBenefits\n\n• Min. 25 Tage Ferien pro Jahr, je nach Alter mehr\n\n• 18 Wochen bezahlter Mutterschaftsurlaub, 4 Wochen bezahlter Vaterschaftsurlaub\n\n• 13. Monatslohn und Bonusmöglichkeit\n\n• Leistungen der Pensionskasse über dem gesetzlichen Minimum\n\n• Beiträge an die Krankentaggeldversicherung zu 100% vom Arbeitgeber bezahlt\n\n• Standorte mit agilen und kollaborativen Arbeitsplätzen\n\n• Dynamisches und internationales Arbeitsumfeld\n\n• Viele Möglichkeiten zur persönlichen Entwicklung und Entfaltung\n\nKurzüberblick Position\n\nDie Fabrik Basel ist ein leistungsstarker Produktionsbetrieb der Nestlé Suisse S.A. und stellt kulinarische Produkte der Marken THOMY für das In- und Ausland her.\n\nFür unsere Abteilung Produktion suchen wir per sofort oder nach Vereinbarung eine engagierte Persönlichkeit als Mitarbeiter:in Logistik .\n\nEin Tag im Leben eines/-r Mitarbeiter:in Logistik\n\n• Sämtliche Arbeiten mit Staplerfahrzeugen\n\n• Bereitstellung von Inland- und Exportaufträgen\n\n• Verladung von Exportwaren\n\n• Entladung von Rohstoffen\n\n• Mithilfe bei Auszeichnungen der Paletten mit SAP-Label sowie Einlagerung\n\n• Musterentnahme\n\n• Ein- und Auslagerungen\n\n• Versorgung der Produktionslinien\n\n• Reinigungsarbeiten nach Reinigungsplan\n\n• Zusammenarbeit mit internen und externen Ansprechpersonen\n\nDas macht Sie erfolgreich\n\n• Abgeschlossene Lehre im Logistikbereich oder in der Lebensmittelbranche\n\n• Staplerfahrausweis (SUVA anerkannt)\n\n• Pflichtbewusste, exakte, effiziente und zuverlässige Arbeitsweise\n\n• SAP-Kenntnisse\n\n• Sehr gute mündliche sowie schriftliche Deutschkenntnisse\n\n• Bereitschaft zu flexiblen Arbeitseinsätzen in einem Schichtbetrieb\n\nWir bei Nestlé wollen dazu beitragen, eine bessere und gesündere Welt zu gestalten, Menschen zu einem gesünderen Leben zu inspirieren und in einem Umfang und Tempo zu arbeiten, das einen Unterschied machte. Wir tun dies, indem wir ein vielfältiges, freundliches, unterstützendes und kollaboratives Umfeld fördern, das positiven Wandel hervorruft, Innovationen begrüsst und Menschen und Teams befähigt, zu gewinnen.\n\nUnser Ziel ist es, freundliche, respektvolle und inspirierende Teammitglieder einzustellen, denen das Leben der Menschen, die wir jeden Tag berühren, am Herzen liegt.\n\nMöchten auch Sie Teil der Thomy-Familie werden? Dann senden Sie uns Ihre vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome etc.) auf Deutsch direkt online zu."
+      },
+      "location": "Basel, CH",
+      "canton": "BS",
+      "url": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
+      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-02T00:41:30.548Z",
+      "addressLocality": "Basel, CH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Food / Beverage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mitarbeiterin-Logistik/1399480733/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-nestle-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-06-02T00:41:30.548Z"
     },
     {
       "id": "nestle-1271255101",
@@ -1877,7 +2092,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Sr-Specialist-Scientific-Data-Engineering/1271255101/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:16.405Z",
+      "crawledAt": "2026-06-02T00:41:29.899Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -1954,7 +2169,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Manufacturing-Projects-Intern/1395939233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:15.614Z",
+      "crawledAt": "2026-06-02T00:41:29.265Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2004,34 +2219,34 @@
       "id": "nestle-1399285033",
       "slug": "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch",
       "slugByLocale": {
-        "fr": "gestionnaire-des-demandes-visas-courriers-nestle-ch",
         "it": "gestionnaire-des-demandes-visas-courriers-nestle-vevey-ch",
         "en": "gestionnaire-des-demandes-visas-courriers-nestle-ch",
-        "de": "gestionnaire-des-demandes-visas-courriers-nestle-ch"
+        "de": "gestionnaire-des-demandes-visas-courriers-nestle-ch",
+        "fr": "gestionnaire-des-demandes-visas-courriers-nestle-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
       "companyDomain": "nestle.com",
       "title": "Gestionnaire des demandes Visas & Courriers",
       "titleByLocale": {
-        "fr": "Gestionnaire des demandes Visas & Courriers",
         "it": "Gestionnaire des demandes Visas & Courriers",
         "en": "Gestionnaire des demandes Visas & Courriers",
-        "de": "Gestionnaire des demandes Visas & Courriers"
+        "de": "Gestionnaire des demandes Visas & Courriers",
+        "fr": "Gestionnaire des demandes Visas & Courriers"
       },
       "description": "Lieu : Vevey, Suisse\n\nSociété : Nestlé Enterprise S.A.\n\nModèle de travail : Temps plein 100%, sur site\nType de contrat : Contrat permanent\n\nDate de prise de poste souhaitée : Dès que possible\n\nBe a force for good et évoluez grâce à des expériences qui vous feront progresser\n\nEn tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats.\n\nDans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus.\n\nComment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers\n\nGestion des Visas :\n\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n\n• Préparation des dossiers physique, collecte et vérification des documents\n\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur)\n\nGestion des courriers :\n\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n\n• Garantir une activité opérationnelle de haute qualité\n\n• Opération en nombre Nationales ou internationales\n\nCe qui vous permettra de réussir\n\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n\n• Excellentes compétences organisationnelles et de coordination\n\n• Attitude exemplaire en matière de santé et de sécurité au travail\n\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n\n• Connaissances du français et de l’anglais indispensables\n\nChez Nestlé, nous prenons soin de nos collaborateurs.\n\nNos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n\n• Congés payés au-delà des exigences légales\n\n• Contribution employeur attractive à votre plan de pension\n\n• Bonus lié à la performance\n\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n\n• Des réductions attractives pour les employés sur des produits et services du quotidien\n\nÀ quoi vous attendre dans notre processus de recrutement\n\nNous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
       "descriptionByLocale": {
-        "fr": "Lieu : Vevey, Suisse\n\nSociété : Nestlé Enterprise S.A.\n\nModèle de travail : Temps plein 100%, sur site\nType de contrat : Contrat permanent\n\nDate de prise de poste souhaitée : Dès que possible\n\nBe a force for good et évoluez grâce à des expériences qui vous feront progresser\n\nEn tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats.\n\nDans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus.\n\nComment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers\n\nGestion des Visas :\n\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n\n• Préparation des dossiers physique, collecte et vérification des documents\n\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur)\n\nGestion des courriers :\n\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n\n• Garantir une activité opérationnelle de haute qualité\n\n• Opération en nombre Nationales ou internationales\n\nCe qui vous permettra de réussir\n\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n\n• Excellentes compétences organisationnelles et de coordination\n\n• Attitude exemplaire en matière de santé et de sécurité au travail\n\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n\n• Connaissances du français et de l’anglais indispensables\n\nChez Nestlé, nous prenons soin de nos collaborateurs.\n\nNos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n\n• Congés payés au-delà des exigences légales\n\n• Contribution employeur attractive à votre plan de pension\n\n• Bonus lié à la performance\n\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n\n• Des réductions attractives pour les employés sur des produits et services du quotidien\n\nÀ quoi vous attendre dans notre processus de recrutement\n\nNous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
-        "it": "Lieu : Vevey, Suisse\n\nSociété : Nestlé Enterprise S.A.\n\nModèle de travail : Temps plein 100%, sur site\nType de contrat : Contrat permanent\n\nDate de prise de poste souhaitée : Dès que possible\n\nBe a force for good et évoluez grâce à des expériences qui vous feront progresser\n\nEn tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats.\n\nDans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus.\n\nComment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers\n\nGestion des Visas :\n\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n\n• Préparation des dossiers physique, collecte et vérification des documents\n\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur)\n\nGestion des courriers :\n\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n\n• Garantir une activité opérationnelle de haute qualité\n\n• Opération en nombre Nationales ou internationales\n\nCe qui vous permettra de réussir\n\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n\n• Excellentes compétences organisationnelles et de coordination\n\n• Attitude exemplaire en matière de santé et de sécurité au travail\n\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n\n• Connaissances du français et de l’anglais indispensables\n\nChez Nestlé, nous prenons soin de nos collaborateurs.\n\nNos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n\n• Congés payés au-delà des exigences légales\n\n• Contribution employeur attractive à votre plan de pension\n\n• Bonus lié à la performance\n\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n\n• Des réductions attractives pour les employés sur des produits et services du quotidien\n\nÀ quoi vous attendre dans notre processus de recrutement\n\nNous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
-        "en": "Lieu : Vevey, Suisse\n\nSociété : Nestlé Enterprise S.A.\n\nModèle de travail : Temps plein 100%, sur site\nType de contrat : Contrat permanent\n\nDate de prise de poste souhaitée : Dès que possible\n\nBe a force for good et évoluez grâce à des expériences qui vous feront progresser\n\nEn tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats.\n\nDans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus.\n\nComment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers\n\nGestion des Visas :\n\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n\n• Préparation des dossiers physique, collecte et vérification des documents\n\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur)\n\nGestion des courriers :\n\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n\n• Garantir une activité opérationnelle de haute qualité\n\n• Opération en nombre Nationales ou internationales\n\nCe qui vous permettra de réussir\n\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n\n• Excellentes compétences organisationnelles et de coordination\n\n• Attitude exemplaire en matière de santé et de sécurité au travail\n\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n\n• Connaissances du français et de l’anglais indispensables\n\nChez Nestlé, nous prenons soin de nos collaborateurs.\n\nNos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n\n• Congés payés au-delà des exigences légales\n\n• Contribution employeur attractive à votre plan de pension\n\n• Bonus lié à la performance\n\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n\n• Des réductions attractives pour les employés sur des produits et services du quotidien\n\nÀ quoi vous attendre dans notre processus de recrutement\n\nNous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
-        "de": "Lieu : Vevey, Suisse\n\nSociété : Nestlé Enterprise S.A.\n\nModèle de travail : Temps plein 100%, sur site\nType de contrat : Contrat permanent\n\nDate de prise de poste souhaitée : Dès que possible\n\nBe a force for good et évoluez grâce à des expériences qui vous feront progresser\n\nEn tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats.\n\nDans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus.\n\nComment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers\n\nGestion des Visas :\n\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n\n• Préparation des dossiers physique, collecte et vérification des documents\n\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur)\n\nGestion des courriers :\n\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n\n• Garantir une activité opérationnelle de haute qualité\n\n• Opération en nombre Nationales ou internationales\n\nCe qui vous permettra de réussir\n\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n\n• Excellentes compétences organisationnelles et de coordination\n\n• Attitude exemplaire en matière de santé et de sécurité au travail\n\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n\n• Connaissances du français et de l’anglais indispensables\n\nChez Nestlé, nous prenons soin de nos collaborateurs.\n\nNos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n\n• Congés payés au-delà des exigences légales\n\n• Contribution employeur attractive à votre plan de pension\n\n• Bonus lié à la performance\n\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n\n• Des réductions attractives pour les employés sur des produits et services du quotidien\n\nÀ quoi vous attendre dans notre processus de recrutement\n\nNous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu"
+        "it": "Lieu : Vevey, Suisse Société : Nestlé Enterprise S.A. Modèle de travail : Temps plein 100%, sur site Type de contrat : Contrat permanent Date de prise de poste souhaitée : Dès que possible Be a force for good et évoluez grâce à des expériences qui vous feront progresser En tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats. Dans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus. Comment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers Gestion des Visas :\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n• Préparation des dossiers physique, collecte et vérification des documents\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur) Gestion des courriers :\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n• Garantir une activité opérationnelle de haute qualité\n• Opération en nombre Nationales ou internationales Ce qui vous permettra de réussir\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n• Excellentes compétences organisationnelles et de coordination\n• Attitude exemplaire en matière de santé et de sécurité au travail\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n• Connaissances du français et de l’anglais indispensables Chez Nestlé, nous prenons soin de nos collaborateurs. Nos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n• Congés payés au-delà des exigences légales\n• Contribution employeur attractive à votre plan de pension\n• Bonus lié à la performance\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n• Des réductions attractives pour les employés sur des produits et services du quotidien À quoi vous attendre dans notre processus de recrutement Nous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
+        "en": "Lieu : Vevey, Suisse Société : Nestlé Enterprise S.A. Modèle de travail : Temps plein 100%, sur site Type de contrat : Contrat permanent Date de prise de poste souhaitée : Dès que possible Be a force for good et évoluez grâce à des expériences qui vous feront progresser En tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats. Dans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus. Comment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers Gestion des Visas :\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n• Préparation des dossiers physique, collecte et vérification des documents\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur) Gestion des courriers :\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n• Garantir une activité opérationnelle de haute qualité\n• Opération en nombre Nationales ou internationales Ce qui vous permettra de réussir\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n• Excellentes compétences organisationnelles et de coordination\n• Attitude exemplaire en matière de santé et de sécurité au travail\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n• Connaissances du français et de l’anglais indispensables Chez Nestlé, nous prenons soin de nos collaborateurs. Nos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n• Congés payés au-delà des exigences légales\n• Contribution employeur attractive à votre plan de pension\n• Bonus lié à la performance\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n• Des réductions attractives pour les employés sur des produits et services du quotidien À quoi vous attendre dans notre processus de recrutement Nous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
+        "de": "Lieu : Vevey, Suisse Société : Nestlé Enterprise S.A. Modèle de travail : Temps plein 100%, sur site Type de contrat : Contrat permanent Date de prise de poste souhaitée : Dès que possible Be a force for good et évoluez grâce à des expériences qui vous feront progresser En tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats. Dans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus. Comment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers Gestion des Visas :\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n• Préparation des dossiers physique, collecte et vérification des documents\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur) Gestion des courriers :\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n• Garantir une activité opérationnelle de haute qualité\n• Opération en nombre Nationales ou internationales Ce qui vous permettra de réussir\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n• Excellentes compétences organisationnelles et de coordination\n• Attitude exemplaire en matière de santé et de sécurité au travail\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n• Connaissances du français et de l’anglais indispensables Chez Nestlé, nous prenons soin de nos collaborateurs. Nos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n• Congés payés au-delà des exigences légales\n• Contribution employeur attractive à votre plan de pension\n• Bonus lié à la performance\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n• Des réductions attractives pour les employés sur des produits et services du quotidien À quoi vous attendre dans notre processus de recrutement Nous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu",
+        "fr": "Lieu : Vevey, Suisse Société : Nestlé Enterprise S.A. Modèle de travail : Temps plein 100%, sur site Type de contrat : Contrat permanent Date de prise de poste souhaitée : Dès que possible Be a force for good et évoluez grâce à des expériences qui vous feront progresser En tant que Gestionnaire des demandes Visas et Courriers, vous vous assurez de la gestion complète, conforme et efficace des demandes de visas pour nos voyageurs et des flux mailroom, ainsi que de la préparation au suivi auprès des autorités et fournisseurs/consulats. Dans ce rôle polyvalent, vous contribuez à la performance opérationnelle des services via le suivi administratif, la facturation, le reporting et l’amélioration continue des processus. Comment vous ferez la différence en tant que Gestionnaire des demandes Visas et Courriers Gestion des Visas :\n• Gestion du service client et demandes visa de voyage des employés Nestlé\n• Préparation des dossiers physique, collecte et vérification des documents\n• Coordination avec les coursiers pour envoi et réception des dossiers,\n• Communication des activités via réseau internes et des bonnes pratiques de processus de visas\n• Gestion de la facturation et crédits de voyages via le système informatique interne (Concur) Gestion des courriers :\n• Assurer que les expéditions des envois internationaux et nationaux sont effectuées selon les règles des transporteurs et en respectant les contraintes douanières, notamment pour les envois en grande quantité\n• Organiser et répartir les demandes de transports, effectuer et communiquer les devis si nécessaires\n• Desservir le guichet et traiter les demandes clients internes provenant des différents canaux\n• Prendre les décisions adéquates pour le traitement des cas hors standards\n• S'assurer de la qualité des prestations fournies en continue ainsi que participer à des projets d’amélioration continue\n• Garantir une activité opérationnelle de haute qualité\n• Opération en nombre Nationales ou internationales Ce qui vous permettra de réussir\n• Expérience correspondante dans un domaine pertinent (Visa, Voyage, Courrier, etc.) avec contact front office ; une expérience dans une multinationale est un avantage\n• Expérience dans le domaine douanier et des transports, y compris transport de matières dangereuses est un avantage\n• Excellentes compétences organisationnelles et de coordination\n• Attitude exemplaire en matière de santé et de sécurité au travail\n• Fiable et consciencieux(se), vous pouvez gérer des documents confidentiels\n• Curieux(se) et ouvert(e) d’esprit, vous faites preuve d’initiatives et êtes en recherche continue d’amélioration\n• Vous faites preuve de capacité d’adaptation aux besoins des équipes selon les pics d’activité (visas ou courriers)\n• Vous contribuez activement à la dynamique d’équipe et appréciez collaborer étroitement avec vos collègues pour atteindre des objectifs communs\n• Connaissances du français et de l’anglais indispensables Chez Nestlé, nous prenons soin de nos collaborateurs. Nos avantages sont conçus pour soutenir votre développement et votre bien-être, afin que vous puissiez vous épanouir au travail comme dans votre vie personnelle :\n• Congés payés au-delà des exigences légales\n• Contribution employeur attractive à votre plan de pension\n• Bonus lié à la performance\n• Des opportunités d’apprentissage et de développement pour faire évoluer vos compétences\n• Des réductions attractives pour les employés sur des produits et services du quotidien À quoi vous attendre dans notre processus de recrutement Nous nous engageons à offrir une expérience de recrutement inclusive et respectueuse, et nous sommes heureux de mettre en place des aménagements raisonnables si nécessaire. Nos lieux de travail sont entièrement accessibles et soutenus par une solide culture de la sécurité, avec des installations modernes et des procédu"
       },
       "location": "Vevey, CH",
       "canton": "VD",
       "url": "https://jobdetails.nestle.com/job/Vevey-Gestionnaire-des-demandes-Visas-&-Courriers/1399285033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:14.824Z",
+      "crawledAt": "2026-06-02T00:41:28.619Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2045,18 +2260,17 @@
       "postedDate": "2026-06-01",
       "applyUrl": "https://jobdetails.nestle.com/job/Vevey-Gestionnaire-des-demandes-Visas-&-Courriers/1399285033/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gestionnaire-des-demandes-visas-courriers-nestle-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-des-demandes-visas-courriers-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "gestionnaire-des-demandes-visas-courriers-nestle-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-01T15:37:14.824Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2070,8 +2284,7 @@
         }
       },
       "postalCode": "1800",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-06-01T15:37:14.824Z"
+      "addressRegion": "VD"
     },
     {
       "id": "nestle-1377885033",
@@ -2104,7 +2317,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-ing%C3%A9nieur-Digital-Manufacturing-%28HFD%29/1377885033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:14.052Z",
+      "crawledAt": "2026-06-02T00:41:27.958Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2134,83 +2347,6 @@
         }
       },
       "addressRegion": "VD"
-    },
-    {
-      "id": "nestle-1370956633",
-      "slug": "senior-engineering-specialista-nestle-konolfingen-ch",
-      "slugByLocale": {
-        "it": "senior-engineering-specialista-nestle-konolfingen-ch",
-        "en": "senior-engineering-specialist-nestle-ch",
-        "de": "senior-engineering-spezialist-nestle-konolfingen-ch",
-        "fr": "senior-engineering-specialiste-nestle-konolfingen-ch"
-      },
-      "company": "Nestlé",
-      "companyKey": "nestle",
-      "companyDomain": "nestle.com",
-      "title": "Senior Engineering Specialist",
-      "titleByLocale": {
-        "it": "Senior Engineering Specialista",
-        "en": "Senior Engineering Specialist",
-        "de": "Senior Engineering Spezialist",
-        "fr": "Senior Engineering Spécialiste"
-      },
-      "description": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-      "descriptionByLocale": {
-        "it": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "en": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "de": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey.",
-        "fr": "At Nestlé Nutrition, our mission is to nurture a Healthier Generation. We aim to achieve this by leading the way in Research and Development of science proven nutrition solutions and by partnering with parents and healthcare professionals around the world. From pre-conception to adulthood, we are widening our reach and opening up new opportunities across the lifelong nutrition journey."
-      },
-      "location": "Konolfingen, CH",
-      "canton": "BE",
-      "url": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
-      "source": "Nestlé Switzerland Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:13.261Z",
-      "addressLocality": "Konolfingen, CH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Food / Beverage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-03",
-      "applyUrl": "https://jobdetails.nestle.com/job/Konolfingen-Senior-Engineering-Specialist/1370956633/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-engineering-specialist-nestle-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-engineering-specialist-nestle-ch"
-        ],
-        "de": [
-          "senior-engineering-specialist-nestle-ch"
-        ],
-        "fr": [
-          "senior-engineering-specialist-nestle-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-25T13:33:36.955Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "addressRegion": "BE"
     },
     {
       "id": "nestle-1160597701",
@@ -2243,7 +2379,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Stagiaire-Pr%C3%A9-HEG-Ressources-Humaines-%28Youth%29/1160597701/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:12.469Z",
+      "crawledAt": "2026-06-02T00:41:27.275Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2314,7 +2450,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Hardware/1377556533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:11.464Z",
+      "crawledAt": "2026-06-02T00:41:26.633Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2390,7 +2526,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Specialist-Electronics-Firmware/1377548533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:10.640Z",
+      "crawledAt": "2026-06-02T00:41:25.952Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2466,7 +2602,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-R&D-Senior-Specialist-System-Development/1377559333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:09.814Z",
+      "crawledAt": "2026-06-02T00:41:25.299Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2542,7 +2678,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Associate-R&D-Specialist-Packaging-Material-Characterization/1368496533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:09.035Z",
+      "crawledAt": "2026-06-02T00:41:24.665Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2618,7 +2754,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Data-Science-Specialist/1381829433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:08.237Z",
+      "crawledAt": "2026-06-02T00:41:24.001Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2695,7 +2831,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Packaging-Material-Science-Specialist-%28recycled-PET%29/1390964833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:07.383Z",
+      "crawledAt": "2026-06-02T00:41:23.333Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2772,7 +2908,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:06.628Z",
+      "crawledAt": "2026-06-02T00:41:22.655Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2787,19 +2923,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-de-production-%28HFD%29/1271549401/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "operateur-de-production-h-f-d-nestle-romont-ch",
-          "operateur-de-production-h-f-d-nestle-ch"
-        ],
-        "it": [
-          "operateur-de-production-h-f-d-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "operateur-de-production-h-f-d-nestle-ch",
         "operateur-de-production-h-f-d-nestle-romont-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-de-production-h-f-d-nestle-ch"
+        ],
+        "fr": [
+          "operateur-de-production-h-f-d-nestle-romont-ch",
+          "operateur-de-production-h-f-d-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:23.920Z",
       "salaryMin": 49500,
@@ -2847,7 +2983,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:05.841Z",
+      "crawledAt": "2026-06-02T00:41:22.005Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2862,12 +2998,16 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Orbe-Connectivity-Intern/1384575533/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "connectivity-intern-nestle-ch",
+        "connectivity-intern-nestle-orbe-ch"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "connectivity-intern-nestle-orbe-ch",
+        "it": [
           "connectivity-intern-nestle-ch"
         ],
-        "it": [
+        "en": [
+          "connectivity-intern-nestle-orbe-ch",
           "connectivity-intern-nestle-ch"
         ],
         "de": [
@@ -2877,10 +3017,6 @@
           "connectivity-intern-nestle-ch"
         ]
       },
-      "previousSlugs": [
-        "connectivity-intern-nestle-ch",
-        "connectivity-intern-nestle-orbe-ch"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:48.628Z",
       "salaryMin": 41600,
@@ -2928,7 +3064,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Global-Product-Development-Manager-Infant-&-Early-Nutrition/1381591733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:05.068Z",
+      "crawledAt": "2026-06-02T00:41:21.377Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -2999,7 +3135,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Senior-R&D-Specialist-New-System-Components/1378828933/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:04.148Z",
+      "crawledAt": "2026-06-02T00:41:20.725Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3075,7 +3211,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Fill-&-Pack/1375889233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:37:03.346Z",
+      "crawledAt": "2026-06-02T00:41:20.082Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3146,7 +3282,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieur-Qualit%C3%A9-%28HFD%29/1378808633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:02.570Z",
+      "crawledAt": "2026-06-02T00:41:19.413Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3208,7 +3344,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Ing%C3%A9nieure-Engineering-%28HFD%29/1377993633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:37:01.762Z",
+      "crawledAt": "2026-06-02T00:41:18.748Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3270,7 +3406,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-Associate-R&D-Specialist-Flavors/1376955433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:00.977Z",
+      "crawledAt": "2026-06-02T00:41:18.090Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3347,7 +3483,7 @@
       "url": "https://jobdetails.nestle.com/job/Lausanne-R&D-Laboratory-Technician/1389544733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:37:00.236Z",
+      "crawledAt": "2026-06-02T00:41:17.337Z",
       "addressLocality": "Lausanne, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3362,14 +3498,14 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Lausanne-R&D-Laboratory-Technician/1389544733/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "r-d-laboratory-technician-nestle-lausanne-ch"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "r-d-laboratory-technician-nestle-lausanne-ch"
         ]
       },
-      "previousSlugs": [
-        "r-d-laboratory-technician-nestle-lausanne-ch"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:52.089Z",
       "salaryMin": 49500,
@@ -3418,7 +3554,7 @@
       "url": "https://jobdetails.nestle.com/job/Vevey-Senior-Corporate-Spokesperson/1380259733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:59.421Z",
+      "crawledAt": "2026-06-02T00:41:16.679Z",
       "addressLocality": "Vevey, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3489,7 +3625,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Demand-&-Supply-Chain-Manager/1397550233/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:58.630Z",
+      "crawledAt": "2026-06-02T00:41:16.013Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3551,7 +3687,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Production-&-MRP-Planner/1390417333/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:57.870Z",
+      "crawledAt": "2026-06-02T00:41:15.330Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3621,7 +3757,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-horaire-d'%C3%A9quipe-4x8-%28HFD%29/1388870033/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:57.101Z",
+      "crawledAt": "2026-06-02T00:41:14.669Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3683,7 +3819,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Technicien-de-maintenance-en-journ%C3%A9e-%28HFD%29/1388867533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:56.324Z",
+      "crawledAt": "2026-06-02T00:41:14.028Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3745,7 +3881,7 @@
       "url": "https://jobdetails.nestle.com/job/Zug-Senior-Coffee-Specialist/1389579533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:36:55.557Z",
+      "crawledAt": "2026-06-02T00:41:13.378Z",
       "addressLocality": "Zug, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3818,7 +3954,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Barista-Coffee-Bard/1381548133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:36:54.775Z",
+      "crawledAt": "2026-06-02T00:41:12.699Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3889,7 +4025,7 @@
       "url": "https://jobdetails.nestle.com/job/Konolfingen-Anlagenf%C3%BChrerin-Produktion-100/1386110633/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:54.029Z",
+      "crawledAt": "2026-06-02T00:41:12.042Z",
       "addressLocality": "Konolfingen, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3952,7 +4088,7 @@
       "url": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:36:53.271Z",
+      "crawledAt": "2026-06-02T00:41:11.402Z",
       "addressLocality": "Basel, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -3967,19 +4103,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Basel-Mentor/1395506733/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "mentor-nestle-basel-ch",
-          "mentor-nestle-ch"
-        ],
-        "it": [
-          "mentor-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "mentor-nestle-ch",
         "mentor-nestle-basel-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mentor-nestle-ch"
+        ],
+        "de": [
+          "mentor-nestle-basel-ch",
+          "mentor-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:56.969Z",
       "salaryMin": 49500,
@@ -4028,7 +4164,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:52.492Z",
+      "crawledAt": "2026-06-02T00:41:10.761Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4043,19 +4179,19 @@
       "applyUrl": "https://jobdetails.nestle.com/job/Romont-Stagiaire-SHE-%28HFD%29/1245919801/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "stagiaire-she-h-f-d-nestle-romont-ch",
-          "stagiaire-she-h-f-d-nestle-ch"
-        ],
-        "it": [
-          "stagiaire-she-h-f-d-nestle-ch"
-        ]
-      },
       "previousSlugs": [
         "stagiaire-she-h-f-d-nestle-ch",
         "stagiaire-she-h-f-d-nestle-romont-ch"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-she-h-f-d-nestle-ch"
+        ],
+        "fr": [
+          "stagiaire-she-h-f-d-nestle-romont-ch",
+          "stagiaire-she-h-f-d-nestle-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:33:44.479Z",
       "salaryMin": 41600,
@@ -4103,7 +4239,7 @@
       "url": "https://jobdetails.nestle.com/job/Romont-Op%C3%A9rateur-logistique-%28HFD%29/1369989533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:51.685Z",
+      "crawledAt": "2026-06-02T00:41:10.091Z",
       "addressLocality": "Romont, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4173,7 +4309,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Op%C3%A9rateur-trice-de-machines-automatis%C3%A9es/978712801/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:50.908Z",
+      "crawledAt": "2026-06-02T00:41:09.436Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4243,7 +4379,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Apprenti-e-Technologue-du-Brassage-et-des-Boissons/978705001/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:50.117Z",
+      "crawledAt": "2026-06-02T00:41:08.788Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4313,7 +4449,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-Stagiaire-Ing%C3%A9nieur-Syst%C3%A8mes-Logistiques-%28HFD%29/1369038433/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:49.338Z",
+      "crawledAt": "2026-06-02T00:41:08.129Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4375,7 +4511,7 @@
       "url": "https://jobdetails.nestle.com/job/Henniez-Ing%C3%A9nieur_e-Digital-&-Performance/1383951133/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:48.586Z",
+      "crawledAt": "2026-06-02T00:41:07.488Z",
       "addressLocality": "Henniez, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4445,7 +4581,7 @@
       "url": "https://jobdetails.nestle.com/job/Avenches-MPS-&-MRP-Planner/1385532533/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T15:36:47.827Z",
+      "crawledAt": "2026-06-02T00:41:06.843Z",
       "addressLocality": "Avenches, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4507,7 +4643,7 @@
       "url": "https://jobdetails.nestle.com/job/Orbe-Stagiaire-Automation-Robotique/1394983833/",
       "source": "Nestlé Switzerland Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-01T15:36:47.034Z",
+      "crawledAt": "2026-06-02T00:41:06.209Z",
       "addressLocality": "Orbe, CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4531,6 +4667,7 @@
         ]
       },
       "firstSeenAt": "2026-05-25T13:33:47.255Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
