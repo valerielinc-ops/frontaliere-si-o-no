@@ -141,6 +141,40 @@ describe('orphanQueryData — job matching', () => {
     expect(jobMatchesCluster(luzernJob, c)).toBe(false);
   });
 
+  it('geo-query (generic role + named city) matches by locality, not by title token', () => {
+    // "lavoro stabio svizzera" — role token is the generic word "lavoro".
+    // Must surface Stabio jobs regardless of their title, and must NOT surface
+    // jobs in another Swiss locality (the broad "svizzera" token alone must not
+    // satisfy the geo gate). Regression for the wrong-city doorway bug.
+    const c: OrphanQueryCluster = makeCluster('it', 'lavoro-stabio-svizzera', 30, ['lavor'], ['stabio', 'svizzera']);
+    const stabioJob = activeJob({ title: 'Operatore di produzione', location: 'Stabio', addressLocality: 'Stabio' });
+    const zurichJob = activeJob({ title: 'Operatore di produzione', location: 'Zürich', addressLocality: 'Zürich' });
+    expect(jobMatchesCluster(stabioJob, c)).toBe(true);
+    expect(jobMatchesCluster(zurichJob, c)).toBe(false);
+  });
+
+  it('geo-query with a city-only region (no broad token) still matches by locality', () => {
+    const c: OrphanQueryCluster = makeCluster('it', 'lavoro-mendrisio', 20, ['lavor'], ['mendrisio']);
+    const mendrisioJob = activeJob({ title: 'Magazziniere', location: 'Mendrisio', addressLocality: 'Mendrisio' });
+    const luganoJob = activeJob({ title: 'Magazziniere', location: 'Lugano', addressLocality: 'Lugano' });
+    expect(jobMatchesCluster(mendrisioJob, c)).toBe(true);
+    expect(jobMatchesCluster(luganoJob, c)).toBe(false);
+  });
+
+  it('profession + named city + broad token: broad does NOT override the city gate', () => {
+    const c: OrphanQueryCluster = makeCluster('it', 'lavoro-oss-a-stabio-svizzera', 15, ['lavor', 'oss'], ['stabio', 'svizzera']);
+    const ossStabio = activeJob({ title: 'OSS operatore socio sanitario', location: 'Stabio', addressLocality: 'Stabio' });
+    const ossLugano = activeJob({ title: 'OSS operatore socio sanitario', location: 'Lugano', addressLocality: 'Lugano' });
+    expect(jobMatchesCluster(ossStabio, c)).toBe(true);
+    expect(jobMatchesCluster(ossLugano, c)).toBe(false);
+  });
+
+  it('broad-only region (svizzera/ticino) keeps site-wide coverage', () => {
+    const c: OrphanQueryCluster = makeCluster('it', 'chauffeur-ticino', 30, ['chauffeur'], ['ticino']);
+    const anywhere = activeJob({ title: 'Chauffeur Kat. C', location: 'Brunegg', addressLocality: 'Brunegg' });
+    expect(jobMatchesCluster(anywhere, c)).toBe(true);
+  });
+
   it('filterMatchingJobs returns at most `limit` jobs sorted by postedDate desc', () => {
     const jobs: OrphanCountableJob[] = Array.from({ length: 10 }).map((_, i) =>
       activeJob({
