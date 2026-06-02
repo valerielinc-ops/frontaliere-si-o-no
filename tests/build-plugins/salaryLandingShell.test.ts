@@ -164,7 +164,10 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
       navHtml: '',
     });
     expect(html).toMatch(/80['. \s]?000/);
-    expect(html).toMatch(/59['. \s]?(840|800|912)/);
+    // Net is now derived from calculateSimulation (single-A0 base variant,
+    // WITHIN_20KM): CHF 48'156 net / EUR 52'779, matching the over-20km hub.
+    expect(html).toMatch(/48['. \s]?156/);
+    expect(html).toMatch(/52['. \s]?779/);
   });
 
   it('shipsh bespoke data for the 4 new orphan hubs', () => {
