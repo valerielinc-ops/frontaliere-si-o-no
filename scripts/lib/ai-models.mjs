@@ -1175,8 +1175,12 @@ export function collectOfferedIds(cfg, list) {
  * Discover usable models for a single provider config and merge them into
  * DEFAULT_CHAIN. Returns { added, stale }. Throws on network/API error so the
  * caller can isolate and log per-provider.
+ *
+ * Exported for unit tests that pin the discovery safety-nets (issue #893):
+ * listing shape auto-detect, the `maxAdd` cap, and the `offeredIds.size > 0`
+ * markStale guard. Production callers go through `discoverFreeModels`.
  */
-async function _discoverProvider(cfg) {
+export async function _discoverProvider(cfg) {
   const apiKey = cfg.getKey();
   if (!apiKey) return { added: 0, stale: 0 };
 
