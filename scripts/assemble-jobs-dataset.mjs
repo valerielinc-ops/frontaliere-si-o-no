@@ -47,7 +47,7 @@ import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 
@@ -757,6 +757,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   }
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
+
+  // ── Truncated "St" locality heal (issue #1158) ────────────────────────
+  // A bare "St"/"St." addressLocality is a textContent artifact (e.g.
+  // "St. Moritz" split on the period). It must never reach the committed
+  // by-crawler slice / JSON-LD. hardenJobsRichResultsData heals the AGGREGATE
+  // data/jobs.json, but each crawler's slice is written here from its own
+  // payload and bypassed that pass — so new crawls kept re-leaking bare "St"
+  // (corpus-invariant guard, repeated main-red). Heal per-record (HQ/URL/slug)
+  // + same-site consensus before the slice is persisted; records with no
+  // recoverable signal keep the bare token and are surfaced as a warning.
+  const stHeal = healTruncatedStLocalities(hardened.jobs);
+  if (stHeal.healed > 0) {
+    console.log(`  🏙️  St-locality heal: recovered full city for ${stHeal.healed} truncated "St"/"St." job(s)`);
+  }
+  if (stHeal.deferred > 0) {
+    console.warn(`  ⚠️  St-locality: ${stHeal.deferred} job(s) left bare "St"/"St." (no recoverable signal — manual review)`);
+  }
 
   // Per-locale safety net: only strip a previousSlug if it matches the SAME
   // locale's active slug. Cross-locale matches are preserved for bridge pages.
