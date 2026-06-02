@@ -2527,6 +2527,9 @@
         "fr": [
           "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd",
           "medecin-generaliste-homme-femme-solothurner-spitaler-soh-solothurn"
+        ],
+        "de": [
+          "hausarztin-hausarzt-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -4898,7 +4901,7 @@
         "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -4950,7 +4953,9 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
+        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
+        "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
         "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -4959,7 +4964,7 @@
         ],
         "fr": [
           "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-          "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.395Z",
@@ -7941,6 +7946,8 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd",
         "general-practitioner-male-female-solothurner-spitaler-soh-solothurn",
         "medecin-generaliste-homme-femme-solothurner-spitaler-soh-solothurn",
+        "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
+        "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
         "hausarztin-hausarzt-w-m-d-soh-ch"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.031Z",
@@ -9241,6 +9248,9 @@
         "technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn",
+        "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
+        "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
+        "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
       ],
       "previousSlugsByLocale": {
@@ -10233,6 +10243,9 @@
         "fr": [
           "chef-cuisinier-w-m-d-solothurner-spitaler-soh-solothurn",
           "cuisinier-ere-h-f-solothurner-spitaler-soh-solothurn"
+        ],
+        "de": [
+          "kochin-koch-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
@@ -10359,7 +10372,7 @@
         "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -10431,7 +10444,9 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
+        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -10441,7 +10456,7 @@
         ],
         "fr": [
           "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.394Z",
@@ -10557,7 +10572,7 @@
         "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -10629,7 +10644,9 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
+        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -10639,7 +10656,7 @@
         ],
         "fr": [
           "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.394Z",
@@ -11480,12 +11497,12 @@
     },
     {
       "id": "solothurner-spitaeler-0eb1abbd40da",
-      "slug": "gestione-del-prodotto-m-d-solothurner-spitaler-soh-solothurn",
+      "slug": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
-        "it": "gestione-del-prodotto-m-d-solothurner-spitaler-soh-solothurn",
-        "en": "projektmanagement-m-d-solothurner-spitaler-soh-solothurn",
-        "fr": "gestion-du-projet-m-d-solothurner-spitaler-soh-solothurn"
+        "it": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
+        "en": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn",
+        "fr": "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -11493,16 +11510,16 @@
       "title": "Nachdiplomstudium Anästhesiepflege (w/m/d)",
       "titleByLocale": {
         "de": "Nachdiplomstudium Anästhesiepflege (w/m/d)",
-        "it": "Gestione del prodotto (m/d)",
-        "en": "Projektmanagement (m/d)",
-        "fr": "Gestion du projet (m/d)"
+        "it": "Projektleiter (m/d)",
+        "en": "Projektleiter (m/d)",
+        "fr": "Projektleiter (m/d)"
       },
       "description": "Aufgaben\n• Erweiterung und Vertiefung des pflegerischen, medizinischen, pharmakologischen und medizin-technischen Fachwissens in den Arbeitsbereichen der Anästhesie\n• Kompetenz erwerben in der Ausführung der Allgemeinanästhesien, im Assistieren bei Regionalanästhesien und in der intensiven Überwachung der Patientinnen und Patienten\n• Absolvierung der Weiterbildungsmodule Höhere Fachschule (HF) Anästhesiepflege an der Aargauischen Fachschule für Anästhesie-, Intensiv- und Notfallpflege (afsain)\n\nProfil\n• Mindestens 6 Monate Berufserfahrung als Dipl. Pflegefachmann oder Pflegefachfrau HF/FH in Akutspital (100%)\n• Hohe Sozial- und Fachkompetenz für intensive Patientenbetreuung\n• Belastbarkeit, Flexibilität und Freude am lebhaften Umfeld\n• Deutschkenntnisse Sprachniveau C1 mündlich und schriftlich\n\n• Bereich: Aus- und Weiterbildungsplätze\n• Standort: Bürgerspital Solothurn\n• Abteilung: Anästhesie\n• Pensum: 100%",
       "descriptionByLocale": {
         "de": "Aufgaben\n• Erweiterung und Vertiefung des pflegerischen, medizinischen, pharmakologischen und medizin-technischen Fachwissens in den Arbeitsbereichen der Anästhesie\n• Kompetenz erwerben in der Ausführung der Allgemeinanästhesien, im Assistieren bei Regionalanästhesien und in der intensiven Überwachung der Patientinnen und Patienten\n• Absolvierung der Weiterbildungsmodule Höhere Fachschule (HF) Anästhesiepflege an der Aargauischen Fachschule für Anästhesie-, Intensiv- und Notfallpflege (afsain)\n\nProfil\n• Mindestens 6 Monate Berufserfahrung als Dipl. Pflegefachmann oder Pflegefachfrau HF/FH in Akutspital (100%)\n• Hohe Sozial- und Fachkompetenz für intensive Patientenbetreuung\n• Belastbarkeit, Flexibilität und Freude am lebhaften Umfeld\n• Deutschkenntnisse Sprachniveau C1 mündlich und schriftlich\n\n• Bereich: Aus- und Weiterbildungsplätze\n• Standort: Bürgerspital Solothurn\n• Abteilung: Anästhesie\n• Pensum: 100%",
-        "it": "Compiti\n• Ampliamento e approfondimento delle competenze infermieristica, medica, farmacologica e medica nelle aree di lavoro dell'anestesia\n• acquisire competenze nell'esecuzione dell'anestesia generale, assistere l'anestesia regionale e il monitoraggio intensivo dei pazienti\n• Risolvere la Scuola Superiore (HF) Anesthesia Care presso la Scuola di Anestesia di Aargau, Intensive Care and Emergency Care (afsain)\n\nProfilo\n• Almeno 6 mesi di esperienza professionale come Dipl. Cura professionale o infermieristica professionale HF/FH in ospedale acuto (100%)\n• Alta competenza sociale e professionale per la cura intensiva del paziente\n• Affidabilità, flessibilità e gioia nel vivace ambiente\n• Livello di lingua tedesca C1 orale e scritta\n\n• Area: luoghi di formazione e formazione\n• Posizione: Solothurn\n• Dipartimento: Anestesia\n• Pensum: 100%",
-        "en": "Tasks\n• Enlargement and deepening of nursing, medical, pharmacological and medical expertise in the work areas of anaesthesia\n• acquire competence in the execution of general anaesthesia, assisting in regional anaesthesia and intensive monitoring of patients\n• Absolving the Higher School (HF) Anesthesia Care at the Aargau School of Anesthesia, Intensive Care and Emergency Care (afsain)\n\nProfile\n• At least 6 months of professional experience as a Dipl. Care professional or nursing professional HF/FH in acute hospital (100%)\n• High social and professional competence for intensive patient care\n• Loadability, flexibility and joy in the lively environment\n• German language level C1 oral and written\n\n• Area: training and training places\n• Location: Solothurn\n• Department: Anesthesia\n• Pensum: 100%",
-        "fr": "Tâches\n• Élargissement et approfondissement de l'expertise infirmière, médicale, pharmacologique et médicale dans les domaines de l'anesthésie\n• acquérir des compétences dans l'exécution de l'anesthésie générale, l'assistance à l'anesthésie régionale et le suivi intensif des patients\n• Résolution des soins d'anesthésie de l'école supérieure (HF) à l'école d'anesthésie d'Argovie, de soins intensifs et de soins d'urgence (afsain)\n\nProfil\n• Au moins 6 mois d'expérience professionnelle en tant que Dipl. Soins professionnels ou infirmiers professionnels HF/FH en hôpital aigu (100%)\n• Haute compétence sociale et professionnelle pour les soins intensifs aux patients\n• Chargeabilité, flexibilité et joie dans l'environnement animé\n• Niveau de langue allemande C1 oral et écrit\n\n• Domaine : lieux de formation\n• Lieu: Soleure\n• Département: Anesthésie\n• Pensum: 100%"
+        "it": "Compiti\n• Ampliamento e approfondimento delle competenze infermieristica, medica, farmacologica e medica nelle aree di lavoro dell'anestesia\n• acquisire competenze nell'esecuzione dell'anestesia generale, assistere l'anestesia regionale e il monitoraggio intensivo dei pazienti\n• Moduli di formazione completi Alta Fachschule (HF) Cura dell'anestesia presso la Aargau School of Anesthesia, Intensive Care and Emergency Care (afsain)\n\nProfilo\n• Almeno 6 mesi di esperienza professionale come Dipl. Cura professionale o infermieristica professionale HF/FH in ospedale acuto (100%)\n• Alta competenza sociale e professionale per la cura intensiva del paziente\n• Affidabilità, flessibilità e gioia nel vivace ambiente\n• Livello di lingua tedesca C1 orale e scritta\n\n• Area: luoghi di formazione e formazione\n• Posizione: Solothurn\n• Dipartimento: Anestesia\n• Pensum: 100%",
+        "en": "Tasks\n• Enlargement and deepening of nursing, medical, pharmacological and medical expertise in the work areas of anaesthesia\n• acquire competence in the execution of general anaesthesia, assisting in regional anaesthesia and intensive monitoring of patients\n• Complete training modules Higher Fachschule (HF) Anesthesia care at the Aargau School of Anesthesia, Intensive Care and Emergency Care (afsain)\n\nProfile\n• At least 6 months of professional experience as a Dipl. Care professional or nursing professional HF/FH in acute hospital (100%)\n• High social and professional competence for intensive patient care\n• Loadability, flexibility and joy in the lively environment\n• German language level C1 oral and written\n\n• Area: training and training places\n• Location: Solothurn\n• Department: Anesthesia\n• Pensum: 100%",
+        "fr": "Tâche\n• Élargissement et approfondissement des compétences en soins infirmiers, médicaux, pharmacologiques et médicaux dans les domaines de l'anesthésie\n• acquérir des compétences dans l'exécution de l'anesthésie générale, aider à l'anesthésie régionale et la surveillance intensive des patients\n• Modules de formation complets Soins d'anesthésie Fachschule supérieur (HF) à l'École d'anesthésie d'Argau, soins intensifs et soins d'urgence (afsain)\n\nProfil\n• Au moins 6 mois d'expérience professionnelle comme dipl. Soins professionnels ou infirmiers professionnels HF/FH à l'hôpital aigu (100%)\n• Haute compétence sociale et professionnelle pour les soins intensifs aux patients\n• Chargeabilité, flexibilité et joie dans un environnement animé\n• Niveau de langue allemande C1 oral et écrit\n\n• Domaine : lieux de formation\n• Lieu: Soleure\n• Département: Anesthésie\n• Pensum: 100%"
       },
       "location": "Solothurn",
       "canton": "SO",
@@ -11532,19 +11549,11 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch",
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
-        ],
-        "en": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
-        ],
-        "fr": [
-          "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
+          "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch",
-        "nachdiplomstudium-anasthesiepflege-w-m-d-solothurner-spitaler-soh-solothurn"
+        "nachdiplomstudium-anasthesiepflege-w-m-d-soh-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -11617,6 +11626,7 @@
         "projektleiter-w-m-d-solothurner-spitaler-soh-solothurn",
         "projektleiter-m-j-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
+        "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
         "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn"
       ],
@@ -11707,6 +11717,7 @@
         "collaboratore-volontario-m-f-d-solothurner-spitaler-soh-solothurn",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn",
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn",
+        "consulente-senior-m-d-solothurner-spitaler-soh-solothurn",
         "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -12327,6 +12338,7 @@
         "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf",
         "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "consulente-senior-m-d-solothurner-spitaler-soh-olten",
         "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
       ],
@@ -12865,11 +12877,11 @@
     },
     {
       "id": "solothurner-spitaeler-0681cf87df2f",
-      "slug": "senior-controller-contabilita-aziendale-w-m-d-solothurner-spitaler-soh-solothurn",
+      "slug": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
       "slugByLocale": {
         "de": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
-        "it": "senior-controller-contabilita-aziendale-w-m-d-solothurner-spitaler-soh-solothurn",
-        "en": "senior-controller-business-accounting-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
+        "en": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
         "fr": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
       },
       "company": "Solothurner Spitäler (soH)",
@@ -12884,10 +12896,10 @@
       },
       "description": "Aufgaben\n• Betriebsbuchhaltung (Kosten- und Leistungsrechnung) nach REKOLE-Standards selbstständig führen, parametrisieren und weiterentwickeln\n• Monatsabschluss inkl. der Betriebsabrechnung, Kennzahlenanalysen und Abweichungsberichte erstellen\n• Jährliche Mitarbeit bei Datenabgaben der Datensätze nach SpiGes, SwissDRG und TARPSY erstellen\n• Stetige Optimierung von Controlling-Tools und aktive Mitarbeit bei der Digitalisierung der Finanzprozesse\n\nProfil\n• Abgeschlossenes betriebswirtschaftliches Studium, mit Schwerpunkt Controlling/Rechnungswesen und Finanzen oder äquivalente Ausbildung\n• Weiterbildung im Controlling (MAS) und Expertin oder Experte in Rechnungslegung und Controlling oder äquivalente Weiterbildung\n• Mehrjährige fundierte Berufserfahrung in Betriebsbuchhaltung, idealerweise im Schweizer Gesundheitswesen oder Spitalumfeld\n• Sehr gute SAP-Kenntnisse mit Hauptfokus FI/CO und exzellente BI/Excel-Fähigkeiten\n• Analytisches und vernetztes Denkvermögen, hohe Zahlenaffinität und eine strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n• Bereich: Administration und Betriebe\n• Standort: Solothurner Spitäler AG\n• Abteilung: Controlling\n• Pensum: 80% - 100%",
       "descriptionByLocale": {
-        "de": "## Descrizione\n- Betriebsbuchhaltung (Kosten- und Leistungsrechnung) nach REKOLE-Standards selbstständig führen, parametrisieren und weiterentwickeln\n- Monatsabschluss inkl. der Betriebsabrechnung, Kennzahlenanalysen und Abweichungsberichte erstellen\n- Jährliche Mitarbeit bei Datenabgaben der Datensätze nach SpiGes, SwissDRG und TARPSY erstellen\n- Stetige Optimierung von Controlling-Tools und aktive Mitarbeit bei der Digitalisierung der Finanzprozesse\n\n## Profilo\n- Abgeschlossenes betriebswirtschaftliches Studium, mit Schwerpunkt Controlling/Rechnungswesen und Finanzen oder äquivalente Ausbildung\n- Weiterbildung im Controlling (MAS) und Expertin oder Experte in Rechnungslegung und Controlling oder äquivalente Weiterbildung\n- Mehrjährige fundierte Berufserfahrung in Betriebsbuchhaltung, idealerweise im Schweizer Gesundheitswesen oder Spitalumfeld\n- Sehr gute SAP-Kenntnisse mit Hauptfokus FI/CO und exzellente BI/Excel-Fähigkeiten\n- Analytisches und vernetztes Denkvermögen, hohe Zahlenaffinität und eine strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n## Cosa offriamo\n- Bereich: Administration und Betriebe\n- Standort: Solothurner Spitäler AG\n- Abteilung: Controlling\n- Pensum: 80% - 100%",
-        "it": "Descrizione\n- Contabilità operativa (contabilità dei costi e delle prestazioni) secondo gli standard REKOLE\n- Creare conti mensili incl. contabilità operativa, analisi delle cifre chiave e report di deviazione\n- Creare una collaborazione annuale per l'output dei dataset di SpiGes, SwissDRG e TARPSY\n- Ottimizzazione costante degli strumenti di controllo e cooperazione attiva nella digitalizzazione dei processi finanziari\n\nProfilo\n- Studi aziendali completi, con un focus sul controllo/ contabilità e finanza o formazione equivalente\n- Formazione nel controllo (MAS) ed esperto o esperto nella contabilità e nel controllo o nella formazione equivalente\n- Esperienza professionale pluriennale ben fondata nella contabilità aziendale, idealmente in ambiente sanitario svizzero o ospedaliero\n- Conoscenza SAP molto buona con focus principale FI/CO e eccellenti funzionalità BI/Excel\n- pensiero analitico e in rete, elevata affinità numerica e un modo di lavoro strutturato, indipendente e orientato alla soluzione\n\nCosa?\n- Dipartimento: Amministrazione e Operazioni\n- Ubicazione: Solothurner Spitäler AG\n- Dipartimento: Controllo\n- Penso: 80% - 100 %",
-        "en": "Descrizione\n- Operating accounting (cost and performance accounting) according to REKOLE standards\n- Create monthly accounts incl. operating accounting, key figures analyses and deviation reports\n- Create annual collaboration for data outputs of the datasets by SpiGes, SwissDRG and TARPSY\n- Constant optimization of controlling tools and active cooperation in the digitization of financial processes\n\nProfilo\n- Complete business studies, with a focus on controlling/ accounting and finance or equivalent training\n- Training in controlling (MAS) and expert or expert in accounting and controlling or equivalent training\n- Multiannual well-founded professional experience in business accounting, ideally in Swiss healthcare or hospital environment\n- Very good SAP knowledge with main focus FI/CO and excellent BI/Excel capabilities\n- Analytical and networked thinking, high numerical affinity and a structured, independent and solution-oriented way of working\n\nCosa offriamo\n- Department: Administration and Operations\n- Location: Solothurner Spitäler AG\n- Department: Controlling\n- Pensum: 80% - 100 %",
-        "fr": "Descrizione\n- Comptabilité opérationnelle (comptabilité des coûts et des performances) selon les normes REKOLE\n- Créer des comptes mensuels, y compris la comptabilité d'exploitation, les analyses de chiffres clés et les rapports d'écart\n- Créer une collaboration annuelle pour les sorties de données des ensembles de données SpiGes, SwissDRG et TARPSY\n- Optimisation constante des outils de contrôle et coopération active dans la numérisation des processus financiers\n\nProfilo\n- Achever des études d'entreprise, en mettant l'accent sur le contrôle/la comptabilité et la finance ou une formation équivalente\n- Formation au contrôle (MAS) et expert ou expert en comptabilité et contrôle ou formation équivalente\n- Expérience professionnelle multiannuelle bien fondée en comptabilité d'entreprise, idéalement dans l'environnement médical ou hospitalier suisse\n- Très bonne connaissance SAP avec focus FI/CO et d'excellentes capacités BI/Excel\n- Réflexion analytique et en réseau, haute affinité numérique et mode de travail structuré, indépendant et orienté vers la solution\n\nCosa offriamo\n- Département : Administration et opérations\n- Lieu: Soleure Spitäler AG\n- Département : Contrôle\n- Pensum: 80 % - 100 %"
+        "de": "## Mansioni\n- Betriebsbuchhaltung (Kosten- und Leistungsrechnung) nach REKOLE-Standards selbstständig führen, parametrisieren und weiterentwickeln\n- Monatsabschluss inkl. der Betriebsabrechnung, Kennzahlenanalysen und Abweichungsberichte erstellen\n- Jährliche Mitarbeit bei Datenabgaben der Datensätze nach SpiGes, SwissDRG und TARPSY erstellen\n- Stetige Optimierung von Controlling-Tools und aktive Mitarbeit bei der Digitalisierung der Finanzprozesse\n\n## Requisiti\n- Abgeschlossenes betriebswirtschaftliches Studium, mit Schwerpunkt Controlling/Rechnungswesen und Finanzen oder äquivalente Ausbildung\n- Weiterbildung im Controlling (MAS) und Expertin oder Experte in Rechnungslegung und Controlling oder äquivalente Weiterbildung\n- Mehrjährige fundierte Berufserfahrung in Betriebsbuchhaltung, idealerweise im Schweizer Gesundheitswesen oder Spitalumfeld\n- Sehr gute SAP-Kenntnisse mit Hauptfokus FI/CO und exzellente BI/Excel-Fähigkeiten\n- Analytisches und vernetztes Denkvermögen, hohe Zahlenaffinität und eine strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n\n## Informazioni aggiuntive\n- **Area:** Administration und Betriebe\n- **Sede:** Solothurner Spitäler AG\n- **Dipartimento:** Controlling\n- **Pensum:** 80% - 100%",
+        "it": "Mansioni\n- Contabilità operativa (contabilità dei costi e delle prestazioni) secondo gli standard REKOLE\n- Creare conti mensili incl. contabilità operativa, analisi delle cifre chiave e report di deviazione\n- Creare una collaborazione annuale per l'output dei dati di SpiGes, SwissDRG e TARPSY\n- Ottimizzazione costante degli strumenti di controllo e cooperazione attiva nella digitalizzazione dei processi finanziari\n\nRequisiti\n- Studi aziendali completi, con particolare attenzione al controllo e alla finanza o alla formazione equivalente\n- Formazione nel controllo (MAS) ed esperto o esperto in contabilità e controllo o formazione equivalente\n- Esperienza professionale pluriennale ben fondata nella contabilità aziendale, idealmente in ambiente sanitario svizzero o ospedaliero\n- Conoscenza SAP molto buona con focus principale FI/CO e eccellenti funzionalità BI/Excel\n- pensiero analitico e in rete, elevata affinità numerica e un modo di lavoro strutturato, indipendente e orientato alla soluzione\n\nInformazioni\n- Area: Amministrazione e operazioni\n- Solothurner Spitäler AG\n- Dipartimento: Controllo\n- Penso: 80% - 100 %",
+        "en": "Mansioni\n- Operating accounting (cost and performance accounting) according to REKOLE standards\n- Create monthly accounts incl. operating accounting, key figures analyses and deviation reports\n- Create annual collaboration for data outputs of data records by SpiGes, SwissDRG and TARPSY\n- Constant optimization of controlling tools and active cooperation in the digitization of financial processes\n\nRequisiti\n- Complete business studies, with a focus on controlling and finance or equivalent training\n- Training in controlling (MAS) and expert or expert in accounting and controlling or equivalent training\n- Multiannual well-founded professional experience in business accounting, ideally in Swiss healthcare or hospital environment\n- Very good SAP knowledge with main focus FI/CO and excellent BI/Excel capabilities\n- Analytical and networked thinking, high numerical affinity and a structured, independent and solution-oriented way of working\n\nInformazioni aggiuntive\n- Area: Administration and operations\n- Solothurner Spitäler AG\n- Dipartimento: Controlling\n- Pensum: 80% - 100 %",
+        "fr": "Mansioni\n- Comptabilité d'exploitation (comptabilité des coûts et des performances) selon les normes REKOLE\n- Créer des comptes mensuels, y compris la comptabilité d'exploitation, les analyses de chiffres clés et les rapports d'écart\n- Créer une collaboration annuelle pour les sorties de données des enregistrements de données par SpiGes, SwissDRG et TARPSY\n- Optimisation constante des outils de contrôle et coopération active dans la numérisation des processus financiers\n\nRequisiti\n- Achever des études d'entreprise, en mettant l'accent sur le contrôle et la finance ou une formation équivalente\n- Formation au contrôle (MAS) et expert ou expert en comptabilité et contrôle ou formation équivalente\n- Expérience professionnelle multiannuelle bien fondée en comptabilité d'entreprise, idéalement dans l'environnement médical ou hospitalier suisse\n- Très bonne connaissance SAP avec focus principal FI/CO et excellentes capacités BI/Excel\n- La pensée analytique et en réseau, la haute affinité numérique et une façon de travailler structurée, indépendante et orientée vers la solution\n\nInformations complémentaires\n- Secteur : Administration et opérations\n- Soleure Spitäler AG\n- Dipartimento: Contrôle\n- Pensum: 80% - 100 %"
       },
       "location": "Solothurn",
       "canton": "SO",
@@ -12927,18 +12939,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T16:10:40.429Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
-        ],
-        "en": [
-          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
-      ]
+      "firstSeenAt": "2026-06-01T16:10:40.429Z"
     }
   ]
 }

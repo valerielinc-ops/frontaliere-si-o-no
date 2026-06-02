@@ -1419,7 +1419,8 @@
       "previousSlugsByLocale": {
         "de": [
           "hausarztin-hausarzt-w-m-d-soh-solothurner-spitaeler-daniken",
-          "hausarztin-hausarzt-w-m-d-solothurner-spitaler-ag-soh-daniken"
+          "hausarztin-hausarzt-w-m-d-solothurner-spitaler-ag-soh-daniken",
+          "hausarztin-hausarzt-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "it": [
           "hausarztin-hausarzt-w-m-d-soh-solothurner-spitaeler-daniken",
@@ -6479,10 +6480,10 @@
       "id": "soh-solothurner-spitaeler-e7154d14024a",
       "slug": "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "ergoterapista-ergoterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -6547,15 +6548,17 @@
           "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
+          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "ergotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:46.224Z",
       "salaryMin": 49500,
@@ -8207,14 +8210,17 @@
       },
       "previousSlugs": [
         "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
+        "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
         "dipl-pflegefachfrau-pflegefachmann-gastroenterologie-w-m-d-soh-solothurner-spitaeler",
         "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
+        "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
         "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz",
         "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
       ],
       "previousSlugsByLocale": {
         "en": [
           "diploma-in-nursing-gastroenterology-m-f-d-solothurner-spitaler-ag-soh-schweiz",
+          "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-soh-solothurn",
           "diploma-in-nursing-gastroenterology-male-female-solothurner-spitaler-ag-soh-schweiz"
         ],
         "de": [
@@ -8222,6 +8228,7 @@
         ],
         "fr": [
           "diplome-e-en-soins-infirmiers-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz",
+          "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-soh-solothurn",
           "infirmier-ere-specialise-e-en-gastroenterologie-h-f-solothurner-spitaler-ag-soh-schweiz"
         ]
       },
@@ -8348,10 +8355,10 @@
       "id": "soh-solothurner-spitaeler-c653eb28ba3d",
       "slug": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
+        "it": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8418,15 +8425,17 @@
           "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn"
+          "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
+          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
+          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:32.618Z",
       "salaryMin": 49500,
@@ -8530,10 +8539,10 @@
       "id": "soh-solothurner-spitaeler-55528212cfed",
       "slug": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8602,15 +8611,17 @@
           "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "it": [
-          "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn"
+          "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
+          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
+          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "physiotherapeute-h-f-solothurner-spitaler-ag-soh-solothurn"
+        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "firstSeenAt": "2026-05-19T13:03:30.374Z",
       "salaryMin": 49500,

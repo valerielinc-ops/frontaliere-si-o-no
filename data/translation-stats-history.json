@@ -11148,5 +11148,119 @@
         "pending": 13
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-01T20:47:44.172Z",
+    "label": "before",
+    "total": 8896,
+    "needsRetranslation": 5631,
+    "suppressed": 18,
+    "incomplete": 768,
+    "complete": 8128,
+    "missingByLocale": {
+      "it": 540,
+      "en": 444,
+      "de": 291,
+      "fr": 532
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 105
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 92
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "HOCH Health Ostschweiz",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 14
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-02T00:11:57.172Z",
+    "label": "after",
+    "total": 8896,
+    "needsRetranslation": 2042,
+    "suppressed": 17,
+    "incomplete": 567,
+    "complete": 8329,
+    "missingByLocale": {
+      "it": 426,
+      "en": 322,
+      "de": 233,
+      "fr": 401
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 91
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 74
+      },
+      {
+        "company": "Roche",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "HOCH Health Ostschweiz",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 14
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 13
+      }
+    ]
   }
 ]
