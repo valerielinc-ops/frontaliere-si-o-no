@@ -169,6 +169,12 @@ const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
  return sorted.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
 })();
 
+// Compiled once at module init: the resolver runs on every committed 404 path
+// (~600k in the full-coverage scan), so per-call RegExp construction would add
+// non-linear JIT overhead that scales with the export size.
+const COMPANY_HUB_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(azienda|company|unternehmen|entreprise)-(.+)$`);
+const JOB_BOARD_SECTION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/([^/]+)\\/?$`);
+
 export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
  const exact = COMPAT_REDIRECTS[path] || COMPAT_REDIRECTS[`${path}/`];
@@ -190,8 +196,7 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  };
  }
 
- const companyPattern = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(azienda|company|unternehmen|entreprise)-(.+)$`);
- const companyMatch = path.match(companyPattern);
+ const companyMatch = path.match(COMPANY_HUB_PATTERN);
  if (companyMatch) {
  const slug = companyMatch[4];
  // Company hubs stay on TI listing (legacy preservation — company hub
@@ -204,8 +209,7 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  };
  }
 
- const jobBoardSectionPattern = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/([^/]+)\\/?$`);
- const jobSectionMatch = path.match(jobBoardSectionPattern);
+ const jobSectionMatch = path.match(JOB_BOARD_SECTION_PATTERN);
  if (jobSectionMatch) {
  const slug = jobSectionMatch[3] || '';
  return {

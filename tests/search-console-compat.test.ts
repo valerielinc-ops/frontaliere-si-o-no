@@ -36,7 +36,7 @@ describe('Search Console 404 compatibility resolver', () => {
   });
 
   // Full-coverage scan over the committed 404 export. This file is an unbounded
-  // GSC-orphan accumulator (300k+ paths, ~30MB) so the loop cost scales with data
+  // GSC-orphan accumulator (~600k paths, ~60MB) so the loop cost scales with data
   // size; the default 15s vitest budget overflows under CI load (observed ~20s).
   // Explicit generous timeout preserves full coverage without sampling/weakening.
   it('covers the committed live 404 export paths', () => {
@@ -44,7 +44,10 @@ describe('Search Console 404 compatibility resolver', () => {
       readFileSync(path.resolve(__dirname, '..', 'data', 'seo-404-compat-paths.json'), 'utf-8')
     );
     expect(Array.isArray(compatPaths.paths)).toBe(true);
-    expect(compatPaths.paths.length).toBeGreaterThanOrEqual(603);
+    // Floor at half the current volume (~600k) so a truncated export — e.g. a
+    // write failure during append from sync-gsc-orphans/enrich/discover-404s —
+    // trips this sanity check instead of silently scanning stale data.
+    expect(compatPaths.paths.length).toBeGreaterThanOrEqual(300000);
     for (const value of compatPaths.paths) {
       expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
     }
