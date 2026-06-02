@@ -502,11 +502,11 @@
     },
     {
       "id": "logitech-d1959dea47ae",
-      "slug": "senior-ai-ml-engineer-logitech-ch",
+      "slug": "senior-ai-ml-ingegnere-logitech-lausanne-switzerland",
       "slugByLocale": {
         "en": "senior-ai-ml-engineer-logitech-ch",
-        "it": "senior-ai-ml-engineer-logitech-ch",
-        "de": "senior-ai-ml-engineer-logitech-ch",
+        "it": "senior-ai-ml-ingegnere-logitech-lausanne-switzerland",
+        "de": "senior-ai-ml-ingenieur-logitech-lausanne-switzerland",
         "fr": "senior-ai-ml-engineer-logitech-ch"
       },
       "company": "Logitech",
@@ -563,7 +563,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T13:52:52.987Z"
+      "firstSeenAt": "2026-06-02T13:52:52.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-ai-ml-engineer-logitech-ch"
+        ],
+        "de": [
+          "senior-ai-ml-engineer-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-ai-ml-engineer-logitech-ch"
+      ]
     }
   ]
 }

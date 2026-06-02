@@ -1756,8 +1756,8 @@
       "slugByLocale": {
         "de": "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
         "it": "psychotherapeutin-psychotherapeut-per-vielseitige-tatigkeit-con-schwerpunkt-neuropsychosomatik-klinik-lengg-zurich",
-        "en": "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt",
-        "fr": "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt"
+        "en": "psychotherapist-psychotherapist-for-versatile-activity-with-focus-on-neuropsychosomatics-klinik-lengg-zurich",
+        "fr": "psychotherapie-psychotherapie-pour-une-activite-polyvalente-avec-un-accent-sur-la-neuropsychosomatique-klinik-lengg"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1802,6 +1802,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt"
+        ],
+        "en": [
+          "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt"
+        ],
+        "fr": [
           "psychotherapeutin-psychotherapeut-fur-vielseitige-tatigkeit-mit-schwerpunkt"
         ]
       },

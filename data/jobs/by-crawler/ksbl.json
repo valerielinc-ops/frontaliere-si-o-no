@@ -5659,9 +5659,6 @@
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
         "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -6542,12 +6539,12 @@
     },
     {
       "id": "ksbl-ce4e787de331",
-      "slug": "apothekerin-apotheker-a-ksbl-liestal",
+      "slug": "farmacista-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "apothekerin-apotheker-a-ksbl-liestal",
-        "it": "apothekerin-apotheker-a-ksbl-liestal",
-        "en": "apothekerin-apotheker-a-ksbl-liestal",
-        "fr": "apothekerin-apotheker-a-ksbl-liestal"
+        "it": "farmacista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pharmacist-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "pharmacien-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6602,16 +6599,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:44:06.611Z"
+      "firstSeenAt": "2026-06-02T13:44:06.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apothekerin-apotheker-a-ksbl-liestal"
+        ],
+        "en": [
+          "apothekerin-apotheker-a-ksbl-liestal"
+        ],
+        "fr": [
+          "apothekerin-apotheker-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "apothekerin-apotheker-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-3b183a67d0be",
-      "slug": "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal",
+      "slug": "farmacia-professionale-con-produzione-citostatica-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal",
-        "it": "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal",
-        "en": "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal",
-        "fr": "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal"
+        "it": "farmacia-professionale-con-produzione-citostatica-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "professional-pharmacy-with-cytostatic-production-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "pharmacie-professionnelle-avec-production-cytostatique-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6666,16 +6677,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:44:05.218Z"
+      "firstSeenAt": "2026-06-02T13:44:05.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal"
+        ],
+        "en": [
+          "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-apotheke-mit-zytostatikaherstellung-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-9633b7b9b3e3",
-      "slug": "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal",
+      "slug": "lavoro-di-vacanza-hauswirtschaft-estate-2026-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal",
-        "it": "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal",
-        "en": "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal",
-        "fr": "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal"
+        "it": "lavoro-di-vacanza-hauswirtschaft-estate-2026-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "holiday-job-hauswirtschaft-summer-2026-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "emploi-de-vacances-hauswirtschaft-ete-2026-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6730,7 +6755,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:44:04.540Z"
+      "firstSeenAt": "2026-06-02T13:44:04.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal"
+        ],
+        "en": [
+          "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal"
+        ],
+        "fr": [
+          "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "ferienjob-hauswirtschaft-sommer-2026-a-ksbl-liestal"
+      ]
     }
   ]
 }

@@ -2303,8 +2303,7 @@
           "verkaufsberater-in-aussendienst-localsearch-ch-4"
         ],
         "de": [
-          "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
         ]
       },
       "needsRetranslation": true,
@@ -2380,8 +2379,7 @@
           "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
         ],
         "de": [
-          "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
         ]
       },
       "needsRetranslation": true,
@@ -2544,8 +2542,7 @@
           "verkaufsberater-aussendienst-localsearch-graubunden-schweiz"
         ],
         "de": [
-          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
         ]
       },
       "needsRetranslation": true,
@@ -2873,7 +2870,7 @@
         "de": "senior-product-manager-platform-business-development-80-100-localsearch-ch",
         "it": "senior-product-manager-platform-business-development-80-100-localsearch-ch",
         "en": "senior-product-manager-platform-business-development-80-100-localsearch-ch",
-        "fr": "senior-product-manager-platform-business-development-80-100-localsearch-ch"
+        "fr": "gestionnaire-principal-de-produits-plateforme-et-developpement-des-affaires-80-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3003,12 +3000,12 @@
     },
     {
       "id": "localsearch-71cbc07d963c",
-      "slug": "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch",
+      "slug": "proprietario-senior-del-prodotto-agente-di-vendita-ai-strumenti-di-vendita-100-localsearch-zurich",
       "slugByLocale": {
         "de": "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch",
-        "it": "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch",
+        "it": "proprietario-senior-del-prodotto-agente-di-vendita-ai-strumenti-di-vendita-100-localsearch-zurich",
         "en": "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch",
-        "fr": "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch"
+        "fr": "proprietaire-principal-de-produits-agent-de-vente-ai-outils-de-vente-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3063,7 +3060,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T13:52:05.524Z"
+      "firstSeenAt": "2026-06-02T13:52:05.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch"
+        ],
+        "fr": [
+          "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-owner-ai-sales-agent-sales-tools-100-localsearch-ch"
+      ]
     }
   ]
 }

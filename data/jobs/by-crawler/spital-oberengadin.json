@@ -804,12 +804,12 @@
     },
     {
       "id": "spital-oberengadin-2e85fbe6c21e",
-      "slug": "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan",
+      "slug": "chirurgia-medico-senior-spital-oberengadin-samedan",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan",
-        "it": "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan",
-        "en": "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan",
-        "fr": "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan"
+        "it": "chirurgia-medico-senior-spital-oberengadin-samedan",
+        "en": "senior-physician-surgery-spital-oberengadin-samedan",
+        "fr": "chirurgie-par-un-medecin-principal-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -870,11 +870,23 @@
       },
       "firstSeenAt": "2026-06-02T14:46:02.669Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan",
         "oberarztin-oberarzt-medicina-interna-spital-oberengadin-samedan",
         "senior-physician-internal-medicine-spital-oberengadin-samedan",
         "oberarztin-oberarzt-innere-medizin-spital-oberengadin-samedan",
         "medecin-chef-medecine-interne-spital-oberengadin-samedan"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-chirurgie-spital-oberengadin-samedan"
+        ]
+      }
     }
   ]
 }

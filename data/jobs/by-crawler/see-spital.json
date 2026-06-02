@@ -937,8 +937,7 @@
         "de": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "oberarzt-arztin-frauenklinik-see-spital-horgen",
-          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
@@ -3901,12 +3900,12 @@
     },
     {
       "id": "see-spital-4eb412dab0d5",
-      "slug": "assistent-in-aemp-see-spital-ch",
+      "slug": "assistente-in-aemp-see-spital-horgen",
       "slugByLocale": {
         "de": "assistent-in-aemp-see-spital-ch",
-        "it": "assistent-in-aemp-see-spital-ch",
-        "en": "assistent-in-aemp-see-spital-ch",
-        "fr": "assistent-in-aemp-see-spital-ch"
+        "it": "assistente-in-aemp-see-spital-horgen",
+        "en": "assistant-in-aemp-see-spital-horgen",
+        "fr": "assistant-en-aemp-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3963,7 +3962,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T14:35:21.904Z"
+      "firstSeenAt": "2026-06-02T14:35:21.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-aemp-see-spital-ch"
+        ],
+        "en": [
+          "assistent-in-aemp-see-spital-ch"
+        ],
+        "fr": [
+          "assistent-in-aemp-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-aemp-see-spital-ch"
+      ]
     }
   ]
 }

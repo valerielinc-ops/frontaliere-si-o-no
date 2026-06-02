@@ -1011,8 +1011,7 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf",
-          "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf"
+          "lehrstelle-als-ict-fachperson-efz-a-spital-emmental-burgdorf"
         ],
         "it": [
           "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf",
@@ -4766,12 +4765,12 @@
     },
     {
       "id": "spital-emmental-c6dc17fb299c",
-      "slug": "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf",
+      "slug": "riumatologia-medica-senior-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf",
-        "it": "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf"
+        "it": "riumatologia-medica-senior-a-spital-emmental-burgdorf",
+        "en": "senior-physician-rheumatology-a-spital-emmental-burgdorf",
+        "fr": "conseiller-principal-medecin-consultant-rhumatologie-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4832,16 +4831,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:43:14.989Z"
+      "firstSeenAt": "2026-06-02T14:43:14.989Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-rheumatologie-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-ea9fc0a1ddbd",
-      "slug": "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "medico-senior-medico-senior-eta-psichiatria-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "it": "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "it": "medico-senior-medico-senior-eta-psichiatria-a-spital-emmental-burgdorf",
+        "en": "senior-physician-a-spital-emmental-burgdorf",
+        "fr": "conseiller-e-principal-e-docteur-e-principal-e-de-psychiatrie-de-la-vieillesse-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4904,6 +4917,7 @@
       },
       "firstSeenAt": "2026-06-02T14:43:14.374Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
         "vice-direttore-medico-vice-direttrice-medica-part-time-spital-emmental-burgdorf",
         "deputy-chief-physician-gynecology-obstetrics-part-time-spital-emmental-burgdorf-langnau",
         "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf",
@@ -4914,7 +4928,18 @@
         "deputy-senior-physician-a-spital-emmental-burgdorf",
         "medecin-adjoint-medecin-adjoint-h-f-spital-emmental-burgdorf-langnau",
         "medecin-specialiste-en-gynecologie-et-obstetrique-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      }
     },
     {
       "id": "spital-emmental-892ef925fd25",
@@ -4922,8 +4947,8 @@
       "slugByLocale": {
         "de": "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf",
         "it": "mechaniker-in-o-metallbauer-in-a-spital-emmental-burgdorf",
-        "en": "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf",
-        "fr": "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf"
+        "en": "engineer-in-or-metallbauer-in-a-spital-emmental-burgdorf",
+        "fr": "mecanicien-ou-metallurgiste-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4974,6 +4999,12 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "mechaniker-in-oder-metallbauer-in-a-spital-emmental-burgdorf"
         ]
       },

@@ -770,7 +770,7 @@
         "de": "zivildienstleistende-als-allrounder-lager-pharmazie-pflichtenheft-101149-luks-luzern",
         "it": "zivildienstleistende-come-allrounder-magazzino-pharmazie-pflichtenheft-101149-luzerner-kantonsspital-luks-luzern",
         "en": "zivildienstleistende-als-allrounder-lager-pharmazie-pflichtenheft-101149-luks-luzern",
-        "fr": "zivildienstleistende-come-allrounder-magazzino-pharmazie-pflichtenheft-101149-luzerner-kantonsspital-luks-luzern"
+        "fr": "service-civil-comme-allrounder-pharmacie-livret-de-taches-101149-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -7176,10 +7176,7 @@
         "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
-        "operatorin-operator-technik-80-luks-luzern",
         "operations-technician-80-luzerner-kantonsspital-luks-luzern",
-        "technical-operator-80-luzerner-kantonsspital-luks-luzern",
-        "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatorin-operator-technik-80-luks-luzern-2"
       ],
       "previousSlugsByLocale": {
@@ -18066,12 +18063,12 @@
     },
     {
       "id": "luks-97003f7894c7",
-      "slug": "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern",
+      "slug": "addetto-a-contabile-debitore-bilanci-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern",
-        "it": "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern",
-        "en": "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern",
-        "fr": "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern"
+        "it": "addetto-a-contabile-debitore-bilanci-100-luzerner-kantonsspital-luks-luzern",
+        "en": "debt-collector-billing-clerk-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "comptable-debitore-bilanci-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18126,7 +18123,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:55:13.215Z"
+      "firstSeenAt": "2026-06-02T13:55:13.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-debitoren-betreibungen-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-2a7ef7ad1c4a",
@@ -18134,8 +18145,8 @@
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks",
         "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-dermatologie-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks",
-        "fr": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks"
+        "en": "medical-practice-assistant-dermatology-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-e-medical-e-en-pratique-dermatologique-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18181,6 +18192,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks"
+        ],
+        "fr": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-dermatologie-80-100-luks"
         ]
       },
       "previousSlugs": [
@@ -18206,8 +18223,8 @@
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern",
         "it": "arztsekretarin-arztsekretar-o-mpa-sekretariat-rheumatologie-50-60-luzerner-kantonsspital-luks-luzern",
-        "en": "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern",
-        "fr": "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern"
+        "en": "medical-secretary-or-medical-practice-assistant-50-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "secretaire-medicale-ou-assistante-de-medecine-de-pratique-50-60-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18252,6 +18269,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern"
+        ],
+        "fr": [
           "arztsekretarin-arztsekretar-oder-mpa-sekretariat-rheumatologie-50-60-luks-luzern"
         ]
       },
@@ -18331,7 +18354,6 @@
         "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
         "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans",
         "responsable-de-la-kinesitherapie-possibilite-de-travail-partage-100-luzerner-kantonsspital-luks-stans",
-        "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
         "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
@@ -18365,12 +18387,12 @@
     },
     {
       "id": "luks-4696746ba563",
-      "slug": "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern",
+      "slug": "acquirente-di-beni-di-consumo-al-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern",
-        "it": "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern",
-        "en": "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern",
-        "fr": "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern"
+        "it": "acquirente-di-beni-di-consumo-al-100-luzerner-kantonsspital-luks-luzern",
+        "en": "procurement-officer-for-consumable-goods-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "acheteur-de-biens-de-consommation-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18425,7 +18447,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:55:13.195Z"
+      "firstSeenAt": "2026-06-02T13:55:13.195Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern"
+        ],
+        "en": [
+          "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern"
+        ],
+        "fr": [
+          "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "einkauferin-einkaufer-verbrauchsguter-100-luks-luzern"
+      ]
     }
   ]
 }
