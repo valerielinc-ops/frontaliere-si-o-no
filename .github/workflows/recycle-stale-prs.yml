@@ -27,7 +27,7 @@ on:
         default: '24'
 
 permissions:
-  contents: read
+  contents: write   # serve per --delete-branch sul gh pr close (vedi sotto)
   pull-requests: write
   issues: write
 
@@ -120,7 +120,13 @@ jobs:
             echo "::notice::PR #$N RICICLABILE → chiudi + re-queue issue #$ISSUE"
             if [ "$DRY" = "true" ]; then echo "(dry-run) skip azione PR #$N"; continue; fi
 
-            gh pr close "$N" --repo "$REPO" --comment "$(printf '♻️ **recycle** (auto): PR ferma >%sh come \x60stale-review\x60 con branch indietro su un main mosso di molti commit. Chiusa e issue sorgente #%s ri-accodata per un fix fresco contro main corrente (issue-fix aprirà un branch nuovo). Il lavoro non è perso: la issue resta aperta.' "${MAX_AGE_HOURS:-24}" "$ISSUE")" \
+            # --delete-branch OBBLIGATORIO: issue-fix ricrea il branch con nome
+            # DETERMINISTICO `fix/issue-N` e pusha con `git push -u` (no force). Se
+            # il branch remoto della PR chiusa sopravvive, la storia diverge
+            # (vecchio commit su main vecchio) → push non-fast-forward → rifiutato
+            # → 0 PR → R3-B no-opa sul path che deve fixare. Cancellare il ref
+            # libera il nome per il push fresco. (richiede permissions.contents:write)
+            gh pr close "$N" --repo "$REPO" --delete-branch --comment "$(printf '♻️ **recycle** (auto): PR ferma >%sh come \x60stale-review\x60 con branch indietro su un main mosso di molti commit. Chiusa (branch remoto cancellato) e issue sorgente #%s ri-accodata per un fix fresco contro main corrente (issue-fix aprirà un branch nuovo con lo stesso nome). Il lavoro non è perso: la issue resta aperta.' "${MAX_AGE_HOURS:-24}" "$ISSUE")" \
               2>/dev/null || echo "close fallito PR #$N"
 
             # Re-queue: serve PAT (un agent:fix via GITHUB_TOKEN NON triggera
