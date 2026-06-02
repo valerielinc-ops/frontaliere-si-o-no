@@ -35,11 +35,23 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        # Tier high (opus, max-turns 40, adversarial pass): toccato test gate,
-        # workflow CI, script crawler/migrator/validator, build-plugin. Bug in
-        # questi path = falso senso di sicurezza che si propaga su ogni merge,
-        # quindi probing più profondo paga. Tier normal (sonnet, max-turns 15)
-        # per tutto il resto. Vedi REVIEW.md → "Tier review".
+        # Tier high (opus, max-turns 40, adversarial pass): toccato CODE
+        # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
+        # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
+        # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
+        # Bug in questi path = falso senso di sicurezza che si propaga su ogni
+        # merge, quindi probing opus paga. Tier normal (sonnet, max-turns 15) per
+        # tutto il resto, inclusi gli script NON-funnel: `scripts/{ci,dev,evals}/`
+        # (helper CI/dev) e gli audit/report read-only (`audit-*`, `analytics*`,
+        # `*-report` — non mutano l'indice, verificano soltanto). Vedi REVIEW.md
+        # → "Tier review".
+        #
+        # CODE vs DATA: il tier si decide SOLO sui file code. I file dati/static
+        # rigenerati (data/**, public/**, reports/**, _newsletter_variants/**,
+        # docs/**) NON sono reviewabili come code → non escalano il tier e una PR
+        # data/docs-only resta normal (sonnet posta comunque `## LGTM` →
+        # auto-merge). Questo evita che 50 `data/jobs/*.json` rigenerati da un
+        # crawler trascinino su opus o gonfino il diff.
         #
         # Budget 25→40: con l'espansione del contratto (REVIEW.md no-short-circuit
         # su tier high + step 7 perf-claim + escalation ❓ funnel-critical, sopra
@@ -50,28 +62,41 @@ jobs:
         # 26 turni ≈ 3.5 min; 40 ≈ ~5.5 min, ben dentro il timeout 15 min.
         run: |
           set -euo pipefail
+          set_tier() {
+            echo "tier=$1" >> "$GITHUB_OUTPUT"
+            echo "model=$2" >> "$GITHUB_OUTPUT"
+            echo "max_turns=$3" >> "$GITHUB_OUTPUT"
+            echo "Review tier: $1 ($2, max-turns $3)"
+          }
           files=$(gh pr view "$PR_NUMBER" --json files --jq '.files[].path')
           # Guard PR vuota (rebase-only, base == head): files vuoto. Default tier
-          # normal + log esplicito, evita di affidarsi al fallback implicito
-          # `grep -q` su input vuoto. Reviewer comunque posta `## LGTM` (no
-          # finding) e auto-merge scatta.
+          # normal: reviewer posta comunque `## LGTM` (no finding) e auto-merge
+          # scatta.
           if [ -z "$files" ]; then
-            echo "Empty file list (rebase-only or empty PR), tier=normal."
-            echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
-            echo "max_turns=15" >> "$GITHUB_OUTPUT"
+            echo "Empty file list (rebase-only or empty PR)."
+            set_tier normal claude-sonnet-4-6 15
             exit 0
           fi
-          if echo "$files" | grep -qE '^(tests/|\.github/workflows/|scripts/|build-plugins/)'; then
-            echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-opus-4-8" >> "$GITHUB_OUTPUT"
-            echo "max_turns=40" >> "$GITHUB_OUTPUT"
-          else
-            echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-4-6" >> "$GITHUB_OUTPUT"
-            echo "max_turns=15" >> "$GITHUB_OUTPUT"
+          # Strip DATA/static: il tier si decide solo sul CODE.
+          code_files=$(echo "$files" | grep -vE '^(data/|public/|reports/|_newsletter_variants/|docs/)' || true)
+          if [ -z "$code_files" ]; then
+            echo "Data/docs-only PR (no reviewable code touched)."
+            set_tier normal claude-sonnet-4-6 15
+            exit 0
           fi
-          echo "Review tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
+          # CODE funnel-critical → high. Match diretto su test/CI/build-plugin,
+          # più gli script che mutano/emettono l'indice (tutto scripts/ ECCETTO
+          # gli helper non-funnel `{ci,dev,evals}/` e gli audit/report read-only).
+          crit=$(echo "$code_files" | grep -E '^(tests/|\.github/workflows/|build-plugins/)' || true)
+          scripts_crit=$(echo "$code_files" \
+            | grep -E '^scripts/' \
+            | grep -vE '^scripts/(ci|dev|evals)/' \
+            | grep -viE '(audit|analytics|report)' || true)
+          if [ -n "$crit$scripts_crit" ]; then
+            set_tier high claude-opus-4-8 40
+          else
+            set_tier normal claude-sonnet-4-6 15
+          fi
 
       - name: Run Claude review
         id: claude_review
@@ -103,7 +128,7 @@ jobs:
             **Bootstrap:**
             1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
             2. `AGENTS.md` solo come contesto progetto (non-negotiables, architettura) — opzionale, leggi solo se serve.
-            3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr diff $PR_NUMBER`, `gh pr view $PR_NUMBER --json files`.
+            3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr view $PR_NUMBER --json files`, poi il diff del SOLO code: `gh pr diff $PR_NUMBER -- ':(exclude)data/**' ':(exclude)public/**' ':(exclude)reports/**' ':(exclude)_newsletter_variants/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
             **Esegui workflow di review come specificato in REVIEW.md:**
             - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
@@ -112,7 +137,7 @@ jobs:
             - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier high → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
             - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
 
-            **Cross-file pattern probing (REVIEW.md step 5):** quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
+            **Cross-file pattern probing (REVIEW.md step 5):** quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
 
             **Posta UNA review:**
             `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
