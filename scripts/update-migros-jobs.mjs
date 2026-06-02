@@ -402,8 +402,10 @@ async function main() {
         // M-Industrie
         'Delica', 'Jowa', 'Mibelle', 'Midor', 'Chocolat Frey', 'Micarna',
         'Mifa', 'Bischofszell', 'Estavayer', 'Aproz', 'Riseria',
-        // Group retail / services
+        'Fresh Food', 'Fresh Food & Beverage',
+        // Group retail / services / leisure
         'Migrol', 'Hotelplan', 'Ex Libris', 'Digitec', 'Galaxus', 'SportXX',
+        'Activ Fitness', 'Fitnesspark',
       ],
       minDescription: 200,
       logger: (msg) => console.warn(msg),
