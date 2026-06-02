@@ -1404,25 +1404,31 @@ function readSectionSlugData() {
 }
 
 /**
- * Extract existing article IDs across ALL article sections (frontaliere +
- * svizzera) from their SLUGS maps (`'id': { it: ... }`).
- *
- * Crucially this is CROSS-SECTION: the SEO (`blog-{id}`) and i18n
- * (`blog.article.{id}.*`) namespaces are SHARED across sections, so a new id
- * that collides with one from the sibling section would silently override that
- * page's canonical / structured-data / title. Deduping globally (not just
- * intra-section) is what makes the "ids never collide across sections"
- * invariant true, so a generation run never mints a colliding id.
- *
- * The active section's source is reused when provided (avoids a redundant
- * read); sibling files are read fresh and tolerated-empty (first article).
+ * Extract existing article IDs from the ACTIVE section's slugs map (`'id': {
+ * it: ... }`). Used for the append-anchor (last id of THIS section) and for
+ * regenerating this section's id list — both of which must stay scoped to the
+ * active section's file. For cross-section dedup use {@link getAllArticleIds}.
+ * Returns [] when the section registry is still empty (first article).
  */
 function getSectionExistingIds(slugDataSrc) {
+  const src = slugDataSrc ?? readSectionSlugData();
+  return [...src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map((m) => m[1]);
+}
+
+/**
+ * Extract article IDs across ALL article sections (frontaliere + svizzera).
+ *
+ * The SEO (`blog-{id}`) and i18n (`blog.article.{id}.*`) namespaces are SHARED
+ * across sections, so a new id colliding with one from the sibling section
+ * would silently override that page's canonical / structured-data. Dedup must
+ * therefore be GLOBAL — this is what makes the "ids never collide across
+ * sections" invariant true. Sibling files are read fresh, tolerated-empty.
+ */
+function getAllArticleIds() {
   const ids = new Set();
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
-    const src = (slugDataSrc && cfg.slugDataFile === SECTION_SLUG_DATA_FILE)
-      ? slugDataSrc
-      : (() => { try { return read(cfg.slugDataFile); } catch { return ''; } })();
+    let src = '';
+    try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
     for (const m of src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)) ids.add(m[1]);
   }
   return [...ids];
@@ -1563,8 +1569,8 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
 
-  // Load existing article IDs (active section)
-  const existingIds = getSectionExistingIds();
+  // Load existing article IDs (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   for (const existingId of existingIds) {
     const idWords = existingId.split('-').filter(w => w.length > 1);
@@ -3229,8 +3235,8 @@ function prioritizeFrontalieriHeadlines(headlines) {
 
 // ── Step 1d: Use Gemini to select the best article ──────────
 async function selectArticle(headlines) {
-  // Get existing article info for duplicate detection (active section)
-  const existingIds = getSectionExistingIds();
+  // Get existing article info for duplicate detection (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
   const blogItSrc = readSectionMetaIt();
@@ -3419,8 +3425,8 @@ Rispondi con un JSON object (no markdown, no code fences):
 
 // ── Step 2: Generate article via GitHub Models (multi-call) ─
 async function callGemini(pageContent, url, sourceContext = null) {
-  // Get existing article IDs to avoid duplicates (active section)
-  const existingIds = getSectionExistingIds();
+  // Get existing article IDs to avoid duplicates (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   // ── Token budget management ──
   // Most models accept 128K+ context. We keep source generous (6000 chars)
@@ -5175,8 +5181,8 @@ function checkForDuplicates(data) {
     return { id, title, excerpt: exMatch ? exMatch[2] : '' };
   });
 
-  // Also check IDs for exact match (active section)
-  const existingIds = getSectionExistingIds();
+  // Also check IDs for exact match (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   // 1. Exact ID check
   if (existingIds.includes(data.id)) {
