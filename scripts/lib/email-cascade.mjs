@@ -469,14 +469,22 @@ const SEND_FNS = {
 /**
  * Detect a hard rate-limit / quota-reached signal in a provider error message.
  * Covers HTTP 429 and 403 burst/quota throttles (e.g. Mailtrap free Send API
- * returns `403 {"errors":["Your account has reached ..."]}` when hammered).
+ * returns `403 {"errors":["Your account has reached the limit"]}` when hammered).
  * When matched, the provider is marked exhausted for the rest of the run so the
  * cascade stops re-trying it (the root cause of the 258-in-5s 403 burst).
+ *
+ * The "reached" branch requires limit/quota context — bare "reached" is too
+ * broad (e.g. a generic 403 carrying "host could not be reached") and would
+ * wrongly retire a healthy provider; in forced-provider mode that fails the
+ * whole run.
  */
 function isRateLimitedError(msg) {
   if (!msg) return false;
   if (msg.includes('429')) return true;
-  if (msg.includes('403') && /reached|rate.?limit|too many|quota|limit of/i.test(msg)) return true;
+  if (msg.includes('403') &&
+      /reached[^"]{0,40}(limit|quota|cap|messages)|rate.?limit|too many|quota|limit of/i.test(msg)) {
+    return true;
+  }
   return false;
 }
 
