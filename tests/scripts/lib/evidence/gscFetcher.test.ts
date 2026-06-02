@@ -98,6 +98,42 @@ describe('fetchGscQueries', () => {
     expect(result.pages['/cerca-lavoro-ticino/zero-imp/']).toBeUndefined();
   });
 
+  it('isolates a Pass 3 failure: preserves Pass 1+2 results and surfaces the error', async () => {
+    // Pass 1 + Pass 2 succeed; Pass 3 fails on both sc-domain and url-prefix
+    // (gscQuery retries the fallback property before throwing). The page set
+    // is lost, but queries/orphans from the earlier passes must survive
+    // instead of being zeroed wholesale (over-thinning regression guard).
+    const queryRows = {
+      rows: [{ keys: ['ticino lavoro'], impressions: 80, clicks: 5, position: 6, ctr: 0.06 }],
+    };
+    const queryPageRows = {
+      rows: [{ keys: ['ticino lavoro', '/cerca-lavoro-ticino/'], impressions: 80 }],
+    };
+    const fail = jsonRes('server error', { ok: false, status: 500 });
+
+    let call = 0;
+    const fetchImpl = vi.fn(async () => {
+      call++;
+      if (call === 1) return jsonRes(queryRows);
+      if (call === 2) return jsonRes(queryPageRows);
+      return fail; // Pass 3: sc-domain + url-prefix fallback both 500
+    });
+
+    const result = await fetchGscQueries({
+      startDate: '2026-02-01',
+      endDate: '2026-05-01',
+      fetchImpl,
+      getTokenImpl: async () => 'fake-token',
+    });
+
+    expect(result.queries['ticino lavoro']).toBeDefined();
+    expect(result.queries['ticino lavoro'].imp).toBe(80);
+    expect(result.queries['ticino lavoro'].topLandingPage).toBe('/cerca-lavoro-ticino/');
+    expect(result.pages).toEqual({});
+    expect(result.error).toContain('pass3');
+    expect(result.error).toContain('500');
+  });
+
   it('returns error key when token mint fails (does not throw)', async () => {
     const result = await fetchGscQueries({
       startDate: '2026-02-01',
