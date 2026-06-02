@@ -5,6 +5,7 @@
  * FRO-328: ~113KB of article data extracted to its own chunk.
  */
 import type { BlogArticleId } from '@/services/router';
+import { cdnBlogImage } from '@/services/seo/blogImageCdn';
 
 export interface Article {
  // Loose `string` to avoid TS2590 union-too-complex when ARTICLES literal is checked.
@@ -28,7 +29,7 @@ export interface Article {
  authorName?: string;
 }
 
-export const ARTICLES = [
+const RAW_ARTICLES = [
  {
  id: 'stipendio-netto-2026',
  category: 'fiscale',
@@ -25212,3 +25213,13 @@ export const ARTICLES = [
  authorName: 'Redazione Frontaliere Ticino',
  },
 ] satisfies Article[];
+
+// Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
+// instead of the Pages artifact — see services/seo/blogImageCdn.ts. The raw
+// literals above stay site-relative so the build plugins that regex-parse this
+// file still read `/images/blog/...`; the runtime export rewrites them. The
+// 480w thumbnails (getResponsiveImageSet) remain same-origin.
+export const ARTICLES: Article[] = RAW_ARTICLES.map((a) => ({
+ ...a,
+ image: cdnBlogImage(a.image),
+}));

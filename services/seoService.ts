@@ -9,6 +9,7 @@ import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { normalizeStructuredData } from './seo/schema-normalizers';
+import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
@@ -4144,7 +4145,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  const sd = blogArticleSd;
  const imgUrl = typeof sd.image === 'string' ? sd.image : sd.image?.url;
  if (imgUrl) {
- const resolvedImgUrl = imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`;
+ // Full blog hero images are served from jsDelivr (CDN). cdnBlogImage maps
+ // both relative and absolute-origin /images/blog/*.webp to the CDN URL and
+ // passes non-blog paths (e.g. /images/places) through unchanged.
+ const resolvedImgUrl = cdnBlogImage(imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`);
  updateOrCreateMetaTag('property', 'og:image', resolvedImgUrl);
  const imgW = typeof sd.image === 'object' ? String(sd.image.width ?? '1344') : '1200';
  const imgH = typeof sd.image === 'object' ? String(sd.image.height ?? '756') : '630';

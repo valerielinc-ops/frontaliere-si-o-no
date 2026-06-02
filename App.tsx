@@ -88,6 +88,7 @@ import { useSimulationState } from '@/hooks/useSimulationState';
 import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
+import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
 import { initPostHog } from '@/services/posthog';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
@@ -195,6 +196,10 @@ const App: React.FC = () => {
  // refresh-thin-promotions.yml can lift the URL back into the "full" set
  // on its next refresh. Single-shot per page-load — uses a window flag
  // gate to dedup if React StrictMode double-mounts the component.
+ // Blog hero images load from jsDelivr (CDN). If it's unreachable, swap the
+ // failing <img> to its raw.githubusercontent fallback (same SHA).
+ useEffect(() => { installBlogImageCdnFallback(); }, []);
+
  useEffect(() => {
  if (typeof window === 'undefined') return;
  const w = window as unknown as { __THIN_SHELL__?: number; __THIN_SHELL_REPORTED__?: number };
