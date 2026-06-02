@@ -168,11 +168,30 @@ const GENERIC_ROLE_STEMS = new Set<string>([
   'dernier', 'jour', 'press', 'ent',
 ]);
 
-/** Prefix-tolerant token match (min stem length 3), shared by role + region. */
+/** Prefix-tolerant token match (min stem length 3), used for role matching. */
 function tokenMatchesStem(tokens: Iterable<string>, stem: string): boolean {
   if (stem.length < 3) return false;
   for (const tok of tokens) {
     if (tok.startsWith(stem) || stem.startsWith(tok.slice(0, Math.max(3, stem.length - 1)))) return true;
+  }
+  return false;
+}
+
+/**
+ * Locality (city) gate — unidirectional prefix match: the job's location token
+ * must START WITH the searched city token. Unlike role matching, city names are
+ * proper nouns where `tokenMatchesStem`'s bidirectional fuzzy clause bleeds
+ * foreign cities that share a common prefix: e.g. region `'manno'` →
+ * `'mannedorf'.slice(0,4)='mann'` and `'manno'.startsWith('mann')` is true, so a
+ * Männedorf (ZH) job would surface on the Manno (TI) geo page. Requiring the job
+ * location to actually begin with the city token eliminates that cross-city
+ * doorway while still allowing legitimate sub-locality forms (e.g. a 'lugano'
+ * city token matching a 'luganese' location).
+ */
+function localityMatchesCity(locTokens: Iterable<string>, cityTok: string): boolean {
+  if (cityTok.length < 3) return false;
+  for (const locTok of locTokens) {
+    if (locTok.startsWith(cityTok)) return true;
   }
   return false;
 }
@@ -213,7 +232,7 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
   // Pure geographic search ("jobs in <city>"): no occupational intent, just a
   // named city → match by locality alone.
   if (specificRegions.length > 0 && allRolesGeneric) {
-    return specificRegions.some((rtok) => tokenMatchesStem(locTokens, rtok));
+    return specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok));
   }
 
   // Role: need at least 1 overlap (prefix-tolerant for stems).
@@ -222,7 +241,7 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
   // Region: a named city must appear in the job location; broad-only tokens
   // (or no region tokens) leave coverage unconstrained / site-wide.
   if (specificRegions.length > 0) {
-    if (!specificRegions.some((rtok) => tokenMatchesStem(locTokens, rtok))) return false;
+    if (!specificRegions.some((rtok) => localityMatchesCity(locTokens, rtok))) return false;
   }
 
   return true;

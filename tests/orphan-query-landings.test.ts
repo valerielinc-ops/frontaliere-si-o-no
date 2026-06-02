@@ -161,6 +161,23 @@ describe('orphanQueryData — job matching', () => {
     expect(jobMatchesCluster(luganoJob, c)).toBe(false);
   });
 
+  it('city gate is prefix-only: a short city token does NOT bleed a foreign city sharing its prefix', () => {
+    // Region 'manno' (TI) must NOT match a job in 'Männedorf' (ZH). The old
+    // bidirectional fuzzy matcher sliced 'mannedorf'→'mann' and accepted
+    // 'manno'.startsWith('mann'); the locality gate requires the job location to
+    // actually begin with the searched city.
+    const geo: OrphanQueryCluster = makeCluster('it', 'lavoro-manno', 20, ['lavor'], ['manno']);
+    const mannoJob = activeJob({ title: 'Magazziniere', location: 'Manno', addressLocality: 'Manno' });
+    const maennedorfJob = activeJob({ title: 'Magazziniere', location: 'Männedorf', addressLocality: 'Männedorf' });
+    expect(jobMatchesCluster(mannoJob, geo)).toBe(true);
+    expect(jobMatchesCluster(maennedorfJob, geo)).toBe(false);
+
+    // Same guard on the profession+city branch (role token is specific).
+    const prof: OrphanQueryCluster = makeCluster('it', 'magazziniere-manno', 20, ['magazzinier'], ['manno']);
+    expect(jobMatchesCluster(mannoJob, prof)).toBe(true);
+    expect(jobMatchesCluster(maennedorfJob, prof)).toBe(false);
+  });
+
   it('profession + named city + broad token: broad does NOT override the city gate', () => {
     const c: OrphanQueryCluster = makeCluster('it', 'lavoro-oss-a-stabio-svizzera', 15, ['lavor', 'oss'], ['stabio', 'svizzera']);
     const ossStabio = activeJob({ title: 'OSS operatore socio sanitario', location: 'Stabio', addressLocality: 'Stabio' });
