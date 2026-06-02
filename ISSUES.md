@@ -81,6 +81,15 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 | high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | opus, 40 |
 | normal | resto | sonnet, 30 |
 
+### CODE vs DATA (no scroll dei blob — frugalità token, mirror del guard reviewer #1096)
+
+I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**` **NON sono code** da leggere riga-per-riga: scorrerli intero nel contesto brucia token senza segnale (il reviewer lo evita via #1096; il fixer deve fare lo stesso).
+
+- **Root cause su output dati = fixa il CODE che li genera** (parser/crawler/build-plugin), non editare il blob a mano né `cat`/scorrere il file intero.
+- Serve un campione di output? `Read` **mirato** (offset/limit) sul file, mai l'intero blob.
+- `rg`/`grep` cross-file (diagnosi, pattern repetition) **scopati al code**: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`). Cercare dentro `data/`/`public/` = migliaia di match su blob rigenerati = turni e token sprecati.
+- **Eccezione:** un file `data/**` checked-in che è **config/fixture** (non output rigenerato) e che il fix modifica a mano → trattalo come code.
+
 ### Abort senza PR (no fix forzato)
 
 - Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
