@@ -388,7 +388,7 @@
         "de": "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos",
         "it": "front-office-collaboratore-trice-davos-klosters-bergbahnen-ag-davos",
         "en": "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos",
-        "fr": "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos"
+        "fr": "front-office-collaborateur-trice-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -428,6 +428,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
           "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos"
         ]
       },

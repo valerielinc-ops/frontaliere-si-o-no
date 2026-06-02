@@ -3715,8 +3715,8 @@
       "slugByLocale": {
         "de": "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch",
         "it": "arztsekretar-in-o-mpa-80-frauenklinik-zuri-ost-spital-uster",
-        "en": "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch",
-        "fr": "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch"
+        "en": "physician-or-mpa-80-zuri-ost-spital-uster-uster",
+        "fr": "medecin-ou-mpa-80-zuri-ost-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3762,6 +3762,12 @@
       "department": "Administration/Management/Stab",
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch"
+        ],
+        "en": [
+          "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch"
+        ],
+        "fr": [
           "arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch"
         ]
       },

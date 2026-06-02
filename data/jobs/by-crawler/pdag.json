@@ -624,12 +624,12 @@
     },
     {
       "id": "pdag-24c10fc74ca8",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
+      "slug": "dipl-carriera-dipl-specialista-hf-fh-nel-dipartimento-di-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag"
+        "it": "dipl-carriera-dipl-specialista-hf-fh-nel-dipartimento-di-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-career-dipl-care-specialist-hf-fh-in-the-department-of-neuropsychiatrie-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-hf-fh-au-departement-de-neuropsychiatrie-psychiatrische-dienste-aargau-pdag"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -684,7 +684,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:14:15.756Z"
+      "firstSeenAt": "2026-06-02T14:14:15.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-im-klinikbereich-neuropsychiatrie-pdag"
+      ]
     },
     {
       "id": "pdag-989fe5daae27",
@@ -692,8 +706,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-pdag-windisch",
         "it": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-pdag-windisch",
-        "en": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-hf-dipl-pflegefachmann-hf-pdag-windisch"
+        "en": "dipl-care-specialist-hf-dipl-care-specialist-hf-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "dipl-specialiste-des-soins-hf-dipl-specialiste-des-soins-hf-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",

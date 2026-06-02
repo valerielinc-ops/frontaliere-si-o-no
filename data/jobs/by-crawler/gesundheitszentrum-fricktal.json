@@ -608,9 +608,9 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-0adcbcea9cfa",
-      "slug": "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "risorse-umane-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "risorse-umane-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "controleur-des-ressources-humaines-en-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -667,16 +667,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "hr-controller-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-98aa78e29ddc",
-      "slug": "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "projektleiter-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "projektleiter-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "projektleiter-m-m-j-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -731,7 +739,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T13:08:11.075Z"
+      "firstSeenAt": "2026-06-02T13:08:11.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }
