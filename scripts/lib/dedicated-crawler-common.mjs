@@ -3287,8 +3287,19 @@ export function applyCompanyDefaults(job, companySlug) {
   const slug = companySlug || job?.companyKey || '';
   const defaults = COMPANY_DEFAULTS[slug];
   if (defaults) {
-    if (!job.streetAddress)    job.streetAddress    = defaults.streetAddress;
-    if (!job.postalCode)       job.postalCode       = defaults.postalCode;
+    // A job outside the company's HQ canton (e.g. a Zurich posting for a
+    // Ticino-seat employer) must NOT inherit the HQ street/CAP/region — that
+    // stamps a Bellinzona address onto a Zurich job. Detect cross-canton from
+    // the real per-job city; in that case derive the region from the city and
+    // leave street/CAP empty for the PLZ/city fallback to resolve.
+    const cityForCanton = String(job.addressLocality || job.location || '').trim();
+    const cityCanton = cityForCanton ? inferAnyCanton(cityForCanton) : '';
+    const sameCanton = !cityCanton || cityCanton === defaults.addressRegion;
+
+    if (sameCanton) {
+      if (!job.streetAddress)  job.streetAddress = defaults.streetAddress;
+      if (!job.postalCode)     job.postalCode    = defaults.postalCode;
+    }
     // Prefer the per-job location over the company HQ city. The HQ city is
     // the fallback when neither addressLocality nor location is set.
     if (!job.addressLocality) {
@@ -3303,7 +3314,7 @@ export function applyCompanyDefaults(job, companySlug) {
       // If location is now populated with a real city, restore it.
       job.addressLocality = String(job.location).trim();
     }
-    if (!job.addressRegion)    job.addressRegion     = defaults.addressRegion;
+    if (!job.addressRegion)    job.addressRegion     = sameCanton ? defaults.addressRegion : cityCanton;
     if (!job.addressCountry)   job.addressCountry   = defaults.addressCountry;
   }
   // Default employmentType for all jobs
@@ -3352,12 +3363,42 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     console.log(`  🏢 Company defaults: enriched ${companyDefaultsFilled}/${total} jobs with HQ address/employmentType.`);
   }
 
+  // ── Cross-canton HQ-address heal ──
+  // Some jobs still carry a company HQ address (street/CAP/region) from a
+  // different canton than the job's real city — e.g. a Zurich Swisscom posting
+  // stamped with the Ticino seat (Via Ghiringhelli, 6500, TI). Strip the fields
+  // that still equal the HQ default while the job's canton differs, so the PLZ
+  // enrichment + build-time city fallback re-derive a coherent same-canton
+  // address instead of showing Bellinzona on an out-of-canton job.
+  let crossCantonHealed = 0;
+  for (const job of hardened) {
+    const hq = COMPANY_DEFAULTS[String(job.companyKey || '').toLowerCase()];
+    if (!hq) continue;
+    const city = String(job.addressLocality || job.location || '').trim();
+    if (!city) continue;
+    const cityCanton = (job.canton && /^[A-Z]{2}$/i.test(job.canton))
+      ? job.canton.toUpperCase()
+      : inferAnyCanton(city);
+    if (!cityCanton || cityCanton === hq.addressRegion) continue;
+    let touched = false;
+    if (job.postalCode === hq.postalCode) { job.postalCode = ''; touched = true; }
+    if (job.streetAddress === hq.streetAddress) { job.streetAddress = ''; touched = true; }
+    if (String(job.addressRegion || '').toUpperCase() === String(hq.addressRegion).toUpperCase()) {
+      job.addressRegion = cityCanton;
+      touched = true;
+    }
+    if (touched) crossCantonHealed++;
+  }
+  if (crossCantonHealed > 0) {
+    console.log(`  🧭 Cross-canton heal: stripped HQ address from ${crossCantonHealed} out-of-canton jobs (CAP/street re-derived from city).`);
+  }
+
   // ── PostalCode enrichment from swiss-postal-codes.json ──
   let postalFilled = 0;
   const plzPath = path.join(path.dirname(dataJobsPath), 'swiss-postal-codes.json');
   if (fs.existsSync(plzPath)) {
     const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
-    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000' };
+    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', GE: '1204', VD: '1003', BS: '4001', SO: '4500', ZG: '6300', TG: '8500', SH: '8200', FR: '1700', NE: '2000' };
     for (const job of hardened) {
       if (job.postalCode) continue;
       const loc = (job.addressLocality || job.location || '').trim();

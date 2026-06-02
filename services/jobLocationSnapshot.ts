@@ -274,20 +274,43 @@ function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): nu
  return 6371 * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+/**
+ * True when the explicit locality is consistent with a postal code — i.e. the
+ * locality names the seed bound to that CAP, or a comune sharing it. Used to
+ * reject a stray HQ/registered-office postal code (e.g. a Zurich job carrying
+ * the employer's Ticino seat CAP `6500`) that would otherwise reverse-resolve
+ * to the wrong city. An empty locality carries no contradiction, so it passes.
+ */
+function postalSeedMatchesLocality(cleanPostal: string, normalizedLocality: string): boolean {
+ if (!normalizedLocality) return true;
+ for (const seed of [...LOCATION_SEEDS, ...POSTAL_FALLBACK_SEEDS]) {
+ if (seed.postalCode !== cleanPostal) continue;
+ const variants = [seed.locality, ...(seed.aliases || [])];
+ if (variants.some((variant) => normalizedLocality.includes(normalize(variant)))) return true;
+ }
+ return false;
+}
+
 function inferSeed(locality: string, postalCode?: string): LocationSeed | null {
  const cleanPostal = String(postalCode || '').trim();
+ const normalized = normalize(locality);
+
+ // Resolve the seed implied by the explicit locality string (if any) first,
+ // so an explicit recognizable city always wins over a contradictory CAP.
+ let byLocality: LocationSeed | null = null;
+ if (normalized) {
+ for (const candidate of LOCATION_INDEX) {
+ if (normalized.includes(candidate.key)) { byLocality = candidate.seed; break; }
+ }
+ }
+
  if (cleanPostal) {
  const byPostal = LOCATION_SEEDS.find((seed) => seed.postalCode === cleanPostal);
- if (byPostal) return byPostal;
+ // Trust the CAP only when it does not contradict the explicit locality.
+ if (byPostal && postalSeedMatchesLocality(cleanPostal, normalized)) return byPostal;
  }
 
- const normalized = normalize(locality);
- if (!normalized) return null;
-
- for (const candidate of LOCATION_INDEX) {
- if (normalized.includes(candidate.key)) return candidate.seed;
- }
- return null;
+ return byLocality;
 }
 
 function isValidSwissPostalCode(value = ''): boolean {

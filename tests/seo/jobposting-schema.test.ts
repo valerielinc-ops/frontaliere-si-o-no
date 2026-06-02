@@ -222,6 +222,33 @@ describe('buildJobPostingSchema — per-locale output', () => {
   });
 });
 
+describe('buildJobPostingSchema — out-of-canton job', () => {
+  it('does not stamp a Ticino HQ address onto a Zurich job', () => {
+    // A Zurich posting for a Ticino-seat employer, with no explicit address:
+    // it must resolve to a Zurich (ZH) address, never Bellinzona / 6500 / TI.
+    const job: JobInput = {
+      id: 'swisscom-devops-zurich',
+      title: 'DevOps Engineer Cloud Solutions',
+      description:
+        'Ruolo DevOps presso Swisscom a Zurigo, con responsabilità su piattaforme cloud e automazione dei deployment.',
+      company: 'Swisscom',
+      companyKey: 'swisscom-sede-ticino',
+      city: 'Zürich',
+      addressRegion: 'ZH',
+      canton: 'ZH',
+      // No streetAddress / postalCode → must fall to a Zurich-coherent fallback.
+    };
+    const schema = buildJobPostingSchema(job, OPTS);
+    assertComplete(schema);
+    const addr = schema.jobLocation.address;
+    expect(addr.addressRegion).toBe('ZH');
+    expect(addr.addressLocality).toBe('Zürich');
+    expect(addr.postalCode).not.toBe('6500');
+    expect(addr.postalCode).toBe('8001');
+    expect(addr.streetAddress).not.toBe('Piazza Governo');
+  });
+});
+
 describe('buildJobPostingSchema — required opts', () => {
   it('throws when locale is missing', () => {
     expect(() =>

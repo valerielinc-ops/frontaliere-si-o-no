@@ -90,6 +90,55 @@ export const CITY_FALLBACK_ADDRESSES: Record<string, CompanyHqAddress> = {
   'bellinzona': { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
   'locarno': { streetAddress: 'Piazza Grande 18', postalCode: '6600', addressLocality: 'Locarno', addressRegion: 'TI' },
   'ticino': { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  // Major non-Ticino cities — used when a job sits outside Ticino (e.g. a
+  // Swisscom posting in Zurich) so it never inherits a Ticino HQ address.
+  'zürich': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'zurich': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'zurigo': { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  'winterthur': { streetAddress: 'Stadthausstrasse 4a', postalCode: '8400', addressLocality: 'Winterthur', addressRegion: 'ZH' },
+  'bern': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  'berna': { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  'genève': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'geneva': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'genf': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'ginevra': { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  'lausanne': { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  'losanna': { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  'vevey': { streetAddress: 'Grande Place 5', postalCode: '1800', addressLocality: 'Vevey', addressRegion: 'VD' },
+  'basel': { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  'basilea': { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  'olten': { streetAddress: 'Hauptgasse 33', postalCode: '4600', addressLocality: 'Olten', addressRegion: 'SO' },
+  'monthey': { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1870', addressLocality: 'Monthey', addressRegion: 'VS' },
+  'luzern': { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  'lucerna': { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  'zug': { streetAddress: 'Postplatz 1', postalCode: '6300', addressLocality: 'Zug', addressRegion: 'ZG' },
+  'st. gallen': { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+  'san gallo': { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+};
+
+/**
+ * Canton (ISO 3166-2:CH suffix) → a central civic address in that canton's
+ * capital. Last-resort fallback so a job in any canton resolves to a coherent
+ * same-canton address instead of always defaulting to Bellinzona (Ticino).
+ */
+export const CANTON_CAPITAL_ADDRESSES: Record<string, CompanyHqAddress> = {
+  TI: { streetAddress: 'Piazza Governo', postalCode: '6500', addressLocality: 'Bellinzona', addressRegion: 'TI' },
+  ZH: { streetAddress: 'Bahnhofstrasse 1', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH' },
+  BE: { streetAddress: 'Bundesplatz 3', postalCode: '3011', addressLocality: 'Bern', addressRegion: 'BE' },
+  GE: { streetAddress: "Rue de l'Hôtel-de-Ville 2", postalCode: '1204', addressLocality: 'Genève', addressRegion: 'GE' },
+  VD: { streetAddress: 'Place de la Palud 2', postalCode: '1003', addressLocality: 'Lausanne', addressRegion: 'VD' },
+  BS: { streetAddress: 'Marktplatz 9', postalCode: '4001', addressLocality: 'Basel', addressRegion: 'BS' },
+  SO: { streetAddress: 'Hauptgasse 72', postalCode: '4500', addressLocality: 'Solothurn', addressRegion: 'SO' },
+  VS: { streetAddress: 'Rue du Grand-Pont 12', postalCode: '1950', addressLocality: 'Sion', addressRegion: 'VS' },
+  LU: { streetAddress: 'Kornmarkt 3', postalCode: '6004', addressLocality: 'Luzern', addressRegion: 'LU' },
+  SG: { streetAddress: 'Gallusstrasse 14', postalCode: '9000', addressLocality: 'St. Gallen', addressRegion: 'SG' },
+  ZG: { streetAddress: 'Postplatz 1', postalCode: '6300', addressLocality: 'Zug', addressRegion: 'ZG' },
+  GR: { streetAddress: 'Poststrasse 33', postalCode: '7000', addressLocality: 'Chur', addressRegion: 'GR' },
+  AG: { streetAddress: 'Rathausgasse 1', postalCode: '5000', addressLocality: 'Aarau', addressRegion: 'AG' },
+  TG: { streetAddress: 'Rathausplatz 1', postalCode: '8500', addressLocality: 'Frauenfeld', addressRegion: 'TG' },
+  SH: { streetAddress: 'Vordergasse 17', postalCode: '8200', addressLocality: 'Schaffhausen', addressRegion: 'SH' },
+  FR: { streetAddress: "Place de l'Hôtel-de-Ville 1", postalCode: '1700', addressLocality: 'Fribourg', addressRegion: 'FR' },
+  NE: { streetAddress: "Rue de l'Hôtel-de-Ville 1", postalCode: '2000', addressLocality: 'Neuchâtel', addressRegion: 'NE' },
 };
 
 /**
@@ -141,8 +190,19 @@ export const DEFAULT_CANTON_REGION = 'TI';
  */
 export function deriveCantonFromCity(city: string | undefined | null): string {
   if (!city) return DEFAULT_CANTON_REGION;
-  const key = String(city).trim().toLowerCase();
-  return CITY_TO_CANTON[key] || DEFAULT_CANTON_REGION;
+  const raw = String(city).trim().toLowerCase();
+  if (CITY_TO_CANTON[raw]) return CITY_TO_CANTON[raw];
+  // Tolerate decorated localities like "Geneva (Genève)" or "Chur, Graubünden"
+  // by probing the bare name and any parenthetical/segment variant.
+  const candidates = new Set<string>();
+  const paren = raw.match(/\(([^)]+)\)/);
+  if (paren) candidates.add(paren[1].trim());
+  candidates.add(raw.replace(/\([^)]*\)/g, '').trim());
+  for (const segment of raw.split(/[,·/]/)) candidates.add(segment.trim());
+  for (const candidate of candidates) {
+    if (candidate && CITY_TO_CANTON[candidate]) return CITY_TO_CANTON[candidate];
+  }
+  return DEFAULT_CANTON_REGION;
 }
 
 /**
@@ -154,19 +214,25 @@ export function resolveFallbackAddress(
   companySlug: string | undefined,
   city: string | undefined,
 ): CompanyHqAddress {
+  const cityCanton = deriveCantonFromCity(city);
   if (companySlug) {
     const hq = COMPANY_HQ_ADDRESSES[companySlug.toLowerCase()];
-    if (hq) return hq;
+    // Only trust the curated HQ when the job's city is in the HQ's own canton.
+    // A cross-canton job (e.g. a Zurich posting for a Ticino-seat employer)
+    // must not inherit the HQ address — fall through to a city/canton lookup.
+    if (hq && hq.addressRegion === cityCanton) return hq;
   }
   if (city) {
     const cityHq = CITY_FALLBACK_ADDRESSES[city.toLowerCase()];
     if (cityHq) return cityHq;
   }
-  // Canton-capital last resort (Ticino).
+  // Canton-capital last resort: a coherent same-canton address (never empty),
+  // keeping the real locality when known.
+  const capital = CANTON_CAPITAL_ADDRESSES[cityCanton] || CANTON_CAPITAL_ADDRESSES.TI;
   return {
-    streetAddress: 'Piazza Governo',
-    postalCode: '6500',
-    addressLocality: city || 'Bellinzona',
-    addressRegion: deriveCantonFromCity(city),
+    streetAddress: capital.streetAddress,
+    postalCode: capital.postalCode,
+    addressLocality: city || capital.addressLocality,
+    addressRegion: cityCanton,
   };
 }
