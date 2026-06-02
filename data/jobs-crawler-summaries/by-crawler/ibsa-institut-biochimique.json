@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-06-02T00:00:42.082Z",
+  "generatedAt": "2026-06-02T13:25:27.246Z",
   "total": 9,
   "newCount": 9,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13646,
-  "avgDurationMs": 13646,
+  "durationMs": 12230,
+  "avgDurationMs": 12230,
   "durationHistory": [
-    13646
+    12230
   ],
   "newJobs": [
     {
@@ -339,18 +339,18 @@
       "country": "CH",
       "salaryMin": 82500,
       "salaryMax": 127000,
-      "streetAddress": "Via del Piano 29",
-      "postalCode": "6926",
+      "streetAddress": "",
+      "postalCode": "6916",
       "addressLocality": "Grancia",
-      "addressRegion": "TI",
+      "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
