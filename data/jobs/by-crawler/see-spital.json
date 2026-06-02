@@ -858,9 +858,9 @@
       "slug": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -942,10 +942,12 @@
           "medico-senior-see-spital-horgen"
         ],
         "en": [
-          "gynecologist-and-obstetrician-see-spital-horgen"
+          "gynecologist-and-obstetrician-see-spital-horgen",
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "gynecologue-et-obstetricien-see-spital-horgen"
+          "gynecologue-et-obstetricien-see-spital-horgen",
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -954,7 +956,10 @@
         "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
         "medico-senior-see-spital-horgen",
         "gynecologist-and-obstetrician-see-spital-horgen",
-        "gynecologue-et-obstetricien-see-spital-horgen"
+        "gynecologue-et-obstetricien-see-spital-horgen",
+        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
       "salaryMin": 49500,
