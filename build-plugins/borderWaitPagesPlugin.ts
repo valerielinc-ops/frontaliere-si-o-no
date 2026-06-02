@@ -1681,8 +1681,8 @@ function renderLeafPage(inp: LeafInputs): string {
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
-  ${adviceBannerHtml}
   ${currentCardHtml}
+  ${adviceBannerHtml}
   ${webcamHtml}
   ${hourlyHtml}
   ${weeklyHtml}

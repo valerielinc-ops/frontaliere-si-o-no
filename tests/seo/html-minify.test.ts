@@ -218,6 +218,24 @@ describe('minifyHtml — safe attribute-quote removal', () => {
     expect(out).toContain('href=/assets/index-abc.css');
   });
 
+  it('keeps the last attribute quoted before a self-closing slash (SVG icons)', () => {
+    // `<circle r="10"/>` must NOT become `<circle r=10/>` — the unquoted value
+    // would absorb the `/` (`r="10/"`) and the SVG renderer throws
+    // "Expected length". hubChrome inline icons author attrs as `attr="n"/>`.
+    const out = minifyHtml(
+      '<svg><circle cx="12" cy="12" r="10"/><line x1="8" y1="2" x2="8" y2="18"/></svg>',
+    );
+    // The slash-adjacent attribute keeps its quotes…
+    expect(out).toContain('r="10"/>');
+    expect(out).toContain('y2="18"/>');
+    // …no malformed unquoted self-close survives.
+    expect(out).not.toMatch(/r=10\/>/);
+    expect(out).not.toMatch(/y2=18\/>/);
+    // …while earlier (space-separated) attributes still get unquoted.
+    expect(out).toContain('cx=12');
+    expect(out).toContain('x1=8');
+  });
+
   it('preserves quotes inside JSON-LD body (opaque)', () => {
     const out = minifyHtml(
       '<script type="application/ld+json">{"@type":"Foo","key":"value"}</script>',
