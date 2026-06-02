@@ -474,9 +474,9 @@
     },
     {
       "id": "ipw-a95f8b4a5bd3",
-      "slug": "apprendista-logistikerin-apprendista-logistiker-cfc-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "learning-logistics-learning-logistics-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "apprendista-logistikerin-apprendista-logistiker-cfc-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "it": "learning-logistics-learning-logistics-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "registered-nurse-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "fr": "infirmier-ere-diplome-e-80-100-universitats-kinderspital-zurich-kispi-zurich"
@@ -527,8 +527,8 @@
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
           "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "learning-logistics-learning-logistics-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur"
+          "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
+          "apprendista-logistikerin-apprendista-logistiker-cfc-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
           "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -545,8 +545,8 @@
         "lernende-logistikerin-lernender-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "apprendista-logista-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "learning-logistics-learning-logistics-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "lernende-logistikerin-lernender-logistiker-efz-ipw-winterthur",
+        "apprendista-logistikerin-apprendista-logistiker-cfc-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "logistics-apprentice-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "apprentice-logistician-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "apprentice-logistikerin-apprentice-logistiker-efz-integrierte-psychiatrie-winterthur-ipw-winterthur",
@@ -642,12 +642,12 @@
     },
     {
       "id": "ipw-f66954b76109",
-      "slug": "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "segretaria-medica-60-sostegno-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+        "it": "segretaria-medica-60-sostegno-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "medical-secretary-60-maternity-leave-cover-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-nachtdienst-im-klinikbereich-neuropsychiatrie",
-        "fr": "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
+        "fr": "secretaire-medicale-60-couverture-de-conge-maternite-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -693,12 +693,20 @@
           "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "it": [
+          "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+          "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
+        ],
+        "fr": [
           "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
         ]
       },
       "previousSlugs": [
         "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur"
+        "arztsekretarin-arztsekretar-60-mutterschaftsvertretung-ipw-winterthur",
+        "segretario-del-dottore-60-rappresentanza-della-maternita-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "firstSeenAt": "2026-05-27T12:59:32.763Z",
       "salaryMin": 49500,
