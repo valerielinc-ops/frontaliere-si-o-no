@@ -105,6 +105,30 @@ jobs:
         if: steps.check.outputs.STALE == 'true'
         run: node scripts/load-rc-env.mjs
 
+      # Fail LOUD if the PAT didn't load. load-rc-env.mjs exits 0 even when
+      # Firebase auth fails (creds expired, network, RC downtime) WITHOUT setting
+      # GITHUB_PAT → trigger-self.sh would then find no token and silently skip
+      # (exit 0) — the exact no-op #1104 claimed to fix. Failing here surfaces
+      # the regression to the owner (red run + failure issue) instead of letting
+      # the watchdog quietly degrade. The page's OWN traffic-scheduler cron +
+      # runtime-fetch fallback stay intact, so the funnel never stops — but the
+      # self-heal reliability is now observable, not assumed (issue #1106 item 1).
+      - name: Verify PAT loaded (fail-loud guard)
+        if: steps.check.outputs.STALE == 'true'
+        run: |
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT not set after load-rc-env.mjs — Firebase/RC auth likely failed. Self-heal dispatch would silently no-op (the regression #1104 addressed). Check Firebase SA credentials / RC availability."
+            {
+              echo "### ⚠️ Self-heal PAT load FAILED"
+              echo ""
+              echo "\`GITHUB_PAT\` is unset after \`load-rc-env.mjs\` — Firebase/RC auth failed."
+              echo "The traffic-scheduler self-heal dispatch would have silently no-op'd."
+              echo "Page funnel is protected by traffic-scheduler cron + runtime fetch, but the watchdog needs attention."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          echo "GITHUB_PAT present — self-heal dispatch can proceed."
+
       - name: Self-heal — dispatch traffic-scheduler (via PAT)
         if: steps.check.outputs.STALE == 'true'
         continue-on-error: true
