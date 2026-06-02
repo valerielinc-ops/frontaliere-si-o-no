@@ -20,6 +20,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.candidatura-lavoro-estero-ticino.title': 'Der Schlüssel zu einer erfolgreichen Bewerbung für eine Stelle im Ausland',
     'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Praktische Tipps zur Vorbereitung eines überzeugenden Bewerbungsdossiers für eine Arbeit im Ausland.',
     'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Eine Person, die ihren Lebenslauf in einem modernen Büro in Lugano, Tessin, vorbereitet.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'KI und Zukunft der Arbeit in der Schweiz: Szenarien bis 2026',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'Analyse der Auswirkungen von künstlicher Intelligenz auf den Schweizer Arbeitsmarkt: Produktivität, Automatisierung und Herausforderungen für die Ausbildung.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
 };
 
 export default blogMetaChDe;

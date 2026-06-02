@@ -20,6 +20,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.candidatura-lavoro-estero-ticino.title': 'Il segreto di una candidatura di successo per un posto di lavoro all’estero',
     'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Consigli pratici per preparare un dossier di candidatura convincente per lavorare all\'estero.',
     'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Una persona che prepara il suo curriculum vitae in un ufficio moderno a Lugano, Ticino.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'IA e futuro del lavoro in Svizzera: scenari al 2026',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'Analisi dell\'impatto dell\'intelligenza artificiale sul mercato del lavoro elvetico: produttività, automazione e sfide per la formazione.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Moderno ufficio a Lugano con vista lago',
 };
 
 export default blogMetaChIt;

@@ -59,4 +59,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'intelligenza-artificiale-lavoro-svizzera-2026',
+    category: 'novita',
+    date: '2026-06-02T23:12:13.838Z',
+    image: '/images/blog/intelligenza-artificiale-lavoro-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
