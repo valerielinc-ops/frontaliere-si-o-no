@@ -172,8 +172,17 @@ async function main() {
 
   const remaining = contacts.length - deleted;
   console.log(`✅ Done: ${deleted} deleted, ${failed} failed. Estimated remaining: ~${remaining}.`);
+
+  // Fail the workflow loudly: a green run that left the quota blocked (remaining
+  // > 1000) or hit non-retryable DELETE errors is a silent failure on a gate
+  // that must keep sending unblocked. Never downgrade this to a warning.
   if (remaining > 1000) {
-    console.warn(`⚠️  Still above 1,000 (${remaining}). GDPR purge may lag; re-run or lower KEEP.`);
+    console.error(`❌ Still above 1,000 (${remaining}). GDPR purge may lag; re-run or lower KEEP.`);
+    process.exit(1);
+  }
+  if (failed > 0) {
+    console.error(`❌ ${failed} deletions failed after backoff — quota trim incomplete.`);
+    process.exit(1);
   }
 }
 

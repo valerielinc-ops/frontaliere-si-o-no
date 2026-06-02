@@ -8,8 +8,11 @@ name: Cleanup Mailjet Contacts
 
 on:
   schedule:
-    # 05:00 UTC — ~33 min before send-newsletter (05:33 UTC).
-    - cron: '0 5 * * *'
+    # 05:07 UTC — ~26 min before send-newsletter (05:33 UTC). Off-grid minute:
+    # GitHub Actions silently skips :00/:15/:30/:45 cron slots under load
+    # (same rationale as send-newsletter.yml). A skipped cleanup would leave the
+    # quota blocked and stall the 05:33 send — the exact failure this prevents.
+    - cron: '7 5 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
