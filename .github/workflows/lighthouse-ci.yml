@@ -15,6 +15,19 @@ name: Lighthouse CI
 on:
   pull_request:
     branches: [main]
+    # Accepted-by-design asymmetry vs the push:main paths below (issue #983):
+    # this PR trigger intentionally keeps a NARROWER include-list (no
+    # components/**, App.tsx, services/** etc.). Two reasons make the
+    # asymmetry deliberate, not a gap:
+    #   1. The job audits PRODUCTION live (https://frontaliereticino.ch), NOT
+    #      the PR's own build — so running it on a component-only PR would
+    #      re-measure already-deployed prod, not the proposed change. Pre-merge
+    #      symmetry with push:main is therefore largely moot.
+    #   2. Most PRs touch components/** / services/**; widening here would fire
+    #      this heavy job on nearly every PR for no added pre-merge signal.
+    # The push:main trigger (runs after the change is live) is the real
+    # regression gate. Revisit only if the PR job is ever pointed at the PR's
+    # own preview build instead of prod.
     paths:
       - 'build-plugins/**'
       - 'services/locales/**'
@@ -45,10 +58,15 @@ on:
       - 'build-plugins/**'
       - 'public/**'
       # Build / dependency config that changes the emitted bundle.
+      # Same rationale as tailwind.config.js/vite.config.ts: postcss.config.js
+      # alters emitted CSS (autoprefixer / transforms) and tsconfig.json alters
+      # emitted JS (target / compile), so both can shift rendered output → CLS.
       - 'vite.config.ts'
       - 'package.json'
       - 'package-lock.json'
       - 'tailwind.config.js'
+      - 'postcss.config.js'
+      - 'tsconfig.json'
       # The audit definition itself.
       - 'lighthouserc.json'
       - '.github/workflows/lighthouse-ci.yml'
