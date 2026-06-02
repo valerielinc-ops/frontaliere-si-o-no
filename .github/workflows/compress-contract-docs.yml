@@ -1,0 +1,156 @@
+name: Compress contract docs
+
+# Mantiene lean i contratti/doc "hot" — letti ripetutamente dagli agent e dai
+# workflow Claude, quindi ogni byte si paga moltiplicato:
+#   - AGENTS.md   → iniettato in OGNI sessione agent (via @AGENTS.md in CLAUDE.md)
+#   - REVIEW.md   → letto a ogni run di pr-review-loop × ~24-31 turni
+#   - ISSUES.md   → contratto della pipeline issue (issue-fix/triage)
+#   - FOLLOWUP.md → contratto di post-merge-followup
+#
+# I contratti crescono organicamente (nuove regole, war-story); questo job evita
+# il bloat senza buttare quota:
+#   1. Gate DETERMINISTICO sulla size per file (zero Claude). Sotto ceiling → no-op.
+#   2. Solo SE un file supera il ceiling → compressione GENTILE via Claude
+#      (preserva ogni heading/regola/gate/lista/code-block/stringa esatta;
+#      comprime solo prosa ridondante) → apre una DRAFT PR.
+#
+# Perché DRAFT: il reviewer-bot salta i draft (`pr-review-loop` ha
+# `if: draft == false`) → niente `## LGTM` → `auto-merge-on-lgtm` non scatta.
+# Quindi un contratto di gating non si auto-muta MAI: un umano legge il diff,
+# verifica che nessuna regola sia persa, marca ready e mergia. Safety-net
+# anti-drift uniforme. (REVIEW.md ha in più il blocco workflow-validation.)
+# Frugalità: Claude gira solo sul file effettivamente in bloat.
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # lunedì 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Comprimi anche i file sotto ceiling'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: compress-contract-docs
+  cancel-in-progress: false
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - file: AGENTS.md
+            ceiling: 24000
+          - file: REVIEW.md
+            ceiling: 14000
+          - file: ISSUES.md
+            ceiling: 17000
+          - file: FOLLOWUP.md
+            ceiling: 11000
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Check size (deterministic gate)
+        id: gate
+        env:
+          FILE: ${{ matrix.file }}
+          CEILING: ${{ matrix.ceiling }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: |
+          set -euo pipefail
+          bytes=$(wc -c < "$FILE")
+          echo "$FILE = ${bytes} bytes (ceiling ${CEILING})."
+          if [ "$bytes" -le "$CEILING" ] && [ "$FORCE" != "true" ]; then
+            echo "Under ceiling → skip (no Claude burn)."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Over ceiling (o force) → gentle compress."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Gentle compress (Claude)
+        if: steps.gate.outputs.run == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Read,Edit'"
+          prompt: |
+            Comprimi GENTILMENTE il file `${{ matrix.file }}` (contratto/doc operativo letto ripetutamente da agent e workflow — ogni byte si paga moltiplicato).
+
+            **Obiettivo:** ridurre i byte tagliando SOLO prosa ridondante, mantenendo il documento semanticamente IDENTICO.
+
+            **Preserva VERBATIM (non toccare):**
+            - Ogni heading (`#`/`##`/`###`) e l'ordine delle sezioni.
+            - Ogni regola, non-negotiable, gate, vincolo, item di lista normativo. In particolare in `AGENTS.md`: i Non-Negotiables, la sezione Privacy, le regole di Workflow/merge. In `REVIEW.md`: quando scrivere o NON scrivere `## LGTM`, le escalation ❓→🔴, il filtro scopo, i marker severity.
+            - Ogni tabella e il suo contenuto.
+            - Ogni step numerato e la sua logica.
+            - Ogni code-block, comando, path, nome-file, numero-issue (`#NNN`) e stringa esatta (es. `## LGTM`, `🔴 Important`, env var, nomi workflow) — byte-identici.
+            - Link `[[...]]` e riferimenti incrociati.
+
+            **Puoi comprimere SOLO:**
+            - Prosa esplicativa ridondante e ripetizioni.
+            - War-story verbose ("Caso reale: #814 ... #816/#817") → ref terso (es. "(cfr. #814→#816/#817)") MANTENENDO i numeri-issue come puntatori.
+            - Filler/hedging.
+
+            **Vincoli:**
+            - Mai rimuovere una regola, un gate, un esempio, un numero-issue: solo accorciare la prosa attorno.
+            - Se non riesci a tagliare un blocco senza perdere informazione normativa, lascialo invariato.
+            - Non aggiungere contenuto nuovo. Output = stesso file, più corto, stesse regole.
+
+            Applica le modifiche con Edit su `${{ matrix.file }}`. Non aprire PR, non committare: ci pensa il workflow.
+
+      - name: Open draft PR if shrunk
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILE: ${{ matrix.file }}
+          CEILING: ${{ matrix.ceiling }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- "$FILE"; then
+            echo "Nessuna modifica (Claude non ha potuto comprimere senza perdere regole). No PR."
+            exit 0
+          fi
+          before=$(git show HEAD:"$FILE" | wc -c)
+          after=$(wc -c < "$FILE")
+          saved=$((before - after))
+          echo "Compresso: ${before} → ${after} bytes (-${saved})."
+          slug=$(echo "$FILE" | tr '[:upper:]./' '[:lower:]--')
+          branch="chore/compress-${slug}-${{ github.run_id }}"
+          git config user.name 'Valerie Linc'
+          git config user.email 'valerielinc@gmail.com'
+          git checkout -b "$branch"
+          git add "$FILE"
+          git commit -m "chore(docs): gentle-compress ${FILE} (-${saved}B)"
+          git push origin "$branch"
+          body="$RUNNER_TEMP/pr-body-${slug}.md"
+          {
+            echo "## Implementato"
+            echo "- Compressione gentile automatica di \`${FILE}\` (superato ceiling ${CEILING}B: ${before} → ${after}, -${saved}B)."
+            echo "- Solo prosa ridondante/war-story tagliata; regole, non-negotiable, gate, tabelle, step, code-block e numeri-issue preservati verbatim per istruzione."
+            echo ""
+            echo "## Non implementato (ancora)"
+            echo "- **Merge automatico**: out of scope by design. PR aperta come **draft** → il reviewer-bot la salta (\`pr-review-loop\` gira solo su non-draft) → niente \`## LGTM\` → niente auto-merge. **Richiede review + merge manuale umano**: verificare che nessuna regola/gate sia persa nel diff prima di mergere (safety-net anti-drift su un doc normativo)."
+            echo ""
+            echo "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          } > "$body"
+          gh pr create \
+            --draft \
+            --title "chore(docs): gentle-compress ${FILE} (-${saved}B)" \
+            --body-file "$body" \
+            --base main --head "$branch"
