@@ -22,6 +22,7 @@ import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
+import knownCompanySlugs from '@/data/known-company-slugs.json';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -74,6 +75,10 @@ const SECTION_BY_LOCALE: Record<string, string> = {
 };
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
+// Slugs of companies for which the build emits a static company-hub page
+// (jobsSeoPagesPlugin writes [...companyMap.keys()] — every company with >=1
+// active job). A rotated-out company is absent → no hub exists.
+const KNOWN_COMPANY_SLUGS = new Set(knownCompanySlugs as string[]);
 const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
 const LOCATION_ROUTE_PREFIX: Record<string, string> = { it: 'localita', en: 'location', de: 'standort', fr: 'localite' };
 function slugifyCompanyName(name: string): string {
@@ -189,8 +194,15 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  category: job.sector || null,
  };
 
- const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
- const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
+ const companyBareSlug = job.company ? slugifyCompanyName(job.company) : '';
+ const companyHubExists = companyBareSlug ? KNOWN_COMPANY_SLUGS.has(companyBareSlug) : false;
+ const companySlug = companyBareSlug ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${companyBareSlug}` : '';
+ // Link to the static company hub only when it exists. A rotated-out company has
+ // no hub → full-nav would hit 404.html → location.replace('/') → blank page
+ // under staticOverlay; fall back to the browsable board listing instead.
+ const companyHref = companySlug
+ ? (companyHubExists ? `${prefix}/${sectionSlug}/${companySlug}/` : `${prefix}/${sectionSlug}/`).replace(/\/+/g, '/')
+ : '';
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 

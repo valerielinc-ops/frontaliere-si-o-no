@@ -64,6 +64,11 @@ describe('JobBoard company link navigation', () => {
       expect(helperBody).toContain('window.location.assign');
       expect(helperBody).not.toContain('window.history.pushState');
       expect(source.match(/onClickCapture=\{handleCompanyClick\}/g)).toHaveLength(2);
+      // The company hub may not exist for a rotated-out company (no active jobs)
+      // → full-nav must be gated on known-company-slugs.json, else fall back to
+      // the board listing. Without the gate, full-nav 404s → blank staticOverlay.
+      expect(source).toContain('KNOWN_COMPANY_SLUGS.has(companyBareSlug)');
+      expect(source).toContain('companyHubExists');
     }
   });
 });
