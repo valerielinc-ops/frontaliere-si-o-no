@@ -11,6 +11,9 @@ const blogMetaChDe: Record<string, string> = {
   'blog.article.premi-cassa-malati-svizzera-2026.title': 'Krankenkassenprämien 2026: Was sich ändert',
   'blog.article.premi-cassa-malati-svizzera-2026.excerpt': 'Die obligatorischen KVG-Krankenkassenprämien steigen 2026 um durchschnittlich rund 6%. Kantonale Unterschiede, Franchisen und Sparmöglichkeiten.',
   'blog.article.premi-cassa-malati-svizzera-2026.imageAlt': 'Blick auf Bellinzona mit den mittelalterlichen Burgen, Hauptort eines der teureren Kantone bei der Krankenkasse.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Bern will keine Konflikte mit Italien',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Der Schweizerische Bundesrat bekräftigt seine Position, keine Konflikte mit Italien zu schaffen.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'Das Regierungsgebäude in Bellinzona, Sitz des Kantonsrats des Kantons Tessin.',
 };
 
 export default blogMetaChDe;

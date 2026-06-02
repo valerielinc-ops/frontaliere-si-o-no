@@ -58,6 +58,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
  "isAccessibleForFree": true
  }
  },
+
+  'blog-berna-non-vuole-creare-attriti-con-litalia': {
+    title: 'Berna non vuole creare attriti con l\'Italia | Frontaliere Ticino',
+    description: 'Il Consiglio federale svizzero conferma la sua posizione di non voler creare attriti con l\'Italia. Scopri le possibili implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, vuole, creare, attriti',
+    ogTitle: 'Berna non vuole creare attriti con l\'Italia',
+    ogDescription: 'Il Consiglio federale svizzero conferma la sua posizione di non voler creare attriti con l\'Italia. Scopri le possibili implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Berna non vuole creare attriti con l'Italia",
+      "description": "Il Consiglio federale svizzero conferma la sua posizione di non voler creare attriti con l'Italia. Scopri le possibili implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/berna-non-vuole-creare-attriti-con-litalia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Cantone Ticino."
+      },
+      "datePublished": "2026-06-02T20:38:18+00:00",
+      "dateModified": "2026-06-02T20:38:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

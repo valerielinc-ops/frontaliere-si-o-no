@@ -25,6 +25,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
     de: 'krankenkassenpraemien-schweiz-2026',
     fr: 'primes-assurance-maladie-suisse-2026',
   },
+ 'berna-non-vuole-creare-attriti-con-litalia': { it: 'berna-non-vuole-creare-attriti-con-litalia', en: 'bern-does-not-want-to-create-tensions-with-italy', de: 'bern-will-keine-reibungen-mit-italien', fr: 'bern-ne-veut-pas-creer-de-tensions-avec-litalie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

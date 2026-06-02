@@ -3899,6 +3899,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
     'blog-ferrovia-retica-taiwan': { name: 'Ferrovia retica', path: '/articoli-frontaliere/ferrovia-retica-taiwan', parent: 'blog' },
     'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
+    'blog-berna-non-vuole-creare-attriti-con-litalia': { name: 'Berna non vuole creare attriti con', path: '/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

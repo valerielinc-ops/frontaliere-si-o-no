@@ -32,4 +32,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
   },
+   {
+    id: 'berna-non-vuole-creare-attriti-con-litalia',
+    category: 'novita',
+    date: '2026-06-02T20:38:18.558Z',
+    image: '/images/blog/berna-non-vuole-creare-attriti-con-litalia.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];

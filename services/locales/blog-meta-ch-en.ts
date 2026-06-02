@@ -11,6 +11,9 @@ const blogMetaChEn: Record<string, string> = {
   'blog.article.premi-cassa-malati-svizzera-2026.title': 'Health Premiums 2026: What Changes Switzerland',
   'blog.article.premi-cassa-malati-svizzera-2026.excerpt': 'Mandatory LAMal health-insurance premiums rise by about 6% on average in 2026. Cantonal differences, deductibles and how to save.',
   'blog.article.premi-cassa-malati-svizzera-2026.imageAlt': 'View of Bellinzona with its medieval castles, capital of one of the costlier cantons for health insurance.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Bern Avoids Tensions with Italy',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Swiss Federal Council maintains position of not wanting to create tensions with Italy.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'The Government Palace in Bellinzona, seat of the Council of State of the Canton Ticino.',
 };
 
 export default blogMetaChEn;
