@@ -328,7 +328,7 @@ function renderEmployerGridReplacement(text: string): string {
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div class="s-7V0OIo cl-divider" role="separator" aria-label="${esc(label)}">
+  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
     <span class="s-EIg6N7" aria-hidden="true"></span>
     <span class="cl-divider-mark" aria-hidden="true">🧭</span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
