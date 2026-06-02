@@ -112,7 +112,7 @@ jobs:
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato: `git checkout -b fix/issue-$ISSUE_NUMBER`.
             2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body.
-            3. Applica fix CHIRURGICO (AGENTS.md non-negotiable #6: no drive-by refactor, no speculative abstraction).
+            3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
             5. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
             6. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
@@ -129,7 +129,7 @@ jobs:
 
             **Constraint:**
             - Changes chirurgiche, root-cause, una issue alla volta.
-            - Mai toccare file fuori scope della issue.
+            - Mai toccare file fuori scope della issue — **eccetto i sibling della STESSA classe del bug** (#6, passo 3): quelli SONO in scope e vanno sweepati nella stessa PR. "Fuori scope" = un'altra feature/area, NON un file gemello con lo stesso antipattern (es. fixare il bullet-idiom in 1 parser e lasciarlo rotto negli altri 16 = fix incompleto, non "rispetto dello scope").
             - **CODE vs DATA — no scroll dei blob (ISSUES.md → "CODE vs DATA", mirror #1096 del reviewer):** i file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (asset), `reports/**`, `_newsletter_variants/**` NON sono code da leggere riga-per-riga. Se la root cause è un drift di output dati → fixa il CODE che li genera (parser/crawler/build-plugin), non `cat`/scorrere il blob né editarlo a mano. Campione → `Read` mirato (offset/limit). `rg`/`grep` scopati al code: `rg <pattern> scripts build-plugins components services -g '!data/**' -g '!public/**' -g '!reports/**'` — cercare nei blob dati = token bruciati. Eccezione: un `data/**` config/fixture checked-in editato a mano dal fix.
             - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
             - Mai committare path home assoluti o email personali (Privacy).
