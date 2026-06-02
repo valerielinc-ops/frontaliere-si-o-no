@@ -494,7 +494,10 @@ function buildJobFromDetail(listing, detail) {
   const category = inferCategory(title, detail.description);
   const empType = inferEmploymentType(detail.empType || listing.empType || title);
   const rawDescription = detail.description || title;
-  const location = detail.location || 'St. Moritz';
+  // hotelcareer's `.location` textContent truncates "St. Moritz" → "St"
+  // (period-split node). This is a single-site employer, so HQ.city is the
+  // authoritative locality — never trust the scraped token for addressLocality.
+  const location = HQ.city || 'St. Moritz';
   const description = enrichDescription(title, rawDescription, { category, empType, location });
   const srcLang = detectLang(description) || 'en';
 
