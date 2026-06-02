@@ -11,6 +11,7 @@ import { reportCaughtError } from './errorReporter';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -373,7 +374,7 @@ async function resolveJobSeoBySlug(
  baseUrl: BASE_URL,
  });
  return {
- title: `${localizedTitle} — ${job.company} | Frontaliere Ticino`,
+ title: buildJobTitleWithLocation(localizedTitle, String(job?.company || ''), String(job?.location || ''), locale),
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
@@ -665,7 +666,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  const route = { activeTab: 'glossario' as const, glossaryTerm: termId as any };
  const canonicalPath = buildPath(route, 'it');
  const label = titleizeGlossaryTermId(termId);
- const title = `${label} (Glossario) | Frontaliere Ticino`;
+ const title = buildTitleWithBrand(`${label} (Glossario)`);
  const description = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
  return [
  `glossario-${termId}`,
@@ -1052,13 +1053,13 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  if (!localizedTitle && !localizedDescription) {
  const fallbackTitle = buildLocalizedUnknownSectionTitle(section, locale);
  return {
- title: `${fallbackTitle} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(fallbackTitle),
  description: buildLocalizedSeoFallbackDescription(fallbackTitle, locale),
  keywords: getLocalizedSeoKeywords(fallbackTitle, locale, metadata.keywords),
  };
  }
 
- const title = localizedTitle ? `${localizedTitle} | Frontaliere Ticino` : metadata.title;
+ const title = localizedTitle ? buildTitleWithBrand(localizedTitle) : metadata.title;
  const description = localizedDescription || buildLocalizedSeoFallbackDescription(localizedTitle || metadata.title, locale);
  return {
  title,
