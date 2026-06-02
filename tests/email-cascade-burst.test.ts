@@ -29,6 +29,11 @@ describe('isRateLimitedError', () => {
     expect(isRateLimitedError('Mailtrap 403: {"errors":["Forbidden: domain not verified"]}')).toBe(false);
   });
 
+  it('does NOT match a 403 with bare "reached" lacking limit/quota context', () => {
+    // e.g. a network-style 403 body — must not retire a healthy provider.
+    expect(isRateLimitedError('Mailgun 403: {"errors":["upstream host could not be reached"]}')).toBe(false);
+  });
+
   it('does NOT match unrelated errors', () => {
     expect(isRateLimitedError('Mailgun 500: internal error')).toBe(false);
     expect(isRateLimitedError('')).toBe(false);
