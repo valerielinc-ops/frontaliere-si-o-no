@@ -385,28 +385,19 @@ async function main() {
     }
   }
 
-  // Step 3c: Quality guards — reject jobs with thin descriptions or an
-  // implausible company name (implements docs/copilot-crawler-fix-prompts.md
-  // for Migros). Gated behind SKIP_QUALITY_GUARDS=1 for emergency bypass.
+  // Step 3c: Quality guards — reject jobs with thin descriptions only.
+  // No company-name allowlist: every job here already passed isMigrosJob
+  // (host jobs.migros.ch, L97), so Migros-group membership is proven by the
+  // trusted domain. An allowlist adds no anti-hallucination value on a trusted
+  // domain and only produces false negatives nationwide — it silently dropped
+  // legitimate group brands that don't contain "Migros" (Delica, medbase,
+  // m-way, Micasa, Voi, OBI, Do it + Garden, …). Gated behind
+  // SKIP_QUALITY_GUARDS=1 for emergency bypass.
   if (process.env.SKIP_QUALITY_GUARDS !== '1') {
     const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     const migrosJobs = allJobs.filter(isMigrosJob);
     const report = runQualityGuards(migrosJobs, {
-      // Migros group entities. Cooperatives all contain "Migros". Migros
-      // Industrie (M-Industrie) brands and group retailers do not, so they are
-      // listed explicitly — otherwise nationwide jobs from e.g. Delica AG
-      // (Stabio TI / Birsfelden BL) get rejected as "implausible company".
-      companyName: [
-        'Migros', 'Migros Ticino', 'Migros Aare', 'Gruppo Migros',
-        // M-Industrie
-        'Delica', 'Jowa', 'Mibelle', 'Midor', 'Chocolat Frey', 'Micarna',
-        'Mifa', 'Bischofszell', 'Estavayer', 'Aproz', 'Riseria',
-        'Fresh Food', 'Fresh Food & Beverage',
-        // Group retail / services / leisure
-        'Migrol', 'Hotelplan', 'Ex Libris', 'Digitec', 'Galaxus', 'SportXX',
-        'Activ Fitness', 'Fitnesspark',
-      ],
       minDescription: 200,
       logger: (msg) => console.warn(msg),
     });
