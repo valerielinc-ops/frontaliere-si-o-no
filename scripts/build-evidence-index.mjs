@@ -89,11 +89,18 @@ async function main() {
     version: 1,
     builtAt: new Date().toISOString(),
     windowDays,
-    gsc: gscResult.error
-      ? {}
-      : { queries: gscResult.queries, orphanQueries: gscResult.orphanQueries, pages: gscResult.pages || {} },
+    // Multi-pass fetchers (gsc, posthog) isolate their sub-passes and return
+    // partial data alongside `error`, so write whatever they returned rather
+    // than dropping every source on any error — dropping would over-thin pages
+    // a surviving pass still confirmed. `failures` below still logs/gates the
+    // error. ga4 is single-pass (error ⇒ empty), so its guard stays as-is.
+    gsc: {
+      queries: gscResult.queries || {},
+      orphanQueries: gscResult.orphanQueries || [],
+      pages: gscResult.pages || {},
+    },
     ga4: ga4Result.error ? {} : { pages: ga4Result.pages },
-    posthog: posthogResult.error ? {} : { pages: posthogResult.pages },
+    posthog: { pages: posthogResult.pages || {} },
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,
   };
