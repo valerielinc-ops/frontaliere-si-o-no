@@ -1,0 +1,149 @@
+name: Recycle stale PRs (close + re-queue source issue)
+
+# R3-B: una PR flaggata `stale-review` da stale-pr-rescuer resta comunque ferma
+# se nessuno agisce (alert-only). Osservato 2026-06-02: #1073/#1075 ferme ~29h.
+# Far ripartire un branch vecchio contro un `main` che si è mosso di 100+ commit
+# è conflict-prone e di basso valore. Meglio RICICLARE: chiudere la PR
+# profondamente stale e ri-accodare la issue sorgente con `agent:fix` → fix
+# fresco contro il `main` corrente (issue-fix apre un branch nuovo).
+#
+# Conservativo: agisce SOLO su PR `stale-review` aperte >24h E senza commit nuovi
+# da >24h E con issue sorgente ancora OPEN. Daily (non urgente). dry_run per test.
+# Separato da stale-pr-rescuer (che fira a ogni review completion) per non
+# pagare npm ci + PAT ad ogni evento.
+
+on:
+  schedule:
+    - cron: '40 6 * * *'  # daily 06:40 UTC (cleanup non urgente)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente close/re-queue'
+        type: boolean
+        default: true
+      max_age_hours:
+        description: 'Soglia "deeply stale" in ore (default 24)'
+        type: string
+        default: '24'
+
+permissions:
+  contents: write   # serve per --delete-branch sul gh pr close (vedi sotto)
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: recycle-stale-prs
+  cancel-in-progress: false
+
+jobs:
+  recycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il re-queue (agent:fix) verrà SALTATO (serve PAT per triggerare issue-fix). La PR verrà comunque chiusa."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Recycle deeply-stale stale-review PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{ env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+          # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
+          # DISPATCH manuale resta safe-by-default (input default true) per test.
+          # Senza questo, il cron passa dry_run vuoto → permanentemente dry-run →
+          # non riciclerebbe mai (reviewer nit). I gate conservativi (>24h + no
+          # commit + issue OPEN) tengono il blast radius minimo.
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || github.event.inputs.dry_run }}
+          MAX_AGE_HOURS: ${{ github.event.inputs.max_age_hours || '24' }}
+        run: |
+          set -uo pipefail
+          DRY="${DRY_RUN:-true}"
+          NOW=$(date -u +%s)
+          MAXAGE=$(( ${MAX_AGE_HOURS:-24} * 3600 ))
+
+          prs=$(gh pr list --repo "$REPO" --state open --label stale-review --limit 50 \
+            --json number,title,body,createdAt,author)
+          COUNT=$(printf '%s' "$prs" | jq 'length')
+          echo "stale-review PRs aperte: $COUNT"
+
+          printf '%s' "$prs" | jq -c '.[]' | while read -r pr; do
+            N=$(printf '%s' "$pr" | jq -r '.number')
+            TITLE=$(printf '%s' "$pr" | jq -r '.title')
+            BODY=$(printf '%s' "$pr" | jq -r '.body // ""')
+            CREATED=$(printf '%s' "$pr" | jq -r '.createdAt')
+
+            # Gate 1: PR aperta da >MAXAGE.
+            CS=$(date -u -d "$CREATED" +%s 2>/dev/null || echo "$NOW")
+            if [ $((NOW - CS)) -lt "$MAXAGE" ]; then echo "PR #$N non abbastanza vecchia — skip"; continue; fi
+
+            # Gate 2: nessun commit nuovo da >MAXAGE (lavoro davvero abbandonato).
+            LASTCOMMIT=$(gh pr view "$N" --repo "$REPO" --json commits --jq '.commits[-1].committedDate // empty' 2>/dev/null || true)
+            if [ -n "$LASTCOMMIT" ]; then
+              LCS=$(date -u -d "$LASTCOMMIT" +%s 2>/dev/null || echo 0)
+              if [ $((NOW - LCS)) -lt "$MAXAGE" ]; then echo "PR #$N ha commit recenti — skip (lavoro attivo)"; continue; fi
+            fi
+
+            # Source issue: "(#N)" nel titolo o "Closes #N" nel body.
+            ISSUE=$(printf '%s' "$TITLE" | grep -oE '\(#[0-9]+\)' | tail -1 | grep -oE '[0-9]+' || true)
+            if [ -z "${ISSUE:-}" ]; then
+              ISSUE=$(printf '%s' "$BODY" | grep -oiE 'closes #[0-9]+' | head -1 | grep -oE '[0-9]+' || true)
+            fi
+            if [ -z "${ISSUE:-}" ]; then echo "PR #$N nessuna issue sorgente identificabile — skip (no recycle cieco)"; continue; fi
+
+            # La issue sorgente deve essere OPEN (altrimenti non c'è cosa ri-accodare).
+            IST=$(gh issue view "$ISSUE" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo "UNKNOWN")
+            if [ "$IST" != "OPEN" ]; then echo "PR #$N → issue #$ISSUE stato=$IST (non OPEN) — skip"; continue; fi
+
+            echo "::notice::PR #$N RICICLABILE → chiudi + re-queue issue #$ISSUE"
+            if [ "$DRY" = "true" ]; then echo "(dry-run) skip azione PR #$N"; continue; fi
+
+            # --delete-branch OBBLIGATORIO: issue-fix ricrea il branch con nome
+            # DETERMINISTICO `fix/issue-N` e pusha con `git push -u` (no force). Se
+            # il branch remoto della PR chiusa sopravvive, la storia diverge
+            # (vecchio commit su main vecchio) → push non-fast-forward → rifiutato
+            # → 0 PR → R3-B no-opa sul path che deve fixare. Cancellare il ref
+            # libera il nome per il push fresco. (richiede permissions.contents:write)
+            gh pr close "$N" --repo "$REPO" --delete-branch --comment "$(printf '♻️ **recycle** (auto): PR ferma >%sh come \x60stale-review\x60 con branch indietro su un main mosso di molti commit. Chiusa (branch remoto cancellato) e issue sorgente #%s ri-accodata per un fix fresco contro main corrente (issue-fix aprirà un branch nuovo con lo stesso nome). Il lavoro non è perso: la issue resta aperta.' "${MAX_AGE_HOURS:-24}" "$ISSUE")" \
+              2>/dev/null || echo "close fallito PR #$N"
+
+            # Re-queue: serve PAT (un agent:fix via GITHUB_TOKEN NON triggera
+            # issue-fix — anti-ricorsione; sender github-actions[bot] non passa il
+            # gate). Con PAT il sender è valerielinc-ops → trigger valido.
+            if [ -n "${PAT:-}" ]; then
+              GH_TOKEN="$PAT" gh issue edit "$ISSUE" --repo "$REPO" --remove-label agent:fix 2>/dev/null || true
+              sleep 2
+              GH_TOKEN="$PAT" gh issue edit "$ISSUE" --repo "$REPO" --add-label agent:fix 2>/dev/null \
+                && echo "issue #$ISSUE ri-accodata (agent:fix via PAT)" \
+                || echo "re-label fallito issue #$ISSUE"
+            else
+              echo "⚠️ PAT assente — issue #$ISSUE NON ri-accodata automaticamente. Ri-applicare agent:fix a mano."
+              gh issue comment "$ISSUE" --repo "$REPO" --body "♻️ PR sorgente chiusa come stale. Ri-applicare \`agent:fix\` (serve PAT) per un fix fresco." 2>/dev/null || true
+            fi
+          done
+          echo "Recycle scan completo."
