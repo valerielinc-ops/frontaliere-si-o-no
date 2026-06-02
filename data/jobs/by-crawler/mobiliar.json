@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-ed0154062ee3",
-      "slug": "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
+      "slug": "geoanalisi-specialistica-e-rischi-naturali-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
-        "it": "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
-        "en": "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
-        "fr": "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
+        "it": "geoanalisi-specialistica-e-rischi-naturali-m-d-die-mobiliar-bern",
+        "en": "specialist-geoanalysis-natural-risks-m-d-die-mobiliar-bern",
+        "fr": "geoanalyse-specialisee-et-risques-naturels-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -84,16 +84,30 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T00:39:42.729Z"
+      "firstSeenAt": "2026-06-02T00:39:42.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-fea122f628f5",
-      "slug": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
+      "slug": "projektleiter-w-m-d-die-mobiliar-zurich",
       "slugByLocale": {
         "de": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
-        "it": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
+        "it": "projektleiter-w-m-d-die-mobiliar-zurich",
         "en": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
-        "fr": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        "fr": "projektleiter-m-j-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -166,7 +180,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T00:39:41.969Z"
+      "firstSeenAt": "2026-06-02T00:39:41.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-373290a6e229",
@@ -1233,12 +1258,12 @@
     },
     {
       "id": "mobiliar-7d06f9938e2d",
-      "slug": "business-analyst-w-m-d-mobiliar-ch",
+      "slug": "business-analista-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "business-analyst-w-m-d-mobiliar-ch",
+        "it": "business-analista-w-m-d-die-mobiliar-bern",
         "en": "business-analyst-w-m-d-die-mobiliar-bern",
         "de": "business-analyst-w-m-d-mobiliar-ch",
-        "fr": "business-analyst-w-m-d-mobiliar-ch"
+        "fr": "analyste-des-activites-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1298,16 +1323,13 @@
       },
       "sfJobId": "1164795755",
       "previousSlugs": [
-        "business-analista-w-m-d-die-mobiliar-bern",
-        "analyste-des-activites-m-j-die-mobiliar-bern"
+        "business-analyst-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-analista-w-m-d-die-mobiliar-bern",
           "business-analyst-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "analyste-des-activites-m-j-die-mobiliar-bern",
           "business-analyst-w-m-d-mobiliar-ch"
         ]
       },
@@ -2168,9 +2190,9 @@
       "slug": "jurist-wohnen-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "it": "jurist-wohnen-w-m-d-die-mobiliar-bern",
-        "en": "jurist-wohnen-w-m-d-mobiliar-ch",
+        "en": "projektmanagement-m-d-die-mobiliar-bern",
         "de": "jurist-wohnen-w-m-d-mobiliar-ch",
-        "fr": "jurist-wohnen-w-m-d-mobiliar-ch"
+        "fr": "juriste-wohnen-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2228,20 +2250,16 @@
       },
       "sfJobId": "1164779155",
       "previousSlugs": [
-        "jurist-wohnen-w-m-d-mobiliar-ch",
-        "projektmanagement-m-d-die-mobiliar-bern",
-        "juriste-wohnen-m-j-die-mobiliar-bern"
+        "jurist-wohnen-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "en": [
-          "projektmanagement-m-d-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "juriste-wohnen-m-j-die-mobiliar-bern",
           "jurist-wohnen-w-m-d-mobiliar-ch"
         ]
       },
@@ -4432,7 +4450,7 @@
         "it": "devsecops-ingegnere-w-m-d-die-mobiliar-bern",
         "en": "devsecops-engineer-w-m-d-die-mobiliar-bern",
         "de": "devsecops-engineer-w-m-d-mobiliar-ch",
-        "fr": "devsecops-engineer-w-m-d-mobiliar-ch"
+        "fr": "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4501,14 +4519,12 @@
           "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "devsecops-ingenieur-w-m-d-die-mobiliar-bern",
           "devsecops-engineer-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
         "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch",
-        "devsecops-engineer-w-m-d-mobiliar-ch",
-        "devsecops-ingenieur-w-m-d-die-mobiliar-bern"
+        "devsecops-engineer-w-m-d-mobiliar-ch"
       ],
       "firstSeenAt": "2026-05-10T22:09:37.439Z",
       "salaryMin": 49500,
@@ -5068,12 +5084,12 @@
     },
     {
       "id": "mobiliar-3889acc4e655",
-      "slug": "quality-master-w-m-d-mobiliar-ch",
+      "slug": "master-di-qualita-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "quality-master-w-m-d-mobiliar-ch",
+        "it": "master-di-qualita-w-m-d-die-mobiliar-bern",
         "en": "quality-master-w-m-d-die-mobiliar-bern",
         "de": "quality-master-w-m-d-mobiliar-ch",
-        "fr": "quality-master-w-m-d-mobiliar-ch"
+        "fr": "qualite-master-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5133,16 +5149,13 @@
       },
       "sfJobId": "1164709855",
       "previousSlugs": [
-        "master-di-qualita-w-m-d-die-mobiliar-bern",
-        "qualite-master-w-m-d-die-mobiliar-bern"
+        "quality-master-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-di-qualita-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "qualite-master-w-m-d-die-mobiliar-bern",
           "quality-master-w-m-d-mobiliar-ch"
         ]
       },

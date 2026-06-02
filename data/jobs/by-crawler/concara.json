@@ -2010,9 +2010,6 @@
       "previousSlugs": [
         "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern",
         "dipl-career-with-day-responsibility-40-100-concara-domicil-spitex-bern-bern-921f85",
-        "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern",
-        "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern",
-        "diplome-en-soins-infirmiers-avec-responsabilite-quotidienne-40-100-concara-domicil-spitex-bern-bern",
         "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern"
       ],
       "previousSlugsByLocale": {
@@ -4770,12 +4767,12 @@
     },
     {
       "id": "concara-f9435e2574db",
-      "slug": "fachverantwortliche-r-pflege-60-80-concara-belp",
+      "slug": "specialista-pflege-60-80-concara-domicil-spitex-bern-belp",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-pflege-60-80-concara-belp",
-        "en": "fachverantwortliche-r-pflege-60-80-concara-belp",
+        "it": "specialista-pflege-60-80-concara-domicil-spitex-bern-belp",
+        "en": "specialist-r-pflege-60-80-concara-domicil-spitex-bern-belp",
         "de": "fachverantwortliche-r-pflege-60-80-concara-belp",
-        "fr": "fachverantwortliche-r-pflege-60-80-concara-belp"
+        "fr": "specialiste-r-pflege-60-80-concara-domicil-spitex-bern-belp"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4828,16 +4825,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-pflege-60-80-concara-belp"
+        ],
+        "en": [
+          "fachverantwortliche-r-pflege-60-80-concara-belp"
+        ],
+        "fr": [
+          "fachverantwortliche-r-pflege-60-80-concara-belp"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-pflege-60-80-concara-belp"
+      ]
     },
     {
       "id": "concara-d38fd0bc05dc",
       "slug": "co-responsabile-kuche-80-100-concara-domicil-spitex-bern-belp",
       "slugByLocale": {
         "it": "co-responsabile-kuche-80-100-concara-domicil-spitex-bern-belp",
-        "en": "co-leiter-in-kuche-80-100-concara-belp",
+        "en": "co-head-in-kitchen-80-100-concara-domicil-spitex-bern-belp",
         "de": "co-leiter-in-kuche-80-100-concara-belp",
-        "fr": "co-leiter-in-kuche-80-100-concara-belp"
+        "fr": "co-chef-dans-la-cuisine-80-100-concara-domicil-spitex-bern-belp"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4883,6 +4894,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "co-leiter-in-kuche-80-100-concara-belp"
+        ],
+        "en": [
+          "co-leiter-in-kuche-80-100-concara-belp"
+        ],
+        "fr": [
           "co-leiter-in-kuche-80-100-concara-belp"
         ]
       },

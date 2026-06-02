@@ -1133,7 +1133,6 @@
         "medecin-principal-psychiatrische-dienste-graubunden-cazis",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
         "medecin-principal-psychiatrische-dienste-graubunden-chur",
-        "oberarztin-oberarzt-pdgr-ch",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
@@ -1978,10 +1977,10 @@
       "id": "pdgr-d2d0c50f1811",
       "slug": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
-        "en": "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "it": "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+        "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
-        "fr": "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2033,25 +2032,26 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-pdgr-ch",
-          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur"
+          "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
+          "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
-          "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur"
+          "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur"
+          "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-pdgr-ch",
         "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-cazis-chur",
         "medico-assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "resident-psychiatrist-psychiatrische-dienste-graubunden-cazis-chur",
-        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis-chur",
+        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "healthcare-specialist-for-night-shift-psychiatrische-dienste-graubunden-chur",
+        "specialiste-en-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
@@ -2716,8 +2716,6 @@
         "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
         "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "betreuer-in-pdgr-ch",
-        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw",
         "betreuer-in-pdgr-ch-2"
       ],
@@ -3166,7 +3164,6 @@
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
         "intern-practice-module-i-ii-or-pre-internship-psychiatrische-dienste-graubunden-chur",
         "stagiaire-module-pratique-i-ii-ou-pre-stage-psychiatrische-dienste-graubunden-chur",
-        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
         "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
@@ -3194,7 +3191,7 @@
         "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
-        "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3241,8 +3238,6 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
-        "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
         "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
@@ -3250,7 +3245,7 @@
           "dipl-pflegefachperson-hf-pdgr-ch"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+          "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:09.668Z",
@@ -3360,12 +3355,12 @@
     },
     {
       "id": "pdgr-7d82aa45ee20",
-      "slug": "ergotherapeut-in-pdgr-ch",
+      "slug": "ergotherapist-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapeut-in-pdgr-ch",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
-        "fr": "ergotherapeut-in-pdgr-ch"
+        "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3411,16 +3406,13 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "ergotherapist-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeute-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapist-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ],
         "fr": [
-          "ergotherapeute-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ]
       },

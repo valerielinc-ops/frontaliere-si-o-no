@@ -1049,9 +1049,9 @@
       "slug": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
       "slugByLocale": {
         "it": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "en": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "en": "team-leader-residents-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "fr": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung"
+        "fr": "chef-d-equipe-residents-avec-un-comportement-difficile-complexe-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1108,12 +1108,12 @@
     },
     {
       "id": "epi-stiftung-fab719151bd5",
-      "slug": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+      "slug": "studente-di-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "en": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
+        "it": "studente-di-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "social-work-students-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich",
-        "fr": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        "fr": "etudiants-en-pedagogie-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1166,16 +1166,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ],
+        "en": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-7d81977b190d",
-      "slug": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+      "slug": "responsabile-di-team-responsabile-di-giornata-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "en": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
+        "it": "responsabile-di-team-responsabile-di-giornata-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "team-leader-day-care-center-manager-schweizerische-epilepsie-stiftung-epi-zurich",
         "de": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich",
-        "fr": "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        "fr": "responsable-d-equipe-responsable-du-centre-de-jour-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1228,7 +1242,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-tagesstatte-epi-stiftung-zurich"
+      ]
     },
     {
       "id": "epi-stiftung-ee3b32aa871c",
@@ -1236,8 +1264,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich",
         "it": "mitarbeiterin-collaboratore-trice-etagenservice-roomservice-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich"
+        "en": "staff-room-service-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "service-des-chambres-du-personnel-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1282,6 +1310,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-etagenservice-roomservice-epi-stiftung-zurich"
         ]
       },

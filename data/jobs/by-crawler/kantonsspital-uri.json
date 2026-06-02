@@ -1691,12 +1691,12 @@
     },
     {
       "id": "kantonsspital-uri-1583b4a43e32",
-      "slug": "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+      "slug": "stage-per-esperto-a-di-cure-intensive-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "it": "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
-        "en": "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+        "it": "stage-per-esperto-a-di-cure-intensive-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
+        "en": "training-expert-in-intensive-care-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
         "de": "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf",
-        "fr": "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        "fr": "stage-expert-en-soins-intensifs-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
       "companyKey": "kantonsspital-uri",
@@ -1749,7 +1749,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        ],
+        "en": [
+          "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        ],
+        "fr": [
+          "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-experte-in-intensivpflege-nds-hf-w-m-d-60-100-kantonsspital-uri-altdorf"
+      ]
     },
     {
       "id": "kantonsspital-uri-db45079c262e",

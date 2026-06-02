@@ -5438,9 +5438,9 @@
       "slug": "biomed-analytikerin-m-w-d-90-befristet-per-6-monate-universitats-kinderspital-zurich",
       "slugByLocale": {
         "it": "biomed-analytikerin-m-w-d-90-befristet-per-6-monate-universitats-kinderspital-zurich",
-        "en": "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich",
+        "en": "biomed-analyst-m-w-90-limited-for-6-months-universitats-kinderspital-zurich-zurich",
         "de": "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich",
-        "fr": "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
+        "fr": "biomed-analyste-m-m-90-limitee-pour-6-mois-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5488,6 +5488,12 @@
       "previousSlugsByLocale": {
         "it": [
           "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
+        ],
+        "en": [
+          "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
+        ],
+        "fr": [
+          "biomed-analytikerin-m-w-90-befristet-fur-6-monate-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-06-01T15:04:02.438Z",
@@ -5506,12 +5512,12 @@
     },
     {
       "id": "kispi-2ec1578d1c05",
-      "slug": "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich",
+      "slug": "consulente-m-w-100-dipartimento-di-urologia-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich",
-        "en": "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich",
+        "it": "consulente-m-w-100-dipartimento-di-urologia-universitats-kinderspital-zurich-zurich",
+        "en": "consultant-m-w-100-department-of-urology-universitats-kinderspital-zurich-zurich",
         "de": "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich",
-        "fr": "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich"
+        "fr": "consultant-m-m-100-departement-d-urologie-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5565,7 +5571,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich"
+        ],
+        "en": [
+          "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich"
+        ],
+        "fr": [
+          "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-m-w-100-fachbereich-urologie-kispi-zurich"
+      ]
     }
   ]
 }

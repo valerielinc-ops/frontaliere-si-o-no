@@ -459,12 +459,12 @@
     },
     {
       "id": "ameos-ch-78041984c6b3",
-      "slug": "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln",
+      "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln",
-        "it": "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln",
+        "it": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
         "en": "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln",
-        "fr": "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln"
+        "fr": "consultant-principal-m-m-j-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -519,16 +519,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T22:44:52.628Z"
+      "firstSeenAt": "2026-06-01T22:44:52.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-m-w-d-gesundheit-rehabilitation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-f4fb5b710d5e",
-      "slug": "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln",
+      "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-983cf9",
       "slugByLocale": {
         "de": "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln",
-        "it": "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln",
-        "en": "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln",
-        "fr": "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln"
+        "it": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-983cf9",
+        "en": "senior-consultant-m-w-d-ameos-schweiz-einsiedeln",
+        "fr": "consultant-principal-m-m-j-ameos-schweiz-einsiedeln-983cf9"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -583,16 +594,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T22:44:51.872Z"
+      "firstSeenAt": "2026-06-01T22:44:51.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln"
+        ],
+        "en": [
+          "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln"
+        ],
+        "fr": [
+          "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "experten-m-w-d-anasthesiepflege-nds-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-b123211135be",
-      "slug": "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+      "slug": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
       "slugByLocale": {
         "de": "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
-        "it": "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
-        "en": "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
-        "fr": "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln"
+        "it": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
+        "en": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
+        "fr": "projektleiter-m-m-j-ameos-schweiz-einsiedeln-12a8b8"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -647,16 +672,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T22:44:51.083Z"
+      "firstSeenAt": "2026-06-01T22:44:51.083Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln"
+        ],
+        "en": [
+          "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c1ffbb7da0c8",
-      "slug": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
+      "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-b7bf46",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "it": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "en": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "fr": "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        "it": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-b7bf46",
+        "en": "dipl-senior-consultant-m-w-d-ameos-schweiz-einsiedeln",
+        "fr": "dipl-consultant-principal-m-m-j-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -711,16 +750,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T22:44:50.304Z"
+      "firstSeenAt": "2026-06-01T22:44:50.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "en": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-de2cafc31a85",
-      "slug": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
+      "slug": "dipl-projektleiter-m-w-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
         "de": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
-        "it": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
+        "it": "dipl-projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "en": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
-        "fr": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
+        "fr": "dipl-projektleiter-m-m-j-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -775,7 +828,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-01T22:44:49.524Z"
+      "firstSeenAt": "2026-06-01T22:44:49.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
+        ],
+        "fr": [
+          "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-0ec0846fb3f4",
@@ -827,8 +891,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "physiotherapeut-m-w-d-ameos-einsiedeln",
-        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln",
-        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln"
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1151,7 +1214,6 @@
       "previousSlugs": [
         "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ]
     }

@@ -4376,8 +4376,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
         "it": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "en": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen"
+        "en": "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "fr": "sante-professionnelle-efz-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4434,13 +4434,12 @@
       },
       "firstSeenAt": "2026-06-01T16:09:50.218Z",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
-        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
-        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
         "specialista-della-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
         "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-        "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen"
+        "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
+        "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+        "fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie-spitaeler-schaffhausen-schaffhausen-2",
+        "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4780,8 +4779,8 @@
       "slugByLocale": {
         "de": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen",
         "it": "responsabile-diatkuche-spitaler-schaffhausen",
-        "en": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen",
-        "fr": "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        "en": "head-of-diet-kitchen-spitaler-schaffhausen-schaffhausen",
+        "fr": "chef-de-la-cuisine-diete-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4826,6 +4825,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "leiter-in-diatkuche-spitaeler-schaffhausen-schaffhausen"
         ]
       },

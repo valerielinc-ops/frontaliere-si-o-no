@@ -13657,7 +13657,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -26862,10 +26861,10 @@
     },
     {
       "id": "roche-1a3e54eedd44",
-      "slug": "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch",
+      "slug": "gestione-dei-dati-di-ingegneria-di-stage-nell-ambiente-gmp-kaiseraugst-6-mesi-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch",
-        "en": "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch",
+        "it": "gestione-dei-dati-di-ingegneria-di-stage-nell-ambiente-gmp-kaiseraugst-6-mesi-roche-kaiseraugst",
+        "en": "internship-engineering-data-management-in-the-gmp-environment-kaiseraugst-6-months-roche-kaiseraugst",
         "de": "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch",
         "fr": "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch"
       },
@@ -26920,7 +26919,18 @@
         }
       },
       "postalCode": "5000",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch"
+        ],
+        "en": [
+          "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-engineering-data-management-im-gmp-umfeld-kaiseraugst-6-monate-roche-ch"
+      ]
     },
     {
       "id": "roche-058f633f56d6",
@@ -27358,12 +27368,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27416,7 +27426,18 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "utilities-manager-roche-ch"
+        ],
+        "fr": [
+          "utilities-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "utilities-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-87d24a175246",
@@ -27652,7 +27673,7 @@
         "it": "hochschulpraktikum-im-bereich-drug-product-clinical-supply-center-parenterals",
         "en": "hochschulpraktikum-im-bereich-drug-product-clinical-supply-center-parenterals",
         "de": "hochschulpraktikum-im-bereich-drug-product-clinical-supply-center-parenterals",
-        "fr": "hochschulpraktikum-im-bereich-drug-product-clinical-supply-center-parenterals"
+        "fr": "centre-clinique-de-fourniture-de-produits-pharmaceutiques-hochschulpraktikum-im-bereich-parenterals-fabrication-de"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27909,9 +27930,9 @@
     },
     {
       "id": "roche-29ae6be03dd8",
-      "slug": "transfer-launch-manager-asat-e2e-bio-roche-ch",
+      "slug": "bio-asat-e2e-del-gestore-trasferimenti-lancio-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "transfer-launch-manager-asat-e2e-bio-roche-ch",
+        "it": "bio-asat-e2e-del-gestore-trasferimenti-lancio-roche-kaiseraugst",
         "en": "transfer-launch-manager-asat-e2e-bio-roche-ch",
         "de": "transfer-launch-manager-asat-e2e-bio-roche-ch",
         "fr": "transfer-launch-manager-asat-e2e-bio-roche-ch"
@@ -27967,7 +27988,15 @@
         }
       },
       "postalCode": "5000",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "transfer-launch-manager-asat-e2e-bio-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "transfer-launch-manager-asat-e2e-bio-roche-ch"
+      ]
     },
     {
       "id": "roche-70d03755827a",
@@ -28095,9 +28124,9 @@
     },
     {
       "id": "roche-f7521be28298",
-      "slug": "laboratory-technician-temporary-for-2-years-roche-ch",
+      "slug": "laboratorio-tecnico-temporaneo-per-2-anni-roche-basel",
       "slugByLocale": {
-        "it": "laboratory-technician-temporary-for-2-years-roche-ch",
+        "it": "laboratorio-tecnico-temporaneo-per-2-anni-roche-basel",
         "en": "laboratory-technician-temporary-for-2-years-roche-ch",
         "de": "laboratory-techniker-temporary-for-2-years-roche-basel",
         "fr": "laboratory-technicien-temporary-for-2-years-roche-basel"
@@ -28153,16 +28182,24 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-temporary-for-2-years-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-temporary-for-2-years-roche-ch"
+      ]
     },
     {
       "id": "roche-2ab21b3f331f",
-      "slug": "global-digital-cx-head-roche-ch",
+      "slug": "testa-cx-digitale-globale-roche-basel",
       "slugByLocale": {
-        "it": "global-digital-cx-head-roche-ch",
+        "it": "testa-cx-digitale-globale-roche-basel",
         "en": "global-digital-cx-head-roche-ch",
-        "de": "global-digital-cx-head-roche-ch",
-        "fr": "global-digital-cx-head-roche-ch"
+        "de": "globaler-digitaler-cx-chef-roche-basel",
+        "fr": "tete-cx-numerique-mondiale-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28215,7 +28252,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-digital-cx-head-roche-ch"
+        ],
+        "de": [
+          "global-digital-cx-head-roche-ch"
+        ],
+        "fr": [
+          "global-digital-cx-head-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-digital-cx-head-roche-ch"
+      ]
     },
     {
       "id": "roche-d2cad32d5ba2",
@@ -28343,12 +28394,12 @@
     },
     {
       "id": "roche-9371ee733d1b",
-      "slug": "medical-access-partner-roche-ch",
+      "slug": "partner-medico-e-di-accesso-roche-basel",
       "slugByLocale": {
         "fr": "medical-access-partner-roche-ch",
-        "it": "medical-access-partner-roche-ch",
+        "it": "partner-medico-e-di-accesso-roche-basel",
         "en": "medical-access-partner-roche-ch",
-        "de": "medical-access-partner-roche-ch"
+        "de": "medizin-und-zugang-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28405,10 +28456,17 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-02T01:02:37.781Z",
       "previousSlugs": [
-        "partner-medico-e-di-accesso-roche-basel",
-        "medico-y-acceso-socio-roche-basel",
-        "medizin-und-zugang-roche-basel"
-      ]
+        "medical-access-partner-roche-ch",
+        "medico-y-acceso-socio-roche-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-access-partner-roche-ch"
+        ],
+        "de": [
+          "medical-access-partner-roche-ch"
+        ]
+      }
     },
     {
       "id": "roche-fb98707058e5",
@@ -28680,8 +28738,8 @@
       "slugByLocale": {
         "en": "estagio-em-supply-chain-roche-ch",
         "it": "estagio-em-supply-chain-roche-ch",
-        "de": "estagio-em-supply-chain-roche-ch",
-        "fr": "estagio-em-supply-chain-roche-ch"
+        "de": "estagio-em-lieferkette-roche-sao-paulo",
+        "fr": "estagio-em-chaine-d-approvisionnement-roche-sao-paulo"
       },
       "company": "Roche",
       "companyKey": "roche",

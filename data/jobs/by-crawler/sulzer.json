@@ -2084,12 +2084,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2129,16 +2129,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -13937,7 +13934,7 @@
         "it": "area-manager-see-sulzer-ch",
         "en": "area-manager-see-sulzer-ch",
         "de": "area-manager-see-sulzer-ch",
-        "fr": "area-manager-see-sulzer-ch"
+        "fr": "gestionnaire-de-secteur-voir-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14057,12 +14054,12 @@
     },
     {
       "id": "sulzer-a77af8414065",
-      "slug": "ap-coordinator-sulzer-ch-2",
+      "slug": "ap-coordinatore-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "ap-coordinator-sulzer-ch",
-        "it": "ap-coordinator-sulzer-ch-2",
-        "de": "ap-coordinator-sulzer-ch-2",
-        "fr": "ap-coordinator-sulzer-ch-2"
+        "it": "ap-coordinatore-sulzer-cuautitlan-izcalli",
+        "de": "ap-koordinator-sulzer-cuautitlan-izcalli",
+        "fr": "ap-coordinateur-sulzer-cuautitlan-izcalli"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14118,7 +14115,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T01:28:17.854Z"
+      "firstSeenAt": "2026-06-02T01:28:17.854Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ap-coordinator-sulzer-ch-2"
+        ],
+        "de": [
+          "ap-coordinator-sulzer-ch-2"
+        ],
+        "fr": [
+          "ap-coordinator-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "ap-coordinator-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-c2fc763157c4",
@@ -14256,8 +14267,8 @@
       "slugByLocale": {
         "en": "qesh-technician-sulzer-ch",
         "it": "qesh-technician-sulzer-ch",
-        "de": "qesh-technician-sulzer-ch",
-        "fr": "qesh-technician-sulzer-ch"
+        "de": "qesh-techniker-sulzer-pasadena",
+        "fr": "qesh-technicien-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14382,12 +14393,12 @@
     },
     {
       "id": "sulzer-a08c55451b9f",
-      "slug": "project-coordinator-sulzer-ch",
+      "slug": "project-coordinatore-sulzer-pasadena",
       "slugByLocale": {
         "en": "project-coordinator-sulzer-ch",
-        "it": "project-coordinator-sulzer-ch",
-        "de": "project-coordinator-sulzer-ch",
-        "fr": "project-coordinator-sulzer-ch"
+        "it": "project-coordinatore-sulzer-pasadena",
+        "de": "project-koordinator-sulzer-pasadena",
+        "fr": "project-coordinateur-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14443,7 +14454,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T01:28:13.526Z"
+      "firstSeenAt": "2026-06-02T01:28:13.526Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "project-coordinator-sulzer-ch"
+        ],
+        "fr": [
+          "project-coordinator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-coordinator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-eacd5f50fd95",
