@@ -25,7 +25,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import JobAlertSection from '@/components/community/JobAlertSection';
-import { buildPath } from '@/services/router';
+import { buildPath, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -208,8 +208,10 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const companySlug = slugParts.company
  ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`
  : null;
+ // Company is national: link to the aggregator board, not this slug's canton,
+ // so an employer with no jobs in that canton doesn't yield an empty page.
  const companyHref = companySlug
- ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/')
+ ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale)
  : null;
 
  const locationSlug = slugParts.location
@@ -269,8 +271,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  if (onNavigateToCompany) {
  onNavigateToCompany(companySlug);
  } else {
- const fallbackHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySlug }, locale);
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', fallbackHref.split('?')[0]);
+ const fallbackHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale);
+ window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug } }, '', fallbackHref.split('?')[0]);
  window.dispatchEvent(new PopStateEvent('popstate'));
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }

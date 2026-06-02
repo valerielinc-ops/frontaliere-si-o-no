@@ -21,7 +21,7 @@ import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
-import { buildPath } from '@/services/router';
+import { buildPath, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -192,7 +192,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  };
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
- const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
+ // Company is national: link to the aggregator board, not this job's canton,
+ // so an employer with no jobs in that canton doesn't yield an empty page.
+ const companyHref = companySlug ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale) : '';
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
@@ -284,7 +286,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  if (onNavigateToCompany) {
  onNavigateToCompany(companySlug);
  } else if (companyHref) {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', companyHref.split('?')[0]);
+ window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug } }, '', companyHref.split('?')[0]);
  window.dispatchEvent(new PopStateEvent('popstate'));
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }

@@ -37,10 +37,12 @@ describe('JobBoard company link navigation', () => {
     const helperBody = source.match(/const openCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
     const gateHelperBody = source.match(/const openGateCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
 
-    expect(helperBody).toContain('onJobRouteChange(companySearchSlug)');
-    expect(helperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);");
-    expect(gateHelperBody).toContain('onJobRouteChange(gateCompanySlug)');
-    expect(gateHelperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);");
+    // Company links route nationally (aggregator board), not the current canton,
+    // so an employer with no jobs in the active canton doesn't yield an empty page.
+    expect(helperBody).toContain('onJobRouteChange(companySearchSlug, JOB_BOARD_CANTON_AGGREGATE)');
+    expect(helperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);");
+    expect(gateHelperBody).toContain('onJobRouteChange(gateCompanySlug, JOB_BOARD_CANTON_AGGREGATE)');
+    expect(gateHelperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);");
     expect(source.match(/onClickCapture=\{openCompanyFilter\}/g)).toHaveLength(2);
     expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });
