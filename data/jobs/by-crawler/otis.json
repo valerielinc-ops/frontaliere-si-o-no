@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-7f97a484dee6",
-      "slug": "technische-r-verkaufer-in-m-w-d-otis-kriens",
+      "slug": "venditore-tecnico-m-f-d-otis-sa-kriens",
       "slugByLocale": {
-        "en": "technische-r-verkaufer-in-m-w-d-otis-kriens",
-        "it": "technische-r-verkaufer-in-m-w-d-otis-kriens",
+        "en": "technical-salesperson-m-f-d-otis-sa-kriens",
+        "it": "venditore-tecnico-m-f-d-otis-sa-kriens",
         "de": "technische-r-verkaufer-in-m-w-d-otis-kriens",
-        "fr": "technische-r-verkaufer-in-m-w-d-otis-kriens"
+        "fr": "commercial-technique-h-f-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -61,7 +61,21 @@
       "postalCode": "6003",
       "country": "CH",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-06-01T15:40:59.368Z"
+      "firstSeenAt": "2026-06-01T15:40:59.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-verkaufer-in-m-w-d-otis-kriens"
+        ],
+        "en": [
+          "technische-r-verkaufer-in-m-w-d-otis-kriens"
+        ],
+        "fr": [
+          "technische-r-verkaufer-in-m-w-d-otis-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-verkaufer-in-m-w-d-otis-kriens"
+      ]
     },
     {
       "id": "otis-4e58b44feece",
@@ -126,12 +140,12 @@
     },
     {
       "id": "otis-d96409c73722",
-      "slug": "group-leader-mod-bex-otis-romanel-sur-lausanne",
+      "slug": "responsabile-di-gruppo-mod-bex-otis-sa-romanel-sur-lausanne",
       "slugByLocale": {
         "en": "group-leader-mod-bex-otis-romanel-sur-lausanne",
-        "it": "group-leader-mod-bex-otis-romanel-sur-lausanne",
+        "it": "responsabile-di-gruppo-mod-bex-otis-sa-romanel-sur-lausanne",
         "de": "group-leader-mod-bex-otis-romanel-sur-lausanne",
-        "fr": "group-leader-mod-bex-otis-romanel-sur-lausanne"
+        "fr": "chef-d-equipe-mod-bex-otis-sa-romanel-sur-lausanne"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -183,7 +197,18 @@
       "postalCode": "1003",
       "country": "CH",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-01T15:40:58.584Z"
+      "firstSeenAt": "2026-06-01T15:40:58.584Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-mod-bex-otis-romanel-sur-lausanne"
+        ],
+        "fr": [
+          "group-leader-mod-bex-otis-romanel-sur-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-mod-bex-otis-romanel-sur-lausanne"
+      ]
     },
     {
       "id": "otis-5006af89b9f5",
@@ -672,7 +697,6 @@
           "technical-expert-m-w-d-otis-belp"
         ],
         "de": [
-          "technical-expert-m-w-d-otis-belp",
           "technischer-sachverstandiger-m-w-d-otis-sa-belp"
         ],
         "fr": [
@@ -815,7 +839,6 @@
         "technical-expert-m-f-d-otis-sa-belp",
         "expert-technique-h-f-otis-sa-belp",
         "technical-expert-h-f-d-otis-sa-belp",
-        "technical-expert-m-w-d-otis-belp",
         "technischer-sachverstandiger-m-w-d-otis-sa-belp",
         "esperto-tecnico-m-w-d-otis-sa-belp"
       ],
@@ -980,8 +1003,7 @@
           "aufzugsmonteur-in-m-w-d-otis-kriens"
         ],
         "de": [
-          "aufzugsmonteur-in-m-w-d-otis-sa-kriens",
-          "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+          "aufzugsmonteur-in-m-w-d-otis-sa-kriens"
         ],
         "fr": [
           "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
@@ -1209,9 +1231,7 @@
       "previousSlugsByLocale": {
         "en": [
           "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-balerna",
-          "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-sa-balerna",
-          "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
-          "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5"
+          "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-sa-balerna"
         ],
         "de": [
           "technik-talentepool-otis-ticino-installation-wartung-modernisierung-otis-sa-via-corti-5"
@@ -1293,8 +1313,7 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
         ],
         "fr": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-fribourg",
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-fribourg"
         ]
       },
       "previousSlugs": [
@@ -1372,8 +1391,7 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
         ],
         "fr": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-martigny",
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-martigny"
         ]
       },
       "previousSlugs": [
@@ -1456,8 +1474,7 @@
         ],
         "fr": [
           "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
-          "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-sa-romanel-sur-lausanne",
-          "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
+          "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-sa-romanel-sur-lausanne"
         ]
       },
       "previousSlugs": [
@@ -1535,8 +1552,7 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
         ],
         "fr": [
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-vernier",
-          "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-vernier"
         ]
       },
       "previousSlugs": [
@@ -1623,8 +1639,7 @@
           "service-techniker-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-sa-reinach",
-          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+          "servicetechniker-m-w-d-otis-sa-reinach"
         ]
       },
       "firstSeenAt": "2026-05-12T11:48:59.892Z",
@@ -1785,8 +1800,7 @@
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
         ],
         "fr": [
-          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
-          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.581Z",
@@ -1944,14 +1958,7 @@
           "tecnico-montatore-manutentore-ascensori-chur-otis-sa-chur"
         ],
         "en": [
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
-        ],
-        "de": [
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
-        ],
-        "fr": [
-          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
+          "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.056Z",

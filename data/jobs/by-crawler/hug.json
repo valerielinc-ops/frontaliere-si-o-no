@@ -3861,12 +3861,12 @@
     },
     {
       "id": "hug-0bccd17a3c85",
-      "slug": "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
+      "slug": "capo-della-segreteria-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
-        "it": "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
-        "en": "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve",
-        "de": "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+        "it": "capo-della-segreteria-80-al-100-hug-geneve",
+        "en": "head-of-secretariat-80-to-100-hug-geneve",
+        "de": "sekretariatsleiter-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3922,16 +3922,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-01T14:53:44.627Z"
+      "firstSeenAt": "2026-06-01T14:53:44.627Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-secretariat-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-e9dc3d1bfba4",
-      "slug": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
+      "slug": "responsabile-dei-progetti-culturali-60-hug-geneve",
       "slugByLocale": {
         "fr": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "it": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "en": "charge-ou-chargee-de-projets-culturels-60-hug-geneve",
-        "de": "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        "it": "responsabile-dei-progetti-culturali-60-hug-geneve",
+        "en": "responsible-for-cultural-projects-60-hug-geneve",
+        "de": "verantwortlich-fur-kulturprojekte-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3987,7 +4001,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-01T14:53:44.611Z"
+      "firstSeenAt": "2026-06-01T14:53:44.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ],
+        "en": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ],
+        "de": [
+          "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-d02ebf645952",

@@ -205,8 +205,8 @@
       "slugByLocale": {
         "de": "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "sommeraushilfe-kundenlenkung-e-zooom-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "en": "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "projektmanagement-m-w-d-matterhorn-gotthard-bahn-zermatt",
+        "fr": "gestion-du-projet-m-w-d-matterhorn-gotthard-bahn-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -265,6 +265,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "sommeraushilfe-kundenlenkung-und-zooom-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
@@ -397,8 +403,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "collaboratore-trice-instandhaltung-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "en": "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        "en": "projektmanager-m-w-d-matterhorn-gotthard-bahn-zermatt-af41ec",
+        "fr": "projektmanager-m-m-j-matterhorn-gotthard-bahn-zermatt-af41ec"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -459,6 +465,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "mitarbeiter-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
@@ -790,12 +802,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
-      "slug": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig",
         "en": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+        "fr": "projektleiter-m-m-j-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -869,7 +881,18 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-01T15:26:45.609Z"
+      "firstSeenAt": "2026-06-01T15:26:45.609Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",

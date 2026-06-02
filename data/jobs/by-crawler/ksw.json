@@ -1329,9 +1329,9 @@
       "slug": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
-        "en": "disponentin-disponent-ksw-ch",
+        "en": "dispatcher-kantonsspital-winterthur-ksw-winterthur",
         "de": "disponentin-disponent-ksw-ch",
-        "fr": "disponentin-disponent-ksw-ch"
+        "fr": "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1374,20 +1374,16 @@
       "requirementsByLocale": {},
       "department": "Institut für Therapien und Rehabilitation",
       "previousSlugs": [
-        "disponentin-disponent-ksw-ch",
-        "dispatcher-kantonsspital-winterthur-ksw-winterthur",
-        "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
+        "disponentin-disponent-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-disponent-ksw-ch"
         ],
         "en": [
-          "dispatcher-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ],
         "fr": [
-          "depontine-depont-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ]
       },
@@ -3297,7 +3293,6 @@
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
         "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur",
-        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
         "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -3307,7 +3302,6 @@
           "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
           "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -3944,7 +3938,6 @@
       },
       "firstSeenAt": "2026-06-01T15:16:02.878Z",
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
         "arztsekretarin-arztsekretar-ksw-ch-3"
       ],
       "previousSlugsByLocale": {
