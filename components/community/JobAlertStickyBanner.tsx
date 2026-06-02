@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BellRing, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -9,6 +9,10 @@ const DISMISS_DAYS = 7;
 export default function JobAlertStickyBanner() {
  const { t } = useTranslation();
  const [visible, setVisible] = useState(false);
+ // Fire a single impression the first time the banner reveals, so the
+ // sticky-banner funnel has a `shown` denominator. open/dismiss were tracked
+ // but impressions weren't → surface read as "ineffective" because unmeasured.
+ const shownTrackedRef = useRef(false);
 
  useEffect(() => {
  const dismissedUntil = Number(localStorage.getItem(DISMISS_KEY) || 0);
@@ -30,6 +34,13 @@ export default function JobAlertStickyBanner() {
  onScroll();
  return () => window.removeEventListener('scroll', onScroll);
  }, []);
+
+ useEffect(() => {
+ if (visible && !shownTrackedRef.current) {
+ shownTrackedRef.current = true;
+ Analytics.trackJobAlertCtaShown('sticky_banner');
+ }
+ }, [visible]);
 
  const handleOpen = () => {
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');

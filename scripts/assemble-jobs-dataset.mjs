@@ -320,6 +320,10 @@ const EXPIRED_JOBS_CAP = 5000;
  */
 const CACHE_ROOT = path.join(ROOT, '.cache', 'assemble-jobs');
 const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
+// Runtime-served twin of DATA_STATS (gitignored). The SPA stats page fetches
+// `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
+// writes both on a full build; the cache-HIT path must restore both too.
+const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
 const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-05-25-partial-description-flags-v1';
 
 /**
@@ -1692,6 +1696,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     ];
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
+      restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
     }
     // Verify the snapshot is complete BEFORE writing anything; a partial
     // snapshot (e.g. previous run was without --stats) must fall through to
