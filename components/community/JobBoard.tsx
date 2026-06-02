@@ -1713,6 +1713,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
+ // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
+ // The job-detail alert prompt fires immediately (delay 0) for this job —
+ // it's the highest-intent moment (the user just authed to read THIS job),
+ // so we don't wait out the dwell timer before offering the one-tap alert.
+ const justAuthedJobIdRef = useRef<string | null>(null);
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
@@ -2220,7 +2225,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [selectedJobId]);
 
- // Job-detail alert prompt — gating + 4 s reveal timer.
+ // Job-detail alert prompt — gating + 1.5 s reveal timer.
  // Trigger: single-job-detail view, logged-in user with email, feature flag on,
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
@@ -2261,12 +2266,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // a silent `error` event (3 such events on 2026-05-13 traced to this).
  if (existing.length >= MAX_ALERTS_PER_USER) return;
 
+ // Leva B: a user who just authed via Google/FB to unlock THIS job is at
+ // peak intent — show the one-tap alert offer immediately rather than
+ // waiting out the dwell timer. Consume the ref so it fires only once.
+ const justAuthed = justAuthedJobIdRef.current === selectedJob.id;
+ if (justAuthed) justAuthedJobIdRef.current = null;
+ // 1.5 s otherwise (was 4 s): the 4 s timer was further pushed back by the
+ // detail enrichment fetch re-running this effect (selectedJob ref changes),
+ // so eligible users — 75% mobile, short dwell — left before the prompt
+ // showed (~4 `shown` events in 30 days). 1.5 s still avoids prompting on an
+ // accidental tap while landing the impression while the user is engaged.
  timerId = window.setTimeout(() => {
  if (cancelled) return;
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
- }, 4000);
+ }, justAuthed ? 0 : 1500);
  })();
 
  return () => {
@@ -3812,6 +3827,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
 
  autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`);
+ // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
+ justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
  setAuthError(null);
  setAuthGateOpen(false);
@@ -3935,6 +3952,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobToOpen = pendingJob || selectedJob;
  setPendingJob(null);
  if (jobToOpen) {
+ // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
+ justAuthedJobIdRef.current = jobToOpen.id;
  onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
