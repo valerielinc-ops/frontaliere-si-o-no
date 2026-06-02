@@ -7946,6 +7946,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: le fauteuil roulant révolutionnaire',
     'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'Le fauteuil roulant électrique Genny Zero, produit au Tessin, remporte le Compasso d’Oro pour son design innovant et sa technologie italo-suisse.',
     'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Un fauteuil roulant moderne dans un paysage du Tessin avec le lac de Lugano en arrière-plan.',
+    'blog.article.referendum-neutrale-stime-2026.title': 'Référendum : neutralisation estimations 2026 et classe moyenne',
+    'blog.article.referendum-neutrale-stime-2026.excerpt': 'Vote du 14 juin 2026. Neutralise les estimations. Oui à la classe moyenne.',
+    'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Château de Bellinzone au coucher du soleil, symbole de stabilité et de foyer.',
 };
 
 export default blogMetaFr;
