@@ -1,16 +1,56 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-06-02T13:09:02.832Z",
-  "total": 0,
+  "generatedAt": "2026-06-02T23:34:35.125Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 3921,
+  "avgDurationMs": 3921,
+  "durationHistory": [
+    3921
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "giardino-a4c1442fdca3",
+      "slug": "child-care-attendant-giardino-group-ascona",
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Child Care Attendant",
+      "location": "Ascona",
+      "canton": "TI",
+      "url": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-02T23:34:33.427Z",
+      "addressLocality": "Ascona",
+      "postalCode": "6612",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Kinderbetreuung",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
+      "firstSeenAt": "2026-05-18T21:58:11.724Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
