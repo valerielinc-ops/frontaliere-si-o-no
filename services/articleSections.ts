@@ -4,8 +4,12 @@
  * Switzerland-wide ("svizzera") mirror section.
  *
  * Both sections share the same runtime component, i18n key namespace
- * (`blog.article.{id}.*` — article ids never collide across sections, the
- * generator dedups on id), build plugins and maintenance scripts. They differ
+ * (`blog.article.{id}.*`) and SEO key namespace (`blog-{id}`). Because those
+ * namespaces are shared, article ids MUST be unique across sections — a
+ * collision would let one section's entry silently override the other's
+ * canonical / structured-data. This is enforced at generation time:
+ * `scripts/create-article.mjs` dedups a new id against the ids of ALL sections
+ * (see `getSectionExistingIds`), not just the section being written. They differ
  * only in: localized URL hub slug, per-article body directory, meta-chunk
  * filename prefix, and the article registry / slug-data they read from.
  *

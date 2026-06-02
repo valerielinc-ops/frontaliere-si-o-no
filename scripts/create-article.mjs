@@ -1404,17 +1404,28 @@ function readSectionSlugData() {
 }
 
 /**
- * Extract existing article IDs from the active section's slugs map. Parsing
- * the SLUGS map keys (`'id': { it: ... }`) works for BOTH sections:
- *   - frontaliere: ALL_BLOG_ARTICLE_IDS is a literal array, but BLOG_SLUGS
- *     keys are the canonical source the modify step also regenerates from.
- *   - svizzera: ALL_SWISS_ARTICLE_IDS = Object.keys(SWISS_SLUGS) (derived),
- *     so the array isn't a literal — the SWISS_SLUGS keys are the only source.
- * Returns [] when the section registry is still empty (first article).
+ * Extract existing article IDs across ALL article sections (frontaliere +
+ * svizzera) from their SLUGS maps (`'id': { it: ... }`).
+ *
+ * Crucially this is CROSS-SECTION: the SEO (`blog-{id}`) and i18n
+ * (`blog.article.{id}.*`) namespaces are SHARED across sections, so a new id
+ * that collides with one from the sibling section would silently override that
+ * page's canonical / structured-data / title. Deduping globally (not just
+ * intra-section) is what makes the "ids never collide across sections"
+ * invariant true, so a generation run never mints a colliding id.
+ *
+ * The active section's source is reused when provided (avoids a redundant
+ * read); sibling files are read fresh and tolerated-empty (first article).
  */
 function getSectionExistingIds(slugDataSrc) {
-  const src = slugDataSrc ?? readSectionSlugData();
-  return [...src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map((m) => m[1]);
+  const ids = new Set();
+  for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
+    const src = (slugDataSrc && cfg.slugDataFile === SECTION_SLUG_DATA_FILE)
+      ? slugDataSrc
+      : (() => { try { return read(cfg.slugDataFile); } catch { return ''; } })();
+    for (const m of src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)) ids.add(m[1]);
+  }
+  return [...ids];
 }
 
 /** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
