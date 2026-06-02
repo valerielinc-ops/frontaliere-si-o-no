@@ -355,20 +355,45 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     { date: '2026-04-19', zones: { chiasso: { benzina: 1.8 } }, regional: {} },
   ];
 
-  it('IT: renders "stabile" instead of "0,000 CHF" for a zero day-over-day delta', () => {
+  it('IT: zero delta reads grammatically across tile, tagline, paragraph and frontalier context', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-it', dataset: isolated, history, today });
     const html = pages['/prezzi-benzina/chiasso/oggi/'];
+    // paragraph (adjective frame) + tagline + frontalier copula frame
     expect(html).toContain('stabile rispetto a ieri');
+    expect(html).toContain('stabile vs ieri');
+    expect(html).toContain('Il delta rispetto a ieri è stabile');
+    // no misleading "0,000 CHF" and no broken "è di stabile" grammar
     expect(html).not.toContain('0,000 CHF rispetto a ieri');
+    expect(html).not.toContain('è di stabile');
   });
 
-  it('EN: renders "unchanged" instead of "0.000 CHF" for a zero day-over-day delta', () => {
+  it('EN: zero delta reads grammatically across tagline, paragraph and frontalier context', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-en', dataset: isolated, history, today });
     const html = pages['/en/gasoline-price-switzerland/chiasso/today/'];
     expect(html).toContain('unchanged compared to yesterday');
+    expect(html).toContain('unchanged vs yesterday');
+    expect(html).toContain('The day-over-day delta is unchanged');
     expect(html).not.toContain('0.000 CHF compared to yesterday');
+  });
+
+  it('DE: zero delta uses "ist unverändert", never the broken "beträgt unverändert"', () => {
+    // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-de', dataset: isolated, history, today });
+    const html = pages['/de/benzinpreis-schweiz/chiasso/heute/'];
+    expect(html).toContain('Die Tagesveränderung ist unverändert');
+    expect(html).toContain('unverändert vs gestern');
+    expect(html).not.toContain('beträgt unverändert');
+  });
+
+  it('FR: zero delta uses "est stable", never the broken "est de stable"', () => {
+    // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-fr', dataset: isolated, history, today });
+    const html = pages['/fr/prix-essence-suisse/chiasso/aujourd-hui/'];
+    expect(html).toContain('La variation par rapport à hier est stable');
+    expect(html).toContain('stable vs hier');
+    expect(html).not.toContain('est de stable');
   });
 });
 
