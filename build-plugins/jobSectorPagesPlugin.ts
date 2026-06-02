@@ -26,6 +26,9 @@ import {
   LEDE_STYLE,
   BODY_STYLE,
   LINK_ACCENT_STYLE,
+  CTA_PRIMARY_CLASS,
+  renderStatGrid,
+  pickStatTileTone,
 } from './shared/seoContentTokens';
 import {
   renderJobCardListHtml,
@@ -75,6 +78,24 @@ const SECTION_NAME: Record<JobBoardLocale, string> = {
   en: 'Find jobs in Ticino',
   de: 'Jobs im Tessin',
   fr: 'Trouver un emploi au Tessin',
+};
+
+/**
+ * Decorative per-sector emoji shown in the hero eyebrow (`aria-hidden`, never
+ * in the H1 — keeps the H1 keyword clean for the SERP). Purely a friendly
+ * visual cue so each sector hub reads less like a generic listing wall.
+ */
+const SECTOR_EMOJI: Record<SectorHubKey, string> = {
+  infermieri: '🩺',
+  'case-anziani': '👵',
+  educatori: '🎓',
+  ingegneri: '⚙️',
+  autisti: '🚚',
+  sviluppatori: '💻',
+  ristorazione: '🍽️',
+  oss: '🧑‍⚕️',
+  logistica: '📦',
+  apprendistato: '🛠️',
 };
 
 function esc(s: unknown): string {
@@ -135,6 +156,15 @@ export interface BuildSectorLandingHtmlOptions {
   /** Hashed asset filenames discovered from dist/index.html (empty when SPA bundle absent). */
   entryJs?: string;
   entryCss?: string;
+  /**
+   * Full-set stat-tile metrics, computed by the caller over ALL matching jobs
+   * (not the 30-card cap) so the tiles stay honest for popular sectors. When
+   * omitted (e.g. the byte-weight unit test), company/city counts fall back to
+   * the visible `matchingJobs` sample and the fresh tile is dropped.
+   */
+  companyCount?: number;
+  cityCount?: number;
+  freshCount?: number;
 }
 
 /**
@@ -146,6 +176,11 @@ export interface BuildSectorLandingHtmlOptions {
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
+  const uniqCount = (vals: ReadonlyArray<unknown>): number =>
+    new Set(vals.map((v) => String(v ?? '').trim().toLowerCase()).filter(Boolean)).size;
+  const companyCount = opts.companyCount ?? uniqCount(matchingJobs.map((j) => j.company));
+  const cityCount = opts.cityCount ?? uniqCount(matchingJobs.map((j) => j.location));
+  const freshCount = opts.freshCount ?? 0;
   const entryJs = opts.entryJs || '';
   const entryCss = opts.entryCss || '';
   const hasSpaBundle = !!(entryJs && entryCss);
@@ -292,6 +327,43 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     de: 'Alle Stellenangebote im Tessin ansehen',
     fr: "Voir toutes les offres d'emploi au Tessin",
   };
+  const freshLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Nuove · 7gg',
+    en: 'New · 7d',
+    de: 'Neu · 7T',
+    fr: 'Récent · 7j',
+  };
+  const companiesLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Aziende',
+    en: 'Companies',
+    de: 'Unternehmen',
+    fr: 'Entreprises',
+  };
+  const citiesLabelByLocale: Record<JobBoardLocale, string> = {
+    it: 'Località',
+    en: 'Locations',
+    de: 'Standorte',
+    fr: 'Localités',
+  };
+
+  // Stat tiles — headline count is always shown; secondary tiles only when
+  // they carry a non-zero signal, so an empty sector degrades to a single
+  // clean tile instead of a row of zeros. Tones colour the row (green = many
+  // openings / fresh listings) so the hero reads lively rather than flat.
+  const statTiles: Array<{ label: string; value: string; tone: ReturnType<typeof pickStatTileTone> }> = [
+    { label: countsLabelByLocale[locale], value: String(count), tone: pickStatTileTone('openings', count) },
+  ];
+  if (freshCount > 0) {
+    statTiles.push({ label: freshLabelByLocale[locale], value: `+${freshCount}`, tone: pickStatTileTone('fresh', freshCount) });
+  }
+  if (companyCount > 0) {
+    statTiles.push({ label: companiesLabelByLocale[locale], value: String(companyCount), tone: 'neutral' });
+  }
+  if (cityCount > 0) {
+    statTiles.push({ label: citiesLabelByLocale[locale], value: String(cityCount), tone: 'neutral' });
+  }
+  const statGridHtml = renderStatGrid(statTiles);
+  const ctaHtml = `<a href="${sectionRootUrl}" class="${CTA_PRIMARY_CLASS}" style="margin:0 0 24px">${esc(openAllByLocale[locale])} →</a>`;
 
   return `<!doctype html>
 <html lang="${locale}">
@@ -331,25 +403,20 @@ ${alternates}
           <span>${esc(seo.h1)}</span>
         </nav>
         <header class="s-sy52lX">
-          <p style="${HERO_EYEBROW_STYLE}">${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
+          <p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_EMOJI[sector]}</span> ${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
           <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
           <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
           <p style="${BODY_STYLE}">${esc(seo.intro)}</p>
         </header>
-        <section class="s-uhqVU-">
-          <div class="s-tacc">
-            <div class="s-tlbl">${esc(countsLabelByLocale[locale])}</div>
-            <div class="s-tval" style="font-size:32px">${count}</div>
-          </div>
-          <a href="${sectionRootUrl}" class="s-twrn" style="text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
-        </section>
-        ${prose.html}
+        ${statGridHtml}
+        ${ctaHtml}
         <section class="s-ziawP1">
           <div class="s-r2QmTP">
             <h2 class="s-CqexyJ">${esc(jobsSectionLabelByLocale[locale])}</h2>
           </div>
           ${jobsHtml}
         </section>
+        ${prose.html}
         ${faqHtml}
         ${sectorContextHtml}
       </main>
@@ -415,6 +482,21 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // the gate. 30 cards keeps every page comfortably under 195 KB.
           const matchingJobs = filterSectorJobs(jobs, sector, locale, MAX_EMBEDDED_JOBS);
 
+          // Full (uncapped) match set, used ONLY to compute honest stat-tile
+          // metrics (companies / cities / fresh) — popular sectors show >30
+          // jobs, so deriving these from the 30-card cap would undercount.
+          // Cards themselves stay capped via `matchingJobs` above.
+          const allMatching = filterSectorJobs(jobs, sector, locale, Number.MAX_SAFE_INTEGER);
+          const normKey = (v: unknown): string => String(v ?? '').trim().toLowerCase();
+          const companyCount = new Set(allMatching.map((j) => normKey(j.company)).filter(Boolean)).size;
+          const cityCount = new Set(allMatching.map((j) => normKey(j.location)).filter(Boolean)).size;
+          const FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
+          const freshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - FRESH_WINDOW_MS;
+          const freshCount = allMatching.filter((j) => {
+            const t = Date.parse(String(j.datePosted || j.postedDate || '')) || 0;
+            return t >= freshCutoff;
+          }).length;
+
           const canonicalPath = buildSectorHubPath(locale, sector);
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -428,6 +510,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             sectorProseData,
             entryJs,
             entryCss,
+            companyCount,
+            cityCount,
+            freshCount,
           });
 
           // Hard budget gate — prevents future regressions from quietly
