@@ -25,7 +25,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import JobAlertSection from '@/components/community/JobAlertSection';
-import { buildPath, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath } from '@/services/router';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -33,7 +33,6 @@ interface JobOrphanViewProps {
  /** When true the user is already authenticated — hide the sign-in block. */
  hasAccess?: boolean;
  totalActiveJobs?: number;
- onNavigateToCompany?: (companySlug: string) => void;
  onNavigateToLocation?: (locationSlug: string) => void;
  onNavigateToJob?: (jobSlug: string) => void;
 }
@@ -162,7 +161,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -208,10 +207,8 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  const companySlug = slugParts.company
  ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`
  : null;
- // Company is national: link to the aggregator board, not this slug's canton,
- // so an employer with no jobs in that canton doesn't yield an empty page.
  const companyHref = companySlug
- ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale)
+ ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/')
  : null;
 
  const locationSlug = slugParts.location
@@ -268,14 +265,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', slugParts.company!);
- if (onNavigateToCompany) {
- onNavigateToCompany(companySlug);
- } else {
- const fallbackHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale);
- window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug } }, '', fallbackHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- window.scrollTo({ top: 0, behavior: 'smooth' });
- }
+ // Full navigation to the static company hub (HTTP 200) which lists the
+ // company's jobs across ALL cantons. An SPA re-filter scopes to the current
+ // canton shard and clobbers the static list with an empty result.
+ const href = companyHref ?? buildPath({ activeTab: 'job-board' as any, jobSlug: companySlug }, locale);
+ window.location.assign(href.split('?')[0]);
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {

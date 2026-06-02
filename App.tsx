@@ -2336,10 +2336,10 @@ const App: React.FC = () => {
  onRequireAuth={() => {
  navigateTo('profile' as any);
  }}
- onJobRouteChange={(slug, jobBoardCanton) => {
+ onJobRouteChange={(slug) => {
  setStaticOverlay(false);
  setJobSlug(slug || null);
- pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}), ...(jobBoardCanton ? { jobBoardCanton } : {}) });
+ pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}) });
  // Scroll to top when entering a job detail; JobBoard handles list restoration.
  if (slug) window.scrollTo({ top: 0, behavior: 'instant' });
  }}

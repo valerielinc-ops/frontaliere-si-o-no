@@ -21,7 +21,7 @@ import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
-import { buildPath, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -56,8 +56,6 @@ interface JobExpiredViewProps {
  hasAccess?: boolean;
  /** Total active jobs count for social proof in auth gate. */
  totalActiveJobs?: number;
- /** SPA navigation: navigate to company filter page. */
- onNavigateToCompany?: (companySlug: string) => void;
  /** SPA navigation: navigate to location filter page. */
  onNavigateToLocation?: (locationSlug: string) => void;
  /** SPA navigation: navigate to a job detail or listing (empty string = listing root). */
@@ -153,7 +151,7 @@ function buildLocalSearchSlug(term: string, locale: string): string {
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -192,9 +190,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  };
 
  const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
- // Company is national: link to the aggregator board, not this job's canton,
- // so an employer with no jobs in that canton doesn't yield an empty page.
- const companyHref = companySlug ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug }, locale) : '';
+ const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
@@ -278,18 +274,15 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // ── SPA navigation helpers ──
 
  const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
- if (!companySlug) return;
+ if (!companySlug || !companyHref) return;
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', job.company);
- if (onNavigateToCompany) {
- onNavigateToCompany(companySlug);
- } else if (companyHref) {
- window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySlug } }, '', companyHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- window.scrollTo({ top: 0, behavior: 'smooth' });
- }
+ // Full navigation to the static company hub (HTTP 200) which lists the
+ // company's jobs across ALL cantons. An SPA re-filter scopes to the current
+ // canton shard and clobbers the static list with an empty result.
+ window.location.assign(companyHref.split('?')[0]);
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {

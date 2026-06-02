@@ -417,7 +417,7 @@ interface JobBoardProps {
  initialFilterParams?: JobBoardFilterParams | null;
  /** Called after filter params have been consumed so they aren't re-applied */
  onFilterParamsConsumed?: () => void;
- onJobRouteChange?: (slug?: string, jobBoardCanton?: string) => void;
+ onJobRouteChange?: (slug?: string) => void;
  isLoggedIn?: boolean;
  authUser?: any | null;
  authLoading?: boolean;
@@ -5462,7 +5462,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
- onNavigateToCompany={(slug) => { onJobRouteChange?.(slug, JOB_BOARD_CANTON_AGGREGATE); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
@@ -5475,7 +5474,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
- onNavigateToCompany={(slug) => { onJobRouteChange?.(slug, JOB_BOARD_CANTON_AGGREGATE); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
@@ -5503,23 +5501,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
  ).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220);
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- // National company scope — see openCompanyFilter note above.
- const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: gateCompanySlug }, locale);
+ const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
  const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
  const openGateCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(gateCompanySlug, JOB_BOARD_CANTON_AGGREGATE);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub — see openCompanyFilter note.
+ window.location.assign(gateCompanyHref.split('?')[0]);
  };
 
  return (
@@ -5947,26 +5938,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
- // Company is a national entity: scope the link to the aggregator board, not
- // the current canton. A canton-prefixed link (e.g. /cerca-lavoro-ticino/azienda-X/)
- // ANDs canton+company and returns zero for any employer without jobs in that
- // canton. Aggregator searches all top cantons (mirrors related-search links).
- const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySearchSlug }, locale);
+ const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
  const detailLocationSlug = buildLocationSearchSlug(selectedJob.addressLocality || selectedJob.location || '', locale);
  const detailLocationHref = detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '';
  const openCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(companySearchSlug, JOB_BOARD_CANTON_AGGREGATE);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub (HTTP 200) which lists the
+ // company's jobs across ALL cantons. An SPA re-filter scopes to the current
+ // canton shard and clobbers the static list with an empty result — the
+ // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
+ // (e.g. PwC: 109 static jobs vs 0 in the TI shard).
+ window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {
  const assigned =
