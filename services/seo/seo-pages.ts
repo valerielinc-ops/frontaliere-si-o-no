@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2703,
+ "numberOfItems": 2704,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7343,7 +7343,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2700, "name": "Ammodernamento F/A-18: la flotta svizzera pront...", "url": `${BASE_URL}/articoli-frontaliere/ammodernamento-fa-18-svizzera` },
           { "@type": "ListItem", "position": 2701, "name": "Mostra mercato di piante rare a Comerio: un eve...", "url": `${BASE_URL}/articoli-frontaliere/mostra-piante-rare-comerio-2026` },
           { "@type": "ListItem", "position": 2702, "name": "Ferrovia retica: nuovo accordo con Taiwan", "url": `${BASE_URL}/articoli-frontaliere/ferrovia-retica-taiwan` },
-          { "@type": "ListItem", "position": 2703, "name": "Genny Zero: la sedia a rotelle che rivoluziona ...", "url": `${BASE_URL}/articoli-frontaliere/sedia-rotelle-genny-zero-design` }
+          { "@type": "ListItem", "position": 2703, "name": "Genny Zero: la sedia a rotelle che rivoluziona ...", "url": `${BASE_URL}/articoli-frontaliere/sedia-rotelle-genny-zero-design` },
+          { "@type": "ListItem", "position": 2704, "name": "Berna non vuole creare attriti con l'Italia", "url": `${BASE_URL}/articoli-frontaliere/berna-non-vuole-creare-attriti-con-litalia` }
  ]
  },
  {

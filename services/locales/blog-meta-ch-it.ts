@@ -11,6 +11,9 @@ const blogMetaChIt: Record<string, string> = {
   'blog.article.premi-cassa-malati-svizzera-2026.title': 'Premi cassa malati 2026: cosa cambia in Svizzera',
   'blog.article.premi-cassa-malati-svizzera-2026.excerpt': 'I premi della cassa malati obbligatoria LAMal aumentano in media del 6% nel 2026. Differenze cantonali, franchigie e come risparmiare.',
   'blog.article.premi-cassa-malati-svizzera-2026.imageAlt': 'Panorama di Bellinzona con i castelli medievali, capoluogo di un cantone tra i più cari per la cassa malati.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Berna non vuole creare attriti con l\'Italia',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Il Consiglio federale svizzero conferma la sua posizione di non voler creare attriti con l\'Italia.',
+    'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'Il Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Cantone Ticino.',
 };
 
 export default blogMetaChIt;
