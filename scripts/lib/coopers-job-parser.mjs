@@ -114,18 +114,14 @@ function detectEmploymentType(text = '') {
  *   - Location, contract type, hours, reference code, posted date
  *   - Detail URL pattern: /en/jobs/detail.php?refCode={CODE}
  *
- * We filter for Visp/Wallis/Valais locations only (pharma hub in Valais).
+ * All Swiss listings are included (nationwide crawl).
  *
  * Coopers is a staffing agency — jobs are placed at client companies
- * (typically Lonza, other pharma firms in Visp). The hiring org is
- * Coopers as the recruiter.
+ * across Switzerland. The hiring org is Coopers as the recruiter.
  */
 
 const COOPERS_BASE = 'https://www.coopers.ch';
 const JOBS_URL = `${COOPERS_BASE}/en/jobs/index.php`;
-
-/** Location keywords that indicate Valais/Visp area. */
-const VALAIS_LOCATIONS = ['visp', 'wallis', 'valais', 'brig', 'naters', 'raron', 'gamsen'];
 
 /**
  * Fetch HTML with timeout handling.
@@ -161,13 +157,6 @@ function parseEuDate(raw = '') {
   return m ? `${m[3]}-${m[2]}-${m[1]}` : '';
 }
 
-/**
- * Check if a location string indicates Valais/Visp area.
- */
-function isValaisLocation(location = '') {
-  const lower = normalize(location);
-  return VALAIS_LOCATIONS.some(kw => lower.includes(kw));
-}
 
 /**
  * Parse the Coopers listing page HTML to extract job cards.
@@ -270,11 +259,11 @@ function normalizeCoopersLocation(raw = '') {
   if (lower.includes('brig')) return 'Brig';
   if (lower.includes('naters')) return 'Naters';
   if (lower.includes('raron')) return 'Raron';
-  return normalizeSpace(raw) || 'Visp';
+  return normalizeSpace(raw) || '';
 }
 
 /**
- * Fetch all Coopers Group AG jobs in Valais.
+ * Fetch all Coopers Group AG jobs in Switzerland.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -284,7 +273,7 @@ export async function fetchAllCoopersJobs() {
   console.log(`🔍 Fetching Coopers Group AG jobs`);
   console.log(`   Source: ${JOBS_URL}`);
   console.log(`   Platform: PHP site (HTML scraping)`);
-  console.log(`   Filter: Visp/Wallis/Valais locations\n`);
+  console.log(`   Filter: Switzerland — nationwide\n`);
 
   // Step 1: Fetch the full listing page
   console.log(`  📄 Fetching listing page...`);
@@ -293,23 +282,22 @@ export async function fetchAllCoopersJobs() {
 
   console.log(`  📋 Total listings on page: ${allListings.length}`);
 
-  // Step 2: Filter to Valais/Visp area only
-  const valaisListings = allListings.filter(l => isValaisLocation(l.location));
-  console.log(`  🎯 Valais/Visp listings: ${valaisListings.length}`);
+  // Step 2: Keep all Swiss listings (nationwide crawl)
+  const swissListings = allListings;
 
-  if (valaisListings.length === 0) {
-    console.warn('⚠️ No Valais job listings found.');
+  if (swissListings.length === 0) {
+    console.warn('⚠️ No job listings found.');
     return [];
   }
 
   // Step 3: Fetch detail pages and build job objects
   const jobs = [];
-  for (const listing of valaisListings) {
+  for (const listing of swissListings) {
     const title = normalizeSpace(listing.title);
     if (!title || title.length < 3) continue;
 
     const city = normalizeCoopersLocation(listing.location);
-    const canton = inferAnyCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || '';
 
     // Fetch detail for description
     console.log(`  📥 Fetching detail: ${title.substring(0, 50)}...`);
@@ -319,7 +307,7 @@ export async function fetchAllCoopersJobs() {
     const requirements = detail.requirements || [];
 
     const sourceLang = detectLang(descriptionText || title, 'en');
-    const jobSlug = slugify(`${title} coopers ${city || 'visp'}`);
+    const jobSlug = slugify(`${title} coopers ${city}`);
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
 
     const job = {
@@ -368,6 +356,6 @@ export async function fetchAllCoopersJobs() {
     await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
-  console.log(`\n📋 Total Coopers Group AG Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Coopers Group AG Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

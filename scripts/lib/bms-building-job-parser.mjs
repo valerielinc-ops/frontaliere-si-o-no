@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -102,14 +102,6 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Valais keywords for location filtering ──────────────── */
-
-const VALAIS_KEYWORDS = [
-  'naters', 'brig', 'visp', 'sion', 'sierre', 'martigny',
-  'monthey', 'glis', 'wallis', 'valais', 'conthey',
-  'st-maurice', 'saxon', 'leuk', 'steg', 'raron',
-];
-
 /* ── HTTP helpers ─────────────────────────────────────────── */
 
 const LISTING_URL = 'https://jobs.bmsuisse.ch/jobs/offene-stellen/';
@@ -194,18 +186,6 @@ function parseListingPage(html = '') {
     seen.add(e.jobId);
     return true;
   });
-}
-
-/**
- * Check if a job is in a Valais location.
- */
-function isValaisJob(entry) {
-  const combined = `${entry.city} ${entry.postalCode}`.toLowerCase();
-  // Valais postal codes: 1870-1997 (Bas-Valais) and 3900-3999 (Haut-Valais)
-  const pc = parseInt(entry.postalCode, 10);
-  if (pc >= 1870 && pc <= 1997) return true;
-  if (pc >= 3900 && pc <= 3999) return true;
-  return VALAIS_KEYWORDS.some((kw) => combined.includes(kw));
 }
 
 /**
@@ -302,31 +282,31 @@ function parseDetailPage(html = '') {
 export async function fetchAllBmsBuildingJobs() {
   console.log(`🔍 Fetching BMS Building Materials jobs`);
   console.log(`   Source: ${LISTING_URL}`);
-  console.log(`   Strategy: Listing page → filter Valais → detail pages\n`);
+  console.log(`   Strategy: Listing page → filter Switzerland → detail pages\n`);
 
   const listingHtml = await fetchHtml(LISTING_URL);
   const allEntries = parseListingPage(listingHtml);
   console.log(`  📋 Total jobs on listing page: ${allEntries.length}`);
 
-  const valaisEntries = allEntries.filter(isValaisJob);
-  console.log(`  🏔️ Valais jobs: ${valaisEntries.length}`);
+  const swissEntries = allEntries.filter((e) => isTargetSwissLocation(`${e.city} ${e.postalCode}`));
+  console.log(`  🇨🇭 Swiss jobs: ${swissEntries.length}`);
 
-  if (valaisEntries.length === 0) {
-    console.warn('⚠️ No Valais job listings found.');
+  if (swissEntries.length === 0) {
+    console.warn('⚠️ No Swiss job listings found.');
     return [];
   }
 
-  console.log(`\n  📋 Fetching ${valaisEntries.length} detail pages...\n`);
+  console.log(`\n  📋 Fetching ${swissEntries.length} detail pages...\n`);
 
   const jobs = [];
-  for (const entry of valaisEntries) {
+  for (const entry of swissEntries) {
     try {
       const detailHtml = await fetchHtml(entry.url);
       const detail = parseDetailPage(detailHtml);
 
       const title = detail?.title || entry.title;
-      const location = entry.city || 'Naters';
-      const canton = inferAnyCanton(location) || 'VS';
+      const location = entry.city || '';
+      const canton = inferAnyCanton(location) || '';
       // Ensure description has meaningful content (>30 chars) for SEO
       const rawDesc = detail?.description || '';
       const descriptionText = rawDesc.length >= 30
