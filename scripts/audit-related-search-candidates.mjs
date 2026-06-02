@@ -221,6 +221,46 @@ function isValidRelatedSearchTerm(value) {
   return true;
 }
 
+// Mirror of services/relatedSearchClusters.ts stripSearchQueryBoilerplate +
+// its phrase/suffix lists. Keep in sync — the audit must shape candidate slugs
+// exactly as the production widget does, so a slug never carries leading
+// job-search noise or a trailing nation/salary/requirements suffix.
+const SEARCH_QUERY_BOILERPLATE_PHRASES = [
+  'offerte di lavoro', 'posti di lavoro', 'offerte lavoro',
+  'offres d emplois', 'offre d emplois', 'offres d emploi', 'offre d emploi',
+  'offres emplois', 'offre emplois', 'offres emploi', 'offre emploi',
+  'recherche emploi', 'recherche d emploi', 'recherche d emplois',
+  'stellenangebote', 'stellenangebot', 'stellen',
+  'lavori', 'lavoro', 'impieghi', 'impiego', 'offerte', 'jobs', 'job',
+  'emplois', 'emploi', 'stipendio', 'mansioni',
+];
+const SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS = [
+  'salary', 'wage', 'salaire', 'gehalt', 'lohn', 'stipendio',
+  'switzerland', 'suisse', 'schweiz', 'svizzera',
+  'requirements', 'requirement', 'requisiti', 'exigences', 'anforderungen',
+  'mansioni', 'aufgaben', 'taches',
+];
+const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
+  `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
+  'i',
+);
+const SEARCH_QUERY_TEMPLATE_SUFFIX = new RegExp(
+  `\\s+(?:${SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS.join('|')})$`,
+  'i',
+);
+function stripSearchQueryBoilerplate(query) {
+  let stripped = String(query || '').trim();
+  let prev = '';
+  while (stripped && stripped !== prev) {
+    prev = stripped;
+    stripped = stripped
+      .replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '')
+      .replace(SEARCH_QUERY_TEMPLATE_SUFFIX, '')
+      .trim();
+  }
+  return stripped || String(query || '');
+}
+
 function buildRelatedSearches({ job, locale }) {
   const title = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/\s+/g, ' ').trim();
   const shortTitle = title.split(/[-–—|•·]/)[0]?.trim() || title;
@@ -251,25 +291,21 @@ function buildRelatedSearches({ job, locale }) {
   // already covered by the `azienda-*` / `company-*` slug family
   // (parseCompanySlugFilter, JobBoard.tsx:2228). Keeping it would duplicate
   // company-hub pages at /search-{company}-{city}/ and /azienda-{company}/.
-  // N3 decision: KEEP the template-string candidates (offerte lavoro / salary
-  // switzerland / requirements) — they may capture long-tail Google queries.
+  // N4 decision (2026-06-02): DROP the template-string candidates
+  // (offerte lavoro / stipendio … svizzera / … salary switzerland /
+  // … requirements). Their trailing nation/template token OR-matched any job
+  // mentioning the nation, surfacing off-intent listings on the slug landing.
+  // Every term is run through stripSearchQueryBoilerplate so no candidate
+  // carries leading job-search noise or a trailing nation/salary/requirements
+  // suffix (mirrors services/relatedSearchClusters.ts).
   const candidates = cleanCanonicalItems([
     shortTitle,
     `${shortTitle} ${location}`.trim(),
     `${shortTitle} ${company}`.trim(),
     // `${company} ${location}` removed (N2 filter)
-    ...(locale === 'it'
-      ? [
-        `offerte lavoro ${shortTitle}`.trim(),
-        `stipendio ${shortTitle} svizzera`.trim(),
-        `mansioni ${shortTitle}`.trim(),
-      ]
-      : [
-        `${shortTitle} salary switzerland`.trim(),
-        `${shortTitle} requirements`.trim(),
-      ]),
+    // template-string candidates removed (N4 filter)
     ...generated,
-  ], 24);
+  ].map((term) => stripSearchQueryBoilerplate(term)), 24);
 
   return candidates.filter(isValidRelatedSearchTerm).slice(0, 10);
 }
