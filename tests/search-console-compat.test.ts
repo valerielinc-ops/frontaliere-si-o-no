@@ -41,10 +41,33 @@ describe('Search Console 404 compatibility resolver', () => {
     );
     expect(Array.isArray(compatPaths.paths)).toBe(true);
     expect(compatPaths.paths.length).toBeGreaterThanOrEqual(603);
+    // Guard against the dataset doubling via a merge/concat artifact (seen
+    // 2026-06-02: 306k → 605k exact duplicates). Dup bloat silently doubles
+    // the resolve loop below and trips the 15s timeout — fail fast & cheap on
+    // duplicates instead of timing out.
+    const unique = new Set<string>(compatPaths.paths);
+    expect(
+      unique.size,
+      `seo-404-compat-paths.json has ${compatPaths.paths.length - unique.size} duplicate entries`,
+    ).toBe(compatPaths.paths.length);
+    // Resolve every committed path (full coverage) but collect misses and
+    // assert once. A per-path expect() over 300k+ entries cost ~90µs each
+    // (~30s+) — that per-assertion overhead, not the resolver, is what blew
+    // the timeout. Single assert keeps identical coverage at a fraction of
+    // the cost.
+    const unresolved: string[] = [];
     for (const value of compatPaths.paths) {
-      expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+      if (resolveSearchConsoleCompatTarget(value) === null) unresolved.push(value);
     }
-  });
+    expect(
+      unresolved,
+      `${unresolved.length} committed 404 paths did not resolve (e.g. ${unresolved.slice(0, 5).join(', ')})`,
+    ).toEqual([]);
+    // 60s ceiling (vs default 15s): this resolves the full committed dataset
+    // (300k+ paths and growing as GSC accumulates 404s) — legitimate O(N)
+    // work that needs headroom on loaded CI runners. Coverage/assertions stay
+    // strict; only the runtime ceiling is raised.
+  }, 60_000);
 
   it('resolves non-job section 404s to their landing pages', () => {
     expect(resolveSearchConsoleCompatTarget('/vivere-in-ticino/vivere-in-svizzera')).toEqual({
