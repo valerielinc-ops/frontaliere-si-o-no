@@ -24,6 +24,12 @@ import {
   HQ_REGISTRY,
   COMPANY_HQ,
 } from '../scripts/lib/crawler-location-config.mjs';
+import { readdirSync } from 'node:fs';
+import {
+  TRUNCATED_ST_LOCALITY_RE,
+  recoverTruncatedStLocality,
+  healTruncatedStLocalities,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('titleOverlap()', () => {
   it('returns 1 for identical inputs (modulo case/accents/punctuation)', () => {
@@ -191,5 +197,132 @@ describe('Crawler wiring — Coop and Migros import the shared guards', () => {
     const src = readFileSync(resolve(__dirname, '..', 'scripts/update-volg-jobs.mjs'), 'utf8');
     expect(src).toMatch(/MIN_TITLE_OVERLAP/);
     expect(src).toMatch(/MIN_BODY_RATIO/);
+  });
+});
+
+// ── Truncated "St" locality guard (issue #1158) ──────────────────────────────
+// A bare "St"/"St." is a textContent-truncation artifact of "St. Moritz" /
+// "St. Gallen" etc. and must never reach jobLocation.addressLocality in the
+// indexed JSON-LD. The normalizer recovers the full city per-record; this suite
+// pins both the recovery logic and the corpus invariant (no slice may emit a
+// bare token).
+describe('Truncated "St" locality guard (issue #1158)', () => {
+  it('flags only the bare token, never a real "St. X" city', () => {
+    expect(TRUNCATED_ST_LOCALITY_RE.test('St')).toBe(true);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('St.')).toBe(true);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('st')).toBe(true);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('St. Moritz')).toBe(false);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('St. Gallen')).toBe(false);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('Stein')).toBe(false);
+    expect(TRUNCATED_ST_LOCALITY_RE.test('Pontresina')).toBe(false);
+  });
+
+  it('recovers via per-crawler HQ override (kronenhof → Pontresina, not St. Moritz)', () => {
+    // kronenhof slug carries "kulm-hotel-st-moritz" but the hotel is in Pontresina.
+    const job = {
+      companyKey: 'grand-hotel-kronenhof',
+      addressLocality: 'St',
+      addressRegion: 'GR',
+      postalCode: '7504',
+      slug: 'office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-675',
+    };
+    expect(recoverTruncatedStLocality(job)).toBe('Pontresina');
+  });
+
+  it('recovers from the URL path even when addressRegion is HQ-stamped wrong', () => {
+    const job = {
+      companyKey: 'fielmann',
+      addressLocality: 'St',
+      addressRegion: 'VS', // HQ-stamp, wrong
+      url: 'https://fielmann.wd3.myworkdayjobs.com/en/External/job/St-Gallen/Augenoptiker',
+      slug: 'augenoptiker-w-m-d-fielmann-group-st',
+    };
+    expect(recoverTruncatedStLocality(job)).toBe('St. Gallen');
+  });
+
+  it('recovers from a whitelisted slug city token (St. Moritz)', () => {
+    const job = {
+      companyKey: 'badrutts-palace',
+      addressLocality: 'St',
+      addressRegion: 'GR',
+      slug: 'beauty-therapist-m-w-d-badrutts-palace-st-moritz',
+    };
+    expect(recoverTruncatedStLocality(job)).toBe('St. Moritz');
+  });
+
+  it('defers a multi-site employer whose slug carries the org seat (kliniken-valens)', () => {
+    // Jobs sit at PLZ 7317 (Valens), yet slug labels them "…-st-gallen".
+    const job = {
+      companyKey: 'kliniken-valens',
+      addressLocality: 'St',
+      addressRegion: 'SG',
+      postalCode: '7317',
+      slug: 'pflegefachfrau-mann-kliniken-valens-st-gallen',
+    };
+    expect(recoverTruncatedStLocality(job)).toBeNull();
+  });
+
+  it('defers when no signal is recoverable (no slug/url city, no override)', () => {
+    const job = {
+      companyKey: 'bosch-thermotechnik-ag',
+      addressLocality: 'St',
+      addressRegion: 'VS',
+      postalCode: '1950',
+      slug: 'instandhaltung-ref285547a-bosch-thermotechnik-ag-st',
+      url: 'https://jobs.bosch.com/en/job/REF285547A-instandhaltung-w-m-div',
+    };
+    expect(recoverTruncatedStLocality(job)).toBeNull();
+  });
+
+  it('heals a slice and uses same-site consensus for bare-slug siblings', () => {
+    const jobs = [
+      // recovered via slug → St. Urban, seeds the (company, plz) consensus
+      { companyKey: 'lups', addressLocality: 'St', postalCode: '4915', slug: 'a-100-m-f-d-lups-st-urban' },
+      // bare slug, no per-record signal → recovered via same-site consensus
+      { companyKey: 'lups', addressLocality: 'St', postalCode: '4915', slug: 'pflegefachperson-lups' },
+    ];
+    const { healed, deferred } = healTruncatedStLocalities(jobs);
+    expect(healed).toBe(2);
+    expect(deferred).toBe(0);
+    expect(jobs.every((j) => j.addressLocality === 'St. Urban')).toBe(true);
+  });
+
+  it('does NOT apply consensus across different postal codes', () => {
+    const jobs = [
+      { companyKey: 'x', addressLocality: 'St', postalCode: '9000', slug: 'a-x-st-gallen' },
+      { companyKey: 'x', addressLocality: 'St', postalCode: '7500', slug: 'b-x' }, // different site, no signal
+    ];
+    const { deferred } = healTruncatedStLocalities(jobs);
+    expect(deferred).toBe(1);
+    expect(jobs[1].addressLocality).toBe('St');
+  });
+
+  it('CORPUS INVARIANT: no by-crawler slice emits a bare "St"/"St." addressLocality', () => {
+    const dir = resolve(__dirname, '..', 'data/jobs/by-crawler');
+    const offenders: string[] = [];
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      let data: unknown;
+      try {
+        data = JSON.parse(readFileSync(resolve(dir, file), 'utf8'));
+      } catch {
+        continue;
+      }
+      const jobs = Array.isArray(data)
+        ? data
+        : (data as { jobs?: Array<{ addressLocality?: string }> })?.jobs;
+      if (!Array.isArray(jobs)) continue;
+      for (const job of jobs) {
+        const loc = String((job as { addressLocality?: string }).addressLocality || '').trim();
+        if (loc && TRUNCATED_ST_LOCALITY_RE.test(loc)) {
+          offenders.push(`${file}: "${loc}"`);
+        }
+      }
+    }
+    // kliniken-valens (org-seat slug) + bosch + pwc are knowingly deferred and
+    // tracked in the PR's "Non implementato" — they keep a bare token until a
+    // future run recovers the real per-job city. Allow that known set only.
+    const KNOWN_DEFERRED = /^(kliniken-valens|bosch-thermotechnik-ag|pwc)\.json:/;
+    const unexpected = offenders.filter((o) => !KNOWN_DEFERRED.test(o));
+    expect(unexpected).toEqual([]);
   });
 });

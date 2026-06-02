@@ -3278,6 +3278,172 @@ export const COMPANY_DEFAULTS = {
   'zurich-insurance-sede-ticino':         { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
 };
 
+// ── Truncated "St" locality recovery ──────────────────────────────────────────
+// Some source boards (hotelcareer/umantis/Workday …) expose a `.location` node
+// whose textContent splits "St. Moritz" / "St. Gallen" on the period, leaking a
+// bare "St" / "St." token into `location` → `addressLocality` → JSON-LD
+// jobLocation. A bare "St"/"St." is NEVER a complete Swiss locality, so it must
+// never reach structured data. Recovery is per-record (the truncation is lossy)
+// and uses, in priority order: a per-crawler HQ override (for single-site
+// employers whose slug carries a misleading company-name city), the full city
+// preserved in the slug's `-st-<city>` fragment, or the job URL path — each
+// cross-checked against the record's addressRegion so a wrong canton is never
+// stamped. Records with no recoverable signal are left untouched (the caller
+// reports them) rather than guessed.
+
+/** Bare truncation artifact — never a real locality. */
+export const TRUNCATED_ST_LOCALITY_RE = /^st\.?$/i;
+
+/**
+ * Per-crawler HQ override for single-site employers whose slug carries a
+ * misleading company-name city. Keyed by companyKey (lowercase).
+ * e.g. grand-hotel-kronenhof jobs slug as "kulm-hotel-st-moritz-…" but the
+ * hotel is physically in Pontresina (PLZ 7504), per issue #1158.
+ */
+const ST_LOCALITY_HQ_OVERRIDE = {
+  'grand-hotel-kronenhof': 'Pontresina',
+};
+
+// Multi-site employers whose slug carries the ORG seat (e.g. "…-st-gallen"),
+// NOT the per-job city. For these, a recovered "St. Gallen" from the slug would
+// mislabel jobs that are physically elsewhere (e.g. Kliniken Valens postings sit
+// at PLZ 7317 in Valens, yet slug as "kliniken-valens-st-gallen"). The original
+// per-job city is unrecoverable from the truncated token here → defer, never
+// guess (issue #1158: a wrong city is worse than a deferred one).
+const ST_SLUG_LABEL_UNTRUSTED = new Set([
+  'kliniken-valens',
+]);
+
+// Single-site employers whose every posting sits at one HQ city, used to recover
+// the bare "St" token when slug/URL don't carry the city (issue #1158). Only for
+// employers with a genuinely single physical location.
+const ST_LOCALITY_SINGLE_SITE = {
+  'kispi-sg': 'St. Gallen', // Ostschweizer Kinderspital, PLZ 9006
+};
+
+// Known "St. X" localities whose -st-<token> survives in slugs/URLs.
+const ST_CITY_TOKENS = new Set([
+  'gallen', 'moritz', 'urban', 'margrethen', 'niklausen', 'gallenkappel', 'antoni',
+]);
+
+function titleCaseToken(s) {
+  return String(s || '')
+    .split(/[-_]/)
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function stCityFromSlug(slug) {
+  const m = String(slug || '').match(/-st-([a-z]+)\b/i);
+  if (m && ST_CITY_TOKENS.has(m[1].toLowerCase())) return `St. ${titleCaseToken(m[1])}`;
+  return null;
+}
+
+function stCityFromUrl(url) {
+  // Workday/umantis paths like /job/St-Gallen-… or /St_-Gallen-…
+  const m = String(url || '').match(/\/St[_\-]\s?-?([A-Za-z]+)/);
+  if (m && ST_CITY_TOKENS.has(m[1].toLowerCase())) return `St. ${titleCaseToken(m[1])}`;
+  return null;
+}
+
+/**
+ * Recover the full locality for a single job whose location/addressLocality has
+ * been truncated to a bare "St"/"St." token. Returns the recovered city string
+ * (e.g. "St. Moritz") or null when no signal is confidently recoverable.
+ * Pure: does not mutate the job.
+ */
+export function recoverTruncatedStLocality(job) {
+  if (!job) return null;
+  const loc = String(job.addressLocality || job.location || '').trim();
+  if (!TRUNCATED_ST_LOCALITY_RE.test(loc)) return null;
+
+  const ck = String(job.companyKey || '').toLowerCase();
+  const override = ST_LOCALITY_HQ_OVERRIDE[ck];
+  if (override) return override;
+
+  // The job URL path is the most authoritative signal: an explicit
+  // /job/St-Gallen-… segment is the board's own city for this exact posting, so
+  // it overrides even a wrong addressRegion (which may have been HQ-stamped).
+  const fromUrl = stCityFromUrl(job.url);
+  if (fromUrl) return fromUrl;
+
+  // Slug-derived city from a whitelisted "St. <City>" token is reliable — the
+  // crawler wrote the full city into the slug. The record's addressRegion is the
+  // unreliable field here (often HQ-stamped to the wrong canton, e.g. efg HQ=TI
+  // for a St. Moritz job), so the caller re-derives the region from the recovered
+  // city. The one failure mode — a slug carrying the org SEAT, not the per-job
+  // city (kliniken-valens "…-st-gallen" for jobs in Valens) — is excluded
+  // explicitly via ST_SLUG_LABEL_UNTRUSTED.
+  if (!ST_SLUG_LABEL_UNTRUSTED.has(ck)) {
+    const fromSlug = stCityFromSlug(job.slug);
+    if (fromSlug) return fromSlug;
+  }
+
+  // Single-site employer fallback: every posting for this employer is at one
+  // physical city, so the bare token is safe to fill from the known HQ city.
+  const singleSite = ST_LOCALITY_SINGLE_SITE[ck];
+  if (singleSite) return singleSite;
+
+  return null;
+}
+
+/**
+ * Heal bare "St"/"St." localities across a slice of jobs (issue #1158).
+ *
+ * Two passes:
+ *  1. Per-record recovery via recoverTruncatedStLocality (HQ override / URL path
+ *     / whitelisted slug token / single-site fallback).
+ *  2. Same-slice consensus: for records still bare, if every already-recovered
+ *     truncated record sharing the same (companyKey, postalCode) agrees on one
+ *     city, fill it. This recovers postings whose slug lost the city token but
+ *     sit at the same physical site as resolved siblings — without guessing.
+ *
+ * Mutates `location`/`addressLocality`/`addressRegion`/`canton` in place on
+ * healed records. Returns { healed, deferred } counts. Deferred records keep the
+ * bare token (a wrong city is worse than a deferred one).
+ */
+export function healTruncatedStLocalities(jobs) {
+  if (!Array.isArray(jobs)) return { healed: 0, deferred: 0 };
+  const isBare = (j) => TRUNCATED_ST_LOCALITY_RE.test(String(j.addressLocality || j.location || '').trim());
+
+  const applyCity = (job, city) => {
+    job.location = city;
+    job.addressLocality = city;
+    const cant = inferAnyCanton(city);
+    if (cant) { job.addressRegion = cant; job.canton = cant; }
+  };
+
+  let healed = 0;
+  const stillBare = [];
+  // Pass 1: per-record
+  const consensus = new Map(); // "companyKey|postalCode" -> Set<city>
+  for (const job of jobs) {
+    if (!isBare(job)) continue;
+    const city = recoverTruncatedStLocality(job);
+    if (city) {
+      applyCity(job, city);
+      healed++;
+      const key = `${String(job.companyKey || '').toLowerCase()}|${job.postalCode || ''}`;
+      if (!consensus.has(key)) consensus.set(key, new Set());
+      consensus.get(key).add(city);
+    } else {
+      stillBare.push(job);
+    }
+  }
+  // Pass 2: same-site consensus (only when unambiguous)
+  for (const job of stillBare) {
+    const key = `${String(job.companyKey || '').toLowerCase()}|${job.postalCode || ''}`;
+    const cities = consensus.get(key);
+    if (cities && cities.size === 1 && job.postalCode) {
+      applyCity(job, [...cities][0]);
+      healed++;
+    }
+  }
+  const deferred = jobs.filter(isBare).length;
+  return { healed, deferred };
+}
+
 /**
  * Apply company HQ defaults to a single job object.
  * Only fills fields that are missing or empty — never overwrites existing data.
@@ -3334,6 +3500,20 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
   }
 
   const { jobs: hardened, changed: salaryChanged, updated: salaryUpdated, total } = hardenJobsWithStructuredSalary(raw);
+
+  // ── Truncated "St" locality guard: recover full city before defaults run ──
+  // A bare "St"/"St." in location/addressLocality is a textContent artifact
+  // (e.g. "St. Moritz" split on the period) and must never reach JSON-LD
+  // (issue #1158). healTruncatedStLocalities recovers the full city per-record
+  // (HQ/URL/slug) + same-site consensus; records with no signal keep the bare
+  // token and are surfaced as a data-quality warning rather than guessed.
+  const { healed: stLocalityHealed, deferred: stLocalityUnrecovered } = healTruncatedStLocalities(hardened);
+  if (stLocalityHealed > 0) {
+    console.log(`  🏙️  St-locality heal: recovered full city for ${stLocalityHealed} truncated "St"/"St." jobs`);
+  }
+  if (stLocalityUnrecovered > 0) {
+    console.warn(`  ⚠️  St-locality: ${stLocalityUnrecovered} job(s) left with bare "St"/"St." (no recoverable signal — needs manual review)`);
+  }
 
   // ── Company HQ defaults: fill missing streetAddress / postalCode / employmentType ──
   let companyDefaultsFilled = 0;
