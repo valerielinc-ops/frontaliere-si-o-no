@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-06-01T23:17:08.408Z",
+  "generatedAt": "2026-06-02T12:41:07.717Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2505,
-  "avgDurationMs": 2505,
+  "durationMs": 1849,
+  "avgDurationMs": 1849,
   "durationHistory": [
-    2505
+    1849
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -167,45 +167,6 @@
       }
     },
     {
-      "title": "Spezialist/-in Elektrotechnik",
-      "slug": "spezialist-in-elektrotechnik-confederazione-rivera",
-      "url": "https://jobs.admin.ch/posti-vacanti/spezialist-in-elektrotechnik/8217c9bd-1923-4d58-bc25-982f73f91087",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19024",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Rivera",
-      "addressLocality": "Rivera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-21",
-      "validThrough": "2026-06-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "confederazione-ticino-69f337cb7ffa",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Offizier/-in Rüstung und Weiterentwicklung",
       "slug": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
       "url": "https://jobs.admin.ch/posti-vacanti/offizier-in-ruestung-und-weiterentwicklung/8f913ea4-882a-41b1-b150-7bcb85237c1d",
@@ -236,11 +197,48 @@
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
       "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Spezialist/-in Elektrotechnik",
+      "slug": "spezialist-in-elektrotechnik-confederazione-rivera",
+      "url": "https://jobs.admin.ch/posti-vacanti/spezialist-in-elektrotechnik/8217c9bd-1923-4d58-bc25-982f73f91087",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19024",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Rivera",
+      "addressLocality": "Rivera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-21",
+      "validThrough": "2026-06-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "confederazione-ticino-69f337cb7ffa",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-05-21T22:05:37.638Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -273,8 +271,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-21T22:05:37.638Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -389,11 +385,11 @@
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -427,11 +423,11 @@
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
