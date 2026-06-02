@@ -41,4 +41,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'iniziative-casse-malati-2026',
+    category: 'fiscale',
+    date: '2026-06-02T21:12:32.990Z',
+    image: '/images/blog/iniziative-casse-malati-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];

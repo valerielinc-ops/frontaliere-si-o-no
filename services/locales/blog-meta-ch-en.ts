@@ -14,6 +14,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Bern Avoids Tensions with Italy',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Swiss Federal Council maintains position of not wanting to create tensions with Italy.',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'The Government Palace in Bellinzona, seat of the Council of State of the Canton Ticino.',
+    'blog.article.iniziative-casse-malati-2026.title': 'CMS initiatives 2026: Government cannot block their implementation',
+    'blog.article.iniziative-casse-malati-2026.excerpt': 'The Federal Council cannot subordinate the implementation of the people-approved CMS initiatives to specific funding sources.',
+    'blog.article.iniziative-casse-malati-2026.imageAlt': 'Busy Bellinzona street with people walking and using digital devices, highlighting the financial and administrative aspects of health insurance initiatives in Ticino.',
 };
 
 export default blogMetaChEn;

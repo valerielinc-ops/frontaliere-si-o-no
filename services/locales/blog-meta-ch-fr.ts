@@ -14,6 +14,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Berne ne veut pas créer de tensions avec l\'Italie',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Le Conseil fédéral suisse confirme sa position de ne pas vouloir créer de tensions avec l\'Italie.',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'Le Palais du Gouvernement à Bellinzone, siège du Conseil d\'État du canton du Tessin.',
+    'blog.article.iniziative-casse-malati-2026.title': 'Initiatives caisses malades 2026: le gouvernement ne peut pas bloquer',
+    'blog.article.iniziative-casse-malati-2026.excerpt': 'Le Conseil d\'État ne peut pas subordonner l\'entrée en vigueur des initiatives sur les caisses malades approuvées par le peuple à des sources de financement spécifiques.',
+    'blog.article.iniziative-casse-malati-2026.imageAlt': 'Rue animée de Bellinzone avec des personnes marchant et utilisant des appareils numériques, mettant en évidence les aspects financiers et administratifs des initiatives d\'assurance maladie dans le Tessin.',
 };
 
 export default blogMetaChFr;
