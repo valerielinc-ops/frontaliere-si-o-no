@@ -250,13 +250,27 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
     expect(recoverTruncatedStLocality(job)).toBe('St. Moritz');
   });
 
-  it('defers a multi-site employer whose slug carries the org seat (kliniken-valens)', () => {
-    // Jobs sit at PLZ 7317 (Valens), yet slug labels them "…-st-gallen".
+  it('recovers an org-seat employer via PLZ override (kliniken-valens 7317 → Valens, not St. Gallen)', () => {
+    // Jobs sit at PLZ 7317 (Valens), yet slug labels them "…-st-gallen". The
+    // untrusted slug seat must NOT win — the postal code pins the real city.
     const job = {
       companyKey: 'kliniken-valens',
       addressLocality: 'St',
       addressRegion: 'SG',
       postalCode: '7317',
+      slug: 'pflegefachfrau-mann-kliniken-valens-st-gallen',
+    };
+    expect(recoverTruncatedStLocality(job)).toBe('Valens');
+  });
+
+  it('defers an org-seat employer when the PLZ is not in the override map', () => {
+    // A different kliniken-valens site (e.g. Chur PLZ 7000) has no PLZ entry yet,
+    // and the slug seat stays untrusted → defer, never guess the wrong city.
+    const job = {
+      companyKey: 'kliniken-valens',
+      addressLocality: 'St',
+      addressRegion: 'GR',
+      postalCode: '7000',
       slug: 'pflegefachfrau-mann-kliniken-valens-st-gallen',
     };
     expect(recoverTruncatedStLocality(job)).toBeNull();
@@ -318,9 +332,10 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
         }
       }
     }
-    // kliniken-valens (org-seat slug) + bosch + pwc are knowingly deferred and
-    // tracked in the PR's "Non implementato" — they keep a bare token until a
-    // future run recovers the real per-job city. Allow that known set only.
+    // bosch + pwc are knowingly deferred (no recoverable per-job signal), tracked
+    // in the PR's "Non implementato". kliniken-valens is now recovered at build
+    // time via the PLZ override (7317 → Valens, issue #1180) but its RAW slice
+    // keeps the bare token until the next crawl re-emits it — allow that known set.
     const KNOWN_DEFERRED = /^(kliniken-valens|bosch-thermotechnik-ag|pwc)\.json:/;
     const unexpected = offenders.filter((o) => !KNOWN_DEFERRED.test(o));
     expect(unexpected).toEqual([]);
