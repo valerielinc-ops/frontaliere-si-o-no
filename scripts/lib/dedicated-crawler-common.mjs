@@ -3623,8 +3623,13 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     console.log(`  🗺️  Canton inference: filled ${cantonFilled} jobs from location text`);
   }
 
-  const changed = salaryChanged || postalFilled > 0 || companyDefaultsFilled > 0 || cantonFilled > 0;
-  const updated = salaryUpdated + postalFilled + companyDefaultsFilled + cantonFilled;
+  const changed =
+    salaryChanged ||
+    postalFilled > 0 ||
+    companyDefaultsFilled > 0 ||
+    cantonFilled > 0 ||
+    stLocalityHealed > 0;
+  const updated = salaryUpdated + postalFilled + companyDefaultsFilled + cantonFilled + stLocalityHealed;
 
   if (!changed) {
     return { changed: false, updated: 0, total };
