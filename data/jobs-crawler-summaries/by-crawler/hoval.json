@@ -1,49 +1,18 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-02T13:23:21.255Z",
+  "generatedAt": "2026-06-02T23:48:29.285Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14140,
-  "avgDurationMs": 14140,
+  "unchangedCount": 2,
+  "durationMs": 14186,
+  "avgDurationMs": 14186,
   "durationHistory": [
-    14140
+    14186
   ],
-  "newJobs": [
-    {
-      "title": "Servicetechniker/in Öl (m/w/d)",
-      "slug": "servicetechniker-in-ol-m-w-d-hoval-harkingen",
-      "url": "https://www.hoval.it/it_IT/job/3963",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3963/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Härkingen",
-      "addressLocality": "Härkingen",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
@@ -71,15 +40,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-13T22:23:31.122Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -108,15 +77,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "4500",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -145,15 +114,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -183,15 +152,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "9000",
       "firstSeenAt": "2026-05-27T12:51:49.485Z",
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -220,17 +189,17 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
       "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -259,17 +228,56 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "4500",
       "firstSeenAt": "2026-05-26T23:07:05.422Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
+    {
+      "title": "Servicetechniker/in Öl (m/w/d)",
+      "slug": "servicetechniker-in-ol-m-w-d-hoval-harkingen",
+      "url": "https://www.hoval.it/it_IT/job/3963",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3963/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Härkingen",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-f39e5c3b6fa9",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-06-02T13:23:21.254Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -344,7 +352,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
