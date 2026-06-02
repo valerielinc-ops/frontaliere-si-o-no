@@ -18,7 +18,7 @@ Non passa nessuno → drop. Non importante per questo progetto.
 | Marker | Quando |
 |---|---|
 | 🔴 Important | Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante |
-| 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized, test mancanti su path funnel-critici). **Cap 3/review**; oltre → `+N similar nits` in summary |
+| 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized). **Cap 3/review**; oltre → `+N similar nits` in summary |
 | 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
 
@@ -27,10 +27,9 @@ Non passa nessuno → drop. Non importante per questo progetto.
 - Security (XSS/injection/secret leak/path traversal) — out of scope
 - Style/formatting/naming
 - TS strictness salvo maschera bug logico
-- Test coverage salvo path funnel-critici (qualunque script o modulo che decide cosa viene indicizzato, emit di structured data, sitemap, AdSense placement). Fix su tali path senza test → 🟡 Nit.
+- **Test coverage — MAI un finding** (né 🟡 nit né voce `## Adversarial check`), nemmeno su path funnel-critici. "Manca un test per X", "aggiungi coverage", "committa il test citato nel PR body", "pinna questo comportamento con un test" → NON sollevare in alcuna forma. Zero valore deliverable per l'owner; auto-routano a `agent:fix` e bruciano quota Max condivisa. **Eccezione (resta in scope):** un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky che resta verde sulla regressione, fixture con date assolute — è correttezza, non coverage → 🔴/🟡 normale.
 - Script funnel-critico senza workflow CI corrispondente (manual-only, dipende da SA/credenziali su macchina dev) → 🟡 Nit. Eccezioni motivate (one-shot ammortizzato, dev-only) restano nel `## Non implementato` con motivo esplicito.
 - Refactor speculativi non legati al diff
-- "Aggiungi test" generico senza target+motivo funnel
 - Cavilli architetturali se la soluzione attuale funziona
 
 ## Tier review (effort + adversarial depth)
@@ -84,6 +83,8 @@ PR body DEVE avere:
 ### Pre-output adversarial check (tier high)
 
 PR a tier `high` (vedi tabella "Tier review"): prima del summary finale, includi sezione `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Tier normal: skip questa sezione.
+
+**Le "cose non verificate" sono rischi di COMPORTAMENTO/correttezza, mai "manca un test".** Non scrivere voci adversarial del tipo "questo branch non ha test" / "andrebbe pinnato con un test" (vedi IGNORA → test coverage): sono missing-coverage travestiti e violano la regola. Surface invece il rischio sottostante — *il comportamento X su input degenere potrebbe sbagliare* — come ❓ q (o 🔴 se funnel-critical). La differenza è netta: "non so se `parseFoo()` gestisce il null → potrebbe emettere structured-data invalido" = valido (rischio di comportamento); "manca un test per il ramo null di `parseFoo()`" = vietato (coverage).
 
 **Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se mentre lo scrivi riconosci che, se vero, l'item impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → promuovilo a 🔴 Important in `## Findings` (vedi Verification → escalation). L'adversarial check è per incertezze residue non-bloccanti, non per parcheggiare bug funnel-critical con un punto di domanda. Caso reale: #829 mise `orphanResult.merged` vs `.mergedCount` (writeJson previousSlugs morto → redirect bridge non persistito) come ❓ qui + `## LGTM` → auto-merge, zero follow-up.
 
