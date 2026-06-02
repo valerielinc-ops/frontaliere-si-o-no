@@ -1125,7 +1125,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fxLabel: 'BNS giornaliero',
     rateTile: 'Cambio CHF/EUR',
     adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al cambio del giorno.`,
-    tableCaption: (g, p) => `Decomposizione: RAL CHF ${g.toLocaleString('it-CH')} (${p})`,
+    tableCaption: (g, p) => `Decomposizione: lordo CHF ${g.toLocaleString('it-CH')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Lordo + assegni familiari',
     th: ['Voce', 'Importo annuo (CHF)', 'Importo annuo (EUR)'],
@@ -1344,7 +1344,7 @@ function buildSalaryTierData(cfg: TierConfig, locale: SalaryLocale): SalaryLandi
       { label: labels.irpefTile, value: 'EUR 10.000', tone: 'warning' },
       { label: labels.rateTile, value: labels.fxLabel, tone: 'neutral' },
     ],
-    advice: labels.adviceTpl(ralCHF, netCHF, netEUR),
+    advice: labels.adviceTpl(grossCHF, netCHF, netEUR),
     ctaPrimary: { label: pack.ctaPrimary, href: pack.simulatorHref },
     ctaSecondary: { label: pack.ctaSecondary, href: pack.whatIfHref },
     table: {
