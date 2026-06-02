@@ -124,26 +124,33 @@ jobs:
       # after this window — but the live site is an EARLIER VALID build the whole
       # time, NOT broken. So a propagation timeout must NOT trigger rollback.
       #
-      # Window = 120s (script default is 25min; we override here). Measured over
-      # every healthy deploy (action or retry reaching success) in late-May→Jun:
-      # the live build-id was ALREADY ours at attempt 1, t+0–1s — because the
-      # deploy-pages action only returns success AFTER Pages finished
-      # syncing_files→updating_pages server-side, by which point the CDN already
-      # serves our bytes. The long 25-min window was therefore only ever burned
-      # in the double-action-timeout branch, where it almost always ended in
-      # propagation_timeout anyway (our ~13 GB / ~470k-file publish lands long
-      # after the window) — wasting ~23 min of CI per such run and running smoke
-      # against the wrong build. 120s keeps ~100× headroom over the observed
-      # propagation time while cutting that waste. The one trade-off: a rare
-      # supersede caught at t+1415s now times out instead — fine, since that
-      # build was never ours; publish defers to the superseding run's own
-      # validate-live.
+      # Window = 240s (script default is 25min; we override here). Two facts set
+      # this ceiling:
+      #   1. The probe is CACHE-BUSTED — wait-for-pages-propagation.mjs adds a
+      #      unique `?_=<ts>` + `Cache-Control: no-cache` per request, so the
+      #      build-id.txt read defeats the Fastly edge. The ~1-2 min edge lag
+      #      documented for *cached HTML* therefore does NOT delay build-id
+      #      detection.
+      #   2. Measured: across the 88 completed deploy runs of late-May→Jun, every
+      #      healthy deploy (action or retry reaching success) confirmed at
+      #      attempt 1, t+0–1s (p100 = 1s; e.g. runs 26808012188, 26803159863,
+      #      26755640441) — deploy-pages returns success only after server-side
+      #      syncing_files→updating_pages, so the origin already serves our bytes.
+      # 240s sits comfortably ABOVE the documented 1-2 min edge lag, so even a
+      # worst-case edge-stale healthy deploy cannot false-fire propagation_timeout
+      # (which would gate publish/IndexNow OFF — indexing latency). The old 25-min
+      # window was only ever burned in the double-action-timeout branch, where it
+      # almost always ended in propagation_timeout regardless (the ~13 GB / ~470k-
+      # file publish lands long after any sane window). 240s still cuts ~21 of the
+      # ~23 min wasted there. Trade-off: a rare supersede caught at t+1415s now
+      # times out instead — fine, that build was never ours; publish defers to the
+      # superseding run's own validate-live.
       - name: Wait for Pages propagation (our build-id or newer must be live)
         id: propagation
         continue-on-error: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/wait-for-pages-propagation.mjs --timeout-ms=120000
+        run: node scripts/wait-for-pages-propagation.mjs --timeout-ms=240000
 
       - name: Classify propagation timeout (no rollback for this)
         if: steps.propagation.outcome == 'failure'
