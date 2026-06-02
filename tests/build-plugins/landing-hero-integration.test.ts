@@ -9,7 +9,7 @@ describe('renderLandingHero — full rendering', () => {
       { openings: 47, medianSalary: 65000 },
       'Lavoro come educatore in Ticino',
     );
-    expect(html).toMatch(/<span aria-hidden="true">🎓<\/span>/);
+    expect(html).toMatch(/<span class="lh-emoji" aria-hidden="true">🎓<\/span>/);
     expect(html).toContain('Professione · Educatore in Ticino');
     expect(html).toContain('<h1');
     expect(html).toContain('Lavoro come educatore in Ticino');
@@ -22,7 +22,7 @@ describe('renderLandingHero — full rendering', () => {
     const locales = ['it', 'en', 'de', 'fr'] as const;
     for (const loc of locales) {
       const html = renderLandingHero('educatore', loc, { openings: 5 }, 'X');
-      expect(html, `${loc} missing eyebrow`).toMatch(/<span aria-hidden="true">🎓<\/span>/);
+      expect(html, `${loc} missing eyebrow`).toMatch(/<span class="lh-emoji" aria-hidden="true">🎓<\/span>/);
       expect(html, `${loc} missing h1`).toContain('<h1');
     }
   });
