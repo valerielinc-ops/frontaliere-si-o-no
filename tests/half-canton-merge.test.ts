@@ -22,6 +22,7 @@
 import { describe, expect, it } from 'vitest';
 import { parsePath, buildPath, getJobBoardSlugForCanton, resolveCantonGroup as resolveCantonGroupTs } from '@/services/router';
 import { resolveCantonGroup as resolveCantonGroupMjs, getCantonGroupMembers, getCantonUrlSlug, parseCantonUrlSlug } from '../scripts/lib/canton-url-slugs.mjs';
+import { hubSlugFor } from '@/build-plugins/seoHubsData';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 const ALL_LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
@@ -201,5 +202,75 @@ describe('Router buildPath / getJobBoardSlugForCanton — collapse BFS codes ont
 
   it('TI legacy DE form (jobs-im-tessin) preserved', () => {
     expect(getJobBoardSlugForCanton('TI', 'de')).toBe('jobs-im-tessin');
+  });
+});
+
+// ── Follow-up #959 (item 3): sub-hub (tutti / settori / aziende) emission for
+// the new half-canton URL groups. The footer "Tutte le aziende →" link
+// (App.tsx, via seoHubSlugFor) and the per-canton hub page emission
+// (seoHubsPlugin.emitThinCantonHubs, both via the SAME hubSlugFor helper) must
+// agree by construction. The risk the reviewer flagged: if hubSlugFor returned
+// a raw group key (`/cerca-lavoro-BASILEA/aziende/`) the footer link would
+// 404 against the emitted slug (`/cerca-lavoro-basilea/aziende/`). Lock the
+// slug shape for BASILEA + APPENZELLO across every locale + facet so the
+// footer/emitter contract can't silently drift.
+describe('hubSlugFor — sub-hub facets resolve for new half-canton groups (#959)', () => {
+  // Expected canonical section slug per group/locale (no raw group key leak,
+  // lowercase, locale-correct — matches getJobBoardSlugForCanton above).
+  const SECTION: Record<'BASILEA' | 'APPENZELLO', Record<Locale, string>> = {
+    BASILEA: {
+      it: 'cerca-lavoro-basilea',
+      en: 'find-jobs-basel',
+      de: 'jobs-in-basel',
+      fr: 'trouver-emploi-bale',
+    },
+    APPENZELLO: {
+      it: 'cerca-lavoro-appenzello',
+      en: 'find-jobs-appenzell',
+      de: 'jobs-in-appenzell',
+      fr: 'trouver-emploi-appenzell',
+    },
+  };
+  // Trailing path component per facet/locale (mirrors HUB_SLUG_BY_LOCALE in
+  // seoHubsData.ts — the table the emitter and footer both consume).
+  const FACET: Record<'tutti' | 'settori' | 'aziende', Record<Locale, string>> = {
+    tutti: { it: 'tutti', en: 'all', de: 'alle', fr: 'tous' },
+    settori: { it: 'settori', en: 'sectors', de: 'branchen', fr: 'secteurs' },
+    aziende: { it: 'aziende', en: 'companies', de: 'unternehmen', fr: 'entreprises' },
+  };
+
+  for (const group of ['BASILEA', 'APPENZELLO'] as const) {
+    for (const locale of ALL_LOCALES) {
+      for (const facet of ['tutti', 'settori', 'aziende'] as const) {
+        it(`${group} + ${locale} + ${facet} → valid lowercase section slug (no 404)`, () => {
+          const prefix = locale === 'it' ? '' : `/${locale}`;
+          const expected = `${prefix}/${SECTION[group][locale]}/${FACET[facet][locale]}/`;
+          expect(hubSlugFor(group, locale, facet)).toBe(expected);
+        });
+      }
+    }
+  }
+
+  it('never leaks a raw group key into the emitted URL', () => {
+    for (const group of ['BASILEA', 'APPENZELLO'] as const) {
+      for (const locale of ALL_LOCALES) {
+        for (const facet of ['tutti', 'settori', 'aziende'] as const) {
+          const slug = hubSlugFor(group, locale, facet);
+          expect(slug).not.toContain('BASILEA');
+          expect(slug).not.toContain('APPENZELLO');
+        }
+      }
+    }
+  });
+
+  it('member BFS codes collapse onto the same hub slug as the group key', () => {
+    // hubSlugFor resolves the group internally, so AI/AR and BL/BS must produce
+    // the SAME sub-hub URL as APPENZELLO / BASILEA (one emitted page per group).
+    for (const locale of ALL_LOCALES) {
+      expect(hubSlugFor('AI', locale, 'aziende')).toBe(hubSlugFor('APPENZELLO', locale, 'aziende'));
+      expect(hubSlugFor('AR', locale, 'settori')).toBe(hubSlugFor('APPENZELLO', locale, 'settori'));
+      expect(hubSlugFor('BL', locale, 'tutti')).toBe(hubSlugFor('BASILEA', locale, 'tutti'));
+      expect(hubSlugFor('BS', locale, 'aziende')).toBe(hubSlugFor('BASILEA', locale, 'aziende'));
+    }
   });
 });

@@ -503,7 +503,19 @@ export const HQ_REGISTRY = COMPANY_HQ;
  * embed a region label in the job description. Replaces hardcoded ternaries
  * like `canton === 'GR' ? 'Grigioni' : 'Ticino'` (docs/crawler-parametrizzazione-plan.md).
  *
- * @param {string} cantonCode - 2-letter canton code (TI, GR, VS, …)
+ * @param {string} cantonCode - 2-letter BFS canton code (TI, GR, VS, … incl.
+ *   the real half-canton codes BL/BS/AI/AR). This keys on {@link SWISS_CANTONS}
+ *   (BFS codes only) and intentionally does NOT carry the half-canton URL
+ *   *group* keys (`BASILEA`, `APPENZELLO`). Those group keys are a URL-emission
+ *   concept produced by `resolveCantonGroup`; every caller of THIS helper feeds
+ *   it a BFS code straight from `inferAnyCanton`/`getCompanyDefaults` (crawlers
+ *   tag jobs with BFS codes — verified: scripts/update-ist-jobs.mjs,
+ *   scripts/update-trumpf-jobs.mjs). The build plugins that emit per-GROUP
+ *   pages (weeklyEmployers/jobMarketSnapshot CH-canton pages) shadow this name
+ *   with their own local `getCantonDisplayName` keyed on a CANTON_DISPLAY map
+ *   that DOES include the group keys, so they never reach this function either.
+ *   If a future crawler ever passes a group key here, add BASILEA/APPENZELLO to
+ *   the `map` below for parity with `getCantonDisplayLabel` (#959, follow-up #954).
  * @param {'it'|'de'|'fr'|'en'} locale - output language; defaults to 'it'
  * @returns {string} canton name in the requested language, or the raw code if unknown.
  */
