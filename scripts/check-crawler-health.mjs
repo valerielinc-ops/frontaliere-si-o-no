@@ -85,6 +85,22 @@ const EMPTY_OK_CRAWLERS = new Set([
   // (https://www.zambon.com/it/api/careers-api) returns jobs across
   // BR/DE/IT/FR/ES/CO but currently 0 CH listings. Parser is healthy.
   'zambon',
+  // AIL Lugano: the AJAX endpoint
+  // (https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true)
+  // currently returns HTTP 200 with "Al momento non ci sono posizioni aperte".
+  // Zero open positions is a legitimate state; the parser is healthy and
+  // re-arms when AIL publishes openings again.
+  'ail-lugano',
+  // Città di Locarno: the careers page
+  // (https://www.locarno.ch/it/albo-comunale/assunzioni-personale) currently
+  // shows "Assunzioni personale (0) — Nessun documento trovato". The
+  // municipality has no active public competitions right now; parser is healthy.
+  'citta-di-locarno',
+  // ALTEN Switzerland: the crawler is scoped to TI/GR openings only
+  // (https://www.alten.ch/career/jobs/). The consultancy currently lists no
+  // Ticino/Graubünden roles; same legitimately-empty regional-filter case as
+  // zurich-insurance-sede-ticino and manor. Parser is healthy.
+  'alten-switzerland',
 ]);
 
 /** Read JSON file, return null on any error. */
