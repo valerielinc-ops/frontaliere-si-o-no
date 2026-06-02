@@ -52,8 +52,11 @@ describe('JobBoard — ItemList JSON-LD (docs/seo-action-plan-apr2026.md)', () =
     // Landing pages set initialJobSlug while rendering a job LIST, so they must
     // still emit ItemList (the bare `selectedJob || initialJobSlug` guard used
     // to suppress them → landings shipped BreadcrumbList only).
+    // All list-landing families (search/company/location + the editorial
+    // descriptor family) must be in the guard, else they fall into the
+    // detail-view branch and ship BreadcrumbList only.
     expect(SOURCE).toMatch(
-      /const\s+isLandingList\s*=\s*!!\(\s*searchSlugFilter\s*\|\|\s*companySlugFilter\s*\|\|\s*locationSlugFilter\s*\)/,
+      /const\s+isLandingList\s*=\s*!!\([^)]*searchSlugFilter[^)]*companySlugFilter[^)]*locationSlugFilter[^)]*editorialLandingDescriptor[^)]*\)/,
     );
     expect(SOURCE).toMatch(/if\s*\(selectedJob\s*\|\|\s*\(initialJobSlug\s*&&\s*!isLandingList\)\)/);
   });

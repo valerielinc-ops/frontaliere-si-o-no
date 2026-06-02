@@ -3546,7 +3546,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // pages also set initialJobSlug but render a job LIST, so they should still
  // emit ItemList for rich SERP carousels (previously suppressed by the bare
  // initialJobSlug check → landings shipped BreadcrumbList only).
- const isLandingList = !!(searchSlugFilter || companySlugFilter || locationSlugFilter);
+ const isLandingList = !!(searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor);
  if (selectedJob || (initialJobSlug && !isLandingList)) {
  cleanup();
  return;
@@ -3614,7 +3614,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, searchHeadingQuery, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, t]);
 
  const formatSalary = (job: JobListing) => {
  if (!job.salaryMin) return null;
