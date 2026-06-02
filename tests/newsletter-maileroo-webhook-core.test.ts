@@ -28,6 +28,13 @@ function createFakeDb(existingDocs: Record<string, Record<string, Record<string,
             set: async (data: Record<string, unknown>, _opts?: unknown) => {
               sets.push({ collection: subPath, docId: subDocId, data });
             },
+            get: async () => {
+              const docData = existingDocs[subPath]?.[subDocId];
+              return {
+                exists: !!docData,
+                data: () => docData || undefined,
+              };
+            },
           }),
           add: async (data: Record<string, unknown>) => {
             adds.push({ collection: subPath, data });
@@ -137,11 +144,11 @@ describe('newsletterMailerooWebhookCore', () => {
     expect(db.__sets.some((s) => s.collection === 'newsletter_subscribers')).toBe(false);
   });
 
-  it('resolves recipient for opened/clicked events (no recipient/tags in payload) via maileroo_message_meta', async () => {
+  it('resolves recipient for opened/clicked events (no recipient/tags in payload) via newsletter_subscribers/_meta_/maileroo_refs', async () => {
     // Maileroo opened/clicked webhooks carry only message_reference_id — the send
     // pipeline pre-seeds the lookup record. Verify the click is attributed.
     const db = createFakeDb({
-      maileroo_message_meta: {
+      'newsletter_subscribers/_meta_/maileroo_refs': {
         ref_abc: { email: 'resolved@example.com', campaign_id: 'weekly_2026-06-01', is_job_alert: false },
       },
     });
@@ -166,10 +173,10 @@ describe('newsletterMailerooWebhookCore', () => {
 
   it('routes opened/clicked to job_alert_subscribers when the lookup record flags job-alert', async () => {
     // send-job-alerts.mjs (sendBatch onSent) writes exactly { email, is_job_alert: true }
-    // to maileroo_message_meta/{referenceId} — no campaign_id (job-alerts have no
-    // campaign concept). Mirror that prod shape here.
+    // to newsletter_subscribers/_meta_/maileroo_refs/{referenceId} — no campaign_id
+    // (job-alerts have no campaign concept). Mirror that prod shape here.
     const db = createFakeDb({
-      maileroo_message_meta: {
+      'newsletter_subscribers/_meta_/maileroo_refs': {
         ref_ja: { email: 'seeker@example.com', is_job_alert: true },
       },
     });
@@ -182,6 +189,30 @@ describe('newsletterMailerooWebhookCore', () => {
     });
 
     expect(result).toMatchObject({ processed: true, type: 'open', collection: 'job_alert_subscribers' });
+  });
+
+  it('falls back to legacy maileroo_message_meta for in-flight refs', async () => {
+    // Messages sent before the path migration stored their lookup in the top-level
+    // collection. The webhook must still attribute their opens/clicks.
+    const db = createFakeDb({
+      maileroo_message_meta: {
+        ref_legacy: { email: 'legacy@example.com', campaign_id: 'weekly_old', is_job_alert: false },
+      },
+    });
+
+    const result = await persistMailerooEvent(db as any, {
+      event_type: 'opened',
+      message_reference_id: 'ref_legacy',
+      tags: null,
+      event_data: { ip: '7.7.7.7' },
+    });
+
+    expect(result).toMatchObject({
+      processed: true,
+      type: 'open',
+      email: 'legacy@example.com',
+      campaignId: 'weekly_old',
+    });
   });
 
   it('skips opened/clicked when no lookup record exists (unattributable)', async () => {
