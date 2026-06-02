@@ -401,6 +401,7 @@ interface Copy {
   regionalLabelTicinoComo: string;
   regionalLabelTicinoVarese: string;
   noHistory: string;
+  chartDataAccruing: string;
   staticFallbackBanner: string;
   crossingTypeLabel: Record<'autostrada' | 'statale' | 'locale', string>;
   open24h: string;
@@ -457,6 +458,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     noHistory:
       'Storico in accumulo: gli archivi mensili e i pattern di 30 giorni appariranno non appena ci saranno dati sufficienti.',
+    chartDataAccruing:
+      'Dati in accumulo — il grafico si popolerà man mano che vengono rilevati nuovi passaggi.',
     staticFallbackBanner:
       'Dati statistici — il monitoraggio real-time per questo valico non è disponibile. I valori mostrati sono medie storiche basate su rilevazioni passate.',
     crossingTypeLabel: { autostrada: 'Autostrada', statale: 'Strada statale', locale: 'Strada locale' },
@@ -535,6 +538,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     noHistory:
       'History is being collected: monthly archives and 30-day weekly patterns will appear as soon as enough data is available.',
+    chartDataAccruing:
+      'Data is being collected — the chart will fill in as new crossings are recorded.',
     staticFallbackBanner:
       'Historical averages — real-time monitoring for this crossing is unavailable. Values shown are averages based on past observations.',
     crossingTypeLabel: { autostrada: 'Motorway', statale: 'Main road', locale: 'Local road' },
@@ -613,6 +618,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varese',
     noHistory:
       'Historie wird aufgebaut: Monatliche Archive und 30-Tage-Wochenmuster erscheinen, sobald genügend Daten vorhanden sind.',
+    chartDataAccruing:
+      'Daten werden gesammelt — die Grafik füllt sich, sobald neue Grenzübertritte erfasst werden.',
     staticFallbackBanner:
       'Historischer Durchschnitt — Echtzeit-Überwachung für diesen Übergang ist nicht verfügbar. Die angezeigten Werte sind Durchschnitte aus vergangenen Messungen.',
     crossingTypeLabel: { autostrada: 'Autobahn', statale: 'Hauptstrasse', locale: 'Lokale Strasse' },
@@ -691,6 +698,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varèse',
     noHistory:
       "Historique en construction : archives mensuelles et tendances 30 jours apparaîtront dès que suffisamment de données seront collectées.",
+    chartDataAccruing:
+      'Données en cours de collecte — le graphique se remplira au fur et à mesure des nouveaux passages.',
     staticFallbackBanner:
       'Moyennes historiques — la surveillance en temps réel pour ce passage est indisponible. Les valeurs affichées sont des moyennes basées sur des observations passées.',
     crossingTypeLabel: { autostrada: 'Autoroute', statale: 'Route principale', locale: 'Route locale' },
@@ -1327,6 +1336,16 @@ function renderLeafPage(inp: LeafInputs): string {
   /** Hourly chart needs at least today's data (1 day); weekly pattern needs ≥7. */
   const hasToday = history.length >= 1 && todayBuckets.some((b) => b !== null);
   const hasWeekly = history.length >= 7;
+  // Populated-datapoint counts. When a chart clears its render gate but is still
+  // visually near-empty (sparse data for this crossing), surface a "data is
+  // accruing" caption so the section reads as intentional rather than broken —
+  // without hiding the chart (hiding declared content risks the thin-content
+  // gate). Thresholds: <7 populated hour-buckets (hourly) / <3 populated
+  // day-columns (weekly).
+  const hourlyPoints = todayBuckets.filter((b) => b !== null).length;
+  const weeklyDayPoints = weekly.filter((day) => day.some((cell) => cell !== null)).length;
+  const hourlySparse = hasToday && hourlyPoints < 7;
+  const weeklySparse = hasWeekly && weeklyDayPoints < 3;
 
   // Content pieces
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
@@ -1376,11 +1395,14 @@ function renderLeafPage(inp: LeafInputs): string {
     </div>
   </section>`;
 
+  const accruingCaptionHtml = `<p class="s-Wnl1Ux">${esc(copy.chartDataAccruing)}</p>`;
+
   // Hourly chart (needs ≥1 day with samples)
   const hourlyHtml = hasToday
     ? `<section class="s-ziawP1" aria-labelledby="hourlyToday">
     <h2 id="hourlyToday" style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
     ${renderHourlySvg(todayBuckets, copy)}
+    ${hourlySparse ? accruingCaptionHtml : ''}
   </section>`
     : '';
 
@@ -1393,6 +1415,7 @@ function renderLeafPage(inp: LeafInputs): string {
       <strong>${esc(copy.bestHoursLabel)}:</strong> ${esc(bestHour)} &nbsp;·&nbsp;
       <strong>${esc(copy.worstHoursLabel)}:</strong> ${esc(worstHour)}
     </p>
+    ${weeklySparse ? accruingCaptionHtml : ''}
   </section>`
     : `<p class="s-Wnl1Ux">${esc(copy.noHistory)}</p>`;
 

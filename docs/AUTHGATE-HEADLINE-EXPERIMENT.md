@@ -36,7 +36,7 @@ Window: 90 days ending 2026-05-30. Variant-attributed persons only.
 | control        | 2665           | 348                  | 13.06%          |
 | **frictionless** | 1919         | 378                  | **19.70%**      |
 
-- Absolute lift: **+6.64 pp** (95% CI ±2.14 pp)
+- Absolute lift: **+6.64 pp** (95% CI ±2.19 pp, unpooled SE)
 - Relative lift: **+50.8%**
 - Two-proportion z-test: **z = 6.07, p = 1.25e-9** → decisive.
 
