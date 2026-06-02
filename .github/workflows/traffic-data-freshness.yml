@@ -2,7 +2,8 @@ name: Traffic Data Freshness Check
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Every 3 hours
+    - cron: '0 * * * *'  # Hourly — only DISPATCHES the scheduler when stale, so
+                         # volume stays low; the check itself is a cheap ~30s no-op.
   workflow_dispatch: {}
 
 permissions:
@@ -13,7 +14,7 @@ permissions:
 jobs:
   freshness-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -23,8 +24,9 @@ jobs:
         id: check
         run: |
           CURRENT_HOUR=$(date -u +%H)
-          # Only alert during peak hours (06:00-20:00 UTC)
-          if [ "$CURRENT_HOUR" -lt 6 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
+          # Active window 05:00-20:00 UTC (covers morning commute ≈ 07:00 CEST).
+          # Overnight is intentionally skipped to conserve HERE quota.
+          if [ "$CURRENT_HOUR" -lt 5 ] || [ "$CURRENT_HOUR" -ge 20 ]; then
             echo "Outside peak hours, skipping freshness check"
             echo "STALE=false" >> "$GITHUB_OUTPUT"
             echo "AGE_MINUTES=0" >> "$GITHUB_OUTPUT"
@@ -61,22 +63,56 @@ jobs:
           echo "Data age: ${AGE_MINUTES} minutes"
           echo "AGE_MINUTES=${AGE_MINUTES}" >> "$GITHUB_OUTPUT"
 
-          if [ "$AGE_MINUTES" -gt 240 ]; then
+          if [ "$AGE_MINUTES" -gt 90 ]; then
             echo "STALE=true" >> "$GITHUB_OUTPUT"
-            echo "REASON=Data is ${AGE_MINUTES} minutes old (threshold: 240 min)" >> "$GITHUB_OUTPUT"
+            echo "REASON=Data is ${AGE_MINUTES} minutes old (threshold: 90 min)" >> "$GITHUB_OUTPUT"
           else
             echo "STALE=false" >> "$GITHUB_OUTPUT"
           fi
 
-      # Self-heal: when stale, dispatch traffic-scheduler immediately so the next freshness run
-      # (3h later) sees recovered data and auto-closes the issue.
-      - name: Self-heal — dispatch traffic-scheduler
+      # ── Self-heal (only when stale) ─────────────────────────────────────
+      # Dispatch traffic-scheduler so the next hourly check sees recovered data
+      # and auto-closes the issue. MUST dispatch via GITHUB_PAT (Remote Config),
+      # NOT secrets.GITHUB_TOKEN: a workflow_dispatch authenticated by
+      # GITHUB_TOKEN does NOT trigger the target workflow (GitHub anti-recursion),
+      # so the old GITHUB_TOKEN dispatch silently no-op'd and never healed.
+      # The heavy plumbing (npm ci + Firebase + RC) is gated on STALE so healthy
+      # hourly runs stay a cheap ~30s checkout+check.
+      - name: Setup Node.js
+        if: steps.check.outputs.STALE == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        if: steps.check.outputs.STALE == 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
         if: steps.check.outputs.STALE == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          echo "Dispatching traffic-scheduler.yml to attempt self-heal"
-          gh workflow run traffic-scheduler.yml --ref main || echo "dispatch failed (non-fatal)"
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        if: steps.check.outputs.STALE == 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Self-heal — dispatch traffic-scheduler (via PAT)
+        if: steps.check.outputs.STALE == 'true'
+        continue-on-error: true
+        env:
+          # GITHUB_PAT is loaded into $GITHUB_ENV by the RC step above.
+          WORKFLOW_FILE: traffic-scheduler.yml
+          SELF_TRIGGER_REASON: freshness_self_heal
+        run: bash scripts/lib/trigger-self.sh
 
       # Auto-close confirmed + pending stale issues when data recovers.
       - name: Auto-close stale issues on recovery
@@ -87,7 +123,7 @@ jobs:
         run: |
           for LABEL in "traffic-stale" "traffic-stale-pending"; do
             for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
-              gh issue comment "$NUM" --body "Data recovered. Latest snapshot is ${AGE_MINUTES} minutes old (threshold 240 min). Auto-closing."
+              gh issue comment "$NUM" --body "Data recovered. Latest snapshot is ${AGE_MINUTES} minutes old (threshold 90 min). Auto-closing."
               gh issue close "$NUM" --reason completed
               echo "Closed issue #$NUM (label=$LABEL)"
             done
