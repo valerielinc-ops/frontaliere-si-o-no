@@ -20,6 +20,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.candidatura-lavoro-estero-ticino.title': 'Le secret d\'une candidature réussie pour un poste à l\'étranger',
     'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Conseils pratiques pour préparer un dossier de candidature convaincant pour travailler à l\'étranger.',
     'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Une personne préparant son curriculum vitae dans un bureau moderne à Lugano, Tessin.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'IA et avenir du travail en Suisse: scénarios 2026',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'Analyse de l\'impact de l\'intelligence artificielle sur le marché du travail suisse: productivité, automatisation et défis pour la formation.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Bureau moderne à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;

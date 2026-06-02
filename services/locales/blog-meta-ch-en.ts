@@ -20,6 +20,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.candidatura-lavoro-estero-ticino.title': 'The secret to a successful job application abroad',
     'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Practical tips to prepare a convincing application dossier for working abroad.',
     'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'A person preparing their resume in a modern office in Lugano, Ticino.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'AI and the Future of Work in Switzerland: 2026 Scenarios',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'An analysis of the impact of artificial intelligence on the Swiss labor market: productivity, automation, and training challenges.',
+    'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Modern office in Lugano overlooking the lake',
 };
 
 export default blogMetaChEn;
