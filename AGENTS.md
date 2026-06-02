@@ -9,7 +9,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 3. Job page structured data DEVE includere in ogni locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`. Source mancante → safe default, non rimozione check.
 4. Mai accettare thin content indicizzato <50 parole.
 5. Test fail → trattare test come right finché non provato contrario.
-6. Changes chirurgiche: no drive-by refactor, no speculative abstraction, no formatting churn.
+6. Changes chirurgiche: no drive-by refactor, no speculative abstraction, no formatting churn. «Chirurgico» = la *classe* del bug, NON il singolo file. Per fix di pattern (regex/replace/guard/floor/threshold/selector): prima di aprire PR, `grep` dei sibling funnel-critical (`scripts/update-*.mjs`, `build-plugins/**`, `services/seoService.ts`) per lo stesso costrutto → fixa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (4/5 PR osservate 2026-06-02) → risparmia un ciclo review+fix (~3M token quota Max).
 7. Mai disabilitare AdSense Auto Ads (anchor/in-page/vignette). Mai globale, per-route, loader gating, `enable_page_level_ads:false`, meta opt-out. ~95% revenue. CLS/layout fix da Auto Ads → reserve space (`min-height`/`aspect-ratio`/`contain: layout`), pre-declared `<ins>` placeholder fixed dim, image/font width-height fix. MAI sopprimere ad system.
 
 ## Privacy
