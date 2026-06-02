@@ -497,7 +497,6 @@
           "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
           "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
@@ -516,7 +515,6 @@
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-ur8b94",
         "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-professionista-della-salute-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-57f50c",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
@@ -592,10 +590,6 @@
           "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg-2",
           "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg"
         ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg"
-        ],
         "en": [
           "dipl-care-specialist-hf-fh-night-service-psychiatrie-st-gallen-wil-sg"
         ],
@@ -605,8 +599,6 @@
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg-2",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg",
         "dipl-assistenza-specialistica-hf-fh-servizio-notte-psychiatrie-st-gallen-wil-sg-ur8b94",
         "dipl-pflegefachperson-hf-fh-nachtdienst-psychiatrie-st-gallen-wil-sg-2",
         "dipl-specialiste-des-soins-hf-fh-psychiatrie-st-gallen-wil-sg",
@@ -630,12 +622,12 @@
     },
     {
       "id": "psgn-4e5d82b09899",
-      "slug": "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
+      "slug": "medico-senior-m-b-f-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
-        "it": "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
-        "en": "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
-        "fr": "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
+        "it": "medico-senior-m-b-f-psychiatrie-st-gallen-wil-sg",
+        "en": "senior-physician-m-b-f-psychiatrie-st-gallen-wil-sg",
+        "fr": "medecin-principal-m-b-f-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -692,21 +684,33 @@
       },
       "firstSeenAt": "2026-06-02T14:20:59.663Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-m-b-f-psgn-wil-sg",
         "oberarztin-oberarzt-psgn-wil-sg",
         "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
         "medico-senior-psychiatrie-st-gallen-wil-sg",
         "senior-doctor-psychiatrie-st-gallen-wil-sg",
         "medecin-principal-psychiatrie-st-gallen-wil-sg"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-m-b-f-psgn-wil-sg"
+        ]
+      }
     },
     {
       "id": "psgn-c72e72a3c724",
-      "slug": "oberarztin-oberarzt-mbf-psgn-wil-sg",
+      "slug": "medico-senior-mbf-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "it": "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "en": "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "fr": "oberarztin-oberarzt-mbf-psgn-wil-sg"
+        "it": "medico-senior-mbf-psychiatrie-st-gallen-wil-sg",
+        "en": "senior-physician-mbf-psychiatrie-st-gallen-wil-sg",
+        "fr": "medecin-principal-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -761,16 +765,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:20:58.897Z"
+      "firstSeenAt": "2026-06-02T14:20:58.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-mbf-psgn-wil-sg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-mbf-psgn-wil-sg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-mbf-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-mbf-psgn-wil-sg"
+      ]
     },
     {
       "id": "psgn-9925ad21728d",
-      "slug": "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg",
+      "slug": "medico-specialista-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg",
-        "it": "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg",
-        "en": "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg",
-        "fr": "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg"
+        "it": "medico-specialista-psychiatrie-st-gallen-wil-sg",
+        "en": "physician-specialist-psychiatrie-st-gallen-wil-sg",
+        "fr": "medecin-specialiste-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -825,7 +843,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:20:58.150Z"
+      "firstSeenAt": "2026-06-02T14:20:58.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg"
+        ],
+        "en": [
+          "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg"
+        ],
+        "fr": [
+          "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "therapeutische-leitung-facharztin-facharzt-psgn-wil-sg"
+      ]
     }
   ]
 }

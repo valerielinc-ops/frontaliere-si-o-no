@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "msc-cargo-af6a054141fb",
-      "slug": "direct-to-consumer-channels-analyst-msc-geneva",
+      "slug": "analista-dei-canali-diretti-al-consumo-msc-group-geneva",
       "slugByLocale": {
         "en": "direct-to-consumer-channels-analyst-msc-geneva",
-        "it": "direct-to-consumer-channels-analyst-msc-geneva",
-        "de": "direct-to-consumer-channels-analyst-msc-geneva",
-        "fr": "direct-to-consumer-channels-analyst-msc-geneva"
+        "it": "analista-dei-canali-diretti-al-consumo-msc-group-geneva",
+        "de": "direkt-zu-verbraucherkanale-analyst-msc-group-geneva",
+        "fr": "analyste-des-canaux-directs-a-consommateurs-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -65,16 +65,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-02T14:09:54.944Z"
+      "firstSeenAt": "2026-06-02T14:09:54.944Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ],
+        "de": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ],
+        "fr": [
+          "direct-to-consumer-channels-analyst-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "direct-to-consumer-channels-analyst-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-6a7a219004b3",
-      "slug": "customer-journey-our-best-programme-intern-msc-geneva",
+      "slug": "viaggio-del-cliente-e-il-nostro-programma-migliore-msc-group-geneva",
       "slugByLocale": {
-        "it": "customer-journey-our-best-programme-intern-msc-geneva",
+        "it": "viaggio-del-cliente-e-il-nostro-programma-migliore-msc-group-geneva",
         "en": "customer-journey-our-best-programme-intern-msc-geneva",
         "de": "customer-journey-our-best-programme-intern-msc-geneva",
-        "fr": "customer-journey-our-best-programme-intern-msc-geneva"
+        "fr": "voyage-client-et-notre-meilleur-programme-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -128,7 +142,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-journey-our-best-programme-intern-msc-geneva"
+        ],
+        "fr": [
+          "customer-journey-our-best-programme-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "customer-journey-our-best-programme-intern-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-9469e7860b49",
@@ -137,7 +162,7 @@
         "it": "gestione-multimediale-e-av-msc-group-geneva",
         "en": "multimedia-and-av-manager-msc-geneva",
         "de": "multimedia-and-av-manager-msc-geneva",
-        "fr": "multimedia-and-av-manager-msc-geneva"
+        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -183,6 +208,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "multimedia-and-av-manager-msc-geneva"
+        ],
+        "fr": [
           "multimedia-and-av-manager-msc-geneva"
         ]
       },
@@ -286,8 +314,8 @@
       "slugByLocale": {
         "it": "responsabile-piattaforme-digitali-msc-group-geneva",
         "en": "digital-platforms-manager-msc-geneva",
-        "de": "digital-platforms-manager-msc-geneva",
-        "fr": "digital-platforms-manager-msc-geneva"
+        "de": "digitale-plattformen-manager-msc-group-geneva",
+        "fr": "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -333,6 +361,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "digital-platforms-manager-msc-geneva"
+        ],
+        "de": [
+          "digital-platforms-manager-msc-geneva"
+        ],
+        "fr": [
           "digital-platforms-manager-msc-geneva"
         ]
       },
@@ -579,7 +613,7 @@
         "it": "finanza-and-accounting-manager-new-investments-msc-group-geneva",
         "en": "finance-and-accounting-manager-new-investments-msc-geneva",
         "de": "finanzen-and-accounting-manager-new-investments-msc-group-geneva",
-        "fr": "finance-and-accounting-manager-new-investments-msc-geneva"
+        "fr": "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -626,6 +660,9 @@
           "finance-and-accounting-manager-new-investments-msc-geneva"
         ],
         "de": [
+          "finance-and-accounting-manager-new-investments-msc-geneva"
+        ],
+        "fr": [
           "finance-and-accounting-manager-new-investments-msc-geneva"
         ]
       },
@@ -724,8 +761,8 @@
       "slugByLocale": {
         "it": "gestione-delle-operazioni-culinarie-msc-group-geneva",
         "en": "culinary-operations-manager-msc-geneva",
-        "de": "culinary-operations-manager-msc-geneva",
-        "fr": "culinary-operations-manager-msc-geneva"
+        "de": "kuchenbetriebsleiter-msc-group-geneva",
+        "fr": "gestionnaire-des-operations-culinaires-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -772,6 +809,12 @@
       "previousSlugsByLocale": {
         "it": [
           "culinary-operations-manager-msc-geneva"
+        ],
+        "de": [
+          "culinary-operations-manager-msc-geneva"
+        ],
+        "fr": [
+          "culinary-operations-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-05-30T00:01:42.104Z",
@@ -791,12 +834,12 @@
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "it": "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
+        "de": "f-b-servicemanager-msc-group-geneva",
+        "fr": "gestionnaire-de-services-f-b-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -852,7 +895,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-02T14:09:33.811Z"
+      "firstSeenAt": "2026-06-02T14:09:33.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "de": [
+          "f-b-service-manager-msc-geneva"
+        ],
+        "fr": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
@@ -1159,7 +1216,7 @@
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "de": "casino-slots-and-technical-operations-manager-msc-geneva",
-        "fr": "casino-slots-and-technical-operations-manager-msc-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1205,6 +1262,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "casino-slots-and-technical-operations-manager-msc-geneva"
+        ],
+        "fr": [
           "casino-slots-and-technical-operations-manager-msc-geneva"
         ]
       },
@@ -1361,10 +1421,10 @@
     },
     {
       "id": "msc-cargo-1b9354446e1f",
-      "slug": "marketing-full-funnell-analyst-msc-geneva",
+      "slug": "analizzatore-completo-funnell-msc-group-geneva",
       "slugByLocale": {
         "en": "marketing-full-funnell-analyst-msc-geneva",
-        "it": "marketing-full-funnell-analyst-msc-geneva",
+        "it": "analizzatore-completo-funnell-msc-group-geneva",
         "de": "marketing-full-funnell-analyst-msc-geneva",
         "fr": "marketing-full-funnell-analyst-msc-geneva"
       },
@@ -1422,7 +1482,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-02T14:09:24.955Z"
+      "firstSeenAt": "2026-06-02T14:09:24.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-full-funnell-analyst-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-full-funnell-analyst-msc-geneva"
+      ]
     }
   ]
 }

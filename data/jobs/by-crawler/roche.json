@@ -11086,7 +11086,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -23955,10 +23954,10 @@
     },
     {
       "id": "roche-c1e7db166b00",
-      "slug": "medical-director-cvm-roche-ch",
+      "slug": "direttore-medico-cvm-roche-basel",
       "slugByLocale": {
         "en": "medical-director-cvm-roche-ch",
-        "it": "medical-director-cvm-roche-ch",
+        "it": "direttore-medico-cvm-roche-basel",
         "de": "medical-director-cvm-roche-ch",
         "fr": "medical-director-cvm-roche-ch"
       },
@@ -24017,15 +24016,16 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
       "previousSlugs": [
-        "medical-director-cvm-roche-ch",
-        "medical-direttore-cvm-roche-basel-hfwosr",
-        "medical-director-cvm-roche-ch-2",
         "medical-direttore-cvm-roche-basel",
-        "medical-direktor-cvm-roche-basel"
+        "medical-director-cvm-roche-ch",
+        "medical-direktor-cvm-roche-basel",
+        "medical-direttore-cvm-roche-basel-hfwosr",
+        "medical-director-cvm-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medical-direttore-cvm-roche-basel"
+          "medical-direttore-cvm-roche-basel",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-direktor-cvm-roche-basel"
@@ -24319,9 +24319,7 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-02T14:31:44.639Z",
       "previousSlugs": [
-        "medical-director-cvm-roche-ch",
         "medical-direttore-cvm-roche-basel-hfwosr",
-        "medical-director-cvm-roche-ch-2",
         "medical-direttore-cvm-roche-basel",
         "medical-direktor-cvm-roche-basel"
       ],
@@ -24638,12 +24636,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -24683,16 +24681,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -27241,12 +27236,12 @@
     },
     {
       "id": "roche-bf15ddbf2dca",
-      "slug": "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch",
+      "slug": "responsabile-senior-delle-soluzioni-procurement-agenti-ai-e-automazione-dei-flussi-di-lavoro-roche-basel",
       "slugByLocale": {
         "en": "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch",
-        "it": "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch",
+        "it": "responsabile-senior-delle-soluzioni-procurement-agenti-ai-e-automazione-dei-flussi-di-lavoro-roche-basel",
         "de": "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch",
-        "fr": "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch"
+        "fr": "gestionnaire-principal-des-solutions-d-approvisionnement-agents-d-ai-et-automatisation-des-flux-de-travail-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27301,7 +27296,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-02T14:31:05.414Z"
+      "firstSeenAt": "2026-06-02T14:31:05.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch"
+        ],
+        "fr": [
+          "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-procurement-solutions-manager-ai-agents-workflow-automation-roche-ch"
+      ]
     },
     {
       "id": "roche-67eaefc95453",
@@ -27598,7 +27604,7 @@
         "en": "business-program-management-bpm-leader-roche-ch",
         "it": "business-program-management-bpm-leader-roche-ch",
         "de": "business-program-management-bpm-leader-roche-ch",
-        "fr": "business-program-management-bpm-leader-roche-ch"
+        "fr": "chef-de-la-gestion-des-activites-et-des-programmes-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -27657,11 +27663,11 @@
     },
     {
       "id": "roche-5a3ea0c1e0ad",
-      "slug": "patient-journey-partner-oncology-sumatra-roche-ch",
+      "slug": "partner-del-viaggio-paziente-roche-medan",
       "slugByLocale": {
         "en": "patient-journey-partner-roche-ch-3",
-        "it": "patient-journey-partner-roche-ch-3",
-        "de": "patient-journey-partner-roche-ch-3",
+        "it": "partner-del-viaggio-paziente-roche-medan",
+        "de": "partner-von-patientenreise-roche-medan",
         "fr": "patient-journey-partner-roche-ch"
       },
       "company": "Roche",
@@ -27719,14 +27725,14 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-02T14:30:59.566Z",
       "previousSlugs": [
+        "patient-journey-partner-roche-ch-3",
+        "patient-journey-partner-oncology-sumatra-roche-ch",
         "patient-journey-partner-islamabad-roche-ch",
         "patient-journey-partner-lussemburgo-roche-brussels",
         "patient-journey-partner-luxembourg-roche-ch",
         "patient-journey-partner-oncologia-sumatra-roche-medan",
-        "patient-journey-partner-oncology-sumatra-roche-ch",
         "handelspartner-roche-basel",
         "partner-del-viaggio-paziente-roche-basel",
-        "patient-journey-partner-roche-ch",
         "partenaire-de-tarification-roche-basel",
         "pricing-partner-roche-ch",
         "patient-journey-partner-ophthalmology-roche-ch",
@@ -27737,13 +27743,17 @@
         "patient-journey-partner-contratto-roche-hong-kong",
         "patient-journey-partner-contract-roche-ch",
         "partner-del-viaggio-paziente-oftalmologia-roche-basel",
-        "partner-del-viaggio-paziente-hematology-hemophilia-timisoara-roche-basel",
-        "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch",
-        "patient-journey-partner-hematologie-hemophilie-timisoara-roche-basel",
-        "patient-journey-partner-roche-ch-2",
-        "malattia-partner-rare-del-viaggio-paziente-roche-taipei",
-        "patient-journey-partner-rare-disease-roche-ch"
-      ]
+        "partner-del-viaggio-paziente-hematology-hemophilia-timisoara-roche-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-roche-ch-3",
+          "patient-journey-partner-oncology-sumatra-roche-ch"
+        ],
+        "de": [
+          "patient-journey-partner-roche-ch-3"
+        ]
+      }
     },
     {
       "id": "roche-eeb29d128029",
@@ -28426,7 +28436,7 @@
         "en": "data-scientist-applied-ai-roche-ch",
         "it": "data-scientist-applied-ai-roche-ch",
         "de": "data-scientist-applied-ai-roche-ch",
-        "fr": "data-scientist-applied-ai-roche-ch"
+        "fr": "scientifique-des-donnees-ai-appliquee-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28764,7 +28774,7 @@
         "de": "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate",
         "it": "praktikant-finanza-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-per-12-monate-roche-basel",
         "en": "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate",
-        "fr": "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
+        "fr": "stagiaire-finance-chez-roche-pharma-schweiz-ag-a-partir-du-1er-aout-2026-a-bale-pour-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28807,6 +28817,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
+        ],
+        "fr": [
           "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
         ]
       },
