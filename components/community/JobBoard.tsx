@@ -119,6 +119,7 @@ import {
  extractRelatedTopicTokens,
  isValidRelatedSearchTerm,
  buildRelatedSearches,
+ stripSearchQueryBoilerplate,
 } from '@/services/relatedSearchClusters';
 export { buildSearchSlug } from '@/services/relatedSearchClusters';
 import {
@@ -2571,6 +2572,44 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [sortedJobs, selectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
 
+ // Location vocabulary for the OR-fallback relevance floor. Stemmed tokens of
+ // every job location currently in memory (canton-scoped + unscoped pool).
+ // Used to discount location words when counting a query's CONTENT tokens —
+ // mirrors the build plugin's city-strip before computing minOrScore so the
+ // "koch davos" single-content-token city-drop recovery keeps minScore=1.
+ const searchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set<string>();
+ const addFrom = (arr: readonly JobListing[]) => {
+ for (const j of arr) {
+ const loc = `${j.addressLocality || ''} ${j.location || ''}`;
+ for (const tok of normalizeSearchText(loc).split(' ')) {
+ if (tok) set.add(stemSearchToken(tok));
+ }
+ }
+ };
+ addFrom(sortedJobs);
+ addFrom(unscopedJobs);
+ return set;
+ }, [sortedJobs, unscopedJobs]);
+
+ // OR-fallback relevance floor, ported from the static cluster plugin
+ // (build-plugins/relatedSearchClustersPlugin.ts: `minOrScore`). A query with
+ // ≥2 CONTENT tokens (after stripping job-search boilerplate AND location
+ // words) requires ≥2 token hits, so a single generic token (e.g. the trailing
+ // "switzerland" template suffix) can't pull off-intent jobs into the OR
+ // fallback. Single-content-token queries keep a floor of 1 so the legitimate
+ // city-drop recovery still works. Keeps the hydrated SPA job set in lockstep
+ // with the statically-emitted slug landing.
+ const orFallbackMinScore = useMemo<number>(() => {
+ const stripped = stripSearchQueryBoilerplate(deferredSearchQuery.trim());
+ const contentTokens = normalizeSearchText(stripped)
+ .split(' ')
+ .filter(Boolean)
+ .map(stemSearchToken)
+ .filter((t) => !searchLocationTokens.has(t));
+ return contentTokens.length >= 2 ? 2 : 1;
+ }, [deferredSearchQuery, searchLocationTokens]);
+
  // In-canton OR-fallback: partial token matches ranked by hit count, capped
  // at MAX_FALLBACK_RESULTS. Mirrors the build plugin's two-phase matching at
  // build/relatedSearchClustersPlugin.ts so users landing on a slug URL see
@@ -2598,11 +2637,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters]);
+ }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -2648,11 +2687,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -2746,13 +2785,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, locale,
+ crossLocaleJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
  ]);
 
  // filteredJobs: the four-tier search result.
