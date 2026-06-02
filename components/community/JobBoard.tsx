@@ -1691,6 +1691,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // is the IT-locale record when available (see crossLocaleFetchAttempted).
  const [crossLocaleJobs, setCrossLocaleJobs] = useState<JobListing[]>([]);
  const crossLocaleFetchAttempted = useRef(false);
+ // Company-hub broadening: when a company-filtered URL (e.g.
+ // /cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz/) has zero matches
+ // in the canton-scoped shard — because the employer's HQ is in another
+ // canton (Grace La Margna → GR) — we lazy-load the locale-wide pool so the
+ // company-broadening tier can surface its openings Switzerland-wide instead
+ // of rendering the empty-state. One-shot per mount.
+ const companyBroadenFetchAttempted = useRef(false);
  const [jobsLoading, setJobsLoading] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
@@ -2845,6 +2852,42 @@ const JobBoard: React.FC<JobBoardProps> = ({
  unscopedJobs, sortedJobs,
  ]);
 
+ // Company-hub broadening trigger: when a company filter is active and the
+ // canton-scoped pool has ZERO openings for that employer (HQ in another
+ // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
+ // company-broadening tier below can show its Swiss-wide openings instead of
+ // the empty-state. Mirrors the legacy loader (slim index → locale monolith).
+ // One-shot per mount; skipped when the pool is already loaded.
+ useEffect(() => {
+ if (companyBroadenFetchAttempted.current) return;
+ if (jobsLoading) return;
+ if (!companySlugFilter) return;
+ if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
+ if (unscopedJobs.length > 0) return; // pool already available
+ companyBroadenFetchAttempted.current = true;
+ let cancelled = false;
+ (async () => {
+ try {
+ let pool: unknown[] = [];
+ const slimRes = await fetch(`/data/jobs-${locale}-index.json`);
+ if (slimRes.ok) {
+ pool = await slimRes.json();
+ } else {
+ const localeRes = await fetch(`/data/jobs-${locale}.json`);
+ if (localeRes.ok) pool = await localeRes.json();
+ }
+ if (cancelled) return;
+ const arr = Array.isArray(pool) ? pool : [];
+ if (arr.length === 0) return;
+ const normalized = arr.map((job) => normalizeIncomingJob(job));
+ setUnscopedJobs(dedupeJobsForListing(normalized));
+ } catch (err: unknown) {
+ reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [companySlugFilter, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale]);
+
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
  // shards, so the result still routes to the Italian URL via the existing
@@ -2892,10 +2935,47 @@ const JobBoard: React.FC<JobBoardProps> = ({
  crossLocaleJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
  ]);
 
- // filteredJobs: the four-tier search result.
+ // Tier 3.5 — company-hub broadening. Fires when a company filter is active
+ // but every in-canton tier (and the search cross-canton tier) returned zero:
+ // typically a company-hub URL like
+ // /cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz/ whose employer
+ // sits in another canton (Grace La Margna → GR). Drops the canton scope and
+ // surfaces the employer's openings from the locale-wide `unscopedJobs` pool
+ // so the page shows real listings + AdSense instead of the empty-state. No
+ // search query required — distinct from the search-driven Tiers 3/4. The
+ // company filter itself is still enforced via `passingNonSearchFilters`.
+ const companyBroadeningFallbackJobs = useMemo<JobListing[]>(() => {
+ if (!companySlugFilter) return [];
+ if (strictFilteredJobs.length > 0) return [];
+ if (orFallbackInCantonJobs.length > 0) return [];
+ if (crossCantonFallbackJobs.length > 0) return [];
+ if (unscopedJobs.length === 0) return [];
+
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+
+ const scopedIds = new Set<string>();
+ for (const j of sortedJobs) scopedIds.add(j.id);
+
+ const matches: JobListing[] = [];
+ for (const job of unscopedJobs) {
+ if (scopedIds.has(job.id)) continue;
+ if (isForeignLocation(job.addressLocality || job.location || '')) continue;
+ if (!passingNonSearchFilters(job, now, cutoff)) continue; // company filter enforced here
+ matches.push(job);
+ }
+ return matches.slice(0, MAX_FALLBACK_RESULTS);
+ }, [companySlugFilter, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, selectedDateRange, passingNonSearchFilters]);
+
+ // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
  //   2. orFallbackInCantonJobs (partial-token OR, in-canton)
  //   3. crossCantonFallbackJobs (partial-token OR, other cantons, same locale)
+ //   3.5 companyBroadeningFallbackJobs (company filter, Swiss-wide, no query)
  //   4. crossLocaleFallbackJobs (partial-token OR, other locale shards)
  // Each tier is consulted only when the previous one yielded zero, so the
  // canton-scoped intent stays primary and the safety nets only kick in when
@@ -2904,8 +2984,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return strictFilteredJobs;
  if (orFallbackInCantonJobs.length > 0) return orFallbackInCantonJobs;
  if (crossCantonFallbackJobs.length > 0) return crossCantonFallbackJobs;
+ if (companyBroadeningFallbackJobs.length > 0) return companyBroadeningFallbackJobs;
  return crossLocaleFallbackJobs;
- }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, crossLocaleFallbackJobs]);
+ }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -2934,6 +3015,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && crossCantonFallbackJobs.length === 0
  && crossLocaleFallbackJobs.length > 0;
  }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, crossLocaleFallbackJobs.length]);
+
+ // True when the result set is the company-hub broadening tier (Tier 3.5):
+ // a company-filtered page whose employer has no in-canton openings, now
+ // showing its Swiss-wide listings. Drives a banner so the user understands
+ // the scope was widened beyond the canton in the URL.
+ const isBroadenedCompanyScope = useMemo(() => {
+ return Boolean(companySlugFilter)
+ && strictFilteredJobs.length === 0
+ && orFallbackInCantonJobs.length === 0
+ && crossCantonFallbackJobs.length === 0
+ && companyBroadeningFallbackJobs.length > 0;
+ }, [companySlugFilter, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, companyBroadeningFallbackJobs.length]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -7014,6 +7107,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.crossLocaleFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
+ {isBroadenedCompanyScope && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-info-border bg-info-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Briefcase className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.companyBroaden.title', { company: companyDisplayName ?? '', count: String(filteredJobs.length) })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.companyBroaden.hint')}
  </p>
  </div>
  </div>

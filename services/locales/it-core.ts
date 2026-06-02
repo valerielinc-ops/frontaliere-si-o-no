@@ -757,6 +757,8 @@ const translations: Record<string, string> = {
  'jobBoard.searchFallback.hint': 'Mostriamo offerte affini in base alle parole chiave della tua ricerca, ordinate per pertinenza.',
  'jobBoard.crossCantonFallback.title': 'Nessuna offerta nel cantone per «{query}» — {count} risultati da altri cantoni',
  'jobBoard.crossCantonFallback.hint': 'Per i frontalieri italiani le offerte di confine sono comunque rilevanti: mostriamo i match più vicini ovunque siano in Svizzera.',
+ 'jobBoard.companyBroaden.title': 'Nessuna offerta in questo cantone per {company} — {count} posizioni in tutta la Svizzera',
+ 'jobBoard.companyBroaden.hint': 'Questo datore ha sede in un altro cantone: mostriamo tutte le sue posizioni aperte in Svizzera, comunque rilevanti per i frontalieri.',
  'jobBoard.crossLocaleFallback.title': 'Nessun risultato in italiano per «{query}» — {count} annunci da listing in altre lingue',
  'jobBoard.crossLocaleFallback.hint': 'Ti mostriamo offerte svizzere il cui titolo è in tedesco, francese o inglese: il link al dettaglio resta in italiano.',
  'jobBoard.companyHeading': 'Azienda',
