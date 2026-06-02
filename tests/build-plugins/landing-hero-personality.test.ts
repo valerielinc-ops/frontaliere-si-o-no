@@ -101,6 +101,6 @@ describe('renderLandingHero', () => {
 
   it('renders eyebrow emoji aria-hidden', () => {
     const html = renderLandingHero('educatore', 'it', { openings: 5 }, 'X');
-    expect(html).toMatch(/<span aria-hidden="true">🎓<\/span>/);
+    expect(html).toMatch(/<span class="lh-emoji" aria-hidden="true">🎓<\/span>/);
   });
 });

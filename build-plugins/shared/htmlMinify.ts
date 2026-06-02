@@ -93,7 +93,14 @@ const START_TAG_RX = /<\/?[A-Za-z][^<>]*>/g;
 // HTML5 unquoted attribute values may not contain whitespace, quotes, `=`,
 // `<`, `>`, or backticks. We also keep trailing-slash URL values quoted to
 // avoid `<link href=https://example.com/>` self-close ambiguity.
-const SAFE_ATTR_VALUE_RX = /(\s[A-Za-z_:][A-Za-z0-9:._-]*)=(["'])([^"'<>=`\s]+)\2/g;
+//
+// `(?!\/)` after the closing quote keeps the LAST attribute quoted when it is
+// immediately followed by a self-closing slash with no space: `<circle r="10"/>`.
+// Unquoting there yields `<circle r=10/>`, where the HTML parser folds the `/`
+// into the unquoted value (`r` becomes "10/") → "Expected length" SVG render
+// error in the console. Inline SVG icons (hubChrome glyphs etc.) author their
+// attributes as `attr="n"/>`, so this case is hit on every page emitting them.
+const SAFE_ATTR_VALUE_RX = /(\s[A-Za-z_:][A-Za-z0-9:._-]*)=(["'])([^"'<>=`\s]+)\2(?!\/)/g;
 
 function unquoteSafeAttributes(html: string): string {
   return html.replace(START_TAG_RX, (tag) =>
