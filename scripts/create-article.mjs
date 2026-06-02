@@ -5302,12 +5302,18 @@ function checkForDuplicates(data) {
     }
   }
 
-  // 3. Also check slug overlap (different title, same slug concept)
+  // 3. Also check slug overlap (different title, same slug concept). Scoped to
+  // the ACTIVE section's slug-data file — slugs only collide within a section's
+  // URL space (`/articoli-frontaliere/{slug}` vs `/articoli-svizzera/{slug}`
+  // are distinct hubs). `routerSrc` here was a dangling reference left by the
+  // section refactor (it is a local of modifyRouterTs), which threw
+  // "routerSrc is not defined" and broke EVERY generation run.
+  const sectionSlugSrc = readSectionSlugData();
   for (const locale of ['it']) {
     const newSlug = data.slugs[locale];
     const slugPattern = new RegExp(`'${escapeRegex(newSlug)}'`, 'g');
-    if (slugPattern.test(routerSrc)) {
-      throw new Error(`❌ DUPLICATO: Lo slug "${newSlug}" esiste già in router.ts!`);
+    if (slugPattern.test(sectionSlugSrc)) {
+      throw new Error(`❌ DUPLICATO: Lo slug "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
   }
 
