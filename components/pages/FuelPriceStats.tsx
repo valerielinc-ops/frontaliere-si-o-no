@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Sea
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
-import { FUEL_ITALIAN_CITIES, buildFuelItalianStationPath, buildStationSlug, type FuelDailyLocale, type ItalianCityEntry } from '@/build-plugins/fuelDailyData';
+import { FUEL_DAILY_LOCALES, FUEL_ITALIAN_CITIES, buildFuelItalianStationPath, buildStationSlug, type FuelDailyLocale, type ItalianCityEntry } from '@/build-plugins/fuelDailyData';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -74,9 +74,8 @@ function swissStationHref(station: FuelStationSwitzerland): string | null {
  return `/prezzi-diesel/${zone}/stazioni/${slug}/`;
 }
 
-const FUEL_DAILY_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
 function asFuelLocale(locale: string): FuelDailyLocale {
- return FUEL_DAILY_LOCALES.includes(locale) ? (locale as FuelDailyLocale) : 'it';
+ return (FUEL_DAILY_LOCALES as readonly string[]).includes(locale) ? (locale as FuelDailyLocale) : 'it';
 }
 
 /** Curated Italian-city entry for a municipality row, or null if not covered. */
