@@ -2577,13 +2577,37 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Used to discount location words when counting a query's CONTENT tokens —
  // mirrors the build plugin's city-strip before computing minOrScore so the
  // "koch davos" single-content-token city-drop recovery keeps minScore=1.
+ //
+ // Deliberate divergence from the static plugin (build-plugins/
+ // relatedSearchClustersPlugin.ts): the static page discounts ONLY its own
+ // target city (`stripCityFromKeyword`), whereas this set spans the WHOLE
+ // in-memory corpus vocabulary. A query token equal to a non-page city can
+ // therefore drop the SPA floor from 2 to 1 where static would keep 2 — so
+ // the SPA can surface MORE recovery results than the static landing, never
+ // fewer. This is intentional: the SPA OR-fallback is a "show SOMETHING"
+ // safety net, never a canonical/indexed surface, so over-recovery can only
+ // help the user and never de-indexes a page. The lockstep guarantee that
+ // matters (and is asserted by the cluster guard test) is the boilerplate
+ // strip, not the location discount.
+ //
+ // Collision guard: skip stopwords (RELATED_SEARCH_STOPWORDS) and short stems
+ // (<=3 chars, which `stemSearchToken` leaves un-stemmed). Both are the tokens
+ // most likely to also be legitimate role-content words; excluding them keeps
+ // a short/ambiguous location word from wrongly discounting a real content
+ // token and silently lowering the floor. Removing a token from the discount
+ // set can only RAISE the floor (stricter) — it never surfaces more off-topic
+ // jobs — so the guard is monotone-safe.
  const searchLocationTokens = useMemo<Set<string>>(() => {
  const set = new Set<string>();
  const addFrom = (arr: readonly JobListing[]) => {
  for (const j of arr) {
  const loc = `${j.addressLocality || ''} ${j.location || ''}`;
  for (const tok of normalizeSearchText(loc).split(' ')) {
- if (tok) set.add(stemSearchToken(tok));
+ if (!tok) continue;
+ const stem = stemSearchToken(tok);
+ if (stem.length <= 3) continue;
+ if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
+ set.add(stem);
  }
  }
  };
@@ -2610,6 +2634,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return contentTokens.length >= 2 ? 2 : 1;
  }, [deferredSearchQuery, searchLocationTokens]);
 
+ // Boilerplate-stripped query that seeds the OR-fallback scoring tiers below.
+ // The floor (`orFallbackMinScore`) counts CONTENT tokens — i.e. after
+ // `stripSearchQueryBoilerplate` removes the leading job-search prefixes and
+ // the trailing nation/template suffixes — so the tokens we *score* against
+ // the haystack must come from the SAME stripped query. Scoring the RAW query
+ // would let a manually typed boilerplate query ("pizzaiolo salary
+ // switzerland", entered in the box rather than via a pre-stripped slug) reach
+ // the floor on boilerplate tokens alone (salary+switzerland) with zero real
+ // content match. Slug-seeded queries arrive already stripped, so this only
+ // changes the manual-search path. Never empty (helper falls back to the
+ // original term), so a single-content query still scores its one real token.
+ const orFallbackQuery = useMemo<string>(
+ () => stripSearchQueryBoilerplate(deferredSearchQuery.trim()),
+ [deferredSearchQuery],
+ );
+
  // In-canton OR-fallback: partial token matches ranked by hit count, capped
  // at MAX_FALLBACK_RESULTS. Mirrors the build plugin's two-phase matching at
  // build/relatedSearchClustersPlugin.ts so users landing on a slug URL see
@@ -2619,7 +2659,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const query = deferredSearchQuery.trim();
  if (!query || strictFilteredJobs.length > 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query so the matched tokens stay
+ // consistent with the floor (`orFallbackMinScore`, which counts content
+ // tokens) — see `orFallbackQuery` above.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
 
  const now = Date.now();
@@ -2641,7 +2684,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
+ }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, selectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -2660,7 +2703,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (orFallbackInCantonJobs.length > 0) return [];
  if (unscopedJobs.length === 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
+ // tokens match the floor's content-token count.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
@@ -2691,7 +2736,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -2762,7 +2807,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (crossCantonFallbackJobs.length > 0) return [];
  if (crossLocaleJobs.length === 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
+ // tokens match the floor's content-token count.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
@@ -2791,7 +2838,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
+ crossLocaleJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
  ]);
 
  // filteredJobs: the four-tier search result.
