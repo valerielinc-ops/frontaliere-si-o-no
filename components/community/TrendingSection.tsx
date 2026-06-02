@@ -30,9 +30,13 @@ interface TrendingSectionProps {
  trendingJobs: TrendingJob[];
  popularity: Record<string, number>;
  onJobClick: (slug: string) => void;
+ /** Localized section heading (e.g. "Popular in your area"). */
+ heading: string;
+ /** Localized section aria-label. */
+ ariaLabel: string;
 }
 
-function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSectionProps) {
+function TrendingSection({ trendingJobs, popularity, onJobClick, heading, ariaLabel }: TrendingSectionProps) {
  const scrollRef = useRef<HTMLDivElement>(null);
  const [showFade, setShowFade] = useState(true);
 
@@ -51,11 +55,11 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  if (trendingJobs.length < 3) return null;
 
  return (
- <section aria-label="Lavori popolari nella tua zona" className="space-y-2">
+ <section aria-label={ariaLabel} className="space-y-2">
  <div className="flex items-center gap-1.5">
  <TrendingUp className="w-4 h-4 text-accent" />
  <h3 className="text-sm font-semibold text-body">
- Popolari nella tua zona
+ {heading}
  </h3>
  </div>
  <div className="relative">
