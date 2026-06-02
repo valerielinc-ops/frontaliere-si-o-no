@@ -328,8 +328,9 @@ function renderEmployerGridReplacement(text: string): string {
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
+  return `<div class="s-7V0OIo cl-divider" role="separator" aria-label="${esc(label)}">
     <span class="s-EIg6N7" aria-hidden="true"></span>
+    <span class="cl-divider-mark" aria-hidden="true">🧭</span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
     <span class="s-EIg6N7" aria-hidden="true"></span>
   </div>`;
@@ -531,7 +532,7 @@ function renderPage(opts: {
       <p class="s-y8VKoI">${esc(copy.lede)}</p>
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
+  const bodyHtml = `<main class="s-xzWvwM cl-fun">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
