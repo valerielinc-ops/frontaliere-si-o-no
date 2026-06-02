@@ -25,6 +25,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: indexed-cluster-urls-refresh
@@ -88,3 +89,19 @@ jobs:
           git commit -m "chore(seo): refresh indexed cluster URLs (GSC+GA4+PostHog union)"
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/refresh-indexed-cluster-urls.mjs --days $DAYS --min-impressions $MIN_IMP && git add data/indexed-cluster-urls.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

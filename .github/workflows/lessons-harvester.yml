@@ -24,7 +24,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  issues: read
+  issues: write
   id-token: write
 
 concurrency:
@@ -111,3 +111,19 @@ jobs:
                ```
                Aggiungi in fondo: "⚠️ Proposta auto-generata dal lessons-harvester. Human-gated: rivedere prima di mergere. Se modifica `.github/workflows/` non è prevista (solo `.md`)."
             7. NON mergiare. È una proposta: la rivede un umano.
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

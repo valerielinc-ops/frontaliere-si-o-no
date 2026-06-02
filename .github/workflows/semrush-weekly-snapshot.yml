@@ -17,6 +17,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   snapshot:
@@ -101,3 +102,19 @@ jobs:
             REGEN_CMD='node scripts/seo/semrush-snapshot.mjs --dry-run || true; node scripts/seo/semrush-site-audit.mjs --dry-run || true; node scripts/seo/detect-cannibalization.mjs --dry-run || true; node scripts/seo/generate-weekly-report.mjs || true; git add data/seo-snapshots/ reports/ docs/seo-reports/'
           fi
           bash scripts/lib/git-push-with-retry.sh --regenerate-cmd "$REGEN_CMD"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

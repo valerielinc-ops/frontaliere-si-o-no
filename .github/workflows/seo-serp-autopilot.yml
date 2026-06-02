@@ -22,6 +22,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   autopilot:
@@ -104,3 +105,19 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
             --regenerate-cmd "git checkout HEAD@{1} -- data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json 2>/dev/null || true; git add data/seo-serp-autopilot-last-run.json data/seo-serp-experiment-history.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

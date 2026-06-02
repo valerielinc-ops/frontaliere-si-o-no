@@ -16,6 +16,7 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
@@ -36,3 +37,19 @@ jobs:
 
       - name: Run parser quality audit (strict)
         run: node scripts/audit-parser-quality.mjs --strict
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

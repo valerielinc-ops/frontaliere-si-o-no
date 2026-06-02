@@ -33,6 +33,7 @@ concurrency:
 permissions:
   contents: write
   actions: read
+  issues: write
 
 jobs:
   generate:
@@ -535,3 +536,19 @@ jobs:
           RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
           NO_CHANGES_STREAK: ${{ steps.decide_trigger.outputs.next_streak }}
         run: bash scripts/lib/trigger-self.sh
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

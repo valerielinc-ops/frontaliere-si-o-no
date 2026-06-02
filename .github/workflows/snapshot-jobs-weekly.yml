@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   snapshot:
@@ -112,3 +113,19 @@ jobs:
           # snapshot + delta + footer pairs + cluster data on top of the new base.
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs || true; node scripts/snapshot-jobs-weekly.mjs; node scripts/compute-weekly-employer-delta.mjs; node scripts/refresh-weekly-employers-top-pairs.mjs; node scripts/audit-related-search-candidates.mjs || true; node scripts/ingest-gsc-orphans-into-candidates.mjs || true; git add data/jobs-snapshots-history/ data/weekly-employers-delta.json data/weekly-employers-top-pairs.json data/related-search-candidates.json data/related-search-enriched.json 2>/dev/null || true"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

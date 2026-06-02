@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   refresh:
@@ -50,3 +51,19 @@ jobs:
           # regenerate both data files on the new base and re-stage them.
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/generate-keyword-pages-config.mjs && node scripts/cluster-orphan-queries.mjs && git add data/keyword-pages-config.json data/gsc-orphan-queries-clusters.json"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
