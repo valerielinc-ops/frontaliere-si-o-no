@@ -179,7 +179,12 @@ export function parseConcorsiDetail(html = '') {
   const sectionStart = heads[titleIdx].end;
   const sectionEnd = html.search(/<\/?(footer|nav|aside)/i);
   const bodyHtml = html.slice(sectionStart, sectionEnd > sectionStart ? sectionEnd : undefined);
-  const text = htmlToText(bodyHtml);
+  // Compiti/Requisiti are <ul><li> lists on the source page; htmlToText flattens
+  // </li> to a bare newline, dropping the bullet so the description reads as flat
+  // prose (fails the parser-quality structured-content check). Inject a bullet
+  // marker at each list item so the list structure survives the text conversion.
+  const bulletedBodyHtml = bodyHtml.replace(/<li[^>]*>/gi, '<li>• ');
+  const text = htmlToText(bulletedBodyHtml);
 
   return { dept, title, text };
 }
