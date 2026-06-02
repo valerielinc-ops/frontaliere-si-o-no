@@ -123,12 +123,27 @@ jobs:
       # congestion the Pages publish backlog can make ours land minutes-to-hours
       # after this window — but the live site is an EARLIER VALID build the whole
       # time, NOT broken. So a propagation timeout must NOT trigger rollback.
+      #
+      # Window = 120s (script default is 25min; we override here). Measured over
+      # every healthy deploy (action or retry reaching success) in late-May→Jun:
+      # the live build-id was ALREADY ours at attempt 1, t+0–1s — because the
+      # deploy-pages action only returns success AFTER Pages finished
+      # syncing_files→updating_pages server-side, by which point the CDN already
+      # serves our bytes. The long 25-min window was therefore only ever burned
+      # in the double-action-timeout branch, where it almost always ended in
+      # propagation_timeout anyway (our ~13 GB / ~470k-file publish lands long
+      # after the window) — wasting ~23 min of CI per such run and running smoke
+      # against the wrong build. 120s keeps ~100× headroom over the observed
+      # propagation time while cutting that waste. The one trade-off: a rare
+      # supersede caught at t+1415s now times out instead — fine, since that
+      # build was never ours; publish defers to the superseding run's own
+      # validate-live.
       - name: Wait for Pages propagation (our build-id or newer must be live)
         id: propagation
         continue-on-error: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/wait-for-pages-propagation.mjs
+        run: node scripts/wait-for-pages-propagation.mjs --timeout-ms=120000
 
       - name: Classify propagation timeout (no rollback for this)
         if: steps.propagation.outcome == 'failure'
