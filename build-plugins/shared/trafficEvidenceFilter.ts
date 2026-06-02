@@ -8,6 +8,10 @@
 //
 //   data/evidence-index.json
 //     - gsc.queries[query].topLandingPage  → URLs that own a search query
+//     - gsc.pages[path]                    → every URL Google showed ≥1 time
+//                                            (page dimension, ~52k paths) —
+//                                            the comprehensive page-level
+//                                            impression signal (Buco G)
 //     - ga4.pages[path].sessions           → URLs with ≥3 sessions in 90d
 //     - posthog.pages[path]                → either newsletterSignups OR
 //                                            pageviews (or both); key
@@ -30,7 +34,9 @@
 //     1. Find approved pattern matching urlClass.
 //        No pattern → 'full'.
 //     2. Check evidence:
-//        URL ∈ ga4.pages ∪ topLandingPages ∪ posthog.pages ∪ promotions.urls
+//        URL ∈ ga4.pages ∪ topLandingPages ∪ gsc.pages ∪ posthog.pages
+//             ∪ indexed-cluster ∪ gsc-job-urls ∪ orphan-slugs
+//             ∪ orphan-enriched ∪ promotions.urls
 //        → 'full' (URL has real traffic, keep current full HTML).
 //     3. URL ∉ evidence + pattern says action='thin' → 'thin'.
 //     4. (Future: action='skip' for tier 3.)
@@ -81,6 +87,15 @@ interface ApprovedConfig {
 interface EvidenceIndex {
   gsc?: {
     queries?: Record<string, { topLandingPage?: string }>;
+    /**
+     * Full page-level impression set: every URL Google showed ≥1 time in
+     * the window (page dimension), keyed by path → impression count.
+     * Populated by scripts/lib/evidence/gscFetcher.mjs Pass 3. Far broader
+     * than `queries[].topLandingPage` (which only surfaces ~one page per
+     * query); without it the long tail of impressed pages is invisible to
+     * the has-traffic gate and risks being thinned despite Google interest.
+     */
+    pages?: Record<string, number>;
   };
   ga4?: {
     pages?: Record<string, { sessions?: number }>;
@@ -148,7 +163,7 @@ export class TrafficEvidenceFilter {
 
     // Build a single normalized "has traffic" set from every signal source.
     const trafficSet = new Set<string>();
-    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evIndexed = 0, evGscJobs = 0,
+    let evGa4 = 0, evPosthog = 0, evGscTop = 0, evGscPages = 0, evIndexed = 0, evGscJobs = 0,
         evOrphanSlugs = 0, evOrphanEnriched = 0, evPromo = 0;
     const addToSet = (raw: string | null | undefined, counter: () => void): void => {
       if (!raw) return;
@@ -164,6 +179,13 @@ export class TrafficEvidenceFilter {
       for (const q of Object.values(ev.gsc?.queries ?? {})) {
         if (q?.topLandingPage) addToSet(q.topLandingPage, () => evGscTop++);
       }
+      // Buco G: full GSC page-level impression set. The single largest
+      // traffic source — every URL Google showed ≥1 time (page dimension),
+      // ~52 k paths vs the ~9 k surfaced via `topLandingPage`. Closes the
+      // gap where long-tail impressed pages were invisible to the has-
+      // traffic gate and risked being thinned despite confirmed Google
+      // interest. Populated by gscFetcher Pass 3.
+      for (const p of Object.keys(ev.gsc?.pages ?? {})) addToSet(p, () => evGscPages++);
     }
     // PR #743 follow-up: `data/indexed-cluster-urls.json` is the merged
     // GSC + GA4 + PostHog union of cluster URLs Google has indexed in
@@ -260,7 +282,7 @@ export class TrafficEvidenceFilter {
         `[traffic-evidence-filter] traffic-set=${trafficSet.size} paths, ${patternCount} approved patterns, ` +
         `${firstSeen.size} first-seen timestamps ` +
         `(sources: ga4=${evGa4} posthog=${evPosthog} gsc-top=${evGscTop} ` +
-        `indexed-cluster=${evIndexed} gsc-jobs=${evGscJobs} ` +
+        `gsc-pages=${evGscPages} indexed-cluster=${evIndexed} gsc-jobs=${evGscJobs} ` +
         `orphan-slugs=${evOrphanSlugs} orphan-enriched=${evOrphanEnriched} ` +
         `promotions=${evPromo})`
       );
