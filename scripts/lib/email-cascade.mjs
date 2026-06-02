@@ -121,7 +121,7 @@ async function fetchUnosendDailyUsage() {
   } catch { return 0; }
 }
 
-async function fetchMailtrapDailyUsage() {
+export async function fetchMailtrapDailyUsage() {
   const token = process.env.MAILTRAP_API_TOKEN;
   if (!token) return 0;
   try {
@@ -142,7 +142,15 @@ async function fetchMailtrapDailyUsage() {
     );
     if (!statsRes.ok) return 0;
     const stats = await statsRes.json();
-    return (stats.delivery_count || 0) + (stats.bounce_count || 0);
+    // The daily quota (150/day) is consumed at SEND time, but delivery_count
+    // tracks confirmed *deliveries*, which arrive asynchronously and lag the
+    // sends heavily (observed: delivery_count=1 after 31 real sends). Gating on
+    // it under-counts → over-send → 403 burst. sent_count reflects accepted
+    // sends in real time; take the larger of it and the resolved
+    // delivered+bounced total so a lagging/missing field can never under-count.
+    const sent = Number(stats.sent_count) || 0;
+    const resolved = (Number(stats.delivery_count) || 0) + (Number(stats.bounce_count) || 0);
+    return Math.max(sent, resolved);
   } catch { return 0; }
 }
 
