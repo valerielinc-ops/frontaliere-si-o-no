@@ -7943,6 +7943,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ferrovia-retica-taiwan.title': 'Ferrovia retica: partenariat avec Taiwan',
     'blog.article.ferrovia-retica-taiwan.excerpt': 'La Ferrovia retica a signé un accord de collaboration avec la taiwanaise Alishan Forest Railway.',
     'blog.article.ferrovia-retica-taiwan.imageAlt': 'Chemins de fer rhétiques en hiver',
+    'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: le fauteuil roulant révolutionnaire',
+    'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'Le fauteuil roulant électrique Genny Zero, produit au Tessin, remporte le Compasso d’Oro pour son design innovant et sa technologie italo-suisse.',
+    'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Un fauteuil roulant moderne dans un paysage du Tessin avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaFr;

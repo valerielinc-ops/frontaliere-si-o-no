@@ -1,16 +1,16 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-06-02T00:39:24.494Z",
+  "generatedAt": "2026-06-02T14:05:42.174Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3540,
-  "avgDurationMs": 3540,
+  "durationMs": 3583,
+  "avgDurationMs": 3583,
   "durationHistory": [
-    3540
+    3583
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,14 +39,13 @@
       "applyUrl": "https://www.moncucco.ch/medico_del_centro_per_cura_dell_obesita2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-02T00:39:22.969Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-06-02T14:05:40.752Z",
       "firstSeenAt": "2026-06-01T15:34:55.145Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -75,7 +74,7 @@
       "applyUrl": "https://www.moncucco.ch/assistente_studio_medico.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-02T00:39:22.467Z",
+      "crawledAt": "2026-06-02T14:05:40.243Z",
       "firstSeenAt": "2026-05-08T10:23:46.724Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -110,7 +109,7 @@
       "applyUrl": "https://www.moncucco.ch/ematologo.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-02T00:39:22.725Z",
+      "crawledAt": "2026-06-02T14:05:40.494Z",
       "firstSeenAt": "2026-05-08T10:23:46.959Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -145,7 +144,7 @@
       "applyUrl": "https://www.moncucco.ch/psicologo_specialista_neuropsicologia_fsp2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-02T00:39:22.204Z",
+      "crawledAt": "2026-06-02T14:05:39.984Z",
       "firstSeenAt": "2026-04-12T07:52:03.227Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {

@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-06-01T22:34:42.043Z",
+  "generatedAt": "2026-06-02T11:56:49.214Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2771,
-  "avgDurationMs": 2771,
+  "unchangedCount": 0,
+  "durationMs": 2419,
+  "avgDurationMs": 2419,
   "durationHistory": [
-    2771
+    2419
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-01",
+      "postedDate": "2026-06-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -50,10 +50,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "HR Coordinator",
       "slug": "hr-coordinator-a-plus-plus-group-massagno",
@@ -74,7 +71,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-01",
+      "postedDate": "2026-06-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,5 +88,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

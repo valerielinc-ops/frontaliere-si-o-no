@@ -136,14 +136,60 @@ function isJobActiveForLocale(job: OrphanCountableJob, locale: OrphanLandingLoca
 }
 
 /**
+ * Region tokens that denote the whole country / canton rather than a single
+ * locality. When these are the ONLY region tokens of a cluster, every active
+ * Ticino job is geographically relevant (site-wide coverage). Crucially they
+ * must NOT let a cluster that ALSO names a specific city (e.g.
+ * "lavoro stabio svizzera") silently match jobs anywhere in Switzerland — that
+ * was the doorway bug where the city page surfaced wrong-city openings.
+ */
+const BROAD_REGION_TOKENS = new Set<string>([
+  'svizzera', 'suisse', 'switzerland', 'schweiz',
+  'ticino', 'tessin', 'ch',
+]);
+
+/**
+ * Role stems that mean "job / work / opening / hiring / company / recently"
+ * rather than an actual profession. A cluster whose role tokens are ALL
+ * generic (e.g. "lavoro", "offerte", "cerco lavoro", "jobs … da ieri") carries
+ * no occupational intent: it is a pure geographic search ("jobs in <city>")
+ * and must be matched by locality alone. Applying the title-token role filter
+ * to such a cluster surfaces unrelated jobs (often in the wrong city) and hides
+ * the actual openings located in the searched city.
+ */
+const GENERIC_ROLE_STEMS = new Set<string>([
+  'lavor', 'lavorar', 'lav', 'job', 'jobs', 'offert', 'offerta', 'offr', 'offre',
+  'emplo', 'employ', 'travail', 'travaill', 'cerc', 'cerco', 'cercas', 'ricerc',
+  'ricerch', 'trovar', 'trov', 'post', 'posizion', 'apert', 'assumon', 'assunzion',
+  'aziend', 'annunc', 'concors', 'vacant', 'recrutement', 'recrut', 'search', 'find',
+  'near', 'nah', 'vicin', 'stellen', 'stellenangebot', 'stelleninserat', 'arbeit',
+  // recency / filler qualifiers from queries like "…da ieri", "3 derniers jours"
+  'noi', 'ier', 'hier', 'ultim', 'giorn', 'settiman', 'tutt', 'letzten', 'tagen',
+  'dernier', 'jour', 'press', 'ent',
+]);
+
+/** Prefix-tolerant token match (min stem length 3), shared by role + region. */
+function tokenMatchesStem(tokens: Iterable<string>, stem: string): boolean {
+  if (stem.length < 3) return false;
+  for (const tok of tokens) {
+    if (tok.startsWith(stem) || stem.startsWith(tok.slice(0, Math.max(3, stem.length - 1)))) return true;
+  }
+  return false;
+}
+
+/**
  * Return true when a job plausibly matches a cluster (role + region overlap).
  *
  * Heuristic:
- *   - At least 1 role token from the cluster must appear in the job's
- *     title/location/company (stemming-tolerant prefix match, min len 3).
- *   - If cluster has region tokens, at least 1 of them must appear in
- *     the job's location or addressLocality.
  *   - The job must be active in the target locale.
+ *   - Pure geographic search (named city + only generic role words) → match by
+ *     locality alone, skipping the meaningless title-token role filter.
+ *   - Otherwise at least 1 role token must appear in the job's
+ *     title/company (stemming-tolerant prefix match, min len 3).
+ *   - A named city (specific, non-broad region token) MUST appear in the job's
+ *     location/addressLocality. A broad svizzera/ticino token present alongside
+ *     it does NOT trivially satisfy the geo gate. When the cluster has only
+ *     broad region tokens, coverage is site-wide.
  */
 export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryCluster): boolean {
   if (!isJobActiveForLocale(job, cluster.locale)) return false;
@@ -158,30 +204,25 @@ export function jobMatchesCluster(job: OrphanCountableJob, cluster: OrphanQueryC
     ...normalizeTokens(job.addressLocality),
   ]);
 
-  // Role: need at least 1 overlap (prefix-tolerant for stems).
-  const roleHit = cluster.roleTokens.some((stem) => {
-    if (stem.length < 3) return false;
-    for (const tok of titleTokens) {
-      if (tok.startsWith(stem) || stem.startsWith(tok.slice(0, Math.max(3, stem.length - 1)))) return true;
-    }
-    return false;
-  });
-  if (!roleHit) return false;
+  // A *specific* locality (city) is enforced against the job location; *broad*
+  // tokens (svizzera/ticino/ch) only mean site-wide coverage.
+  const specificRegions = cluster.regionTokens.filter((r) => !BROAD_REGION_TOKENS.has(r));
+  const allRolesGeneric =
+    cluster.roleTokens.length === 0 || cluster.roleTokens.every((r) => GENERIC_ROLE_STEMS.has(r));
 
-  // Region: optional — if cluster has regions, at least one must appear.
-  if (cluster.regionTokens.length > 0) {
-    const regionHit = cluster.regionTokens.some((rtok) => {
-      if (rtok === 'svizzera' || rtok === 'ticino') {
-        // Site-wide coverage: every active Ticino job effectively matches
-        // "svizzera/ticino". Treat as satisfied.
-        return true;
-      }
-      for (const tok of locTokens) {
-        if (tok.startsWith(rtok) || rtok.startsWith(tok.slice(0, Math.max(3, rtok.length - 1)))) return true;
-      }
-      return false;
-    });
-    if (!regionHit) return false;
+  // Pure geographic search ("jobs in <city>"): no occupational intent, just a
+  // named city → match by locality alone.
+  if (specificRegions.length > 0 && allRolesGeneric) {
+    return specificRegions.some((rtok) => tokenMatchesStem(locTokens, rtok));
+  }
+
+  // Role: need at least 1 overlap (prefix-tolerant for stems).
+  if (!cluster.roleTokens.some((stem) => tokenMatchesStem(titleTokens, stem))) return false;
+
+  // Region: a named city must appear in the job location; broad-only tokens
+  // (or no region tokens) leave coverage unconstrained / site-wide.
+  if (specificRegions.length > 0) {
+    if (!specificRegions.some((rtok) => tokenMatchesStem(locTokens, rtok))) return false;
   }
 
   return true;

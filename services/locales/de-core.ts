@@ -595,6 +595,10 @@ const deCore: Record<string, string> = {
  'consulting.footerLink': 'Beratung',
  'blog.title': 'Grenzgänger-Ratgeber',
  'blog.subtitle': 'Praktische Artikel für Tessiner Grenzgänger',
+ 'blog.section.frontalieri': 'Grenzgänger',
+ 'blog.section.svizzera': 'Schweiz',
+ 'blog.svizzera.title': 'Schweiz-Artikel',
+ 'blog.svizzera.subtitle': 'Nachrichten und Ratgeber aus der ganzen Schweiz',
  'blog.statsArticles': 'Artikel',
  'blog.statsNews': 'Nachrichten',
  'blog.statsUpdated': 'Täglich aktualisiert',
@@ -2462,6 +2466,9 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3490.title': 'Neuer Bereich Schweiz-Artikel',
+ 'whatsNew.v3490.svizzeraSection.title': 'Artikel aus der ganzen Schweiz',
+ 'whatsNew.v3490.svizzeraSection.desc': 'Ein neuer Artikelbereich zu Wirtschaft, Steuern, Arbeit und Leben für alle, die in der Schweiz leben oder arbeiten — nicht nur für Grenzgänger. Im Umschalter "Schweiz" unter Artikel zu finden.',
  'whatsNew.v3480.title': 'Job-Alerts, die funktionieren + mehr Spitäler + offener Blog',
  'whatsNew.v3480.jobAlertSimpler.title': 'Job-Alerts mit einem Klick',
  'whatsNew.v3480.jobAlertSimpler.desc': 'Das Job-Alert-Formular fragt jetzt nur noch nach dem Stichwort. Ort, Branche, Vertragsart und Kantone sind optionale Filter hinter einem Toggle — Stichwort eingeben und abonnieren in einer Sekunde.',

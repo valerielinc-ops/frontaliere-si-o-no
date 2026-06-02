@@ -628,6 +628,10 @@ const translations: Record<string, string> = {
  'consulting.footerLink': 'Consulenze',
  'blog.title': 'Guida Frontaliere',
  'blog.subtitle': 'Articoli pratici per il frontaliere in Ticino',
+ 'blog.section.frontalieri': 'Frontalieri',
+ 'blog.section.svizzera': 'Svizzera',
+ 'blog.svizzera.title': 'Articoli Svizzera',
+ 'blog.svizzera.subtitle': 'Notizie e guide da tutta la Svizzera',
  'blog.statsArticles': 'articoli',
  'blog.statsNews': 'notizie',
  'blog.statsUpdated': 'Aggiornato ogni giorno',
@@ -2549,6 +2553,9 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3490.title': 'Nuova sezione Articoli Svizzera',
+ 'whatsNew.v3490.svizzeraSection.title': 'Articoli da tutta la Svizzera',
+ 'whatsNew.v3490.svizzeraSection.desc': 'Nuova sezione di articoli su economia, fisco, lavoro e vita per chiunque viva o lavori in Svizzera, non solo per i frontalieri. Trovala nel toggle "Svizzera" dentro Articoli.',
  'whatsNew.v3480.title': 'Job alert che funzionano + più ospedali + blog libero',
  'whatsNew.v3480.jobAlertSimpler.title': 'Job alert in 1 click',
  'whatsNew.v3480.jobAlertSimpler.desc': 'Il form per creare un job alert ora chiede solo la parola chiave. Zona, settore, contratto e cantoni sono diventati filtri opzionali sotto il bottone — chi vuole li apre, gli altri si iscrivono in un secondo.',

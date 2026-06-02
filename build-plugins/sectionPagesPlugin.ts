@@ -898,6 +898,17 @@ function pickLatestArticles(
   return matched.slice(0, MAX_ARTICLES_PER_SECTION);
 }
 
+// These 7 Google-News topic sections (fisco / salari / dogana / …) are
+// frontaliere-scoped: they aggregate the `data/blog-articles-data.ts`
+// (frontaliere) registry by cross-border-worker keyword and link into
+// `/articoli-frontaliere/{slug}/`. The svizzera (national-scope) section is
+// DELIBERATELY NOT wired here:
+//   • these topic taxonomies + copy are frontaliere-funnel specific;
+//   • folding svizzera articles into them would change the existing pages'
+//     byte output (a hard invariant) and mix two distinct funnels;
+//   • a parallel svizzera section-page family is a standalone feature with
+//     its own taxonomy/copy/routing — out of scope while the svizzera
+//     registry is empty. Deferred as follow-up (see DELIVERABLE note).
 const BLOG_PREFIX_BY_LOCALE: Record<SectionLocale, string> = {
   it: '/articoli-frontaliere',
   en: '/en/cross-border-articles',

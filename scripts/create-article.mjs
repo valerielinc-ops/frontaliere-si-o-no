@@ -119,6 +119,7 @@ import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor, matchesFrontaliereUnambiguousAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 import { isNonItalianScript, nonItalianScriptRatio } from './lib/itLanguageCheck.mjs';
 import { checkSemanticNearDuplicate } from './lib/scoring/semanticDedup.mjs';
+import { loadEmbeddingStore, loadEmbeddingMeta } from './lib/scoring/embeddingMatcher.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -341,7 +342,8 @@ async function classifyFrontaliereRelevance(headline, summary) {
     return _preSpendGateCache.get(cacheKey);
   }
   const model = process.env.PRESPEND_GATE_MODEL || AI_MODELS.GEMINI_FLASH_LITE;
-  const prompt = `Sei un editor del sito frontaliereticino.ch, focalizzato ESCLUSIVAMENTE sui FRONTALIERI ITALO-SVIZZERI che lavorano in Ticino.
+  const prompt = IS_FRONTALIERE
+    ? `Sei un editor del sito frontaliereticino.ch, focalizzato ESCLUSIVAMENTE sui FRONTALIERI ITALO-SVIZZERI che lavorano in Ticino.
 
 È RILEVANTE: lavoro/occupazione frontalieri TI, fiscalità (imposta alla fonte, ristorni, AVS/LPP), permessi B/G/C, salute (LAMal/cassa malati), trasporti pendolari, accordi Italia-Svizzera, riforme normative, mercato del lavoro ticinese, cambio CHF-EUR.
 
@@ -351,6 +353,20 @@ NON è rilevante:
 - Eventi culturali, sportivi, festival, gastronomia (anche se localizzati a Ticino o area di confine)
 - Singoli episodi di cronaca (multe, incidenti, arresti, abbandono rifiuti) senza implicazioni di policy o impatto sui pendolari
 - Infrastruttura italiana lontana dal confine, eventi USA/UE senza impatto pendolare
+
+HEADLINE: ${String(headline || '').slice(0, 240)}
+${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
+Rispondi ESATTAMENTE in questo formato (una riga):
+relevant=<yes|no>; reason=<una frase di massimo 15 parole>`
+    : `Sei un editor di un sito che informa CHIUNQUE viva o lavori in Svizzera (scala NAZIONALE: policy federale e cantonale, economia, fisco, lavoro, vita quotidiana, casa). NON sei limitato ai frontalieri.
+
+È RILEVANTE: economia svizzera, mercato del lavoro e salari in CH, fiscalità federale/cantonale (imposte, AVS/AHV, LPP, secondo/terzo pilastro), salute e assicurazione malattia (LAMal/casse malati), costo della vita e affitti in Svizzera, alloggio e immobiliare, votazioni/referendum federali, riforme normative nazionali, BNS e franco svizzero, statistiche federali (BFS), decisioni del Consiglio federale e del Parlamento.
+
+NON è rilevante:
+- Cronaca locale senza implicazioni di policy o impatto economico/fiscale/lavorativo nazionale
+- Eventi culturali, sportivi, festival, gastronomia
+- Notizie estere senza impatto diretto su chi vive o lavora in Svizzera
+- Singoli episodi di cronaca (multe, incidenti, arresti)
 
 HEADLINE: ${String(headline || '').slice(0, 240)}
 ${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
@@ -428,7 +444,10 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
     const headlineText = String(h?.headline || '');
     const urlText = String(h?.url || '');
     const combined = `${headlineText} ${urlText}`;
-    const strictAnchor = matchesFrontaliereAnchor(combined);
+    // Frontaliere anchors are domain-specific (cross-border terms-of-art) and
+    // do NOT apply to the national svizzera section — there we classify every
+    // candidate via the LLM (no anchor bypass, no strict-anchor backstop).
+    const strictAnchor = IS_FRONTALIERE ? matchesFrontaliereAnchor(combined) : '';
     if (strictAnchor) strictAnchorMatched.push({ h, anchor: strictAnchor });
 
     // Legacy emergency rollback: anchor-only acceptance (no LLM).
@@ -449,7 +468,7 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
     // does not need the classifier to confirm. The wider FRONTALIERE_STRICT
     // anchors (bare "frontalier", "valico chiasso", …) still go through
     // the classifier.
-    const unambiguous = matchesFrontaliereUnambiguousAnchor(combined);
+    const unambiguous = IS_FRONTALIERE && matchesFrontaliereUnambiguousAnchor(combined);
     if (unambiguous) {
       kept.push(h);
       unambiguousBypasses += 1;
@@ -595,7 +614,11 @@ const RECENT_ARTICLE_IMAGE_COUNT = 7;
 
 function _getRecentArticleImages() {
   try {
-    // FRO-360: ARTICLES array is now in data/blog-articles-data.ts
+    // FRO-360: ARTICLES array is now in data/blog-articles-data.ts.
+    // v1 simplification: this homepage image-dedup helper always reads the
+    // frontaliere registry (and the shared image catalog) for BOTH sections —
+    // it only avoids visual repetition of recently-used hero images, so cross-
+    // section reuse is harmless. Module-eval timing also predates SECTION.
     const blogSrc = readFileSync(resolve('data/blog-articles-data.ts'), 'utf8');
     // Extract all image: '...' values from the ARTICLES array
     const imageMatches = [...blogSrc.matchAll(/image:\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
@@ -845,8 +868,8 @@ function _hashString(s) {
   return h | 0;
 }
 
-const SOURCE_QUOTA_FILE = 'data/article-source-quotas.json';
-const SOURCE_URLS_FILE = 'data/article-source-urls.json';
+// SOURCE_QUOTA_FILE / SOURCE_URLS_FILE are section-keyed — see SECTION config
+// below (frontaliere → data/article-source-*.json, byte-identical default).
 const CREATE_ARTICLE_REPORT_FILE = process.env.CREATE_ARTICLE_REPORT_FILE || '.tmp/create-article-run-report.json';
 // Source quota disabled by default 2026-05-07: with article generation
 // firing every 15 min (~672 articles/week) the 3/domain weekly cap was
@@ -1198,6 +1221,58 @@ const RSS_FALLBACK_MAP = {
   // admin.ch removed — WAF challenge (FRO-415)
 };
 
+// ── Switzerland-wide news sources (section="svizzera") ───────────
+// National scope: economy, taxes, work, living, housing for ANYONE who
+// lives or works in CH — NOT restricted to cross-border workers. Mirrors
+// the shape of NEWS_SOURCES (RSS where available, HTML fallback via
+// NEWS_SOURCES_SVIZZERA_FALLBACK_MAP otherwise).
+const NEWS_SOURCES_SVIZZERA = [
+  // swissinfo.ch — national multilingual public broadcaster (all sections)
+  'https://www.swissinfo.ch/ita/',
+  'https://www.swissinfo.ch/ita/economia/',
+  'https://www.swissinfo.ch/ita/scienza/',
+  'https://www.swissinfo.ch/ita/politica/',
+  // RSI — national (not Ticino-only)
+  'https://www.rsi.ch/info/svizzera/?f=rss',
+  'https://www.rsi.ch/info/economia/?f=rss',
+  'https://www.rsi.ch/info/mondo/?f=rss',
+  // tvsvizzera — national IT-language SWI sister site
+  'https://www.tvsvizzera.it/tvs/',
+  'https://www.tvsvizzera.it/tvs/economia/',
+  'https://www.tvsvizzera.it/tvs/lavoro-ed-economia/',
+  // Major cantonal / national papers (beyond Ticino), economy + national
+  'https://www.cdt.ch/news/svizzera',
+  'https://www.cdt.ch/news/economia',
+  'https://www.cdt.ch/news/mondo',
+  'https://www.laregione.ch/svizzera',
+  'https://www.laregione.ch/economia',
+  'https://media.tio.ch/files/domains/tio.ch/rss/rss_home.xml',
+  'https://www.tio.ch/svizzera/economia',
+  // Federal administration / statistics / labour (national policy)
+  'https://www.admin.ch/gov/it/pagina-iniziale/documentazione/comunicati-stampa.html',  // admin.ch press (HTML — RSS WAF-blocked)
+  'https://www.bfs.admin.ch/bfs/it/home/attualita/comunicati-stampa.html',               // BFS Federal Statistical Office (HTML)
+  'https://www.seco.admin.ch/seco/it/home/seco/nsb-news.html',                            // SECO economy/labour (HTML)
+  'https://www.bag.admin.ch/it/overview/news',                                            // BAG federal health (HTML)
+  // English/business national coverage of CH
+  'https://lenews.ch/feed/',                                                              // Le News (English, living/working in CH)
+  'https://www.watson.ch/api/1.0/rss/all.xml',                                            // watson.ch national news RSS
+  // Fiscal / labour technical coverage relevant to CH residents
+  'https://www.fiscoetasse.com/feed',
+  'https://www.lavoroediritti.com/feed/',
+  // Housing / cost of living national
+  'https://www.santesuisse.ch/it/temi-e-analisi/news-attuali/',                           // LAMal / health-insurance news (national)
+];
+
+// HTML fallbacks for the svizzera RSS feeds that may yield 0 recent items.
+const NEWS_SOURCES_SVIZZERA_FALLBACK_MAP = {
+  'https://www.rsi.ch/info/svizzera/?f=rss': 'https://www.rsi.ch/info/svizzera/',
+  'https://www.rsi.ch/info/economia/?f=rss': 'https://www.rsi.ch/info/economia/',
+  'https://www.rsi.ch/info/mondo/?f=rss': 'https://www.rsi.ch/info/mondo/',
+  'https://media.tio.ch/files/domains/tio.ch/rss/rss_home.xml': 'https://www.tio.ch/',
+  'https://lenews.ch/feed/': 'https://lenews.ch/',
+  'https://www.watson.ch/api/1.0/rss/all.xml': 'https://www.watson.ch/',
+};
+
 const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
 
 // ── Helpers ─────────────────────────────────────────────────
@@ -1211,6 +1286,157 @@ function read(rel) {
 
 function write(rel, content) {
   writeFileSync(resolve(rel), content, 'utf-8');
+}
+
+// ── Section config (--section=frontaliere|svizzera) ──────────────
+// Single source of truth for the two parallel article hubs. Mirrors
+// services/articleSections.ts (kept in sync — the .ts can't be imported by
+// this .mjs without a TS loader). For section="frontaliere" every value is
+// the original hardcoded literal so the default path stays byte-identical.
+//
+// Per spec: the discovery-pool / evidence / quota slot machinery stays
+// frontaliere-only for now. The svizzera section uses the proven-only path
+// (scan CH sources → classify → generate → dedup vs SWISS_ARTICLES/embeddings
+// → write). The WRITE path + proven generation are fully section-aware.
+const ARTICLE_SECTION_CONFIGS = {
+  frontaliere: {
+    section: 'frontaliere',
+    label: 'Frontaliere Ticino',
+    // News discovery
+    newsSources: NEWS_SOURCES,
+    rssFallbackMap: RSS_FALLBACK_MAP,
+    // Localized hub slugs (URL path segment per locale)
+    hubSlug: {
+      it: 'articoli-frontaliere',
+      en: 'cross-border-articles',
+      de: 'grenzgaenger-artikel',
+      fr: 'articles-frontalier',
+    },
+    // Registry / slug-data / meta / body / seo write targets
+    registryFile: 'data/blog-articles-data.ts',
+    registryArrayName: 'ARTICLES',
+    slugDataFile: 'services/routerBlogData.ts',
+    slugsConstName: 'BLOG_SLUGS',
+    allIdsConstName: 'ALL_BLOG_ARTICLE_IDS',
+    // frontaliere also maintains the BlogArticleId union in router.ts
+    updateRouterUnion: true,
+    metaPrefix: 'blog-meta',           // services/locales/blog-meta-{loc}.ts
+    bodyDir: 'blog-body',              // services/locales/blog-body/{loc}/{id}.ts
+    seoFile: 'services/seo/seo-blog-5.ts',
+    seoConstName: 'BLOG_SEO_METADATA', // matched with optional _\d+ suffix
+    sitemapFile: 'public/sitemap-blog.xml',
+    sitemapUrl: 'https://frontaliereticino.ch/sitemap-blog.xml',
+    // Per-section dedup / state isolation
+    embeddingsBinPath: 'data/article-embeddings.bin',
+    embeddingsMetaPath: 'data/article-embeddings-meta.json',
+    sidecarDir: 'data/blog-articles',
+    sourceQuotaFile: 'data/article-source-quotas.json',
+    sourceUrlsFile: 'data/article-source-urls.json',
+  },
+  svizzera: {
+    section: 'svizzera',
+    label: 'Articoli Svizzera',
+    newsSources: NEWS_SOURCES_SVIZZERA,
+    rssFallbackMap: NEWS_SOURCES_SVIZZERA_FALLBACK_MAP,
+    hubSlug: {
+      it: 'articoli-svizzera',
+      en: 'swiss-articles',
+      de: 'schweiz-artikel',
+      fr: 'articles-suisse',
+    },
+    registryFile: 'data/swiss-articles-data.ts',
+    registryArrayName: 'SWISS_ARTICLES',
+    slugDataFile: 'services/routerSwissData.ts',
+    slugsConstName: 'SWISS_SLUGS',
+    allIdsConstName: 'ALL_SWISS_ARTICLE_IDS',
+    // svizzera ids are loose strings — no BlogArticleId union to touch.
+    updateRouterUnion: false,
+    metaPrefix: 'blog-meta-ch',        // services/locales/blog-meta-ch-{loc}.ts
+    bodyDir: 'blog-body-ch',           // services/locales/blog-body-ch/{loc}/{id}.ts
+    seoFile: 'services/seo/seo-blog-ch.ts',
+    seoConstName: 'BLOG_CH_SEO_METADATA',
+    sitemapFile: 'public/sitemap-blog-ch.xml',
+    sitemapUrl: 'https://frontaliereticino.ch/sitemap-blog-ch.xml',
+    embeddingsBinPath: 'data/swiss-article-embeddings.bin',
+    embeddingsMetaPath: 'data/swiss-article-embeddings-meta.json',
+    sidecarDir: 'data/swiss-articles',
+    sourceQuotaFile: 'data/swiss-article-source-quotas.json',
+    sourceUrlsFile: 'data/swiss-article-source-urls.json',
+  },
+};
+
+/** Parse --section=<name> from argv (default frontaliere). Validates. */
+function parseSectionArg(argv) {
+  let section = process.env.ARTICLE_SECTION || 'frontaliere';
+  for (const a of argv) {
+    const m = /^--section=(.+)$/.exec(a);
+    if (m) section = m[1];
+  }
+  if (!ARTICLE_SECTION_CONFIGS[section]) {
+    throw new Error(
+      `Invalid --section="${section}". Valid: ${Object.keys(ARTICLE_SECTION_CONFIGS).join(', ')}`,
+    );
+  }
+  return section;
+}
+
+const SECTION_NAME = parseSectionArg(process.argv.slice(2));
+const SECTION = ARTICLE_SECTION_CONFIGS[SECTION_NAME];
+const IS_FRONTALIERE = SECTION_NAME === 'frontaliere';
+
+// Section-keyed source-tracking files (frontaliere defaults = original paths).
+const SOURCE_QUOTA_FILE = SECTION.sourceQuotaFile;
+const SOURCE_URLS_FILE = SECTION.sourceUrlsFile;
+
+if (!IS_FRONTALIERE) {
+  console.error(`📦 Sezione attiva: ${SECTION_NAME} (${SECTION.label}) — hub /${SECTION.hubSlug.it}/`);
+}
+
+// ── Section-aware registry/meta paths + readers ──────────────────
+// Duplicate-detection and registry helpers must read the ACTIVE section's
+// files so svizzera dedups against SWISS_ARTICLES, never against frontaliere.
+const SECTION_SLUG_DATA_FILE = SECTION.slugDataFile;           // routerBlogData.ts | routerSwissData.ts
+const SECTION_META_IT_FILE = `services/locales/${SECTION.metaPrefix}-it.ts`; // blog-meta-it.ts | blog-meta-ch-it.ts
+
+/** Read the active section's slug-data source (routerBlogData|routerSwissData). */
+function readSectionSlugData() {
+  return read(SECTION_SLUG_DATA_FILE);
+}
+
+/**
+ * Extract existing article IDs from the ACTIVE section's slugs map (`'id': {
+ * it: ... }`). Used for the append-anchor (last id of THIS section) and for
+ * regenerating this section's id list — both of which must stay scoped to the
+ * active section's file. For cross-section dedup use {@link getAllArticleIds}.
+ * Returns [] when the section registry is still empty (first article).
+ */
+function getSectionExistingIds(slugDataSrc) {
+  const src = slugDataSrc ?? readSectionSlugData();
+  return [...src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map((m) => m[1]);
+}
+
+/**
+ * Extract article IDs across ALL article sections (frontaliere + svizzera).
+ *
+ * The SEO (`blog-{id}`) and i18n (`blog.article.{id}.*`) namespaces are SHARED
+ * across sections, so a new id colliding with one from the sibling section
+ * would silently override that page's canonical / structured-data. Dedup must
+ * therefore be GLOBAL — this is what makes the "ids never collide across
+ * sections" invariant true. Sibling files are read fresh, tolerated-empty.
+ */
+function getAllArticleIds() {
+  const ids = new Set();
+  for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
+    let src = '';
+    try { src = read(cfg.slugDataFile); } catch { /* empty/missing section */ }
+    for (const m of src.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)) ids.add(m[1]);
+  }
+  return [...ids];
+}
+
+/** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
+function readSectionMetaIt() {
+  return read(SECTION_META_IT_FILE);
 }
 
 function getIsoWeekKey(date = new Date()) {
@@ -1343,10 +1569,8 @@ function isSourceUrlAlreadyUsed(headlineUrl) {
   const urlWords = extractUrlSlugWords(headlineUrl);
   if (urlWords.length < 2) return { used: false };
 
-  // Load existing article IDs
-  const routerSrc = read('services/routerBlogData.ts');
-  const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  // Load existing article IDs (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   for (const existingId of existingIds) {
     const idWords = existingId.split('-').filter(w => w.length > 1);
@@ -2734,15 +2958,23 @@ function extractRssItems(xml, feedUrl) {
 
 // ── Step 1c: Scan all news sources for recent headlines ─────
 async function scanNewsSources() {
-  console.error('🔍 Scansione fonti di notizie ticinesi...\n');
+  // Section-keyed source list: frontaliere → Ticino/frontalieri feeds (default),
+  // svizzera → national CH feeds (NEWS_SOURCES_SVIZZERA).
+  const newsSources = SECTION.newsSources;
+  const rssFallbackMap = SECTION.rssFallbackMap;
+  console.error(
+    IS_FRONTALIERE
+      ? '🔍 Scansione fonti di notizie ticinesi...\n'
+      : '🔍 Scansione fonti di notizie nazionali svizzere...\n',
+  );
   const allHeadlines = [];
-  RUN_REPORT.sources.configured = NEWS_SOURCES.length;
-  RUN_REPORT.sources.scanned = NEWS_SOURCES.length;
-  RUN_REPORT.sources.domains = NEWS_SOURCES.map((u) => {
+  RUN_REPORT.sources.configured = newsSources.length;
+  RUN_REPORT.sources.scanned = newsSources.length;
+  RUN_REPORT.sources.domains = newsSources.map((u) => {
     try { return new URL(u).hostname.replace(/^www\d?\./, ''); } catch { return u; }
   });
 
-  const fetches = NEWS_SOURCES.map(async (sourceUrl) => {
+  const fetches = newsSources.map(async (sourceUrl) => {
     const domain = new URL(sourceUrl).hostname.replace('www.', '').replace('www3.', '');
     try {
       const res = await fetch(sourceUrl, {
@@ -2767,7 +2999,7 @@ async function scanNewsSources() {
         } else if (headlines.length > 0) {
           console.error(`  📡 ${domain}: ${headlines.length} articoli RSS (nessuno negli ultimi ${MAX_ARTICLE_AGE_DAYS} giorni)`);
           // Fallback: scrape the base HTML site for this feed
-          const fallbackUrl = RSS_FALLBACK_MAP[sourceUrl];
+          const fallbackUrl = rssFallbackMap[sourceUrl];
           if (fallbackUrl) {
             try {
               const fbRes = await fetch(fallbackUrl, {
@@ -2792,7 +3024,7 @@ async function scanNewsSources() {
         } else {
           console.error(`  📡 ${domain}: RSS vuoto (0 articoli)`);
           // Try fallback HTML
-          const fallbackUrl = RSS_FALLBACK_MAP[sourceUrl];
+          const fallbackUrl = rssFallbackMap[sourceUrl];
           if (fallbackUrl) {
             try {
               const fbRes = await fetch(fallbackUrl, {
@@ -2847,7 +3079,7 @@ async function scanNewsSources() {
     console.error(`  ⚠️ wp-search fallito globalmente: ${err.message}`);
   }
 
-  console.error(`\n  📊 Totale: ${allHeadlines.length} articoli trovati da ${NEWS_SOURCES.length} fonti + WP search`);
+  console.error(`\n  📊 Totale: ${allHeadlines.length} articoli trovati da ${newsSources.length} fonti + WP search`);
 
   // Filter: only keep articles from the last 3 days
   const recent = allHeadlines.filter(h => {
@@ -3003,13 +3235,11 @@ function prioritizeFrontalieriHeadlines(headlines) {
 
 // ── Step 1d: Use Gemini to select the best article ──────────
 async function selectArticle(headlines) {
-  // Get existing article info for duplicate detection
-  const routerSrc = read('services/routerBlogData.ts');
-  const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  // Get existing article info for duplicate detection (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
-  // Get existing article titles AND excerpts from blog-meta-it.ts for robust duplicate detection
-  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
+  const blogItSrc = readSectionMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
   const existingTitles = titleMatches.map(m => m[2]);
@@ -3195,10 +3425,8 @@ Rispondi con un JSON object (no markdown, no code fences):
 
 // ── Step 2: Generate article via GitHub Models (multi-call) ─
 async function callGemini(pageContent, url, sourceContext = null) {
-  // Get existing article IDs to avoid duplicates
-  const routerSrc = read('services/routerBlogData.ts');
-  const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  // Get existing article IDs to avoid duplicates (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   // ── Token budget management ──
   // Most models accept 128K+ context. We keep source generous (6000 chars)
@@ -4641,7 +4869,7 @@ function enforceStrongInternalLinks(data) {
 let _existingItTitlesCache = null;
 function loadExistingItTitlesExcluding(currentArticleId) {
   if (_existingItTitlesCache === null) {
-    const src = read('services/locales/blog-meta-it.ts');
+    const src = readSectionMetaIt();
     const map = new Map(); // articleId -> normalizedTitle
     const rx = /'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
     let m;
@@ -4851,7 +5079,7 @@ function preFlightEvergreenTopicCheck(candidate, existingArticles) {
 }
 
 function loadExistingArticleSummaries() {
-  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  const blogItSrc = readSectionMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']*)'/g)];
   const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
@@ -4902,7 +5130,7 @@ function preFlightEvergreenCheck(candidate) {
 //      otherwise fall through to title Jaccard.
 //   4. Thresholds unchanged because we're measuring on a meaningful denominator.
 function preFlightHeadlineCheck(headline) {
-  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  const blogItSrc = readSectionMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
 
   const headlineWords = tokenizeIt(headline);
@@ -4942,8 +5170,8 @@ function preFlightHeadlineCheck(headline) {
 
 // ── Step 3a.2: Programmatic duplicate detection (multi-signal) ──
 function checkForDuplicates(data) {
-  // Read existing article titles AND excerpts from blog-meta-it.ts
-  const blogItSrc = read('services/locales/blog-meta-it.ts');
+  // Read existing article titles AND excerpts from the section meta-it
+  const blogItSrc = readSectionMetaIt();
   const titleMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.title':\s*'([^']+)'/g)];
   const excerptMatches = [...blogItSrc.matchAll(/'blog\.article\.([^.]+)\.excerpt':\s*'([^']+)'/g)];
   const existingArticles = titleMatches.map(m => {
@@ -4953,10 +5181,8 @@ function checkForDuplicates(data) {
     return { id, title, excerpt: exMatch ? exMatch[2] : '' };
   });
 
-  // Also check IDs for exact match
-  const routerSrc = read('services/routerBlogData.ts');
-  const idMatch = routerSrc.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
+  // Also check IDs for exact match (all sections — shared id/SEO/i18n namespace)
+  const existingIds = getAllArticleIds();
 
   // 1. Exact ID check
   if (existingIds.includes(data.id)) {
@@ -5835,83 +6061,111 @@ function escapeRegex(s) {
   return String(s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/** Find the last article ID from routerBlogData.ts */
+/** Find the last article ID from the active section's slug-data file. */
 function getLastArticleId(src) {
-  const match = src.match(/ALL_BLOG_ARTICLE_IDS.*?\[([^\]]+)\]/s);
-  if (!match) throw new Error('Cannot find ALL_BLOG_ARTICLE_IDS in routerBlogData.ts');
-  const ids = match[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
+  const ids = getSectionExistingIds(src);
   const lastId = ids[ids.length - 1];
-  if (!lastId) throw new Error('No existing articles found in routerBlogData.ts');
+  if (!lastId) {
+    throw new Error(`No existing articles found in ${SECTION.slugDataFile}`);
+  }
   return lastId;
 }
 
 function modifyRouterTs(data) {
-  // Step 1: BlogArticleId type union in router.ts
-  const routerFile = 'services/router.ts';
-  let routerSrc = read(routerFile);
-  const lastId = getLastArticleId(read('services/routerBlogData.ts'));
-
-  function checkedReplace(source, regex, replacement, stepName) {
-    const result = source.replace(regex, replacement);
-    if (result === source) {
-      throw new Error(`modifyRouterTs step "${stepName}" failed: regex did not match.\n  Pattern: ${regex}\n  lastId=${lastId}, newId=${data.id}`);
-    }
-    return result;
+  // The svizzera section does NOT maintain the BlogArticleId union in
+  // router.ts (ids are loose strings, validated at runtime via REVERSE_SWISS).
+  // Only the frontaliere section touches router.ts.
+  if (SECTION.updateRouterUnion) {
+    modifyRouterUnion(data);
   }
 
-  // 1. BlogArticleId type union — append to the LAST _BlogIdN alias before its
-  // terminating semicolon. We anchor to the actual last ID inside that alias
-  // (not ALL_BLOG_ARTICLE_IDS' last entry) because the two lists can get out
-  // of sync: TS2590 splits may reorder, and hand-edits may append to either
-  // list independently. Parsing the alias itself is the only robust anchor.
-  const lastAliasMatch = routerSrc.match(/type (_BlogId\d+)\s*=\s*([^;]+);/g);
-  if (!lastAliasMatch || lastAliasMatch.length === 0) {
-    throw new Error('modifyRouterTs: could not find any _BlogIdN alias in router.ts');
-  }
-  const lastAlias = lastAliasMatch[lastAliasMatch.length - 1];
-  const aliasIds = lastAlias.match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
-  const routerLastId = aliasIds[aliasIds.length - 1];
-  if (!routerLastId) {
-    throw new Error(`modifyRouterTs: last _BlogIdN alias has no IDs. Found: ${lastAlias.slice(0, 120)}…`);
-  }
-  routerSrc = checkedReplace(routerSrc,
-    new RegExp(`(\\| '${escapeRegex(routerLastId)}')(;)`),
-    `$1 | '${data.id}'$2`,
-    `BlogArticleId type union (anchor=${routerLastId})`
-  );
-  write(routerFile, routerSrc);
-  console.error(`  ✅ ${routerFile}`);
-
-  // Steps 2-3: BLOG_SLUGS and ALL_BLOG_ARTICLE_IDS in routerBlogData.ts
-  const blogDataFile = 'services/routerBlogData.ts';
+  // Append the slug entry to the section's SLUGS map. The first entry into an
+  // empty `{ }` map is handled by anchoring to the map declaration itself.
+  const blogDataFile = SECTION.slugDataFile;
   let blogSrc = read(blogDataFile);
+  const existingIds = getSectionExistingIds(blogSrc);
 
-  // 2. BLOG_SLUGS map — add new entry after last article entry
-  const newSlugEntry = `  '${data.id}': { it: '${data.slugs.it}', en: '${data.slugs.en}', de: '${data.slugs.de}', fr: '${data.slugs.fr}' },`;
-  blogSrc = checkedReplace(blogSrc,
-    new RegExp(`('${escapeRegex(lastId)}':\\s*\\{[^}]+\\},)`),
-    `$1\n${newSlugEntry}`,
-    'BLOG_SLUGS map'
-  );
+  // Indentation: frontaliere historically appended new SLUGS entries with TWO
+  // leading spaces (kept byte-identical); svizzera uses ONE to match its file.
+  const slugIndent = SECTION.updateRouterUnion ? '  ' : ' ';
+  const newSlugEntry = `${slugIndent}'${data.id}': { it: '${data.slugs.it}', en: '${data.slugs.en}', de: '${data.slugs.de}', fr: '${data.slugs.fr}' },`;
 
-  // 3. Regenerate ALL_BLOG_ARTICLE_IDS from BLOG_SLUGS keys (keeps them in sync)
-  const allIds = [...blogSrc.matchAll(/^\s+'([^']+)':\s*\{\s*it:/gm)].map(m => `'${m[1]}'`);
-  if (allIds.length === 0) {
-    throw new Error('modifyRouterTs step "ALL_BLOG_ARTICLE_IDS regen" failed: extracted 0 IDs from BLOG_SLUGS map (regex anchor changed?)');
+  if (existingIds.length === 0) {
+    // Empty map — insert the first entry right after the map's opening brace.
+    // Anchor: `const SWISS_SLUGS: ... = {\n}` (or `{\n  ...`).
+    const openRe = new RegExp(
+      `(export const ${SECTION.slugsConstName}\\s*:[^=]*=\\s*\\{)(\\s*\\n)`,
+    );
+    if (!openRe.test(blogSrc)) {
+      throw new Error(`modifyRouterTs: cannot find empty ${SECTION.slugsConstName} map opener in ${blogDataFile}`);
+    }
+    blogSrc = blogSrc.replace(openRe, `$1\n${newSlugEntry}$2`);
+  } else {
+    // Non-empty — append after the last article entry (matches frontaliere).
+    const lastId = existingIds[existingIds.length - 1];
+    const lastEntryRe = new RegExp(`('${escapeRegex(lastId)}':\\s*\\{[^}]+\\},)`);
+    if (!lastEntryRe.test(blogSrc)) {
+      throw new Error(`modifyRouterTs: cannot find last ${SECTION.slugsConstName} entry (anchor=${lastId}) in ${blogDataFile}`);
+    }
+    blogSrc = blogSrc.replace(lastEntryRe, `$1\n${newSlugEntry}`);
   }
-  blogSrc = checkedReplace(blogSrc,
-    /export const ALL_BLOG_ARTICLE_IDS: BlogArticleId\[\] = \[[^\]]*\];/,
-    `export const ALL_BLOG_ARTICLE_IDS: BlogArticleId[] = [${allIds.join(', ')}];`,
-    'ALL_BLOG_ARTICLE_IDS regen'
+
+  // Regenerate the literal ALL_*_ARTICLE_IDS array ONLY when the file declares
+  // it as a literal (`= [...]`). The svizzera section derives it via
+  // `Object.keys(SWISS_SLUGS)`, so no array edit is needed there.
+  const literalArrayRe = new RegExp(
+    `export const ${SECTION.allIdsConstName}:[^=]*=\\s*\\[[^\\]]*\\];`,
   );
+  if (literalArrayRe.test(blogSrc)) {
+    const allIds = getSectionExistingIds(blogSrc).map((id) => `'${id}'`);
+    if (allIds.length === 0) {
+      throw new Error(`modifyRouterTs: regenerated 0 IDs for ${SECTION.allIdsConstName} (regex anchor changed?)`);
+    }
+    const allIdsType = SECTION.updateRouterUnion ? 'BlogArticleId[]' : 'string[]';
+    blogSrc = blogSrc.replace(
+      literalArrayRe,
+      `export const ${SECTION.allIdsConstName}: ${allIdsType} = [${allIds.join(', ')}];`,
+    );
+  }
 
   write(blogDataFile, blogSrc);
   console.error(`  ✅ ${blogDataFile}`);
 }
 
+/** frontaliere-only: append the new id to the BlogArticleId union in router.ts. */
+function modifyRouterUnion(data) {
+  const routerFile = 'services/router.ts';
+  let routerSrc = read(routerFile);
+
+  // Append to the LAST _BlogIdN alias before its terminating semicolon. We
+  // anchor to the actual last ID inside that alias because the two lists can
+  // drift: TS2590 splits may reorder, hand-edits may append to either list.
+  const lastAliasMatch = routerSrc.match(/type (_BlogId\d+)\s*=\s*([^;]+);/g);
+  if (!lastAliasMatch || lastAliasMatch.length === 0) {
+    throw new Error('modifyRouterUnion: could not find any _BlogIdN alias in router.ts');
+  }
+  const lastAlias = lastAliasMatch[lastAliasMatch.length - 1];
+  const aliasIds = lastAlias.match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [];
+  const routerLastId = aliasIds[aliasIds.length - 1];
+  if (!routerLastId) {
+    throw new Error(`modifyRouterUnion: last _BlogIdN alias has no IDs. Found: ${lastAlias.slice(0, 120)}…`);
+  }
+  const before = routerSrc;
+  routerSrc = routerSrc.replace(
+    new RegExp(`(\\| '${escapeRegex(routerLastId)}')(;)`),
+    `$1 | '${data.id}'$2`,
+  );
+  if (routerSrc === before) {
+    throw new Error(`modifyRouterUnion: BlogArticleId union append failed (anchor=${routerLastId}, newId=${data.id})`);
+  }
+  write(routerFile, routerSrc);
+  console.error(`  ✅ ${routerFile}`);
+}
+
 function modifyBlogArticlesTsx(data) {
-  // FRO-360: ARTICLES array extracted to data/blog-articles-data.ts (FRO-328)
-  const file = 'data/blog-articles-data.ts';
+  // FRO-360: ARTICLES array extracted to data/blog-articles-data.ts (FRO-328).
+  // Section-keyed: frontaliere → ARTICLES, svizzera → SWISS_ARTICLES.
+  const file = SECTION.registryFile;
   let src = read(file);
   const today = new Date().toISOString();
 
@@ -5950,6 +6204,14 @@ function modifyBlogArticlesTsx(data) {
     /([ \t]*},\n)(\](?:[ \t]+satisfies[ \t]+Article\[\])?;)/,
     `$1${newEntry}\n$2`
   );
+  if (src === before) {
+    // Empty array (first article in the section) — no preceding `},`. Insert
+    // between the opening `[` and the closing `]`. Matches `= [\n]` and `= []`.
+    src = src.replace(
+      new RegExp(`(export const ${SECTION.registryArrayName}\\s*:[^=]*=\\s*\\[)(\\s*)(\\])`),
+      `$1\n${newEntry}\n$3`,
+    );
+  }
   if (src === before) {
     throw new Error(`modifyBlogArticlesTsx: regex did not match — cannot insert article entry in ${file}`);
   }
@@ -6005,50 +6267,48 @@ export default ${varName};
 `;
 }
 
-function modifyI18nTs(data) {
-  // 1. Append meta keys to blog-meta-it.ts
-  const metaFile = 'services/locales/blog-meta-it.ts';
-  let metaSrc = read(metaFile);
-  const metaBlock = buildMetaBlock(data, 'it');
-  const re = /('blog\.article\.[a-z0-9-]+\.[a-zA-Z]+':.*?,)\n+(\};)/;
-  if (!re.test(metaSrc)) {
-    throw new Error(`Cannot find blog article anchor in ${metaFile}`);
-  }
-  metaSrc = metaSrc.replace(re, `$1\n${metaBlock}\n$2`);
-  write(metaFile, metaSrc);
-  console.error(`  ✅ ${metaFile}`);
-
-  // 2. Create per-article body file
-  const bodyDir = 'services/locales/blog-body/it';
-  mkdirSync(resolve(bodyDir), { recursive: true });
-  const bodyFile = `${bodyDir}/${data.id}.ts`;
-  const bodyContent = buildBodyFile(data, 'it');
-  validateBodyFileSyntax(bodyFile, bodyContent);
-  write(bodyFile, bodyContent);
-  console.error(`  ✅ ${bodyFile}`);
-}
-
-function modifyLocaleFile(data, locale) {
-  // 1. Append meta keys to blog-meta-{locale}.ts
-  const metaFile = `services/locales/blog-meta-${locale}.ts`;
+/**
+ * Append the meta block + write the body file for one locale. Section-keyed:
+ * frontaliere → blog-meta-{loc}.ts + blog-body/{loc}, svizzera →
+ * blog-meta-ch-{loc}.ts + blog-body-ch/{loc}. The i18n KEY namespace stays
+ * `blog.article.{id}.*` for BOTH sections. Handles the empty-meta (first
+ * article) case by anchoring to the object opener when no key exists yet.
+ */
+function writeSectionLocale(data, locale) {
+  // 1. Append meta keys to the section's meta file for this locale.
+  const metaFile = `services/locales/${SECTION.metaPrefix}-${locale}.ts`;
   let metaSrc = read(metaFile);
   const metaBlock = buildMetaBlock(data, locale);
-  const re = /('blog\.article\.[a-z0-9-]+\.[a-zA-Z]+':.*?,)\n+(\};)/;
-  if (!re.test(metaSrc)) {
-    throw new Error(`Cannot find blog article anchor in ${metaFile}`);
+  const appendRe = /('blog\.article\.[a-z0-9-]+\.[a-zA-Z]+':.*?,)\n+(\};)/;
+  if (appendRe.test(metaSrc)) {
+    metaSrc = metaSrc.replace(appendRe, `$1\n${metaBlock}\n$2`);
+  } else {
+    // Empty meta object (first article) — insert after the `= {` opener.
+    const openRe = /(:\s*Record<string,\s*string>\s*=\s*\{)(\s*\n)/;
+    if (!openRe.test(metaSrc)) {
+      throw new Error(`Cannot find blog article anchor (or empty-object opener) in ${metaFile}`);
+    }
+    metaSrc = metaSrc.replace(openRe, `$1\n${metaBlock}$2`);
   }
-  metaSrc = metaSrc.replace(re, `$1\n${metaBlock}\n$2`);
   write(metaFile, metaSrc);
   console.error(`  ✅ ${metaFile}`);
 
-  // 2. Create per-article body file
-  const bodyDir = `services/locales/blog-body/${locale}`;
+  // 2. Create per-article body file under the section's body dir.
+  const bodyDir = `services/locales/${SECTION.bodyDir}/${locale}`;
   mkdirSync(resolve(bodyDir), { recursive: true });
   const bodyFile = `${bodyDir}/${data.id}.ts`;
   const bodyContent = buildBodyFile(data, locale);
   validateBodyFileSyntax(bodyFile, bodyContent);
   write(bodyFile, bodyContent);
   console.error(`  ✅ ${bodyFile}`);
+}
+
+function modifyI18nTs(data) {
+  writeSectionLocale(data, 'it');
+}
+
+function modifyLocaleFile(data, locale) {
+  writeSectionLocale(data, locale);
 }
 
 function toIsoWithTz(date = new Date()) {
@@ -6080,11 +6340,16 @@ function modifySeoService(data) {
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
 
-  // 1. SEO entry → services/seo/seo-blog-5.ts (lazy-loaded chunk, latest split)
-  // New articles always go into the most recently split chunk to keep seo-blog.ts
-  // (and all earlier chunks) below the 500 kB Rollup warning threshold.
-  const blogSeoFile = 'services/seo/seo-blog-5.ts';
+  // 1. SEO entry → section seo file. frontaliere → seo-blog-5.ts (latest split
+  // chunk, keeps seo-blog.ts below the 500 kB Rollup warning); svizzera →
+  // seo-blog-ch.ts (BLOG_CH_SEO_METADATA). canonicalPath/mainEntityOfPage use
+  // the active section's localized IT hub slug.
+  const blogSeoFile = SECTION.seoFile;
   let blogSrc = read(blogSeoFile);
+  const itHub = SECTION.hubSlug.it;
+  // frontaliere canonicalPath has historically had NO trailing slash; keep it
+  // byte-identical. svizzera uses a trailing slash (per seo-blog-ch.ts contract).
+  const itHubPath = IS_FRONTALIERE ? `/${itHub}/${data.slugs.it}` : `/${itHub}/${data.slugs.it}/`;
 
   const seoEntry = `
   'blog-${data.id}': {
@@ -6093,7 +6358,7 @@ function modifySeoService(data) {
     keywords: '${escapeForSingleQuoteTS(data.seo.keywords)}',
     ogTitle: '${escapeForSingleQuoteTS(data.seo.ogTitle)}',
     ogDescription: '${escapeForSingleQuoteTS(data.seo.ogDescription)}',
-    canonicalPath: '/articoli-frontaliere/${data.slugs.it}',
+    canonicalPath: '${itHubPath}',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
@@ -6121,26 +6386,38 @@ function modifySeoService(data) {
         "url": "${BASE_URL}/autori/${data.author?.slug || 'redazione'}/"
       },
       "publisher": {"@id": "${BASE_URL}/#organization"},
-      "mainEntityOfPage": \`\${BASE_URL}/articoli-frontaliere/${data.slugs.it}\`,
+      "mainEntityOfPage": \`\${BASE_URL}${itHubPath}\`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },`;
 
-  // Insert before the closing }; ... export default BLOG_SEO_METADATA_5;
-  // The regex matches any BLOG_SEO_METADATA variant (BLOG_SEO_METADATA, _2, _3, … _5).
-  const blogEndRe = /(\s*\},)\s*(\n};)\s*(\nexport default BLOG_SEO_METADATA(?:_\d+)?;)/;
-  if (!blogEndRe.test(blogSrc)) {
-    throw new Error(`Cannot find end of BLOG_SEO_METADATA_5 in ${blogSeoFile}`);
+  // Insert before the closing }; ... export default <CONST>;
+  // The const-name regex matches any frontaliere split variant
+  // (BLOG_SEO_METADATA, _2, … _5) or the svizzera BLOG_CH_SEO_METADATA.
+  const seoConst = SECTION.seoConstName;
+  const seoConstReSrc = SECTION.updateRouterUnion
+    ? `${seoConst}(?:_\\d+)?`   // frontaliere split chunks
+    : escapeRegex(seoConst);    // svizzera single file
+  const blogEndRe = new RegExp(`(\\s*\\},)\\s*(\\n};)\\s*(\\nexport default ${seoConstReSrc};)`);
+  if (blogEndRe.test(blogSrc)) {
+    blogSrc = blogSrc.replace(blogEndRe, `$1\n${seoEntry}\n$2\n$3`);
+  } else {
+    // Empty metadata object (first article) — anchor to the `= {` opener.
+    const emptyOpenRe = new RegExp(`(const ${escapeRegex(seoConst)}[^=]*=\\s*\\{)(\\s*\\n)(\\};)`);
+    if (!emptyOpenRe.test(blogSrc)) {
+      throw new Error(`Cannot find end (or empty-object opener) of ${seoConst} in ${blogSeoFile}`);
+    }
+    blogSrc = blogSrc.replace(emptyOpenRe, `$1\n${seoEntry}\n$3`);
   }
-  blogSrc = blogSrc.replace(blogEndRe, `$1\n${seoEntry}\n$2\n$3`);
   write(blogSeoFile, blogSrc);
   console.error(`  ✅ ${blogSeoFile}`);
 
-  // 2. Breadcrumb entry → services/seoService.ts
+  // 2. Breadcrumb entry → services/seoService.ts (shared registry — `blog-{id}`
+  // keys, parent 'blog'; path uses the active section's IT hub slug).
   const svcFile = 'services/seoService.ts';
   let svcSrc = read(svcFile);
 
-  const breadcrumb = `    'blog-${data.id}': { name: '${escapeForSingleQuoteTS(data.seo.breadcrumbName)}', path: '/articoli-frontaliere/${data.slugs.it}', parent: 'blog' },`;
+  const breadcrumb = `    'blog-${data.id}': { name: '${escapeForSingleQuoteTS(data.seo.breadcrumbName)}', path: '${itHubPath}', parent: 'blog' },`;
   const bcRe = /('blog-[a-z0-9-]+':.*?parent: 'blog' \},)\s*\n(\s*\};)/;
   if (!bcRe.test(svcSrc)) {
     throw new Error(`Cannot find last breadcrumb blog entry in ${svcFile}`);
@@ -6185,12 +6462,13 @@ function modifySeoService(data) {
  * parses the JSON-LD object. This catches escaping issues before they reach production.
  */
 function validateStructuredData(data) {
-  const src = read('services/seo/seo-blog-5.ts');
+  const seoFile = SECTION.seoFile;
+  const src = read(seoFile);
   const entryKey = `'blog-${data.id}'`;
 
   // 1. Verify the entry exists
   if (!src.includes(entryKey)) {
-    throw new Error(`[validate-ld] SEO entry ${entryKey} not found in seo-blog-5.ts`);
+    throw new Error(`[validate-ld] SEO entry ${entryKey} not found in ${seoFile}`);
   }
 
   // 2. Extract using the same regex ogPagesPlugin uses
@@ -6302,8 +6580,26 @@ function sanitizePlainText(text) {
   return s.trim();
 }
 
+/**
+ * Section-aware canonical article URL (IT) + hreflang alternate <xhtml:link>
+ * block, built from SECTION.hubSlug. frontaliere produces byte-identical
+ * markup to the previous hardcoded literals.
+ */
+function buildSectionSitemapUrls(data) {
+  const hub = SECTION.hubSlug;
+  const itLoc = `${BASE_URL}/${hub.it}/${data.slugs.it}/`;
+  const alternates = [
+    `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}/${hub.it}/${data.slugs.it}/" />`,
+    `    <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}/en/${hub.en}/${data.slugs.en}/" />`,
+    `    <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de/${hub.de}/${data.slugs.de}/" />`,
+    `    <xhtml:link rel="alternate" hreflang="fr" href="${BASE_URL}/fr/${hub.fr}/${data.slugs.fr}/" />`,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/${hub.it}/${data.slugs.it}/" />`,
+  ].join('\n');
+  return { itLoc, alternates };
+}
+
 function modifySitemap(data) {
-  const file = 'public/sitemap-blog.xml';
+  const file = SECTION.sitemapFile;
   let src = read(file);
   const today = new Date().toISOString().slice(0, 10);
 
@@ -6312,14 +6608,11 @@ function modifySitemap(data) {
     : `images/places/${data.image}`;
   const imageCaption = sanitizePlainText(data.imageAlt?.it || data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const imageTitle = sanitizePlainText(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const { itLoc, alternates } = buildSectionSitemapUrls(data);
 
   const entry = `  <url>
-    <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
-    <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}/en/cross-border-articles/${data.slugs.en}/" />
-    <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de/grenzgaenger-artikel/${data.slugs.de}/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="${BASE_URL}/fr/articles-frontalier/${data.slugs.fr}/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
+    <loc>${itLoc}</loc>
+${alternates}
     <image:image>
       <image:loc>${BASE_URL}/${imagePath}</image:loc>
       <image:title>${imageTitle}</image:title>
@@ -6338,7 +6631,7 @@ function modifySitemap(data) {
 
   write(file, src);
   console.error(`  ✅ ${file}`);
-  updateSitemapIndexLastmod('https://frontaliereticino.ch/sitemap-blog.xml');
+  updateSitemapIndexLastmod(SECTION.sitemapUrl);
 }
 
 function modifySitemapNews(data) {
@@ -6377,15 +6670,14 @@ function modifySitemapNews(data) {
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
   const imageTitle = sanitizePlainText(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // sitemap-news.xml is SHARED across sections; only the per-article hreflang
+  // alternates differ (built from the active section's hub slugs).
+  const { itLoc, alternates } = buildSectionSitemapUrls(data);
 
   const entry = `  <url>
-    <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
+    <loc>${itLoc}</loc>
     <lastmod>${today}</lastmod>
-    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
-    <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}/en/cross-border-articles/${data.slugs.en}/" />
-    <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de/grenzgaenger-artikel/${data.slugs.de}/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="${BASE_URL}/fr/articles-frontalier/${data.slugs.fr}/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
+${alternates}
     <news:news>
       <news:publication>
         <news:name>Frontaliere Ticino</news:name>
@@ -6413,22 +6705,28 @@ function modifySitemapNews(data) {
 
 // ── Step 5: Git add ─────────────────────────────────────────
 function gitAddAll(data) {
+  // Section-keyed file set. frontaliere → original literals (byte-identical);
+  // svizzera → swiss-articles-data, routerSwissData, blog-meta-ch-*,
+  // blog-body-ch/*, seo-blog-ch, sitemap-blog-ch. seoService.ts (shared
+  // breadcrumb) + sitemap-news.xml + sitemap.xml are staged for both. router.ts
+  // is staged only when the section maintains the BlogArticleId union.
   const files = [
-    'services/router.ts',
-    'services/routerBlogData.ts',
-    'data/blog-articles-data.ts',
-    'services/locales/blog-meta-it.ts',
-    'services/locales/blog-meta-en.ts',
-    'services/locales/blog-meta-de.ts',
-    'services/locales/blog-meta-fr.ts',
-    `services/locales/blog-body/it/${data.id}.ts`,
-    `services/locales/blog-body/en/${data.id}.ts`,
-    `services/locales/blog-body/de/${data.id}.ts`,
-    `services/locales/blog-body/fr/${data.id}.ts`,
-    'services/seo/seo-blog-5.ts',
-    'services/seo/seo-pages.ts',
+    ...(SECTION.updateRouterUnion ? ['services/router.ts'] : []),
+    SECTION.slugDataFile,
+    SECTION.registryFile,
+    `services/locales/${SECTION.metaPrefix}-it.ts`,
+    `services/locales/${SECTION.metaPrefix}-en.ts`,
+    `services/locales/${SECTION.metaPrefix}-de.ts`,
+    `services/locales/${SECTION.metaPrefix}-fr.ts`,
+    `services/locales/${SECTION.bodyDir}/it/${data.id}.ts`,
+    `services/locales/${SECTION.bodyDir}/en/${data.id}.ts`,
+    `services/locales/${SECTION.bodyDir}/de/${data.id}.ts`,
+    `services/locales/${SECTION.bodyDir}/fr/${data.id}.ts`,
+    SECTION.seoFile,
+    // seo-pages.ts ItemList ("Articoli Frontaliere") is frontaliere-only.
+    ...(SECTION.updateRouterUnion ? ['services/seo/seo-pages.ts'] : []),
     'services/seoService.ts',
-    'public/sitemap-blog.xml',
+    SECTION.sitemapFile,
     'public/sitemap-news.xml',
     'public/sitemap.xml',
   ];
@@ -6460,7 +6758,8 @@ function gitAddAll(data) {
 const MAX_DUPLICATE_RETRIES = 8;
 
 async function main() {
-  let url = process.argv[2];
+  // Positional <url> = first non-flag argv (so `--section=` can precede it).
+  let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
   let headlines = null;
 
   // ── Auto-scan mode: no URL provided → scan news sources first, then evergreen fallback ──
@@ -6558,7 +6857,11 @@ async function main() {
         headlines = _discoveryHeadlines;
       }
     } else {
-      console.error('🤖 Fase 1: Ricerca articolo da fonti ticinesi...\n');
+      console.error(
+        IS_FRONTALIERE
+          ? '🤖 Fase 1: Ricerca articolo da fonti ticinesi...\n'
+          : '🤖 Fase 1: Ricerca articolo da fonti nazionali svizzere...\n',
+      );
       headlines = await scanNewsSources();
       // Cross-pool dedup applied for proven slot too: drop any news headline
       // already covered by an orphan-query (these get a guaranteed slot via
@@ -6818,7 +7121,7 @@ async function main() {
                 // Sidecar JSON for the picked candidate so Phase 4's
                 // winnerEvaluator can read _pool / _pool_source / _score_breakdown.
                 try {
-                  const sidecarDir = 'data/blog-articles';
+                  const sidecarDir = SECTION.sidecarDir;
                   mkdirSync(resolve(sidecarDir), { recursive: true });
                   const sidecarId = RUN_REPORT.article?.id || null;
                   if (sidecarId) {
@@ -7486,7 +7789,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   checkForDuplicates(data);
   // Step 3a.3: Semantic near-duplicate gate — catches same-story/different-
   // vocabulary dupes the lexical Jaccard above cannot see (cosine ≥ ceiling).
-  await checkSemanticNearDuplicate(data);
+  // Section-keyed embedding store so svizzera dedups against ITS OWN corpus,
+  // never against frontaliere. For frontaliere these paths equal the module
+  // defaults → behavior is unchanged. Store/meta absent (e.g. svizzera not yet
+  // built) → the gate degrades to a no-op (fail-open).
+  await checkSemanticNearDuplicate(data, {
+    store: loadEmbeddingStore({ binPath: SECTION.embeddingsBinPath }),
+    meta: loadEmbeddingMeta({ metaPath: SECTION.embeddingsMetaPath }),
+  });
 
   // Step 3b: Translate to EN/DE/FR (only runs if not a duplicate)
   await translateArticle(data);
@@ -7617,9 +7927,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
 
   console.error('\n✅ Articolo creato! I test verificheranno la correttezza.');
   console.error(`   Titolo: ${data.content.it.title}`);
-  console.error(`   URL: ${BASE_URL}/articoli-frontaliere/${data.id}/`);
+  console.error(`   URL: ${BASE_URL}/${SECTION.hubSlug.it}/${data.id}/`);
   RUN_REPORT.article.id = data.id;
-  RUN_REPORT.article.url = `${BASE_URL}/articoli-frontaliere/${data.id}/`;
+  RUN_REPORT.article.url = `${BASE_URL}/${SECTION.hubSlug.it}/${data.id}/`;
   RUN_REPORT.article.sourceDomain = sourceDomain || null;
   RUN_REPORT.article.title = data.content?.it?.title || null;
   RUN_REPORT.article.authorSlug = data.author?.slug || null;
@@ -7635,7 +7945,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // with no OG meta tags. The wait-script and Facebook crawler can't follow JS
     // redirects, so og:title appears missing and the deploy times out (run #25033670793).
     // The with-slash URL serves the proper index.html (~22 KB) with full OG metadata.
-    const articleUrlRaw = `${BASE_URL}/articoli-frontaliere/${data.id}`;
+    const articleUrlRaw = `${BASE_URL}/${SECTION.hubSlug.it}/${data.id}`;
     const articleUrl = articleUrlRaw.endsWith('/') ? articleUrlRaw : `${articleUrlRaw}/`;
     const ogImagePath = data._generatedImagePath
       ? data._generatedImagePath.replace(/^\//, '')

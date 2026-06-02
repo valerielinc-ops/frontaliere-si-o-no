@@ -12338,9 +12338,9 @@
     },
     {
       "id": "soh-solothurner-spitaeler-9447e54633df",
-      "slug": "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "senior-controller-management-accounting-f-m-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn",
+        "it": "senior-controller-management-accounting-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn",
         "de": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
         "fr": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
@@ -12350,7 +12350,7 @@
       "companyDomain": "solothurnerspitaeler.ch",
       "title": "Senior Controller Betriebsbuchhaltung (w/m/d)",
       "titleByLocale": {
-        "it": "Senior Controller Betriebsbuchhaltung (w/m/d)",
+        "it": "Senior Controller Management Accounting (f/m/d)",
         "en": "Senior Controller Betriebsbuchhaltung (w/m/d)",
         "de": "Senior Controller Betriebsbuchhaltung (w/m/d)",
         "fr": "Senior Controller Betriebsbuchhaltung (w/m/d)"
@@ -12397,7 +12397,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     }
   ]
 }

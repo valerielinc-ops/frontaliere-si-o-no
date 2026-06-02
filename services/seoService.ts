@@ -788,6 +788,7 @@ async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
  { default: entries5 },
  { default: entries6 },
  { default: entries7 },
+ { default: entriesCh },
  ] = await Promise.all([
  retryImport(() => import('./seo/seo-blog'), 'blog'),
  retryImport(() => import('./seo/seo-blog-2'), 'blog-2'),
@@ -796,8 +797,9 @@ async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
  retryImport(() => import('./seo/seo-blog-5'), 'blog-5'),
  retryImport(() => import('./seo/seo-blog-6'), 'blog-6'),
  retryImport(() => import('./seo/seo-blog-7'), 'blog-7'),
+ retryImport(() => import('./seo/seo-blog-ch'), 'blog-ch'),
  ]);
- _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4, ...entries5, ...entries6, ...entries7 };
+ _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4, ...entries5, ...entries6, ...entries7, ...entriesCh };
  return _blogChunkCache;
 }
 
@@ -3895,6 +3897,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ammodernamento-fa-18-svizzera': { name: 'Ammodernamento F/A-18', path: '/articoli-frontaliere/ammodernamento-fa-18-svizzera', parent: 'blog' },
     'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
     'blog-ferrovia-retica-taiwan': { name: 'Ferrovia retica', path: '/articoli-frontaliere/ferrovia-retica-taiwan', parent: 'blog' },
+    'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
  };
 
  const info = sectionNames[section];

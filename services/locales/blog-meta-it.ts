@@ -7943,6 +7943,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ferrovia-retica-taiwan.title': 'Ferrovia retica: nuovo accordo con Taiwan',
     'blog.article.ferrovia-retica-taiwan.excerpt': 'La Ferrovia retica ha firmato un accordo di collaborazione con la taiwanese Alishan Forest Railway.',
     'blog.article.ferrovia-retica-taiwan.imageAlt': 'Ferrovia retica in inverno',
+    'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: la sedia a rotelle che rivoluziona la mobilità',
+    'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'La sedia a rotelle elettrica Genny Zero, prodotta in Ticino, vince il Compasso d’Oro per il design innovativo e la tecnologia italo-svizzera.',
+    'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Una sedia a rotelle moderna in un paesaggio del Ticino con il lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaIt;

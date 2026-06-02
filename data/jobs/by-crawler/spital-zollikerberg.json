@@ -146,9 +146,9 @@
     },
     {
       "id": "spital-zollikerberg-520e9b96cf42",
-      "slug": "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg",
+      "slug": "infermiere-qualificato-specialista-in-nefrologia-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg",
+        "it": "infermiere-qualificato-specialista-in-nefrologia-spital-zollikerberg-zollikerberg",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
@@ -158,7 +158,7 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
+        "it": "Infermiere qualificato specialista in nefrologia",
         "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
         "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie",
         "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann Nephrologie"
@@ -196,13 +196,15 @@
       "previousSlugs": [
         "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
         "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+        "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infermiere-dipl-infermiere-dipl-nefrologia-spital-zollikerberg-zollikerberg",
           "dipl-carriera-dipl-specialista-infermieristica-nephrology-spital-zollikerberg-zollikerberg",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nephrologie-spital-zollikerberg-zollikerberg",
+          "infermiera-diplomatica-nefrologia-spital-zollikerberg-zollikerberg"
         ]
       },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
@@ -363,9 +365,9 @@
     },
     {
       "id": "spital-zollikerberg-b12a71ea69e9",
-      "slug": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
+      "slug": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
-        "it": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
+        "it": "esperto-certificato-in-cure-anestesiologiche-nds-hf-in-regime-di-ricovero-spital-zollikerberg-zollikerberg",
         "en": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
         "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg",
         "fr": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
@@ -375,7 +377,7 @@
       "companyDomain": "spitalzollikerberg.ch",
       "title": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
       "titleByLocale": {
-        "it": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
+        "it": "Esperto certificato in cure anestesiologiche NDS HF in regime di ricovero",
         "en": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
         "de": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär",
         "fr": "Dipl. Expertin / Dipl. Experten Anästhesiepflege NDS HF stationär"
@@ -422,7 +424,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-stationar-spital-zollikerberg"
+      ]
     }
   ]
 }

@@ -51,6 +51,20 @@ const DEFAULT_BLOG_INDEX_SLUG: Record<BlogLinkLocale, string> = {
 };
 
 /**
+ * Switzerland-wide ("svizzera") article hub slug per locale — the national
+ * mirror of {@link DEFAULT_BLOG_INDEX_SLUG}. These hub dirs are also walked by
+ * {@link listBlogArticleHtmlFiles} so svizzera articles receive the same
+ * contextual-link injection. Static (no router parse) because the svizzera hub
+ * slugs are fixed in `services/articleSections.ts`.
+ */
+const SVIZZERA_BLOG_INDEX_SLUG: Record<BlogLinkLocale, string> = {
+  it: 'articoli-svizzera',
+  en: 'swiss-articles',
+  de: 'schweiz-artikel',
+  fr: 'articles-suisse',
+};
+
+/**
  * Tags whose text content must never be mutated. Matters for HTML validity
  * (nested <a> is not allowed), readability (headings stay clean), and
  * semantics (code blocks stay literal).
@@ -412,35 +426,42 @@ export interface BlogArticleHtmlFile {
  * Enumerate every blog article HTML path in `dist/`. For each locale we pick
  * up both `.../<slug>/index.html` (directory form) and `.../<slug>.html`
  * (flat form), because `ogPagesPlugin` writes both.
+ *
+ * Both article sections are walked: the cross-border ("frontaliere") hub via
+ * the passed `blogIndexSlugs` and the Switzerland-wide ("svizzera") hub via the
+ * static {@link SVIZZERA_BLOG_INDEX_SLUG}. A missing/empty hub dir is simply
+ * skipped, so an empty svizzera registry yields no extra files (no crash).
  */
 export function listBlogArticleHtmlFiles(
   distDir: string,
   blogIndexSlugs: Record<BlogLinkLocale, string>,
 ): BlogArticleHtmlFile[] {
   const out: BlogArticleHtmlFile[] = [];
-  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-    const indexSlug = blogIndexSlugs[locale];
-    if (!indexSlug) continue;
-    const localeRoot = locale === 'it'
-      ? path.join(distDir, indexSlug)
-      : path.join(distDir, locale, indexSlug);
-    if (!fs.existsSync(localeRoot)) continue;
+  for (const slugMap of [blogIndexSlugs, SVIZZERA_BLOG_INDEX_SLUG]) {
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const indexSlug = slugMap[locale];
+      if (!indexSlug) continue;
+      const localeRoot = locale === 'it'
+        ? path.join(distDir, indexSlug)
+        : path.join(distDir, locale, indexSlug);
+      if (!fs.existsSync(localeRoot)) continue;
 
-    let entries: fs.Dirent[] = [];
-    try {
-      entries = fs.readdirSync(localeRoot, { withFileTypes: true });
-    } catch { continue; }
+      let entries: fs.Dirent[] = [];
+      try {
+        entries = fs.readdirSync(localeRoot, { withFileTypes: true });
+      } catch { continue; }
 
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        const dirSlug = entry.name;
-        const indexHtml = path.join(localeRoot, dirSlug, 'index.html');
-        if (fs.existsSync(indexHtml)) {
-          out.push({ locale, absPath: indexHtml, articleSlug: dirSlug });
+      for (const entry of entries) {
+        if (entry.isDirectory()) {
+          const dirSlug = entry.name;
+          const indexHtml = path.join(localeRoot, dirSlug, 'index.html');
+          if (fs.existsSync(indexHtml)) {
+            out.push({ locale, absPath: indexHtml, articleSlug: dirSlug });
+          }
+        } else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html') {
+          const articleSlug = entry.name.slice(0, -5);
+          out.push({ locale, absPath: path.join(localeRoot, entry.name), articleSlug });
         }
-      } else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html') {
-        const articleSlug = entry.name.slice(0, -5);
-        out.push({ locale, absPath: path.join(localeRoot, entry.name), articleSlug });
       }
     }
   }
