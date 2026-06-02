@@ -2,6 +2,7 @@
 import {
   isRateLimitedError,
   sendEmailCascade,
+  fetchMailtrapDailyUsage,
   PROVIDERS,
 } from '../scripts/lib/email-cascade.mjs';
 
@@ -32,6 +33,47 @@ describe('isRateLimitedError', () => {
     expect(isRateLimitedError('Mailgun 500: internal error')).toBe(false);
     expect(isRateLimitedError('')).toBe(false);
     expect(isRateLimitedError(undefined)).toBe(false);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  fetchMailtrapDailyUsage — delivery_count lag must not under-count  */
+/* ------------------------------------------------------------------ */
+
+describe('fetchMailtrapDailyUsage', () => {
+  const realFetch = globalThis.fetch;
+
+  function mockStats(stats: Record<string, unknown>) {
+    globalThis.fetch = (async (url: string) => {
+      if (String(url).includes('/api/accounts/')) {
+        return { ok: true, status: 200, json: async () => stats } as any;
+      }
+      // GET /api/accounts → account list
+      return { ok: true, status: 200, json: async () => [{ id: 1 }] } as any;
+    }) as any;
+  }
+
+  beforeEach(() => { process.env.MAILTRAP_API_TOKEN = 'test-token'; });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.MAILTRAP_API_TOKEN;
+  });
+
+  it('uses sent_count when delivery_count lags behind real sends', async () => {
+    // The bug: delivery confirmations arrive async, so delivery_count=1 while 31
+    // were actually sent. Gating on delivery_count alone would report 1 → over-send.
+    mockStats({ sent_count: 31, delivery_count: 1, bounce_count: 0 });
+    expect(await fetchMailtrapDailyUsage()).toBe(31);
+  });
+
+  it('counts bounced sends when no sent_count is present (no regression)', async () => {
+    mockStats({ delivery_count: 10, bounce_count: 2 });
+    expect(await fetchMailtrapDailyUsage()).toBe(12);
+  });
+
+  it('returns 0 when no token is configured', async () => {
+    delete process.env.MAILTRAP_API_TOKEN;
+    expect(await fetchMailtrapDailyUsage()).toBe(0);
   });
 });
 
