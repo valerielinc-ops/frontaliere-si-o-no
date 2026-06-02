@@ -689,8 +689,18 @@
         "analista-biomedicale-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "biomedical-analyst-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "biomedizinische-analytikerin-m-w-80-100-kispi-zurich-zurich",
-        "analyste-biomedical-m-m-80-100-universitats-kinderspital-zurich-kispi-zurich"
-      ]
+        "analyste-biomedical-m-m-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "biomed-analyst-m-w-90-universitats-kinderspital-zurich-kispi-zurich",
+        "biomed-analyste-m-m-90-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "biomed-analyst-m-w-90-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
+          "biomed-analyste-m-m-90-universitats-kinderspital-zurich-kispi-zurich"
+        ]
+      }
     },
     {
       "id": "kispi-zurich-f89211749d17",
@@ -747,11 +757,13 @@
           "disponentin-m-w-80-100-kispi-zurich-zurich"
         ],
         "fr": [
-          "disponentin-m-w-80-100-kispi-zurich-zurich"
+          "disponentin-m-w-80-100-kispi-zurich-zurich",
+          "variante-m-p-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "disponentin-m-w-80-100-kispi-zurich-zurich"
+        "disponentin-m-w-80-100-kispi-zurich-zurich",
+        "variante-m-p-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
