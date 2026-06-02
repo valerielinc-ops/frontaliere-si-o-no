@@ -6,7 +6,8 @@
   "tolerance": {
     "relPct": 15,
     "absPp": 5,
-    "minAbsDelta": 20
+    "minAbsDelta": 20,
+    "maxDeltaPp": 8
   },
   "perSitemap": {
     "sitemap-annual-report.xml": {

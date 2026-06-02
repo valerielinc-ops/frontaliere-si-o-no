@@ -5,7 +5,8 @@
   "tolerance": {
     "relPct": 20,
     "absPp": 1,
-    "minAbsDelta": 5
+    "minAbsDelta": 5,
+    "maxDeltaPp": 3
   },
   "scanned": 29896,
   "totalOffenders": 60,

@@ -168,7 +168,10 @@ export function createAuditor(opts = {}) {
         rateByFeature[f] = (byFeature[f] ?? 0) / scannedByFeature[f] * 100;
       }
       const totalRatePct = samples.length ? (offenders.length / samples.length) * 100 : 0;
-      const DEFAULT_TOL = { relPct: 20, absPp: 1.0, minAbsDelta: 5 };
+      // maxDeltaPp caps the relative term so a high-base feature can't earn
+      // unbounded absolute slack (a 12%-rate feature would otherwise tolerate
+      // +2.4pp from relPct alone before the cap bites).
+      const DEFAULT_TOL = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 };
 
       if (writeBaselinePath) {
         const byFeatureRate = {};
@@ -222,14 +225,14 @@ export function createAuditor(opts = {}) {
             const base = baseByFeature[f];
             const baseRate = base ? Number(base.ratePct ?? 0) : 0;
             const baseOff = base ? Number(base.offenders ?? 0) : 0;
-            const rateCap = baseRate * (1 + tol.relPct / 100) + tol.absPp;
+            const rateCap = baseRate + Math.min(baseRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
             if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
               regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
             }
           }
           const baseTotalRate = Number(baseline.totalRatePct ?? 0);
           const baseTotalOff = Number(baseline.totalOffenders ?? 0);
-          const totalCap = baseTotalRate * (1 + tol.relPct / 100) + tol.absPp;
+          const totalCap = baseTotalRate + Math.min(baseTotalRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
           const totalRegression = totalRatePct > totalCap && offenders.length > baseTotalOff + tol.minAbsDelta;
           baselineDelta = { before: baseTotalOff, after: offenders.length, beforeRate: baseTotalRate, afterRate: Number(totalRatePct.toFixed(3)), regression: Math.max(0, offenders.length - baseTotalOff) };
           if (totalRegression || regressedFeatures.length > 0) passed = false;

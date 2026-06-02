@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
@@ -391,40 +392,16 @@ export function composeJobPageH1(jobTitle: string, company: string): string {
  return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
 }
 
-/**
- * Strip literal markdown bold/separator tokens that leak from AI-translated
- * crawler titles. The shared description parser only runs on body text — job
- * titles flow through `esc()` (HTML-escape only) into <h1>, related-jobs
- * sidebar, and aria-labels. When a crawler/translation leaves `**Title**`
- * intact, the literal asterisks render in <main>, blowing the 0-tolerance
- * `audit-no-literal-markdown` gate (PR #480 incident — 27 job-detail pages
- * with `**Diplomierte Pflegefachperson HF / FH (40-100%)**` leaked from
- * `titleByLocale`/`title`).
- *
- * Contract:
- *  - `**X**` → `X` (single pair). Repeats for chained bold runs.
- *  - `_X_`   → `X` (only when both delimiters touch the title's edges or
- *               whitespace, to avoid mangling identifiers like `HFR_M_42`).
- *  - `===…`, `___…`, `~~~…` separator runs (3+ chars) → stripped wholesale.
- *  - Single leading/trailing `*` chars (orphan asterisks from unbalanced
- *    bold runs that survived odd-count stripping in parseInline) → removed.
- *  - Collapses any double-spaces left over from stripping.
- *
- * Idempotent (running twice produces the same output).
- */
-export function stripLiteralMarkdownFromTitle(title: string): string {
- if (!title) return title;
- let t = String(title);
- // Bold pairs — non-greedy body, no newline (titles are single-line).
- t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
- // Separator runs (3+ of `_`, `=`, `~`) — drop.
- t = t.replace(/[_=~]{3,}/g, ' ');
- // Orphan leading/trailing single `*` and double `**` (unbalanced survivors).
- t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
- // Collapse any double-spaces created by the strips.
- t = t.replace(/[ \t]{2,}/g, ' ');
- return t.trim();
-}
+// Strip literal markdown bold/separator tokens that leak from AI-translated
+// crawler titles (job <h1>, related-jobs sidebar, aria-labels all flow through
+// `esc()` = HTML-escape only, so `**Title**` would render in <main> and blow
+// the 0-tolerance `audit-no-literal-markdown` gate — PR #480 incident).
+// Imported (top of file) from the single shared source and re-exported under
+// the historical name so every call site — including the related-job cross-link
+// block (L2692) that renders titles into scanned `<main>` — shares the hardened
+// implementation, which adds the orphan-`**` nuke (mid-string `**` survivors)
+// the old local copy lacked.
+export { stripLiteralMarkdownFromTitle };
 
 // ─── Human-readable disambiguator cascade ─────────────────────────────────
 //

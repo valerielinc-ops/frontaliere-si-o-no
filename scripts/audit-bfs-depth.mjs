@@ -420,7 +420,10 @@ async function main() {
     };
   }
 
-  const DEFAULT_BFS_TOL = { relPct: 15, absPp: 5, minAbsDelta: 20 };
+  // maxDeltaPp caps the relative term: a sitemap already ~75% below crawl depth
+  // would otherwise tolerate +11pp from relPct alone (a silent indexability
+  // regression). With the cap the worst-case slack is maxDeltaPp + absPp.
+  const DEFAULT_BFS_TOL = { relPct: 15, absPp: 5, minAbsDelta: 20, maxDeltaPp: 8 };
 
   if (WRITE_BASELINE_PATH && typeof WRITE_BASELINE_PATH === 'string') {
     const baseline = {
@@ -466,9 +469,18 @@ async function main() {
     const tol = { ...DEFAULT_BFS_TOL, ...(baseline.tolerance ?? {}) };
     /** @type {Array<{ name: string; prev: number; current: number; deepest: number; prevRate?: number; curRate?: number; rateCap?: number }>} */
     const regressions = [];
+    /** @type {Array<{ name: string; atDepthGtMax: number; ratePct: number }>} */
+    const unbaselined = [];
     for (const [name, row] of Object.entries(perSitemap)) {
       const prev = baseline.perSitemap?.[name];
-      if (!prev) continue;
+      if (!prev) {
+        // A brand-new sitemap shard has no baseline entry, so the ratchet can't
+        // judge it (same in v1). Surface ones that ship buried URLs as a
+        // NON-gating warning so an entirely-buried new content tier doesn't slip
+        // in silently — it gets registered (and floored) on the next rebaseline.
+        if (row.atDepthGtMax > 0) unbaselined.push({ name, atDepthGtMax: row.atDepthGtMax, ratePct: row.total ? Number((row.atDepthGtMax / row.total * 100).toFixed(2)) : 0 });
+        continue;
+      }
       const prevOff = Number(prev.atDepthGtMax ?? 0);
       if (isRate) {
         // Rate-ratchet: fail only when the share below crawl depth genuinely
@@ -476,13 +488,19 @@ async function main() {
         // Organic URL growth keeps the rate flat → no regression.
         const curRate = row.total ? (row.atDepthGtMax / row.total * 100) : 0;
         const prevRate = Number(prev.ratePct ?? (Number(prev.total ?? 0) ? prevOff / Number(prev.total) * 100 : 0));
-        const rateCap = prevRate * (1 + tol.relPct / 100) + tol.absPp;
+        const rateCap = prevRate + Math.min(prevRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
         if (curRate > rateCap && row.atDepthGtMax > prevOff + tol.minAbsDelta) {
           regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
         }
       } else if (row.atDepthGtMax > prevOff) {
         // Legacy v1 absolute-count ratchet (un-migrated baseline).
         regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest });
+      }
+    }
+    if (unbaselined.length > 0) {
+      process.stderr.write(`\n[audit-bfs-depth] WARNING (non-gating): ${unbaselined.length} sitemap shard(s) not in baseline ship URLs below crawl depth — rebaseline to register (and floor) them:\n`);
+      for (const u of unbaselined.sort((a, b) => b.ratePct - a.ratePct)) {
+        process.stderr.write(`  ${u.name}: ${u.atDepthGtMax} URLs > depth ${MAX_DEPTH} (${u.ratePct}%)\n`);
       }
     }
     if (regressions.length > 0) {
