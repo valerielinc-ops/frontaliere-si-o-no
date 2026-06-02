@@ -16,8 +16,17 @@ name: Stale PR rescuer (self-healing signal)
 # safe da girare live accanto agli agent locali attivi sui branch.
 
 on:
+  # Event-driven primary: fire right after every review completes — exactly when
+  # a stall (drift failure / 🔴 unpicked) would begin. Reliable on this high-load
+  # Actions account, where the scheduled cron is deprioritized/dropped (observed
+  # 2026-06-02: the `20 * * * *` slot missed 2 consecutive hours while 5 other
+  # crons fired). The in-script 2h age-gate still prevents poking fresh PRs;
+  # given the review volume, a stalled PR gets flagged within ~1 review cycle.
+  workflow_run:
+    workflows: ["PR Review (Claude single-pass)"]
+    types: [completed]
   schedule:
-    - cron: '20 * * * *'  # hourly @ :20 — cattura lo stallo entro ~1h
+    - cron: '20 * * * *'  # slow fallback @ :20 (best-effort on this account)
   workflow_dispatch:
     inputs:
       dry_run:
