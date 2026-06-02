@@ -25,7 +25,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import JobAlertSection from '@/components/community/JobAlertSection';
-import knownCompanySlugs from '@/data/known-company-slugs.json';
+import { buildPath } from '@/services/router';
 
 interface JobOrphanViewProps {
  slug: string;
@@ -33,6 +33,7 @@ interface JobOrphanViewProps {
  /** When true the user is already authenticated — hide the sign-in block. */
  hasAccess?: boolean;
  totalActiveJobs?: number;
+ onNavigateToCompany?: (companySlug: string) => void;
  onNavigateToLocation?: (locationSlug: string) => void;
  onNavigateToJob?: (jobSlug: string) => void;
 }
@@ -45,9 +46,6 @@ const SECTION_BY_LOCALE: Record<string, string> = {
 };
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
-// Slugs of companies with a static company-hub page (jobsSeoPagesPlugin writes
-// [...companyMap.keys()]). A rotated-out company is absent → no hub exists.
-const KNOWN_COMPANY_SLUGS = new Set(knownCompanySlugs as string[]);
 const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
 const LOCATION_ROUTE_PREFIX: Record<string, string> = { it: 'localita', en: 'location', de: 'standort', fr: 'localite' };
 function slugifyCompanyName(name: string): string {
@@ -164,7 +162,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
  return links;
 }
 
-export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -207,14 +205,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  [staticBodyHtml],
  );
 
- const companyBareSlug = slugParts.company ? slugifyCompanyName(slugParts.company) : '';
- const companyHubExists = companyBareSlug ? KNOWN_COMPANY_SLUGS.has(companyBareSlug) : false;
- const companySlug = companyBareSlug ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${companyBareSlug}` : null;
- // Link to the static company hub only when it exists. A rotated-out company has
- // no hub → full-nav would hit 404.html → location.replace('/') → blank page
- // under staticOverlay; fall back to the browsable board listing instead.
+ const companySlug = slugParts.company
+ ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`
+ : null;
  const companyHref = companySlug
- ? (companyHubExists ? `${prefix}/${sectionSlug}/${companySlug}/` : `${prefix}/${sectionSlug}/`).replace(/\/+/g, '/')
+ ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/')
  : null;
 
  const locationSlug = slugParts.location
@@ -266,15 +261,19 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  // ── Handlers ──
 
  const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
- if (!companySlug || !companyHref) return;
+ if (!companySlug) return;
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', slugParts.company!);
- // Full navigation to companyHref — the static company hub when it exists, else
- // the browsable board listing (see companyHref above). Never the SPA re-filter,
- // which clobbers the static list with an empty current-canton result.
- window.location.assign(companyHref.split('?')[0]);
+ if (onNavigateToCompany) {
+ onNavigateToCompany(companySlug);
+ } else {
+ const fallbackHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySlug }, locale);
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', fallbackHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {

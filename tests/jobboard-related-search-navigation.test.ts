@@ -37,15 +37,15 @@ describe('JobBoard company link navigation', () => {
     const helperBody = source.match(/const openCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
     const gateHelperBody = source.match(/const openGateCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
 
-    // The href must stay on the static-backed canton hub (HTTP 200, lists the
+    // The href stays on the static-backed canton hub (HTTP 200, lists the
     // company's jobs across all cantons), NOT the aggregator board
     // (/cerca-lavoro-svizzera/azienda-X/ is a 404 — no static page emitted).
     expect(buildPath({ activeTab: 'job-board', jobSlug: 'azienda-pwc-switzerland' }, 'it'))
       .toBe('/cerca-lavoro-ticino/azienda-pwc-switzerland/');
 
-    // Company links full-navigate to that static hub. An SPA re-filter scoped to
-    // the current canton shard would clobber the static list with an empty result
-    // (the cross-canton "0 results" bug, e.g. PwC: 109 static jobs vs 0 in TI).
+    // The viewed job is active, so its company always has a current-build hub.
+    // Full-navigate to it; an SPA re-filter scoped to the current canton shard
+    // would clobber the static list with an empty result (PwC: 109 vs 0 in TI).
     expect(helperBody).toContain("window.location.assign(companySearchHref.split('?')[0]);");
     expect(helperBody).not.toContain('onJobRouteChange(companySearchSlug)');
     expect(gateHelperBody).toContain("window.location.assign(gateCompanyHref.split('?')[0]);");
@@ -54,21 +54,15 @@ describe('JobBoard company link navigation', () => {
     expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });
 
-  it('full-navigates company links on expired and orphan job views', () => {
+  it('uses the same capture-phase company routing on expired and orphan job views', () => {
     const expiredSource = readFileSync(join(process.cwd(), 'components/community/JobExpiredView.tsx'), 'utf8');
     const orphanSource = readFileSync(join(process.cwd(), 'components/community/JobOrphanView.tsx'), 'utf8');
 
     for (const source of [expiredSource, orphanSource]) {
       const helperBody = source.match(/const handleCompanyClick = \(e: MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
       expect(helperBody).toContain('e.nativeEvent.stopImmediatePropagation?.()');
-      expect(helperBody).toContain('window.location.assign');
-      expect(helperBody).not.toContain('window.history.pushState');
+      expect(helperBody).toContain('window.history.pushState');
       expect(source.match(/onClickCapture=\{handleCompanyClick\}/g)).toHaveLength(2);
-      // The company hub may not exist for a rotated-out company (no active jobs)
-      // → full-nav must be gated on known-company-slugs.json, else fall back to
-      // the board listing. Without the gate, full-nav 404s → blank staticOverlay.
-      expect(source).toContain('KNOWN_COMPANY_SLUGS.has(companyBareSlug)');
-      expect(source).toContain('companyHubExists');
     }
   });
 });

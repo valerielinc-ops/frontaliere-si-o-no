@@ -5462,6 +5462,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
+ onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
@@ -5474,6 +5475,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onBack={backToList}
  hasAccess={hasAccess}
  totalActiveJobs={jobs.length}
+ onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
@@ -5950,7 +5952,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // company's jobs across ALL cantons. An SPA re-filter scopes to the current
  // canton shard and clobbers the static list with an empty result — the
  // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
- // (e.g. PwC: 109 static jobs vs 0 in the TI shard).
+ // (e.g. PwC: 109 static jobs vs 0 in the TI shard). The viewed job is active,
+ // so its company always has a current-build hub (companySearchHref uses the
+ // canonical slug that mirrors the emitter).
  window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {

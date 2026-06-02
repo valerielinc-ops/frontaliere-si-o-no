@@ -22,7 +22,6 @@ import { handleCompanyLogoError } from '@/services/logoService';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
-import knownCompanySlugs from '@/data/known-company-slugs.json';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -57,6 +56,8 @@ interface JobExpiredViewProps {
  hasAccess?: boolean;
  /** Total active jobs count for social proof in auth gate. */
  totalActiveJobs?: number;
+ /** SPA navigation: navigate to company filter page. */
+ onNavigateToCompany?: (companySlug: string) => void;
  /** SPA navigation: navigate to location filter page. */
  onNavigateToLocation?: (locationSlug: string) => void;
  /** SPA navigation: navigate to a job detail or listing (empty string = listing root). */
@@ -75,10 +76,6 @@ const SECTION_BY_LOCALE: Record<string, string> = {
 };
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
-// Slugs of companies for which the build emits a static company-hub page
-// (jobsSeoPagesPlugin writes [...companyMap.keys()] — every company with >=1
-// active job). A rotated-out company is absent → no hub exists.
-const KNOWN_COMPANY_SLUGS = new Set(knownCompanySlugs as string[]);
 const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
 const LOCATION_ROUTE_PREFIX: Record<string, string> = { it: 'localita', en: 'location', de: 'standort', fr: 'localite' };
 function slugifyCompanyName(name: string): string {
@@ -156,7 +153,7 @@ function buildLocalSearchSlug(term: string, locale: string): string {
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
@@ -194,15 +191,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  category: job.sector || null,
  };
 
- const companyBareSlug = job.company ? slugifyCompanyName(job.company) : '';
- const companyHubExists = companyBareSlug ? KNOWN_COMPANY_SLUGS.has(companyBareSlug) : false;
- const companySlug = companyBareSlug ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${companyBareSlug}` : '';
- // Link to the static company hub only when it exists. A rotated-out company has
- // no hub → full-nav would hit 404.html → location.replace('/') → blank page
- // under staticOverlay; fall back to the browsable board listing instead.
- const companyHref = companySlug
- ? (companyHubExists ? `${prefix}/${sectionSlug}/${companySlug}/` : `${prefix}/${sectionSlug}/`).replace(/\/+/g, '/')
- : '';
+ const companySlug = job.company ? `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(job.company)}` : '';
+ const companyHref = companySlug ? `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/') : '';
  const locationSlug = jobLocation ? `${LOCATION_ROUTE_PREFIX[locale] || 'localita'}-${slugifyLocationName(jobLocation)}` : '';
  const locationHref = locationSlug ? `${prefix}/${sectionSlug}/${locationSlug}/`.replace(/\/+/g, '/') : '';
 
@@ -286,15 +276,18 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  // ── SPA navigation helpers ──
 
  const handleCompanyClick = (e: MouseEvent<HTMLAnchorElement>) => {
- if (!companySlug || !companyHref) return;
+ if (!companySlug) return;
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
  Analytics.trackSelectContent('job_board_company_filter_open', job.company);
- // Full navigation to the static company hub (HTTP 200) which lists the
- // company's jobs across ALL cantons. An SPA re-filter scopes to the current
- // canton shard and clobbers the static list with an empty result.
- window.location.assign(companyHref.split('?')[0]);
+ if (onNavigateToCompany) {
+ onNavigateToCompany(companySlug);
+ } else if (companyHref) {
+ window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySlug } }, '', companyHref.split('?')[0]);
+ window.dispatchEvent(new PopStateEvent('popstate'));
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ }
  };
 
  const handleLocationClick = (e: { preventDefault(): void }) => {
