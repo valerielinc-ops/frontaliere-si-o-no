@@ -302,8 +302,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
-          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du",
-          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e"
+          "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d-assistante-medicale-hopital-du"
         ],
         "it": [
           "responsable-des-secretariats-de-consultations-d-oncologie-et-du-centre-du-sein-avec-cfc-d",
@@ -2486,11 +2485,11 @@
     },
     {
       "id": "hopital-du-valais-9a05c7bc2692",
-      "slug": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
+      "slug": "infermiere-laureata-nel-campo-delle-operazioni-iddo-ibode-o-tecnico-nella-sala-operatoria-tso-100-per-la-sala-operatoria",
       "slugByLocale": {
-        "it": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
-        "en": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
-        "de": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d",
+        "it": "infermiere-laureata-nel-campo-delle-operazioni-iddo-ibode-o-tecnico-nella-sala-operatoria-tso-100-per-la-sala-operatoria",
+        "en": "graduated-nurse-in-the-field-of-operations-iddo-ibode-or-technician-in-the-operating-room-tso-100-for-the-martigny",
+        "de": "graduierte-krankenschwester-im-operationsbereich-iddo-ibode-oder-techniker-im-operationssaal-tso-100-fur-den-martigny",
         "fr": "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
       },
       "company": "Hôpital du Valais",
@@ -2548,7 +2547,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
+        ],
+        "en": [
+          "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
+        ],
+        "de": [
+          "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-diplome-e-du-domaine-operatoire-iddo-ibode-ou-technicien-ne-en-salle-d"
+      ]
     },
     {
       "id": "hopital-du-valais-13ad2562e207",
@@ -2556,7 +2569,7 @@
       "slugByLocale": {
         "it": "it-support-a-50-hopital-du-valais-sion",
         "en": "it-support-a-50-hopital-du-valais-sion",
-        "de": "it-support-a-50-hopital-du-valais-sion",
+        "de": "it-unterstutzung-bei-50-hopital-du-valais-sion",
         "fr": "it-support-a-50-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -2618,9 +2631,9 @@
     },
     {
       "id": "hopital-du-valais-269eac877d08",
-      "slug": "network-engineer-administrator-80-90-hopital-du-valais-sion",
+      "slug": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "network-engineer-administrator-80-90-hopital-du-valais-sion",
+        "it": "ingegnere-di-rete-amministratore-80-90-hopital-du-valais-sion",
         "en": "network-engineer-administrator-80-90-hopital-du-valais-sion",
         "de": "network-engineer-administrator-80-90-hopital-du-valais-sion",
         "fr": "network-engineer-administrator-80-90-hopital-du-valais-sion"
@@ -2680,15 +2693,23 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-administrator-80-90-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "network-engineer-administrator-80-90-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-99aee9f73762",
-      "slug": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
+      "slug": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
       "slugByLocale": {
-        "it": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
-        "en": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
-        "de": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d",
+        "it": "assistenti-tecnici-specializzati-in-sala-operatoria-atsso-o-sale-operatorie-aiuti-80-100-per-la-sala-operatoria-hopital",
+        "en": "technical-assistants-specialized-in-operating-room-atsso-or-operating-room-aids-80-100-for-the-operating-room-hopital-du",
+        "de": "technische-assistenten-spezialisiert-auf-operationssaal-atsso-oder-operationssaal-hilft-80-100-fur-den-operationssaal",
         "fr": "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
       },
       "company": "Hôpital du Valais",
@@ -2746,7 +2767,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ],
+        "en": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ],
+        "de": [
+          "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+        ]
+      },
+      "previousSlugs": [
+        "assistants-es-techniques-specialises-es-en-salle-d-operation-atsso-ou-aides-de-salle-d"
+      ]
     }
   ]
 }

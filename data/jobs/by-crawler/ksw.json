@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ksw-0c5dd46f8d48",
-      "slug": "praktikantin-praktikant-klinikschule-ksw-ch",
+      "slug": "interno-scuola-clinica-interna-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "it": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "en": "praktikantin-praktikant-klinikschule-ksw-ch",
-        "fr": "praktikantin-praktikant-klinikschule-ksw-ch"
+        "it": "interno-scuola-clinica-interna-kantonsspital-winterthur-ksw-winterthur",
+        "en": "intern-intern-clinical-school-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "ecole-clinique-interne-interne-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -65,14 +65,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T00:20:37.295Z"
+      "firstSeenAt": "2026-06-02T00:20:37.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-klinikschule-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-klinikschule-ksw-ch"
+      ]
     },
     {
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -118,8 +132,6 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
         "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -127,7 +139,7 @@
           "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
@@ -913,7 +925,6 @@
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
         "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur",
-        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
         "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -923,7 +934,6 @@
           "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
           "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -2672,9 +2682,9 @@
       "slug": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "disponentin-disponent-kantonsspital-winterthur-ksw-winterthur",
-        "en": "disponentin-disponent-ksw-ch",
+        "en": "dispatcher-kantonsspital-winterthur-ksw-winterthur",
         "de": "disponentin-disponent-ksw-ch",
-        "fr": "disponentin-disponent-ksw-ch"
+        "fr": "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2717,20 +2727,16 @@
       "requirementsByLocale": {},
       "department": "Institut für Therapien und Rehabilitation",
       "previousSlugs": [
-        "disponentin-disponent-ksw-ch",
-        "dispatcher-kantonsspital-winterthur-ksw-winterthur",
-        "depontine-depont-kantonsspital-winterthur-ksw-winterthur"
+        "disponentin-disponent-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-disponent-ksw-ch"
         ],
         "en": [
-          "dispatcher-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ],
         "fr": [
-          "depontine-depont-kantonsspital-winterthur-ksw-winterthur",
           "disponentin-disponent-ksw-ch"
         ]
       },
@@ -3954,8 +3960,8 @@
       "slugByLocale": {
         "de": "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch",
         "it": "augenoptikerin-augenoptiker-o-mpa-ophthalmologie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch",
-        "fr": "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch"
+        "en": "eye-optics-eye-optics-or-mpa-ophthalmology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "optique-oculaire-optique-oculaire-ou-ophtalmologie-mpa-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4001,6 +4007,12 @@
       "department": "Augenklinik",
       "previousSlugsByLocale": {
         "it": [
+          "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch"
+        ],
+        "en": [
+          "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch"
+        ],
+        "fr": [
           "augenoptikerin-augenoptiker-oder-mpa-ophthalmologie-ksw-ch"
         ]
       },
@@ -4084,7 +4096,6 @@
         }
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
         "arztsekretarin-arztsekretar-ksw-ch-3"
       ],
       "previousSlugsByLocale": {

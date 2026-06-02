@@ -526,8 +526,6 @@
         "administrative-assistant-epfl-lausanne",
         "administrative-assistant-epfl-lausanne-2",
         "administrative-assistent-epfl-lausanne",
-        "assistente-amministrativo-epfl-lausanne-b9f8ec",
-        "verwaltungsassistent-epfl-lausanne",
         "assistente-amministrativo-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -2085,12 +2083,12 @@
     },
     {
       "id": "epfl-ad8241ec0d43",
-      "slug": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
+      "slug": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-aab331",
       "slugByLocale": {
         "fr": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-        "it": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
+        "it": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-aab331",
         "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2",
-        "de": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
+        "de": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2136,11 +2134,16 @@
       "externalId": "1164220655",
       "previousSlugsByLocale": {
         "it": [
-          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
+        ],
+        "de": [
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
         ]
       },
       "previousSlugs": [
-        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

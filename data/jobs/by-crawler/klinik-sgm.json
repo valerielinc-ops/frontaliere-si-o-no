@@ -718,12 +718,12 @@
     },
     {
       "id": "klinik-sgm-b958a3a0346c",
-      "slug": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm",
+      "slug": "chief-financial-officer-leiter-betriebs-w-m-membro-della-direzione-clinica-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
-        "it": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm",
-        "en": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm",
+        "it": "chief-financial-officer-leiter-betriebs-w-m-membro-della-direzione-clinica-klinik-sgm-langenthal-langenthal",
+        "en": "chief-financial-officer-leiter-betriebs-w-m-member-of-the-clinical-management-klinik-sgm-langenthal-langenthal",
         "de": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm",
-        "fr": "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm"
+        "fr": "directeur-financier-leiter-betriebs-w-m-membre-de-la-direction-clinique-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -776,7 +776,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm"
+        ],
+        "en": [
+          "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm"
+        ],
+        "fr": [
+          "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm"
+        ]
+      },
+      "previousSlugs": [
+        "chief-financial-officer-leitung-betriebe-w-m-mitglied-der-klinikleitung-klinik-sgm"
+      ]
     }
   ]
 }
