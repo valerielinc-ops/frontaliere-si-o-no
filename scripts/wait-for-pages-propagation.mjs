@@ -32,10 +32,20 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, '..');
 const DEFAULT_LOCAL_PATH = path.join(REPO_ROOT, 'dist', 'build-id.txt');
 const DEFAULT_LIVE_URL = 'https://frontaliereticino.ch/build-id.txt';
-// 25 min: for the ~13 GB / ~470k-file site GitHub Pages finishes publishing
-// SERVER-SIDE well past actions/deploy-pages' 10-min action cap (~30 min end to
-// end, measured 2026-05-30). The old 4-min ceiling timed out before our build
-// reached the edge → validate-live failed → publish (IndexNow/indexing) skipped.
+// Two distinct propagation timescales — do not conflate them:
+//   • Healthy deploy: actions/deploy-pages returns success only AFTER server-side
+//     syncing_files→updating_pages, and this probe is cache-busted (see Strategy
+//     above), so build-id detection is bounded by the ~1-2 min Fastly edge lag,
+//     not by it — measured p100 = 1s across late-May→Jun healthy runs. The sole
+//     CI caller (post-deploy-validate-live.yml) therefore passes --timeout-ms
+//     =240000 (above the edge lag, well under the old 25 min).
+//   • Double-action-timeout deploy: the ~13 GB / ~470k-file publish can land
+//     server-side ~30 min end-to-end (measured 2026-05-30), far past any sane
+//     wait — that branch almost always times out regardless, so we no longer
+//     wait it out (the next deploy re-publishes + re-validates).
+// This default is the conservative ad-hoc fallback; the operative value is the
+// caller's --timeout-ms. (Was 25 min; the older 4-min ceiling predated the
+// cache-bust analysis.)
 const DEFAULT_TIMEOUT_MS = 25 * 60 * 1000;
 const PER_REQUEST_TIMEOUT_MS = 8_000;
 const UA = 'FrontaliereTicino-PropagationCheck/1.0';
