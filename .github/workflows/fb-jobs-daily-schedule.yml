@@ -27,6 +27,7 @@ on:
 
 permissions:
   contents: write  # to commit fb-posted-jobs.json
+  issues: write
 
 jobs:
   schedule:
@@ -76,3 +77,19 @@ jobs:
           # FB Page's actual scheduled queue.
           bash scripts/lib/git-push-with-retry.sh \
             --in-place-resolver-cmd "node scripts/lib/resolve-fb-posted-jobs-conflict.mjs && git add -A"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

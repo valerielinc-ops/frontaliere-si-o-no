@@ -169,7 +169,25 @@ jobs:
         run: rm -f /tmp/firebase-sa.json
 
       - name: Fail if drift detected
+        id: failgate
         if: ${{ steps.status.outputs.drift == 'true' }}
         run: |
           echo "::error::Brand drift detected — see opened issue and uploaded artifact."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il monitor è fallito prima/fuori dallo step di detection — nessuna issue di condizione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
