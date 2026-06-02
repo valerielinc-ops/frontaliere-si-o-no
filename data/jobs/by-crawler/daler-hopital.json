@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "daler-hopital-c52658e2cdc8",
-      "slug": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
+      "slug": "aiuto-della-sala-operatoria-atsso-hopital-daler-fribourg",
       "slugByLocale": {
-        "it": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
-        "en": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
-        "de": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg",
+        "it": "aiuto-della-sala-operatoria-atsso-hopital-daler-fribourg",
+        "en": "operating-room-help-atsso-hopital-daler-fribourg",
+        "de": "betriebsraum-hilfe-atsso-hopital-daler-fribourg",
         "fr": "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
       },
       "company": "Hôpital Daler",
@@ -63,7 +63,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
+        ],
+        "en": [
+          "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
+        ],
+        "de": [
+          "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-salle-d-operation-atsso-daler-hopital-fribourg"
+      ]
     }
   ]
 }
