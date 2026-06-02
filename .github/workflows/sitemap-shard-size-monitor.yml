@@ -148,7 +148,11 @@ jobs:
           exit 1
 
       - name: Report unexpected failure to GitHub Issues
-        if: failure() && steps.failgate.conclusion != 'failure'
+        # Fire on a muted failure: either the job failed BEFORE/OUTSIDE the
+        # detection fail-gate (failgate skipped), OR the check exited non-zero
+        # but emitted no report → severity=none → "Open issue" skipped yet
+        # failgate still fired. Both leave ZERO condition issue → report it.
+        if: failure() && (steps.failgate.conclusion != 'failure' || steps.severity.outputs.severity == 'none')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
