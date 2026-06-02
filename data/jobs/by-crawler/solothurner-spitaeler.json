@@ -334,7 +334,7 @@
         "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -386,7 +386,9 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
+        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
+        "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
         "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -395,7 +397,7 @@
         ],
         "fr": [
           "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-          "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.395Z",
@@ -8363,6 +8365,9 @@
         "technicien-en-radiologie-h-f-d-60-100-solothurner-spitaler-soh-solothurn",
         "radiology-specialist-w-m-d-solothurner-spitaler-soh-solothurn",
         "specialiste-de-radiologie-w-m-d-solothurner-spitaler-soh-solothurn",
+        "radiologiefachfrau-radiologiefachmann-w-m-d-60-100-soh-ch",
+        "radiology-specialist-60-100-solothurner-spitaler-ag-soh-solothurn",
+        "specialiste-en-radiologie-60-100-solothurner-spitaler-ag-soh-solothurn",
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-w-m-d-soh-ch"
       ],
       "previousSlugsByLocale": {
@@ -9481,7 +9486,7 @@
         "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -9553,7 +9558,9 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
+        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -9563,7 +9570,7 @@
         ],
         "fr": [
           "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.394Z",
@@ -9679,7 +9686,7 @@
         "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -9751,7 +9758,9 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
+        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
+        "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
         "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -9761,7 +9770,7 @@
         ],
         "fr": [
           "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.394Z",
@@ -11290,12 +11299,12 @@
     },
     {
       "id": "solothurner-spitaeler-c832c798bcc0",
-      "slug": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
+      "slug": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
-        "it": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
-        "en": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2",
-        "fr": "projektleiter-m-d-solothurner-spitaler-soh-solothurn-9318a2"
+        "it": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
+        "en": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh",
+        "fr": "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -11352,21 +11361,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:42:18.203Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
-        ],
-        "en": [
-          "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
-        ],
-        "fr": [
-          "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-telefondienst-patientenservices-kostensicherung-w-m-d-soh"
-      ]
+      "firstSeenAt": "2026-06-02T14:42:18.203Z"
     },
     {
       "id": "solothurner-spitaeler-0eb1abbd40da",
@@ -11446,6 +11441,7 @@
         "projektmanagement-m-d-solothurner-spitaler-soh-solothurn",
         "gestion-du-projet-m-d-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-solothurner-spitaler-soh-solothurn",
+        "projektleiter-m-d-solothurner-spitaler-soh-solothurn",
         "rettungssanitaterin-rettungssanitater-w-m-d-soh-ch",
         "soccorritore-a-uomo-donna-solothurner-spitaler-soh-solothurn",
         "emergency-medical-technician-male-female-solothurner-spitaler-soh-solothurn",
@@ -11523,6 +11519,7 @@
         "collaboratore-volontario-m-f-d-solothurner-spitaler-soh-solothurn",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn",
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn",
+        "consulente-senior-m-d-solothurner-spitaler-soh-solothurn",
         "freiwillige-mitarbeiterin-freiwilliger-collaboratore-trice-m-w-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
@@ -12055,6 +12052,7 @@
         "fachfrau-fachmann-gesundheit-chirurgische-sprechstunde-w-m-d-soh-ch",
         "consultant-principal-m-j-solothurner-spitaler-soh-olten-7e45cf",
         "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "nachdiplomstudium-hf-intensivpflege-w-m-d-solothurner-spitaler-ag-soh-olten",
         "consulente-senior-m-d-solothurner-spitaler-soh-olten",
         "conseiller-principal-m-d-solothurner-spitaler-soh-olten"
       ],
@@ -12500,6 +12498,8 @@
         "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-1cedfd",
         "general-practitioner-male-female-solothurner-spitaler-soh-solothurn",
         "medecin-generaliste-homme-femme-solothurner-spitaler-soh-solothurn",
+        "consulente-senior-w-m-d-solothurner-spitaler-soh-solothurn",
+        "senior-consultant-w-m-d-solothurner-spitaler-soh-solothurn",
         "hausarztin-hausarzt-w-m-d-soh-ch"
       ],
       "firstSeenAt": "2026-05-21T13:19:26.031Z",
