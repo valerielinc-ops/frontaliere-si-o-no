@@ -64,23 +64,39 @@ jobs:
           echo "Running: node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS"
           node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS
 
-      # Load GITHUB_PAT (Firebase Remote Config) into $GITHUB_ENV. The GSC SA
-      # materialized above doubles as the Firebase SA, so RC is reachable here
-      # (must run BEFORE "Cleanup SA" deletes /tmp/sa.json). Needed because a
-      # `gh pr create` authenticated by secrets.GITHUB_TOKEN is rejected by
-      # GitHub anti-recursion ("GitHub Actions is not permitted to create pull
-      # requests") → the old PR step failed red on every data diff and the
-      # grace-window/GSC refresh never landed (issue #1114). The PAT creates the
-      # PR as a real user, which is permitted.
+      # Load GITHUB_PAT (Firebase Remote Config) into $GITHUB_ENV. RC reachability
+      # requires the *Firebase* SA (secrets.FIREBASE_SERVICE_ACCOUNT_JSON), the
+      # same credential every other RC-loading workflow uses (sync-gsc-orphans,
+      # traffic-scheduler, deploy, …). The GSC SA above (GSC_SERVICE_ACCOUNT_JSON)
+      # is a distinct, GSC-only service account and is NOT guaranteed to have the
+      # Firebase Remote Config viewer role — using it here left load-rc-env unable
+      # to read GITHUB_PAT, so the #1114 fix never actually worked (issue #1141).
+      # Needed because a `gh pr create` authenticated by secrets.GITHUB_TOKEN is
+      # rejected by GitHub anti-recursion ("GitHub Actions is not permitted to
+      # create pull requests") → the old PR step failed red on every data diff and
+      # the grace-window/GSC refresh never landed (issue #1114). The PAT creates
+      # the PR as a real user, which is permitted.
+      - name: Materialize Firebase SA (Remote Config)
+        if: inputs.dry_run == 'false'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_JSON not set — cannot load GITHUB_PAT from Remote Config; the PR step would fail (issue #1114/#1141)."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+
       - name: Load RC secrets (GITHUB_PAT)
         if: inputs.dry_run == 'false'
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
         run: node scripts/load-rc-env.mjs
 
       - name: Cleanup SA
         if: always()
-        run: rm -f /tmp/sa.json
+        run: rm -f /tmp/sa.json /tmp/firebase-sa.json
 
       - name: Open PR if data changed
         if: inputs.dry_run == 'false'
