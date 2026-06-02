@@ -64,6 +64,20 @@ jobs:
           echo "Running: node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS"
           node scripts/refine-url-first-seen-via-gsc.mjs $FLAGS
 
+      # Load GITHUB_PAT (Firebase Remote Config) into $GITHUB_ENV. The GSC SA
+      # materialized above doubles as the Firebase SA, so RC is reachable here
+      # (must run BEFORE "Cleanup SA" deletes /tmp/sa.json). Needed because a
+      # `gh pr create` authenticated by secrets.GITHUB_TOKEN is rejected by
+      # GitHub anti-recursion ("GitHub Actions is not permitted to create pull
+      # requests") → the old PR step failed red on every data diff and the
+      # grace-window/GSC refresh never landed (issue #1114). The PAT creates the
+      # PR as a real user, which is permitted.
+      - name: Load RC secrets (GITHUB_PAT)
+        if: inputs.dry_run == 'false'
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/sa.json
+        run: node scripts/load-rc-env.mjs
+
       - name: Cleanup SA
         if: always()
         run: rm -f /tmp/sa.json
@@ -71,11 +85,19 @@ jobs:
       - name: Open PR if data changed
         if: inputs.dry_run == 'false'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_PAT is loaded into $GITHUB_ENV by the RC step above (Firebase
+          # RC, NOT an Actions secret — `secrets.GH_PAT` does not exist). Used
+          # for BOTH the branch push and `gh pr create`: a PR created with
+          # secrets.GITHUB_TOKEN is blocked by anti-recursion (issue #1114).
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
         run: |
           if git diff --quiet data/url-first-seen.json; then
             echo "No diff in data/url-first-seen.json — nothing to PR."
             exit 0
+          fi
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::GITHUB_PAT not loaded from Remote Config — cannot create PR (a secrets.GITHUB_TOKEN PR is blocked by anti-recursion). Check Firebase SA / RC availability."
+            exit 1
           fi
           BRANCH="chore/url-first-seen-refresh-${GITHUB_RUN_ID}"
           git config user.name "url-first-seen-bot"
@@ -83,7 +105,9 @@ jobs:
           git checkout -b "$BRANCH"
           git add data/url-first-seen.json
           git commit -m "chore(grace-window): GSC refinement (run ${GITHUB_RUN_ID})"
-          git push origin "$BRANCH"
+          # Push with the PAT in the URL: the credential persisted by
+          # actions/checkout is the GITHUB_TOKEN, which cannot open the PR below.
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
           gh pr create \
             --base main \
             --head "$BRANCH" \
