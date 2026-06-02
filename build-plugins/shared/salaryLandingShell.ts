@@ -269,6 +269,15 @@ function over20Table(locale: SalaryLocale): SalaryTable {
   };
 }
 
+// "Trasloco oltre 20 km" delta cell for the `cosa-cambia-se` what-if table.
+// Same scenario as the over-20km hub at RAL 80.000 (single A0) — reuse the
+// calculator-derived 80k delta so the two indexed pages can't contradict.
+function over20Move80kCell(locale: SalaryLocale): string {
+  const row = OVER20_ROWS.find((r) => r.ral === 80000);
+  const magnitude = Math.abs(row ? row.delta : 0).toLocaleString(OVER20_FMT[locale]);
+  return `-EUR ${magnitude}`;
+}
+
 const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingData>>> = {
   'nuovi-frontalieri-oltre-20-km': {
     it: {
@@ -495,7 +504,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         rows: [
           { cells: ['Single A0', 'Matrimonio → C0', '+CHF 2.800'] },
           { cells: ['Sposato C0', 'Nascita figlio → C1', '+CHF 1.500'] },
-          { cells: ['Entro 20 km', 'Trasloco oltre 20 km', '-EUR 3.000'], emphasized: true },
+          { cells: ['Entro 20 km', 'Trasloco oltre 20 km', over20Move80kCell('it')], emphasized: true },
           { cells: ['100% lavoro', 'Passaggio 80%', '-CHF 14.000 lordi · -CHF 9.500 netti'] },
         ],
         footnote: 'Stime in tabella Ticino 2026; il simulatore calcola il tuo caso esatto.',
@@ -524,7 +533,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         rows: [
           { cells: ['Single A0', 'Marriage → C0', '+CHF 2,800'] },
           { cells: ['Married C0', 'Child → C1', '+CHF 1,500'] },
-          { cells: ['Within 20 km', 'Move over 20 km', '-EUR 3,000'], emphasized: true },
+          { cells: ['Within 20 km', 'Move over 20 km', over20Move80kCell('en')], emphasized: true },
           { cells: ['100% workload', 'Drop to 80%', '-CHF 14,000 gross · -CHF 9,500 net'] },
         ],
         footnote: 'Estimates on Ticino 2026 tables; the simulator computes your exact case.',
@@ -553,7 +562,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         rows: [
           { cells: ['Ledig A0', 'Heirat → C0', '+CHF 2.800'] },
           { cells: ['Verheiratet C0', 'Kind → C1', '+CHF 1.500'] },
-          { cells: ['Bis 20 km', 'Umzug über 20 km', '-EUR 3.000'], emphasized: true },
+          { cells: ['Bis 20 km', 'Umzug über 20 km', over20Move80kCell('de')], emphasized: true },
           { cells: ['100% Pensum', 'Reduktion 80%', '-CHF 14.000 brutto · -CHF 9.500 netto'] },
         ],
         footnote: 'Richtwerte auf Tessin-Tabellen 2026; der Simulator rechnet Ihren konkreten Fall.',
@@ -582,7 +591,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
         rows: [
           { cells: ['Célibataire A0', 'Mariage → C0', '+CHF 2 800'] },
           { cells: ['Marié C0', 'Naissance enfant → C1', '+CHF 1 500'] },
-          { cells: ['Moins 20 km', 'Déménagement plus 20 km', '-EUR 3 000'], emphasized: true },
+          { cells: ['Moins 20 km', 'Déménagement plus 20 km', over20Move80kCell('fr')], emphasized: true },
           { cells: ['100% travail', 'Passage 80%', '-CHF 14 000 brut · -CHF 9 500 net'] },
         ],
         footnote: 'Estimations sur barèmes Tessin 2026 ; le simulateur calcule votre cas exact.',
