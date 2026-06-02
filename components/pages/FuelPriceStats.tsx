@@ -3,7 +3,7 @@ import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Sea
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
-import { FUEL_ITALIAN_CITIES, buildFuelItalianCityPath } from '@/build-plugins/fuelDailyData';
+import { FUEL_ITALIAN_CITIES, buildFuelItalianStationPath, buildStationSlug, type FuelDailyLocale, type ItalianCityEntry } from '@/build-plugins/fuelDailyData';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -74,12 +74,86 @@ function swissStationHref(station: FuelStationSwitzerland): string | null {
  return `/prezzi-diesel/${zone}/stazioni/${slug}/`;
 }
 
-function italianCityHref(row: MunicipalityFuelRow): string | null {
+const FUEL_DAILY_LOCALES: readonly string[] = ['it', 'en', 'de', 'fr'];
+function asFuelLocale(locale: string): FuelDailyLocale {
+ return FUEL_DAILY_LOCALES.includes(locale) ? (locale as FuelDailyLocale) : 'it';
+}
+
+/** Curated Italian-city entry for a municipality row, or null if not covered. */
+function italianCityEntryForRow(row: MunicipalityFuelRow): ItalianCityEntry | null {
  const key = row.municipality?.trim().toLowerCase();
  if (!key) return null;
- const entry = FUEL_ITALIAN_CITIES.find((c) => c.matchKey === key);
- if (!entry) return null;
- return buildFuelItalianCityPath('it', 'diesel', entry.slug);
+ return FUEL_ITALIAN_CITIES.find((c) => c.matchKey === key) ?? null;
+}
+
+/**
+ * Map each Italian station id to the slug of its emitted per-station detail
+ * page. Mirrors `collectItalianStationContexts` in
+ * build-plugins/fuelDailyPagesPlugin.ts byte-for-byte (dedupe by id keeping
+ * the cheapest variant, then per-city slug disambiguation) so links resolve
+ * to real `/prezzi-benzina/italia/{city}/stazioni/{slug}/` pages — never 404.
+ * Benzina is used because that MIMIT cut covers every border station.
+ */
+function buildItalianStationSlugMap(row: MunicipalityFuelRow): Map<string, string> {
+ const byId = new Map<string, FuelStationItaly>();
+ for (const s of row.italy.stations) {
+ if (!s.id) continue;
+ if (typeof s.priceEur !== 'number' || !Number.isFinite(s.priceEur)) continue;
+ const existing = byId.get(s.id);
+ if (!existing || existing.priceEur > s.priceEur) byId.set(s.id, s);
+ }
+ const seen = new Set<string>();
+ const out = new Map<string, string>();
+ for (const s of byId.values()) {
+ if (!s.brand && !s.stationName) continue;
+ const baseSlug = buildStationSlug({ brand: s.brand, name: s.stationName, address: s.address });
+ if (!baseSlug) continue;
+ let slug = baseSlug;
+ let suffix = 2;
+ while (seen.has(slug)) slug = `${baseSlug}-${suffix++}`;
+ seen.add(slug);
+ out.set(s.id, slug);
+ }
+ return out;
+}
+
+/** Normalised brand slug matching the build-time `brandLogoSlug`. */
+function brandLogoSlug(brand: string): string {
+ return String(brand || '')
+ .normalize('NFD')
+ .replace(/[̀-ͯ]/g, '')
+ .toLowerCase()
+ .replace(/[^a-z0-9-]/g, '');
+}
+
+/**
+ * Brand logo for an Italian station: self-hosted SVG from
+ * `/images/brands/{slug}.svg`, falling back to an initials monogram chip when
+ * the brand has no logo on disk (onError) or no resolvable slug.
+ */
+function StationBrandLogo({ brand }: { brand: string }) {
+ const slug = brandLogoSlug(brand);
+ const [failed, setFailed] = useState(false);
+ if (!slug || failed) {
+ const initials = (brand || '?').trim().split(/\s+/).slice(0, 2).map((w) => w.charAt(0).toUpperCase()).join('') || '?';
+ return (
+ <span aria-hidden="true" className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border border-accent-border bg-accent-subtle text-sm font-extrabold text-accent">
+ {initials}
+ </span>
+ );
+ }
+ return (
+ <img
+ src={`/images/brands/${slug}.svg`}
+ alt={brand}
+ width={40}
+ height={40}
+ loading="lazy"
+ decoding="async"
+ onError={() => setFailed(true)}
+ className="h-10 w-10 flex-shrink-0 rounded-xl border border-edge bg-surface-alt object-contain p-1.5"
+ />
+ );
 }
 
 function municipalityKey(row: MunicipalityFuelRow) {
@@ -182,6 +256,12 @@ function DetailSection({
  locale: string;
  tt: (key: string, fallback: string) => string;
 }) {
+ const italyEntry = italianCityEntryForRow(row);
+ const fuelLocale = asFuelLocale(locale);
+ const italyStationSlugs = useMemo(
+ () => (italyEntry ? buildItalianStationSlugMap(row) : null),
+ [italyEntry, row],
+ );
  return (
  <div className="mt-4 space-y-4 rounded-[1.75rem] border border-edge bg-surface/90 p-4 sm:p-5">
  <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
@@ -231,12 +311,16 @@ function DetailSection({
  <div className="mt-3 space-y-3">
  {row.italy.stations.slice(0, 12).map((station) => {
  const key = `${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`;
- const href = italianCityHref(row);
+ const slug = italyEntry && italyStationSlugs ? italyStationSlugs.get(station.id) : undefined;
+ const href = italyEntry && slug ? buildFuelItalianStationPath(fuelLocale, 'benzina', italyEntry.slug, slug) : null;
  const content = (
  <div className="flex items-start justify-between gap-3">
- <div>
+ <div className="flex min-w-0 items-start gap-3">
+ <StationBrandLogo brand={station.brand} />
+ <div className="min-w-0">
  <div className="font-semibold text-heading">{station.stationName}</div>
  <div className="mt-1 text-xs text-muted">{station.address}</div>
+ </div>
  </div>
  <div className="text-right">
  <div className="font-bold text-heading">{formatMoney(station.priceEur, 'EUR', locale)}</div>
