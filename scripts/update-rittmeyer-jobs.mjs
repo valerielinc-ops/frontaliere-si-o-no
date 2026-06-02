@@ -31,7 +31,7 @@ import {
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
 } from './lib/rittmeyer-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -41,7 +41,6 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'rittmeyer-ag.json');
 
 const COMPANY_KEY = 'rittmeyer-ag';
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Rittmeyer AG';
 const COMPANY_HOST = 'karriere.rittmeyer.com';
 const COMPANY_DOMAIN = 'rittmeyer.com';
@@ -80,13 +79,30 @@ export const RITTMEYER_SITES = [
 
 /**
  * Resolve a Rittmeyer office address from the `Schweiz` value the parser
- * extracts from the detail page. Falls back to the HQ (Baar ZG) when the
- * value is empty or unknown — never to a wrong canton's defaults.
+ * extracts from the detail page. A known site (Camorino/Romanshorn/Baar)
+ * returns its verified street + postal. For any other Swiss site the
+ * nationwide crawl surfaces, infer the canton from the source location text
+ * and keep that text as the locality — never forge the Baar HQ
+ * street/postal/canton onto a posting that isn't in Baar (drop > forge for
+ * structured-data correctness). Street/postal stay empty so the downstream
+ * safe-default applies instead of an attributed-but-wrong address. Falls back
+ * to the HQ only when the location is empty or its canton can't be inferred.
  */
 export function resolveRittmeyerSiteAddress(rawLocation = '') {
   const text = String(rawLocation || '').toLowerCase();
   for (const site of RITTMEYER_SITES) {
     if (site.aliases.some((a) => text.includes(a))) return site;
+  }
+  const locality = String(rawLocation || '').trim();
+  const inferred = inferAnyCanton(locality);
+  if (locality && inferred) {
+    return {
+      key: 'inferred',
+      aliases: [],
+      location: locality, addressLocality: locality,
+      canton: inferred, addressRegion: inferred, addressCountry: 'CH',
+      postalCode: '', streetAddress: '',
+    };
   }
   return RITTMEYER_SITES[RITTMEYER_SITES.length - 1];
 }
@@ -288,7 +304,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || DEFAULT_CANTON,
+      canton: job.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

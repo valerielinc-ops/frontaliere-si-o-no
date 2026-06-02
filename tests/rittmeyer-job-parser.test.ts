@@ -98,10 +98,24 @@ describe('resolveRittmeyerSiteAddress', () => {
     expect(site.key).toBe('baar');
   });
 
-  it('falls back to Baar HQ for unknown city (never to TI default)', () => {
+  it('infers the canton for an off-registry Swiss site, never forging Baar HQ', () => {
+    // Nationwide crawl can surface a 4th Swiss site. Resolve its real canton
+    // from the source location text and keep street/postal empty (safe-default
+    // downstream) instead of forging the Baar ZG address onto it.
     const site = resolveRittmeyerSiteAddress('Bern');
+    expect(site.canton).toBe('BE');
+    expect(site.addressLocality).toBe('Bern');
+    expect(site.postalCode).toBe('');
+    expect(site.streetAddress).toBe('');
+    // Must NOT carry the Baar HQ postal/street/canton.
+    expect(site.canton).not.toBe('ZG');
+    expect(site.postalCode).not.toBe('6340');
+  });
+
+  it('falls back to Baar HQ only when the canton cannot be inferred', () => {
+    const site = resolveRittmeyerSiteAddress('Atlantis');
+    expect(site.key).toBe('baar');
     expect(site.canton).toBe('ZG');
-    expect(site.canton).not.toBe('TI');
   });
 
   it('registry exposes Camorino with verified Via Sottomontagna 9 address', () => {
