@@ -52,6 +52,9 @@ const FAT = `<html><body><p>${'word '.repeat(120)}</p></body></html>`;
 // them as the single feature "job-board".
 const FEATURE = 'job-board';
 const jobPath = (root: string, n: number) => join(root, 'cerca-lavoro-ticino', `p${n}`, 'index.html');
+// A second feature bucket (classifyFeature → "blog") for the mixed-feature
+// denominator test below.
+const blogPath = (root: string, n: number) => join(root, 'articoli-frontaliere', `a${n}`, 'index.html');
 
 describe('audit-text-html-ratio — rate-mode ratchet (#1085)', () => {
   let dir: string;
@@ -128,6 +131,24 @@ describe('audit-text-html-ratio — rate-mode ratchet (#1085)', () => {
     const r = await run(40, 4);
     expect(r.extra.rateByFeature[FEATURE]).toBeCloseTo(10, 5);
     expect(r.extra.regressedFeatures).toHaveLength(0);
+    expect(r.passed).toBe(true);
+  });
+
+  it('rate denominator is PER-FEATURE scanned, not global samples (#1143 item 1)', async () => {
+    // Adversarial concern from #1138 review: if `scanned` (the rate denominator)
+    // counted ALL collected pages instead of only same-feature pages, the
+    // asserted per-feature rates above would be wrong. Every other fixture here
+    // feeds a single feature, so they pass whether the denominator is per-feature
+    // OR global — they cannot discriminate the two. This mixed-feature dist does:
+    // 5 thin job-board pages / 100 job-board scanned = 5 % (per-feature), which is
+    // NOT 5 / (100 + 200) = 1.67 % (global). Pins production's per-feature
+    // `scannedByFeature[f]` divisor so a refactor to `samples.length` breaks here.
+    const auditor = createAuditor({ threshold: 10, baselinePath }) as unknown as Auditor;
+    for (let i = 0; i < 100; i++) auditor.collect(jobPath('/dist', i), i < 5 ? THIN : FAT);
+    for (let i = 0; i < 200; i++) auditor.collect(blogPath('/dist', i), FAT);
+    const r = await auditor.report();
+    expect(r.extra.rateByFeature[FEATURE]).toBeCloseTo(5, 5); // 5/100, not 5/300
+    expect(r.extra.rateByFeature.blog).toBeCloseTo(0, 5);
     expect(r.passed).toBe(true);
   });
 });
