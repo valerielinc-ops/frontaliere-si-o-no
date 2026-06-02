@@ -72,7 +72,17 @@ type WaitSnapshot = {
  }>;
 };
 
+// Build-time bundled snapshot — used as the initial value and as a fallback
+// when the live fetch fails. The live page refreshes this at runtime (see the
+// fetch effect in FrontierGuide) because data/border-wait-current.json is
+// paths-ignored by deploy.yml, so a freshly-committed snapshot would otherwise
+// stay invisible until the next unrelated deploy rebuilds the bundle.
 const CURRENT_BORDER_WAIT = borderWaitCurrent as WaitSnapshot;
+
+// Live snapshot source: raw main reflects the scheduler's commits immediately
+// (CORS '*', ~5min CDN cache), no deploy required.
+const LIVE_BORDER_WAIT_URL =
+  'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/main/data/border-wait-current.json';
 
 /** Derive the URL slug for a border crossing from its display name. */
 function slugifyCrossingName(name: string): string {
@@ -180,8 +190,8 @@ function nearestOpenCrossing(lat: number, lng: number): BorderCrossing {
  .sort((a, b) => a.distanceKm - b.distanceKm)[0].crossing;
 }
 
-function currentWaitLabel(slug: string): string {
- const current = CURRENT_BORDER_WAIT.perCrossing?.[slug];
+function currentWaitLabel(slug: string, snapshot: WaitSnapshot = CURRENT_BORDER_WAIT): string {
+ const current = snapshot.perCrossing?.[slug];
  const total = current?.totalCrossingMinutes ?? current?.waitTimeMinutes;
  return typeof total === 'number' ? `${Math.max(0, Math.round(total))} min` : 'n.d.';
 }
@@ -643,6 +653,22 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  const activeSection = internalSection;
 
+ // Live border-wait snapshot — fetched from raw main so the page reflects the
+ // scheduler's latest commit without waiting for a deploy (the JSON is bundled
+ // at build time and paths-ignored by deploy.yml). Falls back to the bundled
+ // snapshot on any error, so behaviour is unchanged when offline/blocked.
+ const [liveWait, setLiveWait] = useState<WaitSnapshot>(CURRENT_BORDER_WAIT);
+ useEffect(() => {
+ let cancelled = false;
+ fetch(LIVE_BORDER_WAIT_URL, { cache: 'no-store' })
+ .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
+ .then((data: WaitSnapshot) => {
+ if (!cancelled && data && data.perCrossing) setLiveWait(data);
+ })
+ .catch(() => { /* keep bundled fallback */ });
+ return () => { cancelled = true; };
+ }, []);
+
  // Guide welcome banner — shown once, auto-dismissed after 15s
  const BANNER_KEY = 'frontaliere_guide_banner_dismissed';
  const [showBanner, setShowBanner] = useState(() => {
@@ -724,8 +750,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  borderCrossingTraffic: nearest.trafficLevel,
  borderCrossingCustomsPresent: nearest.customsPresent,
  borderCrossingHasWebcam: (nearest.webcams?.length ?? 0) > 0,
- borderCrossingWaitNow: currentWaitLabel(slug),
- borderCrossingWaitSource: CURRENT_BORDER_WAIT.perCrossing?.[slug]?.source ?? 'storico dogane',
+ borderCrossingWaitNow: currentWaitLabel(slug, liveWait),
+ borderCrossingWaitSource: liveWait.perCrossing?.[slug]?.source ?? 'storico dogane',
  population: m.population,
  type: getAgreementType(m.distanceKm),
  lat: m.lat,
@@ -734,7 +760,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  fascia: m.fascia,
  avgRentMonthly: m.avgRentMonthly,
  };
- }), []);
+ }), [liveWait]);
 
  const filteredMunicipalities = useMemo(() => lombardyMunicipalities
  .filter(m => {
