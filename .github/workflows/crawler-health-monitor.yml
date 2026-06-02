@@ -185,7 +185,25 @@ jobs:
           done
 
       - name: Fail if any crawler stale
+        id: failgate
         if: steps.health.outcome == 'failure'
         run: |
           echo "One or more crawlers are stale/broken — see issues created above."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il monitor è fallito prima/fuori dallo step di detection — nessuna issue di condizione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

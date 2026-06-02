@@ -175,6 +175,7 @@ jobs:
             --repo "$GH_REPO"
 
       - name: Open issue + fail workflow on regression
+        id: failgate
         if: steps.gates.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -233,3 +234,20 @@ jobs:
 
           echo "Gates check reported regressed=${regressed} errors=${errors} — failing the workflow."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il gate è fallito prima/fuori dallo step di valutazione (es. build dist) — nessuna issue di regressione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
