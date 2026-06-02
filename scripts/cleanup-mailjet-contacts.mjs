@@ -64,9 +64,14 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  */
 async function fetchAllContacts(auth) {
   const all = [];
+  const seen = new Set();
   let offset = 0;
-  let total = Infinity;
-  while (offset < total) {
+  // Terminate on a short/empty page, NOT on the `Total` field. If Mailjet ever
+  // omits `Total`, a count-based loop would stop after the first full page and
+  // silently miss every contact beyond the first 1000 — the exact overflow this
+  // script exists to trim. A full page (length === PAGE_SIZE) means "there may
+  // be more"; a short page is the last one.
+  for (;;) {
     const url = `${API_BASE}/v3/REST/contact?Limit=${PAGE_SIZE}&Offset=${offset}`;
     const res = await fetchWithRetry(url, { headers: { Authorization: auth } });
     if (!res.ok) {
@@ -74,12 +79,22 @@ async function fetchAllContacts(auth) {
       throw new Error(`List contacts failed ${res.status}: ${body.slice(0, 200)}`);
     }
     const json = await res.json();
-    total = typeof json.Total === 'number' ? json.Total : (json.Data?.length ?? 0);
     const page = json.Data ?? [];
+    let added = 0;
     for (const c of page) {
+      if (seen.has(c.ID)) continue; // skip dupes from an ignored Offset
+      seen.add(c.ID);
       all.push({ ID: c.ID, Email: c.Email, CreatedAt: c.CreatedAt });
+      added++;
     }
-    if (page.length === 0) break;
+    if (page.length < PAGE_SIZE) break; // last page
+    if (added === 0) {
+      // A full page that added zero new IDs means Mailjet is ignoring Offset
+      // and re-serving page 1. Fail loudly instead of looping forever.
+      throw new Error(
+        `Pagination stalled at offset ${offset}: full page returned only already-seen IDs (Offset may be ignored).`,
+      );
+    }
     offset += page.length;
   }
   return all;
@@ -170,8 +185,19 @@ async function main() {
     if (delayMs > 0) await sleep(delayMs);
   }
 
-  const remaining = contacts.length - deleted;
-  console.log(`✅ Done: ${deleted} deleted, ${failed} failed. Estimated remaining: ~${remaining}.`);
+  // Re-fetch the live count instead of trusting local arithmetic
+  // (contacts.length - deleted). GDPR delete returns 200 but the quota
+  // decrement can lag ("purged within 30 days"): a local estimate would show
+  // ~500 and exit green while the account is still > 1000 and sending stays
+  // blocked — blind to the very failure this guard must catch.
+  let remaining;
+  try {
+    remaining = (await fetchAllContacts(auth)).length;
+  } catch (err) {
+    console.error(`❌ Post-delete re-count failed: ${err.message}`);
+    process.exit(1);
+  }
+  console.log(`✅ Done: ${deleted} deleted, ${failed} failed. Live remaining (re-fetched): ${remaining}.`);
 
   // Fail the workflow loudly: a green run that left the quota blocked (remaining
   // > 1000) or hit non-retryable DELETE errors is a silent failure on a gate
