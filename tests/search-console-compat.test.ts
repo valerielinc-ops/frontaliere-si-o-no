@@ -35,6 +35,10 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Full-coverage scan over the committed 404 export. This file is an unbounded
+  // GSC-orphan accumulator (300k+ paths, ~30MB) so the loop cost scales with data
+  // size; the default 15s vitest budget overflows under CI load (observed ~20s).
+  // Explicit generous timeout preserves full coverage without sampling/weakening.
   it('covers the committed live 404 export paths', () => {
     const compatPaths = JSON.parse(
       readFileSync(path.resolve(__dirname, '..', 'data', 'seo-404-compat-paths.json'), 'utf-8')
@@ -44,7 +48,7 @@ describe('Search Console 404 compatibility resolver', () => {
     for (const value of compatPaths.paths) {
       expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
     }
-  });
+  }, 60000);
 
   it('resolves non-job section 404s to their landing pages', () => {
     expect(resolveSearchConsoleCompatTarget('/vivere-in-ticino/vivere-in-svizzera')).toEqual({
