@@ -16,6 +16,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -211,7 +212,10 @@ function buildGuessJob(listing, detail) {
   const parsed = parseGuessJobDetailPayload(detail);
   const title = parsed.title || String(listing?.title || '').trim();
   const city = parsed.city || String(listing?.city || '').trim() || 'Bioggio';
-  const slug = slugify(`${title} ${COMPANY_NAME} ${city} Ticino Switzerland`);
+  // Slug-only guard: `city` can be the literal "undefined"/"null" string (truthy)
+  // → `-undefined` in an active slug (#952, class #900/#901). location/addressLocality
+  // keep raw `city` (choke-point normalizer owns de-index).
+  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Bioggio')} Ticino Switzerland`);
   const detailUrl = buildGuessDetailUrl(listing.shortcode);
   const applyUrl = buildGuessApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate || listing.published_on || listing.created_at);

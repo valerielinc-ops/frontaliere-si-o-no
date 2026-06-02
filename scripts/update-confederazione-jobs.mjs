@@ -31,6 +31,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -328,7 +329,10 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
   return {
     titleByLocale: { [sourceLang]: title },
     descriptionByLocale: { [sourceLang]: sourceDesc || title },
-    slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${city}`) },
+    // Slug-only guard: `job.city` can be the literal "undefined"/"null" string
+    // (truthy) → `-undefined` in an active slug (#952, class #900/#901). Fallback is
+    // `regionLabel` (Ticino/Grigioni), region-correct. addressLocality untouched.
+    slugByLocale: { [sourceLang]: slugify(`${title} confederazione ${safeLocationToken(city, regionLabel)}`) },
   };
 }
 

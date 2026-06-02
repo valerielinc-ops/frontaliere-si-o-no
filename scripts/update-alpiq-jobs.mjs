@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
@@ -70,7 +71,10 @@ async function main() {
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Swiss Alpiq jobs.`);
   const parsedJobs = rawJobs.map((raw) => {
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-alpiq-${raw.location || 'switzerland'}`);
+    // Slug-only guard: a literal "undefined"/"null" location string is truthy
+    // and would slip past `|| 'switzerland'` into an active slug (#952, class
+    // #900/#901). addressLocality stays as-is (choke-point normalizer handles it).
+    const jobSlug = slugify(`${raw.title}-alpiq-${safeLocationToken(raw.location, 'switzerland')}`);
     const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con centrali idroelettriche in Ticino. Candidati tramite il portale SuccessFactors.`;
     return {
       id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },

@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   snapshotJobSlugs,
@@ -218,7 +219,10 @@ async function fetchJobs() {
     });
 
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
-    const slug = slugify(`${listing.title}-bps-suisse-${location}`);
+    // Slug-only guard: `location` is reassigned from `detail.location`, which can
+    // be the literal "undefined"/"null" string (truthy) → `-undefined` in an active
+    // slug (#952, class #900/#901). addressLocality untouched (choke-point normalizer).
+    const slug = slugify(`${listing.title}-bps-suisse-${safeLocationToken(location, 'Lugano')}`);
 
     jobs.push({
       id: `bps-suisse-${urlHash}`,

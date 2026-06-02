@@ -21,6 +21,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -277,7 +278,10 @@ function buildJob(raw, detailDescription = '') {
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
   // Include vacancy ID to prevent slug collisions when two vacancies share
   // the same title + company + city (e.g., two "Office Employee" openings).
-  const slug = slugify(`${title}-${company}-${city}-${raw.id}`);
+  // Slug-only guard for the location token, consistent with the crawler sweep
+  // (#952, class #900/#901). `mapLocation` currently returns hardcoded cities, so
+  // this is defensive against a future parser regression leaking "undefined"/"null".
+  const slug = slugify(`${title}-${company}-${safeLocationToken(city, 'Pontresina')}-${raw.id}`);
   const detailUrl = `https://careers.kronenhof.com/en/vacancies/${raw.id}`;
   const postedDate = raw.contract_starts_at
     ? raw.contract_starts_at.slice(0, 10)

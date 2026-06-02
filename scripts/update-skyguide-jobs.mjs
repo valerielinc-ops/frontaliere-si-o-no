@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   printPublishedJobUrls,
@@ -269,7 +270,10 @@ function refreshLocalizedSlugs() {
     for (const locale of LOCALES) {
       const localizedTitle = String(next.titleByLocale?.[locale] || '').trim();
       if (!localizedTitle) continue;
-      const localizedLocation = String(next.addressLocality || next.location || 'Ticino').trim();
+      // Slug-only guard: `addressLocality`/`location` can be the literal
+      // "undefined"/"null" string (truthy → slips past `|| 'Ticino'`) → `-undefined`
+      // in an active slug (#952, class #900/#901). Stored addressLocality untouched.
+      const localizedLocation = safeLocationToken(next.addressLocality || next.location, 'Ticino');
       const slug = slugify(`${localizedTitle} ${COMPANY_NAME} ${localizedLocation}`);
       if (slug && next.slugByLocale[locale] !== slug) {
         next.slugByLocale[locale] = slug;

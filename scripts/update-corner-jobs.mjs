@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -231,17 +232,22 @@ function parseCornerOffer(offer) {
   const reqFr = frTrans.requirements ? parseBullets(frTrans.requirements) : [];
   const requirementsByLocale = { it: reqIt, en: reqEn, de: reqDe, fr: reqFr };
 
-  // Build locale slugs
+  // Build locale slugs.
+  // Slug-only guard: `city` (`loc.city || offer.city || 'Lugano'`) can be the
+  // literal "undefined"/"null" string (truthy) → `-undefined` in active slugs
+  // (#952, class #900/#901). location/addressLocality keep raw `city` (choke-point
+  // normalizer owns de-index); guard only the slug token.
+  const slugCity = safeLocationToken(city, 'Lugano');
   const slugByLocale = {
-    it: slugify(`${titleByLocale.it}-corner-banca-${city}`),
-    en: slugify(`${titleByLocale.en}-corner-banca-${city}`),
-    de: slugify(`${titleByLocale.de}-corner-banca-${city}`),
-    fr: slugify(`${titleByLocale.fr}-corner-banca-${city}`),
+    it: slugify(`${titleByLocale.it}-corner-banca-${slugCity}`),
+    en: slugify(`${titleByLocale.en}-corner-banca-${slugCity}`),
+    de: slugify(`${titleByLocale.de}-corner-banca-${slugCity}`),
+    fr: slugify(`${titleByLocale.fr}-corner-banca-${slugCity}`),
   };
 
   return {
     id,
-    slug: slugify(`${title}-corner-banca-${city}`),
+    slug: slugify(`${title}-corner-banca-${slugCity}`),
     slugByLocale,
     company: 'Cornèr Banca',
     companyKey: CORNER_KEY,
