@@ -14,6 +14,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Berna non vuole creare attriti con l\'Italia',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Il Consiglio federale svizzero conferma la sua posizione di non voler creare attriti con l\'Italia.',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'Il Palazzo del Governo a Bellinzona, sede del Consiglio di Stato del Cantone Ticino.',
+    'blog.article.iniziative-casse-malati-2026.title': 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    'blog.article.iniziative-casse-malati-2026.excerpt': 'Il Consiglio di Stato non può subordinare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo a specifiche fonti di finanziamento.',
+    'blog.article.iniziative-casse-malati-2026.imageAlt': 'Strada animata a Bellinzona con persone che camminano e usano dispositivi digitali, evidenziando gli aspetti finanziari e amministrativi delle iniziative per le casse malati in Ticino.',
 };
 
 export default blogMetaChIt;

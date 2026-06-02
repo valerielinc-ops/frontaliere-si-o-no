@@ -14,6 +14,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.title': 'Bern will keine Konflikte mit Italien',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.excerpt': 'Der Schweizerische Bundesrat bekräftigt seine Position, keine Konflikte mit Italien zu schaffen.',
     'blog.article.berna-non-vuole-creare-attriti-con-litalia.imageAlt': 'Das Regierungsgebäude in Bellinzona, Sitz des Kantonsrats des Kantons Tessin.',
+    'blog.article.iniziative-casse-malati-2026.title': 'Bundesrat kann nicht die Umsetzung der Krankenkassen-Initiativen 2026 blockieren',
+    'blog.article.iniziative-casse-malati-2026.excerpt': 'Der Bundesrat kann die Umsetzung der Volksabstimmungs-Initiativen über die Krankenkassen nicht an bestimmte Finanzierungsquellen knüpfen.',
+    'blog.article.iniziative-casse-malati-2026.imageAlt': 'Belebte Bellinzona-Straße mit Menschen, die spazieren gehen und digitale Geräte verwenden, die die finanziellen und administrativen Aspekte der Gesundheitsversicherungsinitiativen in Tessin hervorheben.',
 };
 
 export default blogMetaChDe;

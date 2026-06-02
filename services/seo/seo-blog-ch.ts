@@ -98,6 +98,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziative-casse-malati-2026': {
+    title: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    description: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, casse, malati, governo',
+    ogTitle: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    ogDescription: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
+    canonicalPath: '/articoli-svizzera/iniziative-casse-malati-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative casse malati 2026: il governo non può bloccare l'entrata in vigore",
+      "description": "Il Consiglio di Stato non può bloccare l'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l'impatto e le",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziative-casse-malati-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada animata a Bellinzona con persone che camminano e usano dispositivi digitali, evidenziando gli aspetti finanziari e amministrativi delle iniziative per le casse malati in Ticino."
+      },
+      "datePublished": "2026-06-02T21:12:32+00:00",
+      "dateModified": "2026-06-02T21:12:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziative-casse-malati-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

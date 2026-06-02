@@ -3901,6 +3901,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
     'blog-berna-non-vuole-creare-attriti-con-litalia': { name: 'Berna non vuole creare attriti con', path: '/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/', parent: 'blog' },
     'blog-referendum-neutrale-stime-2026': { name: 'Fiscale', path: '/articoli-frontaliere/referendum-neutrale-stime-2026', parent: 'blog' },
+    'blog-iniziative-casse-malati-2026': { name: 'Iniziative casse malati 2026', path: '/articoli-svizzera/iniziative-casse-malati-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
