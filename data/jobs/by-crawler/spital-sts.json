@@ -631,12 +631,12 @@
     },
     {
       "id": "spital-sts-5b24c86593ab",
-      "slug": "specialista-in-radiologia-spital-sts-thun",
+      "slug": "facharztin-facharzt-radiologie-spital-sts-thun",
       "slugByLocale": {
         "de": "facharztin-facharzt-radiologie-spital-sts-thun",
-        "it": "specialista-in-radiologia-spital-sts-thun",
-        "en": "specialist-in-radiology-spital-sts-thun",
-        "fr": "specialiste-en-radiologie-spital-sts-thun"
+        "it": "facharztin-facharzt-radiologie-spital-sts-thun",
+        "en": "facharztin-facharzt-radiologie-spital-sts-thun",
+        "fr": "facharztin-facharzt-radiologie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -693,28 +693,19 @@
       },
       "firstSeenAt": "2026-06-02T14:46:48.295Z",
       "previousSlugs": [
-        "facharztin-facharzt-radiologie-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-radiologie-spital-sts-thun"
-        ],
-        "en": [
-          "facharztin-facharzt-radiologie-spital-sts-thun"
-        ],
-        "fr": [
-          "facharztin-facharzt-radiologie-spital-sts-thun"
-        ]
-      }
+        "specialista-in-radiologia-spital-sts-thun",
+        "specialist-in-radiology-spital-sts-thun",
+        "specialiste-en-radiologie-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-c0765bb9deb1",
-      "slug": "assistente-medico-assistente-medico-radiologia-spital-sts-thun",
+      "slug": "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun",
-        "it": "assistente-medico-assistente-medico-radiologia-spital-sts-thun",
-        "en": "assistant-physician-assistant-physician-radiology-spital-sts-thun",
-        "fr": "medecin-adjoint-medecin-adjoint-radiologie-spital-sts-thun"
+        "it": "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun",
+        "en": "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun",
+        "fr": "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -769,21 +760,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T14:46:47.348Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun"
-        ],
-        "en": [
-          "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun"
-        ],
-        "fr": [
-          "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-radiologie-spital-sts-thun"
-      ]
+      "firstSeenAt": "2026-06-02T14:46:47.348Z"
     }
   ]
 }
