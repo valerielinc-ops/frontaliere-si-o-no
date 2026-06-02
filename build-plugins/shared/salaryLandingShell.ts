@@ -184,7 +184,7 @@ function over20NetEUR(ral: number, zone: 'WITHIN_20KM' | 'OVER_20KM'): number {
     distanceZone: zone,
     expensesIT: [],
   });
-  // itResident.netIncomeAnnual is in CHF; convert to EUR at the same daily rate.
+  // itResident.netIncomeAnnual is in CHF; convert to EUR at the same fixed rate.
   return r.itResident.netIncomeAnnual * r.exchangeRate;
 }
 
@@ -1122,9 +1122,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Fonte cantonale',
     irpefTile: 'Franchigia IT',
     tableLabel: 'Tabella A · B · C',
-    fxLabel: 'BNS giornaliero',
+    fxLabel: 'Tasso fisso 1,096',
     rateTile: 'Cambio CHF/EUR',
-    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al cambio del giorno.`,
+    adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al tasso fisso del calcolatore (CHF 1 = EUR 1,096).`,
     tableCaption: (g, p) => `Decomposizione: lordo CHF ${g.toLocaleString('it-CH')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Lordo + assegni familiari',
@@ -1136,7 +1136,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Quanto incide la fascia LPP?',
     faqA2: 'Tanto: il LPP varia dal 7% (25-34 anni) al 18% (55-65 anni) del salario coordinato. Un over-50 con lo stesso lordo prende ~CHF 4.000/anno netti in meno.',
     faqQ3: 'Il netto è in CHF o EUR?',
-    faqA3: 'Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al cambio BNS del giorno per pianificare le spese in Italia.',
+    faqA3: 'Il simulatore mostra entrambi: CHF per la busta paga, EUR convertito al tasso fisso del calcolatore (CHF 1 = EUR 1,096, aggiornato a ogni build) per pianificare le spese in Italia.',
     variantSuffix: {
       base: '',
       new: ' · Nuovo frontaliere 2026',
@@ -1153,9 +1153,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Cantonal source',
     irpefTile: 'IT allowance',
     tableLabel: 'Table A · B · C',
-    fxLabel: 'SNB daily',
+    fxLabel: 'Fixed 1.096',
     rateTile: 'CHF/EUR rate',
-    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the daily rate.`,
+    adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the calculator's fixed rate (CHF 1 = EUR 1.096).`,
     tableCaption: (g, p) => `Breakdown: gross CHF ${g.toLocaleString('en-US')} (${p})`,
     captionProfileBase: 'single A0, Lugano',
     grossAllowanceLabel: 'Gross + family allowance',
@@ -1167,7 +1167,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'How much does the LPP bracket matter?',
     faqA2: 'A lot: LPP ranges from 7% (age 25-34) to 18% (age 55-65) of the coordinated salary. An over-50 worker with the same gross takes home ~CHF 4,000/year less.',
     faqQ3: 'Is the net in CHF or EUR?',
-    faqA3: 'The simulator shows both: CHF for the payslip, EUR converted at the daily SNB rate so you can plan Italian expenses.',
+    faqA3: 'The simulator shows both: CHF for the payslip, EUR converted at the calculator\'s fixed rate (CHF 1 = EUR 1.096, updated each build) so you can plan Italian expenses.',
     variantSuffix: {
       base: '',
       new: ' · New 2026 cross-border worker',
@@ -1184,9 +1184,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Kantonale Quelle',
     irpefTile: 'IT-Freibetrag',
     tableLabel: 'Tabelle A · B · C',
-    fxLabel: 'SNB-Tageskurs',
+    fxLabel: 'Fester Kurs 1,096',
     rateTile: 'CHF/EUR-Kurs',
-    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum Tageskurs.`,
+    adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum festen Kurs des Rechners (CHF 1 = EUR 1,096).`,
     tableCaption: (g, p) => `Aufschlüsselung: Brutto CHF ${g.toLocaleString('de-CH')} (${p})`,
     captionProfileBase: 'ledig A0, Lugano',
     grossAllowanceLabel: 'Brutto + Familienzulagen',
@@ -1198,7 +1198,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Wie stark wirkt die BVG-Altersgruppe?',
     faqA2: 'Stark: BVG reicht von 7 % (25-34) bis 18 % (55-65) des koordinierten Lohns. Ein Über-50 mit gleichem Brutto erhält ~CHF 4.000/Jahr weniger netto.',
     faqQ3: 'Ist das Netto in CHF oder EUR?',
-    faqA3: 'Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum SNB-Tageskurs zur Planung italienischer Ausgaben.',
+    faqA3: 'Der Simulator zeigt beides: CHF für den Lohnausweis, EUR zum festen Kurs des Rechners (CHF 1 = EUR 1,096, bei jedem Build aktualisiert) zur Planung italienischer Ausgaben.',
     variantSuffix: {
       base: '',
       new: ' · Neuer Grenzgänger 2026',
@@ -1215,9 +1215,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fonteTile: 'Source cantonale',
     irpefTile: 'Franchise IT',
     tableLabel: 'Barème A · B · C',
-    fxLabel: 'BNS quotidien',
+    fxLabel: 'Taux fixe 1,096',
     rateTile: 'Taux CHF/EUR',
-    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux du jour.`,
+    adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux fixe du calculateur (CHF 1 = EUR 1,096).`,
     tableCaption: (g, p) => `Décomposition : brut CHF ${g.toLocaleString('fr-CH')} (${p})`,
     captionProfileBase: 'célibataire A0, Lugano',
     grossAllowanceLabel: 'Brut + allocations familiales',
@@ -1229,7 +1229,7 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     faqQ2: 'Combien impacte la tranche LPP ?',
     faqA2: 'Beaucoup : la LPP va de 7 % (25-34 ans) à 18 % (55-65 ans) du salaire coordonné. Un 50+ avec le même brut touche ~CHF 4 000/an de moins.',
     faqQ3: 'Le net est en CHF ou EUR ?',
-    faqA3: 'Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux BNS du jour pour planifier les dépenses en Italie.',
+    faqA3: 'Le simulateur affiche les deux : CHF pour la fiche de paie, EUR converti au taux fixe du calculateur (CHF 1 = EUR 1,096, mis à jour à chaque build) pour planifier les dépenses en Italie.',
     variantSuffix: {
       base: '',
       new: ' · Nouveau frontalier 2026',
