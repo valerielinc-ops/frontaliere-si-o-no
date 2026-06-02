@@ -22,7 +22,7 @@
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   UNOSEND_API_KEY          — Unosend API key (6000/mo free tier)
- *   MAILTRAP_API_TOKEN       — Mailtrap API token (1000/mo free tier)
+ *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
  *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
  */
@@ -466,6 +466,20 @@ const SEND_FNS = {
  * @param {string} [forceProvider] - If set, only use this specific provider
  * @returns {{ messageId: string, provider: string }}
  */
+/**
+ * Detect a hard rate-limit / quota-reached signal in a provider error message.
+ * Covers HTTP 429 and 403 burst/quota throttles (e.g. Mailtrap free Send API
+ * returns `403 {"errors":["Your account has reached ..."]}` when hammered).
+ * When matched, the provider is marked exhausted for the rest of the run so the
+ * cascade stops re-trying it (the root cause of the 258-in-5s 403 burst).
+ */
+function isRateLimitedError(msg) {
+  if (!msg) return false;
+  if (msg.includes('429')) return true;
+  if (msg.includes('403') && /reached|rate.?limit|too many|quota|limit of/i.test(msg)) return true;
+  return false;
+}
+
 async function sendSingle(email, forceProvider) {
   const errors = [];
   const providers = forceProvider
@@ -482,9 +496,9 @@ async function sendSingle(email, forceProvider) {
       return result;
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
-      if (err.message.includes('429')) {
+      if (isRateLimitedError(err.message)) {
         incrementCounter(provider.id, remainingQuota(provider.id));
-        console.warn(`⚠️  ${provider.id} rate-limited — skipping for today`);
+        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run`);
       }
     }
   }
@@ -512,9 +526,18 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
     }
   }
 
-  const result = await sendSingle(email, forceProvider);
-  // Track the timestamp of the provider that actually sent
-  if (result?.provider) {
+  let result;
+  try {
+    result = await sendSingle(email, forceProvider);
+  } finally {
+    // Advance the throttle clock for the attempted provider even when the send
+    // FAILS. Otherwise a run of consecutive failures fires as an unthrottled
+    // burst (the timestamp was previously set only on success), which is exactly
+    // what produced 258 Mailtrap 403s in 5 seconds.
+    if (nextProvider) lastSendMap[nextProvider.id] = Date.now();
+  }
+  // If a different provider ended up sending, track its timestamp too.
+  if (result?.provider && result.provider !== nextProvider?.id) {
     lastSendMap[result.provider] = Date.now();
   }
   return result;
@@ -641,4 +664,4 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError };
