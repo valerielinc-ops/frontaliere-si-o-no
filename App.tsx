@@ -172,12 +172,12 @@ const App: React.FC = () => {
  const {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, statsSubTab,
- blogArticle, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
  jobBoardFilterParams, staticOverlay,
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
- setBlogArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
  suppressNextRouteSyncForTabRef,
@@ -1598,6 +1598,8 @@ const App: React.FC = () => {
  else if (tab === 'blog' && subTab) setBlogArticle(subTab as BlogArticleId);
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
  else if (tab === 'autore' && subTab) setAuthor(subTab);
+ // Programmatic nav into the blog tab defaults to the cross-border section.
+ if (tab === 'blog') { setSwissArticle(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
  if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
  if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
@@ -2196,6 +2198,24 @@ const App: React.FC = () => {
  }}
  />
  )}
+
+ {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide */}
+ {activeTab === 'blog' && (
+ <SubTabNav
+ items={[
+ { key: 'frontaliere' as const, icon: Newspaper, label: t('blog.section.frontalieri') },
+ { key: 'svizzera' as const, icon: Newspaper, label: t('blog.section.svizzera') },
+ ] satisfies SubTabItem<'frontaliere' | 'svizzera'>[]}
+ activeKey={blogSection}
+ hubKey="frontaliere"
+ hrefFor={(key) => buildPath(key === 'svizzera' ? { activeTab: 'blog', blogSection: 'svizzera' } : { activeTab: 'blog' })}
+ onSelect={(key) => {
+ if (key === 'svizzera') { setSwissArticle(null); setBlogSection('svizzera'); }
+ else { setBlogArticle(null); setBlogSection('frontaliere'); }
+ Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', key);
+ }}
+ />
+ )}
  </>)}
 
  {/* Main Content
@@ -2255,8 +2275,9 @@ const App: React.FC = () => {
  ) : activeTab === 'blog' ? (
  <div className="max-w-7xl mx-auto">
  <BlogArticles
- selectedArticle={blogArticle}
- onSelectArticle={(id) => setBlogArticle(id)}
+ section={blogSection}
+ selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}
+ onSelectArticle={(id) => { if (blogSection === 'svizzera') setSwissArticle(id); else setBlogArticle(id); }}
  />
  </div>
  ) : activeTab === 'privacy' ? (
