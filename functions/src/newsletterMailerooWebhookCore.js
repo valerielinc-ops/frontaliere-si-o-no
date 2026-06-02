@@ -89,6 +89,21 @@ function getOccurredAt(event) {
   return new Date().toISOString();
 }
 
+// ── Resolve the refId → recipient lookup record ──────────────
+// Primary location is newsletter_subscribers/_meta_/maileroo_refs/{refId} (aligned
+// with the rest of the tracking). The legacy top-level maileroo_message_meta is read
+// as a fallback so in-flight messages sent before this change still attribute their
+// opens/clicks during the transition window.
+async function readMailerooRef(db, refId) {
+  const primary = (await db.collection('newsletter_subscribers').doc('_meta_')
+    .collection('maileroo_refs').doc(refId).get()).data();
+  if (primary && typeof primary.email === 'string' && primary.email.includes('@')) {
+    return primary;
+  }
+  const legacy = (await db.collection('maileroo_message_meta').doc(refId).get()).data();
+  return legacy || primary || null;
+}
+
 // ── Persist a single event to Firestore ──────────────────────
 
 export async function persistMailerooEvent(db, event) {
@@ -100,15 +115,13 @@ export async function persistMailerooEvent(db, event) {
 
   // Maileroo 'opened'/'clicked' events carry NEITHER the recipient nor tags —
   // only message_reference_id. The send pipeline (persistDelivery) writes an
-  // authoritative lookup record at maileroo_message_meta/{referenceId} with the
-  // real recipient, campaign id and job-alert flag. Read it (keyed by refId) to
-  // resolve the subscriber for opens/clicks and to enrich campaign/routing that
-  // the webhook payload itself omits. Falls back to the event fields when the
-  // record is absent (e.g. an 'accepted'/'delivered' event, which does carry the
-  // recipient in event_data.to).
-  const metaDoc = refId
-    ? (await db.collection('maileroo_message_meta').doc(refId).get()).data()
-    : null;
+  // authoritative lookup record at newsletter_subscribers/_meta_/maileroo_refs/
+  // {referenceId} with the real recipient, campaign id and job-alert flag. Read it
+  // (keyed by refId) to resolve the subscriber for opens/clicks and to enrich
+  // campaign/routing that the webhook payload itself omits. Falls back to the event
+  // fields when the record is absent (e.g. an 'accepted'/'delivered' event, which
+  // does carry the recipient in event_data.to).
+  const metaDoc = refId ? await readMailerooRef(db, refId) : null;
   // The lookup record is only authoritative if it actually resolved an email.
   const meta = (metaDoc && typeof metaDoc.email === 'string' && metaDoc.email.includes('@')) ? metaDoc : null;
   const email = meta ? meta.email : getRecipient(event);

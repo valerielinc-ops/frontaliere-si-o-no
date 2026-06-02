@@ -817,8 +817,9 @@ async function sendBatch(emails) {
 
   // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
   // no tags). Persist an authoritative lookup record keyed by that id so the webhook
-  // can attribute opens/clicks to the job-alert subscriber. Mirrors the newsletter
-  // path in send-newsletter.mjs (persistDelivery). See
+  // can attribute opens/clicks to the job-alert subscriber. Stored under
+  // newsletter_subscribers/_meta_/maileroo_refs (shared lookup family, distinguished
+  // by is_job_alert) — same path as the newsletter persistDelivery writer. See
   // functions/src/newsletterMailerooWebhookCore.js.
   const onSent = async (item, sendResult) => {
     if (sendResult?.provider !== 'maileroo' || !sendResult?.messageId) return;
@@ -826,7 +827,8 @@ async function sendBatch(emails) {
     if (!email) return;
     try {
       const db = await getFirestoreAdmin();
-      await db.collection('maileroo_message_meta').doc(String(sendResult.messageId)).set({
+      await db.collection('newsletter_subscribers').doc('_meta_')
+        .collection('maileroo_refs').doc(String(sendResult.messageId)).set({
         email,
         is_job_alert: true,
         updated_at: new Date(),
