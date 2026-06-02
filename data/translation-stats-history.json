@@ -11154,5 +11154,119 @@
         "pending": 13
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-02T06:00:57.713Z",
+    "label": "before",
+    "total": 8959,
+    "needsRetranslation": 2047,
+    "suppressed": 17,
+    "incomplete": 540,
+    "complete": 8419,
+    "missingByLocale": {
+      "it": 337,
+      "en": 232,
+      "de": 206,
+      "fr": 328
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 92
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 74
+      },
+      {
+        "company": "Roche",
+        "pending": 34
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 18
+      },
+      {
+        "company": "Sulzer",
+        "pending": 18
+      },
+      {
+        "company": "Nestlé",
+        "pending": 17
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-02T07:05:04.258Z",
+    "label": "after",
+    "total": 8959,
+    "needsRetranslation": 1976,
+    "suppressed": 17,
+    "incomplete": 502,
+    "complete": 8457,
+    "missingByLocale": {
+      "it": 304,
+      "en": 210,
+      "de": 196,
+      "fr": 295
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 92
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 74
+      },
+      {
+        "company": "Roche",
+        "pending": 34
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 19
+      },
+      {
+        "company": "Sulzer",
+        "pending": 18
+      },
+      {
+        "company": "Nestlé",
+        "pending": 17
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 13
+      }
+    ]
   }
 ]
