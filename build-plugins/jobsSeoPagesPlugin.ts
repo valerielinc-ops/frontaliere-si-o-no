@@ -7485,7 +7485,13 @@ ${staticAnalyticsHtml}
  const searchLeaderMap = new Map<string, { key: string; name: string }>();
  for (const item of leaderGroups) {
  const key = String(item?.key || '').trim();
- const name = String(item?.name || '').trim();
+ // Leader `name` is `titleByLocale.it || title` from data/jobs-stats.json
+ // (job-board-stats.mjs only normalizes whitespace) — same AI-translated
+ // data class as job-detail titles. Strip at this single source so the h1,
+ // intro/density prose and breadcrumb JSON-LD on the emitted
+ // `/cerca-lavoro-ticino/ricerca-*/` pages (in scope of
+ // audit-no-literal-markdown) never carry literal `**`.
+ const name = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (!key || !name || searchLeaderMap.has(key)) continue;
  searchLeaderMap.set(key, { key, name });
  }
@@ -7869,12 +7875,15 @@ ${staticAnalyticsHtml}
  }
  };
 
- // Collect unique locations and companies from stats leaders
+ // Collect unique locations and companies from stats leaders. `name` is the
+ // same whitespace-only-normalized stats-leader data class as the title
+ // leaders above; strip at the source so combo `copy.heading`/title (rendered
+ // into scanned `<main>` + breadcrumb JSON-LD) can never carry literal `**`.
  const locationLeaders = new Map<string, string>();
  for (const groupKey of ['topLocationsActive', 'topLocationsAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !locationLeaders.has(k)) locationLeaders.set(k, n);
  }
  }
@@ -7882,7 +7891,7 @@ ${staticAnalyticsHtml}
  for (const groupKey of ['topCompaniesActive', 'topCompaniesAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !companyLeaders.has(k)) companyLeaders.set(k, n);
  }
  }
