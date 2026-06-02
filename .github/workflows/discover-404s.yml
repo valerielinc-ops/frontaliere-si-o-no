@@ -42,6 +42,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   discover:
@@ -139,3 +140,19 @@ jobs:
           # con secrets.*: altrimenti trigger-deploy.sh gira con PAT vuoto e il
           # deploy non parte (cfr. #878).
           GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

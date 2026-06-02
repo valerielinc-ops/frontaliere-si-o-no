@@ -27,6 +27,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   generate-faq:
@@ -138,3 +139,19 @@ jobs:
           echo "- **Concurrency**: ${{ inputs.concurrency || '3' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Skip translate**: ${{ inputs.skip_translate || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
