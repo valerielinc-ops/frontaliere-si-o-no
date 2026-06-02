@@ -3314,6 +3314,15 @@ const ST_SLUG_LABEL_UNTRUSTED = new Set([
   'kliniken-valens',
 ]);
 
+// Per-job recovery for org-seat employers (above): the postal code pins the
+// physical village even when the slug only carries the HQ city. PLZ→locality is
+// 1:1 in CH, so a job's own postalCode is authoritative. kliniken-valens jobs all
+// post under "…-st-gallen" but sit at the rehab campus in Valens (PLZ 7317) —
+// recover the real city via PLZ, never via the untrusted slug token (issue #1180).
+const ST_LOCALITY_PLZ_OVERRIDE = {
+  'kliniken-valens': { '7317': 'Valens' },
+};
+
 // Single-site employers whose every posting sits at one HQ city, used to recover
 // the bare "St" token when slug/URL don't carry the city (issue #1158). Only for
 // employers with a genuinely single physical location.
@@ -3361,6 +3370,15 @@ export function recoverTruncatedStLocality(job) {
   const ck = String(job.companyKey || '').toLowerCase();
   const override = ST_LOCALITY_HQ_OVERRIDE[ck];
   if (override) return override;
+
+  // Per-job PLZ override for org-seat multi-site employers: the postal code is
+  // the job's own physical site (1:1 with locality in CH), authoritative over the
+  // untrusted slug seat city (kliniken-valens "…-st-gallen" → Valens at PLZ 7317).
+  const plzMap = ST_LOCALITY_PLZ_OVERRIDE[ck];
+  if (plzMap) {
+    const byPlz = plzMap[String(job.postalCode || '').trim()];
+    if (byPlz) return byPlz;
+  }
 
   // The job URL path is the most authoritative signal: an explicit
   // /job/St-Gallen-… segment is the board's own city for this exact posting, so
