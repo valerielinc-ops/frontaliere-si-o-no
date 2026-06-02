@@ -273,7 +273,13 @@ function refreshLocalizedSlugs() {
       // Slug-only guard: `addressLocality`/`location` can be the literal
       // "undefined"/"null" string (truthy → slips past `|| 'Ticino'`) → `-undefined`
       // in an active slug (#952, class #900/#901). Stored addressLocality untouched.
-      const localizedLocation = safeLocationToken(next.addressLocality || next.location, 'Ticino');
+      // Guard each operand BEFORE the `||`: a literal "undefined" addressLocality is
+      // truthy, so `addressLocality || location` would short-circuit on it and mask a
+      // valid `location`, yielding the 'Ticino' fallback instead of the real city
+      // (#1151). `safeLocationToken(x, null)` returns null for missing/"undefined"/
+      // "null", letting the `||` fall through to `location`.
+      const localizedLocation =
+        safeLocationToken(next.addressLocality, null) || safeLocationToken(next.location, 'Ticino');
       const slug = slugify(`${localizedTitle} ${COMPANY_NAME} ${localizedLocation}`);
       if (slug && next.slugByLocale[locale] !== slug) {
         next.slugByLocale[locale] = slug;
