@@ -221,6 +221,12 @@ describe('googleTrends', () => {
       googleTrendsImpl: fake,
       playwrightFallback: fallback,
       sleepFn: async () => undefined,
+      // Deterministic empty RSS: without this the impl hits the real Google
+      // Trends RSS endpoint and, when it returns any frontaliere-relevant
+      // items, short-circuits the per-seed lib loop (googleTrends.mjs
+      // short-circuits on `collected.length > 0`) — so the lib/fallback path
+      // under test is never reached. Empty RSS forces the lib loop to run.
+      fetchTrendsRssImpl: async () => '',
     });
     // Even if individual API calls failed, fallback returned data so per-geo
     // candidates appear.
@@ -256,6 +262,9 @@ describe('googleTrends', () => {
       googleTrendsImpl: fake,
       playwrightFallback: fallback,
       sleepFn: async () => undefined,
+      // Deterministic empty RSS — see note above: real RSS would short-circuit
+      // the lib loop before the retry path under test runs.
+      fetchTrendsRssImpl: async () => '',
     });
     // First seed retried twice (3 attempts: 2 fails + 1 success), so the
     // 3rd attempt succeeds. The fallback should NOT have run for the
