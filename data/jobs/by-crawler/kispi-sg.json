@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-sg",
-  "assembledAt": "2026-06-02T00:08:16.971Z",
+  "assembledAt": "2026-06-02T13:33:31.659Z",
   "jobs": [
     {
       "id": "kispi-sg-1bca28a10623",
@@ -29,13 +29,13 @@
         "fr": "Ärztliche Leitung pädiatrische Gastroenterologie (80-100%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital"
       },
       "needsRetranslation": true,
-      "location": "St. Gallen",
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/776/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T00:08:15.169Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:29.546Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -62,15 +62,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:03:29.103Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -101,13 +101,14 @@
         "de": "Psychologische/n Psychotherapeutin/Psychotherapeuten oder Ärztin/Arzt Kinder- und Jugendpsychiatrie und Psychotherapie (70-80%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Titre de l'emploi Psychothérapeute ou médecin Psychiatrie et psychothérapie de l'enfant et de l'adolescent (70-80%) Emplacement Saint-Gall (SG) Employeur Hôpital pour enfants de Suisse orientale Code 9006, SG Description Candidature via le portail de carrière Umantis de l'Hôpital pour enfants de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/769/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:28.065Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:28.585Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -204,13 +205,14 @@
         "de": "Pflegefachperson für Pädiatrische Palliative und Advanced Care (40-60%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Descrizione Infirmier en soins palliatifs pédiatriques et avancés (40-60%) à l'Hôpital pédiatrique de Suisse orientale à Saint-Gall (9006, SG), Suisse. - Lieu : Saint-Gall (SG) - Candidature via le portail de carrière Umantis de l'Hôpital pour enfants de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/775/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:27.084Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:27.616Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,22 +259,22 @@
           "Empathie et orientation vers le patient et sa famille"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-ostschweizer-kinderspital-st-gallen"
-        ],
-        "it": [
-          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
-        ],
-        "fr": [
-          "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
-        ]
-      },
       "previousSlugs": [
         "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen",
         "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-ostschweizer-kinderspital-st-gallen",
         "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-kispi-sg-st-gallen"
+        ],
+        "de": [
+          "pflegefachperson-fur-padiatrische-palliative-und-advanced-care-40-60-ostschweizer-kinderspital-st-gallen"
+        ],
+        "fr": [
+          "infirmier-ere-en-soins-palliatifs-pediatriques-et-soins-avances-40-60-ostschweizer-kinderspital-st-gallen"
+        ]
+      },
       "firstSeenAt": "2026-05-19T21:00:04.190Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -313,13 +315,14 @@
         "de": "Assistenz CEO (60–80%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Posizione Assistent CEO (60–80%) presso Ostschweizer Kinderspital à Saint-Gall - Luogo : Saint-Gall (SG) Contatto Candidature via il portale carriera di Ostschweizer Kinderspital tramite il sito Umantis."
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/779/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:26.051Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:26.695Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,26 +369,26 @@
           "Esprit d'équipe et discrétion"
         ]
       },
+      "previousSlugs": [
+        "assistenz-ceo-60-80-kispi-sg-st-gallen",
+        "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen",
+        "assistenz-ceo-60-80-ostschweizer-kinderspital-st-gallen",
+        "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistenz-ceo-60-80-ostschweizer-kinderspital-st-gallen"
-        ],
         "it": [
           "assistenz-ceo-60-80-kispi-sg-st-gallen"
         ],
         "en": [
           "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen"
         ],
+        "de": [
+          "assistenz-ceo-60-80-ostschweizer-kinderspital-st-gallen"
+        ],
         "fr": [
           "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "assistenz-ceo-60-80-kispi-sg-st-gallen",
-        "assistenz-ceo-60-80-ostschweizer-kinderspital-st-gallen",
-        "ceo-assistant-60-80-ostschweizer-kinderspital-st-gallen",
-        "assistant-e-du-pdg-60-80-ostschweizer-kinderspital-st-gallen"
-      ],
       "firstSeenAt": "2026-05-19T21:00:03.114Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -416,23 +419,24 @@
       "titleByLocale": {
         "it": "Sanitario di emergenza in formazione",
         "en": "Emergency Medical Technician in Training",
-        "de": "Rettungssanitäter*in in Ausbildung",
+        "de": "Oberärztin/Oberarzt Pädiatrische Rehabilitation und Intervention (80-100%)",
         "fr": "Technicien en soins d'urgence en formation"
       },
       "description": "Oberärztin/Oberarzt Pädiatrische Rehabilitation und Intervention (80-100%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
       "descriptionByLocale": {
         "it": "Descrizione Il tuo profilo: - Diploma di scuola secondaria di secondo grado (formazione con certificato federale di competenza EFZ o maturità / diploma di scuola media professionale) - Diploma come infermiere sanitaria qualificata HF o paramedico con certificato federale FA e corso di formazione completato (per la formazione abbreviata) - Età di almeno 23 anni (all'inizio della formazione) - Buona reputazione (estratto del registro penale e IVZ) - Estratto del registro speciale privato senza obiezioni (deve essere presente all'inizio della formazione) - Ottime conoscenze di tedesco scritto e parlato - Adattabilità fisica, psicologica e sociale - Affinità per gli strumenti tecnici - Patente di guida categoria B con due anni di pratica di guida senza incidenti (categoria C1/D1, codice 121, deve essere presente all'inizio della formazione) Procedura di candidatura: - La tua motivazione in forma di breve filmato di massimo 1 minuto (ad esempio, girato con un cellulare) Puoi caricare il video nel campo libero con una dimensione massima di 50 MB - Curriculum vitae inclusa foto - Qualifiche e diplomi - Referenze lavorative - Patente di guida (categoria C1/D1 obbligatoria all'inizio della formazione) - Estratto del registro penale - Estratto del registro delle misure amministrative (ufficio del traffico del tuo cantone di residenza) - Analisi di competenza Multicheck Salute HF / Sanitario di emergenza HF - Riflessione personale e riflessioni di terzi di precedenti pratiche di adattamento (se presenti) Cosa ti offriamo: - Un campo di intervento affascinante e variegato (terra – città – lago) - Condizioni di lavoro attraenti con una pianificazione del servizio altamente flessibile - Lavoro e apprendimento responsabili con una forte promozione nelle fasi di pratica - Possibilità di partecipare alla gestione di eventi sanitari - Un ambiente di lavoro piacevole in una squadra familiare - Assistenza personale dai nostri formatori - Le candidature fisiche non possono essere considerate o restituite.",
         "en": "Description\n• Your profile: - Secondary school diploma (training with federal competence certificate EFZ or maturity / vocational school diploma) - Diploma as a qualified nursing assistant HF or paramedic with federal FA and completed training course (for the shortened training) - Age of at least 23 years (at the beginning of training) - Unblemished reputation (criminal record and IVZ register extract) - Unblemished special private register extract (must be present at the beginning of training) - Very good written and spoken German skills - Physical, psychological and social adaptability - Affinity for technical aids - Driving license category B with two years of accident-free driving practice (category C1/D1, code 121, must be present at the beginning of training) Application procedure: - Your motivation in the form of a short film of max. 1 minute (e.g. filmed with a mobile phone) You can upload the video in the free field with a maximum size of 50 MB - Curriculum vitae incl. photo -\n• Qualifications and diplomas - Work references - Driving license (category C1/D1 obligatory at the beginning of training) - Criminal record extract - Extract of the administrative measures register (traffic office of your place of residence canton) - Multicheck Competence Analysis Health HF / Emergency Medical Technician HF - Self-reflection and third-party reflections of previous adaptability practices (if any)\n• What we offer you: - A fascinating and varied field of activity (land – city – lake) - Attractive employment conditions with a highly flexible service schedule - Responsible working and learning with active promotion in the practice phases - Opportunity to participate in sanitary event management - A pleasant working environment in a family team - Personal care from our trainers - Physical applications cannot be considered or returned.",
-        "de": "Ihr Profil:\n• Abschluss auf Sekundarstufe 2 (Ausbildung mit eidg. Fähigkeitszeugnis EFZ oder Matura / Fachmittelschulabschluss)\n• Abschluss als dipl. Pflegefachfrau*mann HF oder Transportsanitäter*in mit eidg. FA und absolvierten Lehrgang (für die verkürzte Ausbildung)\n• Alter ab 23 Jahre (bei Ausbildungsbeginn)\n• Einwandfreier Leumund (Strafregister- und IVZ-Register Auszug)\n• Einwandfreier Sonderprivatauszug (muss bei Ausbildungsbeginn vorliegen)\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Physische, psychische und soziale Eignung / Belastbarkeit\n• Flair für technische Hilfsmittel\n• Fahrausweis Kategorie B mit zweijähriger, unfallfreier Fahrpraxis (Kategorie C1/D1, Code 121, muss bei Ausbildungsbeginn vorliegen) Bewerbungsverfahren:\n• Ihre Motivation in Form eines Kurzfilms von max. 1 Minute (z.B. gefilmt mit Mobiltelefon) Sie können das Video im freien Feld mit max. 50 MB Datengrösse hochladen\n• Lebenslauf inkl. Foto\n• Qualifikationen und Diplome\n• Arbeitszeugnisse\n• Fahrausweis (Kat. C1/D1 bei Ausbildungsbeginn zwingend nötig)\n• Strafregisterauszug\n• Auszug Administrativmassnahmen-Register (Strassenverkehrsamt Ihres Wohnkantons)\n• Multicheck Kompetenzanalyse Gesundheit HF / Rettungssanitäter*in HF\n• Selbstreflexion und Fremdreflexionen vorhergegangener Eignungspraktika (falls vorhanden) Was wir Ihnen bieten:\n• Spannendes und vielfältiges Einsatzgebiet (Land – Stadt – See)\n• Attraktive Anstellungsbedingungen mit einer hoch-flexiblen Dienstplanung\n• Verantwortliches Arbeiten und Lernen mit aktiver Förderung in den Praxisphasen\n• Möglichkeit der Mitarbeit bei sanitätsdienstlicher Event-Betreuung\n• Ein angenehmes Arbeitsklima in einem familiären Team\n• Persönliche Betreuung durch unsere Berufsbildner*innen Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
+        "de": "Oberärztin/Oberarzt Pädiatrische Rehabilitation und Intervention (80-100%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Description\n• Votre profil: - Diplôme d'enseignement secondaire (formation avec certificat de compétence fédérale EFZ ou maturité / diplôme d'école professionnelle) - Diplôme en tant qu'infirmier(ère) qualifié(e) HF ou technicien(ne) en soins d'urgence avec certificat fédéral FA et formation terminée (pour la formation raccourcie) - Âge d'au moins 23 ans (au début de la formation) - Bonne réputation (extrait du registre des infractions et IVZ) - Extrait du registre privé spécial sans objection (doit être présent au début de la formation) - Excellentes compétences en allemand écrit et parlé - Adaptabilité physique, psychologique et sociale - Affinité pour les équipements techniques - Permis de conduire catégorie B avec deux ans d'expérience de conduite sans accident (catégorie C1/D1, code 121, doit être présent au début de la formation) Procédure de candidature: - Votre motivation sous forme de court film de max. 1 minute (par exemple, filmé avec un téléphone portable) Vous pouvez télécharger la vidéo dans le champ libre avec une taille maximale de 50 Mo - Curriculum vitae incl. photo -\n• Qualifications et diplômes - Références professionnelles - Permis de conduire (catégorie C1/D1 obligatoire au début de la formation) - Extrait du registre des infractions - Extrait du registre des mesures administratives (service des transports de votre canton de résidence) - Analyse de compétence Multicheck Santé HF / Technicien en soins d'urgence HF - Réflexion personnelle et réflexions de tiers des pratiques d'adaptabilité précédentes (si existantes) Ce que nous vous offrons: - Un domaine d'activité fascinant et varié (terre – ville – lac) - Conditions d'emploi attrayantes avec un emploi du temps très flexible - Travail et apprentissage responsables avec une promotion active dans les phases de pratique - Possibilité de participer à la gestion d'événements sanitaires - Un environnement de travail agréable dans une équipe familiale - Soins personnels de nos formateurs - Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/782/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:25.059Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:25.743Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,15 +517,15 @@
         "medecin-chef-de-pediatrie-readaptation-et-intervention-80-100-ostschweizer-kinderspital-st"
       ],
       "firstSeenAt": "2026-05-19T21:00:00.972Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -552,13 +556,14 @@
         "de": "Fachmitarbeiter/in Empfang/Patientenaufnahme (40%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Job Title Employé (e) spécialisé (e) en réception/admission de patients (40 %) à l'Hôpital pour enfants de Suisse orientale à Saint-Gall (9006, SG), Suisse Descrizione\n• Emplacement : Saint-Gall (SG) Requisiti\n• Candidature via le portail de carrière Umantis de l'Hôpital pour enfants de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/780/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:23.985Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:24.761Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -605,20 +610,20 @@
           "Disponibilité immédiate ou selon accord"
         ]
       },
+      "previousSlugs": [
+        "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen",
+        "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen",
+        "fachmitarbeiter-in-empfang-patientenaufnahme-40-ostschweizer-kinderspital-st-gallen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachmitarbeiter-in-empfang-patientenaufnahme-40-ostschweizer-kinderspital-st-gallen"
-        ],
         "it": [
           "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen",
           "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen"
+        ],
+        "de": [
+          "fachmitarbeiter-in-empfang-patientenaufnahme-40-ostschweizer-kinderspital-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "fachmitarbeiter-in-empfang-patientenaufnahme-40-kispi-sg-st-gallen",
-        "fachmitarbeiter-in-empfang-patientenaufnahme-40-ostschweizer-kinderspital-st-gallen",
-        "specialista-accettazione-pazienti-e-reception-40-ostschweizer-kinderspital-st-gallen"
-      ],
       "firstSeenAt": "2026-05-19T20:59:59.945Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -659,13 +664,14 @@
         "de": "Physiotherapeut/in HF/FH (60-80%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Titre du poste de physiothérapeute ES/HES (60-80 %) à l'Hôpital pour enfants de Suisse orientale à Saint-Gall (9006, SG), Suisse Descrizione\n• Lieu : Saint-Gall (SG) Requisiti\n• Candidature via le portail de carrière Umantis de l'Hôpital pour enfants de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/781/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:22.974Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:23.801Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -764,13 +770,14 @@
         "de": "Arztsekretär/in (60%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Job Announcement Secrétaire médical (60 %) à l'Hôpital pédiatrique de Suisse orientale à Saint-Gall (9006, SG), Suisse. --- Descrizione\n• Localisation : Saint-Gall (SG) --- Contatto Candidature via le portail de carrière Umantis de l'Hôpital pédiatrique de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/787/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:21.988Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:22.865Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -884,13 +891,14 @@
         "de": "Oberärztin/Oberarzt Pädiatrische Endokrinologie/Diabetologie (70%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Job Title Médecin-chef en endocrinologie pédiatrique/diabétologie (70 %) Employeur Hôpital pédiatrique de Suisse orientale Lieu Saint-Gall (SG), Suisse Position Code 9006 Position Type Candidature via le portail de carrière Umantis de l'Hôpital pédiatrique de Suisse orientale"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/786/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:20.989Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:21.906Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -937,20 +945,20 @@
           "Disponibilité à travailler à 70%"
         ]
       },
+      "previousSlugs": [
+        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
+        "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen",
+        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-ostschweizer-kinderspital-st-gallen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-ostschweizer-kinderspital-st-gallen"
-        ],
         "it": [
           "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
           "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen"
+        ],
+        "de": [
+          "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-ostschweizer-kinderspital-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-kispi-sg-st-gallen",
-        "oberarztin-oberarzt-padiatrische-endokrinologie-diabetologie-70-ostschweizer-kinderspital-st-gallen",
-        "primario-primaria-endocrinologia-diabetologia-pediatrica-70-ostschweizer-kinderspital-st-gallen"
-      ],
       "firstSeenAt": "2026-05-19T20:59:56.910Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -991,13 +999,14 @@
         "de": "Oberärztin/Oberarzt Intensivmedizin / Neonatologie (80-100%) bei Ostschweizer Kinderspital in St. Gallen (9006, SG), Schweiz.\n• Standort: St. Gallen (SG)\n• Bewerbung über das Umantis-Karriereportal von Ostschweizer Kinderspital",
         "fr": "Mansioni\n• Assumere la responsabilità clinica e manageriale di un reparto di Intensivmedicina e/o Neonatologia presso l'Ostschweizer Kinderspital in St. Gallen (SG).\n• Gestire la cura e il monitoraggio di pazienti neonatali e pediatrici in condizioni critiche.\n• Presiedere le decisioni terapeutiche e collaborare con un team multidisciplinare (medici, infermieri, tecnici sanitari).\n• Supervisare la formazione e lo sviluppo professionale del personale medico e infermieristico.\n• Garantir la qualité de la cure secondaire standard internazionali e protocolli clinici aggiornati.\n• Partecipare alla ricerca clinica e allo sviluppo di nuove metodologie terapeutiche.\n• Collaborare con altri reparti ospedalieri e strutture esterne per la gestione integrata dei pazienti.\n• Assicurare la continuità delle cure e la coordinazione con i servizi di emergenza e riabilitazione.\n• Valutare e prescrivere trattamenti farmacologici e non farmacologici in accordo con le linee guida nazionali ed internazionali.\n• Partecipare a convegni, corsi di aggiornamento e attività formative per mantenere aggiornate le competenze professionali.\n• Gestire le relazioni con le famiglie dei pazienti, garantendo empatia e trasparenza nelle comunicazioni.\n• Svolgere attività di docenza e tutoraggio per studenti e giovani medici in formazione.\n• Collaborare con enti pubblici e privati per la promozione della salute infantile e la prevenzione delle malattie.\n• Assicurare la"
       },
-      "location": "St. Gallen",
+      "needsRetranslation": true,
+      "location": "St",
       "canton": "SG",
       "url": "https://recruitingapp-2979.umantis.com/Vacancies/749/Description/1",
       "source": "Ostschweizer Kinderspital Dedicated Parser (Umantis listing tenant 2979)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-01T15:03:19.928Z",
-      "addressLocality": "St. Gallen",
+      "crawledAt": "2026-06-02T13:33:20.549Z",
+      "addressLocality": "St",
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
@@ -1044,10 +1053,14 @@
           "Engagement envers la formation continue et le développement professionnel"
         ]
       },
+      "previousSlugs": [
+        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
+        "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
+        "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
+        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
+        "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
-        ],
         "it": [
           "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
           "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen"
@@ -1055,17 +1068,13 @@
         "en": [
           "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen"
         ],
+        "de": [
+          "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
+        ],
         "fr": [
           "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-kispi-sg-st-gallen",
-        "oberarztin-oberarzt-intensivmedizin-neonatologie-80-100-ostschweizer-kinderspital-st-gallen",
-        "medico-senior-medicina-intensiva-neonatologia-80-100-ostschweizer-kinderspital-st-gallen",
-        "senior-physician-intensive-care-neonatology-80-100-ostschweizer-kinderspital-st-gallen",
-        "medecin-senior-medecine-intensive-neonatologie-80-100-ostschweizer-kinderspital-st-gallen"
-      ],
       "firstSeenAt": "2026-05-19T20:59:55.416Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
