@@ -123,6 +123,16 @@ export const JOB_TITLE_CITY_CONNECTOR: Record<string, string> = {
  *
  * Pure string logic (no Node deps) so it is shared by the SSG plugin path and
  * the SPA runtime (services/seoService.ts, components/community/JobBoard.tsx).
+ *
+ * NOTE — partial parity with the SSG `composeJobPageTitle`: this helper caps
+ * the headline verbatim at `maxChars` (default 66), whereas the SSG composer
+ * budgets the core against JOB_TITLE_MAX=70 with city-preserving truncation
+ * AND appends a collision disambiguator. The SPA title therefore matches the
+ * static <title> only for short, non-colliding jobs; for long/multi-sede
+ * titles they diverge. Acceptable because the indexed authority is the static
+ * <title> (which keeps the disambiguator); the SPA value is a JS-render
+ * convenience. Callers must apply their own multi-location guard before
+ * passing `city` (the blob "ganz Schweiz" etc. must not become a city token).
  */
 export function buildJobTitleWithLocation(
   jobTitle: string,
