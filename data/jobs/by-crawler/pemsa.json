@@ -438,6 +438,9 @@
         ],
         "it": [
           "manovale-edile-pemsa-chiasso"
+        ],
+        "fr": [
+          "manovale-edile-pemsa-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -605,9 +608,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-tetti-pemsa-locarno",
-        "en": "chapter-tetti-pemsa-locarno",
-        "de": "kapitel-tetti-pemsa-locarno",
-        "fr": "chapitre-tetti-pemsa-locarno"
+        "en": "carpentiere-tetti-pemsa-locarno",
+        "de": "carpentiere-tetti-pemsa-locarno",
+        "fr": "carpentiere-tetti-pemsa-locarno"
       },
       "id": "pemsa-3c094b9da613",
       "salaryMin": 49500,
@@ -2497,7 +2500,17 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-05-27T13:31:55.469Z"
+      "firstSeenAt": "2026-05-27T13:31:55.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "giardiniere-aiuto-giardiniere-pemsa-rivera",
+          "giardini-pemsa-rivera"
+        ]
+      },
+      "previousSlugs": [
+        "giardiniere-aiuto-giardiniere-pemsa-rivera",
+        "giardini-pemsa-rivera"
+      ]
     },
     {
       "title": "Installatore Idraulico AFC Riscaldamenti",
