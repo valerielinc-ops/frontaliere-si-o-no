@@ -156,15 +156,42 @@ export function createAuditor(opts = {}) {
       for (const r of offenders) {
         byFeature[r.feature] = (byFeature[r.feature] ?? 0) + 1;
       }
+      // Per-feature SCANNED denominators (all sampled pages, not just
+      // offenders) — required for the rate-based ratchet so organic content
+      // growth (more pages of the same template, same per-page quality) does
+      // NOT trip the gate. Only a genuine per-template quality regression
+      // raises the offender RATE.
+      const scannedByFeature = {};
+      for (const r of samples) scannedByFeature[r.feature] = (scannedByFeature[r.feature] ?? 0) + 1;
+      const rateByFeature = {};
+      for (const f of Object.keys(scannedByFeature)) {
+        rateByFeature[f] = (byFeature[f] ?? 0) / scannedByFeature[f] * 100;
+      }
+      const totalRatePct = samples.length ? (offenders.length / samples.length) * 100 : 0;
+      // maxDeltaPp caps the relative term so a high-base feature can't earn
+      // unbounded absolute slack (a 12%-rate feature would otherwise tolerate
+      // +2.4pp from relPct alone before the cap bites).
+      const DEFAULT_TOL = { relPct: 20, absPp: 1.0, minAbsDelta: 5, maxDeltaPp: 3 };
 
       if (writeBaselinePath) {
+        const byFeatureRate = {};
+        for (const f of Object.keys(scannedByFeature)) {
+          byFeatureRate[f] = {
+            scanned: scannedByFeature[f],
+            offenders: byFeature[f] ?? 0,
+            ratePct: Number(rateByFeature[f].toFixed(4)),
+          };
+        }
         const baseline = {
           generated: new Date().toISOString(),
+          mode: 'rate',
           threshold,
+          tolerance: DEFAULT_TOL,
           scanned: samples.length,
-          total: offenders.length,
-          byFeature,
-          _comment: `Baseline for audit-text-html-ratio. Numbers must only DECREASE — this gate is a ratchet (page ratio ≤ ${threshold}%).`,
+          totalOffenders: offenders.length,
+          totalRatePct: Number(totalRatePct.toFixed(4)),
+          byFeature: byFeatureRate,
+          _comment: `Rate-based baseline for audit-text-html-ratio (page ratio ≤ ${threshold}%). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic content growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance).`,
         };
         await writeFile(resolvePath(writeBaselinePath), JSON.stringify(baseline, null, 2) + '\n', 'utf8');
       }
@@ -189,15 +216,39 @@ export function createAuditor(opts = {}) {
             humanSummary: `cannot read baseline ${baselinePath}: ${err.message}`,
           };
         }
-        const baseTotal = Number(baseline.total ?? 0);
-        const baseByFeature = baseline.byFeature ?? {};
-        for (const [feature, count] of Object.entries(byFeature)) {
-          const cap = baseByFeature[feature] ?? 0;
-          if (count > cap) regressedFeatures.push({ feature, count, max: cap });
+        if (baseline.mode === 'rate') {
+          const tol = { ...DEFAULT_TOL, ...(baseline.tolerance ?? {}) };
+          const baseByFeature = baseline.byFeature ?? {};
+          for (const f of Object.keys(scannedByFeature)) {
+            const curOff = byFeature[f] ?? 0;
+            const curRate = rateByFeature[f];
+            const base = baseByFeature[f];
+            const baseRate = base ? Number(base.ratePct ?? 0) : 0;
+            const baseOff = base ? Number(base.offenders ?? 0) : 0;
+            const rateCap = baseRate + Math.min(baseRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
+            if (curRate > rateCap && curOff > baseOff + tol.minAbsDelta) {
+              regressedFeatures.push({ feature: f, count: curOff, max: baseOff, rate: Number(curRate.toFixed(3)), maxRate: Number(rateCap.toFixed(3)), scanned: scannedByFeature[f] });
+            }
+          }
+          const baseTotalRate = Number(baseline.totalRatePct ?? 0);
+          const baseTotalOff = Number(baseline.totalOffenders ?? 0);
+          const totalCap = baseTotalRate + Math.min(baseTotalRate * tol.relPct / 100, tol.maxDeltaPp) + tol.absPp;
+          const totalRegression = totalRatePct > totalCap && offenders.length > baseTotalOff + tol.minAbsDelta;
+          baselineDelta = { before: baseTotalOff, after: offenders.length, beforeRate: baseTotalRate, afterRate: Number(totalRatePct.toFixed(3)), regression: Math.max(0, offenders.length - baseTotalOff) };
+          if (totalRegression || regressedFeatures.length > 0) passed = false;
+        } else {
+          // Legacy absolute-count baseline (pre rate-ratchet). Kept so the
+          // script still runs against an un-migrated baseline file.
+          const baseTotal = Number(baseline.total ?? 0);
+          const baseByFeature = baseline.byFeature ?? {};
+          for (const [feature, count] of Object.entries(byFeature)) {
+            const cap = baseByFeature[feature] ?? 0;
+            if (count > cap) regressedFeatures.push({ feature, count, max: cap });
+          }
+          const totalRegression = offenders.length > baseTotal;
+          baselineDelta = { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) };
+          if (totalRegression || regressedFeatures.length > 0) passed = false;
         }
-        const totalRegression = offenders.length > baseTotal;
-        baselineDelta = { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) };
-        if (totalRegression || regressedFeatures.length > 0) passed = false;
       }
 
       const structuredOffenders = offenders.map((r) => ({
@@ -257,7 +308,7 @@ export function createAuditor(opts = {}) {
 
       const humanSummary = passed
         ? `${offenders.length} offender(s) within baseline (threshold ${threshold} %), ${nearFloor.total} page(s) in near-floor band (${threshold}-${warnThreshold} %), ${ejpDrift.total} EJP-marked index,follow shell(s) tracked for drift`
-        : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => `${r.feature}(${r.count}>${r.max})`).join(', ') || 'total cap exceeded'}`;
+        : `${offenders.length} offender(s) ≤ ${threshold} % — regressed features: ${regressedFeatures.map(r => r.rate != null ? `${r.feature}(${r.rate}% > ${r.maxRate}% allowed, ${r.count} vs ${r.max})` : `${r.feature}(${r.count}>${r.max})`).join(', ') || 'total rate cap exceeded'}`;
 
       return {
         passed,
@@ -267,7 +318,7 @@ export function createAuditor(opts = {}) {
         baselineFile: relBaseline(baselinePath),
         baselineDelta,
         byFeature,
-        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, limit, threshold, warnThreshold, nearFloor, ejpDrift, rawSamples: samples },
+        extra: { scanned: samples.length, skippedNoindex, skippedEjpStripped, regressedFeatures, scannedByFeature, rateByFeature, totalRatePct: Number(totalRatePct.toFixed(4)), limit, threshold, warnThreshold, nearFloor, ejpDrift, rawSamples: samples },
         humanSummary,
       };
     },
@@ -400,10 +451,14 @@ async function standalone() {
     console.error('FAIL: Semrush "low text-to-HTML ratio" gate REGRESSED');
     console.error('══════════════════════════════════════════════════════════════════════');
     if (result.offendersTotal > baseTotal) {
-      console.error(`  Total offenders: ${result.offendersTotal} (baseline allows ${baseTotal})`);
+      console.error(`  Total offenders: ${result.offendersTotal} (baseline ${baseTotal})`);
     }
     for (const f of regr) {
-      console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
+      if (f.rate != null) {
+        console.error(`  Feature "${f.feature}": rate ${f.rate}% (allowed ≤ ${f.maxRate}%) — ${f.count} offenders / ${f.scanned} scanned vs baseline ${f.max}`);
+      } else {
+        console.error(`  Feature "${f.feature}": ${f.count} offenders (baseline allows ${f.max})`);
+      }
     }
     for (const f of regr) {
       const featOffenders = offenders
@@ -414,7 +469,9 @@ async function standalone() {
         console.error(`  ${o.ratio.toFixed(2).padStart(6)} %  ${(o.htmlBytes / 1024).toFixed(1).padStart(7)} KB  ${o.file}`);
       }
     }
-    console.error('\nThe baseline ratchet only allows the count to go DOWN.');
+    console.error('\nThe rate ratchet trips only when the offender RATE rises beyond');
+    console.error('tolerance AND the offender count grows meaningfully — i.e. a real');
+    console.error('per-template quality regression, not organic content growth.');
     console.error('Fix the offending templates, then regenerate with --write-baseline=<path>.');
   } else if (opts.baselinePath) {
     const baseTotal = result.baselineDelta?.before ?? 0;

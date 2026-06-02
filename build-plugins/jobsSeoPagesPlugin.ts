@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
@@ -391,40 +392,16 @@ export function composeJobPageH1(jobTitle: string, company: string): string {
  return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
 }
 
-/**
- * Strip literal markdown bold/separator tokens that leak from AI-translated
- * crawler titles. The shared description parser only runs on body text — job
- * titles flow through `esc()` (HTML-escape only) into <h1>, related-jobs
- * sidebar, and aria-labels. When a crawler/translation leaves `**Title**`
- * intact, the literal asterisks render in <main>, blowing the 0-tolerance
- * `audit-no-literal-markdown` gate (PR #480 incident — 27 job-detail pages
- * with `**Diplomierte Pflegefachperson HF / FH (40-100%)**` leaked from
- * `titleByLocale`/`title`).
- *
- * Contract:
- *  - `**X**` → `X` (single pair). Repeats for chained bold runs.
- *  - `_X_`   → `X` (only when both delimiters touch the title's edges or
- *               whitespace, to avoid mangling identifiers like `HFR_M_42`).
- *  - `===…`, `___…`, `~~~…` separator runs (3+ chars) → stripped wholesale.
- *  - Single leading/trailing `*` chars (orphan asterisks from unbalanced
- *    bold runs that survived odd-count stripping in parseInline) → removed.
- *  - Collapses any double-spaces left over from stripping.
- *
- * Idempotent (running twice produces the same output).
- */
-export function stripLiteralMarkdownFromTitle(title: string): string {
- if (!title) return title;
- let t = String(title);
- // Bold pairs — non-greedy body, no newline (titles are single-line).
- t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
- // Separator runs (3+ of `_`, `=`, `~`) — drop.
- t = t.replace(/[_=~]{3,}/g, ' ');
- // Orphan leading/trailing single `*` and double `**` (unbalanced survivors).
- t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
- // Collapse any double-spaces created by the strips.
- t = t.replace(/[ \t]{2,}/g, ' ');
- return t.trim();
-}
+// Strip literal markdown bold/separator tokens that leak from AI-translated
+// crawler titles (job <h1>, related-jobs sidebar, aria-labels all flow through
+// `esc()` = HTML-escape only, so `**Title**` would render in <main> and blow
+// the 0-tolerance `audit-no-literal-markdown` gate — PR #480 incident).
+// Imported (top of file) from the single shared source and re-exported under
+// the historical name so every call site — including the related-job cross-link
+// block (L2692) that renders titles into scanned `<main>` — shares the hardened
+// implementation, which adds the orphan-`**` nuke (mid-string `**` survivors)
+// the old local copy lacked.
+export { stripLiteralMarkdownFromTitle };
 
 // ─── Human-readable disambiguator cascade ─────────────────────────────────
 //
@@ -7340,7 +7317,25 @@ ${staticAnalyticsHtml}
  // role / city / employer hubs. The Italian landing preserves its curated
  // `itCopy.title` because that was hand-tuned per query in keyword config.
  const kwTitle = locale === 'it'
- ? buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''))
+ ? (() => {
+ // Curated IT title = heading + " | Frontaliere Ticino" brand suffix.
+ // For long headings the brand is dropped (buildTitleWithBrand 66-char
+ // cap) and the title collapses to the bare heading — byte-identical to
+ // the <h1> (itCopy.heading), tripping the 0-tolerance
+ // audit:h1-title-duplicates ratchet. When that collision happens, fall
+ // back to the count+year role-hub title (already used for EN/DE/FR):
+ // it stays ≤66 chars (audit:title-length) and is structurally distinct
+ // from the descriptive heading, so title can never equal h1.
+ const curated = buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''));
+ const norm = (s: string) => String(s).replace(/\s+/g, ' ').trim().toLowerCase();
+ if (norm(curated) !== norm(String(itCopy.heading || ''))) return curated;
+ return buildRoleHubTitle({
+ locale,
+ roleDisplay: kwQueryDisplay || 'Jobs',
+ count: kwJobs.length,
+ year: new Date().getFullYear(),
+ });
+ })()
  : buildRoleHubTitle({
  locale,
  roleDisplay: kwQueryDisplay || 'Jobs',
@@ -7490,7 +7485,13 @@ ${staticAnalyticsHtml}
  const searchLeaderMap = new Map<string, { key: string; name: string }>();
  for (const item of leaderGroups) {
  const key = String(item?.key || '').trim();
- const name = String(item?.name || '').trim();
+ // Leader `name` is `titleByLocale.it || title` from data/jobs-stats.json
+ // (job-board-stats.mjs only normalizes whitespace) — same AI-translated
+ // data class as job-detail titles. Strip at this single source so the h1,
+ // intro/density prose and breadcrumb JSON-LD on the emitted
+ // `/cerca-lavoro-ticino/ricerca-*/` pages (in scope of
+ // audit-no-literal-markdown) never carry literal `**`.
+ const name = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (!key || !name || searchLeaderMap.has(key)) continue;
  searchLeaderMap.set(key, { key, name });
  }
@@ -7874,12 +7875,15 @@ ${staticAnalyticsHtml}
  }
  };
 
- // Collect unique locations and companies from stats leaders
+ // Collect unique locations and companies from stats leaders. `name` is the
+ // same whitespace-only-normalized stats-leader data class as the title
+ // leaders above; strip at the source so combo `copy.heading`/title (rendered
+ // into scanned `<main>` + breadcrumb JSON-LD) can never carry literal `**`.
  const locationLeaders = new Map<string, string>();
  for (const groupKey of ['topLocationsActive', 'topLocationsAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !locationLeaders.has(k)) locationLeaders.set(k, n);
  }
  }
@@ -7887,7 +7891,7 @@ ${staticAnalyticsHtml}
  for (const groupKey of ['topCompaniesActive', 'topCompaniesAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !companyLeaders.has(k)) companyLeaders.set(k, n);
  }
  }
