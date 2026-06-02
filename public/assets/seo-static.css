@@ -1022,7 +1022,7 @@ main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap:
 .s-lEdUfz { margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500 }
 .s-lEEXLG { font-size:1.15rem;font-weight:700;margin:1rem 0 .5rem }
 .s-lfB4Bo { margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem }
-.s-LFxJYv { max-width:1080px;margin:0 auto;padding:24px 16px }
+.s-LFxJYv { min-width:0;max-width:1080px;margin:0 auto;padding:24px 16px }
 .s-lGLtkq { margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading) }
 .s-LGtGh9 { margin:0;font-size:15.5px }
 .s-lHdmvf { font-size:1.25rem;font-weight:700;margin-bottom:.5rem }

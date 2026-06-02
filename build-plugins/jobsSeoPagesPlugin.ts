@@ -9103,7 +9103,15 @@ ${staticAnalyticsHtml}
      }
 
      const bodyHtml = [
-       `<main class="seo-static-content s-LFxJYv">`,
+       // #974: drop `seo-static-content` from this INNER <main> (keep the
+       // `s-LFxJYv` layout class). buildSeoPageHtml wraps bodyHtml in the OUTER
+       // main.seo-static-content (display:grid); leaving the class here made the
+       // inner main a nested grid item with default min-width:auto, so its track
+       // could not shrink and wide content forced horizontal overflow on mobile
+       // (382px). Mirrors comparisonsHub #962 / borderWaitMap #958. The outer
+       // shell main still carries seo-static-content (lite-shell detector +
+       // staticOverlay handoff preserved).
+       `<main class="s-LFxJYv">`,
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
