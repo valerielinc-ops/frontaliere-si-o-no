@@ -1,0 +1,136 @@
+name: Compress review contract
+
+# Mantiene lean i contratti operativi letti dal reviewer a OGNI run di
+# `pr-review-loop` (REVIEW.md entra nel context per ~30 turni × ogni PR → ogni
+# byte si paga moltiplicato). I contratti crescono organicamente (nuove regole,
+# war-story); questo job evita il bloat senza buttare quota:
+#
+#   1. Check DETERMINISTICO della size (zero Claude). Sotto ceiling → no-op.
+#   2. Solo SE supera il ceiling → compressione GENTILE via Claude (preserva
+#      ogni heading/tabella/step/gate/esempio; comprime solo prosa ridondante)
+#      → apre una PR.
+#
+# La PR NON auto-mergia: REVIEW.md è nella allowlist workflow-validation, quindi
+# il reviewer-bot non parte e `auto-merge-on-lgtm` non scatta → la rivede e
+# mergia un umano. È il safety-net anti-drift: un contratto di gating non si
+# muta mai senza occhio umano. Frugalità: Claude gira solo quando serve.
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # lunedì 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Comprimi anche se sotto ceiling'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: compress-review-contract
+  cancel-in-progress: false
+
+env:
+  TARGET_FILE: REVIEW.md
+  CEILING_BYTES: '14000'
+
+jobs:
+  compress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Check contract size (deterministic gate)
+        id: gate
+        run: |
+          set -euo pipefail
+          bytes=$(wc -c < "$TARGET_FILE")
+          echo "$TARGET_FILE = ${bytes} bytes (ceiling ${CEILING_BYTES})."
+          force="${{ github.event.inputs.force }}"
+          if [ "$bytes" -le "$CEILING_BYTES" ] && [ "$force" != "true" ]; then
+            echo "Under ceiling → skip (no Claude burn)."
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Over ceiling (o force) → gentle compress."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node.js
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Gentle compress (Claude)
+        if: steps.gate.outputs.run == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Read,Edit'"
+          prompt: |
+            Comprimi GENTILMENTE il file `${{ env.TARGET_FILE }}` (contratto di review, letto dal reviewer-bot a ogni PR — ogni byte si paga moltiplicato per i turni).
+
+            **Obiettivo:** ridurre i byte tagliando SOLO prosa ridondante, mantenendo il contratto semanticamente identico.
+
+            **Preserva VERBATIM (non toccare):**
+            - Ogni heading (`#`/`##`/`###`) e l'ordine delle sezioni.
+            - Ogni tabella (severity, tier) e il suo contenuto.
+            - Ogni step numerato (1..7) della "Reviewer behavior" e la sua logica.
+            - Ogni gate/regola: in particolare quando scrivere o NON scrivere `## LGTM`, le condizioni di escalation ❓→🔴, il filtro scopo, i marker severity.
+            - Ogni esempio in code-block e ogni riga `<file>:L<n>: ...`.
+            - Stringhe esatte (`## LGTM`, `🔴 Important`, ecc.) byte-identiche.
+
+            **Puoi comprimere SOLO:**
+            - Prosa esplicativa ridondante e ripetizioni.
+            - War-story verbose ("Caso reale: #814 ... #816/#817") → ref terso (es. "(cfr. #814→#816/#817)") MANTENENDO il numero-issue come puntatore.
+            - Filler/hedging.
+
+            **Vincoli:**
+            - Mai rimuovere una regola, un gate, o un esempio: solo accorciare la prosa attorno.
+            - Se non riesci a tagliare senza perdere una regola, lascia invariato.
+            - Non aggiungere contenuto nuovo. Output = stesso file, più corto.
+
+            Applica le modifiche con Edit. Non aprire PR, non committare: ci pensa il workflow.
+
+      - name: Open compression PR if shrunk
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- "$TARGET_FILE"; then
+            echo "Nessuna modifica (Claude non ha potuto comprimere senza perdere regole). No PR."
+            exit 0
+          fi
+          before=$(git show HEAD:"$TARGET_FILE" | wc -c)
+          after=$(wc -c < "$TARGET_FILE")
+          saved=$((before - after))
+          echo "Compresso: ${before} → ${after} bytes (-${saved})."
+          branch="chore/compress-review-contract-${{ github.run_id }}"
+          git config user.name 'Valerie Linc'
+          git config user.email 'valerielinc@gmail.com'
+          git checkout -b "$branch"
+          git add "$TARGET_FILE"
+          git commit -m "chore(review): gentle-compress ${TARGET_FILE} (-${saved}B)"
+          git push origin "$branch"
+          body="$RUNNER_TEMP/pr-body.md"
+          {
+            echo "## Implementato"
+            echo "- Compressione gentile automatica di \`${TARGET_FILE}\` (superato ceiling ${CEILING_BYTES}B: ${before} → ${after}, -${saved}B)."
+            echo "- Solo prosa ridondante/war-story tagliata; regole, gate (\`## LGTM\`/escalation), tabelle, step ed esempi preservati verbatim per istruzione."
+            echo ""
+            echo "## Non implementato (ancora)"
+            echo "- **Merge automatico**: out of scope by design — \`${TARGET_FILE}\` è workflow-validation protected, quindi il reviewer-bot non parte e l'auto-merge non scatta. **Richiede review + merge manuale umano**: verificare che nessuna regola/gate sia persa nel diff prima di mergere (safety-net anti-drift su un contratto di gating)."
+            echo "- Estensione ad \`AGENTS.md\` (anch'esso iniettato a ogni sessione): follow-up, stesso pattern."
+            echo ""
+            echo "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+          } > "$body"
+          gh pr create \
+            --title "chore(review): gentle-compress ${TARGET_FILE} (-${saved}B)" \
+            --body-file "$body" \
+            --base main --head "$branch"
