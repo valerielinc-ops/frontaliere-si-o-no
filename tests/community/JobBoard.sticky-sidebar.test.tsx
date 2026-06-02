@@ -46,9 +46,16 @@ describe('JobBoard — ItemList JSON-LD (docs/seo-action-plan-apr2026.md)', () =
     expect(SOURCE).toMatch(/numberOfItems/);
   });
 
-  it('skips injection on the detail view', () => {
-    // The effect must early-return when selectedJob or initialJobSlug is set.
-    expect(SOURCE).toMatch(/if\s*\(selectedJob\s*\|\|\s*initialJobSlug\)/);
+  it('skips injection on the detail view but still emits on list landings', () => {
+    // The effect must early-return ONLY on a true job-detail view (selectedJob,
+    // or an initialJobSlug that is NOT a search/company/location landing).
+    // Landing pages set initialJobSlug while rendering a job LIST, so they must
+    // still emit ItemList (the bare `selectedJob || initialJobSlug` guard used
+    // to suppress them → landings shipped BreadcrumbList only).
+    expect(SOURCE).toMatch(
+      /const\s+isLandingList\s*=\s*!!\(\s*searchSlugFilter\s*\|\|\s*companySlugFilter\s*\|\|\s*locationSlugFilter\s*\)/,
+    );
+    expect(SOURCE).toMatch(/if\s*\(selectedJob\s*\|\|\s*\(initialJobSlug\s*&&\s*!isLandingList\)\)/);
   });
 
   it('caps the list at 20 items to keep the payload small', () => {
