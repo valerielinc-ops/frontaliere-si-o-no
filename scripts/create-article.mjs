@@ -5311,7 +5311,19 @@ function checkForDuplicates(data) {
   const sectionSlugSrc = readSectionSlugData();
   for (const locale of ['it']) {
     const newSlug = data.slugs[locale];
-    const slugPattern = new RegExp(`'${escapeRegex(newSlug)}'`, 'g');
+    // A nullish slug builds a degenerate regex (`escapeRegex(undefined)` → '')
+    // that never matches a populated slot → the overlap check silently passes
+    // and a real duplicate slips through (two articles, same URL, canonical
+    // confusion). Fail loud instead of false-negative.
+    if (!newSlug) {
+      throw new Error(`❌ Slug "${locale}" mancante prima del controllo duplicati (data.slugs.${locale}=${newSlug}).`);
+    }
+    // Anchor on the `it:` slot, not any quoted token: the slug-data file stores
+    // all four locales as single-quoted strings on one line
+    // (`'id': { it: '…', en: '…', de: '…', fr: '…' }`), so an unanchored
+    // `'<slug>'` match false-positives when a new IT slug equals an existing
+    // EN/DE/FR value. Slugs are unique per locale-slot → scope the test to `it:`.
+    const slugPattern = new RegExp(`\\bit:\\s*'${escapeRegex(newSlug)}'`, 'g');
     if (slugPattern.test(sectionSlugSrc)) {
       throw new Error(`❌ DUPLICATO: Lo slug "${newSlug}" esiste già in ${SECTION_SLUG_DATA_FILE}!`);
     }
