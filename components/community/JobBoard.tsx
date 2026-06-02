@@ -5510,15 +5510,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(gateCompanySlug);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub — see openCompanyFilter note.
+ window.location.assign(gateCompanyHref.split('?')[0]);
  };
 
  return (
@@ -5953,15 +5947,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(companySearchSlug);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub (HTTP 200) which lists the
+ // company's jobs across ALL cantons. An SPA re-filter scopes to the current
+ // canton shard and clobbers the static list with an empty result — the
+ // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
+ // (e.g. PwC: 109 static jobs vs 0 in the TI shard). The viewed job is active,
+ // so its company always has a current-build hub (companySearchHref uses the
+ // canonical slug that mirrors the emitter).
+ window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {
  const assigned =
