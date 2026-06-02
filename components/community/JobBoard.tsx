@@ -82,6 +82,7 @@ import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/s
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -3540,11 +3541,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Still update title/description for user experience.
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
  const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
- const suffix = ' | Frontaliere Ticino';
- const sep = ' — ';
- const company = selectedJob.company;
- const candidate = `${localizedTitle}${sep}${company}${suffix}`;
- document.title = candidate.length <= 60 ? candidate : `${localizedTitle}${sep}${company}`.slice(0, 60);
+ // Prefer the offer LOCATION over the brand suffix: the city rides in the
+ // headline and " | Frontaliere Ticino" is dropped first when over the cap.
+ const prevSlugCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
+ document.title = buildJobTitleWithLocation(localizedTitle, selectedJob.company, prevSlugCity, locale);
  const metaDesc = document.querySelector('meta[name="description"]');
  if (metaDesc) metaDesc.setAttribute('content', String(localizedDescription || '').slice(0, 160));
  return;
@@ -3571,30 +3571,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedJob) {
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
  const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
- // Build title with cascading truncation to fit ~60 char SERP limit
- const suffix = ' | Frontaliere Ticino';
- const sep = ' — ';
- const company = selectedJob.company;
- let fullTitle: string;
- const candidate1 = `${localizedTitle}${sep}${company}${suffix}`;
- if (candidate1.length <= 60) {
- fullTitle = candidate1;
- } else {
- const candidate2 = `${localizedTitle}${sep}${company}`;
- if (candidate2.length <= 60) {
- fullTitle = candidate2;
- } else {
- // Truncate job title at word boundary to fit with company name
- const maxTitleLen = 60 - sep.length - company.length;
- if (maxTitleLen > 20) {
- const cut = localizedTitle.lastIndexOf(' ', maxTitleLen - 1);
- const truncated = cut > 15 ? localizedTitle.slice(0, cut) + '…' : localizedTitle.slice(0, maxTitleLen - 1) + '…';
- fullTitle = `${truncated}${sep}${company}`;
- } else {
- fullTitle = localizedTitle.length <= 60 ? localizedTitle : localizedTitle.slice(0, 57) + '…';
- }
- }
- }
+ // Prefer the offer LOCATION over the brand suffix: the city rides inside the
+ // headline ("{role} — {company} a {city}") and " | Frontaliere Ticino" is the
+ // first thing dropped when the title exceeds the SERP cap. Mirrors the static
+ // SSG composer so static <title> and JS-rendered document.title agree.
+ const jobCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
+ const fullTitle = buildJobTitleWithLocation(localizedTitle, selectedJob.company, jobCity, locale);
  const descSnippet = String(localizedDescription || '').slice(0, 160);
  document.title = fullTitle;
  const metaDesc = document.querySelector('meta[name="description"]');
@@ -3641,7 +3623,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
  const editorialCanonicalHref = `${window.location.origin}${canonicalPath}`;
  canonical.setAttribute('href', editorialCanonicalHref);
- document.title = `${editorialLandingModel.title} | Frontaliere Ticino`;
+ // Brand suffix is the first thing dropped when the (often place-bearing)
+ // landing headline would push the title past the SERP cap.
+ document.title = buildTitleWithBrand(editorialLandingModel.title);
  const metaDesc = document.querySelector('meta[name="description"]');
  if (metaDesc) {
  metaDesc.setAttribute('content', editorialLandingModel.description);

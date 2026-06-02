@@ -6,11 +6,12 @@
 import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
-import { resolveCompanyLogoUrl } from './jobDataNormalization';
+import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -372,8 +373,13 @@ async function resolveJobSeoBySlug(
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ // Multi-location jobs carry a non-geographic blob (e.g. "ganz Schweiz",
+ // "toute la Suisse") in `location` — never inject it as the city, or the
+ // authoritative job title (→ document.title + og:title) blows the cap and
+ // dilutes the keyword. Mirrors the JobBoard.tsx SPA guard.
+ const titleCity = isMultiLocation(job?.location) ? '' : String(job?.location || '');
  return {
- title: `${localizedTitle} — ${job.company} | Frontaliere Ticino`,
+ title: buildJobTitleWithLocation(localizedTitle, String(job?.company || ''), titleCity, locale),
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
@@ -665,7 +671,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  const route = { activeTab: 'glossario' as const, glossaryTerm: termId as any };
  const canonicalPath = buildPath(route, 'it');
  const label = titleizeGlossaryTermId(termId);
- const title = `${label} (Glossario) | Frontaliere Ticino`;
+ const title = buildTitleWithBrand(`${label} (Glossario)`);
  const description = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
  return [
  `glossario-${termId}`,
@@ -1052,13 +1058,13 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  if (!localizedTitle && !localizedDescription) {
  const fallbackTitle = buildLocalizedUnknownSectionTitle(section, locale);
  return {
- title: `${fallbackTitle} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(fallbackTitle),
  description: buildLocalizedSeoFallbackDescription(fallbackTitle, locale),
  keywords: getLocalizedSeoKeywords(fallbackTitle, locale, metadata.keywords),
  };
  }
 
- const title = localizedTitle ? `${localizedTitle} | Frontaliere Ticino` : metadata.title;
+ const title = localizedTitle ? buildTitleWithBrand(localizedTitle) : metadata.title;
  const description = localizedDescription || buildLocalizedSeoFallbackDescription(localizedTitle || metadata.title, locale);
  return {
  title,

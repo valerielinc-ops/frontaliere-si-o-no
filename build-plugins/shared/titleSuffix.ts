@@ -100,3 +100,55 @@ export function buildTitleWithBrand(
   }
   return safeHeadline;
 }
+
+/**
+ * Connector that places the offer's city in the SERP <title> tail, per locale.
+ * Mirrors `CITY_CONNECTOR` in build-plugins/jobsSeoPagesPlugin.ts so the static
+ * SSG job pages and the SPA runtime emit the SAME city-bearing title.
+ */
+export const JOB_TITLE_CITY_CONNECTOR: Record<string, string> = {
+  it: 'a',
+  en: 'in',
+  de: 'in',
+  fr: 'à',
+};
+
+/**
+ * Build a job-detail <title> headline that PREFERS the offer location over the
+ * brand suffix. The city rides inside the headline ("{role} — {company} a
+ * {city}") and {@link buildTitleWithBrand} keeps the headline verbatim while
+ * dropping " | Frontaliere Ticino" first when the title exceeds the cap — so a
+ * concrete place always beats the generic brand in the SERP. Falls back to
+ * role+company (or role alone) when the city/company is missing.
+ *
+ * Pure string logic (no Node deps) so it is shared by the SSG plugin path and
+ * the SPA runtime (services/seoService.ts, components/community/JobBoard.tsx).
+ *
+ * NOTE — partial parity with the SSG `composeJobPageTitle`: this helper caps
+ * the headline verbatim at `maxChars` (default 66), whereas the SSG composer
+ * budgets the core against JOB_TITLE_MAX=70 with city-preserving truncation
+ * AND appends a collision disambiguator. The SPA title therefore matches the
+ * static <title> only for short, non-colliding jobs; for long/multi-sede
+ * titles they diverge. Acceptable because the indexed authority is the static
+ * <title> (which keeps the disambiguator); the SPA value is a JS-render
+ * convenience. Callers must apply their own multi-location guard before
+ * passing `city` (the blob "ganz Schweiz" etc. must not become a city token).
+ */
+export function buildJobTitleWithLocation(
+  jobTitle: string,
+  company: string,
+  city: string,
+  locale: string,
+  brand: string = TITLE_BRAND_SUFFIX,
+  maxChars: number = TITLE_MAX_CHARS,
+): string {
+  const cleanTitle = String(jobTitle || '').trim();
+  const cleanCompany = String(company || '').trim();
+  const cleanCity = String(city || '').trim();
+  const connector = JOB_TITLE_CITY_CONNECTOR[locale] || JOB_TITLE_CITY_CONNECTOR.it;
+  let headline = cleanTitle;
+  if (cleanCompany && cleanCity) headline = `${cleanTitle} — ${cleanCompany} ${connector} ${cleanCity}`;
+  else if (cleanCompany) headline = `${cleanTitle} — ${cleanCompany}`;
+  else if (cleanCity) headline = `${cleanTitle} ${connector} ${cleanCity}`;
+  return buildTitleWithBrand(headline, brand, maxChars);
+}
