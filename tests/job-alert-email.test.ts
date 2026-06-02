@@ -1,7 +1,26 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { buildAlertEmail } from '../scripts/send-job-alerts.mjs';
+import {
+  buildAlertEmail,
+  mailerooMetaOnSent,
+  __setFirestoreAdminForTest,
+} from '../scripts/send-job-alerts.mjs';
+
+// Minimal Firestore fake capturing .collection().doc().collection().doc().set() chains,
+// recording the final docId + payload so the maileroo-meta writer can be asserted.
+function createMetaFakeDb() {
+  const sets: Array<{ docId: string; data: any; merge: boolean }> = [];
+  const docNode = (id: string): any => ({
+    collection: () => collectionNode(),
+    set: (data: any, opts: any) => {
+      sets.push({ docId: id, data, merge: !!opts?.merge });
+      return Promise.resolve();
+    },
+  });
+  const collectionNode = (): any => ({ doc: (id: string) => docNode(id) });
+  return { db: { collection: () => collectionNode() }, sets };
+}
 
 const fixtureAlert = (locale: 'it' | 'en' | 'de' | 'fr') => ({
   id: 'alert-test-1',
@@ -572,5 +591,49 @@ describe('job alert workflow — TARGET_EMAIL filter (source check)', () => {
     );
     expect(src).toMatch(/export\s+(?:async\s+)?function\s+updateJobAlert/);
     expect(src).toMatch(/export\s+(?:async\s+)?function\s+createJobAlert/);
+  });
+});
+
+describe('job alert maileroo meta — open/click attribution writer (#1140)', () => {
+  it('normalizes the email before keying the lookup record (mixed-case → orphan-free)', async () => {
+    const { db, sets } = createMetaFakeDb();
+    __setFirestoreAdminForTest(db);
+    await mailerooMetaOnSent(
+      { recipient: { email: '  Seeker@Example.COM ' } },
+      { provider: 'maileroo', messageId: 'ref_mixed' },
+    );
+    __setFirestoreAdminForTest(null);
+
+    expect(sets).toHaveLength(1);
+    expect(sets[0]).toMatchObject({
+      docId: 'ref_mixed',
+      merge: true,
+      data: { email: 'seeker@example.com', is_job_alert: true },
+    });
+    // The webhook uses meta.email directly as job_alert_subscribers/{email} doc id,
+    // so it must be lowercased/trimmed to hit the real subscriber, not an orphan.
+    expect(sets[0].data.email).toBe('seeker@example.com');
+  });
+
+  it('writes nothing for non-maileroo providers or missing messageId', async () => {
+    const { db, sets } = createMetaFakeDb();
+    __setFirestoreAdminForTest(db);
+    await mailerooMetaOnSent({ recipient: { email: 'a@b.com' } }, { provider: 'resend', messageId: 'x' });
+    await mailerooMetaOnSent({ recipient: { email: 'a@b.com' } }, { provider: 'maileroo' });
+    await mailerooMetaOnSent({ recipient: {} }, { provider: 'maileroo', messageId: 'y' });
+    __setFirestoreAdminForTest(null);
+    expect(sets).toHaveLength(0);
+  });
+
+  it('the retry path (processRetryQueue) passes the same onSent so retried sends are attributed', () => {
+    const src = fs.readFileSync(
+      path.resolve(__dirname, '../scripts/send-job-alerts.mjs'),
+      'utf8',
+    );
+    // Both the first-send and retry sendEmailCascade calls must wire mailerooMetaOnSent.
+    const onSentWirings = src.match(/onSent:\s*mailerooMetaOnSent/g) || [];
+    expect(onSentWirings.length).toBeGreaterThanOrEqual(2);
+    // Guard the retry call specifically.
+    expect(src).toMatch(/sendEmailCascade\(retryEmails,\s*\{[^}]*onSent:\s*mailerooMetaOnSent/s);
   });
 });
