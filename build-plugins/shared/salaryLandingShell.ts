@@ -192,10 +192,14 @@ const round100 = (n: number): number => Math.round(n / 100) * 100;
 const round10 = (n: number): number => Math.round(n / 10) * 10;
 
 // Per-RAL { within, over, delta } EUR, computed once and reused by tile/advice/table.
+// `delta` is the difference of the *rounded* within/over cells (not the raw
+// values) so a reader who subtracts the two shown columns gets exactly the
+// printed delta — no visible arithmetic contradiction on the indexed table
+// (issue #1150).
 const OVER20_ROWS = OVER20_RALS.map((ral) => {
-  const within = over20NetEUR(ral, 'WITHIN_20KM');
-  const over = over20NetEUR(ral, 'OVER_20KM');
-  return { ral, within: round100(within), over: round100(over), delta: round10(over - within) };
+  const within = round100(over20NetEUR(ral, 'WITHIN_20KM'));
+  const over = round100(over20NetEUR(ral, 'OVER_20KM'));
+  return { ral, within, over, delta: over - within };
 });
 // Extra annual cost of residing over 20 km, by RAL band (positive magnitude).
 const OVER20_EXTRA_LO = Math.min(...OVER20_ROWS.map((r) => Math.abs(r.delta)));
@@ -274,7 +278,11 @@ function over20Table(locale: SalaryLocale): SalaryTable {
 // calculator-derived 80k delta so the two indexed pages can't contradict.
 function over20Move80kCell(locale: SalaryLocale): string {
   const row = OVER20_ROWS.find((r) => r.ral === 80000);
-  const magnitude = Math.abs(row ? row.delta : 0).toLocaleString(OVER20_FMT[locale]);
+  // Fail-fast rather than silently emit "-EUR 0" on an indexed page if 80000 is
+  // ever dropped from OVER20_RALS (issue #1150): a 0 fallback is not a safe
+  // default for SEO content.
+  if (!row) throw new Error('over20Move80kCell: OVER20_ROWS missing RAL 80000 (check OVER20_RALS)');
+  const magnitude = Math.abs(row.delta).toLocaleString(OVER20_FMT[locale]);
   return `-EUR ${magnitude}`;
 }
 
@@ -1091,7 +1099,14 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
   fxLabel: string;
   rateTile: string;
   adviceTpl: (gross: number, net: number, netEUR: number) => string;
-  tableCaption: (gross: number) => string;
+  // `profile` is the variant-aware parenthetical (e.g. "single A0, Lugano" for
+  // base, "vecchio frontaliere, Lugano" for old) so the caption never claims
+  // "single A0" on an `old`/`married` page (issue #1137).
+  tableCaption: (gross: number, profile: string) => string;
+  // Base profile descriptor for the table caption (locale-specific), reused for
+  // base/new/within20/over20; variant suffixes override it for old/married.
+  captionProfileBase: string;
+  grossAllowanceLabel: string;
   th: ReadonlyArray<string>;
   rowLabels: { gross: string; social: string; source: string; italian: string; net: string };
   footnote: string;
@@ -1110,7 +1125,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fxLabel: 'BNS giornaliero',
     rateTile: 'Cambio CHF/EUR',
     adviceTpl: (g, n, e) => `Su CHF ${g.toLocaleString('it-CH')} di lordo, ti restano circa CHF ${n.toLocaleString('it-CH')} netti — equivalenti a EUR ${e.toLocaleString('it-CH')} al cambio del giorno.`,
-    tableCaption: (g) => `Decomposizione: RAL CHF ${g.toLocaleString('it-CH')} (single A0, Lugano)`,
+    tableCaption: (g, p) => `Decomposizione: RAL CHF ${g.toLocaleString('it-CH')} (${p})`,
+    captionProfileBase: 'single A0, Lugano',
+    grossAllowanceLabel: 'Lordo + assegni familiari',
     th: ['Voce', 'Importo annuo (CHF)', 'Importo annuo (EUR)'],
     rowLabels: { gross: 'Lordo (RAL)', social: 'Contributi sociali', source: 'Imposta alla fonte TI', italian: 'IRPEF residua (post-franchigia)', net: 'Netto stimato' },
     footnote: 'Stima per scopi indicativi. Per il tuo caso esatto usa il simulatore con i tuoi parametri.',
@@ -1139,7 +1156,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fxLabel: 'SNB daily',
     rateTile: 'CHF/EUR rate',
     adviceTpl: (g, n, e) => `On CHF ${g.toLocaleString('en-US')} gross, about CHF ${n.toLocaleString('en-US')} net remains — equivalent to EUR ${e.toLocaleString('en-US')} at the daily rate.`,
-    tableCaption: (g) => `Breakdown: gross CHF ${g.toLocaleString('en-US')} (single A0, Lugano)`,
+    tableCaption: (g, p) => `Breakdown: gross CHF ${g.toLocaleString('en-US')} (${p})`,
+    captionProfileBase: 'single A0, Lugano',
+    grossAllowanceLabel: 'Gross + family allowance',
     th: ['Line', 'Annual amount (CHF)', 'Annual amount (EUR)'],
     rowLabels: { gross: 'Gross (RAL)', social: 'Social contributions', source: 'Ticino source tax', italian: 'Residual IRPEF (post-allowance)', net: 'Estimated net' },
     footnote: 'Indicative estimate. For your exact case use the simulator with your parameters.',
@@ -1168,7 +1187,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fxLabel: 'SNB-Tageskurs',
     rateTile: 'CHF/EUR-Kurs',
     adviceTpl: (g, n, e) => `Bei CHF ${g.toLocaleString('de-CH')} brutto bleiben rund CHF ${n.toLocaleString('de-CH')} netto — entspricht EUR ${e.toLocaleString('de-CH')} zum Tageskurs.`,
-    tableCaption: (g) => `Aufschlüsselung: Brutto CHF ${g.toLocaleString('de-CH')} (ledig A0, Lugano)`,
+    tableCaption: (g, p) => `Aufschlüsselung: Brutto CHF ${g.toLocaleString('de-CH')} (${p})`,
+    captionProfileBase: 'ledig A0, Lugano',
+    grossAllowanceLabel: 'Brutto + Familienzulagen',
     th: ['Position', 'Jahresbetrag (CHF)', 'Jahresbetrag (EUR)'],
     rowLabels: { gross: 'Brutto (RAL)', social: 'Sozialabgaben', source: 'Tessiner Quellensteuer', italian: 'IRPEF-Rest (nach Freibetrag)', net: 'Geschätztes Netto' },
     footnote: 'Richtwert. Für Ihren konkreten Fall den Simulator mit Ihren Parametern nutzen.',
@@ -1197,7 +1218,9 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
     fxLabel: 'BNS quotidien',
     rateTile: 'Taux CHF/EUR',
     adviceTpl: (g, n, e) => `Sur CHF ${g.toLocaleString('fr-CH')} brut, il reste ~CHF ${n.toLocaleString('fr-CH')} nets — soit EUR ${e.toLocaleString('fr-CH')} au taux du jour.`,
-    tableCaption: (g) => `Décomposition : brut CHF ${g.toLocaleString('fr-CH')} (célibataire A0, Lugano)`,
+    tableCaption: (g, p) => `Décomposition : brut CHF ${g.toLocaleString('fr-CH')} (${p})`,
+    captionProfileBase: 'célibataire A0, Lugano',
+    grossAllowanceLabel: 'Brut + allocations familiales',
     th: ['Poste', 'Montant annuel (CHF)', 'Montant annuel (EUR)'],
     rowLabels: { gross: 'Brut (RAL)', social: 'Cotisations sociales', source: 'Impôt à la source TI', italian: 'IRPEF résiduel (post-franchise)', net: 'Net estimé' },
     footnote: 'Estimation indicative. Pour votre cas exact, utilisez le simulateur avec vos paramètres.',
@@ -1218,37 +1241,37 @@ const SALARY_TIER_LABELS: Record<SalaryLocale, {
   },
 };
 
-/**
- * Apply variant-specific adjustments to the base-case net estimate.
- * Numbers are coherent illustrative deltas, not authoritative tax results.
- * Still used for `old` / `married` (see follow-up issue); the single-A0
- * variants (`base`/`new`/`within20`/`over20`) are derived from the calculator
- * via `tierDecomposition` so they match the over-20km hub exactly.
- */
-function adjustNetForVariant(baseNet: number, variant: TierVariant): number {
-  switch (variant) {
-    case 'new':      return baseNet - 800;   // new regime + Italian IRPEF residual
-    case 'old':      return baseNet + 1200;  // grandfathered, no IT IRPEF
-    case 'married':  return baseNet + 2800;  // table C2 lower withholding
-    case 'within20': return baseNet + 1500;  // 80/20 split + IT credit
-    case 'over20':   return baseNet - 1500;  // 100% Swiss withholding
-    case 'base':
-    default:         return baseNet;
-  }
-}
+// Calculator inputs for each salary-tier variant. Every variant routes through
+// `calculateSimulation` so the indexed pages can never drift from the live tool
+// (no fabricated deltas). The fabricated `adjustNetForVariant` coefficients and
+// the partial `CALC_VARIANT_ZONE` split were removed (issues #1137, #1150): all
+// six variants are now derived, including `old` (Swiss-exclusive regime, no IT
+// IRPEF) and `married` (Table C + CH family allowance that inflates the gross).
+type CalcInputOverride = Pick<
+  Parameters<typeof calculateSimulation>[0],
+  'children' | 'familyMembers' | 'maritalStatus' | 'spouseWorks' | 'frontierWorkerType' | 'distanceZone'
+>;
 
-// Single-A0 tier variants whose figures are derived from `calculateSimulation`
-// (no children → no family allowance, so gross == RAL and the decomposition
-// sums exactly). `old`/`married` still use the heuristic above pending a
-// dedicated follow-up (regime/allowance nuances + a variant-aware caption).
-const CALC_VARIANT_ZONE: Partial<Record<TierVariant, 'WITHIN_20KM' | 'OVER_20KM'>> = {
-  base: 'WITHIN_20KM',
-  new: 'WITHIN_20KM',
-  within20: 'WITHIN_20KM',
-  over20: 'OVER_20KM',
+const VARIANT_CALC_INPUTS: Record<TierVariant, CalcInputOverride> = {
+  // Single A0N, within 20 km — the canonical scenario the caption advertises.
+  base:     { children: 0, familyMembers: 1, maritalStatus: 'SINGLE',  spouseWorks: false, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM' },
+  new:      { children: 0, familyMembers: 1, maritalStatus: 'SINGLE',  spouseWorks: false, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM' },
+  within20: { children: 0, familyMembers: 1, maritalStatus: 'SINGLE',  spouseWorks: false, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM' },
+  // Beyond 20 km — full Swiss withholding, partial IT credit.
+  over20:   { children: 0, familyMembers: 1, maritalStatus: 'SINGLE',  spouseWorks: false, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM' },
+  // Grandfathered worker — exclusively Swiss taxation, no residual IT IRPEF.
+  old:      { children: 0, familyMembers: 1, maritalStatus: 'SINGLE',  spouseWorks: false, frontierWorkerType: 'OLD', distanceZone: 'WITHIN_20KM' },
+  // Married + 2 children, both spouses working — Table C + CH child allowance
+  // (CHF 3.000/child) inflates the gross beyond the RAL, so the decomposition
+  // uses gross = RAL + allowance rather than gross = RAL.
+  married:  { children: 2, familyMembers: 4, maritalStatus: 'MARRIED', spouseWorks: true,  frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM' },
 };
 
 interface TierDecomposition {
+  // Gross used as the table's top line: RAL + CH family allowance (allowance is
+  // 0 for every variant except `married`).
+  readonly gross: number;
+  readonly allowance: number;
   readonly social: number;
   readonly source: number;
   readonly italian: number;
@@ -1256,25 +1279,24 @@ interface TierDecomposition {
   readonly fx: number;
 }
 
-// Full CHF decomposition for a single-A0 new frontaliere at the given RAL/zone,
-// straight from the calculator. gross == RAL (no allowance), so
-// net == RAL - social - source - italian.
-function tierDecomposition(ral: number, zone: 'WITHIN_20KM' | 'OVER_20KM'): TierDecomposition {
+// Full CHF decomposition for a salary-tier variant, straight from the calculator.
+// gross == RAL + familyAllowance, and net == gross - social - source - italian,
+// so every rendered table reconciles exactly.
+function tierDecomposition(ral: number, variant: TierVariant): TierDecomposition {
   const r = calculateSimulation({
     ...DEFAULT_INPUTS,
     annualIncomeCHF: ral,
-    children: 0,
-    familyMembers: 1,
-    maritalStatus: 'SINGLE',
-    frontierWorkerType: 'NEW',
-    distanceZone: zone,
     expensesIT: [],
+    expensesCH: [],
+    ...VARIANT_CALC_INPUTS[variant],
   });
   const it = r.itResident;
+  const allowance = Math.round(it.familyAllowance);
+  const gross = Math.round(it.grossIncome + it.familyAllowance);
   const social = Math.round(it.socialContributions);
   const netSwiss = Math.round((it.swissNetIncomeMonthlyCHF ?? 0) * DEFAULT_INPUTS.monthsBasis);
   const net = Math.round(it.netIncomeAnnual);
-  return { social, source: ral - social - netSwiss, italian: netSwiss - net, net, fx: r.exchangeRate };
+  return { gross, allowance, social, source: gross - social - netSwiss, italian: netSwiss - net, net, fx: r.exchangeRate };
 }
 
 /**
@@ -1285,56 +1307,51 @@ function tierDecomposition(ral: number, zone: 'WITHIN_20KM' | 'OVER_20KM'): Tier
 function buildSalaryTierData(cfg: TierConfig, locale: SalaryLocale): SalaryLandingData {
   const labels = SALARY_TIER_LABELS[locale];
   const pack = LOCALE_PACKS[locale];
-  const grossCHF = cfg.ral * 1000;
-  const calcZone = CALC_VARIANT_ZONE[cfg.variant];
+  const ralCHF = cfg.ral * 1000;
 
-  let social: number;
-  let sourceTax: number;
-  let netCHF: number;
-  let italianResidualCHF: number;
-  let fx: number;
-
-  if (calcZone) {
-    // Single-A0 variants: derive the full decomposition from the calculator so
-    // these indexed pages match the over-20km hub (no fabricated deltas).
-    const d = tierDecomposition(grossCHF, calcZone);
-    social = d.social;
-    sourceTax = d.source;
-    italianResidualCHF = Math.max(0, d.italian);
-    netCHF = d.net;
-    fx = d.fx;
-  } else {
-    // `old` / `married`: coherent illustrative estimate (social ~15%, source
-    // ~12% of remainder), pending the dedicated follow-up.
-    social = Math.round(grossCHF * 0.15);
-    sourceTax = Math.round((grossCHF - social) * 0.12);
-    const baseNet = grossCHF - social - sourceTax;
-    netCHF = adjustNetForVariant(baseNet, cfg.variant);
-    italianResidualCHF = cfg.variant === 'old' ? 0 : Math.max(0, Math.round((grossCHF - 10000 / 1.05) * 0.04));
-    fx = 1.05;
-  }
+  // Every variant is derived from the live calculator: no fabricated deltas, and
+  // the same DEFAULT_EXCHANGE_RATE (1.096) the tool uses for EUR (issues #1137,
+  // #1150). `gross` is RAL + CH family allowance (allowance > 0 only for
+  // `married`), so net == gross - social - source - italian reconciles exactly.
+  const d = tierDecomposition(ralCHF, cfg.variant);
+  const grossCHF = d.gross;
+  const social = d.social;
+  const sourceTax = d.source;
+  const italianResidualCHF = Math.max(0, d.italian);
+  const netCHF = d.net;
+  const fx = d.fx;
 
   const eur = (chf: number): number => Math.round(chf * fx);
   const netEUR = eur(netCHF);
   const italianResidualEUR = eur(italianResidualCHF);
 
+  // Variant-aware caption profile: keep "single A0, Lugano" for the single-A0
+  // variants, but swap in the (localised) variant suffix for old/married so the
+  // caption never mislabels them as single A0.
+  const captionProfile = cfg.variant === 'base'
+    ? labels.captionProfileBase
+    : `${labels.variantSuffix[cfg.variant].replace(/^\s*·\s*/, '')}, Lugano`;
+  // For `married`, the gross line includes the CH family allowance, so label it
+  // accordingly to keep the decomposition honest.
+  const grossRowLabel = d.allowance > 0 ? labels.grossAllowanceLabel : labels.rowLabels.gross;
+
   return {
     eyebrow: `${labels.eyebrow}${labels.variantSuffix[cfg.variant]}`,
-    tagline: `${labels.taglinePrefix} CHF ${grossCHF.toLocaleString(locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-CH' : 'de-CH')}.`,
+    tagline: `${labels.taglinePrefix} CHF ${ralCHF.toLocaleString(locale === 'en' ? 'en-US' : locale === 'fr' ? 'fr-CH' : 'de-CH')}.`,
     tiles: [
       { label: labels.netTile, value: `~CHF ${netCHF.toLocaleString(locale === 'en' ? 'en-US' : 'de-CH')}`, tone: 'accent' },
       { label: labels.fonteTile, value: labels.tableLabel, tone: 'success' },
       { label: labels.irpefTile, value: 'EUR 10.000', tone: 'warning' },
       { label: labels.rateTile, value: labels.fxLabel, tone: 'neutral' },
     ],
-    advice: labels.adviceTpl(grossCHF, netCHF, netEUR),
+    advice: labels.adviceTpl(ralCHF, netCHF, netEUR),
     ctaPrimary: { label: pack.ctaPrimary, href: pack.simulatorHref },
     ctaSecondary: { label: pack.ctaSecondary, href: pack.whatIfHref },
     table: {
-      caption: labels.tableCaption(grossCHF),
+      caption: labels.tableCaption(grossCHF, captionProfile),
       headers: labels.th,
       rows: [
-        { cells: [labels.rowLabels.gross, grossCHF.toLocaleString('de-CH'), `~${eur(grossCHF).toLocaleString('de-CH')}`] },
+        { cells: [grossRowLabel, grossCHF.toLocaleString('de-CH'), `~${eur(grossCHF).toLocaleString('de-CH')}`] },
         { cells: [labels.rowLabels.social, `-${social.toLocaleString('de-CH')}`, `-${eur(social).toLocaleString('de-CH')}`] },
         { cells: [labels.rowLabels.source, `-${sourceTax.toLocaleString('de-CH')}`, `-${eur(sourceTax).toLocaleString('de-CH')}`] },
         { cells: [labels.rowLabels.italian, '—', italianResidualEUR > 0 ? `-${italianResidualEUR.toLocaleString('de-CH')}` : '0'] },
@@ -2113,5 +2130,8 @@ export const _internal = {
   parseSalaryTierPath,
   parseNetComparisonPath,
   resolveScenarioData,
+  buildSalaryTierData,
+  tierDecomposition,
+  OVER20_ROWS,
   HUB_PATH_TO_KEY,
 };
