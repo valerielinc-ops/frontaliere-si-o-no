@@ -400,7 +400,7 @@ export function renderLandingHero(
 ): string {
   const badge = HERO_BADGES[id];
   const eyebrow = badge
-    ? `<p class="text-sm font-semibold text-accent flex items-center gap-1.5"><span aria-hidden="true">${badge.emoji}</span>${escHtml(badge.eyebrowLabel[locale])}</p>`
+    ? `<p class="text-sm font-semibold text-accent flex items-center gap-1.5"><span class="lh-emoji" aria-hidden="true">${badge.emoji}</span>${escHtml(badge.eyebrowLabel[locale])}</p>`
     : '';
   const tagline = badge
     ? badge.taglineTemplate[locale](vars)
