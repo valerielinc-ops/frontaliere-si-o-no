@@ -4,7 +4,7 @@ Contratto operativo per `post-merge-followup.yml`. Triage automatico post-merge:
 
 ## Scopo
 
-Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, o (b) drop motivato. Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
+Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, (b) drop motivato, o (c) — se è pura verifica del sito live senza file da editare — una voce nella checklist `Live-verification` batchata del commento di chiusura (nessuna issue, nessun fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
 
 ## Input
 
@@ -58,6 +58,21 @@ Droppa se l'item è essenzialmente uno di:
 - Voce adversarial-check che lamenta assenza di test invece di un rischio di comportamento.
 
 **NON droppare** (resta in scope normale): un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky che resta verde sulla regressione, fixture con date assolute (#1035) — è correttezza, non coverage.
+
+### Hard-exclude: live-verification-only item (mai aprire follow-up — batch in checklist)
+
+Categoria a sé, **mai mintata come issue `follow-up`** (reason: `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte** (reviewer 🟡/❓/adversarial OPPURE PR body `## Non implementato` / `## Test plan` checkbox `- [ ]` non spuntata). Un item è `live-verify-only` quando l'**unica azione suggerita è verificare il sito già deployato** — non esiste alcun file da editare, serve un sito live + occhi umani (o uno strumento E2E manuale). Il fix di codice della PR è già mergiato ed è meccanicamente sano; "controlla che renda bene in prod" non è una issue fixabile da `agent:fix`. Storicamente ~40% dei sub-item follow-up sono di questo tipo (classe #1149/#959/#1129): auto-routano a `agent:fix` → il fixer non ha nulla da editare → PR vuota/no-op → `pr-review-loop` la revisiona → giri Claude sprecati sulla quota Max condivisa. È, dopo il missing-test, la seconda voce di burn più alta del workflow.
+
+Riconosci `live-verify-only` dalle frasi-segnale nell'item (l'azione è SOLO ispezione runtime, nessuna edit di file):
+
+- "verify live" / "verifica live" / "post-deploy" / "(post-merge, live)" / "(live)" / "controlla in prod" / "su prod" / "una volta deployato".
+- "curl" la URL di produzione / "live-200" / "live curl" / controllo HTTP status sul sito live.
+- "render at NNNpx" / "renderizza a 382px" / "apri DevTools" / "ispeziona nel browser" / "Playwright hydration" / verifica visuale o CLS a runtime.
+- Checkbox `## Test plan` `- [ ]` esplicitamente etichettata `(post-merge, live)` / `(live)` / "verifica post-deploy" e non spuntata (il reviewer la flagga 🟡 "ricorda spunta post-merge", vedi `REVIEW.md → Test plan compliance`).
+
+**Routing (NON drop silenzioso):** questi item NON diventano issue, ma confluiscono in **un'unica checklist batchata** nella sezione `Live-verification` del commento di chiusura sulla PR (vedi `## Closing comment`). Restano visibili all'owner per la verifica manuale post-deploy, senza far partire alcun fixer. Una sola checklist per PR, mai una issue per voce.
+
+**NON classificare `live-verify-only`** (resta candidate normale, può diventare issue) un item che **mescola** un suffisso live-verify con un'azione reale su un file: se l'item descrive anche un cambiamento di codice/config concreto da fare ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"), la parte editabile è azionabile → resta in scope normale (la coda live-verify è solo conferma). Solo gli item la cui **intera** azione è ispezione runtime sono `live-verify-only`. Nel dubbio tra "puro live-verify" e "ha anche un'edit" → tienilo actionable (non batcharlo): un'edit persa costa al funnel, una checklist-entry in più costa zero.
 
 ## Dedup
 
@@ -114,13 +129,18 @@ Created: 1 aggregated issue #<id> con N item:
 - <item1 one-line>
 - <item2 one-line>
 
+Live-verification (manuale post-deploy, nessuna issue/fixer): Q item
+- [ ] "<verbatim>" — <segnale: post-deploy | curl prod | render NNNpx | DevTools/Playwright>
+
 Dropped: M item
-- "<verbatim>" — <reason: out-of-scope | dup-of-#X | non-funnel>
+- "<verbatim>" — <reason: out-of-scope | dup-of-#X | non-funnel | non-actionable-churn | missing-test-nit>
 
 Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 ```
 
-Se zero item sopravvivono al filtro+dedup → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata).
+La sezione `Live-verification` raccoglie **tutti** gli item `live-verify-only` (vedi `## Filtro scopo → Hard-exclude: live-verification-only item`): checklist `- [ ]` batchata, una sola per PR, **nessuna issue creata e nessun fixer dispatchato** — è solo un promemoria per la verifica manuale dell'owner sul sito deployato. Ometti la sezione se Q=0. Mai promuovere una voce live-verify a issue.
+
+Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata). Se sopravvivono SOLO voci live-verify (zero issue) → posta il summary con la sola sezione `Live-verification` e la riga `Created: 0 issue (solo live-verification batchata)`.
 
 ## Supersede detection (comment-only, mai chiudere)
 
