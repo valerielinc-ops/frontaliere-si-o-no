@@ -2638,12 +2638,22 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // early-returns the legacy slug → TI URLs stay byte-identical.
   const cityCanton = cityWeeklyEmployerCanton(city);
   const jobBoardSection = weeklyJobBoardSection(locale, cityCanton);
+
+  // Every employer surfaced on the page gets a link: a curated brand hub when
+  // one exists, otherwise the job-board pre-filtered by the company name. This
+  // keeps the top-companies cards, the newcomers cards, and the advice banner
+  // all clickable (no dead `<strong>` company names).
+  const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+  const companyFallbackHref = (employer: string): string =>
+    `${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(employer)}`.replace(/\/\/+/g, '/');
+  const employerHref = (employerKey: string | undefined, employer: string): string =>
+    employerBrandPath(employerKey, employer, knownSlugs) ?? companyFallbackHref(employer);
+
   const topCompaniesHtml = (() => {
     if (stats.topCompanies.length === 0) {
       return `<p class="s-fne6Eu">${esc(copy.topCompaniesEmpty)}</p>`;
     }
     const items = stats.topCompanies.map((c, idx) => {
-      const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
       // When no historical delta exists at all, suppress the per-card
       // coldStart label (shown once above as a banner instead).
       const deltaLabel =
@@ -2652,9 +2662,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
           : c.delta > 0
           ? copy.deltaPositive(c.delta)
           : copy.deltaZero;
-      const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-      const companyFallbackHref = (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
-      const href = brandHref ?? companyFallbackHref;
+      const href = employerHref(c.employerKey, c.employer);
       const subtitle = deltaLabel
         ? `${cityDisplay} · ${deltaLabel}`
         : cityDisplay;
@@ -2683,18 +2691,39 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     return `${coldStartBannerHtml}${listHtml}`;
   })();
 
-  const newcomersHtml =
-    stats.newcomers.length > 0
-      ? `<ul class="s-1K12ix">${stats.newcomers
-          .map((n) => {
-            const newcomerHref = employerBrandPath(n.employerKey, n.employer, knownSlugs);
-            const nameHtml = newcomerHref
-              ? `<a class="s-YszcPD" href="${esc(newcomerHref)}">${esc(n.employer)}</a>`
-              : `<strong>${esc(n.employer)}</strong>`;
-            return `<li>${nameHtml} — ${esc(copy.jobsCountLabel(n.active))}</li>`;
-          })
-          .join('')}</ul>`
-      : `<p class="s-R4vH2z">${esc(copy.newcomersEmpty)}</p>`;
+  // Newcomers use the SAME detailed employer-card layout as the top-companies
+  // section (logo · name · "first appearance" badge · openings metric), and
+  // every card is clickable via `employerHref` (brand hub or job-board
+  // fallback) — no more bare `<strong>` company names without a link. The
+  // playful "✨ prima apparizione" badge differentiates them from the ranked
+  // top employers above.
+  const newcomerBadge: Record<WeeklyEmployersLocale, string> = {
+    it: '✨ Prima apparizione',
+    en: '✨ First appearance',
+    de: '✨ Erste Erwähnung',
+    fr: '✨ Première apparition',
+  };
+  const newcomersHtml = (() => {
+    if (stats.newcomers.length === 0) {
+      return `<p class="s-R4vH2z">${esc(copy.newcomersEmpty)}</p>`;
+    }
+    const items = stats.newcomers.map((n) => {
+      const logoSlug = n.employerKey || slugifyEmployer(n.employer);
+      const explicitLogo = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      return {
+        employer: {
+          name: n.employer,
+          companyKey: n.employerKey ?? undefined,
+          logo: explicitLogo,
+          subtitle: `${cityDisplay} · ${newcomerBadge[locale]}`,
+          metric: copy.jobsCountLabel(n.active),
+          metricTone: 'accent' as const,
+        } satisfies EmployerCardEmployer,
+        href: employerHref(n.employerKey, n.employer),
+      };
+    });
+    return renderEmployerCardListHtml(items, { locale, variant: 'detailed' });
+  })();
 
   // Stats grid + advice banner (mirror of the canton-hub / border-wait
   // pattern). Tiles surface the headline data above the fold; the advice
@@ -2743,10 +2772,22 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       : variant === 'archive'
         ? tileLabels.adviceStableArchive(weekNum, year)
         : tileLabels.adviceStable;
+  // Link the highlighted top employer's name inside the advice sentence
+  // straight to its hub (or job-board fallback) so the "focus your application
+  // here" call-to-action is one tap away. `color:inherit` keeps the link
+  // readable on the tinted banner background (no contrast regression); the
+  // function-form replace avoids `$`-pattern interpretation in the name.
+  const cityAdviceHtml = topGainer
+    ? esc(cityAdviceText).replace(
+        esc(topGainer.employer),
+        () =>
+          `<a href="${esc(employerHref(topGainer.employerKey, topGainer.employer))}" style="color:inherit;text-decoration:underline;font-weight:700">${esc(topGainer.employer)}</a>`,
+      )
+    : esc(cityAdviceText);
   const cityAdviceBannerHtml = stats.topCompanies.length > 0
     ? `<aside data-we-advice aria-label="${esc(tileLabels.adviceEyebrow)}" style="${cityAdviceTone};margin:0 0 18px">
       <div class="s-a8IQOM">${esc(tileLabels.adviceEyebrow)}</div>
-      <p class="s-lEdUfz">${esc(cityAdviceText)}</p>
+      <p class="s-lEdUfz">${cityAdviceHtml}</p>
     </aside>`
     : '';
 
@@ -2923,16 +2964,16 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   ${cityCtaHtml}
   ${archiveNote}
   <section class="s-KZc0LQ" aria-labelledby="topCompanies">
-    <h2 id="topCompanies" style="${H2_STYLE}">${esc(copy.topCompaniesTitle)}</h2>
+    <h2 id="topCompanies" style="${H2_STYLE}"><span aria-hidden="true">🏆</span> ${esc(copy.topCompaniesTitle)}</h2>
     ${topCompaniesHtml}
   </section>
   <section class="s-KZc0LQ" aria-labelledby="newcomers">
-    <h2 id="newcomers" style="${H2_STYLE}">${esc(copy.newcomersTitle)}</h2>
+    <h2 id="newcomers" style="${H2_STYLE}"><span aria-hidden="true">🆕</span> ${esc(copy.newcomersTitle)}</h2>
     <p class="s-tJ2IPU">${esc(copy.newcomersDesc)}</p>
     ${newcomersHtml}
   </section>
   <section class="s-KZc0LQ" aria-labelledby="roles">
-    <h2 id="roles" style="${H2_STYLE}">${esc(copy.rolesTitle)}</h2>
+    <h2 id="roles" style="${H2_STYLE}"><span aria-hidden="true">💼</span> ${esc(copy.rolesTitle)}</h2>
     ${rolesHtml}
   </section>
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
