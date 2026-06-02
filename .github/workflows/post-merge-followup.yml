@@ -64,7 +64,14 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
-          claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # max-turns 20 (era 15): il triage completo (parse PR body + reviews,
+          # filtro churn/funnel, dedup, in-flight overlap, gh issue create, +
+          # supersede detection) sforava sistematicamente i 15 turni → 6 run
+          # `error_max_turns` il 2026-05-30 (num_turns 16+) con triage perso per
+          # PR #1015/#1012/#979 (nessun re-run → 🟡/❓ + `## Non implementato`
+          # mai triagiati). 15 troncava prima degli step obbligatori; AGENTS.md
+          # vieta di abbassarli proprio per questo. Allineato a lessons-harvester (20).
+          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up per PR #${{ github.event.pull_request.number || github.event.inputs.pr_number }} (${{ github.event_name }}).
 
