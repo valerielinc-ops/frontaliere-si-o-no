@@ -257,13 +257,13 @@ async function fetchDetailPage(url) {
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all CSD ENGINEERS jobs in Valais from the Teamtailor RSS feed.
+ * Fetch all CSD ENGINEERS jobs in Switzerland from the Teamtailor RSS feed.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * Flow:
  *   1. Fetch RSS feed (all jobs globally)
- *   2. Filter for Valais-based jobs (location in RSS or detail page)
- *   3. Fetch detail page for each Valais job (JSON-LD for description)
+ *   2. Filter for Swiss jobs (location in RSS or detail page)
+ *   3. Fetch detail page for each Swiss job (JSON-LD for description)
  *   4. Build ParsedJob objects
  */
 export async function fetchAllCsdEngineersJobs() {
@@ -370,6 +370,6 @@ export async function fetchAllCsdEngineersJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total CSD ENGINEERS Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total CSD ENGINEERS Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

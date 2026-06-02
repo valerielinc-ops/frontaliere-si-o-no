@@ -267,11 +267,11 @@ function parseDetailPage(html = '') {
 }
 
 /**
- * Fetch all BMS Building Materials jobs in Valais.
+ * Fetch all BMS Building Materials jobs in Switzerland.
  * Strategy:
  *   1. Fetch the listing page HTML
  *   2. Parse job entries from HTML
- *   3. Filter for Valais locations
+ *   3. Filter for Swiss locations
  *   4. Fetch detail pages for richer descriptions
  *
  * Returns an array of ParsedJob objects (source-locale only).
@@ -363,6 +363,6 @@ export async function fetchAllBmsBuildingJobs() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  console.log(`\n📋 Total BMS Building Materials Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total BMS Building Materials Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

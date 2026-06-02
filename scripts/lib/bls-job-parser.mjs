@@ -280,10 +280,10 @@ function detectBlsEmploymentType(jsonLdType = '', pensum = '') {
 }
 
 /**
- * Fetch all BLS AG jobs in Valais.
+ * Fetch all BLS AG jobs in Switzerland.
  * Strategy:
  *   1. Fetch the BLS listing page (inline HTML with job links)
- *   2. Filter for Valais locations
+ *   2. Filter for Swiss locations
  *   3. Fetch each detail page at jobs.bls.ch for JSON-LD data
  *   4. Build ParsedJob objects
  *
@@ -402,6 +402,6 @@ export async function fetchAllBlsJobs() {
     await new Promise((r) => setTimeout(r, 500));
   }
 
-  console.log(`\n📋 Total BLS AG Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total BLS AG Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

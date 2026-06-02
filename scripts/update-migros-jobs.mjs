@@ -393,7 +393,18 @@ async function main() {
     const allJobs = Array.isArray(raw) ? raw : [];
     const migrosJobs = allJobs.filter(isMigrosJob);
     const report = runQualityGuards(migrosJobs, {
-      companyName: ['Migros', 'Migros Ticino', 'Migros Aare', 'Gruppo Migros'],
+      // Migros group entities. Cooperatives all contain "Migros". Migros
+      // Industrie (M-Industrie) brands and group retailers do not, so they are
+      // listed explicitly — otherwise nationwide jobs from e.g. Delica AG
+      // (Stabio TI / Birsfelden BL) get rejected as "implausible company".
+      companyName: [
+        'Migros', 'Migros Ticino', 'Migros Aare', 'Gruppo Migros',
+        // M-Industrie
+        'Delica', 'Jowa', 'Mibelle', 'Midor', 'Chocolat Frey', 'Micarna',
+        'Mifa', 'Bischofszell', 'Estavayer', 'Aproz', 'Riseria',
+        // Group retail / services
+        'Migrol', 'Hotelplan', 'Ex Libris', 'Digitec', 'Galaxus', 'SportXX',
+      ],
       minDescription: 200,
       logger: (msg) => console.warn(msg),
     });
