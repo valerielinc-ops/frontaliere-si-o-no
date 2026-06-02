@@ -7,7 +7,7 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/?(ul|ol|div|section|span|strong|b)[^>]*>/gi, '')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
