@@ -137,6 +137,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-candidatura-lavoro-estero-ticino': {
+    title: 'Il segreto di una candidatura di successo per un posto di lavoro all’estero',
+    description: 'Consigli pratici per preparare un dossier di candidatura convincente per lavorare all\'estero. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, segreto, candidatura, successo, posto',
+    ogTitle: 'Il segreto di una candidatura di successo per un posto di lavoro all’estero',
+    ogDescription: 'Consigli pratici per preparare un dossier di candidatura convincente per lavorare all\'estero.',
+    canonicalPath: '/articoli-svizzera/candidatura-lavoro-estero-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il segreto di una candidatura di successo per un posto di lavoro all’estero",
+      "description": "Consigli pratici per preparare un dossier di candidatura convincente per lavorare all'estero. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/candidatura-lavoro-estero-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che prepara il suo curriculum vitae in un ufficio moderno a Lugano, Ticino."
+      },
+      "datePublished": "2026-06-02T21:47:29+00:00",
+      "dateModified": "2026-06-02T21:47:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/candidatura-lavoro-estero-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -17,6 +17,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziative-casse-malati-2026.title': 'Initiatives caisses malades 2026: le gouvernement ne peut pas bloquer',
     'blog.article.iniziative-casse-malati-2026.excerpt': 'Le Conseil d\'État ne peut pas subordonner l\'entrée en vigueur des initiatives sur les caisses malades approuvées par le peuple à des sources de financement spécifiques.',
     'blog.article.iniziative-casse-malati-2026.imageAlt': 'Rue animée de Bellinzone avec des personnes marchant et utilisant des appareils numériques, mettant en évidence les aspects financiers et administratifs des initiatives d\'assurance maladie dans le Tessin.',
+    'blog.article.candidatura-lavoro-estero-ticino.title': 'Le secret d\'une candidature réussie pour un poste à l\'étranger',
+    'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Conseils pratiques pour préparer un dossier de candidature convaincant pour travailler à l\'étranger.',
+    'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Une personne préparant son curriculum vitae dans un bureau moderne à Lugano, Tessin.',
 };
 
 export default blogMetaChFr;

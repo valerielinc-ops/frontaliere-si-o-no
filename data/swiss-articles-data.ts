@@ -50,4 +50,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'candidatura-lavoro-estero-ticino',
+    category: 'pratico',
+    date: '2026-06-02T21:47:29.166Z',
+    image: '/images/blog/candidatura-lavoro-estero-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];

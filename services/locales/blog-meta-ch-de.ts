@@ -17,6 +17,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziative-casse-malati-2026.title': 'Bundesrat kann nicht die Umsetzung der Krankenkassen-Initiativen 2026 blockieren',
     'blog.article.iniziative-casse-malati-2026.excerpt': 'Der Bundesrat kann die Umsetzung der Volksabstimmungs-Initiativen über die Krankenkassen nicht an bestimmte Finanzierungsquellen knüpfen.',
     'blog.article.iniziative-casse-malati-2026.imageAlt': 'Belebte Bellinzona-Straße mit Menschen, die spazieren gehen und digitale Geräte verwenden, die die finanziellen und administrativen Aspekte der Gesundheitsversicherungsinitiativen in Tessin hervorheben.',
+    'blog.article.candidatura-lavoro-estero-ticino.title': 'Der Schlüssel zu einer erfolgreichen Bewerbung für eine Stelle im Ausland',
+    'blog.article.candidatura-lavoro-estero-ticino.excerpt': 'Praktische Tipps zur Vorbereitung eines überzeugenden Bewerbungsdossiers für eine Arbeit im Ausland.',
+    'blog.article.candidatura-lavoro-estero-ticino.imageAlt': 'Eine Person, die ihren Lebenslauf in einem modernen Büro in Lugano, Tessin, vorbereitet.',
 };
 
 export default blogMetaChDe;
