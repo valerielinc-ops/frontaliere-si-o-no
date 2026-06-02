@@ -7391,7 +7391,7 @@
         "de": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
         "it": "responsabile-di-progetto-m-w-d-bauherrschaft-eth-zurich",
         "en": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch",
-        "fr": "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
+        "fr": "chef-de-projet-m-w-d-bauherrschaft-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7435,6 +7435,9 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
+        ],
+        "fr": [
+          "projektleiter-in-m-w-d-bauherrschaft-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
@@ -7463,12 +7466,12 @@
     },
     {
       "id": "eth-zurich-0344ddec6cb3",
-      "slug": "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch",
+      "slug": "stage-sistemi-di-misura-per-il-monitoraggio-dei-processi-industriali-eth-zurich-zurich",
       "slugByLocale": {
         "en": "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch",
-        "it": "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch",
-        "de": "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch",
-        "fr": "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch"
+        "it": "stage-sistemi-di-misura-per-il-monitoraggio-dei-processi-industriali-eth-zurich-zurich",
+        "de": "praktikum-messsysteme-fur-die-industrielle-prozessuberwachung-eth-zurich-zurich",
+        "fr": "stage-systemes-de-mesure-pour-la-surveillance-des-processus-industriels-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7523,7 +7526,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-01T14:29:38.840Z"
+      "firstSeenAt": "2026-06-01T14:29:38.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch"
+        ],
+        "de": [
+          "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch"
+        ],
+        "fr": [
+          "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-measurement-systems-for-industrial-process-monitoring-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-6fab1ef61402",

@@ -2149,12 +2149,12 @@
     },
     {
       "id": "lombard-odier-5aac7eb468b5",
-      "slug": "head-of-spain-lombard-odier-ch",
+      "slug": "capo-della-spagna-lombard-odier-geneva",
       "slugByLocale": {
         "en": "head-of-spain-lombard-odier-ch",
-        "it": "head-of-spain-lombard-odier-ch",
-        "de": "head-of-spain-lombard-odier-ch",
-        "fr": "head-of-spain-lombard-odier-ch"
+        "it": "capo-della-spagna-lombard-odier-geneva",
+        "de": "leiter-spanien-lombard-odier-geneva",
+        "fr": "chef-de-l-espagne-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -2208,7 +2208,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-01T15:22:32.554Z"
+      "firstSeenAt": "2026-06-01T15:22:32.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-spain-lombard-odier-ch"
+        ],
+        "de": [
+          "head-of-spain-lombard-odier-ch"
+        ],
+        "fr": [
+          "head-of-spain-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-spain-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-c554e1eccf16",

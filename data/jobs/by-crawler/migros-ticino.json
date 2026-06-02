@@ -45,9 +45,9 @@
       "firstSeenAt": "2026-06-01T15:32:10.761Z",
       "slugByLocale": {
         "it": "collaboratore-trice-in-restaurant-migros-restaurant-chur-fa8to6",
-        "en": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6",
+        "en": "staff-in-restaurant-migros-restaurant-chur",
         "de": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6",
-        "fr": "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6"
+        "fr": "personnel-au-restaurant-migros-restaurant-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter*in Restaurant",
@@ -95,7 +95,18 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6"
+        ],
+        "fr": [
+          "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-restaurant-migros-restaurant-chur-fa8to6"
+      ]
     },
     {
       "id": "company-2ai39p",
@@ -143,9 +154,9 @@
       "firstSeenAt": "2026-06-01T15:32:10.761Z",
       "slugByLocale": {
         "it": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
-        "en": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
-        "de": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
-        "fr": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
+        "en": "tai-chi-teacher-f-m-d-lugano-club-school-scuola-club-migros-lugano",
+        "de": "tai-chi-lehrer-w-m-d-lugano-club-school-scuola-club-migros-lugano",
+        "fr": "professeur-tai-chi-f-m-d-ecole-du-club-de-lugano-scuola-club-migros-lugano"
       },
       "titleByLocale": {
         "it": "Insegnante Tai Chi (f/m/d) - Scuola Club Lugano",
@@ -1091,8 +1102,7 @@
         ],
         "de": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
-          "privatkundenberater-alle-migros-bank-chur",
-          "privatkundenberater-alle-migros-bank-bellinzona"
+          "privatkundenberater-alle-migros-bank-chur"
         ],
         "fr": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
@@ -1214,8 +1224,7 @@
         ],
         "de": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur"
         ],
         "fr": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
@@ -1774,8 +1783,7 @@
         ],
         "fr": [
           "grilleur-in-genossenschaft-migros-ostschweiz-bellinzona",
-          "grilleur-in-genossenschaft-migros-ostschweiz-chur",
-          "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
+          "grilleur-in-genossenschaft-migros-ostschweiz-chur"
         ],
         "de": [
           "rostloser-in-genossenschaft-migros-ostschweiz-chur-kfqohq"

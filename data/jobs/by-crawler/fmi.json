@@ -5301,8 +5301,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
         "it": "collaboratore-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen",
-        "en": "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen",
-        "fr": "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen"
+        "en": "staff-in-building-cleaning-80-spitaler-fmi-ag-unterseen",
+        "fr": "collaborateur-trice-gebaudereinigung-80-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5347,6 +5347,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen"
+        ],
+        "fr": [
           "mitarbeiter-in-gebaudereinigung-80-fmi-unterseen"
         ]
       },
