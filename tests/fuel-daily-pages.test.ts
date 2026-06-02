@@ -332,6 +332,46 @@ describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)',
   });
 });
 
+describe('fuel-daily page generation — unchanged-delta UX', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  // Single Chiasso benzina station at 1.800; yesterday's snapshot carries the
+  // same 1.800 → delta is exactly 0. The page must render an explicit
+  // "unchanged" word, NOT "0,000 CHF" (which reads as missing data).
+  const isolated = {
+    generatedAt: '2026-04-20T06:00:00.000Z',
+    municipalities: [
+      {
+        municipality: 'Test',
+        province: 'CO',
+        swiss: {
+          nearbyStations: [
+            { id: 'u1', name: 'Stable Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.8 },
+          ],
+        },
+      },
+    ],
+  };
+  const history = [
+    { date: '2026-04-19', zones: { chiasso: { benzina: 1.8 } }, regional: {} },
+  ];
+
+  it('IT: renders "stabile" instead of "0,000 CHF" for a zero day-over-day delta', () => {
+    // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-it', dataset: isolated, history, today });
+    const html = pages['/prezzi-benzina/chiasso/oggi/'];
+    expect(html).toContain('stabile rispetto a ieri');
+    expect(html).not.toContain('0,000 CHF rispetto a ieri');
+  });
+
+  it('EN: renders "unchanged" instead of "0.000 CHF" for a zero day-over-day delta', () => {
+    // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-en', dataset: isolated, history, today });
+    const html = pages['/en/gasoline-price-switzerland/chiasso/today/'];
+    expect(html).toContain('unchanged compared to yesterday');
+    expect(html).not.toContain('0.000 CHF compared to yesterday');
+  });
+});
+
 describe('fuel-daily archive generation', () => {
   it('generates archives only for past months', () => {
     const today = new Date('2026-04-20T06:00:00.000Z');

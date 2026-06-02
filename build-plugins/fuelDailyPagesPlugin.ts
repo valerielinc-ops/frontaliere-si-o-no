@@ -420,6 +420,22 @@ function formatDelta(delta: number | null, locale: FuelDailyLocale): string {
   return `${sign}${val.replace('.', sep)} CHF`;
 }
 
+/**
+ * Daily-zone-page delta presentation: same as {@link formatDelta} but renders
+ * an explicit "unchanged" word for an exact-zero delta instead of "0,000 CHF",
+ * which users read as "no data" (see the live Locarno case). Display-only —
+ * NOT used by station/Italian-city pages, which parse formatDelta's numeric
+ * output (strip sign + "CHF"/"EUR"), so the raw helper stays untouched there.
+ */
+function formatDeltaDisplay(
+  delta: number | null,
+  locale: FuelDailyLocale,
+  copy: FuelCopy,
+): string {
+  if (delta === 0) return copy.unchangedLabel;
+  return formatDelta(delta, locale);
+}
+
 function formatPrice(price: number | null, locale: FuelDailyLocale): string {
   if (price === null || Number.isNaN(price)) return '—';
   const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
@@ -457,6 +473,12 @@ interface FuelCopy {
   avgLabel: string;
   vsYesterday: string;
   vs7d: string;
+  /**
+   * Word shown in place of a "0,000 CHF" delta when the price is unchanged
+   * vs the comparison point. A literal "0,000 CHF" reads like missing data;
+   * an explicit "stabile"/"unchanged" word reads as "no change".
+   */
+  unchangedLabel: string;
   top3Label: string;
   trendLabel: string;
   trendEmpty: string;
@@ -496,6 +518,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Prezzo medio oggi',
     vsYesterday: 'vs ieri',
     vs7d: 'vs 7 giorni fa',
+    unchangedLabel: 'stabile',
     top3Label: 'Le 3 stazioni più economiche',
     trendLabel: 'Andamento storico del prezzo',
     trendEmpty: 'Storico in costruzione: il grafico si aggiorna ogni giorno a partire da oggi.',
@@ -541,6 +564,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Average price today',
     vsYesterday: 'vs yesterday',
     vs7d: 'vs 7 days ago',
+    unchangedLabel: 'unchanged',
     top3Label: 'Top 3 cheapest stations',
     trendLabel: 'Historical price trend',
     trendEmpty: 'History is being collected: the chart fills in day by day.',
@@ -586,6 +610,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Durchschnittspreis heute',
     vsYesterday: 'vs gestern',
     vs7d: 'vs 7 Tage',
+    unchangedLabel: 'unverändert',
     top3Label: 'Top 3 günstigste Tankstellen',
     trendLabel: 'Historischer Preisverlauf',
     trendEmpty: 'Historie wird aufgebaut: das Diagramm füllt sich Tag für Tag.',
@@ -631,6 +656,7 @@ const COPY: Record<FuelDailyLocale, FuelCopy> = {
     avgLabel: 'Prix moyen aujourd\'hui',
     vsYesterday: 'vs hier',
     vs7d: 'vs 7 jours',
+    unchangedLabel: 'stable',
     top3Label: 'Top 3 stations les moins chères',
     trendLabel: 'Tendance historique du prix',
     trendEmpty: 'Historique en cours de construction : le graphique se remplit jour par jour.',
@@ -1571,8 +1597,8 @@ function renderPage(inp: PageInputs): string {
   const delta7 = computeDeltaVsYesterday(avg, weekAgo);
 
   const priceFmt = formatPrice(avg, locale);
-  const deltaYestFmt = formatDelta(deltaYest, locale);
-  const delta7Fmt = formatDelta(delta7, locale);
+  const deltaYestFmt = formatDeltaDisplay(deltaYest, locale, copy);
+  const delta7Fmt = formatDeltaDisplay(delta7, locale, copy);
 
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const intro = copy.intro(fuelLabel, zoneLabel, priceFmt, dateStamp);
