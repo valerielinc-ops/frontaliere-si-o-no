@@ -3114,22 +3114,27 @@
       "jobReqId": "R-13288",
       "previousSlugsByLocale": {
         "it": [
-          "opticien-ne-f-m-d-fielmann-group-sion"
+          "opticien-ne-f-m-d-fielmann-group-sion",
+          "opticien-ne-h-f-d-fielmann-ch-2"
         ],
         "en": [
-          "optician-m-f-d-fielmann-group-sion"
+          "optician-m-f-d-fielmann-group-sion",
+          "opticien-ne-h-f-d-fielmann-ch-2"
         ],
         "de": [
-          "optimierung-n-h-f-d-fielmann-group-sion"
-        ],
-        "fr": [
-          "opticien-ne-h-f-d-fielmann-ch"
+          "optimierung-n-h-f-d-fielmann-group-sion",
+          "opticien-ne-h-f-d-fielmann-ch-2"
         ]
       },
       "previousSlugs": [
         "opticien-ne-f-m-d-fielmann-group-sion",
         "optician-m-f-d-fielmann-group-sion",
-        "optimierung-n-h-f-d-fielmann-group-sion"
+        "optimierung-n-h-f-d-fielmann-group-sion",
+        "opticien-ne-h-f-d-fielmann-ch",
+        "opticien-ne-f-m-d-fielmann-group-geneve",
+        "optician-m-f-d-fielmann-group-geneve",
+        "optimierung-n-h-f-d-fielmann-group-geneve",
+        "opticien-ne-h-f-d-fielmann-ch-2"
       ],
       "firstSeenAt": "2026-05-13T11:02:13.280Z",
       "salaryMin": 49500,
@@ -3202,12 +3207,37 @@
         ],
         "it": [
           "augenoptiker-w-m-d-fielmann-ch",
-          "projektleiter-m-d-fielmann-group-zurich"
+          "projektleiter-m-d-fielmann-group-zurich",
+          "augenoptiker-w-m-d-fielmann-ch-25"
+        ],
+        "en": [
+          "augenoptiker-w-m-d-fielmann-ch-25"
+        ],
+        "fr": [
+          "augenoptiker-w-m-d-fielmann-ch-25"
         ]
       },
       "previousSlugs": [
         "augenoptiker-w-m-d-fielmann-ch",
-        "projektleiter-m-d-fielmann-group-zurich"
+        "projektleiter-m-d-fielmann-group-zurich",
+        "ottico-w-m-d-fielmann-group-wadenswil",
+        "optician-m-f-d-fielmann-group-wadenswil",
+        "opticien-h-f-d-fielmann-group-wadenswil",
+        "augenoptiker-w-m-d-fielmann-group-st",
+        "augenoptiker-w-m-d-fielmann-ch-12",
+        "augenoptiker-w-m-d-fielmann-group-baden",
+        "augenoptiker-w-m-d-fielmann-ch-8",
+        "augenoptiker-w-m-d-fielmann-group-schaffhausen",
+        "augenoptiker-w-m-d-fielmann-ch-7",
+        "augenoptiker-w-m-d-fielmann-group-winterthur",
+        "augenoptiker-w-m-d-fielmann-ch-6",
+        "augenoptiker-w-m-d-fielmann-group-spreitenbach",
+        "augenoptiker-w-m-d-fielmann-ch-5",
+        "augenoptiker-w-m-d-fielmann-group-bern-i",
+        "augenoptiker-w-m-d-fielmann-ch-4",
+        "optician-w-m-d-fielmann-group-wadenswil",
+        "opticien-w-m-d-fielmann-group-wadenswil",
+        "augenoptiker-w-m-d-fielmann-ch-25"
       ],
       "firstSeenAt": "2026-05-13T11:02:37.448Z",
       "salaryMin": 49500,
