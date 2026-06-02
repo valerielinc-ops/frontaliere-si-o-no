@@ -7941,6 +7941,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ferrovia-retica-taiwan.title': 'RhB: Kooperation mit Taiwan',
     'blog.article.ferrovia-retica-taiwan.excerpt': 'Die Rhätische Bahn hat eine Kooperationsvereinbarung mit der taiwanesischen Alishan Forest Railway unterzeichnet.',
     'blog.article.ferrovia-retica-taiwan.imageAlt': 'RhB-Eisenbahn im Winter',
+    'blog.article.sedia-rotelle-genny-zero-design.title': 'Genny Zero: Der Rollstuhl, der Mobilität revolutioniert',
+    'blog.article.sedia-rotelle-genny-zero-design.excerpt': 'Der elektrische Rollstuhl Genny Zero, hergestellt im Tessin, gewinnt den Compasso d’Oro für innovatives Design und italienisch-schweizerische Technologie.',
+    'blog.article.sedia-rotelle-genny-zero-design.imageAlt': 'Ein moderner Rollstuhl in einer Landschaft im Tessin mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaDe;

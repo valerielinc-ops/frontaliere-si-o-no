@@ -3895,6 +3895,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ammodernamento-fa-18-svizzera': { name: 'Ammodernamento F/A-18', path: '/articoli-frontaliere/ammodernamento-fa-18-svizzera', parent: 'blog' },
     'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
     'blog-ferrovia-retica-taiwan': { name: 'Ferrovia retica', path: '/articoli-frontaliere/ferrovia-retica-taiwan', parent: 'blog' },
+    'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
  };
 
  const info = sectionNames[section];
