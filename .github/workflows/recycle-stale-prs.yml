@@ -74,12 +74,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PAT: ${{ env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
-          DRY_RUN: ${{ github.event.inputs.dry_run }}
+          # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
+          # DISPATCH manuale resta safe-by-default (input default true) per test.
+          # Senza questo, il cron passa dry_run vuoto → permanentemente dry-run →
+          # non riciclerebbe mai (reviewer nit). I gate conservativi (>24h + no
+          # commit + issue OPEN) tengono il blast radius minimo.
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || github.event.inputs.dry_run }}
           MAX_AGE_HOURS: ${{ github.event.inputs.max_age_hours || '24' }}
         run: |
           set -uo pipefail
-          # Default dry_run=true per lo schedule (input vuoto su cron) → primo giro
-          # safe; passa a false esplicito via dispatch quando validato.
           DRY="${DRY_RUN:-true}"
           NOW=$(date -u +%s)
           MAXAGE=$(( ${MAX_AGE_HOURS:-24} * 3600 ))
