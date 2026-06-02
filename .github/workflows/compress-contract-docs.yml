@@ -89,7 +89,11 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          claude_args: "--max-turns 12 --model claude-sonnet-4-6 --allowedTools 'Read,Edit'"
+          # 25 turni: comprimere gentilmente un doc da 15-21KB preservando ogni
+          # regola richiede più Edit; con 12 ISSUES.md (15KB) terminava
+          # `error_max_turns` senza output (run 26803481810). Compress fira solo
+          # su bloat (raro) → turni alti accettabili.
+          claude_args: "--max-turns 25 --model claude-sonnet-4-6 --allowedTools 'Read,Edit'"
           prompt: |
             Comprimi GENTILMENTE il file `${{ matrix.file }}` (contratto/doc operativo letto ripetutamente da agent e workflow — ogni byte si paga moltiplicato).
 
@@ -138,7 +142,11 @@ jobs:
           git checkout -b "$branch"
           git add "$FILE"
           git commit -m "chore(docs): gentle-compress ${FILE} (-${saved}B)"
-          git push origin "$branch"
+          # Push col token esplicito nell'URL: il credential persistito da
+          # actions/checkout non sopravvive allo step della claude-code-action
+          # (`git push origin` → "Password authentication is not supported",
+          # run 26803481810). GITHUB_TOKEN ha contents:write = sufficiente.
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$branch"
           body="$RUNNER_TEMP/pr-body-${slug}.md"
           {
             echo "## Implementato"
