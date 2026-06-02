@@ -1,19 +1,21 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-06-02T01:00:58.135Z",
+  "generatedAt": "2026-06-02T14:29:05.473Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3640,
-  "avgDurationMs": 3640,
+  "unchangedCount": 2,
+  "durationMs": 3431,
+  "avgDurationMs": 3431,
   "durationHistory": [
-    3640
+    3431
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "ICT-Supporter (a) Romanshorn",
       "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
@@ -88,7 +90,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
