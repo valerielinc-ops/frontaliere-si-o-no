@@ -1120,6 +1120,21 @@ function canonicalItemKey(value: string): string {
  .trim();
 }
 
+/**
+ * Normalised key for deduping/matching city names across diacritic and
+ * separator variants (Z\u00fcrich/Zurich, Gen\u00e8ve/Geneve, Davos-Platz/Davos Platz).
+ * Used by BOTH the location-filter option list and the filter predicate so a
+ * merged option still matches every spelling variant present in the data.
+ */
+function normalizeLocalityKey(value: string): string {
+ return String(value || '')
+ .toLowerCase()
+ .normalize('NFD')
+ .replace(/[\u0300-\u036f]/g, '')
+ .replace(/[^a-z0-9]+/g, ' ')
+ .trim();
+}
+
 function canonicalItemsEquivalent(a: string, b: string): boolean {
  const ka = canonicalItemKey(a);
  const kb = canonicalItemKey(b);
@@ -1897,6 +1912,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [initialJobSlug, jobs]);
  const locationSlugFilter = useMemo(() => parseLocationSlugFilter(initialJobSlug), [initialJobSlug]);
  const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
+ // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
+ // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
+ // hydration instead of falling back to the generic job-board title.
+ const searchHeadingQuery = useMemo(
+ () => (searchSlugFilter ? searchSlugFilter.replace(/(^|\s)(\p{L})/gu, (_m, p, c) => p + c.toUpperCase()) : ''),
+ [searchSlugFilter],
+ );
 
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs
  const bridgeTargetSlug = useMemo(
@@ -2087,21 +2109,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [jobs]);
 
  const uniqueLocalities = useMemo(() => {
- const counts = new Map<string, number>();
+ // Group localities by a diacritic/separator-insensitive key so spelling
+ // variants (Zürich/Zurich, Genève/Geneve, Davos-Platz/Davos Platz) collapse
+ // into a single option. `value` is the normalised key — the filter predicate
+ // matches on the same key so the merged option still covers every variant.
+ const groups = new Map<string, { count: number; spellings: Map<string, number> }>();
  for (const job of jobs) {
  const loc = (job.addressLocality || '').trim();
  if (loc && loc.length > 2) {
- const key = loc.toLowerCase();
- counts.set(key, (counts.get(key) || 0) + 1);
+ const key = normalizeLocalityKey(loc);
+ if (!key) continue;
+ const g = groups.get(key) || { count: 0, spellings: new Map<string, number>() };
+ g.count += 1;
+ g.spellings.set(loc, (g.spellings.get(loc) || 0) + 1);
+ groups.set(key, g);
  }
  }
- // Sort by frequency descending so the most common cities appear first
- return Array.from(counts.entries())
- .sort((a, b) => b[1] - a[1])
- .map(([key]) => {
- // Find original casing from any job
- const job = jobs.find(j => (j.addressLocality || '').toLowerCase() === key);
- return job?.addressLocality || key;
+ // Most common cities first; label = most frequent original spelling
+ // (diacritic-bearing spelling wins ties so "Zürich" beats "Zurich").
+ return Array.from(groups.entries())
+ .sort((a, b) => b[1].count - a[1].count)
+ .map(([value, g]) => {
+ const label = Array.from(g.spellings.entries()).sort((a, b) => {
+ if (b[1] !== a[1]) return b[1] - a[1];
+ const aDia = a[0].normalize('NFD') !== a[0] ? 1 : 0;
+ const bDia = b[0].normalize('NFD') !== b[0] ? 1 : 0;
+ if (bDia !== aDia) return bDia - aDia;
+ return a[0].localeCompare(b[0]);
+ })[0][0];
+ return { value, label };
  });
  }, [jobs]);
 
@@ -2550,7 +2586,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedCategory !== 'all' && job.category !== selectedCategory) return false;
  if (selectedContract !== 'all' && job.contract !== selectedContract) return false;
  if (selectedCompany !== 'all' && job.company.toLowerCase() !== selectedCompany) return false;
- if (selectedLocation !== 'all' && (job.addressLocality || '').toLowerCase() !== selectedLocation) return false;
+ if (selectedLocation !== 'all' && normalizeLocalityKey(job.addressLocality || '') !== selectedLocation) return false;
  if (selectedSector !== 'all' && (job.sector || '').toLowerCase() !== selectedSector) return false;
  if (cutoff > 0) {
  const jobDate = new Date(job.crawledAt || job.postedDate).getTime();
@@ -3506,7 +3542,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (el) el.remove();
  };
 
- if (selectedJob || initialJobSlug) {
+ // Skip ONLY on a real job-detail view. Search/company/location landing
+ // pages also set initialJobSlug but render a job LIST, so they should still
+ // emit ItemList for rich SERP carousels (previously suppressed by the bare
+ // initialJobSlug check → landings shipped BreadcrumbList only).
+ const isLandingList = !!(searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor);
+ if (selectedJob || (initialJobSlug && !isLandingList)) {
  cleanup();
  return;
  }
@@ -3548,6 +3589,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const listName = companyDisplayName
  ? `${companyDisplayName} — ${t('jobBoard.title')}`
+ : searchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
  : selectedSector !== 'all'
  ? `${selectedSector} — ${t('jobBoard.title')}`
  : selectedLocation !== 'all'
@@ -3571,7 +3614,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, t]);
 
  const formatSalary = (job: JobListing) => {
  if (!job.salaryMin) return null;
@@ -6526,6 +6569,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...cantonI18n })
  : locationDisplayName
  ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...cantonI18n })
+ : searchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
  : t('jobBoard.title', cantonI18n)}
  </h1>
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', cantonI18n)}</p>
@@ -6619,9 +6664,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Row 2: Roles & Categories */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
  {([
- { id: 'infermiere', icon: Briefcase, label: 'Infermiere', active: searchQuery.toLowerCase() === 'infermiere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'infermiere' ? '' : 'infermiere') },
- { id: 'ingegnere', icon: Briefcase, label: 'Ingegnere', active: searchQuery.toLowerCase() === 'ingegnere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'ingegnere' ? '' : 'ingegnere') },
- { id: 'autista', icon: Briefcase, label: 'Autista', active: searchQuery.toLowerCase() === 'autista', action: () => setSearchQuery(searchQuery.toLowerCase() === 'autista' ? '' : 'autista') },
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
  { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
@@ -6724,8 +6769,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  <option value="all">{t('jobBoard.filter.allLocations')}</option>
  {uniqueLocalities.map((loc) => (
- <option key={loc} value={loc.toLowerCase()}>
- {loc}
+ <option key={loc.value} value={loc.value}>
+ {loc.label}
  </option>
  ))}
  </select>
@@ -6895,6 +6940,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
  }))}
  popularity={popularity}
+ heading={t('jobBoard.trending.heading')}
+ ariaLabel={t('jobBoard.trending.aria')}
  onJobClick={(slug) => {
  Analytics.trackSelectContent('trending_section_click', slug);
  const job = jobs.find((j) => j.slug === slug);
