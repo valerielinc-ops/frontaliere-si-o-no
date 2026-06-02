@@ -34,6 +34,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  id-token: write # richiesto da claude-code-action per l'OIDC token exchange
 
 concurrency:
   group: compress-contract-docs
