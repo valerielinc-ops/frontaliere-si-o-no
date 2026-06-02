@@ -815,7 +815,28 @@ async function sendBatch(emails) {
     };
   });
 
-  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
+  // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
+  // no tags). Persist an authoritative lookup record keyed by that id so the webhook
+  // can attribute opens/clicks to the job-alert subscriber. Mirrors the newsletter
+  // path in send-newsletter.mjs (persistDelivery). See
+  // functions/src/newsletterMailerooWebhookCore.js.
+  const onSent = async (item, sendResult) => {
+    if (sendResult?.provider !== 'maileroo' || !sendResult?.messageId) return;
+    const email = item.recipient?.email;
+    if (!email) return;
+    try {
+      const db = await getFirestoreAdmin();
+      await db.collection('maileroo_message_meta').doc(String(sendResult.messageId)).set({
+        email,
+        is_job_alert: true,
+        updated_at: new Date(),
+      }, { merge: true });
+    } catch (e) {
+      console.warn('⚠️ Maileroo meta persist failed:', e?.message);
+    }
+  };
+
+  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3, onSent });
   logProviderSummary();
   return {
     sent: result.sent.length,
