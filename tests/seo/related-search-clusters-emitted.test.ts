@@ -514,6 +514,19 @@ function rawQueryFromSlug(slug: string): string | null {
   return decoded.replace(/-/g, ' ').replace(/\s+/g, ' ').trim() || null;
 }
 
+/** Start index of `needle` as a contiguous word-slice of `haystack`, or -1. */
+function indexOfWordSlice(haystack: readonly string[], needle: readonly string[]): number {
+  if (needle.length === 0) return 0;
+  for (let i = 0; i + needle.length <= haystack.length; i++) {
+    let ok = true;
+    for (let j = 0; j < needle.length; j++) {
+      if (haystack[i + j] !== needle[j]) { ok = false; break; }
+    }
+    if (ok) return i;
+  }
+  return -1;
+}
+
 describe('related-search boilerplate strip — corpus invariant (no dist build needed)', () => {
   function loadCandidateSlugs(): string[] {
     if (!existsSync(CANDIDATES_PATH)) return [];
@@ -548,13 +561,18 @@ describe('related-search boilerplate strip — corpus invariant (no dist build n
       }
       if (parsed === raw) continue; // nothing stripped
       strippedCount++;
-      // The strip only removes a LEADING prefix, so the result is a suffix.
-      if (!raw.endsWith(parsed)) {
-        offenders.push(`${slug} → "${parsed}" is not a trailing slice of "${raw}"`);
+      // The strip peels a leading job-search prefix AND/OR a trailing
+      // nation/salary/requirements template suffix, so the parsed result is a
+      // CONTIGUOUS word-slice of the raw query. Every removed word (prefix +
+      // suffix) must be an allow-listed boilerplate token — never content.
+      const rawWords = raw.split(' ').filter(Boolean);
+      const parsedWords = parsed.split(' ').filter(Boolean);
+      const at = indexOfWordSlice(rawWords, parsedWords);
+      if (at < 0) {
+        offenders.push(`${slug} → "${parsed}" is not a contiguous slice of "${raw}"`);
         continue;
       }
-      const removed = raw.slice(0, raw.length - parsed.length).trim();
-      const removedWords = removed.split(' ').filter(Boolean);
+      const removedWords = [...rawWords.slice(0, at), ...rawWords.slice(at + parsedWords.length)];
       const bad = removedWords.filter((w) => !SEARCH_QUERY_BOILERPLATE_TOKENS.has(w.toLowerCase()));
       if (bad.length > 0) {
         offenders.push(`${slug} → removed non-boilerplate word(s) [${bad.join(', ')}] (raw="${raw}", parsed="${parsed}")`);
