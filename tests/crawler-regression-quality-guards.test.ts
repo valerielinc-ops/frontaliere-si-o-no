@@ -333,10 +333,10 @@ describe('Truncated "St" locality guard (issue #1158)', () => {
       }
     }
     // bosch + pwc are knowingly deferred (no recoverable per-job signal), tracked
-    // in the PR's "Non implementato". kliniken-valens is now recovered at build
-    // time via the PLZ override (7317 → Valens, issue #1180) but its RAW slice
-    // keeps the bare token until the next crawl re-emits it — allow that known set.
-    const KNOWN_DEFERRED = /^(kliniken-valens|bosch-thermotechnik-ag|pwc)\.json:/;
+    // in the PR's "Non implementato". kliniken-valens was healed by the #1199
+    // rebaseline (PLZ override 7317 → Valens, issue #1180) — its slice no longer
+    // emits a bare "St", so it is held to the invariant like any other crawler.
+    const KNOWN_DEFERRED = /^(bosch-thermotechnik-ag|pwc)\.json:/;
     const unexpected = offenders.filter((o) => !KNOWN_DEFERRED.test(o));
     expect(unexpected).toEqual([]);
   });
