@@ -1,0 +1,102 @@
+name: Stale PR rescuer (self-healing signal)
+
+# Converte gli stalli silenziosi della pipeline PR in un segnale labellato +
+# queryable entro ~1h, invece di lasciarli fermi giorni (osservato 2026-06-02:
+# #1073 e #1075 ferme 23h). Due classi di stallo, entrambe documentate in
+# AGENTS.md ma finora SOLO manuali:
+#   A) workflow-validation drift: pr-review-loop fallisce con review body vuoto
+#      (branch indietro sui file workflow → app-token 401). Fix: merge origin/main.
+#   B) 🔴 Important non ripreso: il reviewer ha postato 🔴 sull'head corrente,
+#      auto-merge skipped, nessun commit nuovo. Fix: commit sullo stesso branch.
+#
+# DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
+# issue-triage). Azione = label `stale-review` + UN commento idempotente con la
+# rescue instruction. NON fa auto-push (l'auto-merge-origin-main per la classe A
+# richiede PAT con scope `workflows`; è il follow-up dichiarato). Alert-only =
+# safe da girare live accanto agli agent locali attivi sui branch.
+
+on:
+  schedule:
+    - cron: '20 * * * *'  # hourly @ :20 — cattura lo stallo entro ~1h
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente label/commenti'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: stale-pr-rescuer
+  cancel-in-progress: false
+
+jobs:
+  rescue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Scan open PRs and flag stalled ones
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          NOW=$(date -u +%s)
+          AGE_MIN_S=7200  # 2h: non toccare PR con lavoro recente (agent attivo)
+
+          # PR aperte, autore owner (skip fork/dependabot). updatedAt per age gate.
+          prs=$(gh pr list --repo "$REPO" --state open --limit 50 \
+            --json number,headRefName,headRefOid,updatedAt,author,labels)
+
+          echo "$prs" | jq -c '.[]' | while read -r pr; do
+            N=$(echo "$pr" | jq -r '.number')
+            BRANCH=$(echo "$pr" | jq -r '.headRefName')
+            HEAD=$(echo "$pr" | jq -r '.headRefOid')
+            UPD=$(echo "$pr" | jq -r '.updatedAt')
+            AUTHOR=$(echo "$pr" | jq -r '.author.login')
+            HAS_LABEL=$(echo "$pr" | jq -r '[.labels[].name] | index("stale-review") // empty')
+
+            # Idempotenza: già flaggata → skip.
+            if [ -n "$HAS_LABEL" ]; then echo "PR #$N già stale-review — skip"; continue; fi
+
+            # Age gate: aggiornata da <2h → probabile lavoro attivo, non disturbare.
+            UPD_S=$(date -u -d "$UPD" +%s 2>/dev/null || echo "$NOW")
+            if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N fresca (<2h) — skip"; continue; fi
+
+            # Ultimo run pr-review-loop sul branch.
+            run=$(gh run list --repo "$REPO" --workflow=pr-review-loop.yml \
+              --branch "$BRANCH" --limit 1 --json conclusion,headSha 2>/dev/null || echo '[]')
+            RV_CONCL=$(echo "$run" | jq -r '.[0].conclusion // "none"')
+
+            # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
+            reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
+            LAST_BODY=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("claude";"i"))] | last | .body // ""')
+            LAST_CID=$(echo "$reviews" | jq -r '[.[] | select(.user.login|test("claude";"i"))] | last | .commit_id // ""')
+
+            REASON=""; RESCUE=""
+            if [ "$RV_CONCL" = "failure" ] && { [ -z "$LAST_BODY" ] || [ "$LAST_CID" != "$HEAD" ]; }; then
+              # Classe A: review fallita senza body valido sull'head corrente.
+              REASON="workflow-validation drift (pr-review-loop=failure, review body assente per l'head corrente)"
+              RESCUE="\`git fetch origin main && git merge origin/main\` nel branch \`$BRANCH\` poi push (allinea i workflow file → review re-run con app-token valido). Vedi AGENTS.md → \"Workflow-validation drift\"."
+            elif echo "$LAST_BODY" | grep -q "🔴" && [ "$LAST_CID" = "$HEAD" ]; then
+              # Classe B: 🔴 sull'head corrente, non ripreso.
+              REASON="🔴 Important non ripreso (review sull'head corrente $HEAD, auto-merge skipped, nessun commit nuovo)"
+              RESCUE="applica il fix del 🔴 in un nuovo commit sullo stesso branch \`$BRANCH\` → re-review automatica. Vedi la review più recente sulla PR."
+            else
+              echo "PR #$N nessuno stallo noto (review=$RV_CONCL) — skip"; continue
+            fi
+
+            echo "::warning::PR #$N STALLED — $REASON"
+            if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip azione PR #$N"; continue; fi
+
+            gh pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
+              echo "label stale-review assente nel repo — creala una volta: gh label create stale-review"
+            gh pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._' "$REASON" "$RESCUE")" \
+              2>/dev/null || echo "comment fallito PR #$N"
+          done
+          echo "Scan completo."
