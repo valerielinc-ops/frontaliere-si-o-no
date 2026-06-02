@@ -1,0 +1,74 @@
+name: Cleanup Mailjet Contacts
+
+# Trims the Mailjet contact DB below the free-tier 1,000-contact cap.
+# The transactional Send API auto-creates a contact per recipient; once the
+# account passes 1,000 contacts Mailjet blocks ALL sending. Runs daily BEFORE
+# Send Newsletter (05:33 UTC) so the quota is free when the cascade reaches
+# Mailjet. Keeps the newest KEEP contacts, deletes the oldest above that.
+
+on:
+  schedule:
+    # 05:07 UTC — ~26 min before send-newsletter (05:33 UTC). Off-grid minute:
+    # GitHub Actions silently skips :00/:15/:30/:45 cron slots under load
+    # (same rationale as send-newsletter.yml). A skipped cleanup would leave the
+    # quota blocked and stall the 05:33 send — the exact failure this prevents.
+    - cron: '7 5 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'List candidates without deleting'
+        required: false
+        default: true
+        type: boolean
+      keep:
+        description: 'Contacts to retain (newest kept)'
+        required: false
+        default: '500'
+        type: string
+
+permissions:
+  contents: read
+
+# Never overlap with itself or race the deletion counter.
+concurrency:
+  group: cleanup-mailjet-contacts
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON missing"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup Mailjet contacts
+        env:
+          # Scheduled runs always delete; manual runs default to dry-run.
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || inputs.dry_run }}
+          KEEP: ${{ inputs.keep || '500' }}
+        run: node scripts/cleanup-mailjet-contacts.mjs
