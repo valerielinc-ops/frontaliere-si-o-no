@@ -7952,6 +7952,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       : `images/places/${data.image}`;
     appendFileSync(ghOutput, `article_id=${data.id}\n`);
     appendFileSync(ghOutput, `article_url=${articleUrl}\n`);
+    // Section this article belongs to — drives section-aware verify + indexing
+    // in generate-article.yml (svizzera writes a different registry / URL space).
+    appendFileSync(ghOutput, `section=${SECTION_NAME}\n`);
     appendFileSync(ghOutput, `source_url=${url}\n`);
     appendFileSync(ghOutput, `og_title=${data.seo.ogTitle}\n`);
     appendFileSync(ghOutput, `og_description=${data.seo.ogDescription}\n`);
