@@ -23,6 +23,11 @@ on:
         required: false
         type: string
         default: '0'
+      section:
+        description: 'Article section to generate: frontaliere (default) or svizzera. The self-trigger chain alternates this each run so both sections grow at the same cadence.'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   # Shared group: only 1 run active at a time, next run queues (not skipped).
@@ -95,16 +100,31 @@ jobs:
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
 
+      # Resolve which article section this run generates. The self-trigger chain
+      # alternates `section` each run (frontaliere ⇄ svizzera) so both grow at
+      # the same cadence without adding runs. Fail-safe: anything other than an
+      # explicit 'svizzera' (incl. empty cron default, URL-specific runs) falls
+      # back to 'frontaliere' — the ~95%-revenue funnel must never break.
+      - name: Resolve target section
+        id: section
+        run: |
+          SEC="${{ github.event.inputs.section }}"
+          if [ -n "${{ inputs.url }}" ]; then SEC="frontaliere"; fi
+          if [ "$SEC" != "svizzera" ]; then SEC="frontaliere"; fi
+          echo "section=$SEC" >> "$GITHUB_OUTPUT"
+          echo "🎯 Target section: $SEC"
+
       - name: Generate article
         id: generate
         env:
           CREATE_ARTICLE_REPORT_FILE: .tmp/create-article-run-report.json
+          TARGET_SECTION: ${{ steps.section.outputs.section }}
         run: |
-          echo "📰 Generating blog article..."
+          echo "📰 Generating blog article (section=$TARGET_SECTION)..."
           if [ -n "${{ inputs.url }}" ]; then
-            node scripts/create-article.mjs "${{ inputs.url }}"
+            node scripts/create-article.mjs --section="$TARGET_SECTION" "${{ inputs.url }}"
           else
-            node scripts/create-article.mjs
+            node scripts/create-article.mjs --section="$TARGET_SECTION"
           fi
 
       - name: Create-article final report
@@ -278,16 +298,23 @@ jobs:
         id: verify_article
         run: |
           ARTICLE_ID="${{ steps.generate.outputs.article_id }}"
-          echo "🔍 Verifying article: $ARTICLE_ID"
+          SECTION="${{ steps.generate.outputs.section }}"
+          echo "🔍 Verifying article: $ARTICLE_ID (section=${SECTION:-frontaliere})"
 
-          # Check 1: Article ID exists in blog-articles-data.ts
-          # (FRO-328 moved ARTICLES array from BlogArticles.tsx to data/blog-articles-data.ts)
-          if ! grep -q "$ARTICLE_ID" data/blog-articles-data.ts; then
-            echo "❌ Article '$ARTICLE_ID' NOT found in data/blog-articles-data.ts"
+          # Check 1: Article ID exists in the SECTION's registry. Frontaliere
+          # writes data/blog-articles-data.ts; svizzera writes
+          # data/swiss-articles-data.ts (anything not 'svizzera' → frontaliere).
+          if [ "$SECTION" = "svizzera" ]; then
+            REGISTRY="data/swiss-articles-data.ts"
+          else
+            REGISTRY="data/blog-articles-data.ts"
+          fi
+          if ! grep -q "$ARTICLE_ID" "$REGISTRY"; then
+            echo "❌ Article '$ARTICLE_ID' NOT found in $REGISTRY"
             echo "exists=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "  ✅ Found in data/blog-articles-data.ts"
+          echo "  ✅ Found in $REGISTRY"
 
           echo "✅ Source checks passed for '$ARTICLE_ID'"
           echo "exists=true" >> "$GITHUB_OUTPUT"
@@ -318,25 +345,33 @@ jobs:
         continue-on-error: true
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
+          TARGET_SECTION: ${{ steps.generate.outputs.section }}
         run: |
           node --input-type=module -e "
             import { notifyGoogleIndexing } from './scripts/lib/indexing-api.mjs';
             import fs from 'fs';
-            const id = '${{ steps.generate.outputs.article_id }}';
+            const id = process.env.ARTICLE_ID;
             if (!id) { console.log('[indexing-api] No article ID — skip'); process.exit(0); }
             const BASE = 'https://frontaliereticino.ch'; // FRO-348: no www
-            // Read locale-specific slugs from BlogArticles.tsx BLOG_SLUGS map
-            const src = fs.readFileSync('components/community/BlogArticles.tsx', 'utf8');
-            const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));
+            const section = process.env.TARGET_SECTION === 'svizzera' ? 'svizzera' : 'frontaliere';
+            // Per-section slug-data file + localized hub slugs.
+            const cfg = section === 'svizzera'
+              ? { file: 'services/routerSwissData.ts', hub: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' } }
+              : { file: 'services/routerBlogData.ts', hub: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' } };
             const slugs = { it: id, en: id, de: id, fr: id };
-            if (match) {
-              for (const [, k, v] of match[1].matchAll(/(it|en|de|fr):\\s*'([^']+)'/g)) slugs[k] = v;
-            }
+            try {
+              const src = fs.readFileSync(cfg.file, 'utf8');
+              const match = src.match(new RegExp(\"'\" + id + \"':\\\\s*\\\\{([^}]+)\\\\}\"));
+              if (match) {
+                for (const [, k, v] of match[1].matchAll(/(it|en|de|fr):\\s*'([^']+)'/g)) slugs[k] = v;
+              }
+            } catch { /* fall back to id-as-slug */ }
             const urls = [
-              \`\${BASE}/articoli-frontaliere/\${slugs.it}/\`,
-              \`\${BASE}/en/cross-border-articles/\${slugs.en}/\`,
-              \`\${BASE}/de/grenzgaenger-artikel/\${slugs.de}/\`,
-              \`\${BASE}/fr/articles-frontalier/\${slugs.fr}/\`,
+              \`\${BASE}/\${cfg.hub.it}/\${slugs.it}/\`,
+              \`\${BASE}/en/\${cfg.hub.en}/\${slugs.en}/\`,
+              \`\${BASE}/de/\${cfg.hub.de}/\${slugs.de}/\`,
+              \`\${BASE}/fr/\${cfg.hub.fr}/\${slugs.fr}/\`,
             ];
             await notifyGoogleIndexing(urls);
           "
@@ -435,6 +470,8 @@ jobs:
           # Retry counter passed via workflow_dispatch input (default 0 for cron-triggered runs)
           RETRY_COUNT: ${{ github.event.inputs.retry_count || '0' }}
           NO_CHANGES_STREAK: ${{ github.event.inputs.no_changes_streak || '0' }}
+          # Section this run generated — the chain alternates it for the next run.
+          CUR_SECTION: ${{ steps.section.outputs.section }}
         run: |
           # Outcome decision tree:
           # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
@@ -451,12 +488,21 @@ jobs:
           NEXT_RETRY="0"
           NEXT_STREAK="0"
 
+          # Section alternation: flip to the sibling section on "advance" paths
+          # (success, no-changes) so both sections grow at the same cadence; KEEP
+          # the same section on retry/rebase so a failed article retries in its
+          # own context. Default frontaliere when unknown (fail-safe).
+          CUR_SECTION="${CUR_SECTION:-frontaliere}"
+          if [ "$CUR_SECTION" = "svizzera" ]; then OTHER_SECTION="frontaliere"; else OTHER_SECTION="svizzera"; fi
+          NEXT_SECTION="$CUR_SECTION"
+
           if [ "$VERIFIED" = "true" ]; then
             SHOULD_TRIGGER="true"
             DELAY="0"
             REASON="success"
             NEXT_RETRY="0"
             NEXT_STREAK="0"
+            NEXT_SECTION="$OTHER_SECTION"
           elif [ "$HAS_CHANGES" = "false" ]; then
             CUR_STREAK="${NO_CHANGES_STREAK:-0}"
             NEXT_STREAK=$((CUR_STREAK + 1))
@@ -477,6 +523,8 @@ jobs:
               REASON="no_changes_streak_exhausted_${NEXT_STREAK}_cron_takes_over"
               NEXT_STREAK="0"
             fi
+            # No source/all-duplicates for this section → try the other one next.
+            [ "$SHOULD_TRIGGER" = "true" ] && NEXT_SECTION="$OTHER_SECTION"
             NEXT_RETRY="0"
           elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
             SHOULD_TRIGGER="true"
@@ -509,6 +557,7 @@ jobs:
             echo "reason=$REASON"
             echo "next_retry=$NEXT_RETRY"
             echo "next_streak=$NEXT_STREAK"
+            echo "next_section=$NEXT_SECTION"
           } >> "$GITHUB_OUTPUT"
 
           {
@@ -521,6 +570,7 @@ jobs:
             echo "| Delay (s) | \`$DELAY\` |"
             echo "| Retry count (next) | \`$NEXT_RETRY\` |"
             echo "| no_changes streak (next) | \`$NEXT_STREAK\` |"
+            echo "| Section (this → next) | \`$CUR_SECTION\` → \`$NEXT_SECTION\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Self-trigger next run
@@ -535,6 +585,7 @@ jobs:
           SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}
           RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
           NO_CHANGES_STREAK: ${{ steps.decide_trigger.outputs.next_streak }}
+          SECTION: ${{ steps.decide_trigger.outputs.next_section }}
         run: bash scripts/lib/trigger-self.sh
 
       - name: Report failure to GitHub Issues
