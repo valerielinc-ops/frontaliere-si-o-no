@@ -13,9 +13,27 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildJobTitleWithLocation,
+  buildTitleWithBrand,
   TITLE_BRAND_SUFFIX,
   TITLE_MAX_CHARS,
 } from '@/build-plugins/shared/titleSuffix';
+import { isMultiLocation } from '@/services/jobDataNormalization';
+
+/**
+ * Mirrors the caller-side guard wired in `services/seoService.ts` (L380) and
+ * `components/community/JobBoard.tsx` (L3546, L3578): a non-geographic
+ * multi-location blob must be replaced by an empty city BEFORE it reaches
+ * `buildJobTitleWithLocation`, so the blob never becomes a city token.
+ */
+function titleForJobLocation(
+  role: string,
+  company: string,
+  location: unknown,
+  locale: string,
+): string {
+  const titleCity = isMultiLocation(location) ? '' : String(location || '').trim();
+  return buildJobTitleWithLocation(role, company, titleCity, locale);
+}
 
 describe('buildJobTitleWithLocation', () => {
   it('places the city in the tail and appends the brand when both fit', () => {
@@ -61,5 +79,48 @@ describe('buildJobTitleWithLocation', () => {
   it('defaults to the Italian connector for an unknown locale', () => {
     expect(buildJobTitleWithLocation('Cuoco', '', 'Lugano', 'xx'))
       .toBe('Cuoco a Lugano | Frontaliere Ticino');
+  });
+
+  it('case-2 boundary: drops the brand but keeps the whole headline when headline ≤ cap yet headline + brand > cap', () => {
+    // Headline alone fits the SERP cap (≤66) but appending the 21-char brand
+    // suffix would push it over → brand DROPPED, headline returned verbatim,
+    // never ellipsis-truncated. This locks the most SEO-relevant branch of
+    // buildTitleWithBrand (case-2), distinct from case-3 (headline alone >cap).
+    const headline = 'Responsabile Vendite — Azienda Internazionale a Lugano';
+    expect(headline.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+    expect(headline.length + TITLE_BRAND_SUFFIX.length).toBeGreaterThan(TITLE_MAX_CHARS);
+    const out = buildTitleWithBrand(headline);
+    expect(out).toBe(headline);
+    expect(out).not.toContain(TITLE_BRAND_SUFFIX);
+    expect(out).not.toContain('…');
+  });
+});
+
+describe('caller multi-location guard wiring', () => {
+  it('drops a multi-location blob (city token never emitted) through the caller guard', () => {
+    const blob = 'Schweiz und Ausland (abhängig von Funktion und Einsatzort)';
+    // Sanity: the blob does match the guard regex so the test exercises the
+    // city-dropping branch, not an accidental fallthrough.
+    expect(isMultiLocation(blob)).toBe(true);
+    const out = titleForJobLocation('Consulente', 'Tether', blob, 'it');
+    // Brand fallback only — no blob fragment leaked into the title.
+    expect(out).toBe('Consulente — Tether | Frontaliere Ticino');
+    expect(out).not.toContain('Schweiz');
+    expect(out).not.toContain('abhängig');
+    expect(out).not.toContain('Einsatzort');
+  });
+
+  it('drops a "ganz Schweiz" blob in a non-IT locale through the caller guard', () => {
+    const blob = 'ganz Schweiz';
+    expect(isMultiLocation(blob)).toBe(true);
+    const out = titleForJobLocation('Nurse', 'Clinica', blob, 'en');
+    expect(out).toBe('Nurse — Clinica | Frontaliere Ticino');
+    expect(out).not.toContain('Schweiz');
+  });
+
+  it('keeps a real city as a city token through the caller guard', () => {
+    const out = titleForJobLocation('Cuoco', 'Hotel Splendide', 'Lugano', 'it');
+    // Concrete place survives the guard and rides inside the headline.
+    expect(out).toBe('Cuoco — Hotel Splendide a Lugano | Frontaliere Ticino');
   });
 });
