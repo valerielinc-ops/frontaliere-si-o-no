@@ -3470,9 +3470,26 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     : variant === 'archive'
       ? ccTileLabels.adviceStableArchive(weekNum, year)
       : ccTileLabels.adviceStable;
+  // Mirror the weekly-employers hub fix: link the highlighted employer's name
+  // inside the advice sentence straight to its brand hub (or job-board `?q=`
+  // fallback) so the "focus here" CTA is one tap away. `color:inherit` keeps
+  // the link readable on the tinted banner; the function-form replace avoids
+  // `$`-pattern interpretation in the name. Only when the positive-delta copy
+  // (which embeds `employer`) is in play.
+  const ccEmployerHref =
+    employerBrandPath(stats.employerKey, employer, knownSlugs) ??
+    `${weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city))}?q=${encodeURIComponent(employer)}`;
+  const ccAdviceHtml =
+    ccHasPositiveDelta && employer
+      ? esc(ccAdviceText).replace(
+          esc(employer),
+          () =>
+            `<a href="${esc(ccEmployerHref)}" style="color:inherit;text-decoration:underline;font-weight:700">${esc(employer)}</a>`,
+        )
+      : esc(ccAdviceText);
   const ccAdviceBannerHtml = `<aside data-we-advice aria-label="${esc(ccTileLabels.adviceEyebrow)}" style="${ccAdviceTone};margin:0 0 18px">
     <div class="s-a8IQOM">${esc(ccTileLabels.adviceEyebrow)}</div>
-    <p class="s-lEdUfz">${esc(ccAdviceText)}</p>
+    <p class="s-lEdUfz">${ccAdviceHtml}</p>
   </aside>`;
 
   // Phase 6 (Cathedral): per-company×city CTA points at the city's canton-

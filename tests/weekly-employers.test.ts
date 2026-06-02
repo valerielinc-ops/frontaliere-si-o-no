@@ -413,6 +413,43 @@ describe('renderWeeklyEmployersPage', () => {
     expect(html).toContain('"@type":"FAQPage"');
   });
 
+  it('renders a newcomer WITHOUT a brand hub as a ?q= job-board link (no dead <strong>)', () => {
+    // Regression for PR #1099: newcomers used to render as a bare un-linked
+    // <strong> company name. They now render as clickable employer cards via
+    // `employerHref` — brand hub when known, `?q=` job-board fallback otherwise.
+    // This exercises the no-brand branch (employerKey undefined → no matching
+    // hub → fallback), the exact case the PR fixed.
+    const newcomerName = 'Zzqx Newcomer GmbH';
+    const stats = {
+      city: 'lugano' as WeeklyEmployersCity,
+      activeJobsCount: 5,
+      topCompanies: [
+        { employer: 'Acme SA', employerKey: 'acme', active: 5, delta: 2 },
+      ],
+      newcomers: [{ employer: newcomerName, employerKey: undefined, active: 2 }],
+      topRoles: [{ role: 'sviluppatore software', count: 2 }],
+    };
+    const html = renderWeeklyEmployersPage({
+      locale: 'it',
+      city: 'lugano',
+      variant: 'current',
+      weekNum: 17,
+      year: 2026,
+      stats,
+      hasHistoricalDelta: true,
+      canonicalPath: buildCurrentWeekPath('it', 'lugano'),
+      today: new Date('2026-04-20T12:00:00Z'),
+      indexable: true,
+    });
+    // (a) the newcomer card is a job-board link pre-filtered on the employer.
+    const encoded = encodeURIComponent(newcomerName);
+    expect(html).toContain(`?q=${encoded}`);
+    expect(html).toMatch(new RegExp(`<a href="[^"]*\\?q=${encoded.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`));
+    // (b) the employer name is never emitted as an un-linked <strong>.
+    expect(html).not.toContain(`<strong>${newcomerName}</strong>`);
+    expect(html).not.toMatch(/<strong>Zzqx Newcomer GmbH/);
+  });
+
   it('uses cold-start copy when no historical delta is available', () => {
     const stats = {
       city: 'stabio' as WeeklyEmployersCity,
