@@ -696,15 +696,18 @@ async function main() {
 
   validateCoopLocaleCoverage();
 
-  // Step 4b: Quality guards — min description length + company-name sanity.
-  // The title-overlap guard already runs in-line (≥0.6) during post-processing;
-  // this pass adds the missing checks from docs/copilot-crawler-fix-prompts.md.
+  // Step 4b: Quality guards — min description length only.
+  // No company-name allowlist: every job here already passed isCoopJob (host
+  // coopjobs.ch / jobs.coop.ch), so Coop-group membership is proven by the
+  // trusted domain. An allowlist adds no anti-hallucination value there and
+  // only produces false negatives — it would silently drop legitimate
+  // Coop-group brands whose company name isn't "Coop" (Bell, Halba, Coop
+  // Vitality, …). The title-overlap guard already runs in-line (≥0.6).
   if (process.env.SKIP_QUALITY_GUARDS !== '1') {
     const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     const coopSubset = allJobs.filter(isCoopJob);
     const report = runQualityGuards(coopSubset, {
-      companyName: ['Coop', 'Coop Società Cooperativa', 'Coop Genossenschaft'],
       minDescription: 250,
       logger: (msg) => console.warn(msg),
     });
