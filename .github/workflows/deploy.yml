@@ -686,16 +686,25 @@ jobs:
           rm -rf "$stage" && mkdir -p "$stage"
           : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
           printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
-          # Offloadable dirs: og cards, ALL runtime data JSON, and the bundler
-          # assets (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN.
-          [ -d dist/og ]     && cp -r dist/og     "$stage/og"
-          [ -d dist/data ]   && cp -r dist/data   "$stage/data"
-          [ -d dist/assets ] && cp -r dist/assets "$stage/assets"
-          if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ]; then
+          # Offloadable dirs: og cards, ALL runtime data JSON, the bundler assets
+          # (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN, and the
+          # git-tracked full blog heroes (served at cdn.frontaliereticino.ch/images/
+          # blog; finalize plugin already rewrote HTML + deleted dist heroes, so we
+          # push from the public/ source). 480w thumbnails stay same-origin.
+          [ -d dist/og ]           && cp -r dist/og           "$stage/og"
+          [ -d dist/data ]         && cp -r dist/data         "$stage/data"
+          [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
+          [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
+          if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ] && [ ! -d "$stage/images" ]; then
             echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
           printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
           echo "CDN payload: $(du -sh "$stage" | cut -f1)"
+          # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
+          payload_bytes="$(du -sb "$stage" | cut -f1)"
+          if [ "$payload_bytes" -gt 950000000 ]; then
+            echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; consider splitting (e.g. keep blog heroes on jsDelivr)"
+          fi
           keyfile="$RUNNER_TEMP/cdn_deploy_key"
           printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
           export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
