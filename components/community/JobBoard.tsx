@@ -7,6 +7,7 @@
 
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -310,7 +311,7 @@ const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
  */
 function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  if (!jobDetailCache.has(jobId)) {
- const promise = fetch(`/data/job-detail/${jobId}.json`)
+ const promise = fetch(cdnDataUrl(`/data/job-detail/${jobId}.json`))
  .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
  .then((data: unknown) => (data && typeof data === 'object' ? data : {}) as Partial<JobListing>)
  .catch(() => ({} as Partial<JobListing>));
