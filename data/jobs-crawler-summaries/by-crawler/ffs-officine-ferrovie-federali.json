@@ -1,18 +1,47 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-06-02T14:32:31.222Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-06-03T00:54:04.479Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10977,
-  "avgDurationMs": 10977,
+  "durationMs": 21651,
+  "avgDurationMs": 21651,
   "durationHistory": [
-    10977
+    21651
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "sbb-c00970dbb009",
+      "slug": "aspirante-assistente-clienti-controllo-titoli-di-trasporto-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+      "company": "FFS Officine (Ferrovie Federali)",
+      "companyKey": "ffs-officine-ferrovie-federali",
+      "companyDomain": "jobs.sbb.ch",
+      "title": "Aspirante Assistente clienti - controllo titoli di trasporto (m/f/d)",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "sourceLang": "it",
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.sbb.ch/v2/offene-stellen/aspirante-assistente-clienti-controllo-titoli-di-trasporto-m-f-d/8b0b8441-09ec-45e6-9c2e-903336536894",
+      "source": "SBB Dedicated Parser (API + login.org)",
+      "crawledAt": "2026-06-03T00:53:53.374Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 23,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "sbb-6947fc349476",
@@ -33,7 +62,7 @@
       "postedDate": "2026-06-01",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/impiegato-in-logistica-m-f-d/d29fd7bf-40a2-43e2-bd85-a78c48405e6e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T14:32:29.430Z",
+      "crawledAt": "2026-06-03T00:53:53.427Z",
       "firstSeenAt": "2026-06-01T16:00:39.946Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -62,7 +91,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-immobilien-development/6581a2cb-a00d-4f8a-9d8e-d3699891c828",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T14:32:28.459Z",
+      "crawledAt": "2026-06-03T00:53:52.308Z",
       "firstSeenAt": "2026-05-07T22:28:47.416Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -91,7 +120,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-generale-immobili-m-f-d/4ceb3d72-b043-4b0e-96d7-2b721351df44",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T14:32:30.301Z",
+      "crawledAt": "2026-06-03T00:53:54.173Z",
       "firstSeenAt": "2026-05-07T22:29:03.851Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -120,7 +149,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chef-de-projet-general-immobilier-m-f-d/aa5b5720-9265-4767-af29-1ad2f0f46dfa",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T14:32:31.092Z",
+      "crawledAt": "2026-06-03T00:54:04.294Z",
       "firstSeenAt": "2026-05-07T22:29:08.604Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -149,7 +178,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T14:32:29.761Z",
+      "crawledAt": "2026-06-03T00:54:02.794Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
