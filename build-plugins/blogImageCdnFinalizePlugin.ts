@@ -43,6 +43,12 @@ const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
+// Perf: the original finalize scanned every file TWICE (a rewrite pass + a
+// separate guard pass). The single pass in closeBundle below rewrites and
+// verifies each file in one read — halving the I/O — while the guard still
+// covers EVERY emitted file (no dir is skipped), so a stray /images/blog
+// reference anywhere (even in the job-board corpus, which today carries none)
+// is still caught before any image is deleted.
 function walk(dir: string, fn: (fp: string) => void): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
@@ -67,6 +73,13 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       const repl = (_m: string, file: string): string => `${JSDELIVR_BLOG_BASE}/${file}`;
       let scanned = 0;
       let rewritten = 0;
+      // Single pass: rewrite each file, then verify the RESULT in-memory (no
+      // second filesystem scan). Guard — nothing full-blog (non-thumbnail,
+      // non-CDN) may remain. If any does, ABORT the offload (keep the images
+      // in dist) rather than throw: a missed reference must never break the
+      // deploy. Worst case the artifact ships the blog images as before (no
+      // reduction) — never a 404 or a failed build.
+      const leaks: string[] = [];
       walk(distDir, (fp) => {
         scanned++;
         const orig = fs.readFileSync(fp, 'utf8');
@@ -75,16 +88,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
           fs.writeFileSync(fp, out);
           rewritten++;
         }
-      });
-
-      // Guard — nothing full-blog (non-thumbnail, non-CDN) may remain. If any
-      // does, ABORT the offload (keep the images in dist) rather than throw:
-      // a missed reference must never break the deploy. Worst case the artifact
-      // ships the blog images as before (no reduction) — never a 404 or a
-      // failed build. Logged loudly so the gap is visible in the build log.
-      const leaks: string[] = [];
-      walk(distDir, (fp) => {
-        if (reLeak.test(fs.readFileSync(fp, 'utf8'))) leaks.push(path.relative(distDir, fp));
+        if (reLeak.test(out)) leaks.push(path.relative(distDir, fp));
       });
       if (leaks.length > 0) {
         console.warn(
