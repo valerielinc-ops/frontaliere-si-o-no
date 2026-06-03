@@ -247,3 +247,29 @@ describe('fuel-station orphans — index pages clear the >=200-word content thre
     }
   }
 });
+
+describe('fuel-station orphans — emittedPaths gate excludes pages the build skipped', () => {
+  // Only Varese's IT/benzina hub + station were "written"; Como's were skipped.
+  const emittedPaths = new Set<string>([
+    '/prezzi-benzina/italia/varese/oggi/',
+    '/prezzi-benzina/italia/varese/stazioni/q8-via-roma-2/',
+  ]);
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN,
+    emittedPaths,
+  });
+
+  it('cities-index links only the emitted city-hub (Varese), not the skipped one (Como)', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'italianCities')]!;
+    expect(countAnchors(html, '/italia/varese/oggi/')).toBeGreaterThanOrEqual(1);
+    expect(countAnchors(html, '/italia/como/oggi/')).toBe(0);
+  });
+
+  it('stations-index links only the emitted station (Varese), not the skipped one (Como)', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'italianStations')]!;
+    expect(countAnchors(html, '/italia/varese/stazioni/q8-via-roma-2/')).toBeGreaterThanOrEqual(1);
+    expect(countAnchors(html, '/italia/como/stazioni/')).toBe(0);
+  });
+});

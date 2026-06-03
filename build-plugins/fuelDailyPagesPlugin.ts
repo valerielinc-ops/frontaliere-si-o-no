@@ -5297,16 +5297,6 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       for (const fuel of FUEL_TYPES) {
         italianStationsByFuel[fuel] = buildItalianLeaves(italianContextsByFuel[fuel] ?? []);
       }
-      const indexPages = generateFuelIndexPages({
-        distDir,
-        rootDir,
-        today,
-        swissStations: swissLeaves,
-        italianStations: italianStationsByFuel.benzina ?? [],
-        italianStationsByFuel,
-        italianCities: buildItalianCityEntries(dataset),
-      });
-
       const collector = new WriteCollector({ distDir, pluginName: 'fuelDailyPagesPlugin' });
 
       let pagesWritten = 0;
@@ -5406,6 +5396,27 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         np.join(distDir, 'data', 'fuel-italian-station-pages.json'),
         JSON.stringify({ stations: italianStationManifest }),
       );
+
+      // Generate the browseable indexes AFTER the page write loops, gated on the
+      // set of paths actually written (post word-gate). This guarantees the
+      // crawlable, sitemap'd index never links a city-hub / station page that was
+      // skipped for thin content → no broken internal links / soft-404s.
+      const emittedFuelPaths = new Set<string>([
+        ...sitemapPaths,
+        ...stationSitemapPaths,
+        ...italianCitySitemapPaths,
+        ...italianStationSitemapPaths,
+      ]);
+      const indexPages = generateFuelIndexPages({
+        distDir,
+        rootDir,
+        today,
+        swissStations: swissLeaves,
+        italianStations: italianStationsByFuel.benzina ?? [],
+        italianStationsByFuel,
+        italianCities: buildItalianCityEntries(dataset),
+        emittedPaths: emittedFuelPaths,
+      });
 
       // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
       // These pages exist exactly to surface every per-station / per-city leaf
