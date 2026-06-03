@@ -49,6 +49,7 @@ import {
   buildFuelItalianCityPath,
   buildFuelItalianStationPath,
   buildStationSlug,
+  slugify,
   zoneForAddress,
   computeDeltaVsYesterday,
   type FuelDailyLocale,
@@ -4113,7 +4114,7 @@ export function generateFuelItalianCityPages(opts: {
     );
   }
 
-  for (const entry of FUEL_ITALIAN_CITIES) {
+  for (const entry of buildItalianCityEntries(dataset)) {
     for (const fuel of FUEL_TYPES) {
       const stations = collectItalianCityStations(dataset, entry, fuel);
       if (stations.length === 0) continue; // skip if no station data for this fuel
@@ -4147,6 +4148,137 @@ export function generateFuelItalianCityPages(opts: {
     }
   }
   return pages;
+}
+
+// ── Dynamic Italian-city coverage (all municipalities, not just curated) ──
+//
+// The 14 curated FUEL_ITALIAN_CITIES keep hand-tuned slug/display/zone. Every
+// OTHER municipality in the dataset that has ≥1 priced Italian station also
+// gets per-city + per-station pages, so the cross-border fuel SPA can deep-link
+// EVERY station (no orphaned "data-only" cards). Nearest Ticino zone is derived
+// from the closest Swiss station address; a province fallback covers comuni
+// whose 20 km Swiss radius came back empty.
+const PROVINCE_FALLBACK_ZONE: Record<string, FuelZone> = {
+  CO: 'chiasso',
+  VA: 'mendrisio',
+  LC: 'bellinzona',
+  SO: 'bellinzona',
+  VB: 'locarno',
+  MB: 'chiasso',
+  MI: 'chiasso',
+  LO: 'chiasso',
+  PV: 'chiasso',
+  CR: 'chiasso',
+  BG: 'bellinzona',
+  MC: 'chiasso',
+};
+
+interface ItalianDatasetRowLite {
+  municipality?: string;
+  province?: string;
+  swiss?: {
+    nearbyStations?: Array<{ address?: string }>;
+    cheapestStation?: { address?: string };
+  };
+  italy?: {
+    stations?: Array<{
+      priceEur?: number;
+      dieselPriceEur?: number | null;
+      brand?: string;
+      stationName?: string;
+    }>;
+  };
+}
+
+/** Nearest Ticino zone for a municipality: closest Swiss station → province fallback. */
+function deriveItalianCityZone(row: ItalianDatasetRowLite): FuelZone {
+  for (const s of row.swiss?.nearbyStations ?? []) {
+    const z = zoneForAddress(s.address);
+    if (z) return z;
+  }
+  const z2 = zoneForAddress(row.swiss?.cheapestStation?.address);
+  if (z2) return z2;
+  return PROVINCE_FALLBACK_ZONE[(row.province ?? '').toUpperCase()] ?? 'chiasso';
+}
+
+const _italianCityEntriesCache = new WeakMap<object, ItalianCityEntry[]>();
+
+/**
+ * Full Italian-city entry list for page generation: the curated 14 (with their
+ * hand-tuned metadata) plus a dynamic entry for every other municipality that
+ * has at least one priced station. Memoised per dataset object. Slug is
+ * `slugify(municipality)` — verified collision-free across the dataset; the
+ * defensive suffix below only fires if two municipalities ever collide (the SPA
+ * mirrors the bare `slugify(municipality)` form, so collisions would desync and
+ * are intentionally kept impossible by the data).
+ */
+function buildItalianCityEntries(dataset: FuelPricesDataset): ItalianCityEntry[] {
+  const cached = _italianCityEntriesCache.get(dataset as object);
+  if (cached) return cached;
+  const out: ItalianCityEntry[] = [...FUEL_ITALIAN_CITIES];
+  const seenKey = new Set(FUEL_ITALIAN_CITIES.map((c) => c.matchKey));
+  const seenSlug = new Set(FUEL_ITALIAN_CITIES.map((c) => c.slug));
+  // Province claimed by each matchKey (curated entries seed it). matchKey is the
+  // lowercased municipality name, and station collection matches rows by matchKey
+  // alone (no province filter, see collectItalianCityStations / cross-border loops).
+  // So two homonym comuni in DIFFERENT provinces would: (a) drop the second from
+  // `out` via the dedup `continue` below — no page of its own — and (b) silently
+  // merge its stations onto the first city's page. Today's dataset has 0 such
+  // collisions, but a future MIMIT cut could introduce one. Fail loud here instead
+  // of degrading silently (missing page + mixed content). Same-name/same-province
+  // rows are legitimate duplicates and still dedup quietly.
+  const claimedProvince = new Map<string, string>(
+    FUEL_ITALIAN_CITIES.map((c) => [c.matchKey, c.province.toUpperCase()] as [string, string]),
+  );
+  const rows = (dataset.municipalities ?? []) as unknown as ItalianDatasetRowLite[];
+  for (const row of rows) {
+    const name = (row.municipality ?? '').trim();
+    if (!name) continue;
+    const matchKey = name.toLowerCase();
+    const province = (row.province ?? '').toUpperCase();
+    if (seenKey.has(matchKey)) {
+      const claimed = claimedProvince.get(matchKey);
+      if (claimed !== undefined && claimed !== province) {
+        throw new Error(
+          `[fuel] matchKey collision: '${matchKey}' already claimed by province ` +
+            `'${claimed}' but a dataset row reports province '${province}'. Homonym ` +
+            `comuni in different provinces would silently merge stations onto one ` +
+            `page and drop the second comune's page — disambiguate the matchKey ` +
+            `(e.g. suffix the province) before emitting.`,
+        );
+      }
+      continue;
+    }
+    const hasPriced = (row.italy?.stations ?? []).some(
+      (s) =>
+        (s.brand || s.stationName) &&
+        ((typeof s.priceEur === 'number' && Number.isFinite(s.priceEur)) ||
+          (typeof s.dieselPriceEur === 'number' && Number.isFinite(s.dieselPriceEur))),
+    );
+    if (!hasPriced) continue;
+    const base = slugify(name);
+    if (!base) continue;
+    let slug = base;
+    if (seenSlug.has(slug)) {
+      const withProv = `${base}-${(row.province ?? '').toLowerCase()}`;
+      let candidate = withProv;
+      let n = 2;
+      while (seenSlug.has(candidate)) candidate = `${withProv}-${n++}`;
+      slug = candidate;
+    }
+    seenKey.add(matchKey);
+    seenSlug.add(slug);
+    claimedProvince.set(matchKey, province);
+    out.push({
+      slug,
+      display: titleCase(name),
+      matchKey,
+      province,
+      nearestZone: deriveItalianCityZone(row),
+    });
+  }
+  _italianCityEntriesCache.set(dataset as object, out);
+  return out;
 }
 
 // ── Italian per-station rendering ──────────────────────────────
@@ -4185,7 +4317,7 @@ function collectItalianStationContexts(
   const out: ItalianStationContext[] = [];
   const slugSeen = new Set<string>();
 
-  for (const entry of FUEL_ITALIAN_CITIES) {
+  for (const entry of buildItalianCityEntries(dataset)) {
     const rawStations = collectItalianCityStations(dataset, entry, fuel);
     // Dedupe by id, prefer the cheapest variant (typically self-service).
     const byId = new Map<string, ItalianCityStation>();
@@ -5191,15 +5323,6 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       for (const fuel of FUEL_TYPES) {
         italianStationsByFuel[fuel] = buildItalianLeaves(italianContextsByFuel[fuel] ?? []);
       }
-      const indexPages = generateFuelIndexPages({
-        distDir,
-        rootDir,
-        today,
-        swissStations: swissLeaves,
-        italianStations: italianStationsByFuel.benzina ?? [],
-        italianStationsByFuel,
-      });
-
       const collector = new WriteCollector({ distDir, pluginName: 'fuelDailyPagesPlugin' });
 
       let pagesWritten = 0;
@@ -5279,6 +5402,47 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianStationSitemapPaths.push(path);
         italianStationPagesWritten++;
       }
+
+      // ── Manifest of ACTUALLY-emitted Italian station pages ─────
+      // The cross-border SPA (`FuelPriceStats`) deep-links each station by
+      // recomputing `slugify(municipality)` + the per-station slug. That mirror
+      // can diverge from what the build truly wrote (word-gate skip, future
+      // slug collision, whitespace) → 404s from an indexed page. Publish the
+      // authoritative set of written benzina pages as `{citySlug}/{stationSlug}`
+      // (locale-agnostic); the SPA links a station only when it appears here.
+      const italianStationManifest = Array.from(
+        new Set(
+          italianStationSitemapPaths
+            .map((p) => /^\/prezzi-benzina\/italia\/([^/]+)\/stazioni\/([^/]+)\/$/.exec(p))
+            .filter((m): m is RegExpExecArray => m !== null)
+            .map((m) => `${m[1]}/${m[2]}`),
+        ),
+      ).sort();
+      collector.add(
+        np.join(distDir, 'data', 'fuel-italian-station-pages.json'),
+        JSON.stringify({ stations: italianStationManifest }),
+      );
+
+      // Generate the browseable indexes AFTER the page write loops, gated on the
+      // set of paths actually written (post word-gate). This guarantees the
+      // crawlable, sitemap'd index never links a city-hub / station page that was
+      // skipped for thin content → no broken internal links / soft-404s.
+      const emittedFuelPaths = new Set<string>([
+        ...sitemapPaths,
+        ...stationSitemapPaths,
+        ...italianCitySitemapPaths,
+        ...italianStationSitemapPaths,
+      ]);
+      const indexPages = generateFuelIndexPages({
+        distDir,
+        rootDir,
+        today,
+        swissStations: swissLeaves,
+        italianStations: italianStationsByFuel.benzina ?? [],
+        italianStationsByFuel,
+        italianCities: buildItalianCityEntries(dataset),
+        emittedPaths: emittedFuelPaths,
+      });
 
       // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
       // These pages exist exactly to surface every per-station / per-city leaf

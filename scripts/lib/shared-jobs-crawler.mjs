@@ -205,12 +205,18 @@ loadLocalEnvFile(path.resolve(ROOT, '.env.local'));
 
 const REQUEST_TIMEOUT_MS = clampNum(process.env.JOBS_CRAWLER_TIMEOUT_MS, 4000, 15000, 9000);
 const MAX_COMPANIES = clampNum(process.env.JOBS_CRAWLER_LIMIT_COMPANIES, 10, 120, 60);
-const MAX_JOB_LINKS_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_JOB_LINKS, 1, 500, 40);
+// Job-count caps are uncapped by default: crawlers must collect every job they
+// discover (a low per-company link cap silently truncated e.g. Migros 800→40).
+// Defaults are effectively unlimited; env vars can still narrow them, and the
+// high ceiling means an explicit env value is never clamped down. Pagination
+// terminates naturally on the first empty/no-new page, so unbounded ≠ infinite.
+const UNCAPPED = 1_000_000;
+const MAX_JOB_LINKS_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_JOB_LINKS, 1, UNCAPPED, UNCAPPED);
 const MAX_CONCURRENCY = clampNum(process.env.JOBS_CRAWLER_CONCURRENCY, 1, 12, 6);
 const MAX_DESC_CHARS = 12000;
-const MAX_CAREER_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_CAREER_PAGES, 2, 20, 8);
-const MAX_GENERIC_LISTING_PAGES = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_LISTING_PAGES, 2, 20, 8);
-const MAX_GENERIC_DETAIL_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES, 2, 500, 12);
+const MAX_CAREER_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_CAREER_PAGES, 2, UNCAPPED, 200);
+const MAX_GENERIC_LISTING_PAGES = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_LISTING_PAGES, 2, UNCAPPED, 200);
+const MAX_GENERIC_DETAIL_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES, 2, UNCAPPED, UNCAPPED);
 const FETCH_RETRY_ATTEMPTS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRIES, 0, 4, 2);
 const FETCH_RETRY_BASE_MS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRY_BASE_MS, 100, 5000, 350);
 const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);

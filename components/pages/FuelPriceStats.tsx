@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
+import { ChevronDown, ChevronRight, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
-import { FUEL_DAILY_LOCALES, FUEL_ITALIAN_CITIES, buildFuelItalianStationPath, buildStationSlug, type FuelDailyLocale, type ItalianCityEntry } from '@/build-plugins/fuelDailyData';
+import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, buildStationSlug, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
@@ -78,11 +78,16 @@ function asFuelLocale(locale: string): FuelDailyLocale {
  return (FUEL_DAILY_LOCALES as readonly string[]).includes(locale) ? (locale as FuelDailyLocale) : 'it';
 }
 
-/** Curated Italian-city entry for a municipality row, or null if not covered. */
-function italianCityEntryForRow(row: MunicipalityFuelRow): ItalianCityEntry | null {
- const key = row.municipality?.trim().toLowerCase();
- if (!key) return null;
- return FUEL_ITALIAN_CITIES.find((c) => c.matchKey === key) ?? null;
+/**
+ * City slug for a municipality row. The build now emits per-station pages for
+ * EVERY municipality with priced stations (not just the curated set), using
+ * `slugify(municipality)` as the city slug — verified collision-free across the
+ * dataset — so this mirror is exact. Returns null only for empty names.
+ */
+function italianCitySlugForRow(row: MunicipalityFuelRow): string | null {
+ const name = row.municipality?.trim();
+ if (!name) return null;
+ return slugify(name) || null;
 }
 
 /**
@@ -250,16 +255,18 @@ function DetailSection({
  row,
  locale,
  tt,
+ stationPages,
 }: {
  row: MunicipalityFuelRow;
  locale: string;
  tt: (key: string, fallback: string) => string;
+ stationPages: Set<string> | null;
 }) {
- const italyEntry = italianCityEntryForRow(row);
+ const italyCitySlug = italianCitySlugForRow(row);
  const fuelLocale = asFuelLocale(locale);
  const italyStationSlugs = useMemo(
- () => (italyEntry ? buildItalianStationSlugMap(row) : null),
- [italyEntry, row],
+ () => (italyCitySlug ? buildItalianStationSlugMap(row) : null),
+ [italyCitySlug, row],
  );
  return (
  <div className="mt-4 space-y-4 rounded-[1.75rem] border border-edge bg-surface/90 p-4 sm:p-5">
@@ -310,15 +317,26 @@ function DetailSection({
  <div className="mt-3 space-y-3">
  {row.italy.stations.slice(0, 12).map((station) => {
  const key = `${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`;
- const slug = italyEntry && italyStationSlugs ? italyStationSlugs.get(station.id) : undefined;
- const href = italyEntry && slug ? buildFuelItalianStationPath(fuelLocale, 'benzina', italyEntry.slug, slug) : null;
+ const slug = italyCitySlug && italyStationSlugs ? italyStationSlugs.get(station.id) : undefined;
+ // Link only to a page the build actually emitted. When the manifest is
+ // loaded it is authoritative (no 404s); until then fall back to optimistic.
+ const pageEmitted = italyCitySlug && slug
+ ? (stationPages ? stationPages.has(`${italyCitySlug}/${slug}`) : true)
+ : false;
+ const href = pageEmitted && italyCitySlug && slug ? buildFuelItalianStationPath(fuelLocale, 'benzina', italyCitySlug, slug) : null;
  const content = (
  <div className="flex items-start justify-between gap-3">
  <div className="flex min-w-0 items-start gap-3">
  <StationBrandLogo brand={station.brand} />
  <div className="min-w-0">
- <div className="font-semibold text-heading">{station.stationName}</div>
+ <div className={`truncate font-semibold ${href ? 'text-link' : 'text-heading'}`}>{station.stationName}</div>
  <div className="mt-1 text-xs text-muted">{station.address}</div>
+ {href && (
+ <div className="mt-1 inline-flex items-center gap-0.5 text-xs font-semibold text-link">
+ {tt('fuelPrices.viewStationDetail', 'Vedi dettaglio stazione')}
+ <ChevronRight size={13} aria-hidden="true" />
+ </div>
+ )}
  </div>
  </div>
  <div className="text-right">
@@ -403,6 +421,12 @@ export default function FuelPriceStats() {
  const [homeMunicipalityKey, setHomeMunicipalityKey] = useState('');
  const [tankLiters, setTankLiters] = useState(50);
  const [costPerKmEur, setCostPerKmEur] = useState(0.18);
+ // Authoritative set of emitted Italian station pages ("{citySlug}/{stationSlug}").
+ // Built by the fuel build-plugin; the SPA links a station only when it appears
+ // here, so a station card never points at a page the build skipped (word-gate)
+ // or wrote under a disambiguated slug → no indexable 404s. null = not loaded
+ // yet / fetch failed → optimistic fallback (link if a slug is derivable).
+ const [stationPages, setStationPages] = useState<Set<string> | null>(null);
 
  useEffect(() => {
  let cancelled = false;
@@ -421,6 +445,14 @@ export default function FuelPriceStats() {
  })
  .finally(() => {
  if (!cancelled) setLoading(false);
+ });
+ fetch('/data/fuel-italian-station-pages.json')
+ .then((r) => (r.ok ? r.json() : null))
+ .then((j: { stations?: string[] } | null) => {
+ if (!cancelled && Array.isArray(j?.stations)) setStationPages(new Set(j!.stations));
+ })
+ .catch(() => {
+ /* best-effort: keep optimistic fallback when the manifest is unavailable */
  });
  return () => {
  cancelled = true;
@@ -718,7 +750,7 @@ export default function FuelPriceStats() {
 
  {isSelected && (
  <div className="border-t border-edge px-3 pb-3 sm:px-4 sm:pb-4">
- <DetailSection row={row} locale={locale} tt={tt} />
+ <DetailSection row={row} locale={locale} tt={tt} stationPages={stationPages} />
  </div>
  )}
  </div>

@@ -41,6 +41,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino.title': 'Quellensteuer nicht zurückerstattet: Was ändert sich für Grenzgänger',
     'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Erfahren Sie, warum einige Grenzgänger keine Rückerstattung der Quellensteuer mehr erhalten und was in solchen Fällen zu tun ist.',
     'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'Wie Genf Hantavirus identifizierte: Folgen für Grenzgänger',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'Das Universitätsspital Genf hat den Hantavirus-Stamm identifiziert, der für einen Ausbruch auf einem Kreuzfahrtschiff im Mai 2026 verantwortlich war.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Universitätsspital Genf mit modernem Labor',
 };
 
 export default blogMetaChDe;

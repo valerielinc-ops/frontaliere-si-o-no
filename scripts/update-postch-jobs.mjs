@@ -62,7 +62,7 @@ const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 // jobs) but Italian-only postings (e.g. AutoPostale Bellinzona) are missing
 // from it — we'd silently drop them without scanning it_IT separately.
 const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
-const JOBS_API_MAX_PAGES = 60;     // hard ceiling — protects against runaway pagination
+const JOBS_API_MAX_PAGES = 100000; // uncapped — loop already bounded by `seen < totalJobs` and breaks on empty page
 const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
 
 // Kept for adapter seedUrls / external references only.
@@ -602,8 +602,8 @@ function runBaseCrawler() {
     forceLocalizeKeys: POST_KEY,
     localizeExistingOnly: true,
     extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: '50',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '50',
+      JOBS_CRAWLER_MAX_JOB_LINKS: '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000',
     },
   });
 }
