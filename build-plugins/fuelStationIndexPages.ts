@@ -229,6 +229,12 @@ export interface FuelIndexInputs {
    * MIMIT-Gasolio coverage lands). Absent ⇒ benzina-only (legacy behaviour).
    */
   readonly italianStationsByFuel?: Partial<Record<FuelType, readonly ItalianStationLeaf[]>>;
+  /**
+   * Full Italian-city entry list (curated + every municipality with priced
+   * stations) used for the cities-by-zone index. Absent ⇒ falls back to the
+   * curated FUEL_ITALIAN_CITIES (legacy behaviour).
+   */
+  readonly italianCities?: readonly ItalianCityEntry[];
 }
 
 /**
@@ -1015,13 +1021,18 @@ function groupSwissByZone(stations: readonly SwissStationLeaf[]): Map<FuelZone, 
   return out;
 }
 
-/** Group Italian-station leaves by city slug, in FUEL_ITALIAN_CITIES order. */
+/**
+ * Group Italian-station leaves by city slug. Leaf-driven (covers every
+ * municipality present in the leaves, not just the curated list), cities
+ * ordered alphabetically by display name for a stable index.
+ */
 function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string, ItalianStationLeaf[]> {
   const out = new Map<string, ItalianStationLeaf[]>();
-  for (const c of FUEL_ITALIAN_CITIES) out.set(c.slug, []);
+  const displayBySlug = new Map<string, string>();
   for (const s of stations) {
-    const list = out.get(s.citySlug);
-    if (list) list.push(s);
+    if (!out.has(s.citySlug)) out.set(s.citySlug, []);
+    out.get(s.citySlug)!.push(s);
+    displayBySlug.set(s.citySlug, s.cityDisplay);
   }
   for (const list of out.values()) {
     list.sort((a, b) => {
@@ -1030,7 +1041,11 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
       return (a.address || '').localeCompare(b.address || '');
     });
   }
-  return out;
+  return new Map(
+    [...out.entries()].sort((a, b) =>
+      (displayBySlug.get(a[0]) || a[0]).localeCompare(displayBySlug.get(b[0]) || b[0]),
+    ),
+  );
 }
 
 /**
@@ -1040,6 +1055,7 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
  */
 export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, string> {
   const { swissStations, italianStations, italianStationsByFuel, today, distDir, rootDir } = inp;
+  const italianCities = inp.italianCities ?? FUEL_ITALIAN_CITIES;
   const out: Record<string, string> = {};
 
   const swissByZone = groupSwissByZone(swissStations);
@@ -1131,10 +1147,11 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
         // (the city-zone mapping is geographic, not arbitrary).
         const byZone = new Map<FuelZone, ItalianCityEntry[]>();
         for (const z of FUEL_ZONES) byZone.set(z, []);
-        for (const c of FUEL_ITALIAN_CITIES) {
+        for (const c of italianCities) {
           const arr = byZone.get(c.nearestZone);
           if (arr) arr.push(c);
         }
+        for (const arr of byZone.values()) arr.sort((a, b) => a.display.localeCompare(b.display));
         for (const z of FUEL_ZONES) {
           const cities = byZone.get(z) ?? [];
           if (cities.length === 0) continue;
@@ -1166,16 +1183,16 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
       // ── Italian-stations index (per-fuel, when coverage exists) ─
       if (hasItalianStationIndex) {
         const groups: GroupedAnchors[] = [];
-        for (const c of FUEL_ITALIAN_CITIES) {
-          const list = italianByCity.get(c.slug) ?? [];
+        for (const [citySlug, list] of italianByCity) {
           if (list.length === 0) continue;
+          const cityDisplay = list[0]?.cityDisplay ?? citySlug;
           groups.push({
-            heading: copy.groupHeadingByCity(c.display),
-            slug: c.slug,
+            heading: copy.groupHeadingByCity(cityDisplay),
+            slug: citySlug,
             anchors: list.map((s) => ({
               href: buildFuelItalianStationPath(locale, fuel, s.citySlug, s.stationSlug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
-              subtitle: s.address || c.display,
+              subtitle: s.address || cityDisplay,
               logoUrl: resolveStationLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
             })),
