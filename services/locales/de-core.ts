@@ -43,6 +43,9 @@ const deCore: Record<string, string> = {
  'nav.support': 'Helfen Sie uns',
  'nav.subtitle': 'Steueranalyse 2026',
  'comparators.exchange': 'Währungstausch',
+ // CTA "Prova anche" labels — eager-loaded (sibling chunks comparatori/guide load post-paint via requestIdleCallback)
+ 'strumenti.permitCompare': 'G vs B',
+ 'guide.tabs.calendar': 'Steuerfristen',
  'comparators.traffic': 'Grenzverkehr',
  'comparators.mobile': 'Mobilfunk',
  'comparators.banks': 'Bankkonten',
