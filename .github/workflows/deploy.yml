@@ -637,51 +637,14 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      # ── Generated-image CDN offload (best-effort, non-fatal) ──────────────
-      # Push the build-generated per-job OG cards (dist/og, ~160 MB — NOT
-      # git-tracked) to an orphan `cdn-assets` branch, then rewrite the emitted
-      # dist refs to jsDelivr@<that-sha> and delete the dir from the Pages
-      # artifact. Git content-addresses blobs, so unchanged images add ~nothing
-      # per push. BOTH steps are continue-on-error and the script is internally
-      # non-fatal: any failure leaves dist untouched (images ship as before) —
-      # the offload can never break a deploy.
-      #
-      # Blog 480w thumbnails are deliberately NOT offloaded: the SPA builds
-      # those URLs at runtime in the JS bundle (not in HTML), so an HTML-only
-      # rewrite can't cover them — deleting them would 404 on hydrated pages.
-      - name: Push generated images to cdn-assets branch (CDN source)
-        if: github.event.inputs.profile_sequential != 'true'
-        continue-on-error: true
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -uo pipefail
-          stage=/tmp/cdn-assets
-          rm -rf "$stage" && mkdir -p "$stage"
-          [ -d dist/og ] && cp -r dist/og "$stage/og"
-          if [ ! -d "$stage/og" ]; then
-            echo "no dist/og present — skipping cdn-assets push"; exit 0
-          fi
-          echo "cdn-assets payload: $(du -sh "$stage" | cut -f1)"
-          cd "$stage"
-          git init -q
-          git checkout -q -b cdn-assets
-          git config user.email "deploy-bot@frontaliereticino.ch"
-          git config user.name "deploy-bot"
-          git add -A
-          git commit -qm "cdn assets ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
-          if git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" cdn-assets; then
-            sha="$(git rev-parse HEAD)"
-            echo "CDN_ASSETS_SHA=${sha}" >> "$GITHUB_ENV"
-            echo "✅ pushed cdn-assets ${sha:0:8}"
-          else
-            echo "⚠️ cdn-assets push failed — offload skipped, images stay in dist"
-          fi
-
-      - name: Offload generated images to CDN (rewrite dist refs + delete dirs)
-        if: github.event.inputs.profile_sequential != 'true'
-        continue-on-error: true
-        run: node scripts/offload-generated-images-cdn.mjs
+      # NOTE: the per-job OG-card CDN offload (orphan `cdn-assets` branch +
+      # scripts/offload-generated-images-cdn.mjs) was REVERTED — jsDelivr
+      # returns 502 on that branch's large single orphan commit (~168 MB /
+      # 6000 files), so the rewritten og:image refs were unreachable (raw
+      # serves them, jsDelivr can't package the commit). OG cards therefore
+      # stay in the Pages artifact, served same-origin. Re-attempt would need
+      # a CDN that handles the big commit (or smaller, paginated commits). The
+      # git-tracked blog hero images (served from main@sha) are unaffected.
 
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'
