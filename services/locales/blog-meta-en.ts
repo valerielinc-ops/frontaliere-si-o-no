@@ -7948,6 +7948,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: Neutralise 2026 estimates and middle class',
     'blog.article.referendum-neutrale-stime-2026.excerpt': 'Vote on 14 June 2026. Neutralise estimates. Yes to the middle class.',
     'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande in Bellinzona at sunset, symbol of stability and home.',
+    'blog.article.13esima-avs-iva-nazionale.title': '13th AVS Pension: National Council Insists on VAT Increase',
+    'blog.article.13esima-avs-iva-nazionale.excerpt': 'The National Council has confirmed the funding of the 13th AVS pension solely through a VAT increase, rejecting the mixed solution. Implications for cross-border workers.',
+    'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Swiss franc banknotes and coins with a view of Lake Lugano',
 };
 
 export default blogMetaEn;

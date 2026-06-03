@@ -7949,6 +7949,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: neutralizzazione stime 2026 e classe media',
     'blog.article.referendum-neutrale-stime-2026.excerpt': 'Voto 14 giugno 2026. Neutralizza stime. Sì alla classe media.',
     'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande a Bellinzona al tramonto, simbolo di stabilità e casa.',
+    'blog.article.13esima-avs-iva-nazionale.title': '13esima AVS: il Nazionale insiste sull\'IVA',
+    'blog.article.13esima-avs-iva-nazionale.excerpt': 'Il Consiglio nazionale ha confermato il finanziamento della 13esima rendita AVS solo con aumento IVA, respingendo la soluzione mista. Implicazioni per i frontalieri.',
+    'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Banconote e monete svizzere con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;
