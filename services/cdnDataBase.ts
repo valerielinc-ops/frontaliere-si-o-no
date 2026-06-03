@@ -1,14 +1,14 @@
 // cdnDataBase.ts
 //
 // Runtime CDN base for BUILD-GENERATED data files that are offloaded out of the
-// GitHub Pages artifact to the orphan `cdn-assets` branch at deploy time
-// (served via raw.githubusercontent — jsDelivr 502/403s on fresh orphan refs,
-// see scripts/offload-generated-images-cdn.mjs).
+// GitHub Pages artifact to the dedicated CDN repo `frontaliere-cdn` (its own
+// GitHub Pages site, Fastly edge) at deploy time — served with a STABLE URL
+// (CDN_BASE, no SHA pin), see scripts/offload-generated-images-cdn.mjs.
 //
 // The base is injected as an inline `<script>window.__CDN_DATA_BASE__="…"</script>`
-// into every dist HTML page during the post-build offload step (AFTER the orphan
-// branch is pushed, when its commit SHA is known — it cannot be a Vite build-time
-// define because the SHA does not exist yet at build time).
+// into every dist HTML page during the post-build offload step (AFTER the assets
+// are pushed to the CDN repo, when CDN_BASE is known — it cannot be a Vite
+// build-time define because the offload runs after the build).
 //
 // GRACEFUL DEGRADATION: when the base is unset (dev, or the non-fatal offload was
 // skipped / failed), `cdnDataUrl` returns the original same-origin path, so the
@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-/** The injected raw.githubusercontent base (e.g. `https://raw.githubusercontent.com/<repo>/<sha>`), or '' when not offloaded. */
+/** The injected CDN base (e.g. `https://valerielinc-ops.github.io/frontaliere-cdn`), or '' when not offloaded. */
 export function cdnDataBase(): string {
   if (typeof window === 'undefined') return '';
   const b = window.__CDN_DATA_BASE__;
