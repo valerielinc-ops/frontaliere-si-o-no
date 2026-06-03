@@ -43,31 +43,17 @@ const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
-// Perf: full blog hero images are referenced ONLY in article pages, feeds, and
-// sitemaps — never in the job-board corpus (cerca-lavoro-* / find-jobs-* /
-// stellensuche-* / jobs-im-* / trouver-emploi-* and the search-cluster `ricerca`
-// tree), which is ~700k of the ~1.2M emitted files and carries ZERO /images/blog
-// references (verified across all 4 locales). Skipping those dirs turns a ~16min
-// scan into seconds. The dirs are matched at the dist root (and one level under
-// each locale prefix), so article dirs like `articoli-frontaliere/` and
-// `en/cross-border-articles/` are always scanned.
-const SKIP_TOPDIR_RX = /^cerca-lavoro-|^ricerca$/;
-const SKIP_LOCALEDIR_RX = /^(find-jobs-|stellensuche-|jobs-im-|trouver-emploi-|emploi|cerca-lavoro-)/;
-const LOCALE_PREFIXES = new Set(['en', 'de', 'fr']);
-
-function walk(distDir: string, dir: string, fn: (fp: string) => void): void {
+// Perf: the original finalize scanned every file TWICE (a rewrite pass + a
+// separate guard pass). The single pass in closeBundle below rewrites and
+// verifies each file in one read — halving the I/O — while the guard still
+// covers EVERY emitted file (no dir is skipped), so a stray /images/blog
+// reference anywhere (even in the job-board corpus, which today carries none)
+// is still caught before any image is deleted.
+function walk(dir: string, fn: (fp: string) => void): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
-    if (e.isDirectory()) {
-      const rel = path.relative(distDir, fp);
-      const parts = rel.split(path.sep);
-      // Skip job-board / search-cluster dirs (zero blog refs) for speed.
-      if (parts.length === 1 && SKIP_TOPDIR_RX.test(parts[0])) continue;
-      if (parts.length === 2 && LOCALE_PREFIXES.has(parts[0]) && SKIP_LOCALEDIR_RX.test(parts[1])) continue;
-      walk(distDir, fp, fn);
-    } else if (SCAN_EXT.has(path.extname(e.name))) {
-      fn(fp);
-    }
+    if (e.isDirectory()) walk(fp, fn);
+    else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
   }
 }
 
@@ -94,7 +80,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       // deploy. Worst case the artifact ships the blog images as before (no
       // reduction) — never a 404 or a failed build.
       const leaks: string[] = [];
-      walk(distDir, distDir, (fp) => {
+      walk(distDir, (fp) => {
         scanned++;
         const orig = fs.readFileSync(fp, 'utf8');
         const out = orig.replace(reAbs, repl).replace(reRel, repl);
