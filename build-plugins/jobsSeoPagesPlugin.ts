@@ -136,14 +136,23 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 // build log reveals which phase accretes the ~9.9 GB live heap / external spike.
 // No effect on emitted output. Remove once the retainer is fixed.
 function logBuildMem(label: string, collector?: unknown): void {
-  const m = process.memoryUsage();
   const mb = (n: number) => Math.round(n / 1048576);
+  // Force a full GC first (build:ci runs with --expose-gc) so the reported heap
+  // is the LIVE set, not garbage V8 keeps lazily under its 12 GB ceiling. DUAL
+  // PURPOSE: if this reclaims the per-phase growth, the gc() calls themselves
+  // bound the peak and prevent the OOM (cheap fix); if heap stays high post-gc
+  // it's genuine retention needing a code fix — and `gcFreed` tells us which. (#1290)
+  const gc = (globalThis as { gc?: () => void }).gc;
+  const beforeHeap = process.memoryUsage().heapUsed;
+  if (typeof gc === 'function') gc();
+  const m = process.memoryUsage();
+  const freed = mb(beforeHeap - m.heapUsed);
   const c = collector as { writes?: Map<unknown, unknown>; _pendingFlushes?: Set<unknown> } | undefined;
   const extra = c
     ? ` pendingWrites=${c.writes?.size ?? '?'} inflightFlushes=${c._pendingFlushes?.size ?? '?'}`
     : '';
   console.log(
-    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}`,
+    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}`,
   );
 }
 
