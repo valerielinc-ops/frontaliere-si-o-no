@@ -1,18 +1,52 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-03T12:31:41.263Z",
+  "generatedAt": "2026-06-03T22:33:17.523Z",
   "total": 20,
-  "newCount": 3,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 17,
-  "durationMs": 1313,
-  "avgDurationMs": 1313,
+  "removedCount": 0,
+  "unchangedCount": 19,
+  "durationMs": 1058,
+  "avgDurationMs": 1058,
   "durationHistory": [
-    1313
+    1058
   ],
   "newJobs": [
+    {
+      "title": "Collaboratore/trice tecnico-agricolo/a in frutticoltura",
+      "slug": "collaboratore-trice-tecnico-agricolo-a-in-frutticoltura-agroscope-wadenswil",
+      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-tecnico-agricolo-a-in-frutticoltura/e3e753fd-10ff-4fcb-aece-53061f6aa52b",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18254",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "8820 Wädenswil",
+      "addressLocality": "Wädenswil",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-05",
+      "validThrough": "2026-06-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Dottorando/a in agroecologia applicata alla campicoltura",
       "slug": "dottorando-a-in-agroecologia-applicata-alla-campicoltura-agroscope-nyon",
@@ -35,12 +69,18 @@
       "validThrough": "2026-07-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "agroscope-1559e84cb01f",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1260",
+      "firstSeenAt": "2026-06-03T12:31:41.261Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -65,12 +105,18 @@
       "validThrough": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "agroscope-6fe11cc2d9f3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-03T12:31:41.261Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -95,56 +141,21 @@
       "validThrough": "2026-07-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Dottorando/a - Pascolo ai margini boschivi e biodiversità",
-      "slug": "dottorando-a-pascolo-ai-margini-boschivi-e-biodiversita-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/dottorando-a-pascolo-ai-margini-boschivi-e-biodiversita/45a2075c-247f-4a16-98b1-5ddc89dfa82a",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19037",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8046 Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-12",
-      "validThrough": "2026-06-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-119bfe54cb6f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "id": "agroscope-aa82b7884810",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-12T21:23:24.472Z",
-      "_qualityScore": 90,
+      "postalCode": "1725",
+      "firstSeenAt": "2026-06-03T12:31:41.261Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 19,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Praticante Informatica",
       "slug": "praticante-informatica-agroscope-posieux",
@@ -175,11 +186,11 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-06-02T12:00:03.023Z",
-      "_qualityScore": 78,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -436,43 +447,6 @@
       "id": "agroscope-06ea8c4a2dee",
       "salaryMin": 68000,
       "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-10T20:52:32.514Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Collaboratore/trice tecnico-agricolo/a in frutticoltura",
-      "slug": "collaboratore-trice-tecnico-agricolo-a-in-frutticoltura-agroscope-wadenswil",
-      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-tecnico-agricolo-a-in-frutticoltura/e3e753fd-10ff-4fcb-aece-53061f6aa52b",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18254",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8820 Wädenswil",
-      "addressLocality": "Wädenswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-05",
-      "validThrough": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-f7f6921bdf32",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "8001",
