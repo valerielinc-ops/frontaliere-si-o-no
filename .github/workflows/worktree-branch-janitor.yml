@@ -1,0 +1,112 @@
+name: Worktree/branch janitor (remote anomalies)
+
+# Spazza le anomalie di branch REMOTI che NON dovrebbero esistere ma leakano
+# (osservato 2026-06-03: origin/worktree-newsletter-cap-allproviders [PR #1065
+# MERGED] + origin/chore/ci-token-metrics [0-ahead, no-PR] ancora su origin).
+# Con `delete_branch_on_merge: true` un branch merged dovrebbe sparire da solo;
+# se resta è un'anomalia (merge via API/UI che non ha propagato, push diretto
+# senza PR, ecc.). I branch/worktree LOCALI sono fuori dalla portata di un cron
+# (vivono sulla macchina dell'agent) → quelli li gestisce
+# `scripts/prune-merged-worktrees.mjs` nel pre-task-close (vedi AGENTS.md).
+#
+# DETERMINISTICO (zero Claude → zero quota Max, coerente con issue-triage e
+# stale-pr-rescuer). Default DELETE per i casi inequivocabili (PR MERGED|CLOSED,
+# oppure 0-ahead su main = niente di unico); REPORT-only (::warning) per remote
+# con commit ahead e senza PR (può essere lavoro vivo pushato senza PR).
+# protected/default branch e gh-pages: mai toccati.
+
+on:
+  schedule:
+    - cron: '40 3 * * *'  # 1×/giorno, slot tranquillo (best-effort su questo account)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente delete'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write       # delete dei ref remoti
+  pull-requests: read
+
+concurrency:
+  group: worktree-branch-janitor
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Sweep stale remote branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          # TUTTO via gh API: niente `actions/checkout` né comandi git locali. Senza
+          # repo checked-out un `git rev-list`/`git push --delete` fallirebbe in
+          # silenzio (ingoiato da `||`) → workflow VERDE ma che non cancella nulla
+          # (falso senso di sicurezza). L'ahead-check usa l'API compare, la delete
+          # usa l'API refs → nessuna dipendenza dal filesystem del runner.
+          KEEP_RE="^(${DEFAULT_BRANCH}|gh-pages|HEAD)$"
+
+          # Stato PR per head ref (MERGED|CLOSED|OPEN). OPEN da query DEDICATA così
+          # un branch con PR aperta resta protetto anche se la sua PR è oltre la
+          # finestra recency delle closed (evita che un OPEN out-of-window cada in
+          # "no-PR" e venga cancellato). Le due liste si fondono; la jq OPEN>… sotto
+          # tiene lo stato più vivo.
+          prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
+            --json state,headRefName 2>/dev/null || echo '[]')
+          prs_all=$(gh pr list --repo "$REPO" --state all --limit 400 \
+            --json state,headRefName 2>/dev/null || echo '[]')
+          prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
+
+          # Branch remoti via API (paginata).
+          mapfile -t branches < <(gh api --paginate "repos/$REPO/branches?per_page=100" \
+            --jq '.[] | "\(.name)\t\(.protected)"' 2>/dev/null)
+
+          deleted=0; flagged=0
+          for row in "${branches[@]}"; do
+            NAME="${row%%$'\t'*}"
+            PROT="${row##*$'\t'}"
+
+            if echo "$NAME" | grep -qE "$KEEP_RE"; then continue; fi
+            if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
+
+            # stato PR più vivo per questo head: OPEN>MERGED>CLOSED.
+            STATE=$(echo "$prs" | jq -r --arg n "$NAME" '
+              [ .[] | select(.headRefName==$n) | .state ]
+              | (if index("OPEN") then "OPEN"
+                 elif index("MERGED") then "MERGED"
+                 elif index("CLOSED") then "CLOSED"
+                 else "NONE" end)')
+
+            if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
+
+            if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
+              REASON="PR $STATE (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
+            else
+              # no-PR: ahead via API compare (ahead_by). Errore API → sentinella "x"
+              # (mai 0) → report-only, mai delete su dubbio.
+              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" \
+                --jq '.ahead_by' 2>/dev/null || echo "x")
+              if [ "$AHEAD" = "0" ]; then
+                REASON="0-ahead su $DEFAULT_BRANCH, no-PR (contenuto già su main)"
+              else
+                echo "::warning::origin/$NAME — ahead=$AHEAD, no-PR: possibile lavoro vivo pushato senza PR, REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
+            fi
+
+            echo "::warning::origin/$NAME STALE — $REASON → delete"
+            if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
+            if gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" 2>/dev/null; then
+              echo "deleted origin/$NAME"; deleted=$((deleted+1))
+            else
+              echo "::warning::delete FALLITO origin/$NAME — verifica permessi token (contents:write) o branch-protection"
+            fi
+          done
+          echo "Sweep completo: $deleted cancellati, $flagged flaggati report-only."
