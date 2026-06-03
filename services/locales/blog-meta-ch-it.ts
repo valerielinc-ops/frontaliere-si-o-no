@@ -35,6 +35,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Lavoro all’estero: guida pratica per frontalieri ticinesi',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permessi, piattaforme di ricerca e consigli per chi lavora in Svizzera ma cerca opportunità oltre confine. Dalla libertà UE/AELS ai visti extra-UE.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Frontaliere ticinese consulta offerte di lavoro estero a Lugano con vista lago',
+    'blog.article.guerre-dellinformazione.title': 'Guerre dell\'informazione: minacce e strategie',
+    'blog.article.guerre-dellinformazione.excerpt': 'L\'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Il Castello di Bellinzona',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Imposta alla fonte non restituita: cosa cambia per i frontalieri',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Scopri perché alcuni frontalieri non ricevono più il rimborso dell\'imposta alla fonte e cosa fare in questi casi.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne sullo sfondo',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Ospedale universitario di Ginevra con laboratorio moderno',
 };
 
 export default blogMetaChIt;

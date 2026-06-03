@@ -371,6 +371,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guerre-dellinformazione': {
+    title: 'Guerre dell\'informazione: minacce e strategie | Frontaliere Ticino',
+    description: 'L\'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, guerre, dell, informazione, minacce',
+    ogTitle: 'Guerre dell\'informazione: minacce e strategie',
+    ogDescription: 'L\'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky',
+    canonicalPath: '/articoli-svizzera/guerre-dellinformazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guerre dell'informazione: minacce e strategie",
+      "description": "L'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guerre-dellinformazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Castello di Bellinzona"
+      },
+      "datePublished": "2026-06-03T04:11:24+00:00",
+      "dateModified": "2026-06-03T04:11:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guerre-dellinformazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-fonte-frontalieri-ticino': {
+    title: 'Imposta alla fonte non restituita: cosa cambia per i frontalieri',
+    description: 'Scopri perché alcuni frontalieri non ricevono più il rimborso dell\'imposta alla fonte e cosa fare in questi casi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, restituita',
+    ogTitle: 'Imposta alla fonte non restituita: cosa cambia per i frontalieri',
+    ogDescription: 'Scopri perché alcuni frontalieri non ricevono più il rimborso dell\'imposta alla fonte e cosa fare in questi casi.',
+    canonicalPath: '/articoli-svizzera/imposta-fonte-frontalieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta alla fonte non restituita: cosa cambia per i frontalieri",
+      "description": "Scopri perché alcuni frontalieri non ricevono più il rimborso dell'imposta alla fonte e cosa fare in questi casi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-fonte-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-06-03T04:48:27+00:00",
+      "dateModified": "2026-06-03T04:48:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-fonte-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hantavirus-ginevra-identificazione': {
+    title: 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
+    description: 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, identificato, hantavirus, implicazioni',
+    ogTitle: 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
+    ogDescription: 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
+    canonicalPath: '/articoli-svizzera/hantavirus-ginevra-identificazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come Ginevra ha identificato l'hantavirus: implicazioni per i frontalieri",
+      "description": "L'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hantavirus-ginevra-identificazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale universitario di Ginevra con laboratorio moderno"
+      },
+      "datePublished": "2026-06-03T05:25:04+00:00",
+      "dateModified": "2026-06-03T05:25:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hantavirus-ginevra-identificazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

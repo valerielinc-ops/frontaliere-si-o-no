@@ -35,6 +35,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Working abroad: guide for Ticino cross-border workers',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permits, job search platforms and tips for those working in Switzerland but seeking opportunities beyond the border. From EU/EFTA freedom to non-EU visas.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Ticino cross-border worker reviewing international job offers in Lugano with lake view',
+    'blog.article.guerre-dellinformazione.title': 'Info Wars: Threats and Strategies',
+    'blog.article.guerre-dellinformazione.excerpt': 'The influence of social media on democracy and Switzerland\'s role in the Magnitsky case',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Bellinzona Castle',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Withholding tax not refunded: changes for cross-border workers',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Find out why some cross-border workers no longer receive a withholding tax refund and what to do in these cases.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains in the background',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'How Geneva identified hantavirus: implications for cross-border workers',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'The Geneva University Hospital identified the hantavirus strain responsible for an epidemic outbreak on a cruise ship in May 2026.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'University Hospital of Geneva with modern laboratory',
 };
 
 export default blogMetaChEn;

@@ -3908,6 +3908,9 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cern-future-collider-ticino': { name: 'CERN', path: '/articoli-svizzera/cern-future-collider-ticino/', parent: 'blog' },
     'blog-neutralizzazione-stime-2026-classi-media': { name: 'Neutralizzazione stime 2026', path: '/articoli-svizzera/neutralizzazione-stime-2026-classi-media/', parent: 'blog' },
     'blog-lavoro-estero-guida-frontalieri': { name: 'Lavoro estero', path: '/articoli-svizzera/lavoro-estero-guida-frontalieri/', parent: 'blog' },
+    'blog-guerre-dellinformazione': { name: 'Guerre dell\'informazione', path: '/articoli-svizzera/guerre-dellinformazione/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino': { name: 'Imposta alla fonte', path: '/articoli-svizzera/imposta-fonte-frontalieri-ticino/', parent: 'blog' },
+    'blog-hantavirus-ginevra-identificazione': { name: 'Hantavirus Ginevra', path: '/articoli-svizzera/hantavirus-ginevra-identificazione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

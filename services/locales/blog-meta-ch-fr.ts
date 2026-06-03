@@ -35,6 +35,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Travail à l\'étranger: guide pratique pour les frontaliers du Tessin',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Autorisations, plateformes d\'emploi et conseils pour les travailleurs suisses cherchant des opportunités à l\'étranger. De la liberté UE/AELS aux visas hors UE. ⚠️ Lignes directrices essentielles pour les frontaliers.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Travailleur frontalier tessinois consultant des offres d\'emploi à l\'étranger à Lugano avec vue sur le lac',
+    'blog.article.guerre-dellinformazione.title': 'Guerres de l\'information: menaces et stratégies',
+    'blog.article.guerre-dellinformazione.excerpt': 'L\'influence des réseaux sociaux sur la démocratie et le rôle de la Suisse dans l\'affaire Magnitsky',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Château de Bellinzone',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Impôt à la source non remboursé : ce qui change pour les frontaliers',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Découvrez pourquoi certains frontaliers ne reçoivent plus le remboursement de l\'impôt à la source et que faire dans ces cas.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes en arrière-plan',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'Comment Genève a identifié l\'hantavirus : implications pour les frontaliers',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Hôpital universitaire de Genève a identifié la souche d\'hantavirus responsable d\'une épidémie sur un navire de croisière en mai 2026.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Hôpital universitaire de Genève avec laboratoire moderne',
 };
 
 export default blogMetaChFr;

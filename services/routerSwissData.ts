@@ -33,6 +33,9 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'cern-future-collider-ticino': { it: 'cern-future-collider-ticino', en: 'cern-future-collider-ticino', de: 'cern-future-collider-ticino', fr: 'cern-future-collider-ticino' },
  'neutralizzazione-stime-2026-classi-media': { it: 'neutralizzazione-stime-2026-classi-media', en: 'neutralisation-estimates-2026-protect-middle-class-and-home', de: 'neutralisierung-der-schaetzungen-2026-schutz-fuer-mittelschicht-und-wohneigentum', fr: 'neutralisation-des-estimations-2026-proteger-les-classes-moyennes-et-le-logement' },
  'lavoro-estero-guida-frontalieri': { it: 'lavoro-estero-guida-frontalieri', en: 'working-abroad-guide-cross-border-workers', de: 'arbeit-ausland-leitfaden-grenzgaenger-tessin', fr: 'travail-etranger-guide-travailleurs-frontaliers-tessin' },
+ 'guerre-dellinformazione': { it: 'guerre-dellinformazione', en: 'information-wars', de: 'informationskriege', fr: 'guerres-de-linformation' },
+ 'imposta-fonte-frontalieri-ticino': { it: 'imposta-fonte-frontalieri-ticino', en: 'withholding-tax-frontalieri-ticino', de: 'quellensteuer-grenzganger-tessin', fr: 'impot-a-la-source-frontaliers-tessin' },
+ 'hantavirus-ginevra-identificazione': { it: 'hantavirus-ginevra-identificazione', en: 'how-geneva-identified-hantavirus', de: 'wie-genf-das-hantavirus-identifizierte', fr: 'comment-geneve-a-identifie-le-hantavirus' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
