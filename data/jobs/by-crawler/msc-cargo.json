@@ -350,10 +350,10 @@
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
         "en": "brand-manager-brand-product-msc-geneva",
-        "it": "brand-manager-brand-product-msc-geneva",
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
         "fr": "brand-manager-brand-product-msc-geneva"
       },
@@ -412,14 +412,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T14:43:35.357Z"
+      "firstSeenAt": "2026-06-03T14:43:35.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "brand-manager-brand-product-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "gestore-dei-servizi-f-b-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "gestore-dei-servizi-f-b-msc-group-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
       },
@@ -478,7 +486,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T14:43:33.518Z"
+      "firstSeenAt": "2026-06-03T14:43:33.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-a231a60627cc",

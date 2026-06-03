@@ -263,10 +263,10 @@
     },
     {
       "id": "clinique-la-source-c8f39814eebc",
-      "slug": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne",
+      "slug": "tecnico-in-radio-oncologia-clinique-de-la-source-lausanne",
       "slugByLocale": {
         "fr": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne",
-        "it": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne",
+        "it": "tecnico-in-radio-oncologia-clinique-de-la-source-lausanne",
         "en": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne",
         "de": "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne"
       },
@@ -325,7 +325,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T13:10:07.225Z"
+      "firstSeenAt": "2026-06-03T13:10:07.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radio-oncologie-clinique-la-source-lausanne"
+      ]
     },
     {
       "id": "clinique-la-source-afa01906e5c1",

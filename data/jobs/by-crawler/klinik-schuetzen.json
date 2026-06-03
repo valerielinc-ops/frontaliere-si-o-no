@@ -790,10 +790,10 @@
     },
     {
       "id": "klinik-schuetzen-09cc96dfb83a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden",
+      "slug": "dipl-specialista-di-cura-hf-fh-klinik-schutzen-rheinfelden-rheinfelden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden",
+        "it": "dipl-specialista-di-cura-hf-fh-klinik-schutzen-rheinfelden-rheinfelden",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden"
       },
@@ -851,7 +851,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:46.878Z"
+      "firstSeenAt": "2026-05-19T12:20:46.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-schuetzen-rheinfelden"
+      ]
     }
   ]
 }

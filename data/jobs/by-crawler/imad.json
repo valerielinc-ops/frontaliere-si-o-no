@@ -853,10 +853,10 @@
     },
     {
       "id": "imad-ba0f168e6adb",
-      "slug": "dieteticien-ne-a-80-en-cdi-imad-geneva",
+      "slug": "dietician-ne-80-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "dieteticien-ne-a-80-en-cdi-imad-geneva",
-        "it": "dieteticien-ne-a-80-en-cdi-imad-geneva",
+        "it": "dietician-ne-80-cdi-imad-geneva",
         "en": "dieteticien-ne-a-80-en-cdi-imad-geneva",
         "de": "dieteticien-ne-a-80-en-cdi-imad-geneva"
       },
@@ -915,7 +915,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T13:59:29.488Z"
+      "firstSeenAt": "2026-06-03T13:59:29.488Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ne-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ne-a-80-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-c720db489511",

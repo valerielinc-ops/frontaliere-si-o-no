@@ -562,8 +562,7 @@
           "technical-expert-m-w-d-otis-belp"
         ],
         "de": [
-          "technical-expert-m-w-d-otis-belp",
-          "technischer-sachverstandiger-m-w-d-otis-sa-belp"
+          "technical-expert-m-w-d-otis-belp"
         ],
         "fr": [
           "expert-technique-h-f-otis-sa-belp",
@@ -783,9 +782,6 @@
         ],
         "fr": [
           "expert-technique-h-f-otis-sa-belp"
-        ],
-        "de": [
-          "technischer-sachverstandiger-m-w-d-otis-sa-belp"
         ]
       },
       "firstSeenAt": "2026-05-17T10:51:15.295Z",
@@ -2088,10 +2084,10 @@
     },
     {
       "id": "otis-d90df5a65b29",
-      "slug": "fp-a-manager-otis-fribourg",
+      "slug": "gestore-fp-a-otis-sa-fribourg",
       "slugByLocale": {
         "en": "fp-a-manager-otis-fribourg",
-        "it": "fp-a-manager-otis-fribourg",
+        "it": "gestore-fp-a-otis-sa-fribourg",
         "de": "fp-a-manager-otis-fribourg",
         "fr": "fp-a-manager-otis-fribourg"
       },
@@ -2146,7 +2142,15 @@
       "postalCode": "1700",
       "country": "CH",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-06-03T14:45:10.821Z"
+      "firstSeenAt": "2026-06-03T14:45:10.821Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fp-a-manager-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "fp-a-manager-otis-fribourg"
+      ]
     },
     {
       "id": "otis-1384f837d648",

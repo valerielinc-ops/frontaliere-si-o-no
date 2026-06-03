@@ -3600,12 +3600,12 @@
     },
     {
       "id": "ardentis-e8ea64a6bae6",
-      "slug": "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux",
+      "slug": "100-consulente-clienti-contratto-di-9-mesi-ardentis-puidoux",
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux",
-        "it": "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux",
-        "en": "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux",
-        "de": "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux"
+        "it": "100-consulente-clienti-contratto-di-9-mesi-ardentis-puidoux",
+        "en": "100-customer-advisor-9-month-contract-ardentis-puidoux",
+        "de": "100-kundenberater-9-monate-vertrag-ardentis-puidoux"
       },
       "company": "Ardentis",
       "companyKey": "ardentis",
@@ -3661,7 +3661,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T12:39:58.161Z"
+      "firstSeenAt": "2026-06-03T12:39:58.161Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux"
+        ],
+        "en": [
+          "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux"
+        ],
+        "de": [
+          "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-a-100-contrat-de-9-mois-ardentis-puidoux"
+      ]
     }
   ]
 }

@@ -61,8 +61,7 @@
           "dipl-fachperson-operationstechnik-hf-klinik-siloah"
         ],
         "de": [
-          "dipl-ing-fachperson-operationstechnik-hf-privatklinik-siloah-gumligen",
-          "dipl-fachperson-operationstechnik-hf-klinik-siloah"
+          "dipl-ing-fachperson-operationstechnik-hf-privatklinik-siloah-gumligen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:08:47.414Z",
@@ -169,8 +168,7 @@
           "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
         ],
         "de": [
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-gumligen",
-          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-klinik-siloah"
+          "lehrstelle-fachperson-gesundheit-per-2027-auf-der-chirurgischen-bettenstation-privatklinik-siloah-gumligen"
         ]
       },
       "firstSeenAt": "2026-05-20T06:08:46.383Z",
@@ -189,9 +187,9 @@
     },
     {
       "id": "klinik-siloah-8f9bee7f1757",
-      "slug": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah",
+      "slug": "salute-specialistica-presso-la-stazione-di-biancheria-da-letto-chirurgica-privatklinik-siloah-gumligen",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah",
+        "it": "salute-specialistica-presso-la-stazione-di-biancheria-da-letto-chirurgica-privatklinik-siloah-gumligen",
         "en": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah",
         "de": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah",
         "fr": "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah"
@@ -249,7 +247,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-auf-der-chirurgischen-bettenstation-klinik-siloah"
+      ]
     }
   ]
 }

@@ -589,9 +589,9 @@
     },
     {
       "id": "denner-8feb35a47b1e",
-      "slug": "assistent-in-einkauf-food-denner",
+      "slug": "assistente-in-acquisti-food-denner-zurich",
       "slugByLocale": {
-        "it": "assistent-in-einkauf-food-denner",
+        "it": "assistente-in-acquisti-food-denner-zurich",
         "en": "assistent-in-einkauf-food-denner",
         "de": "assistent-in-einkauf-food-denner-ag-zurich-khd2id",
         "fr": "assistent-in-einkauf-food-denner"
@@ -664,13 +664,21 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-einkauf-food-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-einkauf-food-denner"
+      ]
     },
     {
       "id": "denner-36e684e5075f",
-      "slug": "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner",
+      "slug": "franchisee-in-denner-partner-region-rheintal-san-gallo-denner-badragaz",
       "slugByLocale": {
-        "it": "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner",
+        "it": "franchisee-in-denner-partner-region-rheintal-san-gallo-denner-badragaz",
         "en": "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner",
         "de": "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner",
         "fr": "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner"
@@ -744,7 +752,15 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-03T13:24:45.779Z"
+      "firstSeenAt": "2026-06-03T13:24:45.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner"
+        ]
+      },
+      "previousSlugs": [
+        "franchisenehmer-in-denner-partner-region-rheintal-st-gallen-denner"
+      ]
     },
     {
       "id": "denner-0ad211f02180",

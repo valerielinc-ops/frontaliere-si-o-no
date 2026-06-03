@@ -344,8 +344,7 @@
           "qa-compliance-lead-m-f-d-novartis-ch"
         ],
         "en": [
-          "qa-compliance-lead-m-f-d-novartis-stein-aargau",
-          "qa-compliance-lead-m-f-d-novartis-ch"
+          "qa-compliance-lead-m-f-d-novartis-stein-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -2569,9 +2568,9 @@
     },
     {
       "id": "novartis-475b823db01f",
-      "slug": "senior-patent-litigation-paralegal-novartis-ch",
+      "slug": "assistente-senior-in-contenzioso-brevettuale-novartis-basel-city",
       "slugByLocale": {
-        "it": "senior-patent-litigation-paralegal-novartis-ch",
+        "it": "assistente-senior-in-contenzioso-brevettuale-novartis-basel-city",
         "en": "senior-patent-litigation-paralegal-novartis-ch",
         "de": "senior-patent-litigation-paralegal-novartis-ch",
         "fr": "senior-patent-litigation-paralegal-novartis-ch"
@@ -2628,13 +2627,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-patent-litigation-paralegal-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-patent-litigation-paralegal-novartis-ch"
+      ]
     },
     {
       "id": "novartis-40ffcd819204",
-      "slug": "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch",
+      "slug": "strategia-e-operazioni-del-project-manager-sicurezza-dei-pazienti-e-farmacia-novartis-basel-city",
       "slugByLocale": {
-        "it": "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch",
+        "it": "strategia-e-operazioni-del-project-manager-sicurezza-dei-pazienti-e-farmacia-novartis-basel-city",
         "en": "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch",
         "de": "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch",
         "fr": "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch"
@@ -2691,7 +2698,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-strategy-and-operations-patient-safety-and-pharmacovigilance-novartis-ch"
+      ]
     },
     {
       "id": "novartis-d417a31b2997",
@@ -2837,12 +2852,12 @@
     },
     {
       "id": "novartis-1109ac8be9b5",
-      "slug": "ai-specialist-in-biomedical-research-novartis-ch",
+      "slug": "ai-specialista-in-biomedical-ricerca-novartis-basel-city",
       "slugByLocale": {
         "en": "ai-specialist-in-biomedical-research-novartis-ch",
-        "it": "ai-specialist-in-biomedical-research-novartis-ch",
-        "de": "ai-specialist-in-biomedical-research-novartis-ch",
-        "fr": "ai-specialist-in-biomedical-research-novartis-ch"
+        "it": "ai-specialista-in-biomedical-ricerca-novartis-basel-city",
+        "de": "ai-spezialist-in-biomedical-forschung-novartis-basel-city",
+        "fr": "ai-specialiste-in-biomedical-recherche-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2898,7 +2913,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-03T14:41:28.732Z"
+      "firstSeenAt": "2026-06-03T14:41:28.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ],
+        "de": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ],
+        "fr": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-specialist-in-biomedical-research-novartis-ch"
+      ]
     },
     {
       "id": "novartis-7242fa97dd5f",
@@ -2907,7 +2936,7 @@
         "en": "global-program-safety-team-lead-novartis-ch",
         "it": "global-program-safety-team-lead-novartis-ch",
         "de": "global-program-safety-team-lead-novartis-ch",
-        "fr": "global-program-safety-team-lead-novartis-ch"
+        "fr": "global-program-safety-chef-d-equipe-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",

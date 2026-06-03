@@ -7254,9 +7254,9 @@
     },
     {
       "id": "sulzer-c50108337a9b",
-      "slug": "amministratore-del-centro-di-servizio-sulzer-piedmont",
+      "slug": "amministratore-del-service-center-sulzer-piedmont",
       "slugByLocale": {
-        "it": "amministratore-del-centro-di-servizio-sulzer-piedmont",
+        "it": "amministratore-del-service-center-sulzer-piedmont",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -7302,13 +7302,15 @@
       "previousSlugs": [
         "service-center-administrator-sulzer-ch",
         "amministratore-del-centro-servizi-sulzer-piedmont",
-        "service-center-administrator-sulzer-piedmont"
+        "service-center-administrator-sulzer-piedmont",
+        "amministratore-del-centro-di-servizio-sulzer-piedmont"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
           "amministratore-del-centro-servizi-sulzer-piedmont",
-          "service-center-administrator-sulzer-piedmont"
+          "service-center-administrator-sulzer-piedmont",
+          "amministratore-del-centro-di-servizio-sulzer-piedmont"
         ]
       },
       "firstSeenAt": "2026-05-28T14:25:08.032Z",
@@ -10407,9 +10409,9 @@
     },
     {
       "id": "sulzer-d000d155539e",
-      "slug": "amministratore-del-centro-di-servizio-sulzer-pasadena",
+      "slug": "amministratore-del-service-center-sulzer-pasadena",
       "slugByLocale": {
-        "it": "amministratore-del-centro-di-servizio-sulzer-pasadena",
+        "it": "amministratore-del-service-center-sulzer-pasadena",
         "en": "service-center-administrator-sulzer-ch",
         "de": "service-center-administrator-sulzer-ch",
         "fr": "service-center-administrator-sulzer-ch"
@@ -10456,14 +10458,16 @@
         "service-center-administrator-sulzer-ch",
         "amministratore-del-centro-servizi-sulzer-pasadena",
         "service-center-administrator-sulzer-ch-2",
-        "service-center-administrator-sulzer-pasadena"
+        "service-center-administrator-sulzer-pasadena",
+        "amministratore-del-centro-di-servizio-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-center-administrator-sulzer-ch",
           "amministratore-del-centro-servizi-sulzer-pasadena",
           "service-center-administrator-sulzer-ch-2",
-          "service-center-administrator-sulzer-pasadena"
+          "service-center-administrator-sulzer-pasadena",
+          "amministratore-del-centro-di-servizio-sulzer-pasadena"
         ]
       },
       "firstSeenAt": "2026-05-22T23:43:00.083Z",
@@ -14555,10 +14559,10 @@
     },
     {
       "id": "sulzer-17b287d8b498",
-      "slug": "coordenador-de-contratos-pl-sulzer-jundiai",
+      "slug": "coordinatore-dei-contratti-pl-sulzer-jundiai",
       "slugByLocale": {
         "en": "coordenador-de-contratos-pl-sulzer-ch",
-        "it": "coordenador-de-contratos-pl-sulzer-jundiai",
+        "it": "coordinatore-dei-contratti-pl-sulzer-jundiai",
         "de": "coordenador-de-contratos-pl-sulzer-ch",
         "fr": "coordenador-de-contratos-pl-sulzer-ch"
       },
@@ -14604,11 +14608,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "coordenador-de-contratos-pl-sulzer-ch"
+          "coordenador-de-contratos-pl-sulzer-ch",
+          "coordenador-de-contratos-pl-sulzer-jundiai"
         ]
       },
       "previousSlugs": [
-        "coordenador-de-contratos-pl-sulzer-ch"
+        "coordenador-de-contratos-pl-sulzer-ch",
+        "coordenador-de-contratos-pl-sulzer-jundiai"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14766,10 +14772,10 @@
     },
     {
       "id": "sulzer-7ea90cb7686a",
-      "slug": "painter-sulzer-ch",
+      "slug": "pittore-sulzer-portland",
       "slugByLocale": {
         "en": "painter-sulzer-ch",
-        "it": "painter-sulzer-ch",
+        "it": "pittore-sulzer-portland",
         "de": "painter-sulzer-ch",
         "fr": "painter-sulzer-ch"
       },
@@ -14827,7 +14833,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T01:17:18.720Z"
+      "firstSeenAt": "2026-06-03T01:17:18.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "painter-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "painter-sulzer-ch"
+      ]
     }
   ]
 }

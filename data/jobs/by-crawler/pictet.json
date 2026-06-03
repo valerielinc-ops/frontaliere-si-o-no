@@ -233,12 +233,12 @@
     },
     {
       "id": "pictet-bc15cb086948",
-      "slug": "head-of-cro-private-custody-gva-uk-lux-pictet-geneva",
+      "slug": "responsabile-relazioni-con-i-clienti-eam-pictet-group-geneva",
       "slugByLocale": {
-        "it": "head-of-cro-private-custody-gva-uk-lux-pictet-geneva",
+        "it": "responsabile-relazioni-con-i-clienti-eam-pictet-group-geneva",
         "en": "team-head-client-relationship-officer-eam-pictet-geneva",
         "de": "head-of-cro-private-custody-gva-uk-lux-pictet-geneva",
-        "fr": "head-of-cro-private-custody-gva-uk-lux-pictet-geneva"
+        "fr": "chef-d-equipe-agent-de-relations-avec-la-clientele-eam-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -280,11 +280,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-head-client-relationship-officer-eam-pictet-geneva"
+        "team-head-client-relationship-officer-eam-pictet-geneva",
+        "head-of-cro-private-custody-gva-uk-lux-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-head-client-relationship-officer-eam-pictet-geneva"
+          "team-head-client-relationship-officer-eam-pictet-geneva",
+          "head-of-cro-private-custody-gva-uk-lux-pictet-geneva"
+        ],
+        "fr": [
+          "head-of-cro-private-custody-gva-uk-lux-pictet-geneva"
         ]
       },
       "firstSeenAt": "2026-05-29T13:32:28.308Z",
@@ -584,10 +589,10 @@
     },
     {
       "id": "pictet-8993d70d8e5a",
-      "slug": "banking-operations-officer-fixed-term-12-months-pictet-luxembourg",
+      "slug": "funzionario-bancario-fixed-term-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "banking-operations-officer-fixed-term-12-months-pictet-luxembourg",
-        "it": "banking-operations-officer-fixed-term-12-months-pictet-luxembourg",
+        "it": "funzionario-bancario-fixed-term-12-mesi-pictet-group-luxembourg",
         "de": "banking-operations-officer-fixed-term-12-months-pictet-luxembourg",
         "fr": "banking-operations-officer-fixed-term-12-months-pictet-luxembourg"
       },
@@ -646,14 +651,22 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T14:49:08.810Z"
+      "firstSeenAt": "2026-06-03T14:49:08.810Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "banking-operations-officer-fixed-term-12-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "banking-operations-officer-fixed-term-12-months-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-ba9b2b412e67",
-      "slug": "internship-funds-controller-pictet-luxembourg",
+      "slug": "stage-controllo-fondi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "internship-funds-controller-pictet-luxembourg",
-        "it": "internship-funds-controller-pictet-luxembourg",
+        "it": "stage-controllo-fondi-pictet-group-luxembourg",
         "de": "internship-funds-controller-pictet-luxembourg",
         "fr": "internship-funds-controller-pictet-luxembourg"
       },
@@ -712,7 +725,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T14:49:07.725Z"
+      "firstSeenAt": "2026-06-03T14:49:07.725Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-funds-controller-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "internship-funds-controller-pictet-luxembourg"
+      ]
     }
   ]
 }

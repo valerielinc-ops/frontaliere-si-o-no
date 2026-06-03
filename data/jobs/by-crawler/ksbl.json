@@ -348,10 +348,10 @@
     },
     {
       "id": "ksbl-1f87f6de291d",
-      "slug": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+      "slug": "sostanza-underassistance-medicine-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+        "it": "sostanza-underassistance-medicine-a-kantonsspital-baselland-ksbl-liestal",
         "en": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "fr": "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
       },
@@ -409,7 +409,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T14:17:47.131Z"
+      "firstSeenAt": "2026-06-03T14:17:47.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-6eba981f7170",

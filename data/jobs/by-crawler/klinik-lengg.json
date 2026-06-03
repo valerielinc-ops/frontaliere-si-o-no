@@ -1738,10 +1738,10 @@
     },
     {
       "id": "klinik-lengg-09a162d8704c",
-      "slug": "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
+      "slug": "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich",
       "slugByLocale": {
         "de": "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
-        "it": "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
+        "it": "cura-nel-pool-di-assistenza-flessibile-a-klinik-lengg-zurich",
         "en": "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich",
         "fr": "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
       },
@@ -1799,7 +1799,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T14:10:02.864Z"
+      "firstSeenAt": "2026-06-03T14:10:02.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachpersonen-pflege-im-flexiblen-pflegepool-a-klinik-lengg-zurich"
+      ]
     }
   ]
 }

@@ -74,9 +74,9 @@
     },
     {
       "id": "bachtelen-95cb27776507",
-      "slug": "logopad-in-50-80-stiftung-bachtelen-grenchen-und-solothurn",
+      "slug": "logopedista-dal-50-all-80-stiftung-bachtelen-grenchen-und-solothurn",
       "slugByLocale": {
-        "it": "logopad-in-50-80-stiftung-bachtelen-grenchen-und-solothurn",
+        "it": "logopedista-dal-50-all-80-stiftung-bachtelen-grenchen-und-solothurn",
         "en": "logopad-in-50-80-bachtelen-grenchen-und-solothurn",
         "de": "logopad-in-50-80-bachtelen-grenchen-und-solothurn",
         "fr": "logopad-in-50-80-bachtelen-grenchen-und-solothurn"
@@ -122,11 +122,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logopad-in-50-80-bachtelen-grenchen-und-solothurn"
+        "logopad-in-50-80-bachtelen-grenchen-und-solothurn",
+        "logopad-in-50-80-stiftung-bachtelen-grenchen-und-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logopad-in-50-80-bachtelen-grenchen-und-solothurn"
+          "logopad-in-50-80-bachtelen-grenchen-und-solothurn",
+          "logopad-in-50-80-stiftung-bachtelen-grenchen-und-solothurn"
         ]
       },
       "firstSeenAt": "2026-06-02T12:14:34.785Z",
@@ -635,12 +637,12 @@
     },
     {
       "id": "bachtelen-5ef903ad106e",
-      "slug": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
+      "slug": "social-pedagogue-social-pedagogue-fh-hf-70-80-stiftung-bachtelen-derendingen",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
+        "it": "social-pedagogue-social-pedagogue-fh-hf-70-80-stiftung-bachtelen-derendingen",
         "en": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
         "de": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen",
-        "fr": "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        "fr": "pedagogue-social-pedagogue-social-fh-hf-70-80-stiftung-bachtelen-derendingen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -693,13 +695,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-fh-hf-70-80-bachtelen-derendingen"
+      ]
     },
     {
       "id": "bachtelen-fb052d0a1c66",
-      "slug": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
+      "slug": "terapista-occupazionale-m-f-d-80-stiftung-bachtelen-solothurn-grenchen",
       "slugByLocale": {
-        "it": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
+        "it": "terapista-occupazionale-m-f-d-80-stiftung-bachtelen-solothurn-grenchen",
         "en": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
         "de": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen",
         "fr": "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
@@ -756,13 +769,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-m-w-d-80-bachtelen-solothurn-grenchen"
+      ]
     },
     {
       "id": "bachtelen-cb2bd3a95c01",
-      "slug": "logopad-innen-bachtelen-grenchen-solothurn",
+      "slug": "logopedisti-stiftung-bachtelen-grenchen-solothurn",
       "slugByLocale": {
-        "it": "logopad-innen-bachtelen-grenchen-solothurn",
+        "it": "logopedisti-stiftung-bachtelen-grenchen-solothurn",
         "en": "logopad-innen-bachtelen-grenchen-solothurn",
         "de": "logopad-innen-bachtelen-grenchen-solothurn",
         "fr": "logopad-innen-bachtelen-grenchen-solothurn"
@@ -819,7 +840,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "logopad-innen-bachtelen-grenchen-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "logopad-innen-bachtelen-grenchen-solothurn"
+      ]
     }
   ]
 }

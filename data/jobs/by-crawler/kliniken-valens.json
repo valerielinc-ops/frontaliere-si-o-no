@@ -8070,9 +8070,9 @@
     },
     {
       "id": "kliniken-valens-0017f0b3a7f5",
-      "slug": "specialista-della-ristorazione-m-f-a-50-80-kliniken-valens-walenstadtberg",
+      "slug": "consulente-senior-m-w-a-kliniken-valens-walenstadtberg",
       "slugByLocale": {
-        "it": "specialista-della-ristorazione-m-f-a-50-80-kliniken-valens-walenstadtberg",
+        "it": "consulente-senior-m-w-a-kliniken-valens-walenstadtberg",
         "en": "fachfrau-mann-gastronomie-m-w-a-50-80-kliniken-valens-walenstadtberg",
         "de": "fachfrau-mann-gastronomie-m-w-a-50-80-kliniken-valens-walenstadtberg",
         "fr": "fachfrau-mann-gastronomie-m-w-a-50-80-kliniken-valens-walenstadtberg"
@@ -8118,15 +8118,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consulente-senior-m-w-a-kliniken-valens-walenstadtberg",
         "fachfrau-mann-gastronomie-m-w-a-50-80-kliniken-valens-walenstadtberg",
-        "specialista-in-gastronomia-m-f-a-50-80-kliniken-valens-walenstadtberg"
+        "specialista-in-gastronomia-m-f-a-50-80-kliniken-valens-walenstadtberg",
+        "specialista-della-ristorazione-m-f-a-50-80-kliniken-valens-walenstadtberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-senior-m-w-a-kliniken-valens-walenstadtberg",
           "fachfrau-mann-gastronomie-m-w-a-50-80-kliniken-valens-walenstadtberg",
-          "specialista-in-gastronomia-m-f-a-50-80-kliniken-valens-walenstadtberg"
+          "specialista-in-gastronomia-m-f-a-50-80-kliniken-valens-walenstadtberg",
+          "specialista-della-ristorazione-m-f-a-50-80-kliniken-valens-walenstadtberg"
         ]
       },
       "firstSeenAt": "2026-05-26T23:22:19.796Z",
@@ -8208,9 +8208,9 @@
     },
     {
       "id": "kliniken-valens-3914ec4f6beb",
-      "slug": "consulente-per-il-diabete-l-f-a-40-kliniken-valens-wald",
+      "slug": "m-w-a-40-kliniken-valens-wald",
       "slugByLocale": {
-        "it": "consulente-per-il-diabete-l-f-a-40-kliniken-valens-wald",
+        "it": "m-w-a-40-kliniken-valens-wald",
         "en": "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald",
         "de": "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald",
         "fr": "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald"
@@ -8256,15 +8256,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "m-w-a-40-kliniken-valens-wald",
         "consulente-specializzato-in-diabetologia-m-f-a-40-kliniken-valens-wald",
-        "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald"
+        "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald",
+        "consulente-per-il-diabete-l-f-a-40-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "m-w-a-40-kliniken-valens-wald",
           "consulente-specializzato-in-diabetologia-m-f-a-40-kliniken-valens-wald",
-          "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald"
+          "diabetesfachberater-in-m-w-a-40-kliniken-valens-wald",
+          "consulente-per-il-diabete-l-f-a-40-kliniken-valens-wald"
         ]
       },
       "firstSeenAt": "2026-05-28T13:10:03.190Z",
@@ -8475,9 +8475,9 @@
     },
     {
       "id": "kliniken-valens-1b87781e40bb",
-      "slug": "coordinatore-della-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens",
+      "slug": "pflegetriage-professionale-m-w-a-60-80-kliniken-valens-valens",
       "slugByLocale": {
-        "it": "coordinatore-della-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens",
+        "it": "pflegetriage-professionale-m-w-a-60-80-kliniken-valens-valens",
         "en": "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens",
         "de": "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens",
         "fr": "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens"
@@ -8525,13 +8525,15 @@
       "previousSlugs": [
         "reha-coordinatore-m-w-a-60-80-kliniken-valens-valens",
         "coordinatore-trice-di-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens",
-        "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens"
+        "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens",
+        "coordinatore-della-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "reha-coordinatore-m-w-a-60-80-kliniken-valens-valens",
           "coordinatore-trice-di-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens",
-          "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens"
+          "reha-koordinator-in-bzw-fachperson-pflegetriage-m-w-a-60-80-kliniken-valens-valens",
+          "coordinatore-della-riabilitazione-o-specialista-in-triage-infermieristico-m-f-a-60-80-kliniken-valens-valens"
         ]
       },
       "firstSeenAt": "2026-05-28T13:10:03.162Z",
@@ -8550,10 +8552,10 @@
     },
     {
       "id": "kliniken-valens-da320573211e",
-      "slug": "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald",
+      "slug": "consulente-senior-m-w-a-60-kliniken-valens-wald",
       "slugByLocale": {
         "de": "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald",
-        "it": "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald",
+        "it": "consulente-senior-m-w-a-60-kliniken-valens-wald",
         "en": "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald",
         "fr": "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald"
       },
@@ -8611,7 +8613,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T14:14:17.933Z"
+      "firstSeenAt": "2026-06-03T14:14:17.933Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-r-soziale-arbeit-fh-maia-m-w-a-60-kliniken-valens-wald"
+      ]
     },
     {
       "id": "kliniken-valens-1d57e7666cfd",

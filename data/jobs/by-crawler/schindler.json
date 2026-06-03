@@ -553,7 +553,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-per-cookie-einwilligungen-schindler-winterthur",
-        "fr": "manager-per-cookie-einwilligungen-schindler-winterthur"
+        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur-b3da79"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -767,8 +767,7 @@
           "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
         ],
         "de": [
-          "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-          "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl"
+          "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
         ],
         "fr": [
           "aufzugsmonteur-in-region-basel-m-w-d-80-100-schindler-schonbuhl",
@@ -1906,9 +1905,9 @@
     },
     {
       "id": "schindler-b0e6ea9b760b",
-      "slug": "addetto-alle-vendite-per-le-nuove-installazioni-regione-svizzera-centrale-m-f-d-80-100-schindler-wettswil",
+      "slug": "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
-        "it": "addetto-alle-vendite-per-le-nuove-installazioni-regione-svizzera-centrale-m-f-d-80-100-schindler-wettswil",
+        "it": "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
         "en": "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
         "de": "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
         "fr": "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
@@ -1953,15 +1952,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
         "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
-        "venditore-nuova-regione-di-installazione-centrale-svizzera-m-f-d-80-100-schindler-wettswil"
+        "venditore-nuova-regione-di-installazione-centrale-svizzera-m-f-d-80-100-schindler-wettswil",
+        "addetto-alle-vendite-per-le-nuove-installazioni-regione-svizzera-centrale-m-f-d-80-100-schindler-wettswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "venditore-nuova-regione-di-installazione-svizzera-centrale-m-w-d-80-100-schindler-wettswil",
           "salesperson-new-installation-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
-          "venditore-nuova-regione-di-installazione-centrale-svizzera-m-f-d-80-100-schindler-wettswil"
+          "venditore-nuova-regione-di-installazione-centrale-svizzera-m-f-d-80-100-schindler-wettswil",
+          "addetto-alle-vendite-per-le-nuove-installazioni-regione-svizzera-centrale-m-f-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -3379,7 +3378,7 @@
       "id": "schindler-604676bbf76f",
       "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
+        "it": "manager-per-cookie-einwilligungen-schindler-bern",
         "en": "manager-for-cookie-permissions-schindler-bern",
         "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-ebikon"
@@ -3426,6 +3425,7 @@
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
+        "manager-per-cookie-einwilligungen-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "manager-fur-cookie-einwilligungen-schindler-oberentfelden",
         "manager-per-cookie-einwilligungen-schindler-oberentfelden-2",
@@ -3442,14 +3442,13 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-b3da79",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-ofej7n",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden-8cq51r",
-        "responsabile-consent-cookie-schindler-ebikon-i5ay3c",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-winterthur-010822",
-        "manager-per-cookie-einwilligungen-schindler-bern"
+        "responsabile-consent-cookie-schindler-ebikon-i5ay3c"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-bern",
-          "manager-per-cookie-einwilligungen-schindler-bern-2"
+          "manager-per-cookie-einwilligungen-schindler-bern-2",
+          "manager-per-cookie-einwilligungen-schindler-ebikon"
         ],
         "en": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
@@ -4487,10 +4486,10 @@
     },
     {
       "id": "schindler-9f5b8c1ba816",
-      "slug": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
+      "slug": "projektleiter-m-w-d-schindler-bern",
       "slugByLocale": {
         "de": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
-        "it": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern",
         "en": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern",
         "fr": "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
       },
@@ -4548,7 +4547,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-03T05:02:26.406Z"
+      "firstSeenAt": "2026-06-03T05:02:26.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
+        ]
+      },
+      "previousSlugs": [
+        "aufzugsmonteur-in-region-berner-oberland-m-w-d-80-100-schindler-bern"
+      ]
     },
     {
       "id": "schindler-53fbb51a2f4d",
@@ -4822,10 +4829,10 @@
     },
     {
       "id": "schindler-2c13857b0f8e",
-      "slug": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
+      "slug": "projektleiter-m-w-d-schindler-bern-657136",
       "slugByLocale": {
         "de": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
-        "it": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
+        "it": "projektleiter-m-w-d-schindler-bern-657136",
         "en": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern",
         "fr": "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
       },
@@ -4884,7 +4891,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-03T15:07:57.665Z"
+      "firstSeenAt": "2026-06-03T15:07:57.665Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
+        ]
+      },
+      "previousSlugs": [
+        "aufzugsmonteur-in-region-bern-m-w-d-80-100-schindler-bern"
+      ]
     },
     {
       "id": "schindler-a832eda91fed",

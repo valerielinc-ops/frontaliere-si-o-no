@@ -102,9 +102,9 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
-      "slug": "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-glis-glisergrund",
       "slugByLocale": {
-        "it": "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig-glis-glisergrund",
         "en": "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
         "de": "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -187,7 +187,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-fahrzeugtechnik-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-2c87edf4ac3e",
