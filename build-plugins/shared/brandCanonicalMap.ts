@@ -86,15 +86,19 @@ export const BRAND_CANONICAL_MAP: Readonly<Record<string, BrandCanonicalEntry>> 
   // jobs from Migros-group entities present in the dataset (Banca
   // Migros, Scuola Club Migros, Cooperativa Migros Ticino, ...) and
   // renders them on a single indexable hub page. The cosmetic
-  // brand-search variations `migros-ticino` and `gruppo-migros`
-  // bridge to the umbrella canonical to consolidate brand signals.
-  // Real subsidiary hubs (banca-migros, scuola-club-migros, ...)
-  // keep their own distinct canonicals — they are real, separate
-  // employers and must NOT bridge to the umbrella.
+  // brand-search variation `gruppo-migros` bridges to the umbrella
+  // canonical to consolidate brand signals.
+  // Real subsidiary hubs (banca-migros, scuola-club-migros,
+  // migros-ticino — i.e. Cooperativa Migros Ticino, ...) keep their
+  // own distinct canonicals — they are real, separate employers with
+  // their own jobs in the dataset and must NOT be declared aliases
+  // here, or the company-hub emitter would noindex-bridge their real
+  // indexable hub away (regression: `migros-ticino` was wrongly listed
+  // as an alias yet resolves to a real subsidiary → its self-canonical
+  // hub collided with the brand-dedup contract, main red 2026-06-03).
   'migros': {
     canonical: 'migros',
     aliases: [
-      'migros-ticino',
       'gruppo-migros',
     ],
   },
