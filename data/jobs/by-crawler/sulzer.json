@@ -1859,12 +1859,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -1904,16 +1904,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -14631,10 +14628,10 @@
     },
     {
       "id": "sulzer-7210c073943e",
-      "slug": "hr-representative-sulzer-ch",
+      "slug": "risorse-umane-representative-sulzer-houston",
       "slugByLocale": {
         "en": "hr-representative-sulzer-ch",
-        "it": "hr-representative-sulzer-ch",
+        "it": "risorse-umane-representative-sulzer-houston",
         "de": "hr-representative-sulzer-ch",
         "fr": "hr-representative-sulzer-houston"
       },
@@ -14692,7 +14689,15 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T01:17:20.089Z"
+      "firstSeenAt": "2026-06-03T01:17:20.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-representative-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-representative-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7c6e8ab69069",

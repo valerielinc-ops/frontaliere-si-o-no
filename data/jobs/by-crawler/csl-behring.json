@@ -4274,7 +4274,7 @@
         "en": "principal-scientist-tech-ops-tech-transfer-and-outsourcing-csl-behring-ch",
         "it": "principal-scientist-tech-ops-tech-transfer-and-outsourcing-csl-behring-ch",
         "de": "principal-scientist-tech-ops-tech-transfer-and-outsourcing-csl-behring-ch",
-        "fr": "principal-scientist-tech-ops-tech-transfer-and-outsourcing-csl-behring-ch"
+        "fr": "chercheur-principal-operations-techniques-transfert-de-technologie-et-externalisation-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4409,12 +4409,12 @@
     },
     {
       "id": "csl-behring-5b2615ebc804",
-      "slug": "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch",
+      "slug": "specialista-di-automazione-del-laboratorio-f-m-x-tech-ops-analitica-csl-behring-bern",
       "slugByLocale": {
         "en": "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch",
-        "it": "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch",
+        "it": "specialista-di-automazione-del-laboratorio-f-m-x-tech-ops-analitica-csl-behring-bern",
         "de": "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch",
-        "fr": "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch"
+        "fr": "specialiste-de-l-automatisation-de-laboratoire-f-m-x-operations-techniques-analyse-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4470,7 +4470,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-02T23:15:04.747Z"
+      "firstSeenAt": "2026-06-02T23:15:04.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch"
+        ],
+        "fr": [
+          "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-automation-specialist-f-m-x-tech-ops-analytics-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-6fb12c7f2bce",
@@ -4589,12 +4600,12 @@
     },
     {
       "id": "csl-behring-c4d15e240ad8",
-      "slug": "senior-programmer-csl-behring-ch",
+      "slug": "programmatore-senior-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-programmer-csl-behring-ch",
-        "it": "senior-programmer-csl-behring-ch",
-        "de": "senior-programmer-csl-behring-ch",
-        "fr": "senior-programmer-csl-behring-ch"
+        "it": "programmatore-senior-csl-behring-bern",
+        "de": "hochrangiger-programmierer-csl-behring-bern",
+        "fr": "programmeur-principal-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4652,11 +4663,23 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-02T23:15:03.082Z",
       "previousSlugs": [
+        "senior-programmer-csl-behring-ch",
         "programmatore-senior-studio-clinico-3-csl-behring-bern",
         "senior-programmer-clinical-study-3-csl-behring-ch",
         "senior-programmierer-klinische-studie-3-csl-behring-bern",
         "programmeur-senior-etude-clinique-3-csl-behring-bern"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-programmer-csl-behring-ch"
+        ],
+        "de": [
+          "senior-programmer-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-programmer-csl-behring-ch"
+        ]
+      }
     }
   ]
 }

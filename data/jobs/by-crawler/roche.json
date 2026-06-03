@@ -10142,7 +10142,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -22785,8 +22784,7 @@
           "medical-director-cvm-roche-ch"
         ],
         "de": [
-          "medical-director-cvm-roche-ch",
-          "medical-direktor-cvm-roche-basel"
+          "medical-director-cvm-roche-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T14:31:48.519Z",
@@ -23334,12 +23332,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -23379,16 +23377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -28103,10 +28098,10 @@
     },
     {
       "id": "roche-dd45541fba51",
-      "slug": "publication-data-entry-specialist-roche-ch",
+      "slug": "specialista-di-ammissione-di-dati-roche-basel",
       "slugByLocale": {
         "en": "publication-data-entry-specialist-roche-ch",
-        "it": "publication-data-entry-specialist-roche-ch",
+        "it": "specialista-di-ammissione-di-dati-roche-basel",
         "de": "publication-data-entry-specialist-roche-ch",
         "fr": "publication-data-entry-specialist-roche-ch"
       },
@@ -28163,14 +28158,22 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-03T00:52:13.789Z"
+      "firstSeenAt": "2026-06-03T00:52:13.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "publication-data-entry-specialist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "publication-data-entry-specialist-roche-ch"
+      ]
     },
     {
       "id": "roche-e9fbe8c93af9",
-      "slug": "ai-solutions-engineer-mergers-acquisitions-roche-ch",
+      "slug": "ai-solutions-engineer-fusioni-e-acquisizioni-roche-basel",
       "slugByLocale": {
         "en": "ai-full-stack-engineer-mergers-acquisitions-roche-ch",
-        "it": "ai-solutions-engineer-mergers-acquisitions-roche-ch",
+        "it": "ai-solutions-engineer-fusioni-e-acquisizioni-roche-basel",
         "de": "ai-solutions-engineer-mergers-acquisitions-roche-ch",
         "fr": "ai-solutions-engineer-mergers-acquisitions-roche-ch"
       },
@@ -28227,7 +28230,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-03T00:52:13.004Z"
+      "firstSeenAt": "2026-06-03T00:52:13.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-solutions-engineer-mergers-acquisitions-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-solutions-engineer-mergers-acquisitions-roche-ch"
+      ]
     },
     {
       "id": "roche-d7f21b7f6a87",
@@ -28761,12 +28772,12 @@
     },
     {
       "id": "roche-d08ac078d170",
-      "slug": "pathology-solutions-specialist-roche-ch",
+      "slug": "specialista-delle-soluzioni-di-patologia-roche-basel",
       "slugByLocale": {
         "en": "pathology-solutions-specialist-roche-ch",
-        "it": "pathology-solutions-specialist-roche-ch",
-        "de": "pathology-solutions-specialist-roche-ch",
-        "fr": "pathology-solutions-specialist-roche-ch"
+        "it": "specialista-delle-soluzioni-di-patologia-roche-basel",
+        "de": "pathologie-losungsspezialist-roche-basel",
+        "fr": "specialiste-des-solutions-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -28821,7 +28832,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-03T00:52:05.806Z"
+      "firstSeenAt": "2026-06-03T00:52:05.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pathology-solutions-specialist-roche-ch"
+        ],
+        "de": [
+          "pathology-solutions-specialist-roche-ch"
+        ],
+        "fr": [
+          "pathology-solutions-specialist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pathology-solutions-specialist-roche-ch"
+      ]
     },
     {
       "id": "roche-44f2bf4ffeb4",

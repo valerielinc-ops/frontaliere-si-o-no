@@ -999,9 +999,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-specializzazione-psychiatrie-40-80-spitex-mutschellen-reusstal-bremgarten-ag",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-specializzazione-psychiatrie-40-80-spitex-mutschellen-reusstal-bremgarten-ag",
-        "en": "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag",
+        "en": "dipl-care-specialist-hf-department-psychiatry-40-80-spitex-mutschellen-reusstal-bremgarten-ag",
         "de": "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag",
-        "fr": "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag"
+        "fr": "dipl-specialiste-des-soins-hf-departement-psychiatrie-40-80-spitex-mutschellen-reusstal-bremgarten-ag"
       },
       "company": "Spitex Mutschellen-Reusstal",
       "companyKey": "spitex-ch",
@@ -1049,6 +1049,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fachrichtung-psychiatrie-40-80-spitex-ch-bremgarten-ag"
         ]
       },
       "firstSeenAt": "2026-06-02T14:50:13.318Z",
@@ -1070,9 +1076,9 @@
       "slug": "collaboratore-trice-hauswirtschaft-im-stundenlohn-30-50-spitex-region-lenzburg",
       "slugByLocale": {
         "it": "collaboratore-trice-hauswirtschaft-im-stundenlohn-30-50-spitex-region-lenzburg",
-        "en": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg",
+        "en": "staff-in-households-in-hourly-wage-30-50-spitex-region-lenzburg-lenzburg",
         "de": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg",
-        "fr": "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        "fr": "personnel-des-menages-en-salaire-horaire-30-50-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -1120,6 +1126,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        ],
+        "fr": [
+          "mitarbeiter-in-hauswirtschaft-im-stundenlohn-30-50-spitex-ch-lenzburg"
         ]
       },
       "firstSeenAt": "2026-06-02T14:50:12.724Z",
@@ -1138,12 +1150,12 @@
     },
     {
       "id": "spitex-ch-cc3625820d60",
-      "slug": "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg",
+      "slug": "assistente-alla-cura-in-srk-30-50-spitex-region-lenzburg-lenzburg",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg",
-        "en": "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg",
+        "it": "assistente-alla-cura-in-srk-30-50-spitex-region-lenzburg-lenzburg",
+        "en": "care-assistant-in-srk-30-50-spitex-region-lenzburg-lenzburg",
         "de": "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg",
-        "fr": "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        "fr": "assistant-de-soins-en-srk-30-50-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -1197,16 +1209,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-im-stundenlohn-30-50-spitex-ch-lenzburg"
+      ]
     },
     {
       "id": "spitex-ch-0600c7564978",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+      "slug": "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+        "it": "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
+        "en": "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "fr": "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -1260,7 +1286,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+      ]
     },
     {
       "id": "spitex-ch-363187222c56",
@@ -1268,8 +1308,8 @@
       "slugByLocale": {
         "de": "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex",
         "it": "pflegefachperson-hf-fachperson-gesundheit-cfc-60-100-befristet-bis-ende-september-spitex-obwalden-sarnen",
-        "en": "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex",
-        "fr": "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex"
+        "en": "senior-caregiver-hf-specialist-health-efz-60-100-limited-until-the-end-of-september-spitex-obwalden-sarnen",
+        "fr": "senior-caregiiver-hf-specialist-health-efz-60-100-limite-jusqu-a-fin-septembre-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
@@ -1316,6 +1356,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex"
+        ],
+        "en": [
+          "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fachperson-gesundheit-efz-60-100-befristet-bis-ende-september-spitex"
         ]
       },
       "previousSlugs": [
@@ -1341,8 +1387,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "en": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl",
-        "fr": "dipl-pflegefachperson-hf-o-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-region-birs-gmbh-reinach-bl"
+        "en": "dipl-nursing-professional-hf-specialization-in-dementia-60-90-spitex-region-birs-gmbh-reinach-bl",
+        "fr": "dipl-infirmier-ere-hf-specialisation-demence-60-90-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
