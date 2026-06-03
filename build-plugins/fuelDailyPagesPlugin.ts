@@ -4218,12 +4218,37 @@ function buildItalianCityEntries(dataset: FuelPricesDataset): ItalianCityEntry[]
   const out: ItalianCityEntry[] = [...FUEL_ITALIAN_CITIES];
   const seenKey = new Set(FUEL_ITALIAN_CITIES.map((c) => c.matchKey));
   const seenSlug = new Set(FUEL_ITALIAN_CITIES.map((c) => c.slug));
+  // Province claimed by each matchKey (curated entries seed it). matchKey is the
+  // lowercased municipality name, and station collection matches rows by matchKey
+  // alone (no province filter, see collectItalianCityStations / cross-border loops).
+  // So two homonym comuni in DIFFERENT provinces would: (a) drop the second from
+  // `out` via the dedup `continue` below — no page of its own — and (b) silently
+  // merge its stations onto the first city's page. Today's dataset has 0 such
+  // collisions, but a future MIMIT cut could introduce one. Fail loud here instead
+  // of degrading silently (missing page + mixed content). Same-name/same-province
+  // rows are legitimate duplicates and still dedup quietly.
+  const claimedProvince = new Map<string, string>(
+    FUEL_ITALIAN_CITIES.map((c) => [c.matchKey, c.province.toUpperCase()] as [string, string]),
+  );
   const rows = (dataset.municipalities ?? []) as unknown as ItalianDatasetRowLite[];
   for (const row of rows) {
     const name = (row.municipality ?? '').trim();
     if (!name) continue;
     const matchKey = name.toLowerCase();
-    if (seenKey.has(matchKey)) continue;
+    const province = (row.province ?? '').toUpperCase();
+    if (seenKey.has(matchKey)) {
+      const claimed = claimedProvince.get(matchKey);
+      if (claimed !== undefined && claimed !== province) {
+        throw new Error(
+          `[fuel] matchKey collision: '${matchKey}' already claimed by province ` +
+            `'${claimed}' but a dataset row reports province '${province}'. Homonym ` +
+            `comuni in different provinces would silently merge stations onto one ` +
+            `page and drop the second comune's page — disambiguate the matchKey ` +
+            `(e.g. suffix the province) before emitting.`,
+        );
+      }
+      continue;
+    }
     const hasPriced = (row.italy?.stations ?? []).some(
       (s) =>
         (s.brand || s.stationName) &&
@@ -4243,11 +4268,12 @@ function buildItalianCityEntries(dataset: FuelPricesDataset): ItalianCityEntry[]
     }
     seenKey.add(matchKey);
     seenSlug.add(slug);
+    claimedProvince.set(matchKey, province);
     out.push({
       slug,
       display: titleCase(name),
       matchKey,
-      province: (row.province ?? '').toUpperCase(),
+      province,
       nearestZone: deriveItalianCityZone(row),
     });
   }
