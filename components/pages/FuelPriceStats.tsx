@@ -255,10 +255,12 @@ function DetailSection({
  row,
  locale,
  tt,
+ stationPages,
 }: {
  row: MunicipalityFuelRow;
  locale: string;
  tt: (key: string, fallback: string) => string;
+ stationPages: Set<string> | null;
 }) {
  const italyCitySlug = italianCitySlugForRow(row);
  const fuelLocale = asFuelLocale(locale);
@@ -316,7 +318,12 @@ function DetailSection({
  {row.italy.stations.slice(0, 12).map((station) => {
  const key = `${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`;
  const slug = italyCitySlug && italyStationSlugs ? italyStationSlugs.get(station.id) : undefined;
- const href = italyCitySlug && slug ? buildFuelItalianStationPath(fuelLocale, 'benzina', italyCitySlug, slug) : null;
+ // Link only to a page the build actually emitted. When the manifest is
+ // loaded it is authoritative (no 404s); until then fall back to optimistic.
+ const pageEmitted = italyCitySlug && slug
+ ? (stationPages ? stationPages.has(`${italyCitySlug}/${slug}`) : true)
+ : false;
+ const href = pageEmitted && italyCitySlug && slug ? buildFuelItalianStationPath(fuelLocale, 'benzina', italyCitySlug, slug) : null;
  const content = (
  <div className="flex items-start justify-between gap-3">
  <div className="flex min-w-0 items-start gap-3">
@@ -414,6 +421,12 @@ export default function FuelPriceStats() {
  const [homeMunicipalityKey, setHomeMunicipalityKey] = useState('');
  const [tankLiters, setTankLiters] = useState(50);
  const [costPerKmEur, setCostPerKmEur] = useState(0.18);
+ // Authoritative set of emitted Italian station pages ("{citySlug}/{stationSlug}").
+ // Built by the fuel build-plugin; the SPA links a station only when it appears
+ // here, so a station card never points at a page the build skipped (word-gate)
+ // or wrote under a disambiguated slug → no indexable 404s. null = not loaded
+ // yet / fetch failed → optimistic fallback (link if a slug is derivable).
+ const [stationPages, setStationPages] = useState<Set<string> | null>(null);
 
  useEffect(() => {
  let cancelled = false;
@@ -432,6 +445,14 @@ export default function FuelPriceStats() {
  })
  .finally(() => {
  if (!cancelled) setLoading(false);
+ });
+ fetch('/data/fuel-italian-station-pages.json')
+ .then((r) => (r.ok ? r.json() : null))
+ .then((j: { stations?: string[] } | null) => {
+ if (!cancelled && Array.isArray(j?.stations)) setStationPages(new Set(j!.stations));
+ })
+ .catch(() => {
+ /* best-effort: keep optimistic fallback when the manifest is unavailable */
  });
  return () => {
  cancelled = true;
@@ -729,7 +750,7 @@ export default function FuelPriceStats() {
 
  {isSelected && (
  <div className="border-t border-edge px-3 pb-3 sm:px-4 sm:pb-4">
- <DetailSection row={row} locale={locale} tt={tt} />
+ <DetailSection row={row} locale={locale} tt={tt} stationPages={stationPages} />
  </div>
  )}
  </div>

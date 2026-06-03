@@ -5387,6 +5387,26 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianStationPagesWritten++;
       }
 
+      // ── Manifest of ACTUALLY-emitted Italian station pages ─────
+      // The cross-border SPA (`FuelPriceStats`) deep-links each station by
+      // recomputing `slugify(municipality)` + the per-station slug. That mirror
+      // can diverge from what the build truly wrote (word-gate skip, future
+      // slug collision, whitespace) → 404s from an indexed page. Publish the
+      // authoritative set of written benzina pages as `{citySlug}/{stationSlug}`
+      // (locale-agnostic); the SPA links a station only when it appears here.
+      const italianStationManifest = Array.from(
+        new Set(
+          italianStationSitemapPaths
+            .map((p) => /^\/prezzi-benzina\/italia\/([^/]+)\/stazioni\/([^/]+)\/$/.exec(p))
+            .filter((m): m is RegExpExecArray => m !== null)
+            .map((m) => `${m[1]}/${m[2]}`),
+        ),
+      ).sort();
+      collector.add(
+        np.join(distDir, 'data', 'fuel-italian-station-pages.json'),
+        JSON.stringify({ stations: italianStationManifest }),
+      );
+
       // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
       // These pages exist exactly to surface every per-station / per-city leaf
       // via internal <a href> links, so the orphan-pages-in-sitemaps gate
