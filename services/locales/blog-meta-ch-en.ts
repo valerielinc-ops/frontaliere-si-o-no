@@ -26,6 +26,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR seeks talent in Ticino: opportunities for cross-border workers',
     'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'SSR offers numerous job opportunities in Ticino for cross-border workers, with open positions in almost all professional categories.',
     'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Panoramic view of Lugano\'s media district with modern buildings and professionals',
+    'blog.article.cern-future-collider-ticino.title': 'CERN and the future of the collider',
+    'blog.article.cern-future-collider-ticino.excerpt': 'CERN is planning a new particle accelerator, almost four times larger than the current LHC, to explore the mysteries of the universe.',
+    'blog.article.cern-future-collider-ticino.imageAlt': 'Aerial view of Lake Geneva with CERN',
 };
 
 export default blogMetaChEn;

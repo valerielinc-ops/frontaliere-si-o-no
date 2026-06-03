@@ -77,4 +77,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cern-future-collider-ticino',
+    category: 'novita',
+    date: '2026-06-03T00:36:46.420Z',
+    image: '/images/blog/cern-future-collider-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];

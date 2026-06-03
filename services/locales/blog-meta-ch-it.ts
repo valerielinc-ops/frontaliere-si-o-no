@@ -26,6 +26,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR cerca talenti in Ticino: opportunità per i frontalieri',
     'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'La SSR offre numerose opportunità di lavoro in Ticino per i frontalieri, con posizioni aperte in quasi tutte le categorie professionali.',
     'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Vista panoramica del distretto mediatico di Lugano con edifici moderni e professionisti',
+    'blog.article.cern-future-collider-ticino.title': 'Il CERN e il futuro del collider',
+    'blog.article.cern-future-collider-ticino.excerpt': 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
+    'blog.article.cern-future-collider-ticino.imageAlt': 'Vista aerea del Lago di Ginevra con il CERN',
 };
 
 export default blogMetaChIt;
