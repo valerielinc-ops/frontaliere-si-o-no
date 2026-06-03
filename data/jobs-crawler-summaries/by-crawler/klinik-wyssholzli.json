@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-06-03T00:05:10.121Z",
-  "total": 6,
+  "generatedAt": "2026-06-03T14:13:52.939Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4452,
-  "avgDurationMs": 4452,
+  "durationMs": 2928,
+  "avgDurationMs": 2928,
   "durationHistory": [
-    4452
+    2928
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -198,10 +198,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Personalassistentin 60–100%",
-      "slug": "personalassistentin-60-100-klinik-wyssholzli",
+      "slug": "assistente-del-personale-60-100-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Personalassistentin_60-100.pdf",
       "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
       "company": "Klinik Wysshölzli",
@@ -222,21 +224,22 @@
       "sourceLang": "de",
       "postedDate": "2026-05-20",
       "validThrough": "",
-      "needsRetranslation": true,
       "_meta": {
         "sourceFilename": "Inserat-Personalassistentin_60-100.pdf"
       },
       "id": "klinik-wyssholzli-bd41aacc1f6e",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "_qualityScore": 85,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
