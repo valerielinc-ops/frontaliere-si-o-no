@@ -332,6 +332,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-estero-guida-frontalieri': {
+    title: 'Lavoro all’estero: guida pratica per frontalieri ticinesi',
+    description: 'Guida pratica per frontalieri ticinesi che cercano lavoro all’estero: permessi UE/AELS, visti extra-UE, piattaforme di ricerca e normative sui licenziamenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, estero, pratica, ticinesi',
+    ogTitle: 'Lavoro all’estero: guida per frontalieri ticinesi',
+    ogDescription: 'Scopri come cercare lavoro all’estero: permessi, piattaforme e consigli per frontalieri che lavorano in Svizzera ma vogliono trasferirsi.',
+    canonicalPath: '/articoli-svizzera/lavoro-estero-guida-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro all’estero: guida pratica per frontalieri ticinesi",
+      "description": "Guida pratica per frontalieri ticinesi che cercano lavoro all’estero: permessi UE/AELS, visti extra-UE, piattaforme di ricerca e normative sui licenziamenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavoro-estero-guida-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere ticinese consulta offerte di lavoro estero a Lugano con vista lago"
+      },
+      "datePublished": "2026-06-03T02:12:38+00:00",
+      "dateModified": "2026-06-03T02:12:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavoro-estero-guida-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

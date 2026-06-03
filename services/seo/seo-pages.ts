@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2711,
+ "numberOfItems": 2712,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7351,7 +7351,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2708, "name": "IA e futuro del lavoro in Svizzera: scenari al ...", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-lavoro-svizzera-2026` },
           { "@type": "ListItem", "position": 2709, "name": "SSR cerca talenti in Ticino: opportunità per i ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-media-ssr-talenti-ticino` },
           { "@type": "ListItem", "position": 2710, "name": "Il CERN e il futuro del collider", "url": `${BASE_URL}/articoli-frontaliere/cern-future-collider-ticino` },
-          { "@type": "ListItem", "position": 2711, "name": "Neutralizzare le stime 2026: tutela per casa e ...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-2026-classi-media` }
+          { "@type": "ListItem", "position": 2711, "name": "Neutralizzare le stime 2026: tutela per casa e ...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-2026-classi-media` },
+          { "@type": "ListItem", "position": 2712, "name": "Lavoro all’estero: guida pratica per frontalier...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-estero-guida-frontalieri` }
  ]
  },
  {

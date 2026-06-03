@@ -32,6 +32,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.neutralizzazione-stime-2026-classi-media.title': 'Neutralizing 2026 estimates: protection for home and middle class',
     'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'On June 14, 2026, vote to block the increase in tax estimates. Here\'s what changes for cross-border workers and homeowners.',
     'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Night view of Lugano with lit lake and historic center, symbol of stability for cross-border workers',
+    'blog.article.lavoro-estero-guida-frontalieri.title': 'Working abroad: guide for Ticino cross-border workers',
+    'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permits, job search platforms and tips for those working in Switzerland but seeking opportunities beyond the border. From EU/EFTA freedom to non-EU visas.',
+    'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Ticino cross-border worker reviewing international job offers in Lugano with lake view',
 };
 
 export default blogMetaChEn;

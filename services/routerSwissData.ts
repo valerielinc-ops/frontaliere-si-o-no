@@ -32,6 +32,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavoro-media-ssr-talenti-ticino': { it: 'lavoro-media-ssr-talenti-ticino', en: 'media-jobs-ssr-talents-ticino', de: 'medien-jobs-ssr-talente-tessin', fr: 'emplois-medias-ssr-talents-tessin' },
  'cern-future-collider-ticino': { it: 'cern-future-collider-ticino', en: 'cern-future-collider-ticino', de: 'cern-future-collider-ticino', fr: 'cern-future-collider-ticino' },
  'neutralizzazione-stime-2026-classi-media': { it: 'neutralizzazione-stime-2026-classi-media', en: 'neutralisation-estimates-2026-protect-middle-class-and-home', de: 'neutralisierung-der-schaetzungen-2026-schutz-fuer-mittelschicht-und-wohneigentum', fr: 'neutralisation-des-estimations-2026-proteger-les-classes-moyennes-et-le-logement' },
+ 'lavoro-estero-guida-frontalieri': { it: 'lavoro-estero-guida-frontalieri', en: 'working-abroad-guide-cross-border-workers', de: 'arbeit-ausland-leitfaden-grenzgaenger-tessin', fr: 'travail-etranger-guide-travailleurs-frontaliers-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

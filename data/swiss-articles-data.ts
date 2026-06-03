@@ -95,4 +95,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'lavoro-estero-guida-frontalieri',
+    category: 'pratico',
+    date: '2026-06-03T02:12:38.426Z',
+    image: '/images/blog/lavoro-estero-guida-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
