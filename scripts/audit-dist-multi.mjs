@@ -62,6 +62,17 @@ const DUP_LOCALE_PREFIXES = /** @type {const} */ (['en', 'de', 'fr']);
 
 // audit-page-weight constants.
 const MAX_HTML_BYTES = 200 * 1024; // 200 KB per CLAUDE.md non-negotiable perf gate.
+// Per-path budget override — mirrors scripts/audit-page-weight.mjs (the active
+// gate). The Italian-fuel-stations index pages deliberately link every border
+// station inline for the orphan-elimination contract (#1241); per explicit user
+// override (2026-06-03) they get a raised budget, the global cap is unchanged.
+const PW_ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
+const PW_ITALIAN_STATIONS_INDEX_RE =
+  /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+function pwBudgetForPath(relPath) {
+  const p = '/' + String(relPath).replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
+  return PW_ITALIAN_STATIONS_INDEX_RE.test(p) ? PW_ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
+}
 
 // audit-hreflang constants.
 const HREFLANG_BASE_URL = 'https://frontaliereticino.ch';
@@ -463,7 +474,7 @@ class PageWeightAudit {
     const { inlineJs, inlineCss } = inlineBreakdown(html);
     const imgIssues = findImgIssues(html);
     this.report.push({ file: relFromRoot, bytes: htmlBytes, inlineJs, inlineCss, imgIssues: imgIssues.length });
-    if (htmlBytes > MAX_HTML_BYTES) {
+    if (htmlBytes > pwBudgetForPath(relFromRoot)) {
       this.oversized.push(`${relFromRoot} (${(htmlBytes / 1024).toFixed(1)} KB)`);
     }
     if (imgIssues.length > 0) {

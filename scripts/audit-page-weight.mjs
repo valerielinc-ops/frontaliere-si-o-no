@@ -29,6 +29,28 @@ import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 // refactor and re-tighten to 200 KB.
 const MAX_HTML_BYTES = 215 * 1024;
 
+// Per-path budget override (explicit user-approved exception, 2026-06-03).
+// The Italian-fuel-stations INDEX pages (2 fuels × 4 locales) deliberately
+// render a visible entity-card for EVERY border station so that the
+// orphan-elimination contract (tests/seo/fuel-station-orphans-eliminated.test.ts,
+// introduced by #1241 "dettaglio + link visibili per ogni stazione") stays
+// green: each station is linked from this comprehensive index, not capped.
+// With the full station set these 8 pages weigh ~780 KB — over the 215 KB
+// global budget. Capping the visible list would orphan the overflow stations
+// and break that contract; per explicit user override we raise the budget for
+// THESE pages only rather than trim the indexable content. The global 215 KB
+// cap is unchanged for every other page. If these pages keep growing past the
+// override, revisit moving per-station links onto the per-city hubs and
+// updating the orphan-elimination test (the #1241 restructure).
+const ITALIAN_STATIONS_INDEX_BUDGET = 900 * 1024;
+const ITALIAN_STATIONS_INDEX_RE =
+  /(?:^|\/)(?:stazioni-italia|italienische-tankstellen|italian-stations|stations-italiennes)\//;
+
+function budgetForPath(relPath) {
+  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
+  return ITALIAN_STATIONS_INDEX_RE.test(p) ? ITALIAN_STATIONS_INDEX_BUDGET : MAX_HTML_BYTES;
+}
+
 function featureForPath(relPath) {
   const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
   if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
@@ -81,7 +103,7 @@ export function createAuditor() {
       const imgIssues = findImgIssues(html);
       const rel = relative(ROOT, file);
       samples.push({ file: rel, bytes, inlineJs, inlineCss, imgIssues: imgIssues.length });
-      if (bytes > MAX_HTML_BYTES) oversized.push({ file: rel, bytes, inlineJs, inlineCss });
+      if (bytes > budgetForPath(rel)) oversized.push({ file: rel, bytes, inlineJs, inlineCss });
       if (imgIssues.length > 0) imgIssuesByFile.push({ file: rel, issues: imgIssues });
     },
     report() {
