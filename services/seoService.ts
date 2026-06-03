@@ -3909,6 +3909,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-neutralizzazione-stime-2026-classi-media': { name: 'Neutralizzazione stime 2026', path: '/articoli-svizzera/neutralizzazione-stime-2026-classi-media/', parent: 'blog' },
     'blog-lavoro-estero-guida-frontalieri': { name: 'Lavoro estero', path: '/articoli-svizzera/lavoro-estero-guida-frontalieri/', parent: 'blog' },
     'blog-guerre-dellinformazione': { name: 'Guerre dell\'informazione', path: '/articoli-svizzera/guerre-dellinformazione/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino': { name: 'Imposta alla fonte', path: '/articoli-svizzera/imposta-fonte-frontalieri-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

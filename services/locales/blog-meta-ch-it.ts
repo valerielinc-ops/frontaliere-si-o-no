@@ -38,6 +38,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guerre-dellinformazione.title': 'Guerre dell\'informazione: minacce e strategie',
     'blog.article.guerre-dellinformazione.excerpt': 'L\'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky',
     'blog.article.guerre-dellinformazione.imageAlt': 'Il Castello di Bellinzona',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Imposta alla fonte non restituita: cosa cambia per i frontalieri',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Scopri perché alcuni frontalieri non ricevono più il rimborso dell\'imposta alla fonte e cosa fare in questi casi.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;
