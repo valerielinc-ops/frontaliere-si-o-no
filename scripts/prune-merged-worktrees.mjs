@@ -48,32 +48,45 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
 const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
 
-let ghOk = true;
-sh('gh auth status', { allowFail: true }) || (ghOk = false);
-if (sh('gh --version', { allowFail: true }) === '') ghOk = false;
-
-// Mappa branch → stato PR (MERGED|CLOSED|OPEN). gh in 1 colpo, poi lookup.
+// Mappa branch → stato PR (MERGED|CLOSED|OPEN). NON gateare su `gh auth status`:
+// scrive lo status su stderr (che sh() scarta) → '' su successo → falso-negativo
+// che disabiliterebbe l'intera pulizia PR-based. Ricava ghOk dal risultato di
+// `gh pr list` (con --json una lista vuota è "[]", '' = throw = errore reale).
+// Protezione OPEN da query DEDICATA `--state open` (set piccolo, mai troncato
+// dalla finestra): un branch con PR aperta deve restare protetto anche se la sua
+// PR è oltre le N più recenti combinate. Cancellazioni (MERGED|CLOSED) da una
+// finestra closed più larga; un MERGED/CLOSED oltre finestra ricade in "no-PR" e
+// viene cancellato solo se 0-ahead (= niente di unico), quindi safe.
+let ghOk = sh('gh --version', { allowFail: true }) !== '';
 const prState = new Map();
+const rankState = (s) => ({ OPEN: 3, MERGED: 2, CLOSED: 1 }[s] ?? 0);
+function ingestPrs(json) {
+  for (const pr of JSON.parse(json)) {
+    const prev = prState.get(pr.headRefName);
+    if (!prev || rankState(pr.state) > rankState(prev)) prState.set(pr.headRefName, pr.state);
+  }
+}
 if (ghOk) {
-  const raw = sh(
-    `gh pr list --state all --limit 200 --json number,state,headRefName`,
-    { allowFail: true },
-  );
-  if (raw) {
-    for (const pr of JSON.parse(raw)) {
-      // tieni lo stato "più vivo": OPEN vince su tutto, poi MERGED, poi CLOSED.
-      const prev = prState.get(pr.headRefName);
-      const rank = (s) => ({ OPEN: 3, MERGED: 2, CLOSED: 1 }[s] ?? 0);
-      if (!prev || rank(pr.state) > rank(prev)) prState.set(pr.headRefName, pr.state);
-    }
+  // OPEN: set di protezione, query dedicata, mai troncato silenziosamente.
+  const openRaw = sh(`gh pr list --state open --limit 300 --json state,headRefName`, { allowFail: true });
+  // closed+merged: candidati alla cancellazione (finestra ampia, recency-sorted).
+  const closedRaw = sh(`gh pr list --state all --limit 400 --json state,headRefName`, { allowFail: true });
+  if (openRaw === '' && closedRaw === '') {
+    ghOk = false; // entrambe throw → gh non utilizzabile
   } else {
-    ghOk = false;
+    if (closedRaw) ingestPrs(closedRaw);
+    if (openRaw) ingestPrs(openRaw); // OPEN ingerito per ultimo: vince sempre via rank
   }
 }
 
+// Ritorna il numero di commit unici di `ref` su origin/main, o `null` se git
+// fallisce (ref mancante, origin/main non risolto). null = SCONOSCIUTO, MAI
+// trattato come 0: i caller cancellano solo su `=== 0` esatto → null preserva.
 function aheadOfMain(ref) {
   const n = sh(`git rev-list --count origin/${mainBranch}..${ref}`, { allowFail: true });
-  return Number.parseInt(n || '0', 10) || 0;
+  if (n === '') return null;
+  const v = Number.parseInt(n, 10);
+  return Number.isNaN(v) ? null : v;
 }
 
 // --- 1. WORKTREES -----------------------------------------------------------
@@ -109,7 +122,7 @@ for (const wt of worktrees) {
     // indistinguibile da un agent che ha appena fatto EnterWorktree e non ha
     // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
-    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead} no-PR — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
+    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead ?? 'unknown'} no-PR — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
   }
 }
 
@@ -129,11 +142,10 @@ for (const b of allLocal) {
   if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
   const ahead = aheadOfMain(b);
   if (ahead === 0) delBranch.push(b); // contenuto già su main
-  else reportBranch.push({ name: b, reason: `ahead=${ahead} no-PR — possibile lavoro non in PR, REPORT-ONLY` });
+  else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR — possibile lavoro non in PR, REPORT-ONLY` });
 }
 
 // --- OUTPUT + APPLY ---------------------------------------------------------
-const plural = (n, s) => `${n} ${s}${n === 1 ? '' : (s.endsWith('h') ? 'es' : 'es')}`;
 console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo worktree-agent-*+0-ahead)'} | mode=${APPLY ? 'APPLY' : 'dry-run'}`);
 console.log('');
 
@@ -158,12 +170,12 @@ if (!APPLY) {
 let done = 0;
 for (const w of removeWt) {
   sh(`git worktree remove --force "${w.path}"`, { allowFail: true });
-  if (w.branch) sh(`git branch -D ${w.branch}`, { allowFail: true });
+  if (w.branch) sh(`git branch -D "${w.branch}"`, { allowFail: true });
   done++;
   console.log(`removed worktree ${w.path}`);
 }
 for (const b of delBranch) {
-  sh(`git branch -D ${b}`, { allowFail: true });
+  sh(`git branch -D "${b}"`, { allowFail: true });
   done++;
   console.log(`deleted branch ${b}`);
 }

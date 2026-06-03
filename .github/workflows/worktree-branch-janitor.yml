@@ -48,9 +48,16 @@ jobs:
           set -uo pipefail
           KEEP_RE="^(${DEFAULT_BRANCH}|gh-pages|HEAD)$"
 
-          # Stato PR per head ref (MERGED|CLOSED|OPEN), 1 fetch.
-          prs=$(gh pr list --repo "$REPO" --state all --limit 200 \
-            --json number,state,headRefName 2>/dev/null || echo '[]')
+          # Stato PR per head ref (MERGED|CLOSED|OPEN). OPEN da query DEDICATA così
+          # un branch con PR aperta resta protetto anche se la sua PR è oltre la
+          # finestra recency delle closed (evita che un OPEN out-of-window cada in
+          # "no-PR" e venga cancellato). Le due liste si fondono; la jug OPEN>… sotto
+          # tiene lo stato più vivo.
+          prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
+            --json state,headRefName 2>/dev/null || echo '[]')
+          prs_all=$(gh pr list --repo "$REPO" --state all --limit 400 \
+            --json state,headRefName 2>/dev/null || echo '[]')
+          prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
 
           # Branch remoti (no main/gh-pages). Confronto ahead su origin/DEFAULT.
           git fetch origin "+refs/heads/*:refs/remotes/origin/*" --prune -q 2>/dev/null || true
