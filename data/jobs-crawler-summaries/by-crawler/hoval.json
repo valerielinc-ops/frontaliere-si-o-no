@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-02T23:48:29.285Z",
+  "generatedAt": "2026-06-03T13:56:06.887Z",
   "total": 9,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 14186,
-  "avgDurationMs": 14186,
+  "unchangedCount": 0,
+  "durationMs": 13566,
+  "avgDurationMs": 13566,
   "durationHistory": [
-    14186
+    13566
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -143,7 +143,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -164,7 +164,7 @@
       }
     },
     {
-      "title": "Servicetechniker Öl (Region Winterthur) (m/w/d)",
+      "title": "Servicetechniker Öl - Region Winterthur (m/w/d)",
       "slug": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil",
       "url": "https://www.hoval.it/it_IT/job/3912",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3912/Application/New/1?DesignID=00&lang=ita",
@@ -181,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -203,8 +203,8 @@
       }
     },
     {
-      "title": "Servicetechniker/in Gas (m/w/d)",
-      "slug": "servicetechniker-in-gas-m-w-d-hoval-harkingen",
+      "title": "Servicetechniker/in Gas - Region Basel / Liestal (m/w/d)",
+      "slug": "servicetechniker-in-gas-region-basel-liestal-m-w-d-hoval-harkingen",
       "url": "https://www.hoval.it/it_IT/job/3953",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3953/Application/New/1?DesignID=00&lang=ita",
       "company": "Hoval",
@@ -220,7 +220,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -240,8 +240,8 @@
       }
     },
     {
-      "title": "Servicetechniker/in Öl (m/w/d)",
-      "slug": "servicetechniker-in-ol-m-w-d-hoval-harkingen",
+      "title": "Servicetechniker/in Öl - Region Bern / Solothurn (m/w/d)",
+      "slug": "servicetechniker-in-ol-region-bern-solothurn-m-w-d-hoval-harkingen",
       "url": "https://www.hoval.it/it_IT/job/3963",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3963/Application/New/1?DesignID=00&lang=ita",
       "company": "Hoval",
@@ -257,7 +257,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -267,17 +267,14 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-06-02T13:23:21.254Z",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -296,7 +293,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -333,7 +330,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -352,5 +349,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
