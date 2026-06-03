@@ -335,9 +335,9 @@
         "de": "Technical Product Owner Voice- & Chatbot (w/m/d)",
         "fr": "Technical Product Owner Voice- & Chatbot (w/m/d)"
       },
-      "slug": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
+      "slug": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
+        "it": "titolare-del-prodotto-voce-chatbot-w-m-d-postfinance-bern",
         "en": "technical-product-owner-voice-chatbot-w-m-d-postfinance-bern",
         "de": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance",
         "fr": "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
@@ -376,7 +376,15 @@
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-03T00:39:50.515Z"
+      "firstSeenAt": "2026-06-03T00:39:50.515Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-voice-amp-chatbot-w-m-d-postfinance"
+      ]
     },
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",

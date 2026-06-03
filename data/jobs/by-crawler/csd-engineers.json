@@ -8,8 +8,8 @@
       "slugByLocale": {
         "fr": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch",
         "it": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch",
-        "en": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch",
-        "de": "ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100-csd-engineers-ch"
+        "en": "engineer-chief-of-geotechnical-and-special-works-project-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "ingenieur-projektleiter-geotechnische-und-sonderwerke-e-h-d-80-100-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -146,12 +146,12 @@
     },
     {
       "id": "csd-engineers-c69e93270e4d",
-      "slug": "bauingenieur-in-80-100-csd-engineers-ch",
+      "slug": "ingegnere-civile-80-100-csd-engineers-zurich",
       "slugByLocale": {
         "de": "bauingenieur-in-80-100-csd-engineers-ch",
-        "it": "bauingenieur-in-80-100-csd-engineers-ch",
-        "en": "bauingenieur-in-80-100-csd-engineers-ch",
-        "fr": "bauingenieur-in-80-100-csd-engineers-ch"
+        "it": "ingegnere-civile-80-100-csd-engineers-zurich",
+        "en": "civil-engineer-80-100-csd-engineers-zurich",
+        "fr": "ingenieur-civil-80-100-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -206,16 +206,30 @@
       },
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-02T23:14:19.945Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "bauingenieur-in-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "bauingenieur-in-80-100-csd-engineers-ch"
+        ],
+        "fr": [
+          "bauingenieur-in-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bauingenieur-in-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-9c1d3b37517b",
-      "slug": "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch",
+      "slug": "team-leader-ingegnere-civile-costruzione-80-100-csd-engineers-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch",
-        "it": "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch",
-        "en": "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch",
-        "fr": "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch"
+        "it": "team-leader-ingegnere-civile-costruzione-80-100-csd-engineers-zurich",
+        "en": "team-leader-civil-engineer-building-construction-80-100-csd-engineers-zurich",
+        "fr": "chef-d-equipe-ingenieur-civil-construction-de-batiments-80-100-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -270,7 +284,21 @@
       },
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-02T23:14:19.478Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch"
+        ],
+        "fr": [
+          "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-bauingenieur-in-hochbau-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-6e9cdb0f2b2a",
@@ -278,8 +306,8 @@
       "slugByLocale": {
         "de": "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch",
         "it": "disegnatore-trice-specializzazione-ingegneria-civile-60-100-csd-engineers-zurich",
-        "en": "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch",
-        "fr": "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch"
+        "en": "drawer-in-department-of-engineering-60-100-csd-engineers-zurich",
+        "fr": "tiroir-dans-le-departement-de-genie-60-100-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -323,6 +351,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch"
+        ],
+        "en": [
+          "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch"
+        ],
+        "fr": [
+          "zeichner-in-fachrichtung-ingenieurbau-60-100-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -350,8 +384,8 @@
       "slugByLocale": {
         "de": "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch",
         "it": "praktikant-in-bauingenieurwesen-o-holzbau-csd-engineers-zurich",
-        "en": "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch",
-        "fr": "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch"
+        "en": "intern-in-civil-engineering-or-wood-construction-csd-engineers-zurich",
+        "fr": "stage-en-genie-civil-ou-en-construction-de-bois-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -395,6 +429,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch"
+        ],
+        "en": [
+          "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch"
+        ],
+        "fr": [
+          "praktikant-in-bauingenieurwesen-oder-holzbau-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -418,12 +458,12 @@
     },
     {
       "id": "csd-engineers-78551301fa35",
-      "slug": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch",
+      "slug": "progetto-leader-ambiente-f-h-d-80-100-csd-engineers-yverdon-les-bains",
       "slugByLocale": {
         "fr": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch",
-        "en": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch",
-        "de": "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
+        "it": "progetto-leader-ambiente-f-h-d-80-100-csd-engineers-yverdon-les-bains",
+        "en": "project-leader-environment-f-h-d-80-100-csd-engineers-yverdon-les-bains",
+        "de": "projektleiter-umwelt-f-h-d-80-100-csd-engineers-yverdon-les-bains"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -479,7 +519,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:18.208Z"
+      "firstSeenAt": "2026-06-02T23:14:18.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-environnement-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-5946d34f99d7",
@@ -632,8 +686,8 @@
       "slugByLocale": {
         "de": "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch",
         "it": "zeichner-im-bereich-tief-e-wasserbau-m-w-d-60-100-csd-engineers-bern",
-        "en": "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch",
-        "fr": "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch"
+        "en": "drawers-in-the-field-of-civil-and-water-engineering-m-w-d-60-100-csd-engineers-bern",
+        "fr": "tiroirs-dans-le-domaine-du-genie-civil-et-de-l-eau-m-m-j-60-100-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -679,6 +733,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch"
+        ],
+        "en": [
+          "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch"
+        ],
+        "fr": [
+          "zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -705,7 +765,7 @@
       "slugByLocale": {
         "de": "teamleiter-geologie-80-100-m-w-d-csd-engineers-ch",
         "it": "teamleiter-geologie-80-100-m-w-d-csd-engineers-ch",
-        "en": "teamleiter-geologie-80-100-m-w-d-csd-engineers-ch",
+        "en": "team-leader-geology-80-100-m-w-d-csd-engineers-zurich",
         "fr": "teamleiter-geologie-80-100-m-w-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -832,8 +892,8 @@
       "slug": "collaborateur-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
       "slugByLocale": {
         "it": "collaborateur-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
-        "en": "collaborateur-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
-        "de": "collaborateur-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
+        "en": "project-collaborator-cvc-80-100-f-h-d-csd-engineers-lausanne",
+        "de": "projektmitarbeiter-cvc-80-100-w-h-d-csd-engineers-lausanne",
         "fr": "collaborateur-de-projet-cvc-80-100-f-h-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -898,7 +958,7 @@
         "de": "praktikant-bauingenieurwesen-4-6-monate-w-m-d-csd-engineers-ch",
         "it": "praktikant-bauingenieurwesen-4-6-monate-w-m-d-csd-engineers-ch",
         "en": "praktikant-bauingenieurwesen-4-6-monate-w-m-d-csd-engineers-ch",
-        "fr": "praktikant-bauingenieurwesen-4-6-monate-w-m-d-csd-engineers-ch"
+        "fr": "praktikan-bauingenieurwesen-4-6-mois-m-j-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -961,8 +1021,8 @@
       "slugByLocale": {
         "de": "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch",
         "it": "erfahrener-projektleiter-genio-civile-ruckbau-80-100-m-w-d-csd-engineers-zurich",
-        "en": "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch",
-        "fr": "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
+        "en": "advanced-project-manager-civil-engineering-reconstruction-80-100-w-m-d-csd-engineers-zurich",
+        "fr": "gestionnaire-de-projet-avance-genie-civil-reconstruction-80-100-m-j-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1009,6 +1069,12 @@
       "previousSlugsByLocale": {
         "it": [
           "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -1032,12 +1098,12 @@
     },
     {
       "id": "csd-engineers-a6a9ec139ed8",
-      "slug": "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch",
+      "slug": "progettista-di-ingegneria-civile-80-100-f-m-d-csd-engineers-bulle",
       "slugByLocale": {
         "fr": "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch",
-        "it": "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch",
-        "en": "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch",
-        "de": "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch"
+        "it": "progettista-di-ingegneria-civile-80-100-f-m-d-csd-engineers-bulle",
+        "en": "civil-engineering-draughtsman-80-100-f-m-d-csd-engineers-bulle",
+        "de": "tiefbaubagger-80-100-f-m-d-csd-engineers-bulle"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1092,7 +1158,21 @@
       },
       "addressRegion": "FR",
       "firstSeenAt": "2026-06-02T23:14:14.258Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch"
+        ],
+        "de": [
+          "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dessinateur-en-genie-civil-80-100-f-m-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-2c35da1ccf8e",
@@ -1100,8 +1180,8 @@
       "slugByLocale": {
         "de": "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch",
         "it": "projektleiter-umwelt-m-w-d-70-100-con-schwerpunkt-teamentwicklung-csd-engineers-pratteln",
-        "en": "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch",
-        "fr": "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch"
+        "en": "projektleiter-umwelt-m-w-d-70-100-with-focus-on-team-development-csd-engineers-pratteln",
+        "fr": "projektleiter-umwelt-m-p-j-70-100-en-se-concentrant-sur-le-developpement-de-l-equipe-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1148,6 +1228,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch"
+        ],
+        "en": [
+          "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch"
+        ],
+        "fr": [
+          "projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -1171,12 +1257,12 @@
     },
     {
       "id": "csd-engineers-ec479f56f58d",
-      "slug": "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch",
+      "slug": "geologo-esperto-teamleiter-80-100-w-m-d-csd-engineers-pratteln",
       "slugByLocale": {
         "de": "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch",
-        "it": "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch",
-        "en": "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch",
-        "fr": "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch"
+        "it": "geologo-esperto-teamleiter-80-100-w-m-d-csd-engineers-pratteln",
+        "en": "experienced-geologist-teamleiter-80-100-w-m-d-csd-engineers-pratteln",
+        "fr": "geologue-experimente-teamleiter-80-100-m-j-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1231,15 +1317,29 @@
       },
       "addressRegion": "BL",
       "firstSeenAt": "2026-06-02T23:14:13.344Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "erfahrener-geologe-teamleiter-80-100-w-m-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-b08f5258ae59",
-      "slug": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch",
+      "slug": "ingegnere-dell-ingegneria-civile-leader-del-progetto-80-100-f-m-d-csd-engineers-bulle",
       "slugByLocale": {
         "de": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch",
-        "it": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch",
-        "en": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch",
+        "it": "ingegnere-dell-ingegneria-civile-leader-del-progetto-80-100-f-m-d-csd-engineers-bulle",
+        "en": "civil-engineering-engineer-project-leader-80-100-f-m-d-csd-engineers-bulle",
         "fr": "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -1298,14 +1398,25 @@
       },
       "addressRegion": "FR",
       "firstSeenAt": "2026-06-02T23:14:13.006Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
+        ],
+        "en": [
+          "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-4d21f9217016",
-      "slug": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
+      "slug": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
       "slugByLocale": {
         "de": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
-        "it": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
+        "it": "idrogeologie-di-esperti-60-100-w-m-d-csd-engineers-bern",
         "en": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch",
         "fr": "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
       },
@@ -1363,7 +1474,15 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T23:14:12.541Z"
+      "firstSeenAt": "2026-06-02T23:14:12.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experte-hydrogeologie-60-100-w-m-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-25957727e055",
@@ -1440,10 +1559,10 @@
     },
     {
       "id": "csd-engineers-a80ab017cb5f",
-      "slug": "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch",
+      "slug": "senior-road-infrastructure-project-leader-e-h-d-80-100-csd-engineers-givisiez",
       "slugByLocale": {
         "fr": "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch",
+        "it": "senior-road-infrastructure-project-leader-e-h-d-80-100-csd-engineers-givisiez",
         "en": "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch",
         "de": "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch"
       },
@@ -1501,7 +1620,15 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-06-02T23:14:11.859Z"
+      "firstSeenAt": "2026-06-02T23:14:11.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-bc0ef9632020",
@@ -1509,7 +1636,7 @@
       "slugByLocale": {
         "de": "projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d-csd-engineers-ch",
         "it": "projektleiter-siedlungsentwasserung-e-digitales-80-100-m-w-d-csd-engineers-brugg",
-        "en": "projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d-csd-engineers-ch",
+        "en": "projektleiter-m-w-d-csd-engineers-brugg",
         "fr": "projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -1556,6 +1683,9 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "en": [
+          "projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -1578,9 +1708,9 @@
     },
     {
       "id": "csd-engineers-0afc13752b29",
-      "slug": "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch",
+      "slug": "diagnostico-inquinanti-da-costruzione-80-100-w-m-d-csd-engineers-st-gallen",
       "slugByLocale": {
-        "it": "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch",
+        "it": "diagnostico-inquinanti-da-costruzione-80-100-w-m-d-csd-engineers-st-gallen",
         "en": "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch",
         "de": "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch",
         "fr": "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch"
@@ -1638,16 +1768,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "diagnostiker-bauschadstoffe-80-100-w-m-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-452c6e4ff8de",
-      "slug": "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch",
+      "slug": "leader-del-progetto-infrastruttura-stradale-sperimentata-f-h-d-80-100-csd-engineers-lancy",
       "slugByLocale": {
         "fr": "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch",
-        "en": "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch",
-        "de": "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
+        "it": "leader-del-progetto-infrastruttura-stradale-sperimentata-f-h-d-80-100-csd-engineers-lancy",
+        "en": "project-leader-road-infrastructure-experienced-f-h-d-80-100-csd-engineers-lancy",
+        "de": "projektleiter-road-infrastructure-experienced-f-h-d-80-100-csd-engineers-lancy"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1703,7 +1841,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-02T23:14:10.458Z"
+      "firstSeenAt": "2026-06-02T23:14:10.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-8bcb7543e70d",
@@ -1711,7 +1863,7 @@
       "slugByLocale": {
         "fr": "chef-de-projet-energie-senior-f-h-d-80-100-csd-engineers-ch",
         "it": "chef-de-projet-energie-senior-f-h-d-80-100-csd-engineers-ch",
-        "en": "chef-de-projet-energie-senior-f-h-d-80-100-csd-engineers-ch",
+        "en": "senior-energy-project-leader-f-h-d-80-100-csd-engineers-lausanne",
         "de": "chef-de-projet-energie-senior-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -1879,8 +2031,8 @@
       "slugByLocale": {
         "de": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch",
         "it": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-zurich",
-        "en": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch",
-        "fr": "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch"
+        "en": "project-manager-environment-80-100-m-w-d-csd-engineers-zurich",
+        "fr": "gestionnaire-de-projet-environnement-80-100-m-m-j-csd-engineers-zurich"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -1926,6 +2078,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "en": [
+          "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "projektleiter-umwelt-80-100-m-w-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -1948,12 +2106,12 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2009,16 +2167,27 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:08.736Z"
+      "firstSeenAt": "2026-06-02T23:14:08.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
+        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2074,7 +2243,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:08.267Z"
+      "firstSeenAt": "2026-06-02T23:14:08.267Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-22a0d92ffa1f",
@@ -2147,8 +2327,8 @@
       "slugByLocale": {
         "fr": "ingenieur-en-environnement-eau-epf-hes-futur-chef-de-projet-80-100-f-h-d-csd-engineers-ch",
         "it": "ingenieur-en-environnement-eau-epf-hes-futur-chef-de-projet-80-100-f-h-d-csd-engineers-ch",
-        "en": "ingenieur-en-environnement-eau-epf-hes-futur-chef-de-projet-80-100-f-h-d-csd-engineers-ch",
-        "de": "ingenieur-en-environnement-eau-epf-hes-futur-chef-de-projet-80-100-f-h-d-csd-engineers-ch"
+        "en": "environmental-engineer-epf-water-hes-future-project-leader-80-100-e-h-d-csd-engineers-lancy",
+        "de": "umweltingenieur-epf-wasser-hes-zukunftsprojektleiter-80-100-e-h-d-csd-engineers-lancy"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2208,12 +2388,12 @@
     },
     {
       "id": "csd-engineers-67c33e244519",
-      "slug": "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch",
+      "slug": "geologo-siti-contaminati-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch",
-        "it": "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch",
-        "en": "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch",
-        "de": "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch"
+        "it": "geologo-siti-contaminati-e-h-d-80-100-csd-engineers-lausanne",
+        "en": "geologist-polluted-sites-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "geologe-verschmutzte-standorte-e-h-d-80-100-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2269,16 +2449,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:07.120Z"
+      "firstSeenAt": "2026-06-02T23:14:07.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geologue-sites-pollues-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-6bba92ee2b46",
-      "slug": "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch",
+      "slug": "capo-dipartimento-lavori-sotterranei-e-lavori-speciali-80-100-f-h-d-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch",
-        "it": "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch",
-        "en": "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch",
-        "de": "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
+        "it": "capo-dipartimento-lavori-sotterranei-e-lavori-speciali-80-100-f-h-d-csd-engineers-lausanne",
+        "en": "head-of-department-underground-works-and-special-works-80-100-f-h-d-csd-engineers-lausanne",
+        "de": "abteilungsleiter-underground-works-und-special-works-80-100-f-h-d-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2334,16 +2528,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:06.774Z"
+      "firstSeenAt": "2026-06-02T23:14:06.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "en": [
+          "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-ccbc38714d9d",
-      "slug": "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch",
+      "slug": "stage-nella-costruzione-di-fisica-e-sostenibilita-label-80-100-e-h-d-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch",
-        "it": "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch",
-        "en": "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch",
-        "de": "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
+        "it": "stage-nella-costruzione-di-fisica-e-sostenibilita-label-80-100-e-h-d-csd-engineers-lausanne",
+        "en": "internship-in-building-physics-and-sustainability-label-80-100-e-h-d-csd-engineers-lausanne",
+        "de": "praktikum-in-bauphysik-und-nachhaltigkeit-label-80-100-e-h-d-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2399,7 +2607,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:06.304Z"
+      "firstSeenAt": "2026-06-02T23:14:06.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "en": [
+          "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "de": [
+          "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-27fed137204e",
@@ -2407,7 +2629,7 @@
       "slugByLocale": {
         "de": "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch",
         "it": "zeichner-specializzazione-ingegneria-civile-80-100-m-w-d-csd-engineers-brugg",
-        "en": "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch",
+        "en": "drawing-specialist-in-engineering-80-100-m-w-d-csd-engineers-brugg",
         "fr": "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2453,6 +2675,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch"
+        ],
+        "en": [
           "zeichner-fachrichtung-ingenieurbau-80-100-m-w-d-csd-engineers-ch"
         ]
       },
@@ -2554,12 +2779,12 @@
     },
     {
       "id": "csd-engineers-01b0840c14f0",
-      "slug": "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch",
+      "slug": "progetto-leader-trattamento-dell-acqua-e-h-d-80-100-csd-engineers-lausanne",
       "slugByLocale": {
         "fr": "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch",
-        "it": "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch",
-        "en": "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch",
-        "de": "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
+        "it": "progetto-leader-trattamento-dell-acqua-e-h-d-80-100-csd-engineers-lausanne",
+        "en": "project-leader-water-treatment-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "projektleiter-wasseraufbereitung-e-h-d-80-100-csd-engineers-lausanne"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2615,7 +2840,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-02T23:14:05.159Z"
+      "firstSeenAt": "2026-06-02T23:14:05.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "de": [
+          "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-traitement-des-eaux-f-h-d-80-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-345eb5350088",
@@ -2623,8 +2862,8 @@
       "slugByLocale": {
         "de": "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch",
         "it": "projektleiter-geologie-60-100-m-w-d-csd-engineers-bern",
-        "en": "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch",
-        "fr": "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch"
+        "en": "project-manager-geology-60-100-m-w-d-csd-engineers-bern",
+        "fr": "gestionnaire-de-projet-geologie-60-100-m-p-j-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2670,6 +2909,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch"
+        ],
+        "en": [
+          "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch"
+        ],
+        "fr": [
+          "projektleiter-geologie-60-100-m-w-d-csd-engineers-ch"
         ]
       },
       "previousSlugs": [
@@ -2692,12 +2937,12 @@
     },
     {
       "id": "csd-engineers-e71a20970f1f",
-      "slug": "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch",
+      "slug": "gis-cartografo-proiettore-e-tecnico-ambientale-80-100-e-h-d-csd-engineers-lancy",
       "slugByLocale": {
         "fr": "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch",
-        "it": "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch",
-        "en": "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch",
-        "de": "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch"
+        "it": "gis-cartografo-proiettore-e-tecnico-ambientale-80-100-e-h-d-csd-engineers-lancy",
+        "en": "gis-cartographer-projector-and-environmental-technician-80-100-e-h-d-csd-engineers-lancy",
+        "de": "gis-kartograph-projektor-und-umwelttechniker-80-100-e-h-d-csd-engineers-lancy"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -2753,7 +2998,21 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-02T23:14:04.234Z"
+      "firstSeenAt": "2026-06-02T23:14:04.234Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "en": [
+          "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch"
+        ],
+        "de": [
+          "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d-csd-engineers-ch"
+      ]
     }
   ]
 }

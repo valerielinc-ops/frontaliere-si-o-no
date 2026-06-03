@@ -692,10 +692,10 @@
     },
     {
       "id": "spital-sts-4e88fc5e8b91",
-      "slug": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+      "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "it": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+        "it": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
         "en": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
         "fr": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
       },
@@ -753,7 +753,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T15:20:29.103Z"
+      "firstSeenAt": "2026-06-03T15:20:29.103Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+      ]
     }
   ]
 }

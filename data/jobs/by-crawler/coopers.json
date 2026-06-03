@@ -3220,9 +3220,9 @@
     },
     {
       "id": "coopers-ef4143a4d73d",
-      "slug": "specialista-di-conformita-commerciale-m-w-d-coopers-group-ag-zug",
+      "slug": "trade-compliance-specialista-m-w-d-coopers-group-ag-zug",
       "slugByLocale": {
-        "it": "specialista-di-conformita-commerciale-m-w-d-coopers-group-ag-zug",
+        "it": "trade-compliance-specialista-m-w-d-coopers-group-ag-zug",
         "en": "trade-compliance-specialist-m-w-d-coopers-zug",
         "de": "sachbearbeiter-m-w-d-coopers-group-ag-zug",
         "fr": "specialiste-de-la-conformite-commerciale-m-w-d-coopers-group-ag-zug"
@@ -3282,11 +3282,13 @@
         ]
       },
       "previousSlugs": [
-        "trade-compliance-specialist-m-w-d-coopers-zug"
+        "trade-compliance-specialist-m-w-d-coopers-zug",
+        "specialista-di-conformita-commerciale-m-w-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-compliance-specialist-m-w-d-coopers-zug"
+          "trade-compliance-specialist-m-w-d-coopers-zug",
+          "specialista-di-conformita-commerciale-m-w-d-coopers-group-ag-zug"
         ],
         "de": [
           "trade-compliance-specialist-m-w-d-coopers-zug"
@@ -3952,10 +3954,10 @@
     },
     {
       "id": "coopers-91454427c0b3",
-      "slug": "ai-solution-consultant-m-w-d-coopers-bern",
+      "slug": "ai-solution-consulente-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
         "de": "ai-solution-consultant-m-w-d-coopers-bern",
-        "it": "ai-solution-consultant-m-w-d-coopers-bern",
+        "it": "ai-solution-consulente-m-w-d-coopers-group-ag-bern",
         "en": "ai-solution-consultant-m-w-d-coopers-bern",
         "fr": "ai-solution-consultant-m-w-d-coopers-bern"
       },
@@ -4029,7 +4031,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-03T13:17:55.840Z"
+      "firstSeenAt": "2026-06-03T13:17:55.840Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-solution-consultant-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ai-solution-consultant-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-2623bcf0eafe",

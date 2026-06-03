@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "klinik-arlesheim-7aec349d5f02",
-      "slug": "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim",
+      "slug": "stage-medico-iwa-basel-85-klinik-arlesheim-arlesheim",
       "slugByLocale": {
         "de": "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim",
-        "it": "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim",
+        "it": "stage-medico-iwa-basel-85-klinik-arlesheim-arlesheim",
         "en": "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim",
         "fr": "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T14:08:24.240Z"
+      "firstSeenAt": "2026-06-03T14:08:24.240Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-iwa-basel-85-klinik-arlesheim-arlesheim"
+      ]
     },
     {
       "id": "klinik-arlesheim-0da3ec875850",

@@ -2852,7 +2852,7 @@
     },
     {
       "id": "efg-4543",
-      "slug": "group-financial-controller-efg-geneve",
+      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -3017,9 +3017,9 @@
       },
       "crawledAt": "2026-06-03T13:26:59.355Z",
       "slugByLocale": {
-        "it": "group-financial-controller-efg-geneve",
+        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "group-financial-controller-efg-geneve",
+        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3044,17 +3044,14 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
-          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
-          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "gruppo-controllore-finanziario-efg-international-ag-geneve",
-        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
+        "group-financial-controller-efg-geneve"
       ],
       "country": "CH",
       "needsRetranslation": true
@@ -3248,7 +3245,7 @@
     },
     {
       "id": "efg-6210",
-      "slug": "general-services-employee-efg-geneve",
+      "slug": "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "General Services Employee",
       "location": "Geneve",
@@ -3297,7 +3294,7 @@
       },
       "crawledAt": "2026-06-03T13:26:59.347Z",
       "slugByLocale": {
-        "it": "general-services-employee-efg-geneve",
+        "it": "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
         "de": "general-services-employee-efg-geneve",
         "fr": "general-services-employee-efg-geneve"
@@ -3322,7 +3319,15 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1204",
       "country": "CH",
-      "firstSeenAt": "2026-06-03T13:26:59.347Z"
+      "firstSeenAt": "2026-06-03T13:26:59.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "general-services-employee-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "general-services-employee-efg-geneve"
+      ]
     },
     {
       "id": "efg-6203",

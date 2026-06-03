@@ -24,12 +24,12 @@
         "en": "Associate Logistik",
         "fr": "Collaborateur/trice Logistik"
       },
-      "slug": "mitarbeiter-in-logistik-post",
+      "slug": "addetto-a-alla-logistica-die-schweizerische-post-chur",
       "slugByLocale": {
-        "it": "mitarbeiter-in-logistik-post",
-        "en": "mitarbeiter-in-logistik-die-schweizerische-post-chur",
+        "it": "addetto-a-alla-logistica-die-schweizerische-post-chur",
+        "en": "associate-logistik-die-schweizerische-post-chur",
         "de": "mitarbeiter-in-logistik-die-schweizerische-post-chur",
-        "fr": "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+        "fr": "collaborateur-trice-logistik-die-schweizerische-post-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -65,7 +65,22 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "postalCode": "7000",
-      "firstSeenAt": "2026-06-03T14:51:05.228Z"
+      "firstSeenAt": "2026-06-03T14:51:05.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-post"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-logistik-post",
+        "mitarbeiter-in-logistik-die-schweizerische-post-chur"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73765-de_DE",
@@ -405,7 +420,7 @@
         "it": "e-mobility-solution-engineer-post",
         "en": "e-mobility-solution-engineer-post",
         "de": "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona",
-        "fr": "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona"
+        "fr": "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -444,12 +459,11 @@
       "firstSeenAt": "2026-05-28T13:45:02.562Z",
       "previousSlugsByLocale": {
         "fr": [
-          "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona",
           "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona"
         ]
       },
       "previousSlugs": [
-        "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona"
+        "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona"
       ],
       "needsRetranslation": true
     },

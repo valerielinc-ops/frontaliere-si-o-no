@@ -108,12 +108,12 @@
     },
     {
       "id": "aldi-suisse-57c1988b19ee",
-      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit",
       "slugByLocale": {
-        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit",
+        "en": "sales-associate-m-w-d-aldi-suisse-en-in-elf-landern-weltweit",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-en-in-elf-landern-weltweit"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -200,7 +200,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-03T12:34:00.413Z"
+      "firstSeenAt": "2026-06-03T12:34:00.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+      ]
     }
   ]
 }

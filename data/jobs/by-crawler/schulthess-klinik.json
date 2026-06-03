@@ -351,9 +351,9 @@
     },
     {
       "id": "schulthess-klinik-1420583ef698",
-      "slug": "addetto-all-invio-di-interventi-di-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "disponent-disponent-foot-surgery-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "addetto-all-invio-di-interventi-di-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
+        "it": "disponent-disponent-foot-surgery-schulthess-klinik-lengghalde-2-zurich",
         "en": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
         "de": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
         "fr": "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich"
@@ -402,14 +402,16 @@
         "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
         "traduzione-schulthess-klinik-lengghalde-2-zurich",
         "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
-        "dispatcher-foot-surgery-schulthess-klinik-lengghalde-2-zurich"
+        "dispatcher-foot-surgery-schulthess-klinik-lengghalde-2-zurich",
+        "addetto-all-invio-di-interventi-di-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-disponent-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich",
           "traduzione-schulthess-klinik-lengghalde-2-zurich",
           "disponentin-disponent-fusschirurgie-schulthess-klinik-lengghalde-2-zurich",
-          "dispatcher-foot-surgery-schulthess-klinik-lengghalde-2-zurich"
+          "dispatcher-foot-surgery-schulthess-klinik-lengghalde-2-zurich",
+          "addetto-all-invio-di-interventi-di-chirurgia-del-piede-schulthess-klinik-lengghalde-2-zurich"
         ]
       },
       "firstSeenAt": "2026-05-22T12:55:24.162Z",
@@ -712,10 +714,10 @@
     },
     {
       "id": "schulthess-klinik-0117ae1771d0",
-      "slug": "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "gestione-del-dipartimento-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
         "de": "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich",
-        "it": "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich",
+        "it": "gestione-del-dipartimento-schulthess-klinik-lengghalde-2-zurich",
         "en": "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich",
         "fr": "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich"
       },
@@ -773,7 +775,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T15:08:04.842Z"
+      "firstSeenAt": "2026-06-03T15:08:04.842Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleitung-einkauf-schulthess-klinik-lengghalde-2-zurich"
+      ]
     }
   ]
 }
