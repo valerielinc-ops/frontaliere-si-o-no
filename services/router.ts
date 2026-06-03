@@ -15,6 +15,7 @@
  */
 
 import { getLocale, type Locale } from './i18n';
+import { cdnDataUrl } from './cdnDataBase';
 import {
  CITY_HUB_KEYS,
  CITY_HUB_DISPLAY_NAME,
@@ -1645,7 +1646,7 @@ export function getJobMetaForSlug(slug: string): { id?: string; canton?: string;
 export async function ensureJobSlugMapLoaded(): Promise<void> {
  if (_jobSlugMap) return;
  if (!_jobSlugMapPromise) {
- _jobSlugMapPromise = fetch('/data/jobs-slug-map.json')
+ _jobSlugMapPromise = fetch(cdnDataUrl('/data/jobs-slug-map.json'))
  .then(r => r.ok ? r.json() : Promise.reject(r.status))
  .then((data: Array<{ id?: string; canton?: string; slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
  registerJobSlugMap(data);

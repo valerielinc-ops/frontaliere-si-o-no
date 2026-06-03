@@ -3,8 +3,11 @@
 //
 // Offload BUILD-GENERATED assets out of the GitHub Pages artifact, rewriting
 // their references to the dedicated CDN repo's Pages site (CDN_BASE). Two phases:
-//   1. per-job OG cards (dist/og)            — rewrite static og:image refs
-//   2. per-job detail JSON (dist/data/job-detail) — inject runtime CDN base
+//   1. per-job OG cards (dist/og)  — rewrite static og:image refs in HTML
+//   2. all runtime data JSON (dist/data) — inject runtime CDN base, delete the
+//      cdn-only files (keep any /data/ path referenced same-origin in HTML/XML)
+// (The JS/CSS bundle is offloaded separately: ASSET_CDN/renderBuiltUrl rebases it
+//  at build time; the deploy verify step deletes dist/assets fail-safe.)
 //
 // (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
 // the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
@@ -144,31 +147,34 @@ function offloadOgImages(distDir, cdnBase) {
   log(`offloaded ${presentTargets.map((t) => t.url).join(' + ')} → ${cdnBase} ; rewrote ${rewritten}/${scanned} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
 }
 
-// ── Phase 2: generated runtime-fetched data (per-job detail JSON) ─────────────
-// dist/data/job-detail/<id>.json (~225 MB) is fetched on demand by the SPA
-// (components/community/JobBoard.tsx → fetchJobDetail) using a URL built at
-// RUNTIME in the JS bundle — it is NOT referenced in static HTML, so it cannot
-// be rewritten like og:image. Instead we inject the CDN base as a global the
-// fetch helper reads (services/cdnDataBase.ts → cdnDataUrl), then delete the dir.
+// ── Phase 2: generated runtime-fetched data (all of dist/data) ────────────────
+// dist/data/**.json (job-detail ~225 MB, jobs-<locale> ~96 MB, indexes, slug-map,
+// stats, fuel, health, …) is fetched on demand by the SPA via fetch() URLs built
+// at RUNTIME in the JS bundle — NOT referenced in static HTML, so they can't be
+// rewritten like og:image. Every such fetch site routes through
+// services/cdnDataBase.ts → cdnDataUrl(); here we inject the CDN base as the
+// global cdnDataUrl reads, then delete the offloaded files from dist.
 //
-// GRACEFUL DEGRADATION: the static SSG job pages already contain the full job
-// content in HTML (crawler-visible SEO is unaffected). job-detail.json only
-// enriches the hydrated SPA detail view, and fetchJobDetail() catches any
-// failure → {} (no enrichment, page still renders). So a missed inject or a raw
-// hiccup degrades the interactive detail view but never breaks a page or SEO.
-const DATA_DIRS = [['data', 'job-detail']];
+// GUARD: a /data/… path that appears LITERALLY in dist HTML/XML/TXT (sitemap
+// entries, <a href> downloads, <link>) is loaded same-origin — NOT through
+// cdnDataUrl — so it MUST stay in the artifact. Those files are kept; the rest
+// (only ever fetched via cdnDataUrl) are deleted and served from the CDN.
+//
+// GRACEFUL DEGRADATION: the static SSG job pages already contain full job
+// content in HTML (crawler-visible SEO unaffected). The data JSON only feeds the
+// hydrated SPA, and the fetch sites catch failures. So a missed inject or a CDN
+// hiccup degrades an interactive view but never breaks a page or SEO.
 
 function offloadGeneratedData(distDir, cdnBase) {
-  const present = DATA_DIRS.filter((d) => fs.existsSync(path.join(distDir, ...d)));
-  if (present.length === 0) {
-    log('no generated-data dirs present in dist — skipping data phase');
+  const dataDir = path.join(distDir, 'data');
+  if (!fs.existsSync(dataDir)) {
+    log('no dist/data — skipping data phase');
     return;
   }
 
   // Inject `<script>window.__CDN_DATA_BASE__="<cdnBase>"</script>` right after the
   // first <head> of every HTML page so the base is set before the SPA boots.
-  // Idempotent (skip if already present). Runs only over .html (the SPA shell +
-  // SSG pages — any of which can client-nav to a job detail).
+  // Idempotent (skip if already present).
   const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
   let injected = 0;
   let htmlSeen = 0;
@@ -184,20 +190,36 @@ function offloadGeneratedData(distDir, cdnBase) {
     injected++;
   });
 
-  // Only delete if at least one page carries the base — otherwise every
-  // job-detail fetch would 404 (still graceful, but pointless). If nothing was
-  // injected, keep the data in dist.
+  // Only delete if the base reached at least one page — else every cdnDataUrl
+  // fetch would 404 (still graceful, but pointless). If nothing injected, keep.
   if (injected === 0) {
-    log(`GUARD: base injected into 0/${htmlSeen} HTML pages — keeping data in dist`);
+    log(`GUARD: base injected into 0/${htmlSeen} HTML pages — keeping dist/data`);
     return;
   }
+
+  // Collect every same-origin /data/… path referenced LITERALLY in HTML/XML/TXT
+  // (these load same-origin, not via cdnDataUrl) — keep those files.
+  const referenced = new Set();
+  const reData = /\/data\/[^"'\s)?<>]+/g;
+  walk(distDir, (fp) => {
+    if (!SCAN_EXT.has(path.extname(fp))) return;
+    const txt = fs.readFileSync(fp, 'utf8');
+    let m;
+    while ((m = reData.exec(txt))) referenced.add(decodeURIComponent(m[0].split('?')[0]));
+  });
+
+  // Delete every dist/data file NOT referenced same-origin in HTML/XML/TXT.
   let freed = 0;
-  for (const d of present) {
-    const dir = path.join(distDir, ...d);
-    freed += dirSize(dir);
-    fs.rmSync(dir, { recursive: true, force: true });
-  }
-  log(`offloaded ${present.map((d) => '/' + d.join('/') + '/').join(' + ')} → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; freed ${(freed / 1048576).toFixed(0)} MB`);
+  let removed = 0;
+  let kept = 0;
+  walkAll(dataDir, (fp) => {
+    const rel = '/' + path.relative(distDir, fp).split(path.sep).join('/'); // /data/…
+    if (referenced.has(rel)) { kept++; return; }
+    freed += fs.statSync(fp).size;
+    fs.rmSync(fp, { force: true });
+    removed++;
+  });
+  log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; removed ${removed} files (kept ${kept} HTML-referenced) ; freed ${(freed / 1048576).toFixed(0)} MB`);
 }
 
 function main() {

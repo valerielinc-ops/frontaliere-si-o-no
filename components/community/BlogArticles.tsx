@@ -7,6 +7,7 @@ import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
 const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
@@ -1141,7 +1142,7 @@ function BlogArticles({
  useEffect(() => {
  if (!selectedArticle) return;
  let cancelled = false;
- fetch(`/data/jobs-${locale}.json`)
+ fetch(cdnDataUrl(`/data/jobs-${locale}.json`))
  .then(res => {
  if (!res.ok) throw new Error(`${res.status}`);
  return res.json();
