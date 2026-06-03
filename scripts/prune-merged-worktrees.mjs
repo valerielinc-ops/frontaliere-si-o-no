@@ -42,6 +42,11 @@ function sh(cmd, { allowFail = false } = {}) {
 const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', { allowFail: true })
   .replace(/^origin\//, '') || 'main';
 
+// Aggiorna origin/<main> (best-effort): se è stale, un branch già su main mostra
+// ahead>0 e finisce report-only invece di essere potato → riduce l'efficacia del
+// cleanup `worktree-agent-*` 0-ahead (caso bersaglio). Fail silenzioso = offline.
+sh(`git fetch origin ${mainBranch} -q`, { allowFail: true });
+
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md): il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
 // `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree

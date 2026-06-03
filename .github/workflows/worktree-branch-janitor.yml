@@ -46,12 +46,17 @@ jobs:
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           set -uo pipefail
+          # TUTTO via gh API: niente `actions/checkout` né comandi git locali. Senza
+          # repo checked-out un `git rev-list`/`git push --delete` fallirebbe in
+          # silenzio (ingoiato da `||`) → workflow VERDE ma che non cancella nulla
+          # (falso senso di sicurezza). L'ahead-check usa l'API compare, la delete
+          # usa l'API refs → nessuna dipendenza dal filesystem del runner.
           KEEP_RE="^(${DEFAULT_BRANCH}|gh-pages|HEAD)$"
 
           # Stato PR per head ref (MERGED|CLOSED|OPEN). OPEN da query DEDICATA così
           # un branch con PR aperta resta protetto anche se la sua PR è oltre la
           # finestra recency delle closed (evita che un OPEN out-of-window cada in
-          # "no-PR" e venga cancellato). Le due liste si fondono; la jug OPEN>… sotto
+          # "no-PR" e venga cancellato). Le due liste si fondono; la jq OPEN>… sotto
           # tiene lo stato più vivo.
           prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
             --json state,headRefName 2>/dev/null || echo '[]')
@@ -59,14 +64,14 @@ jobs:
             --json state,headRefName 2>/dev/null || echo '[]')
           prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
 
-          # Branch remoti (no main/gh-pages). Confronto ahead su origin/DEFAULT.
-          git fetch origin "+refs/heads/*:refs/remotes/origin/*" --prune -q 2>/dev/null || true
+          # Branch remoti via API (paginata).
+          mapfile -t branches < <(gh api --paginate "repos/$REPO/branches?per_page=100" \
+            --jq '.[] | "\(.name)\t\(.protected)"' 2>/dev/null)
 
-          gh api --paginate "repos/$REPO/branches?per_page=100" \
-            --jq '.[] | {name: .name, protected: .protected}' 2>/dev/null \
-          | jq -c '.' | while read -r br; do
-            NAME=$(echo "$br" | jq -r '.name')
-            PROT=$(echo "$br" | jq -r '.protected')
+          deleted=0; flagged=0
+          for row in "${branches[@]}"; do
+            NAME="${row%%$'\t'*}"
+            PROT="${row##*$'\t'}"
 
             if echo "$NAME" | grep -qE "$KEEP_RE"; then continue; fi
             if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
@@ -81,23 +86,27 @@ jobs:
 
             if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
 
-            REASON=""
             if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
               REASON="PR $STATE (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
             else
-              AHEAD=$(git rev-list --count "origin/$DEFAULT_BRANCH..origin/$NAME" 2>/dev/null || echo "x")
+              # no-PR: ahead via API compare (ahead_by). Errore API → sentinella "x"
+              # (mai 0) → report-only, mai delete su dubbio.
+              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" \
+                --jq '.ahead_by' 2>/dev/null || echo "x")
               if [ "$AHEAD" = "0" ]; then
                 REASON="0-ahead su $DEFAULT_BRANCH, no-PR (contenuto già su main)"
               else
                 echo "::warning::origin/$NAME — ahead=$AHEAD, no-PR: possibile lavoro vivo pushato senza PR, REPORT-only (non cancello)"
-                continue
+                flagged=$((flagged+1)); continue
               fi
             fi
 
             echo "::warning::origin/$NAME STALE — $REASON → delete"
             if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
-            git push origin --delete "$NAME" 2>/dev/null \
-              && echo "deleted origin/$NAME" \
-              || echo "delete fallito $NAME (forse già rimosso)"
+            if gh api -X DELETE "repos/$REPO/git/refs/heads/$NAME" 2>/dev/null; then
+              echo "deleted origin/$NAME"; deleted=$((deleted+1))
+            else
+              echo "::warning::delete FALLITO origin/$NAME — verifica permessi token (contents:write) o branch-protection"
+            fi
           done
-          echo "Sweep completo."
+          echo "Sweep completo: $deleted cancellati, $flagged flaggati report-only."
