@@ -438,6 +438,10 @@ jobs:
           # or verify fails, the deploy is FAILED (last good stays live), since
           # there is no same-origin fallback for boot-critical assets.
           ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+          # Cap the post-walk worker pool so it doesn't structured-clone the full
+          # ~247K-path list into cpus()-many workers at once (memory headroom for
+          # the build OOM, #1290). Output-identical — only fewer parallel workers.
+          POST_WALK_WORKERS: '2'
           # ALWAYS sequential on the GH free-tier runner (2 vCPU / 7 GB).
           # Empirical comparison on the same source tree (2026-05-07):
           #   sequential build job: 12m41s, peak heap ~max(single plugin)
