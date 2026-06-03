@@ -1,16 +1,16 @@
 {
   "key": "klinik-schloss-mammern",
   "label": "Klinik Schloss Mammern",
-  "generatedAt": "2026-06-02T13:37:48.580Z",
+  "generatedAt": "2026-06-03T00:02:16.431Z",
   "total": 11,
-  "newCount": 3,
-  "updatedCount": 8,
+  "newCount": 1,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23887,
-  "avgDurationMs": 23887,
+  "durationMs": 24035,
+  "avgDurationMs": 24035,
   "durationHistory": [
-    23887
+    24035
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-02T13:37:29.948Z",
+      "crawledAt": "2026-06-03T00:01:57.870Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -39,7 +39,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "applyUrl": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
       "_qualityScore": 56,
       "_qualityBreakdown": {
@@ -48,7 +48,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "klinik-schloss-mammern-915efad9d896",
       "slug": "fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40-10-flexibel-nach",
@@ -56,13 +58,13 @@
       "companyKey": "klinik-schloss-mammern",
       "companyDomain": "klinik-schloss-mammern.ch",
       "title": "Fachperson Betreuung Fachrichtung Kinderbetreuung als Springer/-in 40%+10% flexibel nach Bedarf",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Mammern",
       "canton": "TG",
       "url": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40+10-flexibel-nach-bedarf/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:33.462Z",
+      "crawledAt": "2026-06-03T00:02:01.070Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -77,17 +79,18 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-40+10-flexibel-nach-bedarf/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-02T13:37:33.462Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "klinik-schloss-mammern-d9324cd3fef6",
-      "slug": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern-mammern",
+      "slug": "dipl-pflegefachfrau-mann-80-100-klinik-schloss-mammern",
       "company": "Klinik Schloss Mammern",
       "companyKey": "klinik-schloss-mammern",
       "companyDomain": "klinik-schloss-mammern.ch",
@@ -98,7 +101,7 @@
       "url": "https://ksm-jobs.ch/job/dipl.-pflegefachfrau-mann-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-02T13:37:36.571Z",
+      "crawledAt": "2026-06-03T00:02:04.602Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -113,16 +116,15 @@
       "featured": false,
       "postedDate": "2026-06-02",
       "applyUrl": "https://ksm-jobs.ch/job/dipl.-pflegefachfrau-mann-80-100/",
-      "_qualityScore": 49,
+      "firstSeenAt": "2026-06-02T13:37:36.571Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-schloss-mammern-e0636f69e7f0",
       "slug": "ernahrungsberater-in-50-100-klinik-schloss-mammern-mammern",
@@ -136,7 +138,7 @@
       "url": "https://ksm-jobs.ch/job/ernaehrungsberater-in-50-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:31.718Z",
+      "crawledAt": "2026-06-03T00:01:59.489Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -173,7 +175,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:35.116Z",
+      "crawledAt": "2026-06-03T00:02:03.016Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -210,7 +212,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:38.314Z",
+      "crawledAt": "2026-06-03T00:02:06.259Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -247,7 +249,7 @@
       "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:40.064Z",
+      "crawledAt": "2026-06-03T00:02:08.043Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -284,7 +286,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-als-fachfrau-fachmann-gesundheit-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:41.791Z",
+      "crawledAt": "2026-06-03T00:02:09.754Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -321,7 +323,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:43.521Z",
+      "crawledAt": "2026-06-03T00:02:11.366Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -358,7 +360,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-pneumologie-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:45.153Z",
+      "crawledAt": "2026-06-03T00:02:12.960Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -395,7 +397,7 @@
       "url": "https://ksm-jobs.ch/job/fachperson-betreuung-fachrichtung-kinderbetreuung-als-springer-in-30-40/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:37:46.803Z",
+      "crawledAt": "2026-06-03T00:02:14.616Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
