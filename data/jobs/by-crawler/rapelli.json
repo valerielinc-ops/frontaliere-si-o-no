@@ -55,7 +55,6 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:16.320Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -77,7 +76,7 @@
       "slug": "tecnologo-alimentare-100-rapelli-stabio",
       "slugByLocale": {
         "it": "tecnologo-alimentare-100-rapelli-stabio",
-        "en": "food-technology-100-rapelli-orior-food-ag-stabio",
+        "en": "tecnologo-alimentare-100-rapelli-stabio",
         "de": "tecnologo-alimentare-100-rapelli-stabio",
         "fr": "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
       },
@@ -115,10 +114,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-06-03T14:56:24.163Z",
       "previousSlugs": [
+        "food-technology-100-rapelli-orior-food-ag-stabio",
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-05-16T10:50:16.045Z",
-      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "food-technology-100-rapelli-orior-food-ag-stabio"
+        ]
+      },
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -186,7 +190,6 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.815Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -328,7 +331,6 @@
         "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-05-16T10:50:15.276Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -396,7 +398,6 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.045Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
