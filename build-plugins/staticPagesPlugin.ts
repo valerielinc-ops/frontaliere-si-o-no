@@ -711,6 +711,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
    { href: '/cerca-lavoro-ticino/settori/', label: 'Settori Ticino' },
    { href: '/articoli-frontaliere/tutti/', label: 'Articoli frontaliere' },
+   { href: '/articoli-svizzera/tutti/', label: 'Articoli Svizzera' },
    { href: '/premi-cassa-malati/', label: 'Premi LAMal' },
    { href: '/compara-servizi/', label: 'Comparatori' },
  ] : locale === 'en' ? [
@@ -718,18 +719,21 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/en/find-jobs-ticino/companies/', label: 'Ticino companies' },
    { href: '/en/find-jobs-ticino/sectors/', label: 'Ticino sectors' },
    { href: '/en/cross-border-articles/all/', label: 'Cross-border articles' },
+   { href: '/en/swiss-articles/all/', label: 'Swiss articles' },
    { href: '/en/health-insurance-premiums/', label: 'LAMal premiums' },
  ] : locale === 'de' ? [
    { href: '/de/firmen-die-einstellen/alle/', label: 'Einstellende Firmen' },
    { href: '/de/jobs-im-tessin/firmen/', label: 'Tessin Firmen' },
    { href: '/de/jobs-im-tessin/branchen/', label: 'Tessin Branchen' },
    { href: '/de/grenzgaenger-artikel/alle/', label: 'Grenzgänger-Artikel' },
+   { href: '/de/schweiz-artikel/alle/', label: 'Schweiz-Artikel' },
    { href: '/de/krankenkassenpraemien/', label: 'KVG-Prämien' },
  ] : [
    { href: '/fr/entreprises-qui-recrutent/toutes/', label: 'Entreprises qui recrutent' },
    { href: '/fr/trouver-emploi-tessin/entreprises/', label: 'Entreprises Tessin' },
    { href: '/fr/trouver-emploi-tessin/secteurs/', label: 'Secteurs Tessin' },
    { href: '/fr/articles-frontalier/tous/', label: 'Articles frontaliers' },
+   { href: '/fr/articles-suisse/tous/', label: 'Articles Suisse' },
    { href: '/fr/primes-assurance-maladie/', label: 'Primes LAMal' },
  ];
  const xsPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fff7ed;color:#9a3412;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #fed7aa';
