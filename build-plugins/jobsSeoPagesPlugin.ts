@@ -2286,6 +2286,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  const lt = String(job?.titleByLocale?.[locale] || job.title || '');
  const loc = String(job.location || '').trim();
@@ -2347,6 +2348,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const seen = new Set<string>();
  const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  const description = String(job?.descriptionByLocale?.[locale] || job.description || '');
  if (!description) continue;
@@ -2449,6 +2451,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  })();
 
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
  en: localizedSlug(job, 'en'),
@@ -3524,6 +3527,7 @@ ${staticAnalyticsHtml}
  // Collect unique companies by canonical slug (mirrors runtime grouping)
  const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
  const raw = slugifyCompanyBuild(job.company);
  if (!canonical) continue;
@@ -3575,6 +3579,13 @@ ${staticAnalyticsHtml}
 
  let companyPagesCount = 0;
  for (const [cSlug, { name: companyName, jobs: companyJobs, rawSlugs }] of companyMap) {
+ // Bound the WriteCollector's in-flight background-flush backlog during this
+ // loop — each company emits several large (~50 KB) HTML files and the page
+ // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
+ // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
+ // awaitDrainSlot returns instantly when ≤6 batches are in flight and only
+ // awaits when above, so it self-regulates the peak with negligible cost.
+ await collector.awaitDrainSlot(6);
  // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
  // indexable hub here: their jobs already surface on the canonical umbrella via
  // the BRAND_UMBRELLAS aggregation above, and the alias URL is owned by the
@@ -4135,6 +4146,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
  logBuildMem('jobsSeoPages: after company-landing', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const aliasCount = listAllBrandAliases().length * localeList.length;
  if (aliasCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
@@ -4466,6 +4478,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // editorial loops below (today / nurses / part-time / care-variant).
  const editorialCantonJobCounts = new Map<string, number>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (!c) continue;
  editorialCantonJobCounts.set(c, (editorialCantonJobCounts.get(c) ?? 0) + 1);
@@ -5912,6 +5925,7 @@ ${staticAnalyticsHtml}
  const jobsByCantonCity: Map<string, Map<string, typeof validJobs>> = new Map();
  const cityDisplayByCantonCity: Map<string, Map<string, string>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const canton = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (canton === 'TI') continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
@@ -6178,6 +6192,7 @@ ${staticAnalyticsHtml}
  if (cityHubCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${cityHubCantonPagesCount} per-canton city hub pages`);
  logBuildMem('jobsSeoPages: after city-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  // Append city hub sitemap entries to editorial entries
  const cityHubEntriesJoined = cityHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
@@ -6298,6 +6313,7 @@ ${staticAnalyticsHtml}
  // Group validJobs by resolved canton.
  const jobsByCanton: Map<string, typeof validJobs> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (!jobsByCanton.has(c)) jobsByCanton.set(c, []);
  jobsByCanton.get(c)!.push(job);
@@ -6566,6 +6582,7 @@ ${staticAnalyticsHtml}
  // Group validJobs by (canton, category)
  const cantonCategoryCounts: Map<string, Map<string, typeof validJobs>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const cat = String((job as any).category || '').toLowerCase();
@@ -6733,6 +6750,7 @@ ${staticAnalyticsHtml}
  const cantonSectorBuckets: Map<string, Map<SectorHubKey, typeof validJobs>> = new Map();
  const cantonTotalSec: Map<string, number> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  cantonTotalSec.set(c, (cantonTotalSec.get(c) ?? 0) + 1);
@@ -6900,6 +6918,7 @@ ${staticAnalyticsHtml}
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);
  logBuildMem('jobsSeoPages: after sector-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const sectorHubEntriesJoined = sectorHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${sectorHubEntriesJoined}`
@@ -6934,6 +6953,7 @@ ${staticAnalyticsHtml}
  type CompCanton = { name: string; jobs: typeof validJobs };
  const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const canonical = companyHubSlugBuild(job.company, job.companyKey);
@@ -7121,6 +7141,7 @@ ${staticAnalyticsHtml}
  if (companyCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
  logBuildMem('jobsSeoPages: after company-canton-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCantonEntriesJoined = companyCantonSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCantonEntriesJoined}`
@@ -7148,6 +7169,7 @@ ${staticAnalyticsHtml}
  type CompCityEntry = { name: string; cityDisplay: string; jobs: typeof validJobs };
  const buckets: Map<string, Map<string, Map<string, CompCityEntry>>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const canonical = companyHubSlugBuild(job.company, job.companyKey);
@@ -7329,6 +7351,7 @@ ${staticAnalyticsHtml}
  if (companyCityPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);
  logBuildMem('jobsSeoPages: after company-city-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCityEntriesJoined = companyCitySitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCityEntriesJoined}`
@@ -9258,6 +9281,7 @@ ${staticAnalyticsHtml}
  // should be treated as previous slugs (bridge pages), not as current.
  const implicitPreviousSlugs: { job: typeof validJobs[0]; slug: string }[] = [];
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const itSlug = localizedSlug(job, 'it');
  // Only add job.slug to currentSlugs if it matches the actual IT page slug.
  // When they differ, the old slug needs a bridge page, not exclusion.
@@ -9714,6 +9738,7 @@ ${staticAnalyticsHtml}
  // same IT path, so we must group by IT path to catch them all.
  const bridgeItPaths = new Set<string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const s of _allPrevSlugs(job)) {
  bridgeSlugSet.add(s);
  const itPath = (tracking[s] as any)?.it;
@@ -9752,6 +9777,7 @@ ${staticAnalyticsHtml}
  // Now we exclude only the specific locale paths that actually conflict.
  const bridgeClaimedPaths = new Set<string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const oldSlug of _allPrevSlugs(job)) {
  if (!oldSlug) continue;
  for (const locale of localeList) {
@@ -9835,6 +9861,7 @@ ${staticAnalyticsHtml}
  } catch { /* adapters dir missing */ }
  // Also include companies from active jobs (covers crawlers without adapters)
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const key = String(job.companyKey || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
  if (key && !seenCompanySlugs.has(key)) {
  companySlugMap.push({ slug: key, name: job.company });
@@ -10990,6 +11017,7 @@ ${staticAnalyticsHtml}
  // contract shouldn't depend on that).
  const cantonByKey = new Map<string, string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
  if (pslByLocale && typeof pslByLocale === 'object') {
@@ -11066,6 +11094,7 @@ ${staticAnalyticsHtml}
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -11297,6 +11326,7 @@ ${staticAnalyticsHtml}
  // the base locale's current slug URL. No redirect, no countdown.
  let crossLocaleCount = 0;
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const slugPerLocale: Record<string, string> = {};
  for (const locale of localeList) {
  const s = localizedSlug(job, locale);
