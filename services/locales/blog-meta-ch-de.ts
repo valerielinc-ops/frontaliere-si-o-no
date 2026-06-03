@@ -32,6 +32,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.neutralizzazione-stime-2026-classi-media.title': 'Steuerwerte 2026 stoppen: Schutz für Haus und Mittelklasse',
     'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'Am 14. Juni 2026 wird über die Blockierung der Steuerwerterhöhung abgestimmt. Hier erfahren Sie, was sich für Grenzgänger und Wohneigentümer ändert.',
     'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Abendansicht von Lugano mit beleuchtetem See und Altstadt, Symbol für Stabilität für Grenzgänger',
+    'blog.article.lavoro-estero-guida-frontalieri.title': 'Lavoro all\'estero: guida per frontalieri ticinesi',
+    'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permessi, piattaforme di lavoro e consigli per chi lavora in Svizzera ma cerca opportunità oltre confine. Dalla libertà UE/AELS ai visti extra-UE. 📊💡⚠️',
+    'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Grenzgänger aus dem Tessin prüft internationale Stellenangebote in Lugano mit Seeblick',
 };
 
 export default blogMetaChDe;

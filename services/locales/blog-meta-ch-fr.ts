@@ -32,6 +32,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.neutralizzazione-stime-2026-classi-media.title': '2026 : protéger maison et classes moyennes',
     'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'Le 14 juin 2026, un vote se tiendra pour bloquer l\'augmentation des estimations fiscales. Voici ce qui change pour les frontaliers et les propriétaires.',
     'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Vue nocturne de Lugano avec le lac et la vieille ville éclairés, symbole de stabilité pour les frontaliers',
+    'blog.article.lavoro-estero-guida-frontalieri.title': 'Travail à l\'étranger: guide pratique pour les frontaliers du Tessin',
+    'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Autorisations, plateformes d\'emploi et conseils pour les travailleurs suisses cherchant des opportunités à l\'étranger. De la liberté UE/AELS aux visas hors UE. ⚠️ Lignes directrices essentielles pour les frontaliers.',
+    'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Travailleur frontalier tessinois consultant des offres d\'emploi à l\'étranger à Lugano avec vue sur le lac',
 };
 
 export default blogMetaChFr;

@@ -32,6 +32,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.neutralizzazione-stime-2026-classi-media.title': 'Neutralizzare le stime 2026: tutela per casa e classi media',
     'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'Il 14 giugno 2026 si vota per bloccare l’aumento delle stime fiscali. Ecco cosa cambia per i frontalieri e la casa di proprietà.',
     'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Veduta notturna di Lugano con lago e centro storico illuminati, simbolo di stabilità e radicamento per i frontalieri',
+    'blog.article.lavoro-estero-guida-frontalieri.title': 'Lavoro all’estero: guida pratica per frontalieri ticinesi',
+    'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permessi, piattaforme di ricerca e consigli per chi lavora in Svizzera ma cerca opportunità oltre confine. Dalla libertà UE/AELS ai visti extra-UE.',
+    'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Frontaliere ticinese consulta offerte di lavoro estero a Lugano con vista lago',
 };
 
 export default blogMetaChIt;
