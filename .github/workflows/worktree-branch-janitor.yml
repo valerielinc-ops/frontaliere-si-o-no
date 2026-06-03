@@ -1,0 +1,96 @@
+name: Worktree/branch janitor (remote anomalies)
+
+# Spazza le anomalie di branch REMOTI che NON dovrebbero esistere ma leakano
+# (osservato 2026-06-03: origin/worktree-newsletter-cap-allproviders [PR #1065
+# MERGED] + origin/chore/ci-token-metrics [0-ahead, no-PR] ancora su origin).
+# Con `delete_branch_on_merge: true` un branch merged dovrebbe sparire da solo;
+# se resta è un'anomalia (merge via API/UI che non ha propagato, push diretto
+# senza PR, ecc.). I branch/worktree LOCALI sono fuori dalla portata di un cron
+# (vivono sulla macchina dell'agent) → quelli li gestisce
+# `scripts/prune-merged-worktrees.mjs` nel pre-task-close (vedi AGENTS.md).
+#
+# DETERMINISTICO (zero Claude → zero quota Max, coerente con issue-triage e
+# stale-pr-rescuer). Default DELETE per i casi inequivocabili (PR MERGED|CLOSED,
+# oppure 0-ahead su main = niente di unico); REPORT-only (::warning) per remote
+# con commit ahead e senza PR (può essere lavoro vivo pushato senza PR).
+# protected/default branch e gh-pages: mai toccati.
+
+on:
+  schedule:
+    - cron: '40 3 * * *'  # 1×/giorno, slot tranquillo (best-effort su questo account)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente delete'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write       # delete dei ref remoti
+  pull-requests: read
+
+concurrency:
+  group: worktree-branch-janitor
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Sweep stale remote branches
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          set -uo pipefail
+          KEEP_RE="^(${DEFAULT_BRANCH}|gh-pages|HEAD)$"
+
+          # Stato PR per head ref (MERGED|CLOSED|OPEN), 1 fetch.
+          prs=$(gh pr list --repo "$REPO" --state all --limit 200 \
+            --json number,state,headRefName 2>/dev/null || echo '[]')
+
+          # Branch remoti (no main/gh-pages). Confronto ahead su origin/DEFAULT.
+          git fetch origin "+refs/heads/*:refs/remotes/origin/*" --prune -q 2>/dev/null || true
+
+          gh api --paginate "repos/$REPO/branches?per_page=100" \
+            --jq '.[] | {name: .name, protected: .protected}' 2>/dev/null \
+          | jq -c '.' | while read -r br; do
+            NAME=$(echo "$br" | jq -r '.name')
+            PROT=$(echo "$br" | jq -r '.protected')
+
+            if echo "$NAME" | grep -qE "$KEEP_RE"; then continue; fi
+            if [ "$PROT" = "true" ]; then echo "skip protected $NAME"; continue; fi
+
+            # stato PR più vivo per questo head: OPEN>MERGED>CLOSED.
+            STATE=$(echo "$prs" | jq -r --arg n "$NAME" '
+              [ .[] | select(.headRefName==$n) | .state ]
+              | (if index("OPEN") then "OPEN"
+                 elif index("MERGED") then "MERGED"
+                 elif index("CLOSED") then "CLOSED"
+                 else "NONE" end)')
+
+            if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
+
+            REASON=""
+            if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
+              REASON="PR $STATE (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
+            else
+              AHEAD=$(git rev-list --count "origin/$DEFAULT_BRANCH..origin/$NAME" 2>/dev/null || echo "x")
+              if [ "$AHEAD" = "0" ]; then
+                REASON="0-ahead su $DEFAULT_BRANCH, no-PR (contenuto già su main)"
+              else
+                echo "::warning::origin/$NAME — ahead=$AHEAD, no-PR: possibile lavoro vivo pushato senza PR, REPORT-only (non cancello)"
+                continue
+              fi
+            fi
+
+            echo "::warning::origin/$NAME STALE — $REASON → delete"
+            if [ "${DRY_RUN:-false}" = "true" ]; then echo "(dry-run) skip delete $NAME"; continue; fi
+            git push origin --delete "$NAME" 2>/dev/null \
+              && echo "deleted origin/$NAME" \
+              || echo "delete fallito $NAME (forse già rimosso)"
+          done
+          echo "Sweep completo."

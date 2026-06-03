@@ -1,0 +1,172 @@
+#!/usr/bin/env node
+// Sweep dei worktree/branch LOCALI accumulati. Dry-run di default; --apply per agire.
+//
+// Perché esiste (AGENTS.md → "Leak locale di worktree/branch", 2026-06-03): il cleanup
+// ancorato all'evento-merge nel turn dell'agent lascia 3 buchi che fanno accumulare
+// worktree e branch locali finché qualcuno non li nota (osservati 33 orfani):
+//   a) EnterWorktree auto-rimuove la dir worktree se unchanged ma LASCIA il branch
+//      `worktree-agent-<id>` (0-ahead) orfano — nessuno lo cancella.
+//   b) Squash-merge: GitHub auto-cancella il remoto (delete_branch_on_merge) ma il
+//      branch LOCALE resta e `git branch --merged` lo vede unmerged (lo squash riscrive)
+//      → non viene mai potato.
+//   c) Sessione morta/timeout: l'agent non raggiunge mai il pre-task-close.
+//
+// Decisioni (conservative — il dubbio = keep, mai distruggere lavoro non in PR):
+//   • worktree con PR head MERGED|CLOSED  → remove worktree + delete branch
+//   • worktree detached / branch fantasma → remove worktree (no branch da toccare)
+//   • branch `worktree-agent-*` 0-ahead   → delete (orfano EnterWorktree)
+//   • branch locale (no worktree) con PR MERGED|CLOSED → delete
+//   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo)
+//   • branch con PR OPEN o worktree del repo principale (main) → KEEP, mai toccato
+//
+// Uso:
+//   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
+//   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
+//
+// Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh → degrada a
+// solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
+
+import { execSync } from 'node:child_process';
+
+const APPLY = process.argv.includes('--apply');
+
+function sh(cmd, { allowFail = false } = {}) {
+  try {
+    return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch (e) {
+    if (allowFail) return '';
+    throw e;
+  }
+}
+
+const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', { allowFail: true })
+  .replace(/^origin\//, '') || 'main';
+
+// Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md): il
+// checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:
+// `git rev-parse --show-toplevel` da dentro un worktree dà il path del worktree
+// stesso, non del repo principale → non si può identificare main per uguaglianza.
+const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
+
+let ghOk = true;
+sh('gh auth status', { allowFail: true }) || (ghOk = false);
+if (sh('gh --version', { allowFail: true }) === '') ghOk = false;
+
+// Mappa branch → stato PR (MERGED|CLOSED|OPEN). gh in 1 colpo, poi lookup.
+const prState = new Map();
+if (ghOk) {
+  const raw = sh(
+    `gh pr list --state all --limit 200 --json number,state,headRefName`,
+    { allowFail: true },
+  );
+  if (raw) {
+    for (const pr of JSON.parse(raw)) {
+      // tieni lo stato "più vivo": OPEN vince su tutto, poi MERGED, poi CLOSED.
+      const prev = prState.get(pr.headRefName);
+      const rank = (s) => ({ OPEN: 3, MERGED: 2, CLOSED: 1 }[s] ?? 0);
+      if (!prev || rank(pr.state) > rank(prev)) prState.set(pr.headRefName, pr.state);
+    }
+  } else {
+    ghOk = false;
+  }
+}
+
+function aheadOfMain(ref) {
+  const n = sh(`git rev-list --count origin/${mainBranch}..${ref}`, { allowFail: true });
+  return Number.parseInt(n || '0', 10) || 0;
+}
+
+// --- 1. WORKTREES -----------------------------------------------------------
+const wtPorcelain = sh('git worktree list --porcelain');
+const worktrees = [];
+let cur = null;
+for (const line of wtPorcelain.split('\n')) {
+  if (line.startsWith('worktree ')) {
+    cur = { path: line.slice('worktree '.length), branch: null, detached: false };
+    worktrees.push(cur);
+  } else if (line.startsWith('branch ')) {
+    cur.branch = line.slice('branch refs/heads/'.length);
+  } else if (line === 'detached') {
+    cur.detached = true;
+  }
+}
+
+const removeWt = []; // {path, branch}
+const reportWt = []; // {path, branch, reason}
+for (const wt of worktrees) {
+  if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees → mai toccare (incl. main checkout)
+  if (wt.branch === mainBranch) continue;    // doppia guardia: mai il branch default
+  const dirty = sh(`git -C "${wt.path}" status --porcelain`, { allowFail: true }).length > 0;
+  const state = wt.branch ? prState.get(wt.branch) : undefined;
+  if (state === 'OPEN') continue; // PR aperta → lavoro vivo
+  if (state === 'MERGED' || state === 'CLOSED') {
+    if (dirty) { reportWt.push({ ...wt, reason: `PR ${state} ma worktree DIRTY — ispeziona a mano` }); continue; }
+    removeWt.push(wt);
+  } else if (wt.detached) {
+    reportWt.push({ ...wt, reason: 'detached HEAD, nessuna PR — probabile abbandono (rimuovi a mano se confermi)' });
+  } else {
+    // Worktree senza PR: NON auto-rimuovere mai. Un worktree clean+0-ahead è
+    // indistinguibile da un agent che ha appena fatto EnterWorktree e non ha
+    // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
+    const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
+    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead} no-PR — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
+  }
+}
+
+// --- 2. BRANCH LOCALI senza worktree ----------------------------------------
+const wtBranches = new Set(worktrees.map((w) => w.branch).filter(Boolean));
+const allLocal = sh("git for-each-ref --format='%(refname:short)' refs/heads")
+  .split('\n').filter(Boolean);
+
+const delBranch = []; // name
+const reportBranch = []; // {name, reason}
+for (const b of allLocal) {
+  if (b === mainBranch) continue;
+  if (wtBranches.has(b)) continue; // gestito sopra come worktree
+  const state = prState.get(b);
+  if (state === 'OPEN') continue;
+  if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
+  if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
+  const ahead = aheadOfMain(b);
+  if (ahead === 0) delBranch.push(b); // contenuto già su main
+  else reportBranch.push({ name: b, reason: `ahead=${ahead} no-PR — possibile lavoro non in PR, REPORT-ONLY` });
+}
+
+// --- OUTPUT + APPLY ---------------------------------------------------------
+const plural = (n, s) => `${n} ${s}${n === 1 ? '' : (s.endsWith('h') ? 'es' : 'es')}`;
+console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo worktree-agent-*+0-ahead)'} | mode=${APPLY ? 'APPLY' : 'dry-run'}`);
+console.log('');
+
+console.log(`worktree da rimuovere (${removeWt.length}):`);
+removeWt.forEach((w) => console.log(`  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}`));
+console.log(`branch locali da cancellare (${delBranch.length}):`);
+delBranch.forEach((b) => console.log(`  - ${b}`));
+
+if (reportWt.length || reportBranch.length) {
+  console.log('');
+  console.log('⚠️  REPORT-ONLY (non toccati — decidi a mano):');
+  reportWt.forEach((w) => console.log(`  • worktree ${w.path}${w.branch ? ` [${w.branch}]` : ''} → ${w.reason}`));
+  reportBranch.forEach((b) => console.log(`  • branch ${b.name} → ${b.reason}`));
+}
+
+if (!APPLY) {
+  console.log('');
+  console.log('dry-run: niente rimosso. Ri-esegui con --apply per applicare.');
+  process.exit(0);
+}
+
+let done = 0;
+for (const w of removeWt) {
+  sh(`git worktree remove --force "${w.path}"`, { allowFail: true });
+  if (w.branch) sh(`git branch -D ${w.branch}`, { allowFail: true });
+  done++;
+  console.log(`removed worktree ${w.path}`);
+}
+for (const b of delBranch) {
+  sh(`git branch -D ${b}`, { allowFail: true });
+  done++;
+  console.log(`deleted branch ${b}`);
+}
+sh('git worktree prune', { allowFail: true });
+console.log('');
+console.log(`✓ applicate ${done} rimozioni. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);
