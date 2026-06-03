@@ -136,10 +136,13 @@ async function fetchBoardListings() {
   console.log('🔍 Fetching Board jobs from careers page...');
   const MAX_PAGES = 100000; // uncapped — loop breaks when there is no next page URL
   const allDiscovered = [];
+  const seenPageUrls = new Set(); // cycle guard: a ciclic paginator (A→B→A) would otherwise spin to MAX_PAGES
   let pageUrl = CAREERS_URL;
   let page = 1;
 
   while (pageUrl && page <= MAX_PAGES) {
+    if (seenPageUrls.has(pageUrl)) break; // already visited → cyclic paginator, stop
+    seenPageUrls.add(pageUrl);
     console.log(`📄 Fetching page ${page}: ${pageUrl}`);
     const html = await fetchText(pageUrl);
     const discovered = parseBoardListings(html);
@@ -148,7 +151,7 @@ async function fetchBoardListings() {
 
     // Check for next page
     const nextUrl = extractNextPageUrl(html, pageUrl);
-    if (nextUrl && nextUrl !== pageUrl) {
+    if (nextUrl && !seenPageUrls.has(nextUrl)) {
       pageUrl = nextUrl;
       page++;
     } else {

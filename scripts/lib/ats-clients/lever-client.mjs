@@ -56,7 +56,7 @@ const LEVER_API_BASE = 'https://api.lever.co/v0/postings';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
 const PAGE_SIZE = 100;
-const DEFAULT_MAX_PAGES = 5;
+const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on batch.length<PAGE_SIZE
 
 /* ── Error class ─────────────────────────────────────────────── */
 

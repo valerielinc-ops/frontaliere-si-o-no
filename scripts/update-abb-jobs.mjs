@@ -273,7 +273,7 @@ async function fetchAbbJobDetailUrls() {
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-  const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 10));
+  const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 100000)); // uncapped — loop breaks on offset>=totalHits / empty page
 
   console.log('🔍 Fetching ABB jobs from careers.abb search-results...');
   console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);

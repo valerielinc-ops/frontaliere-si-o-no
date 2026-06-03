@@ -196,7 +196,7 @@ async function fetchJobListings() {
   try {
     for await (const posting of fetchWorkdayJobs(apiBase, {
       locationFilters: WORKDAY_LOCATION_FILTERS,
-      maxPages: 20,
+      maxPages: 100000,
     })) {
       const id = extractWorkdayJobIdentity(posting, { apiBase, company: LOGITECH_COMPANY_NAME });
       const locationText = id.location || posting.locationsText || '';

@@ -136,7 +136,7 @@ async function fetchJobListings() {
   try {
     for await (const posting of fetchSuccessFactorsJobs(SUCCESSFACTORS_SEARCH_URL, {
       company: NESTLE_COMPANY_NAME,
-      maxPages: 10,
+      maxPages: 100000,
       minDelayMs: 750,
     })) {
       out.push({
