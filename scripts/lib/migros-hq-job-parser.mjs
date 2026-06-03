@@ -236,7 +236,7 @@ export async function fetchAllMigrosHqJobs() {
       detailConcurrency: SR_DETAIL_CONCURRENCY,
       // Listing pagination: original used no inter-page delay; keep parity.
       minDelayMs: 0,
-      maxPages: 50,
+      maxPages: 100000,
       timeoutMs: SR_FETCH_TIMEOUT_MS,
       // Original UA distinguished crawler version; preserve verbatim.
       userAgent: 'FrontaliereTicino-JobCrawler/2.0',

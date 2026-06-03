@@ -61,7 +61,7 @@ export class WorkdayAuthError extends WorkdayApiError {
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
 const DEFAULT_PAGE_SIZE = 20;
-const DEFAULT_MAX_PAGES = 10;
+const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on yielded>=total / partial page
 const DEFAULT_MIN_DELAY_MS = 2000;
 const DEFAULT_TIMEOUT_MS = 20000;
 

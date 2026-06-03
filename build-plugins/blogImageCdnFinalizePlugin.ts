@@ -7,8 +7,9 @@
 //    (`/images/blog/<file>.webp`, origin-absolute or site-relative) to its
 //    jsDelivr CDN URL, across dist HTML/XML/TXT. The 480w thumbnails under
 //    `/images/blog/thumbnails/` are NOT touched — they stay same-origin.
-// 2. GUARD: re-scan; if any full-blog reference survives, throw (fails CI)
-//    rather than ship a 404 after the directory is deleted.
+// 2. GUARD: re-scan; if any full-blog reference survives, ABORT the offload
+//    (keep the images in dist) rather than delete — never ship a 404, never
+//    break the deploy. Non-fatal: worst case the artifact is unchanged.
 // 3. Delete the full blog images from dist/images/blog (keep thumbnails/).
 //
 // SPA runtime <img> references come from data/blog-articles-data.ts, whose
@@ -76,16 +77,22 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         }
       });
 
-      // Guard — nothing full-blog (non-thumbnail, non-CDN) may remain.
+      // Guard — nothing full-blog (non-thumbnail, non-CDN) may remain. If any
+      // does, ABORT the offload (keep the images in dist) rather than throw:
+      // a missed reference must never break the deploy. Worst case the artifact
+      // ships the blog images as before (no reduction) — never a 404 or a
+      // failed build. Logged loudly so the gap is visible in the build log.
       const leaks: string[] = [];
       walk(distDir, (fp) => {
         if (reLeak.test(fs.readFileSync(fp, 'utf8'))) leaks.push(path.relative(distDir, fp));
       });
       if (leaks.length > 0) {
-        throw new Error(
-          `[blog-image-cdn] ${leaks.length} file(s) still reference full /images/blog images after CDN rewrite ` +
-            `(would 404 once the directory is offloaded): ${leaks.slice(0, 8).join(', ')}${leaks.length > 8 ? ' …' : ''}`,
+        console.warn(
+          `[blog-image-cdn] ${leaks.length} file(s) still reference full /images/blog images after CDN ` +
+            `rewrite — ABORTING offload, images kept in dist (no 404, no reduction): ` +
+            `${leaks.slice(0, 8).join(', ')}${leaks.length > 8 ? ' …' : ''}`,
         );
+        return;
       }
 
       // Delete full images; keep the thumbnails/ subdirectory (served local).

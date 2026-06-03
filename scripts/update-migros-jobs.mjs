@@ -140,7 +140,10 @@ async function fetchMigrosJobDetailUrls() {
   const headless = process.env.JOBS_MIGROS_HEADLESS !== '0';
   const navTimeoutMs = Number(process.env.JOBS_MIGROS_NAV_TIMEOUT_MS) || 30000;
   const paginationTimeoutMs = Number(process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS) || 2000;
-  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 25;
+  // Uncapped: the loop below already terminates naturally when a page adds no
+  // new URLs or the "next" button disappears, so this only guards against a
+  // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
+  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 1000;
 
   const browser = await chromium.launch({
     headless,

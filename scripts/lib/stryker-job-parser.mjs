@@ -135,7 +135,7 @@ async function fetchJobListings() {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // Workday tenant uses 'Location_Country' rather than 'locationCountry'.
       appliedFacets: { Location_Country: SWISS_LOCATION_IDS },
-      maxPages: 5,
+      maxPages: 100000,
     })) {
       const id = extractWorkdayJobIdentity(posting, {
         apiBase: WORKDAY_API_BASE,

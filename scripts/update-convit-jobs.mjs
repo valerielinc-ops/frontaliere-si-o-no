@@ -63,7 +63,7 @@ const CAREERS_URL = 'https://www.careers-page.com/convit-holding-gmbh';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.CONVIT_MAX_DETAIL_PAGES) || 60;
+const MAX_DETAIL_PAGES = Number(process.env.CONVIT_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 800;
 
 function readJson(filePath, fallback) {

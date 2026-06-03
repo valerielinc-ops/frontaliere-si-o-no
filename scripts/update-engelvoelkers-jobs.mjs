@@ -65,7 +65,7 @@ const CAREERS_URL = 'https://www.engelvoelkers.com/ch/it/azienda/carriera/offert
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
-const MAX_DETAIL_PAGES = Number(process.env.ENGELVOELKERS_MAX_DETAIL_PAGES) || 30;
+const MAX_DETAIL_PAGES = Number(process.env.ENGELVOELKERS_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1200;
 
 function readJson(filePath, fallback) {

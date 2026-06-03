@@ -229,6 +229,20 @@ export interface FuelIndexInputs {
    * MIMIT-Gasolio coverage lands). Absent ⇒ benzina-only (legacy behaviour).
    */
   readonly italianStationsByFuel?: Partial<Record<FuelType, readonly ItalianStationLeaf[]>>;
+  /**
+   * Full Italian-city entry list (curated + every municipality with priced
+   * stations) used for the cities-by-zone index. Absent ⇒ falls back to the
+   * curated FUEL_ITALIAN_CITIES (legacy behaviour).
+   */
+  readonly italianCities?: readonly ItalianCityEntry[];
+  /**
+   * Canonical paths the build ACTUALLY wrote (post word-gate). When provided,
+   * the index emits an anchor only if its href is in this set, so a city-hub /
+   * station page skipped for thin content is never linked from the crawlable,
+   * sitemap'd index → no broken internal links / soft-404s. Absent ⇒ no gating
+   * (legacy / unit-test behaviour).
+   */
+  readonly emittedPaths?: ReadonlySet<string>;
 }
 
 /**
@@ -1015,13 +1029,18 @@ function groupSwissByZone(stations: readonly SwissStationLeaf[]): Map<FuelZone, 
   return out;
 }
 
-/** Group Italian-station leaves by city slug, in FUEL_ITALIAN_CITIES order. */
+/**
+ * Group Italian-station leaves by city slug. Leaf-driven (covers every
+ * municipality present in the leaves, not just the curated list), cities
+ * ordered alphabetically by display name for a stable index.
+ */
 function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string, ItalianStationLeaf[]> {
   const out = new Map<string, ItalianStationLeaf[]>();
-  for (const c of FUEL_ITALIAN_CITIES) out.set(c.slug, []);
+  const displayBySlug = new Map<string, string>();
   for (const s of stations) {
-    const list = out.get(s.citySlug);
-    if (list) list.push(s);
+    if (!out.has(s.citySlug)) out.set(s.citySlug, []);
+    out.get(s.citySlug)!.push(s);
+    displayBySlug.set(s.citySlug, s.cityDisplay);
   }
   for (const list of out.values()) {
     list.sort((a, b) => {
@@ -1030,7 +1049,11 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
       return (a.address || '').localeCompare(b.address || '');
     });
   }
-  return out;
+  return new Map(
+    [...out.entries()].sort((a, b) =>
+      (displayBySlug.get(a[0]) || a[0]).localeCompare(displayBySlug.get(b[0]) || b[0]),
+    ),
+  );
 }
 
 /**
@@ -1040,6 +1063,9 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
  */
 export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, string> {
   const { swissStations, italianStations, italianStationsByFuel, today, distDir, rootDir } = inp;
+  const italianCities = inp.italianCities ?? FUEL_ITALIAN_CITIES;
+  // Anchor gate: link only pages the build actually emitted (post word-gate).
+  const isEmitted = (href: string): boolean => !inp.emittedPaths || inp.emittedPaths.has(href);
   const out: Record<string, string> = {};
 
   const swissByZone = groupSwissByZone(swissStations);
@@ -1097,17 +1123,21 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
         for (const zone of FUEL_ZONES) {
           const list = swissByZone.get(zone) ?? [];
           if (list.length === 0) continue;
-          groups.push({
-            heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[zone]),
-            slug: zone,
-            zoneKey: zone,
-            anchors: list.map((s) => ({
+          const anchors = list
+            .map((s) => ({
               href: buildFuelStationPath(locale, fuel, zone, s.slug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
               subtitle: s.address,
               logoUrl: resolveStationLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
-            })),
+            }))
+            .filter((a) => isEmitted(a.href));
+          if (anchors.length === 0) continue;
+          groups.push({
+            heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[zone]),
+            slug: zone,
+            zoneKey: zone,
+            anchors,
           });
         }
         const canonicalPath = buildFuelIndexPath(locale, fuel, 'swissStations');
@@ -1131,22 +1161,33 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
         // (the city-zone mapping is geographic, not arbitrary).
         const byZone = new Map<FuelZone, ItalianCityEntry[]>();
         for (const z of FUEL_ZONES) byZone.set(z, []);
-        for (const c of FUEL_ITALIAN_CITIES) {
+        // Leaf-driven (same as the swiss-stations and italian-stations indexes):
+        // only link a city-hub that actually has an emitted station leaf for THIS
+        // fuel. Iterating the raw entry list would link diesel hubs that don't
+        // exist (most comuni have no diesel-priced station) and any hub the
+        // word-gate skipped → indexed 404s on a crawlable sitemap page.
+        for (const c of italianCities) {
+          if (!italianByCity.has(c.slug)) continue;
           const arr = byZone.get(c.nearestZone);
           if (arr) arr.push(c);
         }
+        for (const arr of byZone.values()) arr.sort((a, b) => a.display.localeCompare(b.display));
         for (const z of FUEL_ZONES) {
           const cities = byZone.get(z) ?? [];
           if (cities.length === 0) continue;
+          const anchors = cities
+            .map((c) => ({
+              href: buildFuelItalianCityPath(locale, fuel, c.slug),
+              label: c.display,
+              subtitle: `${c.province} · ${FUEL_ZONE_DISPLAY[z]}`,
+            }))
+            .filter((a) => isEmitted(a.href));
+          if (anchors.length === 0) continue;
           cityGroups.push({
             heading: copy.groupHeadingNearZone(FUEL_ZONE_DISPLAY[z]),
             slug: z,
             zoneKey: z,
-            anchors: cities.map((c) => ({
-              href: buildFuelItalianCityPath(locale, fuel, c.slug),
-              label: c.display,
-              subtitle: `${c.province} · ${FUEL_ZONE_DISPLAY[z]}`,
-            })),
+            anchors,
           });
         }
         const canonicalPath = buildFuelIndexPath(locale, fuel, 'italianCities');
@@ -1166,19 +1207,23 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
       // ── Italian-stations index (per-fuel, when coverage exists) ─
       if (hasItalianStationIndex) {
         const groups: GroupedAnchors[] = [];
-        for (const c of FUEL_ITALIAN_CITIES) {
-          const list = italianByCity.get(c.slug) ?? [];
+        for (const [citySlug, list] of italianByCity) {
           if (list.length === 0) continue;
-          groups.push({
-            heading: copy.groupHeadingByCity(c.display),
-            slug: c.slug,
-            anchors: list.map((s) => ({
+          const cityDisplay = list[0]?.cityDisplay ?? citySlug;
+          const anchors = list
+            .map((s) => ({
               href: buildFuelItalianStationPath(locale, fuel, s.citySlug, s.stationSlug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
-              subtitle: s.address || c.display,
+              subtitle: s.address || cityDisplay,
               logoUrl: resolveStationLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
-            })),
+            }))
+            .filter((a) => isEmitted(a.href));
+          if (anchors.length === 0) continue;
+          groups.push({
+            heading: copy.groupHeadingByCity(cityDisplay),
+            slug: citySlug,
+            anchors,
           });
         }
         const canonicalPath = buildFuelIndexPath(locale, fuel, 'italianStations');

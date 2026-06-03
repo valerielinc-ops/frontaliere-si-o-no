@@ -1699,3 +1699,35 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
   .cl-fun details > summary,
   .cl-fun details > summary::after { transition: none; }
 }
+
+/*
+ * Related-search cluster crawler body (build-plugins/relatedSearchClustersPlugin.ts).
+ *
+ * The plugin emits `<div class="related-search-cluster">` (H1 + ~9 KB unique
+ * AI intro + cross-link graph + cross-canton job links) as the page body. It
+ * is 100% crawler-only: the hydrated SPA renders all visible chrome inside
+ * `#root`, so this static layer MUST be off-screen for sighted users while
+ * staying in the DOM for crawlers + screen readers (Googlebot indexes
+ * off-screen content with the same weight as standard accordion content).
+ *
+ * The recipe used to live inline on `style=` in the plugin; it was moved here
+ * to save ~24 MB across ~180k cluster pages (the plugin comment at
+ * relatedSearchClustersPlugin.ts:1561 documents this), but the rule went
+ * missing from this file in the move — so the block rendered fully visible
+ * in normal flow, duplicating the SPA's job listing below it. This is the
+ * standard visually-hidden recipe; restoring it puts the block back off-screen
+ * without dropping the SEO payload. Only relatedSearchClustersPlugin emits
+ * this class, so the rule is safely scoped.
+ */
+.related-search-cluster {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

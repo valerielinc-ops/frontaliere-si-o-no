@@ -449,6 +449,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-hantavirus-ginevra-identificazione': {
+    title: 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
+    description: 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, identificato, hantavirus, implicazioni',
+    ogTitle: 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
+    ogDescription: 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
+    canonicalPath: '/articoli-svizzera/hantavirus-ginevra-identificazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Come Ginevra ha identificato l'hantavirus: implicazioni per i frontalieri",
+      "description": "L'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/hantavirus-ginevra-identificazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale universitario di Ginevra con laboratorio moderno"
+      },
+      "datePublished": "2026-06-03T05:25:04+00:00",
+      "dateModified": "2026-06-03T05:25:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hantavirus-ginevra-identificazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

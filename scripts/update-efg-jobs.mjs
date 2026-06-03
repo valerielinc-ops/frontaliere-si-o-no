@@ -45,7 +45,7 @@ const ORACLE_BASE = 'https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com';
 const SITE_NUMBER = 'CX_1001';
 const LOCATION_ID_CH = '300000000425282'; // Switzerland
 const ITEMS_PER_PAGE = 25;
-const MAX_PAGES = 20; // safety cap (25 * 20 = 500 jobs max)
+const MAX_PAGES = 100000; // uncapped — loop breaks naturally on empty API page (line ~280)
 
 const EFG_COMPANY_NAME = 'EFG International AG';
 const EFG_COMPANY_HOST = 'fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com';
@@ -626,8 +626,8 @@ function runBaseCrawler({ localizeExistingOnly = false } = {}) {
     disableWorkdayForce: true,
     localizeExistingOnly,
     extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: '400',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '400',
+      JOBS_CRAWLER_MAX_JOB_LINKS: '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000',
     },
   });
 }

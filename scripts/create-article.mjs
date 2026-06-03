@@ -1392,6 +1392,70 @@ if (!IS_FRONTALIERE) {
   console.error(`📦 Sezione attiva: ${SECTION_NAME} (${SECTION.label}) — hub /${SECTION.hubSlug.it}/`);
 }
 
+// ── Section-aware headline-selection editor prompt ──────────────
+// Frontaliere branch = byte-identical to the historical prompt (drives ~95%
+// revenue). Svizzera branch reframes the selection criteria around NATIONAL
+// Swiss relevance (federal/cantonal policy, economy, fisco, lavoro, vita, casa)
+// for a general Swiss-resident audience — NOT a frontaliere/Ticino angle.
+function HEADLINE_SELECTION_PROMPT(headlineList, recentArticles) {
+  return IS_FRONTALIERE
+    ? `Sei un editor del sito Frontaliere Ticino (frontaliereticino.ch).
+Devi scegliere UN articolo da queste headline di notizie ticinesi per scrivere un pezzo per i frontalieri.
+
+HEADLINE DISPONIBILI:
+${headlineList}
+
+ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
+${recentArticles}
+
+CRITERI DI SELEZIONE (in ordine di priorità):
+1. ⭐ PRIORITÀ ASSOLUTA: Se ci sono headline marcate con ⭐FRONTALIERI, scegli TRA QUELLE — sono notizie che menzionano esplicitamente frontalieri, permessi, accordi fiscali, dogane o lavoro transfrontaliero
+2. RILEVANZA FRONTALIERI: Priorità a notizie su lavoro transfrontaliero, fisco, permessi, stipendi, accordi CH-IT, economia ticinese, mercato del lavoro, trasporti transfrontalieri
+2.1 CLUSTER SEO PRIORITARI: favorisci headline che possono intercettare query ad alta intenzione su:
+   - calcolo tasse frontalieri entro/oltre 20km
+   - pensione frontaliere (AVS/INPS, pilastri)
+   - cambio CHF EUR e ottimizzazione conversione
+3. NOVITÀ: Preferisci notizie recenti e con impatto concreto (nuove leggi, dati, statistiche)
+4. ⚠️ NO DUPLICATI (CRITICO): Non scegliere MAI un tema già coperto. Se la headline tratta lo stesso argomento/dati/statistiche di un articolo esistente (anche con un angolo diverso), SCARTALA. Due articoli sugli stessi dati UST/SECO/BFS sono duplicati anche se il titolo è diverso.
+5. NO CRONACA NERA: Evita incidenti, crimini, disastri naturali
+6. NO SPORT: Evita risultati sportivi, partite, campionati
+7. SPECIFICITÀ TICINO: La notizia deve riguardare il Canton Ticino o la regione di confine
+
+Rispondi con un JSON object (no markdown, no code fences):
+{
+  "selectedIndex": <numero dell'headline scelta>,
+  "reason": "<perché questa notizia è rilevante per i frontalieri, max 2 frasi>"
+}`
+    : `Sei un editor di un sito di informazione svizzera a livello NAZIONALE (frontaliereticino.ch, sezione Svizzera).
+Devi scegliere UN articolo da queste headline di notizie per scrivere un pezzo di interesse nazionale per chi vive o lavora in Svizzera.
+
+HEADLINE DISPONIBILI:
+${headlineList}
+
+ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
+${recentArticles}
+
+CRITERI DI SELEZIONE (in ordine di priorità):
+1. RILEVANZA NAZIONALE: Priorità a notizie che riguardano chi vive o lavora in Svizzera nel suo complesso — politica federale e cantonale, economia, fisco (imposta federale diretta, IVA, fiscalità cantonale), mercato del lavoro, costo della vita, casa/affitti, previdenza (AVS/AHV, LPP/BVG), salute (LAMal/KVG)
+1.1 CLUSTER SEO PRIORITARI: favorisci headline che possono intercettare query ad alta intenzione su:
+   - costo della vita e inflazione in Svizzera
+   - imposte e dichiarazione fiscale (federale/cantonale)
+   - previdenza AVS/LPP e pensioni
+   - salario minimo, affitti, premi cassa malati
+2. NOVITÀ: Preferisci notizie recenti e con impatto concreto (nuove leggi, decisioni del Consiglio federale o cantonali, dati UST/BFS, SECO, BNS/SNB)
+3. ⚠️ NO DUPLICATI (CRITICO): Non scegliere MAI un tema già coperto. Se la headline tratta lo stesso argomento/dati/statistiche di un articolo esistente (anche con un angolo diverso), SCARTALA. Due articoli sugli stessi dati UST/SECO/BFS sono duplicati anche se il titolo è diverso.
+4. NO CRONACA NERA: Evita incidenti, crimini, disastri naturali
+5. NO SPORT: Evita risultati sportivi, partite, campionati
+6. NO INTRATTENIMENTO: Evita gossip, spettacolo, celebrità senza rilevanza politico-economica
+7. RESPIRO NAZIONALE: La notizia può riguardare qualsiasi cantone o le istituzioni federali; non limitarti al Ticino.
+
+Rispondi con un JSON object (no markdown, no code fences):
+{
+  "selectedIndex": <numero dell'headline scelta>,
+  "reason": "<perché questa notizia è di interesse nazionale per chi vive o lavora in Svizzera, max 2 frasi>"
+}`;
+}
+
 // ── Section-aware registry/meta paths + readers ──────────────────
 // Duplicate-detection and registry helpers must read the ACTIVE section's
 // files so svizzera dedups against SWISS_ARTICLES, never against frontaliere.
@@ -2259,7 +2323,9 @@ async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
 
   const isEvergreen = !sourceContent || sourceContent.length < 100 || sourceUrl.startsWith('evergreen://') || sourceUrl.startsWith('stats-bfs://');
 
-  const prompt = `Sei un fact-checker senior specializzato in diritto fiscale svizzero e italiano, con focus specifico su frontalieri e Canton Ticino.
+  const prompt = `${IS_FRONTALIERE
+    ? 'Sei un fact-checker senior specializzato in diritto fiscale svizzero e italiano, con focus specifico su frontalieri e Canton Ticino.'
+    : 'Sei un fact-checker senior specializzato in affari svizzeri a livello nazionale (economia, fiscalità federale e cantonale, mercato del lavoro, diritto), per un pubblico di residenti in Svizzera.'}
 
 ARTICOLO DA VERIFICARE:
 """
@@ -2311,13 +2377,19 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
    - Ministri o funzionari con nomi plausibili ma non verificabili
    - Accordi/protocolli bilaterali mai firmati (controllare attentamente)
 
-11. **RILEVANZA TOPICA AL FRONTALIERE TICINO-ITALIA (CRITICO)**: L'articolo deve avere un nesso REALE, SPECIFICO e VERIFICABILE con la vita del frontaliere Ticino-Italia. Sono nessi reali: norme/sentenze su Permesso G o B, fiscalità CH-IT (imposta alla fonte, nuovo accordo, ristorni, doppia imposizione), AVS/LPP/LAMal/CMI, busta paga svizzera, dogane/valichi (Chiasso, Brogeda, Gaggiolo, Ponte Tresa), pendolarismo CH-IT, mercato del lavoro ticinese, telelavoro frontaliere, salari ticinesi, accordi bilaterali CH-IT/UE, autostrade A2/A9 svizzere, banche e cambio CHF-EUR per frontalieri.
+${IS_FRONTALIERE ? `11. **RILEVANZA TOPICA AL FRONTALIERE TICINO-ITALIA (CRITICO)**: L'articolo deve avere un nesso REALE, SPECIFICO e VERIFICABILE con la vita del frontaliere Ticino-Italia. Sono nessi reali: norme/sentenze su Permesso G o B, fiscalità CH-IT (imposta alla fonte, nuovo accordo, ristorni, doppia imposizione), AVS/LPP/LAMal/CMI, busta paga svizzera, dogane/valichi (Chiasso, Brogeda, Gaggiolo, Ponte Tresa), pendolarismo CH-IT, mercato del lavoro ticinese, telelavoro frontaliere, salari ticinesi, accordi bilaterali CH-IT/UE, autostrade A2/A9 svizzere, banche e cambio CHF-EUR per frontalieri.
 
    ${isEvergreen ? '' : 'NON sono nessi reali (segnala "critical" come "rilevanza_topica"): cronaca nera italiana o estera senza nesso lavoro CH (es. arresti per omicidio comune, eventi USA, criminalità urbana italiana), eventi sportivi, gossip, cultura locale non-frontaliera, infrastruttura italiana lontana dal confine (es. eventi a Roma/Napoli/Palermo), eventi a Malpensa SENZA impatto sui voli o trasporti frontalieri.'}
 
    SEGNALE D'ALLARME (= "critical: rilevanza_topica"): paragrafi con titoli del tipo "Implicazioni per i frontalieri", "I frontalieri devono essere consapevoli di…", "Cosa significa per i frontalieri", su un evento SENZA implicazione concreta. Sezioni di consigli generici ("consulta un avvocato", "verifica la copertura assicurativa", "informati sui tuoi diritti") inserite per riempire spazio su un argomento non-frontaliere sono indicatori di forzatura.
 
-   ${isEvergreen ? '' : "Se l'articolo è un commento generico (procedure di estradizione generiche, consigli legali universali, considerazioni assicurative generiche) attaccato a una notizia di cronaca che NON menziona frontalieri/permesso G/AVS/LAMal/dogana/ecc. nella fonte originale, il verdetto è FAIL — l'articolo non doveva essere generato."}
+   ${isEvergreen ? '' : "Se l'articolo è un commento generico (procedure di estradizione generiche, consigli legali universali, considerazioni assicurative generiche) attaccato a una notizia di cronaca che NON menziona frontalieri/permesso G/AVS/LAMal/dogana/ecc. nella fonte originale, il verdetto è FAIL — l'articolo non doveva essere generato."}` : `11. **RILEVANZA TOPICA NAZIONALE SVIZZERA (CRITICO)**: L'articolo deve avere un nesso REALE, SPECIFICO e VERIFICABILE con la vita, l'economia o la politica in Svizzera a livello nazionale o cantonale. Sono nessi reali: policy federale/cantonale, fiscalità (imposta federale diretta, IVA, imposte cantonali), AVS/LPP/LAMal, mercato del lavoro e salari svizzeri, costo della vita, affitti e casa, previdenza, economia e BNS, decisioni del Consiglio federale o dei Cantoni, accordi internazionali della Svizzera. NON è richiesto alcun nesso frontaliere/Ticino: un articolo nazionale (es. salario minimo cantonale, IVA, affitti) è PIENAMENTE rilevante.
+
+   ${isEvergreen ? '' : 'NON sono nessi reali (segnala "critical" come "rilevanza_topica"): cronaca nera senza implicazione di policy/economia, eventi sportivi, gossip, intrattenimento, eventi esteri senza impatto sulla Svizzera.'}
+
+   SEGNALE D'ALLARME (= "critical: rilevanza_topica"): forzare "implicazioni nazionali" su un evento che non ne ha, o riempire con consigli generici ("consulta un avvocato", "verifica la copertura assicurativa", "informati sui tuoi diritti") un argomento senza reale rilevanza nazionale, sono indicatori di forzatura.
+
+   ${isEvergreen ? '' : "Se l'articolo è un commento generico attaccato a una notizia di cronaca SENZA alcun nesso di policy/economia/vita in Svizzera, il verdetto è FAIL — l'articolo non doveva essere generato."}`}
 
 CRITERI DI GIUDIZIO:
 - "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato che contraddice la fonte)
@@ -3266,33 +3338,7 @@ async function selectArticle(headlines) {
         const recencyTag = h._undatedFallback ? ' ⏳UNDATED' : '';
         return `[${i}] (${h.source}${tag}${recencyTag}) ${h.headline}`;
       }).join('\n');
-      const prompt = `Sei un editor del sito Frontaliere Ticino (frontaliereticino.ch).
-Devi scegliere UN articolo da queste headline di notizie ticinesi per scrivere un pezzo per i frontalieri.
-
-HEADLINE DISPONIBILI:
-${headlineList}
-
-ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
-${recentArticles}
-
-CRITERI DI SELEZIONE (in ordine di priorità):
-1. ⭐ PRIORITÀ ASSOLUTA: Se ci sono headline marcate con ⭐FRONTALIERI, scegli TRA QUELLE — sono notizie che menzionano esplicitamente frontalieri, permessi, accordi fiscali, dogane o lavoro transfrontaliero
-2. RILEVANZA FRONTALIERI: Priorità a notizie su lavoro transfrontaliero, fisco, permessi, stipendi, accordi CH-IT, economia ticinese, mercato del lavoro, trasporti transfrontalieri
-2.1 CLUSTER SEO PRIORITARI: favorisci headline che possono intercettare query ad alta intenzione su:
-   - calcolo tasse frontalieri entro/oltre 20km
-   - pensione frontaliere (AVS/INPS, pilastri)
-   - cambio CHF EUR e ottimizzazione conversione
-3. NOVITÀ: Preferisci notizie recenti e con impatto concreto (nuove leggi, dati, statistiche)
-4. ⚠️ NO DUPLICATI (CRITICO): Non scegliere MAI un tema già coperto. Se la headline tratta lo stesso argomento/dati/statistiche di un articolo esistente (anche con un angolo diverso), SCARTALA. Due articoli sugli stessi dati UST/SECO/BFS sono duplicati anche se il titolo è diverso.
-5. NO CRONACA NERA: Evita incidenti, crimini, disastri naturali
-6. NO SPORT: Evita risultati sportivi, partite, campionati
-7. SPECIFICITÀ TICINO: La notizia deve riguardare il Canton Ticino o la regione di confine
-
-Rispondi con un JSON object (no markdown, no code fences):
-{
-  "selectedIndex": <numero dell'headline scelta>,
-  "reason": "<perché questa notizia è rilevante per i frontalieri, max 2 frasi>"
-}`;
+      const prompt = HEADLINE_SELECTION_PROMPT(headlineList, recentArticles);
       console.error(`🤖 Selezione batch ${batchIdx + 1}/${batches.length} (${batch.length} headline)...`);
       const rawText = await callLLM(
         [{ role: 'user', content: prompt }],
@@ -3334,33 +3380,7 @@ Rispondi con un JSON object (no markdown, no code fences):
     const recencyTag = h._undatedFallback ? ' ⏳UNDATED' : '';
     return `[${i}] (${h.source}${tag}${recencyTag}) ${h.headline}`;
   }).join('\n');
-  const prompt = `Sei un editor del sito Frontaliere Ticino (frontaliereticino.ch).
-Devi scegliere UN articolo da queste headline di notizie ticinesi per scrivere un pezzo per i frontalieri.
-
-HEADLINE DISPONIBILI:
-${headlineList}
-
-ARTICOLI GIÀ PUBBLICATI (NON scegliere argomenti simili o già coperti):
-${recentArticles}
-
-CRITERI DI SELEZIONE (in ordine di priorità):
-1. ⭐ PRIORITÀ ASSOLUTA: Se ci sono headline marcate con ⭐FRONTALIERI, scegli TRA QUELLE — sono notizie che menzionano esplicitamente frontalieri, permessi, accordi fiscali, dogane o lavoro transfrontaliero
-2. RILEVANZA FRONTALIERI: Priorità a notizie su lavoro transfrontaliero, fisco, permessi, stipendi, accordi CH-IT, economia ticinese, mercato del lavoro, trasporti transfrontalieri
-2.1 CLUSTER SEO PRIORITARI: favorisci headline che possono intercettare query ad alta intenzione su:
-   - calcolo tasse frontalieri entro/oltre 20km
-   - pensione frontaliere (AVS/INPS, pilastri)
-   - cambio CHF EUR e ottimizzazione conversione
-3. NOVITÀ: Preferisci notizie recenti e con impatto concreto (nuove leggi, dati, statistiche)
-4. ⚠️ NO DUPLICATI (CRITICO): Non scegliere MAI un tema già coperto. Se la headline tratta lo stesso argomento/dati/statistiche di un articolo esistente (anche con un angolo diverso), SCARTALA. Due articoli sugli stessi dati UST/SECO/BFS sono duplicati anche se il titolo è diverso.
-5. NO CRONACA NERA: Evita incidenti, crimini, disastri naturali
-6. NO SPORT: Evita risultati sportivi, partite, campionati
-7. SPECIFICITÀ TICINO: La notizia deve riguardare il Canton Ticino o la regione di confine
-
-Rispondi con un JSON object (no markdown, no code fences):
-{
-  "selectedIndex": <numero dell'headline scelta>,
-  "reason": "<perché questa notizia è rilevante per i frontalieri, max 2 frasi>"
-}`;
+  const prompt = HEADLINE_SELECTION_PROMPT(headlineList, recentArticles);
   console.error(`🤖 Selezione articolo finale tra ${trimmed.length} headline...`);
   const rawText = await callLLM(
     [{ role: 'user', content: prompt }],
@@ -3503,23 +3523,32 @@ Le risposte devono includere dati concreti dalla fonte/contesto e rispettare il 
     : '';
 
   // ── Patch C: MUST-COVER LSI entities (always present) ──
-  const mustCoverLsiBlock = `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
+  const mustCoverLsiBlock = IS_FRONTALIERE
+    ? `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
 Almeno 6 dei seguenti termini DEVONO comparire naturalmente nel testo (no keyword stuffing):
-permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton Ticino, frontaliere, nuovo accordo fiscale 2026, doppia imposizione.\n`;
+permesso G, AVS, LPP, LAMal, ristorni, imposta alla fonte, Brogeda, INPS, Canton Ticino, frontaliere, nuovo accordo fiscale 2026, doppia imposizione.\n`
+    : `\n═══ MUST-COVER ENTITIES (E-E-A-T + LSI) ═══
+Almeno 6 dei seguenti termini, SE PERTINENTI al tema, DEVONO comparire naturalmente nel testo (no keyword stuffing):
+AVS/AHV, LPP/BVG, LAMal/KVG, imposta federale diretta, IVA, SECO, UST/BFS, BNS/SNB, Consiglio federale, Cantoni, salario minimo, costo della vita.\n`;
 
-  const prompt = `You are a senior financial journalist specializing in Swiss-Italian cross-border work and Ticino economics.
-You write for "Frontaliere Ticino" (frontaliereticino.ch). Based on the following source, write a blog article.
+  // ── Section-aware prompt fragments ──────────────────────────────
+  // Frontaliere branch = byte-identical to the historical prompt (drives ~95%
+  // revenue). Svizzera branch reframes section-specific blocks around NATIONAL
+  // Swiss relevance for a general Swiss-resident audience. Every section-AGNOSTIC
+  // rule (fedeltà alla fonte, anti-allucinazione, anti-AI, formatting, internal
+  // links, CTA divieti, grassetto, H3, anti-ripetitività) stays verbatim below.
+  const systemRoleLine = IS_FRONTALIERE
+    ? `You are a senior financial journalist specializing in Swiss-Italian cross-border work and Ticino economics.
+You write for "Frontaliere Ticino" (frontaliereticino.ch). Based on the following source, write a blog article.`
+    : `You are a senior journalist covering Swiss NATIONAL affairs — economy, fiscal policy, labour market, cost of living, housing, federal & cantonal politics — for a general Swiss-resident audience.
+You write for "Frontaliere Ticino" (frontaliereticino.ch), national Switzerland section. Based on the following source, write a blog article.`;
 
-SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html (BFS)' : url}
-SOURCE CONTENT:
-${truncatedContent}
-${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
-${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
+  const reachMinimumImplicationsLine = IS_FRONTALIERE
+    ? `- Analizza le IMPLICAZIONI PRATICHE per i frontalieri (cosa cambia nella vita quotidiana)`
+    : `- Analizza le IMPLICAZIONI PRATICHE a livello nazionale/cantonale (cosa cambia nella vita di chi vive o lavora in Svizzera)`;
 
-${idsSection}
-⚠️ The "id" must NOT share >60% words with any existing ID.
-
-═══ REGOLA #0 — GATE DI RILEVANZA TOPICA (BLOCCANTE — PRIMA DI TUTTO) ═══
+  const topicalRelevanceGate = IS_FRONTALIERE
+    ? `═══ REGOLA #0 — GATE DI RILEVANZA TOPICA (BLOCCANTE — PRIMA DI TUTTO) ═══
 
 Prima di scrivere qualunque cosa, valuta se la fonte ha un nesso REALE e VERIFICABILE con la vita del frontaliere Ticino-Italia. Esempi di nesso reale:
 - Norme/sentenze su Permesso G o B, fiscalità CH-IT (imposta alla fonte, nuovo accordo, ristorni, doppia imposizione, dichiarazione frontalieri)
@@ -3536,7 +3565,91 @@ REGOLA OPERATIVA — se il nesso NON c'è in modo concreto e specifico, devi RIF
   "reason": "<1-2 frasi che spiegano perché la fonte non ha un nesso reale con il frontaliere Ticino-Italia>"
 }
 
-NON inventare un angolo "implicazioni per i frontalieri" su un evento non-frontaliero per riempire spazio. NON aggiungere paragrafi di consigli generici (consulta un avvocato, verifica l'assicurazione, conosci i tuoi diritti) come surrogato di un nesso reale. Meglio rifiutare e far passare il prossimo articolo.
+NON inventare un angolo "implicazioni per i frontalieri" su un evento non-frontaliero per riempire spazio. NON aggiungere paragrafi di consigli generici (consulta un avvocato, verifica l'assicurazione, conosci i tuoi diritti) come surrogato di un nesso reale. Meglio rifiutare e far passare il prossimo articolo.`
+    : `═══ REGOLA #0 — GATE DI RILEVANZA TOPICA (BLOCCANTE — PRIMA DI TUTTO) ═══
+
+Prima di scrivere qualunque cosa, valuta se la fonte ha un nesso REALE e VERIFICABILE con la vita di chi vive o lavora in Svizzera a livello NAZIONALE. Esempi di nesso reale:
+- Politica e decisioni federali o cantonali (Consiglio federale, Parlamento, votazioni, leggi, ordinanze cantonali)
+- Fiscalità nazionale e cantonale (imposta federale diretta, IVA, imposte cantonali/comunali, dichiarazione, deduzioni)
+- Mercato del lavoro, salari, salario minimo cantonale, disoccupazione, contratti collettivi
+- Costo della vita, inflazione, affitti/casa, premi cassa malati (LAMal/KVG), energia
+- Previdenza (AVS/AHV, LPP/BVG, terzo pilastro), banche, BNS/SNB, cambio, economia, imprese
+- Dati ufficiali UST/BFS, SECO, SEM su economia, demografia, occupazione, prezzi
+
+Esempi che NON sono nesso reale: cronaca nera senza rilevanza politico-economica (omicidi comuni, sparizioni, incidenti isolati), sport, cultura/intrattenimento/gossip senza impatto su politica o economia, eventi esteri senza ricaduta sulla Svizzera.
+
+REGOLA OPERATIVA — se il nesso NON c'è in modo concreto e specifico, devi RIFIUTARTI di generare l'articolo e restituire SOLTANTO questo JSON:
+{
+  "abort_topical_relevance": true,
+  "reason": "<1-2 frasi che spiegano perché la fonte non ha un nesso reale con la vita di chi vive o lavora in Svizzera>"
+}
+
+NON inventare un angolo "implicazioni pratiche" su un evento irrilevante per riempire spazio. NON aggiungere paragrafi di consigli generici (consulta un avvocato, verifica l'assicurazione, conosci i tuoi diritti) come surrogato di un nesso reale. Meglio rifiutare e far passare il prossimo articolo.`;
+
+  const styleColorLine = IS_FRONTALIERE
+    ? `Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.`
+    : `Colore locale/nazionale: città e cantoni (Zurigo, Ginevra, Berna, Basilea, Losanna, Lugano…), istituzioni federali (Consiglio federale, Parlamento, BNS), uffici cantonali.`;
+
+  const ticinoScopeBlock = IS_FRONTALIERE
+    ? `TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.`
+    : `SCOPE NAZIONALE: L'articolo riguarda la Svizzera a livello nazionale. I riferimenti possono spaziare su tutti i cantoni e città (Zurigo, Ginevra, Berna, Basilea, Losanna, Lugano…) e sulle istituzioni federali (Consiglio federale, Parlamento, Amministrazione federale, UST/BFS, SECO, BNS/SNB) — non solo il Ticino.`;
+
+  const editorialFundamentalBlock = IS_FRONTALIERE
+    ? `REGOLA EDITORIALE FONDAMENTALE — FRONTALIERI AL CENTRO (CONDIZIONALE):
+Se la fonte ha implicazioni CONCRETE e SPECIFICHE per il frontaliere (importi CHF/EUR cambiati, scadenze fiscali, procedure modificate, permessi, valichi, accordi CH-IT, AVS/LPP/LAMal, busta paga, autostrade A2/A9, sciopero che blocca pendolari):
+- Il frontaliere deve essere il PROTAGONISTA dell'articolo dall'inizio alla fine.
+- NON è accettabile aggiungere una sezione "Impatto sui frontalieri" solo in fondo.
+- ALMENO il 50% del testo dei campi body1, body2, body3 deve essere indirizzato al lettore frontaliere con dati pratici (importi, scadenze, procedure), guide operative (checklist, step-by-step, confronto scenari) e informazioni azionabili (cosa fare, dove andare, documenti).
+
+Se le implicazioni sono DEBOLI o GENERICHE (la fonte non parla direttamente di frontalieri, ma il contesto può essere tangenzialmente utile):
+- Limita la copertura a 1-2 paragrafi brevi di contesto. NON gonfiare l'articolo con platitudini ("consulta un avvocato", "verifica la copertura", "conosci i tuoi diritti", "informati sulle leggi locali").
+- Onestamente dichiara nel body1 cosa la fonte dice E NULLA DI PIÙ, e segnala in body2/body3 i 1-2 ganci pratici reali (se esistono). Meglio un articolo da 400 parole onesto che 1200 parole di forzatura.
+- Se anche 1-2 paragrafi di nesso reale non esistono → torna al GATE DI RILEVANZA TOPICA (REGOLA #0) e rifiuta con "abort_topical_relevance": true.
+
+Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera. Se queste implicazioni non esistono, l'articolo non doveva essere generato.`
+    : `REGOLA EDITORIALE FONDAMENTALE — INTERESSE NAZIONALE AL CENTRO (CONDIZIONALE):
+Se la fonte ha implicazioni CONCRETE e SPECIFICHE per chi vive o lavora in Svizzera (importi CHF cambiati, scadenze fiscali, nuove leggi federali/cantonali, premi cassa malati, affitti, salari, AVS/LPP, IVA, decisioni del Consiglio federale o dei cantoni):
+- Le implicazioni pratiche a livello nazionale/cantonale devono essere al CENTRO dell'articolo dall'inizio alla fine.
+- NON è accettabile aggiungere una sezione "implicazioni pratiche" solo in fondo.
+- ALMENO il 50% del testo dei campi body1, body2, body3 deve dare al lettore dati pratici (importi, scadenze, procedure), guide operative (checklist, step-by-step, confronto scenari) e informazioni azionabili (cosa fare, dove andare, documenti) a livello nazionale o cantonale.
+
+Se le implicazioni sono DEBOLI o GENERICHE (la fonte non ha un impatto pratico diretto, ma il contesto può essere tangenzialmente utile):
+- Limita la copertura a 1-2 paragrafi brevi di contesto. NON gonfiare l'articolo con platitudini ("consulta un avvocato", "verifica la copertura", "conosci i tuoi diritti", "informati sulle leggi locali").
+- Onestamente dichiara nel body1 cosa la fonte dice E NULLA DI PIÙ, e segnala in body2/body3 i 1-2 ganci pratici reali (se esistono). Meglio un articolo da 400 parole onesto che 1200 parole di forzatura.
+- Se anche 1-2 paragrafi di nesso reale non esistono → torna al GATE DI RILEVANZA TOPICA (REGOLA #0) e rifiuta con "abort_topical_relevance": true.
+
+Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive o lavora in Svizzera. Se queste implicazioni non esistono, l'articolo non doveva essere generato.`;
+
+  const body2AntiRepLine = IS_FRONTALIERE
+    ? `- body2 = ANALISI PRATICA: implicazioni per i frontalieri, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.`
+    : `- body2 = ANALISI PRATICA: implicazioni concrete a livello nazionale/cantonale, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.`;
+  const body3AntiRepLine = IS_FRONTALIERE
+    ? `- body3 = AZIONE: cosa fare concretamente, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.`
+    : `- body3 = AZIONE: cosa fare concretamente in Svizzera, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.`;
+
+  const ctaDefaultLine = IS_FRONTALIERE
+    ? `CTA: body3 DEVE terminare con CTA verso strumenti del sito. Default: calcolatore stipendio. Temi specifici: assicurazione→health, pensioni→pension, costo vita→cost-of-living, cambio→exchange, IRPEF/comuni→border-map, auto→car-transfer, permessi→permit-compare, casa→renovation, telefonia→mobile, congedo→parental-leave, vivere CH→living-ch, vivibilità→livability.`
+    : `CTA: body3 DEVE terminare con CTA verso strumenti del sito. Default: calcolatore stipendio. Temi specifici: assicurazione→health, pensioni→pension, costo vita→cost-of-living, cambio→exchange, casa→renovation, telefonia→mobile, congedo→parental-leave, vivere CH→living-ch, vivibilità→livability. Usa il tool più pertinente al tema dell'articolo.`;
+
+  const imagePromptSchemaLine = IS_FRONTALIERE
+    ? `"imagePrompt": "Prompt per immagine fotorealistica DSLR ambientata in Ticino. Max 2 frasi EN.",`
+    : `"imagePrompt": "Prompt per immagine editoriale fotorealistica DSLR di una scena svizzera nazionale/cantonale pertinente al tema. Max 2 frasi EN.",`;
+  const imagePromptFinalLine = IS_FRONTALIERE
+    ? `- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI`
+    : `- imagePrompt: scena svizzera nazionale/cantonale pertinente al tema, fotorealistica, DSLR, non sembrare AI`;
+
+  const prompt = `${systemRoleLine}
+
+SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html (BFS)' : url}
+SOURCE CONTENT:
+${truncatedContent}
+${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
+${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
+
+${idsSection}
+⚠️ The "id" must NOT share >60% words with any existing ID.
+
+${topicalRelevanceGate}
 
 ═══ REGOLA #1 — FEDELTÀ ALLA FONTE (PRIORITÀ MASSIMA) ═══
 
@@ -3548,7 +3661,7 @@ Il tuo articolo è una RISCRITTURA EDITORIALE della fonte, NON un articolo origi
 - NON aggiungere "contesto di background" non verificabile (es. date di trattati, numeri di legge, statistiche) a meno che non sia nella fonte.
 
 COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
-- Analizza le IMPLICAZIONI PRATICHE per i frontalieri (cosa cambia nella vita quotidiana)
+${reachMinimumImplicationsLine}
 - Descrivi PROCEDURE concrete (cosa fare, dove andare, quali documenti servono)
 - Aggiungi SCENARI "cosa succede se" basati sui fatti della fonte
 - Confronta con la situazione precedente (prima vs dopo il cambiamento descritto nella fonte)
@@ -3558,7 +3671,7 @@ COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
 ${primaryLocaleBlock}${targetKeywordBlock}${peopleAlsoAskBlock}${mustCoverLsiBlock}${AI_SEARCH_PROMPT_BLOCK_IT}
 ═══ REGOLE EDITORIALI ═══
 
-STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni — MA SOLO se presenti nella fonte. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
+STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni — MA SOLO se presenti nella fonte. ${styleColorLine}
 MAI usare: "In conclusione", "È importante notare", "In questo contesto", "Vale la pena", "È fondamentale", "Alla luce di", "Ecco cosa sapere", "Vediamo nel dettaglio", "Andiamo con ordine", "Non è un caso che", "Un aspetto cruciale", "Sempre più", "In un contesto di".
 Linguaggio diretto: "conviene" non "potrebbe essere utile". Il testo DEVE superare AI detection.
 ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
@@ -3568,7 +3681,7 @@ ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
 - Varia la struttura: non TUTTI i body devono avere un elenco puntato. Alterna prosa, tabelle, citazioni.
 - NON usare parallelismi strutturali tra body1/body2/body3 (se body1 ha ## + elenco, body2 deve avere ## + prosa + tabella).
 
-TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
+${ticinoScopeBlock}
 
 ═══ DIVIETI ANTI-ALLUCINAZIONE (BLOCCANTI — RIGETTO AUTOMATICO) ═══
 
@@ -3603,7 +3716,7 @@ ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
 
 TOPIC GUARD: per articoli su "tassa salute", NON invertire la platea (es. "lavora in Lombardia e risiede in Ticino") se non esplicitamente indicata nella fonte.
 
-CTA: body3 DEVE terminare con CTA verso strumenti del sito. Default: calcolatore stipendio. Temi specifici: assicurazione→health, pensioni→pension, costo vita→cost-of-living, cambio→exchange, IRPEF/comuni→border-map, auto→car-transfer, permessi→permit-compare, casa→renovation, telefonia→mobile, congedo→parental-leave, vivere CH→living-ch, vivibilità→livability.
+${ctaDefaultLine}
 
 INTERNAL LINKS — REGOLA QUANTITATIVA:
 MINIMO 3 link interni totali distribuiti nei body, sintassi \`[testo](nav:azione)\`:
@@ -3613,7 +3726,7 @@ MINIMO 3 link interni totali distribuiti nei body, sintassi \`[testo](nav:azione
 Se l'articolo supera 1200 parole, aumenta a MINIMO 4 link.
 
 LINK INTERNI — sintassi ESCLUSIVA: [testo](nav:azione)
-Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato):
+${IS_FRONTALIERE ? `Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato):
 - calculator → calcolatore FISCALE: stipendio, netto, busta paga, imposte, tasse. NON usare per tragitti, meteo, percorsi.
 - exchange → comparatore CHF/EUR (cambio valuta). NON usare per meteo, traffico, percorsi.
 - health → LAMal/CMI assicurazione malattia. - cost-of-living → costo della vita Ticino vs Italia. - pension → AVS/LPP/rendita.
@@ -3625,7 +3738,15 @@ Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti
 - traffic-history → storico traffico/code ai valichi. - border-map → mappa valichi.
 - car-transfer → trasferimento targa CH. - permit-compare → comparatore Permesso G vs B.
 - nursery → asilo nido. - parental-leave → congedo parentale.
-- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)
+- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)` : `Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato). Usa SOLO queste azioni a respiro nazionale:
+- calculator → calcolatore stipendio/imposte. NON usare per tragitti, meteo, percorsi.
+- exchange → comparatore CHF/EUR (cambio valuta). NON usare per meteo, traffico, percorsi.
+- health → LAMal/cassa malati. - cost-of-living → costo della vita in Svizzera. - pension → AVS/LPP/rendita.
+- pillar3 → terzo pilastro 3a. - payslip → busta paga svizzera. - tax-return → dichiarazione delle imposte.
+- jobs → annunci di lavoro. - companies → aziende che assumono. - banks → conti bancari in Svizzera.
+- transport → mezzi pubblici. - nursery → asilo nido. - parental-leave → congedo parentale.
+- (NON usare azioni a tema frontaliere/Ticino-Italia, ristorni, permessi G/B, valichi/dogane: questa è la sezione nazionale Svizzera.)
+- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)`}
 MAI usare <a href> o URL diretti.
 
 CTA / PROMOZIONI — divieti assoluti:
@@ -3638,21 +3759,10 @@ STRUTTURA H3 (CRITICO): Ogni body con >250 parole DEVE avere almeno 1 sotto-sezi
 
 ANTI-RIPETITIVITÀ (CRITICO): I tre body DEVONO avere contenuti DIVERSI. Mai ripetere lo stesso concetto tra body1, body2, body3.
 - body1 = FATTI DALLA FONTE: chi ha deciso/annunciato cosa, quando, dove, perché. Cronaca pura basata sul SOURCE CONTENT.
-- body2 = ANALISI PRATICA: implicazioni per i frontalieri, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.
-- body3 = AZIONE: cosa fare concretamente, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.
+${body2AntiRepLine}
+${body3AntiRepLine}
 
-REGOLA EDITORIALE FONDAMENTALE — FRONTALIERI AL CENTRO (CONDIZIONALE):
-Se la fonte ha implicazioni CONCRETE e SPECIFICHE per il frontaliere (importi CHF/EUR cambiati, scadenze fiscali, procedure modificate, permessi, valichi, accordi CH-IT, AVS/LPP/LAMal, busta paga, autostrade A2/A9, sciopero che blocca pendolari):
-- Il frontaliere deve essere il PROTAGONISTA dell'articolo dall'inizio alla fine.
-- NON è accettabile aggiungere una sezione "Impatto sui frontalieri" solo in fondo.
-- ALMENO il 50% del testo dei campi body1, body2, body3 deve essere indirizzato al lettore frontaliere con dati pratici (importi, scadenze, procedure), guide operative (checklist, step-by-step, confronto scenari) e informazioni azionabili (cosa fare, dove andare, documenti).
-
-Se le implicazioni sono DEBOLI o GENERICHE (la fonte non parla direttamente di frontalieri, ma il contesto può essere tangenzialmente utile):
-- Limita la copertura a 1-2 paragrafi brevi di contesto. NON gonfiare l'articolo con platitudini ("consulta un avvocato", "verifica la copertura", "conosci i tuoi diritti", "informati sulle leggi locali").
-- Onestamente dichiara nel body1 cosa la fonte dice E NULLA DI PIÙ, e segnala in body2/body3 i 1-2 ganci pratici reali (se esistono). Meglio un articolo da 400 parole onesto che 1200 parole di forzatura.
-- Se anche 1-2 paragrafi di nesso reale non esistono → torna al GATE DI RILEVANZA TOPICA (REGOLA #0) e rifiuta con "abort_topical_relevance": true.
-
-Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera. Se queste implicazioni non esistono, l'articolo non doveva essere generato.
+${editorialFundamentalBlock}
 
 ═══ DIVIETO ASSOLUTO — INVENZIONE DI CASI O ESEMPI (CRITICO) ═══
 
@@ -3681,7 +3791,7 @@ Genera JSON (no markdown, no code fences):
   "category": "one of: ${CATEGORIES.join(', ')}",
   "image": "one of: ${AVAILABLE_IMAGES.slice(0, 15).join(', ')}... (scegli la più adatta)",
   "hasCalculator": true,
-  "imagePrompt": "Prompt per immagine fotorealistica DSLR ambientata in Ticino. Max 2 frasi EN.",
+  ${imagePromptSchemaLine}
   "imageAlt": { "it": "max 125 chars", "en": "max 125 chars", "de": "max 125 chars", "fr": "max 125 chars" },
   "slugs": { "it": "slug-it", "en": "slug-en", "de": "slug-de", "fr": "slug-fr" },
   "content": {
@@ -3715,7 +3825,7 @@ REGOLE FINALI:
 - Slug: lowercase, trattini, no accenti, max 50 chars
 - hasCalculator: true sempre
 - Apostrofi diritti ('), normative 2026
-- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI
+${imagePromptFinalLine}
 - FAQ: genera 3-5 coppie domanda/risposta basate sui FATTI della fonte. Risposte: 50-100 parole, con dati concreti dalla fonte.`;
 
   const minWordsInstruction = `\n\nMINIMUM LENGTH (CRITICAL — STRICTLY ENFORCED):
@@ -3759,8 +3869,11 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
     ? 'NON includere content.en, content.de, content.fr — verranno generati separatamente.'
     : 'NON includere le altre 3 lingue — verranno generate separatamente.';
 
+  const systemRoleQualifier = IS_FRONTALIERE
+    ? 'di lavoro transfrontaliero in Ticino'
+    : 'di affari svizzeri a livello nazionale';
   const llmMessages = [
-    { role: 'system', content: `${systemStem} di lavoro transfrontaliero in Ticino che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
+    { role: 'system', content: `${systemStem} ${systemRoleQualifier} che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
 
 REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo articolo DEVE provenire dal testo SOURCE CONTENT fornito. Se un'informazione NON è nella fonte, NON includerla. Mai inventare, dedurre o "completare" dati mancanti.
 
@@ -3940,7 +4053,13 @@ async function expandShortItalianContent(data, targetWords) {
     const currentWords = countWords(currentText);
     const targetFieldWords = currentWords + perField;
 
-    const expandPrompt = `Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino.
+    const expandPersona = IS_FRONTALIERE
+      ? 'Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino.'
+      : 'Sei un giornalista finanziario esperto di affari svizzeri a livello nazionale.';
+    const expandGeoRefs = IS_FRONTALIERE
+      ? 'riferimenti a comuni ticinesi specifici'
+      : 'riferimenti a cantoni o città svizzere pertinenti al tema';
+    const expandPrompt = `${expandPersona}
 
 TESTO ATTUALE (${currentWords} parole):
 ${currentText}
@@ -3950,7 +4069,7 @@ TITOLO ARTICOLO: ${it.title || ''}
 ISTRUZIONI:
 - Riscrivi ed ESPANDI questo testo a circa ${targetFieldWords} parole (MASSIMO ${MAX_BODY_FIELD_WORDS} parole — NON superare questo limite)
 - Mantieni lo stesso tono, stile e struttura
-- Aggiungi: esempi concreti con numeri reali, riferimenti a comuni ticinesi specifici, normative con date e importi, checklist operative, confronti tra scenari pratici
+- Aggiungi: esempi concreti con numeri reali, ${expandGeoRefs}, normative con date e importi, checklist operative, confronti tra scenari pratici
 - NON aggiungere frasi generiche o filler — solo informazioni utili e verificabili
 - Mantieni la formattazione esistente (##, -, >, 📊, 💡, ⚠️). Citazioni (>) MAX 1 per articolo, solo per citazioni dirette brevi
 - GRASSETTO: massimo 2-3 parole in grassetto nell'intero testo, preferisci ZERO
@@ -4455,14 +4574,22 @@ function validate(data, opts = {}) {
   }
 
   // ── Frontaliere density check ──────────────────────────────
-  const itBodyForDensity = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
-  const densityResult = checkFrontaliereDensity(itBodyForDensity);
-  if (!densityResult.passes) {
-    console.warn(`  ⚠️  [frontaliere-density] Solo ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole (min: 8 hits). Il contenuto potrebbe non essere rilevante per i frontalieri.`);
-    // Non-blocking at generation time: log warning for monitoring.
-    // The selection prompt already enforces relevance; this is a final safety net.
+  // Frontaliere-only: a low frontaliere-keyword density signals a topic that
+  // drifted off the cross-border angle. For the NATIONAL svizzera section this
+  // metric is meaningless (articles are intentionally not frontaliere-centric),
+  // so we skip it and emit a neutral national-relevance note instead.
+  if (IS_FRONTALIERE) {
+    const itBodyForDensity = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
+    const densityResult = checkFrontaliereDensity(itBodyForDensity);
+    if (!densityResult.passes) {
+      console.warn(`  ⚠️  [frontaliere-density] Solo ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole (min: 8 hits). Il contenuto potrebbe non essere rilevante per i frontalieri.`);
+      // Non-blocking at generation time: log warning for monitoring.
+      // The selection prompt already enforces relevance; this is a final safety net.
+    } else {
+      console.error(`  ✅ [frontaliere-density] ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole`);
+    }
   } else {
-    console.error(`  ✅ [frontaliere-density] ${densityResult.hits} keyword frontalieri su ${densityResult.wordCount} parole`);
+    console.error(`  ℹ️  [national-relevance] Sezione ${SECTION_NAME}: density frontalieri non applicabile (articolo a respiro nazionale).`);
   }
 
   // Slug validation for translated locales (slugs come from IT generation call)
@@ -5499,7 +5626,10 @@ async function generateArticleImage(data) {
     if (entry.keywords.some(k => subjectTitle.includes(k))) { topicSubject = entry.queries[0]; break; }
   }
   const subjectLine = topicSubject ? `\n\nMAIN SUBJECT: ${topicSubject}. This must be the dominant element in the frame.` : '';
-  const prompt = (data.imagePrompt || `Professional editorial photo for a news article about cross-border workers in Ticino, Switzerland. Lake Lugano, warm lighting.`)
+  const fallbackImagePrompt = IS_FRONTALIERE
+    ? `Professional editorial photo for a news article about cross-border workers in Ticino, Switzerland. Lake Lugano, warm lighting.`
+    : `Professional editorial photo for a Swiss national news article. A recognizable Swiss national or cantonal scene appropriate to the topic, natural warm lighting.`;
+  const prompt = (data.imagePrompt || fallbackImagePrompt)
     + subjectLine
     + '\n\nIMPORTANT: Generate ONLY the image, do NOT include any text, watermarks, labels, or captions on the image.'
     + '\n\nSTYLE: Photorealistic editorial photograph indistinguishable from a real DSLR/mirrorless camera shot. Include natural lens characteristics: shallow depth of field, subtle chromatic aberration, realistic bokeh on out-of-focus areas, natural film grain, slight vignetting. Lighting must be natural and ambient — avoid flat, evenly-lit AI look. Include micro-imperfections: slight motion blur on peripheral elements, natural color temperature shifts, realistic shadow falloff. Absolutely NO AI artifacts, NO unnaturally smooth textures, NO perfect symmetry, NO CGI plastic look, NO HDR over-processing.';
@@ -7516,7 +7646,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // crashing on fact-check or JSON parse errors. Skip cleanly so the next
     // cron tick picks a different headline. Per CLAUDE.md rule #5: fix the
     // root cause (wrong topic), don't lower the validation bar.
-    if (attempt === 1) {
+    // Frontaliere-only gate: 0 frontaliere-density keywords means an off-angle
+    // topic for the cross-border section. For the NATIONAL svizzera section a
+    // body with 0 frontaliere keywords is EXPECTED and correct, so this abort
+    // must not fire — otherwise every national article would be skipped.
+    if (attempt === 1 && IS_FRONTALIERE) {
       const itBodyEarly = `${data.content?.it?.body1 || ''} ${data.content?.it?.body2 || ''} ${data.content?.it?.body3 || ''}`;
       const earlyDensity = checkFrontaliereDensity(itBodyEarly);
       if (earlyDensity.hits === 0 && earlyDensity.wordCount > 0) {

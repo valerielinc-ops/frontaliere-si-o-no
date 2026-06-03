@@ -139,10 +139,20 @@ describe('fuel-station orphans — every synthetic leaf is linked from its index
         expect(countAnchors(html, `/${leaf.zone}/stazioni/${leaf.slug}/`)).toBeGreaterThanOrEqual(1);
       }
     });
-    it(`Italian-cities index (it/${fuel}) links every curated city`, () => {
+    it(`Italian-cities index (it/${fuel}) is leaf-driven: links only cities with an emitted station leaf`, () => {
       const html = pages[buildFuelIndexPath('it', fuel, 'italianCities')]!;
+      // Leaf-driven: a city-hub is linked only when it has a station leaf for
+      // THIS fuel (so the index never points at an ungenerated hub → no 404).
+      const leafCities = new Set(
+        (fuel === 'benzina' ? SYNTHETIC_ITALIAN : []).map((s) => s.citySlug),
+      );
+      for (const slug of leafCities) {
+        expect(countAnchors(html, `/italia/${slug}/oggi/`)).toBeGreaterThanOrEqual(1);
+      }
+      // Curated cities WITHOUT a leaf must NOT be linked.
       for (const c of FUEL_ITALIAN_CITIES) {
-        expect(countAnchors(html, `/italia/${c.slug}/oggi/`)).toBeGreaterThanOrEqual(1);
+        if (leafCities.has(c.slug)) continue;
+        expect(countAnchors(html, `/italia/${c.slug}/oggi/`)).toBe(0);
       }
     });
   }
@@ -236,4 +246,30 @@ describe('fuel-station orphans — index pages clear the >=200-word content thre
       });
     }
   }
+});
+
+describe('fuel-station orphans — emittedPaths gate excludes pages the build skipped', () => {
+  // Only Varese's IT/benzina hub + station were "written"; Como's were skipped.
+  const emittedPaths = new Set<string>([
+    '/prezzi-benzina/italia/varese/oggi/',
+    '/prezzi-benzina/italia/varese/stazioni/q8-via-roma-2/',
+  ]);
+  const pages = generateFuelIndexPages({
+    today: TODAY,
+    swissStations: SYNTHETIC_SWISS,
+    italianStations: SYNTHETIC_ITALIAN,
+    emittedPaths,
+  });
+
+  it('cities-index links only the emitted city-hub (Varese), not the skipped one (Como)', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'italianCities')]!;
+    expect(countAnchors(html, '/italia/varese/oggi/')).toBeGreaterThanOrEqual(1);
+    expect(countAnchors(html, '/italia/como/oggi/')).toBe(0);
+  });
+
+  it('stations-index links only the emitted station (Varese), not the skipped one (Como)', () => {
+    const html = pages[buildFuelIndexPath('it', 'benzina', 'italianStations')]!;
+    expect(countAnchors(html, '/italia/varese/stazioni/q8-via-roma-2/')).toBeGreaterThanOrEqual(1);
+    expect(countAnchors(html, '/italia/como/stazioni/')).toBe(0);
+  });
 });

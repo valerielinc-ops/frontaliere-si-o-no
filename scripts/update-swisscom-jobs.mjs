@@ -610,8 +610,8 @@ function runBaseCrawler() {
     disableWorkdayForce: true,
     localizeExistingOnly: true,
     extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: '50',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '50',
+      JOBS_CRAWLER_MAX_JOB_LINKS: '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000',
     },
   });
 }

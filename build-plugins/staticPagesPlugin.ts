@@ -692,7 +692,13 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
      `<a href="${cantonHubHref}" style="${hubPillStyle}" aria-label="${displayLabel}">${displayLabel}</a>`,
    );
  }
- if (cantonRows.length === 0) return '';
+ // NB: do NOT early-return when cantonRows is empty. The xsHubs block below
+ // (Svizzera + frontaliere archive depth-1 pills wired in #1258) is fully
+ // independent of canton job-data; gating it on `cantonRows` would silently
+ // drop the only depth-1 BFS path to those archives on any build where the
+ // canton slug file is momentarily empty, regressing the #1258 orphan fix
+ // (#1262 item 3). The empty-canton case only suppresses the `<details>`
+ // canton list, not the cross-section hubs.
  // Cross-section hubs — link directly from `/` so per-company azienda-*
  // URLs in sitemap-jobs.xml fall to BFS depth 4 (currently depth=5 from
  // / → /compara-servizi/ → /aziende-che-assumono/tutte/ → page-N →
@@ -711,6 +717,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
    { href: '/cerca-lavoro-ticino/settori/', label: 'Settori Ticino' },
    { href: '/articoli-frontaliere/tutti/', label: 'Articoli frontaliere' },
+   { href: '/articoli-svizzera/tutti/', label: 'Articoli Svizzera' },
    { href: '/premi-cassa-malati/', label: 'Premi LAMal' },
    { href: '/compara-servizi/', label: 'Comparatori' },
  ] : locale === 'en' ? [
@@ -718,18 +725,21 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    { href: '/en/find-jobs-ticino/companies/', label: 'Ticino companies' },
    { href: '/en/find-jobs-ticino/sectors/', label: 'Ticino sectors' },
    { href: '/en/cross-border-articles/all/', label: 'Cross-border articles' },
+   { href: '/en/swiss-articles/all/', label: 'Swiss articles' },
    { href: '/en/health-insurance-premiums/', label: 'LAMal premiums' },
  ] : locale === 'de' ? [
    { href: '/de/firmen-die-einstellen/alle/', label: 'Einstellende Firmen' },
    { href: '/de/jobs-im-tessin/firmen/', label: 'Tessin Firmen' },
    { href: '/de/jobs-im-tessin/branchen/', label: 'Tessin Branchen' },
    { href: '/de/grenzgaenger-artikel/alle/', label: 'Grenzgänger-Artikel' },
+   { href: '/de/schweiz-artikel/alle/', label: 'Schweiz-Artikel' },
    { href: '/de/krankenkassenpraemien/', label: 'KVG-Prämien' },
  ] : [
    { href: '/fr/entreprises-qui-recrutent/toutes/', label: 'Entreprises qui recrutent' },
    { href: '/fr/trouver-emploi-tessin/entreprises/', label: 'Entreprises Tessin' },
    { href: '/fr/trouver-emploi-tessin/secteurs/', label: 'Secteurs Tessin' },
    { href: '/fr/articles-frontalier/tous/', label: 'Articles frontaliers' },
+   { href: '/fr/articles-suisse/tous/', label: 'Articles Suisse' },
    { href: '/fr/primes-assurance-maladie/', label: 'Primes LAMal' },
  ];
  const xsPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fff7ed;color:#9a3412;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #fed7aa';
@@ -738,8 +748,13 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    .join('');
  const xsHubsBlock = `<nav class="s-qF4KTg" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
- // state, mobile fold stays clear.
- return `<aside class="s-A9Z4Vy" id="hp-canton-nav" aria-label="${navLabel}">${xsHubsBlock}<details class="s-iS9cG5"><summary class="s-DhA4PZ">${navLabel} (${cantonRows.length})</summary><nav class="s-6_t7LY" aria-label="${navLabel}">${cantonRows.join('')}</nav></details></aside>`;
+ // state, mobile fold stays clear. When cantonRows is empty (canton job-data
+ // absent at build time) the canton <details> is omitted but the xsHubs block
+ // still ships, keeping the Svizzera/frontaliere archives reachable at depth 1.
+ const cantonDetails = cantonRows.length === 0
+   ? ''
+   : `<details class="s-iS9cG5"><summary class="s-DhA4PZ">${navLabel} (${cantonRows.length})</summary><nav class="s-6_t7LY" aria-label="${navLabel}">${cantonRows.join('')}</nav></details>`;
+ return `<aside class="s-A9Z4Vy" id="hp-canton-nav" aria-label="${navLabel}">${xsHubsBlock}${cantonDetails}</aside>`;
 }
 
 // ── Related-guides block (orphan-page rescue) ──────────────────────
