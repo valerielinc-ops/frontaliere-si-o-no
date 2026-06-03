@@ -8,6 +8,7 @@ import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './rout
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
+import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
@@ -276,7 +277,7 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
- const res = await fetch(`/data/jobs-${locale}.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
  if (!res.ok) return out;
  const list = await res.json();
  if (!Array.isArray(list)) return out;
