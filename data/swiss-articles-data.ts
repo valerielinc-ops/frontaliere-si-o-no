@@ -68,4 +68,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavoro-media-ssr-talenti-ticino',
+    category: 'pratico',
+    date: '2026-06-03T00:19:25.227Z',
+    image: '/images/blog/lavoro-media-ssr-talenti-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];

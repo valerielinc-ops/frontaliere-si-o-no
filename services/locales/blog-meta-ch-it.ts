@@ -23,6 +23,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'IA e futuro del lavoro in Svizzera: scenari al 2026',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'Analisi dell\'impatto dell\'intelligenza artificiale sul mercato del lavoro elvetico: produttività, automazione e sfide per la formazione.',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Moderno ufficio a Lugano con vista lago',
+    'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR cerca talenti in Ticino: opportunità per i frontalieri',
+    'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'La SSR offre numerose opportunità di lavoro in Ticino per i frontalieri, con posizioni aperte in quasi tutte le categorie professionali.',
+    'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Vista panoramica del distretto mediatico di Lugano con edifici moderni e professionisti',
 };
 
 export default blogMetaChIt;
