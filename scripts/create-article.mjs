@@ -3855,8 +3855,11 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
     ? 'NON includere content.en, content.de, content.fr — verranno generati separatamente.'
     : 'NON includere le altre 3 lingue — verranno generate separatamente.';
 
+  const systemRoleQualifier = IS_FRONTALIERE
+    ? 'di lavoro transfrontaliero in Ticino'
+    : 'di affari svizzeri a livello nazionale';
   const llmMessages = [
-    { role: 'system', content: `${systemStem} di lavoro transfrontaliero in Ticino che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
+    { role: 'system', content: `${systemStem} ${systemRoleQualifier} che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
 
 REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo articolo DEVE provenire dal testo SOURCE CONTENT fornito. Se un'informazione NON è nella fonte, NON includerla. Mai inventare, dedurre o "completare" dati mancanti.
 
@@ -4036,7 +4039,13 @@ async function expandShortItalianContent(data, targetWords) {
     const currentWords = countWords(currentText);
     const targetFieldWords = currentWords + perField;
 
-    const expandPrompt = `Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino.
+    const expandPersona = IS_FRONTALIERE
+      ? 'Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino.'
+      : 'Sei un giornalista finanziario esperto di affari svizzeri a livello nazionale.';
+    const expandGeoRefs = IS_FRONTALIERE
+      ? 'riferimenti a comuni ticinesi specifici'
+      : 'riferimenti a cantoni o città svizzere pertinenti al tema';
+    const expandPrompt = `${expandPersona}
 
 TESTO ATTUALE (${currentWords} parole):
 ${currentText}
@@ -4046,7 +4055,7 @@ TITOLO ARTICOLO: ${it.title || ''}
 ISTRUZIONI:
 - Riscrivi ed ESPANDI questo testo a circa ${targetFieldWords} parole (MASSIMO ${MAX_BODY_FIELD_WORDS} parole — NON superare questo limite)
 - Mantieni lo stesso tono, stile e struttura
-- Aggiungi: esempi concreti con numeri reali, riferimenti a comuni ticinesi specifici, normative con date e importi, checklist operative, confronti tra scenari pratici
+- Aggiungi: esempi concreti con numeri reali, ${expandGeoRefs}, normative con date e importi, checklist operative, confronti tra scenari pratici
 - NON aggiungere frasi generiche o filler — solo informazioni utili e verificabili
 - Mantieni la formattazione esistente (##, -, >, 📊, 💡, ⚠️). Citazioni (>) MAX 1 per articolo, solo per citazioni dirette brevi
 - GRASSETTO: massimo 2-3 parole in grassetto nell'intero testo, preferisci ZERO
