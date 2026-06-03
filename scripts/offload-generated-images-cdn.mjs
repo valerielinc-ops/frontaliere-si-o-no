@@ -9,19 +9,23 @@
 //
 // (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
 // the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
-// stay same-origin. Only og:image refs, which ARE in static HTML, move.)
+// stay same-origin. og:image refs ARE in static HTML so Phase 1 rewrites them;
+// job-detail JSON is also runtime-fetched so Phase 2 injects a runtime base.)
 //
 // Unlike the full blog hero images (git-tracked → served from main@sha by
-// build-plugins/blogImageCdnFinalizePlugin), og/jobs is generated at build time
-// and is NOT in git. The deploy workflow first force-pushes dist/og to an
-// orphan `cdn-assets` branch and passes that commit SHA as CDN_ASSETS_SHA;
-// this script then rewrites
-// the emitted dist references to the jsDelivr URL and deletes the offloaded
-// directories from dist.
+// build-plugins/blogImageCdnFinalizePlugin), dist/og and dist/data/job-detail
+// are generated at build time and are NOT in git. The deploy workflow first
+// force-pushes both to an orphan `cdn-assets` branch and passes that commit SHA
+// as CDN_ASSETS_SHA; this script then, per phase:
+//   • Phase 1 (og): rewrites the emitted og:image references in dist HTML to the
+//     raw.githubusercontent URL, then deletes dist/og.
+//   • Phase 2 (job-detail): injects window.__CDN_DATA_BASE__=<raw base> into
+//     every dist HTML page (read by services/cdnDataBase.ts → cdnDataUrl at
+//     runtime), then deletes dist/data/job-detail.
 //
 // SAFETY — BEST-EFFORT / NON-FATAL: this runs in the deploy critical path, so it
 // must NEVER break a deploy. On a missing SHA, a guard leak, or ANY thrown
-// error it leaves dist exactly as-is and exits 0 — the images simply ship in the
+// error it leaves dist exactly as-is and exits 0 — the assets simply ship in the
 // artifact as before (no reduction, no breakage). The deploy step that invokes
 // it also uses continue-on-error.
 //
