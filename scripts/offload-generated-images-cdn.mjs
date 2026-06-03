@@ -2,7 +2,8 @@
 // offload-generated-images-cdn.mjs
 //
 // Offload BUILD-GENERATED per-job OG cards (dist/og) from the GitHub Pages
-// artifact to jsDelivr, pinned to a cdn-assets commit SHA.
+// artifact to raw.githubusercontent, pinned to a cdn-assets commit SHA.
+// (raw, not jsDelivr: jsDelivr 502s on the large orphan commit — see cdnBase.)
 //
 // (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
 // the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
@@ -81,7 +82,12 @@ function main() {
     log('no dist/ — skipping');
     return;
   }
-  const cdnBase = `https://cdn.jsdelivr.net/gh/${REPO}@${sha}`;
+  // Serve via raw.githubusercontent, NOT jsDelivr: jsDelivr returns 502 trying
+  // to package the cdn-assets orphan branch's large single commit (~168 MB /
+  // 6000 files), whereas raw serves each file directly with the correct
+  // Content-Type (image/webp, 200). og:image is crawler/social-fetched (sparse)
+  // so raw's rate limits are acceptable here; it is NOT a general CDN.
+  const cdnBase = `https://raw.githubusercontent.com/${REPO}/${sha}`;
 
   // Build rewrite + guard regexes per target. A target file is any path under
   // the url prefix ending in a known image extension (no quote/space/paren).
