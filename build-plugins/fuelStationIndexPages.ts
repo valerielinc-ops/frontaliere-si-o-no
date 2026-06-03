@@ -1147,7 +1147,13 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
         // (the city-zone mapping is geographic, not arbitrary).
         const byZone = new Map<FuelZone, ItalianCityEntry[]>();
         for (const z of FUEL_ZONES) byZone.set(z, []);
+        // Leaf-driven (same as the swiss-stations and italian-stations indexes):
+        // only link a city-hub that actually has an emitted station leaf for THIS
+        // fuel. Iterating the raw entry list would link diesel hubs that don't
+        // exist (most comuni have no diesel-priced station) and any hub the
+        // word-gate skipped → indexed 404s on a crawlable sitemap page.
         for (const c of italianCities) {
+          if (!italianByCity.has(c.slug)) continue;
           const arr = byZone.get(c.nearestZone);
           if (arr) arr.push(c);
         }

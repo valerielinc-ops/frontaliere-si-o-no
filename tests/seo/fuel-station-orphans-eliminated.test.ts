@@ -139,10 +139,20 @@ describe('fuel-station orphans — every synthetic leaf is linked from its index
         expect(countAnchors(html, `/${leaf.zone}/stazioni/${leaf.slug}/`)).toBeGreaterThanOrEqual(1);
       }
     });
-    it(`Italian-cities index (it/${fuel}) links every curated city`, () => {
+    it(`Italian-cities index (it/${fuel}) is leaf-driven: links only cities with an emitted station leaf`, () => {
       const html = pages[buildFuelIndexPath('it', fuel, 'italianCities')]!;
+      // Leaf-driven: a city-hub is linked only when it has a station leaf for
+      // THIS fuel (so the index never points at an ungenerated hub → no 404).
+      const leafCities = new Set(
+        (fuel === 'benzina' ? SYNTHETIC_ITALIAN : []).map((s) => s.citySlug),
+      );
+      for (const slug of leafCities) {
+        expect(countAnchors(html, `/italia/${slug}/oggi/`)).toBeGreaterThanOrEqual(1);
+      }
+      // Curated cities WITHOUT a leaf must NOT be linked.
       for (const c of FUEL_ITALIAN_CITIES) {
-        expect(countAnchors(html, `/italia/${c.slug}/oggi/`)).toBeGreaterThanOrEqual(1);
+        if (leafCities.has(c.slug)) continue;
+        expect(countAnchors(html, `/italia/${c.slug}/oggi/`)).toBe(0);
       }
     });
   }
