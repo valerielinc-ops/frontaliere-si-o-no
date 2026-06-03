@@ -43,6 +43,9 @@ const frCore: Record<string, string> = {
  'nav.support': 'Aidez-nous',
  'nav.subtitle': 'Analyse Fiscale 2026',
  'comparators.exchange': 'Change Devise',
+ // CTA "Prova anche" labels — eager-loaded (sibling chunks comparatori/guide load post-paint via requestIdleCallback)
+ 'strumenti.permitCompare': 'G vs B',
+ 'guide.tabs.calendar': 'Échéances fiscales',
  'comparators.traffic': 'Trafic Douanes',
  'comparators.mobile': 'Téléphonie Mobile',
  'comparators.banks': 'Comptes Bancaires',

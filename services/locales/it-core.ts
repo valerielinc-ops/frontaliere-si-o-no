@@ -52,6 +52,9 @@ const translations: Record<string, string> = {
  
  // Comparator sub-tabs
  'comparators.exchange': 'Cambio Valuta',
+ // CTA "Prova anche" labels — eager-loaded (sibling chunks comparatori/guide load post-paint via requestIdleCallback)
+ 'strumenti.permitCompare': 'G vs B',
+ 'guide.tabs.calendar': 'Scadenze Fiscali',
  'comparators.traffic': 'Traffico Valichi',
  'comparators.mobile': 'Telefonia Mobile',
  'comparators.banks': 'Conti Correnti',
