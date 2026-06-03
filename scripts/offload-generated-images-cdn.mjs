@@ -1,30 +1,34 @@
 #!/usr/bin/env node
 // offload-generated-images-cdn.mjs
 //
-// Offload BUILD-GENERATED assets from the GitHub Pages artifact to
-// raw.githubusercontent, pinned to a cdn-assets commit SHA. Two phases:
+// Offload BUILD-GENERATED assets out of the GitHub Pages artifact, rewriting
+// their references to the dedicated CDN repo's Pages site (CDN_BASE). Two phases:
 //   1. per-job OG cards (dist/og)            — rewrite static og:image refs
 //   2. per-job detail JSON (dist/data/job-detail) — inject runtime CDN base
-// (raw, not jsDelivr: jsDelivr 403/502s on the fresh orphan ref — see cdnBase.)
 //
 // (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
 // the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
 // stay same-origin. og:image refs ARE in static HTML so Phase 1 rewrites them;
 // job-detail JSON is also runtime-fetched so Phase 2 injects a runtime base.)
 //
-// Unlike the full blog hero images (git-tracked → served from main@sha by
+// Unlike the full blog hero images (git-tracked → served from jsDelivr@main by
 // build-plugins/blogImageCdnFinalizePlugin), dist/og and dist/data/job-detail
 // are generated at build time and are NOT in git. The deploy workflow first
-// force-pushes both to an orphan `cdn-assets` branch and passes that commit SHA
-// as CDN_ASSETS_SHA; this script then, per phase:
-//   • Phase 1 (og): rewrites the emitted og:image references in dist HTML to the
-//     raw.githubusercontent URL, then deletes dist/og.
-//   • Phase 2 (job-detail): injects window.__CDN_DATA_BASE__=<raw base> into
+// pushes both to the `frontaliere-cdn` repo (its own GitHub Pages site, Fastly
+// edge, `access-control-allow-origin: *`, correct Content-Type, STABLE URLs) and
+// exports its base URL as CDN_BASE; this script then, per phase:
+//   • Phase 1 (og): rewrites the emitted og:image references in dist HTML to
+//     ${CDN_BASE}/og/…, then deletes dist/og.
+//   • Phase 2 (job-detail): injects window.__CDN_DATA_BASE__=${CDN_BASE} into
 //     every dist HTML page (read by services/cdnDataBase.ts → cdnDataUrl at
 //     runtime), then deletes dist/data/job-detail.
 //
+// Pages (NOT raw / NOT jsDelivr): raw is rate-limited and serves JSON as
+// text/plain; jsDelivr 403/502s on fresh orphan refs. The CDN repo's Pages site
+// is a real Fastly-backed CDN, so it has neither problem.
+//
 // SAFETY — BEST-EFFORT / NON-FATAL: this runs in the deploy critical path, so it
-// must NEVER break a deploy. On a missing SHA, a guard leak, or ANY thrown
+// must NEVER break a deploy. On a missing CDN_BASE, a guard leak, or ANY thrown
 // error it leaves dist exactly as-is and exits 0 — the assets simply ship in the
 // artifact as before (no reduction, no breakage). The deploy step that invokes
 // it also uses continue-on-error.
@@ -34,7 +38,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 
@@ -198,9 +201,17 @@ function offloadGeneratedData(distDir, cdnBase) {
 }
 
 function main() {
-  const sha = (process.env.CDN_ASSETS_SHA || '').trim();
-  if (!/^[0-9a-f]{7,40}$/i.test(sha)) {
-    log(`no valid CDN_ASSETS_SHA (got "${sha}") — skipping offload, assets stay in dist`);
+  // CDN_BASE is the full origin+path of the CDN repo's GitHub Pages site
+  // (e.g. https://valerielinc-ops.github.io/frontaliere-cdn), exported by the
+  // deploy step only after the assets were successfully pushed there. Pages
+  // serves every file via Fastly with the correct Content-Type (application/json,
+  // image/webp) and `access-control-allow-origin: *`, with STABLE URLs (no SHA
+  // pin) — a real CDN, unlike raw (rate-limited, JSON as text/plain) or jsDelivr
+  // (403/502 on fresh orphan refs). Main-tracked assets like blog heroes still
+  // use jsDelivr@main separately.
+  const cdnBase = (process.env.CDN_BASE || '').trim().replace(/\/+$/, '');
+  if (!/^https:\/\/\S+$/.test(cdnBase)) {
+    log(`no valid CDN_BASE (got "${cdnBase}") — skipping offload, assets stay in dist`);
     return;
   }
   const distDir = path.resolve(process.cwd(), 'dist');
@@ -208,14 +219,6 @@ function main() {
     log('no dist/ — skipping');
     return;
   }
-  // Serve via raw.githubusercontent, NOT jsDelivr: jsDelivr 403/502s on a fresh
-  // orphan-branch ref ("Failed to fetch version info" — its per-repo version
-  // refresh chokes on this giant repo for cold refs), whereas raw serves each
-  // file directly with the correct Content-Type (image/webp; application/json
-  // parses fine via fetch().json()) and CORS `*`. The offloaded assets are
-  // sparse/per-session fetches so raw's rate limits are acceptable; it is NOT a
-  // general CDN. (Main-tracked assets like blog heroes DO use jsDelivr@main.)
-  const cdnBase = `https://raw.githubusercontent.com/${REPO}/${sha}`;
 
   offloadOgImages(distDir, cdnBase);
   offloadGeneratedData(distDir, cdnBase);
