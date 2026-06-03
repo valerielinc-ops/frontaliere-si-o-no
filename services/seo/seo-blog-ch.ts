@@ -293,6 +293,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-neutralizzazione-stime-2026-classi-media': {
+    title: 'Neutralizzare le stime 2026: tutela per casa e classi media',
+    description: 'Voto 14 giugno 2026: scopri come neutralizzare le stime fiscali in Ticino per evitare aumenti delle imposte sulla casa e mantenere l’accesso agli aiuti sociali',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralizzare, stime, tutela, casa',
+    ogTitle: 'Neutralizzazione stime 2026: tutela casa e classi media in Ticino',
+    ogDescription: 'Guida pratica per frontalieri: voto 14 giugno 2026 su neutralizzazione stime fiscali. Impatto su tasse, casa e aiuti sociali.',
+    canonicalPath: '/articoli-svizzera/neutralizzazione-stime-2026-classi-media/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralizzare le stime 2026: tutela per casa e classi media",
+      "description": "Voto 14 giugno 2026: scopri come neutralizzare le stime fiscali in Ticino per evitare aumenti delle imposte sulla casa e mantenere l’accesso agli aiuti sociali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/neutralizzazione-stime-2026-classi-media.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta notturna di Lugano con lago e centro storico illuminati, simbolo di stabilità e radicamento per i frontalieri"
+      },
+      "datePublished": "2026-06-03T01:35:44+00:00",
+      "dateModified": "2026-06-03T01:35:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralizzazione-stime-2026-classi-media/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

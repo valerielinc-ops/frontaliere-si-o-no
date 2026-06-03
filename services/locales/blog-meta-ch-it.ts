@@ -29,6 +29,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cern-future-collider-ticino.title': 'Il CERN e il futuro del collider',
     'blog.article.cern-future-collider-ticino.excerpt': 'Il CERN sta pianificando un nuovo acceleratore di particelle, quasi quattro volte più grande dell\'attuale LHC, per esplorare i misteri dell\'universo.',
     'blog.article.cern-future-collider-ticino.imageAlt': 'Vista aerea del Lago di Ginevra con il CERN',
+    'blog.article.neutralizzazione-stime-2026-classi-media.title': 'Neutralizzare le stime 2026: tutela per casa e classi media',
+    'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'Il 14 giugno 2026 si vota per bloccare l’aumento delle stime fiscali. Ecco cosa cambia per i frontalieri e la casa di proprietà.',
+    'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Veduta notturna di Lugano con lago e centro storico illuminati, simbolo di stabilità e radicamento per i frontalieri',
 };
 
 export default blogMetaChIt;
