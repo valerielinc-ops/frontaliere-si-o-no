@@ -1,18 +1,19 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-02T23:55:54.285Z",
+  "generatedAt": "2026-06-03T14:04:10.358Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 5,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 26256,
-  "avgDurationMs": 26256,
+  "durationMs": 28035,
+  "avgDurationMs": 28035,
   "durationHistory": [
-    26256
+    28035
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-qrsmyr",
       "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
@@ -32,16 +33,19 @@
       "crawledAt": "2026-06-02T23:55:53.817Z",
       "firstSeenAt": "2026-06-02T23:55:53.817Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "employmentType": "FULL_TIME",
+      "addressLocality": "Schattdorf",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "UR",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 14
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-evp2lu",
       "slug": "magazzino-collaboratore-trice-a-40-60-in-der-filiale-eyholz-jysk-eyholz-evp2lu",
@@ -204,42 +208,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-esp7om",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
-      "location": "Schattdorf",
-      "canton": "UR",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-06-02T13:31:13.150Z",
-      "firstSeenAt": "2026-06-02T13:31:13.150Z",
-      "sourceLang": "de",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "employmentType": "FULL_TIME",
-      "addressLocality": "Schattdorf",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "UR",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-o6pzz5",
