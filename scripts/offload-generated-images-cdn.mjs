@@ -1,14 +1,18 @@
 #!/usr/bin/env node
 // offload-generated-images-cdn.mjs
 //
-// Offload BUILD-GENERATED images (per-job OG cards + 480w blog thumbnails) from
-// the GitHub Pages artifact to jsDelivr, pinned to a cdn-assets commit SHA.
+// Offload BUILD-GENERATED per-job OG cards (dist/og) from the GitHub Pages
+// artifact to jsDelivr, pinned to a cdn-assets commit SHA.
+//
+// (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
+// the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
+// stay same-origin. Only og:image refs, which ARE in static HTML, move.)
 //
 // Unlike the full blog hero images (git-tracked → served from main@sha by
-// build-plugins/blogImageCdnFinalizePlugin), og/jobs and images/blog/thumbnails
-// are generated at build time and are NOT in git. The deploy workflow first
-// force-pushes dist/og + dist/images/blog/thumbnails to an orphan `cdn-assets`
-// branch and passes that commit SHA as CDN_ASSETS_SHA; this script then rewrites
+// build-plugins/blogImageCdnFinalizePlugin), og/jobs is generated at build time
+// and is NOT in git. The deploy workflow first force-pushes dist/og to an
+// orphan `cdn-assets` branch and passes that commit SHA as CDN_ASSETS_SHA;
+// this script then rewrites
 // the emitted dist references to the jsDelivr URL and deletes the offloaded
 // directories from dist.
 //
@@ -90,34 +94,40 @@ function main() {
     return;
   }
 
+  // Precompile per-target regexes once (og:image refs live in EVERY page's
+  // <head>, so no dir can be skipped — but a single pass over each file that
+  // rewrites AND verifies in-memory avoids a second filesystem scan).
+  const compiled = presentTargets.map((t) => {
+    const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return {
+      t,
+      reAbs: new RegExp(escOrigin + escUrl + fileTail, 'g'),
+      reRel: new RegExp('(?<![\\w.@])' + escUrl + fileTail, 'g'),
+      reLeak: new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + fileTail),
+      repl: (_m, file) => `${cdnBase}${t.url}${file}`,
+    };
+  });
+
   let scanned = 0;
   let rewritten = 0;
-  for (const t of presentTargets) {
-    const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const reAbs = new RegExp(escOrigin + escUrl + fileTail, 'g');
-    const reRel = new RegExp('(?<![\\w.@])' + escUrl + fileTail, 'g');
-    const repl = (_m, file) => `${cdnBase}${t.url}${file}`;
-    walk(distDir, (fp) => {
-      scanned++;
-      const orig = fs.readFileSync(fp, 'utf8');
-      const out = orig.replace(reAbs, repl).replace(reRel, repl);
-      if (out !== orig) {
-        fs.writeFileSync(fp, out);
-        rewritten++;
-      }
-    });
-  }
-
-  // GUARD — no surviving origin/relative ref to an offloaded path may remain
-  // (it would 404 once the dir is deleted). On a leak, abort WITHOUT deleting.
+  // Single pass: rewrite every target in the file, then verify the result
+  // in-memory. GUARD — no surviving origin/relative ref to an offloaded path
+  // may remain (it would 404 once the dir is deleted). On a leak, abort
+  // WITHOUT deleting.
   const leaks = [];
-  for (const t of presentTargets) {
-    const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const reLeak = new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + fileTail);
-    walk(distDir, (fp) => {
-      if (reLeak.test(fs.readFileSync(fp, 'utf8'))) leaks.push(`${t.url} in ${path.relative(distDir, fp)}`);
-    });
-  }
+  walk(distDir, (fp) => {
+    scanned++;
+    const orig = fs.readFileSync(fp, 'utf8');
+    let out = orig;
+    for (const c of compiled) out = out.replace(c.reAbs, c.repl).replace(c.reRel, c.repl);
+    if (out !== orig) {
+      fs.writeFileSync(fp, out);
+      rewritten++;
+    }
+    for (const c of compiled) {
+      if (c.reLeak.test(out)) leaks.push(`${c.t.url} in ${path.relative(distDir, fp)}`);
+    }
+  });
   if (leaks.length > 0) {
     log(`GUARD: ${leaks.length} unrewritten ref(s) survive — ABORTING offload (images kept in dist): ${leaks.slice(0, 5).join('; ')}`);
     return; // non-fatal: keep images, deploy proceeds
