@@ -10,10 +10,13 @@
  * `services/routerSwissData.ts`. See `services/articleSections.ts`.
  */
 import type { Article } from './blog-articles-data';
+// Relative (not `@/`): this module is in vite.config's build graph; the config
+// loader can't resolve `@/`. See feedback_no_alias_imports_in_config_graph.
+import { cdnBlogImage } from '../services/seo/blogImageCdn';
 
 export type { Article };
 
-export const SWISS_ARTICLES: Article[] = [
+const RAW_SWISS_ARTICLES: Article[] = [
   {
     id: 'costo-vita-svizzera-2026',
     category: 'pratico',
@@ -123,3 +126,12 @@ export const SWISS_ARTICLES: Article[] = [
     authorName: 'Marco Ferrari',
    },
 ];
+
+// Full blog hero images are served from jsDelivr (CDN) and deleted from the
+// Pages artifact (build-plugins/blogImageCdnFinalizePlugin) — so the runtime
+// export must point at the CDN, exactly like blog-articles-data.ts. The raw
+// literals above stay site-relative for the regex-parsing build plugins.
+export const SWISS_ARTICLES: Article[] = RAW_SWISS_ARTICLES.map((a) => ({
+  ...a,
+  image: cdnBlogImage(a.image),
+}));
