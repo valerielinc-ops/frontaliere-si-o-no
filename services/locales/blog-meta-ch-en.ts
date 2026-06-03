@@ -23,6 +23,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'AI and the Future of Work in Switzerland: 2026 Scenarios',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'An analysis of the impact of artificial intelligence on the Swiss labor market: productivity, automation, and training challenges.',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Modern office in Lugano overlooking the lake',
+    'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR seeks talent in Ticino: opportunities for cross-border workers',
+    'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'SSR offers numerous job opportunities in Ticino for cross-border workers, with open positions in almost all professional categories.',
+    'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Panoramic view of Lugano\'s media district with modern buildings and professionals',
 };
 
 export default blogMetaChEn;

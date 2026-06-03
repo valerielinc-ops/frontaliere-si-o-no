@@ -29,6 +29,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'iniziative-casse-malati-2026': { it: 'iniziative-casse-malati-2026', en: 'health-insurance-initiatives-2026', de: 'gesundheitsversicherungsinitiativen-2026', fr: 'initiatives-assurance-maladie-2026' },
  'candidatura-lavoro-estero-ticino': { it: 'candidatura-lavoro-estero-ticino', en: 'job-application-abroad-ticino', de: 'bewerbung-ausland-ticino', fr: 'candidature-emploi-etranger-ticino' },
  'intelligenza-artificiale-lavoro-svizzera-2026': { it: 'intelligenza-artificiale-lavoro-svizzera-2026', en: 'artificial-intelligence-work-switzerland-2026', de: 'kunstliche-intelligenz-arbeit-schweiz-2026', fr: 'intelligence-artificielle-travail-suisse-2026' },
+ 'lavoro-media-ssr-talenti-ticino': { it: 'lavoro-media-ssr-talenti-ticino', en: 'media-jobs-ssr-talents-ticino', de: 'medien-jobs-ssr-talente-tessin', fr: 'emplois-medias-ssr-talents-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -23,6 +23,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.title': 'KI und Zukunft der Arbeit in der Schweiz: Szenarien bis 2026',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.excerpt': 'Analyse der Auswirkungen von künstlicher Intelligenz auf den Schweizer Arbeitsmarkt: Produktivität, Automatisierung und Herausforderungen für die Ausbildung.',
     'blog.article.intelligenza-artificiale-lavoro-svizzera-2026.imageAlt': 'Modernes Büro in Lugano mit Blick auf den See',
+    'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR sucht Talente im Tessin: Chancen für Grenzgänger',
+    'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'Die SSR bietet zahlreiche Arbeitsmöglichkeiten im Tessin für Grenzgänger, mit offenen Stellen in fast allen Berufskategorien.',
+    'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Panoramablick auf das Medienviertel von Lugano mit modernen Gebäuden und Fachleuten',
 };
 
 export default blogMetaChDe;
