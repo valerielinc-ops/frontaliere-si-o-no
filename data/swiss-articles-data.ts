@@ -122,4 +122,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'hantavirus-ginevra-identificazione',
+    category: 'novita',
+    date: '2026-06-03T05:25:04.748Z',
+    image: '/images/blog/hantavirus-ginevra-identificazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
