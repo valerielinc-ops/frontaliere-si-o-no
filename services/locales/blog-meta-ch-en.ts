@@ -38,6 +38,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guerre-dellinformazione.title': 'Info Wars: Threats and Strategies',
     'blog.article.guerre-dellinformazione.excerpt': 'The influence of social media on democracy and Switzerland\'s role in the Magnitsky case',
     'blog.article.guerre-dellinformazione.imageAlt': 'Bellinzona Castle',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Withholding tax not refunded: changes for cross-border workers',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Find out why some cross-border workers no longer receive a withholding tax refund and what to do in these cases.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains in the background',
 };
 
 export default blogMetaChEn;

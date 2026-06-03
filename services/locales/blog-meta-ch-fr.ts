@@ -38,6 +38,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guerre-dellinformazione.title': 'Guerres de l\'information: menaces et stratégies',
     'blog.article.guerre-dellinformazione.excerpt': 'L\'influence des réseaux sociaux sur la démocratie et le rôle de la Suisse dans l\'affaire Magnitsky',
     'blog.article.guerre-dellinformazione.imageAlt': 'Château de Bellinzone',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Impôt à la source non remboursé : ce qui change pour les frontaliers',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Découvrez pourquoi certains frontaliers ne reçoivent plus le remboursement de l\'impôt à la source et que faire dans ces cas.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

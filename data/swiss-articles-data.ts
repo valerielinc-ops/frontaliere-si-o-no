@@ -113,4 +113,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-fonte-frontalieri-ticino',
+    category: 'fiscale',
+    date: '2026-06-03T04:48:27.684Z',
+    image: '/images/blog/imposta-fonte-frontalieri-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];

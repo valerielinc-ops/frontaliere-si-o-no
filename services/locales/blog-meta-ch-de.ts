@@ -38,6 +38,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guerre-dellinformazione.title': 'Informationenkriege: Bedrohungen und Strategien',
     'blog.article.guerre-dellinformazione.excerpt': 'Der Einfluss von Social Media auf die Demokratie und die Rolle der Schweiz im Magnitsky-Fall',
     'blog.article.guerre-dellinformazione.imageAlt': 'Burg von Bellinzona',
+    'blog.article.imposta-fonte-frontalieri-ticino.title': 'Quellensteuer nicht zurückerstattet: Was ändert sich für Grenzgänger',
+    'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Erfahren Sie, warum einige Grenzgänger keine Rückerstattung der Quellensteuer mehr erhalten und was in solchen Fällen zu tun ist.',
+    'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen im Hintergrund',
 };
 
 export default blogMetaChDe;
