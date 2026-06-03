@@ -16083,15 +16083,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "patient-journey-partner-islamabad-roche-ch",
-        "patient-journey-partner-lussemburgo-roche-brussels",
-        "patient-journey-partner-luxembourg-roche-ch",
-        "patient-journey-partner-oncologia-sumatra-roche-medan",
-        "patient-journey-partner-oncology-sumatra-roche-ch",
-        "handelspartner-roche-basel",
-        "partner-del-viaggio-paziente-roche-basel",
-        "patient-journey-partner-roche-ch",
-        "partenaire-de-tarification-roche-basel",
         "pricing-partner-roche-ch",
         "patient-journey-partner-ophthalmology-roche-ch",
         "patientenreise-partner-ophthalmologie-roche-basel",
@@ -16106,15 +16097,15 @@
         "patient-journey-partner-hematologie-hemophilie-timisoara-roche-basel",
         "patient-journey-partner-roche-ch-2",
         "malattia-partner-rare-del-viaggio-paziente-roche-taipei",
-        "patient-journey-partner-rare-disease-roche-ch"
+        "patient-journey-partner-rare-disease-roche-ch",
+        "partner-commerciale-roche-basel",
+        "commercial-business-partner-roche-ch",
+        "patient-journey-partner-oftalmologia-roche-ch",
+        "patient-journey-partner-ophthalmology-roche-italy",
+        "partner-del-viaggio-paziente-islamabad-roche-islamabad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "patient-journey-partner-islamabad-roche-ch",
-          "patient-journey-partner-lussemburgo-roche-brussels",
-          "patient-journey-partner-luxembourg-roche-ch",
-          "patient-journey-partner-oncologia-sumatra-roche-medan",
-          "patient-journey-partner-oncology-sumatra-roche-ch",
           "handelspartner-roche-basel",
           "partner-del-viaggio-paziente-roche-basel",
           "patient-journey-partner-roche-ch",
@@ -16129,7 +16120,12 @@
           "patient-journey-partner-contract-roche-ch",
           "partner-del-viaggio-paziente-oftalmologia-roche-basel",
           "partner-del-viaggio-paziente-hematology-hemophilia-timisoara-roche-basel",
-          "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch"
+          "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch",
+          "partner-commerciale-roche-basel",
+          "commercial-business-partner-roche-ch",
+          "patient-journey-partner-oftalmologia-roche-ch",
+          "patient-journey-partner-ophthalmology-roche-italy",
+          "partner-del-viaggio-paziente-islamabad-roche-islamabad"
         ],
         "de": [
           "partner-von-patientenreise-roche-basel"
@@ -26431,10 +26427,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "patient-journey-partner-roche-ch-3",
-        "patient-journey-partner-oncology-sumatra-roche-ch",
-        "patient-journey-partner-islamabad-roche-ch",
-        "patient-journey-partner-lussemburgo-roche-brussels",
         "patient-journey-partner-luxembourg-roche-ch",
         "patient-journey-partner-oncologia-sumatra-roche-medan",
         "handelspartner-roche-basel",
@@ -26449,12 +26441,22 @@
         "patient-journey-partner-contratto-roche-hong-kong",
         "patient-journey-partner-contract-roche-ch",
         "partner-del-viaggio-paziente-oftalmologia-roche-basel",
-        "partner-del-viaggio-paziente-hematology-hemophilia-timisoara-roche-basel"
+        "partner-del-viaggio-paziente-hematology-hemophilia-timisoara-roche-basel",
+        "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch",
+        "patient-journey-partner-hematologie-hemophilie-timisoara-roche-basel",
+        "patient-journey-partner-roche-ch-2",
+        "malattia-partner-rare-del-viaggio-paziente-roche-taipei",
+        "patient-journey-partner-rare-disease-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "patient-journey-partner-roche-ch-3",
-          "patient-journey-partner-oncology-sumatra-roche-ch"
+          "patient-journey-partner-oncology-sumatra-roche-ch",
+          "patient-journey-partner-hematology-hemophilia-timisoara-roche-ch",
+          "patient-journey-partner-hematologie-hemophilie-timisoara-roche-basel",
+          "patient-journey-partner-roche-ch-2",
+          "malattia-partner-rare-del-viaggio-paziente-roche-taipei",
+          "patient-journey-partner-rare-disease-roche-ch"
         ],
         "de": [
           "patient-journey-partner-roche-ch-3"
@@ -27586,14 +27588,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
+        "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate",
+        "finance-intern-roche-pharma-switzerland-ag-from-august-1-2026-in-basel-for-12-months-roche-basel",
+        "stage-finance-roche-pharma-suisse-ag-a-partir-du-1er-aout-2026-a-bale-pour-12-mois-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
         ],
         "fr": [
-          "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate"
+          "praktikant-finance-roche-pharma-schweiz-ag-ab-dem-1-august-2026-in-basel-fur-12-monate",
+          "stage-finance-roche-pharma-suisse-ag-a-partir-du-1er-aout-2026-a-bale-pour-12-mois-roche-basel"
+        ],
+        "en": [
+          "finance-intern-roche-pharma-switzerland-ag-from-august-1-2026-in-basel-for-12-months-roche-basel"
         ]
       },
       "firstSeenAt": "2026-06-02T14:30:44.820Z",
