@@ -1,16 +1,16 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-06-03T00:51:43.780Z",
+  "generatedAt": "2026-06-03T15:03:39.145Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7981,
-  "avgDurationMs": 7981,
+  "durationMs": 8809,
+  "avgDurationMs": 8809,
   "durationHistory": [
-    7981
+    8809
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54319/fr/un-e-infirmier/ere-a-50-hes-ou-equivalent",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:37.516Z",
+      "crawledAt": "2026-06-03T15:03:32.018Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -43,11 +43,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54319/fr/un-e-infirmier/ere-a-50-hes-ou-equivalent",
       "firstSeenAt": "2026-06-02T14:30:14.725Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -64,7 +64,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:38.461Z",
+      "crawledAt": "2026-06-03T15:03:33.140Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -80,11 +80,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "firstSeenAt": "2026-06-02T14:30:15.489Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +101,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54316/fr/un-e-technicien-ne-en-salle-d-operation-tso",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:39.234Z",
+      "crawledAt": "2026-06-03T15:03:34.237Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -117,11 +117,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54316/fr/un-e-technicien-ne-en-salle-d-operation-tso",
       "firstSeenAt": "2026-06-02T14:30:16.112Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -138,7 +138,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54314/fr/un-e-assistant-e-socio-educatif-ve-a-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:40.089Z",
+      "crawledAt": "2026-06-03T15:03:35.181Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -154,11 +154,11 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54314/fr/un-e-assistant-e-socio-educatif-ve-a-50",
       "firstSeenAt": "2026-06-02T14:30:16.849Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -175,7 +175,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54003/fr/un-e-assistant-e-medical-e-60-a-70-en-cdi",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:40.892Z",
+      "crawledAt": "2026-06-03T15:03:36.153Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_53978/fr/un-e-aide-en-soins-cdd-de-6-mois-contrat-a-l-heure-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:51:41.856Z",
+      "crawledAt": "2026-06-03T15:03:37.096Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
