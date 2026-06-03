@@ -637,17 +637,24 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      # ── Generated OG-card offload (best-effort, non-fatal) ────────────────
-      # Push the build-generated per-job OG cards (dist/og, ~170 MB — NOT
-      # git-tracked) to an orphan `cdn-assets` branch, then rewrite the emitted
-      # og:image refs to raw.githubusercontent@<that-sha> and delete dist/og.
-      # raw (NOT jsDelivr): jsDelivr 502s packaging the large single orphan
-      # commit, while raw serves each file directly with Content-Type
-      # image/webp. og:image is crawler/social-fetched (sparse) so raw's rate
-      # limits are acceptable. BOTH steps are continue-on-error and the script
-      # is internally non-fatal: any failure leaves dist untouched (og ships as
-      # before) — the offload can never break a deploy.
-      - name: Push generated OG cards to cdn-assets branch (CDN source)
+      # ── Generated-asset offload (best-effort, non-fatal) ──────────────────
+      # Push build-generated, NOT-git-tracked assets to an orphan `cdn-assets`
+      # branch, then offload them out of dist via scripts/offload-generated-
+      # images-cdn.mjs:
+      #   • dist/og            (~170 MB) — per-job OG cards; og:image refs in
+      #                                    static HTML rewritten to raw@<sha>.
+      #   • dist/data/job-detail (~225 MB) — per-job detail JSON fetched at
+      #                                    runtime by the SPA; the script injects
+      #                                    window.__CDN_DATA_BASE__=raw@<sha> into
+      #                                    every page so cdnDataUrl() resolves it.
+      # raw (NOT jsDelivr): jsDelivr 403/502s on a fresh orphan ref, while raw
+      # serves each file directly (image/webp; application/json). These assets
+      # are sparse/per-session fetches so raw's rate limits are acceptable. BOTH
+      # steps are continue-on-error and the script is internally non-fatal: any
+      # failure leaves dist untouched (assets ship as before) and the SSG static
+      # HTML keeps full content either way — the offload can never break a deploy
+      # or SEO.
+      - name: Push generated assets to cdn-assets branch (CDN source)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         env:
@@ -657,8 +664,11 @@ jobs:
           stage=/tmp/cdn-assets
           rm -rf "$stage" && mkdir -p "$stage"
           [ -d dist/og ] && cp -r dist/og "$stage/og"
-          if [ ! -d "$stage/og" ]; then
-            echo "no dist/og present — skipping cdn-assets push"; exit 0
+          if [ -d dist/data/job-detail ]; then
+            mkdir -p "$stage/data" && cp -r dist/data/job-detail "$stage/data/job-detail"
+          fi
+          if [ ! -d "$stage/og" ] && [ ! -d "$stage/data/job-detail" ]; then
+            echo "no offloadable assets present — skipping cdn-assets push"; exit 0
           fi
           echo "cdn-assets payload: $(du -sh "$stage" | cut -f1)"
           cd "$stage"
@@ -667,16 +677,16 @@ jobs:
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
-          git commit -qm "cdn og cards ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          git commit -qm "cdn assets (og + job-detail) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
           if git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" cdn-assets; then
             sha="$(git rev-parse HEAD)"
             echo "CDN_ASSETS_SHA=${sha}" >> "$GITHUB_ENV"
             echo "✅ pushed cdn-assets ${sha:0:8}"
           else
-            echo "⚠️ cdn-assets push failed — offload skipped, og stays in dist"
+            echo "⚠️ cdn-assets push failed — offload skipped, assets stay in dist"
           fi
 
-      - name: Offload OG cards to CDN (rewrite og:image refs + delete dist/og)
+      - name: Offload generated assets to CDN (og refs + job-detail base + delete)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: node scripts/offload-generated-images-cdn.mjs
