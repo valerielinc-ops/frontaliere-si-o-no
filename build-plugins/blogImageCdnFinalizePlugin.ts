@@ -43,11 +43,31 @@ const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
-function walk(dir: string, fn: (fp: string) => void): void {
+// Perf: full blog hero images are referenced ONLY in article pages, feeds, and
+// sitemaps — never in the job-board corpus (cerca-lavoro-* / find-jobs-* /
+// stellensuche-* / jobs-im-* / trouver-emploi-* and the search-cluster `ricerca`
+// tree), which is ~700k of the ~1.2M emitted files and carries ZERO /images/blog
+// references (verified across all 4 locales). Skipping those dirs turns a ~16min
+// scan into seconds. The dirs are matched at the dist root (and one level under
+// each locale prefix), so article dirs like `articoli-frontaliere/` and
+// `en/cross-border-articles/` are always scanned.
+const SKIP_TOPDIR_RX = /^cerca-lavoro-|^ricerca$/;
+const SKIP_LOCALEDIR_RX = /^(find-jobs-|stellensuche-|jobs-im-|trouver-emploi-|emploi|cerca-lavoro-)/;
+const LOCALE_PREFIXES = new Set(['en', 'de', 'fr']);
+
+function walk(distDir: string, dir: string, fn: (fp: string) => void): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
-    if (e.isDirectory()) walk(fp, fn);
-    else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
+    if (e.isDirectory()) {
+      const rel = path.relative(distDir, fp);
+      const parts = rel.split(path.sep);
+      // Skip job-board / search-cluster dirs (zero blog refs) for speed.
+      if (parts.length === 1 && SKIP_TOPDIR_RX.test(parts[0])) continue;
+      if (parts.length === 2 && LOCALE_PREFIXES.has(parts[0]) && SKIP_LOCALEDIR_RX.test(parts[1])) continue;
+      walk(distDir, fp, fn);
+    } else if (SCAN_EXT.has(path.extname(e.name))) {
+      fn(fp);
+    }
   }
 }
 
@@ -67,7 +87,14 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
       const repl = (_m: string, file: string): string => `${JSDELIVR_BLOG_BASE}/${file}`;
       let scanned = 0;
       let rewritten = 0;
-      walk(distDir, (fp) => {
+      // Single pass: rewrite each file, then verify the RESULT in-memory (no
+      // second filesystem scan). Guard — nothing full-blog (non-thumbnail,
+      // non-CDN) may remain. If any does, ABORT the offload (keep the images
+      // in dist) rather than throw: a missed reference must never break the
+      // deploy. Worst case the artifact ships the blog images as before (no
+      // reduction) — never a 404 or a failed build.
+      const leaks: string[] = [];
+      walk(distDir, distDir, (fp) => {
         scanned++;
         const orig = fs.readFileSync(fp, 'utf8');
         const out = orig.replace(reAbs, repl).replace(reRel, repl);
@@ -75,16 +102,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
           fs.writeFileSync(fp, out);
           rewritten++;
         }
-      });
-
-      // Guard — nothing full-blog (non-thumbnail, non-CDN) may remain. If any
-      // does, ABORT the offload (keep the images in dist) rather than throw:
-      // a missed reference must never break the deploy. Worst case the artifact
-      // ships the blog images as before (no reduction) — never a 404 or a
-      // failed build. Logged loudly so the gap is visible in the build log.
-      const leaks: string[] = [];
-      walk(distDir, (fp) => {
-        if (reLeak.test(fs.readFileSync(fp, 'utf8'))) leaks.push(path.relative(distDir, fp));
+        if (reLeak.test(out)) leaks.push(path.relative(distDir, fp));
       });
       if (leaks.length > 0) {
         console.warn(
