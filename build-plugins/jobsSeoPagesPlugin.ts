@@ -131,6 +131,22 @@ import {
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 
+// ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
+// Logs process memory + WriteCollector backlog at each emit milestone so the CI
+// build log reveals which phase accretes the ~9.9 GB live heap / external spike.
+// No effect on emitted output. Remove once the retainer is fixed.
+function logBuildMem(label: string, collector?: unknown): void {
+  const m = process.memoryUsage();
+  const mb = (n: number) => Math.round(n / 1048576);
+  const c = collector as { writes?: Map<unknown, unknown>; _pendingFlushes?: Set<unknown> } | undefined;
+  const extra = c
+    ? ` pendingWrites=${c.writes?.size ?? '?'} inflightFlushes=${c._pendingFlushes?.size ?? '?'}`
+    : '';
+  console.log(
+    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}`,
+  );
+}
+
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
 const HUB_SEO_CONTEXT_SUMMARY: Record<'it' | 'en' | 'de' | 'fr', string> = {
@@ -761,6 +777,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
+ logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
  if (_ensuredDirs.has(dir)) return;
@@ -4108,6 +4125,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
+ logBuildMem('jobsSeoPages: after company-landing', collector);
  const aliasCount = listAllBrandAliases().length * localeList.length;
  if (aliasCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
@@ -6150,6 +6168,7 @@ ${staticAnalyticsHtml}
  }
  if (cityHubCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${cityHubCantonPagesCount} per-canton city hub pages`);
+ logBuildMem('jobsSeoPages: after city-hubs', collector);
  // Append city hub sitemap entries to editorial entries
  const cityHubEntriesJoined = cityHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
@@ -6871,6 +6890,7 @@ ${staticAnalyticsHtml}
  }
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);
+ logBuildMem('jobsSeoPages: after sector-hubs', collector);
  const sectorHubEntriesJoined = sectorHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${sectorHubEntriesJoined}`
@@ -7091,6 +7111,7 @@ ${staticAnalyticsHtml}
  }
  if (companyCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
+ logBuildMem('jobsSeoPages: after company-canton-hubs', collector);
  const companyCantonEntriesJoined = companyCantonSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCantonEntriesJoined}`
@@ -7298,6 +7319,7 @@ ${staticAnalyticsHtml}
  }
  if (companyCityPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);
+ logBuildMem('jobsSeoPages: after company-city-hubs', collector);
  const companyCityEntriesJoined = companyCitySitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCityEntriesJoined}`
@@ -8267,6 +8289,7 @@ ${staticAnalyticsHtml}
  }
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
+ logBuildMem('jobsSeoPages: after job-pages-DONE', collector);
 
  // Active-job emit done — release canonicalCleanedCache (~22k entries ×
  // CleanedFallbackContent, hundreds of MB peak). Only `memoCanonicalCleaned`
@@ -10847,7 +10870,8 @@ ${staticAnalyticsHtml}
  }
 
  if (expiredCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs
+ logBuildMem('jobsSeoPages: after expired-softlandings', collector);${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
