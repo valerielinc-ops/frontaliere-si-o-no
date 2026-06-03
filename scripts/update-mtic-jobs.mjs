@@ -60,7 +60,7 @@ const CAREERS_URL = 'https://www.mtic-group.org/it/opportunita-di-lavoro';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.MTIC_MAX_DETAIL_PAGES) || 40;
+const MAX_DETAIL_PAGES = Number(process.env.MTIC_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 800;
 
 function readJson(filePath, fallback) {

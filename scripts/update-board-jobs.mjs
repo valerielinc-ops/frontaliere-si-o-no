@@ -134,7 +134,7 @@ function extractNextPageUrl(html, currentUrl) {
 
 async function fetchBoardListings() {
   console.log('🔍 Fetching Board jobs from careers page...');
-  const MAX_PAGES = 10;
+  const MAX_PAGES = 100000; // uncapped — loop breaks when there is no next page URL
   const allDiscovered = [];
   let pageUrl = CAREERS_URL;
   let page = 1;

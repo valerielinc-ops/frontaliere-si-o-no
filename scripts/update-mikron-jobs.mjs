@@ -220,7 +220,7 @@ async function main() {
 
   await mergeJobs(discoveredJobs);
   console.log('\n🌐 Running base crawler for AI localization...');
-  await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '20', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '20' } });
+  await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, localizeExistingOnly: true, extraEnv: { JOBS_CRAWLER_MAX_JOB_LINKS: '100000', JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000' } });
 
   // Post-process
   if (fs.existsSync(DATA_JOBS)) {
