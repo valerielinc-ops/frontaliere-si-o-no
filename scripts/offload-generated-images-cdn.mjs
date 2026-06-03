@@ -222,6 +222,40 @@ function offloadGeneratedData(distDir, cdnBase) {
   log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; removed ${removed} files (kept ${kept} HTML-referenced) ; freed ${(freed / 1048576).toFixed(0)} MB`);
 }
 
+// ── Phase 3: bundler + boot assets (rewrite every /assets/ ref in HTML) ───────
+// dist/assets holds the Vite bundle (entry JS/CSS + content-hashed chunks) AND
+// custom build-emitted assets (early-boot, gtag, PostHog, the AdSense loader,
+// seo-static/bridge CSS, logo) referenced same-origin as `/assets/<file>` across
+// HTML. Vite's renderBuiltUrl already rebased the bundler-internal references
+// (JS chunk imports, CSS url()) to the CDN; this phase rewrites the remaining
+// same-origin `/assets/<file>` references in the EMITTED HTML (entry tags,
+// modulepreload hints, boot <script>s, CSS <link>s) to ${CDN}/assets/<file>.
+//
+// This phase only REWRITES — it does NOT delete dist/assets. The deploy's
+// "Verify CDN assets live, then drop dist/assets" step deletes it, but only
+// after (a) confirming the CDN actually serves a sample asset and (b) re-scanning
+// that NO same-origin /assets/ reference survives (fail-safe; if any does, it
+// keeps dist/assets — no breakage). So a missed rewrite here can never 404.
+const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
+
+function offloadAssetRefs(distDir, cdnBase) {
+  const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const reAbs = new RegExp(escOrigin + '/assets/' + ASSET_FILE, 'g');
+  // site-relative /assets/, NOT preceded by a word char (so an already-absolute
+  // CDN URL `…cdn.frontaliereticino.ch/assets/…` — preceded by `h` — is skipped).
+  const reRel = new RegExp('(?<![\\w.@])/assets/' + ASSET_FILE, 'g');
+  const repl = (_m, file) => `${cdnBase}/assets/${file}`;
+  let scanned = 0;
+  let rewritten = 0;
+  walk(distDir, (fp) => {
+    scanned++;
+    const orig = fs.readFileSync(fp, 'utf8');
+    const out = orig.replace(reAbs, repl).replace(reRel, repl);
+    if (out !== orig) { fs.writeFileSync(fp, out); rewritten++; }
+  });
+  log(`assets → ${cdnBase}/assets ; rewrote /assets/ refs in ${rewritten}/${scanned} HTML/XML/TXT files (dist/assets deleted by the deploy verify step)`);
+}
+
 function main() {
   // CDN_BASE is the full origin+path of the CDN repo's GitHub Pages site
   // (e.g. https://valerielinc-ops.github.io/frontaliere-cdn), exported by the
@@ -244,6 +278,7 @@ function main() {
 
   offloadOgImages(distDir, cdnBase);
   offloadGeneratedData(distDir, cdnBase);
+  offloadAssetRefs(distDir, cdnBase);
 }
 
 try {

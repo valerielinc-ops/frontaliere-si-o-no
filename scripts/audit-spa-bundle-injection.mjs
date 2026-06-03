@@ -82,8 +82,11 @@ if (!fs.existsSync(DIST)) {
  * unquoted attr values containing `/`; the only trailing-slash case is rejected
  * upstream to avoid `/>` self-close collision, and `.js` doesn't end in `/`).
  */
+// src may be same-origin (/assets/…) or an absolute CDN URL
+// (https://cdn.frontaliereticino.ch/assets/…) when ASSET_CDN/renderBuiltUrl is
+// active — the post-deploy artifact is post-rewrite, so tolerate both.
 const SPA_BUNDLE_RX =
-  /<script[^>]*type=["']?module["']?[^>]*src=["']?\/assets\/index-[A-Za-z0-9_-]+\.js["']?/;
+  /<script[^>]*type=["']?module["']?[^>]*src=["']?(?:https?:\/\/[^"'\s]+)?\/assets\/index-[A-Za-z0-9_-]+\.js["']?/;
 
 /**
  * Per-slug index.html files MAY legitimately not contain the SPA bundle when
