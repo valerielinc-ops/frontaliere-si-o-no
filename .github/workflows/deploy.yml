@@ -677,7 +677,8 @@ jobs:
           fi
           stage=/tmp/cdn-stage
           rm -rf "$stage" && mkdir -p "$stage"
-          : > "$stage/.nojekyll"   # serve every path verbatim, skip Jekyll
+          : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
+          printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
           [ -d dist/og ] && cp -r dist/og "$stage/og"
           if [ -d dist/data/job-detail ]; then
             mkdir -p "$stage/data" && cp -r dist/data/job-detail "$stage/data/job-detail"
@@ -699,7 +700,7 @@ jobs:
           git commit -qm "cdn assets (og + job-detail) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
           # Force-push a single fresh commit → CDN repo history never accumulates.
           if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
-            echo "CDN_BASE=https://valerielinc-ops.github.io/frontaliere-cdn" >> "$GITHUB_ENV"
+            echo "CDN_BASE=https://cdn.frontaliereticino.ch" >> "$GITHUB_ENV"
             echo "✅ pushed assets to frontaliere-cdn"
           else
             echo "⚠️ CDN push failed — offload skipped, assets stay in dist"
