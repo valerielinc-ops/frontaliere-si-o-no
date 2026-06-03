@@ -638,14 +638,17 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       # ── Generated-image CDN offload (best-effort, non-fatal) ──────────────
-      # Push the build-generated images that are NOT git-tracked — per-job OG
-      # cards (dist/og, ~160 MB) + 480w blog thumbnails (dist/images/blog/
-      # thumbnails, ~49 MB) — to an orphan `cdn-assets` branch, then rewrite
-      # the emitted dist refs to jsDelivr@<that-sha> and delete the dirs from
-      # the Pages artifact. Git content-addresses blobs, so unchanged images
-      # add ~nothing per push. BOTH steps are continue-on-error and the script
-      # is internally non-fatal: any failure leaves dist untouched (images ship
-      # as before) — the offload can never break a deploy.
+      # Push the build-generated per-job OG cards (dist/og, ~160 MB — NOT
+      # git-tracked) to an orphan `cdn-assets` branch, then rewrite the emitted
+      # dist refs to jsDelivr@<that-sha> and delete the dir from the Pages
+      # artifact. Git content-addresses blobs, so unchanged images add ~nothing
+      # per push. BOTH steps are continue-on-error and the script is internally
+      # non-fatal: any failure leaves dist untouched (images ship as before) —
+      # the offload can never break a deploy.
+      #
+      # Blog 480w thumbnails are deliberately NOT offloaded: the SPA builds
+      # those URLs at runtime in the JS bundle (not in HTML), so an HTML-only
+      # rewrite can't cover them — deleting them would 404 on hydrated pages.
       - name: Push generated images to cdn-assets branch (CDN source)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
@@ -656,12 +659,8 @@ jobs:
           stage=/tmp/cdn-assets
           rm -rf "$stage" && mkdir -p "$stage"
           [ -d dist/og ] && cp -r dist/og "$stage/og"
-          if [ -d dist/images/blog/thumbnails ]; then
-            mkdir -p "$stage/images/blog"
-            cp -r dist/images/blog/thumbnails "$stage/images/blog/thumbnails"
-          fi
-          if [ ! -d "$stage/og" ] && [ ! -d "$stage/images" ]; then
-            echo "no generated images present — skipping cdn-assets push"; exit 0
+          if [ ! -d "$stage/og" ]; then
+            echo "no dist/og present — skipping cdn-assets push"; exit 0
           fi
           echo "cdn-assets payload: $(du -sh "$stage" | cut -f1)"
           cd "$stage"

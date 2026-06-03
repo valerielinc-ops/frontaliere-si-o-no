@@ -29,9 +29,15 @@ const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 
 // Offload targets: [dist subdir, url path prefix]. Only these prefixes are
 // rewritten/guarded/deleted.
+//
+// ONLY per-job OG cards. Their refs (`<meta property="og:image">`) are emitted
+// into the static HTML, so the HTML rewrite below catches every one and the
+// guard can verify it. Blog 480w thumbnails are NOT offloaded: the SPA builds
+// those URLs at runtime in the JS bundle (getResponsiveImageSet → srcSet), not
+// in HTML, so an HTML-only rewrite would miss them and deleting the dir would
+// 404 them on hydrated pages. Thumbnails stay same-origin (~49 MB).
 const TARGETS = [
   { dir: ['og'], url: '/og/' },
-  { dir: ['images', 'blog', 'thumbnails'], url: '/images/blog/thumbnails/' },
 ];
 
 function log(msg) {
