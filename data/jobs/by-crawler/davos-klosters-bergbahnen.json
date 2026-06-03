@@ -242,9 +242,9 @@
     },
     {
       "id": "davos-klosters-bergbahnen-0bc635e43e79",
-      "slug": "masseur-in-davos-klosters-bergbahnen-davos",
+      "slug": "masseuse-in-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "masseur-in-davos-klosters-bergbahnen-davos",
+        "it": "masseuse-in-davos-klosters-bergbahnen-ag-davos",
         "en": "masseur-in-davos-klosters-bergbahnen-davos",
         "de": "masseur-in-davos-klosters-bergbahnen-davos",
         "fr": "masseur-in-davos-klosters-bergbahnen-davos"
@@ -297,7 +297,15 @@
       },
       "postalCode": "7270",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "masseur-in-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "masseur-in-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-e3676e5fd118",
@@ -528,10 +536,10 @@
     },
     {
       "id": "davos-klosters-bergbahnen-67e95a737716",
-      "slug": "chef-de-partie-davos-klosters-bergbahnen-davos",
+      "slug": "capo-del-partito-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "chef-de-partie-davos-klosters-bergbahnen-davos",
-        "en": "chef-de-partie-davos-klosters-bergbahnen-davos",
+        "it": "capo-del-partito-davos-klosters-bergbahnen-ag-davos",
+        "en": "head-of-party-davos-klosters-bergbahnen-ag-davos",
         "de": "chef-de-partie-davos-klosters-bergbahnen-davos",
         "fr": "chef-de-partie-davos-klosters-bergbahnen-davos"
       },
@@ -583,7 +591,18 @@
       },
       "postalCode": "7270",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "chef-de-partie-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-e19f7f290e00",

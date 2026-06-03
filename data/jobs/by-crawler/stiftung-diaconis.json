@@ -538,12 +538,12 @@
     },
     {
       "id": "stiftung-diaconis-103",
-      "slug": "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern",
+      "slug": "occupazione-assistenza-in-piscina-tutti-i-livelli-di-formazione-10-60-stiftung-diaconis-bern",
       "slugByLocale": {
-        "it": "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern",
-        "en": "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern",
+        "it": "occupazione-assistenza-in-piscina-tutti-i-livelli-di-formazione-10-60-stiftung-diaconis-bern",
+        "en": "pool-worker-care-all-training-levels-10-60-stiftung-diaconis-bern",
         "de": "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern",
-        "fr": "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+        "fr": "main-d-uvre-soins-collectifs-tous-niveaux-de-formation-10-60-stiftung-diaconis-bern"
       },
       "company": "Stiftung Diaconis",
       "companyKey": "stiftung-diaconis",
@@ -596,7 +596,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+        ],
+        "en": [
+          "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+        ],
+        "fr": [
+          "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+        ]
+      },
+      "previousSlugs": [
+        "poolmitarbeiter-in-pflege-alle-ausbildungsstufen-10-60-stiftung-diaconis-bern"
+      ]
     }
   ]
 }

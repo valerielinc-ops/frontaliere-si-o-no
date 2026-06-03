@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
-      "slug": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "physiotherapy-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "physiotherapie-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -63,7 +63,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     }
   ]
 }

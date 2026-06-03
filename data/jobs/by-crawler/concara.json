@@ -3298,7 +3298,6 @@
         "diplome-en-soins-infirmiers-avec-responsabilite-quotidienne-40-100-concara-domicil-spitex-bern-bern",
         "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern",
         "dipl-career-with-day-responsibility-40-100-concara-domicil-spitex-bern-bern-921f85",
-        "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern",
         "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern"
       ],
       "previousSlugsByLocale": {
@@ -4828,9 +4827,9 @@
       "slug": "dipl-pflegefachperson-o-fachperson-gesundheit-in-der-nachtwache-60-100-concara-domicil-spitex-bern-belp",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-o-fachperson-gesundheit-in-der-nachtwache-60-100-concara-domicil-spitex-bern-belp",
-        "en": "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp",
+        "en": "dipl-career-or-specialist-health-at-night-guard-60-100-concara-domicil-spitex-bern-belp",
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp",
-        "fr": "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp"
+        "fr": "dipl-carriere-ou-specialiste-sante-a-la-garde-de-nuit-60-100-concara-domicil-spitex-bern-belp"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4877,6 +4876,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-in-der-nachtwache-60-100-concara-belp"
         ]
       },
       "firstSeenAt": "2026-06-02T12:40:30.864Z",
@@ -4899,8 +4904,8 @@
       "slugByLocale": {
         "de": "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara",
         "it": "pharma-assistent-in-cfc-o-fachperson-apotheke-per-institutionsbetreuung-60-100-concara-domicil-spitex-bern",
-        "en": "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara",
-        "fr": "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara"
+        "en": "pharma-assistant-in-efz-or-specialist-pharmacy-for-institutional-care-60-100-concara-domicil-spitex-bern-bern",
+        "fr": "pharma-assistant-en-efz-ou-pharmacie-specialisee-pour-les-soins-en-etablissement-60-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4945,6 +4950,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara"
+        ],
+        "en": [
+          "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara"
+        ],
+        "fr": [
           "pharma-assistent-in-efz-oder-fachperson-apotheke-fur-institutionsbetreuung-60-100-concara"
         ]
       },

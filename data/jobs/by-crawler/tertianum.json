@@ -244,12 +244,12 @@
     },
     {
       "id": "tertianum-a6fe580cbdd6",
-      "slug": "employe-service-technique-tertianum-nendaz",
+      "slug": "servizio-tecnico-dipendente-tertianum-nendaz",
       "slugByLocale": {
         "fr": "employe-service-technique-tertianum-nendaz",
-        "it": "employe-service-technique-tertianum-nendaz",
-        "en": "employe-service-technique-tertianum-nendaz",
-        "de": "employe-service-technique-tertianum-nendaz"
+        "it": "servizio-tecnico-dipendente-tertianum-nendaz",
+        "en": "technical-service-employee-tertianum-nendaz",
+        "de": "technischer-mitarbeiter-tertianum-nendaz"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -304,7 +304,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T01:26:54.605Z"
+      "firstSeenAt": "2026-06-03T01:26:54.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-service-technique-tertianum-nendaz"
+        ],
+        "en": [
+          "employe-service-technique-tertianum-nendaz"
+        ],
+        "de": [
+          "employe-service-technique-tertianum-nendaz"
+        ]
+      },
+      "previousSlugs": [
+        "employe-service-technique-tertianum-nendaz"
+      ]
     },
     {
       "id": "tertianum-db69e4925777",
@@ -312,7 +326,7 @@
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-winterthur",
         "it": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-winterthur",
-        "en": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-winterthur",
+        "en": "care-helper-srk-60-100-tertianum-winterthur",
         "fr": "pflegehelferin-pflegehelfer-srk-60-100-tertianum-winterthur"
       },
       "company": "Tertianum",
@@ -376,8 +390,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-service-tertianum-dotzigen",
         "it": "collaboratore-trice-service-tertianum-dotzigen",
-        "en": "mitarbeiter-in-service-tertianum-dotzigen",
-        "fr": "mitarbeiter-in-service-tertianum-dotzigen"
+        "en": "staff-in-service-tertianum-dotzigen",
+        "fr": "personnel-en-service-tertianum-dotzigen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -423,6 +437,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-service-tertianum-dotzigen"
+        ],
+        "en": [
+          "mitarbeiter-in-service-tertianum-dotzigen"
+        ],
+        "fr": [
+          "mitarbeiter-in-service-tertianum-dotzigen"
         ]
       },
       "previousSlugs": [
@@ -444,12 +464,12 @@
     },
     {
       "id": "tertianum-4732437c88c4",
-      "slug": "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund",
+      "slug": "professional-specialista-che-attiva-il-design-quotidiano-60-100-tertianum-orpund",
       "slugByLocale": {
         "de": "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund",
-        "it": "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund",
-        "en": "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund",
-        "fr": "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund"
+        "it": "professional-specialista-che-attiva-il-design-quotidiano-60-100-tertianum-orpund",
+        "en": "professional-specialist-activating-everyday-design-60-100-tertianum-orpund",
+        "fr": "professionnel-specialiste-activant-le-design-quotidien-60-100-tertianum-orpund"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -504,7 +524,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T01:26:52.894Z"
+      "firstSeenAt": "2026-06-03T01:26:52.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund"
+        ],
+        "en": [
+          "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund"
+        ],
+        "fr": [
+          "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund"
+        ]
+      },
+      "previousSlugs": [
+        "fachmann-fachfrau-aktivierende-alltagsgestaltung-60-100-tertianum-orpund"
+      ]
     },
     {
       "id": "tertianum-9a5db0fcdfd2",
@@ -1055,12 +1089,12 @@
     },
     {
       "id": "tertianum-3f558a9b1e37",
-      "slug": "regionale-bildungsverantwortliche-tertianum-dubendorf",
+      "slug": "gestione-dell-istruzione-regionale-tertianum-dubendorf",
       "slugByLocale": {
         "de": "regionale-bildungsverantwortliche-tertianum-dubendorf",
-        "it": "regionale-bildungsverantwortliche-tertianum-dubendorf",
-        "en": "regionale-bildungsverantwortliche-tertianum-dubendorf",
-        "fr": "regionale-bildungsverantwortliche-tertianum-dubendorf"
+        "it": "gestione-dell-istruzione-regionale-tertianum-dubendorf",
+        "en": "regional-education-managers-tertianum-dubendorf",
+        "fr": "directeurs-regionaux-de-l-education-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1115,7 +1149,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T01:26:48.905Z"
+      "firstSeenAt": "2026-06-03T01:26:48.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regionale-bildungsverantwortliche-tertianum-dubendorf"
+        ],
+        "en": [
+          "regionale-bildungsverantwortliche-tertianum-dubendorf"
+        ],
+        "fr": [
+          "regionale-bildungsverantwortliche-tertianum-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "regionale-bildungsverantwortliche-tertianum-dubendorf"
+      ]
     },
     {
       "id": "tertianum-1523c3a1d229",
@@ -2431,12 +2479,12 @@
     },
     {
       "id": "tertianum-0dfae432bf5f",
-      "slug": "fachfrau-mann-gesundheit-tertianum-weesen",
+      "slug": "salute-professionale-tertianum-weesen",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-tertianum-weesen",
-        "it": "fachfrau-mann-gesundheit-tertianum-weesen",
-        "en": "fachfrau-mann-gesundheit-tertianum-weesen",
-        "fr": "fachfrau-mann-gesundheit-tertianum-weesen"
+        "it": "salute-professionale-tertianum-weesen",
+        "en": "professional-health-tertianum-weesen",
+        "fr": "sante-professionnelle-tertianum-weesen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -2491,7 +2539,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T01:26:39.811Z"
+      "firstSeenAt": "2026-06-03T01:26:39.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-tertianum-weesen"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-tertianum-weesen"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-tertianum-weesen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-tertianum-weesen"
+      ]
     },
     {
       "id": "tertianum-b3f62f7c4cd7",
@@ -2561,12 +2623,12 @@
     },
     {
       "id": "tertianum-93bb9018522e",
-      "slug": "pflegehelfer-in-srk-nachtwache-tertianum-weesen",
+      "slug": "assistente-di-cura-srk-nightwax-tertianum-weesen",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-nachtwache-tertianum-weesen",
-        "it": "pflegehelfer-in-srk-nachtwache-tertianum-weesen",
-        "en": "pflegehelfer-in-srk-nachtwache-tertianum-weesen",
-        "fr": "pflegehelfer-in-srk-nachtwache-tertianum-weesen"
+        "it": "assistente-di-cura-srk-nightwax-tertianum-weesen",
+        "en": "care-assistant-srk-nightwax-tertianum-weesen",
+        "fr": "assistant-de-soins-srk-nightwax-tertianum-weesen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -2621,7 +2683,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T01:26:37.304Z"
+      "firstSeenAt": "2026-06-03T01:26:37.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-nachtwache-tertianum-weesen"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-nachtwache-tertianum-weesen"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-nachtwache-tertianum-weesen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-nachtwache-tertianum-weesen"
+      ]
     },
     {
       "id": "tertianum-a404b5d9ef61",
@@ -14089,8 +14165,6 @@
         "capo-team-assistenza-e-cura-tertianum-zurich-o5il7m",
         "team-lead-care-and-support-tertianum-zurich",
         "gestione-del-team-cura-e-cura-tertianum-zurich",
-        "responsable-d-equipe-soins-et-assistance-tertianum-zurich",
-        "capo-team-assistenza-e-cura-tertianum-zurich",
         "teamleitung-pflege-e-betreuung-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
@@ -19976,7 +20050,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {

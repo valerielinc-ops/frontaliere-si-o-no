@@ -935,9 +935,9 @@
       "slug": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
       "slugByLocale": {
         "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "en": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
+        "en": "subject-health-fage-also-possible-only-morning-or-evening-a-spitex-basel-basel",
         "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        "fr": "sante-des-sujets-fage-egalement-possible-seulement-le-matin-ou-le-soir-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -984,6 +984,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "en": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
         ]
       },
       "firstSeenAt": "2026-06-02T14:49:21.349Z",
@@ -1002,12 +1008,12 @@
     },
     {
       "id": "spitex-basel-88d055a02c21",
-      "slug": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+      "slug": "cura-del-caso-dipl-specialista-di-cura-hf-fh-a-spitex-basel-basel",
       "slugByLocale": {
-        "it": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "en": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "it": "cura-del-caso-dipl-specialista-di-cura-hf-fh-a-spitex-basel-basel",
+        "en": "case-responsored-care-dipl-care-specialist-hf-fh-a-spitex-basel-basel",
         "de": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
-        "fr": "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        "fr": "soins-parraines-par-les-cas-specialiste-en-soins-de-la-fh-fh-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -1060,16 +1066,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
+        "en": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
+        "fr": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ]
+      },
+      "previousSlugs": [
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+      ]
     },
     {
       "id": "spitex-basel-b20cd8339f0d",
       "slug": "pflegeprofi-per-flexible-einsatze-a-spitex-basel",
       "slugByLocale": {
         "it": "pflegeprofi-per-flexible-einsatze-a-spitex-basel",
-        "en": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege",
+        "en": "care-professional-for-flexible-applications-a-spitex-basel-basel",
         "de": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege",
-        "fr": "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege"
+        "fr": "professionnel-de-soins-pour-des-applications-flexibles-a-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -1115,6 +1135,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege"
+        ],
+        "en": [
+          "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege"
+        ],
+        "fr": [
           "pflegeprofi-fur-flexible-einsatze-a-spitex-basel-pflege"
         ]
       },

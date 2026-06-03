@@ -159,8 +159,8 @@
       "slugByLocale": {
         "it": "operazioni-ufficiale-investimenti-alternativi-pictet-group-geneva",
         "en": "operations-officer-alternative-investments-pictet-geneva",
-        "de": "operations-officer-alternative-investments-pictet-geneva",
-        "fr": "operations-officer-alternative-investments-pictet-geneva"
+        "de": "betriebsleiter-alternative-investitionen-pictet-group-geneva",
+        "fr": "agent-des-operations-autres-investissements-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -207,6 +207,12 @@
       "previousSlugsByLocale": {
         "it": [
           "operations-officer-alternative-investments-pictet-geneva"
+        ],
+        "de": [
+          "operations-officer-alternative-investments-pictet-geneva"
+        ],
+        "fr": [
+          "operations-officer-alternative-investments-pictet-geneva"
         ]
       },
       "firstSeenAt": "2026-05-29T13:32:30.322Z",
@@ -231,7 +237,7 @@
         "it": "senior-finanza-manager-12-months-contract-pictet-group-geneva",
         "en": "senior-finance-manager-12-months-contract-pictet-geneva",
         "de": "senior-finanzen-manager-12-months-contract-pictet-group-geneva",
-        "fr": "senior-finance-manager-12-months-contract-pictet-geneva"
+        "fr": "gestionnaire-principal-des-finances-contrat-de-12-mois-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -280,6 +286,9 @@
           "senior-finance-manager-12-months-contract-pictet-geneva"
         ],
         "de": [
+          "senior-finance-manager-12-months-contract-pictet-geneva"
+        ],
+        "fr": [
           "senior-finance-manager-12-months-contract-pictet-geneva"
         ]
       },
