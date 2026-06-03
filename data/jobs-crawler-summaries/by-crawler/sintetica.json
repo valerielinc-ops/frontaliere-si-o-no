@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-06-03T00:58:36.750Z",
+  "generatedAt": "2026-06-03T15:10:39.176Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 8084,
-  "avgDurationMs": 8084,
+  "durationMs": 8661,
+  "avgDurationMs": 8661,
   "durationHistory": [
-    8084
+    8661
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -283,16 +283,16 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "salaryMin": 98000,
       "salaryMax": 133000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-13T22:24:00.330Z",
       "id": "sintetica-1c4a971f4c85",
-      "_qualityScore": 90,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
