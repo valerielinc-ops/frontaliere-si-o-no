@@ -41,6 +41,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino.title': 'Withholding tax not refunded: changes for cross-border workers',
     'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Find out why some cross-border workers no longer receive a withholding tax refund and what to do in these cases.',
     'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains in the background',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'How Geneva identified hantavirus: implications for cross-border workers',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'The Geneva University Hospital identified the hantavirus strain responsible for an epidemic outbreak on a cruise ship in May 2026.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'University Hospital of Geneva with modern laboratory',
 };
 
 export default blogMetaChEn;

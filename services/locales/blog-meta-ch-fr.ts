@@ -41,6 +41,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino.title': 'Impôt à la source non remboursé : ce qui change pour les frontaliers',
     'blog.article.imposta-fonte-frontalieri-ticino.excerpt': 'Découvrez pourquoi certains frontaliers ne reçoivent plus le remboursement de l\'impôt à la source et que faire dans ces cas.',
     'blog.article.imposta-fonte-frontalieri-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes en arrière-plan',
+    'blog.article.hantavirus-ginevra-identificazione.title': 'Comment Genève a identifié l\'hantavirus : implications pour les frontaliers',
+    'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Hôpital universitaire de Genève a identifié la souche d\'hantavirus responsable d\'une épidémie sur un navire de croisière en mai 2026.',
+    'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Hôpital universitaire de Genève avec laboratoire moderne',
 };
 
 export default blogMetaChFr;
