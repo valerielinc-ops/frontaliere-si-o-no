@@ -638,53 +638,73 @@ jobs:
         run: cp dist/index.html dist/404.html
 
       # ── Generated-asset offload (best-effort, non-fatal) ──────────────────
-      # Push build-generated, NOT-git-tracked assets to an orphan `cdn-assets`
-      # branch, then offload them out of dist via scripts/offload-generated-
+      # Push build-generated, NOT-git-tracked assets to the dedicated CDN repo
+      # `valerielinc-ops/frontaliere-cdn` (its own GitHub Pages site, Fastly
+      # edge), then offload them out of dist via scripts/offload-generated-
       # images-cdn.mjs:
       #   • dist/og            (~170 MB) — per-job OG cards; og:image refs in
-      #                                    static HTML rewritten to raw@<sha>.
+      #                                    static HTML rewritten to ${CDN_BASE}/og.
       #   • dist/data/job-detail (~225 MB) — per-job detail JSON fetched at
       #                                    runtime by the SPA; the script injects
-      #                                    window.__CDN_DATA_BASE__=raw@<sha> into
-      #                                    every page so cdnDataUrl() resolves it.
-      # raw (NOT jsDelivr): jsDelivr 403/502s on a fresh orphan ref, while raw
-      # serves each file directly (image/webp; application/json). These assets
-      # are sparse/per-session fetches so raw's rate limits are acceptable. BOTH
-      # steps are continue-on-error and the script is internally non-fatal: any
-      # failure leaves dist untouched (assets ship as before) and the SSG static
-      # HTML keeps full content either way — the offload can never break a deploy
-      # or SEO.
-      - name: Push generated assets to cdn-assets branch (CDN source)
+      #                                    window.__CDN_DATA_BASE__=${CDN_BASE}
+      #                                    into every page so cdnDataUrl() resolves.
+      # GitHub Pages (NOT raw / NOT jsDelivr): raw is rate-limited + serves JSON as
+      # text/plain; jsDelivr 403/502s on fresh orphan refs. The CDN repo's Pages
+      # site serves every file via Fastly with the correct Content-Type
+      # (application/json, image/webp) and `access-control-allow-origin: *`, and a
+      # second Pages site has its own ~1 GB / 100 GB-month quota (doubles headroom
+      # vs everything on the main artifact). URLs are STABLE (no SHA pin).
+      #
+      # Eventual-consistency: the CDN repo's Pages build runs async (~30–60 s) after
+      # the push, so for a brief window assets may 404 — og is sparse/crawler-
+      # fetched and job-detail degrades gracefully (fetchJobDetail catches → {}),
+      # and the SSG static HTML always carries full content, so this never breaks a
+      # page or SEO. BOTH steps are continue-on-error and the script is internally
+      # non-fatal: any failure leaves dist untouched (assets ship in the artifact
+      # as before).
+      #
+      # Auth: SSH deploy key (write-only to frontaliere-cdn) in secret
+      # CDN_DEPLOY_KEY — least privilege, cannot touch any other repo.
+      - name: Push generated assets to CDN repo (frontaliere-cdn / Pages)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
         run: |
           set -uo pipefail
-          stage=/tmp/cdn-assets
+          if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
+            echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"; exit 0
+          fi
+          stage=/tmp/cdn-stage
           rm -rf "$stage" && mkdir -p "$stage"
+          : > "$stage/.nojekyll"   # serve every path verbatim, skip Jekyll
           [ -d dist/og ] && cp -r dist/og "$stage/og"
           if [ -d dist/data/job-detail ]; then
             mkdir -p "$stage/data" && cp -r dist/data/job-detail "$stage/data/job-detail"
           fi
           if [ ! -d "$stage/og" ] && [ ! -d "$stage/data/job-detail" ]; then
-            echo "no offloadable assets present — skipping cdn-assets push"; exit 0
+            echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
-          echo "cdn-assets payload: $(du -sh "$stage" | cut -f1)"
+          printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
+          echo "CDN payload: $(du -sh "$stage" | cut -f1)"
+          keyfile="$RUNNER_TEMP/cdn_deploy_key"
+          printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
+          export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
           cd "$stage"
           git init -q
-          git checkout -q -b cdn-assets
+          git checkout -q -b main
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
           git commit -qm "cdn assets (og + job-detail) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
-          if git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" cdn-assets; then
-            sha="$(git rev-parse HEAD)"
-            echo "CDN_ASSETS_SHA=${sha}" >> "$GITHUB_ENV"
-            echo "✅ pushed cdn-assets ${sha:0:8}"
+          # Force-push a single fresh commit → CDN repo history never accumulates.
+          if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
+            echo "CDN_BASE=https://valerielinc-ops.github.io/frontaliere-cdn" >> "$GITHUB_ENV"
+            echo "✅ pushed assets to frontaliere-cdn"
           else
-            echo "⚠️ cdn-assets push failed — offload skipped, assets stay in dist"
+            echo "⚠️ CDN push failed — offload skipped, assets stay in dist"
           fi
+          rm -f "$keyfile"
 
       - name: Offload generated assets to CDN (og refs + job-detail base + delete)
         if: github.event.inputs.profile_sequential != 'true'
