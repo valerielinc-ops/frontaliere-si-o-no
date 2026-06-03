@@ -1,18 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-06-02T22:55:14.188Z",
+  "generatedAt": "2026-06-03T13:00:03.347Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3281,
-  "avgDurationMs": 3281,
+  "durationMs": 3162,
+  "avgDurationMs": 3162,
   "durationHistory": [
-    3281
+    3162
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Category Buyer",
       "slug": "category-buyer-centiel-ticino",
@@ -31,20 +32,25 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 63,
+      "id": "centiel-f2707426d749",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-06-02T22:55:14.186Z",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Project Manager – Critical Power",
       "slug": "project-manager-critical-power-centiel-ticino",
@@ -63,7 +69,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -100,7 +106,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -137,7 +143,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -174,7 +180,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-02",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -194,44 +200,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Project Engineer – Centiel UK",
-      "slug": "project-engineer-centiel-uk-centiel-ticino",
-      "url": "https://www.centiel.com/wp-content/uploads/2026/04/Centiel-UK_Projects-Engineer-Job-Description_Apr-26.pdf",
-      "applyUrl": "https://www.centiel.com/wp-content/uploads/2026/04/Centiel-UK_Projects-Engineer-Job-Description_Apr-26.pdf",
-      "company": "Centiel",
-      "companyKey": "centiel",
-      "companyDomain": "centiel.com",
-      "location": "Cadro (Lugano)",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia / UPS / Power Protection",
-      "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "centiel-b5d48ea32897",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
-      "firstSeenAt": "2026-04-28T21:31:28.579Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
