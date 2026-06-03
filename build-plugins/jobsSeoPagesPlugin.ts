@@ -63,6 +63,7 @@ import {
  BRAND_CANONICAL_MAP,
  isBrandAlias,
  listAllBrandAliases,
+ resolveBrandCanonical,
 } from './shared/brandCanonicalMap';
 import {
  buildJobCareVariantLandingModel,
@@ -4103,7 +4104,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // Ratchet: only write if the new set is at least as large as the existing one
  // to prevent fixture-data local builds from corrupting the production list.
  {
- const companySlugs = [...companyMap.keys()].sort();
+ // Exclude brand aliases (e.g. migros-ticino) — they resolve to a noindex
+ // bridge, so CompaniesHub / employerLinks must not surface them as real
+ // company hubs (mirrors the sitemap filter at the alias-aware emitter).
+ const companySlugs = [...companyMap.keys()].filter((s) => !isBrandAlias(s)).sort();
  const companySlugsPath = np.resolve(rootDir, 'data/known-company-slugs.json');
  let existingCount = 0;
  try {
@@ -6886,8 +6890,12 @@ ${staticAnalyticsHtml}
  for (const job of validJobs) {
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
- if (!canonical) continue;
+ const rawCanon = canonicalCompanySlugBuild(job.company, job.companyKey);
+ if (!rawCanon) continue;
+ // Fold brand aliases (e.g. migros-ticino → migros) onto the canonical
+ // umbrella so per-canton hubs consolidate under /azienda-{canonical}/ and
+ // never emit an indexable alias-slug page (brand-dedup contract).
+ const canonical = resolveBrandCanonical(rawCanon) ?? rawCanon;
  if (!cantonCompanyBuckets.has(c)) cantonCompanyBuckets.set(c, new Map());
  const byCompany = cantonCompanyBuckets.get(c)!;
  if (!byCompany.has(canonical)) byCompany.set(canonical, { name: job.company, jobs: [] });
@@ -7099,8 +7107,12 @@ ${staticAnalyticsHtml}
  for (const job of validJobs) {
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
- if (!canonical) continue;
+ const rawCanon = canonicalCompanySlugBuild(job.company, job.companyKey);
+ if (!rawCanon) continue;
+ // Fold brand aliases (e.g. migros-ticino → migros) onto the canonical
+ // umbrella so per-canton company×city hubs consolidate under
+ // /azienda-{canonical}/ and never emit an indexable alias-slug page.
+ const canonical = resolveBrandCanonical(rawCanon) ?? rawCanon;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
  if (!rawLocation) continue;
  const citySlug = normalizeCitySlug(rawLocation);
