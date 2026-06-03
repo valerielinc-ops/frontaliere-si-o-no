@@ -512,12 +512,12 @@
     },
     {
       "id": "privatklinik-bethanien-36a526295d7c",
-      "slug": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
+      "slug": "storage-career-in-sala-operativa-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "de": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "it": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "en": "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
-        "fr": "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        "it": "storage-career-in-sala-operativa-privatklinik-bethanien-zurich",
+        "en": "storage-career-in-operation-hall-privatklinik-bethanien-zurich",
+        "fr": "carriere-de-stockage-dans-la-salle-des-operations-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -575,13 +575,25 @@
       },
       "firstSeenAt": "2026-06-03T14:51:45.302Z",
       "previousSlugs": [
+        "lagerungspfleger-in-operationssaal-privatklinik-bethanien",
         "assistente-di-ricovero-privatklinik-bethanien-zurich",
         "operating-room-attendant-privatklinik-bethanien-zurich",
         "lagerungspfleger-in-privatklinik-bethanien-zurich",
         "aide-de-bloc-operatoire-privatklinik-bethanien-zurich",
         "lagerungspfleger-in-privatklinik-bethanien",
         "storage-careers-privatklinik-bethanien-zurich"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "en": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ],
+        "fr": [
+          "lagerungspfleger-in-operationssaal-privatklinik-bethanien"
+        ]
+      }
     }
   ]
 }

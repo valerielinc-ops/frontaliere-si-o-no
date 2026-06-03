@@ -7313,12 +7313,12 @@
     },
     {
       "id": "eth-zurich-06211316e8a9",
-      "slug": "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
+      "slug": "posizione-del-phd-nel-sensore-del-veicolo-e-analisi-di-rilevamento-remoto-per-la-sicurezza-stradale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
-        "it": "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
-        "de": "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch",
-        "fr": "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
+        "it": "posizione-del-phd-nel-sensore-del-veicolo-e-analisi-di-rilevamento-remoto-per-la-sicurezza-stradale-eth-zurich-zurich",
+        "de": "phd-position-im-fahrzeugsensor-und-fernerkundungsanalyse-fur-die-stra-enverkehrssicherheit-eth-zurich-zurich",
+        "fr": "poste-de-doctorat-en-analyse-du-capteur-de-vehicule-et-de-la-teledetection-pour-la-securite-routiere-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7373,16 +7373,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T13:32:30.059Z"
+      "firstSeenAt": "2026-06-03T13:32:30.059Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-vehicle-sensor-and-remote-sensing-analysis-for-road-safety-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-252406c2b743",
-      "slug": "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
+      "slug": "phd-posizione-nell-infrastruttura-analisi-dell-efficacia-dell-intervento-per-la-sicurezza-stradale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
-        "it": "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
-        "de": "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth",
-        "fr": "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
+        "it": "phd-posizione-nell-infrastruttura-analisi-dell-efficacia-dell-intervento-per-la-sicurezza-stradale-eth-zurich-zurich",
+        "de": "phd-position-in-der-infrastruktur-intervention-effektivitatsanalyse-fur-stra-enverkehrssicherheit-eth-zurich-zurich",
+        "fr": "doctorat-en-analyse-de-l-efficacite-des-interventions-en-infrastructure-pour-la-securite-routiere-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7437,7 +7451,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T13:32:29.533Z"
+      "firstSeenAt": "2026-06-03T13:32:29.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
+        ],
+        "de": [
+          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
+        ],
+        "fr": [
+          "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-infrastructure-intervention-effectiveness-analysis-for-road-safety-eth"
+      ]
     }
   ]
 }
