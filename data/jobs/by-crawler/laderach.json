@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-18e15351017c",
-      "slug": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
+      "slug": "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich",
       "slugByLocale": {
         "de": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
-        "it": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
-        "en": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
-        "fr": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+        "it": "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich",
+        "en": "seller-40-60-chocolaterie-airport-zurich-w-m-d-laderach-schweiz-ag-zurich",
+        "fr": "vendeur-40-60-aeroport-chocolaterie-zurich-m-j-laderach-schweiz-ag-zurich"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -61,7 +61,21 @@
       "postalCode": "8001",
       "country": "CH",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T14:20:55.615Z"
+      "firstSeenAt": "2026-06-03T14:20:55.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+        ],
+        "en": [
+          "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+        ],
+        "fr": [
+          "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich"
+      ]
     },
     {
       "id": "laderach-e543f283e872",
@@ -69,8 +83,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda",
         "it": "collaboratore-trice-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-m-w-d-laderach-schweiz-ag-ennenda",
-        "en": "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda",
-        "fr": "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda"
+        "en": "employee-figurines-halbfabrikate-terminated-until-february-2026-ennenda-w-m-d-laderach-schweiz-ag-ennenda",
+        "fr": "figurines-des-employes-et-halbfabrikate-termine-jusqu-en-fevrier-2026-ennenda-w-m-d-laderach-schweiz-ag-ennenda"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -109,6 +123,12 @@
       "crawledAt": "2026-06-03T14:20:55.354Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda"
+        ],
+        "en": [
+          "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda"
+        ],
+        "fr": [
           "mitarbeiter-figuren-halbfabrikate-befristet-bis-februar-2026-ennenda-w-m-d-laderach-ennenda"
         ]
       },
@@ -562,7 +582,7 @@
       "slug": "technical-it-architect-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "it": "technical-it-architect-laderach-schweiz-ag-bilten",
-        "en": "technical-it-architect-laderach-bilten",
+        "en": "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
         "de": "technical-it-architect-laderach-bilten",
         "fr": "technical-it-architecte-laderach-schweiz-ag-bilten"
       },
@@ -601,7 +621,6 @@
       "crawledAt": "2026-06-03T14:20:54.276Z",
       "previousSlugs": [
         "technical-it-architect-laderach-bilten",
-        "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
         "technical-en-architect-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
@@ -609,7 +628,6 @@
           "technical-it-architect-laderach-bilten"
         ],
         "en": [
-          "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
           "technical-it-architect-laderach-bilten"
         ]
       },
@@ -636,7 +654,7 @@
         "it": "project-manager-r-d-couverture-laderach-bilten",
         "en": "project-manager-r-d-couverture-laderach-schweiz-ag-bilten",
         "de": "project-manager-r-d-couverture-laderach-bilten",
-        "fr": "project-manager-r-d-couverture-laderach-bilten"
+        "fr": "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -672,15 +690,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-06-03T14:20:54.137Z",
       "previousSlugs": [
-        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten",
-        "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
+        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
-        ],
-        "fr": [
-          "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
         ]
       },
       "firstSeenAt": "2026-05-23T11:05:13.687Z",

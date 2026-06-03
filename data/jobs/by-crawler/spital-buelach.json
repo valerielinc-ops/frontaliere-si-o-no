@@ -3539,12 +3539,12 @@
     },
     {
       "id": "spital-buelach-2d58f26dea7d",
-      "slug": "med-sekretar-in-notfall-spital-buelach-bulach",
+      "slug": "med-segretario-generale-spital-bulach-bulach",
       "slugByLocale": {
         "de": "med-sekretar-in-notfall-spital-buelach-bulach",
-        "it": "med-sekretar-in-notfall-spital-buelach-bulach",
-        "en": "med-sekretar-in-notfall-spital-buelach-bulach",
-        "fr": "med-sekretar-in-notfall-spital-buelach-bulach"
+        "it": "med-segretario-generale-spital-bulach-bulach",
+        "en": "med-secretary-general-spital-bulach-bulach",
+        "fr": "medicament-secretaire-general-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3599,7 +3599,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T15:15:28.103Z"
+      "firstSeenAt": "2026-06-03T15:15:28.103Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-sekretar-in-notfall-spital-buelach-bulach"
+        ],
+        "en": [
+          "med-sekretar-in-notfall-spital-buelach-bulach"
+        ],
+        "fr": [
+          "med-sekretar-in-notfall-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "med-sekretar-in-notfall-spital-buelach-bulach"
+      ]
     }
   ]
 }

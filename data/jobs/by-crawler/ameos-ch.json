@@ -588,7 +588,6 @@
         "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
         "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
         "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-        "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
         "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "previousSlugsByLocale": {
@@ -844,12 +843,12 @@
     },
     {
       "id": "ameos-ch-f92a8261b787",
-      "slug": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+      "slug": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-71063c",
       "slugByLocale": {
         "de": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "it": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "it": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-71063c",
         "en": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-        "fr": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        "fr": "projektleiter-m-w-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -904,7 +903,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T12:39:08.824Z"
+      "firstSeenAt": "2026-06-03T12:39:08.824Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ],
+        "fr": [
+          "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c94581b220c7",
