@@ -10870,8 +10870,8 @@ ${staticAnalyticsHtml}
  }
 
  if (expiredCount > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs
- logBuildMem('jobsSeoPages: after expired-softlandings', collector);${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ logBuildMem('jobsSeoPages: after expired-softlandings', collector);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
