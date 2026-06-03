@@ -2224,6 +2224,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return slugifyCompanyBuild(company);
  };
 
+ // Company-hub URL slug: same as canonicalCompanySlugBuild but folds declared
+ // brand aliases onto their canonical (e.g. migros-ticino → migros). Use this
+ // EVERYWHERE a company-hub page is emitted OR linked (per-canton hubs, job-page
+ // banner/footer, canton navigator) so emit and links agree on one canonical
+ // slug and an alias never produces an indexable self-hub or an orphan link to
+ // an un-emitted page. The raw companyMap key (companyMap construction) stays
+ // unfolded so the BRAND_UMBRELLAS aggregation still sees each real key.
+ const companyHubSlugBuild = (company: string, companyKey?: string): string => {
+ const raw = canonicalCompanySlugBuild(company, companyKey);
+ return raw ? (resolveBrandCanonical(raw) ?? raw) : raw;
+ };
+
  // ── Pre-compute title-collision map per locale ──
  // The base <title> formula (role + company + city) collapses to identical
  // strings whenever two jobs differ only by slug suffix (AFC vs CFP variants),
@@ -2937,7 +2949,7 @@ ${staticAnalyticsHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  ${(() => {
- const cSlugBanner = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const cSlugBanner = companyHubSlugBuild(job.company, job.companyKey);
  // Relative href — internal navigation resolves against canonical (absolute).
  const cHref = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'));
  const cLogo = companyLogo(job);
@@ -3185,7 +3197,7 @@ ${staticAnalyticsHtml}
  })()}
  <nav class="fn">
  <a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
- const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const cSlug = companyHubSlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
@@ -6890,12 +6902,8 @@ ${staticAnalyticsHtml}
  for (const job of validJobs) {
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const rawCanon = canonicalCompanySlugBuild(job.company, job.companyKey);
- if (!rawCanon) continue;
- // Fold brand aliases (e.g. migros-ticino → migros) onto the canonical
- // umbrella so per-canton hubs consolidate under /azienda-{canonical}/ and
- // never emit an indexable alias-slug page (brand-dedup contract).
- const canonical = resolveBrandCanonical(rawCanon) ?? rawCanon;
+ const canonical = companyHubSlugBuild(job.company, job.companyKey);
+ if (!canonical) continue;
  if (!cantonCompanyBuckets.has(c)) cantonCompanyBuckets.set(c, new Map());
  const byCompany = cantonCompanyBuckets.get(c)!;
  if (!byCompany.has(canonical)) byCompany.set(canonical, { name: job.company, jobs: [] });
@@ -7107,12 +7115,8 @@ ${staticAnalyticsHtml}
  for (const job of validJobs) {
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const rawCanon = canonicalCompanySlugBuild(job.company, job.companyKey);
- if (!rawCanon) continue;
- // Fold brand aliases (e.g. migros-ticino → migros) onto the canonical
- // umbrella so per-canton company×city hubs consolidate under
- // /azienda-{canonical}/ and never emit an indexable alias-slug page.
- const canonical = resolveBrandCanonical(rawCanon) ?? rawCanon;
+ const canonical = companyHubSlugBuild(job.company, job.companyKey);
+ if (!canonical) continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
  if (!rawLocation) continue;
  const citySlug = normalizeCitySlug(rawLocation);
@@ -8987,9 +8991,11 @@ ${staticAnalyticsHtml}
        // BFS-depth closure (Phase 8a follow-up — May 2026): top company hubs
        // (`/cerca-lavoro-{canton}/azienda-{empKey}/`) are emitted by the
        // per-canton company-hub block (~line 6275-6400) using
-       // `canonicalCompanySlugBuild`, gated MIN_JOBS_PER_CANTON_COMPANY=3.
-       // Re-derive the slug here using the SAME `canonicalCompanySlugBuild`
-       // helper so the hrefs exactly match what's emitted. Top 6 by job
+       // `companyHubSlugBuild`, gated MIN_JOBS_PER_CANTON_COMPANY=3.
+       // Re-derive the slug here using the SAME `companyHubSlugBuild`
+       // helper (brand-alias-folded) so the hrefs exactly match what's
+       // emitted — an alias like migros-ticino folds to azienda-migros, the
+       // page that is actually written. Top 6 by job
        // count keeps the navigator focused; ties broken by slug for
        // determinism.
        const companyHubs: Array<{ slug: string; label: string }> = [];
@@ -8997,7 +9003,7 @@ ${staticAnalyticsHtml}
          const companyCounts = new Map<string, { name: string; count: number }>();
          for (const j of cantonJobsAll) {
            const jc = j as { company?: string; companyKey?: string };
-           const cSlug = canonicalCompanySlugBuild(jc.company || '', jc.companyKey);
+           const cSlug = companyHubSlugBuild(jc.company || '', jc.companyKey);
            if (!cSlug) continue;
            const cur = companyCounts.get(cSlug);
            if (cur) { cur.count++; }
