@@ -258,6 +258,29 @@ const App: React.FC = () => {
    }
  }, [staticOverlay]);
 
+ // Related-search cluster fallback teardown. The cluster build plugin
+ // (relatedSearchClustersPlugin) ships the crawler-facing body as a
+ // body-direct `<main class="cluster-seo-prose">` sibling of `#root`,
+ // NOT `main.seo-static-content` — so the toggle above never touches it.
+ // On the canonical Switzerland-wide cluster URL the router classifies the
+ // route as the interactive job-board (`staticOverlay === false`): the SPA
+ // renders its OWN listing + H1 inside `#root`, leaving the static `<main>`
+ // as a redundant duplicate below it — a second `<h1>`, a second `<main>`
+ // landmark, and the same ~30 jobs re-listed as plain links. Remove the
+ // static fallback once we know the SPA is taking over, so the hydrated DOM
+ // has a single H1 / single main / single listing. Crawlers (no JS) still
+ // receive the original static HTML untouched — this is a client-only
+ // cleanup. When `staticOverlay === true` (orphan/bridge landings that also
+ // use `cluster-seo-prose` AS their content) the block is the page and is
+ // left in place. Mirrors the `nav.seo-hub-subnav` removal below and the
+ // `removeChild` on static-route exit in useNavigationState. See CLAUDE.md rule #14.
+ // useLayoutEffect (pre-paint) for the same CLS reason as the toggle above.
+ useLayoutEffect(() => {
+   if (staticOverlay) return;
+   const clusterMain = document.querySelector<HTMLElement>('main.cluster-seo-prose');
+   clusterMain?.remove();
+ }, [staticOverlay]);
+
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
  // as a BODY-DIRECT sibling of `main.seo-static-content` so the sub-nav is on

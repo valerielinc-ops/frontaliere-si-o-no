@@ -293,4 +293,63 @@ describe('App lite-shell (staticOverlay) rendering', () => {
       'static fallback must be hidden when SPA route takes over'
     ).toBe('none');
   });
+
+  it('full-shell: SPA removes the body-level main.cluster-seo-prose duplicate on hydration', () => {
+    // Related-search cluster landings (relatedSearchClustersPlugin) — and the
+    // location/company/legacy bridge emitters — ship the crawler body as a
+    // body-direct `<main class="cluster-seo-prose">` sibling of `#root` (NOT
+    // `seo-static-content`). On the canonical cluster URL the router classifies
+    // the route as the interactive job-board (staticOverlay falsy): the SPA
+    // renders its OWN listing + H1 inside `#root`, so the static main is a
+    // redundant duplicate (second <h1>, second <main>, same jobs re-listed).
+    // It must be removed on hydration. Crawlers without JS keep the original
+    // static HTML (server response untouched). See CLAUDE.md rule #14.
+    const clusterMain = document.createElement('main');
+    clusterMain.className = 'cluster-seo-prose s-zry6VY';
+    clusterMain.innerHTML = '<div class="related-search-cluster"><h1>Mansioni X — 30 offerte</h1></div>';
+    document.body.appendChild(clusterMain);
+
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'job-board' as const, jobBoardCanton: 'TI' },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    const reactMain = document.querySelector('main#main-content');
+    expect(reactMain, 'SPA <main> must render when staticOverlay is falsy').not.toBeNull();
+
+    // The static cluster duplicate is gone — single <main>, single <h1>.
+    expect(
+      document.querySelector('main.cluster-seo-prose'),
+      'redundant static main.cluster-seo-prose must be removed when SPA route takes over'
+    ).toBeNull();
+  });
+
+  it('lite-shell: SPA preserves main.cluster-seo-prose when staticOverlay is true', () => {
+    // Orphan/expired-job bridge landings also use `cluster-seo-prose` AS their
+    // content (no SPA equivalent renders) and resolve with staticOverlay: true.
+    // The teardown must NOT touch the static main there — it is the page body.
+    const clusterMain = document.createElement('main');
+    clusterMain.className = 'cluster-seo-prose s-zry6VY';
+    clusterMain.innerHTML = '<div class="related-search-cluster"><h1>Bridge body</h1></div>';
+    document.body.appendChild(clusterMain);
+
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'job-board' as const, jobBoardCanton: 'TI', staticOverlay: true },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    // React <main> is NOT rendered; the static cluster main owns the body.
+    expect(
+      document.querySelector('main#main-content'),
+      'lite-shell must not render React <main id="main-content">'
+    ).toBeNull();
+    expect(
+      document.querySelector('main.cluster-seo-prose'),
+      'static main.cluster-seo-prose must be preserved when staticOverlay is true'
+    ).not.toBeNull();
+  });
 });
