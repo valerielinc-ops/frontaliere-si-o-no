@@ -9,6 +9,7 @@ import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { normalizeStructuredData } from './seo/schema-normalizers';
+import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
@@ -3898,6 +3899,15 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
     'blog-ferrovia-retica-taiwan': { name: 'Ferrovia retica', path: '/articoli-frontaliere/ferrovia-retica-taiwan', parent: 'blog' },
     'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
+    'blog-berna-non-vuole-creare-attriti-con-litalia': { name: 'Berna non vuole creare attriti con', path: '/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/', parent: 'blog' },
+    'blog-referendum-neutrale-stime-2026': { name: 'Fiscale', path: '/articoli-frontaliere/referendum-neutrale-stime-2026', parent: 'blog' },
+    'blog-iniziative-casse-malati-2026': { name: 'Iniziative casse malati 2026', path: '/articoli-svizzera/iniziative-casse-malati-2026/', parent: 'blog' },
+    'blog-candidatura-lavoro-estero-ticino': { name: 'Candidatura', path: '/articoli-svizzera/candidatura-lavoro-estero-ticino/', parent: 'blog' },
+    'blog-intelligenza-artificiale-lavoro-svizzera-2026': { name: 'IA Lavoro Svizzera', path: '/articoli-svizzera/intelligenza-artificiale-lavoro-svizzera-2026/', parent: 'blog' },
+    'blog-lavoro-media-ssr-talenti-ticino': { name: 'Lavoro SSR', path: '/articoli-svizzera/lavoro-media-ssr-talenti-ticino/', parent: 'blog' },
+    'blog-cern-future-collider-ticino': { name: 'CERN', path: '/articoli-svizzera/cern-future-collider-ticino/', parent: 'blog' },
+    'blog-neutralizzazione-stime-2026-classi-media': { name: 'Neutralizzazione stime 2026', path: '/articoli-svizzera/neutralizzazione-stime-2026-classi-media/', parent: 'blog' },
+    'blog-lavoro-estero-guida-frontalieri': { name: 'Lavoro estero', path: '/articoli-svizzera/lavoro-estero-guida-frontalieri/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
@@ -4144,7 +4154,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  const sd = blogArticleSd;
  const imgUrl = typeof sd.image === 'string' ? sd.image : sd.image?.url;
  if (imgUrl) {
- const resolvedImgUrl = imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`;
+ // Full blog hero images are served from jsDelivr (CDN). cdnBlogImage maps
+ // both relative and absolute-origin /images/blog/*.webp to the CDN URL and
+ // passes non-blog paths (e.g. /images/places) through unchanged.
+ const resolvedImgUrl = cdnBlogImage(imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`);
  updateOrCreateMetaTag('property', 'og:image', resolvedImgUrl);
  const imgW = typeof sd.image === 'object' ? String(sd.image.width ?? '1344') : '1200';
  const imgH = typeof sd.image === 'object' ? String(sd.image.height ?? '756') : '630';

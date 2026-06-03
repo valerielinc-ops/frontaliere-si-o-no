@@ -37,6 +37,7 @@ import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
 import { flatHtmlRedirectPlugin } from './build-plugins/flatHtmlRedirectPlugin';
 import { hreflangPostprocessPlugin } from './build-plugins/hreflangPostprocessPlugin';
 import { postWalkCoordinatorPlugin } from './build-plugins/postWalkCoordinatorPlugin';
+import { blogImageCdnFinalizePlugin } from './build-plugins/blogImageCdnFinalizePlugin';
 import {
   writeRegistryResetPlugin,
   writeRegistryReportPlugin,
@@ -300,6 +301,11 @@ export default defineConfig(({ mode }) => {
  // build-plugins/precompressHtmlPlugin.ts for future revival.
  // precompressHtmlPlugin(__dirname),
  ]),
+ // Blog-image CDN offload — MUST be last: rewrites full /images/blog refs in
+ // emitted HTML/XML to jsDelivr (SHA-pinned), guards against any survivor,
+ // then deletes the full images from dist (keeps 480w thumbnails). Runs after
+ // postWalkCoordinator so it sees the final HTML. ~224 MB off the Pages artifact.
+ blogImageCdnFinalizePlugin(__dirname),
  // ── Content-hash manifest finalize DISABLED 2026-04-28 ──────
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.

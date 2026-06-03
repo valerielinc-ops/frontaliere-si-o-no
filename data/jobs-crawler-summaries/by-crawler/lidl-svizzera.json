@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-06-02T13:50:10.482Z",
+  "generatedAt": "2026-06-03T00:14:10.449Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11731,
-  "avgDurationMs": 11731,
+  "durationMs": 18671,
+  "avgDurationMs": 18671,
   "durationHistory": [
-    11731
+    18671
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,24 +40,24 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
+      "streetAddress": "",
+      "postalCode": "7500",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 87,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 25
+        "translation": 9,
+        "completeness": 22
       }
     },
     {
       "id": "company-alqha9",
-      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st",
+      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -80,20 +80,20 @@
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
       "country": "CH",
       "sourceLang": "de",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
+      "streetAddress": "",
+      "postalCode": "7500",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "retranslationAttempts": 2,
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
-        "completeness": 25
+        "translation": 15,
+        "completeness": 22
       }
     },
     {

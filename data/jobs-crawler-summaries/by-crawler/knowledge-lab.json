@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-06-02T13:41:45.381Z",
+  "generatedAt": "2026-06-03T00:06:02.926Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 383,
-  "avgDurationMs": 383,
+  "durationMs": 618,
+  "avgDurationMs": 618,
   "durationHistory": [
-    383
+    618
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -77,15 +77,15 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "8001",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
@@ -117,15 +117,15 @@
       "salaryMin": 75500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "8001",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
-      "_qualityScore": 95,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ]

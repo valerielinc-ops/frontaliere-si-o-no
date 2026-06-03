@@ -1,46 +1,46 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-06-02T12:12:56.590Z",
-  "total": 37,
+  "generatedAt": "2026-06-02T22:40:11.251Z",
+  "total": 38,
   "newCount": 1,
-  "updatedCount": 36,
-  "removedCount": 2,
+  "updatedCount": 37,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1917,
-  "avgDurationMs": 1917,
+  "durationMs": 1520,
+  "avgDurationMs": 1520,
   "durationHistory": [
-    1917
+    1520
   ],
   "newJobs": [
     {
-      "title": "Chef de projet Lignes / Postes électriques (f/m/d)",
-      "slug": "chef-de-projet-lignes-postes-electriques-f-m-d-fa4df7af-f742-4731-bfd6-dc78bd4feb20",
-      "url": "https://careers.axpo.com/jobs/7819460-chef-de-projet-lignes-postes-electriques-f-m-d",
-      "applyUrl": "https://careers.axpo.com/jobs/7819460-chef-de-projet-lignes-postes-electriques-f-m-d",
+      "title": "Anlagenwart/in Bachenbülach  30% - 50%  (w/m/d)",
+      "slug": "anlagenwart-in-bachenbulach-30-50-w-m-d-396a3fc7-7749-4e7d-8dd9-527b8482cb12",
+      "url": "https://careers.axpo.com/jobs/7837818-anlagenwart-in-bachenbuelach-30-50-w-m-d",
+      "applyUrl": "https://careers.axpo.com/jobs/7837818-anlagenwart-in-bachenbuelach-30-50-w-m-d",
       "company": "Axpo Group",
       "companyKey": "axpo-group",
       "companyDomain": "axpo.com",
-      "location": "Lausanne",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
+      "location": "Bachenbülach",
+      "addressLocality": "Bachenbülach",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
-      "canton": "VD",
+      "canton": "ZH",
       "country": "CH",
       "category": "engineering",
       "sector": "Energia & Utilities",
-      "department": "Engineering / Technical professions / Construction",
+      "department": "Operation / Production",
       "source": "axpo-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-29",
+      "sourceLang": "de",
+      "postedDate": "2026-06-02",
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.846Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-06-02T22:40:10.447Z",
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 24,
         "translation": 0,
         "completeness": 14
       }
@@ -70,20 +70,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.802Z",
+      "crawledAt": "2026-06-02T22:40:10.463Z",
       "id": "axpo-group-a667c30823ea",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "3001",
       "firstSeenAt": "2026-06-01T22:50:16.073Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -109,20 +109,59 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.817Z",
+      "crawledAt": "2026-06-02T22:40:10.475Z",
       "id": "axpo-group-c8ffc1587262",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "3400",
       "firstSeenAt": "2026-06-01T22:50:16.089Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Chef de projet Lignes / Postes électriques (f/m/d)",
+      "slug": "chef-de-projet-lignes-postes-electriques-f-m-d-fa4df7af-f742-4731-bfd6-dc78bd4feb20",
+      "url": "https://careers.axpo.com/jobs/7819460-chef-de-projet-lignes-postes-electriques-f-m-d",
+      "applyUrl": "https://careers.axpo.com/jobs/7819460-chef-de-projet-lignes-postes-electriques-f-m-d",
+      "company": "Axpo Group",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Lausanne",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Utilities",
+      "department": "Engineering / Technical professions / Construction",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-29",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "crawledAt": "2026-06-02T22:40:10.503Z",
+      "id": "axpo-group-ed1772917a03",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-06-02T12:12:55.846Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
       }
     },
     {
@@ -148,20 +187,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.867Z",
+      "crawledAt": "2026-06-02T22:40:10.522Z",
       "id": "axpo-group-0b41882992d3",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-27T11:42:00.953Z",
-      "_qualityScore": 94,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -187,20 +226,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.881Z",
+      "crawledAt": "2026-06-02T22:40:10.536Z",
       "id": "axpo-group-64b1f3f45d93",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-27T11:42:00.974Z",
-      "_qualityScore": 94,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -226,20 +265,20 @@
       "validThrough": "",
       "employmentType": "internship",
       "contractType": "stage",
-      "crawledAt": "2026-06-02T12:12:55.894Z",
+      "crawledAt": "2026-06-02T22:40:10.550Z",
       "id": "axpo-group-0c1dffc7a4c2",
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-26T22:05:24.142Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -265,20 +304,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.911Z",
+      "crawledAt": "2026-06-02T22:40:10.565Z",
       "id": "axpo-group-5b881ec4e84d",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-27T11:42:01.011Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -304,20 +343,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.929Z",
+      "crawledAt": "2026-06-02T22:40:10.584Z",
       "id": "axpo-group-ad29fd08738d",
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-25T21:25:53.461Z",
-      "_qualityScore": 92,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -343,20 +382,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.943Z",
+      "crawledAt": "2026-06-02T22:40:10.594Z",
       "id": "axpo-group-8a7f1e60b476",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-22T21:28:12.804Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -382,20 +421,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.949Z",
+      "crawledAt": "2026-06-02T22:40:10.603Z",
       "id": "axpo-group-b9901f026aeb",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5000",
       "firstSeenAt": "2026-05-20T22:11:43.142Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -421,20 +460,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.962Z",
+      "crawledAt": "2026-06-02T22:40:10.611Z",
       "id": "axpo-group-7932df82b8c6",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-22T10:55:09.138Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -460,20 +499,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.978Z",
+      "crawledAt": "2026-06-02T22:40:10.625Z",
       "id": "axpo-group-3bc126ff8f61",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-28T11:43:46.618Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -499,20 +538,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.984Z",
+      "crawledAt": "2026-06-02T22:40:10.631Z",
       "id": "axpo-group-3b351c9ebffe",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5000",
       "firstSeenAt": "2026-05-21T21:43:18.091Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -538,20 +577,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:55.991Z",
+      "crawledAt": "2026-06-02T22:40:10.642Z",
       "id": "axpo-group-a4a3e6139278",
       "salaryMin": 50500,
       "salaryMax": 89000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-13T21:38:10.076Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -577,20 +616,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.005Z",
+      "crawledAt": "2026-06-02T22:40:10.652Z",
       "id": "axpo-group-86366b769ec7",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5000",
       "firstSeenAt": "2026-05-29T22:09:31.380Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -616,20 +655,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.020Z",
+      "crawledAt": "2026-06-02T22:40:10.663Z",
       "id": "axpo-group-47d7ceee9fa6",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "",
       "firstSeenAt": "2026-05-12T21:33:21.172Z",
-      "_qualityScore": 99,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 19
       }
     },
     {
@@ -655,20 +694,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.028Z",
+      "crawledAt": "2026-06-02T22:40:10.672Z",
       "id": "axpo-group-bb6528dd4751",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-12T10:38:03.674Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -694,20 +733,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.039Z",
+      "crawledAt": "2026-06-02T22:40:10.684Z",
       "id": "axpo-group-195fec608ecc",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-12T21:33:21.225Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -733,20 +772,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.050Z",
+      "crawledAt": "2026-06-02T22:40:10.697Z",
       "id": "axpo-group-1bfc13375935",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-10T21:02:07.029Z",
-      "_qualityScore": 91,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -772,20 +811,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.057Z",
+      "crawledAt": "2026-06-02T22:40:10.704Z",
       "id": "axpo-group-0f91c9dd8fbd",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5000",
       "firstSeenAt": "2026-05-10T21:02:07.041Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -811,20 +850,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.064Z",
+      "crawledAt": "2026-06-02T22:40:10.711Z",
       "id": "axpo-group-b3ba67a7b6a1",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-10T21:02:07.052Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -850,20 +889,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.068Z",
+      "crawledAt": "2026-06-02T22:40:10.718Z",
       "id": "axpo-group-ee9f0ff1a0b7",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5000",
       "firstSeenAt": "2026-05-10T21:02:07.098Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -889,20 +928,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.083Z",
+      "crawledAt": "2026-06-02T22:40:10.729Z",
       "id": "axpo-group-a6daaf0a3a7d",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-10T21:02:07.128Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -928,20 +967,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.093Z",
+      "crawledAt": "2026-06-02T22:40:10.739Z",
       "id": "axpo-group-3944ee2dab88",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "5400",
       "firstSeenAt": "2026-05-11T11:07:30.809Z",
-      "_qualityScore": 99,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -967,20 +1006,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.101Z",
+      "crawledAt": "2026-06-02T22:40:10.746Z",
       "id": "axpo-group-398e3c105b36",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-05-05T10:08:19.009Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1006,20 +1045,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.110Z",
+      "crawledAt": "2026-06-02T22:40:10.758Z",
       "id": "axpo-group-0da6cac2ab79",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "",
       "firstSeenAt": "2026-05-10T21:02:07.191Z",
-      "_qualityScore": 97,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 19
       }
     },
     {
@@ -1045,20 +1084,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.131Z",
+      "crawledAt": "2026-06-02T22:40:10.776Z",
       "id": "axpo-group-381ba1dc054d",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-10T21:02:07.210Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1084,20 +1123,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.142Z",
+      "crawledAt": "2026-06-02T22:40:10.785Z",
       "id": "axpo-group-0e3241c46cb2",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-10T21:02:07.221Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1123,20 +1162,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.149Z",
+      "crawledAt": "2026-06-02T22:40:10.793Z",
       "id": "axpo-group-67b1184512e3",
       "salaryMin": 79500,
       "salaryMax": 120500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "6003",
       "firstSeenAt": "2026-05-10T21:02:07.229Z",
-      "_qualityScore": 97,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1162,141 +1201,23 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.157Z",
+      "crawledAt": "2026-06-02T22:40:10.805Z",
       "id": "axpo-group-e14223a1a63c",
       "salaryMin": 96000,
       "salaryMax": 146500,
       "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7013",
       "firstSeenAt": "2026-05-05T10:08:19.031Z",
-      "_qualityScore": 92,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Accountant (w/m/d)",
-      "slug": "accountant-w-m-d-4bf9094e-b4dc-4f9b-b9bb-478fba235706",
-      "url": "https://careers.axpo.com/jobs/7617403-accountant-w-m-d",
-      "applyUrl": "https://careers.axpo.com/jobs/7617403-accountant-w-m-d",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Baden",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Energia & Utilities",
-      "department": "Finance / Accounting / Controlling",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-22",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-06-02T12:12:56.170Z",
-      "id": "axpo-group-c0cbf7099e28",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-21T11:12:04.335Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lernende/r Elektroinstallateur/in EFZ (w/m/d) - 2027 - Grosswangen",
-      "slug": "apprendista-installatore-trice-elettrico-a-in-cfc-m-w-d-2027-grosswangen-ckw-grosswangen",
-      "url": "https://ckw.teamtailor.com/jobs/7506006-lernende-r-elektroinstallateur-in-efz-w-m-d-2027-grosswangen",
-      "applyUrl": "https://ckw.teamtailor.com/jobs/7506006-lernende-r-elektroinstallateur-in-efz-w-m-d-2027-grosswangen",
-      "company": "CKW",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Grosswangen",
-      "addressLocality": "Grosswangen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Utilities",
-      "department": "Elektroinstallation",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-02",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-06-01T22:50:16.491Z",
-      "id": "axpo-group-554249b619a9",
-      "salaryMin": 42640,
-      "salaryMax": 61000,
-      "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-06-01T22:50:16.491Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Lernende/r Montage-Elektriker/in EFZ (w/m/d) - 2027 - Grosswangen",
-      "slug": "apprendista-montage-elektriker-in-cfc-w-m-d-2027-grosswangen-ckw-grosswangen",
-      "url": "https://ckw.teamtailor.com/jobs/7506004-lernende-r-montage-elektriker-in-efz-w-m-d-2027-grosswangen",
-      "applyUrl": "https://ckw.teamtailor.com/jobs/7506004-lernende-r-montage-elektriker-in-efz-w-m-d-2027-grosswangen",
-      "company": "CKW",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Grosswangen",
-      "addressLocality": "Grosswangen",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Utilities",
-      "department": "Elektroinstallation",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-02",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-06-01T22:50:16.498Z",
-      "id": "axpo-group-6ffab9deaeec",
-      "salaryMin": 42640,
-      "salaryMax": 61000,
-      "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
-      "firstSeenAt": "2026-06-01T22:50:16.498Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

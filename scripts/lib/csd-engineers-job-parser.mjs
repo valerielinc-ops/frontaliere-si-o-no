@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -102,22 +102,13 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Valais location filter ────────────────────────────────── */
+/* ── Swiss location filter ─────────────────────────────────── */
 
 /**
- * Valais-relevant locations: Sion HQ + satellite offices in canton VS.
- * CSD also has offices in Lausanne, Zurich, Bern, Chur, Luxembourg, etc.
- * We only keep jobs physically based in Valais.
+ * CSD has offices across Switzerland (Sion HQ + Lausanne, Zurich, Bern,
+ * Chur, etc.). All Swiss jobs are kept (foreign jobs, e.g. Luxembourg,
+ * are excluded by the Swiss-location filter).
  */
-const VALAIS_PATTERNS = [
-  'sion', 'sierre', 'martigny', 'monthey', 'visp', 'brig',
-  'naters', 'saxon', 'valais', 'wallis',
-];
-
-function isValaisLocation(text = '') {
-  const t = String(text || '').toLowerCase();
-  return VALAIS_PATTERNS.some((p) => t.includes(p));
-}
 
 /* ── RSS + Detail Page Fetch ──────────────────────────────── */
 
@@ -266,13 +257,13 @@ async function fetchDetailPage(url) {
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all CSD ENGINEERS jobs in Valais from the Teamtailor RSS feed.
+ * Fetch all CSD ENGINEERS jobs in Switzerland from the Teamtailor RSS feed.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * Flow:
  *   1. Fetch RSS feed (all jobs globally)
- *   2. Filter for Valais-based jobs (location in RSS or detail page)
- *   3. Fetch detail page for each Valais job (JSON-LD for description)
+ *   2. Filter for Swiss jobs (location in RSS or detail page)
+ *   3. Fetch detail page for each Swiss job (JSON-LD for description)
  *   4. Build ParsedJob objects
  */
 export async function fetchAllCsdEngineersJobs() {
@@ -287,21 +278,22 @@ export async function fetchAllCsdEngineersJobs() {
 
   console.log(`  📋 Total RSS items: ${rssItems.length}`);
 
-  // Pre-filter by location from RSS metadata (tt:city, tt:name, tt:department)
-  const valaisItems = rssItems.filter((item) => {
+  // Pre-filter by location from RSS metadata (tt:city, tt:name, tt:department).
+  // Keep all Swiss jobs (nationwide); foreign jobs are excluded.
+  const swissItems = rssItems.filter((item) => {
     const locationText = `${item.city} ${item.locationName} ${item.department} ${item.country}`;
-    return isValaisLocation(locationText);
+    return isTargetSwissLocation(locationText);
   });
 
-  console.log(`  🏔️  Valais-relevant items: ${valaisItems.length}`);
+  console.log(`  🇨🇭 Swiss items: ${swissItems.length}`);
 
-  if (valaisItems.length === 0) {
-    console.warn('⚠️ No Valais jobs found in RSS feed.');
+  if (swissItems.length === 0) {
+    console.warn('⚠️ No Swiss jobs found in RSS feed.');
     return [];
   }
 
   const jobs = [];
-  for (const item of valaisItems) {
+  for (const item of swissItems) {
     const title = item.title;
     if (!title || title.length < 3) continue;
 
@@ -317,9 +309,9 @@ export async function fetchAllCsdEngineersJobs() {
       await new Promise((r) => setTimeout(r, 300));
     }
 
-    // Use RSS city/location data, fall back to detail page or defaults
-    const city = item.city || detail?.city || 'Sion';
-    const canton = inferAnyCanton(city) || 'VS';
+    // Use RSS city/location data, fall back to detail page
+    const city = item.city || detail?.city || '';
+    const canton = inferAnyCanton(city) || '';
     const descriptionText = detail?.description || `${title} — CSD ENGINEERS, ${city}`;
     const publicUrl = item.link || CAREER_URL;
 
@@ -358,8 +350,8 @@ export async function fetchAllCsdEngineersJobs() {
 
       // ── Recommended fields ──
       addressLocality: city,
-      postalCode: item.postalCode || detail?.postalCode || '1950',
-      streetAddress: item.street || detail?.street || 'Rue de l\'Industrie 54',
+      postalCode: item.postalCode || detail?.postalCode || '',
+      streetAddress: item.street || detail?.street || '',
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
@@ -378,6 +370,6 @@ export async function fetchAllCsdEngineersJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total CSD ENGINEERS Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total CSD ENGINEERS Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }

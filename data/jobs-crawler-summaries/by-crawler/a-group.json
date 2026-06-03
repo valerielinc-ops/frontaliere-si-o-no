@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-06-02T11:56:49.214Z",
+  "generatedAt": "2026-06-02T22:24:32.582Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2419,
-  "avgDurationMs": 2419,
+  "unchangedCount": 1,
+  "durationMs": 2869,
+  "avgDurationMs": 2869,
   "durationHistory": [
-    2419
+    2869
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,7 +50,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "HR Coordinator",
       "slug": "hr-coordinator-a-plus-plus-group-massagno",
@@ -88,7 +91,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

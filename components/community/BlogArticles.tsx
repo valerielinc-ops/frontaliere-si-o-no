@@ -655,6 +655,13 @@ type ResponsiveImageSet = {
 };
 
 function getResponsiveImageSet(imagePath: string): ResponsiveImageSet | null {
+ // Blog hero images are served from jsDelivr (CDN, full image only); their
+ // 480w thumbnails stay same-origin under /images/blog/thumbnails/. Accept
+ // the CDN URL form and map it back to the local thumbnail path.
+ const cdn = imagePath.match(/\/public\/images\/blog\/([^/]+)\.(jpe?g|png|webp|avif)$/i);
+ if (cdn) {
+ return { thumbWebp: `/images/blog/thumbnails/${cdn[1]}-480w.webp` };
+ }
  const match = imagePath.match(/^(\/images\/(?:blog|places))\/([^/]+)\.(jpe?g|png|webp|avif)$/i);
  if (!match) return null;
 
@@ -1249,7 +1256,9 @@ function BlogArticles({
  },
  isPartOf: { '@type': 'WebSite', '@id': 'https://frontaliereticino.ch/#website', name: 'Frontaliere Ticino' },
  mainEntityOfPage: canonicalUrl,
- image: `https://frontaliereticino.ch${article.image}`,
+ // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
+ // only prefix the origin for same-origin relative paths (e.g. /images/places).
+ image: article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`,
  inLanguage: locale,
  isAccessibleForFree: true,
  articleSection: article.category,

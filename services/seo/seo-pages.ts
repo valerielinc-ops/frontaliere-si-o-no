@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2703,
+ "numberOfItems": 2712,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7343,7 +7343,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2700, "name": "Ammodernamento F/A-18: la flotta svizzera pront...", "url": `${BASE_URL}/articoli-frontaliere/ammodernamento-fa-18-svizzera` },
           { "@type": "ListItem", "position": 2701, "name": "Mostra mercato di piante rare a Comerio: un eve...", "url": `${BASE_URL}/articoli-frontaliere/mostra-piante-rare-comerio-2026` },
           { "@type": "ListItem", "position": 2702, "name": "Ferrovia retica: nuovo accordo con Taiwan", "url": `${BASE_URL}/articoli-frontaliere/ferrovia-retica-taiwan` },
-          { "@type": "ListItem", "position": 2703, "name": "Genny Zero: la sedia a rotelle che rivoluziona ...", "url": `${BASE_URL}/articoli-frontaliere/sedia-rotelle-genny-zero-design` }
+          { "@type": "ListItem", "position": 2703, "name": "Genny Zero: la sedia a rotelle che rivoluziona ...", "url": `${BASE_URL}/articoli-frontaliere/sedia-rotelle-genny-zero-design` },
+          { "@type": "ListItem", "position": 2704, "name": "Berna non vuole creare attriti con l'Italia", "url": `${BASE_URL}/articoli-frontaliere/berna-non-vuole-creare-attriti-con-litalia` },
+          { "@type": "ListItem", "position": 2705, "name": "Referendum: neutralizzazione stime 2026 e class...", "url": `${BASE_URL}/articoli-frontaliere/referendum-neutrale-stime-2026` },
+          { "@type": "ListItem", "position": 2706, "name": "Iniziative casse malati 2026: il governo non pu...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-casse-malati-2026` },
+          { "@type": "ListItem", "position": 2707, "name": "Il segreto di una candidatura di successo per u...", "url": `${BASE_URL}/articoli-frontaliere/candidatura-lavoro-estero-ticino` },
+          { "@type": "ListItem", "position": 2708, "name": "IA e futuro del lavoro in Svizzera: scenari al ...", "url": `${BASE_URL}/articoli-frontaliere/intelligenza-artificiale-lavoro-svizzera-2026` },
+          { "@type": "ListItem", "position": 2709, "name": "SSR cerca talenti in Ticino: opportunità per i ...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-media-ssr-talenti-ticino` },
+          { "@type": "ListItem", "position": 2710, "name": "Il CERN e il futuro del collider", "url": `${BASE_URL}/articoli-frontaliere/cern-future-collider-ticino` },
+          { "@type": "ListItem", "position": 2711, "name": "Neutralizzare le stime 2026: tutela per casa e ...", "url": `${BASE_URL}/articoli-frontaliere/neutralizzazione-stime-2026-classi-media` },
+          { "@type": "ListItem", "position": 2712, "name": "Lavoro all’estero: guida pratica per frontalier...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-estero-guida-frontalieri` }
  ]
  },
  {

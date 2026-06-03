@@ -11162,5 +11162,119 @@
         "pending": 14
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-02T18:53:31.871Z",
+    "label": "before",
+    "total": 8948,
+    "needsRetranslation": 5585,
+    "suppressed": 23,
+    "incomplete": 798,
+    "complete": 8150,
+    "missingByLocale": {
+      "it": 579,
+      "en": 445,
+      "de": 302,
+      "fr": 578
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 103
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 95
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 79
+      },
+      {
+        "company": "Roche",
+        "pending": 55
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-02T22:39:17.146Z",
+    "label": "after",
+    "total": 8948,
+    "needsRetranslation": 2072,
+    "suppressed": 22,
+    "incomplete": 585,
+    "complete": 8363,
+    "missingByLocale": {
+      "it": 453,
+      "en": 333,
+      "de": 228,
+      "fr": 432
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 90
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 46
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Nestlé",
+        "pending": 15
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 14
+      }
+    ]
   }
 ]
