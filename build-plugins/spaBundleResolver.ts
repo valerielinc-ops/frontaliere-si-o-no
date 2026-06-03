@@ -49,8 +49,14 @@ export interface SpaBundleInfo {
   readonly hasSpaBundle: true;
 }
 
-const ENTRY_JS_RX = /src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/;
-const ENTRY_CSS_RX = /href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/;
+// The `[^"]*` before `/assets/` tolerates an optional origin prefix so the
+// resolver matches whether Vite emitted a same-origin `src="/assets/index-…js"`
+// or an absolute CDN URL `src="https://cdn.frontaliereticino.ch/assets/index-…js"`
+// (vite.config experimental.renderBuiltUrl, gated on ASSET_CDN). The capture
+// group is always the bare hashed filename, unchanged. Without this tolerance an
+// ASSET_CDN build makes both regexes miss → poll exhausted → build fails.
+const ENTRY_JS_RX = /src="[^"]*\/assets\/(index-[A-Za-z0-9_-]+\.js)"/;
+const ENTRY_CSS_RX = /href="[^"]*\/assets\/(index-[A-Za-z0-9_-]+\.css)"/;
 
 /**
  * Module-level cache. Keyed by `distDir` so a build that targets multiple
