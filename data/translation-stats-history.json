@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-16T22:47:12.946Z",
-    "label": "before",
-    "total": 4301,
-    "needsRetranslation": 2179,
-    "incomplete": 432,
-    "complete": 3869,
-    "missingByLocale": {
-      "it": 279,
-      "en": 236,
-      "de": 103,
-      "fr": 282
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "MSC Group",
-        "pending": 14
-      },
-      {
-        "company": "UBS",
-        "pending": 12
-      },
-      {
-        "company": "PostAuto",
-        "pending": 10
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 9
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-16T23:56:19.078Z",
-    "label": "after",
-    "total": 4301,
-    "needsRetranslation": 984,
-    "incomplete": 346,
-    "complete": 3955,
-    "missingByLocale": {
-      "it": 251,
-      "en": 213,
-      "de": 93,
-      "fr": 252
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "MSC Group",
-        "pending": 14
-      },
-      {
-        "company": "UBS",
-        "pending": 12
-      },
-      {
-        "company": "PostAuto",
-        "pending": 10
-      },
-      {
-        "company": "IWC",
-        "pending": 10
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 9
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-17T03:32:08.413Z",
     "label": "before",
     "total": 4301,
@@ -11164,6 +11052,120 @@
       {
         "company": "PwC Switzerland",
         "pending": 20
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-03T08:32:17.247Z",
+    "label": "before",
+    "total": 9133,
+    "needsRetranslation": 2534,
+    "suppressed": 22,
+    "incomplete": 733,
+    "complete": 8400,
+    "missingByLocale": {
+      "it": 488,
+      "en": 368,
+      "de": 255,
+      "fr": 463
+    },
+    "topPending": [
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 94
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 76
+      },
+      {
+        "company": "Coopers Group AG",
+        "pending": 46
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 41
+      },
+      {
+        "company": "Roche",
+        "pending": 39
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 38
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "BLS AG",
+        "pending": 23
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-03T12:10:17.080Z",
+    "label": "after",
+    "total": 9133,
+    "needsRetranslation": 2014,
+    "suppressed": 22,
+    "incomplete": 599,
+    "complete": 8534,
+    "missingByLocale": {
+      "it": 384,
+      "en": 286,
+      "de": 230,
+      "fr": 362
+    },
+    "topPending": [
+      {
+        "company": "Marché Restaurants Schweiz AG",
+        "pending": 94
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 39
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 38
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 24
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "IWC",
+        "pending": 17
+      },
+      {
+        "company": "Nestlé",
+        "pending": 16
       }
     ]
   }
