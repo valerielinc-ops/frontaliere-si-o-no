@@ -1,6 +1,6 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-06-03T00:12:50.686Z",
+  "assembledAt": "2026-06-03T14:22:07.754Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-97372b1445ea",
@@ -47,21 +47,21 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:12:48.924Z",
+      "crawledAt": "2026-06-03T14:22:05.898Z",
       "needsRetranslation": true,
+      "previousSlugs": [
+        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+      ],
       "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
+        ],
         "fr": [
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
-        ],
-        "it": [
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
         ]
       },
-      "previousSlugs": [
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
-      ],
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "salaryMin": 63000,
       "salaryMax": 87500,
@@ -121,7 +121,8 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T00:12:48.924Z",
+      "crawledAt": "2026-06-03T14:22:05.898Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
         "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
