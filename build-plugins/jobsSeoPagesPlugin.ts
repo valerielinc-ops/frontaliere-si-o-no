@@ -1278,8 +1278,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  resolveJobsSeoPagesFlushed();
  return;
  }
- const jobsRaw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
- const jobs = Array.isArray(jobsRaw) ? jobsRaw : [];
+ let jobsRaw: any = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+ let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
+ jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const slugify = (input: string) => String(input || '')
  .toLowerCase()
  .normalize('NFD')
@@ -1364,6 +1365,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (ta !== tb) return tb - ta;
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
+ // Release the raw dataset: validJobs is an independent spread-copy (new objects
+ // per job), and `jobs` is never read past this point — free ~150-250 MB before
+ // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
+ jobs = [];
 
  /**
   * Per-slug canonical override map (Semrush cannibalization fix). Loaded from
