@@ -1,16 +1,16 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-06-02T13:49:00.333Z",
+  "generatedAt": "2026-06-03T00:12:50.686Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2412,
-  "avgDurationMs": 2412,
+  "durationMs": 1937,
+  "avgDurationMs": 1937,
   "durationHistory": [
-    2412
+    1937
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-02T13:48:58.578Z",
+      "crawledAt": "2026-06-03T00:12:48.924Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "_qualityScore": 70,
@@ -77,8 +77,8 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T13:48:58.578Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-03T00:12:48.924Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
