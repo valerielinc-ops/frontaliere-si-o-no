@@ -765,7 +765,10 @@ jobs:
             echo "::error::CDN asset $url not serving after ~4min — failing deploy (assets stay live on last good build)"; exit 1
           fi
           # Guard B: any surviving SAME-ORIGIN /assets/ reference in dist HTML?
-          if grep -rlE "[\"'(]/?assets/[A-Za-z0-9._-]+\.(js|css|woff2?|png|jpe?g|webp|svg)" --include='*.html' dist 2>/dev/null | head -1 | grep -q .; then
+          # Extension/path coverage is a SUPERSET of the offload script's Phase 3
+          # (offloadAssetRefs ASSET_FILE) — else a same-origin ref of a type Phase 3
+          # misses would also evade this guard and 404 after delete.
+          if grep -rlE "[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)" --include='*.html' dist 2>/dev/null | head -1 | grep -q .; then
             echo "⚠️ some dist HTML still references same-origin /assets/ (not CDN-rebased) — KEEPING dist/assets (no breakage, no asset reduction this round)"
             exit 0
           fi

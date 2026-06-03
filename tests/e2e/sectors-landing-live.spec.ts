@@ -47,7 +47,8 @@ const HREFLANG_ALTERNATES: ReadonlyArray<{ hreflang: string; path: string }> = [
   { hreflang: 'x-default', path: '/cerca-lavoro-ticino/settori/' },
 ];
 
-const SPA_BUNDLE_RX = /<script[^>]+type="module"[^>]+src="\/assets\/index-[A-Za-z0-9_-]+\.js"/;
+// src may be same-origin or an absolute CDN URL (ASSET_CDN/renderBuiltUrl).
+const SPA_BUNDLE_RX = /<script[^>]+type="module"[^>]+src="(?:https?:\/\/[^"]+)?\/assets\/index-[A-Za-z0-9_-]+\.js"/;
 
 interface FetchedHtml {
   status: number;

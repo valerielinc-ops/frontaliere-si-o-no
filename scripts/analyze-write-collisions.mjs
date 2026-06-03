@@ -92,7 +92,7 @@ if (!dumpAvailable) {
  */
 function inspectContent(html) {
   return {
-    hasSpaBundle: /<script[^>]*type="module"[^>]*src="\/assets\/index-[A-Za-z0-9_-]+\.js"/.test(html),
+    hasSpaBundle: /<script[^>]*type="module"[^>]*src="(?:https?:\/\/[^"]+)?\/assets\/index-[A-Za-z0-9_-]+\.js"/.test(html),
     jsonLdCount: (html.match(/<script[^>]+type="application\/ld\+json"/g) || []).length,
     bodyTextLength: html
       .replace(/<script[\s\S]*?<\/script>/gi, ' ')

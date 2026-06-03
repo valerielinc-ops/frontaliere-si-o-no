@@ -23,8 +23,10 @@ export function asyncCssPlugin(): Plugin {
  enforce: 'post',
  transformIndexHtml(html) {
  // Add fetchpriority="high" to the entry script for faster JS parsing
+ // src may be same-origin (/assets/…) or an absolute CDN URL
+ // (https://cdn.…/assets/…) when ASSET_CDN/renderBuiltUrl is active.
  html = html.replace(
- /<script type="module" crossorigin src="(\/assets\/index-[^"]+\.js)">/,
+ /<script type="module" crossorigin src="((?:https?:\/\/[^"]+)?\/assets\/index-[^"]+\.js)">/,
  '<script type="module" crossorigin fetchpriority="high" src="$1">'
  );
 
@@ -39,7 +41,7 @@ export function asyncCssPlugin(): Plugin {
  // strip href attributes from session recordings. The same async pattern
  // is already used in jobsSeoPagesPlugin.ts for SPA-shell SEO pages.
  html = html.replace(
- /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
+ /<link rel="stylesheet" crossorigin href="((?:https?:\/\/[^"]+)?\/assets\/[^"]+\.css)">/g,
  '<link rel="preload" as="style" crossorigin href="$1" data-clarity-unmask="true">' +
  '<link rel="stylesheet" crossorigin href="$1" media="print" onload="this.media=\'all\'" data-clarity-unmask="true">' +
  '<noscript><link rel="stylesheet" crossorigin href="$1" data-clarity-unmask="true"></noscript>'
