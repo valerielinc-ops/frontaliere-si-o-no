@@ -63,8 +63,8 @@ const LISTING_API = 'https://www.hitachienergy.com/careers/open-jobs/_jcr_conten
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_PAGES = Number(process.env.HITACHI_MAX_PAGES) || 10;
-const MAX_DETAIL_PAGES = Number(process.env.HITACHI_MAX_DETAIL_PAGES) || 80;
+const MAX_PAGES = Number(process.env.HITACHI_MAX_PAGES) || 100000; // uncapped — loop breaks on empty items / !hasMorePages
+const MAX_DETAIL_PAGES = Number(process.env.HITACHI_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1200;
 
 function readJson(filePath, fallback) {

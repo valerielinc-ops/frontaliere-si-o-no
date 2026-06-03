@@ -945,8 +945,8 @@ function runBaseCrawler() {
     disableWorkdayForce: true,
     extraEnv: {
       // Medacta has ~50-100 positions across categories
-      JOBS_CRAWLER_MAX_JOB_LINKS: '400',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '400',
+      JOBS_CRAWLER_MAX_JOB_LINKS: '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000',
     },
   });
 }

@@ -55,7 +55,7 @@ const UMANTIS_LISTING_URL =
 const UMANTIS_BASE = 'https://recruitingapp-2761.umantis.com';
 const UMANTIS_TABLE_ID = '66856';
 const UMANTIS_ITEMS_PER_PAGE = 10;
-const MAX_PAGES = 50; // safety cap to prevent infinite loops
+const MAX_PAGES = 100000; // uncapped — loop breaks when a page returns 0 new vacancy IDs
 const VACANCY_HREF_RE = /\/Vacancies\/(\d+)\/Description\/\d+/g;
 
 // Maximum number of previousSlugs to retain per job.
@@ -376,8 +376,8 @@ function runBaseCrawler() {
     disableWorkdayForce: true,
     extraEnv: {
       // Override per-company limits: EOC via Umantis has 200+ active vacancies.
-      JOBS_CRAWLER_MAX_JOB_LINKS: '400',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '400',
+      JOBS_CRAWLER_MAX_JOB_LINKS: '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: '100000',
       // Use higher concurrency for dedicated single-company run.
       JOBS_AI_LOCALIZATION_CONCURRENCY: '2',
       // Generic summary is printed before EOC post-processing and can show

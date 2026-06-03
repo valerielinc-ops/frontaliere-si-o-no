@@ -93,7 +93,7 @@ const SR_PUBLIC_JOBS_BASE = 'https://jobs.smartrecruiters.com';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
 const DEFAULT_PAGE_SIZE = 100;
-const DEFAULT_MAX_PAGES = 50;
+const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on offset>=totalFound
 const DEFAULT_MIN_DELAY_MS = 2000;
 const DEFAULT_DETAIL_CONCURRENCY = 5;
 const DEFAULT_DETAIL_DELAY_MS = 250;

@@ -62,7 +62,7 @@ const CAREERS_URL_DE = 'https://jobs.amag-group.ch/de';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.AMAG_MAX_DETAIL_PAGES) || 60;
+const MAX_DETAIL_PAGES = Number(process.env.AMAG_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 800;
 
 function readJson(filePath, fallback) {

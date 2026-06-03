@@ -173,7 +173,7 @@ export async function fetchAllSobiJobs() {
       locationCountryCodes: ['ch'],
       filter: isSwissPosting,
       fetchDetail: true,
-      maxPages: 20,
+      maxPages: 100000,
       minDelayMs: SR_PAGE_DELAY_MS,
       timeoutMs,
       userAgent,

@@ -60,7 +60,7 @@ const LISTING_API = 'https://www.hoval.it/jobs/results?q=:sortIndex:country:Swit
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.HOVAL_MAX_DETAIL_PAGES) || 30;
+const MAX_DETAIL_PAGES = Number(process.env.HOVAL_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1000;
 
 function readJson(filePath, fallback) {
