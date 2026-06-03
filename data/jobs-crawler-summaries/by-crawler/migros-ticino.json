@@ -1,18 +1,1030 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-06-02T14:02:21.131Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-06-03T00:26:28.478Z",
+  "total": 47,
+  "newCount": 23,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 23,
-  "durationMs": 50018,
-  "avgDurationMs": 50018,
+  "durationMs": 94052,
+  "avgDurationMs": 94052,
   "durationHistory": [
-    50018
+    94052
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-39d3kj",
+      "slug": "boucher-ere-departement-desossage-porc-groupe-micarna-courtepin",
+      "company": "groupe Micarna",
+      "title": "Boucher*ère Département désossage porc",
+      "location": "Courtepin",
+      "canton": "FR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/groupe-micarna/boucherere-departement-desossage-porc/3b395647-915d-4f26-b693-ca1804e89621",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Participer au désossage, parage, démontage des matières premières",
+        "Contrôler les pièces à désosser et signaler les anomalies",
+        "Désosser et parer les pièces avec précision, en respectant les portions demandées",
+        "Appliquer rigoureusement les règles d’hygiène et de sécurité (HACCP)",
+        "Travailler en suivant un plan de découpe préétabli",
+        "Collaborer étroitement avec le département logistique pour assurer le bon déroulement des opérations"
+      ],
+      "_migrosBenefits": [
+        "Congé maternité/congé paternité: 18 semaines de congé maternité payé / 8 semaines de congé paternité (4 semaines payées et 4 semaines non payées)",
+        "Prestations sociales: 730 jours d'indemnités journalières en cas de maladie avec maintien intégral du salaire net",
+        "Restauration: Menu/buffet de midi équilibré au restaurant du personnel pour un maximum de CHF 7.-",
+        "Points Cumulus: Les points Cumulus sont doublés sur les produits alimentaires et quintuplés sur les articles non alimentaires.",
+        "Banque Migros: Migros offre des taux d'intérêt plus élevés sur les comptes privés et les comptes de placement à ses collaborateurs.",
+        "Ecole-club Migros: Remboursement de 70 % des frais de cours, jusqu'à un maximum de 1'000 CHF par année civile",
+        "Offre loisirs et culture: Tu bénéficies de billets à prix réduit pour des événements culturels sélectionnés",
+        "Offres sport et fitness: Contribution aux abonnements de fitness : maximum CHF 200.- par abonnement et par année",
+        "Prévoyance professionnelle: Une couverture complète auprès de la Caisse de pension Migros – avec des prestations de premier ordre et attractives"
+      ],
+      "_migrosWorkPercentage": "621%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-la8gn3",
+      "slug": "fachspezialist-in-instandhaltung-kalte-genossenschaft-migros-luzern-dierikon",
+      "company": "Genossenschaft Migros Luzern",
+      "title": "Fachspezialist*in Instandhaltung Kälte",
+      "location": "Dierikon",
+      "canton": "LU",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-luzern/fachspezialistin-instandhaltung-kalte/de375aeb-2ad8-44bf-8f18-cd9903da1bcf",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Verantwortung für die selbständige Durchführung von Instandhaltung, Reparatur-Arbeiten und Störungsbehebung an den gewerblichen Kälteanlagen in unseren Verkaufsstellen",
+        "Koordination und Führung von externen Spezialisten und Lieferanten",
+        "Sicherstellung der Betriebsbereitschaft im Hinblick auf Betriebssicherheit, Hygiene und Wirtschaftlichkeit",
+        "Erkennen, Initiieren und Umsetzen von Optimierungsmassnahmen für einen energiesparenden sowie nachhaltigen Betrieb"
+      ],
+      "_migrosBenefits": [
+        "Teil der Migros-Gruppe: Als Teil der Migros-Gruppe profitierst du von stabilen Strukturen, vielfältigen Karrieremöglichkeiten und attraktiven Benefits",
+        "Gesund arbeiten: Profitiere von unserem betrieblichen Gesundheitsmanagement und attraktiven Versicherungsvergünstigungen",
+        "Firmenparkplatz: Am Geschäftssitz in Dierikon profitierst du von kostenlosen Parkplätzen direkt vor Ort",
+        "Handy-Abo: Mitarbeitende erhalten stark vergünstigte Konditionen für das private Handy-Abo inkl. Familie und Freunde",
+        "Berufliche Vorsorge: Die Migros-Pensionskasse bietet attraktive Pensionskassenleistungen mit hoher Arbeitgebendenbeteiligung",
+        "Cumulus-Punkte: Du sammelst zusätzliche Cumulus-Punkte im Bereich Food und Non Food",
+        "Klubschule Migros: Wir beteiligen uns jährlich an Klubschul-Kursen bis zu max. CHF 1000.- (bei 100%-Pensum)",
+        "Freizeit- und Kulturangebote: Wir bieten diverse Rabatte und Freikarten im Bereich Freizeit und Kultur an",
+        "Sport- und Fitnessangebote: Bei uns erhältst du vergünstigte Fitness-Abonnemente im Activ Fitness und Migros-Fitnesspark"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-s93ql6",
+      "slug": "mitarbeiter-in-lagerbewirtschaftung-genossenschaft-migros-zurich-bassersdorf",
+      "company": "Genossenschaft Migros Zürich",
+      "title": "Mitarbeiter*in Lagerbewirtschaftung",
+      "location": "Bassersdorf",
+      "canton": "ZH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/mitarbeiterin-lagerbewirtschaftung/4ebe0b68-be1c-42ca-8c64-46a61b7726f8",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du unterstützt uns tatkräftig im Bereich Lagerbewirtschaftung und trägst zur effizienten Abwicklung des Wareneingangs bei",
+        "Du bist zuständig für die ordnungsgemässe Bewirtschaftung der Entsorgungsstation und sorgst dafür, dass unsere Einkaufswagen stets verfügbar sind",
+        "Du übernimmst das Be- und Entladen unserer LKW und sorgst für einen zügigen Wareneingang",
+        "Bei Bedarf unterstützt du auch in anderen Ladenbereichen, insbesondere im Getränkebereich"
+      ],
+      "_migrosBenefits": [
+        "Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks",
+        "Mobilität: Mit dem einmaligen Freizeitbonus pro Jahr von insgesamt max. CHF 500.– beteiligen wir uns an deinem ÖV-Abo",
+        "Handy-Abo: Du darfst dich auf Sonderkonditionen für das Handy-Abo freuen",
+        "Berufliche Vorsorge: Hervorragende Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Sozialleistungen: Faire Sozialleistungen",
+        "Cumulus-Punkte: Du erhältst zusätzliche Cumulus-Punkte beim Einkaufen",
+        "Migros Bank: Vorzugszinsen bei Privat- und Anlagekonto, kostenlose Kontoführung, vergünstigte Hypotheken und mehr",
+        "Mitarbeiterangebote: Bis zu 1.000 CHF pro Jahr (abhängig von deinem Pensum) für deine Erholung und Weiterentwicklung – nutzbar für Fitness-Abos, Kurse, Gesundheitsangebote oder einen Zuschuss fürs ÖV-Abo.",
+        "Sport- und Fitnessangebote: Du kannst einmalig pro Jahr einen Freizeitbonus von insgesamt max. CHF 1000.– z. B. für ein Jahresabo fürs M-Fitnesscenter einlösen",
+        "Aus- und Weiterbildung: Unterstützung bei berufsbezogener Aus- und Weiterbildung,"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-xp6xno",
+      "slug": "verkaufer-in-food-genossenschaft-migros-zurich",
+      "company": "Genossenschaft Migros Zürich",
+      "title": "Verkäufer*in Food",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin-food/665b06ce-3cb4-4305-97d8-1a015ee1c6aa",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du unterstützt uns tatkräftig im Bereich Food und trägst zur Gestaltung eines positiven Einkaufserlebnisses für unsere Kundschaft bei",
+        "Du übernimmst die Verantwortung für die effiziente Warenbewirtschaftung, die ansprechende Präsentation der Produkte und sorgst dafür, dass unsere Regale stets gut gefüllt sind",
+        "Du begeisterst unsere Kundschaft durch freundliche und kompetente Beratung",
+        "Du sicherst die hohe Qualität unserer Produkte inklusive Datumskontrolle",
+        "Bei Bedarf unterstützt du auch in anderen Ladenbereichen"
+      ],
+      "_migrosBenefits": [
+        "Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks",
+        "Mobilität: Mit dem einmaligen Freizeitbonus pro Jahr von insgesamt max. CHF 500.– beteiligen wir uns an deinem ÖV-Abo",
+        "Handy-Abo: Du darfst dich auf Sonderkonditionen für das Handy-Abo freuen",
+        "Sozialleistungen: Faire Sozialleistungen",
+        "Cumulus-Punkte: Du erhältst zusätzliche Cumulus-Punkte beim Einkaufen",
+        "Migros Bank: Vorzugszinsen bei Privat- und Anlagekonto, kostenlose Kontoführung, vergünstigte Hypotheken und mehr",
+        "Mitarbeiterangebote: Bis zu 1.000 CHF pro Jahr (abhängig von deinem Pensum) für deine Erholung und Weiterentwicklung – nutzbar für Fitness-Abos, Kurse, Gesundheitsangebote oder einen Zuschuss fürs ÖV-Abo."
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-t8mo9b",
+      "slug": "assistante-sociaux-educative-m-w-d-societe-cooperative-migros-geneve-vernier",
+      "company": "Société coopérative Migros Genève",
+      "title": "Assistante Sociaux Educative (F/H/D)",
+      "location": "Vernier",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/assistante-sociaux-educative-fhd/538c1d1a-bb86-48f2-8a02-468fb1148c45",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Tu accueilles les enfants comme les parents avec bienveillance et en conformité avec les règlements internes ou légaux.",
+        "Tu accompagnes les enfants dans les jeux, les repas et les temps calmes tout en garantissant leur sécurité et bien-être.",
+        "Tu proposes des activités adaptées qui éveillent leur curiosité et participe activement aux anniversaires organisés.",
+        "Tu échanges avec les parents, leur transmets les informations utiles et promeut les activités.",
+        "Tu assure les ouvertures et fermetures de la Halte-Jeux et collabore avec l'ensemble des acteurs (parents, collègues, partenaires externes).",
+        "Tu veilles au respect des règles d’hygiène, de sécurité et d’organisation de la Halte-Jeux."
+      ],
+      "_migrosBenefits": [
+        "Prévoyance professionnelle: Primauté des cotisations, cotisation dès 20 ans doublée par Migros et possibilité de retraite anticipée dès 58 ans.",
+        "Restauration: Réduction repas de Fr.4 (dès achats de 10.-) dans les restaurants Migros.",
+        "Points Cumulus: Réduction de 2% et 5 % selon les assortiments.",
+        "Banque Migros: Intérêt à taux préférentiel et sans frais pour un compte épargne."
+      ],
+      "_migrosWorkPercentage": "45%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-9rs9my",
+      "slug": "magasinier-m-w-d-societe-cooperative-migros-geneve-nyon",
+      "company": "Société coopérative Migros Genève",
+      "title": "Magasinier (F/H/D)",
+      "location": "Nyon",
+      "canton": "VD",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/magasinier-fhd/60fe43e9-1ed1-45dd-80c4-e58d8a99ebb7",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Tu es le premier arrivé au magasin et lance l'activité de la journée.",
+        "Tu réceptionnes les marchandises dès l'arrivée du premier camion.",
+        "Tu vérifies la conformité de la marchandise reçue selon les normes d'entreprise et de sécurité.",
+        "Tu transportes les produits et conduits les chariots de manutention dans les zones de stockage ou directement en magasin.",
+        "Tu organises les quais et les arrières pour un contrôle qualitatif optimal.",
+        "Tu veilles à maintenir l'ordre et la propreté dans les zones de stockage et de livraison."
+      ],
+      "_migrosBenefits": [
+        "Prévoyance professionnelle: Primauté des cotisations, cotisation dès 20 ans doublée par Migros et possibilité de retraite anticipée dès 58 ans.",
+        "Restauration: Réduction repas de Fr.4 (dès achats de 10.-) dans les restaurants Migros.",
+        "Points Cumulus: Réduction de 2% et 5 % selon les assortiments.",
+        "Banque Migros: Intérêt à taux préférentiel et sans frais pour un compte épargne."
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-egf66z",
+      "slug": "mitarbeiter-betriebsunterhalt-facility-services-m-w-d-delica-ag-birsfelden",
+      "company": "Delica AG",
+      "title": "Mitarbeiter Betriebsunterhalt / Facility Services (m/w/d)",
+      "location": "Birsfelden",
+      "canton": "BL",
+      "category": "other",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/delica-ag/mitarbeiter-betriebsunterhalt-facility-services-mwd/baa99929-7cdd-4e50-b807-805f7c91bfb9",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du führst Reinigungs- und Unterhaltsarbeiten selbständig, zuverlässig und gemäss Plan aus.",
+        "Du stellst die Materialbeschaffung sicher und kümmerst dich um die Verteilung von Büromaterial.",
+        "Du koordinierst Monteure, Handwerker sowie externe Reinigungsunternehmen und überwachst deren Einsätze.",
+        "Du unterstützt den Betriebsalltag bei der Vorbereitung von Sitzungszimmern, bei Büroumzügen sowie bei Notfall-Transporten.",
+        "Du übernimmst zusätzliche betriebliche Supportaufgaben wie Winterdienst und sorgst mit deinem Einsatz für einen reibungslosen Ablauf."
+      ],
+      "_migrosBenefits": [
+        "Migros Bank: Die Migros gewährt höhere Zinssätze auf dem Privat- sowie Anlagenkonto für ihre Mitarbeitenden",
+        "Cumulus-Punkte: 2-fach Cumulus-Punkte auf Food und 5-fach auf Non Food-Artikel",
+        "Verpflegung: Ausgewogenes und feines Mittagsmenü/-buffet im Personalrestaurant für nur CHF 8.-",
+        "Berufliche Vorsorge: Im Vergleich zum BVG wird je nach Alter 7% - 18% mehr durch die Delica einbezahlt",
+        "Mitarbeiterangebote: Rabatt auf diverse Dienstleistungen bei Medbase"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-5qlcnm",
+      "slug": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-montreux",
+      "company": "Société coopérative Migros Vaud",
+      "title": "Collaborateur polyvalent (H/F/D)",
+      "location": "Montreux",
+      "canton": "VD",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/collaborateur-polyvalent-hfd/bc6f1b7e-22e8-48a7-b38c-9c2d624a8037",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Accueillir et fidéliser la clientèle par un accueil personnalisé et chaleureux",
+        "Assurer et participer à la mise en place de la marchandise en rayon",
+        "Encaissement de la marchandise et gestion du tiroir caisse de manière professionnelle",
+        "Participation active au bon fonctionnement du magasin"
+      ],
+      "_migrosBenefits": [
+        "Restauration: 20 % de réduction dans les restaurants Migros Vaud.",
+        "Points Cumulus: Multiplication de points Cumulus pour nos collaborateurs",
+        "Banque Migros: Taux préférentiels à la Migros Bank",
+        "Offres pour les collaborateurs: Et bien plus encore !"
+      ],
+      "_migrosWorkPercentage": "037%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-g5ko28",
+      "slug": "senior-ict-supporter-alle-migros-bank-wallisellen",
+      "company": "Migros Bank",
+      "title": "Senior ICT Supporter (alle)",
+      "location": "Wallisellen",
+      "canton": "JU",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-bank/senior-ict-supporter-alle/64544fa1-5e2b-4736-9c46-96e72cbc36af",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Als erfahrener Generalist bist du gemeinsam mit unserem Team für einen reibungslosen First- und Second Level-Support unserer Electronic Workplace Umgebung sowie Spezialsysteme verantwortlich",
+        "Du analysierst und behebst Fehler im EWP-Umfeld oder unterstützt den 3rd-Level-Support sowie unsere externen Partner professionell bei der Lösungsfindung.",
+        "Als Incident Manager koordinierst du Fachpersonen bei grösseren Betriebsstörungen, orchestrierst den Lösungsprozess und stellst die Kommunikation zu Kunden, Mitarbeitenden und dem Management sicher.",
+        "Du arbeitest in Projekten mit und führst eigenständig technische Kleinvorhaben durch.",
+        "Du unterstützt das IT-Dispatching während Abwesenheiten."
+      ],
+      "_migrosBenefits": [
+        "Flexible Arbeitszeit: Jahresarbeitszeit für alle und Vertrauensarbeitszeit für viele",
+        "Flexibler Arbeitsort / Home Office: Individuelle Möglichkeiten für Home Office",
+        "Mutterschaftsurlaub / Vaterschaftsurlaub: 18 Wochen für Mütter und 4 Wochen für Väter",
+        "Zentraler Arbeitsort: Optimal erreichbarer, zentral gelegener Arbeitsplatz",
+        "Faire Löhne: Starkes Gesamtpaket aus Lohn, Sozialversicherung und Vorsorge",
+        "Mobilität: ZVV-BonusPass für vergünstigten öV",
+        "Berufliche Vorsorge: Sehr attraktive Pensionskasse mit überdurchschnittlichem Arbeitgeberbeitrag",
+        "Sozialleistungen: Optimale Deckung bei Krankheit und Unfall «Privat»",
+        "Cumulus-Punkte: Bis zu 5 zusätzliche Punkte pro Franken Einkaufswert",
+        "Mitarbeiterangebote: Jährliches grosszügiges Well-being-Guthaben",
+        "Individuelle Weiterbildung: Attraktive Beiträge für externe Weiterbildungen",
+        "Du-Kultur: Gelebter Teamgeist mit transparenter Kommunikation"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-vgc9az",
+      "slug": "gestionnaire-de-vente-produits-carnes-et-poissons-au-plot-m-w-d-societe-cooperative-migros-vaud-montreux",
+      "company": "Société coopérative Migros Vaud",
+      "title": "Gestionnaire de vente produits carnés et poissons au plot (H/F/D)",
+      "location": "Montreux",
+      "canton": "VD",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-vaud/gestionnaire-de-vente-produits-carnes-et-poissons-au-plot-hfd/f49d1a1e-8ec7-4f22-b13e-527f2b13a272",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Offrir un accueil chaleureux et personnalisé pour fidéliser la clientèle.",
+        "Approvisionnement et suivi de la marchandise",
+        "Gestion des commandes, mise en place de la marchandise et suivi régulier des stocks",
+        "Assurer une présentation attrayante et mise en valeur des produits",
+        "Renseigner et conseiller notre clientèle sur les pièces, les modes de cuisson et les possibilités de préparation",
+        "Analyser les ventes afin de cibler les besoins de la clientèle",
+        "Appliquer et respecter les normes HACCP"
+      ],
+      "_migrosBenefits": [
+        "Congé maternité/congé paternité: 18 semaines de congé maternité et 4 semaines de congé paternité, rémunérés à 100 %.",
+        "Prévoyance professionnelle: Caisse de pension financée à hauteur de 17 % par l’employeur.",
+        "Restauration: 20 % de réduction dans les restaurants Migros Vaud.",
+        "Points Cumulus: Multiplication de points Cumulus pour nos collaborateurs",
+        "Banque Migros: Taux préférentiels à la Migros Bank",
+        "Offres pour les collaborateurs: Et bien plus encore !",
+        "Ecole-club Migros: Soutien financier pour des cours et formations à l’École-club Migros.",
+        "Offres sport et fitness: Abonnements dans nos centres de fitness et golf à prix avantageux",
+        "Formation et formation continue: Formations certifiantes disponibles en interne ou en externe."
+      ],
+      "_migrosWorkPercentage": "272%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-t2rf9j",
+      "slug": "business-partner-sensorik-kulinarik-m-w-d-migros-supermarkt-ag-zurich",
+      "company": "Migros Supermarkt AG",
+      "title": "Business Partner Sensorik & Kulinarik (w/m/d)",
+      "location": "Zürich",
+      "canton": "BE",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-supermarkt-ag/business-partner-sensorik-kulinarik-wmd/8bd7cccf-c791-4c59-b3a4-98019469c44b",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Sensorische und kulinarische Betreuung und Beratung der Direktionen Food und Frische",
+        "Planung, Koordination und Durchführung von Degustationen für Neu- und Bestandsprodukte",
+        "Verantwortung für die regelmässige sensorische und kulinarische Überprüfung bestehender Produkte im Marktvergleich",
+        "Festlegen der kulinarischen Anforderungen neuer Produkte gemäss Auftrag des Category Managements und Einkaufs"
+      ],
+      "_migrosBenefits": [
+        "Zentraler Arbeitsort: Zentraler Arbeitsort in der Stadt Zürich (Limmatplatz oder Nähe Hardbrücke)",
+        "Gesund arbeiten: Still- und Ruheräume sowie Massagemöglichkeiten",
+        "Faire Löhne: Funktionsorientierte und marktgerechte Entlöhnung - \"We pay fair\" zertifiziert",
+        "Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung",
+        "Freizeit- und Kulturangebote: Als Hauptsponsor bei Läufen und Events bietet Migros den Mitarbeitenden beschränkte Plätze zum halben Preis an.",
+        "Versicherungen: Bis zu 25% Rabatt bei diversen Versicherungen wie Auto, Privathaftpflicht- und Hausrat, Rechtschutz und viele mehr"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-4nqv5g",
+      "slug": "verkaufer-in-befristet-fur-2-monate-genossenschaft-migros-zurich",
+      "company": "Genossenschaft Migros Zürich",
+      "title": "Verkäufer*in (befristet für 2 Monate)",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/verkauferin-befristet-fur-2-monate/01abe82d-ee5f-4b6b-b2a3-03174d429c3a",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du unterstützt uns tatkräftig in allen Bereichen und trägst zur Gestaltung eines positiven Einkaufserlebnisses für unsere Kundschaft bei",
+        "Du übernimmst die Verantwortung für die effiziente Warenbewirtschaftung, die ansprechende Präsentation der Produkte und sorgst dafür, dass unsere Regale stets gut gefüllt sind",
+        "Du begeisterst unsere Kundschaft durch freundliche und kompetente Beratung",
+        "Du sicherst die hohe Qualität unserer Produkte inklusive Datumskontrolle"
+      ],
+      "_migrosBenefits": [
+        "Gesund arbeiten: Gesundheitsfördernde Angebote wie Massagen und Gesundheitschecks",
+        "Sozialleistungen: Faire Sozialleistungen",
+        "Sozial- und Personalberatung: Interne Sozialberatung",
+        "Berufliche Vorsorge: Hervorragende Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-o04xiy",
+      "slug": "abteilungsleiter-in-non-food-genossenschaft-migros-aare-huttwil",
+      "company": "Genossenschaft Migros Aare",
+      "title": "Abteilungsleiter*in Non Food",
+      "location": "Huttwil",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-aare/abteilungsleiterin-non-food/dbd564ef-025e-449b-9c79-92595de8fa8d",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du berätst und bedienst unsere Kundschaft mit Freude und deinem Fachwissen",
+        "Eine attraktive Warenpräsentation, effiziente Warenbewirtschaftung und die Sicherstellung der Verfügbarkeit stehen bei dir im Fokus",
+        "Du sorgst dafür, dass die definierten Prozesse in deiner Abteilung eingehalten werden",
+        "In dieser Funktion liegt der Schwerpunkt auf der fachlichen Führung des Teams",
+        "Du unterstützt tatkräftig und engagiert in anderen Abteilungen"
+      ],
+      "_migrosBenefits": [
+        "Mutterschaftsurlaub / Vaterschaftsurlaub: 18 Wochen Mutterschafts- und 4 Wochen Vaterschaftsurlaub",
+        "Kinderbetreuung: Grosszügige finanzielle Kostenbeteiligung bei externen Kinderbetreuungsangeboten",
+        "Mobilität: Beteiligung eines Jahresabonnement des öffentlichen Verkehrs, Rabatt auf Treibstoff (Migrol), reduzierter Jahresbeitrag bei Mobility Carsharing sowie Anspruch auf Flottenrabatt",
+        "Handy-Abo: Verschiedene Vergünstigungen auf Mobile-Abonnemente",
+        "Berufliche Vorsorge: Überdurchschnittliche Leistungen garantieren die finanzielle Sicherheit der Mitarbeitenden im dritten Lebensabschnitt",
+        "Sozialleistungen: Attraktive Anstellungsbedingungen mit sehr guten Sozialleistungen",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Migros Bank: Kostenlose Kontoführung, Vorzugszinsen auf Kapital oder eine Vergünstigung auf Zinssätze von neu abgeschlossenen Festhypotheken",
+        "Mitarbeiterangebote: Vorzugskonditionen bei Versicherungen und Krankenkassen",
+        "Klubschule Migros: Grosszügige finanzielle Beteilung auf selbst ausgewählten Kursen",
+        "Freizeit- und Kulturangebote: Diverse Vergünstigungen auf Ferienangebote, Sprachaufenthalte, Migros Ferien, Interhome und Events",
+        "Sport- und Fitnessangebote: Kostenbeteiligungen an Abos von über 50 Migros-Fitness, Wellness-, Aquaparks"
+      ],
+      "_migrosWorkPercentage": "80-100%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-3hwpq1",
+      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "company": "Denner AG",
+      "title": "Verkäufer*in im Stundenlohn",
+      "location": "Breitenbach",
+      "canton": "BE",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/1b677de1-1557-41bb-be69-89ff38803046",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Kasse bedienen und abrechnen",
+        "Frischprodukte und natürlich alle anderen Waren annehmen, prüfen und in die Regale in deinem Laden füllen",
+        "Mindesthaltbarkeitsdaten bei den Produkten kontrollieren",
+        "Ordnung und Sauberkeit in der Filiale und im Lager sicherstellen",
+        "Vorgaben im Ladenlayout korrekt umsetzen"
+      ],
+      "_migrosBenefits": [
+        "Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe",
+        "Gesund arbeiten: Hohe Standards in Arbeitssicherheit, Ergonomie und Hygiene.",
+        "Mutterschaftsurlaub / Vaterschaftsurlaub: 5 Wochen länger Babypause (19 Wochen) für Mütter und das bei 100% Lohn. Väter geniessen den Nachwuchs 4 bezahlte Wochen.",
+        "Faire Löhne: 13 Monatslöhne und feste Lohnerhöhungen für alle statt Boni für wenige.",
+        "Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.",
+        "Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.",
+        "Mitarbeiterangebote: 10 Prozent auf den nächsten Grosseinkauf (zweimal pro Jahr).",
+        "Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.",
+        "Freizeit- und Kulturangebote: Diverse Vergünstigungen bei Autovermietungen, Hotels, Events und vielen Bereichen mehr."
+      ],
+      "_migrosWorkPercentage": "20-50%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-khd2id",
+      "slug": "assistent-in-einkauf-food-denner-ag-zurich",
+      "company": "Denner AG",
+      "title": "Assistent*in Einkauf Food",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-einkauf-food/e4da48ee-a54d-486a-a4ef-095ec0c73d25",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Erfassen, pflegen und kontrollieren von Artikelstammdaten sowie Aktions- und Werbedaten in SAP.",
+        "Administrative Unterstützung der Product Manager Food im Tagesgeschäft.",
+        "Den Informationsfluss mit internen Ansprechpartnern wie Warenplanung, Disposition, Marketing und Buchhaltung sicherstellen.",
+        "Selbstständige Kommunikation mit Lieferanten zu Abrechnungen und Verträgen."
+      ],
+      "_migrosBenefits": [
+        "Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe",
+        "Zentraler Arbeitsort: Im lässigen Binz-Quartier im Zürcher Kreis 3 (2 Fussminuten vom Bahnhof Zürich Binz).",
+        "Flexibler Arbeitsort / Home Office: Ein bis zwei Tage pro Woche Zuhause arbeiten. Ausser in der IT - da sind wir noch flexibler.",
+        "Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.",
+        "Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.",
+        "Eigenverantwortung & Freiraum: Viel Raum für deine Ideen und um gemeinsam mit uns etwas zu bewegen."
+      ],
+      "_migrosWorkPercentage": "25%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-yi0q6w",
+      "slug": "responsable-de-rayon-boulangerie-et-convenience-m-w-d-societe-cooperative-migros-geneve",
+      "company": "Société coopérative Migros Genève",
+      "title": "Responsable de rayon Boulangerie et Convenience (F/H/D)",
+      "location": "Genève",
+      "canton": "GE",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/responsable-de-rayon-boulangerie-et-convenience-fhd/e6bf6af2-a88e-490e-951a-e72afbe649a5",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Tu réceptionnes et vérifies les arrivages pour garantir la qualité et la fraîcheur des produits. Tu portes une attention toute particulière au respect des provenances et de la traçabilité.",
+        "Tu assures la mise en rayon et la rotation des produits pour une présentation optimale.",
+        "Tu analyses les performances des rayons et proposes des stratégies d’amélioration.",
+        "Tu gères les commandes, les stocks et les inventaires pour maintenir un approvisionnement fluide.",
+        "Tu garantis la propreté et respectes les normes HACCP ainsi que les normes de sécurité en vigueur.",
+        "Tu maintiens une excellente connaissance des produits, dont leur origine, leur mode d’emploi et leurs particularités."
+      ],
+      "_migrosBenefits": [
+        "Prévoyance professionnelle: Primauté des cotisations, cotisation dès 20 ans doublée par Migros et possibilité de retraite anticipée dès 58 ans.",
+        "Restauration: Réduction repas de Fr.4 (dès achats de 10.-) dans les restaurants Migros.",
+        "Points Cumulus: Réduction de 2% et 5 % selon les assortiments.",
+        "Banque Migros: Intérêt à taux préférentiel et sans frais pour un compte épargne."
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-sz0irp",
+      "slug": "mitarbeiter-in-romisch-irisches-bad-genossenschaft-migros-ostschweiz-abtwil",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Mitarbeiter*in Römisch Irisches Bad",
+      "location": "Abtwil",
+      "canton": "AG",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-romisch-irisches-bad/e5c811fa-ea9e-4b48-8624-36209fe1b1d0",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du checkst unsere Gäste am Römisch-Irisch-Counter ein und aus",
+        "Du berätst und betreust unsere Gäste persönlich im Wellness-Bereich",
+        "Du führst Seifenbürsten-Massagen durch (Einarbeitung möglich)",
+        "Du kümmerst dich um die Zwischenreinigung der SPAs und allgemeine Aufräumarbeiten"
+      ],
+      "_migrosBenefits": [
+        "Angebote im Säntispark: Kostenfreier Zugang zu Bad- und Saunalandschaft, div. Vergünstigungen im Säntispark",
+        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften",
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-wk8zs9",
+      "slug": "2-remplisseurs-m-w-d-societe-cooperative-migros-geneve-nyon",
+      "company": "Société coopérative Migros Genève",
+      "title": "2 remplisseurs (F/H/D)",
+      "location": "Nyon",
+      "canton": "GE",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/fr/nos-entreprises/job/societe-cooperative-migros-geneve/2-remplisseurs-fhd/55f87e76-3d45-43aa-8b56-073734f88f31",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Expert des rayons : Tu veilles au remplissage et à l’organisation des rayons. Chaque produit est à sa place et traité avec soin.",
+        "Maître de la fraîcheur : Rien ne reste hors du frigo et aucun produit périmé ne t’échappe. Avec toi, la chaîne du froid est parfaitement respectée.",
+        "Champion de l’hygiène : Les règles HACCP ? Pas d’inquiétude, tu seras formé et deviendras incollable sur le sujet.",
+        "As de l’organisation : Grâce à toi, le magasin est toujours propre, bien rangé et accueillant. L’ordre devient un art entre tes mains.",
+        "Coéquipier indispensable : Avec ton esprit d’équipe, tu contribues à un service de qualité et à une ambiance de travail positive.",
+        "Conseiller hors pair : Les clients bénéficient de ton accueil chaleureux et de tes conseils avisés pour une expérience 5 étoiles."
+      ],
+      "_migrosBenefits": [
+        "Restauration: Réduction repas de Fr.4 (dès achats de 10.-) dans les restaurants Migros.",
+        "Points Cumulus: Réduction de 2% et 5 % selon les assortiments.",
+        "Banque Migros: Intérêt à taux préférentiel et sans frais pour un compte épargne."
+      ],
+      "_migrosWorkPercentage": "31%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "fr",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-1untrh",
+      "slug": "fachmitarbeiter-in-naherei-genossenschaft-migros-ostschweiz-gossau",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Fachmitarbeiter*in Näherei",
+      "location": "Gossau",
+      "canton": "SG",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/fachmitarbeiterin-naherei/8666d6d1-550d-45b2-821c-8d00bf0eda55",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Allgemeine Näh- und Flickarbeiten",
+        "Arbeitskleider umschreiben",
+        "Stickmaschine bedienen und programmieren",
+        "Neue Mitarbeiter mit Kleider ausstatten",
+        "Kontrolle und Sortierung von Occasionskleidern",
+        "Aushilfe bei Einsätzen in der Wäscherei und dem Kleiderlager"
+      ],
+      "_migrosBenefits": [
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Sozialleistungen: Sehr gute Sozialleistungen in den Bereichen Kinderzulagen, Krankentaggeld und Unfallversicherung",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften",
+        "Freizeit- und Kulturangebote: Diverse Vergünstigungen auf Ferienangebote und Events"
+      ],
+      "_migrosWorkPercentage": "55%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-bcc1ke",
+      "slug": "sap-cloud-alm-application-manager-m-w-d-migros-genossenschafts-bund-zurich",
+      "company": "Migros-Genossenschafts-Bund",
+      "title": "SAP Cloud ALM Application Manager (w/m/d)",
+      "location": "Zürich",
+      "canton": "ZH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/sap-cloud-alm-application-manager-wmd/ce1b6bca-f7bd-4e9a-80ed-06a45358469b",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Beraten, unterstützen der Anwender und Beteiligten in Bereichen der Applikations- und Prozesshandhabung, sowie Erstellen von Standards, Pflege von Dokumentationen",
+        "Überwachen und koordinieren der Aufgaben im laufenden Applikationsbetrieb, damit die Verfügbarkeit, Wiederherstellbarkeit (Kontinuität) erreicht ist",
+        "Du verfolgst die Leistung und Ressourcen-Verbrauch der Applikationen",
+        "Unterstützung bei der Analyse, Definition und strategische Lifecycle-Planung im SAP Cloud-ALM-Umfeld"
+      ],
+      "_migrosBenefits": [
+        "Moderne Infrastruktur: Vielfältige Arbeitszonen und moderne Co-Working-Spaces mit fortschrittlicher Ausstattung",
+        "Mobil-flexibles Arbeitsmodell: Zeitliche und räumliche Flexibilität bei der Erfüllung der Funktion (als Orientierung 40% Home Office)",
+        "Berufliche Vorsorge: Überdurchschnittliche Leistungen und drei verschiedene Sparpläne passend zur individuellen Lebenssituation",
+        "Freizeit- und Kulturangebote: Als Hauptsponsor bei Läufen und Events bietet Migros den Mitarbeitenden beschränkte Plätze zum halben Preis an.",
+        "Gezielte Förderung: Förderung unserer Mitarbeitenden mit gezielten Personalentwicklungsmassnahmen",
+        "Eigenverantwortung & Freiraum: Abwechslungsreiches Aufgabenfeld mit hoher Eigenverantwortung"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-tz42p9",
+      "slug": "backer-konditor-hausbackerei-langenthal-fresh-food-beverage-group-langenthal",
+      "company": "Fresh Food & Beverage Group",
+      "title": "Bäcker-Konditor Hausbäckerei Langenthal",
+      "location": "Langenthal",
+      "canton": "BE",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-hausbackerei-langenthal/1d2dc343-2dd8-46cf-96ea-65a4a3d5b494",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du bist mitverantwortlich für die Herstellung unserer vielseitigen Backwaren",
+        "Überwachen der Produktion und führen von Teig-, Tisch-, sowie Ofenarbeiten",
+        "Du setzt die Qualität- und Hygiene-Vorgaben um und bist der Botschafter der Produkte gegenüber unserer Kundschaft"
+      ],
+      "_migrosBenefits": [
+        "Mitarbeiterangebote: Mitarbeiterpunkte Cumulus, Vergünstigte Mobileabos, Höhere Zinssätze Migros Bank, Beiträge Klubschule/Fitness und mehr.",
+        "Berufliche Vorsorge: Umfassend abgesichert in der Migros-Pensionskasse – mit erstklassigen und attraktiven Leistungen.",
+        "Migros Bank: Höhere Zinssätze auf Personalanlagekonti bei der Migros Bank.",
+        "Ferien: 5 Wochen Ferien für alle, 6 Wochen Ferien ab 50. Altersjahr, 7 Wochen Ferien ab 60. Altersjahr, Zukauf von zusätzlichen Ferientagen möglich.",
+        "Sozialleistungen: 730 Tage Krankentaggeld bei vollem Nettolohn.",
+        "Aus- und Weiterbildung: Wir bilden Mitarbeitende aktiv im Rahmen interner Programme aus und unterstützen bei Bedarf externe Weiterbildungen mit Zeit- und Geldleistungen."
+      ],
+      "_migrosWorkPercentage": "494%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-7k8gx6",
+      "slug": "responsabile-di-filiale-denner-schluein",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Filialleiter*in",
+      "location": "Nürensdorf",
+      "canton": "ZH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/filialleiterin/b533ca53-3d7e-49e1-8924-3f367393a07c",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du bist der Kopf unserer Filiale 🧠. Mit deinem Führungsstil motivierst du dein Team und übernimmst die fachliche und personelle Verantwortung, damit alles rund läuft."
+      ],
+      "_migrosBenefits": [
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-xchzyg",
+      "slug": "backer-konditor-hausbackerei-igelweid-m-w-d-fresh-food-beverage-group-aarau",
+      "company": "Fresh Food & Beverage Group",
+      "title": "Bäcker-Konditor Hausbäckerei Igelweid (m/w/d)",
+      "location": "Aarau",
+      "canton": "AG",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/fresh-food-beverage-group/backer-konditor-hausbackerei-igelweid-mwd/8c2de5c0-cfd1-404f-b66e-7c6bf85b4c4e",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du bist mitverantwortlich für die Herstellung unserer vielseitigen Backwaren",
+        "Überwachen der Produktion und führen von Teig-, Tisch-, sowie Ofenarbeiten",
+        "Du setzt die Qualität- und Hygiene-Vorgaben um und bist der Botschafter der Produkte gegenüber unserer Kundschaft"
+      ],
+      "_migrosBenefits": [
+        "Mitarbeiterangebote: Mitarbeiterpunkte Cumulus, Vergünstigte Mobileabos, Höhere Zinssätze Migros Bank, Beiträge Klubschule/Fitness und mehr.",
+        "Berufliche Vorsorge: Umfassend abgesichert in der Migros-Pensionskasse – mit erstklassigen und attraktiven Leistungen.",
+        "Migros Bank: Höhere Zinssätze auf Personalanlagekonti bei der Migros Bank.",
+        "Ferien: 5 Wochen Ferien für alle, 6 Wochen Ferien ab 50. Altersjahr, 7 Wochen Ferien ab 60. Altersjahr, Zukauf von zusätzlichen Ferientagen möglich.",
+        "Aus- und Weiterbildung: Wir bilden Mitarbeitende aktiv im Rahmen interner Programme aus und unterstützen bei Bedarf externe Weiterbildungen mit Zeit- und Geldleistungen.",
+        "Sozialleistungen: 730 Tage Krankentaggeld bei vollem Nettolohn."
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-06-03T00:26:24.870Z",
+      "firstSeenAt": "2026-06-03T00:26:24.870Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-ymqwfr",
@@ -47,20 +1059,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
@@ -99,20 +1111,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -210,19 +1222,19 @@
       "sourceLang": "fr",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "1950",
       "addressLocality": "Montana",
-      "addressRegion": "TI",
+      "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "_qualityScore": 94,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -272,20 +1284,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "1950",
       "addressLocality": "Fiesch",
-      "addressRegion": "TI",
+      "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -429,20 +1441,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "9000",
       "addressLocality": "Mels",
-      "addressRegion": "TI",
+      "addressRegion": "SG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -481,20 +1493,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -547,20 +1559,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "TI",
+      "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -598,20 +1610,20 @@
       "sourceLang": "de",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -650,20 +1662,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -701,20 +1713,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7503",
       "addressLocality": "Samedan",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -751,20 +1763,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7270",
       "addressLocality": "Davos-Platz",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -801,20 +1813,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7302",
       "addressLocality": "Landquart",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -846,20 +1858,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -895,20 +1907,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7503",
       "addressLocality": "Samedan",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -947,20 +1959,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7270",
       "addressLocality": "Davos-Platz",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -998,20 +2010,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7302",
       "addressLocality": "Landquart",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1049,20 +2061,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1099,20 +2111,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7270",
       "addressLocality": "Davos-Platz",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1151,20 +2163,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1203,20 +2215,20 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "7000",
       "addressLocality": "Chur",
-      "addressRegion": "TI",
+      "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -1256,20 +2268,20 @@
       "sourceLang": "fr",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
+      "streetAddress": "",
+      "postalCode": "1920",
       "addressLocality": "Martigny",
-      "addressRegion": "TI",
+      "addressRegion": "VS",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
       "needsRetranslation": true,
-      "_qualityScore": 100,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ]
