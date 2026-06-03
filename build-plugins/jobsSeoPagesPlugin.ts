@@ -3531,6 +3531,13 @@ ${staticAnalyticsHtml}
 
  let companyPagesCount = 0;
  for (const [cSlug, { name: companyName, jobs: companyJobs, rawSlugs }] of companyMap) {
+ // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
+ // indexable hub here: their jobs already surface on the canonical umbrella via
+ // the BRAND_UMBRELLAS aggregation above, and the alias URL is owned by the
+ // noindex bridge block below (BRAND_CANONICAL_MAP). Self-emitting would write an
+ // indexable page first, defeating that bridge's file-exists guard and
+ // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
+ if (isBrandAlias(cSlug)) continue;
  for (const locale of localeList) {
  const __tCompany = startTimer();
  const prefix = companyRoutePrefix[locale];
