@@ -86,4 +86,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'neutralizzazione-stime-2026-classi-media',
+    category: 'fiscale',
+    date: '2026-06-03T01:35:44.074Z',
+    image: '/images/blog/neutralizzazione-stime-2026-classi-media.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];

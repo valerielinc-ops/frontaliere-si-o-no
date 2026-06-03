@@ -1,0 +1,40 @@
+{
+  "id": "neutralizzazione-stime-2026-classi-media",
+  "slug": "neutralizzazione-stime-2026-classi-media",
+  "publishedAt": "2026-06-03T01:35:45.201Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.567890533449221,
+    "confidence": 0.8,
+    "finalScore": 4.454312426759377,
+    "topK": [
+      {
+        "slug": "iniziativa-10-milioni-votazione-14-giugno",
+        "cosine": 0.8565368772033751
+      },
+      {
+        "slug": "neutralizzazione-stime-immobiliari-2026-ticino",
+        "cosine": 0.8523910710456951
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8480724077616427
+      },
+      {
+        "slug": "tassa-salute-ticino-riforme-invece-aggravi",
+        "cosine": 0.8464864100386216
+      },
+      {
+        "slug": "servizio-civile-legge-nefasta-frontalieri",
+        "cosine": 0.8459866137671359
+      }
+    ],
+    "score": 4.454312426759377,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

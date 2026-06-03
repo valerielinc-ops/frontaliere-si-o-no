@@ -31,6 +31,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'intelligenza-artificiale-lavoro-svizzera-2026': { it: 'intelligenza-artificiale-lavoro-svizzera-2026', en: 'artificial-intelligence-work-switzerland-2026', de: 'kunstliche-intelligenz-arbeit-schweiz-2026', fr: 'intelligence-artificielle-travail-suisse-2026' },
  'lavoro-media-ssr-talenti-ticino': { it: 'lavoro-media-ssr-talenti-ticino', en: 'media-jobs-ssr-talents-ticino', de: 'medien-jobs-ssr-talente-tessin', fr: 'emplois-medias-ssr-talents-tessin' },
  'cern-future-collider-ticino': { it: 'cern-future-collider-ticino', en: 'cern-future-collider-ticino', de: 'cern-future-collider-ticino', fr: 'cern-future-collider-ticino' },
+ 'neutralizzazione-stime-2026-classi-media': { it: 'neutralizzazione-stime-2026-classi-media', en: 'neutralisation-estimates-2026-protect-middle-class-and-home', de: 'neutralisierung-der-schaetzungen-2026-schutz-fuer-mittelschicht-und-wohneigentum', fr: 'neutralisation-des-estimations-2026-proteger-les-classes-moyennes-et-le-logement' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

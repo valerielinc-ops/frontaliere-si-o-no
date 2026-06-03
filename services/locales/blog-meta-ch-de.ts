@@ -29,6 +29,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cern-future-collider-ticino.title': 'CERN und die Zukunft des Kolliders',
     'blog.article.cern-future-collider-ticino.excerpt': 'Das CERN plant einen neuen Teilchenbeschleuniger, der fast viermal größer ist als der derzeitige LHC, um die Geheimnisse des Universums zu erforschen.',
     'blog.article.cern-future-collider-ticino.imageAlt': 'Luftaufnahme des Genfersees mit CERN',
+    'blog.article.neutralizzazione-stime-2026-classi-media.title': 'Steuerwerte 2026 stoppen: Schutz für Haus und Mittelklasse',
+    'blog.article.neutralizzazione-stime-2026-classi-media.excerpt': 'Am 14. Juni 2026 wird über die Blockierung der Steuerwerterhöhung abgestimmt. Hier erfahren Sie, was sich für Grenzgänger und Wohneigentümer ändert.',
+    'blog.article.neutralizzazione-stime-2026-classi-media.imageAlt': 'Abendansicht von Lugano mit beleuchtetem See und Altstadt, Symbol für Stabilität für Grenzgänger',
 };
 
 export default blogMetaChDe;
