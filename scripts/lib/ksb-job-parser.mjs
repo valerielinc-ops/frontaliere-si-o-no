@@ -140,7 +140,7 @@ async function fetchJobListings() {
   try {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // KSB only operates in Switzerland — no location filter needed.
-      maxPages: 20,
+      maxPages: 100000,
     })) {
       const id = extractWorkdayJobIdentity(posting, { apiBase: WORKDAY_API_BASE, company: KSB_COMPANY_NAME });
       out.push({

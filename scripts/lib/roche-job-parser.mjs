@@ -132,7 +132,7 @@ async function fetchJobListings() {
   try {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       locationFilters: SWISS_LOCATION_IDS,
-      maxPages: 20,
+      maxPages: 100000,
     })) {
       const id = extractWorkdayJobIdentity(posting, {
         apiBase: WORKDAY_API_BASE,

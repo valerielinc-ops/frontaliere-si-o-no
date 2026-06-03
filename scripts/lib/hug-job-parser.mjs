@@ -203,7 +203,7 @@ export async function fetchAllHugJobs() {
       locationCountryCodes: ['ch'],
       filter: isSwissPosting,
       fetchDetail: true, // HUG list endpoint omits jobAd; need detail call.
-      maxPages: 50,
+      maxPages: 100000,
       minDelayMs: SR_PAGE_DELAY_MS,
       timeoutMs,
       userAgent,

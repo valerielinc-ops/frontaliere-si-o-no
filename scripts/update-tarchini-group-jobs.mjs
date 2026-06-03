@@ -58,7 +58,7 @@ const CAREERS_URL = 'https://www.tarchinigroup.com/it/lavora-con-noi';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.TARCHINI_MAX_DETAIL_PAGES) || 20;
+const MAX_DETAIL_PAGES = Number(process.env.TARCHINI_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1200;
 
 function readJson(filePath, fallback) {
