@@ -1,18 +1,53 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-06-03T00:39:57.434Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-06-03T14:51:05.229Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 38594,
-  "avgDurationMs": 38594,
+  "durationMs": 43474,
+  "avgDurationMs": 43474,
   "durationHistory": [
-    38594
+    43474
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/default/job/Mitarbeiterin-Logistik/73787-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Mitarbeiterin-Logistik/73787-de_DE",
+      "title": "Mitarbeiter:in Logistik",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "mitarbeiter-in-logistik-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-03",
+      "validThrough": "2026-07-02",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Logistica",
+      "workload": "50%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Chur"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73765-de_DE",
