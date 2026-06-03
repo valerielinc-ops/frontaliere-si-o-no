@@ -3321,6 +3321,9 @@ const ST_SLUG_LABEL_UNTRUSTED = new Set([
 // recover the real city via PLZ, never via the untrusted slug token (issue #1180).
 const ST_LOCALITY_PLZ_OVERRIDE = {
   'kliniken-valens': { '7317': 'Valens' },
+  // Multi-site employer whose bare-"St" posting carries no slug/URL city token
+  // but a trustworthy per-job postal code (9000 = St. Gallen, 1:1 in CH). #1158.
+  'csd-engineers': { '9000': 'St. Gallen' },
 };
 
 // Single-site employers whose every posting sits at one HQ city, used to recover

@@ -5,7 +5,13 @@
  * FRO-328: ~113KB of article data extracted to its own chunk.
  */
 import type { BlogArticleId } from '@/services/router';
-import { cdnBlogImage } from '@/services/seo/blogImageCdn';
+// Relative (not `@/`) import: this module is also pulled into vite.config's
+// build graph (build-plugins → services/articleSections → blog-articles-data),
+// and Vite's config loader can't resolve the `@/` alias — a `@/` value import
+// here breaks config load (build fails at ~2min). The type import above is
+// fine (stripped at compile). See build-plugins/shared/blogImageCdn for the
+// build-side twin.
+import { cdnBlogImage } from '../services/seo/blogImageCdn';
 
 export interface Article {
  // Loose `string` to avoid TS2590 union-too-complex when ARTICLES literal is checked.
