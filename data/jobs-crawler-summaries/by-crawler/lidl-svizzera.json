@@ -1,18 +1,53 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-06-03T00:14:10.449Z",
+  "generatedAt": "2026-06-03T14:23:26.852Z",
   "total": 10,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 18671,
-  "avgDurationMs": 18671,
+  "unchangedCount": 0,
+  "durationMs": 15054,
+  "avgDurationMs": 15054,
   "durationHistory": [
-    18671
+    15054
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-xsgkhv",
+      "slug": "343-venditore-venditrice-m-w-d-20-40-lidl-svizzera-minusio-xsgkhv",
+      "company": "Lidl Svizzera",
+      "title": "343_Venditore / Venditrice (m/f/d) 20-40%",
+      "location": "Minusio",
+      "canton": "ti",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "url": "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Minusio",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-06-03T14:23:26.318Z",
+      "firstSeenAt": "2026-06-03T14:23:26.318Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-j9y9s6",
@@ -47,11 +82,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 78,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -88,11 +123,11 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "retranslationAttempts": 2,
-      "_qualityScore": 84,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -381,48 +416,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-t8rd0w",
-      "slug": "ch-tuttofare-vendita-m-w-d-20-40-1-lidl-svizzera-gravesano-t8rd0w",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Tuttofare vendita (m/f/d) 20-40% 1",
-      "location": "Gravesano",
-      "canton": "ti",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "url": "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-gravesano-695023",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-29T13:08:11.011Z",
-      "firstSeenAt": "2026-05-29T13:08:11.011Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Gravesano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
