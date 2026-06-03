@@ -141,3 +141,123 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
     }
   });
 });
+
+/**
+ * Deferred edge from #1068 → #1072: the guard's `delete job.slugByLocale[locale]`
+ * (assemble-jobs-dataset.mjs:~275) was flagged as a theoretical risk — dropping a
+ * colliding locale slug strands the job onto its IT-base-slug fallback, and an audit
+ * worried this could simply *relocate* the collision onto the fallback path and emit
+ * a non-canonical URL → 404 on an already-indexed slug.
+ *
+ * These tests lock the SAFETY PROPERTY the assembler relies on, independent of the
+ * registry: after the guard runs, the EFFECTIVE per-locale slug the build emits
+ * (`slugByLocale[locale] ?? job.slug`, mirroring localizedSlug() in
+ * build-plugins/jobsSeoPagesPlugin.ts) stays UNIQUE within every (canton, locale).
+ * The delete must never move a collision onto the fallback base. The registry-aware
+ * behavior change (PR #1068 `## Non implementato`) stays deferred per the issue —
+ * escalate to a real fix only on observed GSC 404s.
+ */
+describe('applyPerLocaleSlugCollisionGuard — post-guard fallback safety (#1072)', () => {
+  // Effective slug the build actually emits per locale: explicit per-locale slug,
+  // else the IT base slug. Mirrors localizedSlug() steps 1–2 in jobsSeoPagesPlugin.ts.
+  const effectiveSlug = (job, locale) =>
+    String(job?.slugByLocale?.[locale] || '').trim() || String(job?.slug || '').trim();
+
+  // Asserts no two jobs share an effective (canton, locale, slug) tuple.
+  const assertNoCantonLocaleCollision = (jobs, locales) => {
+    for (const locale of locales) {
+      const seen = new Map();
+      for (const job of jobs) {
+        const canton = String(job?.canton || 'TI').toUpperCase();
+        const slug = effectiveSlug(job, locale);
+        if (!slug) continue;
+        const key = `${canton}|${slug}`;
+        expect(
+          seen.has(key),
+          `effective ${locale} collision ${key}: ${seen.get(key)} vs ${job.url}`,
+        ).toBe(false);
+        seen.set(key, job.url);
+      }
+    }
+  };
+
+  it('after the guard drops a colliding locale slug, the fallback effective slug stays unique in every locale', () => {
+    const jobA = {
+      url: 'https://employer.example/jobs/a',
+      canton: 'AG',
+      slug: 'ingegnere-di-calcolo-meccanica-strutturale-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'ingegnere-di-calcolo-meccanica-strutturale-acme-corp-leibstadt',
+        en: 'projektmanager-m-w-d-acme-corp-leibstadt', // collides with jobB IT base
+        de: 'berechnungsingenieur-strukturmechanik-acme-corp-leibstadt',
+        fr: 'ingenieur-de-calcul-acme-corp-leibstadt',
+      },
+      titleByLocale: { it: 'Ingegnere', en: 'Projektmanager', de: 'Berechnung', fr: 'Ingénieur' },
+    };
+    const jobB = {
+      url: 'https://employer.example/jobs/b',
+      canton: 'AG',
+      slug: 'projektmanager-m-w-d-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'projektmanager-m-w-d-acme-corp-leibstadt',
+        en: 'it-demand-manager-acme-corp-leibstadt',
+      },
+      titleByLocale: { it: 'Projektmanager', en: 'IT Demand Manager' },
+    };
+
+    const report = applyPerLocaleSlugCollisionGuard([jobA, jobB]);
+
+    expect(report.count).toBe(1);
+    expect(jobA.slugByLocale.en).toBeUndefined();
+    expect(jobA.needsRetranslation).toBe(true);
+    // The dropped EN slug falls back to jobA's own (unique) IT base, NOT onto jobB.
+    expect(effectiveSlug(jobA, 'en')).toBe(jobA.slug);
+    expect(effectiveSlug(jobA, 'en')).not.toBe(effectiveSlug(jobB, 'en'));
+    // The whole set is collision-free in every locale post-guard.
+    assertNoCantonLocaleCollision([jobA, jobB], ['it', 'en', 'de', 'fr']);
+  });
+
+  it('does not relocate the collision when two distinct jobs both claim the same base in the same locale', () => {
+    // The adversarial "stranding" case: jobA.en and jobC.en BOTH hallucinate
+    // jobOwner's IT base. The guard must drop both → each falls back to its OWN
+    // distinct IT base, never onto each other or onto the owner.
+    const owner = {
+      url: 'https://employer.example/jobs/owner',
+      canton: 'AG',
+      slug: 'projektmanager-acme-corp-leibstadt',
+      slugByLocale: { it: 'projektmanager-acme-corp-leibstadt' },
+    };
+    const jobA = {
+      url: 'https://employer.example/jobs/a',
+      canton: 'AG',
+      slug: 'ingegnere-a-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'ingegnere-a-acme-corp-leibstadt',
+        en: 'projektmanager-acme-corp-leibstadt',
+      },
+      titleByLocale: { en: 'Hallucinated A' },
+    };
+    const jobC = {
+      url: 'https://employer.example/jobs/c',
+      canton: 'AG',
+      slug: 'ingegnere-c-acme-corp-leibstadt',
+      slugByLocale: {
+        it: 'ingegnere-c-acme-corp-leibstadt',
+        en: 'projektmanager-acme-corp-leibstadt',
+      },
+      titleByLocale: { en: 'Hallucinated C' },
+    };
+
+    const report = applyPerLocaleSlugCollisionGuard([owner, jobA, jobC]);
+
+    expect(report.count).toBe(2);
+    expect(jobA.slugByLocale.en).toBeUndefined();
+    expect(jobC.slugByLocale.en).toBeUndefined();
+    expect(jobA.needsRetranslation).toBe(true);
+    expect(jobC.needsRetranslation).toBe(true);
+    // Both fall back to their own distinct bases — collision is NOT relocated.
+    expect(effectiveSlug(jobA, 'en')).toBe('ingegnere-a-acme-corp-leibstadt');
+    expect(effectiveSlug(jobC, 'en')).toBe('ingegnere-c-acme-corp-leibstadt');
+    assertNoCantonLocaleCollision([owner, jobA, jobC], ['it', 'en', 'de', 'fr']);
+  });
+});
