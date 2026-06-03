@@ -3905,6 +3905,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-candidatura-lavoro-estero-ticino': { name: 'Candidatura', path: '/articoli-svizzera/candidatura-lavoro-estero-ticino/', parent: 'blog' },
     'blog-intelligenza-artificiale-lavoro-svizzera-2026': { name: 'IA Lavoro Svizzera', path: '/articoli-svizzera/intelligenza-artificiale-lavoro-svizzera-2026/', parent: 'blog' },
     'blog-lavoro-media-ssr-talenti-ticino': { name: 'Lavoro SSR', path: '/articoli-svizzera/lavoro-media-ssr-talenti-ticino/', parent: 'blog' },
+    'blog-cern-future-collider-ticino': { name: 'CERN', path: '/articoli-svizzera/cern-future-collider-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

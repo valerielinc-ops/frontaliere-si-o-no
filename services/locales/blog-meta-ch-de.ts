@@ -26,6 +26,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-media-ssr-talenti-ticino.title': 'SSR sucht Talente im Tessin: Chancen für Grenzgänger',
     'blog.article.lavoro-media-ssr-talenti-ticino.excerpt': 'Die SSR bietet zahlreiche Arbeitsmöglichkeiten im Tessin für Grenzgänger, mit offenen Stellen in fast allen Berufskategorien.',
     'blog.article.lavoro-media-ssr-talenti-ticino.imageAlt': 'Panoramablick auf das Medienviertel von Lugano mit modernen Gebäuden und Fachleuten',
+    'blog.article.cern-future-collider-ticino.title': 'CERN und die Zukunft des Kolliders',
+    'blog.article.cern-future-collider-ticino.excerpt': 'Das CERN plant einen neuen Teilchenbeschleuniger, der fast viermal größer ist als der derzeitige LHC, um die Geheimnisse des Universums zu erforschen.',
+    'blog.article.cern-future-collider-ticino.imageAlt': 'Luftaufnahme des Genfersees mit CERN',
 };
 
 export default blogMetaChDe;
