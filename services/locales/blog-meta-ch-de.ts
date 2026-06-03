@@ -35,6 +35,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Lavoro all\'estero: guida per frontalieri ticinesi',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permessi, piattaforme di lavoro e consigli per chi lavora in Svizzera ma cerca opportunità oltre confine. Dalla libertà UE/AELS ai visti extra-UE. 📊💡⚠️',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Grenzgänger aus dem Tessin prüft internationale Stellenangebote in Lugano mit Seeblick',
+    'blog.article.guerre-dellinformazione.title': 'Informationenkriege: Bedrohungen und Strategien',
+    'blog.article.guerre-dellinformazione.excerpt': 'Der Einfluss von Social Media auf die Demokratie und die Rolle der Schweiz im Magnitsky-Fall',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Burg von Bellinzona',
 };
 
 export default blogMetaChDe;

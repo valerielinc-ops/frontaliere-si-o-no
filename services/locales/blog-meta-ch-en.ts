@@ -35,6 +35,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Working abroad: guide for Ticino cross-border workers',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permits, job search platforms and tips for those working in Switzerland but seeking opportunities beyond the border. From EU/EFTA freedom to non-EU visas.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Ticino cross-border worker reviewing international job offers in Lugano with lake view',
+    'blog.article.guerre-dellinformazione.title': 'Info Wars: Threats and Strategies',
+    'blog.article.guerre-dellinformazione.excerpt': 'The influence of social media on democracy and Switzerland\'s role in the Magnitsky case',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Bellinzona Castle',
 };
 
 export default blogMetaChEn;

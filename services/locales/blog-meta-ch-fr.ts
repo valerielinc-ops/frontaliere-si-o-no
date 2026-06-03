@@ -35,6 +35,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Travail à l\'étranger: guide pratique pour les frontaliers du Tessin',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Autorisations, plateformes d\'emploi et conseils pour les travailleurs suisses cherchant des opportunités à l\'étranger. De la liberté UE/AELS aux visas hors UE. ⚠️ Lignes directrices essentielles pour les frontaliers.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Travailleur frontalier tessinois consultant des offres d\'emploi à l\'étranger à Lugano avec vue sur le lac',
+    'blog.article.guerre-dellinformazione.title': 'Guerres de l\'information: menaces et stratégies',
+    'blog.article.guerre-dellinformazione.excerpt': 'L\'influence des réseaux sociaux sur la démocratie et le rôle de la Suisse dans l\'affaire Magnitsky',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Château de Bellinzone',
 };
 
 export default blogMetaChFr;

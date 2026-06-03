@@ -35,6 +35,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-estero-guida-frontalieri.title': 'Lavoro all’estero: guida pratica per frontalieri ticinesi',
     'blog.article.lavoro-estero-guida-frontalieri.excerpt': 'Permessi, piattaforme di ricerca e consigli per chi lavora in Svizzera ma cerca opportunità oltre confine. Dalla libertà UE/AELS ai visti extra-UE.',
     'blog.article.lavoro-estero-guida-frontalieri.imageAlt': 'Frontaliere ticinese consulta offerte di lavoro estero a Lugano con vista lago',
+    'blog.article.guerre-dellinformazione.title': 'Guerre dell\'informazione: minacce e strategie',
+    'blog.article.guerre-dellinformazione.excerpt': 'L\'influenza dei social media sulla democrazia e il ruolo della Svizzera nel caso Magnitsky',
+    'blog.article.guerre-dellinformazione.imageAlt': 'Il Castello di Bellinzona',
 };
 
 export default blogMetaChIt;
