@@ -645,12 +645,12 @@
     },
     {
       "id": "hopital-du-valais-598720b7d8ca",
-      "slug": "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
+      "slug": "specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
-        "en": "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
+        "it": "specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig",
+        "en": "hospital-specialist-60-100-outpatient-pzo-hopital-du-valais-brig",
         "de": "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
-        "fr": "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
+        "fr": "specialiste-hospitalier-60-100-patient-externe-pzo-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -707,7 +707,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
+        ],
+        "en": [
+          "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-68a8dac075e3",
@@ -1076,12 +1090,12 @@
     },
     {
       "id": "hopital-du-valais-52fd4a2a9204",
-      "slug": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
+      "slug": "psicologia-psicoterapeuta-in-80-100-hopital-du-valais-brig",
       "slugByLocale": {
-        "it": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
-        "en": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
+        "it": "psicologia-psicoterapeuta-in-80-100-hopital-du-valais-brig",
+        "en": "psychological-psychotherapist-in-80-100-hopital-du-valais-brig",
         "de": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
-        "fr": "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+        "fr": "psychologique-psychotherapeute-en-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1138,7 +1152,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-6b4230c38cbe",
@@ -3353,11 +3381,11 @@
     },
     {
       "id": "hopital-du-valais-158b63946569",
-      "slug": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion",
+      "slug": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion",
-        "en": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion",
-        "de": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion",
+        "it": "logistica-ne-azioni-deportate-90-hopital-du-valais-sion",
+        "en": "logisticsien-ne-stocks-deported-90-hopital-du-valais-sion",
+        "de": "logistik-ne-bestande-deportiert-90-hopital-du-valais-sion",
         "fr": "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -3415,16 +3443,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ],
+        "en": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ],
+        "de": [
+          "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "logisticien-ne-stocks-deportes-90-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-00c949c32554",
-      "slug": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
+      "slug": "carriera-80-100-dipartimento-interdisciplinare-privato-stazione-lean-bed-hopital-du-valais-visp",
       "slugByLocale": {
-        "it": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
-        "en": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
+        "it": "carriera-80-100-dipartimento-interdisciplinare-privato-stazione-lean-bed-hopital-du-valais-visp",
+        "en": "career-80-100-interdisciplinary-private-department-lean-bed-station-hopital-du-valais-visp",
         "de": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
-        "fr": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+        "fr": "carriere-80-100-departement-interdisciplinaire-prive-lean-bed-station-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3481,7 +3523,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+        ],
+        "en": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+        ],
+        "fr": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-d750c6090040",

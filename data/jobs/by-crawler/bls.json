@@ -95,7 +95,7 @@
       "slugByLocale": {
         "de": "trainee-infrastruktur-bls-ch",
         "it": "trainee-infrastruktur-bls-ag-bern",
-        "en": "trainee-infrastruktur-bls-ch",
+        "en": "trainee-infrastructure-bls-ag-bern",
         "fr": "apprenti-infrastruktur-bls-ag-bern"
       },
       "company": "BLS AG",
@@ -160,6 +160,9 @@
         ],
         "fr": [
           "trainee-infrastruktur-bls-ch"
+        ],
+        "en": [
+          "trainee-infrastruktur-bls-ch"
         ]
       },
       "previousSlugs": [
@@ -182,12 +185,12 @@
     },
     {
       "id": "bls-e310036fa7f0",
-      "slug": "baufuhrer-in-bahnbau-bls-ch",
+      "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
       "slugByLocale": {
         "de": "baufuhrer-in-bahnbau-bls-ch",
-        "it": "baufuhrer-in-bahnbau-bls-ch",
-        "en": "baufuhrer-in-bahnbau-bls-ch",
-        "fr": "baufuhrer-in-bahnbau-bls-ch"
+        "it": "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
+        "en": "construction-in-railway-construction-bls-ag-bern",
+        "fr": "construction-dans-la-construction-ferroviaire-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -258,16 +261,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:43.687Z"
+      "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-bahnbau-bls-ch"
+        ],
+        "en": [
+          "baufuhrer-in-bahnbau-bls-ch"
+        ],
+        "fr": [
+          "baufuhrer-in-bahnbau-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-bahnbau-bls-ch"
+      ]
     },
     {
       "id": "bls-e8e1f6e9a63c",
-      "slug": "baufuhrer-in-bahntechnik-bls-ch",
+      "slug": "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
       "slugByLocale": {
         "de": "baufuhrer-in-bahntechnik-bls-ch",
-        "it": "baufuhrer-in-bahntechnik-bls-ch",
-        "en": "baufuhrer-in-bahntechnik-bls-ch",
-        "fr": "baufuhrer-in-bahntechnik-bls-ch"
+        "it": "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
+        "en": "construction-in-railway-engineering-bls-ag-bern",
+        "fr": "construction-en-genie-ferroviaire-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -338,7 +355,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:42.963Z"
+      "firstSeenAt": "2026-06-02T22:46:42.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ],
+        "en": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ],
+        "fr": [
+          "baufuhrer-in-bahntechnik-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baufuhrer-in-bahntechnik-bls-ch"
+      ]
     },
     {
       "id": "bls-419a9195b6ac",
@@ -440,8 +471,8 @@
       "slugByLocale": {
         "de": "operator-in-bahntechnik-und-bahnstrom-bls-ch",
         "it": "operatore-in-bahntechnik-e-bahnstrom-bls-ag-spiez",
-        "en": "operator-in-bahntechnik-und-bahnstrom-bls-ch",
-        "fr": "operator-in-bahntechnik-und-bahnstrom-bls-ch"
+        "en": "operator-in-web-technology-and-web-stream-bls-ag-spiez",
+        "fr": "operateur-dans-la-technologie-web-et-le-flux-web-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -501,6 +532,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "operator-in-bahntechnik-und-bahnstrom-bls-ch"
+        ],
+        "en": [
+          "operator-in-bahntechnik-und-bahnstrom-bls-ch"
+        ],
+        "fr": [
           "operator-in-bahntechnik-und-bahnstrom-bls-ch"
         ]
       },
@@ -612,12 +649,12 @@
     },
     {
       "id": "bls-04c117dc5e5f",
-      "slug": "business-controller-in-bls-ch",
+      "slug": "controller-aziendale-in-bls-ag-bern",
       "slugByLocale": {
         "de": "business-controller-in-bls-ch",
-        "it": "business-controller-in-bls-ch",
+        "it": "controller-aziendale-in-bls-ag-bern",
         "en": "business-controller-in-bls-ch",
-        "fr": "business-controller-in-bls-ch"
+        "fr": "controleur-d-entreprise-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -688,7 +725,18 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:40.044Z"
+      "firstSeenAt": "2026-06-02T22:46:40.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-in-bls-ch"
+        ],
+        "fr": [
+          "business-controller-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-in-bls-ch"
+      ]
     },
     {
       "id": "bls-9dbd5c9aaf75",
@@ -858,12 +906,12 @@
     },
     {
       "id": "bls-a8219df2137c",
-      "slug": "teamleiter-in-wartung-lokomotiven-bls-ch",
+      "slug": "leader-in-locomotive-di-manutenzione-bls-ag-spiez",
       "slugByLocale": {
         "de": "teamleiter-in-wartung-lokomotiven-bls-ch",
-        "it": "teamleiter-in-wartung-lokomotiven-bls-ch",
-        "en": "teamleiter-in-wartung-lokomotiven-bls-ch",
-        "fr": "teamleiter-in-wartung-lokomotiven-bls-ch"
+        "it": "leader-in-locomotive-di-manutenzione-bls-ag-spiez",
+        "en": "team-leader-in-maintenance-locomotives-bls-ag-spiez",
+        "fr": "chef-d-equipe-en-maintenance-locomotives-bls-ag-spiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -934,16 +982,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:37.999Z"
+      "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-wartung-lokomotiven-bls-ch"
+        ],
+        "en": [
+          "teamleiter-in-wartung-lokomotiven-bls-ch"
+        ],
+        "fr": [
+          "teamleiter-in-wartung-lokomotiven-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-wartung-lokomotiven-bls-ch"
+      ]
     },
     {
       "id": "bls-1ac2ebbc9c61",
-      "slug": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+      "slug": "automechatroniker-in-camion-meccanico-in-automatico-in-bls-ag-bern",
       "slugByLocale": {
         "de": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "it": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "en": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "fr": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "it": "automechatroniker-in-camion-meccanico-in-automatico-in-bls-ag-bern",
+        "en": "automechatroniker-in-truck-mechanic-in-automatic-in-bls-ag-bern",
+        "fr": "automechatroniker-in-camion-mecanicien-in-automatique-in-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1012,16 +1074,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:37.337Z"
+      "firstSeenAt": "2026-06-02T22:46:37.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ],
+        "en": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ],
+        "fr": [
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+      ]
     },
     {
       "id": "bls-2d93300d36b4",
-      "slug": "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch",
+      "slug": "meccanica-del-veicolo-in-veicoli-ferroviari-pesanti-bls-ag-bonigen",
       "slugByLocale": {
         "de": "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch",
-        "it": "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch",
-        "en": "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch",
-        "fr": "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch"
+        "it": "meccanica-del-veicolo-in-veicoli-ferroviari-pesanti-bls-ag-bonigen",
+        "en": "vehicle-mechanics-in-heavy-rail-vehicles-bls-ag-bonigen",
+        "fr": "mecanique-des-vehicules-dans-les-vehicules-ferroviaires-lourds-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1091,7 +1167,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:36.666Z"
+      "firstSeenAt": "2026-06-02T22:46:36.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch"
+        ],
+        "en": [
+          "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch"
+        ],
+        "fr": [
+          "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fahrzeugmechaniker-in-schwere-schienenfahrzeuge-bls-ch"
+      ]
     },
     {
       "id": "bls-d1fd27e775c7",
@@ -1099,8 +1189,8 @@
       "slugByLocale": {
         "de": "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch",
         "it": "teamleiter-in-oberflachenbearbeitung-e-lackierung-bls-ag-bonigen",
-        "en": "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch",
-        "fr": "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
+        "en": "team-leader-in-surface-treatment-and-painting-bls-ag-bonigen",
+        "fr": "chef-d-equipe-en-traitement-de-surface-et-peinture-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1160,6 +1250,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
+        ],
+        "en": [
+          "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
+        ],
+        "fr": [
+          "teamleiter-in-oberflachenbearbeitung-und-lackierung-bls-ch"
         ]
       },
       "previousSlugs": [
@@ -1182,12 +1278,12 @@
     },
     {
       "id": "bls-5c03d3b84468",
-      "slug": "gleisbauer-in-bls-ch",
+      "slug": "tracciatore-in-bls-ag-hasle-bei-burgdorf",
       "slugByLocale": {
         "de": "gleisbauer-in-bls-ch",
-        "it": "gleisbauer-in-bls-ch",
-        "en": "gleisbauer-in-bls-ch",
-        "fr": "gleisbauer-in-bls-ch"
+        "it": "tracciatore-in-bls-ag-hasle-bei-burgdorf",
+        "en": "track-builder-in-bls-ag-hasle-bei-burgdorf",
+        "fr": "constructeur-de-piste-in-bls-ag-hasle-bei-burgdorf"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1258,16 +1354,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:35.340Z"
+      "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gleisbauer-in-bls-ch"
+        ],
+        "en": [
+          "gleisbauer-in-bls-ch"
+        ],
+        "fr": [
+          "gleisbauer-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gleisbauer-in-bls-ch"
+      ]
     },
     {
       "id": "bls-309cc31143b2",
-      "slug": "vorarbeiter-in-bls-ch",
+      "slug": "pre-lavoratore-bls-ag-bern",
       "slugByLocale": {
         "de": "vorarbeiter-in-bls-ch",
-        "it": "vorarbeiter-in-bls-ch",
-        "en": "vorarbeiter-in-bls-ch",
-        "fr": "vorarbeiter-in-bls-ch"
+        "it": "pre-lavoratore-bls-ag-bern",
+        "en": "preworker-in-bls-ag-bern",
+        "fr": "pretravailleur-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1339,16 +1449,30 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:34.611Z"
+      "firstSeenAt": "2026-06-02T22:46:34.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-bls-ch"
+        ],
+        "en": [
+          "vorarbeiter-in-bls-ch"
+        ],
+        "fr": [
+          "vorarbeiter-in-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-bls-ch"
+      ]
     },
     {
       "id": "bls-f05319abe6a0",
-      "slug": "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch",
+      "slug": "team-manager-in-veicoli-ferroviari-di-manutenzione-bls-ag-bonigen",
       "slugByLocale": {
         "de": "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch",
-        "it": "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch",
-        "en": "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch",
-        "fr": "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch"
+        "it": "team-manager-in-veicoli-ferroviari-di-manutenzione-bls-ag-bonigen",
+        "en": "team-manager-in-maintenance-rail-vehicles-bls-ag-bonigen",
+        "fr": "chef-d-equipe-dans-les-vehicules-ferroviaires-d-entretien-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1418,7 +1542,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:33.941Z"
+      "firstSeenAt": "2026-06-02T22:46:33.941Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch"
+        ],
+        "en": [
+          "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch"
+        ],
+        "fr": [
+          "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-instandhaltung-schienenfahrzeuge-bls-ch"
+      ]
     },
     {
       "id": "bls-121b0e9a678b",
@@ -1426,8 +1564,8 @@
       "slugByLocale": {
         "de": "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in",
         "it": "automobilmechatroniker-in-nf-o-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in-bls-ag-langnau-im-emmental",
-        "en": "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in",
-        "fr": "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
+        "en": "automotive-mechatronics-in-nf-or-automobile-expert-woman-nf-truck-mechanic-in-agricultural-machine-mechanic-in-bls-ag",
+        "fr": "mecatronique-automobile-en-nf-ou-expert-automobile-femme-nf-mecanicien-de-camion-en-mecanicien-de-machine-agricole-en"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1487,6 +1625,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
+        ],
+        "en": [
+          "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
+        ],
+        "fr": [
           "automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in"
         ]
       },
@@ -1679,8 +1823,8 @@
       "slugByLocale": {
         "de": "fachperson-reinigung-und-unterhalt-bls-ch",
         "it": "fachperson-reinigung-e-unterhalt-bls-ag-thun",
-        "en": "fachperson-reinigung-und-unterhalt-bls-ch",
-        "fr": "fachperson-reinigung-und-unterhalt-bls-ch"
+        "en": "specialist-cleaning-and-maintenance-bls-ag-thun",
+        "fr": "nettoyage-et-entretien-specialises-bls-ag-thun"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1743,6 +1887,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-reinigung-und-unterhalt-bls-ch"
+        ],
+        "en": [
+          "fachperson-reinigung-und-unterhalt-bls-ch"
+        ],
+        "fr": [
+          "fachperson-reinigung-und-unterhalt-bls-ch"
         ]
       },
       "previousSlugs": [
@@ -1769,8 +1919,8 @@
       "slugByLocale": {
         "de": "leiter-in-operations-bls-ch",
         "it": "responsabile-operations-bls-ag-bern",
-        "en": "leiter-in-operations-bls-ch",
-        "fr": "leiter-in-operations-bls-ch"
+        "en": "head-in-operations-bls-ag-bern",
+        "fr": "chef-en-operations-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1832,6 +1982,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-operations-bls-ch"
+        ],
+        "en": [
+          "leiter-in-operations-bls-ch"
+        ],
+        "fr": [
+          "leiter-in-operations-bls-ch"
         ]
       },
       "previousSlugs": [
@@ -1854,12 +2010,12 @@
     },
     {
       "id": "bls-12ce67f8780b",
-      "slug": "key-account-manager-in-industrie-mit-teamleitung-bls-ch",
+      "slug": "key-account-manager-nell-industria-con-la-gestione-del-team-bls-ag-bern",
       "slugByLocale": {
         "de": "key-account-manager-in-industrie-mit-teamleitung-bls-ch",
-        "it": "key-account-manager-in-industrie-mit-teamleitung-bls-ch",
-        "en": "key-account-manager-in-industrie-mit-teamleitung-bls-ch",
-        "fr": "key-account-manager-in-industrie-mit-teamleitung-bls-ch"
+        "it": "key-account-manager-nell-industria-con-la-gestione-del-team-bls-ag-bern",
+        "en": "key-account-manager-in-industry-with-team-management-bls-ag-bern",
+        "fr": "directeur-de-compte-cle-dans-l-industrie-avec-la-gestion-d-equipe-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1932,7 +2088,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-02T22:46:29.457Z"
+      "firstSeenAt": "2026-06-02T22:46:29.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-in-industrie-mit-teamleitung-bls-ch"
+        ],
+        "en": [
+          "key-account-manager-in-industrie-mit-teamleitung-bls-ch"
+        ],
+        "fr": [
+          "key-account-manager-in-industrie-mit-teamleitung-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-in-industrie-mit-teamleitung-bls-ch"
+      ]
     }
   ]
 }

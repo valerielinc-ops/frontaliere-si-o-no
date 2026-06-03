@@ -1747,9 +1747,6 @@
       "previousSlugsByLocale": {
         "it": [
           "psychiatre-ehc-vd-morges"
-        ],
-        "fr": [
-          "psychiatre-ehc-vd-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.957Z",
@@ -2103,8 +2100,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-gilly",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly",
-          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne"
+          "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ensemble-hospitalier-de-la-cote-ehc-gilly"
         ],
         "it": [
           "auxiliaire-de-sante-aide-soignant-en-ctr-f-h-ehc-vd-aubonne",
@@ -2472,8 +2468,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "auxiliaire-de-sante-f-h-ehc-vd-morges",
-          "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "auxiliaire-de-sante-f-h-ehc-vd-aubonne"
+          "auxiliaire-de-sante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "it": [
           "auxiliaire-de-sante-f-h-ehc-vd-aubonne",
@@ -3364,8 +3359,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "assistant-socio-educatif-f-h-ehc-vd-morges",
-          "assistant-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "assistant-socio-educatif-f-h-ehc-vd-aubonne"
+          "assistant-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "it": [
           "assistant-socio-educatif-f-h-ehc-vd-aubonne",
@@ -3466,10 +3460,10 @@
     },
     {
       "id": "ehc-vd-47e39956e8c0",
-      "slug": "stagiaire-assistant-formation-f-h-ehc-vd-morges",
+      "slug": "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "stagiaire-assistant-formation-f-h-ehc-vd-morges",
-        "en": "stagiaire-assistant-formation-f-h-ehc-vd-morges",
+        "it": "assistente-di-tirocinante-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "trainee-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "stagiaire-assistent-formation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "stagiaire-assistant-formation-f-h-ehc-vd-morges"
       },
@@ -3524,7 +3518,18 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-assistant-formation-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "stagiaire-assistant-formation-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-assistant-formation-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-4f498a69a956",
@@ -3906,8 +3911,8 @@
       "slug": "chef-de-clinique-adjoint-en-chirurgie-vasculaire-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "chef-de-clinique-adjoint-en-chirurgie-vasculaire-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges",
-        "de": "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges",
+        "en": "head-of-clinic-assistant-in-vascular-surgery-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "klinikleiter-assistant-in-gefa-chirurgie-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3955,6 +3960,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "chef-de-clinique-adjoint-en-chirurgie-vasculaire-f-h-ehc-vd-morges"
         ]
       },
       "firstSeenAt": "2026-06-02T12:55:00.497Z",
@@ -3973,9 +3984,9 @@
     },
     {
       "id": "ehc-vd-c99a4d6b66b1",
-      "slug": "fellowship-en-antalgie-f-h-ehc-vd-morges",
+      "slug": "fellowship-in-antalgia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "fellowship-en-antalgie-f-h-ehc-vd-morges",
+        "it": "fellowship-in-antalgia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "fellowship-en-antalgie-f-h-ehc-vd-morges",
         "de": "fellowship-en-antalgie-f-h-ehc-vd-morges",
         "fr": "fellowship-en-antalgie-f-h-ehc-vd-morges"
@@ -4031,7 +4042,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fellowship-en-antalgie-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "fellowship-en-antalgie-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-fefde5aa41fe",
@@ -4109,8 +4128,8 @@
       "slug": "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "gestionnaire-en-intendance-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "gestionnaire-en-intendance-ehc-vd-morges",
-        "de": "gestionnaire-en-intendance-ehc-vd-morges",
+        "en": "stewardship-manager-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "fuhrungskraft-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "gestionnaire-en-intendance-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4158,6 +4177,12 @@
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-en-intendance-ehc-vd-morges"
+        ],
+        "en": [
+          "gestionnaire-en-intendance-ehc-vd-morges"
+        ],
+        "de": [
+          "gestionnaire-en-intendance-ehc-vd-morges"
         ]
       },
       "firstSeenAt": "2026-06-02T12:55:00.488Z",
@@ -4176,11 +4201,11 @@
     },
     {
       "id": "ehc-vd-5e763e272ad7",
-      "slug": "agent-de-proprete-f-h-ehc-vd-morges",
+      "slug": "agente-di-pulizia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "agent-de-proprete-f-h-ehc-vd-morges",
-        "en": "agent-de-proprete-f-h-ehc-vd-morges",
-        "de": "agent-de-proprete-f-h-ehc-vd-morges",
+        "it": "agente-di-pulizia-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "cleaning-agent-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "reinigungsmittel-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "agent-de-proprete-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4234,7 +4259,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "agent-de-proprete-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "agent-de-proprete-f-h-ehc-vd-morges"
+      ]
     }
   ]
 }

@@ -1023,9 +1023,9 @@
       "slug": "koch-kochin-cfc-80-100-befristet-gzo-spital-wetzikon",
       "slugByLocale": {
         "it": "koch-kochin-cfc-80-100-befristet-gzo-spital-wetzikon",
-        "en": "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch",
+        "en": "cook-cook-efz-80-100-fixed-gzo-spital-wetzikon-wetzikon",
         "de": "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch",
-        "fr": "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch"
+        "fr": "cuisson-cuisson-efz-80-100-fixe-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1073,6 +1073,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "koch-kochin-efz-80-100-befristet-gzo-wetzikon-ch"
         ]
       },
