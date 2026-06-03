@@ -66,7 +66,23 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-03T14:43:55.438Z"
+      "firstSeenAt": "2026-06-03T14:43:55.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "analista-dei-canali-diretti-al-consumo-msc-group-geneva"
+        ],
+        "de": [
+          "direkt-zu-verbraucherkanale-analyst-msc-group-geneva"
+        ],
+        "fr": [
+          "analyste-des-canaux-directs-a-consommateurs-msc-group-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "analista-dei-canali-diretti-al-consumo-msc-group-geneva",
+        "direkt-zu-verbraucherkanale-analyst-msc-group-geneva",
+        "analyste-des-canaux-directs-a-consommateurs-msc-group-geneva"
+      ]
     },
     {
       "id": "msc-cargo-72e4b16fc7fa",
@@ -195,10 +211,14 @@
       "previousSlugsByLocale": {
         "it": [
           "finance-and-accounting-manager-new-investments-msc-geneva"
+        ],
+        "fr": [
+          "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "finance-and-accounting-manager-new-investments-msc-geneva"
+        "finance-and-accounting-manager-new-investments-msc-geneva",
+        "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -489,11 +509,21 @@
       "firstSeenAt": "2026-06-03T14:43:33.518Z",
       "previousSlugsByLocale": {
         "it": [
-          "f-b-service-manager-msc-geneva"
+          "f-b-service-manager-msc-geneva",
+          "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva"
+        ],
+        "de": [
+          "f-b-servicemanager-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-services-f-b-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "f-b-service-manager-msc-geneva"
+        "f-b-service-manager-msc-geneva",
+        "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
+        "f-b-servicemanager-msc-group-geneva",
+        "gestionnaire-de-services-f-b-msc-group-geneva"
       ]
     },
     {
@@ -623,10 +653,14 @@
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva"
+        ],
+        "fr": [
+          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "casino-slots-and-technical-operations-manager-msc-geneva"
+        "casino-slots-and-technical-operations-manager-msc-geneva",
+        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -697,10 +731,18 @@
       "previousSlugsByLocale": {
         "it": [
           "digital-platforms-manager-msc-geneva"
+        ],
+        "de": [
+          "digitale-plattformen-manager-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "digital-platforms-manager-msc-geneva"
+        "digital-platforms-manager-msc-geneva",
+        "digitale-plattformen-manager-msc-group-geneva",
+        "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 75500,
@@ -985,10 +1027,18 @@
       "previousSlugsByLocale": {
         "it": [
           "culinary-operations-manager-msc-geneva"
+        ],
+        "de": [
+          "kulinarischer-betriebsleiter-msc-group-geneva"
+        ],
+        "fr": [
+          "gestionnaire-des-operations-culinaires-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "culinary-operations-manager-msc-geneva"
+        "culinary-operations-manager-msc-geneva",
+        "kulinarischer-betriebsleiter-msc-group-geneva",
+        "gestionnaire-des-operations-culinaires-msc-group-geneva"
       ],
       "needsRetranslation": true,
       "salaryMin": 68000,
