@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-06-03T13:18:56.740Z",
+  "assembledAt": "2026-06-03T23:18:45.679Z",
   "jobs": [
     {
       "id": "coopers-63fb73dd4e94",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4LK9Z1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:54.155Z",
+      "crawledAt": "2026-06-03T23:18:43.001Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -74,14 +74,15 @@
         "it": [
           "teamleiter-in-system-engineering-m-w-d-coopers-basel-stadt"
         ],
-        "fr": [
+        "en": [
           "teamleiter-in-system-engineering-m-w-d-coopers-basel-stadt"
         ],
-        "en": [
+        "fr": [
           "teamleiter-in-system-engineering-m-w-d-coopers-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:09.750Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -117,17 +118,17 @@
       },
       "description": "Position dient dem Aufbau eines Kandidatenpools, und eine konkrete Stelle kann in naher Zukunft verfügbar werden. Ihre Bewerbung wird für zukünftige passende Möglichkeiten berücksichtigt.***\n\nWir suchen einen Software Test Engineer mit Erfahrung in der automatisierten und manuellen Softwaretestung. Der Schwerpunkt dieser Position liegt auf dem Testen von Embedded-Software in einem regulierten Umfeld, idealerweise in der Medizintechnik. Sie arbeiten eng mit Entwicklungsteams in einem agilen Umfeld zusammen und tragen maßgeblich zur Sicherstellung der Softwarequalität bei.\n\nDeine Aufgaben:\n\n•\n Entwicklung und Pflege automatisierter Softwaretests mit C#\n\n•\n Erstellung von Softwaretests auf Basis von Anforderungen und definierten Testprozeduren\n\n•\n Analyse von Anforderungen und Ableitung geeigneter automatisierter Testfälle\n\n•\n Durchführung manueller Softwaretests im Embedded-Bereich\n\n•\n Testausführung in einem regulierten Umfeld, vorzugsweise in der Medizintechnik\n\n•\n Review von Anforderungen hinsichtlich Testbarkeit und Vollständigkeit\n\n•\n Erstellung und Pflege von Testprozeduren, Testberichten und Testdokumentation\n\nDein Profil:\n\n•\n Erfahrung in der Software-Testautomatisierung , idealerweise mit C#\n\n•\n Erfahrung in der manuellen Softwaretestung von Embedded-Systemen\n\n•\n Kenntnisse in regulierten Entwicklungsumgebungen (Medizintechnik von Vorteil)\n\n•\n Erfahrung im Requirements Review sowie in der Testerstellung und -dokumentation\n\n•\n Erfahrung mit agilen Entwicklungsmethoden",
       "descriptionByLocale": {
-        "it": "Descrizione Siamo alla ricerca di un ingegnere di test software con esperienza nel test di software automatizzato e manuale. L'obiettivo di questa posizione è quello di testare il software incorporato in un ambiente regolamentato, idealmente in tecnologia medica. Lavorano a stretto contatto con i team di sviluppo in un ambiente agile e contribuiscono in modo significativo a garantire la qualità del software. Informazioni sul lavoro - Sviluppo e manutenzione di test software automatizzati con C# - Creazione di test software basati su requisiti e procedure di test definite - Analisi dei requisiti e derivazione dei casi di test automatizzati idonei - Condurre test di software manuali in aree integrate - Esecuzione di test in un ambiente regolamentato, preferibilmente in tecnologia medica - Valutazione dei requisiti in materia di testabilità e completezza - Creazione e manutenzione di procedure di prova, rapporti di prova e documentazione di prova \n• Requisiti - Esperienza nell'automazione dei test software, idealmente con C# - Esperienza nel test manuale del software dei sistemi incorporati - Conoscenza degli ambienti di sviluppo regolamentati (tecnologia medica di vantaggio) - Esperienza nella revisione dei requisiti e nella creazione di test e documentazione - Esperienza con metodi di sviluppo agili Cosa? - La capacità di utilizzare le tue abilità in un ambiente agile - Un team di esperti sviluppatori e tester - La possibilità di utilizzare le tue competenze in un ambiente regolamentato - La capacità di far progredire la tua carriera nello sviluppo del software Contatto",
-        "en": "Descrizione We are looking for a software test engineer with experience in automated and manual software testing. The focus of this position is on testing embedded software in a regulated environment, ideally in medical technology. They work closely with development teams in an agile environment and contribute significantly to ensuring software quality. Aspetti del lavoro - Development and maintenance of automated software tests with C# - Creation of software tests based on requirements and defined test procedures - Analysis of requirements and derivation of suitable automated test cases - Conducting manual software tests in embedded areas - Test execution in a regulated environment, preferably in medical technology - Review of requirements regarding testability and completeness - Creation and maintenance of test procedures, test reports and test documentation \n• Requisiti - Experience in software test automation, ideally with C# - Experience in manual software testing of embedded systems - Knowledge of regulated development environments (medical technology of advantage) - Experience in the requirements review as well as in test creation and documentation - Experience with agile development methods \n• Cosa offriamo - The ability to use your skills in an agile environment - A team of experienced developers and testers - The chance to use your expertise in a regulated environment - The ability to advance your career in software development Contatto",
+        "it": "Descrizione Siamo alla ricerca di un ingegnere di test software con esperienza nel test di software automatizzato e manuale. L'obiettivo di questa posizione è quello di testare il software incorporato in un ambiente regolamentato, idealmente in tecnologia medica. Lavorano a stretto contatto con i team di sviluppo in un ambiente agile e contribuiscono in modo significativo a garantire la qualità del software. Informazioni sul lavoro - Sviluppo e manutenzione di test software automatizzati con C# - Creazione di test software basati su requisiti e procedure di test definite - Analisi dei requisiti e derivazione dei casi di test automatizzati idonei - Condurre test di software manuali in aree integrate - Esecuzione di test in un ambiente regolamentato, preferibilmente in tecnologia medica - Valutazione dei requisiti in materia di testabilità e completezza - Creazione e manutenzione di procedure di prova, rapporti di prova e documentazione di prova\n• Requisiti - Esperienza nell'automazione dei test software, idealmente con C# - Esperienza nel test manuale del software dei sistemi incorporati - Conoscenza degli ambienti di sviluppo regolamentati (tecnologia medica di vantaggio) - Esperienza nella revisione dei requisiti e nella creazione di test e documentazione - Esperienza con metodi di sviluppo agili Cosa? - La capacità di utilizzare le tue abilità in un ambiente agile - Un team di esperti sviluppatori e tester - La possibilità di utilizzare le tue competenze in un ambiente regolamentato - La capacità di far progredire la tua carriera nello sviluppo del software Contatto",
+        "en": "Descrizione We are looking for a software test engineer with experience in automated and manual software testing. The focus of this position is on testing embedded software in a regulated environment, ideally in medical technology. They work closely with development teams in an agile environment and contribute significantly to ensuring software quality. Aspetti del lavoro - Development and maintenance of automated software tests with C# - Creation of software tests based on requirements and defined test procedures - Analysis of requirements and derivation of suitable automated test cases - Conducting manual software tests in embedded areas - Test execution in a regulated environment, preferably in medical technology - Review of requirements regarding testability and completeness - Creation and maintenance of test procedures, test reports and test documentation\n• Requisiti - Experience in software test automation, ideally with C# - Experience in manual software testing of embedded systems - Knowledge of regulated development environments (medical technology of advantage) - Experience in the requirements review as well as in test creation and documentation - Experience with agile development methods\n• Cosa offriamo - The ability to use your skills in an agile environment - A team of experienced developers and testers - The chance to use your expertise in a regulated environment - The ability to advance your career in software development Contatto",
         "de": "Position dient dem Aufbau eines Kandidatenpools, und eine konkrete Stelle kann in naher Zukunft verfügbar werden. Ihre Bewerbung wird für zukünftige passende Möglichkeiten berücksichtigt.*** Wir suchen einen Software Test Engineer mit Erfahrung in der automatisierten und manuellen Softwaretestung. Der Schwerpunkt dieser Position liegt auf dem Testen von Embedded-Software in einem regulierten Umfeld, idealerweise in der Medizintechnik. Sie arbeiten eng mit Entwicklungsteams in einem agilen Umfeld zusammen und tragen maßgeblich zur Sicherstellung der Softwarequalität bei. Deine Aufgaben:\n• Entwicklung und Pflege automatisierter Softwaretests mit C#\n• Erstellung von Softwaretests auf Basis von Anforderungen und definierten Testprozeduren\n• Analyse von Anforderungen und Ableitung geeigneter automatisierter Testfälle\n• Durchführung manueller Softwaretests im Embedded-Bereich\n• Testausführung in einem regulierten Umfeld, vorzugsweise in der Medizintechnik\n• Review von Anforderungen hinsichtlich Testbarkeit und Vollständigkeit\n• Erstellung und Pflege von Testprozeduren, Testberichten und Testdokumentation Dein Profil:\n• Erfahrung in der Software-Testautomatisierung , idealerweise mit C#\n• Erfahrung in der manuellen Softwaretestung von Embedded-Systemen\n• Kenntnisse in regulierten Entwicklungsumgebungen (Medizintechnik von Vorteil)\n• Erfahrung im Requirements Review sowie in der Testerstellung und -dokumentation\n• Erfahrung mit agilen Entwicklungsmethoden",
-        "fr": "Descrizione Nous sommes à la recherche d'un ingénieur de test logiciel avec de l'expérience en test logiciel automatisé et manuel. Le but de cette position est de tester les logiciels intégrés dans un environnement réglementé, idéalement dans la technologie médicale. Ils travaillent en étroite collaboration avec les équipes de développement dans un environnement agile et contribuent de manière significative à assurer la qualité des logiciels. Aspetti del lavoro - Développement et maintenance de tests logiciels automatisés avec C# - Création de tests logiciels fondés sur des exigences et des procédures d'essai définies - Analyse des besoins et calcul des cas d ' essai automatisés appropriés - Réalisation de tests manuels de logiciels dans les zones intégrées - Exécution d'essais dans un environnement réglementé, de préférence en technologie médicale - Examen des exigences en matière de testabilité et d ' exhaustivité - Création et tenue à jour de procédures d ' essai, de procès-verbaux d ' essai et de documents d ' essai \n• Requisiti - Expérience dans l'automatisation des tests logiciels, idéalement avec C# - Expérience des essais manuels de logiciels de systèmes embarqués - Connaissance des environnements de développement réglementés (technologie médicale d'avantage) - Expérience dans l'examen des exigences ainsi que dans la création d'essais et la documentation - Expérience des méthodes de développement agile \n• Cosa offriamo - La capacité d'utiliser vos compétences dans un environnement agile - Une équipe de développeurs et de testeurs expérimentés - La possibilité d'utiliser votre expertise dans un environnement réglementé - La capacité de faire progresser votre carrière dans le développement de logiciels Contatto"
+        "fr": "Descrizione Nous sommes à la recherche d'un ingénieur de test logiciel avec de l'expérience en test logiciel automatisé et manuel. Le but de cette position est de tester les logiciels intégrés dans un environnement réglementé, idéalement dans la technologie médicale. Ils travaillent en étroite collaboration avec les équipes de développement dans un environnement agile et contribuent de manière significative à assurer la qualité des logiciels. Aspetti del lavoro - Développement et maintenance de tests logiciels automatisés avec C# - Création de tests logiciels fondés sur des exigences et des procédures d'essai définies - Analyse des besoins et calcul des cas d ' essai automatisés appropriés - Réalisation de tests manuels de logiciels dans les zones intégrées - Exécution d'essais dans un environnement réglementé, de préférence en technologie médicale - Examen des exigences en matière de testabilité et d ' exhaustivité - Création et tenue à jour de procédures d ' essai, de procès-verbaux d ' essai et de documents d ' essai\n• Requisiti - Expérience dans l'automatisation des tests logiciels, idéalement avec C# - Expérience des essais manuels de logiciels de systèmes embarqués - Connaissance des environnements de développement réglementés (technologie médicale d'avantage) - Expérience dans l'examen des exigences ainsi que dans la création d'essais et la documentation - Expérience des méthodes de développement agile\n• Cosa offriamo - La capacité d'utiliser vos compétences dans un environnement agile - Une équipe de développeurs et de testeurs expérimentés - La possibilité d'utiliser votre expertise dans un environnement réglementé - La capacité de faire progresser votre carrière dans le développement de logiciels Contatto"
       },
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=H72VL9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:52.797Z",
+      "crawledAt": "2026-06-03T23:18:41.665Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -171,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:08.415Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -216,7 +218,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4P0DB3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:51.525Z",
+      "crawledAt": "2026-06-03T23:18:40.352Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -247,7 +249,9 @@
           "DevOps, CI/CD, Docker, AWS, Angular, Jira, Confluence"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:13:07.185Z",
+      "previousSlugs": [
+        "java-software-engineer-senior-m-w-d-coopers-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "java-software-engineer-senior-m-w-d-coopers-bern"
@@ -256,9 +260,8 @@
           "java-software-engineer-senior-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "java-software-engineer-senior-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-06-02T23:13:07.185Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -294,17 +297,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (VWR329)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nLuzern\n\nContracting\n\nPart Time, 80-100%\n\nNach Vereinbarung - 31.12.2026 mit der Option auf Verlängerung\n\nFullstack, Software engineering, DevOps, Java, Angular, Kubernetes, SAFe\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFlat hierarchy\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tHome Office\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tWork-life-balance\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Ulteriori posizioni aperte sono disponibili qui: coopers.ch Mansioni Infrastrutture e operazioni IT IT - Ingegneria del software \n• Requisiti - Fullstack, Software Engineering, DevOps, Java, Angular, Kubernetes, SAFe Cosa? - Coopers Care - Termini di nome - Gerarchia piatta - Ufficio - Spazio di lavoro moderno - Bilancia della vita lavorativa Contatto",
-        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Further open positions are available here: coopers.ch Mansioni IT Infrastructure & Operations IT - Software Engineering \n• Requisiti - Fullstack, Software engineering, DevOps, Java, Angular, Kubernetes, SAFe \n• Cosa offriamo - Coopers Care - First name terms - Flat hierarchy - Home Office - Modern workspace - Work-life balance Contatto",
+        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Ulteriori posizioni aperte sono disponibili qui: coopers.ch Mansioni Infrastrutture e operazioni IT IT - Ingegneria del software\n• Requisiti - Fullstack, Software Engineering, DevOps, Java, Angular, Kubernetes, SAFe Cosa? - Coopers Care - Termini di nome - Gerarchia piatta - Ufficio - Spazio di lavoro moderno - Bilancia della vita lavorativa Contatto",
+        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Further open positions are available here: coopers.ch Mansioni IT Infrastructure & Operations IT - Software Engineering\n• Requisiti - Fullstack, Software engineering, DevOps, Java, Angular, Kubernetes, SAFe\n• Cosa offriamo - Coopers Care - First name terms - Flat hierarchy - Home Office - Modern workspace - Work-life balance Contatto",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (VWR329)\n• IT - IT Infrastructure & Operations\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Nach Vereinbarung - 31.12.2026 mit der Option auf Verlängerung\n• Fullstack, Software engineering, DevOps, Java, Angular, Kubernetes, SAFe Job benefits\n• Coopers Care\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance Sounds interesting? Simply click \"",
-        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. D'autres positions ouvertes sont disponibles ici: coopers.ch Mansioni Infrastructure et opérations de la TI IT - Génie logiciel \n• Requisiti - Fullstack, Ingénierie des logiciels, DevOps, Java, Angular, Kubernetes, SAFe \n• Cosa offriamo - Soins de Coopers - Prénom - Hiérarchie plate - Ministère de l ' intérieur - Espace de travail moderne - Équilibre travail-vie privée Contatto"
+        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. D'autres positions ouvertes sont disponibles ici: coopers.ch Mansioni Infrastructure et opérations de la TI IT - Génie logiciel\n• Requisiti - Fullstack, Ingénierie des logiciels, DevOps, Java, Angular, Kubernetes, SAFe\n• Cosa offriamo - Soins de Coopers - Prénom - Hiérarchie plate - Ministère de l ' intérieur - Espace de travail moderne - Équilibre travail-vie privée Contatto"
       },
       "location": "Luzern",
       "canton": "LU",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:50.260Z",
+      "crawledAt": "2026-06-03T23:18:39.060Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -338,6 +341,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:13:05.931Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -383,7 +387,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:49.022Z",
+      "crawledAt": "2026-06-03T23:18:37.764Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -419,14 +423,15 @@
         "it": [
           "teamlead-business-applications-m-w-d-coopers-bern"
         ],
-        "fr": [
+        "en": [
           "teamlead-business-applications-m-w-d-coopers-bern"
         ],
-        "en": [
+        "fr": [
           "teamlead-business-applications-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:59.663Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -462,17 +467,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (6WIL89)\n\n•\n\t\t\t\t\t\t\tIT - ERP & Applications\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 60-100%\n\nPer sofort oder nach Vereinbarung - 31.12.2026 (Option auf Verlängerung)\n\nUEM, DSM, HERMES, SOC, IT-Security, Endpoint Management, Bundesverwaltung, öffentliche Verwaltung, Security Operation Center, Unified Endpoint Management\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni Tempo parziale, 60-100 % Paesaggio basco Parti contraenti IT - ERP & Applicazioni Infrastrutture e operazioni IT IT - Project Management \n• Requisiti Su appuntamento - 31.12.2026 (opzione sull'estensione) - UEM, DSM, HERMs, SOC, IT Security, Endpoint Management - Amministrazione federale, amministrazione pubblica - Centro Operazioni di Sicurezza - Gestione di endpoint unificata Cosa? - Ci sono altri posti vacanti qui: coopers.ch Contatto",
-        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni Part Time, 60-100 % Basle landscape Contracting Parties IT - ERP & Applications IT Infrastructure & Operations IT - Project Management \n• Requisiti By appointment - 31.12.2026 (option on extension) - UEM, DSM, HERMES, SOC, IT Security, Endpoint Management - Federal administration, public administration - Security Operations Center - Unified Endpoint Management \n• Cosa offriamo - There are other vacancies here: coopers.ch Contatto",
+        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni Tempo parziale, 60-100 % Paesaggio basco Parti contraenti IT - ERP & Applicazioni Infrastrutture e operazioni IT IT - Project Management\n• Requisiti Su appuntamento - 31.12.2026 (opzione sull'estensione) - UEM, DSM, HERMs, SOC, IT Security, Endpoint Management - Amministrazione federale, amministrazione pubblica - Centro Operazioni di Sicurezza - Gestione di endpoint unificata Cosa? - Ci sono altri posti vacanti qui: coopers.ch Contatto",
+        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni Part Time, 60-100 % Basle landscape Contracting Parties IT - ERP & Applications IT Infrastructure & Operations IT - Project Management\n• Requisiti By appointment - 31.12.2026 (option on extension) - UEM, DSM, HERMES, SOC, IT Security, Endpoint Management - Federal administration, public administration - Security Operations Center - Unified Endpoint Management\n• Cosa offriamo - There are other vacancies here: coopers.ch Contatto",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (6WIL89)\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• IT - Project Management\n• Basel-Landschaft\n• Contracting\n• Part Time, 60-100%\n• Per sofort oder nach Vereinbarung - 31.12.2026 (Option auf Verlängerung)\n• UEM, DSM, HERMES, SOC, IT-Security, Endpoint Management, Bundesverwaltung, öffentliche Verwaltung, Security Operation Center, Unified Endpoint Management Sounds interesting? Simply click \"",
-        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni Temps partiel, 60-100 % Paysage de Bâle Parties contractantes IT - ERP & Applications Infrastructure et opérations de la TI IT - Gestion de projet \n• Requisiti Sur rendez-vous - 31.12.2026 (option de prorogation) - UEM, DSM, HERMES, SOC, Sécurité informatique, Gestion d'Endpoint - Administration fédérale, administration publique - Centre des opérations de sécurité - Gestion unifiée des points d'arrivée \n• Cosa offriamo - Il y a d'autres postes vacants ici : coopers.ch Contatto"
+        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni Temps partiel, 60-100 % Paysage de Bâle Parties contractantes IT - ERP & Applications Infrastructure et opérations de la TI IT - Gestion de projet\n• Requisiti Sur rendez-vous - 31.12.2026 (option de prorogation) - UEM, DSM, HERMES, SOC, Sécurité informatique, Gestion d'Endpoint - Administration fédérale, administration publique - Centre des opérations de sécurité - Gestion unifiée des points d'arrivée\n• Cosa offriamo - Il y a d'autres postes vacants ici : coopers.ch Contatto"
       },
       "location": "Basel-Landschaft",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6WIL89",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:47.771Z",
+      "crawledAt": "2026-06-03T23:18:36.467Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -522,6 +527,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:58.196Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -557,17 +563,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (Q3MK17)\n\n•\n\t\t\t\t\t\t\tIT - ERP & Applications\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Software Engineering\n\n•\n\nAargau\n\nContracting\n\nPart Time, 80-100%\n\nPer sofort oder nach Vereinbarung - 31.03.2027 (Option auf Verlängerung)\n\nSAP, SAP Hana, MCSA\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni - Tempo parziale, 80-100 % - Aargau - Da subito o da accordo - 31.03.2027 (opzione su estensione) \n• Requisiti - SAP - SAP Hana - MCSA Cosa? - IT - ERP & Applicazioni - Infrastrutture e operazioni IT - IT - Gestione IT - IT - Project Management - IT - Ingegneria del software Contatto - Coopers.ch",
-        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni - Part Time, 80-100 % - Aargau - By immediately or by agreement - 31.03.2027 (option on extension) \n• Requisiti - SAP - SAP Hana - MCSA \n• Cosa offriamo - IT - ERP & Applications - IT Infrastructure & Operations - IT - IT Management - IT - Project Management - IT - Software Engineering Contatto - coopers.ch",
+        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni - Tempo parziale, 80-100 % - Aargau - Da subito o da accordo - 31.03.2027 (opzione su estensione)\n• Requisiti - SAP - SAP Hana - MCSA Cosa? - IT - ERP & Applicazioni - Infrastrutture e operazioni IT - IT - Gestione IT - IT - Project Management - IT - Ingegneria del software Contatto - Coopers.ch",
+        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni - Part Time, 80-100 % - Aargau - By immediately or by agreement - 31.03.2027 (option on extension)\n• Requisiti - SAP - SAP Hana - MCSA\n• Cosa offriamo - IT - ERP & Applications - IT Infrastructure & Operations - IT - IT Management - IT - Project Management - IT - Software Engineering Contatto - coopers.ch",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (Q3MK17)\n• IT - ERP & Applications\n• IT - IT Infrastructure & Operations\n• IT - IT Management\n• IT - Project Management\n• IT - Software Engineering\n• Aargau\n• Contracting\n• Part Time, 80-100%\n• Per sofort oder nach Vereinbarung - 31.03.2027 (Option auf Verlängerung)\n• SAP, SAP Hana, MCSA Sounds interesting? Simply click \"",
-        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni - Temps partiel, 80-100 % - Argovie - immédiatement ou par accord - 31.03.2027 (option de prolongation) \n• Requisiti - SAP - SAP Hana - MCSA \n• Cosa offriamo - Informatique - ERP & Applications - Infrastructure et opérations informatiques - Gestion informatique - Informatique - Gestion de projet - Informatique - Génie logiciel Contatto - Coopers.ch"
+        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni - Temps partiel, 80-100 % - Argovie - immédiatement ou par accord - 31.03.2027 (option de prolongation)\n• Requisiti - SAP - SAP Hana - MCSA\n• Cosa offriamo - Informatique - ERP & Applications - Infrastructure et opérations informatiques - Gestion informatique - Informatique - Gestion de projet - Informatique - Génie logiciel Contatto - Coopers.ch"
       },
       "location": "Aargau",
       "canton": "AG",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q3MK17",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:46.503Z",
+      "crawledAt": "2026-06-03T23:18:35.174Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -605,7 +611,9 @@
           "Per sofort oder nach Vereinbarung - 31.03.2027 (Option auf Verlängerung)"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:12:56.929Z",
+      "previousSlugs": [
+        "sap-consultant-s4hana-m-w-d-coopers-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sap-consultant-s4hana-m-w-d-coopers-aargau"
@@ -614,9 +622,8 @@
           "sap-consultant-s4hana-m-w-d-coopers-aargau"
         ]
       },
-      "previousSlugs": [
-        "sap-consultant-s4hana-m-w-d-coopers-aargau"
-      ],
+      "firstSeenAt": "2026-06-02T23:12:56.929Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -662,7 +669,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V4DV86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T13:18:45.220Z",
+      "crawledAt": "2026-06-03T23:18:33.882Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -707,6 +714,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:55.646Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -752,7 +760,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=PC857F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:43.765Z",
+      "crawledAt": "2026-06-03T23:18:32.516Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -783,6 +791,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:54.318Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -828,7 +837,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P121CU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:42.450Z",
+      "crawledAt": "2026-06-03T23:18:31.185Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -858,16 +867,16 @@
           "proalpha"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-02T23:12:53.050Z",
+      "previousSlugs": [
+        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
         ]
       },
-      "previousSlugs": [
-        "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:12:53.050Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -903,17 +912,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (6LR72D)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Stadt\n\nContracting\n\nPart Time, 60%\n\nAb sofort - 12.10.2026 (mit Option auf Verlängerung)\n\n1st Level Support, IT Support\n\nJob benefits\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCompany laptop\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tCoopers Care\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tFirst-name terms\n\n•\n\t\t\t\t\t\t\t\t\t\t\t\t\tModern workspace\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni - Infrastrutture e operazioni IT - Basel-Stadt - Tempo parziale, 60 % - D'ora in poi - 12.10.2026 (con opzione per estensione) - Supporto al 1° livello, supporto IT \n• Requisiti - No. Cosa? - Computer aziendale - Coopers Care - Termini di nome - Spazio di lavoro moderno Contatto - Coopers.ch",
-        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni - IT Infrastructure & Operations - Basel-Stadt - Part Time, 60 % - From now on - 12.10.2026 (with option for extension) - 1st Level Support, IT Support \n• Requisiti - \n• Cosa offriamo - Company laptop - Coopers Care - First name terms - Modern workspace Contatto - coopers.ch",
+        "it": "Descrizione Allora siamo lieti di ricevere documenti di applicazione completi tramite modulo online. Per le applicazioni via e-mail, il trasmettitore o il trasmettitore concorda che i dati trasmessi verranno utilizzati tenendo conto della nostra politica sulla privacy. Mansioni - Infrastrutture e operazioni IT - Basel-Stadt - Tempo parziale, 60 % - D'ora in poi - 12.10.2026 (con opzione per estensione) - Supporto al 1° livello, supporto IT\n• Requisiti - No. Cosa? - Computer aziendale - Coopers Care - Termini di nome - Spazio di lavoro moderno Contatto - Coopers.ch",
+        "en": "Descrizione Then we are happy to receive complete application documents via online form. For applications by e-mail, the transmitter or the transmitter agrees that the transmitted data will be used taking into account our privacy policy. Mansioni - IT Infrastructure & Operations - Basel-Stadt - Part Time, 60 % - From now on - 12.10.2026 (with option for extension) - 1st Level Support, IT Support\n• Requisiti -\n• Cosa offriamo - Company laptop - Coopers Care - First name terms - Modern workspace Contatto - coopers.ch",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (6LR72D)\n• IT - IT Infrastructure & Operations\n• Basel-Stadt\n• Contracting\n• Part Time, 60%\n• Ab sofort - 12.10.2026 (mit Option auf Verlängerung)\n• 1st Level Support, IT Support Job benefits\n• Company laptop\n• Coopers Care\n• First-name terms\n• Modern workspace Sounds interesting? Simply click \"",
-        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni - Infrastructure et opérations informatiques - Basel-Stadt - Temps partiel, 60 % - A partir de maintenant - 12.10.2026 (avec option d'extension) - 1er niveau de soutien, soutien informatique \n• Requisiti - Oui. \n• Cosa offriamo - Ordinateur portable de la compagnie - Soins de Coopers - Prénom - Espace de travail moderne Contatto - Coopers.ch"
+        "fr": "Descrizione Ensuite, nous sommes heureux de recevoir des documents de candidature complets via un formulaire en ligne. Pour les applications par e-mail, l'émetteur ou l'émetteur accepte que les données transmises soient utilisées en tenant compte de notre politique de confidentialité. Mansioni - Infrastructure et opérations informatiques - Basel-Stadt - Temps partiel, 60 % - A partir de maintenant - 12.10.2026 (avec option d'extension) - 1er niveau de soutien, soutien informatique\n• Requisiti - Oui.\n• Cosa offriamo - Ordinateur portable de la compagnie - Soins de Coopers - Prénom - Espace de travail moderne Contatto - Coopers.ch"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6LR72D",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:41.179Z",
+      "crawledAt": "2026-06-03T23:18:29.893Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -960,6 +969,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:51.828Z",
+      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -1005,7 +1015,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E624SG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:39.906Z",
+      "crawledAt": "2026-06-03T23:18:28.571Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1050,6 +1060,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:50.603Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1066,9 +1077,9 @@
     },
     {
       "id": "coopers-7be5094140d6",
-      "slug": "devops-engineer-nextcloud-m-w-d-coopers-bern",
+      "slug": "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "devops-engineer-nextcloud-m-w-d-coopers-bern",
+        "it": "devops-ingegnere-nextcloud-m-w-d-coopers-group-ag-bern",
         "en": "devops-engineer-nextcloud-m-w-d-coopers-bern",
         "de": "devops-engineer-nextcloud-m-w-d-coopers-bern",
         "fr": "ingenieur-devops-nextcloud-coopers-group-ag-bern"
@@ -1095,7 +1106,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3QB12C",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:37.608Z",
+      "crawledAt": "2026-06-03T23:18:27.304Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1127,6 +1138,15 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:49.359Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-nextcloud-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-nextcloud-m-w-d-coopers-bern"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1172,7 +1192,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R487HZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:35.896Z",
+      "crawledAt": "2026-06-03T23:18:26.003Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1219,6 +1239,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:48.126Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1264,7 +1285,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0NG73J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:34.637Z",
+      "crawledAt": "2026-06-03T23:18:24.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1296,6 +1317,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:46.890Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1341,7 +1363,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1V29US",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:33.375Z",
+      "crawledAt": "2026-06-03T23:18:23.416Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1432,7 +1454,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=04FFW1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:32.127Z",
+      "crawledAt": "2026-06-03T23:18:22.128Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1475,6 +1497,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:44.308Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1520,7 +1543,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3UAZ24",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:30.842Z",
+      "crawledAt": "2026-06-03T23:18:20.826Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1566,6 +1589,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:43.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1601,17 +1625,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (W6TR28)\n\n•\n\t\t\t\t\t\t\tEngineering - Construction & Property\n\n•\n\nBasel-Stadt\n\nFestanstellung\n\nFull Time\n\nLeadership, Unternehmer:in\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Location Manager:in Basel – Membro della Direzione Avanzata (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilità di contribuire al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervisione e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del bilancio e delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti \n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 anni nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem solving - Competenze di leadership e di gestione di progetti Cosa? - Un ambiente di lavoro stimolante e dinamico - La possibilità di lavorare su progetti di grande rilevanza - Un'opportunità di crescita professionale - Un'ampia gamma di benefici, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupazione: 100%",
-        "en": "Location Manager:in Basel – Member of the Advanced Management (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilità di contribuire al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervisione e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del budget e delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti \n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 anni nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem solving - Competenze di leadership e di gestione di progetti \n• Cosa offriamo - Un ambiente di lavoro stimolante e dinamico - La possibilità di lavorare su progetti di grande rilevanza - Un'opportunità di crescita professionale - Un'ampia gamma di benefit, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupazione: 100%",
+        "it": "Location Manager:in Basel – Membro della Direzione Avanzata (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilità di contribuire al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervisione e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del bilancio e delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti\n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 anni nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem solving - Competenze di leadership e di gestione di progetti Cosa? - Un ambiente di lavoro stimolante e dinamico - La possibilità di lavorare su progetti di grande rilevanza - Un'opportunità di crescita professionale - Un'ampia gamma di benefici, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupazione: 100%",
+        "en": "Location Manager:in Basel – Member of the Advanced Management (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilità di contribuire al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervisione e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del budget e delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti\n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 anni nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem solving - Competenze di leadership e di gestione di progetti\n• Cosa offriamo - Un ambiente di lavoro stimolante e dinamico - La possibilità di lavorare su progetti di grande rilevanza - Un'opportunità di crescita professionale - Un'ampia gamma di benefit, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupazione: 100%",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (W6TR28)\n• Engineering - Construction & Property\n• Basel-Stadt\n• Festanstellung\n• Full Time\n• Leadership, Unternehmer:in Sounds interesting? Simply click \"",
-        "fr": "Gestionnaire de localisation: à Bâle – Membre de la direction avancée (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilité de contribuer al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervision e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del budget et delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti \n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 ans nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem resolution - Competenze di leadership e di gestione di progetti \n• Cosa offriamo - Un ambiente di lavoro stimolante e dinamico - La posssibilità di lavorare su progetti di grande rilevanza - Un'offre à di crescita professionelle - Un'ampia gamma di benefit, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupationazione: 100%"
+        "fr": "Gestionnaire de localisation: à Bâle – Membre de la direction avancée (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di leadership per la sua posizione di Standortleiter:in. La posizione offre la possibilité de contribuer al successo di un'azienda leader nel settore dell'ingegneria e della costruzione. Mansioni - Supervision e gestione di un team di ingegneri e di altri professionisti - Pianificazione e realizzazione di progetti di costruzione e proprietà - Collaborazione con la leadership aziendale per la definizione di strategie e obiettivi - Gestione del budget et delle risorse - Monitoraggio dei progressi dei progetti e della loro conformità ai requisiti\n• Requisiti - Laurea in ingegneria o un'altra formazione accademica equivalente - Esperienza di almeno 5 ans nel settore dell'ingegneria e della costruzione - Esperienza di leadership e gestione di team - Conoscenza approfondita delle normative e delle procedure di costruzione - Ottima capacità di comunicazione e di problem resolution - Competenze di leadership e di gestione di progetti\n• Cosa offriamo - Un ambiente di lavoro stimolante e dinamico - La posssibilità di lavorare su progetti di grande rilevanza - Un'offre à di crescita professionelle - Un'ampia gamma di benefit, tra cui un'assicurazione sanitaria completa e un piano pensionistico Contatto - Per candidarsi, inviare la propria candidatura online tramite il modulo di candidatura. - Grado di occupationazione: 100%"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W6TR28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:29.535Z",
+      "crawledAt": "2026-06-03T23:18:19.477Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1656,6 +1680,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:40.650Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1701,7 +1726,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AQX259",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:28.284Z",
+      "crawledAt": "2026-06-03T23:18:18.166Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1745,6 +1770,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:39.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1790,7 +1816,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B01C6O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:27.008Z",
+      "crawledAt": "2026-06-03T23:18:16.795Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1871,7 +1897,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=A4FZ51",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:25.709Z",
+      "crawledAt": "2026-06-03T23:18:15.452Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1909,14 +1935,15 @@
         "it": [
           "atlassian-spezialist-in-jira-jsm-m-w-d-coopers-luzern"
         ],
-        "fr": [
+        "en": [
           "atlassian-spezialist-in-jira-jsm-m-w-d-coopers-luzern"
         ],
-        "en": [
+        "fr": [
           "atlassian-spezialist-in-jira-jsm-m-w-d-coopers-luzern"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:36.826Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1952,17 +1979,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (368RYQ)\n\n•\n\t\t\t\t\t\t\tAdministration - Marketing\n\n•\n\nAargau\n\nFestanstellung\n\nFull Time\n\nMarketing, Sales\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di un team di marketing e operazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del bilancio e delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti \n• Requisiti - Amministrazione - Marketing - Aargau - Posizione fissa - Tempo pieno - Marketing, Vendite Cosa? - Un ambiente di lavoro temporaneo e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria, contributi pensionistici e altri Contatto - Coopers.ch - Profilo del lavoro (368RYQ) - Amministrazione - Marketing - Aargau - Posizione fissa - Tempo pieno - Marketing, Vendite - Grado di occupazione: 100%",
-        "en": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di un team di marketing e operazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del budget e delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti \n• Requisiti - Administration - Marketing - Aargau - Fixed position - Full Time - Marketing, Sales \n• Cosa offriamo - Un ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria, contributi pensionistici e altri Contatto - coopers.ch - Job profile (368RYQ) - Administration - Marketing - Aargau - Fixed position - Full Time - Marketing, Sales - Grado di occupazione: 100%",
+        "it": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di un team di marketing e operazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del bilancio e delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti\n• Requisiti - Amministrazione - Marketing - Aargau - Posizione fissa - Tempo pieno - Marketing, Vendite Cosa? - Un ambiente di lavoro temporaneo e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria, contributi pensionistici e altri Contatto - Coopers.ch - Profilo del lavoro (368RYQ) - Amministrazione - Marketing - Aargau - Posizione fissa - Tempo pieno - Marketing, Vendite - Grado di occupazione: 100%",
+        "en": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di un team di marketing e operazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del budget e delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti\n• Requisiti - Administration - Marketing - Aargau - Fixed position - Full Time - Marketing, Sales\n• Cosa offriamo - Un ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria, contributi pensionistici e altri Contatto - coopers.ch - Job profile (368RYQ) - Administration - Marketing - Aargau - Fixed position - Full Time - Marketing, Sales - Grado di occupazione: 100%",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (368RYQ)\n• Administration - Marketing\n• Aargau\n• Festanstellung\n• Full Time\n• Marketing, Sales Sounds interesting? Simply click \"",
-        "fr": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervision e gestione di un team di marketing e opérazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del budget et delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti \n• Requisiti - Administration - Marketing - Argovie - Position fixe - Temps plein - Marketing, ventes \n• Cosa offriamo - Un ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionelle - Benefici come assicurazione sanitaria, contributi pensionisti e altri Contatto - Coopers.ch - Profil d'emploi (368RYQ) - Administration - Marketing - Argovie - Position fixe - Temps plein - Marketing, ventes - Grado di occupationazione: 100%"
+        "fr": "Projektmanager (m/w/d) (m/w/d) Coopers Group AG, situata in Aargau, cerca un Lead Marketing & Operations (m/w/d) per un ruolo a tempo pieno. Mansioni - Supervision e gestione di un team di marketing e opérazioni - Pianificazione e realizzazione di campagne di marketing - Gestione del budget et delle risorse - Monitoraggio e analisi dei risultati delle campagne - Collaborazione con altri reparti aziendali - Gestione delle relazioni con i fornitori e i clienti\n• Requisiti - Administration - Marketing - Argovie - Position fixe - Temps plein - Marketing, ventes\n• Cosa offriamo - Un ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionelle - Benefici come assicurazione sanitaria, contributi pensionisti e altri Contatto - Coopers.ch - Profil d'emploi (368RYQ) - Administration - Marketing - Argovie - Position fixe - Temps plein - Marketing, ventes - Grado di occupationazione: 100%"
       },
       "location": "Aargau",
       "canton": "AG",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=368RYQ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:24.417Z",
+      "crawledAt": "2026-06-03T23:18:14.106Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2003,6 +2030,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:34.318Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2048,7 +2076,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5GZ55T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:23.073Z",
+      "crawledAt": "2026-06-03T23:18:12.814Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2092,6 +2120,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:33.092Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2137,7 +2166,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=62TLJ2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:21.755Z",
+      "crawledAt": "2026-06-03T23:18:11.474Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2172,7 +2201,9 @@
           "mendix, REST, SOAP, OData"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:12:31.861Z",
+      "previousSlugs": [
+        "mendix-lead-solution-architekt-in-m-w-d-coopers-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mendix-lead-solution-architekt-in-m-w-d-coopers-aargau"
@@ -2181,9 +2212,8 @@
           "mendix-lead-solution-architekt-in-m-w-d-coopers-aargau"
         ]
       },
-      "previousSlugs": [
-        "mendix-lead-solution-architekt-in-m-w-d-coopers-aargau"
-      ],
+      "firstSeenAt": "2026-06-02T23:12:31.861Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2229,7 +2259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T89E2L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:20.476Z",
+      "crawledAt": "2026-06-03T23:18:10.135Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2264,15 +2294,16 @@
           "Citrix, Recovery , SCCM, PVS, ITIL, PowerShell, Netzwerk, Network"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:12:30.590Z",
+      "previousSlugs": [
+        "ict-system-specialist-m-w-d-coopers-aargau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-specialist-m-w-d-coopers-aargau"
         ]
       },
-      "previousSlugs": [
-        "ict-system-specialist-m-w-d-coopers-aargau"
-      ],
+      "firstSeenAt": "2026-06-02T23:12:30.590Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2308,17 +2339,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (4BR1D5)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBern\n\nContracting\n\nPart Time, 80-100%\n\n01.06.2026 - 31.12.2027\n\nM365\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "M365 Specialista:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365. \n• Requisiti - Esperienza in gestione e attuazioneazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese. Cosa? - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
-        "en": "M365 Specialist:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365. \n• Requisiti - Esperienza in gestione e implementationazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese. \n• Cosa offriamo - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
+        "it": "M365 Specialista:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365.\n• Requisiti - Esperienza in gestione e attuazioneazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese. Cosa? - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
+        "en": "M365 Specialist:in (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto part-time (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implementazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relative a M365.\n• Requisiti - Esperienza in gestione e implementationazione di soluzioni M365. - Conoscenza di Microsoft 365 suite (Outlook, Teams, SharePoint, OneDrive, ecc.). - Capacità di lavorare in modo autonomo e in team. - Ottima capacità di problem solving e di problem solving. - Buona conoscenza della lingua italiana e inglese.\n• Cosa offriamo - Contratto part-time (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Link al sito web di Coopers Group AG] - Grado di occupazione: 100%",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (4BR1D5)\n• IT - IT Infrastructure & Operations\n• Bern\n• Contracting\n• Part Time, 80-100%\n• 01.06.2026 - 31.12.2027\n• M365 Sounds interesting? Simply click \"",
-        "fr": "M365 Spécialiste: en (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto temps partiel (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implémentationazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relatif à M365. \n• Requisiti - Esperienza in gestione e implementazione di soluzioni M365. - Suite Conoscenza di Microsoft 365 (Outlook, Teams, SharePoint, OneDrive, etc.). - Capacità di lavorare en modo autonomo e en équipe. - Ottima capacità di problem resolution e di problem resolution. - Buona conoscenza della lingua italiana e inglese. \n• Cosa offriamo - Contratto temps partiel (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Lien al sito web di Coopers Group AG] - Grado di occupationazione: 100%"
+        "fr": "M365 Spécialiste: en (m/w/d) Coopers Group AG, situata a Bern, cerca und M365 Spezialist:in per un contratto temps partiel (80-100%) dal 01.06.2026 al 31.12.2027. Mansioni - Collaborare con l'IT Infrastructure & Operations team per la gestione e l'implémentationazione di soluzioni M365. - Supporto tecnico per gli utenti in materia di M365. - Assistenza nella gestione e manutenzione di sistemi M365. - Collaborazione con altri team IT per la creazione di soluzioni IT. - Mantenimento e aggiornamento delle documentazioni relatif à M365.\n• Requisiti - Esperienza in gestione e implementazione di soluzioni M365. - Suite Conoscenza di Microsoft 365 (Outlook, Teams, SharePoint, OneDrive, etc.). - Capacità di lavorare en modo autonomo e en équipe. - Ottima capacità di problem resolution e di problem resolution. - Buona conoscenza della lingua italiana e inglese.\n• Cosa offriamo - Contratto temps partiel (80-100%) - Contratto a tempo determinato dal 01.06.2026 al 31.12.2027 - Possibilità di lavorare in un ambiente dinamico e stimolante. - Contatto con un team di esperti e appassionati. Contatto - Coopers Group AG - [Lien al sito web di Coopers Group AG] - Grado di occupationazione: 100%"
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4BR1D5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:19.167Z",
+      "crawledAt": "2026-06-03T23:18:08.821Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2363,6 +2394,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:29.368Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2408,7 +2440,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=26BP1M",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:17.907Z",
+      "crawledAt": "2026-06-03T23:18:07.524Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2443,15 +2475,16 @@
           "Governance, M365, ISDS"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:12:28.138Z",
+      "previousSlugs": [
+        "it-governance-m365-compliance-specialist-m-w-d-coopers-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "it-governance-m365-compliance-specialist-m-w-d-coopers-bern"
         ]
       },
-      "previousSlugs": [
-        "it-governance-m365-compliance-specialist-m-w-d-coopers-bern"
-      ],
+      "firstSeenAt": "2026-06-02T23:12:28.138Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2497,7 +2530,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=V96K2V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:16.551Z",
+      "crawledAt": "2026-06-03T23:18:06.214Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2536,14 +2569,15 @@
         "it": [
           "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt"
         ],
-        "fr": [
+        "en": [
           "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt"
         ],
-        "en": [
+        "fr": [
           "verfahrensingenieur-dp-m-w-d-coopers-basel-stadt"
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:26.872Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2579,17 +2613,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (34OX3O)\n\n•\n\t\t\t\t\t\t\tIT - Network & Security\n\n•\n\nBasel-Stadt\n\nContracting\n\nFull Time\n\nMES\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "MES Specialista di supporto di distribuzione (w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di supporto per la messa in opera del MES (Manufacturing Execution System). Se sei un professionista con esperienza nel campo dell'IT, con una conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - IT - Rete e Sicurezza - Basel-Stadt - Contraente - Tempo pieno Mansioni - Supporto tecnico durante la fase di messa in opera del MES - Assistenza agli utenti durante l'implementazione del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto \n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza della rete e sicurezza - Competenze di problem solving e problem solving - Capacità di lavorare in squadra - Ottime capacità di comunicazione Cosa? Contratto a tempo pieno - Ambiente di lavoro temporaneo e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria e contributi pensionistici Contatto - Coopers Group AG - Coopers.ch - Profilo del lavoro (34OX3O) - Applicazione online - Email: Grado di occupazione: 100%",
-        "en": "MES Deployment Support Specialist (w/d) Coopers Group AG, situata a Basel-Stadt, sta cercando un esperto di supporto per la messa in opera del MES (Manufacturing Execution System). Se sei un professionista con esperienza nel campo dell'IT, con una solida conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - IT - Network & Security - Basel-Stadt - Contracting - Full Time Mansioni - Supporto tecnico durante la fase di messa in opera del MES - Assistenza agli utenti durante l'implementazione del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto \n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza di network e sicurezza - Competenze di problem solving e problem solving - Capacità di lavorare in team - Ottime capacità di comunicazione \n• Cosa offriamo Contratto a tempo pieno - Ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria e contributi pensionistici Contatto - Coopers Group AG - coopers.ch - Job profile (34OX3O) - Online application - Email: Grado di occupazione: 100%",
+        "it": "MES Specialista di supporto di distribuzione (w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto di supporto per la messa in opera del MES (Manufacturing Execution System). Se sei un professionista con esperienza nel campo dell'IT, con una conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - IT - Rete e Sicurezza - Basel-Stadt - Contraente - Tempo pieno Mansioni - Supporto tecnico durante la fase di messa in opera del MES - Assistenza agli utenti durante l'implementazione del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto\n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza della rete e sicurezza - Competenze di problem solving e problem solving - Capacità di lavorare in squadra - Ottime capacità di comunicazione Cosa? Contratto a tempo pieno - Ambiente di lavoro temporaneo e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria e contributi pensionistici Contatto - Coopers Group AG - Coopers.ch - Profilo del lavoro (34OX3O) - Applicazione online - Email: Grado di occupazione: 100%",
+        "en": "MES Deployment Support Specialist (w/d) Coopers Group AG, situata a Basel-Stadt, sta cercando un esperto di supporto per la messa in opera del MES (Manufacturing Execution System). Se sei un professionista con esperienza nel campo dell'IT, con una solida conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - IT - Network & Security - Basel-Stadt - Contracting - Full Time Mansioni - Supporto tecnico durante la fase di messa in opera del MES - Assistenza agli utenti durante l'implementazione del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto\n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza di network e sicurezza - Competenze di problem solving e problem solving - Capacità di lavorare in team - Ottime capacità di comunicazione\n• Cosa offriamo Contratto a tempo pieno - Ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionale - Benefici come assicurazione sanitaria e contributi pensionistici Contatto - Coopers Group AG - coopers.ch - Job profile (34OX3O) - Online application - Email: Grado di occupazione: 100%",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (34OX3O)\n• IT - Network & Security\n• Basel-Stadt\n• Contracting\n• Full Time\n• MES Sounds interesting? Simply click \"",
-        "fr": "Spécialiste du soutien au déploiement du MES (p/d) Coopers Group AG, situata a Basel-Stadt, sta cercando un esperto di supporto per la messa in opéra del MES (Manufacturing Execution System). Sei un professionista con espérienza nel campo dell'IT, con una solida conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - Informatique - Réseau & Sécurité - Basel-Stadt - Contrats - Temps plein Mansioni - Supporto tecnico dure la fase di messa in opéra del MES - Assistenza agli utenti durant l'application del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto \n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza di network e sicurezza - Competenze di résolution de problèmes e résolution de problèmes - Capacità di lavorare en équipe - Ottime capacità di comunicazione \n• Cosa offriamo Contratto un tempo pieno - Ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionelle - Benefici come assicurazione sanitaria e contributi pensionisti Contatto - Coopers Group AG - Coopers.ch - Profil d'emploi (34OX3O) - Application en ligne - Courriel : Grado di occupationazione: 100%"
+        "fr": "Spécialiste du soutien au déploiement du MES (p/d) Coopers Group AG, situata a Basel-Stadt, sta cercando un esperto di supporto per la messa in opéra del MES (Manufacturing Execution System). Sei un professionista con espérienza nel campo dell'IT, con una solida conoscenza di network e sicurezza, e sei pronto a lavorare in un ambiente dinamico e stimolante, questa è l'opportunità per te. - Informatique - Réseau & Sécurité - Basel-Stadt - Contrats - Temps plein Mansioni - Supporto tecnico dure la fase di messa in opéra del MES - Assistenza agli utenti durant l'application del sistema - Collaborazione con il team di sviluppo per la risoluzione di problemi - Documentazione e formazione degli utenti - Gestione dei ticket di supporto\n• Requisiti - Esperienza nel supporto tecnico di sistemi MES - Conoscenza di network e sicurezza - Competenze di résolution de problèmes e résolution de problèmes - Capacità di lavorare en équipe - Ottime capacità di comunicazione\n• Cosa offriamo Contratto un tempo pieno - Ambiente di lavoro dinamico e stimolante - Possibilità di crescita professionelle - Benefici come assicurazione sanitaria e contributi pensionisti Contatto - Coopers Group AG - Coopers.ch - Profil d'emploi (34OX3O) - Application en ligne - Courriel : Grado di occupationazione: 100%"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=34OX3O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:15.284Z",
+      "crawledAt": "2026-06-03T23:18:04.932Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2629,6 +2663,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:25.622Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2642,6 +2677,85 @@
         }
       },
       "postalCode": "4001"
+    },
+    {
+      "id": "coopers-79290e93ef5b",
+      "slug": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+      "slugByLocale": {
+        "de": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "it": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "en": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft",
+        "fr": "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "IT Supporter:in - Infrastruktur & Workplace (m/w/d)",
+      "titleByLocale": {
+        "de": "IT Supporter:in - Infrastruktur & Workplace (m/w/d)",
+        "it": "IT Supporter:in - Infrastruktur & Workplace (m/w/d)",
+        "en": "IT Supporter:in - Infrastruktur & Workplace (m/w/d)",
+        "fr": "IT Supporter:in - Infrastruktur & Workplace (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nMitte Juni - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nMitte Juni - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nMitte Juni - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nMitte Juni - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7YVC86)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nFull Time\n\nMitte Juni - 6 Monate mit Option auf Verlängerung\n\n2nd Level Support, ServiceNow\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Basel-Landschaft",
+      "canton": "BS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-03T23:18:03.637Z",
+      "addressLocality": "Basel-Landschaft",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-21",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=7YVC86",
+      "requirements": [
+        "IT - IT Infrastructure & Operations",
+        "Basel-Landschaft",
+        "Contracting",
+        "Full Time",
+        "Mitte Juni - 6 Monate mit Option auf Verlängerung",
+        "2nd Level Support, ServiceNow"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - IT Infrastructure & Operations",
+          "Basel-Landschaft",
+          "Contracting",
+          "Full Time",
+          "Mitte Juni - 6 Monate mit Option auf Verlängerung",
+          "2nd Level Support, ServiceNow"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "firstSeenAt": "2026-06-03T23:18:03.637Z"
     },
     {
       "id": "coopers-8d3fd7ed73bf",
@@ -2674,7 +2788,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BNO733",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:13.935Z",
+      "crawledAt": "2026-06-03T23:18:02.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2710,6 +2824,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:24.379Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2755,7 +2870,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6O0MK9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:12.584Z",
+      "crawledAt": "2026-06-03T23:18:01.024Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2798,6 +2913,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:23.119Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2843,7 +2959,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:11.207Z",
+      "crawledAt": "2026-06-03T23:17:59.730Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2908,6 +3024,7 @@
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis"
       ],
       "firstSeenAt": "2026-05-27T22:41:36.318Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2943,17 +3060,17 @@
       },
       "description": "Position und Projektmanagement\n\n• Tiefgehendes Verständnis der M365 Plattform, idealerweise mit Erfahrung im Hochschulbereich\n\n• Starke Kommunikationsfähigkeiten, Verhandlungsgeschick und die Fähigkeit, verschiedene Interessengruppen zu managen\n\n• Hohe Serviceorientierung, Selbstständigkeit und Teamgeist zeichnen Sie aus\n\n• Fähigkeit, Anforderungen effektiv zu priorisieren und in technische Lösungen umzusetzen\n\n• Microsoft-Zertifizierungen, die für M365 oder das Produktmanagement relevant sind",
       "descriptionByLocale": {
-        "it": "M365 Solution Manager:in (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratto part-time (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'organizzazione IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con diversi stakeholder - Analisi e implementazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del bilancio e delle risorse \n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e prospettive - Capacità di lavorare in team e individualmente - Capacità di priorizzare e gestire compiti in modo efficace - Certificazioni Microsoft pertinenti a M365 o una gestione dei prodotti Cosa? - Contratto part-time (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continua - Ambiente di lavoro temporaneo e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupazione: 50-60 %",
-        "en": "M365 Solution Manager:in (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratto part-time (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'infrastruttura IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con diverse stakeholder - Analisi e implementationazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del budget e delle risorse \n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e negoziazione - Capacità di lavorare in team e individualmente - Capacità di priorizzare e gestire compiti in modo efficace - Microsoft certifications pertinenti a M365 o a product management \n• Cosa offriamo - Contratto part-time (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continua - Ambiente di lavoro dinamico e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupazione: 50-60 %",
+        "it": "M365 Solution Manager:in (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratto part-time (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'organizzazione IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con diversi stakeholder - Analisi e implementazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del bilancio e delle risorse\n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e prospettive - Capacità di lavorare in team e individualmente - Capacità di priorizzare e gestire compiti in modo efficace - Certificazioni Microsoft pertinenti a M365 o una gestione dei prodotti Cosa? - Contratto part-time (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continua - Ambiente di lavoro temporaneo e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupazione: 50-60 %",
+        "en": "M365 Solution Manager:in (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratto part-time (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'infrastruttura IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con diverse stakeholder - Analisi e implementationazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del budget e delle risorse\n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e negoziazione - Capacità di lavorare in team e individualmente - Capacità di priorizzare e gestire compiti in modo efficace - Microsoft certifications pertinenti a M365 o a product management\n• Cosa offriamo - Contratto part-time (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continua - Ambiente di lavoro dinamico e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupazione: 50-60 %",
         "de": "Position und Projektmanagement\n• Tiefgehendes Verständnis der M365 Plattform, idealerweise mit Erfahrung im Hochschulbereich\n• Starke Kommunikationsfähigkeiten, Verhandlungsgeschick und die Fähigkeit, verschiedene Interessengruppen zu managen\n• Hohe Serviceorientierung, Selbstständigkeit und Teamgeist zeichnen Sie aus\n• Fähigkeit, Anforderungen effektiv zu priorisieren und in technische Lösungen umzusetzen\n• Microsoft-Zertifizierungen, die für M365 oder das Produktmanagement relevant sind",
-        "fr": "M365 Gestionnaire de solutions : en (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratà temps partiel (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'infrastruttura IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con divers intervenants - Analisi e implementazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del budget et delle risorse \n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e negoziazione - Capacità di lavorare en équipe e individuelle - Capacità di priorizzare e gestire compiti in modo efficace - Certifications Microsoft pertinentesi a M365 o a gestion de produits \n• Cosa offriamo - Contratto temps partiel (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continue - Ambiente di lavoro dinamico e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupationazione: 50-60 %"
+        "fr": "M365 Gestionnaire de solutions : en (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un M365 Solution Manager:in per un contratà temps partiel (50-60%) a partire dal 31.03.2027 con la possibilità di estensione. La posizione offre la possibilità di lavorare su progetti complessi e di contribuire alla gestione di un'infrastruttura IT complessa. Mansioni - Gestione di progetti M365 - Collaborazione con divers intervenants - Analisi e implementazione di soluzioni M365 - Supporto tecnico e consulenza - Gestione del budget et delle risorse\n• Requisiti - Profondo conoscenze di M365 - Esperienza in gestione di progetti IT - Ottime capacità di comunicazione e negoziazione - Capacità di lavorare en équipe e individuelle - Capacità di priorizzare e gestire compiti in modo efficace - Certifications Microsoft pertinentesi a M365 o a gestion de produits\n• Cosa offriamo - Contratto temps partiel (50-60%) - Possibilità di lavorare su progetti complessi - Supporto e formazione continue - Ambiente di lavoro dinamico e stimolante Contatto Per candidarsi, inviare il proprio curriculum vitae e lettera di presentazione a [email protected] Grado di occupationazione: 50-60 %"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W2A8N9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:09.932Z",
+      "crawledAt": "2026-06-03T23:17:58.434Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2989,6 +3106,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:16.784Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3034,7 +3152,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2BI62U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:08.605Z",
+      "crawledAt": "2026-06-03T23:17:57.123Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3080,6 +3198,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:16:01.654Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3125,7 +3244,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=535ZAD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:07.335Z",
+      "crawledAt": "2026-06-03T23:17:55.820Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3159,7 +3278,9 @@
           "Refer a Friend"
         ]
       },
-      "firstSeenAt": "2026-06-02T23:12:13.786Z",
+      "previousSlugs": [
+        "solution-ux-lead-principal-ux-designer-m-f-d-m-w-d-coopers-zug"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "solution-ux-lead-principal-ux-designer-m-f-d-m-w-d-coopers-zug"
@@ -3168,9 +3289,8 @@
           "solution-ux-lead-principal-ux-designer-m-f-d-m-w-d-coopers-zug"
         ]
       },
-      "previousSlugs": [
-        "solution-ux-lead-principal-ux-designer-m-f-d-m-w-d-coopers-zug"
-      ],
+      "firstSeenAt": "2026-06-02T23:12:13.786Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3216,7 +3336,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T18VX5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:06.025Z",
+      "crawledAt": "2026-06-03T23:17:54.361Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3265,93 +3385,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:12.543Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6300"
-    },
-    {
-      "id": "coopers-c294251c6174",
-      "slug": "agente-globale-di-supply-chain-drop-shipping-m-f-d-coopers-group-ag-zug",
-      "slugByLocale": {
-        "it": "agente-globale-di-supply-chain-drop-shipping-m-f-d-coopers-group-ag-zug",
-        "en": "global-supply-chain-drop-shipping-agent-m-f-d-coopers-zug",
-        "de": "global-lieferkette-drop-shipping-agent-m-f-d-coopers-group-ag-zug",
-        "fr": "agent-de-livraison-de-la-chaine-logistique-mondiale-m-f-d-coopers-group-ag-zug"
-      },
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Global Supply Chain Drop-Shipping Agent (m/f/d)",
-      "titleByLocale": {
-        "it": "Agente Globale di Supply Chain Drop-Shipping (m/f/d)",
-        "en": "Global Supply Chain Drop-Shipping Agent (m/f/d)",
-        "de": "Global Lieferkette Drop-Shipping Agent (m/f/d)",
-        "fr": "Agent de livraison de la chaîne logistique mondiale (m/f/d)"
-      },
-      "description": "positions\n\n•\n\t\t\t\t\t\tGlobal Supply Chain Drop-Shipping Agent\n\nCandidates\n\n•\n\t\t\tCoopers Portal\n\n•\n\t\t\tCoopers Care\n\n•\n\t\t\tSpecialization\n\n•\n\t\t\tPlacements\n\n•\n\t\t\tContracting\n\n•\n\t\t\tPayrolling\n\n•\n\t\t\tRefer a Friend\n\nCompanies\n\n•\n\t\t\tRecruitment\n\n•\n\t\t\tExecutive Search\n\n•\n\t\t\tProject Recruiting\n\n•\n\t\t\tRPO\n\n•\n\t\t\tMSP\n\n•\n\t\t\tConsulting & Solutions\n\nAbout\n\n•\n\t\t\tTeam\n\n•\n\t\t\tJoin us\n\n•\n\t\t\tTalentor\n\nBlog\n\nContact\n\n• Contact Form\n\n• IT Jobs Basel\n\n• IT Jobs Zurich\n\n• IT Jobs Bern\n\n• LS Jobs Basel\n\nCoopers Group AG\n\nGrellingerstrasse 75\n\nCH-4052 Basel\n\n+41 41 632 43 50\n\noffice@coopers.ch\n\n•\n\n•\n\t\t\tPrivacy policy\n\n•\n\t\t\tImprint\n\n•\n\t\t\tSitemap",
-      "descriptionByLocale": {
-        "it": "posizioni\n• Agente di goccia della catena di fornitura globale Candidati\n• Coopers Portal\n• Coopers Care\n• Specializzazione\n• Posizioni\n• Contratti\n• Pagamenti\n• Fare riferimento a un amico Aziende\n• Reclutamento\n• Ricerca executive\n• Reclutamento del progetto\n• RPO\n• MSP\n• Consulenza e Soluzioni Informazioni\n• Team\n• Unisciti a noi\n• Talentor Blog Contatto\n• Modulo di contatto\n• Lavoro IT Basilea\n• Lavoro IT Zurigo\n• Lavoro IT Berna\n• LS Jobs Basel Coopers Group AG Grellingerstrasse 75 CH-4052 Basilea +41 41 632 43 50 ufficio@coopers.ch\n• •\n• Imprint\n• Mappa del sito",
-        "en": "positions\n• Global Supply Chain Drop-Shipping Agent Candidates\n• Coopers Portal\n• Coopers Care\n• Specialization\n• Placements\n• Contracting\n• Payrolling\n• Refer a Friend Companies\n• Specialization\n• Recruitment\n• Executive Search\n• Project Recruiting\n• Contracting\n• Payrolling\n• RPO\n• MSP\n• Consulting & Solutions About\n• Team\n• Join us\n• Talentor Blog Contact\n• Contact Form\n• IT Jobs Basel\n• IT Jobs Zurich\n• IT Jobs Bern\n• LS Jobs Basel Coopers Group AG Grellingerstrasse 75 CH-4052 Basel +41 41 632 43 50 office@coopers.ch\n• •\n• •\n• Privacy policy\n• Imprint\n• Sitemap\n• • •",
-        "de": "positionen\n• Global Supply Chain Drop-Shipping Agent Kandidaten\n• Das Portal von Coopers\n• Aus dem Weg zu uns\n• Spezialisierung\n• Platzierungen\n• Vertrag\n• Bezahlen\n• Ein Freund empfehlen Unternehmen\n• Einstellung\n• Pressemitteilungen\n• Projekt Recruiting\n• RPO\n• MSP\n• Beratung und Beratung Über uns\n• Team\n• Besuchen Sie uns\n• Talente Blog Kontakt\n• Kontaktformular\n• IT Jobs Basel\n• IT Jobs Zürich\n• IT Jobs Bern\n• LS Jobs Basel Coopers Group AG Grellingstraße 75 CH-4052 Basel +41 41 632 43 50 office@coopers.ch\n• •\n• Impressum\n• Sitemap",
-        "fr": "fonctions\n• Agent de livraison de la chaîne d'approvisionnement mondiale Candidats\n• Portail Coopers\n• Coopers Care\n• Spécialisation\n• Placements\n• Contrats\n• Solde\n• Référez un ami Entreprises\n• Recrutement\n• Recherche exécutive\n• Recrutement de projets\n• RPO\n• MSP\n• Conseil & Solutions À propos\n• Équipe\n• Rejoignez-nous\n• Talentor Blog Personne à contacter\n• Formulaire de contact\n• Emplois en informatique Bâle\n• Emplois en informatique Zurich\n• Emplois en informatique à Berne\n• Emplois LS Bâle Groupe Coopers AG Grellingerstrasse 75 CH-4052 Bâle +41 41 632 43 50 bureau@coopers.ch\n• •\n• Empreinte\n• Plan du site"
-      },
-      "location": "Zug",
-      "canton": "ZG",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=G3N6E8",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:04.737Z",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=G3N6E8",
-      "requirements": [
-        "Life Sciences - Supply Chain / Operations",
-        "Contracting",
-        "Full Time",
-        "June/July 2026 - 12-month contract (with a chance of extension)",
-        "Export, Supply Chain, order management"
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Life Sciences - Supply Chain / Operations",
-          "Contracting",
-          "Full Time",
-          "June/July 2026 - 12-month contract (with a chance of extension)",
-          "Export, Supply Chain, order management"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T23:12:11.308Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "global-supply-chain-drop-shipping-agent-m-f-d-coopers-zug"
-        ],
-        "de": [
-          "global-supply-chain-drop-shipping-agent-m-f-d-coopers-zug"
-        ]
-      },
-      "previousSlugs": [
-        "global-supply-chain-drop-shipping-agent-m-f-d-coopers-zug"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3397,7 +3431,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W91R4J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:03.464Z",
+      "crawledAt": "2026-06-03T23:17:53.045Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3409,7 +3443,7 @@
       "sector": "Farmaceutica / Life Sciences",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-01",
+      "postedDate": "2026-05-29",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=W91R4J",
       "requirements": [
         "Life Sciences - IT + Digital",
@@ -3444,6 +3478,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:10.091Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3489,7 +3524,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:18:02.205Z",
+      "crawledAt": "2026-06-03T23:17:51.723Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3535,6 +3570,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:07.573Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3548,6 +3584,85 @@
         }
       },
       "postalCode": "6003"
+    },
+    {
+      "id": "coopers-0a3f5e79e510",
+      "slug": "material-planner-m-f-d-coopers-aargau",
+      "slugByLocale": {
+        "en": "material-planner-m-f-d-coopers-aargau",
+        "it": "material-planner-m-f-d-coopers-aargau",
+        "de": "material-planner-m-f-d-coopers-aargau",
+        "fr": "material-planner-m-f-d-coopers-aargau"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Material Planner (m/f/d)",
+      "titleByLocale": {
+        "en": "Material Planner (m/f/d)",
+        "it": "Material Planner (m/f/d)",
+        "de": "Material Planner (m/f/d)",
+        "fr": "Material Planner (m/f/d)"
+      },
+      "description": "your role is driving, anticipating operational issues, focusing on details when needed and recommending solutions\n\n• Demonstrated abilities to think through the process, considering upstream and downstream stakeholders and using the process effectively to achieve results\n\n• Taking the initiative, embrace new opportunities, convey sense of urgency and are not afraid to take over or lead new responsibilities and/or challenges\n\n• Excellent communications skills in English and German and the ability to effectively communicate and influence across all levels of the organization\n\n• Self-directed individual with strong interpersonal and collaborative skills with a passion for teamwork and continuous improvement",
+      "descriptionByLocale": {
+        "en": "your role is driving, anticipating operational issues, focusing on details when needed and recommending solutions\n\n• Demonstrated abilities to think through the process, considering upstream and downstream stakeholders and using the process effectively to achieve results\n\n• Taking the initiative, embrace new opportunities, convey sense of urgency and are not afraid to take over or lead new responsibilities and/or challenges\n\n• Excellent communications skills in English and German and the ability to effectively communicate and influence across all levels of the organization\n\n• Self-directed individual with strong interpersonal and collaborative skills with a passion for teamwork and continuous improvement",
+        "it": "your role is driving, anticipating operational issues, focusing on details when needed and recommending solutions\n\n• Demonstrated abilities to think through the process, considering upstream and downstream stakeholders and using the process effectively to achieve results\n\n• Taking the initiative, embrace new opportunities, convey sense of urgency and are not afraid to take over or lead new responsibilities and/or challenges\n\n• Excellent communications skills in English and German and the ability to effectively communicate and influence across all levels of the organization\n\n• Self-directed individual with strong interpersonal and collaborative skills with a passion for teamwork and continuous improvement",
+        "de": "your role is driving, anticipating operational issues, focusing on details when needed and recommending solutions\n\n• Demonstrated abilities to think through the process, considering upstream and downstream stakeholders and using the process effectively to achieve results\n\n• Taking the initiative, embrace new opportunities, convey sense of urgency and are not afraid to take over or lead new responsibilities and/or challenges\n\n• Excellent communications skills in English and German and the ability to effectively communicate and influence across all levels of the organization\n\n• Self-directed individual with strong interpersonal and collaborative skills with a passion for teamwork and continuous improvement",
+        "fr": "your role is driving, anticipating operational issues, focusing on details when needed and recommending solutions\n\n• Demonstrated abilities to think through the process, considering upstream and downstream stakeholders and using the process effectively to achieve results\n\n• Taking the initiative, embrace new opportunities, convey sense of urgency and are not afraid to take over or lead new responsibilities and/or challenges\n\n• Excellent communications skills in English and German and the ability to effectively communicate and influence across all levels of the organization\n\n• Self-directed individual with strong interpersonal and collaborative skills with a passion for teamwork and continuous improvement"
+      },
+      "location": "Aargau",
+      "canton": "AG",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7Q2S4J",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-03T23:17:50.402Z",
+      "addressLocality": "Aargau",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=7Q2S4J",
+      "requirements": [
+        "Life Sciences - Supply Chain / Operations",
+        "Aargau",
+        "Contracting",
+        "Part Time, 80-100%",
+        "July/Aug/Sep 2026 - 12-month-contrat (with a strong chance of extension)",
+        "Supply Chain"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Life Sciences - Supply Chain / Operations",
+          "Aargau",
+          "Contracting",
+          "Part Time, 80-100%",
+          "July/Aug/Sep 2026 - 12-month-contrat (with a strong chance of extension)",
+          "Supply Chain"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "firstSeenAt": "2026-06-03T23:17:50.402Z"
     },
     {
       "id": "coopers-96292377c301",
@@ -3580,7 +3695,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Z5ZG39",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:18:00.948Z",
+      "crawledAt": "2026-06-03T23:17:49.083Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3627,6 +3742,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:06.339Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3672,7 +3788,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E06BQ9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:17:59.673Z",
+      "crawledAt": "2026-06-03T23:17:47.761Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3715,6 +3831,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:05.103Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3760,7 +3877,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XA314L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:17:58.390Z",
+      "crawledAt": "2026-06-03T23:17:46.468Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3807,6 +3924,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:03.858Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3842,17 +3960,17 @@
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (T073ZF)\n\n•\n\t\t\t\t\t\t\tAdministration - Sales\n\n•\n\nBasel-Stadt\n\nFestanstellung\n\nFull Time\n\nSales, Business development\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "it": "Gestione del prodotto (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Sviluppo Industriale e Areal per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di progetti di sviluppo industriale e di aree - Analisi di mercato e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partner commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastrutture - Gestione di budget e risorse \n• Requisiti - Esperienza nello sviluppo industriale e industriale - Conoscenza del mercato locale e delle normative - Capacità di analisi e problem solving - Ottime capacità di comunicazione e di lavoro in team - Alta capacità organizzativa e di gestione del tempo Cosa? - Stipendio competitivo - Opportunità di crescita professionale - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo email] - Grado di occupazione: 100%",
-        "en": "Projektmanagement (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Industrial and Areal Development per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di progetti di sviluppo industriale e di aree - Analisi di mercato e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partner commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastrutture - Gestione di budget e risorse \n• Requisiti - Esperienza in industrial and industrial development - Conoscenza del mercato locale e delle normative - Capacità di analisi e problem solving - Ottime capacità di comunicazione e di lavoro in team - Alta capacità organizzativa e di gestione del tempo \n• Cosa offriamo - Stipendio competitivo - Opportunità di crescita professionale - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo email] - Grado di occupazione: 100%",
+        "it": "Gestione del prodotto (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Sviluppo Industriale e Areal per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di progetti di sviluppo industriale e di aree - Analisi di mercato e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partner commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastrutture - Gestione di budget e risorse\n• Requisiti - Esperienza nello sviluppo industriale e industriale - Conoscenza del mercato locale e delle normative - Capacità di analisi e problem solving - Ottime capacità di comunicazione e di lavoro in team - Alta capacità organizzativa e di gestione del tempo Cosa? - Stipendio competitivo - Opportunità di crescita professionale - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo email] - Grado di occupazione: 100%",
+        "en": "Projektmanagement (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Industrial and Areal Development per un ruolo a tempo pieno. Mansioni - Supervisione e gestione di progetti di sviluppo industriale e di aree - Analisi di mercato e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partner commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastrutture - Gestione di budget e risorse\n• Requisiti - Esperienza in industrial and industrial development - Conoscenza del mercato locale e delle normative - Capacità di analisi e problem solving - Ottime capacità di comunicazione e di lavoro in team - Alta capacità organizzativa e di gestione del tempo\n• Cosa offriamo - Stipendio competitivo - Opportunità di crescita professionale - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo email] - Grado di occupazione: 100%",
         "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (T073ZF)\n• Administration - Sales\n• Basel-Stadt\n• Festanstellung\n• Full Time\n• Sales, Business development Sounds interesting? Simply click \"",
-        "fr": "Gestion du projet (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Industrial and Areal Development per un ruolo a tempo pieno. Mansioni - Supervision e gestione di progetti di sviluppo industriale e di aree - Analisi di merca e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partenaire commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastructure - Gestione di budget e risorse \n• Requisiti - Espérienza en développement industriel et industriel - Conoscenza del mercato locale e delle normative - Capacità di analisi e résolution de problèmes - Ottime capacità di comunicazione e di lavoro en équipe - Alta capacità organizzativa e di gestione del tempo \n• Cosa offriamo - Stipendio competivo - Opportunità di crescita professionelle - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo courriel] - Grado di occupationazione: 100%"
+        "fr": "Gestion du projet (m/w/d) Coopers Group AG, situata a Basel-Stadt, cerca un esperto in Industrial and Areal Development per un ruolo a tempo pieno. Mansioni - Supervision e gestione di progetti di sviluppo industriale e di aree - Analisi di merca e ricerca di opportunità di sviluppo - Collaborazione con clienti, enti pubblici e partenaire commerciali - Sviluppo di strategie di sviluppo e pianificazione di infrastructure - Gestione di budget e risorse\n• Requisiti - Espérienza en développement industriel et industriel - Conoscenza del mercato locale e delle normative - Capacità di analisi e résolution de problèmes - Ottime capacità di comunicazione e di lavoro en équipe - Alta capacità organizzativa e di gestione del tempo\n• Cosa offriamo - Stipendio competivo - Opportunità di crescita professionelle - Ambiente di lavoro stimolante - Collaborazione con un team di esperti Contatto - Coopers Group AG - [Inserire indirizzo courriel] - Grado di occupationazione: 100%"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=T073ZF",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:17:57.121Z",
+      "crawledAt": "2026-06-03T23:17:45.149Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3897,6 +4015,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:12:02.622Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3915,9 +4034,9 @@
       "id": "coopers-91454427c0b3",
       "slug": "ai-solution-consulente-m-w-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "de": "ai-solution-consultant-m-w-d-coopers-bern",
         "it": "ai-solution-consulente-m-w-d-coopers-group-ag-bern",
         "en": "ai-solution-consultant-m-w-d-coopers-bern",
+        "de": "ai-solution-consultant-m-w-d-coopers-bern",
         "fr": "ai-solution-consultant-m-w-d-coopers-bern"
       },
       "company": "Coopers Group AG",
@@ -3925,24 +4044,24 @@
       "companyDomain": "coopers.ch",
       "title": "AI Solution Consultant (m/w/d)",
       "titleByLocale": {
-        "de": "AI Solution Berater (m/w/d)",
-        "en": "AI Solution Consultant (m/w/d)",
         "it": "AI Solution Consulente (m/w/d)",
+        "en": "AI Solution Consultant (m/w/d)",
+        "de": "AI Solution Berater (m/w/d)",
         "fr": "AI Solution Consultant (m/w/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7UAZ62)\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nKI, Proof of Concept\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7UAZ62)\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nKI, Proof of Concept\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7UAZ62)\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nKI, Proof of Concept\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7UAZ62)\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nKI, Proof of Concept\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (7UAZ62)\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\nBern\n\nContracting\n\nPart Time, 20%\n\n01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n\nKI, Proof of Concept\n\nSounds interesting?\n\nSimply click \""
+        "it": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7UAZ62)\n• IT - IT Management\n• IT - Project Management\n• Bern Contracting Part Time, 20% 01.07.2026 - 31.12.2027 (mit Option auf Verlängerung) KI, Proof of Concept Sounds interesting? Simply click \"",
+        "en": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7UAZ62)\n• IT - IT Management\n• IT - Project Management\n• Bern Contracting Part Time, 20% 01.07.2026 - 31.12.2027 (mit Option auf Verlängerung) KI, Proof of Concept Sounds interesting? Simply click \"",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7UAZ62)\n• IT - IT Management\n• IT - Project Management\n• Bern\n• Contracting\n• Part Time, 20%\n• 01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)\n• KI, Proof of Concept Sounds interesting? Simply click \"",
+        "fr": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (7UAZ62)\n• IT - IT Management\n• IT - Project Management\n• Bern Contracting Part Time, 20% 01.07.2026 - 31.12.2027 (mit Option auf Verlängerung) KI, Proof of Concept Sounds interesting? Simply click \""
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=7UAZ62",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:17:55.840Z",
+      "crawledAt": "2026-06-03T23:17:43.839Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3969,14 +4088,22 @@
         "de": [
           "IT - IT Management",
           "IT - Project Management",
-          "Bern",
           "Contracting",
           "Part Time, 20%",
           "01.07.2026 - 31.12.2027 (mit Option auf Verlängerung)",
           "KI, Proof of Concept"
         ]
       },
+      "previousSlugs": [
+        "ai-solution-consultant-m-w-d-coopers-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-solution-consultant-m-w-d-coopers-bern"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T13:17:55.840Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3989,16 +4116,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-03T13:17:55.840Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-solution-consultant-m-w-d-coopers-bern"
-        ]
-      },
-      "previousSlugs": [
-        "ai-solution-consultant-m-w-d-coopers-bern"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "coopers-2623bcf0eafe",
@@ -4031,7 +4149,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-03T13:17:54.573Z",
+      "crawledAt": "2026-06-03T23:17:42.501Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4115,36 +4233,36 @@
     },
     {
       "id": "coopers-b287b1cbd559",
-      "slug": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
+      "slug": "entra-id-active-directory-ingegnere-m-w-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
-        "de": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
-        "it": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
+        "it": "entra-id-active-directory-ingegnere-m-w-d-coopers-group-ag-basel-landschaft",
         "en": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
-        "fr": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+        "de": "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft",
+        "fr": "entra-id-active-directory-ingenieur-m-w-d-coopers-group-ag-basel-landschaft"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Entra ID / Active Directory Engineer (m/w/d)",
       "titleByLocale": {
-        "de": "Entra ID / Active Directory Ingenieur (m/w/d)",
-        "en": "Entra ID / Active Directory Engineer (m/w/d)",
         "it": "Entra ID / Active Directory Ingegnere (m/w/d)",
+        "en": "Entra ID / Active Directory Engineer (m/w/d)",
+        "de": "Entra ID / Active Directory Ingenieur (m/w/d)",
         "fr": "Entra ID / Active Directory Ingénieur (m/w/d)"
       },
       "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HF368N)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\nper sofort - 31.12.2026 (mit Option auf Verlängerung)\n\nEntraID, Active Directory, Identity Access Management, PowerShell\n\nSounds interesting?\n\nSimply click \"",
       "descriptionByLocale": {
-        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HF368N)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\nper sofort - 31.12.2026 (mit Option auf Verlängerung)\n\nEntraID, Active Directory, Identity Access Management, PowerShell\n\nSounds interesting?\n\nSimply click \"",
-        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HF368N)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\nper sofort - 31.12.2026 (mit Option auf Verlängerung)\n\nEntraID, Active Directory, Identity Access Management, PowerShell\n\nSounds interesting?\n\nSimply click \"",
-        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HF368N)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\nper sofort - 31.12.2026 (mit Option auf Verlängerung)\n\nEntraID, Active Directory, Identity Access Management, PowerShell\n\nSounds interesting?\n\nSimply click \"",
-        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (HF368N)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\nBasel-Landschaft\n\nContracting\n\nPart Time, 80-100%\n\nper sofort - 31.12.2026 (mit Option auf Verlängerung)\n\nEntraID, Active Directory, Identity Access Management, PowerShell\n\nSounds interesting?\n\nSimply click \""
+        "it": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (HF368N)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft Contracting Part Time, 80-100% per sofort - 31.12.2026 (mit Option auf Verlängerung) EntraID, Active Directory, Identity Access Management, PowerShell Sounds interesting? Simply click \"",
+        "en": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (HF368N)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft Contracting Part Time, 80-100% per sofort - 31.12.2026 (mit Option auf Verlängerung) EntraID, Active Directory, Identity Access Management, PowerShell Sounds interesting? Simply click \"",
+        "de": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (HF368N)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft\n• Contracting\n• Part Time, 80-100%\n• per sofort - 31.12.2026 (mit Option auf Verlängerung)\n• EntraID, Active Directory, Identity Access Management, PowerShell Sounds interesting? Simply click \"",
+        "fr": "Position? Dann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular. Bei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden. Weitere offene Stellen gibt es hier: coopers.ch Job profile (HF368N)\n• IT - IT Infrastructure & Operations\n• Basel-Landschaft Contracting Part Time, 80-100% per sofort - 31.12.2026 (mit Option auf Verlängerung) EntraID, Active Directory, Identity Access Management, PowerShell Sounds interesting? Simply click \""
       },
       "location": "Basel-Landschaft",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HF368N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T13:17:53.311Z",
+      "crawledAt": "2026-06-03T23:17:41.209Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4177,6 +4295,18 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-03T13:17:53.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+        ],
+        "fr": [
+          "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+        ]
+      },
+      "previousSlugs": [
+        "entra-id-active-directory-engineer-m-w-d-coopers-basel-landschaft"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4189,8 +4319,92 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-06-03T13:17:53.311Z"
+      "postalCode": "4001"
+    },
+    {
+      "id": "coopers-ba5b830ac60d",
+      "slug": "projectmanagement-officer-pmo-m-w-d-coopers-bern",
+      "slugByLocale": {
+        "de": "projectmanagement-officer-pmo-m-w-d-coopers-bern",
+        "it": "projectmanagement-officer-pmo-m-w-d-coopers-bern",
+        "en": "projectmanagement-officer-pmo-m-w-d-coopers-bern",
+        "fr": "projectmanagement-officer-pmo-m-w-d-coopers-bern"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Projectmanagement-Officer (PMO) (m/w/d)",
+      "titleByLocale": {
+        "de": "Projectmanagement-Officer (PMO) (m/w/d)",
+        "fr": "Projectmanagement-Officer (PMO) (m/w/d)",
+        "it": "Projectmanagement-Officer (PMO) (m/w/d)",
+        "en": "Projectmanagement-Officer (PMO) (m/w/d)"
+      },
+      "description": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (49GUV9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)\n\nJira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz\n\nSounds interesting?\n\nSimply click \"",
+      "descriptionByLocale": {
+        "de": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (49GUV9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)\n\nJira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz\n\nSounds interesting?\n\nSimply click \"",
+        "it": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (49GUV9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)\n\nJira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz\n\nSounds interesting?\n\nSimply click \"",
+        "en": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (49GUV9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)\n\nJira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz\n\nSounds interesting?\n\nSimply click \"",
+        "fr": "Position?\nDann freuen wir uns über vollständige Bewerbungsunterlagen per Onlineformular.\n\nBei Bewerbungen per E-Mail erklärt sich der Sender respektive die Senderin damit einverstanden, dass die übermittelten Daten unter Berücksichtigung unserer Datenschutzrichtlinie verwendet werden.\n\nWeitere offene Stellen gibt es hier: coopers.ch\n\nJob profile (49GUV9)\n\n•\n\t\t\t\t\t\t\tIT - IT Infrastructure & Operations\n\n•\n\t\t\t\t\t\t\tIT - IT Management\n\n•\n\t\t\t\t\t\t\tIT - Project Management\n\n•\n\t\t\t\t\t\t\tIT - Quality Management\n\n•\n\nBern\n\nContracting\n\nFull Time\n\n01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)\n\nJira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz\n\nSounds interesting?\n\nSimply click \""
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-03T23:17:39.897Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-03",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
+      "requirements": [
+        "IT - IT Infrastructure & Operations",
+        "IT - IT Management",
+        "IT - Project Management",
+        "IT - Quality Management",
+        "Bern",
+        "Contracting",
+        "Full Time",
+        "01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)",
+        "Jira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "IT - IT Infrastructure & Operations",
+          "IT - IT Management",
+          "IT - Project Management",
+          "IT - Quality Management",
+          "Bern",
+          "Contracting",
+          "Full Time",
+          "01.07.2026 oder nach Vereinbarung - 31.07.2027 (Option auf Verlängerung)",
+          "Jira, Confluence, PMO, MS Office, Buchhaltung, Finanzen, Projektassistenz"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-03T23:17:39.897Z"
     }
   ]
 }
