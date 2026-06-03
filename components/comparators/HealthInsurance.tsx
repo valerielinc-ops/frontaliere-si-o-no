@@ -6,6 +6,7 @@ import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import ProviderLogo from '@/components/shared/ProviderLogo';
 import { lazyRetry } from '@/services/lazyRetry';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
@@ -161,11 +162,11 @@ const HealthInsurance: React.FC = () => {
  const year = new Date().getUTCFullYear();
  const primary = `/data/health-premiums/${year}.json`;
  const fallback = '/data/health-premiums.json';
- fetch(primary)
+ fetch(cdnDataUrl(primary))
  .then(r => r.ok ? r.json() : null)
  .then(d => {
  if (d) { setData(d); return; }
- return fetch(fallback).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
+ return fetch(cdnDataUrl(fallback)).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
  })
  .catch(() => {});
  }, []);

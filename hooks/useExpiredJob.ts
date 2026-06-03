@@ -7,6 +7,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 export interface ExpiredJob {
  slug: string;
@@ -29,7 +30,7 @@ let fetchPromise: Promise<ExpiredJob[]> | null = null;
 function fetchExpiredJobs(): Promise<ExpiredJob[]> {
  if (cachedExpiredJobs) return Promise.resolve(cachedExpiredJobs);
  if (!fetchPromise) {
- fetchPromise = fetch('/data/expired-jobs.json')
+ fetchPromise = fetch(cdnDataUrl('/data/expired-jobs.json'))
  .then((r) => r.json() as Promise<ExpiredJob[]>)
  .then((data) => {
  cachedExpiredJobs = data;

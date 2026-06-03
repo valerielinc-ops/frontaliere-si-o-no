@@ -8,6 +8,7 @@ import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { getConfigValue } from '@/services/firebase';
 import { useAuth } from '@/services/authService';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 import {
  Shield, Copy, Check, ExternalLink,
  AlertTriangle, CheckCircle2, Eye,
@@ -507,7 +508,7 @@ export default function AdminPanel() {
  setJobsCrawlerConfigMessage(null);
  try {
  const fromStatic = async (): Promise<JobsCrawlerConfigState> => {
- const raw = await safeFetchJson('/data/jobs-crawler-config.json');
+ const raw = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-config.json'));
  if (!raw) return DEFAULT_JOBS_CRAWLER_CONFIG;
  return {
  domainWhitelist: Array.isArray(raw?.domainWhitelist) ? raw.domainWhitelist : [],
@@ -574,7 +575,7 @@ export default function AdminPanel() {
  setSourceSeedsByNameText(JSON.stringify(cfg.sourceSeedsByName || {}, null, 2));
 
  {
- const crawlerSummariesJson = await safeFetchJson('/data/jobs-crawler-summaries.json');
+ const crawlerSummariesJson = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-summaries.json'));
  const summaries = Array.isArray(crawlerSummariesJson?.summaries) ? crawlerSummariesJson.summaries : [];
  setCrawlerSummaries(
  summaries.map((entry: any) => ({
@@ -609,7 +610,7 @@ export default function AdminPanel() {
  );
  }
  {
- const crawlerWorkflowsJson = await safeFetchJson('/data/jobs-crawler-workflows.json');
+ const crawlerWorkflowsJson = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-workflows.json'));
  if (crawlerWorkflowsJson?.workflows) {
  setDynamicCrawlerWorkflows(
  (crawlerWorkflowsJson.workflows as any[]).map((w: any) => ({

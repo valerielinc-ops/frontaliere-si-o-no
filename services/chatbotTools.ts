@@ -17,6 +17,7 @@
  */
 
 import { buildPath } from '@/services/router';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 // ─── Types ────────────────────────────────────────────────────────────────
 
@@ -249,7 +250,7 @@ export function buildJobUrl(job: JobRecord, locale: Locale): string {
 /** Safe dataset loader — returns [] on any error so the tool never throws. */
 async function loadJobs(locale: Locale): Promise<JobRecord[]> {
  try {
- const res = await fetch(`/data/jobs-${locale}.json`, { cache: 'force-cache' });
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`), { cache: 'force-cache' });
  if (!res.ok) return [];
  const data = await res.json();
  return Array.isArray(data) ? (data as JobRecord[]) : [];

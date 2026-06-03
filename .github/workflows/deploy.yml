@@ -430,6 +430,14 @@ jobs:
           # sharedWriteRegistry claim()). Knob removed; investigate the
           # real bottleneck instead. See data/build-perf-history.md.
           BUILD_PROFILE: '1'
+          # Emit absolute CDN URLs for all bundler assets (JS/CSS/chunks) via
+          # vite.config experimental.renderBuiltUrl, so dist/assets can be
+          # offloaded to the frontaliere-cdn Pages site. The post-build steps push
+          # dist/assets there and (after verifying they serve) delete them from the
+          # artifact. NOTE: this bakes the CDN URL into HTML/JS — if the CDN push
+          # or verify fails, the deploy is FAILED (last good stays live), since
+          # there is no same-origin fallback for boot-critical assets.
+          ASSET_CDN: 'https://cdn.frontaliereticino.ch'
           # ALWAYS sequential on the GH free-tier runner (2 vCPU / 7 GB).
           # Empirical comparison on the same source tree (2026-05-07):
           #   sequential build job: 12m41s, peak heap ~max(single plugin)
@@ -637,31 +645,30 @@ jobs:
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html
 
-      # ── Generated-asset offload (best-effort, non-fatal) ──────────────────
-      # Push build-generated, NOT-git-tracked assets to the dedicated CDN repo
-      # `valerielinc-ops/frontaliere-cdn` (its own GitHub Pages site, Fastly
-      # edge), then offload them out of dist via scripts/offload-generated-
-      # images-cdn.mjs:
-      #   • dist/og            (~170 MB) — per-job OG cards; og:image refs in
-      #                                    static HTML rewritten to ${CDN_BASE}/og.
-      #   • dist/data/job-detail (~225 MB) — per-job detail JSON fetched at
-      #                                    runtime by the SPA; the script injects
-      #                                    window.__CDN_DATA_BASE__=${CDN_BASE}
-      #                                    into every page so cdnDataUrl() resolves.
+      # ── Static-asset offload to CDN repo ──────────────────────────────────
+      # Push build-generated, NOT-git-tracked static to the dedicated CDN repo
+      # `valerielinc-ops/frontaliere-cdn` (its own GitHub Pages site, Fastly edge):
+      #   • dist/og     — per-job OG cards; og:image refs in HTML rewritten to
+      #                   ${CDN_BASE}/og by the offload script (non-fatal).
+      #   • dist/data   — ALL runtime-fetched JSON (job-detail, jobs-<locale>,
+      #                   indexes, slug-map, stats, fuel, health, …). Every fetch
+      #                   site routes through services/cdnDataBase.ts → cdnDataUrl;
+      #                   the script injects window.__CDN_DATA_BASE__=${CDN_BASE}
+      #                   and deletes the cdn-only files (keeps any /data/ path
+      #                   referenced same-origin in HTML/XML) (non-fatal).
+      #   • dist/assets — JS/CSS bundle. ASSET_CDN/renderBuiltUrl already rebased
+      #                   its URLs to the CDN at build time; the verify step below
+      #                   deletes dist/assets only after confirming the CDN serves
+      #                   them AND no same-origin ref survives (FAIL-SAFE).
       # GitHub Pages (NOT raw / NOT jsDelivr): raw is rate-limited + serves JSON as
       # text/plain; jsDelivr 403/502s on fresh orphan refs. The CDN repo's Pages
-      # site serves every file via Fastly with the correct Content-Type
-      # (application/json, image/webp) and `access-control-allow-origin: *`, and a
-      # second Pages site has its own ~1 GB / 100 GB-month quota (doubles headroom
-      # vs everything on the main artifact). URLs are STABLE (no SHA pin).
+      # site serves every file via Fastly with the correct Content-Type and
+      # `access-control-allow-origin: *`, STABLE URLs (no SHA pin), and its own
+      # ~1 GB / 100 GB-month quota (doubles headroom vs the main artifact).
       #
-      # Eventual-consistency: the CDN repo's Pages build runs async (~30–60 s) after
-      # the push, so for a brief window assets may 404 — og is sparse/crawler-
-      # fetched and job-detail degrades gracefully (fetchJobDetail catches → {}),
-      # and the SSG static HTML always carries full content, so this never breaks a
-      # page or SEO. BOTH steps are continue-on-error and the script is internally
-      # non-fatal: any failure leaves dist untouched (assets ship in the artifact
-      # as before).
+      # The push + the og/data offload script are continue-on-error / internally
+      # non-fatal (failure → those assets ship in the artifact as before). Only the
+      # boot-critical dist/assets delete is fail-safe-by-failing (see its step).
       #
       # Auth: SSH deploy key (write-only to frontaliere-cdn) in secret
       # CDN_DEPLOY_KEY — least privilege, cannot touch any other repo.
@@ -679,11 +686,12 @@ jobs:
           rm -rf "$stage" && mkdir -p "$stage"
           : > "$stage/.nojekyll"                              # serve every path verbatim, skip Jekyll
           printf 'cdn.frontaliereticino.ch' > "$stage/CNAME"  # keep custom domain (force-push would else wipe it)
-          [ -d dist/og ] && cp -r dist/og "$stage/og"
-          if [ -d dist/data/job-detail ]; then
-            mkdir -p "$stage/data" && cp -r dist/data/job-detail "$stage/data/job-detail"
-          fi
-          if [ ! -d "$stage/og" ] && [ ! -d "$stage/data/job-detail" ]; then
+          # Offloadable dirs: og cards, ALL runtime data JSON, and the bundler
+          # assets (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN.
+          [ -d dist/og ]     && cp -r dist/og     "$stage/og"
+          [ -d dist/data ]   && cp -r dist/data   "$stage/data"
+          [ -d dist/assets ] && cp -r dist/assets "$stage/assets"
+          if [ ! -d "$stage/og" ] && [ ! -d "$stage/data" ] && [ ! -d "$stage/assets" ]; then
             echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
           printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
@@ -697,20 +705,64 @@ jobs:
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
-          git commit -qm "cdn assets (og + job-detail) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          git commit -qm "cdn assets (og + data + assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
           # Force-push a single fresh commit → CDN repo history never accumulates.
           if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
             echo "CDN_BASE=https://cdn.frontaliereticino.ch" >> "$GITHUB_ENV"
             echo "✅ pushed assets to frontaliere-cdn"
           else
-            echo "⚠️ CDN push failed — offload skipped, assets stay in dist"
+            echo "⚠️ CDN push failed — offload skipped, og/data stay in dist"
           fi
           rm -f "$keyfile"
 
-      - name: Offload generated assets to CDN (og refs + job-detail base + delete)
+      - name: Offload og refs + data base into dist (non-fatal)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
         run: node scripts/offload-generated-images-cdn.mjs
+
+      # Boot-critical asset offload. The build already rebased Vite asset URLs to
+      # the CDN (ASSET_CDN/renderBuiltUrl) → the artifact's HTML/JS point at
+      # cdn.frontaliereticino.ch/assets/* with no same-origin fallback. Two guards
+      # before deleting dist/assets:
+      #   (A) FAIL the deploy if the push failed (CDN_BASE unset) or a sample asset
+      #       never serves from the CDN within ~4min — the Vite refs are already
+      #       baked to the CDN with no fallback, so publishing would break boot.
+      #       Failing keeps the last good deploy live.
+      #   (B) If ANY dist HTML still references a SAME-ORIGIN /assets/ path (e.g. a
+      #       custom SSG emitter that didn't go through renderBuiltUrl), KEEP
+      #       dist/assets (skip the delete) — non-fatal: those pages keep working
+      #       same-origin while the Vite refs use the CDN. No artifact win for
+      #       assets that round, but nothing breaks.
+      - name: Verify CDN assets live, then drop dist/assets (fail-safe)
+        if: github.event.inputs.profile_sequential != 'true'
+        run: |
+          set -uo pipefail
+          [ -d dist/assets ] || { echo "no dist/assets — nothing to offload"; exit 0; }
+          if [ -z "${CDN_BASE:-}" ]; then
+            echo "::error::CDN push failed but dist/assets URLs are already rebased to the CDN (no fallback) — failing deploy (last good stays live)"; exit 1
+          fi
+          sample="$(cd dist/assets && ls -1 *.js 2>/dev/null | head -1)"
+          [ -z "$sample" ] && sample="$(cd dist/assets && ls -1 | head -1)"
+          url="${CDN_BASE}/assets/${sample}"
+          echo "verifying $url (CDN Pages build may lag the push)…"
+          ok=""
+          for i in $(seq 1 24); do
+            code="$(curl -s -o /dev/null -w '%{http_code}' "$url" || echo 000)"
+            echo "  attempt $i: $code"
+            [ "$code" = "200" ] && { ok=1; break; }
+            sleep 10
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::CDN asset $url not serving after ~4min — failing deploy (assets stay live on last good build)"; exit 1
+          fi
+          # Guard B: any surviving SAME-ORIGIN /assets/ reference in dist HTML?
+          if grep -rlE "[\"'(]/?assets/[A-Za-z0-9._-]+\.(js|css|woff2?|png|jpe?g|webp|svg)" --include='*.html' dist 2>/dev/null | head -1 | grep -q .; then
+            echo "⚠️ some dist HTML still references same-origin /assets/ (not CDN-rebased) — KEEPING dist/assets (no breakage, no asset reduction this round)"
+            exit 0
+          fi
+          freed="$(du -sh dist/assets | cut -f1)"
+          rm -rf dist/assets
+          echo "✅ assets verified on CDN + no same-origin refs; dropped dist/assets (${freed}) from artifact"
 
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'

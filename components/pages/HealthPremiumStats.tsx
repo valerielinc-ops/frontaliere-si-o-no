@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Heart, TrendingDown, TrendingUp, MapPin, Filter, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import DataFreshness from '@/components/shared/DataFreshness';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 interface RankingEntry {
  municipality: string;
@@ -39,11 +40,11 @@ const HealthPremiumStats: React.FC = () => {
  const year = new Date().getUTCFullYear();
  const primary = `/data/health-premiums/${year}.json`;
  const fallback = '/data/health-premiums.json';
- fetch(primary)
+ fetch(cdnDataUrl(primary))
  .then(r => r.ok ? r.json() : null)
  .then(d => {
  if (d) { setData(d); return; }
- return fetch(fallback).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
+ return fetch(cdnDataUrl(fallback)).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
  })
  .catch(() => {});
  }, []);

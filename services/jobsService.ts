@@ -47,6 +47,7 @@
  */
 
 import { expandCantonGroup } from './cantonList';
+import { cdnDataUrl } from './cdnDataBase';
 import type { Locale } from './i18n';
 
 /**
@@ -165,7 +166,7 @@ function idbPut(db: IDBDatabase, record: CantonCacheRecord): Promise<void> {
 
 function buildShardUrl(cantonCode: string): string {
  // Encode just in case a code contains characters needing escaping (e.g. '_AGGREGATE_').
- return `${SHARD_BASE_PATH}/${encodeURIComponent(cantonCode)}.json`;
+ return cdnDataUrl(`${SHARD_BASE_PATH}/${encodeURIComponent(cantonCode)}.json`);
 }
 
 async function fetchShardDirect(cantonCode: string): Promise<{
@@ -415,7 +416,7 @@ export function getDefaultCantonForVisit(): string {
  * `dist/` by `jobsJsonDistCleanupPlugin`. Bypasses the IDB cache entirely.
  */
 export async function fetchAllJobs(locale: Locale): Promise<Job[]> {
- const res = await fetch(`/data/jobs-${locale}.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
  if (!res.ok) {
   throw new Error(`[jobsService] fetchAllJobs(${locale}): HTTP ${res.status}`);
  }

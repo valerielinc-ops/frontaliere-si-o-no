@@ -9,6 +9,7 @@ import {
  FALLBACK_SUBJECT,
 } from '@/services/newsletter-content.mjs';
 import { reportCaughtError } from '@/services/errorReporter';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const GEMINI_MODEL = 'gemini-2.0-flash-lite';
@@ -192,7 +193,7 @@ export async function buildNewsletterPreviewHtml(
  // Newsletter preview is IT-only (sample render for the editor); the
  // per-locale split (data/jobs-it.json) has identical jobs flattened to
  // IT strings — same content as the old monolithic jobs.json for IT.
- const res = await fetch('/data/jobs-it.json');
+ const res = await fetch(cdnDataUrl('/data/jobs-it.json'));
  jobs = res.ok ? await res.json() : [];
  } catch (e) {
  reportCaughtError(e, 'newsletterPreview.fetchJobsData');
