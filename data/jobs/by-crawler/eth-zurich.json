@@ -7393,12 +7393,12 @@
     },
     {
       "id": "eth-zurich-cb31bf65ffb0",
-      "slug": "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
+      "slug": "assistente-di-laboratorio-in-chimica-generale-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
-        "it": "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
-        "en": "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch",
-        "fr": "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
+        "it": "assistente-di-laboratorio-in-chimica-generale-m-w-d-eth-zurich-zurich",
+        "en": "lab-assistant-in-general-chemistry-m-w-d-eth-zurich-zurich",
+        "fr": "assistant-de-laboratoire-en-chimie-generale-m-w-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7453,7 +7453,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-02T23:26:06.839Z"
+      "firstSeenAt": "2026-06-02T23:26:06.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfsassistenz-im-allgemeinen-chemiepraktikum-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ebbb023c8041",
@@ -7462,7 +7476,7 @@
         "en": "phd-in-wildflower-phenology-eth-zurich-ch",
         "it": "phd-in-wildflower-phenology-eth-zurich-ch",
         "de": "phd-in-wildflower-phenology-eth-zurich-ch",
-        "fr": "phd-in-wildflower-phenology-eth-zurich-ch"
+        "fr": "doctorat-en-phenologie-des-fleurs-sauvages-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",

@@ -403,8 +403,8 @@
       "slugByLocale": {
         "de": "senior-projektleiter-in-m-w-d-coopers-basel-landschaft",
         "it": "senior-responsabile-di-progetto-m-w-d-coopers-group-ag-basel-landschaft",
-        "en": "senior-projektleiter-in-m-w-d-coopers-basel-landschaft",
-        "fr": "senior-projektleiter-in-m-w-d-coopers-basel-landschaft"
+        "en": "senior-project-manager-m-w-d-coopers-group-ag-basel-landschaft",
+        "fr": "senior-chef-de-projet-m-w-d-coopers-group-ag-basel-landschaft"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -467,6 +467,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "senior-projektleiter-in-m-w-d-coopers-basel-landschaft"
+        ],
+        "en": [
+          "senior-projektleiter-in-m-w-d-coopers-basel-landschaft"
+        ],
+        "fr": [
           "senior-projektleiter-in-m-w-d-coopers-basel-landschaft"
         ]
       },
@@ -2989,8 +2995,7 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "engineering-planner-m-f-d-coopers-group-ag-wallis",
-          "engineering-planer-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-group-ag-wallis"
         ],
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
@@ -3446,11 +3451,11 @@
     },
     {
       "id": "coopers-1512d2e1e8e7",
-      "slug": "it-support-engineer-m-f-d-coopers-basel-stadt",
+      "slug": "it-support-ingegnere-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "it-support-engineer-m-f-d-coopers-basel-stadt",
-        "it": "it-support-engineer-m-f-d-coopers-basel-stadt",
-        "de": "it-support-engineer-m-f-d-coopers-basel-stadt",
+        "it": "it-support-ingegnere-m-f-d-coopers-group-ag-basel-stadt",
+        "de": "it-support-ingenieur-m-f-d-coopers-group-ag-basel-stadt",
         "fr": "it-support-engineer-m-f-d-coopers-basel-stadt"
       },
       "company": "Coopers Group AG",
@@ -3521,7 +3526,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-02T23:12:10.091Z"
+      "firstSeenAt": "2026-06-02T23:12:10.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-support-engineer-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "it-support-engineer-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "it-support-engineer-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-e437ef7715ab",

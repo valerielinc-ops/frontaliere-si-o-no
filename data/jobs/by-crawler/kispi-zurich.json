@@ -487,7 +487,7 @@
         "it": "disponentin-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "disponentin-m-w-80-100-kispi-zurich-zurich",
         "de": "disponentin-m-w-80-100-kispi-zurich-zurich",
-        "fr": "disponentin-m-w-80-100-kispi-zurich-zurich"
+        "fr": "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -530,8 +530,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "disponentin-m-w-80-100-kispi-zurich-zurich",
-        "variante-m-p-universitats-kinderspital-zurich-kispi-zurich",
-        "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich"
+        "variante-m-p-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -539,7 +538,6 @@
         ],
         "fr": [
           "variante-m-p-universitats-kinderspital-zurich-kispi-zurich",
-          "depontine-m-p-universitats-kinderspital-zurich-kispi-zurich",
           "disponentin-m-w-80-100-kispi-zurich-zurich"
         ]
       },
@@ -628,9 +626,7 @@
         "arztsekretarin-m-w-100-kispi-zurich-zurich-2",
         "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
         "senior-consultant-m-w-universitats-kinderspital-zurich-kispi-zurich",
-        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich",
-        "segretaria-medica-m-f-60-80-universitats-kinderspital-zurich-kispi-zurich",
-        "arztsekretarin-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich"
+        "consultant-principal-m-m-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "firstSeenAt": "2026-06-02T13:33:43.205Z",
       "salaryMin": 68000,
@@ -648,12 +644,12 @@
     },
     {
       "id": "kispi-zurich-d456771c7784",
-      "slug": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
+      "slug": "assistente-medico-orl-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
-        "it": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
-        "en": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich",
-        "fr": "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+        "it": "assistente-medico-orl-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "assistant-physician-orl-100-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "medecin-adjoint-orl-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -708,16 +704,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T23:58:13.827Z"
+      "firstSeenAt": "2026-06-02T23:58:13.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-orl-100-kispi-zurich-zurich"
+      ]
     },
     {
       "id": "kispi-zurich-54b759192d40",
-      "slug": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
+      "slug": "medico-senior-orl-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
-        "it": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
-        "en": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich",
-        "fr": "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+        "it": "medico-senior-orl-100-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "senior-physician-orl-100-universitats-kinderspital-zurich-kispi-zurich",
+        "fr": "medecin-principal-orl-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -772,7 +782,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T23:58:12.995Z"
+      "firstSeenAt": "2026-06-02T23:58:12.995Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-orl-100-kispi-zurich-zurich"
+      ]
     }
   ]
 }

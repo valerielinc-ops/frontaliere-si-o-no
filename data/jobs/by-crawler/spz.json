@@ -3490,8 +3490,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gastronomie-spz-nottwil",
         "it": "collaboratore-trice-in-gastronomie-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "mitarbeiter-in-gastronomie-spz-nottwil",
-        "fr": "mitarbeiter-in-gastronomie-spz-nottwil"
+        "en": "staff-in-gastronomy-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "personnel-en-gastronomie-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3536,6 +3536,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gastronomie-spz-nottwil"
+        ],
+        "en": [
+          "mitarbeiter-in-gastronomie-spz-nottwil"
+        ],
+        "fr": [
           "mitarbeiter-in-gastronomie-spz-nottwil"
         ]
       },

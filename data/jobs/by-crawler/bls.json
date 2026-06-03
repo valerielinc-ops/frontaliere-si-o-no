@@ -97,7 +97,7 @@
         "de": "trainee-infrastruktur-bls-ch",
         "it": "trainee-infrastruktur-bls-ag-bern",
         "en": "trainee-infrastruktur-bls-ch",
-        "fr": "trainee-infrastruktur-bls-ch"
+        "fr": "apprenti-infrastruktur-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -158,6 +158,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "trainee-infrastruktur-bls-ch"
+        ],
+        "fr": [
           "trainee-infrastruktur-bls-ch"
         ]
       },
@@ -347,8 +350,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-rollmaterial-flottenmanagement-bls-ch",
         "it": "responsabile-di-progetto-rollmaterial-flottenmanagement-bls-ag-bern",
-        "en": "projektleiter-in-rollmaterial-flottenmanagement-bls-ch",
-        "fr": "projektleiter-in-rollmaterial-flottenmanagement-bls-ch"
+        "en": "project-manager-rollmaterial-flottenmanagement-bls-ag-bern",
+        "fr": "chef-de-projet-rollmaterial-flottenmanagement-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -409,6 +412,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-rollmaterial-flottenmanagement-bls-ch"
+        ],
+        "en": [
+          "projektleiter-in-rollmaterial-flottenmanagement-bls-ch"
+        ],
+        "fr": [
           "projektleiter-in-rollmaterial-flottenmanagement-bls-ch"
         ]
       },

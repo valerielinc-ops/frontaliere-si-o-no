@@ -7883,7 +7883,7 @@
         "de": "cmms-manager-a-100-bachem-stein-ag",
         "it": "cmms-manager-a-100-bachem-stein-ag",
         "en": "cmms-manager-a-100-bachem-stein-ag",
-        "fr": "cmms-manager-a-100-bachem-stein-ag"
+        "fr": "gestionnaire-du-smcm-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -7942,12 +7942,12 @@
     },
     {
       "id": "bachem-6d4eed29f4e9",
-      "slug": "head-facility-management-site-development-a-100-bachem-stein-ag",
+      "slug": "sviluppo-del-sito-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
         "de": "head-facility-management-site-development-a-100-bachem-stein-ag",
-        "it": "head-facility-management-site-development-a-100-bachem-stein-ag",
+        "it": "sviluppo-del-sito-a-100-bachem-ag-stein-ag",
         "en": "head-facility-management-site-development-a-100-bachem-stein-ag",
-        "fr": "head-facility-management-site-development-a-100-bachem-stein-ag"
+        "fr": "developpement-du-site-de-gestion-des-installations-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -8002,7 +8002,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T22:41:55.300Z"
+      "firstSeenAt": "2026-06-02T22:41:55.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-facility-management-site-development-a-100-bachem-stein-ag"
+        ],
+        "fr": [
+          "head-facility-management-site-development-a-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "head-facility-management-site-development-a-100-bachem-stein-ag"
+      ]
     },
     {
       "id": "bachem-9504b645208b",
@@ -8070,12 +8081,12 @@
     },
     {
       "id": "bachem-09eb0f353830",
-      "slug": "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf",
+      "slug": "validazione-di-pulizia-specialistica-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf",
-        "it": "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf",
-        "en": "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf",
-        "fr": "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf"
+        "it": "validazione-di-pulizia-specialistica-a-100-bachem-ag-bubendorf",
+        "en": "specialist-cleaning-validation-a-100-bachem-ag-bubendorf",
+        "fr": "validation-de-nettoyage-specialisee-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -8130,7 +8141,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-02T22:41:53.335Z"
+      "firstSeenAt": "2026-06-02T22:41:53.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf"
+        ],
+        "en": [
+          "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-reinigungsvalidierung-a-100-bachem-bubendorf"
+      ]
     }
   ]
 }
