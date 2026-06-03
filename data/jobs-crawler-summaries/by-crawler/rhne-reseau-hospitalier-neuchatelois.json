@@ -1,18 +1,19 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-06-02T14:27:41.058Z",
+  "generatedAt": "2026-06-03T00:49:19.801Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2895,
-  "avgDurationMs": 2895,
+  "durationMs": 4333,
+  "avgDurationMs": 4333,
   "durationHistory": [
-    2895
+    4333
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
       "slug": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -20,13 +21,13 @@
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Physiothérapeute à 80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-02T14:27:39.363Z",
+      "crawledAt": "2026-06-03T00:49:17.590Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -42,56 +43,16 @@
       "postedDate": "2026-06-02",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "externalId": "2556528",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-06-02T14:27:39.363Z",
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "rhne-reseau-hospitalier-neuchatelois-e304bff53fc4",
-      "slug": "coordinatore-trice-di-percorsi-di-cura-integrati-al-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Coordinateur·rice de parcours de soins intégrés à 80 %",
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-31T23:25:56.222Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
-      "externalId": "2552662",
-      "firstSeenAt": "2026-05-19T13:03:18.366Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
