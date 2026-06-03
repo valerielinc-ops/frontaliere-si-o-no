@@ -3726,7 +3726,7 @@ MINIMO 3 link interni totali distribuiti nei body, sintassi \`[testo](nav:azione
 Se l'articolo supera 1200 parole, aumenta a MINIMO 4 link.
 
 LINK INTERNI — sintassi ESCLUSIVA: [testo](nav:azione)
-Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato):
+${IS_FRONTALIERE ? `Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato):
 - calculator → calcolatore FISCALE: stipendio, netto, busta paga, imposte, tasse. NON usare per tragitti, meteo, percorsi.
 - exchange → comparatore CHF/EUR (cambio valuta). NON usare per meteo, traffico, percorsi.
 - health → LAMal/CMI assicurazione malattia. - cost-of-living → costo della vita Ticino vs Italia. - pension → AVS/LPP/rendita.
@@ -3738,7 +3738,15 @@ Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti
 - traffic-history → storico traffico/code ai valichi. - border-map → mappa valichi.
 - car-transfer → trasferimento targa CH. - permit-compare → comparatore Permesso G vs B.
 - nursery → asilo nido. - parental-leave → congedo parentale.
-- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)
+- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)` : `Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato). Usa SOLO queste azioni a respiro nazionale:
+- calculator → calcolatore stipendio/imposte. NON usare per tragitti, meteo, percorsi.
+- exchange → comparatore CHF/EUR (cambio valuta). NON usare per meteo, traffico, percorsi.
+- health → LAMal/cassa malati. - cost-of-living → costo della vita in Svizzera. - pension → AVS/LPP/rendita.
+- pillar3 → terzo pilastro 3a. - payslip → busta paga svizzera. - tax-return → dichiarazione delle imposte.
+- jobs → annunci di lavoro. - companies → aziende che assumono. - banks → conti bancari in Svizzera.
+- transport → mezzi pubblici. - nursery → asilo nido. - parental-leave → congedo parentale.
+- (NON usare azioni a tema frontaliere/Ticino-Italia, ristorni, permessi G/B, valichi/dogane: questa è la sezione nazionale Svizzera.)
+- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)`}
 MAI usare <a href> o URL diretti.
 
 CTA / PROMOZIONI — divieti assoluti:
