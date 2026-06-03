@@ -7949,6 +7949,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.referendum-neutrale-stime-2026.title': 'Référendum : neutralisation estimations 2026 et classe moyenne',
     'blog.article.referendum-neutrale-stime-2026.excerpt': 'Vote du 14 juin 2026. Neutralise les estimations. Oui à la classe moyenne.',
     'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Château de Bellinzone au coucher du soleil, symbole de stabilité et de foyer.',
+    'blog.article.13esima-avs-iva-nazionale.title': '13e rente AVS : le National insiste sur la TVA',
+    'blog.article.13esima-avs-iva-nazionale.excerpt': 'Le Conseil national a confirmé le financement de la 13e rente AVS uniquement par une augmentation de la TVA, rejetant la solution mixte. Implications pour les frontaliers.',
+    'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Billets et pièces de franc suisse avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -7947,6 +7947,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.referendum-neutrale-stime-2026.title': 'Referendum: Schätzungen 2026 neutralisieren & Mittelschicht',
     'blog.article.referendum-neutrale-stime-2026.excerpt': 'Abstimmung am 14. Juni 2026. Schätzungen neutralisieren. Ja zur Mittelschicht.',
     'blog.article.referendum-neutrale-stime-2026.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang, Symbol für Stabilität und Zuhause.',
+    'blog.article.13esima-avs-iva-nazionale.title': '13. AHV: Nationalrat besteht auf Mehrwertsteuer',
+    'blog.article.13esima-avs-iva-nazionale.excerpt': 'Der Nationalrat hat die Finanzierung der 13. AHV-Rente ausschließlich durch eine Erhöhung der Mehrwertsteuer bestätigt und die Mischlösung verworfen. Folgen für Grenzgänger.',
+    'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Schweizer Franken-Banknoten und Münzen mit Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

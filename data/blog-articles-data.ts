@@ -25227,6 +25227,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: '13esima-avs-iva-nazionale',
+ category: 'novita',
+ date: '2026-06-03T07:39:50.818Z',
+ image: '/images/blog/13esima-avs-iva-nazionale.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
