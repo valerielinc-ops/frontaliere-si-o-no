@@ -104,4 +104,13 @@ export const SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guerre-dellinformazione',
+    category: 'novita',
+    date: '2026-06-03T04:11:24.725Z',
+    image: '/images/blog/guerre-dellinformazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
