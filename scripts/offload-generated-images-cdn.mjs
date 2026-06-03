@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // offload-generated-images-cdn.mjs
 //
-// Offload BUILD-GENERATED per-job OG cards (dist/og) from the GitHub Pages
-// artifact to raw.githubusercontent, pinned to a cdn-assets commit SHA.
-// (raw, not jsDelivr: jsDelivr 502s on the large orphan commit — see cdnBase.)
+// Offload BUILD-GENERATED assets from the GitHub Pages artifact to
+// raw.githubusercontent, pinned to a cdn-assets commit SHA. Two phases:
+//   1. per-job OG cards (dist/og)            — rewrite static og:image refs
+//   2. per-job detail JSON (dist/data/job-detail) — inject runtime CDN base
+// (raw, not jsDelivr: jsDelivr 403/502s on the fresh orphan ref — see cdnBase.)
 //
 // (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
 // the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
@@ -71,24 +73,10 @@ function walkAll(dir, fn) {
   }
 }
 
-function main() {
-  const sha = (process.env.CDN_ASSETS_SHA || '').trim();
-  if (!/^[0-9a-f]{7,40}$/i.test(sha)) {
-    log(`no valid CDN_ASSETS_SHA (got "${sha}") — skipping offload, images stay in dist`);
-    return;
-  }
-  const distDir = path.resolve(process.cwd(), 'dist');
-  if (!fs.existsSync(distDir)) {
-    log('no dist/ — skipping');
-    return;
-  }
-  // Serve via raw.githubusercontent, NOT jsDelivr: jsDelivr returns 502 trying
-  // to package the cdn-assets orphan branch's large single commit (~168 MB /
-  // 6000 files), whereas raw serves each file directly with the correct
-  // Content-Type (image/webp, 200). og:image is crawler/social-fetched (sparse)
-  // so raw's rate limits are acceptable here; it is NOT a general CDN.
-  const cdnBase = `https://raw.githubusercontent.com/${REPO}/${sha}`;
-
+// ── Phase 1: OG-card images (rewrite static og:image refs in HTML) ───────────
+// og:image refs are emitted into static HTML, so an HTML rewrite catches every
+// one and a guard can verify nothing leaks before the dir is deleted.
+function offloadOgImages(distDir, cdnBase) {
   // Build rewrite + guard regexes per target. A target file is any path under
   // the url prefix ending in a known image extension (no quote/space/paren).
   const fileTail = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg))";
@@ -96,7 +84,7 @@ function main() {
 
   const presentTargets = TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
   if (presentTargets.length === 0) {
-    log('no offload target dirs present in dist — nothing to do');
+    log('no OG offload target dirs present in dist — skipping image phase');
     return;
   }
 
@@ -135,7 +123,7 @@ function main() {
     }
   });
   if (leaks.length > 0) {
-    log(`GUARD: ${leaks.length} unrewritten ref(s) survive — ABORTING offload (images kept in dist): ${leaks.slice(0, 5).join('; ')}`);
+    log(`GUARD: ${leaks.length} unrewritten ref(s) survive — ABORTING image offload (images kept in dist): ${leaks.slice(0, 5).join('; ')}`);
     return; // non-fatal: keep images, deploy proceeds
   }
 
@@ -147,6 +135,86 @@ function main() {
     fs.rmSync(dir, { recursive: true, force: true });
   }
   log(`offloaded ${presentTargets.map((t) => t.url).join(' + ')} → ${cdnBase} ; rewrote ${rewritten}/${scanned} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
+}
+
+// ── Phase 2: generated runtime-fetched data (per-job detail JSON) ─────────────
+// dist/data/job-detail/<id>.json (~225 MB) is fetched on demand by the SPA
+// (components/community/JobBoard.tsx → fetchJobDetail) using a URL built at
+// RUNTIME in the JS bundle — it is NOT referenced in static HTML, so it cannot
+// be rewritten like og:image. Instead we inject the CDN base as a global the
+// fetch helper reads (services/cdnDataBase.ts → cdnDataUrl), then delete the dir.
+//
+// GRACEFUL DEGRADATION: the static SSG job pages already contain the full job
+// content in HTML (crawler-visible SEO is unaffected). job-detail.json only
+// enriches the hydrated SPA detail view, and fetchJobDetail() catches any
+// failure → {} (no enrichment, page still renders). So a missed inject or a raw
+// hiccup degrades the interactive detail view but never breaks a page or SEO.
+const DATA_DIRS = [['data', 'job-detail']];
+
+function offloadGeneratedData(distDir, cdnBase) {
+  const present = DATA_DIRS.filter((d) => fs.existsSync(path.join(distDir, ...d)));
+  if (present.length === 0) {
+    log('no generated-data dirs present in dist — skipping data phase');
+    return;
+  }
+
+  // Inject `<script>window.__CDN_DATA_BASE__="<cdnBase>"</script>` right after the
+  // first <head> of every HTML page so the base is set before the SPA boots.
+  // Idempotent (skip if already present). Runs only over .html (the SPA shell +
+  // SSG pages — any of which can client-nav to a job detail).
+  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
+  let injected = 0;
+  let htmlSeen = 0;
+  walk(distDir, (fp) => {
+    if (path.extname(fp) !== '.html') return;
+    htmlSeen++;
+    const html = fs.readFileSync(fp, 'utf8');
+    if (html.includes('__CDN_DATA_BASE__')) { injected++; return; } // already done
+    const m = html.match(/<head[^>]*>/i);
+    if (!m) return; // no <head>: leave it (its SPA fetch degrades gracefully)
+    const at = m.index + m[0].length;
+    fs.writeFileSync(fp, html.slice(0, at) + injectTag + html.slice(at));
+    injected++;
+  });
+
+  // Only delete if at least one page carries the base — otherwise every
+  // job-detail fetch would 404 (still graceful, but pointless). If nothing was
+  // injected, keep the data in dist.
+  if (injected === 0) {
+    log(`GUARD: base injected into 0/${htmlSeen} HTML pages — keeping data in dist`);
+    return;
+  }
+  let freed = 0;
+  for (const d of present) {
+    const dir = path.join(distDir, ...d);
+    freed += dirSize(dir);
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+  log(`offloaded ${present.map((d) => '/' + d.join('/') + '/').join(' + ')} → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; freed ${(freed / 1048576).toFixed(0)} MB`);
+}
+
+function main() {
+  const sha = (process.env.CDN_ASSETS_SHA || '').trim();
+  if (!/^[0-9a-f]{7,40}$/i.test(sha)) {
+    log(`no valid CDN_ASSETS_SHA (got "${sha}") — skipping offload, assets stay in dist`);
+    return;
+  }
+  const distDir = path.resolve(process.cwd(), 'dist');
+  if (!fs.existsSync(distDir)) {
+    log('no dist/ — skipping');
+    return;
+  }
+  // Serve via raw.githubusercontent, NOT jsDelivr: jsDelivr 403/502s on a fresh
+  // orphan-branch ref ("Failed to fetch version info" — its per-repo version
+  // refresh chokes on this giant repo for cold refs), whereas raw serves each
+  // file directly with the correct Content-Type (image/webp; application/json
+  // parses fine via fetch().json()) and CORS `*`. The offloaded assets are
+  // sparse/per-session fetches so raw's rate limits are acceptable; it is NOT a
+  // general CDN. (Main-tracked assets like blog heroes DO use jsDelivr@main.)
+  const cdnBase = `https://raw.githubusercontent.com/${REPO}/${sha}`;
+
+  offloadOgImages(distDir, cdnBase);
+  offloadGeneratedData(distDir, cdnBase);
 }
 
 try {
