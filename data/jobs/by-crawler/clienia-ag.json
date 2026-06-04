@@ -495,10 +495,10 @@
       "id": "clienia-ag-cbed9aa78ec0",
       "slug": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "infermiera-laureata-80-90-clienia-ag-pfaffikon",
+        "it": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "en": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
         "de": "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
-        "fr": "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
+        "fr": "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -544,19 +544,17 @@
         "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
         "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
         "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
-        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh"
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
+        "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-80-90-clienia-ag-zurich",
           "infermiera-laureata-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-50-90-clienia-ag-zurich"
         ],
         "fr": [
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon-zh",
-          "diplomierte-pflegefachperson-80-90-clienia-ag-pfaffikon",
           "infirmiere-diplomee-80-90-clienia-ag-pfaffikon"
         ]
       },
@@ -659,7 +657,7 @@
         "it": "fisioterapista-fisioterapista-60-clienia-ag-pfaffikon-zh",
         "en": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "de": "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
-        "fr": "physiotherapeute-60-clienia-ag-pfaffikon"
+        "fr": "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -705,6 +703,7 @@
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-zurich",
         "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
         "physiotherapeute-60-clienia-ag-pfaffikon-zh",
+        "physiotherapeute-60-clienia-ag-pfaffikon",
         "physiotherapeutin-physiotherapeutin-60-clienia-ag-pfaffikon",
         "fisioterapista-60-clienia-ag-pfaffikon"
       ],
@@ -715,7 +714,6 @@
         ],
         "fr": [
           "physiotherapeute-60-clienia-ag-pfaffikon-zh",
-          "physiotherapeutin-physiotherapeuten-60-clienia-ag-pfaffikon",
           "physiotherapeute-60-clienia-ag-pfaffikon"
         ]
       },
@@ -7968,10 +7966,10 @@
       "id": "clienia-ag-48625b9ef432",
       "slug": "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon",
       "slugByLocale": {
-        "it": "psicotherapeutin-psychotherapeutin-m-w-d-60-80-clienia-ag-pfaffikon",
+        "it": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
         "en": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
         "de": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-        "fr": "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
+        "fr": "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8015,15 +8013,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-        "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon"
+        "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich",
-          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon"
+          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-zurich"
         ],
         "fr": [
-          "psychotherapeutin-psychotherapeut-m-w-d-60-80-clienia-ag-pfaffikon",
           "psychotherapie-psychotherapie-m-m-j-60-80-clienia-ag-pfaffikon"
         ]
       },

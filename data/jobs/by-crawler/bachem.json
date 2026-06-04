@@ -7295,10 +7295,10 @@
     },
     {
       "id": "bachem-6dd471c0ab59",
-      "slug": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+      "slug": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
       "slugByLocale": {
         "en": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-        "it": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+        "it": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
         "de": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
         "fr": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
       },
@@ -7355,7 +7355,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T22:46:41.747Z"
+      "firstSeenAt": "2026-06-03T22:46:41.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
+      ]
     },
     {
       "id": "bachem-24bf05b11904",
@@ -8324,7 +8332,7 @@
         "en": "temporary-content-designer-60-bachem-bubendorf",
         "it": "temporary-content-designer-60-bachem-bubendorf",
         "de": "temporary-content-designer-60-bachem-bubendorf",
-        "fr": "temporary-content-designer-60-bachem-bubendorf"
+        "fr": "designer-de-contenu-temporaire-60-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",

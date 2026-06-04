@@ -1143,10 +1143,10 @@
     },
     {
       "id": "imad-a9321d70425d",
-      "slug": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+      "slug": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
-        "it": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+        "it": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
         "en": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
         "de": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
       },
@@ -1205,7 +1205,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-04T12:23:32.617Z"
+      "firstSeenAt": "2026-06-04T12:23:32.617Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+      ]
     }
   ]
 }

@@ -2948,7 +2948,7 @@
         "it": "consulente-scientifico-phad-novartis-basel",
         "en": "scientific-advisor-phad-novartis-ch",
         "de": "wissenschaftliche-beraterin-novartis-basel",
-        "fr": "scientific-advisor-novartis-basel"
+        "fr": "scientific-conseiller-phad-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2988,7 +2988,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "scientific-advisor-phad-novartis-ch"
+        "scientific-advisor-phad-novartis-ch",
+        "scientific-advisor-novartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2998,7 +2999,8 @@
           "scientific-advisor-phad-novartis-ch"
         ],
         "fr": [
-          "scientific-advisor-phad-novartis-ch"
+          "scientific-advisor-phad-novartis-ch",
+          "scientific-advisor-novartis-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T00:36:09.215Z",
@@ -3149,10 +3151,10 @@
     },
     {
       "id": "novartis-cbfbdb599685",
-      "slug": "workflow-automation-expert-novartis-ch",
+      "slug": "esperto-di-automazione-del-flusso-di-lavoro-novartis-basel-city",
       "slugByLocale": {
         "en": "workflow-automation-expert-novartis-ch",
-        "it": "workflow-automation-expert-novartis-ch",
+        "it": "esperto-di-automazione-del-flusso-di-lavoro-novartis-basel-city",
         "de": "workflow-automation-expert-novartis-ch",
         "fr": "workflow-automation-expert-novartis-ch"
       },
@@ -3210,7 +3212,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T13:03:56.522Z"
+      "firstSeenAt": "2026-06-04T13:03:56.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "workflow-automation-expert-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "workflow-automation-expert-novartis-ch"
+      ]
     }
   ]
 }

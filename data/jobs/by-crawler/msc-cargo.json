@@ -87,10 +87,10 @@
     },
     {
       "id": "msc-cargo-1b9354446e1f",
-      "slug": "marketing-full-funnell-analyst-msc-geneva",
+      "slug": "analizzatore-completo-funnell-msc-group-geneva",
       "slugByLocale": {
         "en": "marketing-full-funnell-analyst-msc-geneva",
-        "it": "marketing-full-funnell-analyst-msc-geneva",
+        "it": "analizzatore-completo-funnell-msc-group-geneva",
         "de": "marketing-full-funnell-analyst-msc-geneva",
         "fr": "marketing-full-funnell-analyst-msc-geneva"
       },
@@ -148,7 +148,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-04T00:37:15.160Z"
+      "firstSeenAt": "2026-06-04T00:37:15.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-full-funnell-analyst-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-full-funnell-analyst-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -228,7 +236,7 @@
         "it": "finanza-and-accounting-manager-new-investments-msc-group-geneva",
         "en": "finance-and-accounting-manager-new-investments-msc-geneva",
         "de": "finanzen-and-accounting-manager-new-investments-msc-group-geneva",
-        "fr": "finanza-and-accounting-manager-new-investments-msc-group-geneva"
+        "fr": "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -270,15 +278,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "finance-and-accounting-manager-new-investments-msc-geneva",
-        "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
+        "finance-and-accounting-manager-new-investments-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "finance-and-accounting-manager-new-investments-msc-geneva"
-        ],
-        "fr": [
-          "gestionnaire-des-finances-et-de-la-comptabilite-nouveaux-investissements-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-03T14:43:53.801Z",
@@ -302,8 +306,8 @@
       "slugByLocale": {
         "en": "spa-product-manager-msc-geneva",
         "it": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -512,7 +516,7 @@
       "slugByLocale": {
         "en": "experience-development-delivery-manager-new-builds-msc-geneva",
         "it": "experience-development-delivery-manager-new-builds-msc-geneva",
-        "de": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "de": "erfahrungs-und-liefermanager-neubauten-msc-group-geneva",
         "fr": "experience-development-delivery-manager-new-builds-msc-geneva"
       },
       "company": "MSC Group",
@@ -578,7 +582,7 @@
         "en": "multimedia-and-av-manager-msc-geneva",
         "it": "gestione-multimediale-e-av-msc-group-geneva",
         "de": "gestione-multimediale-e-av-msc-group-geneva",
-        "fr": "gestione-multimediale-e-av-msc-group-geneva"
+        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -651,7 +655,7 @@
         "en": "junior-architect-port-development-intern-msc-geneva",
         "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
+        "fr": "stagiaire-en-developpement-portuaire-junior-architecte-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -713,21 +717,23 @@
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
-          "junior-architect-port-development-intern-msc-geneva"
+          "junior-architect-port-development-intern-msc-geneva",
+          "junior-architecte-port-development-stagiaire-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "junior-architect-port-development-intern-msc-geneva"
+        "junior-architect-port-development-intern-msc-geneva",
+        "junior-architecte-port-development-stagiaire-msc-group-geneva"
       ]
     },
     {
       "id": "msc-cargo-7ff9c4053d03",
-      "slug": "travelling-fleet-supervisore-shore-excursions-msc-group-geneva",
+      "slug": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
       "slugByLocale": {
-        "it": "travelling-fleet-supervisore-shore-excursions-msc-group-geneva",
+        "it": "supervisore-delle-pulci-di-viaggio-escursioni-a-scarpa-msc-group-geneva",
         "en": "travelling-fleet-supervisor-shore-excursions-msc-geneva",
-        "de": "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
-        "fr": "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
+        "de": "reise-fleet-supervisor-landausfluge-msc-group-geneva",
+        "fr": "superviseur-de-la-flotte-itinerante-excursions-a-terre-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -771,17 +777,23 @@
       "firstSeenAt": "2026-06-03T14:43:01.428Z",
       "previousSlugsByLocale": {
         "it": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+          "travelling-fleet-supervisore-shore-excursions-msc-group-geneva"
         ],
         "de": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+          "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva"
         ],
         "fr": [
-          "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+          "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+          "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
         ]
       },
       "previousSlugs": [
-        "travelling-fleet-supervisor-shore-excursions-msc-geneva"
+        "travelling-fleet-supervisor-shore-excursions-msc-geneva",
+        "travelling-fleet-supervisore-shore-excursions-msc-group-geneva",
+        "travelling-fleet-vorgesetzter-shore-excursions-msc-group-geneva",
+        "travelling-fleet-superviseur-shore-excursions-msc-group-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -803,8 +815,8 @@
       "slugByLocale": {
         "it": "gestore-dei-servizi-f-b-msc-group-geneva",
         "en": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "de": "f-b-servicemanager-msc-group-geneva",
+        "fr": "gestionnaire-de-services-f-b-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -847,9 +859,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "f-b-service-manager-msc-geneva",
-        "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva",
-        "f-b-servicemanager-msc-group-geneva",
-        "gestionnaire-de-services-f-b-msc-group-geneva"
+        "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -857,10 +867,10 @@
           "responsabile-del-servizio-rifugi-e-ristorazioni-msc-group-geneva"
         ],
         "de": [
-          "f-b-servicemanager-msc-group-geneva"
+          "f-b-service-manager-msc-geneva"
         ],
         "fr": [
-          "gestionnaire-de-services-f-b-msc-group-geneva"
+          "f-b-service-manager-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-03T14:43:33.518Z",
@@ -884,8 +894,8 @@
       "slugByLocale": {
         "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
         "en": "brand-manager-brand-product-msc-geneva",
-        "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "de": "brand-manager-marke-produkt-msc-group-geneva",
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -932,6 +942,12 @@
       "previousSlugsByLocale": {
         "it": [
           "brand-manager-brand-product-msc-geneva"
+        ],
+        "de": [
+          "brand-manager-brand-product-msc-geneva"
+        ],
+        "fr": [
+          "brand-manager-brand-product-msc-geneva"
         ]
       },
       "firstSeenAt": "2026-06-03T14:43:35.357Z",
@@ -955,8 +971,8 @@
       "slugByLocale": {
         "it": "responsabile-piattaforme-digitali-msc-group-geneva",
         "en": "digital-platforms-manager-msc-geneva",
-        "de": "responsabile-piattaforme-digitali-msc-group-geneva",
-        "fr": "responsabile-piattaforme-digitali-msc-group-geneva"
+        "de": "digitale-plattformen-manager-msc-group-geneva",
+        "fr": "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -998,19 +1014,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "digital-platforms-manager-msc-geneva",
-        "digitale-plattformen-manager-msc-group-geneva",
-        "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
+        "digital-platforms-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "digital-platforms-manager-msc-geneva"
-        ],
-        "de": [
-          "digitale-plattformen-manager-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-03T14:43:06.634Z",
@@ -1176,8 +1184,8 @@
       "slugByLocale": {
         "it": "gestione-delle-operazioni-culinarie-msc-group-geneva",
         "en": "culinary-operations-manager-msc-geneva",
-        "de": "gestione-delle-operazioni-culinarie-msc-group-geneva",
-        "fr": "gestione-delle-operazioni-culinarie-msc-group-geneva"
+        "de": "kulinarischer-betriebsleiter-msc-group-geneva",
+        "fr": "gestionnaire-des-operations-culinaires-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1219,19 +1227,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "culinary-operations-manager-msc-geneva",
-        "kulinarischer-betriebsleiter-msc-group-geneva",
-        "gestionnaire-des-operations-culinaires-msc-group-geneva"
+        "culinary-operations-manager-msc-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "culinary-operations-manager-msc-geneva"
-        ],
-        "de": [
-          "kulinarischer-betriebsleiter-msc-group-geneva"
-        ],
-        "fr": [
-          "gestionnaire-des-operations-culinaires-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-03T14:42:51.254Z",

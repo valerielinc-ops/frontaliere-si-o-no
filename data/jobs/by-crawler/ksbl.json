@@ -5524,9 +5524,6 @@
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
         "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -6716,10 +6713,10 @@
     },
     {
       "id": "ksbl-d4c9fb0924d3",
-      "slug": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+      "slug": "mpa-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
-        "it": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
+        "it": "mpa-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
         "en": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "fr": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
       },
@@ -6777,7 +6774,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T12:40:35.660Z"
+      "firstSeenAt": "2026-06-04T12:40:35.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+      ]
     }
   ]
 }
