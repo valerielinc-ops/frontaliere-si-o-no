@@ -83,177 +83,149 @@ function walkAll(dir, fn) {
   }
 }
 
-// ── Phase 1: OG-card images (rewrite static og:image refs in HTML) ───────────
-// og:image refs are emitted into static HTML, so an HTML rewrite catches every
-// one and a guard can verify nothing leaks before the dir is deleted.
-function offloadOgImages(distDir, cdnBase) {
-  // Build rewrite + guard regexes per target. A target file is any path under
-  // the url prefix ending in a known image extension (no quote/space/paren).
-  const fileTail = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg))";
+// File-tail patterns (capture group 1 = the relative path under the prefix).
+const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg))";
+const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
+
+// ── Single-pass offload over dist HTML/XML/TXT ───────────────────────────────
+// Reads each emitted HTML/XML/TXT file ONCE and applies every CDN rewrite +
+// scan, instead of walking the (huge) dist tree four times (was ~19 min → ~5 min):
+//   1. OG cards: rewrite `…/og/<img>` refs → ${CDN}/og/… (+ leak guard).
+//   2. Bundler/boot assets: rewrite same-origin `/assets/<file>` → ${CDN}/assets/…
+//      (entry tags, modulepreload, boot <script>s incl. the AdSense loader, CSS
+//      links). renderBuiltUrl already rebased the bundler-INTERNAL refs (JS chunk
+//      imports, CSS url()). dist/assets is deleted later by the deploy verify step.
+//   3. Data base inject: insert `<script>window.__CDN_DATA_BASE__="<CDN>"</script>`
+//      after <head> so cdnDataUrl() resolves runtime /data/ fetches to the CDN.
+//   4. Collect every literal same-origin /data/ ref (sitemap/href) so those files
+//      stay same-origin (kept), while cdn-only data files are deleted.
+// Then the guarded deletes (og dirs if no leak; cdn-only dist/data files).
+function offloadAll(distDir, cdnBase) {
   const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  const presentTargets = TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
-  if (presentTargets.length === 0) {
-    log('no OG offload target dirs present in dist — skipping image phase');
-    return;
-  }
-
-  // Precompile per-target regexes once (og:image refs live in EVERY page's
-  // <head>, so no dir can be skipped — but a single pass over each file that
-  // rewrites AND verifies in-memory avoids a second filesystem scan).
-  const compiled = presentTargets.map((t) => {
+  // og rewrite/guard regexes per present target dir.
+  const ogTargets = TARGETS.filter((t) => fs.existsSync(path.join(distDir, ...t.dir)));
+  const ogCompiled = ogTargets.map((t) => {
     const escUrl = t.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return {
       t,
-      reAbs: new RegExp(escOrigin + escUrl + fileTail, 'g'),
-      reRel: new RegExp('(?<![\\w.@])' + escUrl + fileTail, 'g'),
-      reLeak: new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + fileTail),
+      reAbs: new RegExp(escOrigin + escUrl + OG_FILE, 'g'),
+      reRel: new RegExp('(?<![\\w.@])' + escUrl + OG_FILE, 'g'),
+      reLeak: new RegExp('(?:' + escOrigin + escUrl + '|(?<![\\w.@])' + escUrl + ')' + OG_FILE),
       repl: (_m, file) => `${cdnBase}${t.url}${file}`,
     };
   });
 
+  // assets rewrite regexes.
+  const assetReAbs = new RegExp(escOrigin + '/assets/' + ASSET_FILE, 'g');
+  // site-relative /assets/, NOT preceded by a word char (so an already-absolute
+  // CDN URL `…cdn.frontaliereticino.ch/assets/…` — preceded by `h` — is skipped).
+  const assetReRel = new RegExp('(?<![\\w.@])/assets/' + ASSET_FILE, 'g');
+  const assetRepl = (_m, file) => `${cdnBase}/assets/${file}`;
+
+  // data inject + ref-collect setup.
+  const dataDir = path.join(distDir, 'data');
+  const hasData = fs.existsSync(dataDir);
+  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
+  const reData = /\/data\/[^"'\s)?<>]+/g;
+  const dataReferenced = new Set();
+
   let scanned = 0;
-  let rewritten = 0;
-  // Single pass: rewrite every target in the file, then verify the result
-  // in-memory. GUARD — no surviving origin/relative ref to an offloaded path
-  // may remain (it would 404 once the dir is deleted). On a leak, abort
-  // WITHOUT deleting.
-  const leaks = [];
+  let ogRewritten = 0;
+  let assetRewritten = 0;
+  let injected = 0;
+  let htmlSeen = 0;
+  const ogLeaks = [];
+
   walk(distDir, (fp) => {
     scanned++;
     const orig = fs.readFileSync(fp, 'utf8');
     let out = orig;
-    for (const c of compiled) out = out.replace(c.reAbs, c.repl).replace(c.reRel, c.repl);
-    if (out !== orig) {
-      fs.writeFileSync(fp, out);
-      rewritten++;
+    const isHtml = path.extname(fp) === '.html';
+
+    // (1) og rewrites
+    let ogChanged = false;
+    for (const c of ogCompiled) {
+      const before = out;
+      out = out.replace(c.reAbs, c.repl).replace(c.reRel, c.repl);
+      if (out !== before) ogChanged = true;
     }
-    for (const c of compiled) {
-      if (c.reLeak.test(out)) leaks.push(`${c.t.url} in ${path.relative(distDir, fp)}`);
+    if (ogChanged) ogRewritten++;
+
+    // (2) assets rewrites
+    const beforeAssets = out;
+    out = out.replace(assetReAbs, assetRepl).replace(assetReRel, assetRepl);
+    if (out !== beforeAssets) assetRewritten++;
+
+    // (3) data base inject (HTML only, idempotent)
+    if (hasData && isHtml) {
+      htmlSeen++;
+      if (out.includes('__CDN_DATA_BASE__')) {
+        injected++; // already present (idempotent re-run)
+      } else {
+        const m = out.match(/<head[^>]*>/i);
+        if (m) {
+          const at = m.index + m[0].length;
+          out = out.slice(0, at) + injectTag + out.slice(at);
+          injected++;
+        }
+        // no <head>: leave it (its SPA fetch degrades gracefully)
+      }
+    }
+
+    if (out !== orig) fs.writeFileSync(fp, out);
+
+    // og leak guard (no surviving same-origin og ref may remain post-rewrite)
+    for (const c of ogCompiled) {
+      if (c.reLeak.test(out)) ogLeaks.push(`${c.t.url} in ${path.relative(distDir, fp)}`);
+    }
+
+    // (4) collect same-origin /data/ refs (these load same-origin → keep the file)
+    if (hasData) {
+      reData.lastIndex = 0;
+      let m;
+      while ((m = reData.exec(out))) dataReferenced.add(decodeURIComponent(m[0].split('?')[0]));
     }
   });
-  if (leaks.length > 0) {
-    log(`GUARD: ${leaks.length} unrewritten ref(s) survive — ABORTING image offload (images kept in dist): ${leaks.slice(0, 5).join('; ')}`);
-    return; // non-fatal: keep images, deploy proceeds
+
+  // ── Guarded deletes ──
+  // og: delete the offloaded dirs unless a same-origin ref survived (would 404).
+  if (ogTargets.length > 0) {
+    if (ogLeaks.length > 0) {
+      log(`GUARD: ${ogLeaks.length} unrewritten og ref(s) survive — keeping og in dist (non-fatal): ${ogLeaks.slice(0, 5).join('; ')}`);
+    } else {
+      let freed = 0;
+      for (const t of ogTargets) {
+        const dir = path.join(distDir, ...t.dir);
+        freed += dirSize(dir);
+        fs.rmSync(dir, { recursive: true, force: true });
+      }
+      log(`offloaded ${ogTargets.map((t) => t.url).join(' + ')} → ${cdnBase} ; rewrote ${ogRewritten} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
+    }
+  } else {
+    log('no OG offload target dirs present — skipping og delete');
   }
 
-  // Delete the offloaded dirs from dist.
-  let freed = 0;
-  for (const t of presentTargets) {
-    const dir = path.join(distDir, ...t.dir);
-    freed += dirSize(dir);
-    fs.rmSync(dir, { recursive: true, force: true });
-  }
-  log(`offloaded ${presentTargets.map((t) => t.url).join(' + ')} → ${cdnBase} ; rewrote ${rewritten}/${scanned} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
-}
-
-// ── Phase 2: generated runtime-fetched data (all of dist/data) ────────────────
-// dist/data/**.json (job-detail ~225 MB, jobs-<locale> ~96 MB, indexes, slug-map,
-// stats, fuel, health, …) is fetched on demand by the SPA via fetch() URLs built
-// at RUNTIME in the JS bundle — NOT referenced in static HTML, so they can't be
-// rewritten like og:image. Every such fetch site routes through
-// services/cdnDataBase.ts → cdnDataUrl(); here we inject the CDN base as the
-// global cdnDataUrl reads, then delete the offloaded files from dist.
-//
-// GUARD: a /data/… path that appears LITERALLY in dist HTML/XML/TXT (sitemap
-// entries, <a href> downloads, <link>) is loaded same-origin — NOT through
-// cdnDataUrl — so it MUST stay in the artifact. Those files are kept; the rest
-// (only ever fetched via cdnDataUrl) are deleted and served from the CDN.
-//
-// GRACEFUL DEGRADATION: the static SSG job pages already contain full job
-// content in HTML (crawler-visible SEO unaffected). The data JSON only feeds the
-// hydrated SPA, and the fetch sites catch failures. So a missed inject or a CDN
-// hiccup degrades an interactive view but never breaks a page or SEO.
-
-function offloadGeneratedData(distDir, cdnBase) {
-  const dataDir = path.join(distDir, 'data');
-  if (!fs.existsSync(dataDir)) {
-    log('no dist/data — skipping data phase');
-    return;
+  // data: delete cdn-only files, keep any /data/ path referenced same-origin in HTML.
+  if (!hasData) {
+    log('no dist/data — skipping data delete');
+  } else if (injected === 0) {
+    log(`GUARD: data base injected into 0/${htmlSeen} HTML pages — keeping dist/data`);
+  } else {
+    let freed = 0;
+    let removed = 0;
+    let kept = 0;
+    walkAll(dataDir, (fp) => {
+      const rel = '/' + path.relative(distDir, fp).split(path.sep).join('/'); // /data/…
+      if (dataReferenced.has(rel)) { kept++; return; }
+      freed += fs.statSync(fp).size;
+      fs.rmSync(fp, { force: true });
+      removed++;
+    });
+    log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; removed ${removed} files (kept ${kept} HTML-referenced) ; freed ${(freed / 1048576).toFixed(0)} MB`);
   }
 
-  // Inject `<script>window.__CDN_DATA_BASE__="<cdnBase>"</script>` right after the
-  // first <head> of every HTML page so the base is set before the SPA boots.
-  // Idempotent (skip if already present).
-  const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
-  let injected = 0;
-  let htmlSeen = 0;
-  walk(distDir, (fp) => {
-    if (path.extname(fp) !== '.html') return;
-    htmlSeen++;
-    const html = fs.readFileSync(fp, 'utf8');
-    if (html.includes('__CDN_DATA_BASE__')) { injected++; return; } // already done
-    const m = html.match(/<head[^>]*>/i);
-    if (!m) return; // no <head>: leave it (its SPA fetch degrades gracefully)
-    const at = m.index + m[0].length;
-    fs.writeFileSync(fp, html.slice(0, at) + injectTag + html.slice(at));
-    injected++;
-  });
-
-  // Only delete if the base reached at least one page — else every cdnDataUrl
-  // fetch would 404 (still graceful, but pointless). If nothing injected, keep.
-  if (injected === 0) {
-    log(`GUARD: base injected into 0/${htmlSeen} HTML pages — keeping dist/data`);
-    return;
-  }
-
-  // Collect every same-origin /data/… path referenced LITERALLY in HTML/XML/TXT
-  // (these load same-origin, not via cdnDataUrl) — keep those files.
-  const referenced = new Set();
-  const reData = /\/data\/[^"'\s)?<>]+/g;
-  walk(distDir, (fp) => {
-    if (!SCAN_EXT.has(path.extname(fp))) return;
-    const txt = fs.readFileSync(fp, 'utf8');
-    let m;
-    while ((m = reData.exec(txt))) referenced.add(decodeURIComponent(m[0].split('?')[0]));
-  });
-
-  // Delete every dist/data file NOT referenced same-origin in HTML/XML/TXT.
-  let freed = 0;
-  let removed = 0;
-  let kept = 0;
-  walkAll(dataDir, (fp) => {
-    const rel = '/' + path.relative(distDir, fp).split(path.sep).join('/'); // /data/…
-    if (referenced.has(rel)) { kept++; return; }
-    freed += fs.statSync(fp).size;
-    fs.rmSync(fp, { force: true });
-    removed++;
-  });
-  log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; removed ${removed} files (kept ${kept} HTML-referenced) ; freed ${(freed / 1048576).toFixed(0)} MB`);
-}
-
-// ── Phase 3: bundler + boot assets (rewrite every /assets/ ref in HTML) ───────
-// dist/assets holds the Vite bundle (entry JS/CSS + content-hashed chunks) AND
-// custom build-emitted assets (early-boot, gtag, PostHog, the AdSense loader,
-// seo-static/bridge CSS, logo) referenced same-origin as `/assets/<file>` across
-// HTML. Vite's renderBuiltUrl already rebased the bundler-internal references
-// (JS chunk imports, CSS url()) to the CDN; this phase rewrites the remaining
-// same-origin `/assets/<file>` references in the EMITTED HTML (entry tags,
-// modulepreload hints, boot <script>s, CSS <link>s) to ${CDN}/assets/<file>.
-//
-// This phase only REWRITES — it does NOT delete dist/assets. The deploy's
-// "Verify CDN assets live, then drop dist/assets" step deletes it, but only
-// after (a) confirming the CDN actually serves a sample asset and (b) re-scanning
-// that NO same-origin /assets/ reference survives (fail-safe; if any does, it
-// keeps dist/assets — no breakage). So a missed rewrite here can never 404.
-const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
-
-function offloadAssetRefs(distDir, cdnBase) {
-  const escOrigin = ORIGIN.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const reAbs = new RegExp(escOrigin + '/assets/' + ASSET_FILE, 'g');
-  // site-relative /assets/, NOT preceded by a word char (so an already-absolute
-  // CDN URL `…cdn.frontaliereticino.ch/assets/…` — preceded by `h` — is skipped).
-  const reRel = new RegExp('(?<![\\w.@])/assets/' + ASSET_FILE, 'g');
-  const repl = (_m, file) => `${cdnBase}/assets/${file}`;
-  let scanned = 0;
-  let rewritten = 0;
-  walk(distDir, (fp) => {
-    scanned++;
-    const orig = fs.readFileSync(fp, 'utf8');
-    const out = orig.replace(reAbs, repl).replace(reRel, repl);
-    if (out !== orig) { fs.writeFileSync(fp, out); rewritten++; }
-  });
-  log(`assets → ${cdnBase}/assets ; rewrote /assets/ refs in ${rewritten}/${scanned} HTML/XML/TXT files (dist/assets deleted by the deploy verify step)`);
+  log(`single-pass offload over ${scanned} HTML/XML/TXT files ; assets: rewrote /assets/ refs in ${assetRewritten} (dist/assets dropped by the deploy verify step)`);
 }
 
 function main() {
@@ -276,9 +248,7 @@ function main() {
     return;
   }
 
-  offloadOgImages(distDir, cdnBase);
-  offloadGeneratedData(distDir, cdnBase);
-  offloadAssetRefs(distDir, cdnBase);
+  offloadAll(distDir, cdnBase);
 }
 
 try {
