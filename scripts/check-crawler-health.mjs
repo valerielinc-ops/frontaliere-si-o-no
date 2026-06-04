@@ -113,6 +113,12 @@ const EMPTY_OK_CRAWLERS = new Set([
   // cooperative bank legitimately has no openings for weeks at a time; the
   // crawler completes cleanly and re-arms when a vacancy is published.
   'banca-raiffeisen-vedeggio-cassarate',
+  // Linnea SA (Riazzino, TI): the careers page (https://www.linnea.ch/careers/)
+  // returns HTTP 200 and explicitly states "No open positions at this time."
+  // The parser correctly finds 0 accordion items; the botanical-ingredients
+  // manufacturer simply has no current openings. Healthy, re-arms when a
+  // vacancy is published.
+  'linnea',
 ]);
 
 /** Read JSON file, return null on any error. */
