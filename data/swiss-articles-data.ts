@@ -170,6 +170,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'medico-medicina-interna-intensiva-eoc',
+    category: 'pratico',
+    date: '2026-06-04T04:15:21.798Z',
+    image: '/images/blog/medico-medicina-interna-intensiva-eoc.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

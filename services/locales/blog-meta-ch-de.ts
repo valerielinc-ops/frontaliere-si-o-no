@@ -56,6 +56,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'Ein Blockade der Restaurants? Verständliche Reaktion',
     'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'Die Reaktion der Restaurantbesitzer angesichts einer möglichen Blockade der Restaurants ist verständlich.',
     'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'Eine Person, die ein Dokument mit einem Taschenrechner und einem Stift ansieht',
+    'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Arzt Innere Medizin/Intensiv EOC Bellinzona',
+    'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'Das Kantonale Spitalamt (EOC) sucht ärztliche Kandidaten für die Abteilungen Innere Medizin und/oder Intensivmedizin am Regionalspital Bellinzona. Offene Stellen für Fach- und Assistenzärzte.',
+    'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Burgen von Bellinzona, ein Symbol für Arbeitsmöglichkeiten im Tessin',
 };
 
 export default blogMetaChDe;

@@ -644,6 +644,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-medico-medicina-interna-intensiva-eoc': {
+    title: 'Medico Medicina Interna/Intensiva EOC Bellinzona',
+    description: 'L\'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, medico, medicina, interna, intensiva',
+    ogTitle: 'Medico Interna/Intensiva: Offerte Lavoro EOC Bellinzona',
+    ogDescription: 'L\'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.',
+    canonicalPath: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medico Medicina Interna/Intensiva EOC Bellinzona",
+      "description": "L'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medico-medicina-interna-intensiva-eoc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelli di Bellinzona, simbolo di opportunità lavorative in Ticino"
+      },
+      "datePublished": "2026-06-04T04:15:21+00:00",
+      "dateModified": "2026-06-04T04:15:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medico-medicina-interna-intensiva-eoc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
