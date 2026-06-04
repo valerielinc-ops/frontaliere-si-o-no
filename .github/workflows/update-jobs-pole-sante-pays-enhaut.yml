@@ -49,6 +49,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # jobup.ch WAFs plain fetch with HTTP 403; the shared jobup feed crawler
+      # (scripts/lib/jobup-ch-feed-common.mjs) falls back to a headless Chromium.
+      # npm ci installs the package but NOT the browser binary, so without this
+      # step launch() throws "Executable doesn't exist" and the fallback no-ops.
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}

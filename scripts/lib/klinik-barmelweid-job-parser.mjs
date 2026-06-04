@@ -27,6 +27,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 import {
   decodeEntities,
   normalizeSpace,
@@ -44,26 +45,34 @@ const BARMELWEID_USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
   + '(KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
+// Wrap each GET in the shared bounded-backoff loop so a transient `fetch failed`
+// /ECONNRESET/timeout self-heals within the run instead of crashing the crawler
+// and opening a priority:high "Crawler Failure" issue on a single blip (#1306).
 async function fetchHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
-        'User-Agent': BARMELWEID_USER_AGENT,
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'de-CH,de;q=0.9,en;q=0.5',
+          'User-Agent': BARMELWEID_USER_AGENT,
+        },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `barmelweid ${url}` });
 }
 
 export const KLINIK_BARMELWEID_KEY = 'klinik-barmelweid';
