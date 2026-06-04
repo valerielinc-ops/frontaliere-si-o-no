@@ -4318,10 +4318,32 @@ ${terminologyByLang[targetLang] || ''}`;
   data.content.de = deContent;
   data.content.fr = frContent;
 
-  // Validate translated content fields
+  // Validate translated content fields. A transient AI failure (429/timeout/
+  // empty completion under quota exhaustion) can leave a single field empty —
+  // historically this hard-threw and discarded the ENTIRE generated article,
+  // including the fine IT source content (issue #1266: "Campo excerpt mancante
+  // nella traduzione de" during a run where nearly every model 429'd). That is
+  // a brittle all-or-nothing guard inconsistent with the retry-then-accept
+  // philosophy already used below for identical / over-long fields.
+  //
+  // Structural fix: fall back to the Italian source value for any missing
+  // translated field instead of throwing. A locale page with the IT excerpt is
+  // still indexable and complete; one flaky translation call no longer nukes a
+  // whole article. The locale text is then re-checked by the "identical to
+  // Italian" retry block immediately below, which will attempt a proper
+  // re-translation. Only throw if the IT source itself is missing the field
+  // (a genuine upstream defect we cannot paper over).
   for (const locale of ['en', 'de', 'fr']) {
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (!data.content[locale][field]) throw new Error(`Campo ${field} mancante nella traduzione ${locale}`);
+      if (!data.content[locale][field]) {
+        const fallback = itContent[field];
+        if (fallback) {
+          console.error(`  ⚠️  Campo ${field} mancante nella traduzione ${locale} — fallback al valore italiano (verrà ritentato dal translation-check sotto).`);
+          data.content[locale][field] = fallback;
+        } else {
+          throw new Error(`Campo ${field} mancante nella traduzione ${locale} (e assente anche nella sorgente IT)`);
+        }
+      }
     }
   }
 
