@@ -10285,8 +10285,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "7000",
-      "country": "CH",
-      "needsRetranslation": true
+      "country": "CH"
     },
     {
       "id": "company-nudf8p",
@@ -52281,9 +52280,9 @@
       "firstSeenAt": "2026-06-03T00:26:24.870Z",
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-schluein",
-        "en": "branch-manager-denner-ag-emmenbrucke",
+        "en": "branch-manager-denner-wadenswil",
         "de": "filialleiter-in-denner-schluein-7k8gx6",
-        "fr": "gerant-de-filiale-denner-ag-emmenbrucke"
+        "fr": "gerant-de-filiale-denner-wadenswil"
       },
       "titleByLocale": {
         "it": "Responsabile di filiale",
@@ -52339,13 +52338,15 @@
         "en": [
           "filialleiter-in-denner-schluein-7k8gx6",
           "filialleiter-in-genossenschaft-migros-ostschweiz-nurensdorf",
-          "head-of-branch-in-denner-brig"
+          "head-of-branch-in-denner-brig",
+          "branch-manager-denner-ag-emmenbrucke"
         ],
         "fr": [
           "filialleiter-in-denner-schluein-7k8gx6",
           "filialleiter-in-genossenschaft-migros-ostschweiz-nurensdorf",
           "chef-de-branche-denner-brig",
-          "responsable-de-succursale-denner-ag-emmenbrucke"
+          "responsable-de-succursale-denner-ag-emmenbrucke",
+          "gerant-de-filiale-denner-ag-emmenbrucke"
         ]
       },
       "previousSlugs": [
@@ -52353,7 +52354,9 @@
         "filialleiter-in-genossenschaft-migros-ostschweiz-nurensdorf",
         "head-of-branch-in-denner-brig",
         "chef-de-branche-denner-brig",
-        "responsable-de-succursale-denner-ag-emmenbrucke"
+        "responsable-de-succursale-denner-ag-emmenbrucke",
+        "branch-manager-denner-ag-emmenbrucke",
+        "gerant-de-filiale-denner-ag-emmenbrucke"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

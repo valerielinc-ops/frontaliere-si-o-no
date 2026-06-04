@@ -400,7 +400,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-06-03T23:24:01.204Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -685,7 +684,7 @@
         "it": "student-in-come-ferienaushilfe-denner-horw",
         "en": "student-in-als-ferienaushilfe-denner-horw",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-einsiedeln"
+        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -741,14 +740,16 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-03T23:23:58.720Z",
       "previousSlugs": [
-        "student-in-als-ferienaushilfe-denner"
+        "student-in-als-ferienaushilfe-denner",
+        "etudiant-en-tant-qu-aide-de-vacances-denner-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "student-in-als-ferienaushilfe-denner"
         ],
         "fr": [
-          "student-in-als-ferienaushilfe-denner"
+          "student-in-als-ferienaushilfe-denner",
+          "etudiant-en-tant-qu-aide-de-vacances-denner-einsiedeln"
         ]
       },
       "firstSeenAt": "2026-06-03T13:24:44.769Z",
