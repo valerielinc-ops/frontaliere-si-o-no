@@ -27,6 +27,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGolineOpportunitiesPage, buildGolineLocalizedContent } from './lib/goline-job-parser.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -113,8 +114,7 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
       } else {
         console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying Playwright fallback...`);
         try {
-          const { chromium } = await import('playwright');
-          const browser = await chromium.launch({ headless: true });
+          const browser = await launchChromium({ headless: true });
           try {
             const page = await browser.newPage({ userAgent: USER_AGENTS[0] });
             await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });

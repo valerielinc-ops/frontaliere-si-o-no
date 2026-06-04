@@ -29,7 +29,7 @@
  * Dependencies: `playwright` is already a project dep (used by e2e tests).
  */
 
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -94,7 +94,7 @@ async function probeOne(page, url, viewport, label) {
   });
 }
 
-const browser = await chromium.launch({ headless: true });
+const browser = await launchChromium({ headless: true });
 const ctx = await browser.newContext({
   userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
 });
