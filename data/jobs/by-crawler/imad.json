@@ -1,7 +1,79 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-06-04T12:23:34.921Z",
+  "assembledAt": "2026-06-04T15:09:53.868Z",
   "jobs": [
+    {
+      "id": "imad-df86166e23b2",
+      "slug": "candidatura-spontanea-altro-imad-geneva",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-altro-imad-geneva",
+        "en": "spontaneous-application-others-imad-geneva",
+        "de": "initiativbewerbung-sonstiges-imad-geneva",
+        "fr": "candidature-spontanee-autres-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Candidature spontanée / Autres",
+      "titleByLocale": {
+        "it": "Candidatura spontanea / Altro",
+        "en": "Spontaneous application / Others",
+        "de": "Initiativbewerbung / Sonstiges",
+        "fr": "Candidature spontanée / Autres"
+      },
+      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro.",
+        "en": "• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates.",
+        "de": "• Bitte befestigen Sie Ihre Datei an: einen aktualisierten Lebenslauf, einen Brief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse.",
+        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:09:51.889Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "jobReqId": "744000079253489",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "candidature-spontanee-autres-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-autres-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
+    },
     {
       "id": "imad-80417f5a809e",
       "slug": "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva",
@@ -34,7 +106,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.646Z",
+      "crawledAt": "2026-06-04T15:09:51.888Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -112,7 +184,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000102116510-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.645Z",
+      "crawledAt": "2026-06-04T15:09:51.887Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -221,7 +293,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000102119095-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.644Z",
+      "crawledAt": "2026-06-04T15:09:51.886Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -293,78 +365,6 @@
       "postalCode": "1204"
     },
     {
-      "id": "imad-df86166e23b2",
-      "slug": "candidatura-spontanea-altro-imad-geneva",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-altro-imad-geneva",
-        "en": "spontaneous-application-others-imad-geneva",
-        "de": "initiativbewerbung-sonstiges-imad-geneva",
-        "fr": "candidature-spontanee-autres-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Candidature spontanée / Autres",
-      "titleByLocale": {
-        "it": "Candidatura spontanea / Altro",
-        "en": "Spontaneous application / Others",
-        "de": "Initiativbewerbung / Sonstiges",
-        "fr": "Candidature spontanée / Autres"
-      },
-      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
-      "descriptionByLocale": {
-        "it": "• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro.",
-        "en": "• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates.",
-        "de": "• Bitte befestigen Sie Ihre Datei an: einen aktualisierten Lebenslauf, einen Brief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse.",
-        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
-      },
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.643Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "jobReqId": "744000079253489",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-autres-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-autres-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T19:53:28.560Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
-    },
-    {
       "id": "imad-511d2524b100",
       "slug": "assistant-e-socio-educatif-pour-les-unites-d-accueil-temporaire-de-repit-uatr-a-50-en-cdi-imad-geneva",
       "slugByLocale": {
@@ -396,7 +396,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000127388260-assistant-e-socio-educatif-pour-les-unites-d-accueil-temporaire-de-repit-uatr-a-50-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.641Z",
+      "crawledAt": "2026-06-04T15:09:51.884Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -474,7 +474,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000128959577-infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.640Z",
+      "crawledAt": "2026-06-04T15:09:51.883Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -552,7 +552,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000129395711-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdm-9-mois?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.639Z",
+      "crawledAt": "2026-06-04T15:09:51.882Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -630,7 +630,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000128514611-collaborateur-trice-technico-social-e-direction-des-systemes-numeriques-et-informationnels-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.637Z",
+      "crawledAt": "2026-06-04T15:09:51.880Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -708,7 +708,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000129396341-infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.636Z",
+      "crawledAt": "2026-06-04T15:09:51.879Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -786,7 +786,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000129421939-infirmier-ere-de-liaison-arcade-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.635Z",
+      "crawledAt": "2026-06-04T15:09:51.878Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -833,6 +833,153 @@
       "postalCode": "1204"
     },
     {
+      "id": "imad-1fb386aad943",
+      "slug": "infermiera-di-collegamento-80-contratto-a-tempo-indeterminato-imad-geneva",
+      "slugByLocale": {
+        "it": "infermiera-di-collegamento-80-contratto-a-tempo-indeterminato-imad-geneva",
+        "en": "nurse-eere-de-liaison-a-80-en-cdi-imad-geneva",
+        "de": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
+        "fr": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmier-ère de liaison / à 80% / en CDI",
+      "titleByLocale": {
+        "it": "Infermiera di collegamento / 80% / contratto a tempo indeterminato",
+        "en": "Nurse-eère de liaison / à 80% / en CDI",
+        "de": "Nurse-eère de liaison / à 80% / en CDI",
+        "fr": "Infirmier-ère de liaison / à 80% / en CDI"
+      },
+      "description": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés.\n Vos missions et responsabilités\n\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n\n• Prévenir les (ré)hospitalisations inappropriées.\n\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n\n• Capacité d’adaptation et de délégation\n\n• Gestion du stress et des conflits\n\n• Résistance au travail physique.\n Ce que nous offrons\n A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Délai de postulation :  14.06.2026\n\n• Entrée en fonction :   01.08.2026\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+      "descriptionByLocale": {
+        "it": "Il campo specifico di collegamento alla cura riguarda i clienti imad (clienti noti o futuri) ricoverati in ospedale, che richiedono un ritorno a casa con servizi imad. Il suo ambito di attività comprende la valutazione delle esigenze, la convalida medica dei servizi richiesti, la previsione del coordinamento degli interventi da parte dei team di assistenza e/o dei servizi centralizzati. Le vostre missioni e responsabilità\n• Informare i clienti o i futuri clienti dei servizi residenziali offerti da imad, i partner della rete sanitaria sociale di Ginevra, le tariffe e i termini di rimborso delle prestazioni di assistenza sanitaria. A seconda della necessità, fare riferimento al cliente alla persona o struttura che può consigliare il cliente.\n• Assicurare il coordinamento tra imad e il settore ospedaliero privato/pubblico per organizzare il ritorno dei clienti, con servizi forniti da imad.\n• Promuovere lo scambio di informazioni utili e necessarie per la cura del cliente (secondo la documentazione fornita).\n• Facilitare lo scarico dei clienti dall'ospedale e promuovere un ritorno a casa nelle migliori condizioni.\n• Collaborare con clienti, assistenti, operatori sanitari e sociali.\n• Prevenire inappropriato (re)ospitalizzazione.\n• Lavorare a stretto contatto con la squadra arcade Imad al HUG.\n• Bachelor HES-SO in allattamento o formazione considerata equivalente e registrata dalla Croce Rossa svizzera\n• Conoscenza del processo di cura e percorsi clinici, la rete sanitaria sociale di Ginevra\n• Capacità di lavorare da soli e interprofessionalmente in un team multidisciplinare\n• Significato di responsabilità e soluzione di direzione, senso di comunicazione, negoziazione e relazione con gli altri\n• Adaptability e delegazione\n• Stress e gestione dei conflitti\n• Resistenza al lavoro fisico. Cosa offriamo In IMAD, pensiamo che un professionista-il fiore sia un professionista-la performance-e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente: Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive L'Happ Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n• Termine ultimo per l'applicazione: 14.06.2026\n• Entrata in carica: 01.08.2026\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n• Consideriamo solo applicazioni complete\n• Garantiamo una completa riservatezza nel trattamento del tuo file.",
+        "en": "The specific field of nursing liaison covers imad clients (known or future clients) hospitalized, requiring a return home with imad services. Its scope of activity includes needs assessment, medical validation of the required services, forecasting of the coordination of interventions by home care teams and/or centralized services. Your missions and responsibilities\n• Inform clients or future clients of the residential services offered by imad, the partners of the Geneva social health network, the rates and the terms of reimbursement of home care benefits. Depending on the need, refer the client to the person or structure who can advise the client.\n• Ensure coordination between imad and the private/public hospital sector to organize the return of clients, with services provided by imad.\n• Promote the exchange of useful and necessary information for the care of the client (according to the documentation provided).\n• Facilitate the discharge of clients from hospital and promote a return home in the best conditions.\n• Collaborate with clients, caregivers, health and social professionals.\n• Prevent inappropriate (re)hospitalization.\n• Work closely with the Imad arcade team at the HUG.\n• Bachelor HES-SO in nursing or training deemed equivalent and registered by the Swiss Red Cross\n• Knowledge of the care process and clinical routes, the Geneva social health network\n• Ability to work alone and interprofessionally in a multidisciplinary team\n• Meaning of responsibility and direction solution, sense of communication, negotiation and relationship with others\n• Adaptability and delegation\n• Stress and conflict management\n• Resistance to physical work. What We Offer At IMAD, we think that a professional-the flourish is a professional-the performance-e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering: A balance between privacy and work life, with flexible working arrangements thought to keep your pace Beneficial salaries and social insurance, so that your commitment is recognized at its fair value An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession A corporate culture based on strong values, driven by a management that combines goodwill and demand Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices The Happ A rich, diverse and stimulating professional environment, closer to human realities\n• Deadline for application: 14.06.2026\n• Entry into office : 01.08.2026\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n• We only consider full applications\n• We guarantee complete confidentiality in the processing of your file.",
+        "de": "Das spezifische Gebiet der Pflege-Verbindung umfasst imad-Kunden (bekannte oder zukünftige Klienten) Krankenhausisiert, erfordert eine Rückkehr nach Hause mit imad-Services. Sein Tätigkeitsbereich umfasst die Bedarfsbewertung, die medizinische Validierung der erforderlichen Dienste, die Vorausschätzung der Koordinierung der Interventionen durch Heimpflegeteams und/oder zentrale Dienste. Ihre Missionen und Verantwortlichkeiten\n• Informieren Sie Kunden oder zukünftige Kunden der von imad angebotenen Wohndienstleistungen, die Partner des Genfer Sozialen Gesundheitsnetzes, die Preise und die Bedingungen für die Rückerstattung der Leistungen der Heimpflege. Je nach Bedarf verweisen Sie auf die Person oder Struktur, die den Kunden beraten kann.\n• Gewährleistung der Koordinierung zwischen Imad und dem privaten/öffentlichen Krankenhaussektor, um die Rückkehr der Kunden zu organisieren, mit Dienstleistungen von Imad.\n• Förderung des Austauschs nützlicher und notwendiger Informationen für die Betreuung des Clients (gemäß der bereitgestellten Dokumentation).\n• Erleichterung der Entlassung von Kunden aus dem Krankenhaus und fördern eine Rückkehr nach Hause in den besten Bedingungen.\n• Zusammenarbeit mit Kunden, Pflegekräften, Gesundheits- und Sozialberufen.\n• Verhindern Sie ungeeignete (re) Kapitalisierung.\n• Arbeiten Sie eng mit dem Imad Arcade Team an der HUG zusammen.\n• Bachelor HES-SO in Pflege oder Ausbildung als gleichwertig und vom Schweizer Roten Kreuz registriert\n• Kenntnisse des Pflegeprozesses und der klinischen Routen, das Genfer Sozialen Gesundheitsnetzwerk\n• Fähigkeit, allein und interprofessionell in einem multidisziplinären Team zu arbeiten\n• Bedeutung von Verantwortung und Richtungslösung, Sinn für Kommunikation, Verhandlung und Beziehung mit anderen\n• Anpassungsfähigkeit und Delegation\n• Stress- und Konfliktmanagement\n• Widerstand gegen körperliche Arbeit. Was wir anbieten Bei IMAD denken wir, dass ein Profi-der Mehl ist ein Profi-die Leistung-e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können: Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf seinem fairen Wert anerkannt wird Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert Verpflichtung zu einem Social Responsibility Approach (SRP), das nachhaltige, humane und inklusive Praktiken fördert Das Glück Eine reiche, abwechslungsreiche und anregende professionelle Umgebung, näher an den menschlichen Realitäten\n• Frist für den Antrag: 14.06.2026\n• Amtseintritt: 01.08.2026\n• Bitte fügen Sie Ihre Datei an: ein aktualisierter Lebenslauf, ein Deckbrief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n• Wir betrachten nur Vollanwendungen\n• Wir garantieren vollständige Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
+        "fr": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés. Vos missions et responsabilités\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n• Prévenir les (ré)hospitalisations inappropriées.\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n• Capacité d’adaptation et de délégation\n• Gestion du stress et des conflits\n• Résistance au travail physique. Ce que nous offrons A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines    \n• Délai de postulation :  14.06.2026\n• Entrée en fonction :   01.08.2026\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n• Nous considérons uniquement les dossiers de candidature complets\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000129421494-infirmier-ere-de-liaison-a-80-en-cdi?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:09:51.877Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000129421494-infirmier-ere-de-liaison-a-80-en-cdi?oga=true",
+      "jobReqId": "744000129421494",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-06-01T14:56:13.864Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
+    },
+    {
+      "id": "imad-a9321d70425d",
+      "slug": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
+      "slugByLocale": {
+        "it": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
+        "en": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+        "de": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+        "fr": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
+      "titleByLocale": {
+        "it": "Infermierein cure domiciliari /all'80-100% / in contratto a tempo indeterminato",
+        "en": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
+        "de": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
+        "fr": "Infirmier.ère en soins à domicile / à 80-100% / en CDI"
+      },
+      "description": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client. Vos missions et responsabilités\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n• Participer à des activités de formation et de recherche.\n• Bachelor en soins infirmiers ou formation jugée équivalente\n• Minimum deux ans d’expérience professionnelle\n• Connaissance du réseau de soins genevois\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n• Excellente capacité d’adaptation et de délégation\n• Sens des responsabilités et orientation solution\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG). Ce que nous offrons\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n• Entrée en fonction : à convenir\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
+        "en": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client. Vos missions et responsabilités\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n• Participer à des activités de formation et de recherche.\n• Bachelor en soins infirmiers ou formation jugée équivalente\n• Minimum deux ans d’expérience professionnelle\n• Connaissance du réseau de soins genevois\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n• Excellente capacité d’adaptation et de délégation\n• Sens des responsabilités et orientation solution\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG). Ce que nous offrons\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n• Entrée en fonction : à convenir\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
+        "de": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client. Vos missions et responsabilités\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n• Participer à des activités de formation et de recherche.\n• Bachelor en soins infirmiers ou formation jugée équivalente\n• Minimum deux ans d’expérience professionnelle\n• Connaissance du réseau de soins genevois\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n• Excellente capacité d’adaptation et de délégation\n• Sens des responsabilités et orientation solution\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG). Ce que nous offrons\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n• Entrée en fonction : à convenir\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
+        "fr": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.  Vos missions et responsabilités \n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier \n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile \n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC \n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels \n• Participer à des activités de formation et de recherche. \n• Bachelor en soins infirmiers ou formation jugée équivalente\n• Minimum deux ans d’expérience professionnelle  \n• Connaissance du réseau de soins genevois \n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire \n• Excellente capacité d’adaptation et de délégation  \n• Sens des responsabilités et orientation solution \n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).    Ce que nous offrons\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n• Entrée en fonction :  à convenir \n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:09:51.875Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
+      "jobReqId": "744000130145669",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T12:23:32.617Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1204"
+    },
+    {
       "id": "imad-ba0f168e6adb",
       "slug": "dietician-ne-80-cdi-imad-geneva",
       "slugByLocale": {
@@ -864,7 +1011,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000129953228-dieteticien-ne-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.634Z",
+      "crawledAt": "2026-06-04T15:09:51.873Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -911,159 +1058,6 @@
       "postalCode": "1204"
     },
     {
-      "id": "imad-1fb386aad943",
-      "slug": "infermiera-di-collegamento-80-contratto-a-tempo-indeterminato-imad-geneva",
-      "slugByLocale": {
-        "it": "infermiera-di-collegamento-80-contratto-a-tempo-indeterminato-imad-geneva",
-        "en": "nurse-eere-de-liaison-a-80-en-cdi-imad-geneva",
-        "de": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
-        "fr": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Infirmier-ère de liaison / à 80% / en CDI",
-      "titleByLocale": {
-        "it": "Infermiera di collegamento / 80% / contratto a tempo indeterminato",
-        "en": "Nurse-eère de liaison / à 80% / en CDI",
-        "de": "Nurse-eère de liaison / à 80% / en CDI",
-        "fr": "Infirmier-ère de liaison / à 80% / en CDI"
-      },
-      "description": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés.\n Vos missions et responsabilités\n\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n\n• Prévenir les (ré)hospitalisations inappropriées.\n\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n\n• Capacité d’adaptation et de délégation\n\n• Gestion du stress et des conflits\n\n• Résistance au travail physique.\n Ce que nous offrons\n A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Délai de postulation :  14.06.2026\n\n• Entrée en fonction :   01.08.2026\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "Il campo specifico di collegamento alla cura riguarda i clienti imad (clienti noti o futuri) ricoverati in ospedale, che richiedono un ritorno a casa con servizi imad. Il suo ambito di attività comprende la valutazione delle esigenze, la convalida medica dei servizi richiesti, la previsione del coordinamento degli interventi da parte dei team di assistenza e/o dei servizi centralizzati. Le vostre missioni e responsabilità\n• Informare i clienti o i futuri clienti dei servizi residenziali offerti da imad, i partner della rete sanitaria sociale di Ginevra, le tariffe e i termini di rimborso delle prestazioni di assistenza sanitaria. A seconda della necessità, fare riferimento al cliente alla persona o struttura che può consigliare il cliente.\n• Assicurare il coordinamento tra imad e il settore ospedaliero privato/pubblico per organizzare il ritorno dei clienti, con servizi forniti da imad.\n• Promuovere lo scambio di informazioni utili e necessarie per la cura del cliente (secondo la documentazione fornita).\n• Facilitare lo scarico dei clienti dall'ospedale e promuovere un ritorno a casa nelle migliori condizioni.\n• Collaborare con clienti, assistenti, operatori sanitari e sociali.\n• Prevenire inappropriato (re)ospitalizzazione.\n• Lavorare a stretto contatto con la squadra arcade Imad al HUG.\n• Bachelor HES-SO in allattamento o formazione considerata equivalente e registrata dalla Croce Rossa svizzera\n• Conoscenza del processo di cura e percorsi clinici, la rete sanitaria sociale di Ginevra\n• Capacità di lavorare da soli e interprofessionalmente in un team multidisciplinare\n• Significato di responsabilità e soluzione di direzione, senso di comunicazione, negoziazione e relazione con gli altri\n• Adaptability e delegazione\n• Stress e gestione dei conflitti\n• Resistenza al lavoro fisico. Cosa offriamo In IMAD, pensiamo che un professionista-il fiore sia un professionista-la performance-e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente: Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive L'Happ Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n• Termine ultimo per l'applicazione: 14.06.2026\n• Entrata in carica: 01.08.2026\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n• Consideriamo solo applicazioni complete\n• Garantiamo una completa riservatezza nel trattamento del tuo file.",
-        "en": "The specific field of nursing liaison covers imad clients (known or future clients) hospitalized, requiring a return home with imad services. Its scope of activity includes needs assessment, medical validation of the required services, forecasting of the coordination of interventions by home care teams and/or centralized services. Your missions and responsibilities\n• Inform clients or future clients of the residential services offered by imad, the partners of the Geneva social health network, the rates and the terms of reimbursement of home care benefits. Depending on the need, refer the client to the person or structure who can advise the client.\n• Ensure coordination between imad and the private/public hospital sector to organize the return of clients, with services provided by imad.\n• Promote the exchange of useful and necessary information for the care of the client (according to the documentation provided).\n• Facilitate the discharge of clients from hospital and promote a return home in the best conditions.\n• Collaborate with clients, caregivers, health and social professionals.\n• Prevent inappropriate (re)hospitalization.\n• Work closely with the Imad arcade team at the HUG.\n• Bachelor HES-SO in nursing or training deemed equivalent and registered by the Swiss Red Cross\n• Knowledge of the care process and clinical routes, the Geneva social health network\n• Ability to work alone and interprofessionally in a multidisciplinary team\n• Meaning of responsibility and direction solution, sense of communication, negotiation and relationship with others\n• Adaptability and delegation\n• Stress and conflict management\n• Resistance to physical work. What We Offer At IMAD, we think that a professional-the flourish is a professional-the performance-e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering: A balance between privacy and work life, with flexible working arrangements thought to keep your pace Beneficial salaries and social insurance, so that your commitment is recognized at its fair value An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession A corporate culture based on strong values, driven by a management that combines goodwill and demand Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices The Happ A rich, diverse and stimulating professional environment, closer to human realities\n• Deadline for application: 14.06.2026\n• Entry into office : 01.08.2026\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n• We only consider full applications\n• We guarantee complete confidentiality in the processing of your file.",
-        "de": "Das spezifische Gebiet der Pflege-Verbindung umfasst imad-Kunden (bekannte oder zukünftige Klienten) Krankenhausisiert, erfordert eine Rückkehr nach Hause mit imad-Services. Sein Tätigkeitsbereich umfasst die Bedarfsbewertung, die medizinische Validierung der erforderlichen Dienste, die Vorausschätzung der Koordinierung der Interventionen durch Heimpflegeteams und/oder zentrale Dienste. Ihre Missionen und Verantwortlichkeiten\n• Informieren Sie Kunden oder zukünftige Kunden der von imad angebotenen Wohndienstleistungen, die Partner des Genfer Sozialen Gesundheitsnetzes, die Preise und die Bedingungen für die Rückerstattung der Leistungen der Heimpflege. Je nach Bedarf verweisen Sie auf die Person oder Struktur, die den Kunden beraten kann.\n• Gewährleistung der Koordinierung zwischen Imad und dem privaten/öffentlichen Krankenhaussektor, um die Rückkehr der Kunden zu organisieren, mit Dienstleistungen von Imad.\n• Förderung des Austauschs nützlicher und notwendiger Informationen für die Betreuung des Clients (gemäß der bereitgestellten Dokumentation).\n• Erleichterung der Entlassung von Kunden aus dem Krankenhaus und fördern eine Rückkehr nach Hause in den besten Bedingungen.\n• Zusammenarbeit mit Kunden, Pflegekräften, Gesundheits- und Sozialberufen.\n• Verhindern Sie ungeeignete (re) Kapitalisierung.\n• Arbeiten Sie eng mit dem Imad Arcade Team an der HUG zusammen.\n• Bachelor HES-SO in Pflege oder Ausbildung als gleichwertig und vom Schweizer Roten Kreuz registriert\n• Kenntnisse des Pflegeprozesses und der klinischen Routen, das Genfer Sozialen Gesundheitsnetzwerk\n• Fähigkeit, allein und interprofessionell in einem multidisziplinären Team zu arbeiten\n• Bedeutung von Verantwortung und Richtungslösung, Sinn für Kommunikation, Verhandlung und Beziehung mit anderen\n• Anpassungsfähigkeit und Delegation\n• Stress- und Konfliktmanagement\n• Widerstand gegen körperliche Arbeit. Was wir anbieten Bei IMAD denken wir, dass ein Profi-der Mehl ist ein Profi-die Leistung-e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können: Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf seinem fairen Wert anerkannt wird Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert Verpflichtung zu einem Social Responsibility Approach (SRP), das nachhaltige, humane und inklusive Praktiken fördert Das Glück Eine reiche, abwechslungsreiche und anregende professionelle Umgebung, näher an den menschlichen Realitäten\n• Frist für den Antrag: 14.06.2026\n• Amtseintritt: 01.08.2026\n• Bitte fügen Sie Ihre Datei an: ein aktualisierter Lebenslauf, ein Deckbrief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n• Wir betrachten nur Vollanwendungen\n• Wir garantieren vollständige Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés. Vos missions et responsabilités\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n• Prévenir les (ré)hospitalisations inappropriées.\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n• Capacité d’adaptation et de délégation\n• Gestion du stress et des conflits\n• Résistance au travail physique. Ce que nous offrons A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines    \n• Délai de postulation :  14.06.2026\n• Entrée en fonction :   01.08.2026\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n• Nous considérons uniquement les dossiers de candidature complets\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000129421494-infirmier-ere-de-liaison-a-80-en-cdi?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.632Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000129421494-infirmier-ere-de-liaison-a-80-en-cdi?oga=true",
-      "jobReqId": "744000129421494",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
-        ],
-        "en": [
-          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:56:13.864Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
-    },
-    {
-      "id": "imad-f8996f24ecb2",
-      "slug": "infermiera-di-collegamento-100-contratto-a-tempo-determinato-di-7-mesi-imad-geneva",
-      "slugByLocale": {
-        "it": "infermiera-di-collegamento-100-contratto-a-tempo-determinato-di-7-mesi-imad-geneva",
-        "en": "liaison-nurse-100-in-7-month-cdm-imad-geneva",
-        "de": "liaison-nurse-100-in-7-monaten-cdm-imad-geneva",
-        "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Infirmier-ère de liaison / à 100% / en CDM de7 mois",
-      "titleByLocale": {
-        "it": "Infermiera di collegamento / 100% / in 7 mesi CDM",
-        "en": "Liaison Nurse / 100% / in 7 month CDM",
-        "de": "Liaison Nurse / 100% / in 7 Monaten CDM",
-        "fr": "Infirmier-ère de liaison / à 100% / en CDM de7 mois"
-      },
-      "description": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés.\n Vos missions et responsabilités\n\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n\n• Prévenir les (ré)hospitalisations inappropriées.\n\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n\n• Capacité d’adaptation et de délégation\n\n• Gestion du stress et des conflits\n\n• Résistance au travail physique.\n\nCe que nous offrons\n A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Délai de postulation :  14.06.2026\n\n• Entrée en fonction :   01.08.2026\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "Il campo specifico di collegamento alla cura riguarda i clienti imad (clienti noti o futuri) ricoverati in ospedale, che richiedono un ritorno a casa con servizi imad. Il suo ambito di attività comprende la valutazione delle esigenze, la convalida medica dei servizi richiesti, la previsione del coordinamento degli interventi da parte dei team di assistenza e/o dei servizi centralizzati. Le vostre missioni e responsabilità\n• Informare i clienti o i futuri clienti dei servizi residenziali offerti da imad, i partner della rete sanitaria sociale di Ginevra, le tariffe e i termini di rimborso delle prestazioni di assistenza sanitaria. A seconda della necessità, fare riferimento al cliente alla persona o struttura che può consigliare il cliente.\n• Assicurare il coordinamento tra imad e il settore ospedaliero privato/pubblico per organizzare il ritorno dei clienti, con servizi forniti da imad.\n• Promuovere lo scambio di informazioni utili e necessarie per la cura del cliente (secondo la documentazione fornita).\n• Facilitare lo scarico dei clienti dall'ospedale e promuovere un ritorno a casa nelle migliori condizioni.\n• Collaborare con clienti, assistenti, operatori sanitari e sociali.\n• Prevenire inappropriato (re)ospitalizzazione.\n• Lavorare a stretto contatto con la squadra arcade Imad al HUG.\n• Bachelor HES-SO in allattamento o formazione considerata equivalente e registrata dalla Croce Rossa svizzera\n• Conoscenza del processo di cura e percorsi clinici, la rete sanitaria sociale di Ginevra\n• Capacità di lavorare da soli e interprofessionalmente in un team multidisciplinare\n• Significato di responsabilità e soluzione di direzione, senso di comunicazione, negoziazione e relazione con gli altri\n• Adaptability e delegazione\n• Stress e gestione dei conflitti\n• Resistenza al lavoro fisico. Cosa offriamo In IMAD, pensiamo che un professionista-il fiore sia un professionista-la performance-e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente: Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive L'Happ Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n• Termine ultimo per l'applicazione: 14.06.2026\n• Entrata in carica: 01.08.2026\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n• Consideriamo solo applicazioni complete\n• Garantiamo una completa riservatezza nel trattamento del tuo file.",
-        "en": "The specific field of nursing liaison covers imad clients (known or future clients) hospitalized, requiring a return home with imad services. Its scope of activity includes needs assessment, medical validation of the required services, forecasting of the coordination of interventions by home care teams and/or centralized services. Your missions and responsibilities\n• Inform clients or future clients of the residential services offered by imad, the partners of the Geneva social health network, the rates and the terms of reimbursement of home care benefits. Depending on the need, refer the client to the person or structure who can advise the client.\n• Ensure coordination between imad and the private/public hospital sector to organize the return of clients, with services provided by imad.\n• Promote the exchange of useful and necessary information for the care of the client (according to the documentation provided).\n• Facilitate the discharge of clients from hospital and promote a return home in the best conditions.\n• Collaborate with clients, caregivers, health and social professionals.\n• Prevent inappropriate (re)hospitalization.\n• Work closely with the Imad arcade team at the HUG.\n• Bachelor HES-SO in nursing or training deemed equivalent and registered by the Swiss Red Cross\n• Knowledge of the care process and clinical routes, the Geneva social health network\n• Ability to work alone and interprofessionally in a multidisciplinary team\n• Meaning of responsibility and direction solution, sense of communication, negotiation and relationship with others\n• Adaptability and delegation\n• Stress and conflict management\n• Resistance to physical work. What We Offer At IMAD, we think that a professional-the flourish is a professional-the performance-e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering: A balance between privacy and work life, with flexible working arrangements thought to keep your pace Beneficial salaries and social insurance, so that your commitment is recognized at its fair value An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession A corporate culture based on strong values, driven by a management that combines goodwill and demand Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices The Happ A rich, diverse and stimulating professional environment, closer to human realities\n• Deadline for application: 14.06.2026\n• Entry into office : 01.08.2026\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n• We only consider full applications\n• We guarantee complete confidentiality in the processing of your file.",
-        "de": "Das spezifische Gebiet der Pflege-Verbindung umfasst imad-Kunden (bekannte oder zukünftige Klienten) Krankenhausisiert, erfordert eine Rückkehr nach Hause mit imad-Services. Sein Tätigkeitsbereich umfasst die Bedarfsbewertung, die medizinische Validierung der erforderlichen Dienste, die Vorausschätzung der Koordinierung der Interventionen durch Heimpflegeteams und/oder zentrale Dienste. Ihre Missionen und Verantwortlichkeiten\n• Informieren Sie Kunden oder zukünftige Kunden der von imad angebotenen Wohndienstleistungen, die Partner des Genfer Sozialen Gesundheitsnetzes, die Preise und die Bedingungen für die Rückerstattung der Leistungen der Heimpflege. Je nach Bedarf verweisen Sie auf die Person oder Struktur, die den Kunden beraten kann.\n• Gewährleistung der Koordinierung zwischen Imad und dem privaten/öffentlichen Krankenhaussektor, um die Rückkehr der Kunden zu organisieren, mit Dienstleistungen von Imad.\n• Förderung des Austauschs nützlicher und notwendiger Informationen für die Betreuung des Clients (gemäß der bereitgestellten Dokumentation).\n• Erleichterung der Entlassung von Kunden aus dem Krankenhaus und fördern eine Rückkehr nach Hause in den besten Bedingungen.\n• Zusammenarbeit mit Kunden, Pflegekräften, Gesundheits- und Sozialberufen.\n• Verhindern Sie ungeeignete (re) Kapitalisierung.\n• Arbeiten Sie eng mit dem Imad Arcade Team an der HUG zusammen.\n• Bachelor HES-SO in Pflege oder Ausbildung als gleichwertig und vom Schweizer Roten Kreuz registriert\n• Kenntnisse des Pflegeprozesses und der klinischen Routen, das Genfer Sozialen Gesundheitsnetzwerk\n• Fähigkeit, allein und interprofessionell in einem multidisziplinären Team zu arbeiten\n• Bedeutung von Verantwortung und Richtungslösung, Sinn für Kommunikation, Verhandlung und Beziehung mit anderen\n• Anpassungsfähigkeit und Delegation\n• Stress- und Konfliktmanagement\n• Widerstand gegen körperliche Arbeit. Was wir anbieten Bei IMAD denken wir, dass ein Profi-der Mehl ist ein Profi-die Leistung-e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können: Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf seinem fairen Wert anerkannt wird Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert Verpflichtung zu einem Social Responsibility Approach (SRP), das nachhaltige, humane und inklusive Praktiken fördert Das Glück Eine reiche, abwechslungsreiche und anregende professionelle Umgebung, näher an den menschlichen Realitäten\n• Frist für den Antrag: 14.06.2026\n• Amtseintritt: 01.08.2026\n• Bitte fügen Sie Ihre Datei an: ein aktualisierter Lebenslauf, ein Deckbrief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n• Wir betrachten nur Vollanwendungen\n• Wir garantieren vollständige Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
-        "fr": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés. Vos missions et responsabilités\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n• Prévenir les (ré)hospitalisations inappropriées.\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.  \n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n• Capacité d’adaptation et de délégation\n• Gestion du stress et des conflits\n• Résistance au travail physique.\n•   Ce que nous offrons A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines    \n• Délai de postulation :  14.06.2026\n• Entrée en fonction :   01.08.2026\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n• Nous considérons uniquement les dossiers de candidature complets\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "needsRetranslation": false,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000129421352-infirmier-ere-de-liaison-a-100-en-cdm-de7-mois?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.629Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000129421352-infirmier-ere-de-liaison-a-100-en-cdm-de7-mois?oga=true",
-      "jobReqId": "744000129421352",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
-        ],
-        "en": [
-          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
-        ],
-        "de": [
-          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-06-01T14:56:13.865Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1204"
-    },
-    {
       "id": "imad-d39c57353e50",
       "slug": "coordinatore-del-percorso-cliente-infermieristico-ic-equipe-interprofessionale-specializzata-in-oncologia-100-contratto",
       "slugByLocale": {
@@ -1095,7 +1089,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000129474669-infirmier-ere-coordinateur-trice-des-itineraires-clients-ic-equipe-interprofessionnelle-specialisee-en-oncologie-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.627Z",
+      "crawledAt": "2026-06-04T15:09:51.871Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1142,38 +1136,38 @@
       "postalCode": "1204"
     },
     {
-      "id": "imad-a9321d70425d",
-      "slug": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
+      "id": "imad-f8996f24ecb2",
+      "slug": "infermiera-di-collegamento-100-contratto-a-tempo-determinato-di-7-mesi-imad-geneva",
       "slugByLocale": {
-        "fr": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
-        "it": "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva",
-        "en": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
-        "de": "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        "it": "infermiera-di-collegamento-100-contratto-a-tempo-determinato-di-7-mesi-imad-geneva",
+        "en": "liaison-nurse-100-in-7-month-cdm-imad-geneva",
+        "de": "liaison-nurse-100-in-7-monaten-cdm-imad-geneva",
+        "fr": "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
       "companyDomain": "imad-ge.ch",
-      "title": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
+      "title": "Infirmier-ère de liaison / à 100% / en CDM de7 mois",
       "titleByLocale": {
-        "fr": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
-        "it": "Infermierein cure domiciliari /all'80-100% / in contratto a tempo indeterminato",
-        "en": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
-        "de": "Infirmier.ère en soins à domicile / à 80-100% / en CDI"
+        "it": "Infermiera di collegamento / 100% / in 7 mesi CDM",
+        "en": "Liaison Nurse / 100% / in 7 month CDM",
+        "de": "Liaison Nurse / 100% / in 7 Monaten CDM",
+        "fr": "Infirmier-ère de liaison / à 100% / en CDM de7 mois"
       },
-      "description": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
+      "description": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés.\n Vos missions et responsabilités\n\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n\n• Prévenir les (ré)hospitalisations inappropriées.\n\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.\n\n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n\n• Capacité d’adaptation et de délégation\n\n• Gestion du stress et des conflits\n\n• Résistance au travail physique.\n\nCe que nous offrons\n A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Délai de postulation :  14.06.2026\n\n• Entrée en fonction :   01.08.2026\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
       "descriptionByLocale": {
-        "fr": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
-        "it": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
-        "en": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
-        "de": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail."
+        "it": "Il campo specifico di collegamento alla cura riguarda i clienti imad (clienti noti o futuri) ricoverati in ospedale, che richiedono un ritorno a casa con servizi imad. Il suo ambito di attività comprende la valutazione delle esigenze, la convalida medica dei servizi richiesti, la previsione del coordinamento degli interventi da parte dei team di assistenza e/o dei servizi centralizzati. Le vostre missioni e responsabilità\n• Informare i clienti o i futuri clienti dei servizi residenziali offerti da imad, i partner della rete sanitaria sociale di Ginevra, le tariffe e i termini di rimborso delle prestazioni di assistenza sanitaria. A seconda della necessità, fare riferimento al cliente alla persona o struttura che può consigliare il cliente.\n• Assicurare il coordinamento tra imad e il settore ospedaliero privato/pubblico per organizzare il ritorno dei clienti, con servizi forniti da imad.\n• Promuovere lo scambio di informazioni utili e necessarie per la cura del cliente (secondo la documentazione fornita).\n• Facilitare lo scarico dei clienti dall'ospedale e promuovere un ritorno a casa nelle migliori condizioni.\n• Collaborare con clienti, assistenti, operatori sanitari e sociali.\n• Prevenire inappropriato (re)ospitalizzazione.\n• Lavorare a stretto contatto con la squadra arcade Imad al HUG.\n• Bachelor HES-SO in allattamento o formazione considerata equivalente e registrata dalla Croce Rossa svizzera\n• Conoscenza del processo di cura e percorsi clinici, la rete sanitaria sociale di Ginevra\n• Capacità di lavorare da soli e interprofessionalmente in un team multidisciplinare\n• Significato di responsabilità e soluzione di direzione, senso di comunicazione, negoziazione e relazione con gli altri\n• Adaptability e delegazione\n• Stress e gestione dei conflitti\n• Resistenza al lavoro fisico. Cosa offriamo In IMAD, pensiamo che un professionista-il fiore sia un professionista-la performance-e. Ecco perché stiamo facendo tutto il possibile per garantire che si può lavorare tranquillamente ed evolvere in un'offerta di ambiente: Un equilibrio tra privacy e vita lavorativa, con modalità di lavoro flessibili pensate per mantenere il vostro ritmo Retribuzioni vantaggiose e assicurazione sociale, in modo che il vostro impegno è riconosciuto al suo fair value Un campus di formazione IMAD, per continuare a imparare, evolvere e garantire la tua occupabilità nella tua professione Una cultura aziendale basata su valori forti, guidata da una gestione che combina benevolenza e domanda Impegno a un Approccio di responsabilità sociale (SRP) che promuove pratiche sostenibili, umane e inclusive L'Happ Un ambiente professionale ricco, vario e stimolante, più vicino alle realtà umane\n• Termine ultimo per l'applicazione: 14.06.2026\n• Entrata in carica: 01.08.2026\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e dei certificati di lavoro\n• Consideriamo solo applicazioni complete\n• Garantiamo una completa riservatezza nel trattamento del tuo file.",
+        "en": "The specific field of nursing liaison covers imad clients (known or future clients) hospitalized, requiring a return home with imad services. Its scope of activity includes needs assessment, medical validation of the required services, forecasting of the coordination of interventions by home care teams and/or centralized services. Your missions and responsibilities\n• Inform clients or future clients of the residential services offered by imad, the partners of the Geneva social health network, the rates and the terms of reimbursement of home care benefits. Depending on the need, refer the client to the person or structure who can advise the client.\n• Ensure coordination between imad and the private/public hospital sector to organize the return of clients, with services provided by imad.\n• Promote the exchange of useful and necessary information for the care of the client (according to the documentation provided).\n• Facilitate the discharge of clients from hospital and promote a return home in the best conditions.\n• Collaborate with clients, caregivers, health and social professionals.\n• Prevent inappropriate (re)hospitalization.\n• Work closely with the Imad arcade team at the HUG.\n• Bachelor HES-SO in nursing or training deemed equivalent and registered by the Swiss Red Cross\n• Knowledge of the care process and clinical routes, the Geneva social health network\n• Ability to work alone and interprofessionally in a multidisciplinary team\n• Meaning of responsibility and direction solution, sense of communication, negotiation and relationship with others\n• Adaptability and delegation\n• Stress and conflict management\n• Resistance to physical work. What We Offer At IMAD, we think that a professional-the flourish is a professional-the performance-e. That's why we're doing everything we can to ensure that you can work calmly and evolve in an environment offering: A balance between privacy and work life, with flexible working arrangements thought to keep your pace Beneficial salaries and social insurance, so that your commitment is recognized at its fair value An IMAD training campus, to continue to learn, evolve and guarantee your employability in your profession A corporate culture based on strong values, driven by a management that combines goodwill and demand Commitment to a Social Responsibility Approach (SRP) that promotes sustainable, humane and inclusive practices The Happ A rich, diverse and stimulating professional environment, closer to human realities\n• Deadline for application: 14.06.2026\n• Entry into office : 01.08.2026\n• Please attach to your file: an updated resume, a cover letter, a copy of your diplomas and your work certificates\n• We only consider full applications\n• We guarantee complete confidentiality in the processing of your file.",
+        "de": "Das spezifische Gebiet der Pflege-Verbindung umfasst imad-Kunden (bekannte oder zukünftige Klienten) Krankenhausisiert, erfordert eine Rückkehr nach Hause mit imad-Services. Sein Tätigkeitsbereich umfasst die Bedarfsbewertung, die medizinische Validierung der erforderlichen Dienste, die Vorausschätzung der Koordinierung der Interventionen durch Heimpflegeteams und/oder zentrale Dienste. Ihre Missionen und Verantwortlichkeiten\n• Informieren Sie Kunden oder zukünftige Kunden der von imad angebotenen Wohndienstleistungen, die Partner des Genfer Sozialen Gesundheitsnetzes, die Preise und die Bedingungen für die Rückerstattung der Leistungen der Heimpflege. Je nach Bedarf verweisen Sie auf die Person oder Struktur, die den Kunden beraten kann.\n• Gewährleistung der Koordinierung zwischen Imad und dem privaten/öffentlichen Krankenhaussektor, um die Rückkehr der Kunden zu organisieren, mit Dienstleistungen von Imad.\n• Förderung des Austauschs nützlicher und notwendiger Informationen für die Betreuung des Clients (gemäß der bereitgestellten Dokumentation).\n• Erleichterung der Entlassung von Kunden aus dem Krankenhaus und fördern eine Rückkehr nach Hause in den besten Bedingungen.\n• Zusammenarbeit mit Kunden, Pflegekräften, Gesundheits- und Sozialberufen.\n• Verhindern Sie ungeeignete (re) Kapitalisierung.\n• Arbeiten Sie eng mit dem Imad Arcade Team an der HUG zusammen.\n• Bachelor HES-SO in Pflege oder Ausbildung als gleichwertig und vom Schweizer Roten Kreuz registriert\n• Kenntnisse des Pflegeprozesses und der klinischen Routen, das Genfer Sozialen Gesundheitsnetzwerk\n• Fähigkeit, allein und interprofessionell in einem multidisziplinären Team zu arbeiten\n• Bedeutung von Verantwortung und Richtungslösung, Sinn für Kommunikation, Verhandlung und Beziehung mit anderen\n• Anpassungsfähigkeit und Delegation\n• Stress- und Konfliktmanagement\n• Widerstand gegen körperliche Arbeit. Was wir anbieten Bei IMAD denken wir, dass ein Profi-der Mehl ist ein Profi-die Leistung-e. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können: Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf seinem fairen Wert anerkannt wird Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu garantieren Eine Unternehmenskultur, die auf starken Werten basiert, angetrieben von einem Management, das Goodwill und Nachfrage kombiniert Verpflichtung zu einem Social Responsibility Approach (SRP), das nachhaltige, humane und inklusive Praktiken fördert Das Glück Eine reiche, abwechslungsreiche und anregende professionelle Umgebung, näher an den menschlichen Realitäten\n• Frist für den Antrag: 14.06.2026\n• Amtseintritt: 01.08.2026\n• Bitte fügen Sie Ihre Datei an: ein aktualisierter Lebenslauf, ein Deckbrief, eine Kopie Ihrer Diplome und Ihre Arbeitszeugnisse\n• Wir betrachten nur Vollanwendungen\n• Wir garantieren vollständige Vertraulichkeit bei der Verarbeitung Ihrer Datei.",
+        "fr": "Le champ spécifique de l’infirmier∙ière de liaison couvre la clientèle imad (connue ou future clientèle) hospitalisée, nécessitant un retour à domicile avec des prestations imad. Son champ d’activité se décline notamment en termes d’évaluation des besoins, de validation médicale des prestations requises, de coordination prévisionnelle des interventions par les équipes de maintien à domicile (EMD) et/ou les services centralisés. Vos missions et responsabilités\n• Informer les clients ou futurs clients des prestations domiciliaires offertes par imad, des partenaires du réseau socio-sanitaire genevois, des tarifs et des modalités de remboursement des prestations de maintien à domicile. Selon nécessité, orienter le client vers la personne ou la structure qui peut le conseiller.\n• Assurer la coordination entre imad et le secteur hospitalier privé/public pour organiser le retour à domicile des clients, avec des prestations fournies par imad.\n• Favoriser l’échange d’informations utiles et nécessaires pour la prise en charge du client (selon la documentation prévue).\n• Faciliter les sorties d’hôpital des clients et favoriser un retour à domicile dans les meilleures conditions.\n• Collaborer avec le client, le proche aidant, les professionnels de la santé et du social.\n• Prévenir les (ré)hospitalisations inappropriées.\n• Œuvrer en étroite collaboration avec l’équipe de l’arcade imad située aux HUG.  \n• Bachelor HES-SO en soins infirmiers ou formation jugée équivalente et enregistrée par la Croix-Rouge suisse\n• Connaissance du processus de soins et itinéraires cliniques, du réseau santé social genevois\n• Aptitude à travailler seul et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n• Sens des responsabilités et orientation solution, sens de la communication, de la négociation et de la relation avec autrui\n• Capacité d’adaptation et de délégation\n• Gestion du stress et des conflits\n• Résistance au travail physique.\n•   Ce que nous offrons A l’IMAD, nous pensons qu’un-e professionnel-le épanoui-e est un-e professionnel-le performant-e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :  Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines    \n• Délai de postulation :  14.06.2026\n• Entrée en fonction :   01.08.2026\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n• Nous considérons uniquement les dossiers de candidature complets\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
+      "url": "https://jobs.smartrecruiters.com/imad/744000129421352-infirmier-ere-de-liaison-a-100-en-cdm-de7-mois?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:23:32.617Z",
+      "crawledAt": "2026-06-04T15:09:51.861Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1185,13 +1179,26 @@
       "sector": "Sanità / Cure a domicilio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
-      "jobReqId": "744000130145669",
+      "postedDate": "2026-06-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000129421352-infirmier-ere-de-liaison-a-100-en-cdm-de7-mois?oga=true",
+      "jobReqId": "744000129421352",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-de-liaison-a-100-en-cdm-de7-mois-imad-geneva"
+        ]
       },
+      "firstSeenAt": "2026-06-01T14:56:13.865Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1204,16 +1211,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "firstSeenAt": "2026-06-04T12:23:32.617Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
-      ]
+      "postalCode": "1204"
     }
   ]
 }
