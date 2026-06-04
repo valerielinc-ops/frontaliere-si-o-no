@@ -527,6 +527,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rientro-svizzera-senza-lavoro': {
+    title: 'Rientro in Svizzera, come trasferire le indennità',
+    description: 'Scopri come trasferire le indennità di disoccupazione, i passaggi amministrativi e le opportunità di collocamento quando torni in Svizzera senza lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, trasferire, indennità, rientrare',
+    ogTitle: 'Rientro in Svizzera senza lavoro: guida pratica',
+    ogDescription: 'Guida pratica per chi torna in Svizzera senza lavoro: trasferimento indennità, modulo necessario e consigli per il collocamento.',
+    canonicalPath: '/articoli-svizzera/rientro-svizzera-senza-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro in Svizzera, come trasferire le indennità",
+      "description": "Scopri come trasferire le indennità di disoccupazione, i passaggi amministrativi e le opportunità di collocamento quando torni in Svizzera senza lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-svizzera-senza-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persone che rientrano in Svizzera dopo disoccupazione all'estero ricevono consulenza in un ufficio."
+      },
+      "datePublished": "2026-06-04T02:38:35+00:00",
+      "dateModified": "2026-06-04T02:38:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rientro-svizzera-senza-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

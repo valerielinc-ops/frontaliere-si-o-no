@@ -47,6 +47,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'La Suisse rejette les droits de douane américains sur le travail forcé',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berne refuse les accusations américaines et négocie à Paris. Des droits de douane de 12,5% en discussion, date limite pour les observations le 6 juillet 2026.',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse négociant les tarifs douaniers avec les États-Unis',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Retour en Suisse, comment transférer les indemnités',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Revenir en Suisse sans emploi nécessite un plan financier, le formulaire de transfert des indemnités et l\'inscription au service de placement local.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Des personnes revenant en Suisse après chômage à l\'étranger reçoivent des conseils dans un bureau.',
 };
 
 export default blogMetaChFr;
