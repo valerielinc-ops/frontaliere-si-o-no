@@ -694,7 +694,11 @@ jobs:
           # (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN, and the
           # git-tracked full blog heroes (served at cdn.frontaliereticino.ch/images/
           # blog; finalize plugin already rewrote HTML + deleted dist heroes, so we
-          # push from the public/ source). 480w thumbnails stay same-origin.
+          # push from the public/ source). The build-generated 480w thumbnails are
+          # written to public/images/blog/thumbnails/ by generate-image-thumbnails.mjs
+          # (gitignored but on disk at push time), so the public/images/blog copy
+          # below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
+          # script then deletes the dist copy of dist/images/blog/thumbnails.
           [ -d dist/og ]           && cp -r dist/og           "$stage/og"
           [ -d dist/data ]         && cp -r dist/data         "$stage/data"
           [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"

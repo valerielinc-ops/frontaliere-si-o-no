@@ -54,6 +54,12 @@ export function cdnBlogImage(path: string | undefined | null): string {
 /** Map a CDN blog URL to its raw.githubusercontent fallback, or null. */
 export function rawFallbackForBlog(url: string): string | null {
   if (!url.startsWith(CDN_BLOG_BASE + '/')) return null;
+  // 480w thumbnails are build-generated (gitignored) — they have NO raw.github
+  // copy, so there is nothing to fall back to. Returning null here also keeps the
+  // one-shot `cdnFallback` flag UNSET on the thumbnail <img>, so that when the
+  // cleared srcSet falls back to the full hero (git-tracked → raw exists) the
+  // capture listener fires again and recovers the hero on raw during a CDN outage.
+  if (url.includes('/thumbnails/')) return null;
   return RAW_BLOG_BASE + url.slice(CDN_BLOG_BASE.length);
 }
 
