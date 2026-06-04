@@ -43,15 +43,36 @@ function stripComments(src: string): string {
   return src.replace(/\/\*[\s\S]*?\*\//g, '').replace(/(^|\s)\/\/[^\n]*/g, '$1');
 }
 
+/** A file pulls in Playwright via static import, CJS require, or dynamic import(). */
+function importsPlaywright(src: string): boolean {
+  return /\b(?:from|import|require)\s*\(?\s*['"](?:playwright(?:-core)?|@playwright\/test)['"]/.test(src);
+}
+
+/**
+ * Count raw Playwright browser launches in a source file (comments already
+ * stripped). The literal `chromium.launch(` only catches the canonical binding
+ * name — an aliased/destructured binding (`const { chromium: cr } = await
+ * import('playwright'); cr.launch()`) would slip past it. So when the file
+ * imports Playwright at all, ANY `.launch(` is a raw launch that must route
+ * through launchChromium; otherwise we fall back to the literal `chromium.launch(`
+ * (covers a `chromium` re-exported from a local module without a direct import).
+ */
+function rawLaunchCount(code: string): number {
+  if (importsPlaywright(code)) {
+    return (code.match(/\.\s*launch\s*\(/g) || []).length;
+  }
+  return (code.match(/\bchromium\s*\.\s*launch\s*\(/g) || []).length;
+}
+
 describe('playwright launch self-heal guard', () => {
-  it('every chromium.launch() in scripts/ routes through ensure-chromium.mjs#launchChromium', () => {
+  it('every Playwright browser launch in scripts/ routes through ensure-chromium.mjs#launchChromium', () => {
     const offenders: string[] = [];
     for (const file of walk(SCRIPTS)) {
       const rel = path.relative(ROOT, file);
       if (rel === HELPER_REL) continue; // the helper itself is the single allowed launch site
       const code = stripComments(fs.readFileSync(file, 'utf8'));
-      const matches = code.match(/\bchromium\s*\.\s*launch\s*\(/g);
-      if (matches) offenders.push(`${rel} (${matches.length}×)`);
+      const count = rawLaunchCount(code);
+      if (count > 0) offenders.push(`${rel} (${count}×)`);
     }
     expect(
       offenders,
@@ -59,6 +80,26 @@ describe('playwright launch self-heal guard', () => {
         `so the Chromium binary self-installs on crawler workflows that lack an explicit install step:\n` +
         offenders.map((o) => `  - ${o}`).join('\n'),
     ).toEqual([]);
+  });
+
+  it('flags aliased/destructured Playwright launches the literal regex would miss', () => {
+    // Literal binding — caught by both old and new logic.
+    expect(rawLaunchCount(`import { chromium } from 'playwright';\nawait chromium.launch();`)).toBe(1);
+    // Aliased import binding — bypasses the literal `chromium.launch(` check.
+    expect(rawLaunchCount(`import { chromium as cr } from 'playwright';\nawait cr.launch();`)).toBe(1);
+    // Destructured dynamic import with rename.
+    expect(rawLaunchCount(`const { chromium: cr } = await import('playwright');\nawait cr.launch();`)).toBe(1);
+    // Namespace dynamic import.
+    expect(rawLaunchCount(`const pw = await import('playwright-core');\nawait pw.chromium.launch();`)).toBe(1);
+    // @playwright/test specifier.
+    expect(rawLaunchCount(`import { chromium } from '@playwright/test';\nawait chromium.launch();`)).toBe(1);
+  });
+
+  it('does not flag launches routed through launchChromium or non-Playwright code', () => {
+    // The self-healing helper is the sanctioned launch path.
+    expect(rawLaunchCount(`import { launchChromium } from './lib/ensure-chromium.mjs';\nawait launchChromium();`)).toBe(0);
+    // A `.launch(` on an unrelated object in a file with no Playwright import.
+    expect(rawLaunchCount(`const rocket = makeRocket();\nrocket.launch();`)).toBe(0);
   });
 
   it('classifies missing-browser errors as installable, real errors as not', () => {
