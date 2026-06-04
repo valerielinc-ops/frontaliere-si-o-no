@@ -3,7 +3,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { jinaProxiedRequest } from './lib/jina-proxy.mjs';
+import { fetchViaJina } from './lib/jina-proxy.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -122,8 +122,7 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
         // IP and returns the page's raw HTML, which the parser handles unchanged.
         console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying egress proxy...`);
         try {
-          const { url: proxyUrl, headers: proxyHeaders } = jinaProxiedRequest(url);
-          const pr = await fetch(proxyUrl, { headers: proxyHeaders });
+          const pr = await fetchViaJina(url, { timeoutMs });
           if (pr.ok) return await pr.text();
           console.log(`  ⚠️  egress proxy returned HTTP ${pr.status}, trying Playwright fallback...`);
         } catch (proxyErr) {

@@ -34,6 +34,23 @@ export function jinaProxiedRequest(targetUrl) {
 }
 
 /**
+ * Fetch a URL through the Jina proxy with an AbortController timeout, so a slow
+ * or hanging Jina request can never stall a crawler run until the global job
+ * timeout. Returns the raw `Response`. Used by dedicated crawlers that fetch
+ * outside the shared `fetchWithTimeout` chokepoint (discovery / single-page).
+ */
+export async function fetchViaJina(targetUrl, { timeoutMs = 30000, fetchImpl = fetch } = {}) {
+  const { url, headers } = jinaProxiedRequest(targetUrl);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetchImpl(url, { headers, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
  * Does `url`'s host match any entry in the comma-separated `listCsv`
  * (`JOBS_CRAWLER_FETCH_PROXY`)? Matches the host exactly or as a subdomain.
  */
