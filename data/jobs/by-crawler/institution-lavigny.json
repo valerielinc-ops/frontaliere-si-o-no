@@ -394,12 +394,12 @@
     },
     {
       "id": "institution-lavigny-fd8ba9fb06b2",
-      "slug": "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny",
+      "slug": "un-insegnante-socio-professionale-risorse-80-80-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny",
-        "it": "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny",
-        "en": "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny",
-        "de": "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny"
+        "it": "un-insegnante-socio-professionale-risorse-80-80-institution-de-lavigny-lavigny",
+        "en": "a-socio-professional-teacher-resources-80-80-institution-de-lavigny-lavigny",
+        "de": "ein-sozioprofessioneller-lehrer-ressourcen-80-80-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -455,7 +455,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T23:57:34.090Z"
+      "firstSeenAt": "2026-06-03T23:57:34.090Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny"
+        ],
+        "en": [
+          "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny"
+        ],
+        "de": [
+          "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-maitre-sse-socioprofessionnel-le-eventail-ressources-80-80-institution-lavigny"
+      ]
     }
   ]
 }

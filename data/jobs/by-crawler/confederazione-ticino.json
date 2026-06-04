@@ -4,7 +4,7 @@
   "jobs": [
     {
       "title": "Sachbearbeiter/in",
-      "slug": "sachbearbeiter-in-confederazione-svizzera-bern",
+      "slug": "incaricato-a-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in/05ef7209-ab40-413c-bb15-e2067a01c12c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19269",
       "company": "Confederazione Svizzera",
@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-confederazione-svizzera-bern",
-        "it": "sachbearbeiter-in-confederazione-svizzera-bern",
+        "it": "incaricato-a-confederazione-svizzera-bern",
         "en": "sachbearbeiter-in-confederazione-svizzera-bern",
         "fr": "sachbearbeiter-in-confederazione-svizzera-bern"
       },
@@ -47,14 +47,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-confederazione-bern"
+          "sachbearbeiter-in-confederazione-bern",
+          "sachbearbeiter-in-confederazione-svizzera-bern"
         ],
         "de": [
           "sachbearbeiter-in-confederazione-bern"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-confederazione-bern"
+        "sachbearbeiter-in-confederazione-bern",
+        "sachbearbeiter-in-confederazione-svizzera-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -74,7 +76,7 @@
     },
     {
       "title": "Sachbearbeiter/in Empfang/Logistik",
-      "slug": "sachbearbeiter-in-empfang-logistik-confederazione-bern",
+      "slug": "receptionist-logistica-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/sachbearbeiter-in-empfang-logistik/8cae452d-e839-4a69-907a-7a1daffb002e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19268",
       "company": "Confederazione Svizzera",
@@ -109,7 +111,7 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-empfang-logistik-confederazione-bern",
-        "it": "sachbearbeiter-in-empfang-logistik-confederazione-bern",
+        "it": "receptionist-logistica-confederazione-svizzera-bern",
         "en": "sachbearbeiter-in-empfang-logistik-confederazione-bern",
         "fr": "sachbearbeiter-in-empfang-logistik-confederazione-bern"
       },
@@ -129,7 +131,15 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-04T11:38:08.926Z"
+      "firstSeenAt": "2026-06-04T11:38:08.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-empfang-logistik-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-empfang-logistik-confederazione-bern"
+      ]
     },
     {
       "title": "Offizier/-in Rüstung und Weiterentwicklung",
@@ -169,12 +179,18 @@
       "slugByLocale": {
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
+        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
         "it": [
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
+        ],
+        "en": [
+          "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
+        ],
+        "fr": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera"
         ]
       },
@@ -660,9 +676,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "en": "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
+        "en": "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
         "de": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "fr": "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-69f337cb7ffa",
       "salaryMin": 58000,
@@ -690,16 +706,14 @@
         ],
         "en": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
-          "specialist-in-electrical-engineering-confederazione-svizzera-rivera"
+          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "spezialist-in-elektrotechnik-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-          "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
+          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -708,9 +722,7 @@
         "spezialist-in-elektrotechnik-confederazione-svizzera-rivera",
         "specialista-in-ingegneria-elettrica-confederazione-svizzera-rivera",
         "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
-        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-        "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
-        "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
+        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       ]
     },
     {
@@ -750,9 +762,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "en": "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
+        "en": "specialist-in-technology-hlks-confederazione-svizzera-rivera",
         "de": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "fr": "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-5a40af1081fb",
       "salaryMin": 58000,
@@ -781,16 +793,14 @@
         ],
         "en": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
-          "specialist-in-technology-hlks-confederazione-svizzera-rivera"
+          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "spezialist-in-technik-hlks-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
-          "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
+          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -800,9 +810,7 @@
         "spezialist-in-technik-hlks-confederazione-svizzera-rivera",
         "tecnologia-specialistica-hvac-confederazione-svizzera-rivera",
         "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
-        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
-        "specialist-in-technology-hlks-confederazione-svizzera-rivera",
-        "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
+        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
       ]
     },
     {
