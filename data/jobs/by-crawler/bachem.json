@@ -391,12 +391,12 @@
     },
     {
       "id": "bachem-ed94aac37a5c",
-      "slug": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
+      "slug": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-        "it": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
+        "it": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
-        "fr": "lab-technician-qc-ipc-a-100-bachem-bubendorf"
+        "fr": "technicien-de-laboratoire-qc-ipc-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -451,7 +451,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T22:47:18.201Z"
+      "firstSeenAt": "2026-06-03T22:47:18.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-qc-ipc-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "lab-technician-qc-ipc-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-0a05c7a5766f",

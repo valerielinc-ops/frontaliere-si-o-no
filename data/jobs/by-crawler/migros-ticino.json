@@ -1785,7 +1785,7 @@
         "it": "student-in-come-ferienaushilfe-denner-horw",
         "en": "student-in-als-ferienaushilfe-denner-horw",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln"
       },
       "titleByLocale": {
         "en": "Student*in als Ferienaushilfe",
@@ -1853,14 +1853,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "fr": [
-          "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln",
           "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc",
           "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
-        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln",
-        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc"
+        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc",
+        "student-in-als-ferienaushilfe-denner"
       ]
     },
     {
@@ -3179,7 +3178,7 @@
     },
     {
       "id": "company-ax4knf",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-a-a-ore-denner-ag-grenchen",
       "company": "Denner AG",
       "title": "Student*in im Stundenlohn",
       "location": "Grenchen",
@@ -3225,10 +3224,10 @@
       "crawledAt": "2026-06-03T06:44:54.971Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-a-a-ore-denner-ag-grenchen",
         "en": "student-in-im-stundenlohn-denner-biel-bienne",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-e-a-l-heure-denner-ag-grenchen"
       },
       "titleByLocale": {
         "en": "Student*in im Stundenlohn",
@@ -3285,19 +3284,16 @@
         ],
         "fr": [
           "etudiant-e-a-l-heure-denner-ag-grenchen-ax4knf",
-          "etudiant-e-a-l-heure-denner-ag-grenchen",
           "student-in-im-stundenlohn-denner"
         ],
         "it": [
-          "studente-a-a-ore-denner-ag-grenchen",
           "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
         "studentin-in-im-stundenlohn-denner-ag-grenchen-ax4knf",
         "etudiant-e-a-l-heure-denner-ag-grenchen-ax4knf",
-        "etudiant-e-a-l-heure-denner-ag-grenchen",
-        "studente-a-a-ore-denner-ag-grenchen"
+        "student-in-im-stundenlohn-denner"
       ],
       "sourceLang": "de",
       "salaryMin": 49500,
@@ -52285,9 +52281,9 @@
       "firstSeenAt": "2026-06-03T00:26:24.870Z",
       "slugByLocale": {
         "it": "responsabile-di-filiale-denner-schluein",
-        "en": "responsabile-di-filiale-denner-schluein",
+        "en": "branch-manager-denner-ag-emmenbrucke",
         "de": "filialleiter-in-denner-schluein-7k8gx6",
-        "fr": "responsabile-di-filiale-denner-schluein"
+        "fr": "gerant-de-filiale-denner-ag-emmenbrucke"
       },
       "titleByLocale": {
         "it": "Responsabile di filiale",
@@ -52343,8 +52339,7 @@
         "en": [
           "filialleiter-in-denner-schluein-7k8gx6",
           "filialleiter-in-genossenschaft-migros-ostschweiz-nurensdorf",
-          "head-of-branch-in-denner-brig",
-          "branch-manager-denner-ag-emmenbrucke"
+          "head-of-branch-in-denner-brig"
         ],
         "fr": [
           "filialleiter-in-denner-schluein-7k8gx6",
@@ -52358,7 +52353,6 @@
         "filialleiter-in-genossenschaft-migros-ostschweiz-nurensdorf",
         "head-of-branch-in-denner-brig",
         "chef-de-branche-denner-brig",
-        "branch-manager-denner-ag-emmenbrucke",
         "responsable-de-succursale-denner-ag-emmenbrucke"
       ],
       "baseSalary": {

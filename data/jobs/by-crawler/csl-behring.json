@@ -4180,12 +4180,12 @@
     },
     {
       "id": "csl-behring-be776d65e2ef",
-      "slug": "principal-scientist-pathogen-safety-csl-behring-ch",
+      "slug": "principale-scienziato-sicurezza-patogena-csl-behring-bern",
       "slugByLocale": {
         "en": "principal-scientist-pathogen-safety-csl-behring-ch",
-        "it": "principal-scientist-pathogen-safety-csl-behring-ch",
-        "de": "principal-scientist-pathogen-safety-csl-behring-ch",
-        "fr": "principal-scientist-pathogen-safety-csl-behring-ch"
+        "it": "principale-scienziato-sicurezza-patogena-csl-behring-bern",
+        "de": "hauptwissenschaftler-pathogensicherheit-csl-behring-bern",
+        "fr": "chercheur-principal-securite-des-agents-pathogenes-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -4243,10 +4243,22 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-03T23:20:29.917Z",
       "previousSlugs": [
+        "principal-scientist-pathogen-safety-csl-behring-ch",
         "direttore-sicurezza-patogena-csl-behring-bern",
         "director-pathogen-safety-csl-behring-ch",
         "direktor-pathogensicherheit-csl-behring-bern"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-pathogen-safety-csl-behring-ch"
+        ],
+        "de": [
+          "principal-scientist-pathogen-safety-csl-behring-ch"
+        ],
+        "fr": [
+          "principal-scientist-pathogen-safety-csl-behring-ch"
+        ]
+      }
     },
     {
       "id": "csl-behring-acf35ea070df",

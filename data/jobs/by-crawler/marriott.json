@@ -786,7 +786,6 @@
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
         "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "responsabile-revenue-management-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
@@ -2083,9 +2082,6 @@
       "previousSlugs": [
         "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
         "pastry-cook-long-term-w-verbier-marriott-verbier",
-        "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
-        "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier",
-        "patisserie-hiver-26-27-w-verbier-marriott-international-verbier",
         "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier",
@@ -2209,7 +2205,7 @@
         "it": "direttore-della-gestione-del-ricavo-marriott-international-geneva",
         "en": "director-of-revenue-management-marriott-geneva",
         "de": "direktor-revenue-management-marriott-international-geneva",
-        "fr": "director-of-revenue-management-marriott-geneva"
+        "fr": "maitre-d-superviseur-en-salle-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2272,7 +2268,6 @@
           "maitre-d-venue-supervisor-long-term-w-verbier-marriott-international-verbier"
         ],
         "fr": [
-          "maitre-d-superviseur-en-salle-long-terme-w-verbier-marriott-international-verbier",
           "director-of-revenue-management-marriott-geneva"
         ]
       },
@@ -2281,7 +2276,7 @@
         "maitre-d-venue-supervisor-lungo-termine-w-verbier-marriott-international-verbier",
         "maitre-d-venue-supervisore-long-term-w-verbier-marriott-international-verbier",
         "maitre-d-venue-supervisor-long-term-w-verbier-marriott-international-verbier",
-        "maitre-d-superviseur-en-salle-long-terme-w-verbier-marriott-international-verbier",
+        "director-of-revenue-management-marriott-geneva",
         "agente-di-manutenzione-inverno-26-27-w-verbier-marriott-international-verbier",
         "bar-supervisore-long-term-w-verbier-marriott-international-verbier",
         "bar-supervisor-long-term-w-verbier-marriott-verbier",
@@ -2475,12 +2470,12 @@
     },
     {
       "id": "marriott-1510955db4f4",
-      "slug": "hotel-technician-marriott-zurich",
+      "slug": "tecnico-dell-hotel-marriott-international-zurich",
       "slugByLocale": {
         "en": "hotel-technician-marriott-zurich",
-        "it": "hotel-technician-marriott-zurich",
-        "de": "hotel-technician-marriott-zurich",
-        "fr": "hotel-technician-marriott-zurich"
+        "it": "tecnico-dell-hotel-marriott-international-zurich",
+        "de": "hoteltechniker-marriott-international-zurich",
+        "fr": "technicien-d-hotel-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2547,7 +2542,21 @@
       },
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-04T00:25:44.340Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "hotel-technician-marriott-zurich"
+        ],
+        "de": [
+          "hotel-technician-marriott-zurich"
+        ],
+        "fr": [
+          "hotel-technician-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hotel-technician-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-d770877a6294",
@@ -2696,7 +2705,6 @@
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
         "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "esperienza-degli-ospiti-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3520,7 +3528,7 @@
       "slugByLocale": {
         "it": "demi-chef-de-partie-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
-        "de": "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
+        "de": "auszubildende-cfc-cuisine-1-jahr-marriott-international-geneva",
         "fr": "demi-chef-de-partie-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -3580,7 +3588,6 @@
           "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva"
         ],
         "de": [
-          "auszubildende-cfc-cuisine-1-jahr-marriott-international-geneva",
           "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier"
         ],
         "fr": [
@@ -3590,7 +3597,7 @@
       "previousSlugs": [
         "apprenti-e-cfc-cuisine-1ere-annee-marriott-geneva",
         "apprendistato-cfc-cuisine-1-anno-marriott-international-geneva",
-        "auszubildende-cfc-cuisine-1-jahr-marriott-international-geneva",
+        "demi-chef-de-partie-winter-26-27-w-verbier-marriott-verbier",
         "apprenti-e-cfc-cuisine-1ere-annee-marriott-international-geneva"
       ],
       "firstSeenAt": "2026-05-29T13:14:32.013Z",

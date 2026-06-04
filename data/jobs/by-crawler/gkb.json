@@ -685,7 +685,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -734,6 +734,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        ],
+        "fr": [
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },

@@ -2010,10 +2010,10 @@
     },
     {
       "id": "gzo-wetzikon-1811e2bece58",
-      "slug": "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch",
+      "slug": "assistente-di-cura-srk-chirurgia-60-100-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch",
-        "it": "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch",
+        "it": "assistente-di-cura-srk-chirurgia-60-100-gzo-spital-wetzikon-wetzikon",
         "en": "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch",
         "fr": "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch"
       },
@@ -2073,7 +2073,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-03T23:44:50.693Z"
+      "firstSeenAt": "2026-06-03T23:44:50.693Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-chirurgie-60-100-gzo-wetzikon-ch"
+      ]
     }
   ]
 }
