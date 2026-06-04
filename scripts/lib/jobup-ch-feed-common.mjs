@@ -50,7 +50,11 @@ const BROWSER_USER_AGENTS = [
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
 ];
 
-/** Whether an HTTP error looks like jobup's anti-bot fence (403/406/429-by-WAF). */
+/**
+ * Whether an HTTP status looks like jobup's anti-bot fence (403/406/401). 429 is
+ * NOT here — it is routed as retryable-transient in fetchFeed (rotating UA +
+ * backoff), not via the Playwright fallback.
+ */
 function isAntiBotStatus(status) {
   return status === 403 || status === 406 || status === 401;
 }
