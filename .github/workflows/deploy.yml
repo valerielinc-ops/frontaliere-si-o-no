@@ -707,23 +707,56 @@ jobs:
             echo "no offloadable assets present — skipping CDN push"; exit 0
           fi
           printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
-          echo "CDN payload: $(du -sh "$stage" | cut -f1)"
-          # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
-          payload_bytes="$(du -sb "$stage" | cut -f1)"
-          if [ "$payload_bytes" -gt 950000000 ]; then
-            echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; consider splitting (e.g. keep blog heroes on jsDelivr)"
-          fi
           keyfile="$RUNNER_TEMP/cdn_deploy_key"
           printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
           export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          # ── Additive assets/ (anti-clobber) ──────────────────────────────────
+          # The bundler assets/ are CONTENT-HASHED (index-*.js / App-*.js etc) and
+          # therefore immutable: a given hash always holds identical bytes. The old
+          # force-push replaced the whole CDN repo each deploy, DELETING the entry
+          # hashes still referenced by the currently-live HTML — which, for the
+          # ~13 GB Pages site, keeps serving the previous build for the 10-20 min
+          # the new publish takes to propagate (and longer on a rollback). Result:
+          # live HTML → 404 on its own JS → SPA dead (prod outage 2026-06-04).
+          # Fix: carry forward the prior CDN assets/ and merge the new build ON TOP
+          # (cp -n never overwrites a freshly-built file), so old + new hashes
+          # coexist and any in-flight HTML keeps booting. og/data/images are
+          # same-path and fully refreshed above (overwrite is correct for them).
+          # Sparse + blob:none keeps the clone to the small assets/ tree only.
+          if [ -d "$stage/assets" ]; then
+            prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
+            if git clone --depth 1 --filter=blob:none --sparse \
+                 git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
+              git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+              if [ -d "$prev/assets" ]; then
+                cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
+                echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
+              fi
+            else
+              echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
+            fi
+            rm -rf "$prev"
+          fi
+          echo "CDN payload: $(du -sh "$stage" | cut -f1)"
+          # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
+          # With additive assets/ the payload grows slowly across deploys (only NEW
+          # hashes accumulate; data/og/images are refreshed, not stacked). A separate
+          # zero-Claude janitor cron prunes assets/ hashes no longer referenced by
+          # any live sitemap page once past a grace window (follow-up).
+          payload_bytes="$(du -sb "$stage" | cut -f1)"
+          if [ "$payload_bytes" -gt 950000000 ]; then
+            echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
+          fi
           cd "$stage"
           git init -q
           git checkout -q -b main
           git config user.email "deploy-bot@frontaliereticino.ch"
           git config user.name "deploy-bot"
           git add -A
-          git commit -qm "cdn assets (og + data + assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+          git commit -qm "cdn assets (og + data + additive assets) ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
           # Force-push a single fresh commit → CDN repo history never accumulates.
+          # Content is additive (prior assets/ merged above), so the force-push no
+          # longer clobbers in-flight entry hashes — it just flattens history.
           if git push -f git@github.com:valerielinc-ops/frontaliere-cdn.git main; then
             echo "CDN_BASE=https://cdn.frontaliereticino.ch" >> "$GITHUB_ENV"
             echo "✅ pushed assets to frontaliere-cdn"
