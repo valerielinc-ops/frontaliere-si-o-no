@@ -44,6 +44,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'Comment Genève a identifié l\'hantavirus : implications pour les frontaliers',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Hôpital universitaire de Genève a identifié la souche d\'hantavirus responsable d\'une épidémie sur un navire de croisière en mai 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Hôpital universitaire de Genève avec laboratoire moderne',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'La Suisse rejette les droits de douane américains sur le travail forcé',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berne refuse les accusations américaines et négocie à Paris. Des droits de douane de 12,5% en discussion, date limite pour les observations le 6 juillet 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse négociant les tarifs douaniers avec les États-Unis',
 };
 
 export default blogMetaChFr;
