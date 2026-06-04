@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-06-04T00:10:33.410Z",
+  "assembledAt": "2026-06-04T12:37:28.166Z",
   "jobs": [
     {
       "title": "Stv. Leitung Behandlung 02/2026",
@@ -153,7 +153,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -229,7 +230,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -376,7 +378,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
