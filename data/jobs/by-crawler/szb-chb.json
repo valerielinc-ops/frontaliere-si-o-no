@@ -541,12 +541,12 @@
     },
     {
       "id": "szb-chb-50d13b3d46eb",
-      "slug": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne",
+      "slug": "urologia-della-salute-professionale-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne",
-        "it": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne",
-        "en": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne",
-        "fr": "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne"
+        "it": "urologia-della-salute-professionale-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -601,16 +601,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T01:28:17.319Z"
+      "firstSeenAt": "2026-06-04T01:28:17.319Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-urologie-50-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-eed4663f9c57",
-      "slug": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
+      "slug": "professione-professore-salute-acute-care-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "de": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
-        "it": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
-        "en": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne",
-        "fr": "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+        "it": "professione-professore-salute-acute-care-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "profession-professor-health-acute-care-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "profession-professeur-sante-soins-actifs-60-90-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -665,7 +679,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T01:28:16.553Z"
+      "firstSeenAt": "2026-06-04T01:28:16.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+        ],
+        "fr": [
+          "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-fachfrau-fachmann-gesundheit-akut-pflege-60-90-szb-chb-biel-bienne"
+      ]
     },
     {
       "id": "szb-chb-7802123249ba",
@@ -673,8 +701,8 @@
       "slugByLocale": {
         "de": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
         "it": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
-        "fr": "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+        "en": "experienced-career-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "experience-professionnelle-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -719,6 +747,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
+        ],
+        "fr": [
           "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
         ]
       },
