@@ -181,10 +181,17 @@ export function parseConcorsiDetail(html = '') {
   const bodyHtml = html.slice(sectionStart, sectionEnd > sectionStart ? sectionEnd : undefined);
   // Compiti/Requisiti are <ul><li> lists on the source page; htmlToText flattens
   // </li> to a bare newline, dropping the bullet so the description reads as flat
-  // prose (fails the parser-quality structured-content check). Inject a bullet
-  // marker at each list item so the list structure survives the text conversion.
-  const bulletedBodyHtml = bodyHtml.replace(/<li[^>]*>/gi, '<li>• ');
-  const text = htmlToText(bulletedBodyHtml);
+  // prose (fails the parser-quality structured-content check). Inject a newline +
+  // bullet at each list item — same idiom as rexx-systems-job-parser-common.mjs —
+  // so the bullet lands at line start even for a single-item list right after
+  // inline text (a bare `<li>•` would depend on a preceding block close).
+  const bulletedBodyHtml = bodyHtml.replace(/<li[^>]*>/gi, '\n• ');
+  let text = htmlToText(bulletedBodyHtml);
+
+  // sectionEnd only cuts on footer|nav|aside, so the inline navigation anchors
+  // ("Indietro", "candidatura online »") leak into the description tail and end
+  // up in the indexed JobPosting. Strip that trailing chrome cluster.
+  text = text.replace(/\s*\bIndietro\b[\s·|]*candidatura\s+online\s*»?\s*$/i, '').trim();
 
   return { dept, title, text };
 }

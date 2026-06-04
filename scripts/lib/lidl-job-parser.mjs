@@ -49,7 +49,7 @@ function innerTextWithBullets(el) {
   if (!el) return '';
   // Replace <li>…</li> with "- …\n" before stripping all other tags
   const html = el.innerHTML
-    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n');
   return stripHtml(html);
 }
