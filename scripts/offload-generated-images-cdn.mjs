@@ -14,10 +14,11 @@
 // (The JS/CSS bundle is offloaded separately: ASSET_CDN/renderBuiltUrl rebases it
 //  at build time; the deploy verify step deletes dist/assets fail-safe.)
 //
-// (Blog 480w thumbnails are NOT offloaded — their URLs are built at runtime in
-// the JS bundle, not in HTML, so an HTML-only rewrite can't cover them; they
-// stay same-origin. og:image refs ARE in static HTML so Phase 1 rewrites them;
-// job-detail JSON is also runtime-fetched so Phase 2 injects a runtime base.)
+// (Blog 480w thumbnails ARE now offloaded: getResponsiveImageSet emits the CDN
+// thumbnail URL at runtime — they have no same-origin refs — and the deploy
+// pushes dist/images/blog/thumbnails to the CDN before this runs, so Phase 1's
+// guarded delete frees ~49 MB. og:image refs ARE in static HTML so Phase 1
+// rewrites them; job-detail JSON is runtime-fetched so Phase 2 injects a base.)
 //
 // Unlike the full blog hero images (git-tracked → served from jsDelivr@main by
 // build-plugins/blogImageCdnFinalizePlugin), dist/og and dist/data/job-detail
@@ -53,14 +54,22 @@ const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
 // Offload targets: [dist subdir, url path prefix]. Only these prefixes are
 // rewritten/guarded/deleted.
 //
-// ONLY per-job OG cards. Their refs (`<meta property="og:image">`) are emitted
-// into the static HTML, so the HTML rewrite below catches every one and the
-// guard can verify it. Blog 480w thumbnails are NOT offloaded: the SPA builds
-// those URLs at runtime in the JS bundle (getResponsiveImageSet → srcSet), not
-// in HTML, so an HTML-only rewrite would miss them and deleting the dir would
-// 404 them on hydrated pages. Thumbnails stay same-origin (~49 MB).
+// Per-job OG cards + blog 480w thumbnails.
+//  • OG refs (`<meta property="og:image">`) are in static HTML so the rewrite
+//    below catches every one and the leak guard can verify it.
+//  • Blog 480w thumbnails: getResponsiveImageSet (components/community/
+//    BlogArticles.tsx) now emits the CDN thumbnail URL at runtime (the hero is
+//    already a cdn.frontaliereticino.ch URL via cdnBlogImage), so the SPA fetches
+//    thumbnails from the CDN, NOT same-origin; and there are ZERO same-origin
+//    `/images/blog/thumbnails/` refs in static HTML. The deploy pushes
+//    dist/images/blog/thumbnails to the CDN BEFORE this runs, so the guarded
+//    delete just frees ~49 MB. The same-origin leak guard still protects the dir:
+//    if any `/images/blog/thumbnails/` ref unexpectedly survives in HTML, the dir
+//    is KEPT (non-fatal) — no 404. (Places thumbnails under /images/places/ are
+//    NOT offloaded: they stay same-origin, not pushed to the CDN.)
 const TARGETS = [
   { dir: ['og'], url: '/og/' },
+  { dir: ['images', 'blog', 'thumbnails'], url: '/images/blog/thumbnails/' },
 ];
 
 function log(msg) {
