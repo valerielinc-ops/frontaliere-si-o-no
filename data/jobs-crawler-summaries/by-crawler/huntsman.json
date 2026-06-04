@@ -1,16 +1,16 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-06-04T12:21:51.066Z",
+  "generatedAt": "2026-06-04T15:09:05.023Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5404,
-  "avgDurationMs": 5404,
+  "durationMs": 4902,
+  "avgDurationMs": 4902,
   "durationHistory": [
-    5404
+    4902
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Technologue-en-production---5-quipes_J-019681",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:21:46.613Z",
+      "crawledAt": "2026-06-04T15:09:00.954Z",
       "jobReqId": "J-019681",
       "firstSeenAt": "2026-05-04T22:05:20.209Z",
       "_qualityScore": 82,
@@ -73,8 +73,9 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:21:47.319Z",
+      "crawledAt": "2026-06-04T15:09:01.662Z",
       "jobReqId": "J-019602",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -108,8 +109,9 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-de-Conditionnement--en-quipe-de-jour_J-019425",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:21:47.967Z",
+      "crawledAt": "2026-06-04T15:09:02.313Z",
       "jobReqId": "J-019425",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:44:45.451Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -143,7 +145,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T12:21:48.733Z",
+      "crawledAt": "2026-06-04T15:09:02.939Z",
       "jobReqId": "J-019405",
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "_qualityScore": 82,
