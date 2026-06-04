@@ -47,6 +47,8 @@
  * @property {string} [descriptionHtml] HTML body, if `?content=true` was used.
  */
 
+import { fetchWithRetry } from '../transient-fetch.mjs';
+
 /* ── Error class ─────────────────────────────────────────────── */
 
 /**
@@ -233,19 +235,19 @@ export async function fetchGreenhouseJobs(boardToken, options = {}) {
 
   const url = buildGreenhouseApiUrl(boardToken, { includeContent, useDeprecatedApi });
 
-  let payload;
-  try {
-    payload = await getJsonOnce(url, timeoutMs);
-  } catch (firstErr) {
-    // Single retry — only for transient classes (network / 5xx).
-    const retriable =
-      firstErr instanceof GreenhouseApiError &&
-      (firstErr.statusCode === 0 || firstErr.statusCode >= 500);
-    if (!retriable) throw firstErr;
-    // Wait a beat before the retry; do not block the loop too long.
-    await new Promise((r) => setTimeout(r, 750));
-    payload = await getJsonOnce(url, timeoutMs);
-  }
+  // Retry only TRANSIENT classes (network/abort → statusCode 0, or 5xx) via the
+  // shared exponential-backoff helper. Persistent 4xx (404 board moved, 401/403
+  // private board) fail fast. Greenhouse always returns the full list in one
+  // call, so the retry is for the single request.
+  const payload = await fetchWithRetry(
+    () => getJsonOnce(url, timeoutMs),
+    {
+      label: `greenhouse ${url}`,
+      isTransient: (err) =>
+        err instanceof GreenhouseApiError &&
+        (err.statusCode === 0 || err.statusCode >= 500),
+    },
+  );
 
   const rawJobs = Array.isArray(payload?.jobs)
     ? payload.jobs

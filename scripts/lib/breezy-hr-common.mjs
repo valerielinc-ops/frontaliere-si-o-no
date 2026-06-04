@@ -37,6 +37,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const DETAIL_DELAY_MS = 250;
 // Breezy's server-side prerender only kicks in for crawler UAs. Without
@@ -52,41 +53,51 @@ function normalize(s = '') {
 
 async function fetchJsonWithTimeout(url, { ua = BROWSER_UA, timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json,*/*', 'User-Agent': ua },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), t);
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/json,*/*', 'User-Agent': ua },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `breezy-hr ${url}` });
 }
 
 async function fetchHtmlAsCrawler(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': CRAWLER_UA,
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), t);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'User-Agent': CRAWLER_UA,
+        },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `breezy-hr ${url}` });
 }
 
 /**

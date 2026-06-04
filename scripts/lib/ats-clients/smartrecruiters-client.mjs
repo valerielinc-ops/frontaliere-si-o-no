@@ -86,6 +86,8 @@
  *                                                that need extra fields.
  */
 
+import { fetchWithRetry } from '../transient-fetch.mjs';
+
 /* ── Constants ───────────────────────────────────────────────── */
 
 const SR_API_BASE = 'https://api.smartrecruiters.com/v1/companies';
@@ -210,9 +212,11 @@ export function buildSmartRecruitersApiUrl(tenant, options = {}) {
  * @returns {Promise<{ content: SmartRecruitersPosting[], totalFound: number }>}
  */
 async function fetchListPage(url, { timeoutMs, userAgent }) {
-  let lastErr = null;
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
+  // Route through the shared exponential-backoff helper. TRANSIENT failures
+  // retry: network/abort (statusCode null) and 5xx. Persistent 4xx (404 tenant
+  // typo / case mismatch) fail fast.
+  return fetchWithRetry(
+    async () => {
       const res = await timedFetch(url, {
         timeoutMs,
         headers: { 'User-Agent': userAgent },
@@ -223,39 +227,24 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
         const totalFound = Number.isFinite(json?.totalFound) ? Number(json.totalFound) : content.length;
         return { content, totalFound };
       }
-      if (res.status >= 500 && res.status < 600 && attempt === 0) {
-        lastErr = new SmartRecruitersApiError(
-          `SmartRecruiters API ${res.status} ${res.statusText} (retrying)`,
-          res.status,
-        );
-        continue;
-      }
       throw new SmartRecruitersApiError(
         `SmartRecruiters API ${res.status} ${res.statusText} for ${url}`,
         res.status,
       );
-    } catch (err) {
-      if (err instanceof SmartRecruitersApiError) {
-        if (attempt === 0 && err.statusCode && err.statusCode >= 500) {
-          lastErr = err;
-          continue;
+    },
+    {
+      label: `smartrecruiters ${url}`,
+      isTransient: (err) => {
+        if (err instanceof SmartRecruitersApiError) {
+          return err.statusCode == null || err.statusCode >= 500;
         }
-        throw err;
-      }
-      if (attempt === 0) {
-        lastErr = new SmartRecruitersApiError(
-          `SmartRecruiters API fetch failed: ${err?.message || err}`,
-          null,
-        );
-        continue;
-      }
-      throw new SmartRecruitersApiError(
-        `SmartRecruiters API fetch failed (after retry): ${err?.message || err}`,
-        null,
-      );
-    }
-  }
-  throw lastErr || new SmartRecruitersApiError(`SmartRecruiters API fetch failed for ${url}`, null);
+        return true; // bare network/abort error
+      },
+    },
+  ).catch((err) => {
+    if (err instanceof SmartRecruitersApiError) throw err;
+    throw new SmartRecruitersApiError(`SmartRecruiters API fetch failed for ${url}: ${err?.message || err}`, null);
+  });
 }
 
 /**

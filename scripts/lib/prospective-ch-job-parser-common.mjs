@@ -25,6 +25,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -41,20 +42,25 @@ function normalizeSpace(s = '') {
 
 async function fetchPage(apiUrl) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(apiUrl, {
-      headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${apiUrl}`);
-    return await res.json();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(apiUrl, {
+        headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${apiUrl}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `prospective-ch ${apiUrl}` });
 }
 
 function pickLocation(job, defaultCity) {

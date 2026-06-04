@@ -42,6 +42,7 @@ import {
   htmlToText,
   normalizeSpace,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -49,21 +50,26 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 export async function fetchBeehireCampaigns(slug) {
   const url = `https://app.beehire.com/users/getPublicCampaigns/${encodeURIComponent(slug)}`;
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    const data = await res.json();
-    return Array.isArray(data?.campaigns) ? data.campaigns : [];
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      const data = await res.json();
+      return Array.isArray(data?.campaigns) ? data.campaigns : [];
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `beehire ${url}` });
 }
 
 /** Pick a translation by language priority (Beehire stores them in numeric keys). */

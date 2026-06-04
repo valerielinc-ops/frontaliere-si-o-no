@@ -50,6 +50,8 @@
  * @property {string} [descriptionHtml] HTML body, if available (`descriptionHtml`).
  */
 
+import { fetchWithRetry } from '../transient-fetch.mjs';
+
 /* ── Constants ───────────────────────────────────────────────── */
 
 const LEVER_API_BASE = 'https://api.lever.co/v0/postings';
@@ -169,55 +171,46 @@ export function buildLeverApiUrl(companySlug, options = {}) {
  * @returns {Promise<Array<Object>>}
  */
 async function fetchLeverPage(url, timeoutMs) {
-  let lastErr = null;
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
+  // Route through the shared exponential-backoff helper. TRANSIENT failures
+  // retry: network/abort (LeverApiError statusCode null) and 5xx. Persistent
+  // 4xx (statusCode 400-499) fail fast — a 404 means the company slug moved.
+  // A non-array body is a parse-shape error, not transient → fail fast.
+  return fetchWithRetry(
+    async () => {
       const res = await timedFetch(url, { timeoutMs });
       if (res.ok) {
         const json = await res.json();
         if (!Array.isArray(json)) {
-          throw new LeverApiError(
+          const e = new LeverApiError(
             `Lever API returned non-array body for ${url}`,
             res.status,
           );
+          e.nonTransient = true; // shape error, never retry
+          throw e;
         }
         return json;
-      }
-      // 5xx → retry once. 4xx → fail fast.
-      if (res.status >= 500 && res.status < 600 && attempt === 0) {
-        lastErr = new LeverApiError(
-          `Lever API ${res.status} ${res.statusText} (retrying)`,
-          res.status,
-        );
-        continue;
       }
       throw new LeverApiError(
         `Lever API ${res.status} ${res.statusText} for ${url}`,
         res.status,
       );
-    } catch (err) {
-      if (err instanceof LeverApiError) {
-        if (attempt === 0 && err.statusCode && err.statusCode >= 500) {
-          lastErr = err;
-          continue;
+    },
+    {
+      label: `lever ${url}`,
+      isTransient: (err) => {
+        if (err instanceof LeverApiError) {
+          if (err.nonTransient) return false;
+          // statusCode null = network/abort/parse → transient; else only 5xx.
+          return err.statusCode == null || err.statusCode >= 500;
         }
-        throw err;
-      }
-      // Network / abort / parse error
-      if (attempt === 0) {
-        lastErr = new LeverApiError(
-          `Lever API fetch failed: ${err?.message || err}`,
-          null,
-        );
-        continue;
-      }
-      throw new LeverApiError(
-        `Lever API fetch failed (after retry): ${err?.message || err}`,
-        null,
-      );
-    }
-  }
-  throw lastErr || new LeverApiError(`Lever API fetch failed for ${url}`, null);
+        // Bare network/abort error thrown by timedFetch before wrapping.
+        return true;
+      },
+    },
+  ).catch((err) => {
+    if (err instanceof LeverApiError) throw err;
+    throw new LeverApiError(`Lever API fetch failed for ${url}: ${err?.message || err}`, null);
+  });
 }
 
 /**
