@@ -7,17 +7,22 @@
 // the CDN repo under /images/blog, served at a STABLE URL — consistent with
 // og/data/assets, all on the one CDN (no jsDelivr).
 //
-// Scope: ONLY full hero images (~224 MB) move to the CDN. The 480w responsive
-// thumbnails under /images/blog/thumbnails/ are build-generated (gitignored)
-// and stay same-origin — so the responsive `srcSet` keeps a local 480w entry
-// and a CDN 1200w entry. A post-build plugin deletes the full images from
-// dist/images/blog (keeping thumbnails) and fails the build if any full-image
-// origin reference survives in the emitted HTML.
+// Scope: full hero images (~224 MB) AND the 480w responsive thumbnails (~49 MB)
+// move to the CDN. The thumbnails are build-generated (gitignored) under
+// /images/blog/thumbnails/; getResponsiveImageSet (components/community/
+// BlogArticles.tsx) emits the CDN thumbnail URL so the responsive `srcSet` is a
+// CDN 480w + CDN 1200w pair, and scripts/offload-generated-images-cdn.mjs deletes
+// dist/images/blog/thumbnails after the deploy pushes them to the CDN. A
+// post-build plugin (blogImageCdnFinalizePlugin) deletes the full images from
+// dist/images/blog — keeping the thumbnails/ subdir for that offload step to push
+// and delete — and fails the build if any full-image origin ref survives in HTML.
 //
 // Fallback: if the CDN is briefly unreachable, installBlogImageCdnFallback()
 // rewrites the failing <img> to raw.githubusercontent.com at the build SHA
 // (git-tracked source). raw serves images fine — its text/plain MIME + nosniff
-// only block scripts, not images.
+// only block scripts, not images. NOTE: thumbnails have NO raw copy (gitignored),
+// so rawFallbackForBlog() returns null for /thumbnails/ URLs — the cleared srcSet
+// then degrades to the full CDN hero, which DOES recover on raw during an outage.
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 

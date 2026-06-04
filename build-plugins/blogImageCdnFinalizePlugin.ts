@@ -7,11 +7,15 @@
 // 1. Rewrite every SSG-emitted reference to a FULL blog image
 //    (`/images/blog/<file>.webp`, origin-absolute or site-relative) to its
 //    CDN URL, across dist HTML/XML/TXT. The 480w thumbnails under
-//    `/images/blog/thumbnails/` are NOT touched — they stay same-origin.
+//    `/images/blog/thumbnails/` are NOT touched here — they have no SSG-emitted
+//    same-origin refs (the SPA's getResponsiveImageSet emits their CDN URL at
+//    runtime) and are offloaded separately by
+//    scripts/offload-generated-images-cdn.mjs (pushed to the CDN, then deleted).
 // 2. GUARD: re-scan; if any full-blog reference survives, ABORT the offload
 //    (keep the images in dist) rather than delete — never ship a 404, never
 //    break the deploy. Non-fatal: worst case the artifact is unchanged.
-// 3. Delete the full blog images from dist/images/blog (keep thumbnails/).
+// 3. Delete the full blog images from dist/images/blog (keep the thumbnails/
+//    subdir for the offload script to push to the CDN and then delete).
 //
 // SPA runtime <img> references come from data/blog-articles-data.ts, whose
 // ARTICLES export is already CDN-rewritten via cdnBlogImage — so this plugin
@@ -100,11 +104,13 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         return;
       }
 
-      // Delete full images; keep the thumbnails/ subdirectory (served local).
+      // Delete full images; keep the thumbnails/ subdirectory here for the
+      // offload script (offload-generated-images-cdn.mjs) to push to the CDN and
+      // then delete — they are NOT served same-origin.
       let deleted = 0;
       let freed = 0;
       for (const e of fs.readdirSync(blogDir, { withFileTypes: true })) {
-        if (e.isDirectory()) continue; // thumbnails/
+        if (e.isDirectory()) continue; // thumbnails/ (offloaded separately)
         const fp = path.join(blogDir, e.name);
         freed += fs.statSync(fp).size;
         fs.rmSync(fp);
