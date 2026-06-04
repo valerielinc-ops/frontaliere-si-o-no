@@ -50,4 +50,8 @@ describe('rawFallbackForBlog', () => {
     expect(rawFallbackForBlog('/images/blog/x.webp')).toBeNull();
     expect(rawFallbackForBlog('https://frontaliereticino.ch/images/blog/x.webp')).toBeNull();
   });
+
+  it('returns null for CDN 480w thumbnails (gitignored → no raw copy; preserves the one-shot fallback flag so the hero recovers on CDN-down)', () => {
+    expect(rawFallbackForBlog(`${CDN_BLOG_BASE}/thumbnails/x-480w.webp`)).toBeNull();
+  });
 });

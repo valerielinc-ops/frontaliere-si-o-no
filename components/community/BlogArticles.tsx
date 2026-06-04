@@ -8,6 +8,7 @@ import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
 const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
@@ -656,9 +657,21 @@ type ResponsiveImageSet = {
 };
 
 function getResponsiveImageSet(imagePath: string): ResponsiveImageSet | null {
- // Blog hero images are served from jsDelivr (CDN, full image only); their
- // 480w thumbnails stay same-origin under /images/blog/thumbnails/. Accept
- // the CDN URL form and map it back to the local thumbnail path.
+ // Blog heroes are CDN-served (cdn.frontaliereticino.ch/images/blog) via the
+ // cdnBlogImage() transform at the data-export layer (data/blog-articles-data.ts).
+ // Map the CDN hero URL → its CDN 480w thumbnail so mobile loads the small
+ // variant from the SAME CDN. The thumbnails are pushed to the CDN repo and
+ // offloaded out of the dist artifact by scripts/offload-generated-images-cdn.mjs.
+ // (Before this, the CDN hero URL matched neither branch below → null → no
+ //  srcSet → mobile fetched the 1200w hero, and the 480w thumbnails sat unused
+ //  in the artifact.)
+ if (imagePath.startsWith(CDN_BLOG_BASE + '/') && !imagePath.startsWith(CDN_BLOG_BASE + '/thumbnails/')) {
+ const file = imagePath.slice(CDN_BLOG_BASE.length + 1);
+ const base = file.replace(/\.(jpe?g|png|webp|avif)$/i, '');
+ if (base !== file) return { thumbWebp: `${CDN_BLOG_BASE}/thumbnails/${base}-480w.webp` };
+ }
+ // Raw-fallback form (raw.githubusercontent…/public/images/blog) → local thumb.
+ // Only reached after a CDN error swap, which clears srcSet, so it's inert.
  const cdn = imagePath.match(/\/public\/images\/blog\/([^/]+)\.(jpe?g|png|webp|avif)$/i);
  if (cdn) {
  return { thumbWebp: `/images/blog/thumbnails/${cdn[1]}-480w.webp` };
