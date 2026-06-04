@@ -18,7 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
-import { fetchViaJina } from './lib/jina-proxy.mjs';
+import { fetchViaJina, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -327,6 +327,12 @@ async function fetchCambiavalute() {
       const res = await fetchViaJina(CAMBIAVALUTE_SITEMAP_URL, { timeoutMs });
       if (res.ok) {
         const body = await res.text();
+        // Jina answers 200 even when it never reached the target (challenge /
+        // error page, or empty body) → the link union below would silently be 0.
+        // Log an explicit "200-but-not-target" warning so a degraded proxy is
+        // diagnosable, then parse the body unchanged (#1422 item 1).
+        const reason = detectJinaErrorBody(body);
+        if (reason) console.warn(`⚠️ Proxied sitemap 200 but not the target page (${reason}) — link union will likely be empty.`);
         // Jina with X-Return-Format: html renders the XML sitemap as an HTML
         // page (<a href> links, not <loc>), so parse with both extractors and
         // union — robust whether the proxy returns raw XML or rendered HTML.
