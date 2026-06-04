@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { fetchUmantisDetailContent } from './umantis-detail-helpers.mjs';
+import { fetchUmantisDetailContentResult } from './umantis-detail-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -332,6 +332,7 @@ export async function fetchAllSpitalMaennedorfJobs() {
 
   const jobs = [];
   let detailHits = 0;
+  let quarantinedDeadDetail = 0;
   for (const listing of allListings) {
     const title = listing.title;
     const location = 'Männedorf';
@@ -342,10 +343,22 @@ export async function fetchAllSpitalMaennedorfJobs() {
     // fall back to the listing snippet only on network failure or
     // unexpected layout.
     let detailContent = '';
+    let deadDetail = false;
     try {
-      detailContent = await fetchUmantisDetailContent(BASE_URL, listing.vacancyId, { lang: 'ger' });
+      ({ content: detailContent, deadDetail } =
+        await fetchUmantisDetailContentResult(BASE_URL, listing.vacancyId, { lang: 'ger' }));
     } catch (err) {
       detailContent = '';
+      deadDetail = false;
+    }
+    // Dead detail URL (issue #1245): tenant deprecated /Vacancies/{id}/Description/*
+    // and now 3xx-redirects cross-host (→ public site / migrated ATS). No
+    // per-job body to extract and no listing description either → quarantine
+    // (skip emit) rather than ship a thin title-only fallback that would trip
+    // the dataset boilerplate-guard.
+    if (deadDetail) {
+      quarantinedDeadDetail++;
+      continue;
     }
     if (detailContent && detailContent.length > 200) detailHits += 1;
 
@@ -422,6 +435,12 @@ export async function fetchAllSpitalMaennedorfJobs() {
     jobs.push(job);
   }
 
-  console.log(`\n📋 Total ${SPITAL_MAENNEDORF_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content)`);
+  if (quarantinedDeadDetail > 0) {
+    console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting thin fallback for these.`);
+  }
+  if (jobs.length === 0 && quarantinedDeadDetail > 0) {
+    console.warn(`  ⚠️  ${SPITAL_MAENNEDORF_COMPANY_NAME}: ALL listings have a deprecated (cross-host-redirecting) Umantis detail URL — source appears to have migrated off Umantis. Emitting 0 jobs (no hard failure). Follow-up: per-tenant public-site/Prospective description extraction (issue #1245).`);
+  }
+  console.log(`\n📋 Total ${SPITAL_MAENNEDORF_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${jobs.length} with rich detail content${quarantinedDeadDetail > 0 ? `, ${quarantinedDeadDetail} quarantined dead-detail` : ''})`);
   return jobs;
 }
