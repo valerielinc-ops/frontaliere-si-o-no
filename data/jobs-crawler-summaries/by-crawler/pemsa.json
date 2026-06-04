@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-04T15:35:58.257Z",
-  "total": 56,
+  "generatedAt": "2026-06-04T22:53:44.091Z",
+  "total": 55,
   "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 51,
-  "durationMs": 119003,
-  "avgDurationMs": 119003,
+  "removedCount": 1,
+  "unchangedCount": 50,
+  "durationMs": 114794,
+  "avgDurationMs": 114794,
   "durationHistory": [
-    119003
+    114794
   ],
   "newJobs": [
     {
@@ -148,6 +148,7 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-27T13:31:55.469Z",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -194,7 +195,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Gruista",
+      "slug": "gruista-pemsa-mendrisio",
+      "url": "https://www.pemsa.ch/it/job/gruista-2675701/",
+      "applyUrl": "https://www.pemsa.ch/it/job/gruista-2675701/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-20",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-04",
+      "id": "pemsa-78ea9100859b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-21T12:58:58.143Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Autista C",
@@ -937,43 +976,6 @@
       }
     },
     {
-      "title": "Gruista",
-      "slug": "gruista-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/gruista-2675701/",
-      "applyUrl": "https://www.pemsa.ch/it/job/gruista-2675701/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-20",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-04",
-      "id": "pemsa-78ea9100859b",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-21T12:58:58.143Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "IDRAULICO AFC Riscaldamenti e/o Sanitari",
       "slug": "idraulico-afc-riscaldamenti-e-o-sanitari-pemsa-manno",
       "url": "https://www.pemsa.ch/it/job/idraulico-afc-riscaldamenti-e-o-sanitari-2675695/",
@@ -1300,6 +1302,43 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-15T22:28:05.285Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Installatore Idraulico",
+      "slug": "installatore-idraulico-pemsa-mezzovico",
+      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2674932/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2674932/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Mezzovico",
+      "addressLocality": "Mezzovico",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-09",
+      "id": "pemsa-4cc26cf2bf26",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-15T11:40:31.010Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
