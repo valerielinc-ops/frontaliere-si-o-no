@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2724,
+ "numberOfItems": 2725,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7364,7 +7364,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2721, "name": "Imposta alla fonte frontalieri: come funziona i...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli` },
           { "@type": "ListItem", "position": 2722, "name": "Festività in Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/festivita-ticino-2026` },
           { "@type": "ListItem", "position": 2723, "name": "Impatti della mobilità sulla vita dei frontalie...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-mobilita` },
-          { "@type": "ListItem", "position": 2724, "name": "Un blocco dei ristorni? Reazione comprensibile", "url": `${BASE_URL}/articoli-frontaliere/un-blocco-dei-ristorni-reazione-comprensibile` }
+          { "@type": "ListItem", "position": 2724, "name": "Un blocco dei ristorni? Reazione comprensibile", "url": `${BASE_URL}/articoli-frontaliere/un-blocco-dei-ristorni-reazione-comprensibile` },
+          { "@type": "ListItem", "position": 2725, "name": "Festivi Ticino 2026: il calendario completo per...", "url": `${BASE_URL}/articoli-frontaliere/calendario-festivi-ticino-2026` }
  ]
  },
  {

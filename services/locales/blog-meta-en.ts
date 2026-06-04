@@ -7963,6 +7963,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-mobilita.title': 'Impact of Mobility on the Lives of Ticino Frontiers',
     'blog.article.frontaliere-ticino-mobilita.excerpt': 'Mobility increases complexity for frontiers, with traffic problems and high costs',
     'blog.article.frontaliere-ticino-mobilita.imageAlt': 'image of a commuter',
+    'blog.article.calendario-festivi-ticino-2026.title': 'Festivi Ticino 2026: Full Calendar for Cross-border',
+    'blog.article.calendario-festivi-ticino-2026.excerpt': 'All 2026 holiday dates in Ticino Canton: New Year\'s Day, Easter, Pentecost, Christmas and the bank holidays. Office closure days, impact on G permits and pay slips.',
+    'blog.article.calendario-festivi-ticino-2026.imageAlt': 'Ticino public holidays 2026 calendar with panoramic view of Lugano and Swiss flags',
 };
 
 export default blogMetaEn;
