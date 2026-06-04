@@ -1,16 +1,16 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-06-04T14:54:05.377Z",
+  "generatedAt": "2026-06-04T22:12:55.760Z",
   "total": 164,
   "newCount": 0,
-  "updatedCount": 55,
+  "updatedCount": 59,
   "removedCount": 0,
-  "unchangedCount": 109,
-  "durationMs": 457471,
-  "avgDurationMs": 457471,
+  "unchangedCount": 105,
+  "durationMs": 433909,
+  "avgDurationMs": 433909,
   "durationHistory": [
-    457471
+    433909
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,11 +44,12 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -82,11 +83,11 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -120,11 +121,12 @@
       "addressRegion": "GR",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "_qualityScore": 73,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -158,11 +160,12 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -196,11 +199,11 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -234,11 +237,11 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -272,11 +275,11 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -310,11 +313,49 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "_qualityScore": 73,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-nn7tsc",
+      "slug": "stv-geschaftsfuhrer-in-coop-arosa-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Stv. Geschäftsführer:in",
+      "location": "Arosa",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in/c79ee949-09bc-4cc9-ba25-10409e9e6550",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-06-04T11:44:22.953Z",
+      "firstSeenAt": "2026-06-04T11:44:22.953Z",
+      "needsRetranslation": true,
+      "addressLocality": "Arosa",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -458,14 +499,13 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-06-03T13:22:24.706Z",
       "firstSeenAt": "2026-06-03T13:22:24.706Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -497,14 +537,13 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-06-03T13:22:24.706Z",
       "firstSeenAt": "2026-06-03T13:22:24.706Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -658,6 +697,7 @@
       "addressRegion": "GR",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1155,88 +1195,10 @@
         "translation": 25,
         "completeness": 19
       }
-    },
-    {
-      "id": "company-xl6rrf",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/e8c3eff6-7cb1-46dc-a82d-cbedbcaba086",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-19T22:00:19.720Z",
-      "firstSeenAt": "2026-05-19T22:00:19.720Z",
-      "addressLocality": "Chur",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "GR",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2439,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "company-nn7tsc",
-      "slug": "stv-geschaftsfuhrer-in-coop-arosa-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Stv. Geschäftsführer:in",
-      "location": "Arosa",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in/c79ee949-09bc-4cc9-ba25-10409e9e6550",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-06-04T11:44:22.953Z",
-      "firstSeenAt": "2026-06-04T11:44:22.953Z",
-      "needsRetranslation": true,
-      "addressLocality": "Arosa",
-      "addressCountry": "CH",
-      "country": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 19
-      }
-    },
     {
       "id": "company-qvpnyt",
       "slug": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden",
@@ -2006,6 +1968,43 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-lesziv",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-18T21:44:45.062Z",
+      "firstSeenAt": "2026-05-18T21:44:45.062Z",
+      "addressLocality": "Bellinzona",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "TI",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
