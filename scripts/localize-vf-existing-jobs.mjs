@@ -195,7 +195,7 @@ async function localizeJob(job) {
     // Reject empty, too-short, and truncated (length-ratio) translations
     // before they reach the indexed descriptionByLocale dataset; a >=120-char
     // floor alone accepts provider clips.
-    if (isAcceptableTranslation(sourceDescription, translatedDesc)) {
+    if (isAcceptableTranslation(sourceDescription, translatedDesc) && translatedDesc.length >= 120) {
       out.descriptionByLocale[locale] = translatedDesc;
     }
   }

@@ -206,7 +206,7 @@ async function main() {
           // For a missing locale `before` is 0, so `translated.length > before`
           // alone accepts any clip; the source-ratio gate rejects truncated
           // translations before they reach the indexed dataset.
-          if (isAcceptableTranslation(srcDesc, translated) && translated.length > before) {
+          if (isAcceptableTranslation(srcDesc, translated) && translated.length > before && translated.length >= 120) {
             job.descriptionByLocale[locale] = translated;
             console.log(`  [${locale}] Done: ${before} → ${translated.length} chars`);
             updated++;

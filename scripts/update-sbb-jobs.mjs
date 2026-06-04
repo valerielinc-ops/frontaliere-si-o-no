@@ -885,7 +885,11 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         targetLang: locale,
         maxRetries: 2,
       });
-      if (translatedDescription && isAcceptableTranslation(localeDescriptions[resolvedSourceLocale], translatedDescription)) localeDescriptions[locale] = translatedDescription;
+      // Keep the explicit >=120 floor alongside the ratio gate: isAcceptableTranslation's
+      // internal floor is 100, so for short sources it would accept 100-119 char clips and
+      // lower the effective floor 120->100 — but validate-translation-completeness.mjs
+      // requires descriptionByLocale >= 120 per job as a pre-deploy blocker (#1071).
+      if (translatedDescription && isAcceptableTranslation(localeDescriptions[resolvedSourceLocale], translatedDescription) && translatedDescription.length >= 120) localeDescriptions[locale] = translatedDescription;
     }
   }
   const localeRequirements = { it: requirements, en: requirements, de: requirements, fr: requirements };

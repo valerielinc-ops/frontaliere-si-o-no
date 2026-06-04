@@ -106,7 +106,7 @@ async function main() {
         // Single source of truth: same gate the sibling writers use.
         const isAcceptable = isAcceptableTranslation(sourceDesc, translated);
 
-        if (isNewLanguage && isAcceptable) {
+        if (isNewLanguage && isAcceptable && translated.length >= 120) {
           if (!DRY_RUN) {
             dbl[locale] = translated;
             job.descriptionByLocale = dbl;

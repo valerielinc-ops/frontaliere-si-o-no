@@ -845,8 +845,12 @@ async function fillMissingLocaleDescriptions() {
       const translated = await translateTextDirect(sourceDesc, sourceLang, locale);
       // Reject clipped/truncated provider output (length-ratio gate) before
       // writing to the indexed descriptionByLocale dataset; the char floor
-      // (MIN_DESC_CHARS) alone accepts provider clips.
-      if (isAcceptableTranslation(sourceDesc, translated) && normalize(translated) !== normalize(sourceDesc)) {
+      // (MIN_DESC_CHARS) alone accepts provider clips. Keep the explicit
+      // MIN_DESC_CHARS floor too: isAcceptableTranslation's internal floor is
+      // 100, so for short sources (where the floor dominates the 0.6 ratio) it
+      // would otherwise accept 100-119 char output and lower the effective
+      // floor 120->100 (#1071).
+      if (isAcceptableTranslation(sourceDesc, translated) && translated.length >= MIN_DESC_CHARS && normalize(translated) !== normalize(sourceDesc)) {
         if (!job.descriptionByLocale) job.descriptionByLocale = {};
         job.descriptionByLocale[locale] = translated;
         filled += 1;
