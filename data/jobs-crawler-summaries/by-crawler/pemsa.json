@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-04T00:44:33.679Z",
+  "generatedAt": "2026-06-04T13:12:58.259Z",
   "total": 56,
   "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 51,
-  "durationMs": 127353,
-  "avgDurationMs": 127353,
+  "durationMs": 138863,
+  "avgDurationMs": 138863,
   "durationHistory": [
-    127353
+    138863
   ],
   "newJobs": [
     {
@@ -194,82 +194,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "FABBRO/SALDATORE/METALCOSTRUTTORE",
-      "slug": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
-      "applyUrl": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-03",
-      "id": "pemsa-0968a19dbc2e",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "INSTALLATORE IDRAULICO",
-      "slug": "installatore-idraulico-pemsa-paradiso",
-      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2675574/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2675574/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Paradiso",
-      "addressLocality": "Paradiso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-03",
-      "id": "pemsa-bb33fc7bd5bf",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Autista C",
