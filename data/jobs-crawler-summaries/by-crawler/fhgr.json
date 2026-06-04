@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-06-04T11:59:25.061Z",
+  "generatedAt": "2026-06-04T14:56:34.846Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7404,
-  "avgDurationMs": 7404,
+  "durationMs": 7571,
+  "avgDurationMs": 7571,
   "durationHistory": [
-    7404
+    7571
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/791/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:59:20.013Z",
+      "crawledAt": "2026-06-04T14:56:29.635Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:59:20.994Z",
+      "crawledAt": "2026-06-04T14:56:30.631Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:59:21.932Z",
+      "crawledAt": "2026-06-04T14:56:31.618Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -116,6 +116,7 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/749/Application/CheckLogin/1",
       "department": "Institut für Bauen im alpinen Raum (IBAR)",
       "contractDuration": "temporary",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -137,7 +138,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:59:22.907Z",
+      "crawledAt": "2026-06-04T14:56:32.579Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -153,6 +154,7 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/739/Application/CheckLogin/1",
       "department": "Zentrale Dienste",
       "contractDuration": "temporary",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:32:28.055Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
