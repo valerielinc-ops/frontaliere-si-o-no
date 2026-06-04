@@ -211,12 +211,12 @@
     },
     {
       "id": "aldi-suisse-c429bd674f9c",
-      "slug": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-e986da",
       "slugByLocale": {
-        "it": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-e986da",
+        "en": "sales-associate-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-e986da",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-e986da"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -292,11 +292,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-2",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

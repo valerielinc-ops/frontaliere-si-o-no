@@ -1629,11 +1629,11 @@
     },
     {
       "id": "abbott-ca94e7179df9",
-      "slug": "senior-trademark-counsel-abbott-ch",
+      "slug": "senior-marchio-consigliere-abbott-basel",
       "slugByLocale": {
         "en": "senior-trademark-counsel-abbott-ch",
-        "it": "senior-trademark-counsel-abbott-ch",
-        "de": "senior-trademark-counsel-abbott-ch",
+        "it": "senior-marchio-consigliere-abbott-basel",
+        "de": "leitender-markenrechtsberater-abbott-basel",
         "fr": "senior-trademark-counsel-abbott-ch"
       },
       "company": "Abbott",
@@ -1690,7 +1690,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-03T22:31:10.896Z"
+      "firstSeenAt": "2026-06-03T22:31:10.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-trademark-counsel-abbott-ch"
+        ],
+        "de": [
+          "senior-trademark-counsel-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-trademark-counsel-abbott-ch"
+      ]
     }
   ]
 }

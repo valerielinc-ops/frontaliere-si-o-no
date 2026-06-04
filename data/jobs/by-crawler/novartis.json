@@ -3013,11 +3013,11 @@
     },
     {
       "id": "novartis-21bb1e3af9a0",
-      "slug": "scientific-advisor-phad-novartis-ch",
+      "slug": "consulente-scientifico-phad-novartis-basel",
       "slugByLocale": {
         "en": "scientific-advisor-phad-novartis-ch",
-        "it": "scientific-advisor-phad-novartis-ch",
-        "de": "scientific-advisor-phad-novartis-ch",
+        "it": "consulente-scientifico-phad-novartis-basel",
+        "de": "wissenschaftliche-beraterin-novartis-basel",
         "fr": "scientific-advisor-phad-novartis-ch"
       },
       "company": "Novartis",
@@ -3073,7 +3073,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-04T00:36:09.215Z"
+      "firstSeenAt": "2026-06-04T00:36:09.215Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-advisor-phad-novartis-ch"
+        ],
+        "de": [
+          "scientific-advisor-phad-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-advisor-phad-novartis-ch"
+      ]
     }
   ]
 }

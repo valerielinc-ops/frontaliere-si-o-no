@@ -578,9 +578,9 @@
     },
     {
       "id": "logitech-efb148cf672d",
-      "slug": "executive-assistant-global-commercial-organization-logitech-ch",
+      "slug": "assistente-esecutivo-organizzazione-commerciale-globale-logitech-zurich",
       "slugByLocale": {
-        "it": "executive-assistant-global-commercial-organization-logitech-ch",
+        "it": "assistente-esecutivo-organizzazione-commerciale-globale-logitech-zurich",
         "en": "executive-assistant-global-commercial-organization-logitech-ch",
         "de": "executive-assistent-global-commercial-organization-logitech-zurich",
         "fr": "executive-assistant-global-commercial-organization-logitech-ch"
@@ -636,7 +636,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-global-commercial-organization-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-global-commercial-organization-logitech-ch"
+      ]
     }
   ]
 }

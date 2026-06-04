@@ -3885,12 +3885,12 @@
     },
     {
       "id": "hug-2d4a92551554",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3946,7 +3946,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-03T23:54:26.664Z"
+      "firstSeenAt": "2026-06-03T23:54:26.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-80-hug-geneve"
+        ],
+        "en": [
+          "psychologue-80-hug-geneve"
+        ],
+        "de": [
+          "psychologue-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-22eff8962019",

@@ -4851,10 +4851,10 @@
     },
     {
       "id": "spital-emmental-9de68acf6ce6",
-      "slug": "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf",
+      "slug": "amministratore-delegato-a-servizio-di-soccorso-emmental-oberaargau-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf",
-        "it": "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf",
+        "it": "amministratore-delegato-a-servizio-di-soccorso-emmental-oberaargau-spital-emmental-burgdorf-langnau",
         "en": "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf",
         "fr": "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf"
       },
@@ -4917,16 +4917,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T01:09:33.880Z"
+      "firstSeenAt": "2026-06-04T01:09:33.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "chief-executive-officer-a-rettungsdienst-emmental-oberaargau-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-35236a5b514b",
-      "slug": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
+      "slug": "posto-di-apprendistato-come-specialista-in-radiologia-hf-dipl-specialista-in-radiologia-hf-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "it": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "en": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "fr": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        "it": "posto-di-apprendistato-come-specialista-in-radiologia-hf-dipl-specialista-in-radiologia-hf-a-spital-emmental-burgdorf",
+        "en": "apprenticeship-as-a-qualified-radiology-specialist-hf-qualified-radiologist-hf-a-spital-emmental-burgdorf",
+        "fr": "place-de-formation-pour-devenir-specialiste-diplome-en-radiologie-es-diplome-specialiste-en-radiologie-hf-a-spital"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4989,10 +4997,22 @@
       },
       "firstSeenAt": "2026-06-04T01:09:33.176Z",
       "previousSlugs": [
+        "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
         "posto-di-formazione-per-tecnico-di-radiologia-medica-hf-a-spital-emmental-burgdorf",
         "training-position-for-certified-radiology-technician-hf-a-spital-emmental-burgdorf",
         "poste-de-formation-pour-technicien-ne-en-radiologie-diplome-e-hf-a-spital-emmental-burgdorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ],
+        "en": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ],
+        "fr": [
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        ]
+      }
     }
   ]
 }

@@ -1114,12 +1114,12 @@
     },
     {
       "id": "msc-cargo-1850ab808b78",
-      "slug": "junior-architect-port-development-intern-msc-geneva",
+      "slug": "junior-architetto-port-development-tirocinante-msc-group-geneva",
       "slugByLocale": {
         "en": "junior-architect-port-development-intern-msc-geneva",
-        "it": "junior-architect-port-development-intern-msc-geneva",
+        "it": "junior-architetto-port-development-tirocinante-msc-group-geneva",
         "de": "junior-architect-port-development-intern-msc-geneva",
-        "fr": "junior-architect-port-development-intern-msc-geneva"
+        "fr": "junior-architecte-port-development-stagiaire-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -1176,7 +1176,18 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-04T00:37:03.963Z"
+      "firstSeenAt": "2026-06-04T00:37:03.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ],
+        "fr": [
+          "junior-architect-port-development-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "junior-architect-port-development-intern-msc-geneva"
+      ]
     }
   ]
 }

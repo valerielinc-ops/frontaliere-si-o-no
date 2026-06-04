@@ -557,7 +557,6 @@
           "technical-expert-m-w-d-otis-belp"
         ],
         "de": [
-          "technical-expert-m-w-d-otis-belp",
           "technischer-sachverstandiger-m-w-d-otis-sa-belp"
         ],
         "fr": [
@@ -588,9 +587,9 @@
       "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
       "slugByLocale": {
         "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach",
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
+        "en": "elevator-technician-modernization-and-replacement-m-f-d-otis-sa-reinach",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
-        "fr": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
+        "fr": "monteur-d-ascenseurs-modernisation-et-remplacement-h-f-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -631,6 +630,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
+        ],
+        "en": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach"
         ]
       },
@@ -767,7 +769,6 @@
         "technical-expert-m-f-d-otis-sa-belp",
         "expert-technique-h-f-otis-sa-belp",
         "technical-expert-h-f-d-otis-sa-belp",
-        "technical-expert-m-w-d-otis-belp",
         "technischer-sachverstandiger-m-w-d-otis-sa-belp",
         "esperto-tecnico-m-w-d-otis-sa-belp"
       ],
@@ -2079,7 +2080,7 @@
         "it": "gestore-fp-a-otis-sa-fribourg",
         "en": "fp-a-manager-otis-fribourg",
         "de": "fp-a-manager-otis-fribourg",
-        "fr": "fp-a-manager-otis-fribourg"
+        "fr": "gestionnaire-de-f-a-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -2119,6 +2120,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fp-a-manager-otis-fribourg"
+        ],
+        "fr": [
           "fp-a-manager-otis-fribourg"
         ]
       },

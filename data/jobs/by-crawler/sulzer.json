@@ -1319,11 +1319,11 @@
     },
     {
       "id": "sulzer-c3c488dd67ea",
-      "slug": "sales-engineer-sulzer-ch",
+      "slug": "sales-ingegnere-sulzer-subang-jaya",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-ch",
-        "it": "sales-engineer-sulzer-ch",
-        "de": "sales-engineer-sulzer-ch",
+        "it": "sales-ingegnere-sulzer-subang-jaya",
+        "de": "sales-ingenieur-sulzer-subang-jaya",
         "fr": "sales-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -1380,7 +1380,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:29:28.317Z"
+      "firstSeenAt": "2026-06-04T01:29:28.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-engineer-sulzer-ch"
+        ],
+        "de": [
+          "sales-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-dfaa202d76e6",
@@ -1587,11 +1598,11 @@
     },
     {
       "id": "sulzer-f31ee7e8a8f8",
-      "slug": "network-engineer-sulzer-ch",
+      "slug": "network-ingegnere-sulzer-madrid",
       "slugByLocale": {
         "en": "network-engineer-sulzer-ch",
-        "it": "network-engineer-sulzer-ch",
-        "de": "network-engineer-sulzer-ch",
+        "it": "network-ingegnere-sulzer-madrid",
+        "de": "network-ingenieur-sulzer-madrid",
         "fr": "network-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -1648,7 +1659,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:29:24.558Z"
+      "firstSeenAt": "2026-06-04T01:29:24.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "network-engineer-sulzer-ch"
+        ],
+        "de": [
+          "network-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "network-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-84c5de7e274e",
@@ -1977,11 +1999,11 @@
     },
     {
       "id": "sulzer-d033280e1e8b",
-      "slug": "application-engineer-sulzer-ch",
+      "slug": "application-ingegnere-sulzer-meriden",
       "slugByLocale": {
         "en": "application-engineer-sulzer-ch",
-        "it": "application-engineer-sulzer-ch",
-        "de": "application-engineer-sulzer-ch",
+        "it": "application-ingegnere-sulzer-meriden",
+        "de": "application-ingenieur-sulzer-meriden",
         "fr": "application-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -2038,7 +2060,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:29:17.896Z"
+      "firstSeenAt": "2026-06-04T01:29:17.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-engineer-sulzer-ch"
+        ],
+        "de": [
+          "application-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d33327a15133",
@@ -2184,8 +2217,8 @@
       "slugByLocale": {
         "en": "mechanical-technician-sulzer-ch",
         "it": "mechanical-technician-sulzer-ch",
-        "de": "mechanical-technician-sulzer-ch",
-        "fr": "mechanical-technician-sulzer-ch"
+        "de": "mechanical-techniker-sulzer-macae",
+        "fr": "mechanical-technicien-sulzer-macae"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -3285,11 +3318,11 @@
     },
     {
       "id": "sulzer-c339a1fd7b25",
-      "slug": "motor-engineer-sulzer-ch",
+      "slug": "motor-ingegnere-sulzer-kunshan",
       "slugByLocale": {
         "en": "motor-engineer-sulzer-ch",
-        "it": "motor-engineer-sulzer-ch",
-        "de": "motor-engineer-sulzer-ch",
+        "it": "motor-ingegnere-sulzer-kunshan",
+        "de": "motor-ingenieur-sulzer-kunshan",
         "fr": "motor-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -3346,7 +3379,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:57.788Z"
+      "firstSeenAt": "2026-06-04T01:28:57.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "motor-engineer-sulzer-ch"
+        ],
+        "de": [
+          "motor-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "motor-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-863c99e4d78a",
@@ -3545,12 +3589,12 @@
     },
     {
       "id": "sulzer-7ff047600912",
-      "slug": "procurement-specialist-sulzer-ch",
+      "slug": "procurement-specialista-sulzer-riyadh",
       "slugByLocale": {
         "en": "procurement-specialist-sulzer-ch",
-        "it": "procurement-specialist-sulzer-ch",
-        "de": "procurement-specialist-sulzer-ch",
-        "fr": "procurement-specialist-sulzer-ch"
+        "it": "procurement-specialista-sulzer-riyadh",
+        "de": "procurement-spezialist-sulzer-riyadh",
+        "fr": "procurement-specialiste-sulzer-riyadh"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -3606,7 +3650,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:54.186Z"
+      "firstSeenAt": "2026-06-04T01:28:54.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-specialist-sulzer-ch"
+        ],
+        "de": [
+          "procurement-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "procurement-specialist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-specialist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-b3108b977442",
@@ -3943,11 +4001,11 @@
     },
     {
       "id": "sulzer-fc6b32cbef6f",
-      "slug": "production-engineer-sulzer-ch",
+      "slug": "production-ingegnere-sulzer-phoenix",
       "slugByLocale": {
         "en": "production-engineer-sulzer-ch",
-        "it": "production-engineer-sulzer-ch",
-        "de": "production-engineer-sulzer-ch",
+        "it": "production-ingegnere-sulzer-phoenix",
+        "de": "production-ingenieur-sulzer-phoenix",
         "fr": "production-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -4004,7 +4062,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:48.752Z"
+      "firstSeenAt": "2026-06-04T01:28:48.752Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-engineer-sulzer-ch"
+        ],
+        "de": [
+          "production-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "production-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-c401c18c0991",
@@ -4203,11 +4272,11 @@
     },
     {
       "id": "sulzer-c9b9e06389b3",
-      "slug": "senior-r-d-engineer-sulzer-ch",
+      "slug": "senior-r-d-ingegnere-sulzer-allschwil",
       "slugByLocale": {
         "en": "senior-r-d-engineer-sulzer-ch",
-        "it": "senior-r-d-engineer-sulzer-ch",
-        "de": "senior-r-d-engineer-sulzer-ch",
+        "it": "senior-r-d-ingegnere-sulzer-allschwil",
+        "de": "senior-r-d-ingenieur-sulzer-allschwil",
         "fr": "senior-r-d-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -4263,7 +4332,18 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-04T01:28:45.108Z"
+      "firstSeenAt": "2026-06-04T01:28:45.108Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-r-d-engineer-sulzer-ch"
+        ],
+        "de": [
+          "senior-r-d-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-r-d-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d4313ad8baee",
@@ -6570,8 +6650,8 @@
       "slugByLocale": {
         "en": "qc-technician-sulzer-ch",
         "it": "qc-technician-sulzer-ch",
-        "de": "qc-technician-sulzer-ch",
-        "fr": "qc-technician-sulzer-ch"
+        "de": "qc-techniker-sulzer-margate",
+        "fr": "qc-technicien-sulzer-margate"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7091,7 +7171,7 @@
         "en": "cnc-operator-sulzer-ch",
         "it": "cnc-operator-sulzer-dalian",
         "de": "cnc-operator-sulzer-ch",
-        "fr": "cnc-operator-sulzer-ch"
+        "fr": "cnc-operateur-sulzer-dalian"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7136,6 +7216,9 @@
       "previousSlugsByLocale": {
         "it": [
           "cnc-operator-sulzer-ch"
+        ],
+        "fr": [
+          "cnc-operator-sulzer-ch"
         ]
       },
       "previousSlugs": [
@@ -7163,8 +7246,8 @@
       "slugByLocale": {
         "en": "quality-manager-sulzer-ch",
         "it": "quality-manager-sulzer-ch",
-        "de": "quality-manager-sulzer-ch",
-        "fr": "quality-manager-sulzer-ch"
+        "de": "qualitat-manager-sulzer-aberdeen-netherley",
+        "fr": "qualite-manager-sulzer-aberdeen-netherley"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -8004,11 +8087,11 @@
     },
     {
       "id": "sulzer-0aa942fe9867",
-      "slug": "sales-engineer-sulzer-ch-2",
+      "slug": "sales-ingegnere-sulzer-shanghai",
       "slugByLocale": {
         "en": "sales-engineer-sulzer-ch",
-        "it": "sales-engineer-sulzer-ch-2",
-        "de": "sales-engineer-sulzer-ch-2",
+        "it": "sales-ingegnere-sulzer-shanghai",
+        "de": "sales-ingenieur-sulzer-shanghai",
         "fr": "sales-engineer-sulzer-ch-2"
       },
       "company": "Sulzer",
@@ -8065,7 +8148,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:50.099Z"
+      "firstSeenAt": "2026-06-04T01:27:50.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-engineer-sulzer-ch-2"
+        ],
+        "de": [
+          "sales-engineer-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "sales-engineer-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-68eff048936f",
@@ -8654,10 +8748,10 @@
     },
     {
       "id": "sulzer-72a0cbbbbbf3",
-      "slug": "team-leader-sales-services-m-w-d-sulzer-ch",
+      "slug": "capo-squadra-sales-services-m-w-d-sulzer-winterthur",
       "slugByLocale": {
         "de": "team-leader-sales-services-m-w-d-sulzer-ch",
-        "it": "team-leader-sales-services-m-w-d-sulzer-ch",
+        "it": "capo-squadra-sales-services-m-w-d-sulzer-winterthur",
         "en": "team-leader-sales-services-m-w-d-sulzer-ch",
         "fr": "team-leader-sales-services-m-w-d-sulzer-ch"
       },
@@ -8715,7 +8809,15 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:40.800Z"
+      "firstSeenAt": "2026-06-04T01:27:40.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-sales-services-m-w-d-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-sales-services-m-w-d-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-5dac2f6d0b69",
@@ -8788,7 +8890,7 @@
       "slugByLocale": {
         "en": "trades-assistant-sulzer-ch",
         "it": "trades-assistant-sulzer-ch",
-        "de": "trades-assistant-sulzer-ch",
+        "de": "trades-assistent-sulzer-brendale",
         "fr": "trades-assistant-sulzer-brendale"
       },
       "company": "Sulzer",
@@ -8914,12 +9016,12 @@
     },
     {
       "id": "sulzer-9d5e399b5ba6",
-      "slug": "quality-advisor-sulzer-ch",
+      "slug": "quality-consulente-sulzer-winterthur",
       "slugByLocale": {
         "en": "quality-advisor-sulzer-ch",
-        "it": "quality-advisor-sulzer-ch",
-        "de": "quality-advisor-sulzer-ch",
-        "fr": "quality-advisor-sulzer-ch"
+        "it": "quality-consulente-sulzer-winterthur",
+        "de": "qualitat-berater-sulzer-winterthur",
+        "fr": "qualite-conseiller-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -8975,7 +9077,21 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:36.919Z"
+      "firstSeenAt": "2026-06-04T01:27:36.919Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-advisor-sulzer-ch"
+        ],
+        "de": [
+          "quality-advisor-sulzer-ch"
+        ],
+        "fr": [
+          "quality-advisor-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-advisor-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e2fb77e96f3d",
@@ -9048,8 +9164,8 @@
       "slugByLocale": {
         "en": "tecnico-de-taller-sulzer-ch",
         "it": "tecnico-de-taller-sulzer-barcelona",
-        "de": "tecnico-de-taller-sulzer-ch",
-        "fr": "tecnico-de-taller-sulzer-ch"
+        "de": "techniker-de-taller-sulzer-barcelona",
+        "fr": "technicien-de-taller-sulzer-barcelona"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9093,6 +9209,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "tecnico-de-taller-sulzer-ch"
+        ],
+        "de": [
+          "tecnico-de-taller-sulzer-ch"
+        ],
+        "fr": [
           "tecnico-de-taller-sulzer-ch"
         ]
       },
@@ -9377,11 +9499,11 @@
     },
     {
       "id": "sulzer-68ae377352c6",
-      "slug": "test-engineer-sulzer-ch",
+      "slug": "test-ingegnere-sulzer-wexford",
       "slugByLocale": {
         "en": "test-engineer-sulzer-ch",
-        "it": "test-engineer-sulzer-ch",
-        "de": "test-engineer-sulzer-ch",
+        "it": "test-ingegnere-sulzer-wexford",
+        "de": "test-ingenieur-sulzer-wexford",
         "fr": "test-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -9438,7 +9560,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:30.294Z"
+      "firstSeenAt": "2026-06-04T01:27:30.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-engineer-sulzer-ch"
+        ],
+        "de": [
+          "test-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "test-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e9d95c42730d",
@@ -9710,11 +9843,11 @@
     },
     {
       "id": "sulzer-76f655f4886b",
-      "slug": "em-field-engineer-sulzer-ch",
+      "slug": "em-field-ingegnere-sulzer-purwakarta",
       "slugByLocale": {
         "en": "em-field-engineer-sulzer-ch",
-        "it": "em-field-engineer-sulzer-ch",
-        "de": "em-field-engineer-sulzer-ch",
+        "it": "em-field-ingegnere-sulzer-purwakarta",
+        "de": "em-field-ingenieur-sulzer-purwakarta",
         "fr": "em-field-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -9771,7 +9904,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:25.295Z"
+      "firstSeenAt": "2026-06-04T01:27:25.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "em-field-engineer-sulzer-ch"
+        ],
+        "de": [
+          "em-field-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "em-field-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-8fa4b07c9825",
@@ -9844,7 +9988,7 @@
       "slugByLocale": {
         "en": "assistant-cfd-engineer-sulzer-ch",
         "it": "assistant-cfd-engineer-sulzer-ch",
-        "de": "assistant-cfd-engineer-sulzer-ch",
+        "de": "assistent-cfd-ingenieur-sulzer-shanghai",
         "fr": "assistant-cfd-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -10303,11 +10447,11 @@
     },
     {
       "id": "sulzer-c52962c2f9c3",
-      "slug": "product-engineer-sulzer-ch",
+      "slug": "product-ingegnere-sulzer-santa-ana",
       "slugByLocale": {
         "en": "product-engineer-sulzer-ch",
-        "it": "product-engineer-sulzer-ch",
-        "de": "product-engineer-sulzer-ch",
+        "it": "product-ingegnere-sulzer-santa-ana",
+        "de": "product-ingenieur-sulzer-santa-ana",
         "fr": "product-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -10364,7 +10508,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:16.935Z"
+      "firstSeenAt": "2026-06-04T01:27:16.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-engineer-sulzer-ch"
+        ],
+        "de": [
+          "product-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-cd9ca01110cb",
@@ -10498,12 +10653,12 @@
     },
     {
       "id": "sulzer-090850ed0820",
-      "slug": "early-careers-coordinator-maternity-cover-14-months-sulzer-ch",
+      "slug": "early-careers-coordinatore-sostituzione-maternita-14-months-sulzer-leeds",
       "slugByLocale": {
         "en": "early-careers-coordinator-maternity-cover-14-months-sulzer-ch",
-        "it": "early-careers-coordinator-maternity-cover-14-months-sulzer-ch",
-        "de": "early-careers-coordinator-maternity-cover-14-months-sulzer-ch",
-        "fr": "early-careers-coordinator-maternity-cover-14-months-sulzer-ch"
+        "it": "early-careers-coordinatore-sostituzione-maternita-14-months-sulzer-leeds",
+        "de": "early-careers-koordinator-mutterschaftsvertretung-14-months-sulzer-leeds",
+        "fr": "early-careers-coordinateur-remplacement-maternite-14-months-sulzer-leeds"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -10559,7 +10714,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:14.096Z"
+      "firstSeenAt": "2026-06-04T01:27:14.096Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "early-careers-coordinator-maternity-cover-14-months-sulzer-ch"
+        ],
+        "de": [
+          "early-careers-coordinator-maternity-cover-14-months-sulzer-ch"
+        ],
+        "fr": [
+          "early-careers-coordinator-maternity-cover-14-months-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "early-careers-coordinator-maternity-cover-14-months-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-6d0c51606127",
@@ -10766,11 +10935,11 @@
     },
     {
       "id": "sulzer-a0985ac131b2",
-      "slug": "supervisor-tecnico-sulzer-ch",
+      "slug": "supervisore-tecnico-sulzer-jundiai",
       "slugByLocale": {
         "en": "supervisor-tecnico-sulzer-ch",
-        "it": "supervisor-tecnico-sulzer-ch",
-        "de": "supervisor-tecnico-sulzer-ch",
+        "it": "supervisore-tecnico-sulzer-jundiai",
+        "de": "vorgesetzter-tecnico-sulzer-jundiai",
         "fr": "supervisor-tecnico-sulzer-jundiai"
       },
       "company": "Sulzer",
@@ -10827,7 +10996,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:10.583Z"
+      "firstSeenAt": "2026-06-04T01:27:10.583Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-tecnico-sulzer-ch"
+        ],
+        "de": [
+          "supervisor-tecnico-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "supervisor-tecnico-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-543c0966d837",
@@ -10896,11 +11076,11 @@
     },
     {
       "id": "sulzer-c09d7341a223",
-      "slug": "supervisor-tecnico-sulzer-ch-2",
+      "slug": "supervisore-tecnico-sulzer-jundiai-6859bc",
       "slugByLocale": {
         "en": "supervisor-tecnico-sulzer-ch",
-        "it": "supervisor-tecnico-sulzer-ch-2",
-        "de": "supervisor-tecnico-sulzer-ch-2",
+        "it": "supervisore-tecnico-sulzer-jundiai-6859bc",
+        "de": "vorgesetzter-tecnico-sulzer-jundiai-6859bc",
         "fr": "supervisor-tecnico-sulzer-jundiai"
       },
       "company": "Sulzer",
@@ -10957,7 +11137,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:08.664Z"
+      "firstSeenAt": "2026-06-04T01:27:08.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-tecnico-sulzer-ch-2"
+        ],
+        "de": [
+          "supervisor-tecnico-sulzer-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "supervisor-tecnico-sulzer-ch-2"
+      ]
     },
     {
       "id": "sulzer-4f87f8caee1d",
@@ -11026,12 +11217,12 @@
     },
     {
       "id": "sulzer-525e16fd7042",
-      "slug": "hr-advisor-sulzer-ch",
+      "slug": "risorse-umane-consulente-sulzer-brisbane",
       "slugByLocale": {
         "en": "hr-advisor-sulzer-ch",
-        "it": "hr-advisor-sulzer-ch",
-        "de": "hr-advisor-sulzer-ch",
-        "fr": "hr-advisor-sulzer-ch"
+        "it": "risorse-umane-consulente-sulzer-brisbane",
+        "de": "personalwesen-berater-sulzer-brisbane",
+        "fr": "ressources-humaines-conseiller-sulzer-brisbane"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -11087,7 +11278,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:06.853Z"
+      "firstSeenAt": "2026-06-04T01:27:06.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-advisor-sulzer-ch"
+        ],
+        "de": [
+          "hr-advisor-sulzer-ch"
+        ],
+        "fr": [
+          "hr-advisor-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-advisor-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-341aeef2a181",
@@ -11225,7 +11430,7 @@
       "slugByLocale": {
         "en": "project-assistant-sulzer-ch",
         "it": "project-assistant-sulzer-ch",
-        "de": "project-assistant-sulzer-ch",
+        "de": "project-assistent-sulzer-belle-chasse",
         "fr": "project-assistant-sulzer-ch"
       },
       "company": "Sulzer",
@@ -11286,12 +11491,12 @@
     },
     {
       "id": "sulzer-605a51bcd52c",
-      "slug": "hr-specialist-sulzer-ch",
+      "slug": "risorse-umane-specialista-sulzer-shanghai",
       "slugByLocale": {
         "en": "hr-specialist-sulzer-ch",
-        "it": "hr-specialist-sulzer-ch",
-        "de": "hr-specialist-sulzer-ch",
-        "fr": "hr-specialist-sulzer-ch"
+        "it": "risorse-umane-specialista-sulzer-shanghai",
+        "de": "personalwesen-spezialist-sulzer-shanghai",
+        "fr": "ressources-humaines-specialiste-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -11347,7 +11552,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:03.107Z"
+      "firstSeenAt": "2026-06-04T01:27:03.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "de": [
+          "hr-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "hr-specialist-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-3d8834f0ceb1",
@@ -11424,11 +11643,11 @@
     },
     {
       "id": "sulzer-1cfb5f91a9bf",
-      "slug": "mechanical-engineer-sulzer-ch",
+      "slug": "mechanical-ingegnere-sulzer-purwakarta",
       "slugByLocale": {
         "en": "mechanical-engineer-sulzer-ch",
-        "it": "mechanical-engineer-sulzer-ch",
-        "de": "mechanical-engineer-sulzer-ch",
+        "it": "mechanical-ingegnere-sulzer-purwakarta",
+        "de": "mechanical-ingenieur-sulzer-purwakarta",
         "fr": "mechanical-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -11485,7 +11704,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:01.247Z"
+      "firstSeenAt": "2026-06-04T01:27:01.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-engineer-sulzer-ch"
+        ],
+        "de": [
+          "mechanical-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-53c99b1598f4",
@@ -26275,12 +26505,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26321,18 +26551,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-vendite-sulzer-winterthur",
         "sales-manager-w-m-d-sulzer-ch",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-w-m-d-sulzer-ch",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -26748,8 +26975,8 @@
       "slugByLocale": {
         "en": "mechanical-technician-sulzer-ch",
         "it": "mechanical-technician-sulzer-ch-2",
-        "de": "mechanical-technician-sulzer-ch-2",
-        "fr": "mechanical-technician-sulzer-ch-2"
+        "de": "mechanical-techniker-sulzer-abu-dhabi",
+        "fr": "mechanical-technicien-sulzer-abu-dhabi"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -27142,12 +27369,12 @@
     },
     {
       "id": "sulzer-08326fca5af8",
-      "slug": "tsf-supervisor-sulzer-ch",
+      "slug": "tsf-supervisore-sulzer-margate",
       "slugByLocale": {
         "en": "tsf-supervisor-sulzer-ch",
-        "it": "tsf-supervisor-sulzer-ch",
-        "de": "tsf-supervisor-sulzer-ch",
-        "fr": "tsf-supervisor-sulzer-ch"
+        "it": "tsf-supervisore-sulzer-margate",
+        "de": "tsf-vorgesetzter-sulzer-margate",
+        "fr": "tsf-superviseur-sulzer-margate"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -27203,16 +27430,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:23:25.016Z"
+      "firstSeenAt": "2026-06-04T01:23:25.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tsf-supervisor-sulzer-ch"
+        ],
+        "de": [
+          "tsf-supervisor-sulzer-ch"
+        ],
+        "fr": [
+          "tsf-supervisor-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tsf-supervisor-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-879b3962f5f2",
-      "slug": "fp-a-coordinator-sulzer-ch",
+      "slug": "fp-a-coordinatore-sulzer-polanco",
       "slugByLocale": {
         "en": "fp-a-coordinator-sulzer-ch",
-        "it": "fp-a-coordinator-sulzer-ch",
-        "de": "fp-a-coordinator-sulzer-ch",
-        "fr": "fp-a-coordinator-sulzer-ch"
+        "it": "fp-a-coordinatore-sulzer-polanco",
+        "de": "fp-a-koordinator-sulzer-polanco",
+        "fr": "fp-a-coordinateur-sulzer-polanco"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -27268,7 +27509,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:23:24.068Z"
+      "firstSeenAt": "2026-06-04T01:23:24.068Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fp-a-coordinator-sulzer-ch"
+        ],
+        "de": [
+          "fp-a-coordinator-sulzer-ch"
+        ],
+        "fr": [
+          "fp-a-coordinator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fp-a-coordinator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d643fc0ca007",
