@@ -18,6 +18,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { jinaProxiedRequest } from './lib/jina-proxy.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -315,6 +316,27 @@ async function fetchCambiavalute() {
     }
   }
 
+  // Still nothing → the egress IP is WAF-blocked (datacenter IP on CI gets a
+  // challenge page even with a perfect browser UA — see #1363). Fetch the
+  // sitemap through the Jina Reader proxy (clean IP) for discovery; the detail
+  // pages are then fetched through the same proxy by the shared crawler via
+  // JOBS_CRAWLER_FETCH_PROXY (set in runBaseCrawler below).
+  if (links.length === 0) {
+    try {
+      const { url: proxyUrl, headers: proxyHeaders } = jinaProxiedRequest(CAMBIAVALUTE_SITEMAP_URL);
+      console.log('🛰️  Sitemap empty from direct fetch — retrying via egress proxy...');
+      const res = await fetch(proxyUrl, { headers: proxyHeaders });
+      if (res.ok) {
+        links = parseJobLinksFromSitemap(await res.text());
+        console.log(`📦 Found ${links.length} job detail link(s) via proxied sitemap.`);
+      } else {
+        console.warn(`⚠️ Proxied sitemap returned HTTP ${res.status}.`);
+      }
+    } catch (err) {
+      console.warn(`⚠️ Proxied sitemap fallback failed: ${err?.message || err}.`);
+    }
+  }
+
   const seedMetaByUrl = {};
   for (const link of links) {
     seedMetaByUrl[link] = {
@@ -366,6 +388,11 @@ async function runBaseCrawler() {
     companyKeys: CAMBIAVALUTE_KEY,
     disableWorkdayForce: true,
     forceLocalizationWhenAiEnabledOnly: true,
+    // Route cambiavalute.ch fetches (the detail pages) through the Jina Reader
+    // egress proxy: the WAF blocks GitHub Actions datacenter IPs regardless of
+    // UA/headers (#1363), but the jobs are reachable from a clean IP. Scoped to
+    // this host only — every other crawler's fetch path is untouched.
+    extraEnv: { JOBS_CRAWLER_FETCH_PROXY: CAMBIAVALUTE_HOST },
   });
 }
 
