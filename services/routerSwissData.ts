@@ -39,6 +39,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'svizzera-dazi-usa-lavoro-forzato': { it: 'svizzera-dazi-usa-lavoro-forzato', en: 'switzerland-us-tariffs-forced-labor', de: 'schweiz-usa-zwangsarbeit-zoelle', fr: 'suisse-etats-unis-droits-forced-labor' },
  'rientro-svizzera-senza-lavoro': { it: 'rientro-svizzera-senza-lavoro', en: 'return-to-switzerland-unemployed-guide', de: 'rueckkehr-in-die-schweiz-ohne-arbeitslosigkeit', fr: 'retour-suisse-chomage-guide' },
  'festivita-ticino-2026': { it: 'festivita-ticino-2026', en: 'festivities-ticino-2026', de: 'feierlichkeiten-ticino-2026', fr: 'fetes-ticino-2026' },
+ 'un-blocco-dei-ristorni-reazione-comprensibile': { it: 'un-blocco-dei-ristorni-reazione-comprensibile', en: 'a-block-of-restaurants-a-comprehensible-reaction', de: 'eine-blockierung-von-restaurants-eine-verstandliche-reaktion', fr: 'un-blocage-de-restaurants-une-reaction-comprehensible' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
