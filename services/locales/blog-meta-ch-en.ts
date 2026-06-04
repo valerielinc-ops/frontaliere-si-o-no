@@ -44,6 +44,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'How Geneva identified hantavirus: implications for cross-border workers',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'The Geneva University Hospital identified the hantavirus strain responsible for an epidemic outbreak on a cruise ship in May 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'University Hospital of Geneva with modern laboratory',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Switzerland rejects US tariffs on forced labor, talks underway',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Bern rejects US accusations and negotiates in Paris. 12.5% tariffs under discussion, comment deadline July 6, 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Federal Palace in Bern, seat of the Swiss government negotiating trade tariffs with the United States',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Returning to Switzerland: transfer your benefits',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Returning to Switzerland without a job requires a financial plan, a benefits transfer form and registration with the local employment service.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'People returning to Switzerland after unemployment abroad receive advice at an office.',
+    'blog.article.festivita-ticino-2026.title': 'Ticino Holidays in 2026',
+    'blog.article.festivita-ticino-2026.excerpt': 'Discover the main public holidays in Ticino in 2026 and how they will affect the daily life of residents and cross-border workers. ',
+    'blog.article.festivita-ticino-2026.imageAlt': 'Festivity in Lugano',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'A ban on restaurants? An understandable reaction',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'The reaction of restaurant owners to a possible ban on restaurants is understandable.',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'A person looking at a document with a calculator and a pen',
+    'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Internal/Intensive Medicine Doctor EOC Bellinzona',
+    'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'The Cantonal Hospital Organization (EOC) is seeking doctor candidates for the Internal Medicine and/or Intensive Care divisions at the Bellinzona Regional Hospital. Open positions for specialists and assistants.',
+    'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Castles of Bellinzona, a symbol of job opportunities in Ticino',
 };
 
 export default blogMetaChEn;

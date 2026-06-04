@@ -39,6 +39,19 @@ function sh(cmd, { allowFail = false } = {}) {
   }
 }
 
+// Esegue un comando distruttivo e ritorna true SOLO se è uscito 0. Necessario in
+// --apply: un `git branch -D`/`worktree remove` fallito (branch in checkout,
+// worktree lockato) non deve essere contato come rimozione avvenuta → niente
+// falso-positivo "applicate N rimozioni" su un tool distruttivo.
+function shOk(cmd) {
+  try {
+    execSync(cmd, { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', { allowFail: true })
   .replace(/^origin\//, '') || 'main';
 
@@ -173,17 +186,28 @@ if (!APPLY) {
 }
 
 let done = 0;
+let failed = 0;
 for (const w of removeWt) {
-  sh(`git worktree remove --force "${w.path}"`, { allowFail: true });
-  if (w.branch) sh(`git branch -D "${w.branch}"`, { allowFail: true });
+  // Conta/logga solo a esito 0: una rimozione fallita (worktree lockato, branch
+  // in checkout) NON deve gonfiare il totale.
+  if (!shOk(`git worktree remove --force "${w.path}"`)) {
+    failed++;
+    console.log(`⚠️  FALLITO worktree remove ${w.path} (lockato? in uso?) — saltato`);
+    continue;
+  }
+  if (w.branch) shOk(`git branch -D "${w.branch}"`); // best-effort: la dir è già via
   done++;
   console.log(`removed worktree ${w.path}`);
 }
 for (const b of delBranch) {
-  sh(`git branch -D "${b}"`, { allowFail: true });
-  done++;
-  console.log(`deleted branch ${b}`);
+  if (shOk(`git branch -D "${b}"`)) {
+    done++;
+    console.log(`deleted branch ${b}`);
+  } else {
+    failed++;
+    console.log(`⚠️  FALLITO branch -D ${b} (in checkout? non-merged senza -D?) — saltato`);
+  }
 }
 sh('git worktree prune', { allowFail: true });
 console.log('');
-console.log(`✓ applicate ${done} rimozioni. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);
+console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);

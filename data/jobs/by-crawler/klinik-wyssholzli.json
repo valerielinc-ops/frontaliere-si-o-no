@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-06-03T00:05:10.120Z",
+  "assembledAt": "2026-06-04T00:10:33.410Z",
   "jobs": [
     {
       "title": "Stv. Leitung Behandlung 02/2026",
@@ -153,7 +153,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -229,7 +230,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -376,84 +378,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "title": "Personalassistentin 60–100%",
-      "slug": "assistente-del-personale-60-100-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Personalassistentin_60-100.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "description": "Die Klinik Wysshölzli ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau (Herzogenbuchsee, BE).\n\nStelle: Personalassistentin 60–100%.\n\nDie Klinik Wysshölzli ist eine führende Fachklinik für Frauen mit Abhängigkeitserkrankungen und Essstörungen und bietet 37 stationäre Behandlungsplätze sowie zwei Ambulatorien. Die Klinik ist auf der Spitalliste des Kantons Bern, hat einen Leistungsvertrag mit der kantonalen Gesundheits- und Fürsorgedirektion und Verträge mit den Krankenversicherern. Der Standort im Oberaargau, Kanton Bern, an ruhiger Lage überzeugt mit herrlicher Natur und der Nähe zu Bern, Solothurn, Olten und Langenthal. Wir suchen nach Vereinbarung eine/n Personalassistent:in 60 – 100 % \n• Ihre Aufgaben ‐ Sie führen Ein- und Austrittsarbeiten aus ‐ Sie unterstützen die Fachverantwortliche bei der Personalrekrutierung ‐ Sie engagieren sich bei der allgemeinen Personaladministration inkl. der Verwaltung der Personaldossiers ‐ Sie wickeln sozialversicherungstechnische \n• Aufgaben im Zusammenhang mit AHV, Familienzulagen, Pensionskasse sowie Kranken- und Unfallversicherung ab ‐ Sie kümmern sich um die Lohnverarbeitung der Monats- und Stundenlöhne ‐ Sie arbeiten bei der Kontrolle und Koordination der Zeiterfassung im Polypoint/TACS mit ‐ Sie wirken bei der Weiterentwicklung und Digitalisierung der Personalprozesse sowie bei Projekten mit ‐ Sie organisieren Aktivitäten für Mitarbeitende mit ‐ Abhängig der persönlichen Interessen und der Höhe des Beschäftigungsgrads sind weitere administrative \n• Aufgaben innerhalb der Klinik möglich \n• Ihr Profil ‐ Sie verfügen über eine kaufmännische Grundausbildung und können eine Weiterbildung im Personalwesen vorweisen ‐ Sie bringen umfassende Erfahrungen im Bereich der Personaladministration mit ‐ Sie verfügen über eine ausgezeichnete mündliche und schriftliche Ausdrucksfähigkeit ‐ Sie sind diskret, belastbar und selbständig ‐ Sie überzeugen durch exaktes Arbeiten ‐ Sie sind flexibel und arbeiten gerne in einem kleinen Team ‐ Sie haben fundierte IT-Kenntnisse Ihre Chance ‐ eine spannende und vielseitige Tätigkeit in einem lebendigen Betrieb ‐ Arbeit in einem motivierten Team und ein sehr gutes Betriebsklima, welches geprägt ist von Transparenz und gegenseitigem Respekt ‐ attraktive Anstellungsbedingungen ‐ vergünstigte Verpflegungsmöglichkeiten und ein kostenloser Parkplatz Frau Laura Baumeler, Fachverantwortliche Personal, erteilt Ihnen gerne nähere Auskunft: Tel. 062 510 58 44, www.wysshoelzli.ch Bitte bewerben Sie sich über das Onlineportal auf unserer Website oder senden Sie Ihre Bewerbung an personal@wysshoelzli.ch.\n\nQuelle (PDF): https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Personalassistentin_60-100.pdf\n\nKarriereportal: https://www.wysshoelzli.ch/jobs-karriere\n\nSektor: Psychiatrie und Psychotherapie / Suchterkrankungen / Essstörungen",
-      "titleByLocale": {
-        "it": "Assistente del personale 60–100%",
-        "en": "Personnel assistant 60–100 %",
-        "de": "Personalassistentin 60–100%",
-        "fr": "Assistante en personnel 60-100 %"
       },
-      "descriptionByLocale": {
-        "it": "La Clinica Wysshölzli è una clinica privata specializzata in psichiatria e psicoterapia nell'Alta Argovia (Herzogenbuchsee, BE). Posizione: assistente del personale 60–100%. La clinica Wysshölzli è una clinica specializzata leader per le donne con disturbi da dipendenza e disturbi alimentari e offre 37 posti di trattamento ospedaliero e due ambulatori. La clinica è sulla lista degli ospedali del cantone di Berna, ha un contratto di prestazioni con la direzione cantonale della salute e dell'assistenza e contratti con gli assicuratori malattia. La posizione nell'Alta Argovia, nel cantone di Berna, in una posizione tranquilla convince per la splendida natura e la vicinanza a Berna, Soletta, Olten e Langenthal. Siamo alla ricerca di un assistente del personale su appuntamento:nel 60 – 100% dei vostri compiti ‐ Svolgete lavori di entrata e di uscita ‐ Supportate i responsabili specializzati nel reclutamento del personale ‐ Vi impegnate nell'amministrazione generale del personale, compresa la gestione dei dossier del personale ‐ Svolgete compiti di sicurezza sociale in relazione all'AVS, agli assegni familiari, alla cassa pensioni e all'assicurazione contro le malattie e gli infortuni ‐ Vi occupate dell'elaborazione dei salari mensili e orari ‐ Lavorate al controllo e al coordinamento della registrazione del tempo nel Polypoint/TAC ‐ Collaborate all'ulteriore sviluppo e alla digitalizzazione dei processi del personale, nonché ai progetti con ‐ Organizzate attività per i dipendenti con ‐ Dipendentemente dal",
-        "en": "# Personnel assistant 60–100 % ##STR1## La Clinica Wysshölzli è una clinica specializzata in psichiatria e psicoterapia privata situata nell'Oberaargau (editories, BE). # Mansioni - Eseguire le procedure di entrata e uscita - Supportare la responsabile del personale nel reclutamento del personale - Occuparsi dell'amministrazione generale del personale, inclusa la gestione dei fascicoli del personale - Gestire le attività legate all assicurazioni sociali, come l'AVS, le indennità familiari, la cassa pensione e le assicurazioni malattia e infortuni - Gestire l'elaborazione dei salari mensili e orari - Collaborare alla controllo e alla coordinazione della rilevazione del tempo nel Polypoint/TACS - Contribuire allo sviluppo e alla digitalizzazione dei processi del personale e ai progetti - Organizzare attività per i dipendenti - Svolge altre attività amministrative all'interno della clinica, a seconda degli interessi personali e del grado di occupazione ## - Formazione professionale commerciale e formazione complementare nel campo del personale - Esperienza comprovata nel campo dell'amministrazione del personale - Ottima capacità di espressione verbal e scritta - Discrezione, resistenza e autonomia - Lavoro preciso - Flessibilità e lavoro in un piccolo team - Conoscenze informatiche solid ##\n• Cosa offriamo - Attività interestingi e variegate in un'azienda vivace - Lavoro in un team motivato e un'atmosfera di lavoro molto buona, caratterizzata da trasparenza e rispetto reciproco - Condizioni di lavoro attraenti - Possibilità di pasti scontati e parcheggio gratuito # Contatto Per ulteriori informazioni, contattare la responsabile del personale, Mrs Laura Baumeler: Tel. 062 510 58 44 [www.wysshoelzli.ch](http://www.wysshoelzli.ch). Si prega di candidarsi tramite il portals online sul nostro sito web o inviare la propria candidatura a [personal@wysshoelzli.ch](mailto:personal@wysshoelzli.ch). Fonte: [www.wysshoelzli.ch](http://www.wysshoelzli.ch) Portale delle carriere: [www.wysshoelzli.ch/jobs-carriere](http://www.wysshoelzli.ch/jobs-carriere) Settore: Psichiatria e psicoterapia / Dipendenze / Disturbi del comportamento alimentare",
-        "de": "Die Klinik Wysshölzli ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau (Herzogenbuchsee, BE). Stelle: Personalassistentin 60–100%. Die Klinik Wysshölzli ist eine führende Fachklinik für Frauen mit Abhängigkeitserkrankungen und Essstörungen und bietet 37 stationäre Behandlungsplätze sowie zwei Ambulatorien. Die Klinik ist auf der Spitalliste des Kantons Bern, hat einen Leistungsvertrag mit der kantonalen Gesundheits- und Fürsorgedirektion und Verträge mit den Krankenversicherern. Der Standort im Oberaargau, Kanton Bern, an ruhiger Lage überzeugt mit herrlicher Natur und der Nähe zu Bern, Solothurn, Olten und Langenthal. Wir suchen nach Vereinbarung eine/n Personalassistent:in 60 – 100 % \n• Ihre Aufgaben ‐ Sie führen Ein- und Austrittsarbeiten aus ‐ Sie unterstützen die Fachverantwortliche bei der Personalrekrutierung ‐ Sie engagieren sich bei der allgemeinen Personaladministration inkl. der Verwaltung der Personaldossiers ‐ Sie wickeln sozialversicherungstechnische \n• Aufgaben im Zusammenhang mit AHV, Familienzulagen, Pensionskasse sowie Kranken- und Unfallversicherung ab ‐ Sie kümmern sich um die Lohnverarbeitung der Monats- und Stundenlöhne ‐ Sie arbeiten bei der Kontrolle und Koordination der Zeiterfassung im Polypoint/TACS mit ‐ Sie wirken bei der Weiterentwicklung und Digitalisierung der Personalprozesse sowie bei Projekten mit ‐ Sie organisieren Aktivitäten für Mitarbeitende mit ‐ Abhängig der persönlichen Interessen und der Höhe des Beschäftigungsgrads sind weitere administrative \n• Aufgaben innerhalb der Klinik möglich \n• Ihr Profil ‐ Sie verfügen über eine kaufmännische Grundausbildung und können eine Weiterbildung im Personalwesen vorweisen ‐ Sie bringen umfassende Erfahrungen im Bereich der Personaladministration mit ‐ Sie verfügen über eine ausgezeichnete mündliche und schriftliche Ausdrucksfähigkeit ‐ Sie sind diskret, belastbar und selbständig ‐ Sie überzeugen durch exaktes Arbeiten ‐ Sie sind flexibel und arbeiten gerne in einem kleinen Team ‐ Sie haben fundierte IT-Kenntnisse Ihre Chance ‐ eine spannende und vielseitige Tätigkeit in einem lebendigen Betrieb ‐ Arbeit in einem motivierten Team und ein sehr gutes Betriebsklima, welches geprägt ist von Transparenz und gegenseitigem Respekt ‐ attraktive Anstellungsbedingungen ‐ vergünstigte Verpflegungsmöglichkeiten und ein kostenloser Parkplatz Frau Laura Baumeler, Fachverantwortliche Personal, erteilt Ihnen gerne nähere Auskunft: Tel. 062 510 58 44, www.wysshoelzli.ch Bitte bewerben Sie sich über das Onlineportal auf unserer Website oder senden Sie Ihre Bewerbung an personal@wysshoelzli.ch. Quelle (PDF): https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Personalassistentin_60-100.pdf Karriereportal: https://www.wysshoelzli.ch/jobs-karriere Sektor: Psychiatrie und Psychotherapie / Suchterkrankungen / Essstörungen",
-        "fr": "Le Klinik Wysshölzli est une clinique spécialisée psychiatrique et psychothérapeutique privée de l'Oberaargau (Help drawing, BE). Fonction: Assistant personnel 60–100%. Le Klinik Wysshölzli est une clinique spécialisée de premier plan pour les femmes souffrant de maladies de dépendance et de troubles de l'alimentation et offre 37 centres de traitement fixes ainsi que deux consultations externes. La clinique est sur la liste hospitalière du canton de Berne, a un contrat de service avec le directeur cantonal de la santé et des soins et des contrats avec les assureurs de santé. L'emplacement dans l'Oberaargau, canton de Berne, dans un endroit calme convainc avec la nature magnifique et la proximité de Berne, Soleure, Olten et Langenthal. Nous recherchons un assistant personnel: en 60 – 100% de vos tâches Ils effectuent des travaux d'entrée et de sortie de ‐ Ils soutiennent les spécialistes du recrutement ‐ Vous êtes impliqué dans l'administration générale du personnel, y compris l'administration des dossiers personnels ‐ Ils exécutent des tâches d'assurance sociale liées à l'AHV, aux allocations familiales, aux fonds de pension et à l'assurance maladie et accidents Vous vous souciez du traitement des salaires mensuels et horaires ‐ Ils travaillent avec ‐ pour contrôler et coordonner l'enregistrement du temps dans le Polypoint/TACS Ils travaillent au développement et à la numérisation des processus de personnel et des projets avec ‐ Vous organisez des activités pour les employés avec ‐ Selon les intérêts personnels et le niveau d'emploi, d'autres tâches administratives au sein de la clinique sont possibles Ils ont une formation commerciale de base et peuvent dispenser une formation complémentaire dans le secteur des ressources humaines. Ils apportent une expérience complète dans le domaine de l'administration du personnel avec ‐ Ils ont une excellente expressivité orale et écrite ‐ Ils sont discrets, résistants et indépendants Ils convainquent par un travail précis Ils sont flexibles et sont heureux de travailler dans une petite équipe ‐ Vous avez des compétences informatiques bien fondées votre chance – une activité passionnante et polyvalente dans une opération animée – travailler dans une équipe motivée et un très bon climat d'exploitation, qui se caractérise par la transparence et le respect mutuel – des conditions d'emploi attrayantes – des options de restauration favorables et un parking gratuit Mme Laura Baumeler, le personnel spécialisé, sera heureux de vous donner plus d'informations: Tél. 062 510ch 58 44, www.wys. Vous pouvez nous contacter via le site Web ou envoyer votre candidature à personal@wysshoelzli.ch. Source (PDF): https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Personalassistin 60-100.pdf Portail de carrière: https://www.wysshoelzli.ch/jobs-carriere Secteur: Psychiatrie et Psychothérapie / Maladies graves / Esstörtstör"
-      },
-      "slugByLocale": {
-        "it": "assistente-del-personale-60-100-klinik-wyssholzli-herzogenbuchsee",
-        "en": "human-resources-assistant-60-100-klinik-wyssholzli-herzogenbuchsee",
-        "de": "personalassistentin-60-100-klinik-wyssholzli",
-        "fr": "assistante-en-personnel-60-100-klinik-wyssholzli-herzogenbuchsee"
-      },
-      "_meta": {
-        "sourceFilename": "Inserat-Personalassistentin_60-100.pdf"
-      },
-      "id": "klinik-wyssholzli-bd41aacc1f6e",
-      "previousSlugs": [
-        "personalassistentin-60-100-klinik-wyssholzli",
-        "personnel-assistant-60-100-klinik-wyssholzli-herzogenbuchsee"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "personalassistentin-60-100-klinik-wyssholzli"
-        ],
-        "en": [
-          "personalassistentin-60-100-klinik-wyssholzli",
-          "personnel-assistant-60-100-klinik-wyssholzli-herzogenbuchsee"
-        ],
-        "fr": [
-          "personalassistentin-60-100-klinik-wyssholzli"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-06-02T23:31:47.661Z",
+  "assembledAt": "2026-06-03T23:37:18.831Z",
   "jobs": [
     {
       "id": "fusalp-9fd3fdf0afbe",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-sales-consultant-w-m_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-02T23:31:44.721Z",
+      "crawledAt": "2026-06-03T23:37:15.408Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,6 +58,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:50:28.461Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

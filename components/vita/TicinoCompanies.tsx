@@ -8,6 +8,7 @@ import { Analytics } from '@/services/analytics';
 import { buildPath } from '@/services/router';
 import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { reportCaughtError } from '@/services/errorReporter';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 import extraCompaniesData from '@/data/ticino-companies-extra.json';
 import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
 import ProviderLogo from '@/components/shared/ProviderLogo';
@@ -571,12 +572,12 @@ const TicinoCompanies: React.FC = () => {
 
  useEffect(() => {
  let cancelled = false;
- fetch(`/data/jobs-${locale}.json?fresh=${Date.now()}`, { cache: 'no-store' })
+ fetch(cdnDataUrl(`/data/jobs-${locale}.json?fresh=${Date.now()}`), { cache: 'no-store' })
  .then((res) => {
  if (!res.ok) throw new Error(`${res.status}`);
  return res.json();
  })
- .catch(() => fetch(`/data/jobs.json?fresh=${Date.now()}`, { cache: 'no-store' }).then((r) => r.json()))
+ .catch(() => fetch(cdnDataUrl(`/data/jobs.json?fresh=${Date.now()}`), { cache: 'no-store' }).then((r) => r.json()))
  .then((data: JobListingLite[]) => {
  if (cancelled || !Array.isArray(data)) return;
  const counts: Record<string, number> = {};

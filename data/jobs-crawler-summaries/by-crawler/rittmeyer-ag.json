@@ -1,18 +1,19 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-06-03T00:50:36.288Z",
+  "generatedAt": "2026-06-04T00:55:53.875Z",
   "total": 12,
-  "newCount": 10,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11240,
-  "avgDurationMs": 11240,
+  "durationMs": 15430,
+  "avgDurationMs": 15430,
   "durationHistory": [
-    11240
+    15430
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
       "slug": "service-techniker-a-region-churer-rheintal-imboden-viamala-sarganserland-werdenberg-rittmeyer-ag-sudostschweiz",
@@ -33,16 +34,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-a890f8cce287",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -65,16 +71,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-50ef0803d261",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -97,16 +108,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-3355d6ae490d",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -129,16 +145,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-540c61565882",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -161,16 +182,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "other",
       "contractType": "other",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-4b00db4b6441",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -193,16 +219,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-427f1bbe2ec0",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -225,16 +256,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-8202fbacc612",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -257,16 +293,58 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-92a7a36dd3ef",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
+      }
+    },
+    {
+      "title": "ICT-Supporter (a) Romanshorn",
+      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Romanshorn",
+      "addressLocality": "Romanshorn",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "rittmeyer-ag-9c45889d6936",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Romanshorn",
+      "postalCode": "8590",
+      "firstSeenAt": "2026-05-10T10:45:26.433Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -289,16 +367,21 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
+      "id": "rittmeyer-ag-73aecb723171",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -321,49 +404,15 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "ICT-Supporter (a) Romanshorn",
-      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Romanshorn",
-      "addressLocality": "Romanshorn",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "rittmeyer-ag-9c45889d6936",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "id": "rittmeyer-ag-38e98fe3e26e",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "currency": "CHF",
-      "streetAddress": "Romanshorn",
-      "postalCode": "8590",
-      "firstSeenAt": "2026-05-10T10:45:26.433Z",
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -390,7 +439,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",

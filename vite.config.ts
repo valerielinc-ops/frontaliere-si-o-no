@@ -310,8 +310,25 @@ export default defineConfig(({ mode }) => {
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.
  ];
+ // When ASSET_CDN is set (deploy build only), emit absolute CDN URLs for all
+ // bundler assets (JS/CSS/chunks) so dist/assets can be offloaded to the
+ // frontaliere-cdn Pages site. Unset (dev / normal builds) → renderBuiltUrl is
+ // absent → 100% default base-relative behaviour, nothing changes.
+ const ASSET_CDN = (process.env.ASSET_CDN || '').trim().replace(/\/+$/, '');
+
  return {
  base: '/',
+ ...(ASSET_CDN
+ ? {
+ experimental: {
+ renderBuiltUrl(filename: string) {
+ // filename is output-relative, e.g. "assets/index-abc.js" → served
+ // from the CDN repo at the same path.
+ return `${ASSET_CDN}/${filename}`;
+ },
+ },
+ }
+ : {}),
  server: {
  port: 3000,
  host: '0.0.0.0',

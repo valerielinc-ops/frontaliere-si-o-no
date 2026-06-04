@@ -1,16 +1,16 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-06-03T00:49:19.801Z",
+  "generatedAt": "2026-06-04T00:54:30.604Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4333,
-  "avgDurationMs": 4333,
+  "durationMs": 2861,
+  "avgDurationMs": 2861,
   "durationHistory": [
-    4333
+    2861
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T00:49:17.590Z",
+      "crawledAt": "2026-06-04T00:54:28.870Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -44,11 +44,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "externalId": "2556528",
       "firstSeenAt": "2026-06-02T14:27:39.363Z",
-      "_qualityScore": 72,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     }

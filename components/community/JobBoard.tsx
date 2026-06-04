@@ -7,6 +7,7 @@
 
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -310,7 +311,7 @@ const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
  */
 function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  if (!jobDetailCache.has(jobId)) {
- const promise = fetch(`/data/job-detail/${jobId}.json`)
+ const promise = fetch(cdnDataUrl(`/data/job-detail/${jobId}.json`))
  .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
  .then((data: unknown) => (data && typeof data === 'object' ? data : {}) as Partial<JobListing>)
  .catch(() => ({} as Partial<JobListing>));
@@ -1979,12 +1980,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
  const localeUrl = `/data/jobs-${locale}.json`;
  try {
- const res = await fetch(slimIndexUrl);
+ const res = await fetch(cdnDataUrl(slimIndexUrl));
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`slim index ${res.status}`);
  } catch {
  try {
- const res = await fetch(localeUrl);
+ const res = await fetch(cdnDataUrl(localeUrl));
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`locale jobs ${res.status}`);
  } catch {
@@ -2219,7 +2220,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // SPA's primary loader path). Filter to just the target job by
  // stable id so we don't replace `jobs` wholesale.
  try {
- const res = await fetch(`/data/jobs-${locale}-index.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (res.ok) {
  const all = await res.json();
  if (Array.isArray(all)) {
@@ -2819,7 +2820,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const responses = await Promise.allSettled(
  otherLocales.map(async (l) => {
- const res = await fetch(`/data/jobs-${l}-index.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${l}-index.json`));
  if (!res.ok) return [] as unknown[];
  const data = await res.json();
  return Array.isArray(data) ? (data as unknown[]) : [];
@@ -2870,11 +2871,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  (async () => {
  try {
  let pool: unknown[] = [];
- const slimRes = await fetch(`/data/jobs-${locale}-index.json`);
+ const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (slimRes.ok) {
  pool = await slimRes.json();
  } else {
- const localeRes = await fetch(`/data/jobs-${locale}.json`);
+ const localeRes = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
  if (localeRes.ok) pool = await localeRes.json();
  }
  if (cancelled) return;

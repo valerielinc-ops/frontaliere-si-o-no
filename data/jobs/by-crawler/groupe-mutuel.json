@@ -1,7 +1,149 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-06-02T23:37:57.995Z",
+  "assembledAt": "2026-06-03T23:43:06.837Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4114?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4114?c=groupemutuel&lang=fr-FR",
+      "title": "Juriste en droit des assurances (h/f) 80-100% - Temporaire 6 mois",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "Tu rédiges des décisions sur opposition en matière d’assurance-accidents (LAA) et d’indemnités journalières maladie (LAMal) En réalisant des recherches juridiques, tu travailles en droit des assurances (LAA, LAMal, LCA) et assures une veille sur la jurisprudence et la législation applicables Avec les gestionnaires de dossiers, tu apportes un soutien juridique, en particulier pour les cas complexes, et collabores étroitement avec le service juridique\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Tu rédiges des décisions sur opposition en matière d’assurance-accidents (LAA) et d’indemnités journalières maladie (LAMal) En réalisant des recherches juridiques, tu travailles en droit des assurances (LAA, LAMal, LCA) et assures une veille sur la jurisprudence et la législation applicables Avec les gestionnaires de dossiers, tu apportes un soutien juridique, en particulier pour les cas complexes, et collabores étroitement avec le service juridique\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Tu rédiges des décisions sur opposition en matière d’assurance-accidents (LAA) et d’indemnités journalières maladie (LAMal) En réalisant des recherches juridiques, tu travailles en droit des assurances (LAA, LAMal, LCA) et assures une veille sur la jurisprudence et la législation applicables Avec les gestionnaires de dossiers, tu apportes un soutien juridique, en particulier pour les cas complexes, et collabores étroitement avec le service juridique\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Tu rédiges des décisions sur opposition en matière d’assurance-accidents (LAA) et d’indemnités journalières maladie (LAMal) En réalisant des recherches juridiques, tu travailles en droit des assurances (LAA, LAMal, LCA) et assures une veille sur la jurisprudence et la législation applicables Avec les gestionnaires de dossiers, tu apportes un soutien juridique, en particulier pour les cas complexes, et collabores étroitement avec le service juridique\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Tu rédiges des décisions sur opposition en matière d’assurance-accidents (LAA) et d’indemnités journalières maladie (LAMal) En réalisant des recherches juridiques, tu travailles en droit des assurances (LAA, LAMal, LCA) et assures une veille sur la jurisprudence et la législation applicables Avec les gestionnaires de dossiers, tu apportes un soutien juridique, en particulier pour les cas complexes, et collabores étroitement avec le service juridique\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Juriste en droit des assurances (h/f) 80-100% - Temporaire 6 mois",
+        "it": "Juriste en droit des assurances (h/f) 80-100% - Temporaire 6 mois",
+        "en": "Juriste en droit des assurances (h/f) 80-100% - Temporaire 6 mois",
+        "de": "Juriste en droit des assurances (h/f) 80-100% - Temporaire 6 mois"
+      },
+      "slug": "juriste-en-droit-des-assurances-m-w-d-80-100-temporaire-6-mois-groupe-mutuel-lausanne",
+      "slugByLocale": {
+        "fr": "juriste-en-droit-des-assurances-h-f-80-100-temporaire-6-mois-groupe-mutuel",
+        "en": "juriste-en-droit-des-assurances-h-f-80-100-temporaire-6-mois-groupe-mutuel",
+        "it": "juriste-en-droit-des-assurances-m-w-d-80-100-temporaire-6-mois-groupe-mutuel-lausanne",
+        "de": "juriste-en-droit-des-assurances-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+      },
+      "category": "insurance",
+      "datePosted": "2026-06-03",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "jobReqId": "4114",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-1f6bfabe27f1",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-en-droit-des-assurances-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-en-droit-des-assurances-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+      ],
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-03T23:43:06.836Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4109?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4109?c=groupemutuel&lang=fr-FR",
+      "title": "Chef de projet / Spécialiste Economicité (h/f) 80-100% - Temporaire 6 mois",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Sion",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Pour contribuer aux activités d’analyse de dossiers liés à l’économicité, tu participes au traitement des informations En participant à l’identification de situations atypiques ou à risque, tu interviens sur des cas de surfacturation ou de fraudes Grâce à ton soutien à la préparation de dossiers, tu contribues aux négociations ou prises de position Avec une gestion structurée, tu assures le suivi des dossiers incluant statuts, échéances et relances Parce que des demandes externes doivent être traitées, tu gères et assures le suivi des sollicitations provenant d’acteurs externes En fournissant un appui aux projets, tu participes au suivi des tâches, actions et échéances\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Pour contribuer aux activités d’analyse de dossiers liés à l’économicité, tu participes au traitement des informations En participant à l’identification de situations atypiques ou à risque, tu interviens sur des cas de surfacturation ou de fraudes Grâce à ton soutien à la préparation de dossiers, tu contribues aux négociations ou prises de position Avec une gestion structurée, tu assures le suivi des dossiers incluant statuts, échéances et relances Parce que des demandes externes doivent être traitées, tu gères et assures le suivi des sollicitations provenant d’acteurs externes En fournissant un appui aux projets, tu participes au suivi des tâches, actions et échéances\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Pour contribuer aux activités d’analyse de dossiers liés à l’économicité, tu participes au traitement des informations En participant à l’identification de situations atypiques ou à risque, tu interviens sur des cas de surfacturation ou de fraudes Grâce à ton soutien à la préparation de dossiers, tu contribues aux négociations ou prises de position Avec une gestion structurée, tu assures le suivi des dossiers incluant statuts, échéances et relances Parce que des demandes externes doivent être traitées, tu gères et assures le suivi des sollicitations provenant d’acteurs externes En fournissant un appui aux projets, tu participes au suivi des tâches, actions et échéances\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Pour contribuer aux activités d’analyse de dossiers liés à l’économicité, tu participes au traitement des informations En participant à l’identification de situations atypiques ou à risque, tu interviens sur des cas de surfacturation ou de fraudes Grâce à ton soutien à la préparation de dossiers, tu contribues aux négociations ou prises de position Avec une gestion structurée, tu assures le suivi des dossiers incluant statuts, échéances et relances Parce que des demandes externes doivent être traitées, tu gères et assures le suivi des sollicitations provenant d’acteurs externes En fournissant un appui aux projets, tu participes au suivi des tâches, actions et échéances\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Pour contribuer aux activités d’analyse de dossiers liés à l’économicité, tu participes au traitement des informations En participant à l’identification de situations atypiques ou à risque, tu interviens sur des cas de surfacturation ou de fraudes Grâce à ton soutien à la préparation de dossiers, tu contribues aux négociations ou prises de position Avec une gestion structurée, tu assures le suivi des dossiers incluant statuts, échéances et relances Parce que des demandes externes doivent être traitées, tu gères et assures le suivi des sollicitations provenant d’acteurs externes En fournissant un appui aux projets, tu participes au suivi des tâches, actions et échéances\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Chef de projet / Spécialiste Economicité (h/f) 80-100% - Temporaire 6 mois",
+        "it": "Chef de projet / Spécialiste Economicité (h/f) 80-100% - Temporaire 6 mois",
+        "en": "Chef de projet / Spécialiste Economicité (h/f) 80-100% - Temporaire 6 mois",
+        "de": "Chef de projet / Spécialiste Economicité (h/f) 80-100% - Temporaire 6 mois"
+      },
+      "slug": "chef-de-projet-specialiste-economicite-m-w-d-80-100-temporaire-6-mois-groupe-mutuel-sion",
+      "slugByLocale": {
+        "fr": "chef-de-projet-specialiste-economicite-h-f-80-100-temporaire-6-mois-groupe-mutuel",
+        "en": "chef-de-projet-specialiste-economicite-h-f-80-100-temporaire-6-mois-groupe-mutuel",
+        "it": "chef-de-projet-specialiste-economicite-m-w-d-80-100-temporaire-6-mois-groupe-mutuel-sion",
+        "de": "chef-de-projet-specialiste-economicite-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+      },
+      "category": "it",
+      "datePosted": "2026-06-03",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "jobReqId": "4109",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-81fa6e8b3b78",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projet-specialiste-economicite-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projet-specialiste-economicite-h-f-80-100-temporaire-6-mois-groupe-mutuel"
+      ],
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressLocality": "Sion",
+      "addressCountry": "CH",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-06-03T23:43:06.836Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4101?c=groupemutuel&lang=fr-FR",
@@ -153,84 +295,6 @@
       "addressCountry": "CH",
       "addressRegion": "VS",
       "firstSeenAt": "2026-06-01T14:41:55.529Z"
-    },
-    {
-      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4100?c=groupemutuel&lang=fr-FR",
-      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4100?c=groupemutuel&lang=fr-FR",
-      "title": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois",
-      "company": "Groupe Mutuel",
-      "companyKey": "groupe-mutuel",
-      "location": "Lausanne",
-      "canton": "VD",
-      "country": "CH",
-      "description": "En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-      "descriptionByLocale": {
-        "it": "Descrizione A sostegno del team esistente, partecipa attivamente ai compiti amministrativi quotidiani Assicura il trattamento dei voucher di delegazione e la scrittura della corrispondenza Gestisci il trattamento delle fatture in modo rigoroso ed efficiente Affidabile e coinvolto, contribuisce al corretto funzionamento del servizio e alla qualità dei servizi forniti Descrizione Groupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per privati e imprese in tutta la Svizzera.",
-        "en": "Descrizione In support of the existing team, you actively participate in daily administrative tasks You ensure the processing of delegation vouchers and the writing of correspondence You handle the processing of invoices rigorously and efficiently Reliable and involved, you contribute to the proper functioning of the service and the quality of the services provided Descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "de": "Beschreibung Zur Unterstützung des bestehenden Teams nehmen Sie aktiv an täglichen administrativen\n• Aufgaben teil Sie gewährleisten die Verarbeitung von Delegationsgutscheinen und das Schreiben der Korrespondenz Sie behandeln die Abwicklung von Rechnungen streng und effizient Zuverlässig und engagiert, tragen Sie zum ordnungsgemäßen Funktionieren des Dienstes und der Qualität der erbrachten Dienstleistungen bei Beschreibung Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Einzelpersonen und Unternehmen in der ganzen Schweiz.",
-        "fr": "Descrizione En soutien à l’équipe existante, tu participes activement aux tâches administratives quotidiennes Tu assures le traitement des bons de délégation ainsi que la rédaction de la correspondance Tu prends en charge le traitement des factures avec rigueur et efficacité Fiable et impliqué·e, tu contribues au bon fonctionnement du service et à la qualité des prestations fournies Descrizione Groupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
-      },
-      "titleByLocale": {
-        "it": "Gestore prestazioni (m/f) 100% - Temporaneo 6 mesi",
-        "en": "Benefits Manager (m/f) 100% - Temporary 6 months",
-        "de": "Leistungsmanager (m/w) 100% - Temporär 6 Monate",
-        "fr": "Gestionnaire de prestations (h/f) 100% - Temporaire 6 mois"
-      },
-      "slug": "benefit-manager-h-f-100-temporary-6-mesi-groupe-mutuel-lausanne",
-      "slugByLocale": {
-        "it": "benefit-manager-h-f-100-temporary-6-mesi-groupe-mutuel-lausanne",
-        "en": "benefits-manager-m-f-100-temporary-6-months-groupe-mutuel-lausanne",
-        "de": "leistungsmanager-m-w-100-temporar-6-monate-groupe-mutuel-lausanne",
-        "fr": "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
-      },
-      "category": "claims",
-      "datePosted": "2026-05-29",
-      "source": "groupe-mutuel-csod-crawler",
-      "sourceLang": "fr",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Assicurazioni / Sanità",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Lausanne"
-      },
-      "jobReqId": "4100",
-      "crawledAt": "",
-      "id": "groupe-mutuel-61d78288167f",
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
-          "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-lausanne"
-        ],
-        "en": [
-          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
-        ],
-        "de": [
-          "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel"
-        ]
-      },
-      "previousSlugs": [
-        "gestionnaire-de-prestations-h-f-100-temporaire-6-mois-groupe-mutuel",
-        "gestionnaire-de-prestations-m-w-d-100-temporaire-6-mois-groupe-mutuel-lausanne"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-05-29T12:31:43.723Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4097?c=groupemutuel&lang=fr-FR",
@@ -385,7 +449,8 @@
       ],
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -461,7 +526,8 @@
       ],
       "addressLocality": "Genève",
       "addressCountry": "CH",
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4077?c=groupemutuel&lang=fr-FR",
@@ -614,7 +680,8 @@
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4085?c=groupemutuel&lang=fr-FR",
@@ -857,7 +924,8 @@
       "firstSeenAt": "2026-05-19T11:48:30.108Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
@@ -1102,7 +1170,8 @@
       "firstSeenAt": "2026-05-04T10:57:40.559Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4005?c=groupemutuel&lang=fr-FR",
@@ -1417,7 +1486,8 @@
       "firstSeenAt": "2026-04-16T21:40:55.557Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1496,7 +1566,8 @@
       },
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Aarau",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1590,7 +1661,8 @@
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1697,7 +1769,8 @@
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1801,7 +1874,8 @@
       "firstSeenAt": "2026-04-13T21:47:16.445Z",
       "addressLocality": "Crissier",
       "addressCountry": "CH",
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",

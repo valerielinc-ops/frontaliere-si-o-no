@@ -8,6 +8,7 @@ import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './rout
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
+import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
@@ -276,7 +277,7 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
- const res = await fetch(`/data/jobs-${locale}.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
  if (!res.ok) return out;
  const list = await res.json();
  if (!Array.isArray(list)) return out;
@@ -3911,6 +3912,18 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-guerre-dellinformazione': { name: 'Guerre dell\'informazione', path: '/articoli-svizzera/guerre-dellinformazione/', parent: 'blog' },
     'blog-imposta-fonte-frontalieri-ticino': { name: 'Imposta alla fonte', path: '/articoli-svizzera/imposta-fonte-frontalieri-ticino/', parent: 'blog' },
     'blog-hantavirus-ginevra-identificazione': { name: 'Hantavirus Ginevra', path: '/articoli-svizzera/hantavirus-ginevra-identificazione/', parent: 'blog' },
+    'blog-13esima-avs-iva-nazionale': { name: '13esima AVS IVA', path: '/articoli-frontaliere/13esima-avs-iva-nazionale', parent: 'blog' },
+    'blog-consiglio-stato-ticino-boccia-tassa-salute': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute', parent: 'blog' },
+    'blog-svizzera-dazi-usa-lavoro-forzato': { name: 'Svizzera respinge dazi USA su lavoro for', path: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-ticino-indebita': { name: 'Fisco frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita', parent: 'blog' },
+    'blog-rientro-svizzera-senza-lavoro': { name: 'Rientro lavoro', path: '/articoli-svizzera/rientro-svizzera-senza-lavoro/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino-dettagli': { name: 'Imposta alla fonte', path: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli', parent: 'blog' },
+    'blog-festivita-ticino-2026': { name: 'Festività', path: '/articoli-svizzera/festivita-ticino-2026/', parent: 'blog' },
+    'blog-frontaliere-ticino-mobilita': { name: 'Impatti della mobilità sulla vita dei', path: '/articoli-frontaliere/frontaliere-ticino-mobilita', parent: 'blog' },
+    'blog-un-blocco-dei-ristorni-reazione-comprensibile': { name: 'Economia', path: '/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/', parent: 'blog' },
+    'blog-calendario-festivi-ticino-2026': { name: 'Festivi Ticino 2026', path: '/articoli-frontaliere/calendario-festivi-ticino-2026', parent: 'blog' },
+    'blog-medico-medicina-interna-intensiva-eoc': { name: 'Medico EOC Bellinzona', path: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/', parent: 'blog' },
+    'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

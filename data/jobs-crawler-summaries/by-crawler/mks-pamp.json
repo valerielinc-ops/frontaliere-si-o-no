@@ -1,18 +1,49 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-06-03T00:27:39.794Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-06-04T00:33:00.092Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 7040,
-  "avgDurationMs": 7040,
+  "durationMs": 7187,
+  "avgDurationMs": 7187,
   "durationHistory": [
-    7040
+    7187
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Internship — AI Engineering &amp; Data Analysis",
+      "slug": "internship-ai-engineering-amp-data-analysis-mks-pamp-geneve",
+      "url": "https://careers.mkspamp.com/jobs/7847565-internship-ai-engineering-data-analysis",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7847565-internship-ai-engineering-data-analysis",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "technology",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-03",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Chief Information Security Officer",

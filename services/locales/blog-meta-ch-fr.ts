@@ -44,6 +44,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'Comment Genève a identifié l\'hantavirus : implications pour les frontaliers',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Hôpital universitaire de Genève a identifié la souche d\'hantavirus responsable d\'une épidémie sur un navire de croisière en mai 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Hôpital universitaire de Genève avec laboratoire moderne',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'La Suisse rejette les droits de douane américains sur le travail forcé',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berne refuse les accusations américaines et négocie à Paris. Des droits de douane de 12,5% en discussion, date limite pour les observations le 6 juillet 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse négociant les tarifs douaniers avec les États-Unis',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Retour en Suisse, comment transférer les indemnités',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Revenir en Suisse sans emploi nécessite un plan financier, le formulaire de transfert des indemnités et l\'inscription au service de placement local.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Des personnes revenant en Suisse après chômage à l\'étranger reçoivent des conseils dans un bureau.',
+    'blog.article.festivita-ticino-2026.title': 'Fêtes en Tessin 2026',
+    'blog.article.festivita-ticino-2026.excerpt': 'Découvrez les principales fêtes prévues en Tessin en 2026 et comment elles impacteront la vie quotidienne des résidents et des **frontalier(s)**. \n\n## Calendrier des jours fériés en 2026\n\nVoici un aperçu des jours fériés à prévoir en Tessin en 2026 : \n\n- 1er janvier : Nouvel An\n- 6 janvier : Épiphanie\n- Vendredi Saint : Variable (à déterminer)\n- Lundi de Pâques : Variable (à déterminer)\n- 1er mai : Fête du Travail\n- 15 août : Assomption\n- 1er novembre : Toussaint\n- 8 décembre : Immaculée Conception\n- 25 décembre : Noël\n- 26 décembre : Saint-Étienne\n\n## Impact sur les frontalier(s)\n\nCes jours fériés peuvent avoir un impact significatif sur les frontalier(s), notamment en ce qui concerne les passages frontaliers et les horaires de travail. Il est conseillé de se renseigner auprès de son employeur et des autorités compétentes pour connaître les modalités spécifiques applicables. \n\n📊 **Planification** : Anticipez vos déplacements et vos obligations administratives en tenant compte de ces jours de repos.\n\n💡 **Informations** : Consultez régulièrement le site web de la Confédération et des cantons pour obtenir des informations actualisées sur les jours fériés et les éventuelles adaptations.\n\n⚠️ **Flux frontaliers** : Attendez-vous à une augmentation du trafic aux passages frontaliers les jours précédant et suivant les jours fériés. Prévoyez des marges de temps suffisantes pour éviter les embouteillages.',
+    'blog.article.festivita-ticino-2026.imageAlt': 'Fête à Lugano',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'Un blocage des restaurants? Réaction compréhensible',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'La réaction des restaurateurs face à un possible blocage des restaurants est compréhensible.',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'Une personne regardant un document avec une calculatrice et un stylo',
+    'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Médecin Médecine Interne/Intensive EOC Bellinzona',
+    'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'L\'Ente Ospedaliero Cantonale (EOC) recherche des candidats médecins pour les divisions de Médecine Interne et/ou Médecine Intensive à l\'Hôpital Régional de Bellinzona. Postes ouverts pour spécialistes et assistants.',
+    'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Châteaux de Bellinzona, un symbole d\'opportunités d\'emploi au Tessin',
 };
 
 export default blogMetaChFr;

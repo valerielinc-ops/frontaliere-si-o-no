@@ -3,6 +3,7 @@ import { ChevronDown, ChevronRight, ChevronUp, ExternalLink, Fuel, Loader2, MapP
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 import { FUEL_DAILY_LOCALES, buildFuelItalianStationPath, buildStationSlug, slugify, type FuelDailyLocale } from '@/build-plugins/fuelDailyData';
 
 type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
@@ -446,7 +447,7 @@ export default function FuelPriceStats() {
  .finally(() => {
  if (!cancelled) setLoading(false);
  });
- fetch('/data/fuel-italian-station-pages.json')
+ fetch(cdnDataUrl('/data/fuel-italian-station-pages.json'))
  .then((r) => (r.ok ? r.json() : null))
  .then((j: { stations?: string[] } | null) => {
  if (!cancelled && Array.isArray(j?.stations)) setStationPages(new Set(j!.stations));

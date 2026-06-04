@@ -149,8 +149,8 @@ Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta
 Dopo il triage, segnala le issue `follow-up` aperte che **questa PR potrebbe aver reso obsolete**, così non restano orfane (es. PR che riscrive un workflow rendendo moot gli item di hardening su quel file). **Non chiudere mai** su euristica: una PR può toccare un file senza coprire lo specifico item — chiudere distruggerebbe scope ancora valido. Solo l'autore, con `Closes #N` / `Supersedes #N` nel body (vedi `AGENTS.md → Workflow`), chiude davvero (GitHub nativo per `Closes`).
 
 1. File toccati da questa PR: `gh pr diff $PR_NUMBER --name-only`.
-2. Issue follow-up aperte: `gh issue list --label follow-up --state open --json number,title,body --limit 50` (escludi quella appena creata per questa PR).
-3. Per ogni issue il cui body cita un file presente nel diff della PR (path match in `## Suggested action` / `## Item`):
+2. Candidati supersede, **scoped per-file** (mai dump bulk dei body): per ogni file del diff `gh issue list --label follow-up --state open --search "<file>" --json number,title --limit 20` (GitHub indicizza il body → ritorna solo le issue che citano quel path). Unisci i risultati, escludi quella appena creata per questa PR. NON usare `--json number,title,body --limit 50` su tutte le aperte: ~28 body emoji-heavy ≈ 82KB, troncabile a un boundary di surrogate UTF-16 → `400 no low surrogate in string` (stessa classe del bulk overview a `post-merge-followup.yml`).
+3. Per ciascun candidato scoped, conferma con `gh issue view <N> --json body` che il path sia citato in `## Suggested action` / `## Item`; se sì:
    - Se non hai già commentato (cerca `🔗 Possibile supersede` nei commenti, idempotenza) → posta:
      ```markdown
      🔗 Possibile supersede: PR #<PR_NUMBER> (<PR_TITLE>) ha modificato `<file>` — <motivo dal PR title/body>. Verifica se gli item di questa issue sono ancora pertinenti; se coperti, chiudi a mano. (segnalazione automatica, non chiusura)

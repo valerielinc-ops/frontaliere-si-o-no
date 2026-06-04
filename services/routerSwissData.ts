@@ -36,6 +36,11 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'guerre-dellinformazione': { it: 'guerre-dellinformazione', en: 'information-wars', de: 'informationskriege', fr: 'guerres-de-linformation' },
  'imposta-fonte-frontalieri-ticino': { it: 'imposta-fonte-frontalieri-ticino', en: 'withholding-tax-frontalieri-ticino', de: 'quellensteuer-grenzganger-tessin', fr: 'impot-a-la-source-frontaliers-tessin' },
  'hantavirus-ginevra-identificazione': { it: 'hantavirus-ginevra-identificazione', en: 'how-geneva-identified-hantavirus', de: 'wie-genf-das-hantavirus-identifizierte', fr: 'comment-geneve-a-identifie-le-hantavirus' },
+ 'svizzera-dazi-usa-lavoro-forzato': { it: 'svizzera-dazi-usa-lavoro-forzato', en: 'switzerland-us-tariffs-forced-labor', de: 'schweiz-usa-zwangsarbeit-zoelle', fr: 'suisse-etats-unis-droits-forced-labor' },
+ 'rientro-svizzera-senza-lavoro': { it: 'rientro-svizzera-senza-lavoro', en: 'return-to-switzerland-unemployed-guide', de: 'rueckkehr-in-die-schweiz-ohne-arbeitslosigkeit', fr: 'retour-suisse-chomage-guide' },
+ 'festivita-ticino-2026': { it: 'festivita-ticino-2026', en: 'festivities-ticino-2026', de: 'feierlichkeiten-ticino-2026', fr: 'fetes-ticino-2026' },
+ 'un-blocco-dei-ristorni-reazione-comprensibile': { it: 'un-blocco-dei-ristorni-reazione-comprensibile', en: 'a-block-of-restaurants-a-comprehensible-reaction', de: 'eine-blockierung-von-restaurants-eine-verstandliche-reaktion', fr: 'un-blocage-de-restaurants-une-reaction-comprehensible' },
+ 'medico-medicina-interna-intensiva-eoc': { it: 'medico-medicina-interna-intensiva-eoc', en: 'doctor-internal-intensive-medicine-eoc', de: 'arzt-innere-intensivmedizin-eoc', fr: 'medecin-medecine-interne-intensive-eoc' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

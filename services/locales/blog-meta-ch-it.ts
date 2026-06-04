@@ -44,6 +44,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Ospedale universitario di Ginevra con laboratorio moderno',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Svizzera respinge dazi USA su lavoro forzato, trattative in corso',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero che negozia con gli Stati Uniti sui dazi commerciali',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Rientro in Svizzera, come trasferire le indennità',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Rientrare in Svizzera senza lavoro richiede un piano finanziario, il modulo di trasferimento delle indennità e la registrazione al servizio di collocamento locale.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Persone che rientrano in Svizzera dopo disoccupazione all\'estero ricevono consulenza in un ufficio.',
+    'blog.article.festivita-ticino-2026.title': 'Festività in Ticino 2026',
+    'blog.article.festivita-ticino-2026.excerpt': 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri.',
+    'blog.article.festivita-ticino-2026.imageAlt': 'Festa a Lugano',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'Un blocco dei ristorni? Reazione comprensibile',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'La reazione dei ristoratori di fronte a un possibile blocco dei ristorni è comprensibile.',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'Una persona che guarda un documento con una calcolatrice e una penna',
+    'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Medico Medicina Interna/Intensiva EOC Bellinzona',
+    'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'L\'Ente Ospedaliero Cantonale (EOC) cerca candidati medici per le divisioni di Medicina Interna e/o Medicina Intensiva presso l\'Ospedale Regionale di Bellinzona. Posizioni aperte per specialisti e assistenti.',
+    'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Castelli di Bellinzona, simbolo di opportunità lavorative in Ticino',
 };
 
 export default blogMetaChIt;

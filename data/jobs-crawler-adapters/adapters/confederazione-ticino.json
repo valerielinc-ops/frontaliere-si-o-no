@@ -12,15 +12,21 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&f=region:1083334"
   ],
   "notes": "Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-06-02T23:07:05.887Z",
+  "updatedAt": "2026-06-03T23:12:27.076Z",
   "seedMetaByUrl": {
-    "https://jobs.admin.ch/posti-vacanti/nebenamtliche-r-richter-in-mit-hauptsprache-deutsch/e83da5fa-62de-4ea3-8f6a-47becc9e0f3f": {
+    "https://jobs.admin.ch/posti-vacanti/offizier-in-ruestung-und-weiterentwicklung/678c3b92-8ec2-4e02-acea-8c8d4898c915": {
+      "location": "Rivera",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-06-02"
+    },
+    "https://jobs.admin.ch/posti-vacanti/nebenamtliche-r-richter-in-mit-hauptsprache-franzoesisch/c37144f4-f4fe-44b3-9e04-c7e34e17db3e": {
       "location": "Mobil und Homeoffice",
       "canton": "GE",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-06-02"
     },
-    "https://jobs.admin.ch/posti-vacanti/nebenamtliche-r-richter-in-mit-hauptsprache-franzoesisch/c37144f4-f4fe-44b3-9e04-c7e34e17db3e": {
+    "https://jobs.admin.ch/posti-vacanti/nebenamtliche-r-richter-in-mit-hauptsprache-deutsch/e83da5fa-62de-4ea3-8f6a-47becc9e0f3f": {
       "location": "Mobil und Homeoffice",
       "canton": "GE",
       "company": "Confederazione Svizzera",
@@ -51,12 +57,6 @@
       "postedDate": "2026-05-18"
     },
     "https://jobs.admin.ch/posti-vacanti/spezialist-in-elektrotechnik/8217c9bd-1923-4d58-bc25-982f73f91087": {
-      "location": "Rivera",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-05-21"
-    },
-    "https://jobs.admin.ch/posti-vacanti/offizier-in-ruestung-und-weiterentwicklung/8f913ea4-882a-41b1-b150-7bcb85237c1d": {
       "location": "Rivera",
       "canton": "TI",
       "company": "Confederazione Svizzera",

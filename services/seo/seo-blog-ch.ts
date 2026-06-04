@@ -488,6 +488,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-dazi-usa-lavoro-forzato': {
+    title: 'Svizzera respinge dazi USA su lavoro forzato, trattative in corso',
+    description: 'Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, respinge, dazi, lavoro, forzato',
+    ogTitle: 'Svizzera respinge dazi USA su lavoro forzato, trattative',
+    ogDescription: 'Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026.',
+    canonicalPath: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera respinge dazi USA su lavoro forzato, trattative in corso",
+      "description": "Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-dazi-usa-lavoro-forzato.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna, sede del governo svizzero che negozia con gli Stati Uniti sui dazi commerciali"
+      },
+      "datePublished": "2026-06-04T02:22:42+00:00",
+      "dateModified": "2026-06-04T02:22:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rientro-svizzera-senza-lavoro': {
+    title: 'Rientro in Svizzera, come trasferire le indennità',
+    description: 'Scopri come trasferire le indennità di disoccupazione, i passaggi amministrativi e le opportunità di collocamento quando torni in Svizzera senza lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, trasferire, indennità, rientrare',
+    ogTitle: 'Rientro in Svizzera senza lavoro: guida pratica',
+    ogDescription: 'Guida pratica per chi torna in Svizzera senza lavoro: trasferimento indennità, modulo necessario e consigli per il collocamento.',
+    canonicalPath: '/articoli-svizzera/rientro-svizzera-senza-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro in Svizzera, come trasferire le indennità",
+      "description": "Scopri come trasferire le indennità di disoccupazione, i passaggi amministrativi e le opportunità di collocamento quando torni in Svizzera senza lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-svizzera-senza-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persone che rientrano in Svizzera dopo disoccupazione all'estero ricevono consulenza in un ufficio."
+      },
+      "datePublished": "2026-06-04T02:38:35+00:00",
+      "dateModified": "2026-06-04T02:38:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rientro-svizzera-senza-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festivita-ticino-2026': {
+    title: 'Festività in Ticino 2026 | Frontaliere Ticino',
+    description: 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, festività, scopri, principali, previste',
+    ogTitle: 'Festività in Ticino 2026',
+    ogDescription: 'Tutte le informazioni sulle festività in Ticino nel 2026.',
+    canonicalPath: '/articoli-svizzera/festivita-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festività in Ticino 2026",
+      "description": "Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/festivita-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Festa a Lugano"
+      },
+      "datePublished": "2026-06-04T02:58:31+00:00",
+      "dateModified": "2026-06-04T02:58:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/festivita-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-un-blocco-dei-ristorni-reazione-comprensibile': {
+    title: 'Un blocco dei ristorni? Reazione comprensibile',
+    description: 'La reazione dei ristoratori di fronte a un possibile blocco dei ristorni è comprensibile. Scopri di più sulle implicazioni economiche e le soluzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, reazione, comprensibile',
+    ogTitle: 'Un blocco dei ristorni? Reazione comprensibile',
+    ogDescription: 'La reazione dei ristoratori di fronte a un possibile blocco dei ristorni è comprensibile. Scopri di più sulle implicazioni economiche e le soluzioni',
+    canonicalPath: '/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un blocco dei ristorni? Reazione comprensibile",
+      "description": "La reazione dei ristoratori di fronte a un possibile blocco dei ristorni è comprensibile. Scopri di più sulle implicazioni economiche e le soluzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/un-blocco-dei-ristorni-reazione-comprensibile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che guarda un documento con una calcolatrice e una penna"
+      },
+      "datePublished": "2026-06-04T03:24:11+00:00",
+      "dateModified": "2026-06-04T03:24:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-medico-medicina-interna-intensiva-eoc': {
+    title: 'Medico Medicina Interna/Intensiva EOC Bellinzona',
+    description: 'L\'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, medico, medicina, interna, intensiva',
+    ogTitle: 'Medico Interna/Intensiva: Offerte Lavoro EOC Bellinzona',
+    ogDescription: 'L\'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.',
+    canonicalPath: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medico Medicina Interna/Intensiva EOC Bellinzona",
+      "description": "L'Ente Ospedaliero Cantonale cerca medici specialisti e assistenti per Medicina Interna e Intensiva a Bellinzona. Scopri i requisiti e come candidarsi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/medico-medicina-interna-intensiva-eoc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelli di Bellinzona, simbolo di opportunità lavorative in Ticino"
+      },
+      "datePublished": "2026-06-04T04:15:21+00:00",
+      "dateModified": "2026-06-04T04:15:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/medico-medicina-interna-intensiva-eoc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

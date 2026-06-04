@@ -1,4 +1,5 @@
-import { test, expect } from 'playwright/test';
+import { test, expect, type Page } from 'playwright/test';
+import { resolveActiveJobDetailPath } from './lib/live-jobs';
 
 /**
  * Live regression guard for the 2026-05-22 heading-clobber incident.
@@ -60,26 +61,20 @@ const TAILWIND_FONT_SIZE_PX: Record<string, string> = {
 // Tailwind utility classes there is meaningless — Tailwind isn't shipped.
 // The runtime skip below handles future cases where a URL silently
 // becomes a bridge.
+// Static surfaces with stable paths. The job-detail surface is resolved at
+// runtime (see below) because pinning a listing slug time-bombs once it
+// expires into a soft-landing page (200, no <main>) — see lib/live-jobs.ts.
 const TARGETS: ReadonlyArray<{ name: string; path: string }> = [
   { name: 'home', path: '/' },
   { name: 'currency-comparator', path: '/compara-servizi/cambio-franco-euro/' },
-  // Job-detail mobile is the exact surface from the bug report. Use a
-  // long-lived listing URL (Tether Operations Lugano remote — published
-  // 82 days ago at incident time, still indexed). If the slug ever
-  // expires this becomes a 404; replace with any active job detail URL.
-  {
-    name: 'job-detail',
-    path: '/cerca-lavoro-ticino/senior-manager-reporting-gestione-patrimoniale-100-remoto-tether-operations-lugano/',
-  },
 ];
 
 // iPhone 13 viewport — matches the device class the regression was
 // reported on (CLAUDE.md #15: 75% of traffic is mobile).
 test.use({ viewport: { width: 390, height: 844 } });
 
-for (const target of TARGETS) {
-  test(`tailwind text-* utilities resolve on real <hN> after hydration: ${target.name}`, async ({ page }) => {
-    const url = `${LIVE_BASE_URL}${target.path}`;
+async function assertTailwindHeadingsResolve(page: Page, path: string): Promise<void> {
+    const url = `${LIVE_BASE_URL}${path}`;
     await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
 
@@ -87,7 +82,7 @@ for (const target of TARGETS) {
     // no Tailwind bundle. This test asserts Tailwind utilities resolve, so
     // it's a category error to assert on a page that has no Tailwind.
     const isBridge = await page.evaluate(() => !!document.querySelector('body > main.card'));
-    test.skip(isBridge, `${target.path} is a bridge/redirect stub (no Tailwind)`);
+    test.skip(isBridge, `${path} is a bridge/redirect stub (no Tailwind)`);
 
     // Wait until Tailwind utilities are actually active. The SPA loads
     // `index-{hash}.css` with `media="print" onload="this.media='all'"`
@@ -135,7 +130,7 @@ for (const target of TARGETS) {
       for (const [cls, expected] of Object.entries(TAILWIND_FONT_SIZE_PX)) {
         expect(
           probes[tag][cls],
-          `<${tag} class="${cls}"> must compute to ${expected} on ${target.path} (unlayered element rule regressed?)`,
+          `<${tag} class="${cls}"> must compute to ${expected} on ${path} (unlayered element rule regressed?)`,
         ).toBe(expected);
       }
     }
@@ -166,8 +161,22 @@ for (const target of TARGETS) {
     if (realMatch) {
       expect(
         realMatch.fontSize,
-        `real <${realMatch.tag} class="${realMatch.cls}"> "${realMatch.text}" on ${target.path} must compute to ${TAILWIND_FONT_SIZE_PX[realMatch.cls]}`,
+        `real <${realMatch.tag} class="${realMatch.cls}"> "${realMatch.text}" on ${path} must compute to ${TAILWIND_FONT_SIZE_PX[realMatch.cls]}`,
       ).toBe(TAILWIND_FONT_SIZE_PX[realMatch.cls]);
     }
+}
+
+for (const target of TARGETS) {
+  test(`tailwind text-* utilities resolve on real <hN> after hydration: ${target.name}`, async ({ page }) => {
+    await assertTailwindHeadingsResolve(page, target.path);
   });
 }
+
+// Job-detail mobile is the exact surface from the bug report. Resolve an
+// active listing at runtime from the live sitemap — pinning a slug here
+// time-bombs once the listing expires into a soft-landing page (200, no
+// <main>) and the `main` wait hits a 30 s timeout (incident 2026-06-03).
+test('tailwind text-* utilities resolve on real <hN> after hydration: job-detail', async ({ page }) => {
+  const path = await resolveActiveJobDetailPath(page);
+  await assertTailwindHeadingsResolve(page, path);
+});

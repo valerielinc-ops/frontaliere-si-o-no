@@ -1,11 +1,12 @@
 // blogImageCdnFinalizePlugin.ts
 //
-// Post-build step that offloads full blog hero images to jsDelivr and removes
-// them from the GitHub Pages artifact. Runs last (enforce: 'post').
+// Post-build step that offloads full blog hero images to the frontaliere-cdn
+// Pages site (cdn.frontaliereticino.ch) and removes them from the main GitHub
+// Pages artifact. Runs last (enforce: 'post').
 //
 // 1. Rewrite every SSG-emitted reference to a FULL blog image
 //    (`/images/blog/<file>.webp`, origin-absolute or site-relative) to its
-//    jsDelivr CDN URL, across dist HTML/XML/TXT. The 480w thumbnails under
+//    CDN URL, across dist HTML/XML/TXT. The 480w thumbnails under
 //    `/images/blog/thumbnails/` are NOT touched — they stay same-origin.
 // 2. GUARD: re-scan; if any full-blog reference survives, ABORT the offload
 //    (keep the images in dist) rather than delete — never ship a 404, never
@@ -14,15 +15,15 @@
 //
 // SPA runtime <img> references come from data/blog-articles-data.ts, whose
 // ARTICLES export is already CDN-rewritten via cdnBlogImage — so this plugin
-// only needs to handle the static HTML/XML the crawler sees. The repo is
-// public, so jsDelivr (and the raw.githubusercontent fallback) can serve the
-// images pinned to the build commit SHA.
+// only needs to handle the static HTML/XML the crawler sees. The deploy workflow
+// pushes the git-tracked public/images/blog heroes to the CDN repo (raw@SHA is
+// the <img> error fallback).
 
 import type { Plugin } from 'vite';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { JSDELIVR_BLOG_BASE } from './shared/blogImageCdn';
+import { CDN_BLOG_BASE } from './shared/blogImageCdn';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
@@ -38,11 +39,17 @@ const reAbs = new RegExp(ESC_ORIGIN + '/images/blog/' + FILE, 'g');
 const reRel = new RegExp('(?<![\\w.@])/images/blog/' + FILE, 'g');
 // Guard: a SURVIVING full-blog reference that would 404 once the dir is gone —
 // origin-absolute, or relative not preceded by a word char (so `/public/images/
-// blog/…` inside an emitted jsDelivr/raw URL is excluded), excluding thumbnails.
+// blog/…` inside an emitted CDN/raw URL is excluded), excluding thumbnails.
 const reLeak = new RegExp(
   '(?:' + ESC_ORIGIN + '/images/blog/|(?<![\\w.@])/images/blog/)(?!thumbnails/)' + FILE,
 );
 
+// Perf: the original finalize scanned every file TWICE (a rewrite pass + a
+// separate guard pass). The single pass in closeBundle below rewrites and
+// verifies each file in one read — halving the I/O — while the guard still
+// covers EVERY emitted file (no dir is skipped), so a stray /images/blog
+// reference anywhere (even in the job-board corpus, which today carries none)
+// is still caught before any image is deleted.
 function walk(dir: string, fn: (fp: string) => void): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
@@ -64,9 +71,16 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         return;
       }
 
-      const repl = (_m: string, file: string): string => `${JSDELIVR_BLOG_BASE}/${file}`;
+      const repl = (_m: string, file: string): string => `${CDN_BLOG_BASE}/${file}`;
       let scanned = 0;
       let rewritten = 0;
+      // Single pass: rewrite each file, then verify the RESULT in-memory (no
+      // second filesystem scan). Guard — nothing full-blog (non-thumbnail,
+      // non-CDN) may remain. If any does, ABORT the offload (keep the images
+      // in dist) rather than throw: a missed reference must never break the
+      // deploy. Worst case the artifact ships the blog images as before (no
+      // reduction) — never a 404 or a failed build.
+      const leaks: string[] = [];
       walk(distDir, (fp) => {
         scanned++;
         const orig = fs.readFileSync(fp, 'utf8');
@@ -75,16 +89,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
           fs.writeFileSync(fp, out);
           rewritten++;
         }
-      });
-
-      // Guard — nothing full-blog (non-thumbnail, non-CDN) may remain. If any
-      // does, ABORT the offload (keep the images in dist) rather than throw:
-      // a missed reference must never break the deploy. Worst case the artifact
-      // ships the blog images as before (no reduction) — never a 404 or a
-      // failed build. Logged loudly so the gap is visible in the build log.
-      const leaks: string[] = [];
-      walk(distDir, (fp) => {
-        if (reLeak.test(fs.readFileSync(fp, 'utf8'))) leaks.push(path.relative(distDir, fp));
+        if (reLeak.test(out)) leaks.push(path.relative(distDir, fp));
       });
       if (leaks.length > 0) {
         console.warn(
@@ -106,7 +111,7 @@ export function blogImageCdnFinalizePlugin(rootDir: string): Plugin {
         deleted++;
       }
       console.log(
-        `[blog-image-cdn] rewrote ${rewritten}/${scanned} files → jsDelivr; ` +
+        `[blog-image-cdn] rewrote ${rewritten}/${scanned} files → CDN; ` +
           `deleted ${deleted} full blog images (${(freed / 1048576).toFixed(0)} MB freed; thumbnails kept local)`,
       );
     },

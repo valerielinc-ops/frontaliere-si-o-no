@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2715,
+ "numberOfItems": 2727,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7355,7 +7355,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2712, "name": "Lavoro all’estero: guida pratica per frontalier...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-estero-guida-frontalieri` },
           { "@type": "ListItem", "position": 2713, "name": "Guerre dell'informazione: minacce e strategie", "url": `${BASE_URL}/articoli-frontaliere/guerre-dellinformazione` },
           { "@type": "ListItem", "position": 2714, "name": "Imposta alla fonte non restituita: cosa cambia ...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino` },
-          { "@type": "ListItem", "position": 2715, "name": "Come Ginevra ha identificato l'hantavirus: impl...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-ginevra-identificazione` }
+          { "@type": "ListItem", "position": 2715, "name": "Come Ginevra ha identificato l'hantavirus: impl...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-ginevra-identificazione` },
+          { "@type": "ListItem", "position": 2716, "name": "13esima AVS: il Nazionale insiste sull'IVA", "url": `${BASE_URL}/articoli-frontaliere/13esima-avs-iva-nazionale` },
+          { "@type": "ListItem", "position": 2717, "name": "Tassa salute frontalieri: il Ticino boccia il p...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute` },
+          { "@type": "ListItem", "position": 2718, "name": "Svizzera respinge dazi USA su lavoro forzato, t...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-dazi-usa-lavoro-forzato` },
+          { "@type": "ListItem", "position": 2719, "name": "Tassa salute frontalieri: il Ticino la definisc...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita` },
+          { "@type": "ListItem", "position": 2720, "name": "Rientro in Svizzera, come trasferire le indennità", "url": `${BASE_URL}/articoli-frontaliere/rientro-svizzera-senza-lavoro` },
+          { "@type": "ListItem", "position": 2721, "name": "Imposta alla fonte frontalieri: come funziona i...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli` },
+          { "@type": "ListItem", "position": 2722, "name": "Festività in Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/festivita-ticino-2026` },
+          { "@type": "ListItem", "position": 2723, "name": "Impatti della mobilità sulla vita dei frontalie...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-mobilita` },
+          { "@type": "ListItem", "position": 2724, "name": "Un blocco dei ristorni? Reazione comprensibile", "url": `${BASE_URL}/articoli-frontaliere/un-blocco-dei-ristorni-reazione-comprensibile` },
+          { "@type": "ListItem", "position": 2725, "name": "Festivi Ticino 2026: il calendario completo per...", "url": `${BASE_URL}/articoli-frontaliere/calendario-festivi-ticino-2026` },
+          { "@type": "ListItem", "position": 2726, "name": "Medico Medicina Interna/Intensiva EOC Bellinzona", "url": `${BASE_URL}/articoli-frontaliere/medico-medicina-interna-intensiva-eoc` },
+          { "@type": "ListItem", "position": 2727, "name": "Telelavoro per frontalieri: cosa cambia con la ...", "url": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera` }
  ]
  },
  {
