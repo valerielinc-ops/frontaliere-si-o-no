@@ -3,7 +3,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchViaJina } from './lib/jina-proxy.mjs';
+import { fetchViaJina, detectJinaErrorBody } from './lib/jina-proxy.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -123,7 +123,16 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
         console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying egress proxy...`);
         try {
           const pr = await fetchViaJina(url, { timeoutMs });
-          if (pr.ok) return await pr.text();
+          if (pr.ok) {
+            const html = await pr.text();
+            // Jina answers 200 even when it never reached the target (challenge /
+            // error page, or empty body) → the parser would silently see 0 roles.
+            // Log an explicit "200-but-not-target" warning so a degraded proxy is
+            // diagnosable, then pass the HTML through unchanged (#1422 item 1).
+            const reason = detectJinaErrorBody(html);
+            if (reason) console.log(`  ⚠️  egress proxy 200 but not the target page (${reason}) — parser will likely yield 0 roles.`);
+            return html;
+          }
           console.log(`  ⚠️  egress proxy returned HTTP ${pr.status}, trying Playwright fallback...`);
         } catch (proxyErr) {
           console.log(`  ⚠️  egress proxy failed (${proxyErr.message}), trying Playwright fallback...`);
