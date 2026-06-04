@@ -242,18 +242,29 @@ function offloadAll(distDir, cdnBase) {
   });
 
   // ── Guarded deletes ──
-  // og: delete the offloaded dirs unless a same-origin ref survived (would 404).
+  // og + thumbnails: delete each offloaded dir UNLESS a same-origin ref to THAT
+  // target survived the rewrite (would 404). Per-target so a leak in one (e.g. a
+  // stray /og/ ref) can't suppress deleting the other (e.g. the ~49MB thumbnails).
   if (ogTargets.length > 0) {
-    if (ogLeaks.length > 0) {
-      log(`GUARD: ${ogLeaks.length} unrewritten og ref(s) survive — keeping og in dist (non-fatal): ${ogLeaks.slice(0, 5).join('; ')}`);
-    } else {
-      let freed = 0;
-      for (const t of ogTargets) {
-        const dir = path.join(distDir, ...t.dir);
-        freed += dirSize(dir);
-        fs.rmSync(dir, { recursive: true, force: true });
+    let freed = 0;
+    const deleted = [];
+    const kept = [];
+    for (const t of ogTargets) {
+      const leaked = ogLeaks.filter((l) => l.startsWith(t.url));
+      if (leaked.length > 0) {
+        kept.push(`${t.url} (${leaked.length} ref(s): ${leaked.slice(0, 3).join('; ')})`);
+        continue;
       }
-      log(`offloaded ${ogTargets.map((t) => t.url).join(' + ')} → ${cdnBase} ; rewrote ${ogRewritten} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
+      const dir = path.join(distDir, ...t.dir);
+      freed += dirSize(dir);
+      fs.rmSync(dir, { recursive: true, force: true });
+      deleted.push(t.url);
+    }
+    if (deleted.length > 0) {
+      log(`offloaded ${deleted.join(' + ')} → ${cdnBase} ; rewrote ${ogRewritten} files ; freed ${(freed / 1048576).toFixed(0)} MB`);
+    }
+    if (kept.length > 0) {
+      log(`GUARD: unrewritten same-origin ref(s) survive — keeping in dist (non-fatal): ${kept.join(' | ')}`);
     }
   } else {
     log('no OG offload target dirs present — skipping og delete');
