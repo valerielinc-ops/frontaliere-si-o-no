@@ -1,7 +1,89 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-06-04T11:43:27.782Z",
+  "assembledAt": "2026-06-04T14:48:32.102Z",
   "jobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Unsolicited Application Apprenticeship",
+        "de": "Initiativbewerbung Lehre",
+        "fr": "Unsolicited Application Apprenticeship"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "de": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "fr": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-06-04T14:48:29.975Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "initiativbewerbung-lehre-corner-banca-switzerland"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:02:58.679Z",
+      "salaryMin": 59500,
+      "salaryMax": 104000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
     {
       "id": "corner-banca-c2658f3238d4",
       "slug": "consulente-clienti-100-team-lugano-corner-banca-lugano",
@@ -67,7 +149,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.745Z",
+      "crawledAt": "2026-06-04T14:48:29.974Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -82,8 +164,8 @@
           "customer-advisor-100-team-lugano-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -164,7 +246,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.745Z",
+      "crawledAt": "2026-06-04T14:48:29.974Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -189,8 +271,8 @@
           "customer-conseiller-40-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -206,88 +288,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Unsolicited Application Apprenticeship",
-        "de": "Initiativbewerbung Lehre",
-        "fr": "Unsolicited Application Apprenticeship"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "de": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "fr": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Luogo di lavoro: Lugano / Bedano / Chiasso Requisiti\n• Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n• Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-04T11:43:25.745Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "initiativbewerbung-lehre-corner-banca-switzerland"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T10:02:58.679Z",
-      "salaryMin": 59500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
       "country": "CH"
     },
     {
@@ -358,7 +358,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-04T11:43:25.744Z",
+      "crawledAt": "2026-06-04T14:48:29.973Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -391,8 +391,8 @@
           "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -472,7 +472,7 @@
       "url": "https://jobs.corner.ch/o/market-risk-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.743Z",
+      "crawledAt": "2026-06-04T14:48:29.972Z",
       "previousSlugs": [
         "market-risk-manager-corner-banca-lugano",
         "employee-card-onboarding-corner-banca-lugano",
@@ -504,8 +504,128 @@
           "market-risk-manager-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-05-13T10:51:00.114Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-13T10:51:00.114Z",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-b9d1611cce63",
+      "slug": "responsabile-compliance-senior-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-compliance-senior-corner-banca-lugano",
+        "en": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+        "de": "leitender-compliance-beauftragter-corner-banca-lugano",
+        "fr": "compliance-officer-senior-corner-banca-lugano-nnfx9o"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Compliance Officer Senior",
+      "titleByLocale": {
+        "it": "Responsabile senior della conformità",
+        "en": "Compliance Officer Senior",
+        "de": "Leitender Compliance-Beauftragter",
+        "fr": "Compliance Officer Senior"
+      },
+      "description": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\n• Analysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\n• Opportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\n• Definition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\n• Drafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\n• Collection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\n• Preparation and delivery of Compliance training\n\n• Monitoring of regulatory developments in the Compliance area and analysis of their impact\n\n• Handling requests from External and Internal Audit\n\n• Execution of consolidated supervision activities in the Compliance area\n\n• Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\n• Apply a critical and proactive approach in identifying new solutions\n\n• Work independently\n\n• Manage a high volume of cases efficiently\n\n• At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\n• Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\n• Experience in Compliance related to FATCA and CRS is considered a plus\n\n• Languages: Italian / English native proficiency / French / German is a plus.\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Descrizione Siamo alla ricerca di un professionista di Compliance motivato e dettagliato per unirsi al nostro team. L'ideale candidato avrà esperienza solida in materia regolatoria, in particolare in AML, attività transfrontaliere e sanzioni, e sarà in grado di fornire una guida chiara e soluzioni pratiche al business. Questo ruolo richiede forti abilità analitiche, un giudizio sano e la capacità di gestire casi complessi in un ambiente regolatorio dinamico e in evoluzione. Il candidato avrà un ruolo chiave nell'assicurare l'adeguamento alle norme applicabili, supportando le iniziative del business e contribuendo allo sviluppo continuo del framework di Compliance. ## Mansioni - Analisi, revisione e gestione di casi relativi a AML, attività transfrontaliere e sanzioni, inclusa la preparazione di valutazioni e posizioni formali per l'azienda - Opportunità di analizzare casi relativi all'abuso di mercato e alla congruità dei prodotti, nonché a materie relative a FATCA e CRS - Definizione dei requisiti di Compliance e supervisione della loro implementazione all'interno di progetti finalizzati allo sviluppo di nuovi prodotti o servizi - Redazione e revisione di politiche e procedure interne nel settore della Compliance (ad esempio AML, attività transfrontaliere e sanzioni) - Raccolta di dati e informazioni per la redazione di rapporti di Compliance destinati alla direzione e per le periodiche valutazioni di rischio di Compliance - Preparazione e consegna di formazione di Compliance - Monitoraggio degli sviluppi regolatori nel settore della Compliance e analisi del loro impatto - Gestione di richieste da parte di Audit Esterno e Interno - Esecuzione di attività di supervisione consolidata nel settore della Compliance - Capacità di interagire efficacemente con colleghi provenienti da diversi dipartimenti (ad esempio Business, Operations, IT) - Applicazione di un approccio critico e proattivo nell'identificazione di nuove soluzioni - Lavoro autonomo - Gestione di un alto volume di casi in modo efficiente ##\n• Requisiti - Almeno 5 anni di esperienza nel settore bancario in un ruolo simile (Compliance Officer), preferibilmente non limitato all'AML ma anche coprente attività regolatorie più ampie e consulenziali (attività transfrontaliere, sanzioni, reporting, valutazione di rischio di Compliance, supervisione consolidata) - Esperienza in Compliance relative all'abito di condotta del mercato (ad esempio monitoraggio dell'abuso di mercato, revisioni di congruità dei prodotti, ecc.) è considerata un forte asset - Esperienza in Compliance relative a FATCA e CRS è considerata un plus ##\n• Cosa offriamo - Opportunità di sviluppo professionale - Ambiente di lavoro dinamico e collaborativo - Possibilità di lavorare in un team di professionisti esperti ## Contatto - Residente in Ticino o disposto a trasferirsi",
+        "en": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework. Key Responsibilities:\n• Analysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n• Opportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n• Definition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n• Drafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n• Collection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n• Preparation and delivery of Compliance training\n• Monitoring of regulatory developments in the Compliance area and analysis of their impact\n• Handling requests from External and Internal Audit\n• Execution of consolidated supervision activities in the Compliance area\n• Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n• Apply a critical and proactive approach in identifying new solutions\n• Work independently\n• Manage a high volume of cases efficiently\n• At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n• Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n• Experience in Compliance related to FATCA and CRS is considered a plus\n• Languages: Italian / English native proficiency / French / German is a plus.\n• Resident in Ticino or willing to relocate",
+        "de": "Beschreibung Wir suchen einen motivierten und detailorientierten Compliance-Experten, der sich unserem Team anschließen möchte. Der ideale Kandidat verfügt über eine solide Erfahrung in regulatorischen Angelegenheiten, insbesondere in AML, grenzüberschreitenden Aktivitäten und Sanktionen, und kann klare Anweisungen und praktische Lösungen für das Geschäft liefern. Diese Rolle erfordert starke analytische Fähigkeiten, einen gesunden Urteilsvermögen und die Fähigkeit, komplexe Fälle in einem dynamischen und sich entwickelnden regulatorischen Umfeld zu bewältigen. Der Kandidat wird eine wichtige Rolle bei der Gewährleistung der Einhaltung der anwendbaren Vorschriften, der Unterstützung von Geschäftsinitiativen und der Beiträge zum laufenden Entwicklungsprozess des Compliance-Frameworks spielen. ##\n• Aufgaben - Analyse, Überprüfung und Verwaltung von Fällen im Zusammenhang mit AML, grenzüberschreitenden Aktivitäten und Sanktionen, einschließlich der Vorbereitung von Bewertungen und formellen Stellungnahmen für das Unternehmen - Möglichkeit, Fälle im Zusammenhang mit Marktmissbrauch und Produktgeeignetheit, sowie Fälle im Zusammenhang mit FATCA und CRS zu analysieren - Definition von Compliance-\n• Anforderungen und Überwachung ihrer Implementierung innerhalb von Projekten, die darauf abzielen, neue Produkte oder Dienstleistungen zu entwickeln - Erstellung und Überprüfung von internen Richtlinien und Verfahren im Bereich der Compliance (z.B. AML, grenzüberschreitende Aktivitäten und Sanktionen) - Sammlung von Daten und Informationen für die Erstellung von Compliance-Berichten, die an die Geschäftsleitung gerichtet sind, und für regelmäßige Compliance-Risikobewertungen - Vorbereitung und Lieferung von Compliance-Training - Überwachung der regulatorischen Entwicklungen im Bereich der Compliance und Analyse ihres Auswirkungen - Verwaltung von Anfragen von externen und internen Audits - Durchführung von konsolidierten Überwachungsaktivitäten im Bereich der Compliance - Fähigkeit, effektiv mit Kollegen aus verschiedenen Abteilungen (z.B. Geschäft, Operations, IT) zu interagieren - Anwendung eines kritischen und proaktiven Ansatzes bei der Identifizierung neuer Lösungen - Selbstständige Arbeit - Effiziente Verwaltung eines hohen Fälle ##\n• Anforderungen - Mindestens 5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle (Compliance Officer), bevorzugt nicht nur auf AML beschränkt, sondern auch umfassende regulatorische und beratende Aktivitäten (grenzüberschreitende Aktivitäten, Sanktionen, Berichterstattung, Compliance-Risikobewertung, konsolidierte Überwachung) abdeckend - Erfahrung in Compliance im Zusammenhang mit Marktmissbrauch (z.B. Überwachung von Marktmissbrauch, Produktgeeignetheit, usw.) ist als starkes Plus angesehen - Erfahrung in Compliance im Zusammenhang mit FATCA und CRS ist als Plus angesehen ##\n• Was wir bieten - Möglichkeiten für berufliche Entwicklung - Dynamisches und kollaboratives Arbeitsumfeld - Möglichkeit, in einem Team von Experten zu arbeiten ## Kontakt - Ansässig in der Schweiz oder bereit, sich umzuziehen",
+        "fr": "Description Nous recherchons un professionnel de Compliance motivé et détaillé pour rejoindre notre équipe. Le candidat idéal aura une expérience solide en matière de réglementation, en particulier en AML, en activités transfrontalières et en sanctions, et sera en mesure de fournir des orientations claires et des solutions pratiques au business. Ce poste nécessite des compétences analytiques solides, un jugement sain et la capacité de gérer des cas complexes dans un environnement réglementaire dynamique et en évolution. Le candidat jouera un rôle clé pour s'assurer que les entreprises respectent les normes applicables, soutiennent les initiatives commerciales et contribuent au développement continu du cadre de Compliance. ## Tâches - Analyse, vérification et gestion de cas liés à l'AML, aux activités transfrontalières et aux sanctions, y compris la préparation d'évaluations et de positions formelles pour l'entreprise - Opportunité d'analyser des cas liés à l'abus de marché et à la conformité des produits, ainsi que des cas liés à la FATCA et à la CRS - Définition des exigences de Compliance et supervision de leur mise en œuvre au sein de projets axés sur le développement de nouveaux produits ou services - Élaboration et vérification de politiques et de procédures internes dans le domaine de la Compliance (par exemple AML, activités transfrontalières et sanctions) - Collecte de données et d'informations pour l'élaboration de rapports de Compliance destinés à la direction et pour les évaluations régulières de risque de Compliance - Préparation et livraison de formations de Compliance - Suivi des développements réglementaires dans le domaine de la Compliance et analyse de leur impact - Gestion de demandes provenant d'audits externes et internes - Exécution d'activités de supervision consolidée dans le domaine de la Compliance - Capacité à interagir efficacement avec des collègues provenant de différents départements (par exemple Commerce, Opérations, IT) - Application d'un approche critique et proactive dans l'identification de nouvelles solutions - Travail autonome - Gestion d'un volume élevé de cas de manière efficace ##\n• Exigences - Au moins 5 ans d'expérience dans le secteur bancaire dans un rôle similaire (Compliance Officer), préférablement non limité à l'AML mais également couvrant des activités réglementaires plus larges et des activités de conseil (activités transfrontalières, sanctions, reporting, évaluation de risque de Compliance, supervision consolidée) - Expérience en Compliance liée à la conduite du marché (par exemple suivi de l'abus de marché, examens de conformité des produits, etc.) est considérée comme un atout fort - Expérience en Compliance liée à la FATCA et à la CRS est considérée comme un plus ## Ce que nous offrons - Opportunités de développement professionnel - Environnement de travail dynamique et collaboratif - Possibilité de travailler dans un équipe de professionnels expérimentés ## Contact - Résident en Suisse ou prêt à déménager"
+      },
+      "requirements": [
+        "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+        "Apply a critical and proactive approach in identifying new solutions",
+        "Work independently",
+        "Manage a high volume of cases efficiently",
+        "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
+        "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
+        "Experience in Compliance related to FATCA and CRS is considered a plus",
+        "Languages: Italian / English native proficiency / French / German is a plus.",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+          "Apply a critical and proactive approach in identifying new solutions",
+          "Work independently",
+          "Manage a high volume of cases efficiently",
+          "Experience in Compliance related to FATCA and CRS is considered a plus",
+          "Languages: Italian / English native proficiency / French / German is a plus.",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+          "Apply a critical and proactive approach in identifying new solutions",
+          "Work independently",
+          "Manage a high volume of cases efficiently",
+          "Experience in Compliance related to FATCA and CRS is considered a plus",
+          "Languages: Italian / English native proficiency / French / German is a plus.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.corner.ch/o/compliance-officer-senior",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T14:48:29.970Z",
+      "previousSlugs": [
+        "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+        "compliance-officer-senior-corner-banca-lugano",
+        "responsabile-senior-della-conformita-corner-banca-lugano",
+        "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+        "compliance-offizier-senior-corner-banca-lugano",
+        "responsabile-senior-compliance-corner-banca-lugano",
+        "ufficiale-di-compliance-senior-corner-banca-lugano",
+        "senior-compliance-officer-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano",
+          "responsabile-senior-della-conformita-corner-banca-lugano"
+        ],
+        "en": [
+          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano"
+        ],
+        "de": [
+          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano"
+        ],
+        "fr": [
+          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -593,7 +713,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.741Z",
+      "crawledAt": "2026-06-04T14:48:29.969Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "employee-front-office-corner-banca-wallisellen"
@@ -607,8 +727,8 @@
           "employee-front-office-collection-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -624,126 +744,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-b9d1611cce63",
-      "slug": "responsabile-compliance-senior-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-compliance-senior-corner-banca-lugano",
-        "en": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-        "de": "leitender-compliance-beauftragter-corner-banca-lugano",
-        "fr": "compliance-officer-senior-corner-banca-lugano-nnfx9o"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Compliance Officer Senior",
-      "titleByLocale": {
-        "it": "Responsabile senior della conformità",
-        "en": "Compliance Officer Senior",
-        "de": "Leitender Compliance-Beauftragter",
-        "fr": "Compliance Officer Senior"
-      },
-      "description": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\n• Analysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\n• Opportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\n• Definition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\n• Drafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\n• Collection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\n• Preparation and delivery of Compliance training\n\n• Monitoring of regulatory developments in the Compliance area and analysis of their impact\n\n• Handling requests from External and Internal Audit\n\n• Execution of consolidated supervision activities in the Compliance area\n\n• Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\n• Apply a critical and proactive approach in identifying new solutions\n\n• Work independently\n\n• Manage a high volume of cases efficiently\n\n• At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\n• Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\n• Experience in Compliance related to FATCA and CRS is considered a plus\n\n• Languages: Italian / English native proficiency / French / German is a plus.\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Descrizione Siamo alla ricerca di un professionista di Compliance motivato e dettagliato per unirsi al nostro team. L'ideale candidato avrà esperienza solida in materia regolatoria, in particolare in AML, attività transfrontaliere e sanzioni, e sarà in grado di fornire una guida chiara e soluzioni pratiche al business. Questo ruolo richiede forti abilità analitiche, un giudizio sano e la capacità di gestire casi complessi in un ambiente regolatorio dinamico e in evoluzione. Il candidato avrà un ruolo chiave nell'assicurare l'adeguamento alle norme applicabili, supportando le iniziative del business e contribuendo allo sviluppo continuo del framework di Compliance. ## Mansioni - Analisi, revisione e gestione di casi relativi a AML, attività transfrontaliere e sanzioni, inclusa la preparazione di valutazioni e posizioni formali per l'azienda - Opportunità di analizzare casi relativi all'abuso di mercato e alla congruità dei prodotti, nonché a materie relative a FATCA e CRS - Definizione dei requisiti di Compliance e supervisione della loro implementazione all'interno di progetti finalizzati allo sviluppo di nuovi prodotti o servizi - Redazione e revisione di politiche e procedure interne nel settore della Compliance (ad esempio AML, attività transfrontaliere e sanzioni) - Raccolta di dati e informazioni per la redazione di rapporti di Compliance destinati alla direzione e per le periodiche valutazioni di rischio di Compliance - Preparazione e consegna di formazione di Compliance - Monitoraggio degli sviluppi regolatori nel settore della Compliance e analisi del loro impatto - Gestione di richieste da parte di Audit Esterno e Interno - Esecuzione di attività di supervisione consolidata nel settore della Compliance - Capacità di interagire efficacemente con colleghi provenienti da diversi dipartimenti (ad esempio Business, Operations, IT) - Applicazione di un approccio critico e proattivo nell'identificazione di nuove soluzioni - Lavoro autonomo - Gestione di un alto volume di casi in modo efficiente ##\n• Requisiti - Almeno 5 anni di esperienza nel settore bancario in un ruolo simile (Compliance Officer), preferibilmente non limitato all'AML ma anche coprente attività regolatorie più ampie e consulenziali (attività transfrontaliere, sanzioni, reporting, valutazione di rischio di Compliance, supervisione consolidata) - Esperienza in Compliance relative all'abito di condotta del mercato (ad esempio monitoraggio dell'abuso di mercato, revisioni di congruità dei prodotti, ecc.) è considerata un forte asset - Esperienza in Compliance relative a FATCA e CRS è considerata un plus ##\n• Cosa offriamo - Opportunità di sviluppo professionale - Ambiente di lavoro dinamico e collaborativo - Possibilità di lavorare in un team di professionisti esperti ## Contatto - Residente in Ticino o disposto a trasferirsi",
-        "en": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework. Key Responsibilities:\n• Analysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n• Opportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n• Definition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n• Drafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n• Collection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n• Preparation and delivery of Compliance training\n• Monitoring of regulatory developments in the Compliance area and analysis of their impact\n• Handling requests from External and Internal Audit\n• Execution of consolidated supervision activities in the Compliance area\n• Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n• Apply a critical and proactive approach in identifying new solutions\n• Work independently\n• Manage a high volume of cases efficiently\n• At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n• Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n• Experience in Compliance related to FATCA and CRS is considered a plus\n• Languages: Italian / English native proficiency / French / German is a plus.\n• Resident in Ticino or willing to relocate",
-        "de": "Beschreibung Wir suchen einen motivierten und detailorientierten Compliance-Experten, der sich unserem Team anschließen möchte. Der ideale Kandidat verfügt über eine solide Erfahrung in regulatorischen Angelegenheiten, insbesondere in AML, grenzüberschreitenden Aktivitäten und Sanktionen, und kann klare Anweisungen und praktische Lösungen für das Geschäft liefern. Diese Rolle erfordert starke analytische Fähigkeiten, einen gesunden Urteilsvermögen und die Fähigkeit, komplexe Fälle in einem dynamischen und sich entwickelnden regulatorischen Umfeld zu bewältigen. Der Kandidat wird eine wichtige Rolle bei der Gewährleistung der Einhaltung der anwendbaren Vorschriften, der Unterstützung von Geschäftsinitiativen und der Beiträge zum laufenden Entwicklungsprozess des Compliance-Frameworks spielen. ##\n• Aufgaben - Analyse, Überprüfung und Verwaltung von Fällen im Zusammenhang mit AML, grenzüberschreitenden Aktivitäten und Sanktionen, einschließlich der Vorbereitung von Bewertungen und formellen Stellungnahmen für das Unternehmen - Möglichkeit, Fälle im Zusammenhang mit Marktmissbrauch und Produktgeeignetheit, sowie Fälle im Zusammenhang mit FATCA und CRS zu analysieren - Definition von Compliance-\n• Anforderungen und Überwachung ihrer Implementierung innerhalb von Projekten, die darauf abzielen, neue Produkte oder Dienstleistungen zu entwickeln - Erstellung und Überprüfung von internen Richtlinien und Verfahren im Bereich der Compliance (z.B. AML, grenzüberschreitende Aktivitäten und Sanktionen) - Sammlung von Daten und Informationen für die Erstellung von Compliance-Berichten, die an die Geschäftsleitung gerichtet sind, und für regelmäßige Compliance-Risikobewertungen - Vorbereitung und Lieferung von Compliance-Training - Überwachung der regulatorischen Entwicklungen im Bereich der Compliance und Analyse ihres Auswirkungen - Verwaltung von Anfragen von externen und internen Audits - Durchführung von konsolidierten Überwachungsaktivitäten im Bereich der Compliance - Fähigkeit, effektiv mit Kollegen aus verschiedenen Abteilungen (z.B. Geschäft, Operations, IT) zu interagieren - Anwendung eines kritischen und proaktiven Ansatzes bei der Identifizierung neuer Lösungen - Selbstständige Arbeit - Effiziente Verwaltung eines hohen Fälle ##\n• Anforderungen - Mindestens 5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle (Compliance Officer), bevorzugt nicht nur auf AML beschränkt, sondern auch umfassende regulatorische und beratende Aktivitäten (grenzüberschreitende Aktivitäten, Sanktionen, Berichterstattung, Compliance-Risikobewertung, konsolidierte Überwachung) abdeckend - Erfahrung in Compliance im Zusammenhang mit Marktmissbrauch (z.B. Überwachung von Marktmissbrauch, Produktgeeignetheit, usw.) ist als starkes Plus angesehen - Erfahrung in Compliance im Zusammenhang mit FATCA und CRS ist als Plus angesehen ##\n• Was wir bieten - Möglichkeiten für berufliche Entwicklung - Dynamisches und kollaboratives Arbeitsumfeld - Möglichkeit, in einem Team von Experten zu arbeiten ## Kontakt - Ansässig in der Schweiz oder bereit, sich umzuziehen",
-        "fr": "Description Nous recherchons un professionnel de Compliance motivé et détaillé pour rejoindre notre équipe. Le candidat idéal aura une expérience solide en matière de réglementation, en particulier en AML, en activités transfrontalières et en sanctions, et sera en mesure de fournir des orientations claires et des solutions pratiques au business. Ce poste nécessite des compétences analytiques solides, un jugement sain et la capacité de gérer des cas complexes dans un environnement réglementaire dynamique et en évolution. Le candidat jouera un rôle clé pour s'assurer que les entreprises respectent les normes applicables, soutiennent les initiatives commerciales et contribuent au développement continu du cadre de Compliance. ## Tâches - Analyse, vérification et gestion de cas liés à l'AML, aux activités transfrontalières et aux sanctions, y compris la préparation d'évaluations et de positions formelles pour l'entreprise - Opportunité d'analyser des cas liés à l'abus de marché et à la conformité des produits, ainsi que des cas liés à la FATCA et à la CRS - Définition des exigences de Compliance et supervision de leur mise en œuvre au sein de projets axés sur le développement de nouveaux produits ou services - Élaboration et vérification de politiques et de procédures internes dans le domaine de la Compliance (par exemple AML, activités transfrontalières et sanctions) - Collecte de données et d'informations pour l'élaboration de rapports de Compliance destinés à la direction et pour les évaluations régulières de risque de Compliance - Préparation et livraison de formations de Compliance - Suivi des développements réglementaires dans le domaine de la Compliance et analyse de leur impact - Gestion de demandes provenant d'audits externes et internes - Exécution d'activités de supervision consolidée dans le domaine de la Compliance - Capacité à interagir efficacement avec des collègues provenant de différents départements (par exemple Commerce, Opérations, IT) - Application d'un approche critique et proactive dans l'identification de nouvelles solutions - Travail autonome - Gestion d'un volume élevé de cas de manière efficace ##\n• Exigences - Au moins 5 ans d'expérience dans le secteur bancaire dans un rôle similaire (Compliance Officer), préférablement non limité à l'AML mais également couvrant des activités réglementaires plus larges et des activités de conseil (activités transfrontalières, sanctions, reporting, évaluation de risque de Compliance, supervision consolidée) - Expérience en Compliance liée à la conduite du marché (par exemple suivi de l'abus de marché, examens de conformité des produits, etc.) est considérée comme un atout fort - Expérience en Compliance liée à la FATCA et à la CRS est considérée comme un plus ## Ce que nous offrons - Opportunités de développement professionnel - Environnement de travail dynamique et collaboratif - Possibilité de travailler dans un équipe de professionnels expérimentés ## Contact - Résident en Suisse ou prêt à déménager"
-      },
-      "requirements": [
-        "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-        "Apply a critical and proactive approach in identifying new solutions",
-        "Work independently",
-        "Manage a high volume of cases efficiently",
-        "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
-        "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
-        "Experience in Compliance related to FATCA and CRS is considered a plus",
-        "Languages: Italian / English native proficiency / French / German is a plus.",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-          "Apply a critical and proactive approach in identifying new solutions",
-          "Work independently",
-          "Manage a high volume of cases efficiently",
-          "Experience in Compliance related to FATCA and CRS is considered a plus",
-          "Languages: Italian / English native proficiency / French / German is a plus.",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-          "Apply a critical and proactive approach in identifying new solutions",
-          "Work independently",
-          "Manage a high volume of cases efficiently",
-          "Experience in Compliance related to FATCA and CRS is considered a plus",
-          "Languages: Italian / English native proficiency / French / German is a plus.",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.corner.ch/o/compliance-officer-senior",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.741Z",
-      "previousSlugs": [
-        "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-        "compliance-officer-senior-corner-banca-lugano",
-        "responsabile-senior-della-conformita-corner-banca-lugano",
-        "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-        "compliance-offizier-senior-corner-banca-lugano",
-        "responsabile-senior-compliance-corner-banca-lugano",
-        "ufficiale-di-compliance-senior-corner-banca-lugano",
-        "senior-compliance-officer-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano",
-          "responsabile-senior-della-conformita-corner-banca-lugano"
-        ],
-        "en": [
-          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano"
-        ],
-        "de": [
-          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano"
-        ],
-        "fr": [
-          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "needsRetranslation": true,
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
       "country": "CH"
     },
     {
@@ -819,7 +819,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.740Z",
+      "crawledAt": "2026-06-04T14:48:29.968Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "consulente-e-cliente-m-f-corner-banca-lugano",
@@ -849,8 +849,8 @@
           "credit-e-client-advisor-m-f-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -935,9 +935,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.739Z",
-      "firstSeenAt": "2026-05-18T12:11:07.111Z",
+      "crawledAt": "2026-06-04T14:48:29.967Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:11:07.111Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1018,7 +1018,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.737Z",
+      "crawledAt": "2026-06-04T14:48:29.965Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -1033,8 +1033,8 @@
           "customer-advisor-100-team-zurich-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-05-15T10:48:38.227Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T10:48:38.227Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1044,6 +1044,95 @@
           "@type": "QuantitativeValue",
           "minValue": 59000,
           "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-f52a05ad44cc",
+      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+        "en": "litigation-office-associate-corner-banca-wallisellen",
+        "de": "haftungsausschluss-corner-banca-wallisellen",
+        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Litigation Office Associate",
+      "titleByLocale": {
+        "it": "Ufficio delle pubblicazioni",
+        "en": "Litigation Office Associate",
+        "de": "Haftungsausschluss",
+        "fr": "Bureau du contentieux Associé"
+      },
+      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
+        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
+        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
+        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://jobs.corner.ch/o/litigation-office-associate",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-04T14:48:29.964Z",
+      "previousSlugs": [
+        "litigation-office-associate-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "de": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:11:07.107Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1120,7 +1209,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.736Z",
+      "crawledAt": "2026-06-04T14:48:29.963Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano"
       ],
@@ -1132,8 +1221,8 @@
           "fi-administration-e-business-support-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-05-21T11:39:53.164Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-21T11:39:53.164Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1150,95 +1239,6 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
-    },
-    {
-      "id": "corner-banca-f52a05ad44cc",
-      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
-        "en": "litigation-office-associate-corner-banca-wallisellen",
-        "de": "haftungsausschluss-corner-banca-wallisellen",
-        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Litigation Office Associate",
-      "titleByLocale": {
-        "it": "Ufficio delle pubblicazioni",
-        "en": "Litigation Office Associate",
-        "de": "Haftungsausschluss",
-        "fr": "Bureau du contentieux Associé"
-      },
-      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
-        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
-        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
-        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
-        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
-        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.corner.ch/o/litigation-office-associate",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.736Z",
-      "previousSlugs": [
-        "litigation-office-associate-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "de": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T12:11:07.107Z",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -1315,9 +1315,9 @@
       "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-04T11:43:25.735Z",
-      "firstSeenAt": "2026-06-02T23:12:26.649Z",
+      "crawledAt": "2026-06-04T14:48:29.961Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-02T23:12:26.649Z",
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
