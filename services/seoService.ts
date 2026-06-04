@@ -3918,6 +3918,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-ticino-indebita': { name: 'Fisco frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita', parent: 'blog' },
     'blog-rientro-svizzera-senza-lavoro': { name: 'Rientro lavoro', path: '/articoli-svizzera/rientro-svizzera-senza-lavoro/', parent: 'blog' },
     'blog-imposta-fonte-frontalieri-ticino-dettagli': { name: 'Imposta alla fonte', path: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli', parent: 'blog' },
+    'blog-festivita-ticino-2026': { name: 'Festività', path: '/articoli-svizzera/festivita-ticino-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
