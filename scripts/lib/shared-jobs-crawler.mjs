@@ -98,6 +98,7 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
+import { jinaProxiedRequest, hostMatchesProxyList } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -2277,6 +2278,19 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
   const maxAttempts = canRetry ? 1 + FETCH_RETRY_ATTEMPTS : 1;
   let lastErr = null;
 
+  // Opt-in egress proxy for IP-blocked sources (JOBS_CRAWLER_FETCH_PROXY lists
+  // the host(s) to route via Jina Reader). Default unset → no effect on any
+  // other crawler. The proxied request returns the target's raw HTML, so the
+  // caller and all downstream parsers are unchanged; the original `url` is still
+  // what callers use for the job's canonical URL.
+  let targetUrl = url;
+  let proxyHeaders = {};
+  if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
+    const proxied = jinaProxiedRequest(url);
+    targetUrl = proxied.url;
+    proxyHeaders = proxied.headers;
+  }
+
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     const controller = new AbortController();
     let timer = null;
@@ -2286,7 +2300,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         reject(new Error(`timeout after ${REQUEST_TIMEOUT_MS}ms`));
       }, REQUEST_TIMEOUT_MS);
     });
-    const fetchPromise = fetch(url, {
+    const fetchPromise = fetch(targetUrl, {
       method: upperMethod,
       signal: controller.signal,
       redirect: 'follow',
@@ -2294,6 +2308,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
         Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'User-Agent': userAgent || CRAWLER_USER_AGENT,
         ...headers,
+        ...proxyHeaders,
       },
       body,
     });
