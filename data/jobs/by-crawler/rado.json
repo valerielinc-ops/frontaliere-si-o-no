@@ -36,8 +36,8 @@
       },
       "slugByLocale": {
         "it": "formateur-trice-en-centre-de-formation-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-avenue-robert-13-2052-la-chaux-7ubcg4",
-        "en": "formateur-trice-en-centre-de-formation-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-avenue-robert-13-2052-la-chaux-7ubcg4",
-        "de": "formateur-trice-en-centre-de-formation-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-avenue-robert-13-2052-la-chaux-7ubcg4",
+        "en": "training-center-trainer-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-ticino",
+        "de": "trainingszentrum-trainer-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-ticino",
         "fr": "formateur-trice-en-centre-de-formation-swatch-group-100-la-chaux-de-fonds-eta-sa-manufacture-horlogere-suisse-avenue-robert-13-2052-la-chaux-7ubcg4"
       },
       "requirementsByLocale": {},
@@ -91,9 +91,9 @@
       "firstSeenAt": "2026-06-04T01:30:00.037Z",
       "slugByLocale": {
         "it": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-niklaus-wengistrasse-65-2540-grenchen-solothurn-schw-7ubcbv",
-        "en": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv",
+        "en": "polymechanic-in-the-field-of-erosion-80-100-on-site-eta-sa-manufacture-horlogere-suisse-ticino",
         "de": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv",
-        "fr": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv"
+        "fr": "polymecanique-dans-le-domaine-de-l-erosion-80-100-sur-place-eta-sa-manufacture-horlogere-suisse-ticino"
       },
       "titleByLocale": {
         "de": "Polymechaniker/in im Bereich Erosion 80-100%, vor Ort",
@@ -126,7 +126,18 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2540",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "en": [
+          "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv"
+        ],
+        "fr": [
+          "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino-7ubcbv"
+      ]
     },
     {
       "id": "company-7ubcb1",
@@ -198,7 +209,7 @@
     },
     {
       "id": "company-7ubcaz",
-      "slug": "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz",
+      "slug": "aeroporto-di-geneva-80-100-swatch-ltd-ticino",
       "company": "Swatch Ltd",
       "title": "SALES ASSOCIATE 80-100% GENEVA AIRPORT",
       "location": "Ticino",
@@ -219,9 +230,9 @@
       "crawledAt": "2026-06-04T01:30:00.037Z",
       "firstSeenAt": "2026-06-04T01:30:00.037Z",
       "slugByLocale": {
-        "it": "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz",
-        "en": "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz",
-        "de": "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz",
+        "it": "aeroporto-di-geneva-80-100-swatch-ltd-ticino",
+        "en": "sales-associate-80-100-geneva-airport-swatch-ltd-ticino",
+        "de": "associate-sales-80-100-geneva-airport-swatch-ltd-ticino",
         "fr": "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz"
       },
       "titleByLocale": {
@@ -262,11 +273,25 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "1293",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz"
+        ],
+        "en": [
+          "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz"
+        ],
+        "de": [
+          "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-80-100-geneva-airport-swatch-ltd-route-de-colovrex-1293-geneve-geneva-suisse-adresse-de-l-entreprise-swatch-sa-7ubcaz"
+      ]
     },
     {
       "id": "company-7ubca6",
-      "slug": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6",
+      "slug": "tecnologe-di-plastica-imbuto-greenling-produzione-in-loco-eta-sa-manufacture-horlogere-suisse-ticino",
       "company": "ETA SA Manufacture Horlogère Suisse",
       "title": "Kunststofftechnologe / Einrichter Grünlingfertigung, vor Ort",
       "location": "Ticino",
@@ -285,10 +310,10 @@
       "crawledAt": "2026-06-04T01:30:00.037Z",
       "firstSeenAt": "2026-06-04T01:30:00.037Z",
       "slugByLocale": {
-        "it": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6",
-        "en": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6",
+        "it": "tecnologe-di-plastica-imbuto-greenling-produzione-in-loco-eta-sa-manufacture-horlogere-suisse-ticino",
+        "en": "plastic-technologe-funnel-greenling-production-on-site-eta-sa-manufacture-horlogere-suisse-ticino",
         "de": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6",
-        "fr": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6"
+        "fr": "technologue-plastique-entonnoir-greenling-production-sur-place-eta-sa-manufacture-horlogere-suisse-ticino"
       },
       "titleByLocale": {
         "de": "Kunststofftechnologe / Einrichter Grünlingfertigung, vor Ort",
@@ -321,7 +346,21 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "2540",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6"
+        ],
+        "en": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6"
+        ],
+        "fr": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6"
+        ]
+      },
+      "previousSlugs": [
+        "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-schmelzistrasse-16-2540-grenchen-solothurn-sch-7ubca6"
+      ]
     },
     {
       "id": "company-7tw0jr",
@@ -357,19 +396,26 @@
       },
       "slugByLocale": {
         "it": "apprendistato-konstrukteur-in-cfc-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-7tw0jr",
-        "en": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr",
+        "en": "teacher-in-efz-4-years-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino",
         "de": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr",
-        "fr": "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+        "fr": "enseignant-in-efz-4-ans-grenchen-2026-eta-sa-manufacture-horlogere-suisse-ticino"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir"
+        ],
+        "en": [
+          "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
+        ],
+        "fr": [
+          "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir"
+        "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir",
+        "lehrstelle-konstrukteur-in-efz-4-jahre-grenchen-2026-eta-sa-manufacture-horlogere-suisse-muhlestrasse-14-2540-grenchen-solothurn-schweiz-fir-7tw0jr"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

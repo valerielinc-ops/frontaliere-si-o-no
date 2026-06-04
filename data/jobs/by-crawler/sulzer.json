@@ -134,12 +134,12 @@
     },
     {
       "id": "sulzer-0ee84d8af6c2",
-      "slug": "mechanical-design-engineer-pressure-equipment-sulzer-ch",
+      "slug": "apparecchiature-meccaniche-di-pressione-dell-ingegnere-di-progettazione-sulzer-allschwil",
       "slugByLocale": {
         "en": "mechanical-design-engineer-pressure-equipment-sulzer-ch",
-        "it": "mechanical-design-engineer-pressure-equipment-sulzer-ch",
+        "it": "apparecchiature-meccaniche-di-pressione-dell-ingegnere-di-progettazione-sulzer-allschwil",
         "de": "mechanical-design-engineer-pressure-equipment-sulzer-ch",
-        "fr": "mechanical-design-engineer-pressure-equipment-sulzer-ch"
+        "fr": "ingenieur-de-conception-mecanique-equipement-de-pression-sulzer-allschwil"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -193,7 +193,18 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-04T01:29:44.606Z"
+      "firstSeenAt": "2026-06-04T01:29:44.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-design-engineer-pressure-equipment-sulzer-ch"
+        ],
+        "fr": [
+          "mechanical-design-engineer-pressure-equipment-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-design-engineer-pressure-equipment-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-d9f1bc8e7df2",
@@ -2342,12 +2353,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
         "en": "electrical-fitter-sulzer-ch",
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2402,7 +2413,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:29:13.018Z"
+      "firstSeenAt": "2026-06-04T01:29:13.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-fitter-sulzer-ch"
+        ],
+        "fr": [
+          "electrical-fitter-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-fitter-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-098305e5b6b1",
@@ -2601,12 +2623,12 @@
     },
     {
       "id": "sulzer-a0352e29388b",
-      "slug": "head-of-ts-sales-eapa-sulzer-ch",
+      "slug": "responsabile-vendite-ts-eapa-sulzer-winterthur",
       "slugByLocale": {
         "en": "head-of-ts-sales-eapa-sulzer-ch",
-        "it": "head-of-ts-sales-eapa-sulzer-ch",
+        "it": "responsabile-vendite-ts-eapa-sulzer-winterthur",
         "de": "head-of-ts-sales-eapa-sulzer-ch",
-        "fr": "head-of-ts-sales-eapa-sulzer-ch"
+        "fr": "responsable-des-ventes-ts-eapa-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2661,7 +2683,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:29:08.990Z"
+      "firstSeenAt": "2026-06-04T01:29:08.990Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-ts-sales-eapa-sulzer-ch"
+        ],
+        "fr": [
+          "head-of-ts-sales-eapa-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-ts-sales-eapa-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-4e9536f40e62",
@@ -4272,7 +4305,7 @@
         "en": "senior-r-d-engineer-sulzer-ch",
         "it": "senior-r-d-ingegnere-sulzer-allschwil",
         "de": "senior-r-d-ingenieur-sulzer-allschwil",
-        "fr": "senior-r-d-engineer-sulzer-ch"
+        "fr": "ingenieur-principal-en-r-d-sulzer-allschwil"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -4332,6 +4365,9 @@
           "senior-r-d-engineer-sulzer-ch"
         ],
         "de": [
+          "senior-r-d-engineer-sulzer-ch"
+        ],
+        "fr": [
           "senior-r-d-engineer-sulzer-ch"
         ]
       },
@@ -5523,8 +5559,8 @@
       "slugByLocale": {
         "de": "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende",
         "it": "personalreferent-in-risorse-umane-business-partner-m-w-d-vollzeit-o-teilzeit-befristet-bis-ca-ende-2026-direktanstellung-o-freiberuflich-sulzer-winterthur",
-        "en": "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende",
-        "fr": "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende"
+        "en": "personalreferent-in-hr-business-partner-m-w-d-full-time-or-part-time-limited-to-approx-end-2026-direct-job-or-freelance",
+        "fr": "personne-ressource-in-rh-associe-d-affaires-m-w-d-temps-plein-ou-temps-partiel-limite-a-environ-fin-2026-emploi-direct"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -5567,6 +5603,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende"
+        ],
+        "en": [
+          "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende"
+        ],
+        "fr": [
           "personalreferent-in-hr-business-partner-m-w-d-vollzeit-oder-teilzeit-befristet-bis-ca-ende"
         ]
       },
@@ -5981,12 +6023,12 @@
     },
     {
       "id": "sulzer-2d5e6460f94f",
-      "slug": "lead-strategic-account-manager-sulzer-ch",
+      "slug": "gestione-account-strategica-sulzer-winterthur",
       "slugByLocale": {
         "en": "lead-strategic-account-manager-sulzer-ch",
-        "it": "lead-strategic-account-manager-sulzer-ch",
+        "it": "gestione-account-strategica-sulzer-winterthur",
         "de": "lead-strategic-account-manager-sulzer-ch",
-        "fr": "lead-strategic-account-manager-sulzer-ch"
+        "fr": "gestionnaire-de-compte-strategique-principal-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6041,7 +6083,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:20.967Z"
+      "firstSeenAt": "2026-06-04T01:28:20.967Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-strategic-account-manager-sulzer-ch"
+        ],
+        "fr": [
+          "lead-strategic-account-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-strategic-account-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-e5d4514970f9",
@@ -6110,12 +6163,12 @@
     },
     {
       "id": "sulzer-d969a32b448e",
-      "slug": "lead-consolidation-ifrs-analyst-sulzer-ch",
+      "slug": "consolidamento-del-piombo-ifrs-analista-sulzer-winterthur",
       "slugByLocale": {
         "en": "lead-consolidation-ifrs-analyst-sulzer-ch",
-        "it": "lead-consolidation-ifrs-analyst-sulzer-ch",
-        "de": "lead-consolidation-ifrs-analyst-sulzer-ch",
-        "fr": "lead-consolidation-ifrs-analyst-sulzer-ch"
+        "it": "consolidamento-del-piombo-ifrs-analista-sulzer-winterthur",
+        "de": "leitkonsolidierung-ifrs-analysten-sulzer-winterthur",
+        "fr": "consolidation-du-plomb-ifrs-analyste-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6170,16 +6223,30 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:19.062Z"
+      "firstSeenAt": "2026-06-04T01:28:19.062Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-consolidation-ifrs-analyst-sulzer-ch"
+        ],
+        "de": [
+          "lead-consolidation-ifrs-analyst-sulzer-ch"
+        ],
+        "fr": [
+          "lead-consolidation-ifrs-analyst-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-consolidation-ifrs-analyst-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7ee93f990c7e",
-      "slug": "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch",
+      "slug": "field-service-engineer-turbine-a-gas-industriali-pesanti-sulzer-winterthur",
       "slugByLocale": {
         "en": "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch",
-        "it": "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch",
-        "de": "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch",
-        "fr": "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch"
+        "it": "field-service-engineer-turbine-a-gas-industriali-pesanti-sulzer-winterthur",
+        "de": "feldtechniker-schwere-industriegasturbinen-sulzer-winterthur",
+        "fr": "ingenieur-du-service-mobile-turbines-a-gaz-industriels-lourds-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6234,16 +6301,30 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:17.193Z"
+      "firstSeenAt": "2026-06-04T01:28:17.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch"
+        ],
+        "de": [
+          "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch"
+        ],
+        "fr": [
+          "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-engineer-heavy-industrial-gas-turbines-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-f44253a8914c",
-      "slug": "senior-sales-engineer-sulzer-ch",
+      "slug": "ingegnere-di-vendita-senior-sulzer-winterthur",
       "slugByLocale": {
         "fr": "senior-sales-engineer-sulzer-ch",
-        "it": "senior-sales-engineer-sulzer-ch",
+        "it": "ingegnere-di-vendita-senior-sulzer-winterthur",
         "en": "senior-sales-engineer-sulzer-ch",
-        "de": "senior-sales-engineer-sulzer-ch"
+        "de": "vertriebsingenieur-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6298,7 +6379,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:16.265Z"
+      "firstSeenAt": "2026-06-04T01:28:16.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sales-engineer-sulzer-ch"
+        ],
+        "de": [
+          "senior-sales-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sales-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-9e82627a486b",
@@ -7025,12 +7117,12 @@
     },
     {
       "id": "sulzer-b069641fab6d",
-      "slug": "sales-administrator-sulzer-ch",
+      "slug": "amministratore-di-vendita-sulzer-winterthur",
       "slugByLocale": {
         "en": "sales-administrator-sulzer-ch",
-        "it": "sales-administrator-sulzer-ch",
-        "de": "sales-administrator-sulzer-ch",
-        "fr": "sales-administrator-sulzer-ch"
+        "it": "amministratore-di-vendita-sulzer-winterthur",
+        "de": "vertriebsmitarbeiter-sulzer-winterthur",
+        "fr": "administrateur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -7085,7 +7177,21 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:28:05.362Z"
+      "firstSeenAt": "2026-06-04T01:28:05.362Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-administrator-sulzer-ch"
+        ],
+        "de": [
+          "sales-administrator-sulzer-ch"
+        ],
+        "fr": [
+          "sales-administrator-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-administrator-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-cdf3678fb033",
@@ -8281,11 +8387,11 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ingegnere-applicativo-sulzer-winterthur",
       "slugByLocale": {
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch",
+        "it": "ingegnere-applicativo-sulzer-winterthur",
+        "de": "anwendungsingenieur-sulzer-winterthur",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur"
       },
       "company": "Sulzer",
@@ -8341,7 +8447,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:47.310Z"
+      "firstSeenAt": "2026-06-04T01:27:47.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engenheiro-a-de-aplicacao-sulzer-ch"
+        ],
+        "de": [
+          "engenheiro-a-de-aplicacao-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engenheiro-a-de-aplicacao-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-47d56f5a7441",
@@ -8740,7 +8857,7 @@
         "de": "team-leader-sales-services-m-w-d-sulzer-ch",
         "it": "capo-squadra-sales-services-m-w-d-sulzer-winterthur",
         "en": "team-leader-sales-services-m-w-d-sulzer-ch",
-        "fr": "team-leader-sales-services-m-w-d-sulzer-ch"
+        "fr": "chef-d-equipe-ventes-services-m-m-j-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -8798,6 +8915,9 @@
       "firstSeenAt": "2026-06-04T01:27:40.800Z",
       "previousSlugsByLocale": {
         "it": [
+          "team-leader-sales-services-m-w-d-sulzer-ch"
+        ],
+        "fr": [
           "team-leader-sales-services-m-w-d-sulzer-ch"
         ]
       },
@@ -10855,12 +10975,12 @@
     },
     {
       "id": "sulzer-bd5f38b4eddb",
-      "slug": "business-development-manager-channel-partners-sulzer-ch",
+      "slug": "business-development-manager-partner-di-canale-sulzer-winterthur",
       "slugByLocale": {
         "en": "business-development-manager-channel-partners-sulzer-ch",
-        "it": "business-development-manager-channel-partners-sulzer-ch",
+        "it": "business-development-manager-partner-di-canale-sulzer-winterthur",
         "de": "business-development-manager-channel-partners-sulzer-ch",
-        "fr": "business-development-manager-channel-partners-sulzer-ch"
+        "fr": "gestionnaire-du-developpement-des-entreprises-partenaires-channel-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -10915,7 +11035,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:27:11.503Z"
+      "firstSeenAt": "2026-06-04T01:27:11.503Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-manager-channel-partners-sulzer-ch"
+        ],
+        "fr": [
+          "business-development-manager-channel-partners-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-manager-channel-partners-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-a0985ac131b2",
@@ -11843,12 +11974,12 @@
     },
     {
       "id": "sulzer-ad53f74dbfea",
-      "slug": "field-service-technician-hst-sulzer-ch",
+      "slug": "servizio-di-campo-technician-hst-sulzer-winterthur",
       "slugByLocale": {
         "en": "field-service-technician-hst-sulzer-ch",
         "de": "field-service-techniker-hst-sulzer-winterthur",
         "fr": "field-service-technicien-hst-sulzer-winterthur",
-        "it": "field-service-technician-hst-sulzer-ch"
+        "it": "servizio-di-campo-technician-hst-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -11903,7 +12034,15 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-04T01:26:58.448Z"
+      "firstSeenAt": "2026-06-04T01:26:58.448Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-hst-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-hst-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-ee23c226b1c4",
@@ -11912,7 +12051,7 @@
         "en": "senior-ict-supporter-sulzer-ch",
         "it": "senior-ict-supporter-sulzer-ch",
         "de": "senior-ict-supporter-sulzer-ch",
-        "fr": "senior-ict-supporter-sulzer-ch"
+        "fr": "supporteur-principal-des-tic-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
