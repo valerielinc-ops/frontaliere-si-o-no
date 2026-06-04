@@ -9,16 +9,25 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
-    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
+    "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/"
   ],
   "notes": "Dedicated CambiaValute.ch crawler — discovers job listings from cambiavalute.ch/annunci-di-lavoro/ and extracts detail page URLs under /annuncio-di-lavoro/{slug}/.",
-  "updatedAt": "2026-05-30T10:15:25.340Z",
+  "updatedAt": "2026-06-04T18:07:59.679Z",
   "seedDetailUrls": [
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/",
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
-    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/"
+    "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/"
   ],
   "seedMetaByUrl": {
+    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/": {
+      "location": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "company": "CambiaValute.ch",
+      "companyDomain": "cambiavalute.ch"
+    },
     "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/": {
       "location": "Chiasso",
       "canton": "TI",
@@ -26,7 +35,7 @@
       "company": "CambiaValute.ch",
       "companyDomain": "cambiavalute.ch"
     },
-    "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-francese/": {
+    "https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/": {
       "location": "Chiasso",
       "canton": "TI",
       "country": "CH",
