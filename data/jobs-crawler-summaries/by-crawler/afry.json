@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-06-04T14:26:51.877Z",
+  "generatedAt": "2026-06-04T21:47:05.884Z",
   "total": 66,
   "newCount": 0,
   "updatedCount": 61,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 137967,
-  "avgDurationMs": 137967,
+  "durationMs": 143919,
+  "avgDurationMs": 143919,
   "durationHistory": [
-    137967
+    143919
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1039,8 +1039,6 @@
       "currency": "CHF",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-03T12:33:24.799Z",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
