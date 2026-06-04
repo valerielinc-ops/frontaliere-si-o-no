@@ -42,9 +42,24 @@ env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
 
 jobs:
-  dispatch-all:
+  dispatch:
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    # FRO-432: shard the dispatch across parallel jobs. A single sequential pass
+    # over the full crawler set (425 on 2026-06-03) cannot finish inside the
+    # 180-min job timeout — the run was cancelled at ~386/425, so the
+    # alphabetical tail (t–z: tschuggen … zurzach-care) was never dispatched and
+    # those ~27 crawlers went `stale` in the health monitor. Sharding splits the
+    # set so every crawler is reached well within the timeout, with headroom for
+    # growth. Keep SHARD_TOTAL small (2): each shard's API call rate stays under
+    # the 1000 req/hour GITHUB_TOKEN ceiling even when both run concurrently.
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1]
+    env:
+      SHARD_INDEX: ${{ matrix.shard }}
+      SHARD_TOTAL: '2'
 
     steps:
       - name: Checkout (workflow files only)
@@ -54,6 +69,14 @@ jobs:
           sparse-checkout-cone-mode: false
           fetch-depth: 1
 
+      # Run inside each shard (not as a separate gating job) on purpose: a
+      # standalone `reap` job that `dispatch needs:` would, on its own
+      # failure/cancellation, leave both shards SKIPPED — a silent stale wave
+      # with no failure signal (skipped != failed, so the Report-failure step
+      # never fires), the exact symptom this workflow fixes. As a step here, a
+      # reap error fails the shard job → visible red + Report failure fires,
+      # while the other shard still dispatches its half. Cancelling already-gone
+      # queued runs is a no-op, so the two shards reaping concurrently is safe.
       - name: Reap zombie queued runs (>30 min)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -152,26 +175,38 @@ jobs:
             return 1
           }
 
-          # Discover all crawler workflow files
-          mapfile -t workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | sort)
-          total=${#workflows[@]}
+          # Discover all crawler workflow files (stable alphabetical order so the
+          # interleave below is deterministic across shards).
+          mapfile -t all_workflows < <(find .github/workflows -name 'update-jobs-*.yml' -type f | sort)
+          grand_total=${#all_workflows[@]}
 
-          if [ "$total" -eq 0 ]; then
+          if [ "$grand_total" -eq 0 ]; then
             echo "❌ No crawler workflows found!"
             exit 1
           fi
 
-          echo "📋 Found $total crawler workflows (FRO-326: volume-based staggering)"
+          # FRO-432: keep only the crawlers belonging to this shard. Interleave by
+          # position (index % SHARD_TOTAL == SHARD_INDEX) rather than slicing a
+          # contiguous block, so each shard is a representative mix of letters and
+          # a single failed shard never starves a whole alphabet range.
+          workflows=()
+          for i in "${!all_workflows[@]}"; do
+            if [ "$(( i % SHARD_TOTAL ))" -eq "$SHARD_INDEX" ]; then
+              workflows+=("${all_workflows[$i]}")
+            fi
+          done
+          total=${#workflows[@]}
+
+          echo "📋 Shard ${SHARD_INDEX}/${SHARD_TOTAL}: dispatching $total of $grand_total crawler workflows (FRO-326 volume-based staggering)"
           echo ""
 
           dispatched=0
           skipped=0
           failed=0
 
-          # Dispatch crawlers alphabetically; delay between each based on volume
+          # Dispatch this shard's crawlers in alphabetical order; delay between each based on volume
           for wf in "${workflows[@]}"; do
             filename=$(basename "$wf")
-            wf_name=$(head -1 "$wf" | sed 's/^name: //')
             counter=$((dispatched + skipped + failed + 1))
 
             this_delay=$(get_delay "$filename")
@@ -205,10 +240,11 @@ jobs:
 
           echo ""
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  📦 Shard:      ${SHARD_INDEX}/${SHARD_TOTAL}"
           echo "  ✅ Dispatched: $dispatched"
           echo "  ❌ Failed:     $failed"
           echo "  ⏭️  Skipped:    $skipped"
-          echo "  📊 Total:      $total"
+          echo "  📊 Shard total: $total (of $grand_total overall)"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
           if [ "$failed" -gt 0 ]; then
