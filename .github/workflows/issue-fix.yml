@@ -52,14 +52,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-        # Tier high (opus, max-turns alti): issue che toccherà con ogni probabilità
-        # scripts/crawler/build-plugin/workflow/test (categoria crawler, o body che
-        # cita questi path). Bug lì = rischio propagato su ogni merge. Tier normal
-        # (sonnet) per il resto. Mirror della logica di pr-review-loop.
+        # Tier high (opus, max-turns alti): issue funnel-critical — crawler/parser/
+        # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
+        # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
+        # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
+        # opus paga. Tier normal (sonnet) per il resto. Mirror ESATTO di
+        # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
+        # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
+        # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
+        # script funnel restano high via i loro keyword semantici/path index-muting.
         run: |
           set -euo pipefail
           body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
-          if echo "$body" | grep -qiE 'crawler|parser|scripts/|build-plugin|\.github/workflows/|test gate|validator|migrator'; then
+          if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
+             || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
             echo "model=claude-opus-4-8" >> "$GITHUB_OUTPUT"
             echo "max_turns=40" >> "$GITHUB_OUTPUT"

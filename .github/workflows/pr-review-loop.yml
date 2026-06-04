@@ -4,6 +4,18 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+# Una review opus@40 dura 8-11min. Senza questo, ogni `synchronize` (commit
+# nuovo su un branch fix) lancia una review da zero mentre la precedente è
+# ancora in volo → review opus SOVRAPPOSTE sullo stesso PR su SHA superati
+# (osservato live 2026-06-04: 2 review opus su fix/umantis, ~8min di overlap,
+# doppio costo quota). cancel-in-progress collassa i push rapidi a una sola
+# review sull'ultimo SHA. Keyed sul PR così PR diversi non si cancellano a
+# vicenda. `tests` ha già questo cancel; pr-review-loop no — asimmetria che
+# faceva girare la review opus fino in fondo su commit morti.
+concurrency:
+  group: pr-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pull-requests: write
