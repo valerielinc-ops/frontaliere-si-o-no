@@ -1,0 +1,74 @@
+name: Follow-up drainer (queue → agent:fix, no-Claude)
+
+# Drena la coda dei follow-up `agent:fix-queued` UNO alla volta, promuovendo a
+# `agent:fix` solo quando lo slot issue-fix è libero → la run promossa è l'unica
+# pending → mai cancellata-in-coda. Fix della starvation osservata 2026-06-04
+# (slot concurrency globale issue-fix + cancel:false → 60% fix-run follow-up
+# cancellate, ~20 issue stuck). Rescue+park degli agent:fix orfani (run morta,
+# nessuna PR) per terminazione autonoma senza intervento umano.
+# ZERO Claude: tutto deterministico (scripts/ci/followup-drainer.mjs + gh).
+
+on:
+  schedule:
+    - cron: '*/20 * * * *' # drena la coda ~ogni 20min
+  workflow_run:
+    workflows: ['Issue fix (Claude → PR)'] # appena un fix finisce, promuovi il prossimo
+    types: [completed]
+  workflow_dispatch:
+
+# Una sola run drainer alla volta: evita race di doppia-promozione sullo slot.
+concurrency:
+  group: followup-drainer
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; promozione inerte (un labeled da GITHUB_TOKEN non triggererebbe issue-fix)."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Drain follow-up queue (deterministic, no Claude)
+        env:
+          # PAT (owner) OBBLIGATORIO: il `labeled` agent:fix deve triggerare
+          # issue-fix e passare il gate `sender == valerielinc-ops` (GITHUB_TOKEN
+          # no, anti-ricorsione). Senza PAT → exit con warning (inerte).
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::warning::GITHUB_PAT assente → drainer inerte (promozione non triggererebbe issue-fix)."
+            exit 0
+          fi
+          node scripts/ci/followup-drainer.mjs

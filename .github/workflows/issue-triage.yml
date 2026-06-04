@@ -84,7 +84,9 @@ jobs:
           echo "decision=$decision"
           cat=$(node -e "process.stdout.write(JSON.parse(process.argv[1]).category)" "$decision")
           autofix=$(node -e "process.stdout.write(String(JSON.parse(process.argv[1]).autofix===true))" "$decision")
-          echo "category=$cat autofix=$autofix"
+          route=$(node -e "process.stdout.write(JSON.parse(process.argv[1]).route||'none')" "$decision")
+          fuprio=$(node -e "process.stdout.write(JSON.parse(process.argv[1]).fuPrio||'')" "$decision")
+          echo "category=$cat autofix=$autofix route=$route fuPrio=$fuprio"
 
           # --- Label anti-loop sempre (GITHUB_TOKEN: non deve triggerare nulla) ---
           gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:triaged" || true
@@ -99,23 +101,37 @@ jobs:
               gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "🤖 Triage automatico: categoria non riconosciuta (\`other\`) — needs manual triage." || true ;;
           esac
 
-          # --- Routing agent:fix via PAT (solo crawler/follow-up, issue OPEN) -----
-          # agent:fix DEVE essere via PAT, non GITHUB_TOKEN: (1) anti-ricorsione
-          # GitHub — un `labeled` da GITHUB_TOKEN non triggera issue-fix; (2) il
-          # gate issue-fix `sender == valerielinc-ops` non matcha github-actions[bot].
-          # Col PAT (owner) trigger + gate OK. Stesso meccanismo di auto-merge-on-lgtm.
-          if [ "$autofix" != "true" ]; then
-            echo "autofix=false → nessun agent:fix."; exit 0
+          # --- Routing via PAT (crawler→fix immediato, follow-up→queue) ----------
+          # Le label di routing DEVONO essere via PAT, non GITHUB_TOKEN:
+          # (1) anti-ricorsione GitHub — un `labeled` da GITHUB_TOKEN non triggera
+          # issue-fix/drainer; (2) il gate issue-fix `sender == valerielinc-ops`
+          # non matcha github-actions[bot]. Col PAT (owner) trigger + gate OK.
+          #
+          # route='fix'   → agent:fix subito (crawler, production-critical).
+          # route='queue' → agent:fix-queued + fu-prio:<prio> (follow-up): NON parte
+          #   subito; `followup-drainer.yml` lo promuove a agent:fix uno alla volta
+          #   solo a slot issue-fix libero → mai cancellato-in-coda (fix starvation
+          #   osservata 2026-06-04). high (funnel/priority) drenato prima di low.
+          if [ "$route" = "none" ] || [ "$autofix" != "true" ]; then
+            echo "route=$route autofix=$autofix → nessun routing."; exit 0
           fi
           if [ "$state" != "OPEN" ]; then
-            echo "Issue non OPEN ($state) → skip agent:fix."; exit 0
+            echo "Issue non OPEN ($state) → skip routing."; exit 0
           fi
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::warning::GITHUB_PAT assente → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix)."; exit 0
+            echo "::warning::GITHUB_PAT assente → routing inerte (GITHUB_TOKEN non triggererebbe issue-fix/drainer)."; exit 0
           fi
-          echo "Applico agent:fix via PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
           # Non-fatal: se il PAT manca dei permessi issues:write o la label non
           # esiste, NON rompere il triage (già completato: triaged + commento) —
           # emetti warning visibile (routing inerte da indagare).
-          GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
-            || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage comunque completato."
+          if [ "$route" = "queue" ]; then
+            prio="${fuprio:-low}"
+            echo "Accodo #$ISSUE_NUMBER → agent:fix-queued + fu-prio:$prio (drenato dal followup-drainer)."
+            GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+              --add-label "agent:fix-queued" --add-label "fu-prio:$prio" \
+              || echo "::warning::accodamento via PAT fallito (scope/label?) — routing non applicato, triage completato."
+          else
+            echo "Applico agent:fix via PAT su #$ISSUE_NUMBER (category=$cat) → triggera issue-fix."
+            GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
+              || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage completato."
+          fi

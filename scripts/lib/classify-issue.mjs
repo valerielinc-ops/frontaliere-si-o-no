@@ -12,13 +12,25 @@
  * micro-task). validation-failure NO (transiente non decidibile); revenue/
  * tracker/other NO (giudizio umano / non riconosciuta).
  *
+ * route — COME applicare il fix (2026-06-04, anti-starvation):
+ *   'fix'   → agent:fix immediato (crawler: production-critical, non è il
+ *             treadmill source).
+ *   'queue' → agent:fix-queued (follow-up): NON parte subito. `followup-drainer`
+ *             lo promuove a agent:fix UNO alla volta, solo quando lo slot
+ *             issue-fix è libero → mai cancellato-in-coda. Fix della starvation
+ *             osservata 2026-06-04 (slot concurrency globale + cancel:false →
+ *             60% fix-run follow-up cancellate-in-coda, ~20 issue stuck).
+ *   'none'  → nessun routing (umano).
+ * fuPrio — ordine di drenaggio per i follow-up: 'high' (funnel monetization/seo
+ *   o priority:high) drenato prima di 'low'. null per i non-follow-up.
+ *
  * Uso modulo:
  *   import { classifyIssue } from './classify-issue.mjs';
- *   const { category, autofix } = classifyIssue(title, labels); // labels: string[]
+ *   const { category, autofix, route, fuPrio } = classifyIssue(title, labels);
  *
  * Uso CLI (dal workflow):
  *   node scripts/lib/classify-issue.mjs "<title>" '<labels-json-array>'
- *   → stdout JSON: {"category":"crawler","autofix":true}
+ *   → stdout JSON: {"category":"crawler","autofix":true,"route":"fix","fuPrio":null}
  */
 
 export function classifyIssue(title = '', labels = []) {
@@ -28,6 +40,8 @@ export function classifyIssue(title = '', labels = []) {
 
   let category = 'other';
   let autofix = false;
+  let route = 'none';
+  let fuPrio = null;
 
   if (has('revenue') || has('rpm-canary') || t(/RPM canary|\bRPM\b/i)) {
     category = 'revenue';
@@ -42,15 +56,21 @@ export function classifyIssue(title = '', labels = []) {
     // parser-regen, natura crawler, funnel-rilevante (boilerplate → thin).
     category = 'crawler';
     autofix = true;
+    route = 'fix'; // immediato: production-critical, non è il treadmill source
   } else if (t(/^follow-up\(#/i) || has('follow-up')) {
     category = 'follow-up';
     autofix = true;
+    route = 'queue'; // drenato 1-alla-volta dal followup-drainer (anti-starvation)
+    fuPrio =
+      has('funnel-monetization') || has('funnel-seo') || has('priority:high')
+        ? 'high'
+        : 'low';
   } else if (t(/Validation Failure/i) || (has('bug') && has('priority:urgent'))) {
     // NO autofix: transiente-vs-persistente non decidibile deterministicamente.
     category = 'validation-failure';
   }
 
-  return { category, autofix };
+  return { category, autofix, route, fuPrio };
 }
 
 // CLI mode
