@@ -45,6 +45,25 @@ const PRIORITY_LABEL = {
 const DEDUP_TITLE_PREFIX_LEN = 60;
 const MAX_BODY_LEN = 60000; // GH issue body cap is 65536; leave margin
 
+// Crawler failure reporters fire from `if: failure()` steps with this stable
+// title. A SINGLE transient network blip (`fetch failed`, timeout, 429/5xx)
+// must NOT immediately open a priority:high issue — the layer-1 retry usually
+// self-heals on the next scheduled run. Auto-gate these titles by consecutive
+// failures: the first N-1 land as a low-priority breadcrumb; only the Nth
+// failure within the rolling window escalates to the caller's priority.
+const CRAWLER_FAILURE_TITLE_PREFIX = 'Crawler Failure:';
+const DEFAULT_CRAWLER_GATE_THRESHOLD = 3; // escalate on the 3rd failure
+// Window must comfortably span (threshold-1) crawl cadences so a genuinely-broken
+// source reliably reaches the threshold. orchestrate-crawlers.yml dispatches each
+// update-jobs-* twice daily (~12h apart), so 3 consecutive failures span ~24h; a
+// 24h window leaves the oldest event sitting on the cutoff (CI jitter decides
+// inclusion) → escalation becomes a coin-flip and real breakage can decay
+// silently. 48h gives a full cadence of margin so the 3rd consecutive failure
+// deterministically escalates, while a lone transient still expires as intended.
+const DEFAULT_CRAWLER_GATE_WINDOW_HOURS = 48; // failures older than this don't count
+const CRAWLER_TRANSIENT_LABEL = 'crawler-transient';
+const RECURRENCE_MARKER = '🔁'; // prefixes every recurrence comment we post
+
 /**
  * Run `gh` with explicit args. Returns trimmed stdout, or null on failure.
  * stderr is forwarded for visibility (workflow logs will show the actual error).
@@ -122,6 +141,52 @@ function findRecentlyClosedIssueByTitlePrefix(titlePrefix, withinHours) {
 }
 
 /**
+ * Count failure events recorded on an issue within the rolling window. An
+ * "event" is the issue's own creation plus every `🔁`-marked recurrence comment
+ * we posted. Used by the crawler-failure gate to decide whether THIS failure is
+ * the Nth consecutive one (→ escalate) or still an isolated transient blip
+ * (→ keep low-priority breadcrumb). Returns the count of in-window events
+ * (does NOT include the current run yet). Best-effort: returns 0 on any gh/parse
+ * error so the gate fails OPEN to the low-priority breadcrumb (never louder).
+ */
+function countRecentFailureEvents(issueNumber, windowHours) {
+  const cutoff = Date.now() - windowHours * 3600 * 1000;
+  const out = gh([
+    'issue', 'view', String(issueNumber),
+    '--json', 'createdAt,comments',
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (!out) return 0;
+  try {
+    const data = JSON.parse(out);
+    let count = 0;
+    if (data.createdAt && Date.parse(data.createdAt) >= cutoff) count += 1;
+    for (const c of data.comments || []) {
+      const at = c.createdAt && Date.parse(c.createdAt);
+      if (at && at >= cutoff && typeof c.body === 'string' && c.body.includes(RECURRENCE_MARKER)) {
+        count += 1;
+      }
+    }
+    return count;
+  } catch {
+    return 0;
+  }
+}
+
+/** Replace an issue's priority label (remove all priority:* labels, add the target). */
+function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) {
+  const removable = Object.values(PRIORITY_LABEL).filter((l) => l !== targetPriorityLabel);
+  ensureLabelsExist([targetPriorityLabel, ...extraAdd]);
+  gh([
+    'issue', 'edit', String(issueNumber),
+    ...['--add-label', targetPriorityLabel],
+    ...extraAdd.flatMap((l) => ['--add-label', l]),
+    ...removable.flatMap((l) => ['--remove-label', l]),
+    ...repoFlag(),
+  ], { allowFailure: true });
+}
+
+/**
  * Create a GitHub issue, or comment on an existing open duplicate.
  */
 export async function createGithubIssue({
@@ -136,6 +201,14 @@ export async function createGithubIssue({
   // have been auto-closed on a green run and then flaps red again. CLI:
   // --reopen-within-hours N. Default 0 = disabled (legacy behaviour preserved).
   reopenWithinHours = 0,
+  // Consecutive-failure gate. When > 0, the first (threshold-1) failures within
+  // the rolling window land as a low-priority `crawler-transient` breadcrumb
+  // instead of the caller's priority; only the Nth failure escalates. Auto-set
+  // to DEFAULT_CRAWLER_GATE_THRESHOLD for stable `Crawler Failure:` titles so
+  // a single transient blip never opens a priority:high issue. 0 = disabled.
+  // CLI: --consecutive-gate N --gate-window-hours H.
+  consecutiveGate = 0,
+  gateWindowHours = DEFAULT_CRAWLER_GATE_WINDOW_HOURS,
   // `project` accepted for backward compatibility but not used (GH issues
   // don't have a free-form project field comparable to Linear's; the
   // workflow name is preserved in the body for grouping).
@@ -152,9 +225,50 @@ export async function createGithubIssue({
   const titlePrefix = title.slice(0, DEDUP_TITLE_PREFIX_LEN);
   const existing = findOpenIssueByTitlePrefix(titlePrefix);
 
-  // Build label set: priority label + caller-supplied labels.
-  const priorityLabel = PRIORITY_LABEL[Number(priority)] || PRIORITY_LABEL[3];
-  const labelSet = Array.from(new Set([priorityLabel, ...labels].filter(Boolean)));
+  // Auto-enable the consecutive-failure gate for the stable crawler-failure
+  // reporter title, unless a caller explicitly opted out (consecutiveGate < 0).
+  const gateThreshold =
+    consecutiveGate > 0
+      ? consecutiveGate
+      : (consecutiveGate === 0 && title.startsWith(CRAWLER_FAILURE_TITLE_PREFIX)
+          ? DEFAULT_CRAWLER_GATE_THRESHOLD
+          : 0);
+
+  // Decide the EFFECTIVE priority for this failure. With the gate active, count
+  // how many failures the canonical issue already recorded in the window; this
+  // run is event #(priorEvents + 1). Below threshold → low-priority breadcrumb
+  // (`crawler-transient`, non-routable); at/above → caller's priority. Gate
+  // fails OPEN (low) on any gh error, never louder.
+  let effectivePriority = priority;
+  let gatedBelowThreshold = false;
+  if (gateThreshold > 0) {
+    const priorEvents = existing ? countRecentFailureEvents(existing.number, gateWindowHours) : 0;
+    const thisEventOrdinal = priorEvents + 1;
+    if (thisEventOrdinal < gateThreshold) {
+      effectivePriority = 4; // priority:low breadcrumb
+      gatedBelowThreshold = true;
+      console.log(
+        `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `
+        + `"${titlePrefix}" within ${gateWindowHours}h → low-priority breadcrumb (no escalation).`,
+      );
+    } else {
+      console.log(
+        `[github-issue-creator] Gate: failure ${thisEventOrdinal}/${gateThreshold} for `
+        + `"${titlePrefix}" → escalating to priority ${priority}.`,
+      );
+    }
+  }
+
+  // Build label set: priority label + caller-supplied labels. While gated below
+  // threshold, attach `crawler-transient` so triage/fixer skip the breadcrumb.
+  const priorityLabel = PRIORITY_LABEL[Number(effectivePriority)] || PRIORITY_LABEL[3];
+  const labelSet = Array.from(
+    new Set([
+      priorityLabel,
+      ...(gatedBelowThreshold ? [CRAWLER_TRANSIENT_LABEL] : []),
+      ...labels,
+    ].filter(Boolean)),
+  );
 
   // Body: workflow name + description, truncated to GH limit.
   const bodyLines = [];
@@ -169,9 +283,22 @@ export async function createGithubIssue({
     try {
       gh([
         'issue', 'comment', String(existing.number),
-        '--body', `🔁 Recurrence on workflow run.\n\n${body}`,
+        '--body', `${RECURRENCE_MARKER} Recurrence on workflow run.\n\n${body}`,
         ...repoFlag(),
       ]);
+      // Gate escalation: this failure reached/passed the threshold → promote the
+      // canonical breadcrumb from priority:low/crawler-transient to the caller's
+      // priority so the fixer pipeline picks it up. Idempotent if already there.
+      if (gateThreshold > 0 && !gatedBelowThreshold) {
+        const targetLabel = PRIORITY_LABEL[Number(priority)] || PRIORITY_LABEL[3];
+        setIssuePriorityLabel(existing.number, targetLabel, labels);
+        gh([
+          'issue', 'edit', String(existing.number),
+          '--remove-label', CRAWLER_TRANSIENT_LABEL,
+          ...repoFlag(),
+        ], { allowFailure: true });
+        console.log(`[github-issue-creator] Escalated #${existing.number} → ${targetLabel}`);
+      }
       console.log(`[github-issue-creator] Commented on existing #${existing.number} — ${existing.title}`);
       return { number: existing.number, title: existing.title, url: existing.url };
     } catch (err) {
@@ -254,9 +381,14 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
 
   const title = get('--title');
   if (!title) {
-    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N]');
+    console.error('Usage: node github-issue-creator.mjs --title "..." [--description "..."] [--priority N] [--label Bug] [--workflow "Update Coop"] [--reopen-within-hours N] [--consecutive-gate N] [--gate-window-hours H]');
     process.exit(1);
   }
+
+  // --consecutive-gate: N>0 forces the gate (escalate on the Nth failure);
+  // N<0 opts a `Crawler Failure:` title OUT of the auto-gate; omitted = auto.
+  const rawGate = get('--consecutive-gate');
+  const consecutiveGate = rawGate === undefined ? 0 : Number(rawGate);
 
   createGithubIssue({
     title,
@@ -269,6 +401,8 @@ if (process.argv[1]?.endsWith('github-issue-creator.mjs')) {
     })(),
     workflow: get('--workflow'),
     reopenWithinHours: Number(get('--reopen-within-hours') || 0),
+    consecutiveGate: Number.isFinite(consecutiveGate) ? consecutiveGate : 0,
+    gateWindowHours: Number(get('--gate-window-hours') || DEFAULT_CRAWLER_GATE_WINDOW_HOURS),
   }).then(() => {
     // Why: this CLI is a best-effort reporter invoked from `if: failure()`
     // steps after the real failure has already been recorded. Exiting non-zero

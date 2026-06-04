@@ -75,6 +75,8 @@
  *   - scripts/lib/sbb-job-parser.mjs              (SSR + JSON-LD)
  */
 
+import { fetchWithRetry } from '../transient-fetch.mjs';
+
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
 /**
@@ -442,7 +444,16 @@ export function extractSuccessFactorsJobIdentity(rawJob = {}, options = {}) {
 
 /* ── HTTP helpers ──────────────────────────────────────────────────────── */
 
-async function fetchOnce(url, { timeoutMs, userAgent, accept, authHeader } = {}) {
+// Status codes worth retrying (rate-limit / request-timeout / 5xx gateway).
+// 401/403 (auth/anti-bot) and other 4xx fail fast — see SuccessFactorsAuthError.
+const SF_RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+/**
+ * Single attempt: GET `url`, throw a typed error on non-2xx / network failure.
+ * Transient errors (429/5xx, `fetch failed`, ECONNRESET, abort/timeout) are
+ * tagged `retryable = true` so {@link fetchWithRetry} backs off + retries them.
+ */
+async function fetchOnceRaw(url, { timeoutMs, userAgent, accept, authHeader } = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs ?? DEFAULT_TIMEOUT_MS);
   try {
@@ -458,6 +469,7 @@ async function fetchOnce(url, { timeoutMs, userAgent, accept, authHeader } = {})
     });
     clearTimeout(timer);
     if (res.status === 401 || res.status === 403) {
+      // Auth / anti-bot — NOT retryable from the same runner.
       throw new SuccessFactorsAuthError(
         `SuccessFactors auth failure: HTTP ${res.status}`,
         res.status,
@@ -465,22 +477,39 @@ async function fetchOnce(url, { timeoutMs, userAgent, accept, authHeader } = {})
       );
     }
     if (!res.ok) {
-      throw new SuccessFactorsApiError(
+      const err = new SuccessFactorsApiError(
         `SuccessFactors HTTP ${res.status} for ${url}`,
         res.status,
         { url }
       );
+      err.retryable = SF_RETRYABLE_STATUS.has(res.status);
+      throw err;
     }
     return res;
   } catch (err) {
     clearTimeout(timer);
     if (err instanceof SuccessFactorsApiError) throw err;
-    throw new SuccessFactorsApiError(
+    // Network / abort / timeout — transient. Tag retryable so the shared
+    // backoff loop reruns it instead of crashing the crawler on a single blip
+    // (the `SuccessFactors network error: fetch failed` class behind #1309).
+    const wrapped = new SuccessFactorsApiError(
       `SuccessFactors network error: ${err?.message || err}`,
       0,
       { url, cause: String(err?.message || err) }
     );
+    wrapped.retryable = true;
+    throw wrapped;
   }
+}
+
+/**
+ * Retrying GET wrapper. Bounded exponential backoff + jitter on transient
+ * failures (429/5xx, `fetch failed`, ECONNRESET, abort/timeout); auth (401/403)
+ * and other persistent 4xx fail fast. Same call signature as the old
+ * `fetchOnce` so the three call sites are unchanged.
+ */
+async function fetchOnce(url, opts = {}) {
+  return fetchWithRetry(() => fetchOnceRaw(url, opts), { label: `SF ${url}` });
 }
 
 /* ── Fetcher ───────────────────────────────────────────────────────────── */
