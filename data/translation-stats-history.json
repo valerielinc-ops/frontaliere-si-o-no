@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-17T11:26:19.856Z",
-    "label": "before",
-    "total": 4419,
-    "needsRetranslation": 2346,
-    "incomplete": 1434,
-    "complete": 2985,
-    "missingByLocale": {
-      "it": 1228,
-      "en": 857,
-      "de": 582,
-      "fr": 1254
-    },
-    "topPending": [
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 186
-      },
-      {
-        "company": "IWC",
-        "pending": 110
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 107
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 92
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 69
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 69
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 49
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-17T13:15:57.271Z",
-    "label": "after",
-    "total": 4419,
-    "needsRetranslation": 1286,
-    "incomplete": 1303,
-    "complete": 3116,
-    "missingByLocale": {
-      "it": 1180,
-      "en": 796,
-      "de": 532,
-      "fr": 1183
-    },
-    "topPending": [
-      {
-        "company": "Universitätsspital Zürich (USZ)",
-        "pending": 186
-      },
-      {
-        "company": "Spital Thurgau (STGAG)",
-        "pending": 107
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 92
-      },
-      {
-        "company": "Bell Schweiz AG",
-        "pending": 75
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 69
-      },
-      {
-        "company": "Reboot Monkey",
-        "pending": 69
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 52
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 52
-      },
-      {
-        "company": "UBS",
-        "pending": 49
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 46
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-17T13:52:43.770Z",
     "label": "before",
     "total": 4419,
@@ -11229,6 +11117,120 @@
       },
       {
         "company": "CSD ENGINEERS",
+        "pending": 17
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-04T11:07:00.267Z",
+    "label": "before",
+    "total": 10666,
+    "needsRetranslation": 2969,
+    "suppressed": 22,
+    "incomplete": 801,
+    "complete": 9865,
+    "missingByLocale": {
+      "it": 619,
+      "en": 333,
+      "de": 441,
+      "fr": 586
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 185
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 91
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 42
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 36
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 30
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-04T13:25:08.471Z",
+    "label": "after",
+    "total": 10666,
+    "needsRetranslation": 2772,
+    "suppressed": 24,
+    "incomplete": 739,
+    "complete": 9927,
+    "missingByLocale": {
+      "it": 571,
+      "en": 300,
+      "de": 417,
+      "fr": 542
+    },
+    "topPending": [
+      {
+        "company": "Sulzer",
+        "pending": 185
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 91
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "Roche",
+        "pending": 42
+      },
+      {
+        "company": "The Swatch Group (U.S.) Inc.",
+        "pending": 30
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 29
+      },
+      {
+        "company": "UBS",
+        "pending": 28
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 17
+      },
+      {
+        "company": "Richemont",
         "pending": 17
       }
     ]
