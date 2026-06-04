@@ -6,6 +6,13 @@
 # the verdict the instant the PR is opened/edited, so the author fixes the body
 # BEFORE the expensive pr-review-loop runs. Mirrors REVIEW.md "Completeness contract".
 #
+# It ALSO catches the "multi-issue Closes on one line" bug: GitHub honors only the
+# FIRST issue after a closing keyword, so `Closes #a #b #c` closes only #a and the
+# rest stay open and must be closed by hand (real recurrence: PR #1320 listed 9
+# issues on one `Closes` line → 8 left open). The inline detector mirrors the
+# unit-tested helper scripts/lib/pr-body-closes-check.mjs (tests/pr-body-closes-check.test.ts);
+# keep the two in sync if the rule changes.
+#
 # It does NOT block auto-merge (auto-merge-on-lgtm only gates on the `## LGTM`
 # string, never on other checks) — the failing status is an early nudge, not a
 # hard gate. Pure github-script (no Claude, no PAT) → zero shared-quota cost.
@@ -32,6 +39,8 @@ jobs:
           script: |
             const STICKY = '<!-- pr-body-contract -->';
             const body = context.payload.pull_request.body || '';
+
+            // --- 1) Required headers (REVIEW.md completeness contract) ---------------
             // Literal headers required by REVIEW.md. Tolerate trailing text on the
             // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
             const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
@@ -39,6 +48,28 @@ jobs:
             const missing = [];
             if (!hasImpl) missing.push('`## Implementato`');
             if (!hasNon)  missing.push('`## Non implementato (ancora)`');
+
+            // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
+            // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
+            // keyword governing the first ref, then ≥1 MORE refs chained by list
+            // separators only (space/comma/colon/semicolon/&/"and") → the extras are
+            // silently ignored by GitHub. A ref after a sentence boundary or real
+            // words (`Closes #12. See also #99`) is a cross-ref, not flagged.
+            const REF = '(?:[\\w.-]+\\/[\\w.-]+)?#\\d+';
+            const SEP = '(?:\\s*(?:,|:|;|&|\\band\\b)?\\s*)';
+            const CHAIN = new RegExp(
+              `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
+              'gi',
+            );
+            const closesViolations = [];
+            body.split(/\r?\n/).forEach((line, i) => {
+              CHAIN.lastIndex = 0;
+              const m = CHAIN.exec(line);
+              if (!m) return;
+              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
+                .map((r) => r.match(/#(\d+)/)[1]);
+              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
+            });
 
             const { owner, repo } = context.repo;
             const issue_number = context.payload.pull_request.number;
@@ -49,23 +80,51 @@ jobs:
             });
             const prior = comments.find(c => (c.body || '').includes(STICKY));
 
-            if (missing.length === 0) {
-              const ok = `${STICKY}\n✅ **PR-body contract OK** — entrambe le sezioni obbligatorie presenti.`;
+            const upsert = async (b) => {
               if (prior) {
-                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: ok });
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: b });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number, body: b });
+              }
+            };
+
+            // --- All-clear ----------------------------------------------------------
+            if (missing.length === 0 && closesViolations.length === 0) {
+              if (prior) {
+                await github.rest.issues.updateComment({
+                  owner, repo, comment_id: prior.id,
+                  body: `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti, nessun \`Closes\` multi-issue su una riga.`,
+                });
               }
               core.info('PR body contract satisfied.');
               return;
             }
 
-            const msg = `${STICKY}\n🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
-              `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
-              `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
-              `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.\n\n` +
-              `Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`;
-            if (prior) {
-              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: msg });
-            } else {
-              await github.rest.issues.createComment({ owner, repo, issue_number, body: msg });
+            // --- Build the verdict --------------------------------------------------
+            const parts = [STICKY];
+            const fails = [];
+            if (missing.length) {
+              parts.push(
+                `🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
+                `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
+                `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
+                `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.`,
+              );
+              fails.push(`missing section(s): ${missing.join(', ')}`);
             }
-            core.setFailed(`PR body missing required section(s): ${missing.join(', ')}`);
+            if (closesViolations.length) {
+              const lines = closesViolations
+                .map((v) => `- L${v.line}: \`${v.text}\` → chiude solo #${v.nums[0]}, ignora #${v.nums.slice(1).join(', #')}`)
+                .join('\n');
+              parts.push(
+                `🔴 **Closes multi-issue su una riga** — GitHub chiude SOLO la prima issue dopo una keyword ` +
+                `(\`Closes\`/\`Fixes\`/\`Resolves\`); le altre restano aperte e vanno chiuse a mano (cfr. PR #1320: 9 issue su una riga → 8 rimaste aperte).\n\n` +
+                `${lines}\n\n` +
+                `Fix: una keyword per issue, una per riga:\n\`\`\`\nCloses #${closesViolations[0].nums[0]}\nCloses #${closesViolations[0].nums[1]}\n\`\`\``,
+              );
+              fails.push(`multi-issue Closes line(s): ${closesViolations.map((v) => `L${v.line}`).join(', ')}`);
+            }
+            parts.push(`Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`);
+
+            await upsert(parts.join('\n\n'));
+            core.setFailed(`PR body contract: ${fails.join('; ')}`);
