@@ -4262,7 +4262,8 @@
           "technician-epfl-lausanne"
         ],
         "de": [
-          "technician-epfl-lausanne"
+          "technician-epfl-lausanne",
+          "techniker-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -4270,7 +4271,8 @@
         "technicien-epfl-lausanne",
         "tecnico-del-laboratorio-junior-epfl-lausanne",
         "junior-lab-technician-epfl-lausanne",
-        "junior-lab-techniker-epfl-lausanne"
+        "junior-lab-techniker-epfl-lausanne",
+        "techniker-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-02T23:24:55.501Z",
       "needsRetranslation": true,
@@ -4834,18 +4836,24 @@
       "previousSlugsByLocale": {
         "fr": [
           "ingenieur-de-recherche-epfl-lausanne",
-          "research-engineer-epfl-lausanne"
+          "research-engineer-epfl-lausanne",
+          "recherche-ingenieur-epfl-lausanne"
         ],
         "it": [
-          "research-engineer-epfl-lausanne"
+          "research-engineer-epfl-lausanne",
+          "ricerca-ingegnere-epfl-lausanne"
         ],
         "de": [
-          "research-engineer-epfl-lausanne"
+          "research-engineer-epfl-lausanne",
+          "forschung-ingenieur-epfl-lausanne"
         ]
       },
       "previousSlugs": [
         "research-engineer-epfl-lausanne",
-        "ingenieur-de-recherche-epfl-lausanne"
+        "ingenieur-de-recherche-epfl-lausanne",
+        "ricerca-ingegnere-epfl-lausanne",
+        "recherche-ingenieur-epfl-lausanne",
+        "forschung-ingenieur-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-03T13:31:07.306Z",
       "needsRetranslation": true,
@@ -4914,11 +4922,13 @@
       "contractType": "PhD Student",
       "externalId": "1164829555",
       "previousSlugs": [
-        "phd-position-in-interpretable-ai-for-coupled-multiphysics-of-geomaterials-epfl-lausanne"
+        "phd-position-in-interpretable-ai-for-coupled-multiphysics-of-geomaterials-epfl-lausanne",
+        "phd-posizione-in-ai-interpretabile-per-multifisica-accoppiata-di-geomateriali-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-interpretable-ai-for-coupled-multiphysics-of-geomaterials-epfl-lausanne"
+          "phd-position-in-interpretable-ai-for-coupled-multiphysics-of-geomaterials-epfl-lausanne",
+          "phd-posizione-in-ai-interpretabile-per-multifisica-accoppiata-di-geomateriali-epfl-lausanne"
         ],
         "de": [
           "phd-position-in-interpretable-ai-for-coupled-multiphysics-of-geomaterials-epfl-lausanne"
