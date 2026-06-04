@@ -28,26 +28,32 @@ import {
   htmlToText,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 // eRecruit hosts (Apache + custom CGI) reset the connection if the Accept
 // header advertises "application/rss+xml" with wildcard fallback. Use a
 // strict Accept negotiated per call.
 async function fetchErecruitText(url, accept) {
   const t = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: accept, 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), t);
+    try {
+      const res = await fetch(url, {
+        headers: { Accept: accept, 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `erecruit ${url}` });
 }
 
 /**

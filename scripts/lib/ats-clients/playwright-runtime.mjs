@@ -43,6 +43,7 @@
  */
 
 import { chromium } from 'playwright';
+import { fetchWithRetry } from '../transient-fetch.mjs';
 
 const DEFAULT_USER_AGENT =
   'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
@@ -192,45 +193,60 @@ export async function fetchWithRateLimit(context, url, options = {}) {
 
   lastRequestAt.set(context, Date.now());
 
-  const page = await context.newPage();
+  // Retry only TRANSIENT navigation failures (page.goto timeout / network
+  // blip → NavigationTimeout, #1308 Kantonsspital Obwalden). AntiBotBlockError
+  // (403/429/522 / challenge title) is a PERSISTENT block, not transient: it
+  // must fail fast so the run surfaces the real anti-bot signal rather than
+  // hammering the origin. A fresh Page is opened per attempt and closed on
+  // failure so retries never leak pages.
+  return fetchWithRetry(
+    async () => {
+      const page = await context.newPage();
 
-  let response;
-  try {
-    response = await page.goto(url, { waitUntil: 'domcontentloaded' });
-  } catch (err) {
-    process.stderr.write(
-      `[playwright-runtime] navigation failed for ${url}: ` +
-        `${err && err.message ? err.message : err}\n`,
-    );
-    await safeClosePage(page);
-    throw new NavigationTimeout(
-      `Navigation to ${url} failed: ${err && err.message ? err.message : err}`,
-      { cause: err, url },
-    );
-  }
+      let response;
+      try {
+        response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+      } catch (err) {
+        process.stderr.write(
+          `[playwright-runtime] navigation failed for ${url}: ` +
+            `${err && err.message ? err.message : err}\n`,
+        );
+        await safeClosePage(page);
+        throw new NavigationTimeout(
+          `Navigation to ${url} failed: ${err && err.message ? err.message : err}`,
+          { cause: err, url },
+        );
+      }
 
-  const status = response ? response.status() : 0;
+      const status = response ? response.status() : 0;
 
-  // Cloudflare / origin overload signals strongly correlated with bot blocks.
-  if (status === 522 || status === 403 || status === 429) {
-    const title = await safeTitle(page);
-    await safeClosePage(page);
-    throw new AntiBotBlockError(
-      `Anti-bot block on ${url} (status=${status}, title=${JSON.stringify(title)})`,
-      { url, status, title },
-    );
-  }
+      // Cloudflare / origin overload signals strongly correlated with bot blocks.
+      if (status === 522 || status === 403 || status === 429) {
+        const title = await safeTitle(page);
+        await safeClosePage(page);
+        throw new AntiBotBlockError(
+          `Anti-bot block on ${url} (status=${status}, title=${JSON.stringify(title)})`,
+          { url, status, title },
+        );
+      }
 
-  const title = await safeTitle(page);
-  if (title && isAntiBotTitle(title)) {
-    await safeClosePage(page);
-    throw new AntiBotBlockError(
-      `Anti-bot challenge page on ${url} (title=${JSON.stringify(title)})`,
-      { url, status, title },
-    );
-  }
+      const title = await safeTitle(page);
+      if (title && isAntiBotTitle(title)) {
+        await safeClosePage(page);
+        throw new AntiBotBlockError(
+          `Anti-bot challenge page on ${url} (title=${JSON.stringify(title)})`,
+          { url, status, title },
+        );
+      }
 
-  return page;
+      return page;
+    },
+    {
+      label: `playwright-runtime ${url}`,
+      // Only NavigationTimeout is transient; AntiBotBlockError fails fast.
+      isTransient: (err) => err instanceof NavigationTimeout,
+    },
+  );
 }
 
 /**

@@ -38,6 +38,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const DETAIL_DELAY_MS = 250;
 const API_HOST = 'https://ats.johdisuite.ch';
@@ -50,24 +51,29 @@ function normalize(s = '') {
 
 async function fetchJson(url, { timeoutMs } = {}) {
   const t = timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), t);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'application/json,*/*',
-        'Content-type': 'application/json',
-        'User-Agent': USER_AGENT,
-      },
-      signal: controller.signal,
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), t);
+    try {
+      const res = await fetch(url, {
+        headers: {
+          Accept: 'application/json,*/*',
+          'Content-type': 'application/json',
+          'User-Agent': USER_AGENT,
+        },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, { label: `johdisuite ${url}` });
 }
 
 /**
