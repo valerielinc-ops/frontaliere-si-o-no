@@ -38,6 +38,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isCrossHostRedirect } from './umantis-detail-helpers.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -378,6 +379,25 @@ function isDetailContentValid(content, title) {
 // Exported for unit tests.
 export { isDetailContentValid };
 
+/**
+ * Fetch + extract a Umantis detail page, detecting the "dead detail URL"
+ * failure mode (issue #1245): several tenants now 3xx-redirect
+ * `/Vacancies/{id}/Description/*` AWAY from the umantis host (→ public career
+ * site / migrated ATS like Prospective). Following that redirect lands on
+ * careers chrome which the extractor cannot parse → the caller would otherwise
+ * synthesise generic boilerplate that the dataset boilerplate-guard hard-fails
+ * on, filing an issue every run.
+ *
+ * We use `redirect: 'manual'` so a cross-host 3xx is reported as
+ * `{ deadDetail: true }` instead of silently followed. The caller QUARANTINES
+ * dead-detail jobs (skips emit) rather than feeding the guard garbage.
+ *
+ * @param {string} detailUrl
+ * @param {string} [title]
+ * @returns {Promise<{ content: string, deadDetail: boolean }>}
+ *   `content`    — validated detail body, or '' (SPA/chrome/error).
+ *   `deadDetail` — true only on a cross-host redirect (source migrated away).
+ */
 async function fetchUmantisDetail(detailUrl, title = '') {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
@@ -386,16 +406,38 @@ async function fetchUmantisDetail(detailUrl, title = '') {
     const res = await fetch(detailUrl, {
       headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
       signal: controller.signal,
-      redirect: 'follow',
+      redirect: 'manual',
     });
     clearTimeout(timer);
-    if (!res.ok) return '';
+
+    if (res.status >= 300 && res.status < 400) {
+      const location = res.headers.get('location') || '';
+      if (isCrossHostRedirect(detailUrl, location)) {
+        return { content: '', deadDetail: true }; // migrated away → quarantine
+      }
+      // Same-host redirect (lang/canon): follow it once.
+      try {
+        const followUrl = new URL(location, detailUrl).toString();
+        const res2 = await fetch(followUrl, {
+          headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+          redirect: 'follow',
+        });
+        if (!res2.ok) return { content: '', deadDetail: false };
+        const html2 = await res2.text();
+        const content2 = extractUmantisDetailContent(html2);
+        return { content: isDetailContentValid(content2, title) ? content2 : '', deadDetail: false };
+      } catch {
+        return { content: '', deadDetail: false };
+      }
+    }
+
+    if (!res.ok) return { content: '', deadDetail: false };
     const html = await res.text();
     const content = extractUmantisDetailContent(html);
-    return isDetailContentValid(content, title) ? content : '';
+    return { content: isDetailContentValid(content, title) ? content : '', deadDetail: false };
   } catch {
     clearTimeout(timer);
-    return '';
+    return { content: '', deadDetail: false };
   }
 }
 
@@ -509,6 +551,7 @@ export function createUmantisListingParser(config) {
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     let detailHits = 0;
+    let quarantinedDeadDetail = 0;
 
     let skippedCivilService = 0;
     for (const entry of entries) {
@@ -529,9 +572,22 @@ export function createUmantisListingParser(config) {
       // Fetch detail page for rich description content. Pass the title so the
       // detail-validity check can reject content that doesn't belong to this
       // job (chrome leak from Cloudflare-walled tenants or careers homepage).
-      const detailContent = await fetchUmantisDetail(detailUrl, title);
-      if (detailContent) detailHits++;
+      const { content: detailContent, deadDetail } = await fetchUmantisDetail(detailUrl, title);
       await new Promise((r) => setTimeout(r, 200));
+
+      // Dead detail URL (issue #1245): the tenant deprecated
+      // /Vacancies/{id}/Description/* and now 3xx-redirects it cross-host (→
+      // public site / migrated ATS). There is no per-job body to extract and
+      // the listing page carries no description either, so synthesising a
+      // German boilerplate fallback here would only feed the dataset
+      // boilerplate-guard garbage and brick the whole crawler. QUARANTINE the
+      // job instead — skip emit — so the crawler succeeds with the remaining
+      // good jobs (or exits cleanly with a WARNING if EVERY job is dead).
+      if (deadDetail) {
+        quarantinedDeadDetail++;
+        continue;
+      }
+      if (detailContent) detailHits++;
 
       const location = entry.location || defaultCity;
       const canton = inferSwissTargetCanton(location) || defaultCanton;
@@ -623,7 +679,17 @@ export function createUmantisListingParser(config) {
     if (skippedCivilService > 0) {
       console.log(`  ⏭️  Skipped ${skippedCivilService} Zivildienst/civil-service listing(s) (not relevant for cross-border workers)`);
     }
-    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content)`);
+    if (quarantinedDeadDetail > 0) {
+      console.warn(`  ⚠️  Quarantined ${quarantinedDeadDetail}/${entries.length} job(s): detail URL deprecated (cross-host 3xx → source migrated away, issue #1245). Not emitting boilerplate for these.`);
+    }
+    // If EVERY discovered job has a dead detail URL, the tenant has migrated its
+    // ATS away from Umantis entirely. Exit cleanly with a clear WARNING instead
+    // of hard-failing every run — a degraded/migrated source must not brick the
+    // whole crawler (and there is nothing real to index without per-job bodies).
+    if (jobs.length === 0 && quarantinedDeadDetail > 0) {
+      console.warn(`  ⚠️  ${companyName}: ALL ${entries.length} listing(s) have a deprecated (cross-host-redirecting) Umantis detail URL — source appears to have migrated off Umantis. Emitting 0 jobs (no hard failure). Follow-up: per-tenant public-site/Prospective description extraction (issue #1245).`);
+    }
+    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content${quarantinedDeadDetail > 0 ? `, ${quarantinedDeadDetail} quarantined dead-detail` : ''})`);
     return jobs;
   }
 
