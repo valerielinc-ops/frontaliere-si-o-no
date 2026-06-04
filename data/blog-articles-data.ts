@@ -25263,6 +25263,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-ticino-mobilita',
+ category: 'novita',
+ date: '2026-06-04T03:15:58.042Z',
+ image: '/images/blog/frontaliere-ticino-mobilita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

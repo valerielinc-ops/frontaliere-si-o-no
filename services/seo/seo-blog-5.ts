@@ -42350,6 +42350,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-ticino-mobilita': {
+    title: 'Impatti della mobilità sulla vita dei frontaliere ticinesi',
+    description: 'La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, impatti, mobilità, sulla, vita',
+    ogTitle: 'Mobilità e frontaliere ticinesi: come gestire i problemi di traffico e costi',
+    ogDescription: 'La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Scopri come gestire questi problemi e pianificare i',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-mobilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impatti della mobilità sulla vita dei frontaliere ticinesi",
+      "description": "La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-mobilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine di un pendolari"
+      },
+      "datePublished": "2026-06-04T03:15:58+00:00",
+      "dateModified": "2026-06-04T03:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-mobilita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

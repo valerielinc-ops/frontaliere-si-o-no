@@ -7959,6 +7959,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Quellsteuer für Grenzgänger: Wie funktioniert\'s im Tessin?',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Vollständige Anleitung zur Quellsteuer für Grenzgänger im Tessin: Berechnungen, Sätze und Pflichten gemäß dem neuen Steuerausschlussvertrag.',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Panoramablick auf Lugano mit Schweizer und italienischen Flaggen',
+    'blog.article.frontaliere-ticino-mobilita.title': 'Mobilitâ und Lebensqualität der Grenzgänger im Tessin',
+    'blog.article.frontaliere-ticino-mobilita.excerpt': 'Die Mobilitâ erhöht die Komplexität für die Grenzgänger, mit Problemen im Verkehr und hohen Kosten',
+    'blog.article.frontaliere-ticino-mobilita.imageAlt': 'Bild eines Pendlers',
 };
 
 export default blogMetaDe;
