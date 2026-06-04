@@ -4568,7 +4568,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -4729,7 +4729,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -4896,7 +4896,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5075,7 +5075,7 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5239,7 +5239,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5424,7 +5424,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5641,7 +5641,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -5800,7 +5800,7 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
  ${SEO_STATIC_CSS_LINK}
 ${staticAnalyticsHtml}
  </head>
@@ -10085,8 +10085,8 @@ ${staticAnalyticsHtml}
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
- const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">`;
- const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
+ const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" decoding="async">`;
+ const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache).
  //
@@ -10104,10 +10104,9 @@ ${staticAnalyticsHtml}
  // for `footer.ft-f` (drops inner `<div class="ft-wrap">`).
  const localeShells = Object.fromEntries(localeList.map(l => {
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
- const sectionLink = `${BASE_URL}${lp}`;
  const sectionName = esc(localeCopy[l].sectionName);
- const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${sectionLink}" class="ft-ns">${sectionName}</a></nav>`;
- const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${sectionLink}">${sectionName}</a></footer>`;
+ const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${lp}" class="ft-ns">${sectionName}</a></nav>`;
+ const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="/">Frontaliere Ticino</a> &mdash; <a href="${lp}">${sectionName}</a></footer>`;
  return [l, { nav, footer, listingPath: lp }];
  }));
 

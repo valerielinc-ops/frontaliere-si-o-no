@@ -387,7 +387,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
 ${alternates}
     <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
     ${SEO_STATIC_CSS_LINK}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
