@@ -32,10 +32,65 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
+import { fetchWithRetry } from './transient-fetch.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+// jobup.ch's CDN/WAF returns HTTP 403 for the FrontaliereTicinoBot UA (#1305
+// ehnv). Present as a real desktop browser — rotated per attempt — to clear the
+// anti-bot gate, mirroring the goline crawler's realistic-UA + Playwright
+// fallback pattern. The feed endpoint is a plain JSON .asp; a real browser UA
+// + Accept-Language + Referer is enough in the common case, with Playwright as
+// the last resort when the WAF demands a full JS-capable client.
+const BROWSER_USER_AGENTS = [
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+];
+
+/** Whether an HTTP error looks like jobup's anti-bot fence (403/406/429-by-WAF). */
+function isAntiBotStatus(status) {
+  return status === 403 || status === 406 || status === 401;
+}
+
+/**
+ * Last-resort fetch of the jobup JSON feed via a headless browser, for when the
+ * WAF blocks plain `fetch` with 403 even under a realistic UA. Navigates to the
+ * feed URL and returns the raw response body text. Returns null if Playwright is
+ * unavailable or navigation fails — caller then surfaces the original HTTP error.
+ */
+async function fetchFeedViaPlaywright(url) {
+  let browser;
+  try {
+    const { chromium } = await import('playwright');
+    browser = await chromium.launch({ headless: true });
+    const context = await browser.newContext({
+      userAgent: BROWSER_USER_AGENTS[0],
+      locale: 'fr-CH',
+      extraHTTPHeaders: { Referer: 'https://www.jobup.ch/' },
+    });
+    const page = await context.newPage();
+    const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+    if (!resp || !resp.ok()) return null;
+    // The .asp feed renders the JSON as the document body.
+    return await page.evaluate(() => document.body?.innerText ?? '');
+  } catch (err) {
+    console.warn(`[jobup] Playwright fallback failed for ${url}: ${err?.message || err}`);
+    return null;
+  } finally {
+    if (browser) await browser.close().catch(() => {});
+  }
+}
+
+/** Parse a jobup feed body (tolerating a JSONP `xCallback({...})` wrapper). */
+function parseFeedBody(text) {
+  const trimmed = String(text || '').trim();
+  const jsonpMatch = trimmed.match(/^[a-zA-Z_$][\w$]*\s*\(\s*([\s\S]+)\s*\)\s*;?\s*$/);
+  const jsonText = jsonpMatch ? jsonpMatch[1] : trimmed;
+  return JSON.parse(jsonText);
+}
 
 const NAMED_ENTITIES = {
   amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ',
@@ -82,46 +137,56 @@ function normalizeSpace(s = '') {
 
 async function fetchFeed(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const maxAttempts = Math.max(1, Number(process.env.JOBS_CRAWLER_FETCH_ATTEMPTS) || 3);
-  let lastErr;
-  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        headers: { Accept: 'application/json,text/javascript,*/*', 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-      });
-      clearTimeout(timer);
-      if (!res.ok) {
-        const retriable = res.status === 408 || res.status === 429 || res.status >= 500;
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        if (retriable && attempt < maxAttempts) {
-          lastErr = err;
-          await new Promise((r) => setTimeout(r, 500 * attempt));
-          continue;
+  let attemptIdx = 0; // rotates the realistic UA across retries
+  try {
+    // Transient network blips + 429/5xx retry via the shared bounded-backoff
+    // loop; a real browser UA + Accept-Language + Referer clears jobup's WAF in
+    // the common case.
+    const text = await fetchWithRetry(async () => {
+      const ua = BROWSER_USER_AGENTS[attemptIdx % BROWSER_USER_AGENTS.length];
+      attemptIdx += 1;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          headers: {
+            Accept: 'application/json,text/javascript,*/*;q=0.8',
+            'Accept-Language': 'fr-CH,fr;q=0.9,it;q=0.8,en;q=0.7',
+            'User-Agent': ua,
+            Referer: 'https://www.jobup.ch/',
+          },
+          signal: controller.signal,
+        });
+        if (!res.ok) {
+          const err = new Error(`HTTP ${res.status} from ${url}`);
+          err.status = res.status;
+          // 408/429/5xx are transient; anti-bot 401/403/406 are NOT retried via
+          // plain fetch (rotating UA won't help) — handled by Playwright below.
+          err.retryable = res.status === 408 || res.status === 429 || res.status >= 500;
+          throw err;
         }
-        throw err;
+        return await res.text();
+      } finally {
+        clearTimeout(timer);
       }
-      const text = await res.text();
-      // Some jobup masks wrap in a JSONP callback like `xCallback({...})`. Strip it.
-      const trimmed = text.trim();
-      const jsonpMatch = trimmed.match(/^[a-zA-Z_$][\w$]*\s*\(\s*([\s\S]+)\s*\)\s*;?\s*$/);
-      const jsonText = jsonpMatch ? jsonpMatch[1] : trimmed;
-      return JSON.parse(jsonText);
-    } catch (err) {
-      clearTimeout(timer);
-      const isNetwork = err?.name === 'AbortError'
-        || /fetch failed|ECONN|ENOTFOUND|ETIMEDOUT|EAI_AGAIN/i.test(err?.message || '');
-      if (isNetwork && attempt < maxAttempts) {
-        lastErr = err;
-        await new Promise((r) => setTimeout(r, 500 * attempt));
-        continue;
+    }, { label: `jobup ${url}` });
+    return parseFeedBody(text);
+  } catch (err) {
+    // Persistent anti-bot fence (403/406): retry once via a real headless
+    // browser, which jobup's WAF treats as a genuine visitor.
+    if (isAntiBotStatus(err?.status)) {
+      console.warn(`[jobup] HTTP ${err.status} from ${url} — trying Playwright anti-bot fallback`);
+      const body = await fetchFeedViaPlaywright(url);
+      if (body) {
+        try {
+          return parseFeedBody(body);
+        } catch (parseErr) {
+          console.warn(`[jobup] Playwright body did not parse as JSON: ${parseErr?.message || parseErr}`);
+        }
       }
-      throw err;
     }
+    throw err;
   }
-  throw lastErr || new Error(`fetchFeed exhausted retries for ${url}`);
 }
 
 /**
