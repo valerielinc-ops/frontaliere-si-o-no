@@ -179,10 +179,12 @@ jobs:
           # Expose jobs.json to scripts that expect public/data/jobs.json.
           mkdir -p public/data
           cp -f data/jobs.json public/data/jobs.json
-          # validate:crawler-summaries reads data/jobs-crawler-summaries.json,
-          # gitignored and produced by `assemble-jobs-dataset.mjs` during
-          # build (then copied into dist/data/ by vite). Same pattern.
-          cp -f dist/data/jobs-crawler-summaries.json data/jobs-crawler-summaries.json 2>/dev/null || true
+          # validate:crawler-summaries reads data/jobs-crawler-summaries.json
+          # (gitignored, assembled at build). Its dist/data/ copy is offloaded
+          # to the CDN repo AND deleted from dist by offload-generated-images-
+          # cdn.mjs (PR #1288), so it is NOT in the Pages artifact — restore it
+          # from the jobs-master artifact (same channel as jobs.json above).
+          cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
 
           # Optional artifacts — copy if present.
           if [ -f /tmp/pre-deploy-snapshot/pre-deploy-sitemap-urls.json ]; then
