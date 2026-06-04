@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-06-04T12:46:41.899Z",
+  "generatedAt": "2026-06-04T15:19:18.701Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26108,
-  "avgDurationMs": 26108,
+  "durationMs": 11823,
+  "avgDurationMs": 11823,
   "durationHistory": [
-    26108
+    11823
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-06-03T14:23:26.318Z",
       "firstSeenAt": "2026-06-03T14:23:26.318Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "streetAddress": "Via Industria 7",
@@ -46,11 +45,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -87,11 +87,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 84,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 22
       }
     },
@@ -128,11 +128,11 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "retranslationAttempts": 2,
-      "_qualityScore": 78,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 22
       }
     },
