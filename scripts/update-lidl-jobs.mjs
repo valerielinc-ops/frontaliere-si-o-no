@@ -203,7 +203,7 @@ function stripHtmlToPlain(html = '') {
   return String(html || '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
