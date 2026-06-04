@@ -7955,6 +7955,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Taxe santé frontalier : le Tessin rejette la mesure',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'Le Conseil d\'État tessinois qualifie la contribution sanitaire d\'impôt. Les remboursements et l\'accord fiscal avec l\'Italie sont en danger.',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'Vue du château de Bellinzone au Tessin',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Taxe santé des frontaliers : le Tessin la juge indue',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Le Conseil d\'État tessinois conteste la taxe sur la santé pour les anciens frontaliers, la jugeant contraire aux accords sur la double imposition.',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande à Bellinzone, siège du Conseil d\'État tessinois',
 };
 
 export default blogMetaFr;

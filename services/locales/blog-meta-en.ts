@@ -7954,6 +7954,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Cross-border health tax: Ticino rejects the levy',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'The Ticino Council of State defines the health contribution as a tax. Financial compensation and the stability of the tax agreement with Italy are at risk.',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'View of the Bellinzona Castle in Ticino',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Cross-border health tax: Ticino deems it undue',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'The Ticino Council of State challenges the health tax for long-term cross-border workers, judging it contrary to double taxation agreements.',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande in Bellinzona, seat of the Ticino Council of State',
 };
 
 export default blogMetaEn;
