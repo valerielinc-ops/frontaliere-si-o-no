@@ -129,6 +129,23 @@ export const EARLY_BOOT_FILENAME = `early-boot-${shortContentHash(EARLY_BOOT_CON
 export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"></script>`;
 
 /**
+ * Range-selector wiring for the fuel history chart, shared by every page under
+ * /prezzi-benzina/ + /prezzi-diesel/ (4 locales × 2 fuels). Previously a ~600 B
+ * inline IIFE repeated on every chart page; externalising it to one hashed,
+ * cached `/assets/fuel-chart-{hash}.js` strips that per-page weight across the
+ * whole fuel corpus and lets the browser cache it once.
+ *
+ * Self-wires ALL `[data-fuel-history-chart]` blocks on the page (no
+ * `currentScript.previousElementSibling` dependency), guarded by a global flag
+ * so a duplicate tag (a page with >1 chart) is a no-op. Button visuals follow
+ * the `aria-pressed` attribute via seo-static.css; content/stats visibility is
+ * toggled with the `.s-on` class.
+ */
+export const FUEL_CHART_SCRIPT_CONTENT = `(function(){if(window.__fuelChartWired)return;window.__fuelChartWired=1;function wire(root){var btns=root.querySelectorAll('[data-range-btn]');var contents=root.querySelectorAll('[data-range-content]');var statsEls=root.querySelectorAll('[data-range-stats]');function setActive(r){btns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-range-btn')===r?'true':'false');});contents.forEach(function(c){c.classList.toggle('s-on',c.getAttribute('data-range-content')===r);});statsEls.forEach(function(s){s.classList.toggle('s-on',s.getAttribute('data-range-stats')===r);});}btns.forEach(function(b){b.addEventListener('click',function(){setActive(b.getAttribute('data-range-btn'));});});}document.querySelectorAll('[data-fuel-history-chart]').forEach(wire);})();`;
+export const FUEL_CHART_SCRIPT_FILENAME = `fuel-chart-${shortContentHash(FUEL_CHART_SCRIPT_CONTENT)}.js`;
+export const FUEL_CHART_SCRIPT_TAG = `<script src="/assets/${FUEL_CHART_SCRIPT_FILENAME}" defer></script>`;
+
+/**
  * Back-compat shims for callers that still reference the legacy split-script
  * constants by name (e.g., constants.ts itself in the canonical-bridge / flat
  * redirect helpers). These now point at the merged EARLY_BOOT_SCRIPT — the
