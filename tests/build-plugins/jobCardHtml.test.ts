@@ -219,8 +219,10 @@ describe('jobCardHtml — renderJobCardListHtml', () => {
       { locale: 'it' },
     );
     // PR #640 prepends JOB_CARD_ICON_SYMBOLS once per list before <ul> for SVG sprite dedup;
-    // accept the symbols block as optional prefix so the <ul role="list"> shape is what matters.
-    expect(html).toMatch(/^(?:<svg[^>]*>(?:[^<]|<[^/]|<\/[^s]|<\/s[^v])*<\/svg>)?<ul role="list" class="/);
+    // that block now also carries the inline `jcLF` logo-fallback <script>
+    // (externalised from per-card `onerror`). Accept both as an optional
+    // prefix so the <ul role="list"> shape is what matters.
+    expect(html).toMatch(/^(?:<svg[^>]*>.*?<\/svg>(?:<script>.*?<\/script>)?)?<ul role="list" class="/s);
     expect(html).toContain('<li><article');
     // Two <article> elements, one per job
     const articleCount = (html.match(/<article /g) || []).length;
