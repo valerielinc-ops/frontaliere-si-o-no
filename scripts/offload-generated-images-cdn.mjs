@@ -4,8 +4,13 @@
 // Offload BUILD-GENERATED assets out of the GitHub Pages artifact, rewriting
 // their references to the dedicated CDN repo's Pages site (CDN_BASE). Two phases:
 //   1. per-job OG cards (dist/og)  — rewrite static og:image refs in HTML
-//   2. all runtime data JSON (dist/data) — inject runtime CDN base, delete the
-//      cdn-only files (keep any /data/ path referenced same-origin in HTML/XML)
+//   2. all data JSON/CSV (dist/data) — inject runtime CDN base AND rewrite static
+//      same-origin /data/ refs (JSON-LD contentUrl, download hrefs) → CDN in HTML,
+//      then delete every dist/data file present on the CDN. Only a /data/ ref that
+//      survives same-origin (an XML-sitemap ref, or a ref to a file NOT in dist/data)
+//      pins its file; robots.txt Allow/Disallow are crawl directives, not content
+//      links, so they no longer pin (they kept 62 MB — incl. 55 MB expired-jobs.json
+//      — in the artifact even though the bytes were already live on the CDN).
 // (The JS/CSS bundle is offloaded separately: ASSET_CDN/renderBuiltUrl rebases it
 //  at build time; the deploy verify step deletes dist/assets fail-safe.)
 //
@@ -22,9 +27,10 @@
 // exports its base URL as CDN_BASE; this script then, per phase:
 //   • Phase 1 (og): rewrites the emitted og:image references in dist HTML to
 //     ${CDN_BASE}/og/…, then deletes dist/og.
-//   • Phase 2 (job-detail): injects window.__CDN_DATA_BASE__=${CDN_BASE} into
-//     every dist HTML page (read by services/cdnDataBase.ts → cdnDataUrl at
-//     runtime), then deletes dist/data/job-detail.
+//   • Phase 2 (data): injects window.__CDN_DATA_BASE__=${CDN_BASE} into every dist
+//     HTML page (read by services/cdnDataBase.ts → cdnDataUrl at runtime) AND
+//     rewrites static same-origin /data/<file> refs → ${CDN_BASE}/data/<file>, then
+//     deletes the now-CDN-served dist/data files.
 //
 // Pages (NOT raw / NOT jsDelivr): raw is rate-limited and serves JSON as
 // text/plain; jsDelivr 403/502s on fresh orphan refs. The CDN repo's Pages site
@@ -86,6 +92,7 @@ function walkAll(dir, fn) {
 // File-tail patterns (capture group 1 = the relative path under the prefix).
 const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg))";
 const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
+const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 
 // ── Single-pass offload over dist HTML/XML/TXT ───────────────────────────────
 // Reads each emitted HTML/XML/TXT file ONCE and applies every CDN rewrite +
@@ -123,16 +130,39 @@ function offloadAll(distDir, cdnBase) {
   const assetReRel = new RegExp('(?<![\\w.@])/assets/' + ASSET_FILE, 'g');
   const assetRepl = (_m, file) => `${cdnBase}/assets/${file}`;
 
-  // data inject + ref-collect setup.
+  // data inject + ref-collect + same-origin→CDN rewrite setup.
   const dataDir = path.join(distDir, 'data');
   const hasData = fs.existsSync(dataDir);
   const injectTag = `<script>window.__CDN_DATA_BASE__=${JSON.stringify(cdnBase)}</script>`;
-  const reData = /\/data\/[^"'\s)?<>]+/g;
+  // Every file present under dist/data was already pushed to the CDN repo (deploy
+  // `cp -r dist/data` runs BEFORE this script), so a same-origin `/data/<rel>`
+  // content ref to one of them can be rewritten to ${CDN}/data/<rel> and the file
+  // dropped from the artifact. #1293 already wired the runtime fetches through
+  // cdnDataUrl + the CDN push, but the keep-guard still pinned these files in dist
+  // via their STATIC refs — JSON-LD `contentUrl`, `<a download href>` — and via
+  // robots.txt Allow/Disallow (crawl directives, NOT content links). Both kept the
+  // 62 MB of data JSON/CSV (expired-jobs.json alone is 55 MB) in the 10 GB artifact.
+  const distDataRel = new Set();
+  if (hasData) walkAll(dataDir, (fp) => {
+    distDataRel.add('/' + path.relative(distDir, fp).split(path.sep).join('/'));
+  });
+  // Rewrite same-origin /data/<file> → ${CDN}/data/<file> for files present in
+  // dist/data. Only the file part is captured; the replacer no-ops for refs whose
+  // target is NOT in dist/data (e.g. /data/jobs.json stripped pre-deploy) so they
+  // stay same-origin exactly as before.
+  const dataReAbs = new RegExp(escOrigin + '/data/' + DATA_FILE, 'g');
+  const dataReRel = new RegExp('(?<![\\w.@])/data/' + DATA_FILE, 'g');
+  const dataRepl = (m, file) => (distDataRel.has('/data/' + file) ? `${cdnBase}/data/${file}` : m);
+  // Same-origin keep-collector: matches the origin-absolute or site-relative form,
+  // NOT the rewritten CDN host (preceded by a word char). A ref surviving here
+  // points at a file NOT in dist/data → keep that file same-origin.
+  const reDataKeep = new RegExp('(?:' + escOrigin + '/data/|(?<![\\w.@])/data/)' + DATA_FILE, 'g');
   const dataReferenced = new Set();
 
   let scanned = 0;
   let ogRewritten = 0;
   let assetRewritten = 0;
+  let dataRefRewritten = 0;
   let injected = 0;
   let htmlSeen = 0;
   const ogLeaks = [];
@@ -157,6 +187,16 @@ function offloadAll(distDir, cdnBase) {
     out = out.replace(assetReAbs, assetRepl).replace(assetReRel, assetRepl);
     if (out !== beforeAssets) assetRewritten++;
 
+    // (2b) data refs: rewrite same-origin /data/<file> (present in dist/data) → CDN
+    //      in HTML ONLY (JSON-LD contentUrl + download hrefs). XML sitemap refs are
+    //      left untouched (pinned below, kept same-origin); robots.txt is skipped.
+    const isTxt = path.extname(fp) === '.txt';
+    if (hasData && isHtml) {
+      const beforeData = out;
+      out = out.replace(dataReAbs, dataRepl).replace(dataReRel, dataRepl);
+      if (out !== beforeData) dataRefRewritten++;
+    }
+
     // (3) data base inject (HTML only, idempotent)
     if (hasData && isHtml) {
       htmlSeen++;
@@ -180,11 +220,15 @@ function offloadAll(distDir, cdnBase) {
       if (c.reLeak.test(out)) ogLeaks.push(`${c.t.url} in ${path.relative(distDir, fp)}`);
     }
 
-    // (4) collect same-origin /data/ refs (these load same-origin → keep the file)
-    if (hasData) {
-      reData.lastIndex = 0;
+    // (4) collect surviving same-origin /data/ refs from HTML/XML — NOT robots
+    //     .txt (Allow/Disallow are crawl directives, not content links; a rule on a
+    //     now-CDN-served path is inert). A ref surviving here (HTML refs to dist/data
+    //     files were rewritten to CDN above; XML refs are never rewritten) points at
+    //     a file NOT in dist/data → keep it same-origin to avoid a 404.
+    if (hasData && !isTxt) {
+      reDataKeep.lastIndex = 0;
       let m;
-      while ((m = reData.exec(out))) dataReferenced.add(decodeURIComponent(m[0].split('?')[0]));
+      while ((m = reDataKeep.exec(out))) dataReferenced.add(decodeURIComponent('/data/' + m[1].split('?')[0]));
     }
   });
 
@@ -222,7 +266,7 @@ function offloadAll(distDir, cdnBase) {
       fs.rmSync(fp, { force: true });
       removed++;
     });
-    log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; removed ${removed} files (kept ${kept} HTML-referenced) ; freed ${(freed / 1048576).toFixed(0)} MB`);
+    log(`data → ${cdnBase} ; injected base into ${injected}/${htmlSeen} HTML ; rewrote /data/ refs in ${dataRefRewritten} HTML ; removed ${removed} files (kept ${kept} still-same-origin) ; freed ${(freed / 1048576).toFixed(0)} MB`);
   }
 
   log(`single-pass offload over ${scanned} HTML/XML/TXT files ; assets: rewrote /assets/ refs in ${assetRewritten} (dist/assets dropped by the deploy verify step)`);
