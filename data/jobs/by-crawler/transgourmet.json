@@ -1,6 +1,6 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-05-30T12:48:44.255Z",
+  "assembledAt": "2026-06-04T15:58:05.355Z",
   "jobs": [
     {
       "id": "transgourmet-d0ffad16-a2a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-molkerei/d0ffad16-a2a7-46d5-b32a-a38d1e371dbd",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T12:48:42.392Z",
+      "crawledAt": "2026-06-04T15:58:03.220Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:25:48.620Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -116,7 +117,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-30T12:48:42.391Z",
+      "crawledAt": "2026-06-04T15:58:03.219Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -182,6 +183,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:25:48.621Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
