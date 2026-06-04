@@ -53,6 +53,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.festivita-ticino-2026.title': 'Festività in Ticino 2026',
     'blog.article.festivita-ticino-2026.excerpt': 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri.',
     'blog.article.festivita-ticino-2026.imageAlt': 'Festa a Lugano',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'Un blocco dei ristorni? Reazione comprensibile',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'La reazione dei ristoratori di fronte a un possibile blocco dei ristorni è comprensibile.',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'Una persona che guarda un documento con una calcolatrice e una penna',
 };
 
 export default blogMetaChIt;

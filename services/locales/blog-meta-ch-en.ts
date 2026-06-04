@@ -53,6 +53,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.festivita-ticino-2026.title': 'Ticino Holidays in 2026',
     'blog.article.festivita-ticino-2026.excerpt': 'Discover the main public holidays in Ticino in 2026 and how they will affect the daily life of residents and cross-border workers. ',
     'blog.article.festivita-ticino-2026.imageAlt': 'Festivity in Lugano',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.title': 'A ban on restaurants? An understandable reaction',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.excerpt': 'The reaction of restaurant owners to a possible ban on restaurants is understandable.',
+    'blog.article.un-blocco-dei-ristorni-reazione-comprensibile.imageAlt': 'A person looking at a document with a calculator and a pen',
 };
 
 export default blogMetaChEn;

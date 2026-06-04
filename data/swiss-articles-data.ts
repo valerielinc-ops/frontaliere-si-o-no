@@ -161,6 +161,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'un-blocco-dei-ristorni-reazione-comprensibile',
+    category: 'fiscale',
+    date: '2026-06-04T03:24:11.592Z',
+    image: '/images/blog/un-blocco-dei-ristorni-reazione-comprensibile.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
