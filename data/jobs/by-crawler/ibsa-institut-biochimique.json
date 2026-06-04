@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-06-03T23:55:53.068Z",
+  "assembledAt": "2026-06-04T12:22:25.849Z",
   "jobs": [
     {
       "id": "company-dfoci7",
@@ -88,7 +88,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2pgzo8",
@@ -197,7 +198,8 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-e3ivbg",
@@ -692,8 +694,8 @@
       "slugByLocale": {
         "it": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
         "en": "cmo-manager-ibsa-institut-biochimique-6916-working-area",
-        "de": "cmo-manager-ibsa-institut-biochimique-grancia",
-        "fr": "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
+        "de": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4",
+        "fr": "cmo-manager-e-i-fornitori-il-ruolo-prevede-il-coordinamento-di-un-team-di-4-persone-svizzera-e-italia-e-una-costante-interazione-con-stakeho-bm0ep4"
       },
       "sourceLang": "it",
       "country": "CH",
@@ -709,11 +711,13 @@
         ],
         "de": [
           "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
-          "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
+          "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
+          "cmo-manager-ibsa-institut-biochimique-grancia"
         ],
         "fr": [
           "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
-          "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
+          "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
+          "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
         ]
       },
       "previousSlugs": [
@@ -725,7 +729,8 @@
         "cmo-manager-ibsa-institut-biochimique-6916-working-area-bm0ep4",
         "cmo-manager-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
         "directeur-de-l-ocm-ibsa-institut-biochimique-6916-working-area",
-        "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia"
+        "directeur-de-l-ocm-ibsa-institut-biochimique-all-area-all-clear-apply-now-cmo-manager-location-grancia",
+        "directeur-de-l-ocm-ibsa-institut-biochimique-grancia"
       ],
       "salaryMin": 82500,
       "salaryMax": 127000,
@@ -761,7 +766,7 @@
         "Inserimento e tracciamento nel sistema SAP delle fatture relative agli studi clinici o agli accordi di consulenza;"
       ],
       "featured": false,
-      "postedDate": "2026-06-03",
+      "postedDate": "2026-06-04",
       "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -869,7 +874,8 @@
           "responsable-de-projet-clinique-ibsa-institut-biochimique-collina-d-oro"
         ]
       },
-      "firstSeenAt": "2026-04-09T21:37:33.940Z"
+      "firstSeenAt": "2026-04-09T21:37:33.940Z",
+      "needsRetranslation": true
     }
   ]
 }
