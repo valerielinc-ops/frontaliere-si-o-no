@@ -60,10 +60,25 @@ function isAntiBotStatus(status) {
 }
 
 /**
+ * Whether a Playwright-fetched body looks like the jobup feed payload, i.e. raw
+ * JSON (`[`/`{`) or a JSONP `xCallback({...})` wrapper (the two shapes
+ * `parseFeedBody` accepts). Used to reject a WAF 200-with-JS/CAPTCHA challenge
+ * page, which would pass `resp.ok()` but is not the feed — returning it would
+ * throw in `parseFeedBody` and re-surface a confusing parse error instead of the
+ * original anti-bot failure (#1323 item 7).
+ */
+export function looksLikeJsonFeedBody(text) {
+  const trimmed = String(text || '').trim();
+  if (!trimmed) return false;
+  return /^[[{]/.test(trimmed) || /^[a-zA-Z_$][\w$]*\s*\(/.test(trimmed);
+}
+
+/**
  * Last-resort fetch of the jobup JSON feed via a headless browser, for when the
  * WAF blocks plain `fetch` with 403 even under a realistic UA. Navigates to the
  * feed URL and returns the raw response body text. Returns null if Playwright is
- * unavailable or navigation fails — caller then surfaces the original HTTP error.
+ * unavailable, navigation fails, or the body is not the JSON feed — caller then
+ * surfaces the original HTTP error.
  */
 async function fetchFeedViaPlaywright(url) {
   let browser;
@@ -78,8 +93,19 @@ async function fetchFeedViaPlaywright(url) {
     const page = await context.newPage();
     const resp = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     if (!resp || !resp.ok()) return null;
-    // The .asp feed renders the JSON as the document body.
-    return await page.evaluate(() => document.body?.innerText ?? '');
+    // Read the raw response bytes, not `document.body.innerText`: innerText
+    // whitespace-normalizes and headless Chromium renders `application/json`
+    // through its JSON viewer, so the extracted text is not guaranteed to be the
+    // raw body (#1323 item 4). `resp` is already captured above.
+    const body = await resp.text();
+    // A WAF can answer 200 with a JS/CAPTCHA challenge page instead of the feed;
+    // that passes `resp.ok()` but is not JSON. Reject it so the caller surfaces
+    // the original anti-bot failure cleanly (#1323 item 7).
+    if (!looksLikeJsonFeedBody(body)) {
+      console.warn(`[jobup] Playwright fallback for ${url} returned a non-JSON body (likely a 200 anti-bot challenge)`);
+      return null;
+    }
+    return body;
   } catch (err) {
     console.warn(`[jobup] Playwright fallback failed for ${url}: ${err?.message || err}`);
     return null;
