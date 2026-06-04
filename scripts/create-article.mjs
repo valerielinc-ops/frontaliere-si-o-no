@@ -4326,24 +4326,42 @@ ${terminologyByLang[targetLang] || ''}`;
   // a brittle all-or-nothing guard inconsistent with the retry-then-accept
   // philosophy already used below for identical / over-long fields.
   //
-  // Structural fix: fall back to the Italian source value for any missing
-  // translated field instead of throwing. A locale page with the IT excerpt is
-  // still indexable and complete; one flaky translation call no longer nukes a
-  // whole article. The locale text is then re-checked by the "identical to
-  // Italian" retry block immediately below, which will attempt a proper
-  // re-translation. Only throw if the IT source itself is missing the field
-  // (a genuine upstream defect we cannot paper over).
+  // Structural fix: instead of hard-throwing (which discarded the whole article
+  // including the fine IT source), retry the missing field once via a focused
+  // re-translation, and only if THAT also fails fall back to the Italian source
+  // value. Shipping the IT value under a localized URL is an hreflang compromise
+  // (esp. for body1/2/3), so we genuinely re-attempt the translation first; the
+  // IT fallback is the last resort that keeps the page indexable rather than
+  // nuking the article. Only throw if the field is missing from the IT source
+  // itself (a real upstream defect we cannot paper over).
   for (const locale of ['en', 'de', 'fr']) {
+    const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (!data.content[locale][field]) {
-        const fallback = itContent[field];
-        if (fallback) {
-          console.error(`  ⚠️  Campo ${field} mancante nella traduzione ${locale} — fallback al valore italiano (verrà ritentato dal translation-check sotto).`);
-          data.content[locale][field] = fallback;
-        } else {
-          throw new Error(`Campo ${field} mancante nella traduzione ${locale} (e assente anche nella sorgente IT)`);
-        }
+      if (data.content[locale][field]) continue;
+      const itValue = itContent[field];
+      if (!itValue) {
+        throw new Error(`Campo ${field} mancante nella traduzione ${locale} (e assente anche nella sorgente IT)`);
       }
+      console.error(`  ⚠️  Campo ${field} mancante nella traduzione ${locale} — retry traduzione mirata...`);
+      try {
+        // Reuse the in-scope callWithRetry (callLLM + JSON repair + truncation
+        // back-off) for a focused single-field re-translation.
+        const parsed = await callWithRetry(
+          `Traduci OBBLIGATORIAMENTE in ${langName} il seguente campo per il sito Frontaliere Ticino. Rispondi SOLO con JSON (no markdown):\n\nCAMPO ITALIANO (${field}):\n${itValue}\n\nFormato risposta: {"${field}": "..."}`,
+          1500,
+          `${locale}:${field}-missing-retry`,
+        );
+        const retried = parsed?.[field];
+        if (retried && String(retried).trim() && String(retried).trim() !== String(itValue).trim()) {
+          data.content[locale][field] = retried;
+          console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
+          continue;
+        }
+        console.error(`  ⚠️  Retry ${field} (${locale}) non ha prodotto una traduzione valida — fallback al valore italiano`);
+      } catch (retryErr) {
+        console.error(`  ⚠️  Retry ${field} (${locale}) fallito: ${retryErr.message} — fallback al valore italiano`);
+      }
+      data.content[locale][field] = itValue;
     }
   }
 

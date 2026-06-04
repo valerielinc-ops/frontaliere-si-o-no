@@ -97,6 +97,26 @@ async function callCohere({ provider, inputs, fetchImpl }) {
  * @throws {Error} when no provider key is configured (caller graceful-skips)
  * @throws {Error} when provider returns wrong shape or HTTP error
  */
+// Model id of the provider that produced the most recent successful embedding.
+// CRITICAL for store consistency: mistral-embed and embed-multilingual-v3.0
+// share dim=1024 but are DIFFERENT vector spaces — cosine across them is
+// meaningless. Consumers (findTopK, semanticDedup, cascadedScore, the
+// incremental embeddings build) must compare query↔store ONLY when both come
+// from the same model. Reading the *first keyed provider* is NOT sufficient
+// (the Mistral key can be present but revoked → embeds actually come from the
+// Cohere fallback), so we record the model that ACTUALLY answered.
+let _lastUsedModel = null;
+
+/**
+ * Model id (e.g. 'mistral-embed' / 'embed-multilingual-v3.0') of the provider
+ * that produced the most recent successful embedBatch/embedOne call, or null if
+ * none has succeeded yet in this process. Use to gate cross-provider cosine.
+ * @returns {string|null}
+ */
+export function lastUsedEmbeddingModel() {
+  return _lastUsedModel;
+}
+
 export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
   if (!Array.isArray(inputs) || inputs.length === 0) return [];
 
@@ -127,6 +147,7 @@ export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
         // We recovered via a fallback provider — surface which one for diagnosis.
         console.error(`embedBatch: recovered on '${provider.id}' after ${failures.length} provider failure(s): ${failures.join(' | ')}`);
       }
+      _lastUsedModel = provider.model;
       return vectors;
     } catch (err) {
       failures.push(`${provider.id}: ${err?.message || err}`);
