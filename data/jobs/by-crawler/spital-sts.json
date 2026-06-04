@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-06-04T13:42:25.995Z",
+  "assembledAt": "2026-06-04T15:47:07.973Z",
   "jobs": [
     {
       "id": "spital-sts-bc19f72617d9",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/45547e12-2d38-439a-b636-5839fa84bd32/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:23.881Z",
+      "crawledAt": "2026-06-04T15:47:06.114Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/f7c010c4-2a05-49e2-b4ac-7981916a27ba/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:23.163Z",
+      "crawledAt": "2026-06-04T15:47:05.531Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -190,7 +190,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1c55b7d7-2305-4772-b65f-33f6fd3cdefd/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:22.490Z",
+      "crawledAt": "2026-06-04T15:47:04.934Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ee82e3ab-1e9b-4b54-8570-ea47f44c3c56/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:21.812Z",
+      "crawledAt": "2026-06-04T15:47:04.259Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/02327322-a7a6-4f8d-90cd-828d5b071f28/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:21.167Z",
+      "crawledAt": "2026-06-04T15:47:03.678Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -415,7 +415,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/6ad59e41-999f-45d9-a191-4dde6f2f1381/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:20.452Z",
+      "crawledAt": "2026-06-04T15:47:03.090Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -478,7 +478,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/90dc793b-c682-4a4d-a5e8-a915f27821a0/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:19.800Z",
+      "crawledAt": "2026-06-04T15:47:02.486Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -555,7 +555,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/1c830d99-211a-4f9f-a9f1-719bf13974a2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:19.143Z",
+      "crawledAt": "2026-06-04T15:47:01.877Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -632,7 +632,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c4819bf1-2f97-4808-9c34-5a33a85a15e2/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T13:42:18.487Z",
+      "crawledAt": "2026-06-04T15:47:01.293Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -681,9 +681,9 @@
       "id": "spital-sts-537b99704399",
       "slug": "assistente-medico-oncologia-spital-sts-thun-und-spiez",
       "slugByLocale": {
-        "de": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
         "it": "assistente-medico-oncologia-spital-sts-thun-und-spiez",
         "en": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
+        "de": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez",
         "fr": "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
@@ -691,17 +691,17 @@
       "companyDomain": "spitalstsag.ch",
       "title": "Assistenzärztin / Assistenzarzt Onkologie",
       "titleByLocale": {
-        "de": "Assistenzärztin / Assistenzarzt Onkologie",
         "it": "Assistente medico oncologia",
         "en": "Assistenzärztin / Assistenzarzt Onkologie",
+        "de": "Assistenzärztin / Assistenzarzt Onkologie",
         "fr": "Assistenzärztin / Assistenzarzt Onkologie"
       },
       "description": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik).\n\nDas wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
       "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik).\n\nDas wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik).\n\nDas wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik).\n\nDas wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik).\n\nDas wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell\n\nSo werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen"
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik). Das wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell So werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik). Das wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell So werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik). Das wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell So werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig. Als Assistenzärztin/-arzt in unserem Onkologie- und Hämatologiezentrum betreuen Sie vorwiegend ambulante Patientinnen und Patienten mit onkologischen und hämatologischen Erkrankungen. Sie sehen das gesamte fachliche Spektrum der Hämato-Onkologie, schliessen Patientinnen und Patienten in klinische Studien ein und nehmen am interdisziplinären Tumorboards sowie an regionalen, nationalen und internationalen hämato-onkologischen Fortbildungen teil. Eintritt per 1. Juli 2026 oder nach Vereinbarung (Ausbildungsstelle, B-Klinik). Das wartet auf Sie Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum Hervorragendes interdisziplinäres und interprofessionelles Team Wertschätzende Arbeitsatmosphäre mit flachen Hierarchien Exzellentes Teaching Zahlreiche Fort- und Weiterbildungsmöglichkeiten Sehr hohe Lebensqualität im Berner Oberland Flexibel wählbares Ferien- und Pensionskassenmodell So werden Sie Teil unseres Teams Abgeschlossenes Medizinstudium (Schweiz oder EU) Sehr gute Deutschkenntnisse in Wort und Schrift Aufgestellte, kommunikative, engagierte und teamorientierte Persönlichkeit Sie sind bereit, für unsere Patientinnen und Patienten die Extrameile zu gehen"
       },
       "needsRetranslation": true,
       "location": "Thun und Spiez",
@@ -709,7 +709,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c87ea77d-c64c-41c7-93e0-0efcee4b5938/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T01:12:54.424Z",
+      "crawledAt": "2026-06-04T15:47:00.508Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -725,9 +725,16 @@
       "postedDate": "2026-06-04",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/c87ea77d-c64c-41c7-93e0-0efcee4b5938",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
+        ]
       },
+      "firstSeenAt": "2026-06-04T01:12:54.424Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -739,16 +746,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-04T01:12:54.424Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-        ]
-      },
-      "previousSlugs": [
-        "assistenzarztin-assistenzarzt-onkologie-spital-sts-thun-und-spiez"
-      ]
+      }
     }
   ]
 }
