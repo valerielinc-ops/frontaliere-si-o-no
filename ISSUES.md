@@ -34,8 +34,8 @@ Nessun dedup-close: i duplicati sono evitati a monte (vedi "Scopo"). Misclassifi
 
 | Categoria | Azione triage |
 |---|---|
-| `crawler` | **Auto-route `agent:fix`.** Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. |
-| `follow-up` | **Auto-route `agent:fix`.** Micro-task / verifica deferred, basso blast-radius. |
+| `crawler` | **Auto-route `agent:fix` immediato** (`route='fix'`). Regen parser deterministico, basso blast-radius, coperto da `generate-company-parser.mjs`. Production-critical, non è il treadmill source. |
+| `follow-up` | **Auto-route `agent:fix-queued`** (`route='queue'`, 2026-06-04) + `fu-prio:high\|low`. NON parte subito: `followup-drainer.yml` lo promuove a `agent:fix` UNO alla volta, solo a slot `issue-fix` libero (high prima). Fix della starvation (vedi "Drenare il backlog" sotto). |
 | `validation-failure` | **NO auto-fix.** Spesso transiente; transiente-vs-persistente non è decidibile in modo deterministico (bash). Commento "verifica ricorrenza 🔁 prima di `agent:fix` manuale". |
 | `revenue` / `tracker` | NO auto-fix MAI. Giudizio strategico → mano umana (`/fix-issue` locale o manuale). |
 | `other` | NO auto-fix. Commento "needs manual triage". |
@@ -56,7 +56,7 @@ Tutte le automazioni Claude usano **solo `CLAUDE_CODE_OAUTH_TOKEN`** (Max sub, z
 - **No fixer su issue non-OPEN**: il routing salta le issue chiuse.
 - Concurrency `cancel-in-progress: false` serializza i fixer.
 - **fix/review/followup restano Claude** (giudizio necessario): max-turns NON tagliati (quality gate; budget basso → `error_max_turns`, cfr. #795/#802/#838). Sono meno frequenti del triage e producono valore.
-- **Residuo**: l'auto-route `follow-up` può auto-alimentarsi (fix→merge→followup→nuovo follow-up). Bound da: batch 1-issue/PR (meno volume), concurrency 1-alla-volta, gate `## LGTM`. Un fix pulito non genera nuovi follow-up → converge.
+- **Residuo**: l'auto-route `follow-up` può auto-alimentarsi (fix→merge→followup→nuovo follow-up). Bound da: batch 1-issue/PR (meno volume), **coda drenata 1-alla-volta** (`followup-drainer`), gate `## LGTM`, e **terminazione autonoma** (`followup-drainer` parcheggia a `fu-attempt:3` → `fu-parked`, no loop infinito, no perdita). Un fix pulito non genera nuovi follow-up → converge.
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
@@ -98,9 +98,13 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 - Mai un fix speculativo pur di produrre una PR.
 - **Ogni abort DEVE chiudere con `<!-- FIX_OUTCOME: <code> -->` nel commento** (codici validi: `no-root-cause` / `blocked-workflows-scope` / `blocked-secrets` / `blocked-admin-settings` / `overlap-skip` / `pr-already-open` / `already-fixed` / `revenue-tracker-manual`). Senza marker → harvester classifica il run come `no-pr-unspecified`, indistinguibile da un crash silenzioso → il pattern non è migliorabile.
 
-### Drenare il backlog `agent:fix` (re-label sequenziale)
+### Drenare il backlog follow-up (`followup-drainer.yml`, automatico)
 
-`issue-fix` ha `concurrency: { group: issue-fix, cancel-in-progress: false }`: GitHub tiene **un solo run pending** per gruppo e un nuovo trigger **cancella (supersede) il pending precedente**. Re-labelare in raffica N issue → sopravvivono solo la prima (già `in_progress`) e l'ultima (pending); quelle in mezzo finiscono `cancelled` **silenziosamente** (osservato: #974/#959/#960 droppate). Per ri-processare più issue: re-applica `agent:fix` **una alla volta**, aspettando che la precedente sia almeno `in_progress` prima della successiva. È anche la protezione anti-pile-up (no N agent concorrenti = no OOM / no burst quota Max condivisa).
+`issue-fix` ha `concurrency: { group: issue-fix, cancel-in-progress: false }`: GitHub tiene **un solo run pending** per gruppo e un nuovo trigger **cancella (supersede) il pending precedente**. Re-labelare `agent:fix` in raffica N follow-up → sopravvivono solo la prima (già `in_progress`) e l'ultima (pending); quelle in mezzo finiscono `cancelled` **silenziosamente** e restano `agent:fix` senza retry → backlog stuck (osservato 2026-06-04: ~20 issue, root cause del backlog follow-up; storicamente #974/#959/#960 droppate).
+
+**Risolto da `followup-drainer.yml`** (cron ~20min + `workflow_run` dopo ogni `issue-fix` + dispatch, **zero-Claude**, `scripts/ci/followup-drainer.mjs`): i follow-up entrano come `agent:fix-queued` (non `agent:fix`); il drainer promuove **UNO** a `agent:fix` solo quando lo slot `issue-fix` è libero (in-flight==0) → la run promossa è l'unica pending → **mai cancellata-in-coda**. Ordine: `fu-prio:high` prima, poi più vecchia. Resta la protezione anti-pile-up (1 fixer alla volta = no OOM / no burst quota Max).
+
+**Rescue + park (terminazione autonoma, no human):** un `agent:fix` follow-up orfano (run morta, nessuna PR `fix/issue-N`, `updatedAt` > 30min) viene ri-accodato con `fu-attempt:N`++; a `fu-attempt:3` → `fu-parked` (esce dalla coda attiva, **non chiuso**: nessuna perdita, ri-tentabile a mano). Solo a slot libero, così non tocca mai una run viva. Per ri-processare a mano un follow-up: applica `agent:fix-queued` (il drainer fa il resto) — non più `agent:fix` diretto.
 
 ## Local fixer (`/fix-issue N`)
 
