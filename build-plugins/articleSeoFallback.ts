@@ -1,5 +1,7 @@
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
+type ArticleSection = 'frontaliere' | 'svizzera';
+
 type SeoSection = {
  heading: string;
  paragraphs: string[];
@@ -41,6 +43,17 @@ const SECTION_LABELS: Record<Locale, { intro: string; why: string; checks: strin
  impact: 'Impact concret pour les frontaliers',
  next: 'Etapes utiles a suivre',
  },
+};
+
+// Switzerland-resident framing overrides for the "svizzera" section. Only the
+// `impact` heading label and the intro-paragraph residence clause differ from
+// the default (frontaliere) copy; everything else is shared. Frontaliere output
+// stays byte-identical because these are applied only when section==='svizzera'.
+const SVIZZERA_IMPACT_LABEL: Record<Locale, string> = {
+ it: 'Impatto pratico per chi vive in Svizzera',
+ en: 'Practical impact for people living in Switzerland',
+ de: 'Praktische Folgen fur Menschen mit Wohnsitz in der Schweiz',
+ fr: 'Impact concret pour les residents en Suisse',
 };
 
 const stripArticleMarkup = (text: string): string =>
@@ -95,8 +108,11 @@ const formatTopicList = (locale: Locale, topics: string[]): string => {
  return topics.join(', ');
 };
 
-export function buildArticleSeoSections(locale: Locale, title: string, desc: string, keywords: string): SeoSection[] {
- const labels = SECTION_LABELS[locale];
+export function buildArticleSeoSections(locale: Locale, title: string, desc: string, keywords: string, section: ArticleSection = 'frontaliere'): SeoSection[] {
+ const isSvizzera = section === 'svizzera';
+ const labels = isSvizzera
+   ? { ...SECTION_LABELS[locale], impact: SVIZZERA_IMPACT_LABEL[locale] }
+   : SECTION_LABELS[locale];
  const topics = extractTopicTerms(locale, title, desc, keywords);
  const topicList = formatTopicList(locale, topics);
 
@@ -105,7 +121,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
  {
  heading: labels.intro,
  paragraphs: [
- `${title} wird hier nicht nur als kurze Meldung, sondern als Orientierungshilfe fur Grenzganger aufbereitet. ${desc} Der statische Inhalt erklart die Ausgangslage, ordnet den Kontext im Tessiner Arbeits- und Steueralltag ein und hilft dabei, die Relevanz fur die eigene Situation sauber einzuordnen.`,
+ `${title} wird hier nicht nur als kurze Meldung, sondern als Orientierungshilfe ${isSvizzera ? 'fur Menschen mit Wohnsitz in der Schweiz' : 'fur Grenzganger'} aufbereitet. ${desc} Der statische Inhalt erklart die Ausgangslage, ordnet den Kontext im ${isSvizzera ? 'schweizweiten' : 'Tessiner'} Arbeits- und Steueralltag ein und hilft dabei, die Relevanz fur die eigene Situation sauber einzuordnen.`,
  `Besonders wichtig ist das fur Nutzer, die direkt aus der Google-Suche kommen und schnell verstehen mussen, ob das Thema ihren Nettolohn, ihre Planung, ihre Versicherung oder ihre tagliche Organisation betrifft. Statt nur eine kurze Zusammenfassung zu zeigen, deckt diese Seite die praktischen Zusammenhange ab, die bei grenzuberschreitender Arbeit regelmassig zu Fehlentscheidungen fuhren.`,
  ],
  },
@@ -145,7 +161,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
  {
  heading: labels.intro,
  paragraphs: [
- `${title} est presente ici comme une ressource utile, pas seulement comme une breve. ${desc} Le contenu statique ajoute le contexte indispensable pour comprendre a qui la situation s applique, ce qui change concretement et pourquoi le sujet compte pour les frontaliers entre l Italie et le Tessin.`,
+ `${title} est presente ici comme une ressource utile, pas seulement comme une breve. ${desc} Le contenu statique ajoute le contexte indispensable pour comprendre a qui la situation s applique, ce qui change concretement et pourquoi le sujet compte ${isSvizzera ? 'pour les residents en Suisse' : 'pour les frontaliers entre l Italie et le Tessin'}.`,
  `De nombreux visiteurs arrivent directement depuis Google et doivent savoir en quelques secondes si la page concerne leur salaire net, leur fiscalite, leur assurance, leur emploi ou leur organisation quotidienne. Cette structure donne une base plus solide que quelques lignes generiques et renforce la valeur editoriale percue par les moteurs de recherche.`,
  ],
  },
@@ -185,7 +201,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
  {
  heading: labels.intro,
  paragraphs: [
- `${title} is presented here as a practical resource rather than a thin summary. ${desc} The static SEO content adds the missing context users need to understand who is affected, what may change in practice, and why the topic matters for people living in Italy and working in Ticino.`,
+ `${title} is presented here as a practical resource rather than a thin summary. ${desc} The static SEO content adds the missing context users need to understand who is affected, what may change in practice, and why the topic matters for ${isSvizzera ? 'people living and working across Switzerland' : 'people living in Italy and working in Ticino'}.`,
  `Many visits start from Google, not from the homepage, so the page needs enough substance on first load to explain the scenario clearly. That means giving readers more than a short excerpt: it should show the business, tax, salary, and day-to-day implications that normally drive real decisions for cross-border workers.`,
  ],
  },
@@ -224,7 +240,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
  {
  heading: labels.intro,
  paragraphs: [
- `${title} viene presentato come una risorsa utile, non come una scheda vuota o una notizia troppo breve. ${desc} Il contenuto statico aggiunge il contesto che serve per capire subito chi e coinvolto, quali decisioni puo influenzare e perche il tema conta davvero per chi vive in Italia e lavora in Ticino.`,
+ `${title} viene presentato come una risorsa utile, non come una scheda vuota o una notizia troppo breve. ${desc} Il contenuto statico aggiunge il contesto che serve per capire subito chi e coinvolto, quali decisioni puo influenzare e perche il tema conta davvero ${isSvizzera ? 'per chi vive e lavora in Svizzera' : 'per chi vive in Italia e lavora in Ticino'}.`,
  `Molte visite arrivano direttamente da Google e non dalla homepage, quindi la pagina deve spiegare da sola scenario, utilita e possibili conseguenze. Per questo il testo estende il significato del titolo e rende piu chiari i collegamenti con stipendio netto, tassazione, assicurazione, documenti, lavoro e organizzazione quotidiana del frontaliere.`,
  ],
  },

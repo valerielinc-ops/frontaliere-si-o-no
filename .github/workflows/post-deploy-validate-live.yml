@@ -123,12 +123,34 @@ jobs:
       # congestion the Pages publish backlog can make ours land minutes-to-hours
       # after this window — but the live site is an EARLIER VALID build the whole
       # time, NOT broken. So a propagation timeout must NOT trigger rollback.
+      #
+      # Window = 240s (script default is 25min; we override here). Two facts set
+      # this ceiling:
+      #   1. The probe is CACHE-BUSTED — wait-for-pages-propagation.mjs adds a
+      #      unique `?_=<ts>` + `Cache-Control: no-cache` per request, so the
+      #      build-id.txt read defeats the Fastly edge. The ~1-2 min edge lag
+      #      documented for *cached HTML* therefore does NOT delay build-id
+      #      detection.
+      #   2. Measured: across the 88 completed deploy runs of late-May→Jun, every
+      #      healthy deploy (action or retry reaching success) confirmed at
+      #      attempt 1, t+0–1s (p100 = 1s; e.g. runs 26808012188, 26803159863,
+      #      26755640441) — deploy-pages returns success only after server-side
+      #      syncing_files→updating_pages, so the origin already serves our bytes.
+      # 240s sits comfortably ABOVE the documented 1-2 min edge lag, so even a
+      # worst-case edge-stale healthy deploy cannot false-fire propagation_timeout
+      # (which would gate publish/IndexNow OFF — indexing latency). The old 25-min
+      # window was only ever burned in the double-action-timeout branch, where it
+      # almost always ended in propagation_timeout regardless (the ~13 GB / ~470k-
+      # file publish lands long after any sane window). 240s still cuts ~21 of the
+      # ~23 min wasted there. Trade-off: a rare supersede caught at t+1415s now
+      # times out instead — fine, that build was never ours; publish defers to the
+      # superseding run's own validate-live.
       - name: Wait for Pages propagation (our build-id or newer must be live)
         id: propagation
         continue-on-error: true
         env:
           LIVE_BASE_URL: https://frontaliereticino.ch
-        run: node scripts/wait-for-pages-propagation.mjs
+        run: node scripts/wait-for-pages-propagation.mjs --timeout-ms=240000
 
       - name: Classify propagation timeout (no rollback for this)
         if: steps.propagation.outcome == 'failure'
@@ -147,6 +169,52 @@ jobs:
         run: |
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
+
+      # Verify the offloaded JS/CSS bundle actually serves from the CDN on the
+      # LIVE site. Moved here from the build job: the CDN Pages build lags the
+      # push, so an inline build-time poll was a flaky false-negative that blocked
+      # the whole build. By the time validate-live runs the deploy is propagated
+      # and the CDN repo's Pages site has long since built, so this is reliable.
+      # The boot chain (entry JS/CSS) is rebased to cdn.frontaliereticino.ch by
+      # ASSET_CDN/renderBuiltUrl; if the homepage references such a URL it MUST
+      # serve 200, else the live site can't boot → fail → caller rolls back.
+      # If no CDN /assets/ ref is present (assets stayed same-origin this round —
+      # Guard B kept dist/assets), there is nothing to verify → pass.
+      - name: Verify CDN-offloaded bundle serves live
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: |
+          set -uo pipefail
+          # Retry the homepage fetch so a transient network blip can't masquerade
+          # as "no CDN ref → nothing to verify" and silently skip the gate.
+          html=""
+          for i in 1 2 3 4; do
+            html="$(curl -s --max-time 30 "${LIVE_BASE_URL}/" || true)"
+            [ -n "$html" ] && break
+            sleep 5
+          done
+          if [ -z "$html" ]; then
+            echo "[validate-live] homepage fetch returned empty after 4 tries — inconclusive (transient); the e2e:live smoke below exercises boot end-to-end. Skipping CDN gate."
+            exit 0
+          fi
+          asset="$(printf '%s' "$html" | grep -oE 'https://cdn\.frontaliereticino\.ch/assets/[^"'"'"' )]+\.(js|css)' | head -1)"
+          if [ -z "$asset" ]; then
+            echo "[validate-live] homepage (non-empty) references no cdn.frontaliereticino.ch/assets bundle — assets served same-origin this deploy; nothing to verify."
+            exit 0
+          fi
+          echo "[validate-live] verifying boot bundle on CDN: $asset"
+          ok=""
+          for i in $(seq 1 12); do
+            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$asset" || echo 000)"
+            echo "  attempt $i: $code"
+            [ "$code" = "200" ] && { ok=1; break; }
+            sleep 10
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::[validate-live] CDN boot bundle $asset not serving after ~2min (live homepage references it but it 404s) — failing → rollback"
+            exit 1
+          fi
+          echo "✅ [validate-live] CDN boot bundle serves 200 from cdn.frontaliereticino.ch"
 
       - name: Live smoke (probe 5xx + e2e:live)
         env:

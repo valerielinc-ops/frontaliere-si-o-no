@@ -1,4 +1,5 @@
 import { reportCaughtError } from '@/services/errorReporter';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 
 export type FuelComparisonCountry = 'IT' | 'CH' | 'SAME' | 'NO_DATA';
 
@@ -171,7 +172,7 @@ async function fetchFromFirestore(): Promise<FuelPricesDataset> {
 /** Fallback: fetch the daily JSON cache from the static build */
 async function fetchFromStaticJson(forceRefresh: boolean): Promise<FuelPricesDataset> {
  const url = forceRefresh ? '/data/fuel-prices.json?t=' + Date.now() : '/data/fuel-prices.json';
- const response = await fetch(url, { cache: forceRefresh ? 'no-store' : 'default' });
+ const response = await fetch(cdnDataUrl(url), { cache: forceRefresh ? 'no-store' : 'default' });
  if (!response.ok) {
  throw new Error('Fuel static JSON unavailable (' + response.status + ')');
  }

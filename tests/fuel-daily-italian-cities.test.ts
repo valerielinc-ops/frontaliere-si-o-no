@@ -243,3 +243,50 @@ describe('generateFuelItalianCityPages() — empty dataset', () => {
     expect(out).toEqual({});
   });
 });
+
+describe('generateFuelItalianCityPages() — matchKey collision guard', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+
+  const pricedStation = (id: string, name: string) => ({
+    municipality: name,
+    italy: {
+      stations: [
+        {
+          id,
+          stationName: `Eni ${name}`,
+          brand: 'Eni',
+          address: `Via Roma 1, ${name}`,
+          priceEur: 1.7,
+        },
+      ],
+    },
+  });
+
+  it('throws when two homonym comuni live in different provinces', () => {
+    // Two distinct "Trezzano" municipalities (a real homonym risk in MIMIT data):
+    // one in MI, one in a different province. Without the guard the second would be
+    // dropped silently and its station merged onto the first city's page.
+    const dataset = {
+      generatedAt: '2026-04-20T06:00:00.000Z',
+      municipalities: [
+        { ...pricedStation('a', 'Trezzano'), province: 'MI' },
+        { ...pricedStation('b', 'Trezzano'), province: 'PV' },
+      ],
+    };
+    expect(() => generateFuelItalianCityPages({ dataset, today })).toThrow(
+      /matchKey collision/,
+    );
+  });
+
+  it('does NOT throw for same-name same-province duplicate rows', () => {
+    // Legitimate duplicate (same comune listed twice) must still dedup quietly.
+    const dataset = {
+      generatedAt: '2026-04-20T06:00:00.000Z',
+      municipalities: [
+        { ...pricedStation('a', 'Trezzano'), province: 'MI' },
+        { ...pricedStation('b', 'Trezzano'), province: 'MI' },
+      ],
+    };
+    expect(() => generateFuelItalianCityPages({ dataset, today })).not.toThrow();
+  });
+});

@@ -33,6 +33,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   sync-orphans:
@@ -89,6 +90,15 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: node scripts/mine-all-job-slugs.mjs
 
+      - name: Prune non-resolving 404-compat paths (keep test invariant green)
+        if: ${{ inputs.dry_run != true }}
+        # Gate bot-direct-to-main against the committed-snapshot invariant
+        # (tests/search-console-compat.test.ts): drop any appended path the
+        # resolver can't map BEFORE commit, so main never goes red on a raw
+        # data dump (observed 2026-06-02: a sync commit froze the drain ~83min).
+        # Needs data/jobs.json (assembled above); self-skips if missing.
+        run: npx tsx scripts/prune-404-compat-paths.ts
+
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
         id: commit
@@ -127,3 +137,19 @@ jobs:
           # con secrets.*: altrimenti trigger-deploy.sh gira con PAT vuoto e il
           # deploy non parte (cfr. #878).
           GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

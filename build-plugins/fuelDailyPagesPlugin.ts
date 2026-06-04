@@ -49,6 +49,7 @@ import {
   buildFuelItalianCityPath,
   buildFuelItalianStationPath,
   buildStationSlug,
+  slugify,
   zoneForAddress,
   computeDeltaVsYesterday,
   type FuelDailyLocale,
@@ -418,6 +419,36 @@ function formatDelta(delta: number | null, locale: FuelDailyLocale): string {
   const val = delta.toFixed(3);
   const sep = locale === 'it' || locale === 'fr' ? ',' : '.';
   return `${sign}${val.replace('.', sep)} CHF`;
+}
+
+/**
+ * Localised "no change over time" word, used in place of a literal "0,000 CHF"
+ * delta — which users read as "no data" (see the live Locarno case). Applies
+ * ONLY to TIME comparisons (vs yesterday / vs 7 days): "stabile" means the
+ * price held steady. It is NOT correct for the station/Italian-city
+ * spatial delta (station vs zone/city average), where zero means "in line with
+ * the average" — a different concept handled there by the advice "median"
+ * branch. All daily-zone consuming frames are adjective-position ("<word> vs
+ * ieri", "è <word>") so this single adjective fits each surface grammatically.
+ */
+const DELTA_UNCHANGED_LABEL: Record<FuelDailyLocale, string> = {
+  it: 'stabile',
+  en: 'unchanged',
+  de: 'unverändert',
+  fr: 'stable',
+};
+
+/**
+ * Time-delta presentation for visible copy: same as {@link formatDelta} but
+ * renders the localised "unchanged" word for an exact-zero day-over-day /
+ * 7-day delta instead of "0,000 CHF". Display-only — callers that PARSE the
+ * delta (renderStationAdvice strips sign + "CHF"/"EUR") must keep using
+ * {@link formatDelta}, and the station/city spatial delta keeps formatDelta
+ * because "stabile" would misdescribe a station-vs-average comparison.
+ */
+function formatDeltaDisplay(delta: number | null, locale: FuelDailyLocale): string {
+  if (delta === 0) return DELTA_UNCHANGED_LABEL[locale];
+  return formatDelta(delta, locale);
 }
 
 function formatPrice(price: number | null, locale: FuelDailyLocale): string {
@@ -1269,7 +1300,7 @@ function renderFuelTodayFrontalierContext(args: {
   const copy: Record<FuelDailyLocale, { h: string; p1: string; p2: string }> = {
     it: {
       h: `${fuelLabel} ${where}: cosa significa il prezzo di oggi per i frontalieri`,
-      p1: `Per i frontalieri italiani che attraversano quotidianamente il confine per lavorare in Ticino, ${fuelLabel.toLowerCase()} ${where} a ${priceFmt} è una voce di costo ricorrente che incide direttamente sul netto. Su un serbatoio standard da 50 litri, una variazione di CHF 0.10 al litro significa CHF 5 in più o in meno per ogni rifornimento — su una media di 4 rifornimenti al mese diventano CHF 240 all'anno. Il delta rispetto a ieri è di ${deltaYestFmt} e quello settimanale è di ${delta7Fmt}: monitorare queste fluttuazioni aiuta a decidere se conviene fare il pieno oggi o aspettare. I prezzi più bassi nel ${zoneLabel} sono pubblicati in tempo reale dal nostro crawler, che attinge al registro federale dei prezzi (FCA) e ai listini delle compagnie petrolifere. Per ottimizzare il pendolarismo, confronta il prezzo medio della tua zona di lavoro con quello dei distributori sui valichi italiani lato Como e Varese: la differenza tra i due lati del confine oscilla normalmente tra CHF 0.20 e CHF 0.40 per litro a seconda del cambio del giorno.`,
+      p1: `Per i frontalieri italiani che attraversano quotidianamente il confine per lavorare in Ticino, ${fuelLabel.toLowerCase()} ${where} a ${priceFmt} è una voce di costo ricorrente che incide direttamente sul netto. Su un serbatoio standard da 50 litri, una variazione di CHF 0.10 al litro significa CHF 5 in più o in meno per ogni rifornimento — su una media di 4 rifornimenti al mese diventano CHF 240 all'anno. Il delta rispetto a ieri è ${deltaYestFmt} e quello settimanale è ${delta7Fmt}: monitorare queste fluttuazioni aiuta a decidere se conviene fare il pieno oggi o aspettare. I prezzi più bassi nel ${zoneLabel} sono pubblicati in tempo reale dal nostro crawler, che attinge al registro federale dei prezzi (FCA) e ai listini delle compagnie petrolifere. Per ottimizzare il pendolarismo, confronta il prezzo medio della tua zona di lavoro con quello dei distributori sui valichi italiani lato Como e Varese: la differenza tra i due lati del confine oscilla normalmente tra CHF 0.20 e CHF 0.40 per litro a seconda del cambio del giorno.`,
       p2: `Cambio CHF/EUR e convenienza del rifornimento. Il franco svizzero forte ha attenuato negli ultimi mesi il vantaggio strutturale del rifornimento in Italia per chi è pagato in CHF: con il cambio CHF/EUR favorevole, un litro pagato in Svizzera può costare in euro reali meno di un litro italiano per un frontaliere con stipendio sopra i CHF 4'500 mensili. Il punto di pareggio dipende da tre variabili — il cambio del giorno, il consumo della propria auto, la lunghezza della deviazione necessaria. Con consumi di 6 L/100 km, oltre i 50 km di deviazione per cercare il distributore più economico l'operazione raramente conviene una volta sommati tempo e usura del veicolo. Per pianificare meglio, verifica sempre i tempi di attesa ai valichi sulla mappa dei valichi prima del rifornimento — una coda di 30 minuti al confine può azzerare il vantaggio del prezzo italiano. Per il calcolo netto-lordo dello stipendio considera anche queste spese ricorrenti nel <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a>.`,
     },
     en: {
@@ -1279,12 +1310,12 @@ function renderFuelTodayFrontalierContext(args: {
     },
     de: {
       h: `${fuelLabel} ${where === 'in Ticino' ? 'im Tessin' : `in ${zoneLabel}`}: was der heutige Preis für Grenzgänger bedeutet`,
-      p1: `Für italienische Grenzgänger, die täglich die Grenze überqueren, um im Tessin zu arbeiten, ist ${fuelLabel.toLowerCase()} bei CHF ${priceFmt} eine wiederkehrende Ausgabe, die direkt das Nettoeinkommen beeinflusst. Bei einem Standard-50-Liter-Tank bedeutet eine Schwankung von CHF 0.10 pro Liter CHF 5 mehr oder weniger pro Tankfüllung — bei rund 4 Tankfüllungen pro Monat sind das CHF 240 pro Jahr. Die Tagesveränderung beträgt ${deltaYestFmt} und die Wochenveränderung ${delta7Fmt}: das Verfolgen dieser Schwankungen hilft bei der Entscheidung, ob heute zu tanken oder zu warten ist. Die günstigsten Tankstellen in ${zoneLabel} listet unser Crawler in Echtzeit auf, der auf das Bundesregister der Treibstoffpreise (FCA) und die Preislisten der Mineralölgesellschaften zugreift. Um den Arbeitsweg zu optimieren, vergleichen Sie den Median Ihrer Arbeitszone mit italienischen Tankstellen an den Übergängen Como und Varese: die Differenz zwischen beiden Grenzseiten schwankt typischerweise zwischen CHF 0.20 und CHF 0.40 pro Liter je nach Tageskurs.`,
+      p1: `Für italienische Grenzgänger, die täglich die Grenze überqueren, um im Tessin zu arbeiten, ist ${fuelLabel.toLowerCase()} bei CHF ${priceFmt} eine wiederkehrende Ausgabe, die direkt das Nettoeinkommen beeinflusst. Bei einem Standard-50-Liter-Tank bedeutet eine Schwankung von CHF 0.10 pro Liter CHF 5 mehr oder weniger pro Tankfüllung — bei rund 4 Tankfüllungen pro Monat sind das CHF 240 pro Jahr. Die Tagesveränderung ist ${deltaYestFmt} und die Wochenveränderung ist ${delta7Fmt}: das Verfolgen dieser Schwankungen hilft bei der Entscheidung, ob heute zu tanken oder zu warten ist. Die günstigsten Tankstellen in ${zoneLabel} listet unser Crawler in Echtzeit auf, der auf das Bundesregister der Treibstoffpreise (FCA) und die Preislisten der Mineralölgesellschaften zugreift. Um den Arbeitsweg zu optimieren, vergleichen Sie den Median Ihrer Arbeitszone mit italienischen Tankstellen an den Übergängen Como und Varese: die Differenz zwischen beiden Grenzseiten schwankt typischerweise zwischen CHF 0.20 und CHF 0.40 pro Liter je nach Tageskurs.`,
       p2: `CHF/EUR-Wechselkurs und Tank-Wirtschaftlichkeit. Der starke Schweizer Franken hat in den letzten Monaten den strukturellen Vorteil des Tankens in Italien für CHF-bezahlte Grenzgänger gemindert: bei einem günstigen CHF/EUR-Kurs kann ein Schweizer Liter in realen EUR weniger kosten als ein italienischer Liter für Personen mit Gehältern über CHF 4'500/Monat. Der Break-Even-Punkt hängt von drei Variablen ab — Tageskurs, Fahrzeugverbrauch und Länge des nötigen Umwegs. Bei einem Verbrauch von 6 L/100 km lohnen sich Umwege von mehr als 50 km zur Suche einer günstigeren Tankstelle selten, wenn Zeit und Fahrzeugverschleiss eingerechnet werden. Zur besseren Planung prüfen Sie immer die Live-Wartezeiten auf der Übergangskarte vor dem Tanken — eine 30-minütige Wartezeit an der Grenze kann den italienischen Preisvorteil neutralisieren. Für die Brutto-Netto-Berechnung des Lohns berücksichtigen Sie diese laufenden Kosten im <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a>.`,
     },
     fr: {
       h: `${fuelLabel} ${where === 'in Ticino' ? 'au Tessin' : `à ${zoneLabel}`} : ce que le prix d'aujourd'hui signifie pour les frontaliers`,
-      p1: `Pour les frontaliers italiens qui traversent quotidiennement la frontière pour travailler au Tessin, ${fuelLabel.toLowerCase()} à CHF ${priceFmt} est une dépense récurrente qui pèse directement sur le salaire net. Sur un réservoir standard de 50 litres, une variation de CHF 0.10 par litre représente CHF 5 de plus ou de moins par plein — sur environ 4 pleins par mois cela représente CHF 240 par an. La variation par rapport à hier est de ${deltaYestFmt} et celle par rapport à la semaine dernière de ${delta7Fmt} : surveiller ces fluctuations aide à décider de faire le plein aujourd'hui ou d'attendre. Les stations les moins chères à ${zoneLabel} sont listées en temps réel par notre crawler, qui s'appuie sur le registre fédéral des prix des carburants (FCA) et les listes de prix des compagnies pétrolières. Pour optimiser votre trajet, comparez la médiane de votre zone de travail avec les stations italiennes près des passages Côme et Varèse : l'écart entre les deux côtés de la frontière oscille normalement entre CHF 0.20 et CHF 0.40 par litre selon le taux du jour.`,
+      p1: `Pour les frontaliers italiens qui traversent quotidiennement la frontière pour travailler au Tessin, ${fuelLabel.toLowerCase()} à CHF ${priceFmt} est une dépense récurrente qui pèse directement sur le salaire net. Sur un réservoir standard de 50 litres, une variation de CHF 0.10 par litre représente CHF 5 de plus ou de moins par plein — sur environ 4 pleins par mois cela représente CHF 240 par an. La variation par rapport à hier est ${deltaYestFmt} et celle par rapport à la semaine dernière est ${delta7Fmt} : surveiller ces fluctuations aide à décider de faire le plein aujourd'hui ou d'attendre. Les stations les moins chères à ${zoneLabel} sont listées en temps réel par notre crawler, qui s'appuie sur le registre fédéral des prix des carburants (FCA) et les listes de prix des compagnies pétrolières. Pour optimiser votre trajet, comparez la médiane de votre zone de travail avec les stations italiennes près des passages Côme et Varèse : l'écart entre les deux côtés de la frontière oscille normalement entre CHF 0.20 et CHF 0.40 par litre selon le taux du jour.`,
       p2: `Taux CHF/EUR et économie du plein. Le franc suisse fort a atténué ces derniers mois l'avantage structurel du plein en Italie pour les frontaliers payés en CHF : avec un taux CHF/EUR favorable, un litre payé en Suisse peut coûter en EUR réels moins qu'un litre italien pour quelqu'un gagnant plus de CHF 4'500/mois. Le seuil de rentabilité dépend de trois variables — taux du jour, consommation du véhicule, longueur du détour nécessaire. Avec une consommation de 6 L/100 km, des détours de plus de 50 km à la recherche d'une pompe moins chère sont rarement rentables une fois pris en compte le temps et l'usure du véhicule. Pour mieux planifier, vérifiez toujours les temps d'attente en direct sur la carte des passages avant de faire le plein — une file de 30 minutes à la frontière peut annuler l'avantage du prix italien. Pour le calcul brut-net du salaire, intégrez ces coûts récurrents dans le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a>.`,
     },
   };
@@ -1571,8 +1602,8 @@ function renderPage(inp: PageInputs): string {
   const delta7 = computeDeltaVsYesterday(avg, weekAgo);
 
   const priceFmt = formatPrice(avg, locale);
-  const deltaYestFmt = formatDelta(deltaYest, locale);
-  const delta7Fmt = formatDelta(delta7, locale);
+  const deltaYestFmt = formatDeltaDisplay(deltaYest, locale);
+  const delta7Fmt = formatDeltaDisplay(delta7, locale);
 
   const h1 = zone ? copy.zoneH1(fuelLabel, zoneLabel) : copy.regionalH1(fuelLabel);
   const intro = copy.intro(fuelLabel, zoneLabel, priceFmt, dateStamp);
@@ -1583,10 +1614,10 @@ function renderPage(inp: PageInputs): string {
   // moves to the paragraph block below the action area, preserving
   // text-to-HTML ratio.
   const fuelTaglineByLocale: Record<FuelDailyLocale, string> = {
-    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · variazione vs ieri ${deltaYestFmt}, vs 7 giorni ${delta7Fmt}.`,
-    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · change vs yesterday ${deltaYestFmt}, vs 7 days ${delta7Fmt}.`,
-    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · Veränderung vs gestern ${deltaYestFmt}, vs 7 Tagen ${delta7Fmt}.`,
-    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · variation vs hier ${deltaYestFmt}, vs 7 jours ${delta7Fmt}.`,
+    it: `${fuelLabel} oggi a ${zoneLabel}: ${priceFmt} CHF/litro · ${deltaYestFmt} vs ieri, ${delta7Fmt} vs 7 giorni.`,
+    en: `${fuelLabel} today in ${zoneLabel}: ${priceFmt} CHF/litre · ${deltaYestFmt} vs yesterday, ${delta7Fmt} vs 7 days.`,
+    de: `${fuelLabel} heute in ${zoneLabel}: ${priceFmt} CHF/Liter · ${deltaYestFmt} vs gestern, ${delta7Fmt} vs 7 Tagen.`,
+    fr: `${fuelLabel} aujourd'hui à ${zoneLabel} : ${priceFmt} CHF/litre · ${deltaYestFmt} vs hier, ${delta7Fmt} vs 7 jours.`,
   };
   const introTagline = fuelTaglineByLocale[locale];
   const historyCopy = copy.historySection;
@@ -4083,7 +4114,7 @@ export function generateFuelItalianCityPages(opts: {
     );
   }
 
-  for (const entry of FUEL_ITALIAN_CITIES) {
+  for (const entry of buildItalianCityEntries(dataset)) {
     for (const fuel of FUEL_TYPES) {
       const stations = collectItalianCityStations(dataset, entry, fuel);
       if (stations.length === 0) continue; // skip if no station data for this fuel
@@ -4117,6 +4148,137 @@ export function generateFuelItalianCityPages(opts: {
     }
   }
   return pages;
+}
+
+// ── Dynamic Italian-city coverage (all municipalities, not just curated) ──
+//
+// The 14 curated FUEL_ITALIAN_CITIES keep hand-tuned slug/display/zone. Every
+// OTHER municipality in the dataset that has ≥1 priced Italian station also
+// gets per-city + per-station pages, so the cross-border fuel SPA can deep-link
+// EVERY station (no orphaned "data-only" cards). Nearest Ticino zone is derived
+// from the closest Swiss station address; a province fallback covers comuni
+// whose 20 km Swiss radius came back empty.
+const PROVINCE_FALLBACK_ZONE: Record<string, FuelZone> = {
+  CO: 'chiasso',
+  VA: 'mendrisio',
+  LC: 'bellinzona',
+  SO: 'bellinzona',
+  VB: 'locarno',
+  MB: 'chiasso',
+  MI: 'chiasso',
+  LO: 'chiasso',
+  PV: 'chiasso',
+  CR: 'chiasso',
+  BG: 'bellinzona',
+  MC: 'chiasso',
+};
+
+interface ItalianDatasetRowLite {
+  municipality?: string;
+  province?: string;
+  swiss?: {
+    nearbyStations?: Array<{ address?: string }>;
+    cheapestStation?: { address?: string };
+  };
+  italy?: {
+    stations?: Array<{
+      priceEur?: number;
+      dieselPriceEur?: number | null;
+      brand?: string;
+      stationName?: string;
+    }>;
+  };
+}
+
+/** Nearest Ticino zone for a municipality: closest Swiss station → province fallback. */
+function deriveItalianCityZone(row: ItalianDatasetRowLite): FuelZone {
+  for (const s of row.swiss?.nearbyStations ?? []) {
+    const z = zoneForAddress(s.address);
+    if (z) return z;
+  }
+  const z2 = zoneForAddress(row.swiss?.cheapestStation?.address);
+  if (z2) return z2;
+  return PROVINCE_FALLBACK_ZONE[(row.province ?? '').toUpperCase()] ?? 'chiasso';
+}
+
+const _italianCityEntriesCache = new WeakMap<object, ItalianCityEntry[]>();
+
+/**
+ * Full Italian-city entry list for page generation: the curated 14 (with their
+ * hand-tuned metadata) plus a dynamic entry for every other municipality that
+ * has at least one priced station. Memoised per dataset object. Slug is
+ * `slugify(municipality)` — verified collision-free across the dataset; the
+ * defensive suffix below only fires if two municipalities ever collide (the SPA
+ * mirrors the bare `slugify(municipality)` form, so collisions would desync and
+ * are intentionally kept impossible by the data).
+ */
+function buildItalianCityEntries(dataset: FuelPricesDataset): ItalianCityEntry[] {
+  const cached = _italianCityEntriesCache.get(dataset as object);
+  if (cached) return cached;
+  const out: ItalianCityEntry[] = [...FUEL_ITALIAN_CITIES];
+  const seenKey = new Set(FUEL_ITALIAN_CITIES.map((c) => c.matchKey));
+  const seenSlug = new Set(FUEL_ITALIAN_CITIES.map((c) => c.slug));
+  // Province claimed by each matchKey (curated entries seed it). matchKey is the
+  // lowercased municipality name, and station collection matches rows by matchKey
+  // alone (no province filter, see collectItalianCityStations / cross-border loops).
+  // So two homonym comuni in DIFFERENT provinces would: (a) drop the second from
+  // `out` via the dedup `continue` below — no page of its own — and (b) silently
+  // merge its stations onto the first city's page. Today's dataset has 0 such
+  // collisions, but a future MIMIT cut could introduce one. Fail loud here instead
+  // of degrading silently (missing page + mixed content). Same-name/same-province
+  // rows are legitimate duplicates and still dedup quietly.
+  const claimedProvince = new Map<string, string>(
+    FUEL_ITALIAN_CITIES.map((c) => [c.matchKey, c.province.toUpperCase()] as [string, string]),
+  );
+  const rows = (dataset.municipalities ?? []) as unknown as ItalianDatasetRowLite[];
+  for (const row of rows) {
+    const name = (row.municipality ?? '').trim();
+    if (!name) continue;
+    const matchKey = name.toLowerCase();
+    const province = (row.province ?? '').toUpperCase();
+    if (seenKey.has(matchKey)) {
+      const claimed = claimedProvince.get(matchKey);
+      if (claimed !== undefined && claimed !== province) {
+        throw new Error(
+          `[fuel] matchKey collision: '${matchKey}' already claimed by province ` +
+            `'${claimed}' but a dataset row reports province '${province}'. Homonym ` +
+            `comuni in different provinces would silently merge stations onto one ` +
+            `page and drop the second comune's page — disambiguate the matchKey ` +
+            `(e.g. suffix the province) before emitting.`,
+        );
+      }
+      continue;
+    }
+    const hasPriced = (row.italy?.stations ?? []).some(
+      (s) =>
+        (s.brand || s.stationName) &&
+        ((typeof s.priceEur === 'number' && Number.isFinite(s.priceEur)) ||
+          (typeof s.dieselPriceEur === 'number' && Number.isFinite(s.dieselPriceEur))),
+    );
+    if (!hasPriced) continue;
+    const base = slugify(name);
+    if (!base) continue;
+    let slug = base;
+    if (seenSlug.has(slug)) {
+      const withProv = `${base}-${(row.province ?? '').toLowerCase()}`;
+      let candidate = withProv;
+      let n = 2;
+      while (seenSlug.has(candidate)) candidate = `${withProv}-${n++}`;
+      slug = candidate;
+    }
+    seenKey.add(matchKey);
+    seenSlug.add(slug);
+    claimedProvince.set(matchKey, province);
+    out.push({
+      slug,
+      display: titleCase(name),
+      matchKey,
+      province,
+      nearestZone: deriveItalianCityZone(row),
+    });
+  }
+  _italianCityEntriesCache.set(dataset as object, out);
+  return out;
 }
 
 // ── Italian per-station rendering ──────────────────────────────
@@ -4155,7 +4317,7 @@ function collectItalianStationContexts(
   const out: ItalianStationContext[] = [];
   const slugSeen = new Set<string>();
 
-  for (const entry of FUEL_ITALIAN_CITIES) {
+  for (const entry of buildItalianCityEntries(dataset)) {
     const rawStations = collectItalianCityStations(dataset, entry, fuel);
     // Dedupe by id, prefer the cheapest variant (typically self-service).
     const byId = new Map<string, ItalianCityStation>();
@@ -5161,15 +5323,6 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       for (const fuel of FUEL_TYPES) {
         italianStationsByFuel[fuel] = buildItalianLeaves(italianContextsByFuel[fuel] ?? []);
       }
-      const indexPages = generateFuelIndexPages({
-        distDir,
-        rootDir,
-        today,
-        swissStations: swissLeaves,
-        italianStations: italianStationsByFuel.benzina ?? [],
-        italianStationsByFuel,
-      });
-
       const collector = new WriteCollector({ distDir, pluginName: 'fuelDailyPagesPlugin' });
 
       let pagesWritten = 0;
@@ -5249,6 +5402,47 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         italianStationSitemapPaths.push(path);
         italianStationPagesWritten++;
       }
+
+      // ── Manifest of ACTUALLY-emitted Italian station pages ─────
+      // The cross-border SPA (`FuelPriceStats`) deep-links each station by
+      // recomputing `slugify(municipality)` + the per-station slug. That mirror
+      // can diverge from what the build truly wrote (word-gate skip, future
+      // slug collision, whitespace) → 404s from an indexed page. Publish the
+      // authoritative set of written benzina pages as `{citySlug}/{stationSlug}`
+      // (locale-agnostic); the SPA links a station only when it appears here.
+      const italianStationManifest = Array.from(
+        new Set(
+          italianStationSitemapPaths
+            .map((p) => /^\/prezzi-benzina\/italia\/([^/]+)\/stazioni\/([^/]+)\/$/.exec(p))
+            .filter((m): m is RegExpExecArray => m !== null)
+            .map((m) => `${m[1]}/${m[2]}`),
+        ),
+      ).sort();
+      collector.add(
+        np.join(distDir, 'data', 'fuel-italian-station-pages.json'),
+        JSON.stringify({ stations: italianStationManifest }),
+      );
+
+      // Generate the browseable indexes AFTER the page write loops, gated on the
+      // set of paths actually written (post word-gate). This guarantees the
+      // crawlable, sitemap'd index never links a city-hub / station page that was
+      // skipped for thin content → no broken internal links / soft-404s.
+      const emittedFuelPaths = new Set<string>([
+        ...sitemapPaths,
+        ...stationSitemapPaths,
+        ...italianCitySitemapPaths,
+        ...italianStationSitemapPaths,
+      ]);
+      const indexPages = generateFuelIndexPages({
+        distDir,
+        rootDir,
+        today,
+        swissStations: swissLeaves,
+        italianStations: italianStationsByFuel.benzina ?? [],
+        italianStationsByFuel,
+        italianCities: buildItalianCityEntries(dataset),
+        emittedPaths: emittedFuelPaths,
+      });
 
       // ── F6.5: Index pages (anti-orphan-page fix) ───────────────
       // These pages exist exactly to surface every per-station / per-city leaf

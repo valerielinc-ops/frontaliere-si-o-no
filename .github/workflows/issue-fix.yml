@@ -69,6 +69,21 @@ jobs:
             echo "max_turns=30" >> "$GITHUB_OUTPUT"
           fi
           echo "Fix tier: $(grep tier= "$GITHUB_OUTPUT" | head -1)"
+          # Aggregate detection (deterministic, da titolo "N item deferred", N>=2).
+          # Il parsing dei singoli item dal body è freeform/fragile → ci basiamo
+          # sul COUNT nel titolo (affidabile) per attivare il circuit-breaker
+          # one-item nel prompt (R3-A): il prompt-only R2-A non sempre teneva
+          # (#1172 error_max_turns post-merge). is_aggregate guida l'istruzione
+          # forte "fixa 1 item poi STOP".
+          N=$(printf '%s' "$body" | grep -oiE '[0-9]+ item deferred' | head -1 | grep -oE '^[0-9]+' || true)
+          if [ "${N:-0}" -ge 2 ] 2>/dev/null; then
+            echo "is_aggregate=true" >> "$GITHUB_OUTPUT"
+            echo "agg_count=${N}" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_aggregate=false" >> "$GITHUB_OUTPUT"
+            echo "agg_count=0" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Aggregate: is_aggregate=$(grep is_aggregate= "$GITHUB_OUTPUT" | tail -1)"
 
       - name: Configure git identity
         run: |
@@ -107,10 +122,12 @@ jobs:
             - Se la issue è categoria `revenue` o `tracker` (strategica) → posta "Richiede giudizio umano, non auto-fixabile. Rimuovere `agent:fix`." e TERMINA.
             - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** questo ambiente ha solo `GH_TOKEN` (GitHub App) che NON ha lo scope `workflows` e NON ha PAT/Firebase SA. Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve PAT abilitato o mano umana" e TERMINA SUBITO. Lo stesso vale se il fix è puramente una repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403) o richiede segreti non in CI: documenta e TERMINA senza implementare. Razionale: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983); il blocco è deterministico dallo scope, va rilevato a turno 1.
 
+            - **Follow-up aggregata multi-item — is_aggregate=${{ steps.tier.outputs.is_aggregate }} (count=${{ steps.tier.outputs.agg_count }}):** se `is_aggregate=true` questa issue ha ${{ steps.tier.outputs.agg_count }} item distinti e tentarli TUTTI in un run sfora il turn budget → `error_max_turns` → 0 PR, ~2M token persi (osservato #1095/#1101/#1172). **REGOLA FERREA (circuit-breaker):** fixa **ESATTAMENTE UN item** poi FERMATI. Procedura: (a) capability guard **PER-ITEM** — salta gli item che toccano `.github/workflows/**`/admin/secret (NON abortire l'intera issue), (b) scegli il PRIMO item in-capability a massimo valore funnel, (c) implementa SOLO quello, (d) **appena la PR per quell'unico item è aperta → STOP IMMEDIATO, non iniziare un secondo item** (anche se hai turni residui), (e) elenca tutti gli altri item in `## Non implementato` (motivo `follow-up`/`blocked`) → `post-merge-followup` li ri-accoda come nuova follow-up (re-queue esistente; ogni ciclo chiude ≥1 item → converge). Se `is_aggregate=false`: issue singola, comportamento invariato (capability guard whole-issue come sopra). Razionale: il budget di turni basta per 1 item con margine; 2+ item lo bruciano.
+
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato: `git checkout -b fix/issue-$ISSUE_NUMBER`.
             2. Diagnosi root cause della issue (NON sintomo). Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body.
-            3. Applica fix CHIRURGICO (AGENTS.md non-negotiable #6: no drive-by refactor, no speculative abstraction).
+            3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).
             5. Commit con identity canonica già configurata. Messaggio conventional, in fondo nessuna email non-canonica.
             6. Push del branch: `git push -u origin fix/issue-$ISSUE_NUMBER`.
@@ -127,7 +144,8 @@ jobs:
 
             **Constraint:**
             - Changes chirurgiche, root-cause, una issue alla volta.
-            - Mai toccare file fuori scope della issue.
+            - Mai toccare file fuori scope della issue — **eccetto i sibling della STESSA classe del bug** (#6, passo 3): quelli SONO in scope e vanno sweepati nella stessa PR. "Fuori scope" = un'altra feature/area, NON un file gemello con lo stesso antipattern (es. fixare il bullet-idiom in 1 parser e lasciarlo rotto negli altri 16 = fix incompleto, non "rispetto dello scope").
+            - **CODE vs DATA — no scroll dei blob (ISSUES.md → "CODE vs DATA", mirror #1096 del reviewer):** i file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (asset), `reports/**`, `_newsletter_variants/**` NON sono code da leggere riga-per-riga. Se la root cause è un drift di output dati → fixa il CODE che li genera (parser/crawler/build-plugin), non `cat`/scorrere il blob né editarlo a mano. Campione → `Read` mirato (offset/limit). `rg`/`grep` scopati al code: `rg <pattern> scripts build-plugins components services -g '!data/**' -g '!public/**' -g '!reports/**'` — cercare nei blob dati = token bruciati. Eccezione: un `data/**` config/fixture checked-in editato a mano dal fix.
             - Mai disabilitare AdSense Auto Ads (non-negotiable #7).
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>. Serve indagine umana." rimuovi nulla e TERMINA senza PR.

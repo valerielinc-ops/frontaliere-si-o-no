@@ -205,12 +205,18 @@ loadLocalEnvFile(path.resolve(ROOT, '.env.local'));
 
 const REQUEST_TIMEOUT_MS = clampNum(process.env.JOBS_CRAWLER_TIMEOUT_MS, 4000, 15000, 9000);
 const MAX_COMPANIES = clampNum(process.env.JOBS_CRAWLER_LIMIT_COMPANIES, 10, 120, 60);
-const MAX_JOB_LINKS_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_JOB_LINKS, 1, 500, 40);
+// Job-count caps are uncapped by default: crawlers must collect every job they
+// discover (a low per-company link cap silently truncated e.g. Migros 800→40).
+// Defaults are effectively unlimited; env vars can still narrow them, and the
+// high ceiling means an explicit env value is never clamped down. Pagination
+// terminates naturally on the first empty/no-new page, so unbounded ≠ infinite.
+const UNCAPPED = 1_000_000;
+const MAX_JOB_LINKS_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_JOB_LINKS, 1, UNCAPPED, UNCAPPED);
 const MAX_CONCURRENCY = clampNum(process.env.JOBS_CRAWLER_CONCURRENCY, 1, 12, 6);
 const MAX_DESC_CHARS = 12000;
-const MAX_CAREER_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_CAREER_PAGES, 2, 20, 8);
-const MAX_GENERIC_LISTING_PAGES = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_LISTING_PAGES, 2, 20, 8);
-const MAX_GENERIC_DETAIL_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES, 2, 500, 12);
+const MAX_CAREER_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_CAREER_PAGES, 2, UNCAPPED, 200);
+const MAX_GENERIC_LISTING_PAGES = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_LISTING_PAGES, 2, UNCAPPED, 200);
+const MAX_GENERIC_DETAIL_PAGES_PER_COMPANY = clampNum(process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES, 2, UNCAPPED, UNCAPPED);
 const FETCH_RETRY_ATTEMPTS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRIES, 0, 4, 2);
 const FETCH_RETRY_BASE_MS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRY_BASE_MS, 100, 5000, 350);
 const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
@@ -679,7 +685,9 @@ function normalizeAdapterSeedMeta(rawMeta) {
 function isAdapterSeedMetaTargetRelevant(seedMeta) {
   const meta = normalizeAdapterSeedMeta(seedMeta);
   if (!meta) return false;
-  if (meta.canton === 'TI' || meta.canton === 'GR') return true;
+  // Any recognized Swiss canton qualifies (nationwide crawl). normalizeCantonCode
+  // only yields a non-empty code for one of the 26 Swiss cantons.
+  if (meta.canton) return true;
   if (meta.location && isTargetSwissLocation(meta.location)) return true;
   return false;
 }
@@ -720,10 +728,8 @@ let _geocodeApiCalls = 0;
 const GEOCODE_MAX_API_CALLS = clampNum(process.env.JOBS_GEOCODE_MAX_CALLS, 5, 200, 80);
 const GEOCODE_RATE_LIMIT_MS = 250; // 4 req/sec — well within Google's 50/sec
 
-// Ticino-relevant area: Canton TI, Canton GR (Mesolcina/Bregaglia), and
-// northern Italian border provinces close enough for cross-border commuting.
-const TICINO_RELEVANT_CANTONS = new Set(['ticino', 'ti', 'tessin']);
-const TICINO_ADJACENT_CANTONS = new Set(['graubünden', 'gr', 'grigioni', 'grisons', 'grischun']);
+// Relevant area: all of Switzerland (nationwide crawl), plus northern Italian
+// border provinces close enough for cross-border commuting.
 const BORDER_PROVINCES_IT = new Set([
   'varese', 'como', 'lecco', 'sondrio',
   'verbano-cusio-ossola', 'verbania', 'novara',
@@ -827,18 +833,9 @@ function isGeocodedLocationTicinoRelevant(geo) {
 
   const { country, canton, cantonShort, province, lat, lng } = geo;
 
-  // ── Switzerland ──
+  // ── Switzerland → all 26 cantons relevant (nationwide crawl) ──
   if (country === 'CH') {
-    if (TICINO_RELEVANT_CANTONS.has(canton) || TICINO_RELEVANT_CANTONS.has(cantonShort?.toLowerCase())) {
-      return { relevant: true, reason: 'ch_canton_ticino' };
-    }
-    if (TICINO_ADJACENT_CANTONS.has(canton) || TICINO_ADJACENT_CANTONS.has(cantonShort?.toLowerCase())) {
-      // GR: only relevant if in the southern part (Mesolcina/Bregaglia/Poschiavo — lat < 46.6)
-      if (lat && lat < 46.6) return { relevant: true, reason: 'ch_canton_gr_south' };
-      return { relevant: false, reason: 'ch_canton_gr_north' };
-    }
-    // Other Swiss cantons — not Ticino-relevant
-    return { relevant: false, reason: `ch_canton_${cantonShort || canton}_not_ticino` };
+    return { relevant: true, reason: `ch_canton_${cantonShort || canton || 'unknown'}` };
   }
 
   // ── Italy ──
@@ -864,9 +861,10 @@ function isGeocodedLocationTicinoRelevant(geo) {
  * Applied on the final merged job list so ALL crawler types benefit.
  *
  * Strategy:
- *  1. Skip jobs whose location text-matches Ticino tokens (already verified)
+ *  1. Skip jobs whose location text-matches a Swiss location (already verified)
  *  2. Geocode remaining ambiguous locations
- *  3. Reject jobs whose geocoded location is clearly outside the Ticino area
+ *  3. Reject jobs whose geocoded location is clearly outside Switzerland
+ *     (foreign, except northern-Italian border provinces)
  *  4. If geocoding fails → keep the job (fail open)
  *
  * @param {Array} jobs - Merged, deduplicated jobs list
@@ -917,7 +915,7 @@ async function filterJobsByGeolocation(jobs) {
   }
 
   if (removed.length > 0) {
-    console.log(`\n🗺️  Geocoding filter removed ${removed.length} job(s) outside Ticino area:`);
+    console.log(`\n🗺️  Geocoding filter removed ${removed.length} job(s) outside Switzerland:`);
     for (const { job, geo, reason } of removed) {
       console.log(`   ❌ [${job.company}] "${job.title}" — ${job.location} → ${geo?.formattedAddress || '?'} (${reason})`);
     }

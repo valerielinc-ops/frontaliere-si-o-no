@@ -64,7 +64,14 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
-          claude_args: "--max-turns 15 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          # max-turns 20 (era 15): il triage completo (parse PR body + reviews,
+          # filtro churn/funnel, dedup, in-flight overlap, gh issue create, +
+          # supersede detection) sforava sistematicamente i 15 turni → 6 run
+          # `error_max_turns` il 2026-05-30 (num_turns 16+) con triage perso per
+          # PR #1015/#1012/#979 (nessun re-run → 🟡/❓ + `## Non implementato`
+          # mai triagiati). 15 troncava prima degli step obbligatori; AGENTS.md
+          # vieta di abbassarli proprio per questo. Allineato a lessons-harvester (20).
+          claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up per PR #${{ github.event.pull_request.number || github.event.inputs.pr_number }} (${{ github.event_name }}).
 
@@ -81,18 +88,20 @@ jobs:
             3. Carica:
                - `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
                - `gh api repos/$REPO/pulls/$PR_NUMBER/reviews`
-               - `gh issue list --label follow-up --state all --json number,title,body --limit 50`
+               - `gh issue list --label follow-up --state all --json number,title --limit 50` (SOLO `number,title`: il bulk overview serve per la vista d'insieme/titoli; il dedup vero è item-level scoped via `--search` — vedi FOLLOWUP.md § Dedup. MAI aggiungere `,body`: con ~170 issue follow-up il dump arriva a ~170KB emoji-heavy, viene troncato a un boundary di surrogate UTF-16 → lone surrogate → request body API JSON invalido `400 no low surrogate in string`, ogni run fallisce.)
 
             **Esegui workflow come specificato in FOLLOWUP.md:**
             - Parse PR body `## Non implementato` (skip motivi `out of scope` / `posposto`).
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
             - **Hard-exclude churn (FOLLOWUP.md → "Hard-exclude: churn non-actionable"):** droppa SEMPRE, prima del filtro funnel, gli item che sono doc/anchor/line-number rot, "document the intent/rationale", "de-rot comments", pure style/naming/format, o che il reviewer stesso marca `deferred`/`non funnel-critical`/nit puro. Questi auto-routano a `agent:fix` e bruciano quota Max condivisa per zero impatto funnel (caso #1010→PR #1011 "puro churn documentale"). NON creare follow-up per essi.
+            - **Hard-exclude missing-test nit (FOLLOWUP.md → "Hard-exclude: missing-test nit"):** droppa SEMPRE (reason `missing-test-nit`), prima del filtro funnel, **a prescindere dalla fonte e anche se funnel-critico**, ogni item che è essenzialmente "manca un test" / "aggiungi coverage" / "committa il test citato" / "pinna il comportamento con un test" — sia da reviewer (🟡/❓/adversarial) sia da PR body `## Non implementato`. L'owner non valorizza la copertura test (#865/#908/#854 erano già done-but-open). NON droppare un BUG in un test ESISTENTE (assertion/regex/guard leaky, fixture date assolute): è correttezza, resta in scope.
+            - **Hard-exclude live-verification-only (FOLLOWUP.md → "Hard-exclude: live-verification-only item"):** NON mintare issue (reason `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte**, ogni item la cui UNICA azione è ispezionare il sito già deployato (nessun file da editare): frasi-segnale "verify live / verifica live / post-deploy / (post-merge, live) / (live)", "curl la URL prod / live-200", "render at NNNpx / 382px", "apri DevTools", "Playwright hydration", checkbox `## Test plan` `- [ ]` etichettata `(post-merge, live)` non spuntata. Auto-routerebbero a `agent:fix` su una PR vuota → giri Claude sprecati su quota condivisa (classe #1149/#959/#1129, ~40% dei sub-item). **Routing:** raccoglili in una UNICA checklist `Live-verification` batchata nel summary commento (sotto), NON come issue. **Eccezione (resta in scope):** un item che MESCOLA live-verify con un'edit concreta su un file resta actionable (solo la coda live-verify è conferma). Nel dubbio puro-live-verify vs ha-anche-un'edit → tienilo actionable.
             - Filtro scopo (`REVIEW.md`): item passa SOLO se è funnel-critico (monetizzazione / traffico / correttezza) **E** azionabile (cambiamento di comportamento concreto). Nel dubbio churn-vs-funnel → drop.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando (`gh pr list --state open` + `gh pr diff <n> --name-only`) → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
             - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
             - **Supersede detection** (FOLLOWUP.md § Supersede detection): per le issue `follow-up` aperte che citano un file toccato da questa PR (`gh pr diff $PR_NUMBER --name-only`), posta UN commento `🔗 Possibile supersede` (idempotente). **Mai chiudere** — solo segnalazione; chiude solo l'autore con `Closes #N`.
-            - Posta `## Post-merge follow-up triage` summary commento sulla PR.
+            - Posta `## Post-merge follow-up triage` summary commento sulla PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata degli item `live-verify-only`, nessuna issue/fixer) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
             **Constraint:**
             - Read-only eccetto `gh issue create`, `gh pr comment`, `gh issue comment` (solo Supersede detection).

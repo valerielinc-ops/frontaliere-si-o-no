@@ -1,6 +1,9 @@
 // GSC fetcher for the evidence layer — aggregates by query, with a second
-// pass to attach the top landing-page URL per query. Resilient: never throws,
-// returns `{ queries, orphanQueries, error? }`.
+// pass to attach the top landing-page URL per query and a third page-only
+// pass. Resilient: never throws, and each pass is isolated so a failure in
+// one preserves the others' partial results. Returns
+// `{ queries, orphanQueries, pages, error? }` (`error` is set when any pass
+// or the token fetch failed; partial data is still returned).
 //
 // Auth: Firebase service-account JSON (FIREBASE_SERVICE_ACCOUNT_JSON or
 // GOOGLE_APPLICATION_CREDENTIALS). The Firebase SA doubles as a GSC
@@ -79,7 +82,7 @@ function pathFromGscPage(value) {
  * @param {number} [options.rowLimit=25000]
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
- * @returns {Promise<{queries: object, orphanQueries: array, error?: string}>}
+ * @returns {Promise<{queries: object, orphanQueries: array, pages: object, error?: string}>}
  */
 export async function fetchGscQueries({
   startDate,
@@ -88,12 +91,27 @@ export async function fetchGscQueries({
   fetchImpl = fetch,
   getTokenImpl = getServiceAccountToken,
 } = {}) {
+  let token;
   try {
-    const token = await getTokenImpl();
+    token = await getTokenImpl();
     if (!token) throw new Error('no service-account token');
+  } catch (err) {
+    const reason = err && err.message ? err.message : String(err);
+    return { queries: {}, orphanQueries: [], pages: {}, error: reason };
+  }
 
-    // Pass 1 — query-only aggregation. Paginate via startRow.
-    const queryAgg = new Map();
+  // Each pass is an independent paginated GSC sweep. They are isolated in
+  // their own try/catch so a failure in one (quota/timeout/network) preserves
+  // the partial results of the others, accumulating errors instead of zeroing
+  // every GSC source — a single throw used to drop queries+pages wholesale and
+  // over-thin pages that Google still shows. Mirrors posthogFetcher.
+  const errors = [];
+  const queryAgg = new Map();
+  const topPagePerQuery = new Map();
+  const pages = {};
+
+  // Pass 1 — query-only aggregation. Paginate via startRow.
+  try {
     let startRow = 0;
     while (true) {
       const data = await gscQuery(
@@ -125,11 +143,14 @@ export async function fetchGscQueries({
       // Hard ceiling to keep memory bounded — 250k rows is far past anything realistic.
       if (startRow >= rowLimit * 10) break;
     }
+  } catch (err) {
+    errors.push(`pass1 (query): ${err && err.message ? err.message : String(err)}`);
+  }
 
-    // Pass 2 — query+page to identify each query's top landing page.
-    // We re-paginate; only keep top-imp page per query.
-    const topPagePerQuery = new Map();
-    startRow = 0;
+  // Pass 2 — query+page to identify each query's top landing page.
+  // We re-paginate; only keep top-imp page per query.
+  try {
+    let startRow = 0;
     while (true) {
       const data = await gscQuery(
         token,
@@ -156,36 +177,81 @@ export async function fetchGscQueries({
       startRow += rowLimit;
       if (startRow >= rowLimit * 10) break;
     }
+  } catch (err) {
+    errors.push(`pass2 (query+page): ${err && err.message ? err.message : String(err)}`);
+  }
 
-    const queries = {};
-    const orphanQueries = [];
-    for (const [q, agg] of queryAgg) {
-      const top = topPagePerQuery.get(q);
-      const topLandingPage = top ? top.path : '';
-      queries[q] = {
+  // Pass 3 — page-only aggregation. The full set of URLs Google has shown
+  // at least once in the window (page dimension, not just the per-query
+  // top-1 landing page captured in Pass 2). This is the comprehensive
+  // page-level impression signal the traffic-evidence filter needs to gate
+  // thinning correctly: Pass 2's `topLandingPage` only surfaces ~one page
+  // per query (a few thousand), whereas the page dimension surfaces every
+  // impressed URL (tens of thousands), including long-tail pages that rank
+  // #2+ for any query and never own a query outright. Without this, those
+  // pages are invisible to the "has-traffic" gate and risk being thinned
+  // despite confirmed Google interest. Threshold at 1 impression so any
+  // page Google has shown is protected.
+  try {
+    let startRow = 0;
+    while (true) {
+      const data = await gscQuery(
+        token,
+        {
+          startDate,
+          endDate,
+          dimensions: ['page'],
+          rowLimit,
+          startRow,
+        },
+        fetchImpl,
+      );
+      const rows = data.rows || [];
+      for (const r of rows) {
+        const path = pathFromGscPage(r.keys?.[0] || '');
+        if (!path) continue;
+        const imp = r.impressions || 0;
+        if (imp < 1) continue;
+        // Store impressions as a compact number (key presence is what the
+        // filter checks; the count aids diagnostics/tuning).
+        pages[path] = imp;
+      }
+      if (rows.length < rowLimit) break;
+      startRow += rowLimit;
+      if (startRow >= rowLimit * 10) break;
+    }
+  } catch (err) {
+    errors.push(`pass3 (page): ${err && err.message ? err.message : String(err)}`);
+  }
+
+  const queries = {};
+  const orphanQueries = [];
+  for (const [q, agg] of queryAgg) {
+    const top = topPagePerQuery.get(q);
+    const topLandingPage = top ? top.path : '';
+    queries[q] = {
+      imp: agg.imp,
+      clicks: agg.clicks,
+      pos: Number(agg.pos.toFixed(2)),
+      ctr: Number(agg.ctr.toFixed(4)),
+      topLandingPage,
+    };
+    if (
+      agg.imp >= ORPHAN_MIN_IMP
+      && agg.pos >= ORPHAN_MIN_POS
+      && agg.ctr <= ORPHAN_MAX_CTR
+    ) {
+      orphanQueries.push({
+        query: q,
         imp: agg.imp,
         clicks: agg.clicks,
         pos: Number(agg.pos.toFixed(2)),
-        ctr: Number(agg.ctr.toFixed(4)),
         topLandingPage,
-      };
-      if (
-        agg.imp >= ORPHAN_MIN_IMP
-        && agg.pos >= ORPHAN_MIN_POS
-        && agg.ctr <= ORPHAN_MAX_CTR
-      ) {
-        orphanQueries.push({
-          query: q,
-          imp: agg.imp,
-          clicks: agg.clicks,
-          pos: Number(agg.pos.toFixed(2)),
-          topLandingPage,
-        });
-      }
+      });
     }
-    return { queries, orphanQueries };
-  } catch (err) {
-    const reason = err && err.message ? err.message : String(err);
-    return { queries: {}, orphanQueries: [], error: reason };
   }
+
+  const result = { queries, orphanQueries, pages };
+  if (errors.length) result.error = errors.join(' | ');
+  return result;
 }

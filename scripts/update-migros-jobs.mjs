@@ -6,30 +6,25 @@
  *
  * The Migros careers portal at jobs.migros.ch is a Nuxt.js SPA.
  * The listing page renders ~7 pinned jobs in the SSR HTML, but the
- * full result set (54+ positions across Ticino/Grigioni) is only
+ * full result set (all open positions across Switzerland) is only
  * visible after client-side hydration and pagination clicks.
  *
  * This script:
- *   1. Launches a headless Chromium via Playwright on the listing
- *      URL with REGION=868,871,878 (Ticino + Svizzera meridionale
- *      + Grigioni Italiani), accepts the cookie banner, then clicks
- *      "Pagina successiva" repeatedly until the button is disabled.
+ *   1. Launches a headless Chromium via Playwright on the unfiltered
+ *      listing URL (no REGION param → nationwide), accepts the cookie
+ *      banner, then clicks "Pagina successiva" repeatedly until the
+ *      button is disabled.
  *   2. Collects every job detail href (any locale prefix) and sets
  *      them as adapter seed URLs.
  *   3. Runs the base crawler which fetches each detail page and
  *      parses the HTML content (no JSON-LD — Migros uses Nuxt
  *      with __NUXT_DATA__ hydration payloads).
  *
- * Listing URL pattern:
- *   https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti?REGION={ids}
+ * Listing URL pattern (unfiltered → nationwide):
+ *   https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti
  *
  * Detail page URL pattern:
  *   https://jobs.migros.ch/{it|de|fr|en}/{le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies}/job/{company-slug}/{job-slug}/{uuid}
- *
- * Region IDs (Migros internal taxonomy):
- *   868 = Grigioni
- *   871 = Svizzera meridionale (includes Ticino area)
- *   878 = Regione bilingue Grigioni italiano
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -53,14 +48,13 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const MIGROS_KEY = 'migros-ticino';
 
 /**
- * Migros listing page URL with all Italian-speaking/adjacent region IDs combined.
- *
- *   868 = Grigioni
- *   871 = Svizzera meridionale (includes Ticino)
- *   878 = Regione bilingue Grigioni italiano
+ * Migros listing page URL — no REGION filter, so the whole of Switzerland is
+ * crawled (all cantons + every Migros group company, incl. Migros Industrie
+ * brands like Delica which the REGION taxonomy classified by HQ, not by the
+ * job's physical location).
  */
 const LISTING_URL =
-  'https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti?REGION=868,871,878';
+  'https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti';
 
 /**
  * Regex matching a Migros job detail href in any of the four locale prefixes.
@@ -133,7 +127,7 @@ function isTrustedMigrosDomain(rawUrl = '') {
  * is driven by a "Pagina successiva" button (no query-string paging).
  *
  * This function:
- *   1. Opens the listing with REGION=868,871,878 in Chromium.
+ *   1. Opens the unfiltered listing (no REGION param → nationwide) in Chromium.
  *   2. Accepts the OneTrust cookie banner (required — without it, the results
  *      panel renders only a handful of "suggested" jobs).
  *   3. Collects every anchor matching {locale}/{segment}/job/... .
@@ -146,7 +140,10 @@ async function fetchMigrosJobDetailUrls() {
   const headless = process.env.JOBS_MIGROS_HEADLESS !== '0';
   const navTimeoutMs = Number(process.env.JOBS_MIGROS_NAV_TIMEOUT_MS) || 30000;
   const paginationTimeoutMs = Number(process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS) || 2000;
-  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 25;
+  // Uncapped: the loop below already terminates naturally when a page adds no
+  // new URLs or the "next" button disappears, so this only guards against a
+  // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
+  const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 1000;
 
   const browser = await chromium.launch({
     headless,
@@ -353,7 +350,7 @@ async function main() {
   registerCrawlerSummaryGuard(MIGROS_KEY, 'Migros');
   console.log('🛒 Running dedicated Migros Ticino jobs crawler...');
   console.log('   Platform: Nuxt.js SPA (jobs.migros.ch) via Playwright');
-  console.log('   Regions: 868 (Grigioni) + 871 (Svizzera meridionale) + 878 (bilingue)');
+  console.log('   Scope: nationwide (no REGION filter — all Swiss cantons)');
   console.log('');
 
   // Step 1: Fetch job detail URLs from the SSR listing pages
@@ -391,15 +388,19 @@ async function main() {
     }
   }
 
-  // Step 3c: Quality guards — reject jobs with thin descriptions or an
-  // implausible company name (implements docs/copilot-crawler-fix-prompts.md
-  // for Migros). Gated behind SKIP_QUALITY_GUARDS=1 for emergency bypass.
+  // Step 3c: Quality guards — reject jobs with thin descriptions only.
+  // No company-name allowlist: every job here already passed isMigrosJob
+  // (host jobs.migros.ch, L97), so Migros-group membership is proven by the
+  // trusted domain. An allowlist adds no anti-hallucination value on a trusted
+  // domain and only produces false negatives nationwide — it silently dropped
+  // legitimate group brands that don't contain "Migros" (Delica, medbase,
+  // m-way, Micasa, Voi, OBI, Do it + Garden, …). Gated behind
+  // SKIP_QUALITY_GUARDS=1 for emergency bypass.
   if (process.env.SKIP_QUALITY_GUARDS !== '1') {
     const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     const migrosJobs = allJobs.filter(isMigrosJob);
     const report = runQualityGuards(migrosJobs, {
-      companyName: ['Migros', 'Migros Ticino', 'Migros Aare', 'Gruppo Migros'],
       minDescription: 200,
       logger: (msg) => console.warn(msg),
     });

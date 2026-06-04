@@ -7,6 +7,7 @@
 
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { cdnDataUrl } from '@/services/cdnDataBase';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
@@ -82,6 +83,7 @@ import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/s
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -118,6 +120,7 @@ import {
  extractRelatedTopicTokens,
  isValidRelatedSearchTerm,
  buildRelatedSearches,
+ stripSearchQueryBoilerplate,
 } from '@/services/relatedSearchClusters';
 export { buildSearchSlug } from '@/services/relatedSearchClusters';
 import {
@@ -308,7 +311,7 @@ const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
  */
 function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  if (!jobDetailCache.has(jobId)) {
- const promise = fetch(`/data/job-detail/${jobId}.json`)
+ const promise = fetch(cdnDataUrl(`/data/job-detail/${jobId}.json`))
  .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
  .then((data: unknown) => (data && typeof data === 'object' ? data : {}) as Partial<JobListing>)
  .catch(() => ({} as Partial<JobListing>));
@@ -1118,6 +1121,21 @@ function canonicalItemKey(value: string): string {
  .trim();
 }
 
+/**
+ * Normalised key for deduping/matching city names across diacritic and
+ * separator variants (Z\u00fcrich/Zurich, Gen\u00e8ve/Geneve, Davos-Platz/Davos Platz).
+ * Used by BOTH the location-filter option list and the filter predicate so a
+ * merged option still matches every spelling variant present in the data.
+ */
+function normalizeLocalityKey(value: string): string {
+ return String(value || '')
+ .toLowerCase()
+ .normalize('NFD')
+ .replace(/[\u0300-\u036f]/g, '')
+ .replace(/[^a-z0-9]+/g, ' ')
+ .trim();
+}
+
 function canonicalItemsEquivalent(a: string, b: string): boolean {
  const ka = canonicalItemKey(a);
  const kb = canonicalItemKey(b);
@@ -1674,6 +1692,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // is the IT-locale record when available (see crossLocaleFetchAttempted).
  const [crossLocaleJobs, setCrossLocaleJobs] = useState<JobListing[]>([]);
  const crossLocaleFetchAttempted = useRef(false);
+ // Company-hub broadening: when a company-filtered URL (e.g.
+ // /cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz/) has zero matches
+ // in the canton-scoped shard — because the employer's HQ is in another
+ // canton (Grace La Margna → GR) — we lazy-load the locale-wide pool so the
+ // company-broadening tier can surface its openings Switzerland-wide instead
+ // of rendering the empty-state. One-shot per mount.
+ const companyBroadenFetchAttempted = useRef(false);
  const [jobsLoading, setJobsLoading] = useState(true);
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
@@ -1711,6 +1736,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
+ // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
+ // The job-detail alert prompt fires immediately (delay 0) for this job —
+ // it's the highest-intent moment (the user just authed to read THIS job),
+ // so we don't wait out the dwell timer before offering the one-tap alert.
+ const justAuthedJobIdRef = useRef<string | null>(null);
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
@@ -1890,6 +1920,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [initialJobSlug, jobs]);
  const locationSlugFilter = useMemo(() => parseLocationSlugFilter(initialJobSlug), [initialJobSlug]);
  const searchSlugFilter = useMemo(() => parseSearchSlugFilter(initialJobSlug), [initialJobSlug]);
+ // Title-cased search keyword for the search-landing H1 (e.g. "verkaufsberater
+ // in tessin" → "Verkaufsberater In Tessin"). Keeps the keyword in the H1 after
+ // hydration instead of falling back to the generic job-board title.
+ const searchHeadingQuery = useMemo(
+ () => (searchSlugFilter ? searchSlugFilter.replace(/(^|\s)(\p{L})/gu, (_m, p, c) => p + c.toUpperCase()) : ''),
+ [searchSlugFilter],
+ );
 
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs
  const bridgeTargetSlug = useMemo(
@@ -1943,12 +1980,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const slimIndexUrl = `/data/jobs-${locale}-index.json`;
  const localeUrl = `/data/jobs-${locale}.json`;
  try {
- const res = await fetch(slimIndexUrl);
+ const res = await fetch(cdnDataUrl(slimIndexUrl));
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`slim index ${res.status}`);
  } catch {
  try {
- const res = await fetch(localeUrl);
+ const res = await fetch(cdnDataUrl(localeUrl));
  if (res.ok) return (await res.json()) as JobListing[];
  throw new Error(`locale jobs ${res.status}`);
  } catch {
@@ -2080,21 +2117,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [jobs]);
 
  const uniqueLocalities = useMemo(() => {
- const counts = new Map<string, number>();
+ // Group localities by a diacritic/separator-insensitive key so spelling
+ // variants (Zürich/Zurich, Genève/Geneve, Davos-Platz/Davos Platz) collapse
+ // into a single option. `value` is the normalised key — the filter predicate
+ // matches on the same key so the merged option still covers every variant.
+ const groups = new Map<string, { count: number; spellings: Map<string, number> }>();
  for (const job of jobs) {
  const loc = (job.addressLocality || '').trim();
  if (loc && loc.length > 2) {
- const key = loc.toLowerCase();
- counts.set(key, (counts.get(key) || 0) + 1);
+ const key = normalizeLocalityKey(loc);
+ if (!key) continue;
+ const g = groups.get(key) || { count: 0, spellings: new Map<string, number>() };
+ g.count += 1;
+ g.spellings.set(loc, (g.spellings.get(loc) || 0) + 1);
+ groups.set(key, g);
  }
  }
- // Sort by frequency descending so the most common cities appear first
- return Array.from(counts.entries())
- .sort((a, b) => b[1] - a[1])
- .map(([key]) => {
- // Find original casing from any job
- const job = jobs.find(j => (j.addressLocality || '').toLowerCase() === key);
- return job?.addressLocality || key;
+ // Most common cities first; label = most frequent original spelling
+ // (diacritic-bearing spelling wins ties so "Zürich" beats "Zurich").
+ return Array.from(groups.entries())
+ .sort((a, b) => b[1].count - a[1].count)
+ .map(([value, g]) => {
+ const label = Array.from(g.spellings.entries()).sort((a, b) => {
+ if (b[1] !== a[1]) return b[1] - a[1];
+ const aDia = a[0].normalize('NFD') !== a[0] ? 1 : 0;
+ const bDia = b[0].normalize('NFD') !== b[0] ? 1 : 0;
+ if (bDia !== aDia) return bDia - aDia;
+ return a[0].localeCompare(b[0]);
+ })[0][0];
+ return { value, label };
  });
  }, [jobs]);
 
@@ -2169,7 +2220,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // SPA's primary loader path). Filter to just the target job by
  // stable id so we don't replace `jobs` wholesale.
  try {
- const res = await fetch(`/data/jobs-${locale}-index.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
  if (res.ok) {
  const all = await res.json();
  if (Array.isArray(all)) {
@@ -2218,7 +2269,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [selectedJobId]);
 
- // Job-detail alert prompt — gating + 4 s reveal timer.
+ // Job-detail alert prompt — gating + 1.5 s reveal timer.
  // Trigger: single-job-detail view, logged-in user with email, feature flag on,
  // localStorage gating allows it, AND no existing alert covers this category.
  const isJobDetailView = selectedJob !== null;
@@ -2259,12 +2310,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // a silent `error` event (3 such events on 2026-05-13 traced to this).
  if (existing.length >= MAX_ALERTS_PER_USER) return;
 
+ // Leva B: a user who just authed via Google/FB to unlock THIS job is at
+ // peak intent — show the one-tap alert offer immediately rather than
+ // waiting out the dwell timer. Consume the ref so it fires only once.
+ const justAuthed = justAuthedJobIdRef.current === selectedJob.id;
+ if (justAuthed) justAuthedJobIdRef.current = null;
+ // 1.5 s otherwise (was 4 s): the 4 s timer was further pushed back by the
+ // detail enrichment fetch re-running this effect (selectedJob ref changes),
+ // so eligible users — 75% mobile, short dwell — left before the prompt
+ // showed (~4 `shown` events in 30 days). 1.5 s still avoids prompting on an
+ // accidental tap while landing the impression while the user is engaged.
  timerId = window.setTimeout(() => {
  if (cancelled) return;
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
- }, 4000);
+ }, justAuthed ? 0 : 1500);
  })();
 
  return () => {
@@ -2533,7 +2594,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedCategory !== 'all' && job.category !== selectedCategory) return false;
  if (selectedContract !== 'all' && job.contract !== selectedContract) return false;
  if (selectedCompany !== 'all' && job.company.toLowerCase() !== selectedCompany) return false;
- if (selectedLocation !== 'all' && (job.addressLocality || '').toLowerCase() !== selectedLocation) return false;
+ if (selectedLocation !== 'all' && normalizeLocalityKey(job.addressLocality || '') !== selectedLocation) return false;
  if (selectedSector !== 'all' && (job.sector || '').toLowerCase() !== selectedSector) return false;
  if (cutoff > 0) {
  const jobDate = new Date(job.crawledAt || job.postedDate).getTime();
@@ -2570,6 +2631,84 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [sortedJobs, selectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
 
+ // Location vocabulary for the OR-fallback relevance floor. Stemmed tokens of
+ // every job location currently in memory (canton-scoped + unscoped pool).
+ // Used to discount location words when counting a query's CONTENT tokens —
+ // mirrors the build plugin's city-strip before computing minOrScore so the
+ // "koch davos" single-content-token city-drop recovery keeps minScore=1.
+ //
+ // Deliberate divergence from the static plugin (build-plugins/
+ // relatedSearchClustersPlugin.ts): the static page discounts ONLY its own
+ // target city (`stripCityFromKeyword`), whereas this set spans the WHOLE
+ // in-memory corpus vocabulary. A query token equal to a non-page city can
+ // therefore drop the SPA floor from 2 to 1 where static would keep 2 — so
+ // the SPA can surface MORE recovery results than the static landing, never
+ // fewer. This is intentional: the SPA OR-fallback is a "show SOMETHING"
+ // safety net, never a canonical/indexed surface, so over-recovery can only
+ // help the user and never de-indexes a page. The lockstep guarantee that
+ // matters (and is asserted by the cluster guard test) is the boilerplate
+ // strip, not the location discount.
+ //
+ // Collision guard: skip stopwords (RELATED_SEARCH_STOPWORDS) and short stems
+ // (<=3 chars, which `stemSearchToken` leaves un-stemmed). Both are the tokens
+ // most likely to also be legitimate role-content words; excluding them keeps
+ // a short/ambiguous location word from wrongly discounting a real content
+ // token and silently lowering the floor. Removing a token from the discount
+ // set can only RAISE the floor (stricter) — it never surfaces more off-topic
+ // jobs — so the guard is monotone-safe.
+ const searchLocationTokens = useMemo<Set<string>>(() => {
+ const set = new Set<string>();
+ const addFrom = (arr: readonly JobListing[]) => {
+ for (const j of arr) {
+ const loc = `${j.addressLocality || ''} ${j.location || ''}`;
+ for (const tok of normalizeSearchText(loc).split(' ')) {
+ if (!tok) continue;
+ const stem = stemSearchToken(tok);
+ if (stem.length <= 3) continue;
+ if (RELATED_SEARCH_STOPWORDS.has(stem)) continue;
+ set.add(stem);
+ }
+ }
+ };
+ addFrom(sortedJobs);
+ addFrom(unscopedJobs);
+ return set;
+ }, [sortedJobs, unscopedJobs]);
+
+ // OR-fallback relevance floor, ported from the static cluster plugin
+ // (build-plugins/relatedSearchClustersPlugin.ts: `minOrScore`). A query with
+ // ≥2 CONTENT tokens (after stripping job-search boilerplate AND location
+ // words) requires ≥2 token hits, so a single generic token (e.g. the trailing
+ // "switzerland" template suffix) can't pull off-intent jobs into the OR
+ // fallback. Single-content-token queries keep a floor of 1 so the legitimate
+ // city-drop recovery still works. Keeps the hydrated SPA job set in lockstep
+ // with the statically-emitted slug landing.
+ const orFallbackMinScore = useMemo<number>(() => {
+ const stripped = stripSearchQueryBoilerplate(deferredSearchQuery.trim());
+ const contentTokens = normalizeSearchText(stripped)
+ .split(' ')
+ .filter(Boolean)
+ .map(stemSearchToken)
+ .filter((t) => !searchLocationTokens.has(t));
+ return contentTokens.length >= 2 ? 2 : 1;
+ }, [deferredSearchQuery, searchLocationTokens]);
+
+ // Boilerplate-stripped query that seeds the OR-fallback scoring tiers below.
+ // The floor (`orFallbackMinScore`) counts CONTENT tokens — i.e. after
+ // `stripSearchQueryBoilerplate` removes the leading job-search prefixes and
+ // the trailing nation/template suffixes — so the tokens we *score* against
+ // the haystack must come from the SAME stripped query. Scoring the RAW query
+ // would let a manually typed boilerplate query ("pizzaiolo salary
+ // switzerland", entered in the box rather than via a pre-stripped slug) reach
+ // the floor on boilerplate tokens alone (salary+switzerland) with zero real
+ // content match. Slug-seeded queries arrive already stripped, so this only
+ // changes the manual-search path. Never empty (helper falls back to the
+ // original term), so a single-content query still scores its one real token.
+ const orFallbackQuery = useMemo<string>(
+ () => stripSearchQueryBoilerplate(deferredSearchQuery.trim()),
+ [deferredSearchQuery],
+ );
+
  // In-canton OR-fallback: partial token matches ranked by hit count, capped
  // at MAX_FALLBACK_RESULTS. Mirrors the build plugin's two-phase matching at
  // build/relatedSearchClustersPlugin.ts so users landing on a slug URL see
@@ -2579,7 +2718,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const query = deferredSearchQuery.trim();
  if (!query || strictFilteredJobs.length > 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query so the matched tokens stay
+ // consistent with the floor (`orFallbackMinScore`, which counts content
+ // tokens) — see `orFallbackQuery` above.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length < 2) return []; // single token: AND === OR, nothing to add
 
  const now = Date.now();
@@ -2597,11 +2739,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, searchIndex, selectedDateRange, passingNonSearchFilters]);
+ }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, selectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -2620,7 +2762,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (orFallbackInCantonJobs.length > 0) return [];
  if (unscopedJobs.length === 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
+ // tokens match the floor's content-token count.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
@@ -2647,11 +2791,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -2676,7 +2820,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  try {
  const responses = await Promise.allSettled(
  otherLocales.map(async (l) => {
- const res = await fetch(`/data/jobs-${l}-index.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${l}-index.json`));
  if (!res.ok) return [] as unknown[];
  const data = await res.json();
  return Array.isArray(data) ? (data as unknown[]) : [];
@@ -2709,6 +2853,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  unscopedJobs, sortedJobs,
  ]);
 
+ // Company-hub broadening trigger: when a company filter is active and the
+ // canton-scoped pool has ZERO openings for that employer (HQ in another
+ // canton), lazy-load the locale-wide pool into `unscopedJobs` so the
+ // company-broadening tier below can show its Swiss-wide openings instead of
+ // the empty-state. Mirrors the legacy loader (slim index → locale monolith).
+ // One-shot per mount; skipped when the pool is already loaded.
+ useEffect(() => {
+ if (companyBroadenFetchAttempted.current) return;
+ if (jobsLoading) return;
+ if (!companySlugFilter) return;
+ if (deferredSearchQuery.trim()) return; // search active → cross-locale tier owns the pool fetch
+ if (strictFilteredJobs.length > 0) return; // employer has in-canton openings
+ if (unscopedJobs.length > 0) return; // pool already available
+ companyBroadenFetchAttempted.current = true;
+ let cancelled = false;
+ (async () => {
+ try {
+ let pool: unknown[] = [];
+ const slimRes = await fetch(cdnDataUrl(`/data/jobs-${locale}-index.json`));
+ if (slimRes.ok) {
+ pool = await slimRes.json();
+ } else {
+ const localeRes = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
+ if (localeRes.ok) pool = await localeRes.json();
+ }
+ if (cancelled) return;
+ const arr = Array.isArray(pool) ? pool : [];
+ if (arr.length === 0) return;
+ const normalized = arr.map((job) => normalizeIncomingJob(job));
+ setUnscopedJobs(dedupeJobsForListing(normalized));
+ } catch (err: unknown) {
+ reportCaughtError(err, 'jobBoard.loadJobs.companyBroaden');
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [companySlugFilter, deferredSearchQuery, jobsLoading, strictFilteredJobs.length, unscopedJobs.length, locale]);
+
  // Tier 4: cross-locale OR fallback. Same scoring as Tier 3, run against the
  // lazily-loaded DE/FR/EN pool. Job ID + slug are canonical across locale
  // shards, so the result still routes to the Italian URL via the existing
@@ -2722,7 +2903,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (crossCantonFallbackJobs.length > 0) return [];
  if (crossLocaleJobs.length === 0) return [];
 
- const queryTokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
+ // Score the boilerplate-stripped query (see `orFallbackQuery`) so the
+ // tokens match the floor's content-token count.
+ const queryTokens = normalizeSearchText(orFallbackQuery).split(' ').filter(Boolean).map(stemSearchToken);
  if (queryTokens.length === 0) return [];
 
  const now = Date.now();
@@ -2745,19 +2928,62 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
  }
- if (score > 0) scored.push({ job, score });
+ if (score >= orFallbackMinScore) scored.push({ job, score });
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, selectedDateRange, passingNonSearchFilters, locale,
+ crossLocaleJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
  ]);
 
- // filteredJobs: the four-tier search result.
+ // Tier 3.5 — company-hub broadening. Fires when a company filter is active
+ // but every in-canton tier (and the search cross-canton tier) returned zero:
+ // typically a company-hub URL like
+ // /cerca-lavoro-ticino/azienda-grace-la-margna-st-moritz/ whose employer
+ // sits in another canton (Grace La Margna → GR). Drops the canton scope and
+ // surfaces the employer's openings from the locale-wide `unscopedJobs` pool
+ // so the page shows real listings + AdSense instead of the empty-state. No
+ // search query required — distinct from the search-driven Tiers 3/4. The
+ // company filter itself is still enforced via `passingNonSearchFilters`.
+ //
+ // Gated to the NO-query case: when the user types a search on a company hub
+ // this tier stays out so the search-driven cross-locale Tier 4 can answer
+ // the keyword instead of dumping every Swiss-wide opening for the employer
+ // (which would ignore the query and mislead the "N positions" banner).
+ const companyBroadeningFallbackJobs = useMemo<JobListing[]>(() => {
+ if (!companySlugFilter) return [];
+ if (deferredSearchQuery.trim()) return [];
+ if (strictFilteredJobs.length > 0) return [];
+ if (orFallbackInCantonJobs.length > 0) return [];
+ if (crossCantonFallbackJobs.length > 0) return [];
+ if (unscopedJobs.length === 0) return [];
+
+ const now = Date.now();
+ const dateRangeMs: Record<DateRange, number> = {
+ all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
+ '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
+ };
+ const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+
+ const scopedIds = new Set<string>();
+ for (const j of sortedJobs) scopedIds.add(j.id);
+
+ const matches: JobListing[] = [];
+ for (const job of unscopedJobs) {
+ if (scopedIds.has(job.id)) continue;
+ if (isForeignLocation(job.addressLocality || job.location || '')) continue;
+ if (!passingNonSearchFilters(job, now, cutoff)) continue; // company filter enforced here
+ matches.push(job);
+ }
+ return matches.slice(0, MAX_FALLBACK_RESULTS);
+ }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, selectedDateRange, passingNonSearchFilters]);
+
+ // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
  //   2. orFallbackInCantonJobs (partial-token OR, in-canton)
  //   3. crossCantonFallbackJobs (partial-token OR, other cantons, same locale)
+ //   3.5 companyBroadeningFallbackJobs (company filter, Swiss-wide, no query)
  //   4. crossLocaleFallbackJobs (partial-token OR, other locale shards)
  // Each tier is consulted only when the previous one yielded zero, so the
  // canton-scoped intent stays primary and the safety nets only kick in when
@@ -2766,8 +2992,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (strictFilteredJobs.length > 0) return strictFilteredJobs;
  if (orFallbackInCantonJobs.length > 0) return orFallbackInCantonJobs;
  if (crossCantonFallbackJobs.length > 0) return crossCantonFallbackJobs;
+ if (companyBroadeningFallbackJobs.length > 0) return companyBroadeningFallbackJobs;
  return crossLocaleFallbackJobs;
- }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, crossLocaleFallbackJobs]);
+ }, [strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -2796,6 +3023,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && crossCantonFallbackJobs.length === 0
  && crossLocaleFallbackJobs.length > 0;
  }, [deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, crossLocaleFallbackJobs.length]);
+
+ // True when the result set is the company-hub broadening tier (Tier 3.5):
+ // a company-filtered page whose employer has no in-canton openings, now
+ // showing its Swiss-wide listings. Drives a banner so the user understands
+ // the scope was widened beyond the canton in the URL.
+ const isBroadenedCompanyScope = useMemo(() => {
+ return Boolean(companySlugFilter)
+ && strictFilteredJobs.length === 0
+ && orFallbackInCantonJobs.length === 0
+ && crossCantonFallbackJobs.length === 0
+ && companyBroadeningFallbackJobs.length > 0;
+ }, [companySlugFilter, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, companyBroadeningFallbackJobs.length]);
 
  // Resolve the display name of the company when a company slug filter is active
  const companyDisplayName = useMemo(() => {
@@ -3404,7 +3643,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (el) el.remove();
  };
 
- if (selectedJob || initialJobSlug) {
+ // Skip ONLY on a real job-detail view. Search/company/location landing
+ // pages also set initialJobSlug but render a job LIST, so they should still
+ // emit ItemList for rich SERP carousels (previously suppressed by the bare
+ // initialJobSlug check → landings shipped BreadcrumbList only).
+ const isLandingList = !!(searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor);
+ if (selectedJob || (initialJobSlug && !isLandingList)) {
  cleanup();
  return;
  }
@@ -3446,6 +3690,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const listName = companyDisplayName
  ? `${companyDisplayName} — ${t('jobBoard.title')}`
+ : searchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
  : selectedSector !== 'all'
  ? `${selectedSector} — ${t('jobBoard.title')}`
  : selectedLocation !== 'all'
@@ -3469,7 +3715,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, t]);
 
  const formatSalary = (job: JobListing) => {
  if (!job.salaryMin) return null;
@@ -3540,11 +3786,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Still update title/description for user experience.
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
  const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
- const suffix = ' | Frontaliere Ticino';
- const sep = ' — ';
- const company = selectedJob.company;
- const candidate = `${localizedTitle}${sep}${company}${suffix}`;
- document.title = candidate.length <= 60 ? candidate : `${localizedTitle}${sep}${company}`.slice(0, 60);
+ // Prefer the offer LOCATION over the brand suffix: the city rides in the
+ // headline and " | Frontaliere Ticino" is dropped first when over the cap.
+ const prevSlugCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
+ document.title = buildJobTitleWithLocation(localizedTitle, selectedJob.company, prevSlugCity, locale);
  const metaDesc = document.querySelector('meta[name="description"]');
  if (metaDesc) metaDesc.setAttribute('content', String(localizedDescription || '').slice(0, 160));
  return;
@@ -3571,30 +3816,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedJob) {
  const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
  const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
- // Build title with cascading truncation to fit ~60 char SERP limit
- const suffix = ' | Frontaliere Ticino';
- const sep = ' — ';
- const company = selectedJob.company;
- let fullTitle: string;
- const candidate1 = `${localizedTitle}${sep}${company}${suffix}`;
- if (candidate1.length <= 60) {
- fullTitle = candidate1;
- } else {
- const candidate2 = `${localizedTitle}${sep}${company}`;
- if (candidate2.length <= 60) {
- fullTitle = candidate2;
- } else {
- // Truncate job title at word boundary to fit with company name
- const maxTitleLen = 60 - sep.length - company.length;
- if (maxTitleLen > 20) {
- const cut = localizedTitle.lastIndexOf(' ', maxTitleLen - 1);
- const truncated = cut > 15 ? localizedTitle.slice(0, cut) + '…' : localizedTitle.slice(0, maxTitleLen - 1) + '…';
- fullTitle = `${truncated}${sep}${company}`;
- } else {
- fullTitle = localizedTitle.length <= 60 ? localizedTitle : localizedTitle.slice(0, 57) + '…';
- }
- }
- }
+ // Prefer the offer LOCATION over the brand suffix: the city rides inside the
+ // headline ("{role} — {company} a {city}") and " | Frontaliere Ticino" is the
+ // first thing dropped when the title exceeds the SERP cap. Mirrors the static
+ // SSG composer so static <title> and JS-rendered document.title agree.
+ const jobCity = isMultiLocation(selectedJob.location) ? '' : String(selectedJob.location || '').trim();
+ const fullTitle = buildJobTitleWithLocation(localizedTitle, selectedJob.company, jobCity, locale);
  const descSnippet = String(localizedDescription || '').slice(0, 160);
  document.title = fullTitle;
  const metaDesc = document.querySelector('meta[name="description"]');
@@ -3641,7 +3868,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
  const editorialCanonicalHref = `${window.location.origin}${canonicalPath}`;
  canonical.setAttribute('href', editorialCanonicalHref);
- document.title = `${editorialLandingModel.title} | Frontaliere Ticino`;
+ // Brand suffix is the first thing dropped when the (often place-bearing)
+ // landing headline would push the title past the SERP cap.
+ document.title = buildTitleWithBrand(editorialLandingModel.title);
  const metaDesc = document.querySelector('meta[name="description"]');
  if (metaDesc) {
  metaDesc.setAttribute('content', editorialLandingModel.description);
@@ -3789,6 +4018,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
 
  autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`);
+ // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
+ justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
  setAuthError(null);
  setAuthGateOpen(false);
@@ -3912,6 +4143,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobToOpen = pendingJob || selectedJob;
  setPendingJob(null);
  if (jobToOpen) {
+ // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
+ justAuthedJobIdRef.current = jobToOpen.id;
  onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
@@ -5421,15 +5654,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(gateCompanySlug);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub — see openCompanyFilter note.
+ window.location.assign(gateCompanyHref.split('?')[0]);
  };
 
  return (
@@ -5864,15 +6091,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  e.preventDefault();
  e.stopPropagation();
  e.nativeEvent.stopImmediatePropagation?.();
- setSearchQuery('');
- if (onJobRouteChange) {
- onJobRouteChange(companySearchSlug);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
- window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
+ // Full navigation to the static company hub (HTTP 200) which lists the
+ // company's jobs across ALL cantons. An SPA re-filter scopes to the current
+ // canton shard and clobbers the static list with an empty result — the
+ // /cerca-lavoro-ticino/azienda-X/ "0 results" bug for cross-canton employers
+ // (e.g. PwC: 109 static jobs vs 0 in the TI shard). The viewed job is active,
+ // so its company always has a current-build hub (companySearchHref uses the
+ // canonical slug that mirrors the emitter).
+ window.location.assign(companySearchHref.split('?')[0]);
  };
  const parserCoverage = (() => {
  const assigned =
@@ -6443,6 +6670,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...cantonI18n })
  : locationDisplayName
  ? t('jobBoard.locationPageTitle', { location: locationDisplayName, ...cantonI18n })
+ : searchHeadingQuery
+ ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
  : t('jobBoard.title', cantonI18n)}
  </h1>
  <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', cantonI18n)}</p>
@@ -6536,9 +6765,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Row 2: Roles & Categories */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
  {([
- { id: 'infermiere', icon: Briefcase, label: 'Infermiere', active: searchQuery.toLowerCase() === 'infermiere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'infermiere' ? '' : 'infermiere') },
- { id: 'ingegnere', icon: Briefcase, label: 'Ingegnere', active: searchQuery.toLowerCase() === 'ingegnere', action: () => setSearchQuery(searchQuery.toLowerCase() === 'ingegnere' ? '' : 'ingegnere') },
- { id: 'autista', icon: Briefcase, label: 'Autista', active: searchQuery.toLowerCase() === 'autista', action: () => setSearchQuery(searchQuery.toLowerCase() === 'autista' ? '' : 'autista') },
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); setSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
  { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
@@ -6641,8 +6870,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  <option value="all">{t('jobBoard.filter.allLocations')}</option>
  {uniqueLocalities.map((loc) => (
- <option key={loc} value={loc.toLowerCase()}>
- {loc}
+ <option key={loc.value} value={loc.value}>
+ {loc.label}
  </option>
  ))}
  </select>
@@ -6812,6 +7041,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  href: j.slug ? buildPath({ activeTab: 'job-board' as any, jobSlug: j.slug }, locale) : undefined,
  }))}
  popularity={popularity}
+ heading={t('jobBoard.trending.heading')}
+ ariaLabel={t('jobBoard.trending.aria')}
  onJobClick={(slug) => {
  Analytics.trackSelectContent('trending_section_click', slug);
  const job = jobs.find((j) => j.slug === slug);
@@ -6884,6 +7115,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </p>
  <p className="text-xs text-subtle mt-1">
  {t('jobBoard.crossLocaleFallback.hint')}
+ </p>
+ </div>
+ </div>
+ </div>
+ )}
+ {isBroadenedCompanyScope && (
+ <div
+ role="status"
+ aria-live="polite"
+ className="rounded-xl border border-info-border bg-info-subtle px-4 py-3 text-sm text-body"
+ >
+ <div className="flex items-start gap-2">
+ <Briefcase className="w-4 h-4 mt-0.5 shrink-0 text-info-strong" />
+ <div>
+ <p className="font-semibold font-display text-strong">
+ {t('jobBoard.companyBroaden.title', { company: companyDisplayName ?? '', count: String(filteredJobs.length) })}
+ </p>
+ <p className="text-xs text-subtle mt-1">
+ {t('jobBoard.companyBroaden.hint')}
  </p>
  </div>
  </div>

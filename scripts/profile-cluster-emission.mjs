@@ -83,16 +83,38 @@ const SEARCH_QUERY_BOILERPLATE_PHRASES = [
   'offerte di lavoro', 'posti di lavoro', 'offerte lavoro',
   'offres d emplois', 'offre d emplois', 'offres d emploi', 'offre d emploi',
   'offres emplois', 'offre emplois', 'offres emploi', 'offre emploi',
-  'recherche emploi', 'stellenangebote', 'stellen',
-  'lavoro', 'offerte', 'jobs', 'job', 'emplois', 'emploi',
+  'recherche emploi', 'recherche d emploi', 'recherche d emplois',
+  'stellenangebote', 'stellenangebot', 'stellen',
+  'lavori', 'lavoro', 'impieghi', 'impiego', 'offerte', 'jobs', 'job',
+  'emplois', 'emploi', 'stipendio', 'mansioni',
+];
+// Trailing nation/salary/requirements template suffixes — keep in sync with
+// SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS in services/relatedSearchClusters.ts.
+const SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS = [
+  'salary', 'wage', 'salaire', 'gehalt', 'lohn', 'stipendio',
+  'switzerland', 'suisse', 'schweiz', 'svizzera',
+  'requirements', 'requirement', 'requisiti', 'exigences', 'anforderungen',
+  'mansioni', 'aufgaben', 'taches',
 ];
 const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
   `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
   'i',
 );
+const SEARCH_QUERY_TEMPLATE_SUFFIX = new RegExp(
+  `\\s+(?:${SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS.join('|')})$`,
+  'i',
+);
 function stripSearchQueryBoilerplate(query) {
-  const stripped = query.replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '').trim();
-  return stripped || query;
+  let stripped = String(query || '').trim();
+  let prev = '';
+  while (stripped && stripped !== prev) {
+    prev = stripped;
+    stripped = stripped
+      .replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '')
+      .replace(SEARCH_QUERY_TEMPLATE_SUFFIX, '')
+      .trim();
+  }
+  return stripped || String(query || '');
 }
 
 function queryMatchScore(haystack, queryTokens) {

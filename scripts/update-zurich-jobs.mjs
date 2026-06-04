@@ -27,15 +27,13 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const ZURICH_KEY = 'zurich-insurance-sede-ticino';
 
 /**
- * Broad search terms for the Zurich careers portal (SuccessFactors ATS).
- * We use region-level queries rather than individual city searches:
- * - "Ticino" / "Tessin" cover ALL positions in the TI canton (IT / DE naming)
- * - "Lugano" catches jobs tagged specifically by city in the main hub
- * - "Graubünden" / "Grisons" / "Chur" cover GR canton positions
+ * Country-level search terms for the Zurich careers portal (SuccessFactors ATS).
+ * We query by country name in all four national languages so the crawl covers
+ * ALL of Switzerland (nationwide) while still excluding foreign postings.
  * Keeping the list short is critical: each seed URL triggers a full BFS crawl
  * in crawlGenericListingJobs() (up to 8 listing + 12 detail pages per seed).
  */
-const SEED_SEARCH_TERMS = ['Ticino', 'Tessin', 'Lugano', 'Graubünden', 'Grisons', 'Chur'];
+const SEED_SEARCH_TERMS = ['Switzerland', 'Schweiz', 'Suisse', 'Svizzera'];
 
 const ZURICH_SEARCH_BASE = 'https://www.careers.zurich.com/search/';
 

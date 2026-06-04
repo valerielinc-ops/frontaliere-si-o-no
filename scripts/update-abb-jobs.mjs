@@ -273,7 +273,7 @@ async function fetchAbbJobDetailUrls() {
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-  const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 10));
+  const maxPages = Math.max(1, Number(process.env.JOBS_ABB_MAX_PAGES || 100000)); // uncapped — loop breaks on offset>=totalHits / empty page
 
   console.log('🔍 Fetching ABB jobs from careers.abb search-results...');
   console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);
@@ -400,8 +400,8 @@ function runBaseCrawler() {
     forceLocalizeKeys: ABB_KEY,
     disableWorkdayForce: true,
     extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '250',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '250',
+      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
+      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
       JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
       JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
     },

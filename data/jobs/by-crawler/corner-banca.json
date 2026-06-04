@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-06-01T23:22:31.749Z",
+  "assembledAt": "2026-06-03T23:17:57.269Z",
   "jobs": [
     {
       "id": "corner-banca-b69f1f79bbe3",
@@ -64,7 +64,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.240Z",
+      "crawledAt": "2026-06-03T23:17:54.956Z",
       "previousSlugs": [
         "consulente-clienti-40-corner-banca-wallisellen",
         "customer-advisor-60-corner-banca-wallisellen",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -102,10 +103,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -161,7 +161,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-01T23:22:29.511Z",
+      "crawledAt": "2026-06-03T23:17:54.956Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -255,7 +255,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.240Z",
+      "crawledAt": "2026-06-03T23:17:54.955Z",
       "previousSlugs": [
         "customer-advisor-100-team-lugano-corner-banca-lugano"
       ],
@@ -271,6 +271,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -357,7 +358,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-01T14:15:57.237Z",
+      "crawledAt": "2026-06-03T23:17:54.954Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -391,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -470,7 +472,7 @@
       "url": "https://jobs.corner.ch/o/market-risk-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.236Z",
+      "crawledAt": "2026-06-03T23:17:54.953Z",
       "previousSlugs": [
         "market-risk-manager-corner-banca-lugano",
         "employee-card-onboarding-corner-banca-lugano",
@@ -503,6 +505,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T10:51:00.114Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -590,7 +593,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.236Z",
+      "crawledAt": "2026-06-03T23:17:54.952Z",
       "previousSlugs": [
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
         "compliance-officer-senior-corner-banca-lugano",
@@ -609,23 +612,20 @@
         ],
         "en": [
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano",
-          "responsabile-compliance-senior-corner-banca-lugano"
+          "compliance-officer-senior-corner-banca-lugano"
         ],
         "de": [
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
           "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano",
-          "responsabile-compliance-senior-corner-banca-lugano"
+          "compliance-officer-senior-corner-banca-lugano"
         ],
         "fr": [
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano",
-          "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-          "responsabile-compliance-senior-corner-banca-lugano"
+          "compliance-officer-senior-corner-banca-lugano"
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -713,7 +713,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.235Z",
+      "crawledAt": "2026-06-03T23:17:54.950Z",
       "previousSlugs": [
         "employee-front-office-collection-corner-banca-wallisellen",
         "employee-front-office-corner-banca-wallisellen"
@@ -728,6 +728,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -740,10 +741,9 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -819,7 +819,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.234Z",
+      "crawledAt": "2026-06-03T23:17:54.949Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
         "consulente-e-cliente-m-f-corner-banca-lugano",
@@ -850,6 +850,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -934,8 +935,9 @@
       "url": "https://jobs.corner.ch/o/it-auditor",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.231Z",
+      "crawledAt": "2026-06-03T23:17:54.948Z",
       "firstSeenAt": "2026-05-18T12:11:07.111Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1016,7 +1018,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.229Z",
+      "crawledAt": "2026-06-03T23:17:54.945Z",
       "previousSlugs": [
         "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-advisor-60-team-zurich-corner-banca-wallisellen",
@@ -1032,6 +1034,7 @@
         ]
       },
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -1044,10 +1047,98 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
+      "country": "CH"
+    },
+    {
+      "id": "corner-banca-f52a05ad44cc",
+      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+        "en": "litigation-office-associate-corner-banca-wallisellen",
+        "de": "haftungsausschluss-corner-banca-wallisellen",
+        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Litigation Office Associate",
+      "titleByLocale": {
+        "it": "Ufficio delle pubblicazioni",
+        "en": "Litigation Office Associate",
+        "de": "Haftungsausschluss",
+        "fr": "Bureau du contentieux Associé"
+      },
+      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
+        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
+        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
+        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
+        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
+        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
+        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://jobs.corner.ch/o/litigation-office-associate",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-03T23:17:54.944Z",
+      "previousSlugs": [
+        "litigation-office-associate-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "de": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ]
+      },
+      "firstSeenAt": "2026-05-18T12:11:07.107Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "country": "CH"
     },
     {
@@ -1118,7 +1209,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.227Z",
+      "crawledAt": "2026-06-03T23:17:54.943Z",
       "previousSlugs": [
         "fi-administration-e-business-support-corner-banca-lugano"
       ],
@@ -1131,6 +1222,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:39:53.164Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1150,85 +1242,91 @@
       "country": "CH"
     },
     {
-      "id": "corner-banca-f52a05ad44cc",
-      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
+      "id": "corner-banca-115c1c6e6274",
+      "slug": "customer-analytics-officer-corner-banca-lugano",
       "slugByLocale": {
-        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
-        "en": "litigation-office-associate-corner-banca-wallisellen",
-        "de": "haftungsausschluss-corner-banca-wallisellen",
-        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
+        "it": "customer-analytics-officer-corner-banca-lugano",
+        "en": "customer-analytics-officer-corner-banca-lugano",
+        "de": "kundenanalytik-officer-corner-banca-lugano",
+        "fr": "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Litigation Office Associate",
+      "title": "Customer Analytics Officer",
       "titleByLocale": {
-        "it": "Ufficio delle pubblicazioni",
-        "en": "Litigation Office Associate",
-        "de": "Haftungsausschluss",
-        "fr": "Bureau du contentieux Associé"
+        "it": "Responsabile Customer Analytics",
+        "en": "Customer Analytics Officer",
+        "de": "Kundenanalytik Officer",
+        "fr": "Spécialiste de l ' analyse des clients"
       },
-      "description": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office.\n\nKey Responsibilities:\n\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n\n• Resident in Ticino or willing to relocate",
+      "description": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment.\n\nKey Responsibilities\n\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n\n• Advanced knowledge of MS Excel\n\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n\n• Analytical and solution oriented mindset, excellent problem solving abilities\n\n• Self-motivated and proactive personality\n\n• Outstanding communication skills. Fluency in Italian, English and German required.\n\n• Workplace: Lugano/Zurich",
       "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un individuo professionale e motivato per unirsi al nostro team specializzato nella raccolta dei debiti. Il ruolo riguarda la gestione di casi complessi e la collaborazione con varie funzioni aziendali, operando con un alto grado di autonomia dal nostro ufficio di Zurigo – Wallisellen. Responsabilità chiave:\n• Posizione permanente in un ambiente di lavoro dinamico, con condizioni salariali commisurate con esperienza.\n• Posto di lavoro: Zurigo – Wallisellen, con la possibilità di lavorare in parte da remoto (home office).\n• Viene fornito un primo programma di onboarding e formazione di 3 mesi presso l'ufficio di Lugano.\n• Sono necessari almeno 3 anni di solida esperienza nella gestione della riscossione del debito all'interno del sistema giudiziario e di esecuzione svizzero (ritito legale).\n• Competenze linguistiche: comando eccellente del francese (livello C1, scritto e parlato) e buona conoscenza dell'italiano (livello B2, scritto e parlato). La conoscenza del tedesco è considerata un vantaggio.\n• competenze morbide: forte mentalità orientata agli obiettivi, capacità organizzative e capacità di problem solving. La capacità di lavorare in modo indipendente è essenziale, pur mantenendo un forte spirito di squadra e una comunicazione eccellente con il team alla sede centrale, nonostante lavorando da un ufficio di ramo remoto.\n• Diploma commerciale o qualifica equivalente (ad esempio laurea in diritto svizzero o scienze politiche).\n• Residente in Ticino o disposto a trasferirsi",
-        "en": "We are looking for a professional and motivated individual to join our team specialized in debt collection. The role involves managing complex cases and collaborating with various business functions, operating with a high degree of autonomy from our Zurich – Wallisellen office. Key Responsibilities:\n• Permanent position in a dynamic work environment, with salary conditions commensurate with experience.\n• Workplace: Zurich – Wallisellen, with the possibility of partially working remotely (home office).\n• An initial onboarding and training program of 3 months at the Lugano office is provided.\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n• Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.\n• Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.\n• Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).\n• Resident in Ticino or willing to relocate",
-        "de": "Wir sind auf der Suche nach einem professionellen und motivierten Individuum zu unserem Team spezialisiert auf die Schuldensammlung. Die Rolle umfasst die Verwaltung komplexer Fälle und die Zusammenarbeit mit verschiedenen Geschäftsfunktionen, die mit einem hohen Maß an Autonomie von unserem Büro in Zürich – Wallisellen arbeiten. Hauptverantwortlichkeiten:\n• Ständige Position in einem dynamischen Arbeitsumfeld, mit Gehaltsverhältnissen mit Erfahrung.\n• Arbeitsplatz: Zürich – Wallisellen, mit der Möglichkeit der teilweisen Fernarbeit (Haussitz).\n• Ein erstes Bord- und Schulungsprogramm von 3 Monaten im Büro von Lugano wird zur Verfügung gestellt.\n• Mindestens 3 Jahre solide Erfahrung im Bereich der Schuldenerhebung im Rahmen des Schweizer Durchsetzungs- und Justizsystems (Gesetzsammlung) ist erforderlich.\n• Sprachkenntnisse: Ausgezeichneter Befehl von Französisch (C1-Ebene, geschrieben und gesprochen) und gute Kenntnisse von Italienisch (B2-Ebene, geschrieben und gesprochen). Deutschkenntnisse gelten als Vorteil.\n• Soft Skills: Starke zielorientierte Denkweise, organisatorische Fähigkeiten und Problemlösungsfähigkeiten. Die Fähigkeit, unabhängig zu arbeiten, ist essentiell, aber auch einen starken Teamgeist und eine ausgezeichnete Kommunikation mit dem Team im Hauptbüro, trotz der Arbeit von einer Remote-Niederlassung.\n• Handelsdiplom oder gleichwertige Qualifikation (z.B. Abschluss in Schweizer Recht oder Politikwissenschaft).\n• Wohnsitz in Tessin oder willigen Umzug",
-        "fr": "Nous cherchons une personne professionnelle et motivée pour rejoindre notre équipe spécialisée dans le recouvrement des dettes. Le rôle consiste à gérer des dossiers complexes et à collaborer avec diverses fonctions commerciales, fonctionnant avec une grande autonomie de notre bureau de Zurich – Wallisellen. Principales responsabilités :\n• Position permanente dans un environnement de travail dynamique, avec des conditions salariales proportionnelles à l'expérience.\n• Lieu de travail : Zurich – Wallisellen, avec la possibilité de travailler partiellement à distance (bureau d'accueil).\n• Un programme initial d'embarquement et de formation de 3 mois est offert au bureau de Lugano.\n• Au moins 3 ans d'expérience solide dans la gestion du recouvrement des créances au sein du système judiciaire suisse (recouvrement légal) sont nécessaires.\n• Compétences linguistiques : excellente maîtrise du français (niveau C1, écrit et parlé) et bonne connaissance de l'italien (niveau B2, écrit et parlé). La connaissance de l'allemand est considérée comme un avantage.\n• Compétences douces : Forte mentalité orientée vers l'objectif, capacités organisationnelles et compétences en résolution de problèmes. La capacité de travailler de façon indépendante est essentielle, tout en maintenant un esprit d'équipe solide et une excellente communication avec l'équipe au siège social, malgré le travail d'une succursale éloignée.\n• Diplôme commercial ou diplôme équivalent (par exemple diplôme en droit suisse ou en sciences politiques).\n• Résident au Tessin ou prêt à déménager"
+        "it": "Siamo alla ricerca di un professionista esperto e orientato al dettaglio per unirsi al nostro team in un ambiente bancario dinamico. Principali responsabilità\n• Lavorare a stretto contatto con specialisti di marketing e trasformazione digitale per comprendere le loro esigenze in termini di dati per operare e guidare le loro strategie di marketing.\n• Sviluppare la profilazione comportamentale del cliente in base ai dati demografici, di utilizzo del prodotto e di touchpoint multicanale (dal digitale al call center).\n• Utilizzare l'apprendimento automatico, la modellazione statistica e le tecniche di ingegneria caratteristica per sviluppare modelli predittivi di risposta potenti che anticipano le risposte dei clienti e i comportamenti.\n• Sviluppare procedure di alimentazione dati programmate robuste estraendo i dati da più fonti di dati, eseguire la preparazione dei dati e applicare modelli ML.\n• Sviluppare dashboard di Business Intelligence per monitorare il portafoglio clienti KPI, l'adozione digitale e le iniziative di marketing\n• Diventare il responsabile dei dati di riferimento per i clienti e i dati touchpoint. Collabora con gli specialisti della Gestione delle informazioni per garantire l'integrità dei dati e la modellazione efficace dei dati.\n• Corso di laurea o master in Data Analytics, Statistica, Informatica o un campo correlato.\n• Sfondo molto forte nell'analisi dei dati, compresi i metodi statistici multivariati e i modelli di previsione.\n• 2+ anni di esperienza in Data Analytics, nel settore finanziario è un vantaggio.\n• Eccellente competenza nel lavorare con database relazionali; comprovata conoscenza SQL avanzata, con BigQuery è un vantaggio.\n• Ottima conoscenza del linguaggio di programmazione Python e delle relative librerie per il calcolo scientifico (in particolare panda, numpy e scikit-learn)\n• Conoscenza avanzata di MS Excel\n• La conoscenza di uno strumento BI moderno come MS Power BI è un vantaggio.\n• La conoscenza del software di analisi dati IBM SPSS o simile è un vantaggio.\n• mentalità analitica e orientata alla soluzione, eccellenti capacità di problem solving\n• Personalità automotivata e proattiva\n• Competenze di comunicazione eccezionali. Potenza in italiano, inglese e tedesco richiesto.\n• Luogo di lavoro: Lugano/Zurich",
+        "en": "We are looking for an experienced and detail-oriented professional to join our team within a dynamic banking environment. Key Responsibilities\n• Work closely together with marketing and digital transformation specialists to understand their needs in terms of data to operate and steer their marketing strategies.\n• Develop customer behavioral profiling based on demographic, product usage and and multi-channel touchpoints data (from digital to call center).\n• Utilize machine learning, statistical modeling and feature engineering techniques to develop powerful response predictive models that anticipate customer responses and behaviors.\n• Develop robust scheduled data feeding procedures by extracting data from multiple data sources, perform data preparation and apply ML models.\n• Develop Business Intelligence dashboards to track customer portfolio KPIs, digital adoption and marketing initiatives performance\n• Become the data steward of reference for customers and touchpoint data. Collaborate with Information Management specialists to ensure data integrity and effective data modeling.\n• Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.\n• Very strong background in data analysis, including multivariate statistical methods and forecasting models.\n• 2+ years of experience in Data Analytics, in the financial Industry is an advantage.\n• Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.\n• Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)\n• Advanced knowledge of MS Excel\n• Knowledge of a modern BI tool like MS Power BI is an advantage.\n• Knowledge of the IBM SPSS data analytics software or similar is an advantage.\n• Analytical and solution oriented mindset, excellent problem solving abilities\n• Self-motivated and proactive personality\n• Outstanding communication skills. Fluency in Italian, English and German required.\n• Workplace: Lugano/Zurich",
+        "de": "Wir suchen einen erfahrenen und detailorientierten Profi, der sich unserem Team in einem dynamischen Bankenumfeld anschließt. Hauptverantwortlichkeiten\n• Arbeiten Sie eng mit Marketing- und Digital-Transformationsspezialisten zusammen, um ihre Bedürfnisse in Bezug auf Daten zu verstehen, um ihre Marketingstrategien zu betreiben und zu steuern.\n• Entwicklung von Kundenverhaltensprofilen basierend auf demografischen, Produktnutzung und Mehrkanal-Touchpoints-Daten (von Digital bis Callcenter).\n• Verwenden Sie maschinelles Lernen, statistische Modellierung und technische Techniken, um leistungsstarke Antwort-Prädiktionsmodelle zu entwickeln, die Kundenreaktionen und Verhaltensweisen antizipieren.\n• Entwickeln Sie robuste Liniendaten-Feeding-Verfahren, indem Sie Daten aus mehreren Datenquellen extrahieren, Datenaufbereitung durchführen und ML-Modelle anwenden.\n• Entwickeln Sie Business Intelligence Dashboards, um Kundenportfolio KPIs, digitale Adoptions- und Marketinginitiativen Leistung zu verfolgen\n• Werden Sie die Daten der Referenz für Kunden und Touchpoint-Daten. Zusammenarbeit mit Spezialisten für Informationsmanagement, um die Datenintegrität und effektive Datenmodellierung zu gewährleisten.\n• Bachelor- oder Masterstudium in Data Analytics, Statistik, Informatik oder einem verwandten Bereich.\n• Sehr starker Hintergrund in der Datenanalyse, einschließlich multivariate statistische Methoden und Prognosemodelle.\n• 2+ Jahre Erfahrung in Data Analytics, in der Finanzindustrie ist ein Vorteil.\n• Ausgezeichnete Fähigkeiten in der Arbeit mit relationalen Datenbanken; bewährte fortgeschrittene SQL-Kenntnisse, mit BigQuery ist ein Vorteil.\n• Hervorragende Kenntnisse der Programmiersprache Python und der verwandten Bibliotheken für wissenschaftliches Computing (insbesondere Pandas, Numpy und scikit-learn)\n• Fortgeschrittene Kenntnisse von MS Excel\n• Die Kenntnis eines modernen BI-Tools wie MS Power BI ist ein Vorteil.\n• Die Kenntnis der IBM SPSS-Datenanalysesoftware oder dergleichen ist ein Vorteil.\n• Analytische und lösungsorientierte Denkweise, ausgezeichnete Problemlösungsfähigkeiten\n• Selbstmotivierte und proaktive Persönlichkeit\n• Herausragende Kommunikationsfähigkeiten. Fluency auf Italienisch, Englisch und Deutsch erforderlich.\n• Arbeitsplatz: Lugano/Zurich",
+        "fr": "Nous recherchons un professionnel expérimenté et axé sur les détails pour rejoindre notre équipe dans un environnement bancaire dynamique. Principales responsabilités\n• Collaborer étroitement avec les spécialistes du marketing et de la transformation numérique afin de comprendre leurs besoins en matière de données pour opérer et orienter leurs stratégies de marketing.\n• Développer un profil comportemental du client basé sur des données démographiques, d'utilisation de produits et de points tactiles multicanaux (du numérique au centre d'appel).\n• Utiliser l'apprentissage automatique, la modélisation statistique et les techniques d'ingénierie pour développer des modèles prédictifs de réponse puissants qui anticipent les réactions et les comportements des clients.\n• Mettre au point de solides procédures d'alimentation des données programmées en extrayant les données de plusieurs sources de données, en préparant les données et en appliquant des modèles ML.\n• Développer des tableaux de bord Business Intelligence pour suivre les performances des KPI du portefeuille client, des initiatives numériques d'adoption et de marketing\n• Devenez le responsable des données de référence pour les clients et les données touchpoint. Collaborer avec des spécialistes de la gestion de l'information pour assurer l'intégrité des données et la modélisation efficace des données.\n• Baccalauréat ou maîtrise en analyse des données, statistique, informatique ou un domaine connexe.\n• Un contexte très solide dans l'analyse des données, y compris des méthodes statistiques et des modèles de prévision multivariés.\n• 2+ ans d'expérience en Data Analytics, dans l'industrie financière est un avantage.\n• Excellentes compétences dans le travail avec les bases de données relationnelles ; la connaissance avancée de SQL, avec BigQuery est un avantage.\n• Excellente connaissance du langage de programmation Python et des bibliothèques connexes pour l'informatique scientifique (en particulier pandas, numpy et scikit-learn)\n• Connaissance avancée de MS Excel\n• La connaissance d'un outil BI moderne comme MS Power BI est un avantage.\n• La connaissance du logiciel d'analyse de données IBM SPSS est un avantage.\n• L'état d'esprit analytique et orienté vers la solution, excellentes capacités de résolution de problèmes\n• Personnalité automotivée et proactive\n• Compétences exceptionnelles en communication. Connaissance de l'italien, de l'anglais et de l'allemand requis.\n• Travail: Lugano/Zurich"
       },
       "requirements": [
-        "At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.",
-        "Language skills: Excellent command of French (C1 level, written and spoken) and good knowledge of Italian (B2 level, written and spoken). Knowledge of German is considered an advantage.",
-        "Soft skills: Strong goal-oriented mindset, organizational abilities, and problem-solving skills. The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with the team at the head office, despite working from a remote branch office.",
-        "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-        "Resident in Ticino or willing to relocate"
+        "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+        "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+        "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+        "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+        "Excellent knowledge of the programming language Python and the related libraries for scientific computing (in particular pandas, numpy and scikit-learn)",
+        "Advanced knowledge of MS Excel",
+        "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+        "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+        "Analytical and solution oriented mindset, excellent problem solving abilities",
+        "Self-motivated and proactive personality",
+        "Outstanding communication skills. Fluency in Italian, English and German required.",
+        "Workplace: Lugano/Zurich"
       ],
       "requirementsByLocale": {
         "it": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities"
         ],
         "en": [
-          "Commercial diploma or equivalent qualification (e.g. degree in Swiss law or political science).",
-          "Resident in Ticino or willing to relocate"
+          "Bachelor’s or Master’s degree in Data Analytics, Statistics, Computer Science or a related field.",
+          "Very strong background in data analysis, including multivariate statistical methods and forecasting models.",
+          "2+ years of experience in Data Analytics, in the financial Industry is an advantage.",
+          "Excellent skills in working with relational databases; proven advanced SQL knowledge, with BigQuery is an advantage.",
+          "Advanced knowledge of MS Excel",
+          "Knowledge of a modern BI tool like MS Power BI is an advantage.",
+          "Knowledge of the IBM SPSS data analytics software or similar is an advantage.",
+          "Analytical and solution oriented mindset, excellent problem solving abilities"
         ]
       },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "category": "other",
+      "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.corner.ch/o/litigation-office-associate",
+      "postedDate": "2026-06-02",
+      "url": "https://jobs.corner.ch/o/customer-analytics-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-01T14:15:57.228Z",
-      "previousSlugs": [
-        "litigation-office-associate-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "de": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ],
-        "fr": [
-          "litigation-office-associate-corner-banca-wallisellen"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T12:11:07.107Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "crawledAt": "2026-06-03T23:17:54.942Z",
+      "firstSeenAt": "2026-06-02T23:12:26.649Z",
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },

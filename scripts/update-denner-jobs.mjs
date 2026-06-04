@@ -48,7 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 import { inferEmploymentType } from './lib/denner-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,13 +57,11 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 const DENNER_KEY = 'denner';
-const DEFAULT_CANTON = getCompanyDefaults(DENNER_KEY)?.canton || 'TI';
 const DENNER_COMPANY_NAME = 'Denner';
 const DENNER_HOST = 'jobs.migros.ch';
 const DENNER_LISTING_BASE = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
-const REGION_IDS = { 'Svizzera meridionale': '871', Grigioni: '868' };
 
-/** Ticino city → postal code map for Denner store locations */
+/** Ticino city → postal code map (postalCode enrichment for Denner TI stores) */
 const TICINO_PLZ = {
   lugano: '6900', bellinzona: '6500', locarno: '6600', mendrisio: '6850',
   chiasso: '6830', biasca: '6710', giubiasco: '6512', agno: '6982',
@@ -136,11 +134,8 @@ async function fetchDennerJobUrls() {
   const allUrls = new Set();
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 
+  // No REGION filter → nationwide (all Swiss Denner stores)
   const pagesToFetch = [
-    ...Object.entries(REGION_IDS).map(([name, id]) => ({
-      name,
-      url: `${DENNER_LISTING_BASE}?REGION=${id}`,
-    })),
     { name: 'All regions', url: DENNER_LISTING_BASE },
   ];
 
@@ -270,12 +265,12 @@ async function fetchAndParseDetailPages(urls) {
         requirements: migrosData?.requirements || [],
         requirementsByLocale: { it: migrosData?.requirements || [] },
         location,
-        postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '6500',
-        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : DEFAULT_CANTON),
-        addressLocality: location || 'Bellinzona',
-        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : DEFAULT_CANTON),
+        postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '',
+        canton: inferAnyCanton(location) || '',
+        addressLocality: location || '',
+        addressRegion: inferAnyCanton(location) || '',
         addressCountry: 'CH',
-        streetAddress: location ? `Denner ${location}` : 'Denner Ticino',
+        streetAddress: location ? `Denner ${location}` : 'Denner',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
         category: 'retail',
         contract: migrosData?.employmentType || 'full-time',

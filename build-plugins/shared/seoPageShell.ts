@@ -42,6 +42,7 @@ import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
+import { SPA_ENTRY_JS_RX, SPA_ENTRY_CSS_RX } from './spaBundleRx';
 
 /**
  * Strip any pre-existing " | Frontaliere Ticino" suffix from a callsite-
@@ -89,8 +90,11 @@ export function resolveEntryAssets(distDir: string): EntryAssets {
   try {
     const indexHtmlPath = np.join(distDir, 'index.html');
     const built = fs.readFileSync(indexHtmlPath, 'utf-8');
-    entryJs = built.match(/src="\/assets\/(index-[A-Za-z0-9_-]+\.js)"/)?.[1] ?? '';
-    entryCss = built.match(/href="\/assets\/(index-[A-Za-z0-9_-]+\.css)"/)?.[1] ?? '';
+    // src/href may be same-origin or an absolute CDN URL (ASSET_CDN/renderBuiltUrl).
+    // Regexes shared with spaBundleResolver.ts via ./spaBundleRx (one definition,
+    // no copy-paste drift — see that module's header).
+    entryJs = built.match(SPA_ENTRY_JS_RX)?.[1] ?? '';
+    entryCss = built.match(SPA_ENTRY_CSS_RX)?.[1] ?? '';
   } catch {
     // dist/index.html missing — tests run without a prior Vite build.
     // buildSimplePage handles empty strings by skipping the hydration tags.

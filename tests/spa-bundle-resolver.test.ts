@@ -40,6 +40,22 @@ describe('resolveSpaBundle', () => {
     expect(info.hasSpaBundle).toBe(true);
   });
 
+  it('extracts entry hashes when the URLs are absolute CDN URLs (ASSET_CDN/renderBuiltUrl)', () => {
+    // When ASSET_CDN is set, Vite emits absolute CDN URLs for the entry tags.
+    // The resolver must still extract the bare hashed filename (regression: this
+    // failed the entire deploy build with "poll exhausted" — run 26901403074).
+    const html = `<!doctype html>
+<html><head>
+<link rel="stylesheet" href="https://cdn.frontaliereticino.ch/assets/index-BHVvZKod.css">
+<script type="module" crossorigin src="https://cdn.frontaliereticino.ch/assets/index-B0v4sJnp.js"></script>
+</head><body><div id="root"></div></body></html>`;
+    fs.writeFileSync(path.join(distDir, 'index.html'), html, 'utf-8');
+    const info = resolveSpaBundle(distDir);
+    expect(info.entryJs).toBe('index-B0v4sJnp.js');
+    expect(info.entryCss).toBe('index-BHVvZKod.css');
+    expect(info.hasSpaBundle).toBe(true);
+  });
+
   it('caches per distDir — second call does not re-read', () => {
     writeIndexHtml(distDir, 'AAA', 'BBB');
     const first = resolveSpaBundle(distDir);

@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -219,7 +220,11 @@ function buildDebiopharmJob(listing, detail) {
   const parsed = parseDebiopharmJobDetailPayload(detail);
   const title = parsed.title || String(listing?.title || '').trim();
   const city = parsed.city || 'Lausanne';
-  const slug = slugify(`${title} ${COMPANY_NAME} ${city} ${parsed.inferredCanton} Switzerland`);
+  // Slug-only guard: both `city` and `parsed.inferredCanton` can be the literal
+  // "undefined"/"null" string (truthy) → `-undefined` in an active slug (#952, class
+  // #900/#901). location/addressLocality keep raw `city` (choke-point normalizer
+  // owns de-index); guard only the slug tokens here.
+  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(city, 'Lausanne')} ${safeLocationToken(parsed.inferredCanton, 'Vaud')} Switzerland`);
   const detailUrl = buildDebiopharmDetailUrl(listing.shortcode);
   const applyUrl = buildDebiopharmApplyUrl(listing.shortcode);
   const publishedDate = toIsoDate(parsed.publishedDate);

@@ -81,12 +81,22 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 | high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | opus, 40 |
 | normal | resto | sonnet, 30 |
 
+### CODE vs DATA (no scroll dei blob — frugalità token, mirror del guard reviewer #1096)
+
+I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**` **NON sono code** da leggere riga-per-riga: scorrerli intero nel contesto brucia token senza segnale (il reviewer lo evita via #1096; il fixer deve fare lo stesso).
+
+- **Root cause su output dati = fixa il CODE che li genera** (parser/crawler/build-plugin), non editare il blob a mano né `cat`/scorrere il file intero.
+- Serve un campione di output? `Read` **mirato** (offset/limit) sul file, mai l'intero blob.
+- `rg`/`grep` cross-file (diagnosi, pattern repetition) **scopati al code**: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`). Cercare dentro `data/`/`public/` = migliaia di match su blob rigenerati = turni e token sprecati.
+- **Eccezione:** un file `data/**` checked-in che è **config/fixture** (non output rigenerato) e che il fix modifica a mano → trattalo come code.
+
 ### Abort senza PR (no fix forzato)
 
 - Root cause non determinabile con confidenza → commento "serve indagine umana" + termina.
 - Fix richiede credenziali/segreti non in CI → documenta + termina.
 - **Capability-guard scope `.github/workflows/**` (valuta a turno ~1, PRIMA di implementare).** L'ambiente `issue-fix` ha solo `GH_TOKEN` (GitHub App, **senza scope `workflows`**) e nessun PAT → il push di file workflow fallisce **sempre**. Se la diagnosi mostra che il fix toccherebbe `.github/workflows/**` → posta il diff proposto + "serve PAT con scope `workflows` / mano umana" e **TERMINA SUBITO**, senza implementare. Idem per repo-setting/branch-protection/admin-API (es. `gh api .../branches/main/protection` → 403). Razionale (misurato): fare il fix completo e scoprire il blocco al push spreca ~1M token/run — #983 tier-high opus, 23 turni, $0.55, **0 PR**; contro #1009 early-exit normal, 7 turni, $0.22. Il guard è nel prompt di `issue-fix.yml` (#1033).
 - Mai un fix speculativo pur di produrre una PR.
+- **Ogni abort DEVE chiudere con `<!-- FIX_OUTCOME: <code> -->` nel commento** (codici validi: `no-root-cause` / `blocked-workflows-scope` / `blocked-secrets` / `blocked-admin-settings` / `overlap-skip` / `pr-already-open` / `already-fixed` / `revenue-tracker-manual`). Senza marker → harvester classifica il run come `no-pr-unspecified`, indistinguibile da un crash silenzioso → il pattern non è migliorabile.
 
 ### Drenare il backlog `agent:fix` (re-label sequenziale)
 

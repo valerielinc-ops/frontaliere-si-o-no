@@ -1,18 +1,48 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-06-02T00:54:10.912Z",
+  "generatedAt": "2026-06-04T00:48:53.199Z",
   "total": 145,
-  "newCount": 1,
-  "updatedCount": 100,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 99,
+  "removedCount": 2,
   "unchangedCount": 12,
-  "durationMs": 2294,
-  "avgDurationMs": 2294,
+  "durationMs": 2407,
+  "avgDurationMs": 2407,
   "durationHistory": [
-    2294
+    2407
   ],
   "newJobs": [
+    {
+      "title": "Manager – International Tax Mergers & Acquisitions and Structuring (Financial Services)",
+      "slug": "manager-international-tax-mergers-acquisitions-and-structuring-financial-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-international-tax-mergers-acquisitions-and-structuring-financial-services/177fe03f-e57e-440b-a32a-909432f18cf1",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---International-Tax-Mergers---Acquisitions-and-Structuring--Financial-Services-_732422WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-02",
+      "validThrough": "2036-05-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Manager - SAP Master Data Governance Consulting",
       "slug": "manager-sap-master-data-governance-consulting-pwc-zurich",
@@ -46,6 +76,114 @@
   ],
   "updatedJobs": [
     {
+      "title": "Senior Associate - Controlling, Advisory Operations",
+      "slug": "senior-associate-controlling-advisory-operations-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-controlling-advisory-operations/82b938ff-0601-41bd-8d06-b8c7b9b45418",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Controlling--Advisory-Operations_731395WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-03",
+      "validThrough": "2036-05-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-06cf5572b6e8",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-03T14:55:10.614Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Manager - Lead Leadership Communications",
+      "slug": "manager-lead-leadership-communications-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-lead-leadership-communications/56645c1c-5bf2-4b4a-862c-c8f7781c76e6",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Lead-Leadership-Communications_732044WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-03",
+      "validThrough": "2026-07-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-ae889f1adad8",
+      "salaryMin": 75500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-03T14:55:10.614Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Manager - Environmental, Social and Governance (ESG) Audit",
+      "slug": "manager-environmental-social-and-governance-esg-audit-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-environmental-social-and-governance-esg-audit/03830fff-5af8-4603-9faf-c000de35016b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Environmental--Social-and-Governance--ESG--Audit_724454WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-02",
+      "validThrough": "2036-05-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-675a80ac7207",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-03T14:55:10.614Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
       "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
       "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/7e8578f1-5e6a-4e5b-9ac7-ff6ad7763d4b",
@@ -67,12 +205,18 @@
       "validThrough": "2026-06-27",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-311c28947999",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -97,12 +241,18 @@
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-c8d370000ed7",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -127,12 +277,18 @@
       "validThrough": "2036-05-25",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "_qualityScore": 73,
+      "id": "pwc-8d4e51c20519",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-30T00:13:22.657Z",
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -342,12 +498,13 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-26T23:56:22.387Z",
-      "_qualityScore": 84,
+      "postalCode": "6300",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -377,12 +534,13 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-26T23:56:22.387Z",
-      "_qualityScore": 87,
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -407,12 +565,18 @@
       "validThrough": "2026-11-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "pwc-ce6b3ed8a76d",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-26T23:56:22.387Z",
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -586,12 +750,13 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-15T22:28:03.990Z",
-      "_qualityScore": 87,
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -688,46 +853,16 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Senior Associate Internal Advisory Risk, Quality & Compliance 80–100%",
-      "slug": "senior-associate-internal-advisory-risk-quality-compliance-80-100-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-internal-advisory-risk-quality-compliance-80/a3396108-36e5-49f7-970d-38eb1a1364dd",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Consultant-Manager---Interne-Beratung--Risikomanagement--Qualitt---Compliance-80-100-_727474WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-08",
-      "validThrough": "2036-05-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-17d161495609",
+      "id": "pwc-3aa7523d85ec",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "postalCode": "8001",
       "firstSeenAt": "2026-05-08T10:28:56.294Z",
-      "_qualityScore": 92,
+      "postalCode": "6300",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
@@ -985,42 +1120,6 @@
       }
     },
     {
-      "title": "Manager - Environmental, Social and Governance (ESG) Audit",
-      "slug": "manager-environmental-social-and-governance-esg-audit-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-environmental-social-and-governance-esg-audit/73c42b28-9412-4c4d-9370-69e4838b7279",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Environmental--Social-and-Governance--ESG--Audit_724454WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-05",
-      "validThrough": "2026-06-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-bfe2e8c1829e",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-05T11:15:17.666Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Senior Associate - Strategy Consulting",
       "slug": "senior-associate-strategy-consulting-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-strategy-consulting/afca20f1-7199-4925-b8ec-71f632321ade",
@@ -1055,12 +1154,14 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "title": "Associate / Senior Associate – Assurance, Audit Proposal Manager (German & English)",
-      "slug": "associate-senior-associate-assurance-audit-proposal-manager-german-english-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-assurance-audit-proposal-manager-german-english/469b42d6-7fcf-4521-b9bf-ad82be469cd1",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/ASR-AH-DE-speaking-resource_725770WD/apply",
+      "title": "Manager - Environmental, Social and Governance (ESG) Audit",
+      "slug": "responsabile-audit-esg-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-environmental-social-and-governance-esg-audit/73c42b28-9412-4c4d-9370-69e4838b7279",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Environmental--Social-and-Governance--ESG--Audit_724454WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
       "companyDomain": "pwc.ch",
@@ -1073,17 +1174,17 @@
       "category": "audit",
       "sector": "Consulenza",
       "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-30",
-      "validThrough": "2036-04-26",
+      "sourceLang": "de",
+      "postedDate": "2026-05-05",
+      "validThrough": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-ea39feda7301",
+      "id": "pwc-bfe2e8c1829e",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-30T22:21:46.118Z",
+      "firstSeenAt": "2026-05-05T11:15:17.666Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1091,9 +1192,44 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Senior Associate Internal Advisory Risk, Quality & Compliance 80–100%",
+      "slug": "senior-associate-internal-advisory-risk-qualita-e-conformita-80-100-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-internal-advisory-risk-quality-compliance-80/a3396108-36e5-49f7-970d-38eb1a1364dd",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Consultant-Manager---Interne-Beratung--Risikomanagement--Qualitt---Compliance-80-100-_727474WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-08",
+      "validThrough": "2036-05-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-17d161495609",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-05-08T10:28:56.294Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Senior Associate – IFRS & US GAAP Audit (Asset Management)",
@@ -1266,12 +1402,13 @@
       "currency": "CHF",
       "id": "pwc-103ad3d254ef",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "_qualityScore": 87,
+      "postalCode": "1204",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1301,14 +1438,13 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 81,
+      "postalCode": "1204",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1409,13 +1545,14 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "postalCode": "6300",
       "firstSeenAt": "2026-05-31T12:24:18.454Z",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {

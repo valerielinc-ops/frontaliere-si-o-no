@@ -184,8 +184,62 @@ jobs:
               --repo "$GH_REPO" || echo "Failed to create issue for ${slug} (continuing)."
           done
 
+      - name: Close recovered crawler-health issues
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # Auto-close `[crawler-health] <slug>: <status>` issues whose crawler
+          # is now healthy in data/crawler-health.json. Without this, a recovered
+          # crawler's issue lingers open forever (the open step only creates,
+          # never closes). Matches by slug parsed from the issue title.
+          if [ ! -f data/crawler-health.json ]; then
+            echo "No health state file; nothing to reconcile."
+            exit 0
+          fi
+          gh issue list --state open --limit 500 \
+            --json number,title --jq '.[] | select(.title | test("^\\[crawler-health\\] ")) | "\(.number)\t\(.title)"' \
+            > /tmp/health-issues.tsv || true
+          if [ ! -s /tmp/health-issues.tsv ]; then
+            echo "No open [crawler-health] issues."
+            exit 0
+          fi
+          while IFS=$'\t' read -r num title; do
+            slug=$(printf '%s' "$title" | sed -E 's/^\[crawler-health\] ([^:]+):.*/\1/')
+            status=$(jq -r --arg s "$slug" '.crawlers[$s].status // "unknown"' data/crawler-health.json)
+            if [ "$status" = "healthy" ]; then
+              echo "Closing #$num — ${slug} is healthy again."
+              gh issue close "$num" --repo "$GH_REPO" \
+                --comment "✅ Auto-closed: crawler \`${slug}\` is now **healthy** in \`data/crawler-health.json\` (recovered)." \
+                || echo "Failed to close #$num (continuing)."
+            else
+              echo "Keeping #$num — ${slug} status=${status}."
+            fi
+          done < /tmp/health-issues.tsv
+
       - name: Fail if any crawler stale
+        id: failgate
         if: steps.health.outcome == 'failure'
         run: |
           echo "One or more crawlers are stale/broken — see issues created above."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il monitor è fallito prima/fuori dallo step di detection — nessuna issue di condizione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

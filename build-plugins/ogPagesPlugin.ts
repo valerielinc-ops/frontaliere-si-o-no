@@ -39,12 +39,65 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  }
  } catch { /* non-fatal */ }
 
+ // ── Article-section descriptors ─────────────────────────────
+ // The emit logic below runs once per section. Section #0 (frontaliere) is the
+ // default and MUST stay byte-identical to the pre-section behaviour: same
+ // seoFiles, hub slugs, body dir, registry, sitemap and slug-data inputs. The
+ // svizzera section mirrors it against the *-ch sources. An empty svizzera
+ // registry yields zero entries and is skipped (no warning, no early abort of
+ // the whole plugin) — see the per-section `continue` below.
+ interface OgSection {
+ name: 'frontaliere' | 'svizzera';
+ seoFiles: string[];
+ canonicalPrefix: string;
+ bodyDir: string;
+ metaPrefix: string;
+ registry: string;
+ sitemap: string;
+ slugData: string;
+ slugConst: string;
+ indexSlug: Record<'it' | 'en' | 'de' | 'fr', string>;
+ }
+ const SECTIONS: OgSection[] = [
+ {
+ name: 'frontaliere',
+ seoFiles: ['services/seo/seo-blog.ts',
+ ...Array.from({ length: 9 }, (_, i) => `services/seo/seo-blog-${i + 2}.ts`)],
+ canonicalPrefix: '/articoli-frontaliere/',
+ bodyDir: 'blog-body',
+ metaPrefix: 'blog-meta',
+ registry: 'data/blog-articles-data.ts',
+ sitemap: 'public/sitemap-blog.xml',
+ slugData: 'services/routerBlogData.ts',
+ slugConst: 'BLOG_SLUGS',
+ indexSlug: { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' },
+ },
+ {
+ name: 'svizzera',
+ seoFiles: ['services/seo/seo-blog-ch.ts'],
+ canonicalPrefix: '/articoli-svizzera/',
+ bodyDir: 'blog-body-ch',
+ metaPrefix: 'blog-meta-ch',
+ registry: 'data/swiss-articles-data.ts',
+ sitemap: 'public/sitemap-blog-ch.xml',
+ slugData: 'services/routerSwissData.ts',
+ slugConst: 'SWISS_SLUGS',
+ indexSlug: { it: 'articoli-svizzera', en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse' },
+ },
+ ];
+
+ let count = 0;
+ let faqCount = 0;
+ let totalEntries = 0;
+
+ for (const SECTION of SECTIONS) {
+
  // Parse article categories from blog-articles-data.ts for FAQ schema filtering
  const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
  const articleCategoryById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
  try {
- const articleDataSrc = fs.readFileSync(np.resolve(rootDir, 'data/blog-articles-data.ts'), 'utf-8');
+ const articleDataSrc = fs.readFileSync(np.resolve(rootDir, SECTION.registry), 'utf-8');
  const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
  let cm: RegExpExecArray | null;
  while ((cm = catRx.exec(articleDataSrc)) !== null) {
@@ -61,10 +114,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // Parse sitemap-blog.xml for <lastmod> dates (fallback for dateModified)
  const sitemapLastmodBySlug: Record<string, string> = {};
  try {
- const sitemapSrc = fs.readFileSync(np.resolve(rootDir, 'public/sitemap-blog.xml'), 'utf-8');
+ const sitemapSrc = fs.readFileSync(np.resolve(rootDir, SECTION.sitemap), 'utf-8');
  const urlBlocks = [...sitemapSrc.matchAll(/<url>\s*[\s\S]*?<\/url>/g)];
+ const sitemapPrefixRx = SECTION.canonicalPrefix.replace(/[/]/g, '\\/');
  for (const block of urlBlocks) {
- const locMatch = block[0].match(/<loc>[^<]*\/articoli-frontaliere\/([^/<]+)\/?<\/loc>/);
+ const locMatch = block[0].match(new RegExp(`<loc>[^<]*${sitemapPrefixRx}([^/<]+)\\/?<\\/loc>`));
  const lmMatch = block[0].match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/);
  if (locMatch && lmMatch) {
  sitemapLastmodBySlug[locMatch[1]] = lmMatch[1];
@@ -141,22 +195,36 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  return DEFAULT_IMG;
  };
 
- /* ── 1. Parse blog SEO entries from seo-blog.ts chunks ─────── */
- let seoSrc: string;
+ /* ── 1. Parse blog SEO entries from this section's seo files ─ */
+ // Concatenate the section's seo files in declared order. The first file is
+ // the primary chunk; subsequent files (frontaliere's seo-blog-2..10) are
+ // appended verbatim with a single '\n' separator — byte-identical to the
+ // legacy seo-blog.ts + seo-blog-N.ts concatenation. Missing chunks are
+ // skipped. If the primary file itself is unreadable, the frontaliere section
+ // keeps its historical seoService.ts fallback; other sections just skip.
+ let seoSrc: string | null = null;
+ for (const rel of SECTION.seoFiles) {
+ let chunk: string;
  try {
- seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
- // Append all seo-blog-N.ts chunks (seo-blog-2.ts, seo-blog-3.ts, etc.)
- for (let n = 2; n <= 10; n++) {
- try {
- seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`), 'utf-8');
- } catch { break; }
- }
+ chunk = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
  } catch {
+ if (seoSrc === null) continue; // primary missing → try next / fall back
+ break; // a later chunk missing → stop appending (matches old behaviour)
+ }
+ seoSrc = seoSrc === null ? chunk : seoSrc + '\n' + chunk;
+ }
+ if (seoSrc === null) {
+ if (SECTION.name === 'frontaliere') {
  try {
  seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
  } catch {
  console.warn('[og-pages] Could not read seo-blog.ts or seoService.ts — skipping');
- return;
+ continue;
+ }
+ } else {
+ // Section has no seo source yet (e.g. empty svizzera registry). Skip
+ // quietly so the other section still emits.
+ continue;
  }
  }
 
@@ -210,7 +278,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
  // reference that the regex can't capture, so we need these external sources.
  const seoDateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
- const articleSlug = cp.replace('/articoli-frontaliere/', '').replace(/\/$/, '');
+ const articleSlug = cp.replace(SECTION.canonicalPrefix, '').replace(/\/$/, '');
  const dateMod = articleUpdatedAtById[articleId]
  || sitemapLastmodBySlug[articleSlug]
  || seoDateMod;
@@ -236,12 +304,14 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  }
  }
 
- if (cp.startsWith('/articoli-frontaliere/')) {
+ if (cp.startsWith(SECTION.canonicalPrefix)) {
  entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod, sdType, sdAuthorHasId, sdBlock });
  }
  }
 
- if (!entries.length) { console.warn('[og-pages] No blog entries found'); return; }
+ // Zero entries (e.g. an empty svizzera registry) → skip this section without
+ // aborting the plugin, so the other section still emits. No warning spam.
+ if (!entries.length) { continue; }
 
  /* ── Title disambiguator (Semrush title-uniqueness gate) ──────────
   * Auto-generated articles occasionally collapse to identical <title>s
@@ -322,21 +392,24 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  };
  // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
 
- /* ── 2. Parse blog slug map + blog index slugs from router.ts ── */
- // BLOG_SLUGS: Record<BlogArticleId, { it, en, de, fr }> — flat lookup
+ /* ── 2. Parse blog slug map + blog index slugs from slug-data ── */
+ // {slugConst}: Record<ArticleId, { it, en, de, fr }> — flat lookup
  const blogSlugs: Record<string, Record<string, string>> = {};
  // Blog index slug per locale (e.g. 'articoli-frontaliere')
  const blogIndexSlug: Record<string, string> = {};
  try {
- const rSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- // Parse BLOG_SLUGS map
- const bsBlock = rSrc.match(/const BLOG_SLUGS[\s\S]*?\n\};/m)?.[0] ?? '';
+ const rSrc = fs.readFileSync(np.resolve(rootDir, SECTION.slugData), 'utf-8');
+ // Parse the section's slug-const map ({slugConst})
+ const bsBlock = rSrc.match(new RegExp(`const ${SECTION.slugConst}[\\s\\S]*?\\n\\};`, 'm'))?.[0] ?? '';
  const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
  let bm: RegExpExecArray | null;
  while ((bm = bsRx.exec(bsBlock)) !== null) {
  blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
  }
- // Parse blog index slug from SLUG_TABLES in router.ts
+ // Parse blog index slug from SLUG_TABLES in router.ts (frontaliere only —
+ // the svizzera hub slug is not keyed `blog:` in SLUG_TABLES; it uses the
+ // descriptor's indexSlug map directly via the fallbacks below).
+ if (SECTION.name === 'frontaliere') {
  try {
  const routerSrc = fs.readFileSync(np.resolve(rootDir, 'services/router.ts'), 'utf-8');
  const stBlock = routerSrc.match(/const SLUG_TABLES[\s\S]*?^};/m)?.[0] ?? '';
@@ -346,12 +419,13 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const bm2 = lm[1].match(/\bblog:\s*'([^']+)'/);
  if (bm2) blogIndexSlug[loc] = bm2[1];
  }
- } catch { /* hreflang index slug will fall back to hardcoded values */ }
- // Hardcoded fallbacks if parsing failed
- if (!blogIndexSlug.it) blogIndexSlug.it = 'articoli-frontaliere';
- if (!blogIndexSlug.en) blogIndexSlug.en = 'cross-border-articles';
- if (!blogIndexSlug.de) blogIndexSlug.de = 'grenzgaenger-artikel';
- if (!blogIndexSlug.fr) blogIndexSlug.fr = 'articles-frontalier';
+ } catch { /* hreflang index slug will fall back to descriptor values */ }
+ }
+ // Descriptor fallbacks if parsing failed / was skipped
+ if (!blogIndexSlug.it) blogIndexSlug.it = SECTION.indexSlug.it;
+ if (!blogIndexSlug.en) blogIndexSlug.en = SECTION.indexSlug.en;
+ if (!blogIndexSlug.de) blogIndexSlug.de = SECTION.indexSlug.de;
+ if (!blogIndexSlug.fr) blogIndexSlug.fr = SECTION.indexSlug.fr;
  } catch { /* hreflang will be omitted */ }
 
  const unescapeTsString = (value: string): string =>
@@ -365,7 +439,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
- const p = np.resolve(rootDir, `services/locales/blog-meta-${locale}.ts`);
+ const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
  let src = '';
  try { src = fs.readFileSync(p, 'utf-8'); } catch { return out; }
  const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
@@ -382,7 +456,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, Record<string, string>> = {};
- const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
+ const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
  let files: string[] = [];
  try { files = fs.readdirSync(dir); } catch { return out; }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
@@ -441,7 +515,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  const parseBlogBodyRawLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, Record<string, string>> = {};
- const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
+ const dir = np.resolve(rootDir, 'services', 'locales', SECTION.bodyDir, locale);
  let files: string[] = [];
  try { files = fs.readdirSync(dir); } catch { return out; }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
@@ -534,8 +608,6 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
  const LOC_TAG: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
- let count = 0;
- let faqCount = 0;
 
  const assetsDir = np.join(distDir, 'assets');
  // Race-free SPA bundle hash extraction. See spaBundleResolver.ts.
@@ -584,7 +656,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  if (picks.length === 0) return '';
  const items = picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
- const indexSlug = blogIndexSlug[locale] ?? 'articoli-frontaliere';
+ const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
  const prefix = locale === 'it' ? '' : `/${locale}`;
  const href = `${prefix}/${indexSlug}/${slug}/`;
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
@@ -869,7 +941,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
  // BreadcrumbList for article pages (enables rich result breadcrumbs in Google)
  const sectionName = locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
- const sectionSlug = blogIndexSlug[locale] || (locale === 'en' ? 'cross-border-articles' : locale === 'de' ? 'grenzgaenger-artikel' : locale === 'fr' ? 'articles-frontalier' : 'articoli-frontaliere');
+ const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[(locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it'];
  const breadcrumbLd = JSON.stringify({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -986,6 +1058,7 @@ ${href}
  localizedTitle,
  localizedDesc,
  en.keywords,
+ SECTION.name,
  );
  const bodyWordCount = bodySections.join(' ').split(/\s+/).filter(Boolean).length;
  const sectionSource = !bodySections.length
@@ -1022,7 +1095,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1037,7 +1110,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
  </body>
 </html>`;
  };
@@ -1071,9 +1144,12 @@ ${headTags}
  }
  }
 
+ totalEntries += entries.length;
+ } // end for (const SECTION of SECTIONS)
+
  const written = await collector.flush();
  const skippedHash = collector.skippedByHash;
- console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
+ console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${totalEntries} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
  },
  };
 }

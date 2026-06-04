@@ -7,6 +7,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 
 import {
   printPublishedJobUrls,
@@ -145,7 +146,11 @@ function buildJobFromApiData(apiJob, existingByUrl) {
   const existing = existingByUrl.get(String(apiJob.detailUrl || '').toLowerCase());
   const title = apiJob.title;
   const description = apiJob.description || '';
-  const slug = slugify(`${title} ${COMPANY_NAME} ${apiJob.location || 'graubuenden'}`);
+  // Guard the slug location token so a literal "undefined"/"null" from the API
+  // (both truthy → slip past `|| 'graubuenden'`) can never leak `-undefined`
+  // into an active slug (sitemap-canonical gate). Slug-only; addressLocality is
+  // backfilled by the choke-point normalizer. Issue #952 (class #900/#901).
+  const slug = slugify(`${title} ${COMPANY_NAME} ${safeLocationToken(apiJob.location, 'graubuenden')}`);
 
   return {
     id: apiJob.id,

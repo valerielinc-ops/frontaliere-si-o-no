@@ -15,29 +15,19 @@
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-697523",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
+    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
-    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-gravesano-695023",
-    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-06-02T00:24:19.650Z",
+  "updatedAt": "2026-06-04T00:19:02.206Z",
   "seedMetaByUrl": {
-    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648": {
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-gravesano-695023": {
-      "location": "Gravesano",
-      "addressLocality": "Gravesano",
+    "https://team.lidl.ch/it/jobs/343-venditore-venditrice-m-f-d-20-40-minusio-685490": {
+      "location": "Minusio",
+      "addressLocality": "Minusio",
       "canton": "TI",
       "country": "CH",
       "company": "Lidl Svizzera",

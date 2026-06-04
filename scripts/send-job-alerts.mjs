@@ -403,6 +403,12 @@ function makePreferencesUrl(email, locale = 'it') {
 
 let _db = null;
 
+// Test seam: inject a fake Firestore so the maileroo-meta writer can be unit-tested
+// without real credentials. No-op in production (only tests call it).
+export function __setFirestoreAdminForTest(fakeDb) {
+  _db = fakeDb;
+}
+
 async function getFirestoreAdmin() {
   if (_db) return _db;
   const { initializeApp, cert, getApps } = await import('firebase-admin/app');
@@ -785,6 +791,33 @@ function escHtml(s) {
 
 // ── Send via email cascade (multi-provider) ──────────────────
 
+// Maileroo's open/click webhooks carry only message_reference_id (no recipient,
+// no tags). Persist an authoritative lookup record keyed by that id so the webhook
+// can attribute opens/clicks to the job-alert subscriber. Stored under
+// newsletter_subscribers/_meta_/maileroo_refs (shared lookup family, distinguished
+// by is_job_alert) — same path as the newsletter persistDelivery writer. See
+// functions/src/newsletterMailerooWebhookCore.js. The webhook uses meta.email
+// directly as the job_alert_subscribers/{email} doc id, and every other writer
+// keys that collection by lowercased/trimmed email — so normalize here to avoid
+// attributing engagement to an orphan doc for mixed-case addresses.
+// Used by both the first-send (sendBatch) and retry (processRetryQueue) paths.
+export async function mailerooMetaOnSent(item, sendResult) {
+  if (sendResult?.provider !== 'maileroo' || !sendResult?.messageId) return;
+  const email = item.recipient?.email?.toLowerCase().trim();
+  if (!email) return;
+  try {
+    const db = await getFirestoreAdmin();
+    await db.collection('newsletter_subscribers').doc('_meta_')
+      .collection('maileroo_refs').doc(String(sendResult.messageId)).set({
+      email,
+      is_job_alert: true,
+      updated_at: new Date(),
+    }, { merge: true });
+  } catch (e) {
+    console.warn('⚠️ Maileroo meta persist failed:', e?.message);
+  }
+}
+
 async function sendBatch(emails) {
   // Use cascade for bulk sending
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
@@ -815,7 +848,7 @@ async function sendBatch(emails) {
     };
   });
 
-  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
+  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
   logProviderSummary();
   return {
     sent: result.sent.length,
@@ -903,7 +936,10 @@ async function processRetryQueue(db) {
   }
 
   console.log(`   🔄 Retrying ${retryEmails.length} email(s)...`);
-  const result = await sendEmailCascade(retryEmails, { concurrency: 3 });
+  // Pass the same onSent so retried emails also write a maileroo_message_meta
+  // record — otherwise their open/click webhooks fall back to `skipped` (the exact
+  // attribution bug fixed for the first-send path in #1135).
+  const result = await sendEmailCascade(retryEmails, { concurrency: 3, onSent: mailerooMetaOnSent });
   logProviderSummary();
 
   // Build a set of successfully sent recipient emails for lookup

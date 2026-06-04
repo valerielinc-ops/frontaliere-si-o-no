@@ -106,9 +106,8 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── Location Filter ───────────────────────────────────────── */
 
 /**
- * Keep only postings located in Zürich (HQ) and the wider ZH canton.
- * Filtering out other cantons avoids overlap with sibling crawlers
- * (Migros Ticino) and keeps this crawler scoped to the HQ.
+ * Keep every posting located in Switzerland (nationwide crawl). Foreign
+ * postings are still dropped; the canton is no longer restricted to ZH.
  *
  * Used as the `options.filter` predicate passed to the shared SR client.
  */
@@ -118,11 +117,7 @@ function isHqLocation(loc = {}) {
   const city = normalize(loc.city || '');
   const region = normalize(loc.region || '');
   if (!city && !region) return false;
-  const composite = [loc.city, loc.region, loc.country].filter(Boolean).join(', ');
-  const canton = inferAnyCanton(composite) || inferSwissTargetCanton(composite);
-  if (canton === 'ZH') return true;
-  // Common ZH city names that may resolve weakly through inferAnyCanton.
-  return /(zurich|zürich|zuerich|kloten|wallisellen|opfikon|dietikon|schlieren|bülach|buelach|winterthur)/.test(city);
+  return true;
 }
 
 /* ── Category Detection ────────────────────────────────────── */
@@ -241,7 +236,7 @@ export async function fetchAllMigrosHqJobs() {
       detailConcurrency: SR_DETAIL_CONCURRENCY,
       // Listing pagination: original used no inter-page delay; keep parity.
       minDelayMs: 0,
-      maxPages: 50,
+      maxPages: 100000,
       timeoutMs: SR_FETCH_TIMEOUT_MS,
       // Original UA distinguished crawler version; preserve verbatim.
       userAgent: 'FrontaliereTicino-JobCrawler/2.0',

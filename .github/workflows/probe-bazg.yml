@@ -45,3 +45,19 @@ jobs:
             --title "BAZG API is back online — wire as priority-1 traffic source" \
             --body "The weekly BAZG probe found a working endpoint. Time to wire it as the priority-0 source in \`functions/src/trafficSchedulerCore.js\`, above HERE Maps in the provider waterfall. See the design doc: \`valerielinc-main-design-20260503-183137-border-wait-multi-source.md\`." \
             --label "enhancement"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -166,6 +166,33 @@ describe('stripSearchQueryBoilerplate — UNDER-strip guard (shared by SPA seed 
     expect(stripSearchQueryBoilerplate('tecnico data center')).toBe('tecnico data center');
     expect(stripSearchQueryBoilerplate('responsabile neurologia')).toBe('responsabile neurologia');
   });
+
+  // N4 (2026-06-02): trailing nation/salary/requirements template suffixes are
+  // now stripped too. This is the fix for the reported
+  // recherche-pizzaiolo-pizzaiola-salary-switzerland landing, whose lone
+  // "switzerland" token OR-matched every job mentioning the nation.
+  it('removes trailing nation / salary / requirements template suffixes', () => {
+    expect(stripSearchQueryBoilerplate('pizzaiolo pizzaiola salary switzerland')).toBe('pizzaiolo pizzaiola');
+    expect(stripSearchQueryBoilerplate('infermiere requirements')).toBe('infermiere');
+    expect(stripSearchQueryBoilerplate('cuoco svizzera')).toBe('cuoco');
+    expect(stripSearchQueryBoilerplate('koch gehalt schweiz')).toBe('koch');
+    expect(stripSearchQueryBoilerplate('cuisinier salaire suisse')).toBe('cuisinier');
+    // combined leading + trailing
+    expect(stripSearchQueryBoilerplate('stipendio infermiere svizzera')).toBe('infermiere');
+  });
+
+  it('does NOT strip a trailing job-word that is not a template suffix (cuoco offerte stays)', () => {
+    // "offerte" is a LEADING prefix, never a trailing suffix — preserves the
+    // documented `ricerca-cuoco-offerte` → "cuoco offerte" contract.
+    expect(stripSearchQueryBoilerplate('cuoco offerte')).toBe('cuoco offerte');
+    // "switzerland" mid-query (not trailing) is a content word here, untouched.
+    expect(stripSearchQueryBoilerplate('switzerland tourism manager')).toBe('switzerland tourism manager');
+  });
+
+  it('never empties a query that is only boilerplate / a bare suffix term', () => {
+    expect(stripSearchQueryBoilerplate('switzerland')).toBe('switzerland');
+    expect(stripSearchQueryBoilerplate('lavoro')).toBe('lavoro');
+  });
 });
 
 // ── Stopword expansion / token extraction ───────────────────────────────
@@ -357,7 +384,11 @@ describe('buildRelatedSearches — synthetic JobListing', () => {
     expect(out).toContain('distributed systems');
   });
 
-  it('emits IT-locale specific templates ("offerte lavoro", "stipendio … svizzera")', () => {
+  // N4 (2026-06-02): the boilerplate-laden template candidates were removed and
+  // every term is now run through stripSearchQueryBoilerplate. No proposed
+  // related search may carry a leading job-search prefix or a trailing
+  // nation/salary/requirements suffix.
+  it('does NOT emit IT boilerplate templates ("offerte lavoro …", "stipendio … svizzera")', () => {
     const out = buildRelatedSearches({
       job: makeJob(),
       locale: 'it',
@@ -365,11 +396,12 @@ describe('buildRelatedSearches — synthetic JobListing', () => {
       requirements: baseRequirements,
       aiKeywords: [],
     });
-    expect(out.some((t) => t.startsWith('offerte lavoro '))).toBe(true);
-    expect(out.some((t) => t.includes('stipendio') && t.includes('svizzera'))).toBe(true);
+    expect(out.some((t) => t.toLowerCase().startsWith('offerte lavoro '))).toBe(false);
+    expect(out.some((t) => t.toLowerCase().includes('stipendio'))).toBe(false);
+    expect(out.some((t) => t.toLowerCase().endsWith(' svizzera'))).toBe(false);
   });
 
-  it('emits non-IT templates ("salary switzerland", "requirements")', () => {
+  it('does NOT emit non-IT boilerplate templates ("… salary switzerland", "… requirements")', () => {
     const out = buildRelatedSearches({
       job: makeJob(),
       locale: 'en',
@@ -377,8 +409,11 @@ describe('buildRelatedSearches — synthetic JobListing', () => {
       requirements: baseRequirements,
       aiKeywords: [],
     });
-    expect(out.some((t) => t.includes('salary switzerland'))).toBe(true);
-    expect(out.some((t) => t.endsWith('requirements'))).toBe(true);
+    expect(out.some((t) => t.toLowerCase().includes('salary switzerland'))).toBe(false);
+    expect(out.some((t) => t.toLowerCase().endsWith('switzerland'))).toBe(false);
+    expect(out.some((t) => t.toLowerCase().endsWith('requirements'))).toBe(false);
+    // Bare title still surfaces — only the boilerplate padding is gone.
+    expect(out).toContain('Software Engineer');
   });
 
   it('falls back to default canton in IT when location is empty', () => {
@@ -478,10 +513,10 @@ describe('pickBestRelatedSearchForPrompt — keyword resolution for post-login p
     expect(result).toBeNull();
   });
 
-  it('honours the locale-specific template candidates', () => {
-    // For IT, "offerte lavoro <title>" is a candidate. Build a corpus where
-    // only that exact phrase matches a job — confirms the function picks
-    // it instead of the bare title.
+  it('picks the bare-title candidate when it matches the most jobs (N4: no template padding)', () => {
+    // N4 (2026-06-02): boilerplate templates ("offerte lavoro <title>") were
+    // removed, so the bare title is the broadest candidate. Confirms the
+    // function still resolves a real intent keyword from the corpus.
     const selected = makeJob({ title: 'Infermiere' });
     const jobs = [
       makeJob({ id: 'j1', title: 'Offerte Lavoro Infermiere Bellinzona', location: 'Bellinzona' }),
@@ -495,8 +530,7 @@ describe('pickBestRelatedSearchForPrompt — keyword resolution for post-login p
       jobs,
       matches,
     });
-    // Either "Infermiere" (3 jobs include the substring) wins, or
-    // "offerte lavoro Infermiere" (2 jobs) — the broader term should win.
+    // "Infermiere" matches both j1 and j2 (substring) → broadest → wins.
     expect(result?.toLowerCase()).toContain('infermiere');
   });
 

@@ -1,16 +1,16 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-06-02T01:04:30.566Z",
+  "generatedAt": "2026-06-04T00:59:35.076Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12900,
-  "avgDurationMs": 12900,
+  "durationMs": 40802,
+  "avgDurationMs": 40802,
   "durationHistory": [
-    12900
+    40802
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "postedDate": "2026-06-01",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/impiegato-in-logistica-m-f-d/d29fd7bf-40a2-43e2-bd85-a78c48405e6e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T01:04:26.348Z",
+      "crawledAt": "2026-06-04T00:59:29.830Z",
       "firstSeenAt": "2026-06-01T16:00:39.946Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -62,7 +62,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gesamtprojektleiter-in-immobilien-development/6581a2cb-a00d-4f8a-9d8e-d3699891c828",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T01:04:26.273Z",
+      "crawledAt": "2026-06-04T00:59:23.969Z",
       "firstSeenAt": "2026-05-07T22:28:47.416Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -91,7 +91,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/capo-progetto-generale-immobili-m-f-d/4ceb3d72-b043-4b0e-96d7-2b721351df44",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T01:04:27.150Z",
+      "crawledAt": "2026-06-04T00:59:28.269Z",
       "firstSeenAt": "2026-05-07T22:29:03.851Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -120,7 +120,7 @@
       "postedDate": "2026-05-07",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/chef-de-projet-general-immobilier-m-f-d/aa5b5720-9265-4767-af29-1ad2f0f46dfa",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T01:04:30.439Z",
+      "crawledAt": "2026-06-04T00:59:34.906Z",
       "firstSeenAt": "2026-05-07T22:29:08.604Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -149,7 +149,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-02T01:04:28.186Z",
+      "crawledAt": "2026-06-04T00:59:30.041Z",
       "firstSeenAt": "2026-04-13T11:12:31.894Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -160,43 +160,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "sbb-0e2079c3b48d",
-      "slug": "responsabile-impianti-accesso-ai-treni-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "jobs.sbb.ch",
-      "title": "Responsabile impianti Accesso ai Treni (m/f/d)",
-      "location": "Giubiasco",
-      "canton": "TI",
-      "addressLocality": "Giubiasco",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2026-05-05",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-impianti-accesso-ai-treni-m-f-d/6aba9124-180b-42c8-a98e-eeba601f5c59",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-06-01T16:01:10.411Z",
-      "firstSeenAt": "2026-05-05T11:20:28.055Z",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "streetAddress": "Via Officina 3",
-      "postalCode": "6500",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

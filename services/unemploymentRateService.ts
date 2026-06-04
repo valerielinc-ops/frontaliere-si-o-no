@@ -1,3 +1,5 @@
+import { cdnDataUrl } from './cdnDataBase';
+
 export interface SwitzerlandUnemploymentRateData {
  rate: number;
  unit: 'percent';
@@ -15,7 +17,7 @@ const DATA_URL = '/data/switzerland-unemployment-rate.json';
 
 export async function fetchSwitzerlandUnemploymentRate(): Promise<SwitzerlandUnemploymentRateData | null> {
  try {
- const res = await fetch(DATA_URL);
+ const res = await fetch(cdnDataUrl(DATA_URL));
  if (!res.ok) return null;
  const data = (await res.json()) as SwitzerlandUnemploymentRateData;
  if (!data || typeof data.rate !== 'number' || !data.period) return null;

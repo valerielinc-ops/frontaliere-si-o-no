@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-06-02T01:08:04.078Z",
+  "assembledAt": "2026-06-04T01:02:45.155Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -33,7 +33,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:08:02.073Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:42.836Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -109,7 +110,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:08:01.109Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:41.835Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -137,8 +139,7 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen",
-          "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+          "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-horgen"
         ],
         "en": [
           "qualified-nurse-hf-for-the-nursing-pool-max-60-see-spital-horgen"
@@ -203,7 +204,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-02T01:08:00.147Z",
+      "crawledAt": "2026-06-04T01:02:40.793Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -278,7 +279,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:59.171Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:39.726Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -322,7 +324,11 @@
       "department": "See-Spital",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch"
+        "unterassistent-in-pj-absolvent-in-medizin-see-spital-ch",
+        "assistente-di-cura-in-medicina-see-spital-horgen",
+        "medical-care-assistant-see-spital-horgen",
+        "pflegeassistent-in-medizin-see-spital-ch",
+        "assistant-de-soins-medicaux-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -375,7 +381,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:58.241Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:38.689Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -472,7 +479,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:57.292Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:37.643Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -566,7 +574,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:56.343Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:36.613Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -665,7 +674,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:55.372Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:35.555Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -781,7 +791,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:54.385Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:34.510Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -869,22 +880,23 @@
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
         "en": "Graduated physiotherapist",
-        "de": "Graduierte Physiotherapeutin",
-        "fr": "Physiothérapeute diplômé"
+        "de": "Oberarzt*ärztin Frauenklinik",
+        "fr": "Physiothérapie diplômée"
       },
       "description": "Ihr Profil:\n\n• Facharzt*ärztin für Gynäkologie und Geburtshilfe oder kurz davor\n• Gute fachliche Qualifikation und Berufserfahrung\n• Motivierte und teamfähige Persönlichkeit\n• Hohe Sozialkompetenz und Engagement\n• Bereitschaft zur multidisziplinären Zusammenarbeit\n• Erfahrung in ambulanter Tätigkeit von Vorteil\n• Besitz von Schwerpunkt von Vorteil\n\nWas wir Ihnen bieten:\n\n• Abwechslungsreiche, selbstständige und verantwortungsvolle Tätigkeit in einem aufgeschlossenen Team\n• Einen attraktiven Arbeitsplatz mit moderner Infrastruktur\n• Die Möglichkeit für eigene Sprechstundentätigkeit in externer Praxis\n• Vielseitige Weiterbildungsmöglichkeiten (inkl. Schwerpunkt operative Gynäkologie und Geburtshilfe)\n• Breites Spektrum in der Gynäkologie und Geburtshilfe\n• Hoher Freizeitwert in einer attraktiven Umgebung Physische Bewerbungen können nicht berücksichtigt werden.",
       "descriptionByLocale": {
         "it": "Fisioterapista diplomato/a - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea presso la Clinica di Riabilitazione EOC (CREOC) per la sede di Novaggio. In caso di disponibilità di impiego i candidati con i profili che corrispondono ai requisiti richiesti verranno contattati per un primo colloquio. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Fisioterapista diplomato/a Profilo Il/la futuro/a collaboratore/trice lavora in modo autonomo e a livello interdisciplinare. Ha preferibilmente esperienza nei seguenti ambiti: neurologico angiologico chirurgico riabilitazione posturale e presa a carico di pazienti con problematiche cardio-respiratorie Ha una buona capacità di ascolto e sa valutare con attenzione ogni situazione prima di agire. Crede, come noi, nell’importanza di mettere il paziente e la sua famiglia al centro di tutte le nostre attenzioni e si dedica con impegno al proprio sviluppo personale.\n• Requisiti indispensabili Diploma di fisioterapista riconosciuto Spirito di iniziativa; spiccate capacità relazionali e comunicative Capacità organizzative e predisposizione alla collaborazione interdisciplinare in un’ottica di miglioramento continuo dello sviluppo del dipartimento e di raggiungimento degli obiettivi dati. Flessibilità ed atteggiamento positivo, piacere a lavorare in un team e a collaborare a livello trasversale. È richiesta oltre alla lingua italiana, la conoscenza delle altre lingue nazionali e dell’inglese Ottime conoscenze dei principali applicativi informatici Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale Interessato/a?",
-        "en": "Graduated physiotherapist - Ausschreibung L’EOC the multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously at the EOC Rehabilitation Clinic (CREOC) for Novaggio. In case of availability of employment, candidates with profiles that meet the requirements will be contacted for a first interview. The following position is addressed to candidates who wish to apply for a spontaneous application such as Graduated Physiotherapist/Profile The future/co-operator works independently and interdisciplinaryly. It preferably has experience in the following areas: neurological angiological surgical postural rehabilitation and taking care of patients with cardio-respiratory problems It has a good ability to listen and can carefully evaluate each situation before acting. He believes, like us, in the importance of putting the patient and his family at the centre of all our attentions and devotes himself with commitment to his personal development.\n• indispensable Requirements Diploma of physiotherapist recognized Spirit of initiative; strong relational and communicative skills organizational ability and predisposition to interdisciplinary collaboration in a perspective of continuous improvement of the development of the department and of achieving the data objectives. Flexibility and positive attitude, pleasure to work in a team and to collaborate transversally. It is required in addition to the Italian language, knowledge of other national languages and English Excellent knowledge of the main computer applications Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and consequently will be deleted from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital Interested?",
-        "de": "Graduierte Physiotherapeutin - Ausschreibung L’EOC ist das Multisite Ticino Krankenhaus mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die sich spontan bei der EOC Rehabilitationsklinik (CREOC) für Novaggio bewerben möchten. Im Falle der Verfügbarkeit von Arbeitsplätzen werden Bewerber mit Profilen, die die Anforderungen erfüllen, für ein erstes Interview kontaktiert. Die folgende Position richtet sich an Kandidaten, die sich für eine spontane Anwendung wie Graduierten Physiotherapeut/Profil bewerben möchten. Der Future/Co-Operator arbeitet unabhängig und interdisziplinär. Es hat vorzugsweise Erfahrung in folgenden Bereichen: neurologische angiologische chirurgische posturale Rehabilitation und Pflege von Patienten mit kardiorespiratorischen Problemen Es hat eine gute Fähigkeit zuzuhören und kann jede Situation sorgfältig bewerten, bevor es handelt. Er glaubt, wie wir, dass es wichtig ist, den Patienten und seine Familie in den Mittelpunkt all unserer Aufmerksamkeit zu stellen und sich mit Engagement für seine persönliche Entwicklung zu widmen.\n• unabdingbare Anforderungen Diploma of physiotherapist anerkannt Spirit of initiativ; starke relationale und kommunikative Fähigkeiten Organisationsfähigkeit und Prädisposition zu interdisziplinärer Zusammenarbeit in einer Perspektive der kontinuierlichen Verbesserung der Entwicklung der Abteilung und der Erreichung der Datenziele. Flexibilität und positive Einstellung, Freude in einem Team zu arbeiten und transversal zusammenzuarbeiten. Es ist zusätzlich zur italienischen Sprache, Wissen über andere nationale Sprachen und Englisch erforderlich Ausgezeichnetes Wissen über die wichtigsten Computeranwendungen Kommentare --> Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gelöscht. Die Bewerbungen werden nur im Falle der Leistungsanforderungen bewertet. Als Position für spontane Anwendungen werden keine Telefoninformationen freigegeben. EOC - unser Krankenhaus interessiert?",
-        "fr": "Physiothérapeute diplômé - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément à la Clinique de réadaptation de l'EOC (CREOC) pour Novaggio. En cas de disponibilité d'un emploi, on communiquera avec les candidats dont les profils répondent aux exigences pour une première entrevue. Le poste suivant s'adresse aux candidats qui souhaitent postuler à une demande spontanée comme Physiothérapeute diplômé/Profile Le futur/coopérateur travaille de façon indépendante et interdisciplinaire. Il a de préférence l'expérience dans les domaines suivants: neurologie angiologique chirurgical réadaptation posturale et prise en charge des patients présentant des problèmes cardio-respiratoires Il a une bonne capacité d'écoute et peut évaluer soigneusement chaque situation avant d'agir. Il croit, comme nous, à l'importance de placer le patient et sa famille au centre de toute notre attention et se consacre à son développement personnel.\n• Exigences indispensables Diplôme de physiothérapeute reconnu Esprit d'initiative; compétences relationnelles et communicatives fortes capacité organisationnelle et prédisposition à la collaboration interdisciplinaire dans une perspective d'amélioration continue du développement du département et d'atteinte des objectifs de données. Flexibilité et attitude positive, plaisir de travailler en équipe et de collaborer transversalement. Elle est requise en plus de la langue italienne, la connaissance d'autres langues nationales et l'anglais Excellente connaissance des principales applications informatiques Commentaires --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données. Les demandes ne seront évaluées qu'en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital Intéressé?"
+        "en": "Graduated physiotherapist - Ausschreibung L’EOC the multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously at the EOC Rehabilitation Clinic (CREOC) for Novaggio. In case of availability of employment, candidates with profiles that meet the requirements will be contacted for a first interview. The following position is addressed to candidates who wish to apply for a spontaneous application such as Physiotherapist graduate/ Profile The future/cooperator/trice works independently and interdisciplinaryly. It preferably has experience in the following areas: neurological angiological surgical postural rehabilitation and taking care of patients with cardio-respiratory problems It has a good ability to listen and can carefully evaluate each situation before acting. He believes, like us, in the importance of putting the patient and his family at the centre of all our attentions and devotes itself with commitment to personal development.\n• indispensable Requirements Diploma of physiotherapist recognized Spirit of initiative; strong relational and communicative skills organizational ability and predisposition to interdisciplinary collaboration in a perspective of continuous improvement of the development of the department and of achieving the data objectives. Flexibility and positive attitude, pleasure to work in a team and collaborate on a transversal level. It is required in addition to the Italian language, knowledge of other national languages and English Excellent knowledge of the main computer applications Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and consequently will be deleted from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital Interested?",
+        "de": "Ihr Profil:\n• Facharzt*ärztin für Gynäkologie und Geburtshilfe oder kurz davor\n• Gute fachliche Qualifikation und Berufserfahrung\n• Motivierte und teamfähige Persönlichkeit\n• Hohe Sozialkompetenz und Engagement\n• Bereitschaft zur multidisziplinären Zusammenarbeit\n• Erfahrung in ambulanter Tätigkeit von Vorteil\n• Besitz von Schwerpunkt von Vorteil Was wir Ihnen bieten:\n• Abwechslungsreiche, selbstständige und verantwortungsvolle Tätigkeit in einem aufgeschlossenen Team\n• Einen attraktiven Arbeitsplatz mit moderner Infrastruktur\n• Die Möglichkeit für eigene Sprechstundentätigkeit in externer Praxis\n• Vielseitige Weiterbildungsmöglichkeiten (inkl. Schwerpunkt operative Gynäkologie und Geburtshilfe)\n• Breites Spektrum in der Gynäkologie und Geburtshilfe\n• Hoher Freizeitwert in einer attraktiven Umgebung Physische Bewerbungen können nicht berücksichtigt werden.",
+        "fr": "Physiothérapeute diplômé - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1.000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément à la Clinique de réadaptation des COE (CREOC) pour Novaggio. En cas de disponibilité d'un emploi, on communiquera avec les candidats dont les profils répondent aux exigences pour une première entrevue. Le poste suivant s'adresse aux candidats et candidates qui souhaitent présenter une demande spontanée, comme le Physiothérapeute diplômé/ Profil Le futur/coopérateur/trice travaille de façon indépendante et interdisciplinaire. Il a de préférence l'expérience dans les domaines suivants: rééducation posturale angiologique neurologique chirurgicale et prise en charge des patients présentant des problèmes cardiorespiratoires Il a une bonne capacité d'écoute et peut évaluer soigneusement chaque situation avant d'agir. Il croit, comme nous, à l'importance de placer le patient et sa famille au centre de toutes nos attentions et se consacre au développement personnel.\n• Exigences indispensables Diplôme de physiothérapeute reconnu Esprit d'initiative; compétences relationnelles et communicatives fortes capacité organisationnelle et prédisposition à la collaboration interdisciplinaire dans une perspective d'amélioration continue du développement du département et d'atteinte des objectifs de données. Flexibilité et attitude positive, plaisir de travailler en équipe et collaboration au niveau transversal. Il est requis en plus de la langue italienne, la connaissance d'autres langues nationales et l'anglais Excellente connaissance des principales applications informatiques Commentaires --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données. Les demandes seront évaluées uniquement en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital Intéressé?"
       },
       "location": "Horgen",
       "canton": "ZH",
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:53.430Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:33.482Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -934,7 +946,7 @@
         "de": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "oberarzt-arztin-frauenklinik-see-spital-horgen",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
@@ -942,19 +954,24 @@
           "medico-senior-see-spital-horgen"
         ],
         "en": [
-          "gynecologist-and-obstetrician-see-spital-horgen"
+          "gynecologist-and-obstetrician-see-spital-horgen",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "gynecologue-et-obstetricien-see-spital-horgen"
+          "gynecologue-et-obstetricien-see-spital-horgen",
+          "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "oberarzt-arztin-frauenklinik-see-spital-ch",
         "oberarzt-arztin-frauenklinik-see-spital-horgen",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
         "medico-specialista-in-ginecologia-e-ostetricia-see-spital-horgen",
         "medico-senior-see-spital-horgen",
         "gynecologist-and-obstetrician-see-spital-horgen",
-        "gynecologue-et-obstetricien-see-spital-horgen"
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "gynecologue-et-obstetricien-see-spital-horgen",
+        "physiotherapeute-diplome-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
       "salaryMin": 49500,
@@ -1002,7 +1019,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:52.470Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:32.444Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1102,7 +1120,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:51.545Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:31.425Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1196,7 +1215,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:50.600Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:30.411Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1299,7 +1319,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:49.616Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:29.412Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1405,7 +1426,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/880/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:48.682Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:28.402Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1509,7 +1531,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:47.749Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:27.381Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1612,7 +1635,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:46.800Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:26.363Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1689,14 +1713,14 @@
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a",
         "en": "Specialised nurses",
-        "de": "Spezialisierte Krankenschwestern",
+        "de": "Assistenzarzt*ärztin Nephrologie",
         "fr": "Infirmières spécialisées"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Sie betreuen Hämodialyse-Patient*innen unseres Dialysezentrums (8 Dialyseplätze) und der Intensivstation bei akutem Nierenversagen\n• Sie führen eigenständig die nephrologische Sprechstunde\n• Sie übernehmen regelmässig Samstagsdienste im Rahmen unseres Rotationssystems\n\nIhr Profil:\n\n• Abgeschlossenes Medizinstudium\n• Berufserfahrung als Assistenzarzt*ärztin Allgemeine Innere Medizin\n• Sie befinden sich in der Weiterbildung zur Facharzt*ärztin FMH-Nephrologie oder FMH-Innere Medizin\n• Sie bringen ein hohes Mass an sozialer und fachlicher Kompetenz sowie Verantwortungsbewusstsein mit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (C1-Niveau)\n\nWas wir Ihnen bieten:\n\n• Anerkannte Weiterbildungsstätte Kategorie C für den Facharzttitel Nephrologie\n• Enge Begleitung durch einen sehr erfahrenen und engagierten Kaderarzt\n• Eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem überschaubaren und gut strukturierten Umfeld\n• Kollegiale Arbeitsatmosphäre mit kurzen Entscheidungswegen\n• Zeitgemässe Anstellungsbedingungen und attraktive Fortbildungsmöglichkeiten. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
         "it": "Infermiere/a specializzato/a - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Infermiere/a specializzato/a Profilo Il Servizio infermieristico dell'Ospedale Regionale \"La Carità\" di Locarno impiega ca. 400 collaboratori, ripartiti nei diversi reparti.\n• Requisiti necessari\n• Requisiti indispensabili: - Diploma di infermiere (Bachelor SUPSI) oppure Diploma di infermiere (SSSCI) oppure Diploma di infermiere conseguito in altri cantoni svizzeri oppure Laurea in cure infermieristiche (Italia o altri paesi europei) riconosciuta dalla Croce Rossa Svizzera - Una tra le seguenti specializzazioni: a) Formazione post-diploma infermiera/e esperta/o cure intense diplomata/o SPD SSS oppure diploma ASI b) Formazione post-diploma infermiera/e esperta/o cure anestesia diplomata/o SPD SSS oppure diploma ASI c) Formazione post-diploma infermiera/e esperta/o cure urgenti diplomata/o SPD SSS - Conoscenza della lingua italiana, parlata e scritta\n• Requisiti auspicati: - Conoscenza di almeno un'altra lingua nazionale (tedesco o francese) auspicata Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale. Interessato/a?",
         "en": "The multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously as Infermiere/a specialisti/a Profile The Nursing Service of the Regional Hospital \"La Carità\" in Locarno employs about 400 employees, divided into different departments.\n• Requirements\n• Requisites: - Diploma of nurses (Bachelor SUPSI) or Diploma of nurses (SSSCI) or Diploma of nurses obtained in other Swiss cantons or Degree in nursing care (Italy or other European countries) recognized by the Swiss Red Cross - One of the following specializations: a) Post-diploma training nurse/experts\n• Requirements: - Knowledge of at least another national language (German or French) desired Comments --> Applications of those who do not have the above requirements will not be taken into account in any case and will therefore be eliminated from our database. Applications will be assessed only in case of service requirements. As a position for spontaneous applications, telephone information is not released. EOC - our hospital. Interested?",
-        "de": "Das Multisite Ticino Krankenhaus ist mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die sich spontan bewerben möchten, da Infermiere/a speciali/a Profile Der Pflegedienst des Regionalkrankenhauses \"La Carità\" in Locarno etwa 400 Mitarbeiter beschäftigt, die in verschiedene Abteilungen unterteilt sind.\n• Anforderungen\n• Requisiten: - Diplom der Krankenschwestern (Bachelor SUPSI) oder Diplom der Krankenschwestern (SSSCI) oder Diplom der Krankenschwestern in anderen Schweizer Kantonen oder Grad in Pflege (Italien oder andere europäische Länder) vom Schweizer Roten Kreuz anerkannt - Eine der folgenden Spezialisierungen: a) Postdiplom-Ausbildung Krankenschwester/Experten\n• Anforderungen: - Kenntnis von mindestens einer anderen Landessprache (deutsch oder französisch) gewünschte Kommentare --> Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gestrichen. Die Bewerbungen werden nur im Falle der Leistungsanforderungen bewertet. Als Position für spontane Anwendungen werden keine Telefoninformationen freigegeben. EOC - unser Krankenhaus. Interessant?",
+        "de": "Ihr Aufgabengebiet:\n• Sie betreuen Hämodialyse-Patient*innen unseres Dialysezentrums (8 Dialyseplätze) und der Intensivstation bei akutem Nierenversagen\n• Sie führen eigenständig die nephrologische Sprechstunde\n• Sie übernehmen regelmässig Samstagsdienste im Rahmen unseres Rotationssystems Ihr Profil:\n• Abgeschlossenes Medizinstudium\n• Berufserfahrung als Assistenzarzt*ärztin Allgemeine Innere Medizin\n• Sie befinden sich in der Weiterbildung zur Facharzt*ärztin FMH-Nephrologie oder FMH-Innere Medizin\n• Sie bringen ein hohes Mass an sozialer und fachlicher Kompetenz sowie Verantwortungsbewusstsein mit\n• Sehr gute Deutschkenntnisse in Wort und Schrift (C1-Niveau) Was wir Ihnen bieten:\n• Anerkannte Weiterbildungsstätte Kategorie C für den Facharzttitel Nephrologie\n• Enge Begleitung durch einen sehr erfahrenen und engagierten Kaderarzt\n• Eine abwechslungsreiche und anspruchsvolle Tätigkeit in einem überschaubaren und gut strukturierten Umfeld\n• Kollegiale Arbeitsatmosphäre mit kurzen Entscheidungswegen\n• Zeitgemässe Anstellungsbedingungen und attraktive Fortbildungsmöglichkeiten. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
         "fr": "L'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Infermiere/a specialisti/a Profile Le service de soins infirmiers de l'hôpital régional « La Carità » de Locarno emploie environ 400 employés, répartis en différents départements.\n• Exigences\n• Requis : - Diplôme d'infirmière (Bachelor SUPSI) ou Diplôme d'infirmière (SSSCI) ou Diplôme d'infirmières obtenu dans d'autres cantons suisses ou Diplôme de soins infirmiers (Italie ou autres pays européens) reconnu par la Croix-Rouge suisse - Une des spécialisations suivantes : a) Infirmière/experte postdiplôme\n• Exigences : - Connaissance d'au moins une autre langue nationale (allemand ou français) Commentaires souhaités --> Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc éliminées de notre base de données. Les demandes ne seront évaluées qu'en cas d'exigences de service. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. EOC - notre hôpital. Intéressé ?"
       },
       "location": "Horgen",
@@ -1704,7 +1728,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:45.851Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:25.352Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1747,8 +1772,7 @@
       "previousSlugsByLocale": {
         "de": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
-          "assistenzarzt-arztin-nephrologie-see-spital-horgen",
-          "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno"
+          "assistenzarzt-arztin-nephrologie-see-spital-horgen"
         ],
         "it": [
           "assistenzarzt-arztin-nephrologie-see-spital-ch",
@@ -1814,7 +1838,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:44.892Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:24.330Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1916,7 +1941,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:43.917Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:23.303Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1960,7 +1986,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "fachfrau-mann-gesundheit-efz-excellence-see-spital-ch",
-        "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen"
+        "fachfrau-mann-gesundheit-cfc-excellence-see-spital-horgen",
+        "medicina-efz-della-salute-professionale-see-spital-horgen",
+        "healthcare-professional-efz-medicine-see-spital-horgen",
+        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
+        "professionnel-de-sante-efz-medecine-see-spital-horgen",
+        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1969,111 +2000,6 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "see-spital-9f2c8f0ff8f4",
-      "slug": "medicina-efz-della-salute-professionale-see-spital-horgen",
-      "slugByLocale": {
-        "it": "medicina-efz-della-salute-professionale-see-spital-horgen",
-        "en": "healthcare-professional-efz-medicine-see-spital-horgen",
-        "de": "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-        "fr": "professionnel-de-sante-efz-medecine-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Fachfrau*mann Gesundheit EFZ Medizin",
-      "titleByLocale": {
-        "it": "Fachfrau*mann Gesundheit CFC Medizin",
-        "en": "Healthcare Specialist EFZ in Medicine",
-        "de": "Fachfrau*mann Gesundheit EFZ Medizin",
-        "fr": "Spécialiste en santé EFZ en médecine"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den medizinischen Fachbereichen.\n• Mitgestalten: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen versiert zur Planung und Dokumentation bei.\n• Patient*innenorientierung im Fokus: Sie sind verantwortlich für eine professionelle Pflege und Betreuung unserer Patient*innen.\n• Teamarbeit leben: Gemeinsam mit dipl. Pflegefachpersonen arbeiten Sie im Tandem mit Pflegeassistent*innen und Pflegepraktikant*innen zusammen.\n\nIhr Profil:\n\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ\n• Berufserfahrung in einem Akutspital wünschenswert\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n• Stilsicheres Deutsch in Wort und Schrift\n• Sie bringen mit – eine Brise Humor\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Mansioni\n• Varietà nell'assistenza: si occupa dei pazienti nei reparti medici.\n• Partecipazione: supporta il personale infermieristico specializzato nelle procedure diagnostiche e terapeutiche e contribuisce in modo esperto alla pianificazione e alla documentazione.\n• Orientamento al paziente: è responsabile per un'assistenza infermieristica professionale e per la cura dei nostri pazienti.\n• Lavoro di squadra: collabora con infermieri diplomati, assistenti infermieristici e tirocinanti. Requisiti\n• Qualifica professionale di specialista della salute EFZ\n• Esperienza professionale in un ospedale generale è gradita\n• Spirito di squadra e piacere per la collaborazione interdisciplinare\n• Capacità di comprensione e comunicazione per accompagnare i nostri pazienti e i loro familiari con sensibilità\n• Motivazione per il costante miglioramento e l'apprendimento di cose nuove\n• Lavoro autonomo e responsabile\n• Conoscenza della lingua tedesca scritta e parlata\n• Umorismo Cosa offriamo\n• Lavoro autonomo in un team motivato e collaborativo, che si sostiene a vicenda.\n• Luogo di lavoro con buoni collegamenti ai mezzi pubblici e parcheggi a prezzi accessibili.\n• Strutture moderne e un ambiente di lavoro confortevole - con vista sul lago incluso.\n• Vantaggi vari - da sconti per i dipendenti a offerte di formazione.\n• Clima di lavoro accogliente in un luogo attraente vicino a Zurigo, che offre molte opportunità sia professionali che personali. Contatto\n• Le candidature fisiche non possono essere prese in considerazione o restituite.",
-        "en": "Duties\n• Variety in care: You will care for patients in medical departments.\n• Co-create: You will support our healthcare professionals in diagnostic and therapeutic measures and contribute expertly to planning and documentation.\n• Patient-oriented: You are responsible for professional care and support of our patients.\n• Teamwork: You will work together with diploma nurses, nursing assistants, and nursing students. Requirements\n• Completed training as a Healthcare Specialist EFZ\n• Desirable experience in an acute hospital\n• Team spirit and joy in interdisciplinary collaboration\n• Empathy and communication skills to accompany our patients and their relatives sensitively\n• Motivation for continuous development and learning new things\n• Independent and responsible working\n• Fluent German in speaking and writing\n• A touch of humor What we offer\n• Independent work in a motivated and collegial team that supports each other.\n• A workplace with good public transport connections and affordable parking.\n• Modern infrastructure and a comfortable working environment - with a lake view included.\n• Various benefits - from staff discounts to training offers.\n• A welcoming work atmosphere in an attractive location near Zurich, offering many professional and personal opportunities. Contact\n• Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n• Vielfalt in der Pflege: Sie betreuen Patient*innen in den medizinischen Fachbereichen.\n• Mitgestalten: Sie unterstützen unser Pflegefachpersonal bei diagnostischen und therapeutischen Maßnahmen und tragen versiert zur Planung und Dokumentation bei.\n• Patient*innenorientierung im Fokus: Sie sind verantwortlich für eine professionelle Pflege und Betreuung unserer Patient*innen.\n• Teamarbeit leben: Gemeinsam mit dipl. Pflegefachpersonen arbeiten Sie im Tandem mit Pflegeassistent*innen und Pflegepraktikant*innen zusammen. Ihr Profil:\n• Eine abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ\n• Berufserfahrung in einem Akutspital wünschenswert\n• Teamspirit und Freude an der interdisziplinären Zusammenarbeit\n• Einfühlungsvermögen und Kommunikationsstärke , um unsere Patient*innen und deren Angehörige einfühlsam zu begleiten\n• Die Motivation, sich ständig weiterzuentwickeln und Neues zu lernen\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n• Stilsicheres Deutsch in Wort und Schrift\n• Sie bringen mit – eine Brise Humor Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Missions\n• Variété dans les soins : vous prendrez en charge des patients dans les départements médicaux.\n• Co-créer : vous soutiendrez nos professionnels de la santé dans les mesures diagnostiques et thérapeutiques et contribuerez de manière experte à la planification et à la documentation.\n• Orienté patient : vous êtes responsable des soins professionnels et de l'accompagnement de nos patients.\n• Travail d'équipe : vous travaillerez avec des infirmiers diplômés, des assistants en soins infirmiers et des étudiants en soins infirmiers. Exigences\n• Formation terminée en tant que spécialiste en santé EFZ\n• Expérience souhaitable dans un hôpital général\n• Esprit d'équipe et plaisir de collaborer de manière interdisciplinaire\n• Sensibilité et compétences en communication pour accompagner nos patients et leurs proches de manière sensible\n• Motivation pour le développement continu et l'apprentissage de choses nouvelles\n• Travail autonome et responsable\n• Allemand fluide à l'oral et à l'écrit\n• Une touche d'humour Ce que nous offrons\n• Travail autonome dans une équipe motivée et collégiale qui s'entraide.\n• Un lieu de travail bien desservi par les transports en commun et des places de parking abordables.\n• Infrastructure moderne et un environnement de travail confortable - avec vue sur le lac inclus.\n• Divers avantages - des réductions pour les employés aux offres de formation.\n• Une atmosphère de travail accueillante dans un lieu attrayant près de Zurich, offrant de nombreuses opportunités professionnelles et personnelles. Contact\n• Les candidatures physiques ne peuvent être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:42.963Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1212/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Abgeschlossene Ausbildung als Fachfrau*mann Gesundheit EFZ",
-          "Berufserfahrung in einem Akutspital wünschenswert",
-          "Teamspirit und Freude an der interdisziplinären Zusammenarbeit",
-          "Einfühlungsvermögen und Kommunikationsstärke",
-          "Motivation, sich ständig weiterzuentwickeln und Neues zu lernen",
-          "Selbstständige und verantwortungsbewusste Arbeitsweise",
-          "Stilsicheres Deutsch in Wort und Schrift",
-          "Eine Brise Humor"
-        ],
-        "en": [
-          "Completed training as a Healthcare Professional EFZ",
-          "Professional experience in an acute care hospital is desirable",
-          "Team spirit and enjoyment of interdisciplinary cooperation",
-          "Empathy and strong communication skills",
-          "Motivation to constantly develop and learn new things",
-          "Independent and responsible work style",
-          "Fluent German in writing and speaking",
-          "A touch of humor"
-        ],
-        "fr": [
-          "Formation complète en tant que Professionnel de Santé EFZ",
-          "Expérience professionnelle dans un hôpital d'urgence est souhaitable",
-          "Esprit d'équipe et plaisir de la coopération interdisciplinaire",
-          "Empathie et fortes compétences en communication",
-          "Motivation à se développer constamment et à apprendre de nouvelles choses",
-          "Style de travail indépendant et responsable",
-          "Allemand fluide en écriture et en parole",
-          "Une touche d'humour"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-        "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-efz-medizin-see-spital-ch",
-          "fachfrau-mann-gesundheit-cfc-medizin-see-spital-horgen"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:54.431Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2119,7 +2045,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:41.984Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:22.292Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2220,7 +2147,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:41.035Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:21.255Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2304,12 +2232,12 @@
       "company": "See-Spital",
       "companyKey": "see-spital",
       "companyDomain": "see-spital.ch",
-      "title": "Pflegepraktikant*in Medizin oder Excellence",
+      "title": "Pflegepraktikant*in Excellence",
       "titleByLocale": {
         "it": "Interno di cura* in medicina o eccellenza",
         "en": "Care intern*in medicine or excellence",
-        "de": "Pflegepraktikant*in Medizin oder Excellence",
-        "fr": "Pflegepraktikant*in Medizin oder Excellence"
+        "de": "Pflegepraktikant*in Excellence",
+        "fr": "Pflegepraktikant*in Excellence"
       },
       "description": "Ihr Aufgabengebiet:\n\n• Sie leisten durch Ihre Unterstützung bei einfachen pflegerischen Tätigkeiten einen wertvollen Beitrag zur Genesung unserer Patient*innen\n• Sie übernehmen nach Anleitung selbstständig hauswirtschaftliche Aufgaben\n• Sie sind verantwortlich für die Bewirtschaftung sowie die Verteilung von Materialien und Geräten\n• Sie führen Transporte sowie Botengänge zuverlässig durch und runden damit Ihr Aufgabengebiet ab\n\nIhr Profil:\n\n• Sie sind an einem Einsatz von mindestens 3 bis maximal 6 Monaten interessiert\n• Sie sind mindestens 18 Jahre alt und bringen grosses Interesse an der Pflege und Freude am Umgang mit Menschen mit\n• Dank Ihrer sehr guten mündlichen Deutschkenntnisse können Sie sich leicht mit unseren Patient*innen verständigen\n• Mit Ihrer hohen Sozialkompetenz, Teamfähigkeit und Lernbereitschaft können Sie uns begeistern\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
       "descriptionByLocale": {
@@ -2323,7 +2251,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1237/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:40.091Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:20.237Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2347,14 +2276,17 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "de": [
-          "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch"
+          "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch",
+          "pflegepraktikant-in-excellence-see-spital-ch"
         ],
         "it": [
-          "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch"
+          "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch",
+          "pflegepraktikant-in-excellence-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch"
+        "pflegepraktikant-in-medizin-oder-excellence-see-spital-ch",
+        "pflegepraktikant-in-excellence-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:52.774Z",
       "salaryMin": 41600,
@@ -2402,7 +2334,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1235/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:39.159Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:19.191Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2505,7 +2438,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:38.219Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:18.195Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2605,7 +2539,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:37.238Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:17.181Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2690,103 +2625,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-7ecd7c97fd05",
-      "slug": "assistente-di-cura-in-medicina-see-spital-horgen",
-      "slugByLocale": {
-        "it": "assistente-di-cura-in-medicina-see-spital-horgen",
-        "en": "medical-care-assistant-see-spital-horgen",
-        "de": "pflegeassistent-in-medizin-see-spital-ch",
-        "fr": "assistant-de-soins-medicaux-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Pflegeassistent*in Medizin",
-      "titleByLocale": {
-        "it": "Assistente di Cura in Medicina",
-        "en": "Medical Care Assistant",
-        "de": "Pflegeassistent*in Medizin",
-        "fr": "Assistant de Soins Médicaux"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Eigenständige Übernahme hauswirtschaftlicher Tätigkeiten sowie der Materialbewirtschaftung\n• Durchführung von Küchenbestellungen und Botengängen innerhalb des Spitals\n• Unterstützung des diplomierten Pflegepersonals bei der ganzheitlichen Betreuung der Patient*innen\n• Begleitung von Patient*innen, Unterstützung beim Wiegen und bei der Mobilisation sowie beim Transfer in Zimmer oder andere Abteilungen\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegehelfer*in SRK\n• Nachweisbare Berufserfahrung in einer Pflegeorganisation in der Schweiz\n• Gute Deutschkenntnisse in Wort und Schrift\n• Belastbarkeit, Verantwortungsbewusstsein und sorgfältige Arbeitsweise\n• Ausgeprägte Dienstleistungsorientierung und hohe Kundenfreundlichkeit\n• Organisationsgeschick und proaktive, selbstständige Arbeitsweise\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Mansioni - Assunzione indipendente di attività domestiche e gestione dei materiali - Esecuzione di ordini di cucina e commissioni all'interno dell'ospedale - Supporto al personale infermieristico qualificato nella cura complessiva dei pazienti - Accompagnamento dei pazienti, supporto nel pesare e nella mobilizzazione, nonché nel trasferimento in stanza o altre sezioni\n• Requisiti - Formazione conclusa come assistente di cura SRK - Esperienza professionale verificabile in un'organizzazione di cura in Svizzera - Buone conoscenze di tedesco, sia scritto che parlato - Capacità di resistenza, senso di responsabilità e attenzione al dettaglio - Orientamento al servizio e alta cortesia verso i clienti - Abilità organizzative e capacità di lavorare proattivamente e autonomamente\n• Cosa offriamo - Lavoro autonomo in un team motivato e collaborativo che si supporta a vicenda - Un luogo di lavoro ben collegato ai trasporti pubblici e con parcheggi personali economici - Infrastruttura moderna e un ambiente di lavoro che vi farà sentire a vostro agio – incluso vista sul mare - Diversi benefici – da sconti per i dipendenti a offerte di formazione - Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che vi offre molto sia professionalmente che privatamente Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Responsibilities - Independent handling of household tasks and material management - Execution of kitchen orders and errands within the hospital - Support of qualified nursing staff in comprehensive patient care - Accompanying patients, support in weighing and mobilization, as well as transfer to rooms or other departments\n• Requirements - Completed training as a care assistant SRK - Verifiable professional experience in a care organization in Switzerland - Good German language skills in writing and speaking - Ability to withstand stress, sense of responsibility and meticulous work - Service orientation and high customer friendliness - Organizational skills and proactive, self-reliant work What We Offer - Autonomous work in a motivated and collegial team that supports each other - A work location with excellent public transport connections and cost-effective employee parking - Modern infrastructure and a work environment that makes you feel at home – including sea view - Various benefits – from great employee discounts to training offers - A pleasant working atmosphere in an attractive location near Zurich, which offers you a lot both professionally and privately Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n• Eigenständige Übernahme hauswirtschaftlicher Tätigkeiten sowie der Materialbewirtschaftung\n• Durchführung von Küchenbestellungen und Botengängen innerhalb des Spitals\n• Unterstützung des diplomierten Pflegepersonals bei der ganzheitlichen Betreuung der Patient*innen\n• Begleitung von Patient*innen, Unterstützung beim Wiegen und bei der Mobilisation sowie beim Transfer in Zimmer oder andere Abteilungen Ihr Profil:\n• Abgeschlossene Ausbildung als Pflegehelfer*in SRK\n• Nachweisbare Berufserfahrung in einer Pflegeorganisation in der Schweiz\n• Gute Deutschkenntnisse in Wort und Schrift\n• Belastbarkeit, Verantwortungsbewusstsein und sorgfältige Arbeitsweise\n• Ausgeprägte Dienstleistungsorientierung und hohe Kundenfreundlichkeit\n• Organisationsgeschick und proaktive, selbstständige Arbeitsweise Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Responsabilités - Gestion autonome des tâches ménagères et de la gestion des matériaux - Exécution des commandes de cuisine et des courses à l'intérieur de l'hôpital - Soutien au personnel infirmier qualifié dans les soins complets des patients - Accompagnement des patients, soutien dans le pesage et la mobilisation, ainsi que le transfert vers les chambres ou autres départements\n• Exigences - Formation terminée comme assistant de soins SRK - Expérience professionnelle vérifiable dans une organisation de soins en Suisse - Bonnes compétences en allemand, écrit et parlé - Capacité à supporter la pression, sens de la responsabilité et travail méticuleux - Orientation service et grande amabilité envers les clients - Compétences organisationnelles et travail proactif et autonome Ce que nous offrons - Travail autonome dans une équipe motivée et collégiale qui se soutient mutuellement - Un lieu de travail bien connecté aux transports en commun et avec des places de parking pour employés économiques - Infrastructure moderne et un environnement de travail qui vous fait sentir à l'aise – y compris vue sur la mer - Diverses prestations – des réductions d'employés géniales aux offres de formation - Un environnement de travail agréable dans un lieu attrayant près de Zurich, qui vous offre beaucoup à la fois professionnellement et privé Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:36.249Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1222/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione conclusa come assistente di cura SRK",
-          "Esperienza professionale verificabile in un'organizzazione di cura in Svizzera",
-          "Buone conoscenze di tedesco, sia scritto che parlato",
-          "Capacità di resistenza, senso di responsabilità e attenzione al dettaglio",
-          "Orientamento al servizio e alta cortesia verso i clienti",
-          "Abilità organizzative e capacità di lavorare proattivamente e autonomamente"
-        ],
-        "en": [
-          "Completed training as a care assistant SRK",
-          "Verifiable professional experience in a care organization in Switzerland",
-          "Good German language skills in writing and speaking",
-          "Ability to withstand stress, sense of responsibility and meticulous work",
-          "Service orientation and high customer friendliness",
-          "Organizational skills and proactive, self-reliant work"
-        ],
-        "fr": [
-          "Formation terminée comme assistant de soins SRK",
-          "Expérience professionnelle vérifiable dans une organisation de soins en Suisse",
-          "Bonnes compétences en allemand, écrit et parlé",
-          "Capacité à supporter la pression, sens de la responsabilité et travail méticuleux",
-          "Orientation service et grande amabilité envers les clients",
-          "Compétences organisationnelles et travail proactif et autonome"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "pflegeassistent-in-medizin-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeassistent-in-medizin-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:49.874Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "see-spital-b72d07539129",
       "slug": "fachspezialist-in-clinico-physician-associate-see-spital-horgen",
       "slugByLocale": {
@@ -2817,7 +2655,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:35.309Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:16.140Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2920,7 +2759,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:34.375Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:15.116Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2993,205 +2833,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-06f48b74a983",
-      "slug": "capo-del-settore-segreteria-radiologia-see-spital-horgen",
-      "slugByLocale": {
-        "it": "capo-del-settore-segreteria-radiologia-see-spital-horgen",
-        "en": "radiology-secretarial-team-leader-see-spital-horgen",
-        "de": "teamleiter-in-sekretariat-radiologie-see-spital-ch",
-        "fr": "teamleiter-in-sekretariat-radiologie-see-spital-ch"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Teamleiter*in Sekretariat Radiologie",
-      "titleByLocale": {
-        "it": "Capo del Settore Segreteria Radiologia",
-        "en": "Radiology Secretarial Team Leader",
-        "de": "Teamleiter*in Sekretariat Radiologie",
-        "fr": "Teamleiter*in Sekretariat Radiologie"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Leitung des Sekretariatsteams inkl. Ferien- und Abwesenheitsplanung\n• Kommunikation mit anderen Spitälern , Radiologie-Instituten sowie zuweisenden Ärzt*innen, inklusive Koordination und Einholung von Voruntersuchungen\n• Aktive Mitarbeit am Radiologie-Empfang: Begrüssung der Patient*innen, sorgfältige Prüfung der Untersuchungs- und Versicherungsdaten sowie Abgabe und Erläuterung von Informations- und Aufklärungsunterlagen (z. B. Kontrastmittel, Einwilligungen, Mammographie, Datenschutz).\n• Telefonische Auskünfte sowie Schnittstellenfunktion zu den MTRA\n• Koordination des digitalen Versands von Befunden und radiologischen Bildern\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung im kaufmännischen oder medizinischen Bereich, idealerweise mit Erfahrung in der Radiologie\n• Erfahrung in der Führung eines Teams von Vorteil\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz , Kommunikationsstärke und Freude am Patient*innenkontakt\n• Belastbarkeit und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie Grundkenntnisse in Englisch und Italienisch von Vorteil\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Il tuo campo di attività:\n• Direzione del team della segreteria inclusa la pianificazione delle ferie e delle assenze\n• Comunicazione con altri ospedali, istituti di radiologia e medici di riferimento, inclusa la coordinazione e la raccolta di esami preliminari\n• Partecipazione attiva alla ricezione radiologica: accoglienza dei pazienti, verifica accurata dei dati esaminativi e assicurativi, distribuzione e spiegazione di materiali informativi e di istruzione (ad es. contrasto, consenso, mammografia, protezione dei dati).\n• Informazioni telefoniche e funzione di interfaccia con gli MTRA\n• Coordinamento dell'invio digitale dei risultati e delle immagini radiologiche Il tuo profilo:\n• Formazione commerciale o medica, preferibilmente con esperienza in radiologia\n• Esperienza nella guida di un team è un vantaggio\n• Capacità organizzative e un approccio strutturato e solutivo\n• Alta competenza sociale, forza comunicativa e piacere nel contatto con i pazienti\n• Capacità di resistenza e determinazione\n• Ottime conoscenze di tedesco, sia scritto che parlato, e conoscenze di base di inglese e italiano sono un vantaggio Cosa ti offriamo:\n• Lavoro autonomo in un team motivato e collaborativo che si supporta a vicenda.\n• Un luogo di lavoro ben collegato ai trasporti pubblici e parcheggi personali economici.\n• Infrastruttura moderna e un ambiente di lavoro che ti farà sentire a tuo agio – con vista sul mare inclusa.\n• Varie benefit – da sconti per i dipendenti a offerte di formazione.\n• Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che ti offre molto sia professionalmente che privatamente. Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\n• Management of the secretarial team including holiday and absence planning\n• Communication with other hospitals, radiology institutes, and referring physicians, including coordination and obtaining of pre-examinations\n• Active participation in the radiology reception: welcoming patients, careful checking of examination and insurance data, distribution and explanation of information and instruction materials (e.g. contrast medium, consents, mammography, data protection).\n• Telephone inquiries and interface function to the MTRA\n• Coordination of the digital dispatch of results and radiological images Your profile:\n• Completed training in the commercial or medical field, preferably with experience in radiology\n• Experience in leading a team is advantageous\n• Strong organizational skills and a structured, solution-oriented approach\n• High social competence, communication strength, and enjoyment of patient contact\n• Resilience and determination\n• Very good German language skills in both written and spoken form, as well as basic knowledge of English and Italian is advantageous What we offer you:\n• Self-responsible work in a motivated and collegial team that supports each other.\n• A workplace with excellent public transport connections and cost-effective personal parking spaces.\n• Modern infrastructure and a working environment that makes you feel comfortable – including sea view.\n• Diverse benefits – from great employee discounts to training offers.\n• A pleasant working atmosphere in an attractive location near Zurich, which offers a lot both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n• Leitung des Sekretariatsteams inkl. Ferien- und Abwesenheitsplanung\n• Kommunikation mit anderen Spitälern , Radiologie-Instituten sowie zuweisenden Ärzt*innen, inklusive Koordination und Einholung von Voruntersuchungen\n• Aktive Mitarbeit am Radiologie-Empfang: Begrüssung der Patient*innen, sorgfältige Prüfung der Untersuchungs- und Versicherungsdaten sowie Abgabe und Erläuterung von Informations- und Aufklärungsunterlagen (z. B. Kontrastmittel, Einwilligungen, Mammographie, Datenschutz).\n• Telefonische Auskünfte sowie Schnittstellenfunktion zu den MTRA\n• Koordination des digitalen Versands von Befunden und radiologischen Bildern Ihr Profil:\n• Abgeschlossene Ausbildung im kaufmännischen oder medizinischen Bereich, idealerweise mit Erfahrung in der Radiologie\n• Erfahrung in der Führung eines Teams von Vorteil\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz , Kommunikationsstärke und Freude am Patient*innenkontakt\n• Belastbarkeit und Durchsetzungsvermögen\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie Grundkenntnisse in Englisch und Italienisch von Vorteil Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Votre domaine de responsabilité:\n• Gestion de l'équipe secrétariat, y compris la planification des vacances et des absences\n• Communication avec d'autres hôpitaux, instituts de radiologie et médecins référents, y compris la coordination et l'obtention de pré-examens\n• Participation active à la réception radiologique: accueil des patients, vérification minutieuse des données d'examen et d'assurance, distribution et explication des documents informatifs et d'instruction (par exemple, produit de contraste, consentements, mammographie, protection des données).\n• Demandes téléphoniques et fonction d'interface avec les MTRA\n• Coordination de l'envoi numérique des résultats et des images radiologiques Votre profil:\n• Formation commerciale ou médicale, de préférence avec expérience en radiologie\n• Expérience dans la direction d'une équipe est un atout\n• Capacités organisationnelles et approche structurée et orientée vers la solution\n• Haute compétence sociale, force de communication et plaisir du contact avec les patients\n• Résilience et détermination\n• Excellentes compétences en allemand, écrit et parlé, ainsi que des connaissances de base de l'anglais et de l'italien sont un atout Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail bien connecté aux transports en commun et des places de parking personnelles économiques.\n• Infrastructure moderne et un environnement de travail qui vous rend confortable – avec vue sur la mer incluse.\n• Diverses prestations – des réductions d'employés géniales aux offres de formation.\n• Un climat de travail agréable dans un lieu attrayant près de Zurich, qui offre beaucoup à la fois professionnellement et personnellement. Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1238/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:33.426Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1238/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione commerciale o medica, preferibilmente con esperienza in radiologia",
-          "Esperienza nella guida di un team è un vantaggio",
-          "Capacità organizzative e un approccio strutturato e solutivo",
-          "Alta competenza sociale, forza comunicativa e piacere nel contatto con i pazienti",
-          "Capacità di resistenza e determinazione",
-          "Ottime conoscenze di tedesco, sia scritto che parlato",
-          "Conoscenze di base di inglese e italiano sono un vantaggio"
-        ],
-        "en": [
-          "Completed training in the commercial or medical field, preferably with experience in radiology",
-          "Experience in leading a team is advantageous",
-          "Strong organizational skills and a structured, solution-oriented approach",
-          "High social competence, communication strength, and enjoyment of patient contact",
-          "Resilience and determination",
-          "Very good German language skills in both written and spoken form",
-          "Basic knowledge of English and Italian is advantageous",
-          "Completed training in commercial or medical fields, ideally with experience in radiology"
-        ],
-        "fr": [
-          "Formation commerciale ou médicale, de préférence avec expérience en radiologie",
-          "Expérience dans la direction d'une équipe est un atout",
-          "Capacités organisationnelles et approche structurée et orientée vers la solution",
-          "Haute compétence sociale, force de communication et plaisir du contact avec les patients",
-          "Résilience et détermination",
-          "Excellentes compétences en allemand, écrit et parlé",
-          "Connaissances de base de l'anglais et de l'italien sont un atout",
-          "Haute compétence sociale, force de communication et plaisir en contact avec le patient"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "teamleiter-in-sekretariat-radiologie-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiter-in-sekretariat-radiologie-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:48.355Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
-      "id": "see-spital-c805b3b8cc84",
-      "slug": "cuoca-di-supporto-see-spital-horgen",
-      "slugByLocale": {
-        "it": "cuoca-di-supporto-see-spital-horgen",
-        "en": "support-cook-see-spital-horgen",
-        "de": "hilfskochin-koch-see-spital-ch",
-        "fr": "cuisinier-de-support-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Hilfsköchin*Koch",
-      "titleByLocale": {
-        "it": "Cuoca di supporto",
-        "en": "Support Cook",
-        "de": "Hilfsköchin*Koch",
-        "fr": "Cuisinier de support"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Zubereitung von Mahlzeiten sowie Veredelung kalter Gerichte und Patisserie für Patient*innen, Mitarbeiter*innen und externe Gäste\n• Mithilfe bei der Speiseverteilung für Patient*innen\n• Reinigung von Patient*innengeschirr, Küchenutensilien und Arbeitsbereichen\n• Unterstützung bei Banketten, Caterings und Apéros innerhalb und ausserhalb des Spitals\n• Warenannahme, Lagerbewirtschaftung sowie konsequente Umsetzung der Hygienevorschriften\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung oder fundierte Erfahrung in der Gastronomie\n• Praktische Erfahrung in unterschiedlichen Kochprozessen\n• Bereitschaft zu unregelmässigen Arbeitszeiten inkl. Wochenenddiensten\n• Hohe Flexibilität und Einsatzbereitschaft an beiden Standorten\n• Selbständige, belastbare und teamorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse (mind. Niveau B2)\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Il tuo campo di attività:\n• Preparazione dei pasti, decorazione di piatti freddi e pasticceria per pazienti, dipendenti e ospiti esterni\n• Assistenza nella distribuzione dei pasti per i pazienti\n• Pulizia dei piatti dei pazienti, degli attrezzi da cucina e delle aree di lavoro\n• Supporto per banchetti, catering e aperitivi all'interno e all'esterno dell'ospedale\n• Ricezione merci, gestione del magazzino e adesione rigorosa alle normative igieniche Il tuo profilo:\n• Formazione conclusa o esperienza consolidata nel settore gastronomico\n• Esperienza pratica in diversi processi di cucina\n• Disponibilità a orari di lavoro irregolari inclusi i servizi di fine settimana\n• Alta flessibilità e disponibilità a lavorare in entrambi i siti\n• Lavoro autonomo, affidabile e orientato al team\n• Ottime conoscenze della lingua tedesca (almeno livello B2) Cosa ti offriamo:\n• Lavoro autonomo in un team motivato e collaborativo che si supporta a vicenda.\n• Un luogo di lavoro ben collegato con i trasporti pubblici e parcheggi per il personale a basso costo.\n• Infrastruttura moderna e un ambiente di lavoro che ti farà sentire a tuo agio – incluso il panorama sul lago.\n• Varie benefits – da sconti per i dipendenti a offerte di formazione.\n• Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che ti offre molto sia professionalmente che personalmente. Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\n• Preparation of meals, decoration of cold dishes and pastries for patients, staff, and external guests\n• Assistance in the distribution of meals for patients\n• Cleaning of patient dishes, kitchen utensils, and work areas\n• Support for banquets, catering, and aperitifs both inside and outside the hospital\n• Goods receipt, inventory management, and strict adherence to hygiene regulations Your profile:\n• Completed training or solid experience in the gastronomy sector\n• Practical experience in different cooking processes\n• Availability for irregular working hours including weekend shifts\n• High flexibility and availability to work at both locations\n• Autonomous, reliable, and team-oriented work\n• Very good German language skills (at least level B2) What we offer you:\n• Autonomous work in a motivated and collegial team that supports each other.\n• A workplace with excellent public transport connections and cost-effective staff parking.\n• Modern infrastructure and a work environment that makes you feel comfortable – including lake view.\n• Diverse benefits – from great employee discounts to training opportunities.\n• A pleasant working atmosphere in an attractive location near Zurich, which offers you much both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n• Zubereitung von Mahlzeiten sowie Veredelung kalter Gerichte und Patisserie für Patient*innen, Mitarbeiter*innen und externe Gäste\n• Mithilfe bei der Speiseverteilung für Patient*innen\n• Reinigung von Patient*innengeschirr, Küchenutensilien und Arbeitsbereichen\n• Unterstützung bei Banketten, Caterings und Apéros innerhalb und ausserhalb des Spitals\n• Warenannahme, Lagerbewirtschaftung sowie konsequente Umsetzung der Hygienevorschriften Ihr Profil:\n• Abgeschlossene Ausbildung oder fundierte Erfahrung in der Gastronomie\n• Praktische Erfahrung in unterschiedlichen Kochprozessen\n• Bereitschaft zu unregelmässigen Arbeitszeiten inkl. Wochenenddiensten\n• Hohe Flexibilität und Einsatzbereitschaft an beiden Standorten\n• Selbständige, belastbare und teamorientierte Arbeitsweise\n• Sehr gute Deutschkenntnisse (mind. Niveau B2) Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Votre domaine de responsabilité:\n• Préparation des repas, décoration des plats froids et pâtisseries pour les patients, le personnel et les invités externes\n• Assistance à la distribution des repas pour les patients\n• Nettoyage des plats des patients, des ustensiles de cuisine et des zones de travail\n• Soutien pour les banquets, traiteurs et apéritifs à l'intérieur et à l'extérieur de l'hôpital\n• Réception des marchandises, gestion des stocks et respect strict des réglementations d'hygiène Votre profil:\n• Formation terminée ou expérience solide dans le secteur de la gastronomie\n• Expérience pratique dans différents processus de cuisson\n• Disponibilité pour des horaires de travail irréguliers, y compris les services de fin de semaine\n• Grande flexibilité et disponibilité à travailler dans les deux sites\n• Travail autonome, fiable et orienté vers l'équipe\n• Très bonnes connaissances de la langue allemande (au moins niveau B2) Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail bien connecté aux transports en commun et aux parkings pour le personnel à faible coût.\n• Une infrastructure moderne et un environnement de travail qui vous rend confortable – y compris la vue sur le lac.\n• Diverses prestations – des réductions d'employés excellentes aux opportunités de formation.\n• Un climat de travail agréable dans une localisation attrayante près de Zurich, qui vous offre beaucoup à la fois professionnellement et personnellement. Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:32.464Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1241/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione conclusa o esperienza consolidata nel settore gastronomico",
-          "Esperienza pratica in diversi processi di cucina",
-          "Disponibilità a orari di lavoro irregolari inclusi i servizi di fine settimana",
-          "Alta flessibilità e disponibilità a lavorare in entrambi i siti",
-          "Lavoro autonomo, affidabile e orientato al team",
-          "Ottime conoscenze della lingua tedesca (almeno livello B2)"
-        ],
-        "en": [
-          "Completed training or solid experience in the gastronomy sector",
-          "Practical experience in different cooking processes",
-          "Availability for irregular working hours including weekend shifts",
-          "High flexibility and availability to work at both locations",
-          "Autonomous, reliable, and team-oriented work",
-          "Very good German language skills (at least level B2)"
-        ],
-        "fr": [
-          "Formation terminée ou expérience solide dans le secteur de la gastronomie",
-          "Expérience pratique dans différents processus de cuisson",
-          "Disponibilité pour des horaires de travail irréguliers, y compris les services de fin de semaine",
-          "Grande flexibilité et disponibilité à travailler dans les deux sites",
-          "Travail autonome, fiable et orienté vers l'équipe",
-          "Très bonnes connaissances de la langue allemande (au moins niveau B2)"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "hilfskochin-koch-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hilfskochin-koch-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:47.754Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "see-spital-b45bd3dba0e4",
       "slug": "operatore-di-preparazione-operatoria-see-spital-horgen",
       "slugByLocale": {
@@ -3222,7 +2863,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:31.507Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:14.085Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3322,7 +2964,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:30.536Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:13.046Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3425,7 +3068,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:29.571Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:12.035Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3498,109 +3142,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "see-spital-48dc4c4e1e22",
-      "slug": "assistente-amministrativa-radiologia-see-spital-horgen",
-      "slugByLocale": {
-        "it": "assistente-amministrativa-radiologia-see-spital-horgen",
-        "en": "radiology-secretarial-assistant-see-spital-horgen",
-        "de": "mitarbeiter-in-sekretariat-radiologie-see-spital-ch",
-        "fr": "assistante-administrative-en-radiologie-see-spital-horgen"
-      },
-      "company": "See-Spital",
-      "companyKey": "see-spital",
-      "companyDomain": "see-spital.ch",
-      "title": "Mitarbeiter*in Sekretariat Radiologie",
-      "titleByLocale": {
-        "it": "Assistente Amministrativa Radiologia",
-        "en": "Radiology Secretarial Assistant",
-        "de": "Mitarbeiter*in Sekretariat Radiologie",
-        "fr": "Assistante Administrative en Radiologie"
-      },
-      "description": "Ihr Aufgabengebiet:\n\n• Entgegennahme telefonischer und elektronischer Anmeldungen für Röntgenuntersuchungen sowie Erstellung des Tagesprogramms\n• Empfang und Betreuung unserer Patient*innen am Radiologie Empfang\n• Vorbereitung und Bereitstellung von Patient*innenunterlagen\n• Pflege des Kontakts zu Patient*innen, Ärzt*innen und Versicherungen\n• Versand der Röntgenuntersuchungen und Röntgenbefunde\n\nIhr Profil:\n\n• Abgeschlossene Berufsausbildung im medizinischen oder kaufmännischen Bereich, idealerweise mit Weiterbildung als Arztsekretär*in - Erfahrung in der Radiologie von Vorteil\n• Organisationstalent mit sicheren Kenntnissen medizinischer Terminologie und sehr guten Deutschkenntnissen\n• Freundlicher, einfühlsamer Umgang mit Patient*innen\n• Exaktes, speditives Arbeiten sowie Belastbarkeit, auch in stressigen Situationen\n• Sie behalten den Überblick und handeln empathisch, auch wenn es hektisch wird\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-      "descriptionByLocale": {
-        "it": "Il tuo campo di lavoro:\n• Ricezione telefonica ed elettronica delle prenotazioni per esami radiologici e redazione della programmazione giornaliera\n• Ricezione e assistenza dei nostri pazienti presso il ricevimento di Radiologia\n• Preparazione e fornitura delle cartelle dei pazienti\n• Manutenzione dei contatti con i pazienti, i medici e le assicurazioni\n• Invio degli esami radiologici e dei risultati radiologici Il tuo profilo:\n• Formazione professionale nel settore medico o commerciale, preferibilmente con ulteriori studi come segretaria medica - Esperienza in radiologia è un vantaggio\n• Talento organizzativo con solide conoscenze di terminologia medica e eccellenti conoscenze della lingua tedesca\n• Trattamento gentile e comprensivo dei pazienti\n• Lavoro accurato e veloce, nonché capacità di resistenza anche in situazioni stressanti\n• Mantieni la calma e agisci con empatia, anche in situazioni caotiche Cosa ti offriamo:\n• Lavoro autonomo in una squadra motivata e collaborativa che si supporta a vicenda.\n• Un luogo di lavoro ben collegato ai trasporti pubblici e parcheggi per il personale a costi ridotti.\n• Infrastruttura moderna e un ambiente di lavoro che ti farà sentire a tuo agio – incluso panorama sul mare.\n• Vantaggi vari – da sconti per i dipendenti alle opportunità di formazione.\n• Un ambiente di lavoro piacevole in una località attraente vicino a Zurigo, che ti offre molto sia professionalmente che privatamente. Le candidature fisiche non possono essere considerate o restituite.",
-        "en": "Your area of responsibility:\n• Reception of telephone and electronic appointments for X-ray examinations and creation of the daily schedule\n• Reception and care of our patients at the Radiology Reception\n• Preparation and provision of patient files\n• Maintenance of contact with patients, doctors, and insurances\n• Dispatch of X-ray examinations and X-ray results Your profile:\n• Completed vocational training in the medical or commercial sector, preferably with further training as a medical secretary - Experience in radiology is advantageous\n• Organizational talent with secure knowledge of medical terminology and very good German language skills\n• Friendly, empathetic handling of patients\n• Precise, speedy work as well as resilience, even in stressful situations\n• You keep your composure and act empathically, even if it gets hectic What we offer you:\n• Self-employed work in a motivated and collegial team that supports each other.\n• A workplace with excellent public transport connections and cost-effective staff parking.\n• Modern infrastructure and a working environment that makes you feel comfortable – including sea view.\n• Diverse benefits – from great employee discounts to training opportunities.\n• A pleasant working atmosphere in an attractive location near Zurich, which offers you both professionally and privately. Physical applications cannot be considered or returned.",
-        "de": "Ihr Aufgabengebiet:\n• Entgegennahme telefonischer und elektronischer Anmeldungen für Röntgenuntersuchungen sowie Erstellung des Tagesprogramms\n• Empfang und Betreuung unserer Patient*innen am Radiologie Empfang\n• Vorbereitung und Bereitstellung von Patient*innenunterlagen\n• Pflege des Kontakts zu Patient*innen, Ärzt*innen und Versicherungen\n• Versand der Röntgenuntersuchungen und Röntgenbefunde Ihr Profil:\n• Abgeschlossene Berufsausbildung im medizinischen oder kaufmännischen Bereich, idealerweise mit Weiterbildung als Arztsekretär*in - Erfahrung in der Radiologie von Vorteil\n• Organisationstalent mit sicheren Kenntnissen medizinischer Terminologie und sehr guten Deutschkenntnissen\n• Freundlicher, einfühlsamer Umgang mit Patient*innen\n• Exaktes, speditives Arbeiten sowie Belastbarkeit, auch in stressigen Situationen\n• Sie behalten den Überblick und handeln empathisch, auch wenn es hektisch wird Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat. Physische Bewerbungen können nicht berücksichtigt oder retourniert werden.",
-        "fr": "Votre domaine de responsabilité:\n• Réception des rendez-vous téléphoniques et électroniques pour les examens de radiographie et création du programme quotidien\n• Réception et accueil de nos patients au guichet de radiologie\n• Préparation et fourniture des dossiers des patients\n• Maintenance du contact avec les patients, les médecins et les assurances\n• Envoi des examens de radiographie et des résultats radiologiques Votre profil:\n• Formation professionnelle dans le secteur médical ou commercial, de préférence avec une formation complémentaire en tant que secrétaire médicale - L'expérience en radiologie est un atout\n• Talent organisationnel avec des connaissances solides en terminologie médicale et de très bonnes compétences en allemand\n• Manipulation amicale et empathique des patients\n• Travail précis et rapide ainsi que résilience, même dans des situations stressantes\n• Vous conservez votre calme et agissez avec empathie, même si cela devient chaotique Ce que nous vous offrons:\n• Travail autonome dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail bien connecté aux transports en commun et des places de parking pour le personnel à coût réduit.\n• Infrastructure moderne et un environnement de travail qui vous rend confortable – y compris vue sur la mer.\n• Divers avantages – des réductions d'employés excellentes aux opportunités de formation.\n• Un environnement de travail agréable dans un lieu attrayant près de Zurich, qui vous offre à la fois professionnellement et personnellement. Les candidatures physiques ne peuvent pas être prises en compte ou retournées."
-      },
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Description/1",
-      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:28.585Z",
-      "addressLocality": "Horgen",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-26",
-      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1258/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione professionale nel settore medico o commerciale",
-          "Conoscenze di terminologia medica",
-          "Eccellenti conoscenze della lingua tedesca",
-          "Trattamento gentile e comprensivo dei pazienti",
-          "Lavoro accurato e veloce",
-          "Capacità di resistenza in situazioni stressanti",
-          "Mantenimento della calma e empatia",
-          "Esperienza in radiologia è un vantaggio"
-        ],
-        "en": [
-          "Completed vocational training in the medical or commercial sector",
-          "Knowledge of medical terminology",
-          "Very good German language skills",
-          "Friendly, empathetic handling of patients",
-          "Precise, speedy work",
-          "Resilience in stressful situations",
-          "Keeping composure and acting empathically",
-          "Experience in radiology is advantageous"
-        ],
-        "fr": [
-          "Formation professionnelle dans le secteur médical ou commercial",
-          "Connaissances en terminologie médicale",
-          "Très bonnes compétences en allemand",
-          "Manipulation amicale et empathique des patients",
-          "Travail précis et rapide",
-          "Résilience dans des situations stressantes",
-          "Conservation du calme et action empathique",
-          "L'expérience en radiologie est un atout"
-        ]
-      },
-      "department": "See-Spital",
-      "contractDuration": "permanent",
-      "previousSlugs": [
-        "mitarbeiter-in-sekretariat-radiologie-see-spital-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-sekretariat-radiologie-see-spital-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-26T14:55:45.626Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "see-spital-e8c9cc2ea223",
       "slug": "wundexpert-in-see-spital-horgen",
       "slugByLocale": {
@@ -3631,7 +3172,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:27.597Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:11.016Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3731,7 +3273,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:26.630Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:09.987Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3837,7 +3380,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:25.684Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:08.947Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3888,8 +3432,7 @@
       "previousSlugsByLocale": {
         "de": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
-          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen",
-          "praktikum-fur-kaufmannische-berufsreife-52-wochen-100-eoc-ente-ospedaliero-cantonale-locarno"
+          "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-horgen"
         ],
         "it": [
           "mitarbeiter-in-schlafzentrum-spat-und-nachtdienst-see-spital-ch",
@@ -3955,7 +3498,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:24.702Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:07.908Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4054,7 +3598,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-02T01:07:23.763Z",
+      "crawledAt": "2026-06-04T01:02:06.906Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4134,7 +3678,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-02T01:07:22.824Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-04T01:02:05.856Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4169,6 +3714,85 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:02:37.747Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "see-spital-4eb412dab0d5",
+      "slug": "assistente-in-aemp-see-spital-horgen",
+      "slugByLocale": {
+        "it": "assistente-in-aemp-see-spital-horgen",
+        "en": "assistant-in-aemp-see-spital-horgen",
+        "de": "assistent-in-aemp-see-spital-ch",
+        "fr": "assistant-en-aemp-see-spital-horgen"
+      },
+      "company": "See-Spital",
+      "companyKey": "see-spital",
+      "companyDomain": "see-spital.ch",
+      "title": "Assistent*in AEMP",
+      "titleByLocale": {
+        "it": "Assistente* in AEMP",
+        "en": "Assistant*in AEMP",
+        "de": "Assistent*in AEMP",
+        "fr": "Assistant* en AEMP"
+      },
+      "description": "Ihr Aufgabengebiet:\n\n• Sie reinigen, desinfizieren, sterilisieren und kontrollieren alle Instrumente und Materialien aus den OP- und Pflegeabteilungen\n• Sie sind für Etikettierung, Verpackung und Versorgung des Sterilguts verantwortlich\n• Sie stellen die internen und externen Qualitätsansprüche unter Einhaltung der Hygienevorschriften sicher\n• Bedienung und Wartung von Apparaten und speziellen Einrichtungen gemäss Vorschriften\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Technische*r Sterilisationsassistent*in (AEMP) sowie idealerweise mehrjährige Berufserfahrung in der Sterilgutaufbereitung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude an der Arbeit in einem kleinen, engagierten Team sowie an einer selbstständigen, verantwortungsbewussten und präzisen Arbeitsweise\n• Hohe Einsatzbereitschaft, Flexibilität und körperliche Belastbarkeit\n\nWas wir Ihnen bieten:\n\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+      "descriptionByLocale": {
+        "it": "La vostra area di responsabilità:\n• Puliscono, disinfettano, sterilizzano e controllano tutti gli strumenti e i materiali dai dipartimenti di chirurgia e cura\n• Sono responsabili dell'etichettatura, dell'imballaggio e della fornitura di prodotti sterili\n• Garantiscono requisiti di qualità interni ed esterni in conformità alle normative igieniche\n• Funzionamento e manutenzione di attrezzature e attrezzature speciali secondo i requisiti Il tuo profilo:\n• Formazione completa come assistente tecnico di sterilizzazione*in (AEMP) e esperienza professionale idealmente pluriennale nella lavorazione dei materiali sterili\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Piacere di lavorare in un team piccolo, dedicato e in modo indipendente, responsabile e preciso\n• Alta disponibilità, flessibilità e carico fisico Cosa ti offriamo:\n• lavoro indipendente in un team motivato e collegiale che si sostiene a vicenda.\n• Un luogo di lavoro con la migliore connessione ai trasporti pubblici, nonché un parcheggio personale economico.\n• Infrastrutture moderne e un ambiente di lavoro dove si può sentire a proprio agio – compresa la vista lago.\n• Vari vantaggi: dai grandi sconti dei dipendenti alle offerte di formazione.\n• Un ambiente di lavoro piacevole in una posizione attraente vicino a Zurigo, che ha molto da offrire sia professionale che privato.",
+        "en": "Your area of responsibility:\n• They clean, disinfect, sterilize and control all instruments and materials from surgery and care departments\n• They are responsible for labelling, packaging and supply of sterile goods\n• They ensure internal and external quality requirements in compliance with hygiene regulations\n• Operation and maintenance of equipment and special equipment according to requirements Your profile:\n• Completed training as a technical sterilization assistant*in (AEMP) and ideally multi-year professional experience in sterile material processing\n• Very good knowledge of German in word and writing\n• Pleasure to work in a small, dedicated team and an independent, responsible and precise way of working\n• High readiness, flexibility and physical loadability What we offer you:\n• independent work in a motivated and collegial team that supports each other.\n• A working place with the best connection to public transport, as well as cost-effective personal parking.\n• Modern infrastructure and a working environment where you can feel comfortable – including lake view.\n• Various Benefits – from great employees' rebates to training offers.\n• A pleasant working environment in an attractive location near Zurich, which has plenty to offer both professional and private.",
+        "de": "Ihr Aufgabengebiet:\n• Sie reinigen, desinfizieren, sterilisieren und kontrollieren alle Instrumente und Materialien aus den OP- und Pflegeabteilungen\n• Sie sind für Etikettierung, Verpackung und Versorgung des Sterilguts verantwortlich\n• Sie stellen die internen und externen Qualitätsansprüche unter Einhaltung der Hygienevorschriften sicher\n• Bedienung und Wartung von Apparaten und speziellen Einrichtungen gemäss Vorschriften Ihr Profil:\n• Abgeschlossene Ausbildung als Technische*r Sterilisationsassistent*in (AEMP) sowie idealerweise mehrjährige Berufserfahrung in der Sterilgutaufbereitung\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Freude an der Arbeit in einem kleinen, engagierten Team sowie an einer selbstständigen, verantwortungsbewussten und präzisen Arbeitsweise\n• Hohe Einsatzbereitschaft, Flexibilität und körperliche Belastbarkeit Was wir Ihnen bieten:\n• Eigenverantwortliches Arbeiten in einem motivierten und kollegialen Team, das sich gegenseitig unterstützt.\n• Ein Arbeitsort mit bester Anbindung an den öffentlichen Verkehr, sowie kostengünstige Personalparkplätze.\n• Moderne Infrastruktur und eine Arbeitsumgebung, in der Sie sich wohlfühlen können – Seeblick inklusive.\n• Vielfältige Benefits – von tollen Mitarbeitendenrabatten bis hin zu Weiterbildungsangeboten.\n• Ein angenehmes Arbeitsklima in einem attraktiven Standort nahe Zürich, der Ihnen sowohl beruflich als auch privat viel zu bieten hat.",
+        "fr": "Votre domaine de responsabilité :\n• Ils nettoient, désinfectent, stérilisent et contrôlent tous les instruments et matériaux des services de chirurgie et de soins\n• Ils sont responsables de l'étiquetage, de l'emballage et de la fourniture de produits stériles\n• Ils garantissent des exigences de qualité internes et externes conformes aux règles d'hygiène\n• Exploitation et entretien du matériel et du matériel spécial selon les besoins Votre profil:\n• Formation complète en tant qu'assistant technique à la stérilisation* dans (AEMP) et idéalement expérience professionnelle pluriannuelle dans le traitement des matières stériles\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Le plaisir de travailler dans une petite équipe dédiée et une manière indépendante, responsable et précise de travailler\n• Haute préparation, flexibilité et charge physique Ce que nous vous offrons:\n• un travail indépendant dans une équipe motivée et collégiale qui se soutient mutuellement.\n• Un lieu de travail avec la meilleure connexion aux transports publics, ainsi qu'un parking personnel rentable.\n• Infrastructure moderne et environnement de travail où vous pouvez vous sentir à l'aise – y compris vue sur le lac.\n• Divers avantages – des rabais aux offres de formation.\n• Un environnement de travail agréable dans un endroit attrayant près de Zurich, qui a beaucoup à offrir à la fois professionnel et privé."
+      },
+      "location": "Horgen",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2939.umantis.com/Vacancies/1260/Description/1",
+      "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
+      "sourceLang": "de",
+      "needsRetranslation": false,
+      "crawledAt": "2026-06-04T01:02:04.856Z",
+      "addressLocality": "Horgen",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://recruitingapp-2939.umantis.com/Vacancies/1260/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "See-Spital",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "assistent-in-aemp-see-spital-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-aemp-see-spital-ch"
+        ],
+        "en": [
+          "assistent-in-aemp-see-spital-ch"
+        ],
+        "fr": [
+          "assistent-in-aemp-see-spital-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-02T14:35:21.904Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

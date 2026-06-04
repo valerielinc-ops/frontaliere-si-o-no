@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-06-01T22:53:37.784Z",
+  "assembledAt": "2026-06-03T22:48:45.847Z",
   "jobs": [
     {
       "title": "Global Wealth Management – Private Banker (Zurigo)",
@@ -51,12 +51,11 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
       "addressLocality": "Zurich",
-      "addressRegion": "TI",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "previousSlugsByLocale": {
         "de": [
@@ -187,19 +186,22 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
       "addressLocality": "Zurich",
-      "addressRegion": "TI",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8001",
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "previousSlugs": [
+        "gestione-patrimoniale-globale-assistente-di-private-banking-zurigo-banca-del-sempione-zurich",
         "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "gestion-globale-de-patrimoine-assistant-banque-privee-zurich-banca-del-sempione-zurich"
+        ],
+        "it": [
+          "banca-del-sempione-private-banking-assistant"
         ]
       }
     }

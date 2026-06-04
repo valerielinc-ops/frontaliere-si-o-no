@@ -65,7 +65,7 @@ const CAREERS_URL = 'https://jobs.axa.ch/?lang=it';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.AXA_MAX_DETAIL_PAGES) || 40;
+const MAX_DETAIL_PAGES = Number(process.env.AXA_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 300;
 const DETAIL_CONCURRENCY = 4;
 

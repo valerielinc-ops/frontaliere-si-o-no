@@ -377,13 +377,21 @@ function resolveAddress(
   const addressLocality =
     cityRaw.length > 0 ? cityRaw : fallback.addressLocality;
 
-  // Precedence: explicit source value → company HQ (when known) → city
-  // lookup → canton-capital fallback. Company HQ wins over city lookup
+  // A curated company HQ address is only trustworthy for jobs in the HQ's own
+  // canton. A posting in a different canton (e.g. a Zurich job for a Ticino-seat
+  // employer) must NOT inherit the HQ street/CAP — that yields a Bellinzona
+  // address on a Zurich job. Fall through to the city lookup instead.
+  const hqUsable =
+    !!hqEntry &&
+    String(hqEntry.addressRegion || '').toUpperCase() === String(region || '').toUpperCase();
+
+  // Precedence: explicit source value → company HQ (only when same canton) →
+  // city lookup → canton-capital fallback. Company HQ wins over city lookup
   // because the HQ registry is curated and therefore more accurate than
   // a generic-city postal code.
   const postalCode = isValidPostalCode(job.postalCode)
     ? String(job.postalCode).trim()
-    : (hqEntry?.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
+    : (hqUsable && hqEntry.postalCode && isValidPostalCode(hqEntry.postalCode) ? hqEntry.postalCode : '') ||
       resolvePostalCode(addressLocality, region) ||
       fallback.postalCode ||
       DEFAULT_POSTAL_CODE;
@@ -392,7 +400,7 @@ function resolveAddress(
   const streetAddress =
     streetAddressRaw.length > 0
       ? streetAddressRaw
-      : (hqEntry?.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
+      : (hqUsable && hqEntry.streetAddress && hqEntry.streetAddress.length > 0 ? hqEntry.streetAddress : '') ||
         fallback.streetAddress ||
         localisedCentro(addressLocality, locale);
 

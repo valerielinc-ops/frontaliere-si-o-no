@@ -50,6 +50,7 @@ import { WriteCollector } from './batchWrite';
 import { BASE_URL } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildClusterThinHtml } from './shared/clusterThinShell';
@@ -907,7 +908,11 @@ export function buildClusterContext(
     return null;
   }
   const city = detectCity(sampleTerm);
-  const keyword = stripCityFromKeyword(sampleTerm, city);
+  // Strip literal markdown (`**Requisitos:**`) leaked from crawler
+  // descriptions into the harvested sample term BEFORE it flows into the
+  // displayed keyword (H1, title, hub link, intro, JSON-LD). The slug stays
+  // `candidate.slug` (already markdown-free), so canonical URLs are unaffected.
+  const keyword = stripLiteralMarkdown(stripCityFromKeyword(sampleTerm, city));
   if (!keyword) {
     profileRecord('bc:tokenize', __tTokenize);
     return null;
@@ -2315,13 +2320,27 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       if (!prepassDisabled && totalTokens >= POSTINGS_PREPASS_MIN_TOKENS) {
         const workerUrl = new URL('./relatedSearchPostingsWorker.mjs', import.meta.url);
         const localeKeys = Array.from(tokensByLocale.keys());
+        // Build a SLIM, same-order projection once: the worker reads only these
+        // six fields (relatedSearchPostingsWorker buildJobHaystack) and returns
+        // postings by job INDEX, so order/length must match `jobs` exactly. This
+        // avoids structured-cloning the full ~88 MB dataset into each of up to 4
+        // worker boot payloads simultaneously (the "external memory pressure" in
+        // the build OOM). Output is byte-identical. (Build OOM fix, #1290.)
+        const slimJobs = jobs.map((j: any) => ({
+          title: j.title,
+          titleByLocale: j.titleByLocale,
+          description: j.description,
+          descriptionByLocale: j.descriptionByLocale,
+          company: j.company,
+          location: j.location,
+        }));
         const results = await Promise.all(
           localeKeys.map((workerLocale) => {
             const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
             return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
               (resolve, reject) => {
                 const worker = new Worker(workerUrl, {
-                  workerData: { jobs, locale: workerLocale, tokens: localeTokens },
+                  workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens },
                 });
                 worker.once('message', resolve);
                 worker.once('error', reject);

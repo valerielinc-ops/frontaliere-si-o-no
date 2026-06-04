@@ -1,0 +1,191 @@
+/**
+ * Switzerland-wide article metadata — the national mirror of
+ * `blog-articles-data.ts`. Same `Article` shape; articles here cover the whole
+ * of Switzerland (economy, taxes, work, living, housing) for anyone living or
+ * working in CH, not only cross-border workers.
+ *
+ * Rendered by the shared `BlogArticles` component with `section="svizzera"`.
+ * Body text lives in `services/locales/blog-body-ch/{locale}/{id}.ts`; meta in
+ * `services/locales/blog-meta-ch-{locale}.ts`. Slugs in
+ * `services/routerSwissData.ts`. See `services/articleSections.ts`.
+ */
+import type { Article } from './blog-articles-data';
+// Relative (not `@/`): this module is in vite.config's build graph; the config
+// loader can't resolve `@/`. See feedback_no_alias_imports_in_config_graph.
+import { cdnBlogImage } from '../services/seo/blogImageCdn';
+
+export type { Article };
+
+const RAW_SWISS_ARTICLES: Article[] = [
+  {
+    id: 'costo-vita-svizzera-2026',
+    category: 'pratico',
+    date: '2026-06-02',
+    image: '/images/places/swissminiatur.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+  },
+  {
+    id: 'premi-cassa-malati-svizzera-2026',
+    category: 'fiscale',
+    date: '2026-06-02',
+    image: '/images/places/bellinzona.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+  },
+   {
+    id: 'berna-non-vuole-creare-attriti-con-litalia',
+    category: 'novita',
+    date: '2026-06-02T20:38:18.558Z',
+    image: '/images/blog/berna-non-vuole-creare-attriti-con-litalia.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'iniziative-casse-malati-2026',
+    category: 'fiscale',
+    date: '2026-06-02T21:12:32.990Z',
+    image: '/images/blog/iniziative-casse-malati-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'candidatura-lavoro-estero-ticino',
+    category: 'pratico',
+    date: '2026-06-02T21:47:29.166Z',
+    image: '/images/blog/candidatura-lavoro-estero-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'intelligenza-artificiale-lavoro-svizzera-2026',
+    category: 'novita',
+    date: '2026-06-02T23:12:13.838Z',
+    image: '/images/blog/intelligenza-artificiale-lavoro-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'lavoro-media-ssr-talenti-ticino',
+    category: 'pratico',
+    date: '2026-06-03T00:19:25.227Z',
+    image: '/images/blog/lavoro-media-ssr-talenti-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'cern-future-collider-ticino',
+    category: 'novita',
+    date: '2026-06-03T00:36:46.420Z',
+    image: '/images/blog/cern-future-collider-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'neutralizzazione-stime-2026-classi-media',
+    category: 'fiscale',
+    date: '2026-06-03T01:35:44.074Z',
+    image: '/images/blog/neutralizzazione-stime-2026-classi-media.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'lavoro-estero-guida-frontalieri',
+    category: 'pratico',
+    date: '2026-06-03T02:12:38.426Z',
+    image: '/images/blog/lavoro-estero-guida-frontalieri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'guerre-dellinformazione',
+    category: 'novita',
+    date: '2026-06-03T04:11:24.725Z',
+    image: '/images/blog/guerre-dellinformazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'imposta-fonte-frontalieri-ticino',
+    category: 'fiscale',
+    date: '2026-06-03T04:48:27.684Z',
+    image: '/images/blog/imposta-fonte-frontalieri-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'hantavirus-ginevra-identificazione',
+    category: 'novita',
+    date: '2026-06-03T05:25:04.748Z',
+    image: '/images/blog/hantavirus-ginevra-identificazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'svizzera-dazi-usa-lavoro-forzato',
+    category: 'novita',
+    date: '2026-06-04T02:22:42.090Z',
+    image: '/images/blog/svizzera-dazi-usa-lavoro-forzato.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'rientro-svizzera-senza-lavoro',
+    category: 'pratico',
+    date: '2026-06-04T02:38:35.878Z',
+    image: '/images/blog/rientro-svizzera-senza-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'festivita-ticino-2026',
+    category: 'pratico',
+    date: '2026-06-04T02:58:31.740Z',
+    image: '/images/blog/festivita-ticino-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'un-blocco-dei-ristorni-reazione-comprensibile',
+    category: 'fiscale',
+    date: '2026-06-04T03:24:11.592Z',
+    image: '/images/blog/un-blocco-dei-ristorni-reazione-comprensibile.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'medico-medicina-interna-intensiva-eoc',
+    category: 'pratico',
+    date: '2026-06-04T04:15:21.798Z',
+    image: '/images/blog/medico-medicina-interna-intensiva-eoc.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+];
+
+// Full blog hero images are served from jsDelivr (CDN) and deleted from the
+// Pages artifact (build-plugins/blogImageCdnFinalizePlugin) — so the runtime
+// export must point at the CDN, exactly like blog-articles-data.ts. The raw
+// literals above stay site-relative for the regex-parsing build plugins.
+export const SWISS_ARTICLES: Article[] = RAW_SWISS_ARTICLES.map((a) => ({
+  ...a,
+  image: cdnBlogImage(a.image),
+}));

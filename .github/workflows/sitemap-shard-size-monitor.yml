@@ -141,7 +141,29 @@ jobs:
           retention-days: 30
 
       - name: Fail job if any shard exceeded thresholds
+        id: failgate
         if: steps.check.outcome == 'failure'
         run: |
           echo "Sitemap shard size check exited non-zero — see report + issue above."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        # Fire on a muted failure: either the job failed BEFORE/OUTSIDE the
+        # detection fail-gate (failgate skipped), OR the check exited non-zero
+        # but emitted no report → severity=none → "Open issue" skipped yet
+        # failgate still fired. Both leave ZERO condition issue → report it.
+        if: failure() && (steps.failgate.conclusion != 'failure' || steps.severity.outputs.severity == 'none')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il monitor è fallito prima/fuori dallo step di detection — nessuna issue di condizione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

@@ -24,10 +24,10 @@
  *   - section.language-requirements     — language requirements
  *   - a.apply href                      — Lumesse TalentLink apply URL
  *
- * Only Valais-located jobs are included (filtered by region in address).
+ * All Swiss-located jobs are included (country_id=40 restricts to Switzerland).
  *
  * Exports the 4 required functions for the crawler template:
- *   - fetchAllOmegaJobs()     — Fetch and parse all Valais jobs
+ *   - fetchAllOmegaJobs()     — Fetch and parse all Swiss jobs
  *   - isOmegaJob()            — Match jobs belonging to this company
  *   - isTrustedDomain()       — Validate URLs belong to this company
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
@@ -45,16 +45,6 @@ export const OMEGA_COMPANY_DOMAIN = 'omegawatches.com';
 
 const BASE_URL = 'https://www.omegawatches.com';
 const LIST_URL = `${BASE_URL}/careers/list?country_id=40`;
-
-/**
- * Valais region identifiers in Omega's address strings.
- * Format: "Street, ZIP City, Country - Country (Region)"
- */
-const VALAIS_PATTERNS = [
-  'valais', 'wallis', 'vallese',
-  'zermatt', 'sierre', 'sion', 'visp', 'brig', 'martigny', 'monthey',
-  'crans-montana', 'verbier', 'naters', 'saas-fee',
-];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -89,14 +79,6 @@ function htmlToText(html = '') {
     .replace(/\n{3,}/g, '\n\n')
     .replace(/^\s+|\s+$/gm, '')
     .trim();
-}
-
-/**
- * Check if a location string refers to Valais/Wallis.
- */
-function isValaisLocation(locationStr = '') {
-  const lower = normalize(locationStr);
-  return VALAIS_PATTERNS.some((p) => lower.includes(p));
 }
 
 /**
@@ -385,7 +367,7 @@ function buildDescription(sections = {}, title = '', city = '') {
   }
 
   if (parts.length === 0) {
-    return `${title} - OMEGA SA, ${city || 'Valais'}, Switzerland`;
+    return `${title} - OMEGA SA, ${city ? `${city}, ` : ''}Switzerland`;
   }
 
   return parts.join('\n\n');
@@ -413,7 +395,7 @@ function extractRequirements(sections = {}) {
 /* ── Main Fetcher ─────────────────────────────────────────── */
 
 /**
- * Fetch all OMEGA SA jobs in Valais.
+ * Fetch all OMEGA SA jobs in Switzerland.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
@@ -423,7 +405,7 @@ export async function fetchAllOmegaJobs() {
   console.log(`🔍 Fetching OMEGA SA jobs`);
   console.log(`   Platform: Custom Magento career portal (Lumesse TalentLink ATS)`);
   console.log(`   List URL: ${LIST_URL}`);
-  console.log(`   Filter: Switzerland (country_id=40), then Valais by address\n`);
+  console.log(`   Filter: Switzerland (country_id=40) — nationwide\n`);
 
   // Step 1: Fetch the list page
   console.log(`  📄 Fetching Switzerland job listings...`);
@@ -441,18 +423,18 @@ export async function fetchAllOmegaJobs() {
   const listings = parseListPage(listHtml);
   console.log(`  📦 Found ${listings.length} Switzerland jobs total`);
 
-  // Step 2: Filter to Valais-only jobs
-  const valaisListings = listings.filter((l) => isValaisLocation(l.locationStr));
-  console.log(`  🏔️ Valais jobs: ${valaisListings.length}`);
+  // Step 2: Keep all Swiss listings (nationwide crawl; country_id=40 already
+  // restricts the listing to Switzerland)
+  const swissListings = listings;
 
-  if (valaisListings.length === 0) {
-    console.warn('⚠️ No Valais job listings found.');
+  if (swissListings.length === 0) {
+    console.warn('⚠️ No job listings found.');
     return [];
   }
 
   // Step 3: Fetch each detail page for full information
   const jobs = [];
-  for (const listing of valaisListings) {
+  for (const listing of swissListings) {
     console.log(`  📄 Fetching detail: ${listing.title}`);
 
     let detailData = { sections: {}, applyUrl: '', detailTitle: '', detailLocation: '', tags: [] };
@@ -470,8 +452,8 @@ export async function fetchAllOmegaJobs() {
 
     const locationStr = detailData.detailLocation || listing.locationStr;
     const address = parseAddress(locationStr);
-    const city = address.city || 'Zermatt';
-    const canton = normalizeCantonCode(address.region) || inferAnyCanton(city) || 'VS';
+    const city = address.city || '';
+    const canton = normalizeCantonCode(address.region) || inferAnyCanton(city) || '';
 
     // Tags from detail or list
     const tags = detailData.tags.length > 0 ? detailData.tags : listing.tags;
@@ -548,7 +530,7 @@ export async function fetchAllOmegaJobs() {
     console.log(`  ✅ ${title} — ${city} (${canton})`);
   }
 
-  console.log(`\n📋 Total OMEGA SA Valais jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total OMEGA SA Swiss jobs discovered: ${jobs.length}`);
   return jobs;
 }
 

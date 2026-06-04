@@ -66,7 +66,7 @@ const REGION_FILTERS = [
 ];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-const MAX_DETAIL_PAGES = Number(process.env.ALLIANZ_MAX_DETAIL_PAGES) || 40;
+const MAX_DETAIL_PAGES = Number(process.env.ALLIANZ_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1000;
 
 function readJson(filePath, fallback) {
