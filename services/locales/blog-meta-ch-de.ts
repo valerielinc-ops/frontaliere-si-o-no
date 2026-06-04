@@ -44,6 +44,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'Wie Genf Hantavirus identifizierte: Folgen für Grenzgänger',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'Das Universitätsspital Genf hat den Hantavirus-Stamm identifiziert, der für einen Ausbruch auf einem Kreuzfahrtschiff im Mai 2026 verantwortlich war.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Universitätsspital Genf mit modernem Labor',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Schweiz weist US-Zölle auf Zwangsarbeit zurück',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Bern weist amerikanische Vorwürfe zurück und verhandelt in Paris. Zölle von 12,5% im Gespräch, Frist für Stellungnahmen: 6. Juli 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung in Handelsverhandlungen mit den USA',
 };
 
 export default blogMetaChDe;

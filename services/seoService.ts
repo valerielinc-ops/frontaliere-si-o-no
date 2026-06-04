@@ -3914,6 +3914,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hantavirus-ginevra-identificazione': { name: 'Hantavirus Ginevra', path: '/articoli-svizzera/hantavirus-ginevra-identificazione/', parent: 'blog' },
     'blog-13esima-avs-iva-nazionale': { name: '13esima AVS IVA', path: '/articoli-frontaliere/13esima-avs-iva-nazionale', parent: 'blog' },
     'blog-consiglio-stato-ticino-boccia-tassa-salute': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute', parent: 'blog' },
+    'blog-svizzera-dazi-usa-lavoro-forzato': { name: 'Svizzera respinge dazi USA su lavoro for', path: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

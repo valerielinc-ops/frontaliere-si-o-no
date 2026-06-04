@@ -44,6 +44,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'Come Ginevra ha identificato l\'hantavirus: implicazioni per i frontalieri',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'L\'Ospedale universitario di Ginevra ha identificato il ceppo di hantavirus responsabile di un focolaio epidemico su una nave da crociera nel maggio 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'Ospedale universitario di Ginevra con laboratorio moderno',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Svizzera respinge dazi USA su lavoro forzato, trattative in corso',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero che negozia con gli Stati Uniti sui dazi commerciali',
 };
 
 export default blogMetaChIt;

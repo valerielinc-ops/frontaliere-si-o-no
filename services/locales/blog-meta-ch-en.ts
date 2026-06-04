@@ -44,6 +44,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hantavirus-ginevra-identificazione.title': 'How Geneva identified hantavirus: implications for cross-border workers',
     'blog.article.hantavirus-ginevra-identificazione.excerpt': 'The Geneva University Hospital identified the hantavirus strain responsible for an epidemic outbreak on a cruise ship in May 2026.',
     'blog.article.hantavirus-ginevra-identificazione.imageAlt': 'University Hospital of Geneva with modern laboratory',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Switzerland rejects US tariffs on forced labor, talks underway',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Bern rejects US accusations and negotiates in Paris. 12.5% tariffs under discussion, comment deadline July 6, 2026.',
+    'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Federal Palace in Bern, seat of the Swiss government negotiating trade tariffs with the United States',
 };
 
 export default blogMetaChEn;
