@@ -3102,7 +3102,10 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           // before writing to the indexed descriptionByLocale dataset. The
           // isThin re-flag only covers >=500-char sources on the NEXT run,
           // so a fresh clip for 120-499 char sources would otherwise persist.
-          if (isAcceptableTranslation(sourceDesc, translatedDesc)) {
+          // isAcceptableTranslation's internal floor is 100; the free-cascade
+          // fallback ignores minChars, so also enforce the >=120 floor that
+          // validate-translation-completeness.mjs requires as a deploy blocker (#1071).
+          if (isAcceptableTranslation(sourceDesc, translatedDesc) && translatedDesc.length >= minDescriptionChars) {
             job.descriptionByLocale[locale] = translatedDesc;
             jobTranslated = true;
           } else if (!String(job.descriptionByLocale[locale] || '').trim() && sourceDesc) {
