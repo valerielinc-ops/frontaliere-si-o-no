@@ -1,19 +1,59 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-06-04T11:25:40.338Z",
+  "generatedAt": "2026-06-04T14:39:10.618Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 2584,
-  "avgDurationMs": 2584,
+  "unchangedCount": 4,
+  "durationMs": 2537,
+  "avgDurationMs": 2537,
   "durationHistory": [
-    2584
+    2537
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Research & Development Engineer",
+      "slug": "research-development-engineer-centiel-ticino",
+      "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
+      "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
+      "company": "Centiel",
+      "companyKey": "centiel",
+      "companyDomain": "centiel.com",
+      "location": "Cadro (Lugano)",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia / UPS / Power Protection",
+      "source": "centiel-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-04",
+      "employmentType": "100%",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "id": "centiel-ced8dc312c7e",
+      "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Category Buyer",
       "slug": "category-buyer-centiel-ticino",
@@ -126,43 +166,6 @@
       }
     },
     {
-      "title": "Research & Development Engineer",
-      "slug": "research-development-engineer-centiel-ticino",
-      "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
-      "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
-      "company": "Centiel",
-      "companyKey": "centiel",
-      "companyDomain": "centiel.com",
-      "location": "Cadro (Lugano)",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia / UPS / Power Protection",
-      "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-04",
-      "employmentType": "100%",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
-      "id": "centiel-ced8dc312c7e",
-      "firstSeenAt": "2026-04-13T21:21:09.576Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "After-Sales Technician",
       "slug": "after-sales-technician-centiel-ticino",
       "url": "https://www.centiel.com/wp-content/uploads/2025/05/Job_profile_After_Sales_Technician.pdf",
@@ -199,7 +202,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
