@@ -3921,6 +3921,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-festivita-ticino-2026': { name: 'Festività', path: '/articoli-svizzera/festivita-ticino-2026/', parent: 'blog' },
     'blog-frontaliere-ticino-mobilita': { name: 'Impatti della mobilità sulla vita dei', path: '/articoli-frontaliere/frontaliere-ticino-mobilita', parent: 'blog' },
     'blog-un-blocco-dei-ristorni-reazione-comprensibile': { name: 'Economia', path: '/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/', parent: 'blog' },
+    'blog-calendario-festivi-ticino-2026': { name: 'Festivi Ticino 2026', path: '/articoli-frontaliere/calendario-festivi-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

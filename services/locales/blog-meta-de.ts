@@ -7962,6 +7962,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-mobilita.title': 'Mobilitâ und Lebensqualität der Grenzgänger im Tessin',
     'blog.article.frontaliere-ticino-mobilita.excerpt': 'Die Mobilitâ erhöht die Komplexität für die Grenzgänger, mit Problemen im Verkehr und hohen Kosten',
     'blog.article.frontaliere-ticino-mobilita.imageAlt': 'Bild eines Pendlers',
+    'blog.article.calendario-festivi-ticino-2026.title': 'Festivitäten Ticino 2026: der komplette Kalender für Grenzgänger',
+    'blog.article.calendario-festivi-ticino-2026.excerpt': 'Alle Termine der Feste im Kanton Tessin für 2026: Silvester, Ostern, Pfingsten, Weihnacht und Brückentage. Schließtage von Behörden, Auswirkung auf G-Bewilligung und Gehalt. VINCOLO OBBLIGATORIO per il title tradotto: - MASSIMO 60 caratteri totali (target 50-55). - NON includere "| Frontaliere Ticino" (aggiunto automaticamente). - Mantieni la keyword principale; abbrevia o riformula se necessario per restare entro 60 caratteri.',
+    'blog.article.calendario-festivi-ticino-2026.imageAlt': 'Feiertagskalender Tessin 2026 mit Panoramablick auf Lugano und Schweizer Fahnen',
 };
 
 export default blogMetaDe;

@@ -7964,6 +7964,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-mobilita.title': 'Impatti della mobilità sulla vita dei frontaliere ticinesi',
     'blog.article.frontaliere-ticino-mobilita.excerpt': 'La mobilità aumenta la complessità per i frontalieri, con problemi di traffico e costi elevati',
     'blog.article.frontaliere-ticino-mobilita.imageAlt': 'immagine di un pendolari',
+    'blog.article.calendario-festivi-ticino-2026.title': 'Festivi Ticino 2026: il calendario completo per i frontalieri',
+    'blog.article.calendario-festivi-ticino-2026.excerpt': 'Tutte le date delle festività in Canton Ticino per il 2026: Capodanno, Pasqua, Pentecoste, Natale e i ponti. Giorni di chiusura uffici, impatto su permessi G e busta paga.',
+    'blog.article.calendario-festivi-ticino-2026.imageAlt': 'Calendario delle festività in Ticino 2026 con vista panoramica di Lugano e bandiere svizzere',
 };
 
 export default blogMetaIt;
