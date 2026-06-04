@@ -63,6 +63,20 @@ function main() {
     return;
   }
 
+  // Force-push / orphan BEFORE guard: se BEFORE non è antenato di AFTER
+  // (force-push o merge-queue con history riscritta), git diff fallirebbe →
+  // il catch restituirebbe [] silenziosamente → guard cieco senza segnale.
+  // Emettiamo ::warning:: esplicito invece (visibile nei log Actions).
+  try {
+    git(['merge-base', '--is-ancestor', beforeSha, afterSha]);
+  } catch {
+    process.stderr.write(
+      `::warning::guard-data-integrity: BEFORE ${beforeSha.slice(0, 8)} non è antenato di AFTER — force-push / orphan rilevato, diff saltato, guard cieco su questo push.\n`
+    );
+    console.log('[]');
+    return;
+  }
+
   // File cambiati nel range, ristretti ai prefissi dati.
   let changed = [];
   try {
