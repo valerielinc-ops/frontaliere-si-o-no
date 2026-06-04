@@ -69,8 +69,8 @@ jobs:
           HARVEST_OUT: harvest-clusters.json
         run: node scripts/ci/harvest-agent-lessons.mjs
 
-      - name: Draft doc-rule proposal (Claude — only if novel patterns)
-        if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
+      - name: Draft doc-rule proposal (Claude — only if novel OR escalation patterns)
+        if: steps.guard.outputs.open_proposals == '0' && (steps.harvest.outputs.has_novel == 'true' || steps.harvest.outputs.has_escalation == 'true')
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -83,20 +83,29 @@ jobs:
             Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
 
             **Bootstrap:**
-            1. Leggi `harvest-clusters.json` (output deterministico di `scripts/ci/harvest-agent-lessons.mjs`). Considera SOLO i cluster con `"novel": true` (gli altri sono già documentati o sono volume operativo).
+            1. Leggi `harvest-clusters.json` (output deterministico di `scripts/ci/harvest-agent-lessons.mjs`). Due tipi di cluster azionabili:
+               - `"novel": true` → pattern ricorrente NON ancora documentato → serve una regola preventiva nuova.
+               - `"recurringDespiteRule": true` → pattern GIÀ documentato ma che **ricorre comunque** ≥ soglia×fattore-efficacia → la prosa NON sta funzionando. NON aggiungere un'altra riga: la regola c'è già. Questo va ESCALATO a un fix STRUTTURALE (vedi sotto).
+               Ignora i cluster senza nessuno dei due flag (volume operativo / sotto-soglia).
             2. Leggi `AGENTS.md`, `ISSUES.md`, `REVIEW.md`, `FOLLOWUP.md` (il loro stile è terse-italiano; rispettalo).
 
-            **Per ogni cluster novel:**
-            - `reviewer-finding/<bucket>` (es. ×N review con 🔴/🟡 sullo stesso tema) → significa che gli agent producono ripetutamente codice che il reviewer corregge sullo stesso punto. Aggiungi una regola PREVENTIVA nel posto giusto (di solito AGENTS.md non-negotiables/Build-And-Test, o REVIEW.md, o il prompt che genera quel codice).
-            - `fix-outcome/<code>` (es. ×N issue-fix bloccati con lo stesso `<code>`) → significa che il fixer sbatte sullo stesso muro. Aggiungi/affina la regola in ISSUES.md → "Abort senza PR" o il capability-guard, così esce frugale o evita di essere instradato.
+            **Per ogni cluster `novel`:**
+            - `reviewer-finding/<bucket>` (es. ×N review con 🔴/🟡 sullo stesso tema) → gli agent producono ripetutamente codice che il reviewer corregge sullo stesso punto. Aggiungi una regola PREVENTIVA nel posto giusto (di solito AGENTS.md non-negotiables/Build-And-Test, o REVIEW.md, o il prompt che genera quel codice).
+            - `reviewer-finding/fp:<...>` (fingerprint catch-all) → pattern nuovo non ancora in tassonomia: valuta se è un tema reale; se sì, regola preventiva E considera di proporre un bucket esplicito in `harvest-agent-lessons.mjs` (questo È codice → vedi escalation).
+            - `fix-outcome/<code>` (es. ×N issue-fix bloccati con lo stesso `<code>`) → il fixer sbatte sullo stesso muro. Affina la regola in ISSUES.md → "Abort senza PR" o il capability-guard.
+
+            **Per ogni cluster `recurringDespiteRule` (escalation — la prosa ha fallito):**
+            - NON scrivere un'altra regola `.md` sullo stesso tema: non verrebbe seguita più della precedente.
+            - Apri UNA **issue di escalation** (label `follow-up`) che descrive: il bucket, il count, gli esempi PR/issue, la regola esistente che non basta, e propone un fix STRUTTURALE (template, gate CI deterministico, lint, modulo condiviso, refactor che rende l'errore impossibile by-construction). Titolo stabile `escalation(harvester): <bucket> ricorre nonostante regola` (dedup: se un'issue con quel titolo è già aperta, commenta invece di duplicare). Esempio reale: il contratto PR-body è documentato ma ricorreva → fix vero = PR template + workflow `pr-body-contract.yml`, non un'altra riga.
+            - L'agent NON implementa il fix strutturale da solo (può toccare codice/workflow, fuori scope qui): lo propone all'owner via issue.
 
             **Vincoli (CRITICI):**
             - CHIRURGICO: poche righe, nello stile esistente. No drive-by, no riscritture. AGENTS.md è iniettato ogni sessione → ogni riga costa token: massima densità.
             - DEDUP: se rileggendo i doc la regola è di fatto già presente (anche con parole diverse) → NON aggiungerla. Meglio zero modifiche che rumore.
-            - Se NESSUN cluster produce una regola genuinamente nuova e azionabile → **NON aprire PR**, posta nulla, esci. Va benissimo "niente da migliorare oggi".
-            - Mai abbassare gate/quality. Mai toccare logica/codice: SOLO file `.md`.
+            - Se NESSUN cluster produce né una regola nuova né un'escalation azionabile → **NON aprire PR né issue**, esci. Va benissimo "niente da migliorare oggi".
+            - Mai abbassare gate/quality. Nel ramo PR: SOLO file `.md`. Il fix strutturale di un'escalation si propone via issue, non si committa qui.
 
-            **Se (e solo se) hai ≥1 regola nuova utile:**
+            **Se (e solo se) hai ≥1 regola `novel` nuova utile → apri una PR doc:**
             1. `git config user.name "Valerie Linc"; git config user.email "valerielinc@gmail.com"`.
             2. `git checkout -b lessons/auto-harvest-$(date -u +%Y%m%d)`.
             3. Applica gli edit `.md` (Edit/Write). Nessun path home assoluto, nessuna email personale.
