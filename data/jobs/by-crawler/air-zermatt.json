@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-06-04T10:58:50.710Z",
+  "assembledAt": "2026-06-04T14:26:00.706Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T10:58:49.396Z",
+      "crawledAt": "2026-06-04T14:25:59.368Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.659Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -148,7 +149,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T10:58:49.161Z",
+      "crawledAt": "2026-06-04T14:25:59.161Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -204,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:52:19.399Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -220,9 +222,9 @@
     },
     {
       "id": "air-zermatt-1e6a9cfb89ad",
-      "slug": "professionista-donna-manutenzione-aziendale-facility-manager-al-100-air-zermatt-ag-raron-gampel-zermatt",
+      "slug": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
       "slugByLocale": {
-        "it": "professionista-donna-manutenzione-aziendale-facility-manager-al-100-air-zermatt-ag-raron-gampel-zermatt",
+        "it": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
         "en": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
         "de": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
         "fr": "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt"
@@ -232,7 +234,7 @@
       "companyDomain": "air-zermatt.ch",
       "title": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
       "titleByLocale": {
-        "it": "Professionista:donna Manutenzione aziendale / Facility Manager:al 100%",
+        "it": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
         "en": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
         "de": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%",
         "fr": "Fachmann:frau Betriebsunterhalt / Facility Manager:in 100%"
@@ -262,23 +264,24 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/fachmannfrau-betriebsunterhalt--facility-managerin-100-555",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T10:58:48.943Z",
-      "previousSlugs": [
-        "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
-        "professionista-donna-business-service-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
-        "specialista-nella-manutenzione-responsabile-struttura-al-100-air-zermatt-ag-raron-gampel-zermatt",
-        "specialista-della-manutenzione-facility-manager-100-air-zermatt-ag-raron-gampel-zermatt",
-        "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt"
-      ],
+      "crawledAt": "2026-06-04T14:25:58.939Z",
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
           "professionista-donna-business-service-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
           "specialista-nella-manutenzione-responsabile-struttura-al-100-air-zermatt-ag-raron-gampel-zermatt",
           "specialista-della-manutenzione-facility-manager-100-air-zermatt-ag-raron-gampel-zermatt",
+          "professionista-donna-manutenzione-aziendale-facility-manager-al-100-air-zermatt-ag-raron-gampel-zermatt",
           "fachmann-frau-betriebsunterhalt-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt"
         ]
       },
+      "previousSlugs": [
+        "fachmann-frau-betriebsunterhalt-facility-manager-in-100-raron-gampel-zermatt-air-zermatt",
+        "professionista-donna-business-service-facility-manager-in-100-air-zermatt-ag-raron-gampel-zermatt",
+        "specialista-nella-manutenzione-responsabile-struttura-al-100-air-zermatt-ag-raron-gampel-zermatt",
+        "specialista-della-manutenzione-facility-manager-100-air-zermatt-ag-raron-gampel-zermatt",
+        "professionista-donna-manutenzione-aziendale-facility-manager-al-100-air-zermatt-ag-raron-gampel-zermatt"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-26T21:55:12.668Z",
       "salaryMin": 68000,
