@@ -42,39 +42,7 @@ env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
 
 jobs:
-  # Reap once per wave, before any shard dispatches. Kept in its own job so the
-  # parallel dispatch shards don't each race to cancel the same queued runs.
-  reap:
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Reap zombie queued runs (>30 min)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -euo pipefail
-          # Known GH Actions scheduler bug: occasional runs get stranded in `queued`
-          # forever and block their concurrency group, masking future dispatches as
-          # "no-op" or causing false-failure cascades. Cancel anything queued >30 min
-          # before starting the new wave.
-          cutoff=$(date -u -d '-30 minutes' '+%Y-%m-%dT%H:%M:%SZ')
-          mapfile -t zombies < <(
-            gh api --paginate \
-              "/repos/${GITHUB_REPOSITORY}/actions/runs?status=queued&per_page=100" \
-              --jq ".workflow_runs[] | select(.created_at < \"${cutoff}\") | .id"
-          )
-          if [ ${#zombies[@]} -eq 0 ]; then
-            echo "🧟 No zombie queued runs."
-          else
-            echo "🧟 Cancelling ${#zombies[@]} zombie queued run(s) older than ${cutoff}:"
-            for z in "${zombies[@]}"; do
-              echo "  - run $z"
-              gh run cancel "$z" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || true
-            done
-          fi
-
   dispatch:
-    needs: reap
     runs-on: ubuntu-latest
     timeout-minutes: 180
     # FRO-432: shard the dispatch across parallel jobs. A single sequential pass
@@ -100,6 +68,39 @@ jobs:
           sparse-checkout: .github/workflows
           sparse-checkout-cone-mode: false
           fetch-depth: 1
+
+      # Run inside each shard (not as a separate gating job) on purpose: a
+      # standalone `reap` job that `dispatch needs:` would, on its own
+      # failure/cancellation, leave both shards SKIPPED — a silent stale wave
+      # with no failure signal (skipped != failed, so the Report-failure step
+      # never fires), the exact symptom this workflow fixes. As a step here, a
+      # reap error fails the shard job → visible red + Report failure fires,
+      # while the other shard still dispatches its half. Cancelling already-gone
+      # queued runs is a no-op, so the two shards reaping concurrently is safe.
+      - name: Reap zombie queued runs (>30 min)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Known GH Actions scheduler bug: occasional runs get stranded in `queued`
+          # forever and block their concurrency group, masking future dispatches as
+          # "no-op" or causing false-failure cascades. Cancel anything queued >30 min
+          # before starting the new wave.
+          cutoff=$(date -u -d '-30 minutes' '+%Y-%m-%dT%H:%M:%SZ')
+          mapfile -t zombies < <(
+            gh api --paginate \
+              "/repos/${GITHUB_REPOSITORY}/actions/runs?status=queued&per_page=100" \
+              --jq ".workflow_runs[] | select(.created_at < \"${cutoff}\") | .id"
+          )
+          if [ ${#zombies[@]} -eq 0 ]; then
+            echo "🧟 No zombie queued runs."
+          else
+            echo "🧟 Cancelling ${#zombies[@]} zombie queued run(s) older than ${cutoff}:"
+            for z in "${zombies[@]}"; do
+              echo "  - run $z"
+              gh run cancel "$z" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 || true
+            done
+          fi
 
       - name: Discover and dispatch crawler workflows
         env:
@@ -206,7 +207,6 @@ jobs:
           # Dispatch this shard's crawlers in alphabetical order; delay between each based on volume
           for wf in "${workflows[@]}"; do
             filename=$(basename "$wf")
-            wf_name=$(head -1 "$wf" | sed 's/^name: //')
             counter=$((dispatched + skipped + failed + 1))
 
             this_delay=$(get_delay "$filename")
