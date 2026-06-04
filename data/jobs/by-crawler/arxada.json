@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arxada",
-  "assembledAt": "2026-06-04T14:29:29.311Z",
+  "assembledAt": "2026-06-04T21:49:40.047Z",
   "jobs": [
     {
       "id": "arxada-2d3fbc013a5c",
@@ -47,7 +47,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Senior-Chemical-Engineer--R-D_R53157-1",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:57.840Z",
+      "crawledAt": "2026-06-04T21:49:37.570Z",
       "jobReqId": "R53157",
       "previousSlugsByLocale": {
         "de": [
@@ -61,6 +61,7 @@
         "senior-chemical-engineer-r-d-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:01.951Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -78,12 +79,12 @@
     },
     {
       "id": "arxada-1894b3c6cfcb",
-      "slug": "coordinatore-della-formazione-arxada-visp",
+      "slug": "training-coordinator-in-arxada-ch",
       "slugByLocale": {
-        "it": "coordinatore-della-formazione-arxada-visp",
+        "it": "training-coordinator-in-arxada-ch",
         "en": "training-coordinator-in-arxada-visp",
         "de": "training-coordinator-in-arxada-ch",
-        "fr": "training-coordinateur-in-arxada-visp"
+        "fr": "training-coordinator-in-arxada-ch"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -121,22 +122,26 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Training-Coordinator-in_R53631",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:57.153Z",
+      "crawledAt": "2026-06-04T21:49:36.833Z",
       "jobReqId": "R53631",
       "previousSlugs": [
-        "training-coordinator-in-arxada-ch",
-        "coordonnateur-de-la-formation-arxada-visp"
+        "coordinatore-della-formazione-arxada-visp",
+        "coordonnateur-de-la-formation-arxada-visp",
+        "training-coordinateur-in-arxada-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "coordinatore-della-formazione-arxada-visp",
           "training-coordinator-in-arxada-ch"
         ],
         "fr": [
           "coordonnateur-de-la-formation-arxada-visp",
+          "training-coordinateur-in-arxada-visp",
           "training-coordinator-in-arxada-ch"
         ]
       },
       "firstSeenAt": "2026-05-15T10:24:57.988Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -219,7 +224,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:56.445Z",
+      "crawledAt": "2026-06-04T21:49:35.992Z",
       "jobReqId": "R53358",
       "previousSlugsByLocale": {
         "de": [
@@ -233,6 +238,7 @@
         "rangierdienst-spezialist-in-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:03.777Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -321,7 +327,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Prozessanalytiker-in_R52966",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:55.745Z",
+      "crawledAt": "2026-06-04T21:49:35.212Z",
       "jobReqId": "R52966",
       "previousSlugsByLocale": {
         "de": [
@@ -335,6 +341,7 @@
         "laborant-in-online-prozessanalytik-arxada-ch"
       ],
       "firstSeenAt": "2026-04-13T09:59:03.161Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -395,7 +402,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator_R53498",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:29:24.248Z",
+      "crawledAt": "2026-06-04T21:49:34.383Z",
       "jobReqId": "R53498",
       "previousSlugs": [
         "operatore-a-2-schicht-arxada-visp",
@@ -482,7 +489,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lehrstelle-Elektroinstallateur-in-EFZ_R52727",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:29:23.537Z",
+      "crawledAt": "2026-06-04T21:49:33.502Z",
       "jobReqId": "R52727",
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch",
@@ -563,7 +570,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Lab-Assistant-in---Junior-Chemist-R-T_R53576",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:53.622Z",
+      "crawledAt": "2026-06-04T21:49:32.759Z",
       "jobReqId": "R53576",
       "previousSlugs": [
         "lab-assistant-in-junior-chemist-r-t-arxada-ch"
@@ -577,6 +584,7 @@
         ]
       },
       "firstSeenAt": "2026-04-29T21:17:43.554Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -665,7 +673,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Elektroinstallateur-Automatiker--in-ab-August-2026_R53286",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:52.843Z",
+      "crawledAt": "2026-06-04T21:49:32.025Z",
       "jobReqId": "R53286",
       "previousSlugs": [
         "elektroinstallateur-automatiker-in-ab-august-2026-arxada-ch",
@@ -678,6 +686,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T09:59:07.022Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -738,7 +747,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in_R50117",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:52.136Z",
+      "crawledAt": "2026-06-04T21:49:31.290Z",
       "jobReqId": "R50117",
       "previousSlugsByLocale": {
         "de": [
@@ -752,6 +761,7 @@
         "operator-in-80-100-arxada-ch"
       ],
       "firstSeenAt": "2026-05-06T10:21:39.223Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -812,7 +822,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Operator-in-2-Schicht_R53499",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T14:29:20.769Z",
+      "crawledAt": "2026-06-04T21:49:30.544Z",
       "jobReqId": "R53499",
       "previousSlugsByLocale": {
         "de": [
@@ -924,7 +934,7 @@
       "applyUrl": "https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Anlage-Ingenieur-in_R53335",
       "source": "Arxada Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T11:07:50.678Z",
+      "crawledAt": "2026-06-04T21:49:29.777Z",
       "jobReqId": "R53335",
       "previousSlugsByLocale": {
         "de": [
@@ -952,6 +962,7 @@
         "metallbauer-in-cfc-arxada-visp"
       ],
       "firstSeenAt": "2026-04-13T09:58:58.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
