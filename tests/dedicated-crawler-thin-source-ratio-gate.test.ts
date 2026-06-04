@@ -10,10 +10,13 @@
  * job. The build owns the thin-content INDEX gate (noindex + sitemap-exclude
  * <50-word pages); the crawler guard should only catch systemic PARSER BREAKS.
  *
- * After the fix the abort is ratio-gated:
+ * After the fix the abort is ratio-gated AND floored on total job count:
  *   - few-thin-among-many (ratio < 0.5)  → no throw; thin jobs quarantined from
  *     the persisted dataset; good jobs commit.
- *   - majority/all thin (ratio >= 0.5)   → still throws (parser-break detection
+ *   - micro-source (< 4 total jobs)      → no throw even at 100% thin; too few
+ *     jobs for "majority thin" to be a reliable parser-break signal, so they are
+ *     quarantined instead of hard-failed (follow-up #1321).
+ *   - majority/all thin with >=4 jobs    → still throws (parser-break detection
  *     preserved).
  */
 
@@ -145,6 +148,39 @@ describe('validateDedicatedLocaleCoverage — ratio-gated thin-source abort', ()
     const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as Array<{ description: string }>;
     expect(after).toHaveLength(1);
     expect(after[0].description).not.toBe('Stampa');
+  });
+
+  it('(d) micro-source, ALL thin (2 jobs at 100%) → does NOT throw (total-job floor)', () => {
+    // A legitimate micro-source with exactly 2 postings both naturally short:
+    // ratio=1.0, count=2 — indistinguishable from a 2-job parser break. Below
+    // the >=4 total-job floor a "majority thin" signal is too weak to brick the
+    // run, so these are quarantined (and the build noindexes them anyway) rather
+    // than hard-failed with a spurious priority:high issue every run.
+    const jobs = [makeThinJob('thin-0', 0), makeThinJob('thin-1', 1)];
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    // Both thin jobs are quarantined → dataset ends up empty (no spurious abort).
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(0);
+  });
+
+  it('(d2) micro-source, 3 jobs all thin (below floor) → does NOT throw', () => {
+    const jobs = Array.from({ length: 3 }, (_, i) => makeThinJob(`thin-${i}`, i));
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as unknown[];
+    expect(after).toHaveLength(0);
+  });
+
+  it('(d3) 4 jobs all thin (AT the floor) → still throws (parser-break signal restored)', () => {
+    // At the >=4 floor a majority-thin source is once again a reliable parser-
+    // break signal, so the hard-fail must fire.
+    const jobs = Array.from({ length: 4 }, (_, i) => makeThinJob(`thin-${i}`, i));
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() => runGuard(jobsPath)).toThrow(/thin-source investigation failed/i);
   });
 
   it('all good → passes cleanly with no quarantine', () => {
