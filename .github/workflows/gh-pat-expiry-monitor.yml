@@ -1,26 +1,49 @@
 name: GH_PAT Expiry Monitor
 
-# Weekly watchdog for the GH_PAT (stored in Firebase Remote Config, loaded via
+# Watchdog for the GH_PAT (stored in Firebase Remote Config, loaded via
 # scripts/load-rc-env.mjs). The PAT powers the auto-merge cascade dispatch
 # (auto-merge-on-lgtm.yml → post-merge-followup), discover-404s.yml and
 # sync-gsc-orphans.yml deploy triggers. If it silently expires, every
 # post-LGTM-merge dispatch and deploy trigger starts failing with a red X and
 # the follow-up triage evaporates (issue #840 / regression of #836's fix).
 #
-# Detection: an authenticated request to the GitHub API returns the
-# `github-authentication-token-expiration` response header for a fine-grained
-# or classic PAT that has an expiry set. We parse that header; if the token
-# expires within EXPIRY_WARN_DAYS (default 30) — or has no expiry header at all
-# in an unexpected way — we open (or dedup-comment on) a warning issue via the
-# canonical scripts/lib/github-issue-creator.mjs helper.
+# This monitor covers TWO failure modes:
+#
+#   1. LOAD-FAILURE (urgent, "loop is DOWN right now") — the PAT is empty in the
+#      environment (RC outage, missing Firebase SA, deleted GITHUB_PAT param) or
+#      present-but-invalid (expired/revoked → `gh api user` fails). When this
+#      happens the whole autonomous agent loop silently degrades to inert:
+#      issue-triage.yml, auto-merge-on-lgtm.yml, recycle-stale-prs.yml and
+#      followup-drainer.yml all fall back to GITHUB_TOKEN (no cascade) with only
+#      a `::warning::GITHUB_PAT assente` that nobody reads. We turn that silent
+#      degradation into ONE deduplicated `priority:urgent` issue
+#      ("Agent loop down: GITHUB_PAT failed to load") and auto-CLOSE it the
+#      moment the PAT authenticates again (recovery). Max one open alert at a
+#      time → no spam.
+#
+#   2. EXPIRY-NEAR (high, "rotate soon") — the PAT authenticates fine but its
+#      `github-authentication-token-expiration` header shows it lapses within
+#      EXPIRY_WARN_DAYS (default 30). We open (or dedup-comment on) a separate
+#      `priority:high` rotation-reminder issue.
+#
+# The two alerts have DISTINCT stable titles so dedup is independent: an open
+# "loop down" urgent issue never collides with the "rotate soon" reminder.
 #
 # Zero-Claude by design (pure bash + the existing node issue-creator) per the
 # frugality rules in AGENTS.md — no claude-code-action, no extra Max-quota burn.
+#
+# NB labels (2026-06-04): gli alert NON portano `follow-up` (lo instraderebbe il
+# classifier come categoria follow-up → agent:fix-queued, assurdo per un PAT-down).
+# Solo `automation` + il priority label da --priority. Titoli non-crawler/non-
+# follow-up → classify-issue.mjs li lascia `other`/route:none (nessun auto-fix).
 
 on:
   schedule:
-    # Mondays at 06:30 UTC — well clear of the GSC-quota windows.
-    - cron: '30 6 * * 1'
+    # Daily at 06:30 UTC — well clear of the GSC-quota windows. Daily (not
+    # weekly) because a LOAD-FAILURE means the agent loop is DOWN right now; a
+    # week of silent inertia is unacceptable. The expiry-near issue dedups, so
+    # the extra cadence costs nothing for that path.
+    - cron: '30 6 * * *'
   workflow_dispatch:
     inputs:
       warn_days:
@@ -74,57 +97,114 @@ jobs:
         # secrets.* — `secrets.GH_PAT` non esiste, il PAT vive solo in RC.
         run: node scripts/load-rc-env.mjs
 
-      - name: Check PAT expiry and warn if near
+      - name: Check PAT load-failure + expiry
         env:
           WARN_DAYS: ${{ inputs.warn_days || '30' }}
           # GH_REPO is consumed by github-issue-creator.mjs for the --repo flag.
           GH_REPO: ${{ github.repository }}
+          # GH_TOKEN for the recovery `gh issue` close/list calls below. Those
+          # only touch THIS repo's issues, so the default Actions token (issues:
+          # write, granted above) is correct — do NOT use the PAT (it may be the
+          # very thing that's broken).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
+          # ── Stable alert titles (dedup keys) ──────────────────────────────
+          LOAD_FAIL_TITLE="Agent loop down: GITHUB_PAT failed to load"
+          EXPIRY_TITLE="GH_PAT expiry warning: rotate the Remote Config PAT"
+
+          # ── Phase 1: classify PAT health ──────────────────────────────────
+          LOAD_FAILED=false
+          LOAD_FAIL_REASON=""
+          EXPIRY=""
+
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT not present in environment — Remote Config load failed or the PAT param is missing. The cascade/deploy triggers cannot work without it."
-            # Fall through to open a warning issue so the outage is visible.
-            EXPIRY=""
+            echo "::error::GITHUB_PAT not present in environment — Remote Config load failed or the PAT param is missing. The agent loop is inert until restored."
+            LOAD_FAILED=true
+            LOAD_FAIL_REASON="GITHUB_PAT is **empty** in the workflow environment — \`scripts/load-rc-env.mjs\` did not provide it. Likely causes: Firebase Remote Config outage, missing/invalid Firebase service-account (\`FIREBASE_SERVICE_ACCOUNT_JSON\`), or the \`GITHUB_PAT\` RC param was deleted."
           else
-            # An authenticated API request echoes the token-expiry header for a
-            # PAT that has an expiry set. Use the PAT explicitly (do NOT use the
-            # default GITHUB_TOKEN — we want to inspect the PAT specifically).
-            HEADERS="$(GH_TOKEN="$GITHUB_PAT" gh api -i / 2>/dev/null || true)"
-            EXPIRY="$(printf '%s\n' "$HEADERS" \
-              | grep -i '^github-authentication-token-expiration:' \
-              | head -n1 \
-              | sed -E 's/^[^:]+:[[:space:]]*//' \
-              | tr -d '\r')"
+            LOGIN="$(GH_TOKEN="$GITHUB_PAT" gh api user --jq '.login' 2>/dev/null || true)"
+            if [ -z "$LOGIN" ]; then
+              echo "::error::GITHUB_PAT is set but failed to authenticate (\`gh api user\` returned nothing) — token expired or revoked."
+              LOAD_FAILED=true
+              LOAD_FAIL_REASON="GITHUB_PAT **is present but failed to authenticate** — \`gh api user\` returned nothing. The token is almost certainly **expired or revoked**."
+            else
+              echo "✅ PAT authenticates as '$LOGIN'."
+              HEADERS="$(GH_TOKEN="$GITHUB_PAT" gh api -i / 2>/dev/null || true)"
+              EXPIRY="$(printf '%s\n' "$HEADERS" \
+                | grep -i '^github-authentication-token-expiration:' \
+                | head -n1 \
+                | sed -E 's/^[^:]+:[[:space:]]*//' \
+                | tr -d '\r')"
+            fi
           fi
 
-          echo "Detected expiry header: '${EXPIRY:-<none>}'"
+          echo "LOAD_FAILED=${LOAD_FAILED} | expiry header: '${EXPIRY:-<none>}'"
 
+          # ── Phase 2: LOAD-FAILURE urgent alert (open) or recovery (close) ──
+          if [ "$LOAD_FAILED" = "true" ]; then
+            echo "::error::Opening/refreshing the urgent 'agent loop down' alert."
+
+            LOAD_DESC="$(printf '%s\n' \
+              "## 🚨 Agent loop is DOWN — GITHUB_PAT failed to load" \
+              "" \
+              "$LOAD_FAIL_REASON" \
+              "" \
+              "### Impact (silent until now)" \
+              "The whole autonomous agent loop depends on \`GITHUB_PAT\` (Firebase Remote" \
+              "Config \`GITHUB_PAT\` param, loaded by \`scripts/load-rc-env.mjs\`). With it" \
+              "missing/invalid these workflows degrade to **inert** with only a" \
+              "\`::warning::GITHUB_PAT assente\` nobody reads:" \
+              "- \`issue-triage.yml\` — routing inerte, \`agent:fix\` non applicato" \
+              "- \`auto-merge-on-lgtm.yml\` — merge via GITHUB_TOKEN, **nessun cascade** (deploy/followup non partono)" \
+              "- \`recycle-stale-prs.yml\` — re-queue \`agent:fix\` SALTATO" \
+              "- \`followup-drainer.yml\` / \`post-merge-followup.yml\` — triage perso" \
+              "- \`discover-404s.yml\` / \`sync-gsc-orphans.yml\` — deploy trigger rotti" \
+              "" \
+              "### Action" \
+              "1. Verify Firebase RC is reachable and the \`GITHUB_PAT\` param exists + is non-empty." \
+              "2. If expired/revoked, generate a fresh PAT (scopes: at least \`repo\` + \`workflow\`) and update the \`GITHUB_PAT\` RC param." \
+              "3. Re-run the **GH_PAT Expiry Monitor** workflow — it will **auto-close this issue** once the PAT authenticates again." \
+              "" \
+              "_Filed automatically by the GH_PAT Expiry Monitor workflow._")"
+
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$LOAD_FAIL_TITLE" \
+              --description "$LOAD_DESC" \
+              --priority 1 \
+              --label automation \
+              --workflow "GH_PAT Expiry Monitor"
+
+            echo "::error::GITHUB_PAT load-failure detected — failing the run after filing the urgent alert."
+            exit 1
+          fi
+
+          # Recovery: close any open load-failure alert (idempotent).
+          OPEN_LOAD_ALERT="$(gh issue list \
+            --state open \
+            --search "in:title \"${LOAD_FAIL_TITLE}\"" \
+            --limit 10 \
+            --json number,title \
+            --jq "[.[] | select(.title == \"${LOAD_FAIL_TITLE}\")][0].number" \
+            2>/dev/null || true)"
+          if [ -n "$OPEN_LOAD_ALERT" ] && [ "$OPEN_LOAD_ALERT" != "null" ]; then
+            echo "Recovery: closing open load-failure alert #${OPEN_LOAD_ALERT}."
+            gh issue comment "$OPEN_LOAD_ALERT" \
+              --body "✅ Recovery — GITHUB_PAT authenticated successfully on the latest GH_PAT Expiry Monitor run. The agent loop is back. Auto-closing." \
+              || true
+            gh issue close "$OPEN_LOAD_ALERT" --reason completed || true
+          fi
+
+          # ── Phase 3: EXPIRY-NEAR rotation reminder (PAT authenticates) ────
           NOW_EPOCH="$(date -u +%s)"
           SHOULD_WARN=false
           WARN_REASON=""
           EXPIRY_DISPLAY="${EXPIRY:-unknown}"
 
           if [ -z "$EXPIRY" ]; then
-            if [ -z "${GITHUB_PAT:-}" ]; then
-              SHOULD_WARN=true
-              WARN_REASON="GITHUB_PAT is **missing from the environment** — Remote Config did not provide it. The auto-merge cascade dispatch, discover-404s.yml and sync-gsc-orphans.yml deploy triggers are broken until the PAT is restored."
-            else
-              # No expiry header. A classic PAT with "no expiration" returns no
-              # header. We can't prove the PAT is fine (an invalid/revoked token
-              # also yields no header), so verify it still authenticates.
-              LOGIN="$(GH_TOKEN="$GITHUB_PAT" gh api user --jq '.login' 2>/dev/null || true)"
-              if [ -z "$LOGIN" ]; then
-                SHOULD_WARN=true
-                WARN_REASON="GITHUB_PAT did **not** return an expiry header **and failed to authenticate** (\`gh api user\` returned nothing). The token is likely expired or revoked — the cascade/deploy triggers are broken."
-              else
-                echo "✅ PAT authenticates as '$LOGIN' and reports no expiry (classic no-expiration token). Nothing to warn about."
-              fi
-            fi
+            echo "✅ Authenticated PAT reports no expiry (classic no-expiration token). No expiry warning needed."
           else
-            # Header format examples:
-            #   2026-08-01 00:00:00 +0200
-            #   2026-08-01 00:00:00 UTC
             EXPIRY_EPOCH="$(date -u -d "$EXPIRY" +%s 2>/dev/null || true)"
             if [ -z "$EXPIRY_EPOCH" ]; then
               echo "::warning::Could not parse expiry timestamp '$EXPIRY' — skipping numeric comparison."
@@ -140,14 +220,12 @@ jobs:
           fi
 
           if [ "$SHOULD_WARN" != "true" ]; then
-            echo "✅ No warning needed."
+            echo "✅ No expiry warning needed."
             exit 0
           fi
 
           echo "::warning::Opening/refreshing a GH_PAT expiry warning issue."
 
-          # Build the issue body with printf (avoids heredoc indentation
-          # clashing with the YAML block-scalar). \n is interpreted by printf.
           DESCRIPTION="$(printf '%s\n' \
             "## ⚠️ GH_PAT expiry / health warning" \
             "" \
@@ -172,9 +250,8 @@ jobs:
             "_Filed automatically by the GH_PAT Expiry Monitor workflow._")"
 
           node scripts/lib/github-issue-creator.mjs \
-            --title "GH_PAT expiry warning: rotate the Remote Config PAT" \
+            --title "$EXPIRY_TITLE" \
             --description "$DESCRIPTION" \
             --priority 2 \
-            --label follow-up \
             --label automation \
             --workflow "GH_PAT Expiry Monitor"
