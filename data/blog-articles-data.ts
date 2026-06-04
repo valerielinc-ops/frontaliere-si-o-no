@@ -25281,6 +25281,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'telelavoro-frontalieri-italia-svizzera',
+ category: 'pratico',
+ date: '2026-06-04T04:31:14.638Z',
+ image: '/images/blog/telelavoro-frontalieri-italia-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

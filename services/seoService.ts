@@ -3923,6 +3923,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-un-blocco-dei-ristorni-reazione-comprensibile': { name: 'Economia', path: '/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/', parent: 'blog' },
     'blog-calendario-festivi-ticino-2026': { name: 'Festivi Ticino 2026', path: '/articoli-frontaliere/calendario-festivi-ticino-2026', parent: 'blog' },
     'blog-medico-medicina-interna-intensiva-eoc': { name: 'Medico EOC Bellinzona', path: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/', parent: 'blog' },
+    'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

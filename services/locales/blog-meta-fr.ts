@@ -7967,6 +7967,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calendario-festivi-ticino-2026.title': 'Festivi Ticino 2026 : le calendrier complet frontaliers',
     'blog.article.calendario-festivi-ticino-2026.excerpt': 'Toutes les dates des fêtes dans le canton Ticino pour 2026 : Nouvel An, Pâques, Pentecôte, Noël et les ponts. Jours de fermeture des bureaux, impact sur les permis G et la paie.',
     'blog.article.calendario-festivi-ticino-2026.imageAlt': 'Calendrier des jours fériés au Tessin 2026 avec vue panoramique de Lugano et drapeaux suisses',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'Télétravail frontalier: nouvelles règles',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'La Suisse et l\'Italie discutent de nouvelles règles pour le télétravail des frontaliers. Voici ce qui pourrait changer.',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Travailleur à distance avec vue sur Lugano',
 };
 
 export default blogMetaFr;

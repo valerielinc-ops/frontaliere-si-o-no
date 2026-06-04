@@ -7966,6 +7966,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calendario-festivi-ticino-2026.title': 'Festivi Ticino 2026: Full Calendar for Cross-border',
     'blog.article.calendario-festivi-ticino-2026.excerpt': 'All 2026 holiday dates in Ticino Canton: New Year\'s Day, Easter, Pentecost, Christmas and the bank holidays. Office closure days, impact on G permits and pay slips.',
     'blog.article.calendario-festivi-ticino-2026.imageAlt': 'Ticino public holidays 2026 calendar with panoramic view of Lugano and Swiss flags',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.title': 'New rules for cross-border remote work',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.excerpt': 'Switzerland and Italy are discussing new regulations for cross-border remote work. Here\'s what might change.',
+    'blog.article.telelavoro-frontalieri-italia-svizzera.imageAlt': 'Remote worker with a view of Lugano',
 };
 
 export default blogMetaEn;
