@@ -186,9 +186,9 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 
 **`pr-review-loop.yml` — tiered review (PR #769)**
 
-- `Determine review tier` step inspects the PR's changed paths and computes `model` + `max_turns` dynamically:
-  - **high tier** — triggered by changes under `tests/`, `.github/workflows/`, `scripts/`, or `build-plugins/`. Uses Opus, `max_turns: 25`, runs the adversarial-check sweep on top of the baseline review.
-  - **normal tier** — everything else. Uses Sonnet, `max_turns: 15`.
+- `Determine review tier` step inspects the PR's changed paths and computes `model` + `max_turns` dynamically. **The exact model/turn values + path patterns live in the workflow step `Determine review tier` (`.github/workflows/pr-review-loop.yml`) — do not hard-code numbers here, they drift** (this doc said Opus/`max_turns: 25` long after the workflow moved to 40):
+  - **high tier** — Opus, runs the adversarial-check sweep. Triggered by funnel-critical CODE: `tests/`, `.github/workflows/`, `build-plugins/`, or index-mutating `scripts/`. Non-funnel helper scripts (`scripts/{ci,dev,evals}/`) and read-only audit/report scripts stay **normal**. DATA/docs-only diffs (`data/**`, `public/**`, `reports/**`, `docs/**`) never escalate the tier.
+  - **normal tier** — everything else. Sonnet.
 - Tool whitelist widened to include `Bash(rg:*)` and `Bash(git:*)` so the reviewer can do cross-file pattern probing (`REVIEW.md` step 5) and PR-history checks.
 - Test plan compliance is enforced by `REVIEW.md` step 6 — the reviewer cross-checks the PR body's test plan against the diff.
 - Green output ends with the literal `## LGTM` marker; that is the single signal `auto-merge-on-lgtm.yml` watches for. See `REVIEW.md` for what scenarios are allowed to emit `## LGTM`.

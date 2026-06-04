@@ -65,12 +65,14 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           show_full_output: true
           # max-turns 20 (era 15): il triage completo (parse PR body + reviews,
-          # filtro churn/funnel, dedup, in-flight overlap, gh issue create, +
-          # supersede detection) sforava sistematicamente i 15 turni → 6 run
-          # `error_max_turns` il 2026-05-30 (num_turns 16+) con triage perso per
-          # PR #1015/#1012/#979 (nessun re-run → 🟡/❓ + `## Non implementato`
-          # mai triagiati). 15 troncava prima degli step obbligatori; AGENTS.md
-          # vieta di abbassarli proprio per questo. Allineato a lessons-harvester (20).
+          # filtro churn/funnel, dedup, in-flight overlap, gh issue create)
+          # sforava sistematicamente i 15 turni → 6 run `error_max_turns` il
+          # 2026-05-30 (num_turns 16+) con triage perso per PR #1015/#1012/#979
+          # (nessun re-run → 🟡/❓ + `## Non implementato` mai triagiati). 15
+          # troncava prima degli step obbligatori; AGENTS.md vieta di abbassarli
+          # proprio per questo. Allineato a lessons-harvester (20).
+          # NB: la supersede detection è stata RIMOSSA da questo prompt (2026-06-04)
+          # — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude).
           claude_args: "--max-turns 20 --model claude-sonnet-4-6 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up per PR #${{ github.event.pull_request.number || github.event.inputs.pr_number }} (${{ github.event_name }}).
@@ -100,13 +102,12 @@ jobs:
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando (`gh pr list --state open` + `gh pr diff <n> --name-only`) → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
             - Crea issue per candidate validi, max 10/PR. Label: `follow-up` + UNO funnel-* se inferibile.
-            - **Supersede detection** (FOLLOWUP.md § Supersede detection): per le issue `follow-up` aperte che citano un file toccato da questa PR (`gh pr diff $PR_NUMBER --name-only`), posta UN commento `🔗 Possibile supersede` (idempotente). **Mai chiudere** — solo segnalazione; chiude solo l'autore con `Closes #N`.
             - Posta `## Post-merge follow-up triage` summary commento sulla PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata degli item `live-verify-only`, nessuna issue/fixer) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
             **Constraint:**
-            - Read-only eccetto `gh issue create`, `gh pr comment`, `gh issue comment` (solo Supersede detection).
+            - Read-only eccetto `gh issue create`, `gh pr comment`.
             - Mai modificare PR label/state/title.
-            - Mai chiudere/riaprire issue (nemmeno le superseded — solo commento).
+            - Mai chiudere/riaprire issue.
             - Incerto sul filtro → crea con rationale "needs triage".
             - Zero candidate → `## Post-merge follow-up triage: zero outstanding items.` e termina.
 

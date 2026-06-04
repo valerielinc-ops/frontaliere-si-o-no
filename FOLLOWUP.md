@@ -144,26 +144,17 @@ La sezione `Live-verification` raccoglie **tutti** gli item `live-verify-only` (
 
 Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata). Se sopravvivono SOLO voci live-verify (zero issue) → posta il summary con la sola sezione `Live-verification` e la riga `Created: 0 issue (solo live-verification batchata)`.
 
-## Supersede detection (comment-only, mai chiudere)
+## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-Claude)
 
-Dopo il triage, segnala le issue `follow-up` aperte che **questa PR potrebbe aver reso obsolete**, così non restano orfane (es. PR che riscrive un workflow rendendo moot gli item di hardening su quel file). **Non chiudere mai** su euristica: una PR può toccare un file senza coprire lo specifico item — chiudere distruggerebbe scope ancora valido. Solo l'autore, con `Closes #N` / `Supersedes #N` nel body (vedi `AGENTS.md → Workflow`), chiude davvero (GitHub nativo per `Closes`).
+**2026-06-04:** la supersede detection è stata RIMOSSA dal prompt Claude di `post-merge-followup.yml`. Il flag grossolano su file-touch (comment-only, advisory) bruciava turni Claude + un `gh issue list --search` per-file a ogni merge, per una segnalazione che l'autore raramente azionava. La copertura è ora di `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-Claude**): per ogni issue `follow-up` aperta estrae i file/token citati e verifica se la fix è **presente verbatim** nel file → label `maybe-resolved` (check di risoluzione reale, più preciso del flag file-touch). La chiusura finale resta umana / `Closes #N`.
 
-1. File toccati da questa PR: `gh pr diff $PR_NUMBER --name-only`.
-2. Candidati supersede, **scoped per-file** (mai dump bulk dei body): per ogni file del diff `gh issue list --label follow-up --state open --search "<file>" --json number,title --limit 20` (GitHub indicizza il body → ritorna solo le issue che citano quel path). Unisci i risultati, escludi quella appena creata per questa PR. NON usare `--json number,title,body --limit 50` su tutte le aperte: ~28 body emoji-heavy ≈ 82KB, troncabile a un boundary di surrogate UTF-16 → `400 no low surrogate in string` (stessa classe del bulk overview a `post-merge-followup.yml`).
-3. Per ciascun candidato scoped, conferma con `gh issue view <N> --json body` che il path sia citato in `## Suggested action` / `## Item`; se sì:
-   - Se non hai già commentato (cerca `🔗 Possibile supersede` nei commenti, idempotenza) → posta:
-     ```markdown
-     🔗 Possibile supersede: PR #<PR_NUMBER> (<PR_TITLE>) ha modificato `<file>` — <motivo dal PR title/body>. Verifica se gli item di questa issue sono ancora pertinenti; se coperti, chiudi a mano. (segnalazione automatica, non chiusura)
-     ```
-4. Nel summary commento sulla PR aggiungi una riga `Superseding flags: <N> issue segnalate (#a, #b)` se >0.
-
-Solo segnalazione: il giudizio finale resta umano. Mai più di un commento di supersede per coppia (PR, issue).
+Gap residuo accettato: un refactor che rende moot un item SENZA aggiungere i token citati non viene flaggato da nessuno dei due (reconcile cerca i token verbatim). Trade-off scelto per ridurre la spesa Claude per-merge.
 
 ## Constraint
 
-- Read-only su tutto eccetto: `gh issue create`, `gh pr comment`, `gh issue comment` (solo per la Supersede detection — segnalazione, mai chiusura).
+- Read-only su tutto eccetto: `gh issue create`, `gh pr comment`.
 - Mai modificare label/state/title della PR.
-- Mai chiudere/riaprire issue (nemmeno le superseded — solo commento).
+- Mai chiudere/riaprire issue.
 - Zero finding accettabile (PR LGTM puro senza Non implementato). NON inventare.
 - Incerto sul filtro scopo → crea issue comunque, rationale "needs triage". Drop è più costoso di una issue extra.
 - Limite hard: max 10 item nella issue aggregata. Oltre → includi i primi 10 e aggiungi in coda al summary "throttled: >10 item, restanti richiedono triage manuale".
