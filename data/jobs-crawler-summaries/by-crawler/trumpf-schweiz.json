@@ -1,18 +1,80 @@
 {
   "key": "trumpf-schweiz",
   "label": "trumpf",
-  "generatedAt": "2026-06-04T15:58:35.880Z",
+  "generatedAt": "2026-06-04T23:15:24.605Z",
   "total": 23,
-  "newCount": 2,
-  "updatedCount": 21,
-  "removedCount": 1,
+  "newCount": 4,
+  "updatedCount": 19,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18270,
-  "avgDurationMs": 18270,
+  "durationMs": 14964,
+  "avgDurationMs": 14964,
   "durationHistory": [
-    18270
+    14964
   ],
   "newJobs": [
+    {
+      "title": "Lehrstelle 2027 Automatiker/in EFZ",
+      "slug": "lehrstelle-2027-automatiker-in-efz-trumpf-r00039691",
+      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Automatiker-in-EFZ_R00039691",
+      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Automatiker-in-EFZ_R00039691",
+      "company": "TRUMPF Schweiz AG",
+      "companyKey": "trumpf-schweiz",
+      "companyDomain": "trumpf.com",
+      "location": "Grüsch",
+      "addressLocality": "Grüsch",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Tecnologia Industriale & Laser",
+      "source": "trumpf-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-01",
+      "validThrough": "",
+      "employmentType": "apprenticeship",
+      "contractType": "apprendistato",
+      "crawledAt": "2026-06-04T23:15:18.188Z",
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 0,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Lehrstelle 2027 Konstrukteur/in EFZ",
+      "slug": "lehrstelle-2027-konstrukteur-in-efz-trumpf-r00039703",
+      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Konstrukteur-in-EFZ_R00039703",
+      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Konstrukteur-in-EFZ_R00039703",
+      "company": "TRUMPF Schweiz AG",
+      "companyKey": "trumpf-schweiz",
+      "companyDomain": "trumpf.com",
+      "location": "Grüsch",
+      "addressLocality": "Grüsch",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Tecnologia Industriale & Laser",
+      "source": "trumpf-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-01",
+      "validThrough": "",
+      "employmentType": "apprenticeship",
+      "contractType": "apprendistato",
+      "crawledAt": "2026-06-04T23:15:20.528Z",
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 0,
+        "completeness": 14
+      }
+    },
     {
       "title": "Lehrstelle 2027 Logistiker/in EFZ",
       "slug": "lehrstelle-2027-logistiker-in-efz-trumpf-r00039706",
@@ -35,7 +97,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:31.878Z",
+      "crawledAt": "2026-06-04T23:15:21.107Z",
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -66,7 +128,7 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:32.544Z",
+      "crawledAt": "2026-06-04T23:15:21.674Z",
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -99,20 +161,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:20.632Z",
+      "crawledAt": "2026-06-04T23:15:11.118Z",
       "id": "trumpf-schweiz-1d5e40360c3d",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "8500",
       "firstSeenAt": "2026-05-11T23:05:11.547Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -137,20 +199,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:21.105Z",
+      "crawledAt": "2026-06-04T23:15:11.757Z",
       "id": "trumpf-schweiz-8a82397b3134",
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T11:38:12.738Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -175,20 +237,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:21.700Z",
+      "crawledAt": "2026-06-04T23:15:12.278Z",
       "id": "trumpf-schweiz-90996f9fca6d",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-05-28T00:42:27.554Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -213,20 +275,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:22.355Z",
+      "crawledAt": "2026-06-04T23:15:12.835Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "id": "trumpf-schweiz-20b164f028e3",
       "firstSeenAt": "2026-04-13T11:26:19.226Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -251,20 +313,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:23.170Z",
+      "crawledAt": "2026-06-04T23:15:13.387Z",
       "id": "trumpf-schweiz-803196cb7b92",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-14T22:33:27.170Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -289,20 +351,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:23.808Z",
+      "crawledAt": "2026-06-04T23:15:13.922Z",
       "id": "trumpf-schweiz-5c4a6281e498",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-22T22:33:15.644Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 23,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -327,20 +389,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:24.922Z",
+      "crawledAt": "2026-06-04T23:15:14.475Z",
       "id": "trumpf-schweiz-9b114b88b272",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-27T22:41:06.226Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -365,20 +427,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:25.631Z",
+      "crawledAt": "2026-06-04T23:15:15.019Z",
       "id": "trumpf-schweiz-ed744dfa8a0e",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-27T22:41:07.171Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -403,20 +465,20 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-06-04T15:58:26.272Z",
+      "crawledAt": "2026-06-04T23:15:15.548Z",
       "id": "trumpf-schweiz-d22211fcfae8",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-05-07T22:42:19.128Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -441,20 +503,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:26.851Z",
+      "crawledAt": "2026-06-04T23:15:16.466Z",
       "salaryMin": 54500,
       "salaryMax": 73500,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "id": "trumpf-schweiz-d92475de28c2",
       "firstSeenAt": "2026-04-13T11:26:19.714Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -479,20 +541,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:27.476Z",
+      "crawledAt": "2026-06-04T23:15:17.064Z",
       "id": "trumpf-schweiz-36b915dcb2de",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:39:57.797Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -517,58 +579,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:28.123Z",
+      "crawledAt": "2026-06-04T23:15:17.627Z",
       "id": "trumpf-schweiz-78917d459fc1",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:39:58.418Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Lehrstelle 2027 Automatiker/in EFZ",
-      "slug": "lehrstelle-2027-automatiker-in-efz-trumpf-r00039691",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Automatiker-in-EFZ_R00039691",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Automatiker-in-EFZ_R00039691",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-01",
-      "validThrough": "",
-      "employmentType": "apprenticeship",
-      "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:28.703Z",
-      "id": "trumpf-schweiz-83585a10ea69",
-      "salaryMin": 42640,
-      "salaryMax": 61000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
-      "firstSeenAt": "2026-05-27T14:16:14.655Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -593,20 +617,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:29.314Z",
+      "crawledAt": "2026-06-04T23:15:18.764Z",
       "id": "trumpf-schweiz-efff327d1a4b",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:39:59.626Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -631,20 +655,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:29.900Z",
+      "crawledAt": "2026-06-04T23:15:19.332Z",
       "id": "trumpf-schweiz-c91f3bc274c3",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:00.213Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -669,58 +693,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:30.521Z",
+      "crawledAt": "2026-06-04T23:15:19.889Z",
       "id": "trumpf-schweiz-fc0a91a82ea9",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:00.859Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Lehrstelle 2027 Konstrukteur/in EFZ",
-      "slug": "lehrstelle-2027-konstrukteur-in-efz-trumpf-r00039703",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Konstrukteur-in-EFZ_R00039703",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Apprenticeships/job/Grsch/Lehrstelle-2027-Konstrukteur-in-EFZ_R00039703",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-01",
-      "validThrough": "",
-      "employmentType": "apprenticeship",
-      "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:31.190Z",
-      "id": "trumpf-schweiz-2d1e6fc71e7a",
-      "salaryMin": 42640,
-      "salaryMax": 61000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
-      "firstSeenAt": "2026-05-27T14:16:17.490Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -745,20 +731,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:33.238Z",
+      "crawledAt": "2026-06-04T23:15:22.201Z",
       "id": "trumpf-schweiz-acee88676990",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:03.605Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -783,20 +769,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:33.838Z",
+      "crawledAt": "2026-06-04T23:15:22.773Z",
       "id": "trumpf-schweiz-3a5bf0701851",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:04.252Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -821,20 +807,20 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:34.492Z",
+      "crawledAt": "2026-06-04T23:15:23.308Z",
       "id": "trumpf-schweiz-76bd5be86c25",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:04.876Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -859,62 +845,23 @@
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "apprendistato",
-      "crawledAt": "2026-06-04T15:58:35.075Z",
+      "crawledAt": "2026-06-04T23:15:23.820Z",
       "id": "trumpf-schweiz-e74ae0770b07",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
+      "streetAddress": "",
+      "postalCode": "7214",
       "firstSeenAt": "2026-04-30T22:40:05.456Z",
-      "_qualityScore": 90,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Beschwerdekoordinator & Betreuer französischsprachiger Kunden (m/w/d)",
-      "slug": "consulente-senior-m-w-d-trumpf-schweiz-ag-grusch-90379b",
-      "url": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Beschwerdekoordinator---Betreuer-franzsischsprachiger-Kunden--m-w-d-_R00039726",
-      "applyUrl": "https://trumpf.wd3.myworkdayjobs.com/TRUMPF_Graduates_and_Professionals/job/Grsch/Beschwerdekoordinator---Betreuer-franzsischsprachiger-Kunden--m-w-d-_R00039726",
-      "company": "TRUMPF Schweiz AG",
-      "companyKey": "trumpf-schweiz",
-      "companyDomain": "trumpf.com",
-      "location": "Grüsch",
-      "addressLocality": "Grüsch",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "manufacturing",
-      "sector": "Tecnologia Industriale & Laser",
-      "source": "trumpf-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-27",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-05-28T00:42:31.939Z",
-      "id": "trumpf-schweiz-b4d7d11c2bce",
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Campagna 4",
-      "postalCode": "6982",
-      "firstSeenAt": "2026-04-30T11:38:17.232Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
