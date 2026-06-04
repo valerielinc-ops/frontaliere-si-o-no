@@ -1,6 +1,6 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-05-31T22:49:47.022Z",
+  "assembledAt": "2026-06-04T00:18:08.697Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-97372b1445ea",
@@ -14,19 +14,19 @@
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
-      "title": "CANDIDATURE SPONTANEE",
+      "title": "Candidature spontanée pour un STAGE DANS LES SOINS",
       "titleByLocale": {
         "it": "Candidature spontanée pour un STAGE DANS LES SOINS",
         "en": "CANDIDATURE SPONTANEE",
         "de": "Candidature spontanée pour un STAGE DANS LES SOINS",
-        "fr": "CANDIDATURE SPONTANEE"
+        "fr": "Candidature spontanée pour un STAGE DANS LES SOINS"
       },
-      "description": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
+      "description": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
       "descriptionByLocale": {
         "it": "Soins à convenir · à convenir La Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins. Intéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
         "en": "Soins à convenir · à convenir La Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins. Intéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
         "de": "Soins à convenir · à convenir La Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins. Intéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
-        "fr": "à convenir · à convenir Merci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !"
+        "fr": "Soins à convenir · à convenir La Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins. Intéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation."
       },
       "location": "Loèche-les-Bains",
       "canton": "VS",
@@ -35,11 +35,11 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3954",
-      "category": "healthcare",
+      "category": "healthcare-nursing",
       "sector": "Salute / Riabilitazione",
       "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2024-07-29",
@@ -47,30 +47,31 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-31T22:49:45.213Z",
-      "previousSlugs": [
-        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
-      ],
+      "crawledAt": "2026-06-04T00:18:06.931Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
-        ],
         "fr": [
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
+        ],
+        "it": [
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
         ]
       },
+      "previousSlugs": [
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
+      ],
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
-      "salaryMin": 63000,
-      "salaryMax": 87500,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 87500,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -81,7 +82,7 @@
       "slugByLocale": {
         "it": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
         "en": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-        "de": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+        "de": "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
         "fr": "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic"
       },
       "company": "Leukerbad Clinic",
@@ -120,18 +121,14 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-31T22:49:45.213Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-        "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
-        "consulente-senior-m-w-leukerbad-clinic-leukerbad",
-        "senior-consultant-m-w-leukerbad-clinic-leukerbad",
-        "consultant-principal-m-m-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
-      ],
+      "crawledAt": "2026-06-04T00:18:06.931Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "de": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad"
+        ],
         "it": [
           "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
           "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
@@ -140,14 +137,20 @@
         "en": [
           "senior-consultant-m-w-leukerbad-clinic-leukerbad"
         ],
-        "de": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
-          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad"
-        ],
         "fr": [
           "consultant-principal-m-m-leukerbad-clinic-leukerbad"
         ]
       },
+      "previousSlugs": [
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
+        "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
+        "consulente-senior-m-w-leukerbad-clinic-leukerbad",
+        "senior-consultant-m-w-leukerbad-clinic-leukerbad",
+        "consultant-principal-m-m-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
+      ],
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "salaryMin": 95000,
       "salaryMax": 132500,

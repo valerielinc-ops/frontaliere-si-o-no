@@ -6,11 +6,14 @@
 import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
-import { resolveCompanyLogoUrl } from './jobDataNormalization';
+import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
+import { cdnDataUrl } from './cdnDataBase';
 import { normalizeStructuredData } from './seo/schema-normalizers';
+import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
+import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -274,7 +277,7 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
- const res = await fetch(`/data/jobs-${locale}.json`);
+ const res = await fetch(cdnDataUrl(`/data/jobs-${locale}.json`));
  if (!res.ok) return out;
  const list = await res.json();
  if (!Array.isArray(list)) return out;
@@ -372,8 +375,13 @@ async function resolveJobSeoBySlug(
  url: canonicalUrl,
  baseUrl: BASE_URL,
  });
+ // Multi-location jobs carry a non-geographic blob (e.g. "ganz Schweiz",
+ // "toute la Suisse") in `location` — never inject it as the city, or the
+ // authoritative job title (→ document.title + og:title) blows the cap and
+ // dilutes the keyword. Mirrors the JobBoard.tsx SPA guard.
+ const titleCity = isMultiLocation(job?.location) ? '' : String(job?.location || '');
  return {
- title: `${localizedTitle} — ${job.company} | Frontaliere Ticino`,
+ title: buildJobTitleWithLocation(localizedTitle, String(job?.company || ''), titleCity, locale),
  description: localizedDescription,
  keywords: localizedJobKeywords(locale, localizedTitle, String(job?.company || ''), String(job?.location || '')),
  logoUrl,
@@ -665,7 +673,7 @@ function buildGlossarySeoMetadata(): Record<string, SEOMetadata> {
  const route = { activeTab: 'glossario' as const, glossaryTerm: termId as any };
  const canonicalPath = buildPath(route, 'it');
  const label = titleizeGlossaryTermId(termId);
- const title = `${label} (Glossario) | Frontaliere Ticino`;
+ const title = buildTitleWithBrand(`${label} (Glossario)`);
  const description = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
  return [
  `glossario-${termId}`,
@@ -782,6 +790,7 @@ async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
  { default: entries5 },
  { default: entries6 },
  { default: entries7 },
+ { default: entriesCh },
  ] = await Promise.all([
  retryImport(() => import('./seo/seo-blog'), 'blog'),
  retryImport(() => import('./seo/seo-blog-2'), 'blog-2'),
@@ -790,8 +799,9 @@ async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
  retryImport(() => import('./seo/seo-blog-5'), 'blog-5'),
  retryImport(() => import('./seo/seo-blog-6'), 'blog-6'),
  retryImport(() => import('./seo/seo-blog-7'), 'blog-7'),
+ retryImport(() => import('./seo/seo-blog-ch'), 'blog-ch'),
  ]);
- _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4, ...entries5, ...entries6, ...entries7 };
+ _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4, ...entries5, ...entries6, ...entries7, ...entriesCh };
  return _blogChunkCache;
 }
 
@@ -1052,13 +1062,13 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  if (!localizedTitle && !localizedDescription) {
  const fallbackTitle = buildLocalizedUnknownSectionTitle(section, locale);
  return {
- title: `${fallbackTitle} | Frontaliere Ticino`,
+ title: buildTitleWithBrand(fallbackTitle),
  description: buildLocalizedSeoFallbackDescription(fallbackTitle, locale),
  keywords: getLocalizedSeoKeywords(fallbackTitle, locale, metadata.keywords),
  };
  }
 
- const title = localizedTitle ? `${localizedTitle} | Frontaliere Ticino` : metadata.title;
+ const title = localizedTitle ? buildTitleWithBrand(localizedTitle) : metadata.title;
  const description = localizedDescription || buildLocalizedSeoFallbackDescription(localizedTitle || metadata.title, locale);
  return {
  title,
@@ -3886,6 +3896,34 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rinascita-verde-ticino-airola-rodi': { name: 'Rinascita verde', path: '/articoli-frontaliere/rinascita-verde-ticino-airola-rodi', parent: 'blog' },
     'blog-stretta-esercito-civilisti-ticino': { name: 'Stretta esercito', path: '/articoli-frontaliere/stretta-esercito-civilisti-ticino', parent: 'blog' },
     'blog-maggiore-lake-trail-gambarogno': { name: 'Maggiore Lake Trail', path: '/articoli-frontaliere/maggiore-lake-trail-gambarogno', parent: 'blog' },
+    'blog-ammodernamento-fa-18-svizzera': { name: 'Ammodernamento F/A-18', path: '/articoli-frontaliere/ammodernamento-fa-18-svizzera', parent: 'blog' },
+    'blog-mostra-piante-rare-comerio-2026': { name: 'Mostra piante rare', path: '/articoli-frontaliere/mostra-piante-rare-comerio-2026', parent: 'blog' },
+    'blog-ferrovia-retica-taiwan': { name: 'Ferrovia retica', path: '/articoli-frontaliere/ferrovia-retica-taiwan', parent: 'blog' },
+    'blog-sedia-rotelle-genny-zero-design': { name: 'Genny Zero', path: '/articoli-frontaliere/sedia-rotelle-genny-zero-design', parent: 'blog' },
+    'blog-berna-non-vuole-creare-attriti-con-litalia': { name: 'Berna non vuole creare attriti con', path: '/articoli-svizzera/berna-non-vuole-creare-attriti-con-litalia/', parent: 'blog' },
+    'blog-referendum-neutrale-stime-2026': { name: 'Fiscale', path: '/articoli-frontaliere/referendum-neutrale-stime-2026', parent: 'blog' },
+    'blog-iniziative-casse-malati-2026': { name: 'Iniziative casse malati 2026', path: '/articoli-svizzera/iniziative-casse-malati-2026/', parent: 'blog' },
+    'blog-candidatura-lavoro-estero-ticino': { name: 'Candidatura', path: '/articoli-svizzera/candidatura-lavoro-estero-ticino/', parent: 'blog' },
+    'blog-intelligenza-artificiale-lavoro-svizzera-2026': { name: 'IA Lavoro Svizzera', path: '/articoli-svizzera/intelligenza-artificiale-lavoro-svizzera-2026/', parent: 'blog' },
+    'blog-lavoro-media-ssr-talenti-ticino': { name: 'Lavoro SSR', path: '/articoli-svizzera/lavoro-media-ssr-talenti-ticino/', parent: 'blog' },
+    'blog-cern-future-collider-ticino': { name: 'CERN', path: '/articoli-svizzera/cern-future-collider-ticino/', parent: 'blog' },
+    'blog-neutralizzazione-stime-2026-classi-media': { name: 'Neutralizzazione stime 2026', path: '/articoli-svizzera/neutralizzazione-stime-2026-classi-media/', parent: 'blog' },
+    'blog-lavoro-estero-guida-frontalieri': { name: 'Lavoro estero', path: '/articoli-svizzera/lavoro-estero-guida-frontalieri/', parent: 'blog' },
+    'blog-guerre-dellinformazione': { name: 'Guerre dell\'informazione', path: '/articoli-svizzera/guerre-dellinformazione/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino': { name: 'Imposta alla fonte', path: '/articoli-svizzera/imposta-fonte-frontalieri-ticino/', parent: 'blog' },
+    'blog-hantavirus-ginevra-identificazione': { name: 'Hantavirus Ginevra', path: '/articoli-svizzera/hantavirus-ginevra-identificazione/', parent: 'blog' },
+    'blog-13esima-avs-iva-nazionale': { name: '13esima AVS IVA', path: '/articoli-frontaliere/13esima-avs-iva-nazionale', parent: 'blog' },
+    'blog-consiglio-stato-ticino-boccia-tassa-salute': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute', parent: 'blog' },
+    'blog-svizzera-dazi-usa-lavoro-forzato': { name: 'Svizzera respinge dazi USA su lavoro for', path: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-ticino-indebita': { name: 'Fisco frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita', parent: 'blog' },
+    'blog-rientro-svizzera-senza-lavoro': { name: 'Rientro lavoro', path: '/articoli-svizzera/rientro-svizzera-senza-lavoro/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino-dettagli': { name: 'Imposta alla fonte', path: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli', parent: 'blog' },
+    'blog-festivita-ticino-2026': { name: 'Festività', path: '/articoli-svizzera/festivita-ticino-2026/', parent: 'blog' },
+    'blog-frontaliere-ticino-mobilita': { name: 'Impatti della mobilità sulla vita dei', path: '/articoli-frontaliere/frontaliere-ticino-mobilita', parent: 'blog' },
+    'blog-un-blocco-dei-ristorni-reazione-comprensibile': { name: 'Economia', path: '/articoli-svizzera/un-blocco-dei-ristorni-reazione-comprensibile/', parent: 'blog' },
+    'blog-calendario-festivi-ticino-2026': { name: 'Festivi Ticino 2026', path: '/articoli-frontaliere/calendario-festivi-ticino-2026', parent: 'blog' },
+    'blog-medico-medicina-interna-intensiva-eoc': { name: 'Medico EOC Bellinzona', path: '/articoli-svizzera/medico-medicina-interna-intensiva-eoc/', parent: 'blog' },
+    'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];
@@ -4132,7 +4170,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  const sd = blogArticleSd;
  const imgUrl = typeof sd.image === 'string' ? sd.image : sd.image?.url;
  if (imgUrl) {
- const resolvedImgUrl = imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`;
+ // Full blog hero images are served from jsDelivr (CDN). cdnBlogImage maps
+ // both relative and absolute-origin /images/blog/*.webp to the CDN URL and
+ // passes non-blog paths (e.g. /images/places) through unchanged.
+ const resolvedImgUrl = cdnBlogImage(imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`);
  updateOrCreateMetaTag('property', 'og:image', resolvedImgUrl);
  const imgW = typeof sd.image === 'object' ? String(sd.image.width ?? '1344') : '1200';
  const imgH = typeof sd.image === 'object' ? String(sd.image.height ?? '756') : '630';

@@ -211,18 +211,43 @@ function humanizeCompanyHint(hint: string | null | undefined): string | null {
     .trim() || null;
 }
 
-function buildOrphanPath(locale: Locale, slug: string): string {
-  // Path the orphan FILE is emitted at — must match the URL Google currently
-  // sees, which is the LEGACY TI section for pre-cathedral orphans. Keeping
-  // this on TI is byte-identical to the pre-cathedral behavior; the
-  // canonical/CTA links below use canton-aware section resolution so users
-  // land on the live canton URL after click.
-  return `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${slug}/`.replace(/\/+/g, '/');
+function withLeadingTrailingSlash(pathname: string): string {
+  const clean = `/${String(pathname || '').replace(/^\/+|\/+$/g, '')}/`;
+  return clean.replace(/\/+/g, '/');
+}
+
+function pathFromOrphanUrl(entry: OrphanEntry): string | null {
+  try {
+    const pathname = new URL(entry.url).pathname;
+    const segments = pathname.split('/').filter(Boolean);
+    let cursor = 0;
+    const expectedLocalePrefix = LOCALE_PREFIX[entry.locale].replace(/^\//, '');
+    if (entry.locale !== 'it') {
+      if (segments[0] !== expectedLocalePrefix) return null;
+      cursor = 1;
+    }
+    if (segments[cursor + 1] !== entry.slug || segments.length !== cursor + 2) return null;
+    return withLeadingTrailingSlash(pathname);
+  } catch {
+    return null;
+  }
+}
+
+function buildOrphanPath(entry: OrphanEntry): string {
+  // Emit at the URL Google actually reported. Older cohorts only used the
+  // legacy Ticino section; newer GSC exports include canton-aware sections
+  // such as /cerca-lavoro-zurigo/<slug>/ and /de/jobs-in-bern/<slug>/.
+  return pathFromOrphanUrl(entry)
+    ?? `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/${entry.slug}/`.replace(/\/+/g, '/');
+}
+
+function buildCurrentPathForMatched(locale: Locale, currentSlug: string): string {
+  const section = sectionForSlug(locale, currentSlug);
+  return `${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/\/+/g, '/');
 }
 
 function buildCanonicalForMatched(locale: Locale, currentSlug: string): string {
-  const section = sectionForSlug(locale, currentSlug);
-  return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/(?<!:)\/+/g, '/');
+  return `${BASE_URL}${buildCurrentPathForMatched(locale, currentSlug)}`.replace(/(?<!:)\/+/g, '/');
 }
 
 /**
@@ -235,6 +260,14 @@ function buildSectionCanonical(locale: Locale, slugHint?: string): string {
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/`.replace(/(?<!:)\/+/g, '/');
 }
 
+function sectionPathFromOrphan(entry: OrphanEntry): string {
+  const orphanPath = buildOrphanPath(entry);
+  const parts = orphanPath.split('/').filter(Boolean);
+  const sectionParts = entry.locale === 'it' ? parts.slice(0, 1) : parts.slice(0, 2);
+  if (sectionParts.length > 0) return withLeadingTrailingSlash(sectionParts.join('/'));
+  return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
+}
+
 /** Inline pre-hydration rewrite for matched orphans. */
 function buildMatchedRewriteScript(orphanPath: string, currentPath: string): string {
   const safeOrphan = JSON.stringify(orphanPath);
@@ -245,8 +278,8 @@ function buildMatchedRewriteScript(orphanPath: string, currentPath: string): str
 function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
-  const orphanPath = buildOrphanPath(locale, entry.slug);
-  const currentPath = `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${entry.currentSlug!}/`.replace(/\/+/g, '/');
+  const orphanPath = buildOrphanPath(entry);
+  const currentPath = buildCurrentPathForMatched(locale, entry.currentSlug!);
   const canonicalUrl = buildCanonicalForMatched(locale, entry.currentSlug!);
   const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
@@ -271,7 +304,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath: sectionPathFromOrphan(entry),
     pageLabel: copy.matchedH1,
     canonicalUrl: orphanAbsoluteUrl,
   });
@@ -297,12 +330,12 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
   const companyHint = humanizeCompanyHint(entry.company);
-  // Canonical points to the canton-aware section landing for expired entries
-  // (Phase 8.3 cathedral: uses slug→canton inference). BreadcrumbList still
-  // describes the bridge URL the visitor landed on (orphanAbsoluteUrl).
-  const canonicalUrl = buildSectionCanonical(locale, entry.slug);
-  const sectionPath = buildSectionCanonical(locale, entry.slug);
-  const orphanAbsoluteUrl = `${BASE_URL}${buildOrphanPath(locale, entry.slug)}`;
+  // Canonical points to the section landing that actually contained the
+  // orphan URL. Slug→canton inference is unreliable for expired unknowns,
+  // while the GSC URL already carries the user's section context.
+  const sectionPath = sectionPathFromOrphan(entry);
+  const canonicalUrl = `${BASE_URL}${sectionPath}`.replace(/(?<!:)\/+/g, '/');
+  const orphanAbsoluteUrl = `${BASE_URL}${buildOrphanPath(entry)}`;
 
   // Same shared bridge-page prose appended after the CTA. The
   // bridgeKind 'job-expired' wording differs from 'job-matched' so
@@ -315,7 +348,7 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
       <h1 class="s-hiC5FI">${esc(copy.expiredH1(companyHint))}</h1>
     </header>
     <p class="s-cbFAda">${esc(copy.expiredLede)}</p>
-    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(sectionPath)}">${esc(copy.browseAllLabel)} →</a></p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(canonicalUrl)}">${esc(copy.browseAllLabel)} →</a></p>
     ${bridgeProse}
   </main>`;
 
@@ -323,7 +356,7 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
     locale,
     baseUrl: BASE_URL,
     sectionLabel: JOBS_SECTION_LABEL[locale],
-    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    sectionPath,
     pageLabel: copy.expiredH1(companyHint),
     canonicalUrl: orphanAbsoluteUrl,
   });
@@ -378,7 +411,7 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
       const start = Date.now();
 
       for (const entry of file.orphans) {
-        const orphanPath = buildOrphanPath(entry.locale, entry.slug);
+        const orphanPath = buildOrphanPath(entry);
         const indexTarget = path.join(distDir, orphanPath, 'index.html');
         const flatTarget = path.join(distDir, orphanPath.replace(/\/+$/, '') + '.html');
 

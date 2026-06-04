@@ -113,33 +113,84 @@ export const SEARCH_QUERY_BOILERPLATE_PHRASES: readonly string[] = [
  'offres emploi',
  'offre emploi',
  'recherche emploi',
+ 'recherche d emploi',
+ 'recherche d emplois',
  'stellenangebote',
+ 'stellenangebot',
  'stellen',
+ 'lavori',
  'lavoro',
+ 'impieghi',
+ 'impiego',
  'offerte',
  'jobs',
  'job',
  'emplois',
  'emploi',
+ // IT salary/duties template heads (also stripped as trailing nation/template
+ // suffixes below). Listed here so an existing slug like
+ // `ricerca-stipendio-infermiere-svizzera` strips its LEADING "stipendio" too.
+ 'stipendio',
+ 'mansioni',
 ];
 
-// Every individual word that may legitimately be stripped as boilerplate.
+// Trailing template / nation-noise terms appended by the related-search
+// candidate templates ("<title> salary switzerland", "<title> requirements",
+// "stipendio <title> svizzera"). Unlike the leading job-search prefixes above,
+// these sit at the END of the seeded query and so were never stripped — which
+// let a lone generic token (e.g. "switzerland") OR-match every job whose name
+// contains "Switzerland", polluting slug landings with off-intent jobs (the
+// reported `recherche-pizzaiolo-pizzaiola-salary-switzerland` case). They are
+// stripped from the trailing position only, so a content word that merely
+// happens to equal one of them mid-query is untouched. Multilingual: EN/FR/DE/IT.
+export const SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS: readonly string[] = [
+ // salary
+ 'salary', 'wage', 'salaire', 'gehalt', 'lohn', 'stipendio',
+ // nation
+ 'switzerland', 'suisse', 'schweiz', 'svizzera',
+ // requirements / duties
+ 'requirements', 'requirement', 'requisiti', 'exigences', 'anforderungen',
+ 'mansioni', 'aufgaben', 'taches',
+];
+
+// Every individual word that may legitimately be stripped as boilerplate —
+// from EITHER the leading prefix list OR the trailing template-suffix list.
 // The guard test asserts no slug-seeded query ever loses a word outside this
-// set, so an over-broad phrase (or a cluster term that genuinely starts with
-// one of these words) is caught instead of being silently truncated.
-export const SEARCH_QUERY_BOILERPLATE_TOKENS: ReadonlySet<string> = new Set(
- SEARCH_QUERY_BOILERPLATE_PHRASES.flatMap((p) => p.split(' ')),
-);
+// set, so an over-broad phrase (or a cluster term that genuinely starts/ends
+// with one of these words) is caught instead of being silently truncated.
+export const SEARCH_QUERY_BOILERPLATE_TOKENS: ReadonlySet<string> = new Set([
+ ...SEARCH_QUERY_BOILERPLATE_PHRASES.flatMap((p) => p.split(' ')),
+ ...SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS,
+]);
 
 const SEARCH_QUERY_BOILERPLATE_PREFIX = new RegExp(
  `^(?:${SEARCH_QUERY_BOILERPLATE_PHRASES.map((p) => p.replace(/\s+/g, '\\s+')).join('|')})\\s+`,
  'i',
 );
 
+// Trailing-suffix counterpart: requires whitespace BEFORE the term (mirrors the
+// leading `\s+` guard) so a bare query equal to the term is never emptied here.
+const SEARCH_QUERY_TEMPLATE_SUFFIX = new RegExp(
+ `\\s+(?:${SEARCH_QUERY_TEMPLATE_SUFFIX_TERMS.join('|')})$`,
+ 'i',
+);
+
 export function stripSearchQueryBoilerplate(query: string): string {
- // Never empty the query: a slug that is *only* boilerplate (e.g.
- // /ricerca-lavoro/) keeps its original term so the box is not left blank.
- const stripped = query.replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '').trim();
+ // Iteratively peel a leading job-search prefix AND/OR a trailing template /
+ // nation suffix until the query is stable. One pass strips at most one prefix
+ // and one suffix, so multi-word tails like "… salary switzerland" need two
+ // passes. Never empty the query: a slug that is *only* boilerplate (e.g.
+ // /ricerca-lavoro/ or /recherche-…-switzerland/) keeps its original term so
+ // the box is not left blank.
+ let stripped = query.trim();
+ let prev = '';
+ while (stripped && stripped !== prev) {
+ prev = stripped;
+ stripped = stripped
+ .replace(SEARCH_QUERY_BOILERPLATE_PREFIX, '')
+ .replace(SEARCH_QUERY_TEMPLATE_SUFFIX, '')
+ .trim();
+ }
  return stripped || query;
 }
 
@@ -259,26 +310,25 @@ export function buildRelatedSearches(params: {
  // already covered by the `azienda-*` / `company-*` slug family
  // (parseCompanySlugFilter, JobBoard.tsx). Keeping it would duplicate
  // company-hub pages at /search-{company}-{city}/ and /azienda-{company}/.
- // N3 decision: KEEP the template-string candidates (offerte lavoro / salary
- // switzerland / requirements) — they may capture long-tail Google queries.
+ // N4 decision (2026-06-02): DROP the template-string candidates
+ // ("offerte lavoro …", "stipendio … svizzera", "… salary switzerland",
+ // "… requirements"). They seeded slugs whose trailing nation/template token
+ // ("switzerland"/"svizzera") OR-matched any job mentioning the nation,
+ // surfacing off-intent listings on the slug landing (the reported
+ // pizzaiolo-…-salary-switzerland case). Every proposed term is now run
+ // through stripSearchQueryBoilerplate so no candidate carries leading
+ // job-search noise or a trailing nation/salary/requirements suffix — terms
+ // that collapse to boilerplate-only are dropped (never-empty fallback yields
+ // a dup of the bare title, deduped by cleanCanonicalItems).
  const candidates = cleanCanonicalItems([
  ...aiKeywords,
  shortTitle,
  `${shortTitle} ${location}`.trim(),
  `${shortTitle} ${company}`.trim(),
  // `${company} ${location}` removed (N2 filter)
- ...(locale === 'it'
- ? [
- `offerte lavoro ${shortTitle}`.trim(),
- `stipendio ${shortTitle} svizzera`.trim(),
- `mansioni ${shortTitle}`.trim(),
- ]
- : [
- `${shortTitle} salary switzerland`.trim(),
- `${shortTitle} requirements`.trim(),
- ]),
+ // template-string candidates removed (N4 filter)
  ...generated,
- ], 24);
+ ].map((term) => stripSearchQueryBoilerplate(term)), 24);
 
  return candidates.filter(isValidRelatedSearchTerm).slice(0, 10);
 }

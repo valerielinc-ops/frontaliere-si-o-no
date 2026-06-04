@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-31T22:25:44.750Z",
-  "total": 8,
+  "generatedAt": "2026-06-03T23:53:41.786Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 12491,
-  "avgDurationMs": 12491,
+  "durationMs": 12470,
+  "avgDurationMs": 12470,
   "durationHistory": [
-    12491
+    12470
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -40,15 +40,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-13T22:23:31.122Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -69,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -77,15 +77,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "4500",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -106,7 +106,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -114,15 +114,15 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
@@ -143,7 +143,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -152,19 +152,19 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "9000",
       "firstSeenAt": "2026-05-27T12:51:49.485Z",
-      "_qualityScore": 87,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 25
+        "completeness": 22
       }
     },
     {
-      "title": "Servicetechniker Öl (Region Winterthur) (m/w/d)",
+      "title": "Servicetechniker Öl - Region Winterthur (m/w/d)",
       "slug": "servicetechniker-ol-region-winterthur-m-w-d-hoval-ostschweiz-wil",
       "url": "https://www.hoval.it/it_IT/job/3912",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3912/Application/New/1?DesignID=00&lang=ita",
@@ -181,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -189,22 +189,21 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
-        "completeness": 25
+        "translation": 21,
+        "completeness": 22
       }
     },
     {
-      "title": "Servicetechniker/in Gas (m/w/d)",
-      "slug": "servicetechniker-in-gas-m-w-d-hoval-harkingen",
+      "title": "Servicetechniker/in Gas - Region Basel / Liestal (m/w/d)",
+      "slug": "servicetechniker-in-gas-region-basel-liestal-m-w-d-hoval-harkingen",
       "url": "https://www.hoval.it/it_IT/job/3953",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3953/Application/New/1?DesignID=00&lang=ita",
       "company": "Hoval",
@@ -220,7 +219,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -228,15 +227,51 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "Via Pasquale Lucchini 4",
-      "postalCode": "6900",
+      "streetAddress": "",
+      "postalCode": "4500",
       "firstSeenAt": "2026-05-26T23:07:05.422Z",
-      "_qualityScore": 93,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 25
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Servicetechniker/in Öl - Region Bern / Solothurn (m/w/d)",
+      "slug": "servicetechniker-in-ol-region-bern-solothurn-m-w-d-hoval-harkingen",
+      "url": "https://www.hoval.it/it_IT/job/3963",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3963/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Härkingen",
+      "addressLocality": "Härkingen",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-f39e5c3b6fa9",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-06-02T13:23:21.254Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
@@ -260,7 +295,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -297,7 +332,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",

@@ -82,15 +82,26 @@ export const BRAND_CANONICAL_MAP: Readonly<Record<string, BrandCanonicalEntry>> 
   },
   // Migros umbrella canonical. The `migros` slug is a synthetic
   // umbrella hub (NOT a real subsidiary) injected by the
-  // jobsSeoPagesPlugin company aggregation: it pulls together all
-  // jobs from Migros-group entities present in the dataset (Banca
-  // Migros, Scuola Club Migros, Cooperativa Migros Ticino, ...) and
-  // renders them on a single indexable hub page. The cosmetic
-  // brand-search variations `migros-ticino` and `gruppo-migros`
-  // bridge to the umbrella canonical to consolidate brand signals.
-  // Real subsidiary hubs (banca-migros, scuola-club-migros, ...)
-  // keep their own distinct canonicals — they are real, separate
-  // employers and must NOT bridge to the umbrella.
+  // jobsSeoPagesPlugin company aggregation (BRAND_UMBRELLAS regex): it
+  // unions all jobs from Migros-group entities present in the dataset
+  // (Banca Migros, Scuola Club Migros, Cooperativa Migros Ticino, ...)
+  // onto a single indexable hub page `azienda-migros`. This union is
+  // driven by a name/slug regex, INDEPENDENT of the aliases below, so
+  // an alias's jobs always still surface on the umbrella — declaring an
+  // alias here never orphans its jobs.
+  //
+  // `migros-ticino` is the nationwide Migros crawler key (widened to
+  // all 26 cantons by #1231: 483 jobs, only ~7 in Ticino). Letting its
+  // hub `azienda-migros-ticino` stay self-canonical+indexable (PR #1274)
+  // made TWO indexable hubs carry the same 483 jobs → duplicate content
+  // (#1247). So it bridges to the umbrella here, alongside the cosmetic
+  // `gruppo-migros` variation, consolidating all brand signals on one
+  // canonical. The company-hub emitter skips self-emitting a hub for any
+  // alias key (`isBrandAlias` guard in jobsSeoPagesPlugin) so the
+  // noindex bridge owns the alias path.
+  //
+  // Real, SEPARATE subsidiary hubs (banca-migros, scuola-club-migros)
+  // are NOT aliases — they keep their own distinct indexable canonicals.
   'migros': {
     canonical: 'migros',
     aliases: [

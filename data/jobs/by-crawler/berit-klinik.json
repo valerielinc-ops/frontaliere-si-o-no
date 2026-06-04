@@ -1,6 +1,6 @@
 {
   "crawlerKey": "berit-klinik",
-  "assembledAt": "2026-05-31T21:22:42.022Z",
+  "assembledAt": "2026-06-03T22:50:01.743Z",
   "jobs": [
     {
       "title": "Logistiker:in, 100%",
@@ -85,8 +85,8 @@
       "company": "Berit Klinik",
       "companyKey": "berit-klinik",
       "companyDomain": "beritklinik.ch",
-      "location": "St",
-      "addressLocality": "St",
+      "location": "St. Gallen",
+      "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "postalCode": "9000",
       "addressCountry": "CH",
@@ -299,7 +299,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter:In Restaurant 60–80%",
@@ -815,7 +816,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Op Dispo Wattwil 50–70%",
@@ -876,7 +878,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mpa Arztsekret Rin Wattwil 40%",
@@ -937,11 +940,12 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%",
-      "slug": "psicologo-in-wb-a-per-psicoterapisti-in-o-in-psy-chotherapeut-in-60-berit-klinik-wattwil",
+      "slug": "psycholog-in-wb-zur-zum-psychotherapeuten-in-o-psy-chotherapeut-in-60-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -986,11 +990,13 @@
       },
       "id": "berit-klinik-2e837e5b0f2b",
       "previousSlugs": [
-        "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik"
+        "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik",
+        "psicologo-in-wb-a-per-psicoterapisti-in-o-in-psy-chotherapeut-in-60-berit-klinik-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik"
+          "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik",
+          "psicologo-in-wb-a-per-psicoterapisti-in-o-in-psy-chotherapeut-in-60-berit-klinik-wattwil"
         ],
         "en": [
           "psycholog-in-in-wb-zur-zum-psychotherapeuten-in-oder-psy-chotherapeut-in-60-berit-klinik"

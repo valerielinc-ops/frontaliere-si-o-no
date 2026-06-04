@@ -1,0 +1,89 @@
+name: Compress contract docs
+
+# Tiene lean i contratti/doc "hot" — letti ripetutamente da agent e workflow
+# Claude, quindi ogni byte si paga moltiplicato:
+#   - AGENTS.md   → iniettato in OGNI sessione agent (via @AGENTS.md in CLAUDE.md)
+#   - REVIEW.md   → letto a ogni run di pr-review-loop × ~24-31 turni
+#   - ISSUES.md   → contratto della pipeline issue (issue-fix/triage)
+#   - FOLLOWUP.md → contratto di post-merge-followup
+#
+# RATCHET DETERMINISTICO (zero Claude / zero quota / zero drift): controlla la
+# size di ogni doc; se uno supera il ceiling apre/aggiorna UNA follow-up issue
+# deduplicata. La compressione gentile NON la fa la CI: la esegue un umano o
+# l'agent on-demand (più turni, review normale, occhio umano su un doc
+# normativo). Questa scelta sostituisce un precedente tentativo di
+# auto-compress-in-CI rivelatosi fragile: `gh pr create` da Actions è vietato
+# ("GitHub Actions is not permitted to create pull requests") e la compressione
+# preserva-tutto su file grossi (15-21KB) sbocca `error_max_turns`. `gh issue
+# create` invece È permesso col GITHUB_TOKEN, quindi il ratchet è robusto.
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # lunedì 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Apri la issue anche se tutti i file sono sotto ceiling (test)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: compress-contract-docs
+  cancel-in-progress: false
+
+jobs:
+  check-bloat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Check ceilings and flag bloat
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: |
+          set -euo pipefail
+          # file:ceiling (byte). Ceiling = size attuale + ~12-15% headroom; il
+          # ratchet scatta quando il doc cresce oltre, segno che va ricompresso.
+          DOCS="AGENTS.md:24000 REVIEW.md:14000 ISSUES.md:17000 FOLLOWUP.md:11000"
+          over=""
+          for entry in $DOCS; do
+            f="${entry%%:*}"; c="${entry##*:}"
+            b=$(wc -c < "$f")
+            if [ "$b" -gt "$c" ] || [ "$FORCE" = "true" ]; then
+              pct=$(( (b - c) * 100 / c ))
+              over="${over}- \`${f}\`: ${b} B (ceiling ${c} B, +${pct}%)"$'\n'
+              echo "OVER: $f ${b}B > ${c}B"
+            else
+              echo "ok:   $f ${b}B <= ${c}B"
+            fi
+          done
+          if [ -z "$over" ]; then
+            echo "Tutti i doc sotto ceiling → no-op, nessuna issue."
+            exit 0
+          fi
+          desc_file="$RUNNER_TEMP/compress-issue.md"
+          {
+            printf '%s\n\n' "I seguenti contratti/doc 'hot' (letti ripetutamente da agent e workflow Claude) hanno superato il loro compress-ceiling:"
+            printf '%s\n' "$over"
+            printf '%s\n\n' "**Azione richiesta (on-demand, non automatica):** comprimi gentilmente i file elencati — taglia SOLO prosa ridondante e war-story verbose (→ ref terso mantenendo i numeri-issue), **preservando verbatim** ogni heading, regola/non-negotiable/gate, tabella, step numerato, code-block, path e stringa esatta (es. \`## LGTM\`, \`🔴 Important\`). Apri una PR normale (review + merge umano) e ricontrolla che la size scenda sotto il ceiling."
+            printf '%s\n\n' "Razionale: ogni byte di questi doc entra nel context a ogni sessione/turno → il bloat costa quota Max moltiplicata. Vedi \`compress-contract-docs.yml\`."
+            printf '%s\n' "_Issue aperta dal ratchet deterministico; ri-emessa (commento) finché i file restano sopra ceiling._"
+          } > "$desc_file"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "📏 Contract docs over compress ceiling — gentle-compress needed" \
+            --description "$(cat "$desc_file")" \
+            --priority 4 \
+            --label follow-up \
+            --workflow "Compress contract docs"

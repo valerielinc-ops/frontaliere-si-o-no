@@ -35,17 +35,20 @@ type CheckResult =
   | { duplicate: false }
   | { duplicate: true; signal: string; sim: number; existingId: string; existingTitle: string };
 
-// The function references `read`, `tokenizeIt`, `jaccardSim`, `containmentSim`,
-// and `filterDistinctive` — inject them.
+// The function references `readSectionMetaIt`, `tokenizeIt`, `jaccardSim`,
+// `containmentSim`, and `filterDistinctive` — inject them. `readSectionMetaIt`
+// is the section-aware meta seam (frontaliere → blog-meta-it.ts); the dedup
+// contract under test is unchanged, so we inject the frontaliere reader.
+const readSectionMetaIt = () => read('services/locales/blog-meta-it.ts');
 const runner = new Function(
-  'read',
+  'readSectionMetaIt',
   'tokenizeIt',
   'jaccardSim',
   'containmentSim',
   'filterDistinctive',
   `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`,
 );
-const preFlightHeadlineCheck = runner(read, tokenizeIt, jaccardSim, containmentSim, filterDistinctive) as (
+const preFlightHeadlineCheck = runner(readSectionMetaIt, tokenizeIt, jaccardSim, containmentSim, filterDistinctive) as (
   headline: string,
 ) => CheckResult;
 

@@ -32,15 +32,24 @@ describe('JobBoard related search navigation', () => {
 });
 
 describe('JobBoard company link navigation', () => {
-  it('routes company links through the SPA callback from job detail instead of reparsing staticOverlay URLs', () => {
+  it('full-navigates company links to the static company hub instead of SPA re-filtering', () => {
     const source = readFileSync(join(process.cwd(), 'components/community/JobBoard.tsx'), 'utf8');
     const helperBody = source.match(/const openCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
     const gateHelperBody = source.match(/const openGateCompanyFilter = \(e: React\.MouseEvent<HTMLAnchorElement>\) => \{[\s\S]*?\n \};/)?.[0];
 
-    expect(helperBody).toContain('onJobRouteChange(companySearchSlug)');
-    expect(helperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: companySearchSlug } }, '', companySearchHref.split('?')[0]);");
-    expect(gateHelperBody).toContain('onJobRouteChange(gateCompanySlug)');
-    expect(gateHelperBody).toContain("window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateCompanySlug } }, '', gateCompanyHref.split('?')[0]);");
+    // The href stays on the static-backed canton hub (HTTP 200, lists the
+    // company's jobs across all cantons), NOT the aggregator board
+    // (/cerca-lavoro-svizzera/azienda-X/ is a 404 — no static page emitted).
+    expect(buildPath({ activeTab: 'job-board', jobSlug: 'azienda-pwc-switzerland' }, 'it'))
+      .toBe('/cerca-lavoro-ticino/azienda-pwc-switzerland/');
+
+    // The viewed job is active, so its company always has a current-build hub.
+    // Full-navigate to it; an SPA re-filter scoped to the current canton shard
+    // would clobber the static list with an empty result (PwC: 109 vs 0 in TI).
+    expect(helperBody).toContain("window.location.assign(companySearchHref.split('?')[0]);");
+    expect(helperBody).not.toContain('onJobRouteChange(companySearchSlug)');
+    expect(gateHelperBody).toContain("window.location.assign(gateCompanyHref.split('?')[0]);");
+    expect(gateHelperBody).not.toContain('onJobRouteChange(gateCompanySlug)');
     expect(source.match(/onClickCapture=\{openCompanyFilter\}/g)).toHaveLength(2);
     expect(source.match(/onClickCapture=\{openGateCompanyFilter\}/g)).toHaveLength(2);
   });

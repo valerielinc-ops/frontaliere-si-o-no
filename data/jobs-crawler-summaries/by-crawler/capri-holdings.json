@@ -1,19 +1,62 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-31T21:30:10.082Z",
+  "generatedAt": "2026-06-03T22:57:45.937Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 16525,
-  "avgDurationMs": 16525,
+  "unchangedCount": 5,
+  "durationMs": 20015,
+  "avgDurationMs": 20015,
   "durationHistory": [
-    16525
+    20015
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
+      "title": "Sales Associate Part Time 20h Fixed Term - Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings-michael-kors-versace-graubunden",
+      "category": "retail",
+      "datePosted": "2026-05-13",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "id": "capri-holdings-5f82fc2f63b3",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-13T21:48:16.941Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
@@ -54,10 +97,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
@@ -86,57 +126,15 @@
         "location": "Manno"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "capri-holdings-6e41d510f493",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-30T10:16:45.294Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
-      "title": "Sales Associate Part Time 20h Fixed Term - Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings-michael-kors-versace-graubunden",
-      "category": "retail",
-      "datePosted": "2026-05-13",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "crawledAt": "",
-      "id": "capri-holdings-5f82fc2f63b3",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-13T21:48:16.941Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 20
       }

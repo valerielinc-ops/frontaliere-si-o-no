@@ -164,7 +164,10 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
       navHtml: '',
     });
     expect(html).toMatch(/80['. \s]?000/);
-    expect(html).toMatch(/59['. \s]?(840|800|912)/);
+    // Net is now derived from calculateSimulation (single-A0 base variant,
+    // WITHIN_20KM): CHF 48'156 net / EUR 52'779, matching the over-20km hub.
+    expect(html).toMatch(/48['. \s]?156/);
+    expect(html).toMatch(/52['. \s]?779/);
   });
 
   it('shipsh bespoke data for the 4 new orphan hubs', () => {
@@ -199,6 +202,83 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
       expect(hasRule('minmax(180px,1fr)'), 'minmax(180px,1fr) rule missing from inline html and extracted classes').toBe(true);
       expect(html).toContain('<table');
       expect(html).toContain('<details');
+    }
+  });
+});
+
+describe('salaryLandingShell · salary-tier variants derive from calculateSimulation', () => {
+  const VARIANTS = ['base', 'new', 'old', 'married', 'within20', 'over20'] as const;
+
+  it('decomposition reconciles (net == gross - social - source - italian) and uses the real FX rate 1.096', () => {
+    for (const ral of [60000, 80000, 100000, 120000]) {
+      for (const variant of VARIANTS) {
+        const d = _internal.tierDecomposition(ral, variant);
+        // Real exchange rate, not the old fabricated 1.05.
+        expect(d.fx).toBeCloseTo(1.096, 3);
+        // The CHF decomposition reconciles exactly (rounding tolerance ±2 CHF).
+        expect(Math.abs(d.gross - d.social - d.source - d.italian - d.net)).toBeLessThanOrEqual(2);
+        // `married` (2 children) is the only variant whose gross exceeds the RAL
+        // by the CH family allowance (CHF 3.000/child); all others gross == RAL.
+        if (variant === 'married') {
+          expect(d.allowance).toBe(6000);
+          expect(d.gross).toBe(ral + 6000);
+        } else {
+          expect(d.allowance).toBe(0);
+          expect(d.gross).toBe(ral);
+        }
+        // `old` (Swiss-exclusive regime) has no residual Italian IRPEF.
+        if (variant === 'old') expect(d.italian).toBe(0);
+      }
+    }
+  });
+
+  it('does NOT use the removed fabricated flat deltas (within20:+1500 / over20:-1500 / married:+2800 / old:+1200)', () => {
+    // Old heuristic net for RAL 80k: gross - 15% social - 12%-of-remainder source.
+    const ral = 80000;
+    const heurSocial = Math.round(ral * 0.15);
+    const heurSource = Math.round((ral - heurSocial) * 0.12);
+    const heurBaseNet = ral - heurSocial - heurSource;
+    const fabricated: Record<string, number> = {
+      old: heurBaseNet + 1200,
+      married: heurBaseNet + 2800,
+      within20: heurBaseNet + 1500,
+      over20: heurBaseNet - 1500,
+    };
+    for (const [variant, fab] of Object.entries(fabricated)) {
+      const d = _internal.tierDecomposition(ral, variant as typeof VARIANTS[number]);
+      // The real calc must diverge from the fabricated heuristic by a meaningful
+      // margin (the worst offender, `married`, was ~16% too high).
+      expect(Math.abs(d.net - fab)).toBeGreaterThan(300);
+    }
+  });
+
+  it('old net (no IT IRPEF) exceeds new net at the same RAL, married reflects allowance + Table C', () => {
+    const ral = 80000;
+    const newNet = _internal.tierDecomposition(ral, 'new').net;
+    const oldNet = _internal.tierDecomposition(ral, 'old').net;
+    const marriedNet = _internal.tierDecomposition(ral, 'married').net;
+    expect(oldNet).toBeGreaterThan(newNet); // grandfathered keeps more
+    // Spot-check the exact calculator-derived figures (guards against drift).
+    expect(oldNet).toBe(61840);
+    expect(marriedNet).toBe(53888);
+  });
+
+  it('table caption is variant-aware (no "single A0" on old/married pages)', () => {
+    const old = _internal.buildSalaryTierData({ ral: 80, variant: 'old' }, 'it');
+    const married = _internal.buildSalaryTierData({ ral: 80, variant: 'married' }, 'it');
+    const base = _internal.buildSalaryTierData({ ral: 80, variant: 'base' }, 'it');
+    expect(base.table.caption).toContain('single A0');
+    expect(old.table.caption).toContain('Vecchio frontaliere');
+    expect(old.table.caption).not.toContain('single A0');
+    expect(married.table.caption).toContain('Sposato 2 figli');
+    expect(married.table.caption).not.toContain('single A0');
+    // Married gross row owns the family-allowance label and a gross > RAL.
+    expect(married.table.rows[0].cells[0]).toContain('assegni familiari');
+  });
+
+  it('over-20km hub table delta equals the difference of the two rounded cells (no visible arithmetic contradiction)', () => {
+    for (const row of _internal.OVER20_ROWS) {
+      expect(row.delta).toBe(row.over - row.within);
     }
   });
 });

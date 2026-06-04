@@ -417,6 +417,64 @@ export function stripHtml(html = '') {
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/2.0; +https://frontaliereticino.ch/)';
 
+// HTTP status codes worth retrying: rate-limiting (429), request timeout (408),
+// too-early (425) and the standard 5xx transient server/gateway failures.
+const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Whether a thrown fetch error is a transient network/timeout failure that is
+ * worth retrying (DNS hiccup, connection reset, socket hang up, abort/timeout).
+ * Persistent failures (bad URL, 4xx) are not transient and must fail fast.
+ */
+function isTransientFetchError(err) {
+  if (!err) return false;
+  if (err.retryable === true) return true;
+  if (err.name === 'AbortError') return true; // request timed out
+  const code = err.cause?.code || err.code || '';
+  if (/^(ECONNRESET|ECONNREFUSED|ETIMEDOUT|EAI_AGAIN|EPIPE|ENETUNREACH|UND_ERR_)/i.test(code)) {
+    return true;
+  }
+  // Node's fetch wraps network failures in a generic TypeError "fetch failed".
+  if (err.name === 'TypeError' && /fetch failed|network|socket hang up/i.test(String(err.message || ''))) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Run an async fetch operation with exponential backoff + jitter on transient
+ * failures (429/5xx, network errors, timeouts). 4xx and other persistent
+ * errors fail fast. Defaults: 3 retries → backoff 1s/2s/4s (+ jitter).
+ *
+ * @param {() => Promise<T>} attemptFn — performs one fetch attempt
+ * @param {Object} [opts] — { retries, retryBaseMs, label }
+ * @returns {Promise<T>}
+ */
+async function fetchWithRetry(attemptFn, opts = {}) {
+  const pick = (override, envVal, fallback) => {
+    if (Number.isFinite(override)) return override;
+    const env = Number(envVal);
+    return Number.isFinite(env) ? env : fallback;
+  };
+  const maxRetries = Math.max(0, pick(opts.retries, process.env.JOBS_CRAWLER_RETRIES, 3));
+  const baseMs = Math.max(0, pick(opts.retryBaseMs, process.env.JOBS_CRAWLER_RETRY_BASE_MS, 1000));
+  let lastErr;
+  for (let attempt = 0; attempt <= maxRetries; attempt += 1) {
+    try {
+      return await attemptFn();
+    } catch (err) {
+      lastErr = err;
+      if (attempt >= maxRetries || !isTransientFetchError(err)) throw err;
+      const delay = baseMs * 2 ** attempt;
+      const jitter = Math.floor(Math.random() * baseMs);
+      await sleep(delay + jitter);
+    }
+  }
+  throw lastErr;
+}
+
 /**
  * Fetch JSON with timeout and error handling.
  * When `body` is a plain object/array, it is auto-serialised and Content-Type
@@ -426,9 +484,6 @@ const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT ||
  */
 export async function fetchJson(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
   const headers = { 'User-Agent': DEFAULT_UA, Accept: 'application/json', ...options.headers };
   let { body } = options;
   if (body != null && typeof body === 'object' && !(body instanceof ArrayBuffer) && !(body instanceof ReadableStream)) {
@@ -436,18 +491,27 @@ export async function fetchJson(url, options = {}) {
     headers['Content-Type'] = headers['Content-Type'] || 'application/json';
   }
 
-  try {
-    const res = await fetch(url, {
-      method: options.method || (body ? 'POST' : 'GET'),
-      headers,
-      body,
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        method: options.method || (body ? 'POST' : 'GET'),
+        headers,
+        body,
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, options);
 }
 
 /**
@@ -455,19 +519,26 @@ export async function fetchJson(url, options = {}) {
  */
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchWithRetry(async () => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        method: 'GET',
+        headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
+        signal: controller.signal,
+      });
+      if (!res.ok) {
+        const err = new Error(`HTTP ${res.status} from ${url}`);
+        err.status = res.status;
+        err.retryable = RETRYABLE_STATUS.has(res.status);
+        throw err;
+      }
+      return await res.text();
+    } finally {
+      clearTimeout(timer);
+    }
+  }, options);
 }
 
 /**

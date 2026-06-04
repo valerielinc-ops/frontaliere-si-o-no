@@ -47,7 +47,7 @@ import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
 
@@ -320,6 +320,10 @@ const EXPIRED_JOBS_CAP = 5000;
  */
 const CACHE_ROOT = path.join(ROOT, '.cache', 'assemble-jobs');
 const DATA_STATS = path.join(ROOT, 'data', 'jobs-stats.json');
+// Runtime-served twin of DATA_STATS (gitignored). The SPA stats page fetches
+// `/data/jobs-stats.json`, which Vite copies from public/. generateJobBoardStats
+// writes both on a full build; the cache-HIT path must restore both too.
+const PUBLIC_STATS = path.join(ROOT, 'public', 'data', 'jobs-stats.json');
 const ASSEMBLE_OUTPUT_CACHE_VERSION = '2026-05-25-partial-description-flags-v1';
 
 /**
@@ -753,6 +757,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   }
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
+
+  // ── Truncated "St" locality heal (issue #1158) ────────────────────────
+  // A bare "St"/"St." addressLocality is a textContent artifact (e.g.
+  // "St. Moritz" split on the period). It must never reach the committed
+  // by-crawler slice / JSON-LD. hardenJobsRichResultsData heals the AGGREGATE
+  // data/jobs.json, but each crawler's slice is written here from its own
+  // payload and bypassed that pass — so new crawls kept re-leaking bare "St"
+  // (corpus-invariant guard, repeated main-red). Heal per-record (HQ/URL/slug)
+  // + same-site consensus before the slice is persisted; records with no
+  // recoverable signal keep the bare token and are surfaced as a warning.
+  const stHeal = healTruncatedStLocalities(hardened.jobs);
+  if (stHeal.healed > 0) {
+    console.log(`  🏙️  St-locality heal: recovered full city for ${stHeal.healed} truncated "St"/"St." job(s)`);
+  }
+  if (stHeal.deferred > 0) {
+    console.warn(`  ⚠️  St-locality: ${stHeal.deferred} job(s) left bare "St"/"St." (no recoverable signal — manual review)`);
+  }
 
   // Per-locale safety net: only strip a previousSlug if it matches the SAME
   // locale's active slug. Cross-locale matches are preserved for bridge pages.
@@ -1692,6 +1713,7 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     ];
     if (withStats) {
       restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), DATA_STATS]);
+      restorePairs.push([path.join(cacheDir, 'jobs-stats.json'), PUBLIC_STATS]);
     }
     // Verify the snapshot is complete BEFORE writing anything; a partial
     // snapshot (e.g. previous run was without --stats) must fall through to

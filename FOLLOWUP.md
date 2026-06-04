@@ -4,7 +4,7 @@ Contratto operativo per `post-merge-followup.yml`. Triage automatico post-merge:
 
 ## Scopo
 
-Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, o (b) drop motivato. Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
+Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, (b) drop motivato, o (c) — se è pura verifica del sito live senza file da editare — una voce nella checklist `Live-verification` batchata del commento di chiusura (nessuna issue, nessun fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").
 
 ## Input
 
@@ -47,6 +47,34 @@ Droppa (reason: `non-actionable-churn`) se l'item è essenzialmente uno di:
 - **Item che il reviewer stesso marca** `deferred` / `non funnel-critical` / `nit puro` (vedi `AGENTS.md → Post-merge feedback handling`, eccezione "drop senza issue").
 
 Crea un follow-up SOLO quando l'item è **funnel-critico** (monetizzazione/traffico/correttezza) **E azionabile** (esiste un cambiamento di comportamento concreto da fare). Nel dubbio tra "non-actionable-churn" e "azionabile-funnel" pesa sul drop: una doc-nit persa costa zero al funnel, una issue churn-feed costa una run fixer sulla quota condivisa. Questa è la leva anti-burn più alta del workflow.
+
+### Hard-exclude: missing-test nit (mai aprire follow-up)
+
+Categoria a sé, **droppata sempre** (reason: `missing-test-nit`), prima del filtro funnel, **a prescindere dalla fonte** (reviewer 🟡/❓/adversarial OPPURE PR body `## Non implementato`) e **anche se l'item è funnel-critico**. L'owner non dà valore alla copertura test come deliverable: i test-nit sono alto-volume / basso-valore, auto-routano a `agent:fix` (#922) e bruciano quota Max condivisa; storicamente done-but-open (#865/#908/#854 erano già coperti da PR successive). Idealmente il reviewer non li emette più (`REVIEW.md → IGNORA → test coverage`), ma questa resta la cintura per i residui e per gli item dal PR body.
+
+Droppa se l'item è essenzialmente uno di:
+
+- "Manca un test per X" / "aggiungere test coverage" / "committare i test citati nel PR body" / "pinnare il comportamento con un test" / "test mancante sul ramo/path Y".
+- Voce adversarial-check che lamenta assenza di test invece di un rischio di comportamento.
+
+**NON droppare** (resta in scope normale): un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky che resta verde sulla regressione, fixture con date assolute (#1035) — è correttezza, non coverage.
+
+### Hard-exclude: live-verification-only item (mai aprire follow-up — batch in checklist)
+
+Categoria a sé, **mai mintata come issue `follow-up`** (reason: `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte** (reviewer 🟡/❓/adversarial OPPURE PR body `## Non implementato` / `## Test plan` checkbox `- [ ]` non spuntata). Un item è `live-verify-only` quando l'**unica azione suggerita è verificare il sito già deployato** — non esiste alcun file da editare, serve un sito live + occhi umani (o uno strumento E2E manuale). Il fix di codice della PR è già mergiato ed è meccanicamente sano; "controlla che renda bene in prod" non è una issue fixabile da `agent:fix`. Storicamente ~40% dei sub-item follow-up sono di questo tipo (classe #1149/#959/#1129): auto-routano a `agent:fix` → il fixer non ha nulla da editare → PR vuota/no-op → `pr-review-loop` la revisiona → giri Claude sprecati sulla quota Max condivisa. È, dopo il missing-test, la seconda voce di burn più alta del workflow.
+
+Riconosci `live-verify-only` dalle frasi-segnale nell'item (l'azione è SOLO ispezione runtime, nessuna edit di file):
+
+- "verify live" / "verifica live" / "post-deploy" / "(post-merge, live)" / "(live)" / "controlla in prod" / "su prod" / "una volta deployato".
+- "curl" la URL di produzione / "live-200" / "live curl" / controllo HTTP status sul sito live.
+- "render at NNNpx" / "renderizza a 382px" / "apri DevTools" / "ispeziona nel browser" / "Playwright hydration" / verifica visuale o CLS a runtime.
+- Checkbox `## Test plan` `- [ ]` esplicitamente etichettata `(post-merge, live)` / `(live)` / "verifica post-deploy" e non spuntata (il reviewer la flagga 🟡 "ricorda spunta post-merge", vedi `REVIEW.md → Test plan compliance`).
+
+**Routing (NON drop silenzioso):** questi item NON diventano issue, ma confluiscono in **un'unica checklist batchata** nella sezione `Live-verification` del commento di chiusura sulla PR (vedi `## Closing comment`). Restano visibili all'owner per la verifica manuale post-deploy, senza far partire alcun fixer. Una sola checklist per PR, mai una issue per voce.
+
+**NON classificare `live-verify-only`** (resta candidate normale, può diventare issue) un item che **mescola** un suffisso live-verify con un'azione reale su un file: se l'item descrive anche un cambiamento di codice/config concreto da fare ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"), la parte editabile è azionabile → resta in scope normale (la coda live-verify è solo conferma). Solo gli item la cui **intera** azione è ispezione runtime sono `live-verify-only`. Nel dubbio tra "puro live-verify" e "ha anche un'edit" → tienilo actionable (non batcharlo): un'edit persa costa al funnel, una checklist-entry in più costa zero.
+
+**Override deterministico (presenza di file-path = actionable):** prima di classificare `live-verify-only` sulle frasi-segnale, controlla se il testo dell'item (`Original text` + `## Suggested action`) contiene un **token che è un percorso file editabile** — un path-like che termina in `.tsx` / `.ts` / `.mjs` / `.js` / `.yml` / `.yaml` / `.json` / `.md` / `.css` (es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`). Se sì → **classifica `actionable`** (resta candidate normale) **a prescindere** dalle frasi-segnale live-verify. Razionale: un item puramente live-verify ("controlla che renda bene in prod") non nomina mai un file da editare; la presenza di un path è il segnale forte che esiste un'edit concreta, e il giudizio prompt-driven sul "mescola" qui sopra rischia di batchare (= perdere) un fix funnel-critico. Questo override è deterministico e non dipende dal giudizio dell'agente. (Eccezione naturale: un'URL di prod come `/sitemap.xml` non è un path-token editabile — `.xml`/`.html` non sono nella lista, restano live-verify.)
 
 ## Dedup
 
@@ -103,21 +131,26 @@ Created: 1 aggregated issue #<id> con N item:
 - <item1 one-line>
 - <item2 one-line>
 
+Live-verification (manuale post-deploy, nessuna issue/fixer): Q item
+- [ ] "<verbatim>" — <segnale: post-deploy | curl prod | render NNNpx | DevTools/Playwright>
+
 Dropped: M item
-- "<verbatim>" — <reason: out-of-scope | dup-of-#X | non-funnel>
+- "<verbatim>" — <reason: out-of-scope | dup-of-#X | non-funnel | non-actionable-churn | missing-test-nit>
 
 Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 ```
 
-Se zero item sopravvivono al filtro+dedup → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata).
+La sezione `Live-verification` raccoglie **tutti** gli item `live-verify-only` (vedi `## Filtro scopo → Hard-exclude: live-verification-only item`): checklist `- [ ]` batchata, una sola per PR, **nessuna issue creata e nessun fixer dispatchato** — è solo un promemoria per la verifica manuale dell'owner sul sito deployato. Ometti la sezione se Q=0. Mai promuovere una voce live-verify a issue.
+
+Se zero item sopravvivono al filtro+dedup (e nessuna voce live-verify) → posta `## Post-merge follow-up triage: zero outstanding items.` (nessuna issue creata). Se sopravvivono SOLO voci live-verify (zero issue) → posta il summary con la sola sezione `Live-verification` e la riga `Created: 0 issue (solo live-verification batchata)`.
 
 ## Supersede detection (comment-only, mai chiudere)
 
 Dopo il triage, segnala le issue `follow-up` aperte che **questa PR potrebbe aver reso obsolete**, così non restano orfane (es. PR che riscrive un workflow rendendo moot gli item di hardening su quel file). **Non chiudere mai** su euristica: una PR può toccare un file senza coprire lo specifico item — chiudere distruggerebbe scope ancora valido. Solo l'autore, con `Closes #N` / `Supersedes #N` nel body (vedi `AGENTS.md → Workflow`), chiude davvero (GitHub nativo per `Closes`).
 
 1. File toccati da questa PR: `gh pr diff $PR_NUMBER --name-only`.
-2. Issue follow-up aperte: `gh issue list --label follow-up --state open --json number,title,body --limit 50` (escludi quella appena creata per questa PR).
-3. Per ogni issue il cui body cita un file presente nel diff della PR (path match in `## Suggested action` / `## Item`):
+2. Candidati supersede, **scoped per-file** (mai dump bulk dei body): per ogni file del diff `gh issue list --label follow-up --state open --search "<file>" --json number,title --limit 20` (GitHub indicizza il body → ritorna solo le issue che citano quel path). Unisci i risultati, escludi quella appena creata per questa PR. NON usare `--json number,title,body --limit 50` su tutte le aperte: ~28 body emoji-heavy ≈ 82KB, troncabile a un boundary di surrogate UTF-16 → `400 no low surrogate in string` (stessa classe del bulk overview a `post-merge-followup.yml`).
+3. Per ciascun candidato scoped, conferma con `gh issue view <N> --json body` che il path sia citato in `## Suggested action` / `## Item`; se sì:
    - Se non hai già commentato (cerca `🔗 Possibile supersede` nei commenti, idempotenza) → posta:
      ```markdown
      🔗 Possibile supersede: PR #<PR_NUMBER> (<PR_TITLE>) ha modificato `<file>` — <motivo dal PR title/body>. Verifica se gli item di questa issue sono ancora pertinenti; se coperti, chiudi a mano. (segnalazione automatica, non chiusura)

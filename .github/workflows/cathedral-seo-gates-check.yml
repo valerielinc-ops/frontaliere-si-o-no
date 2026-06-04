@@ -175,6 +175,7 @@ jobs:
             --repo "$GH_REPO"
 
       - name: Open issue + fail workflow on regression
+        id: failgate
         if: steps.gates.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -225,6 +226,9 @@ jobs:
                 --label seo-gates,regression \
                 --repo "$GH_REPO" || echo "Failed to create issue for ${name} (continuing)."
             done
+            # Mark that a condition (regression) issue was surfaced, so the
+            # generic crash-reporter below stays silent (no duplicate).
+            echo "opened=true" >> "$GITHUB_OUTPUT"
           fi
 
           if [ "$errors" -gt 0 ]; then
@@ -233,3 +237,26 @@ jobs:
 
           echo "Gates check reported regressed=${regressed} errors=${errors} — failing the workflow."
           exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        # failgate both opens the issue AND fails the job, so its conclusion
+        # alone can't tell "failed with issue" from "failed without issue"
+        # (missing verdict file, or errors-only with regressed==0). Gate on
+        # an explicit opened=true output: fire only when NO regression issue
+        # was surfaced — covers verdict-missing, errors-only, and any crash
+        # before/outside the gate (build dist, checkout, setup).
+        if: failure() && steps.failgate.outputs.opened != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash pre/fuori detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+          Nota: il gate è fallito prima/fuori dallo step di valutazione (es. build dist) — nessuna issue di regressione è stata aperta." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

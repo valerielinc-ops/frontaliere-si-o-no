@@ -40,6 +40,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -849,7 +850,12 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     sbbParsed?.location
   ).trim();
   const canton = inferAnyCanton(`${location} ${apiMeta?.region || ''}`) || DEFAULT_CANTON;
-  const slugBase = slugify(`${title}-${SBB_KEY}-${location}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
+  // Slug-only guard: `location` is `String(...).trim()`, so all-undefined sources
+  // collapse to the literal "undefined"/"null" string → `-undefined` in an active
+  // slug (#952, class #900/#901). Keep `location`/`addressLocality` untouched
+  // (choke-point normalizer owns de-index); guard only the slug token here.
+  const slugLocation = safeLocationToken(location, 'Switzerland');
+  const slugBase = slugify(`${title}-${SBB_KEY}-${slugLocation}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
   const id = `sbb-${createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 12)}`;
   const postedDate = toIsoDate(apiMeta?.datePosted || jobPosting?.datePosted);
 
@@ -890,7 +896,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   const localeSlugs = Object.fromEntries(
     ['it', 'en', 'de', 'fr'].map((locale) => {
       const localizedTitle = String(localeTitles[locale] || title).trim();
-      return [locale, slugify(`${localizedTitle}-${SBB_KEY}-${location}`) || slugBase];
+      return [locale, slugify(`${localizedTitle}-${SBB_KEY}-${slugLocation}`) || slugBase];
     })
   );
 

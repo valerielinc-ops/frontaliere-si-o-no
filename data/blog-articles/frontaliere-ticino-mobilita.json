@@ -1,0 +1,18 @@
+{
+  "id": "frontaliere-ticino-mobilita",
+  "slug": "frontaliere-ticino-mobilita",
+  "publishedAt": "2026-06-04T03:15:59.497Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1
+  }
+}

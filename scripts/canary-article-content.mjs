@@ -121,8 +121,9 @@ async function probe(url) {
   if (bytes < MIN_BYTES) {
     return { url, ok: false, reason: `body=${bytes}B < ${MIN_BYTES}B (stub?)`, bytes };
   }
-  if (!body.includes('src="/assets/index-')) {
-    return { url, ok: false, reason: "missing SPA bundle <script src=/assets/index-*.js>", bytes };
+  // src may be same-origin or an absolute CDN URL (ASSET_CDN/renderBuiltUrl).
+  if (!/src="[^"]*\/assets\/index-/.test(body)) {
+    return { url, ok: false, reason: "missing SPA bundle <script src=.../assets/index-*.js>", bytes };
   }
   // Self-redirect loop detector: bridges contain `location.replace("<self URL>"`.
   // Real articles ship a location.replace ONLY in their flat-sibling shell, not

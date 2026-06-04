@@ -1,16 +1,16 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-05-31T22:12:48.133Z",
+  "generatedAt": "2026-06-03T23:40:30.018Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13774,
-  "avgDurationMs": 13774,
+  "durationMs": 10625,
+  "avgDurationMs": 10625,
   "durationHistory": [
-    13774
+    10625
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Moda & Lusso",
       "source": "giorgio-armani-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-05-31",
+      "postedDate": "2026-06-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,13 +43,14 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-21T12:00:36.685Z",
+      "postalCode": "1700",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ]

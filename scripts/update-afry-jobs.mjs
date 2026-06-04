@@ -61,7 +61,7 @@ const API_URL = 'https://afry.com/en/api/afp-hr-smartrecruiteres-job-list';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
-const MAX_DETAIL_PAGES = Number(process.env.AFRY_MAX_DETAIL_PAGES) || 30;
+const MAX_DETAIL_PAGES = Number(process.env.AFRY_MAX_DETAIL_PAGES) || 100000;
 const DETAIL_DELAY_MS = 1500;
 
 function readJson(filePath, fallback) {

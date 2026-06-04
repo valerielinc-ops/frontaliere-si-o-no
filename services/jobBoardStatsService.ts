@@ -1,3 +1,5 @@
+import { cdnDataUrl } from './cdnDataBase';
+
 export interface JobBoardActionTotals {
  added: number;
  updated: number;
@@ -69,7 +71,7 @@ export interface JobBoardStatsData {
 
 export async function fetchJobBoardStats(forceRefresh = false): Promise<JobBoardStatsData | null> {
  const suffix = forceRefresh ? `?fresh=${Date.now()}` : '';
- const response = await fetch(`/data/jobs-stats.json${suffix}`, {
+ const response = await fetch(cdnDataUrl(`/data/jobs-stats.json${suffix}`), {
  cache: forceRefresh ? 'no-store' : 'default',
  });
  if (!response.ok) {

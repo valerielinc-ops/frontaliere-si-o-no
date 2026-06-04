@@ -349,6 +349,82 @@ function printTable(perSitemap) {
   }
 }
 
+// maxDeltaPp caps the relative term: a sitemap already ~75% below crawl depth
+// would otherwise tolerate +11pp from relPct alone (a silent indexability
+// regression). With the cap the worst-case slack is maxDeltaPp + absPp.
+export const DEFAULT_BFS_TOL = { relPct: 15, absPp: 5, minAbsDelta: 20, maxDeltaPp: 8 };
+
+// Item 2 hard-fail (#1095): a brand-new sitemap shard has no baseline entry so
+// the per-shard rate ratchet cannot judge it. Without this gate an entire new
+// content tier shipping 100% below crawl depth would only WARN and then get
+// "floored" into the next rebaseline — buried state accepted forever (zero
+// organic traffic on that tier). We hard-fail a non-baseline shard only when it
+// is overwhelmingly buried AND carries enough URLs to be a real tier (not a
+// 1-2 URL fluke). The thresholds are deliberately conservative so a legit new
+// tier with a shallow hub link path never trips them: a new shard is expected
+// to be reachable, so ≥90% buried over ≥minAbsDelta URLs is a genuine bug, not
+// organic noise.
+export const NEW_SHARD_BURIED_RATE_FAIL = 90; // percent of URLs below crawl depth
+
+/**
+ * Pure decision core of the BFS-depth ratchet. Compares the current per-sitemap
+ * roll-up against a baseline and classifies each shard. No I/O, no process.exit
+ * — returns structured results the CLI turns into logs + exit codes. Exported so
+ * the rate-gate AND the new-shard hard-fail are unit-testable (issue #1095).
+ *
+ * @param {object} args
+ * @param {Record<string, { total: number; atDepthGtMax: number; deepest: number }>} args.perSitemap
+ * @param {object} args.baseline  parsed baseline JSON ({ mode|version, perSitemap, tolerance })
+ * @param {{ relPct: number; absPp: number; minAbsDelta: number; maxDeltaPp: number }} [args.tol]
+ * @returns {{
+ *   regressions: Array<{ name: string; prev: number; current: number; deepest: number; prevRate?: number; curRate?: number; rateCap?: number }>,
+ *   unbaselined: Array<{ name: string; atDepthGtMax: number; ratePct: number }>,
+ *   buriedNewShards: Array<{ name: string; atDepthGtMax: number; total: number; ratePct: number }>
+ * }}
+ */
+export function evaluateBfsGate({ perSitemap, baseline, tol }) {
+  const isRate = baseline?.mode === 'rate' || Number(baseline?.version) >= 2;
+  const resolvedTol = { ...DEFAULT_BFS_TOL, ...(tol ?? baseline?.tolerance ?? {}) };
+  const regressions = [];
+  const unbaselined = [];
+  const buriedNewShards = [];
+  for (const [name, row] of Object.entries(perSitemap)) {
+    const prev = baseline?.perSitemap?.[name];
+    if (!prev) {
+      // A brand-new sitemap shard has no baseline entry, so the rate ratchet
+      // can't judge it (same in v1). Surface ones that ship buried URLs as a
+      // NON-gating warning so an entirely-buried new content tier doesn't slip
+      // in silently — it gets registered (and floored) on the next rebaseline.
+      if (row.atDepthGtMax > 0) {
+        const ratePct = row.total ? Number((row.atDepthGtMax / row.total * 100).toFixed(2)) : 0;
+        unbaselined.push({ name, atDepthGtMax: row.atDepthGtMax, ratePct });
+        // Item 2 (#1095): hard-fail an overwhelmingly-buried new tier so it can
+        // never be silently floored into the baseline as "accepted buried".
+        if (ratePct >= NEW_SHARD_BURIED_RATE_FAIL && row.atDepthGtMax >= resolvedTol.minAbsDelta) {
+          buriedNewShards.push({ name, atDepthGtMax: row.atDepthGtMax, total: row.total, ratePct });
+        }
+      }
+      continue;
+    }
+    const prevOff = Number(prev.atDepthGtMax ?? 0);
+    if (isRate) {
+      // Rate-ratchet: fail only when the share below crawl depth genuinely
+      // worsens (beyond tolerance) AND the offender count grows meaningfully.
+      // Organic URL growth keeps the rate flat → no regression.
+      const curRate = row.total ? (row.atDepthGtMax / row.total * 100) : 0;
+      const prevRate = Number(prev.ratePct ?? (Number(prev.total ?? 0) ? prevOff / Number(prev.total) * 100 : 0));
+      const rateCap = prevRate + Math.min(prevRate * resolvedTol.relPct / 100, resolvedTol.maxDeltaPp) + resolvedTol.absPp;
+      if (curRate > rateCap && row.atDepthGtMax > prevOff + resolvedTol.minAbsDelta) {
+        regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest, prevRate: Number(prevRate.toFixed(3)), curRate: Number(curRate.toFixed(3)), rateCap: Number(rateCap.toFixed(3)) });
+      }
+    } else if (row.atDepthGtMax > prevOff) {
+      // Legacy v1 absolute-count ratchet (un-migrated baseline).
+      regressions.push({ name, prev: prevOff, current: row.atDepthGtMax, deepest: row.deepest });
+    }
+  }
+  return { regressions, unbaselined, buriedNewShards };
+}
+
 // ---------------------------------------------------------------------------
 // Main.
 // ---------------------------------------------------------------------------
@@ -405,29 +481,39 @@ async function main() {
     printTable(perSitemap);
   }
 
-  // Strip examples for the baseline-shape report (kept lean).
+  // Strip examples for the baseline-shape report (kept lean). `ratePct` is the
+  // share of a sitemap's URLs sitting below crawl depth — the metric the
+  // rate-ratchet gates on, so organic URL growth (which adds offenders AND
+  // total in lockstep) keeps the rate flat instead of failing the build.
   const perSitemapForBaseline = {};
   for (const [name, row] of Object.entries(perSitemap)) {
     perSitemapForBaseline[name] = {
       total: row.total,
       reached: row.reached,
       atDepthGtMax: row.atDepthGtMax,
+      ratePct: row.total ? Number((row.atDepthGtMax / row.total * 100).toFixed(4)) : 0,
       deepest: row.deepest,
     };
   }
 
   if (WRITE_BASELINE_PATH && typeof WRITE_BASELINE_PATH === 'string') {
     const baseline = {
-      version: 1,
+      version: 2,
+      mode: 'rate',
       generatedAt: new Date().toISOString(),
       maxDepth: MAX_DEPTH,
+      tolerance: DEFAULT_BFS_TOL,
       perSitemap: perSitemapForBaseline,
       _comment:
-        'Baseline for audit-bfs-depth.mjs. atDepthGtMax must only DECREASE — ' +
-        'this gate is a ratchet. Regenerate after lowering offenders by adding ' +
-        'internal links from a hub at depth ≤ ' + (MAX_DEPTH - 1) + '. Never raise the ' +
-        'numbers without explicit justification (it means new URLs are buried below ' +
-        'crawl-depth and Ahrefs/Googlebot will flag them as orphan).',
+        'Rate-based baseline for audit-bfs-depth.mjs. The hard rule is unchanged: ' +
+        'URLs must be reachable within ' + MAX_DEPTH + ' hops of /. This ratchet tracks ' +
+        'the SHARE (atDepthGtMax/total) of each sitemap below crawl depth, so organic ' +
+        'URL growth at the existing pagination depth keeps the rate flat and does NOT ' +
+        'fail the build. A sitemap fails only when its rate exceeds ' +
+        'baseRate*(1+relPct/100)+absPp AND its offender count grows by more than ' +
+        'minAbsDelta — i.e. a real internal-link regression burying previously-shallow ' +
+        'URLs (Ahrefs/Googlebot would flag them as orphan). Fix via internal links from ' +
+        'a hub at depth ≤ ' + (MAX_DEPTH - 1) + ', never noindex. Rates must only DECREASE.',
     };
     const outPath = resolvePath(WRITE_BASELINE_PATH);
     await writeFile(outPath, JSON.stringify(baseline, null, 2) + '\n', 'utf8');
@@ -450,14 +536,42 @@ async function main() {
       console.error(`   --max-depth=${baseline.maxDepth} or rebaseline with the new value.`);
       process.exit(2);
     }
-    /** @type {Array<{ name: string; prev: number; current: number; deepest: number }>} */
-    const regressions = [];
-    for (const [name, row] of Object.entries(perSitemap)) {
-      const prev = baseline.perSitemap?.[name];
-      if (!prev) continue;
-      if (row.atDepthGtMax > Number(prev.atDepthGtMax ?? 0)) {
-        regressions.push({ name, prev: Number(prev.atDepthGtMax), current: row.atDepthGtMax, deepest: row.deepest });
+    const { regressions, unbaselined, buriedNewShards } = evaluateBfsGate({ perSitemap, baseline });
+    if (unbaselined.length > 0) {
+      process.stderr.write(`\n[audit-bfs-depth] WARNING (non-gating): ${unbaselined.length} sitemap shard(s) not in baseline ship URLs below crawl depth — rebaseline to register (and floor) them:\n`);
+      for (const u of unbaselined.sort((a, b) => b.ratePct - a.ratePct)) {
+        process.stderr.write(`  ${u.name}: ${u.atDepthGtMax} URLs > depth ${MAX_DEPTH} (${u.ratePct}%)\n`);
       }
+    }
+    // Item 2 hard-fail (#1095): a new, un-baselined shard that is overwhelmingly
+    // buried (≥ NEW_SHARD_BURIED_RATE_FAIL% of ≥ minAbsDelta URLs below crawl
+    // depth) is a genuine indexability hole, not organic noise. Block the build
+    // so it can never be silently floored into the baseline as "accepted buried".
+    if (buriedNewShards.length > 0) {
+      console.error('\n══════════════════════════════════════════════════════════════════════');
+      console.error('FAIL: new sitemap shard ships an entire content tier below crawl depth');
+      console.error('══════════════════════════════════════════════════════════════════════');
+      console.error('');
+      console.error('A brand-new sitemap shard has no baseline entry, so the rate ratchet');
+      console.error('cannot judge it. These shards ship the OVERWHELMING majority of their');
+      console.error(`URLs at BFS depth > ${MAX_DEPTH} from / — effectively orphan from`);
+      console.error('Ahrefs/Googlebot, which cap crawl depth. Floored into the next');
+      console.error('baseline they would be accepted buried forever (zero organic traffic).');
+      console.error('');
+      for (const b of buriedNewShards.sort((a, c) => c.ratePct - a.ratePct)) {
+        const full = perSitemap[b.name]?.offendersList || [];
+        console.error(`  ${b.name}: ${b.atDepthGtMax}/${b.total} URLs (${b.ratePct}%) at depth > ${MAX_DEPTH}`);
+        for (const o of full) console.error(`    depth=${o.depth}  ${o.url}`);
+      }
+      console.error('');
+      console.error('How to fix');
+      console.error('----------');
+      console.error(`Link this tier's URLs from a hub page at depth ≤ ${MAX_DEPTH - 1} so real`);
+      console.error('crawlers reach them, then rebuild. Per CLAUDE.md non-negotiable #5:');
+      console.error('orphans are fixed via internal links, never noindex, never by');
+      console.error('flooring the buried state into the baseline.');
+      await writeReport(false, { before: 0, after: buriedNewShards.reduce((s, b) => s + b.atDepthGtMax, 0), regression: buriedNewShards.reduce((s, b) => s + b.atDepthGtMax, 0) });
+      process.exit(1);
     }
     if (regressions.length > 0) {
       console.error('\n══════════════════════════════════════════════════════════════════════');
@@ -474,7 +588,11 @@ async function main() {
       console.error('What just happened');
       console.error('------------------');
       for (const r of regressions) {
-        console.error(`  ${r.name}: ${r.current} URLs at depth > ${MAX_DEPTH} (baseline allows ${r.prev}, deepest now ${r.deepest})`);
+        if (r.curRate != null) {
+          console.error(`  ${r.name}: rate ${r.curRate}% below crawl depth (allowed ≤ ${r.rateCap}%, baseline ${r.prevRate}%) — ${r.current} URLs vs baseline ${r.prev}, deepest now ${r.deepest}`);
+        } else {
+          console.error(`  ${r.name}: ${r.current} URLs at depth > ${MAX_DEPTH} (baseline allows ${r.prev}, deepest now ${r.deepest})`);
+        }
       }
       console.error('');
       // Dump ALL offenders for each regressed sitemap so the CI log alone is
@@ -519,7 +637,16 @@ async function main() {
   await writeReport(flatOffenders.length === 0, null);
 }
 
-main().catch((err) => {
-  console.error('audit-bfs-depth crashed:', err.stack || err.message);
-  process.exit(2);
-});
+// Only crawl + gate when run as a CLI. Importing this module (e.g. the unit
+// tests for `evaluateBfsGate`) must NOT trigger the live sitemap fetch / BFS.
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  main().catch((err) => {
+    console.error('audit-bfs-depth crashed:', err.stack || err.message);
+    process.exit(2);
+  });
+}

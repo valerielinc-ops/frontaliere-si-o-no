@@ -1,0 +1,19 @@
+{
+  "id": "imposta-fonte-frontalieri-ticino-dettagli",
+  "slug": "imposta-fonte-frontalieri-ticino-dettagli",
+  "publishedAt": "2026-06-04T02:52:42.366Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "suggest",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 96.23427814000001,
+    "confidence": 1,
+    "finalScore": 96.23427814000001,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 96.23427814000001,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

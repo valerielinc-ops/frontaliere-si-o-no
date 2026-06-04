@@ -473,17 +473,6 @@ const CurrencyExchange: React.FC = () => {
  </a>
  )}
 
- {/* Important Notice — sibling, not nested */}
- <aside role="note" className="flex items-start gap-3 border-l-0 border border-warning-border bg-warning-subtle rounded-xl px-4 py-3">
- <AlertCircle size={20} className="flex-shrink-0 mt-0.5 text-warning" aria-hidden="true" />
- <div className="text-sm text-body">
- <p className="font-bold mb-1 text-strong">{t('currency.notice_title')}</p>
- <p className="text-subtle leading-relaxed">
- {t('currency.notice_text')}
- </p>
- </div>
- </aside>
-
  {/* Sub-tab navigation */}
  <SegmentControl
  options={[
@@ -497,9 +486,7 @@ const CurrencyExchange: React.FC = () => {
 
  {exchangeSubTab === 'overview' ? (
  <>
- {/* Calculator + History Side by Side */}
- <div className="grid lg:grid-cols-2 gap-6 min-h-[420px]">
- {/* Calculator */}
+ {/* Calculator — conversion first, full width */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center justify-between mb-4">
  <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
@@ -516,7 +503,7 @@ const CurrencyExchange: React.FC = () => {
  </button>
  </div>
 
- <div className="space-y-4">
+ <div className="grid sm:grid-cols-2 gap-4 items-start">
  <div className="space-y-2">
  <label htmlFor="exchange-amount" className="text-xs font-bold text-muted uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
  <div className="relative">
@@ -566,50 +553,6 @@ const CurrencyExchange: React.FC = () => {
  {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
  </p>
  </div>
- </div>
- </div>
-
- {/* History Chart */}
- <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
- <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
- <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
- <BarChart3 size={20} className="text-success" />
- {t('currency.history_title')}
- </h2>
- <div className="flex gap-1.5">
- {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
- <button key={p}
- onClick={() => setHistoryPeriod(p)}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-success-strong text-on-accent shadow' : 'bg-surface-raised text-subtle hover:bg-surface-raised'}`}
- >
- {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
- </button>
- ))}
- </div>
- </div>
- {historyLoading ? (
- <div className="h-[280px] flex items-center justify-center text-muted">
- <RefreshCw size={24} className="animate-spin" />
- </div>
- ) : historyData.length > 0 ? (
- <div role="img" aria-label="Grafico tasso di cambio CHF/EUR" tabIndex={0}>
- <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-muted"><RefreshCw size={24} className="animate-spin" /></div>}>
- <LazyExchangeChart data={historyData} />
- </Suspense>
- </div>
- ) : (
- <div className="h-[280px] flex items-center justify-center text-muted text-sm">
- {t('currency.no_data_available')}
- </div>
- )}
- {historyData.length > 1 && (
- <div className="flex justify-between mt-3 text-xs text-muted min-h-[20px]">
- <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
- <span>{t('currency.average')}: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
- <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>
- </div>
- )}
- {historyData.length <= 1 && <div className="min-h-[20px] mt-3" />}
  </div>
  </div>
 
@@ -670,6 +613,17 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
  </div>
+
+ {/* Important Notice — rates disclaimer, demoted below conversion result */}
+ <aside role="note" className="flex items-start gap-3 border-l-0 border border-warning-border bg-warning-subtle rounded-xl px-4 py-3">
+ <AlertCircle size={20} className="flex-shrink-0 mt-0.5 text-warning" aria-hidden="true" />
+ <div className="text-sm text-body">
+ <p className="font-bold mb-1 text-strong">{t('currency.notice_title')}</p>
+ <p className="text-subtle leading-relaxed">
+ {t('currency.notice_text')}
+ </p>
+ </div>
+ </aside>
 
  {/* Comparison Table */}
  <div>
@@ -795,6 +749,49 @@ const CurrencyExchange: React.FC = () => {
  );
  })}
  </div>
+ </div>
+
+ {/* History Chart — moved below conversion + comparison, secondary context */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
+ <h2 className="text-lg font-bold font-display text-strong flex items-center gap-2">
+ <BarChart3 size={20} className="text-success" />
+ {t('currency.history_title')}
+ </h2>
+ <div className="flex gap-1.5">
+ {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
+ <button key={p}
+ onClick={() => setHistoryPeriod(p)}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-success-strong text-on-accent shadow' : 'bg-surface-raised text-subtle hover:bg-surface-raised'}`}
+ >
+ {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
+ </button>
+ ))}
+ </div>
+ </div>
+ {historyLoading ? (
+ <div className="h-[280px] flex items-center justify-center text-muted">
+ <RefreshCw size={24} className="animate-spin" />
+ </div>
+ ) : historyData.length > 0 ? (
+ <div role="img" aria-label="Grafico tasso di cambio CHF/EUR" tabIndex={0}>
+ <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-muted"><RefreshCw size={24} className="animate-spin" /></div>}>
+ <LazyExchangeChart data={historyData} />
+ </Suspense>
+ </div>
+ ) : (
+ <div className="h-[280px] flex items-center justify-center text-muted text-sm">
+ {t('currency.no_data_available')}
+ </div>
+ )}
+ {historyData.length > 1 && (
+ <div className="flex justify-between mt-3 text-xs text-muted min-h-[20px]">
+ <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
+ <span>{t('currency.average')}: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
+ <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>
+ </div>
+ )}
+ {historyData.length <= 1 && <div className="min-h-[20px] mt-3" />}
  </div>
 
  {/* Experimental: Exchange Timing Analysis */}

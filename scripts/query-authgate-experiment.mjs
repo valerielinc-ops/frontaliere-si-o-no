@@ -63,9 +63,14 @@ function zTest(a, b) {
   const p1 = a.conv / a.persons;
   const p2 = b.conv / b.persons;
   const pooled = (a.conv + b.conv) / (a.persons + b.persons);
+  // Pooled SE — correct for the z-test (null hypothesis p1 === p2).
   const se = Math.sqrt(pooled * (1 - pooled) * (1 / a.persons + 1 / b.persons));
   const z = se === 0 ? 0 : (p2 - p1) / se;
-  return { p1, p2, z, p: twoSidedP(z), absLiftPp: (p2 - p1) * 100, ciHalfPp: 1.96 * se * 100 };
+  // Unpooled SE — correct for the CI on the difference of proportions (the
+  // arms have distinct CRs, so they don't share a pooled variance). Using the
+  // pooled SE here slightly over-states the printed ±CI.
+  const seDiff = Math.sqrt((p1 * (1 - p1)) / a.persons + (p2 * (1 - p2)) / b.persons);
+  return { p1, p2, z, p: twoSidedP(z), absLiftPp: (p2 - p1) * 100, ciHalfPp: 1.96 * seDiff * 100 };
 }
 
 const hogql = `

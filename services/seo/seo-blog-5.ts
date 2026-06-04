@@ -41999,6 +41999,474 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ammodernamento-fa-18-svizzera': {
+    title: 'Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030',
+    description: 'La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ammodernamento, a-18, flotta, pronta',
+    ogTitle: 'Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030',
+    ogDescription: 'La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi.',
+    canonicalPath: '/articoli-frontaliere/ammodernamento-fa-18-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ammodernamento F/A-18: la flotta svizzera pronta fino al 2030",
+      "description": "La flotta di 30 aerei F/A-18C/D è stata ammodernata per operare fino ai primi anni 2030, con un investimento di 450 milioni di franchi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ammodernamento-fa-18-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un aereo F/A-18 svizzero sorvola il Lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-06-01T12:34:46+00:00",
+      "dateModified": "2026-06-01T12:34:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ammodernamento-fa-18-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mostra-piante-rare-comerio-2026': {
+    title: 'Mostra mercato di piante rare a Comerio: un evento per gli amanti della natura',
+    description: 'Sabato 6 e domenica 7 giugno 2026, il Belvedere di Comerio ospita la decima edizione della mostra mercato di piante rare e tropicali. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, mostra, mercato, piante, rare',
+    ogTitle: 'Mostra mercato di piante rare a Comerio: un evento per gli amanti della natura',
+    ogDescription: 'Sabato 6 e domenica 7 giugno 2026, il Belvedere di Comerio ospita la decima edizione della mostra mercato di piante rare e tropicali.',
+    canonicalPath: '/articoli-frontaliere/mostra-piante-rare-comerio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mostra mercato di piante rare a Comerio: un evento per gli amanti della natura",
+      "description": "Sabato 6 e domenica 7 giugno 2026, il Belvedere di Comerio ospita la decima edizione della mostra mercato di piante rare e tropicali. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mostra-piante-rare-comerio-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mercato di piante tropicali con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-06-01T19:53:47+00:00",
+      "dateModified": "2026-06-01T19:53:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-piante-rare-comerio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ferrovia-retica-taiwan': {
+    title: 'Ferrovia retica: nuovo accordo con Taiwan | Frontaliere Ticino',
+    description: 'La Ferrovia retica ha firmato un accordo di collaborazione con la taiwanese Alishan Forest Railway. Scopri di più sulle implicazioni per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrovia, retica, nuovo, accordo',
+    ogTitle: 'Ferrovia retica: nuovo accordo con Taiwan',
+    ogDescription: 'La Ferrovia retica ha firmato un accordo di collaborazione con la taiwanese Alishan Forest Railway. Scopri di più sulle implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/ferrovia-retica-taiwan',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ferrovia retica: nuovo accordo con Taiwan",
+      "description": "La Ferrovia retica ha firmato un accordo di collaborazione con la taiwanese Alishan Forest Railway. Scopri di più sulle implicazioni per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ferrovia-retica-taiwan.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ferrovia retica in inverno"
+      },
+      "datePublished": "2026-06-01T21:43:10+00:00",
+      "dateModified": "2026-06-01T21:43:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ferrovia-retica-taiwan`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sedia-rotelle-genny-zero-design': {
+    title: 'Genny Zero: la sedia a rotelle che rivoluziona la mobilità',
+    description: 'La sedia a rotelle elettrica Genny Zero, prodotta in Ticino, vince il Compasso d’Oro per il design innovativo e la tecnologia italo-svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, genny, zero, sedia, rotelle',
+    ogTitle: 'Genny Zero: la sedia a rotelle che rivoluziona la mobilità',
+    ogDescription: 'La sedia a rotelle elettrica Genny Zero, prodotta in Ticino, vince il Compasso d’Oro per il design innovativo e la tecnologia italo-svizzera.',
+    canonicalPath: '/articoli-frontaliere/sedia-rotelle-genny-zero-design',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Genny Zero: la sedia a rotelle che rivoluziona la mobilità",
+      "description": "La sedia a rotelle elettrica Genny Zero, prodotta in Ticino, vince il Compasso d’Oro per il design innovativo e la tecnologia italo-svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sedia-rotelle-genny-zero-design.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una sedia a rotelle moderna in un paesaggio del Ticino con il lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-06-02T11:40:00+00:00",
+      "dateModified": "2026-06-02T11:40:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sedia-rotelle-genny-zero-design`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-neutrale-stime-2026': {
+    title: 'Referendum: neutralizzazione stime 2026 e classe media',
+    description: 'Voto 14 giugno 2026 sulla neutralizzazione delle stime in Ticino. Impatto su tasse, casa e classe media. Analisi dell\'Iniziativa. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, neutralizzazione, stime, classe',
+    ogTitle: 'Referendum neutralizzazione stime 2026',
+    ogDescription: 'Il voto del 14 giugno 2026 sulla neutralizzazione delle stime: difendere la casa e alleggerire la pressione fiscale in Ticino.',
+    canonicalPath: '/articoli-frontaliere/referendum-neutrale-stime-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum: neutralizzazione stime 2026 e classe media",
+      "description": "Voto 14 giugno 2026 sulla neutralizzazione delle stime in Ticino. Impatto su tasse, casa e classe media. Analisi dell'Iniziativa. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/referendum-neutrale-stime-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona al tramonto, simbolo di stabilità e casa."
+      },
+      "datePublished": "2026-06-02T21:00:19+00:00",
+      "dateModified": "2026-06-02T21:00:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-neutrale-stime-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-13esima-avs-iva-nazionale': {
+    title: '13esima AVS: il Nazionale insiste sull\'IVA | Frontaliere Ticino',
+    description: 'Il Consiglio nazionale ha votato per finanziare la 13esima rendita AVS solo con aumento dell\'IVA, respingendo la soluzione mista. Cosa cambia per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, 13esima, nazionale, insiste, sull',
+    ogTitle: '13esima AVS: il Nazionale insiste sull\'IVA',
+    ogDescription: 'Il Consiglio nazionale ha votato per finanziare la 13esima rendita AVS solo con aumento dell\'IVA, respingendo la soluzione mista. Cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/13esima-avs-iva-nazionale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "13esima AVS: il Nazionale insiste sull'IVA",
+      "description": "Il Consiglio nazionale ha votato per finanziare la 13esima rendita AVS solo con aumento dell'IVA, respingendo la soluzione mista. Cosa cambia per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/13esima-avs-iva-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banconote e monete svizzere con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-06-03T07:39:50+00:00",
+      "dateModified": "2026-06-03T07:39:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/13esima-avs-iva-nazionale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-stato-ticino-boccia-tassa-salute': {
+    title: 'Tassa salute frontalieri: il Ticino boccia il prelievo',
+    description: 'Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi. Analisi degli impatti e procedure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, boccia, prelievo',
+    ogTitle: 'Tassa salute frontalieri: il Ticino boccia il prelievo',
+    ogDescription: 'Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi.',
+    canonicalPath: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: il Ticino boccia il prelievo",
+      "description": "Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi. Analisi degli impatti e procedure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-stato-ticino-boccia-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Castello di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-06-04T02:16:09+00:00",
+      "dateModified": "2026-06-04T02:16:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-salute-frontalieri-ticino-indebita': {
+    title: 'Tassa salute frontalieri: il Ticino la definisce indebita',
+    description: 'Il Ticino contesta la tassa sulla salute per i vecchi frontalieri: il parere legale conferma la violazione degli accordi sulla doppia imposizione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, definisce, indebita',
+    ogTitle: 'Tassa salute frontalieri: il Ticino la definisce indebita',
+    ogDescription: 'Il Ticino contesta la tassa sulla salute per i vecchi frontalieri: il parere legale conferma la violazione degli accordi sulla doppia imposizione.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: il Ticino la definisce indebita",
+      "description": "Il Ticino contesta la tassa sulla salute per i vecchi frontalieri: il parere legale conferma la violazione degli accordi sulla doppia imposizione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ticino-indebita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande di Bellinzona, sede del Consiglio di Stato ticinese"
+      },
+      "datePublished": "2026-06-04T02:26:50+00:00",
+      "dateModified": "2026-06-04T02:26:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-fonte-frontalieri-ticino-dettagli': {
+    title: 'Imposta alla fonte frontalieri: come funziona in Ticino',
+    description: 'Scopri come funziona l\'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, funziona',
+    ogTitle: 'Imposta alla fonte frontalieri Ticino: guida e calcolo',
+    ogDescription: 'Guida pratica all\'imposta alla fonte per frontalieri in Ticino: calcoli e adempimenti.',
+    canonicalPath: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta alla fonte frontalieri: come funziona in Ticino",
+      "description": "Scopri come funziona l'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-fonte-frontalieri-ticino-dettagli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con bandiere svizzera e italiana"
+      },
+      "datePublished": "2026-06-04T02:52:40+00:00",
+      "dateModified": "2026-06-04T02:52:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-ticino-mobilita': {
+    title: 'Impatti della mobilità sulla vita dei frontaliere ticinesi',
+    description: 'La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, impatti, mobilità, sulla, vita',
+    ogTitle: 'Mobilità e frontaliere ticinesi: come gestire i problemi di traffico e costi',
+    ogDescription: 'La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Scopri come gestire questi problemi e pianificare i',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-mobilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impatti della mobilità sulla vita dei frontaliere ticinesi",
+      "description": "La mobilità aumenta la complessità per i frontalieri ticinesi, con problemi di traffico e costi elevati. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-mobilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "immagine di un pendolari"
+      },
+      "datePublished": "2026-06-04T03:15:58+00:00",
+      "dateModified": "2026-06-04T03:15:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-mobilita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calendario-festivi-ticino-2026': {
+    title: 'Festivi Ticino 2026: il calendario completo per i frontalieri',
+    description: 'Tutte le date delle festività in Canton Ticino per il 2026: Capodanno, Pasqua, Pentecoste, Natale e i ponti. Giorni di chiusura uffici, impatto su permessi G e',
+    keywords: 'frontalieri, ticino, svizzera, italia, festivi, calendario, completo, tutte',
+    ogTitle: 'Festivi Ticino 2026: il calendario completo per i frontal',
+    ogDescription: 'Tutte le date delle festività in Canton Ticino per il 2026: Capodanno, Pasqua, Pentecoste, Natale e i ponti. Giorni di chiusura uffici, impatto su permessi G e',
+    canonicalPath: '/articoli-frontaliere/calendario-festivi-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festivi Ticino 2026: il calendario completo per i frontalieri",
+      "description": "Tutte le date delle festività in Canton Ticino per il 2026: Capodanno, Pasqua, Pentecoste, Natale e i ponti. Giorni di chiusura uffici, impatto su permessi G e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calendario-festivi-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calendario delle festività in Ticino 2026 con vista panoramica di Lugano e bandiere svizzere"
+      },
+      "datePublished": "2026-06-04T03:41:38+00:00",
+      "dateModified": "2026-06-04T03:41:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calendario-festivi-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-telelavoro-frontalieri-italia-svizzera': {
+    title: 'Telelavoro per frontalieri: cosa cambia con la nuova normativa',
+    description: 'La Svizzera e l\'Italia stanno discutendo nuove regole per il telelavoro dei frontalieri. Scopri cosa potrebbe cambiare e come potrebbe influenzare la tua vita',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, cosa, cambia, nuova',
+    ogTitle: 'Telelavoro per frontalieri: cosa cambia',
+    ogDescription: 'La nuova normativa sul telelavoro per i frontalieri potrebbe cambiare le regole per i lavoratori che svolgono attività da remoto.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro per frontalieri: cosa cambia con la nuova normativa",
+      "description": "La Svizzera e l'Italia stanno discutendo nuove regole per il telelavoro dei frontalieri. Scopri cosa potrebbe cambiare e come potrebbe influenzare la tua vita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-italia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che lavora da remoto con vista su Lugano"
+      },
+      "datePublished": "2026-06-04T04:31:14+00:00",
+      "dateModified": "2026-06-04T04:31:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

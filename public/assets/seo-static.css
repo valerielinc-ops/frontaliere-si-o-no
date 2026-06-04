@@ -1022,7 +1022,7 @@ main.seo-static-content { max-width: 1120px; margin: 0 auto; display: grid; gap:
 .s-lEdUfz { margin:6px 0 0;font-size:15px;line-height:1.55;color:var(--color-heading);font-weight:500 }
 .s-lEEXLG { font-size:1.15rem;font-weight:700;margin:1rem 0 .5rem }
 .s-lfB4Bo { margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem }
-.s-LFxJYv { max-width:1080px;margin:0 auto;padding:24px 16px }
+.s-LFxJYv { min-width:0;max-width:1080px;margin:0 auto;padding:24px 16px }
 .s-lGLtkq { margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading) }
 .s-LGtGh9 { margin:0;font-size:15.5px }
 .s-lHdmvf { font-size:1.25rem;font-weight:700;margin-bottom:.5rem }
@@ -1593,3 +1593,141 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .s-tbl { width:100%;border-collapse:collapse;margin:1rem 0 }
 .s-thd { text-align:left;padding:10px 12px;font-size:13px;font-weight:700;color:var(--color-subtle);border-bottom:2px solid var(--color-edge);background:var(--color-surface-alt) }
 .s-tcl { padding:10px 12px;border-bottom:1px solid var(--color-edge);color:var(--color-body);font-size:14px }
+
+/* ── Career-landing "delight" pass (cl-fun) ─────────────────────────────────
+   Scoped to <main class="s-xzWvwM cl-fun"> emitted by careerLandingsPlugin.ts
+   (4 landing IDs × 4 locales). Adds tasteful, mobile-first micro-interactions:
+   staggered stat-tile entrance, gentle card lift, a one-time hero-emoji wave,
+   a satisfying CTA press, and an animated FAQ chevron. Pure transform/opacity
+   (no layout properties) → zero CLS, no impact on AdSense reserved space. The
+   global `prefers-reduced-motion` rule in index.css neutralises every animation
+   here; the block below is a defensive duplicate in case this stylesheet ever
+   loads standalone. Brand: warm, confidently-playful (impeccable .impeccable.md). */
+
+/* Hero emoji: one orchestrated wave on load (not on repeat — special stays special). */
+@keyframes cl-wave {
+  0%,100% { transform: rotate(0); }
+  15% { transform: rotate(13deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(9deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+}
+.cl-fun .lh-emoji {
+  display: inline-block;
+  transform-origin: 70% 75%;
+  animation: cl-wave 1.5s ease-in-out 0.45s 1 both;
+}
+
+/* Stat tiles: staggered rise on load + gentle lift and value "pop" on hover. */
+@keyframes cl-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.cl-fun .s-XENO3U > * {
+  animation: cl-rise 420ms cubic-bezier(0.16,1,0.3,1) both;
+  transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+}
+.cl-fun .s-XENO3U > *:nth-child(1) { animation-delay: 60ms; }
+.cl-fun .s-XENO3U > *:nth-child(2) { animation-delay: 140ms; }
+.cl-fun .s-XENO3U > *:nth-child(3) { animation-delay: 220ms; }
+.cl-fun .s-XENO3U > *:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px var(--color-shadow-soft, rgba(15,23,42,0.10));
+}
+.cl-fun .s-XENO3U .s-tval {
+  transition: transform 170ms cubic-bezier(0.16,1,0.3,1);
+  transform-origin: left center;
+}
+.cl-fun .s-XENO3U > *:hover .s-tval { transform: scale(1.06); }
+
+/* Primary + secondary CTAs: satisfying lift, press, and glow. */
+.cl-fun .s-cta, .cl-fun .s-eXgANZ {
+  transition: transform 140ms cubic-bezier(0.16,1,0.3,1), box-shadow 140ms ease, background-color 140ms ease, border-color 140ms ease;
+}
+.cl-fun .s-cta:hover {
+  transform: translateY(-2px);
+  background: var(--color-accent-hover, var(--color-accent));
+  box-shadow: 0 9px 22px rgba(83,58,253,0.28);
+}
+.cl-fun .s-cta:active { transform: translateY(0); box-shadow: 0 2px 6px rgba(83,58,253,0.22); }
+.cl-fun .s-eXgANZ:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-border);
+  box-shadow: 0 7px 18px var(--color-shadow-soft, rgba(15,23,42,0.10));
+}
+.cl-fun .s-eXgANZ:active { transform: translateY(0); }
+
+/* "Approfondisci" divider: a small warm compass mark that breathes once. */
+.cl-fun .cl-divider-mark {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 1;
+  animation: cl-rise 600ms ease-out 200ms both;
+}
+
+/* FAQ: replace the native triangle with an accent chevron that flips on open. */
+.cl-fun details > summary {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  transition: color 140ms ease;
+}
+.cl-fun details > summary::-webkit-details-marker { display: none; }
+.cl-fun details > summary::after {
+  content: "⌄";
+  flex-shrink: 0;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-accent);
+  transform: translateY(-2px);
+  transition: transform 220ms cubic-bezier(0.16,1,0.3,1);
+}
+.cl-fun details[open] > summary::after { transform: translateY(2px) rotate(180deg); }
+.cl-fun details > summary:hover { color: var(--color-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-fun .lh-emoji,
+  .cl-fun .s-XENO3U > *,
+  .cl-fun .cl-divider-mark { animation: none; }
+  .cl-fun .s-XENO3U > *,
+  .cl-fun .s-XENO3U .s-tval,
+  .cl-fun .s-cta,
+  .cl-fun .s-eXgANZ,
+  .cl-fun details > summary,
+  .cl-fun details > summary::after { transition: none; }
+}
+
+/*
+ * Related-search cluster crawler body (build-plugins/relatedSearchClustersPlugin.ts).
+ *
+ * The plugin emits `<div class="related-search-cluster">` (H1 + ~9 KB unique
+ * AI intro + cross-link graph + cross-canton job links) as the page body. It
+ * is 100% crawler-only: the hydrated SPA renders all visible chrome inside
+ * `#root`, so this static layer MUST be off-screen for sighted users while
+ * staying in the DOM for crawlers + screen readers (Googlebot indexes
+ * off-screen content with the same weight as standard accordion content).
+ *
+ * The recipe used to live inline on `style=` in the plugin; it was moved here
+ * to save ~24 MB across ~180k cluster pages (the plugin comment at
+ * relatedSearchClustersPlugin.ts:1561 documents this), but the rule went
+ * missing from this file in the move — so the block rendered fully visible
+ * in normal flow, duplicating the SPA's job listing below it. This is the
+ * standard visually-hidden recipe; restoring it puts the block back off-screen
+ * without dropping the SEO payload. Only relatedSearchClustersPlugin emits
+ * this class, so the rule is safely scoped.
+ */
+.related-search-cluster {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

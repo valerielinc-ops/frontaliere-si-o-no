@@ -20,6 +20,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import cantonSlugFile from '../data/canton-url-slugs.json' with { type: 'json' };
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -29,12 +30,33 @@ const OUT_PATH = path.join(ROOT, 'data', 'gsc-company-hubs.json');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
-const COMP_PATTERNS = [
-  [/^\/cerca-lavoro-ticino\/azienda-([^/]+)\/?$/, 'it'],
-  [/^\/en\/find-jobs-ticino\/(?:azienda|company)-([^/]+)\/?$/, 'en'],
-  [/^\/de\/jobs-im-tessin\/(?:unternehmen|firma)-([^/]+)\/?$/, 'de'],
-  [/^\/fr\/trouver-emploi-tessin\/(?:entreprise|societe)-([^/]+)\/?$/, 'fr'],
-];
+const LOCALE_SEGMENTS = new Set(['en', 'de', 'fr']);
+const COMPANY_PREFIXES = new Set(['azienda', 'company', 'unternehmen', 'firma', 'entreprise', 'societe']);
+const SECTION_PREFIX_BY_LOCALE = { it: 'cerca-lavoro', en: 'find-jobs', de: 'jobs-in', fr: 'trouver-emploi' };
+const LEGACY_TI_SECTIONS = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+
+function buildJobSectionSlugs() {
+  const out = new Set(Object.values(LEGACY_TI_SECTIONS));
+  const cantons = cantonSlugFile.cantons || {};
+  const aggregate = cantonSlugFile.aggregate || {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (aggregate[locale]) out.add(`${SECTION_PREFIX_BY_LOCALE[locale]}-${aggregate[locale]}`);
+  }
+  for (const entry of Object.values(cantons)) {
+    for (const locale of ['it', 'en', 'fr']) {
+      if (entry?.[locale]) out.add(`${SECTION_PREFIX_BY_LOCALE[locale]}-${entry[locale]}`);
+    }
+    if (entry?.de) out.add(`${entry.dePrefix || SECTION_PREFIX_BY_LOCALE.de + '-'}${entry.de}`);
+  }
+  return out;
+}
+
+const JOB_SECTION_SLUGS = buildJobSectionSlugs();
 
 function slugify(value) {
   return String(value || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -56,13 +78,24 @@ function parseCsvUrls(file) {
 }
 
 function urlToHub(url) {
-  let p;
-  try { p = new URL(url).pathname; } catch { return null; }
-  for (const [re, locale] of COMP_PATTERNS) {
-    const m = p.match(re);
-    if (m) return { locale, companySlug: m[1], url };
+  let segments;
+  try { segments = new URL(url).pathname.split('/').filter(Boolean); } catch { return null; }
+  if (segments.length < 2) return null;
+  let locale = 'it';
+  let cursor = 0;
+  if (LOCALE_SEGMENTS.has(segments[0])) {
+    locale = segments[0];
+    cursor = 1;
   }
-  return null;
+  const section = segments[cursor];
+  const companySegment = segments[cursor + 1];
+  if (segments.length !== cursor + 2 || !JOB_SECTION_SLUGS.has(section) || !companySegment) return null;
+  const dashIdx = companySegment.indexOf('-');
+  if (dashIdx <= 0) return null;
+  const prefix = companySegment.slice(0, dashIdx);
+  const companySlug = companySegment.slice(dashIdx + 1);
+  if (!COMPANY_PREFIXES.has(prefix) || !companySlug) return null;
+  return { locale, companySlug, url };
 }
 
 function buildCompanyIndex(jobs) {
@@ -108,7 +141,7 @@ function main() {
     for (const url of parseCsvUrls(file)) {
       const h = urlToHub(url);
       if (!h) continue;
-      const key = `${h.locale}::${h.companySlug}`;
+      const key = new URL(h.url).pathname.replace(/\/+$/, '');
       if (seen.has(key)) continue;
       seen.add(key);
       hubs.push(classifyHub(h, compIdx, basename));

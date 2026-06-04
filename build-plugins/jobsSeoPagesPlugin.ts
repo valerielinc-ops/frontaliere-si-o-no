@@ -14,6 +14,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
@@ -62,6 +63,7 @@ import {
  BRAND_CANONICAL_MAP,
  isBrandAlias,
  listAllBrandAliases,
+ resolveBrandCanonical,
 } from './shared/brandCanonicalMap';
 import {
  buildJobCareVariantLandingModel,
@@ -128,6 +130,31 @@ import {
   ALL_CANTON_CODES as SHARED_ALL_CANTON_CODES,
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+
+// ── Build-OOM diagnostic instrumentation (#1290) ──────────────────────────────
+// Logs process memory + WriteCollector backlog at each emit milestone so the CI
+// build log reveals which phase accretes the ~9.9 GB live heap / external spike.
+// No effect on emitted output. Remove once the retainer is fixed.
+function logBuildMem(label: string, collector?: unknown): void {
+  const mb = (n: number) => Math.round(n / 1048576);
+  // Force a full GC first (build:ci runs with --expose-gc) so the reported heap
+  // is the LIVE set, not garbage V8 keeps lazily under its 12 GB ceiling. DUAL
+  // PURPOSE: if this reclaims the per-phase growth, the gc() calls themselves
+  // bound the peak and prevent the OOM (cheap fix); if heap stays high post-gc
+  // it's genuine retention needing a code fix — and `gcFreed` tells us which. (#1290)
+  const gc = (globalThis as { gc?: () => void }).gc;
+  const beforeHeap = process.memoryUsage().heapUsed;
+  if (typeof gc === 'function') gc();
+  const m = process.memoryUsage();
+  const freed = mb(beforeHeap - m.heapUsed);
+  const c = collector as { writes?: Map<unknown, unknown>; _pendingFlushes?: Set<unknown> } | undefined;
+  const extra = c
+    ? ` pendingWrites=${c.writes?.size ?? '?'} inflightFlushes=${c._pendingFlushes?.size ?? '?'}`
+    : '';
+  console.log(
+    `\x1b[35m[mem]\x1b[0m ${label} heapUsed=${mb(m.heapUsed)}MB (gcFreed=${freed}MB) external=${mb(m.external)}MB arrayBuffers=${mb(m.arrayBuffers)}MB rss=${mb(m.rss)}MB${extra}`,
+  );
+}
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
@@ -391,40 +418,16 @@ export function composeJobPageH1(jobTitle: string, company: string): string {
  return cleanCompany ? `${jobTitle} — ${cleanCompany}` : jobTitle;
 }
 
-/**
- * Strip literal markdown bold/separator tokens that leak from AI-translated
- * crawler titles. The shared description parser only runs on body text — job
- * titles flow through `esc()` (HTML-escape only) into <h1>, related-jobs
- * sidebar, and aria-labels. When a crawler/translation leaves `**Title**`
- * intact, the literal asterisks render in <main>, blowing the 0-tolerance
- * `audit-no-literal-markdown` gate (PR #480 incident — 27 job-detail pages
- * with `**Diplomierte Pflegefachperson HF / FH (40-100%)**` leaked from
- * `titleByLocale`/`title`).
- *
- * Contract:
- *  - `**X**` → `X` (single pair). Repeats for chained bold runs.
- *  - `_X_`   → `X` (only when both delimiters touch the title's edges or
- *               whitespace, to avoid mangling identifiers like `HFR_M_42`).
- *  - `===…`, `___…`, `~~~…` separator runs (3+ chars) → stripped wholesale.
- *  - Single leading/trailing `*` chars (orphan asterisks from unbalanced
- *    bold runs that survived odd-count stripping in parseInline) → removed.
- *  - Collapses any double-spaces left over from stripping.
- *
- * Idempotent (running twice produces the same output).
- */
-export function stripLiteralMarkdownFromTitle(title: string): string {
- if (!title) return title;
- let t = String(title);
- // Bold pairs — non-greedy body, no newline (titles are single-line).
- t = t.replace(/\*\*([^*\n]+?)\*\*/g, '$1');
- // Separator runs (3+ of `_`, `=`, `~`) — drop.
- t = t.replace(/[_=~]{3,}/g, ' ');
- // Orphan leading/trailing single `*` and double `**` (unbalanced survivors).
- t = t.replace(/^\s*\*+\s*/, '').replace(/\s*\*+\s*$/, '');
- // Collapse any double-spaces created by the strips.
- t = t.replace(/[ \t]{2,}/g, ' ');
- return t.trim();
-}
+// Strip literal markdown bold/separator tokens that leak from AI-translated
+// crawler titles (job <h1>, related-jobs sidebar, aria-labels all flow through
+// `esc()` = HTML-escape only, so `**Title**` would render in <main> and blow
+// the 0-tolerance `audit-no-literal-markdown` gate — PR #480 incident).
+// Imported (top of file) from the single shared source and re-exported under
+// the historical name so every call site — including the related-job cross-link
+// block (L2692) that renders titles into scanned `<main>` — shares the hardened
+// implementation, which adds the orphan-`**` nuke (mid-string `**` survivors)
+// the old local copy lacked.
+export { stripLiteralMarkdownFromTitle };
 
 // ─── Human-readable disambiguator cascade ─────────────────────────────────
 //
@@ -783,6 +786,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'jobsSeoPagesPlugin' });
+ logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
  function _md(dir: string) {
  if (_ensuredDirs.has(dir)) return;
@@ -1300,8 +1304,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  resolveJobsSeoPagesFlushed();
  return;
  }
- const jobsRaw = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
- const jobs = Array.isArray(jobsRaw) ? jobsRaw : [];
+ let jobsRaw: any = JSON.parse(fs.readFileSync(jobsPath, 'utf-8'));
+ let jobs: any[] = Array.isArray(jobsRaw) ? jobsRaw : [];
+ jobsRaw = null; // drop the parse ref immediately — `jobs` holds the array
  const slugify = (input: string) => String(input || '')
  .toLowerCase()
  .normalize('NFD')
@@ -1386,6 +1391,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (ta !== tb) return tb - ta;
  return String(a.id || a.slug || '').localeCompare(String(b.id || b.slug || ''));
  });
+ // Release the raw dataset: validJobs is an independent spread-copy (new objects
+ // per job), and `jobs` is never read past this point — free ~150-250 MB before
+ // the heavy per-page emit + expired/bridge pre-scans. (Build OOM fix, #1290.)
+ jobs = [];
 
  /**
   * Per-slug canonical override map (Semrush cannibalization fix). Loaded from
@@ -2246,6 +2255,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return slugifyCompanyBuild(company);
  };
 
+ // Company-hub URL slug: same as canonicalCompanySlugBuild but folds declared
+ // brand aliases onto their canonical (e.g. migros-ticino → migros). Use this
+ // EVERYWHERE a company-hub page is emitted OR linked (per-canton hubs, job-page
+ // banner/footer, canton navigator) so emit and links agree on one canonical
+ // slug and an alias never produces an indexable self-hub or an orphan link to
+ // an un-emitted page. The raw companyMap key (companyMap construction) stays
+ // unfolded so the BRAND_UMBRELLAS aggregation still sees each real key.
+ const companyHubSlugBuild = (company: string, companyKey?: string): string => {
+ const raw = canonicalCompanySlugBuild(company, companyKey);
+ return raw ? (resolveBrandCanonical(raw) ?? raw) : raw;
+ };
+
  // ── Pre-compute title-collision map per locale ──
  // The base <title> formula (role + company + city) collapses to identical
  // strings whenever two jobs differ only by slug suffix (AFC vs CFP variants),
@@ -2265,6 +2286,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  const lt = String(job?.titleByLocale?.[locale] || job.title || '');
  const loc = String(job.location || '').trim();
@@ -2326,6 +2348,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const seen = new Set<string>();
  const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  const description = String(job?.descriptionByLocale?.[locale] || job.description || '');
  if (!description) continue;
@@ -2428,6 +2451,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  })();
 
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const perLocaleSlug = {
  it: localizedSlug(job, 'it'),
  en: localizedSlug(job, 'en'),
@@ -2959,7 +2983,7 @@ ${staticAnalyticsHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
  ${(() => {
- const cSlugBanner = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const cSlugBanner = companyHubSlugBuild(job.company, job.companyKey);
  // Relative href — internal navigation resolves against canonical (absolute).
  const cHref = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'));
  const cLogo = companyLogo(job);
@@ -3207,7 +3231,7 @@ ${staticAnalyticsHtml}
  })()}
  <nav class="fn">
  <a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
- const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const cSlug = companyHubSlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
@@ -3503,6 +3527,7 @@ ${staticAnalyticsHtml}
  // Collect unique companies by canonical slug (mirrors runtime grouping)
  const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
  const raw = slugifyCompanyBuild(job.company);
  if (!canonical) continue;
@@ -3554,6 +3579,20 @@ ${staticAnalyticsHtml}
 
  let companyPagesCount = 0;
  for (const [cSlug, { name: companyName, jobs: companyJobs, rawSlugs }] of companyMap) {
+ // Bound the WriteCollector's in-flight background-flush backlog during this
+ // loop — each company emits several large (~50 KB) HTML files and the page
+ // rate outruns libuv, so _pendingFlushes (each batch closes over its content)
+ // climbed to ~16 batches (~GBs live) by the end of this phase → OOM (#1290).
+ // awaitDrainSlot returns instantly when ≤6 batches are in flight and only
+ // awaits when above, so it self-regulates the peak with negligible cost.
+ await collector.awaitDrainSlot(6);
+ // Brand aliases (e.g. migros-ticino → migros umbrella) must NOT self-emit an
+ // indexable hub here: their jobs already surface on the canonical umbrella via
+ // the BRAND_UMBRELLAS aggregation above, and the alias URL is owned by the
+ // noindex bridge block below (BRAND_CANONICAL_MAP). Self-emitting would write an
+ // indexable page first, defeating that bridge's file-exists guard and
+ // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
+ if (isBrandAlias(cSlug)) continue;
  for (const locale of localeList) {
  const __tCompany = startTimer();
  const prefix = companyRoutePrefix[locale];
@@ -4106,6 +4145,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  }
  if (companyPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyPagesCount} company landing pages for ${companyMap.size} companies`);
+ logBuildMem('jobsSeoPages: after company-landing', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const aliasCount = listAllBrandAliases().length * localeList.length;
  if (aliasCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Emitted ${aliasCount} brand-alias bridge pages from BRAND_CANONICAL_MAP`);
@@ -4119,7 +4160,10 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // Ratchet: only write if the new set is at least as large as the existing one
  // to prevent fixture-data local builds from corrupting the production list.
  {
- const companySlugs = [...companyMap.keys()].sort();
+ // Exclude brand aliases (e.g. migros-ticino) — they resolve to a noindex
+ // bridge, so CompaniesHub / employerLinks must not surface them as real
+ // company hubs (mirrors the sitemap filter at the alias-aware emitter).
+ const companySlugs = [...companyMap.keys()].filter((s) => !isBrandAlias(s)).sort();
  const companySlugsPath = np.resolve(rootDir, 'data/known-company-slugs.json');
  let existingCount = 0;
  try {
@@ -4434,6 +4478,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // editorial loops below (today / nurses / part-time / care-variant).
  const editorialCantonJobCounts = new Map<string, number>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (!c) continue;
  editorialCantonJobCounts.set(c, (editorialCantonJobCounts.get(c) ?? 0) + 1);
@@ -5880,6 +5925,7 @@ ${staticAnalyticsHtml}
  const jobsByCantonCity: Map<string, Map<string, typeof validJobs>> = new Map();
  const cityDisplayByCantonCity: Map<string, Map<string, string>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const canton = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (canton === 'TI') continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
@@ -6145,6 +6191,8 @@ ${staticAnalyticsHtml}
  }
  if (cityHubCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${cityHubCantonPagesCount} per-canton city hub pages`);
+ logBuildMem('jobsSeoPages: after city-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  // Append city hub sitemap entries to editorial entries
  const cityHubEntriesJoined = cityHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
@@ -6265,6 +6313,7 @@ ${staticAnalyticsHtml}
  // Group validJobs by resolved canton.
  const jobsByCanton: Map<string, typeof validJobs> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (!jobsByCanton.has(c)) jobsByCanton.set(c, []);
  jobsByCanton.get(c)!.push(job);
@@ -6533,6 +6582,7 @@ ${staticAnalyticsHtml}
  // Group validJobs by (canton, category)
  const cantonCategoryCounts: Map<string, Map<string, typeof validJobs>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  const cat = String((job as any).category || '').toLowerCase();
@@ -6700,6 +6750,7 @@ ${staticAnalyticsHtml}
  const cantonSectorBuckets: Map<string, Map<SectorHubKey, typeof validJobs>> = new Map();
  const cantonTotalSec: Map<string, number> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
  cantonTotalSec.set(c, (cantonTotalSec.get(c) ?? 0) + 1);
@@ -6866,6 +6917,8 @@ ${staticAnalyticsHtml}
  }
  if (sectorHubPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${sectorHubPagesCount} per-canton sector hub pages`);
+ logBuildMem('jobsSeoPages: after sector-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const sectorHubEntriesJoined = sectorHubSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${sectorHubEntriesJoined}`
@@ -6900,9 +6953,10 @@ ${staticAnalyticsHtml}
  type CompCanton = { name: string; jobs: typeof validJobs };
  const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const canonical = companyHubSlugBuild(job.company, job.companyKey);
  if (!canonical) continue;
  if (!cantonCompanyBuckets.has(c)) cantonCompanyBuckets.set(c, new Map());
  const byCompany = cantonCompanyBuckets.get(c)!;
@@ -7086,6 +7140,8 @@ ${staticAnalyticsHtml}
  }
  if (companyCantonPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
+ logBuildMem('jobsSeoPages: after company-canton-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCantonEntriesJoined = companyCantonSitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCantonEntriesJoined}`
@@ -7113,9 +7169,10 @@ ${staticAnalyticsHtml}
  type CompCityEntry = { name: string; cityDisplay: string; jobs: typeof validJobs };
  const buckets: Map<string, Map<string, Map<string, CompCityEntry>>> = new Map();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
  if (c === 'TI') continue;
- const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
+ const canonical = companyHubSlugBuild(job.company, job.companyKey);
  if (!canonical) continue;
  const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
  if (!rawLocation) continue;
@@ -7293,6 +7350,8 @@ ${staticAnalyticsHtml}
  }
  if (companyCityPagesCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCityPagesCount} per-canton company×city hub pages`);
+ logBuildMem('jobsSeoPages: after company-city-hubs', collector);
+ await collector.awaitDrainSlot(2); // bound _pendingFlushes backlog during bulk emit (#1290)
  const companyCityEntriesJoined = companyCitySitemapEntries.join('\n');
  editorialEntries = editorialEntries
  ? `${editorialEntries}\n${companyCityEntriesJoined}`
@@ -7340,7 +7399,25 @@ ${staticAnalyticsHtml}
  // role / city / employer hubs. The Italian landing preserves its curated
  // `itCopy.title` because that was hand-tuned per query in keyword config.
  const kwTitle = locale === 'it'
- ? buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''))
+ ? (() => {
+ // Curated IT title = heading + " | Frontaliere Ticino" brand suffix.
+ // For long headings the brand is dropped (buildTitleWithBrand 66-char
+ // cap) and the title collapses to the bare heading — byte-identical to
+ // the <h1> (itCopy.heading), tripping the 0-tolerance
+ // audit:h1-title-duplicates ratchet. When that collision happens, fall
+ // back to the count+year role-hub title (already used for EN/DE/FR):
+ // it stays ≤66 chars (audit:title-length) and is structurally distinct
+ // from the descriptive heading, so title can never equal h1.
+ const curated = buildTitleWithBrand(String(itCopy.title || '').replace(/\s*\|\s*Frontaliere Ticino\s*$/i, ''));
+ const norm = (s: string) => String(s).replace(/\s+/g, ' ').trim().toLowerCase();
+ if (norm(curated) !== norm(String(itCopy.heading || ''))) return curated;
+ return buildRoleHubTitle({
+ locale,
+ roleDisplay: kwQueryDisplay || 'Jobs',
+ count: kwJobs.length,
+ year: new Date().getFullYear(),
+ });
+ })()
  : buildRoleHubTitle({
  locale,
  roleDisplay: kwQueryDisplay || 'Jobs',
@@ -7490,7 +7567,13 @@ ${staticAnalyticsHtml}
  const searchLeaderMap = new Map<string, { key: string; name: string }>();
  for (const item of leaderGroups) {
  const key = String(item?.key || '').trim();
- const name = String(item?.name || '').trim();
+ // Leader `name` is `titleByLocale.it || title` from data/jobs-stats.json
+ // (job-board-stats.mjs only normalizes whitespace) — same AI-translated
+ // data class as job-detail titles. Strip at this single source so the h1,
+ // intro/density prose and breadcrumb JSON-LD on the emitted
+ // `/cerca-lavoro-ticino/ricerca-*/` pages (in scope of
+ // audit-no-literal-markdown) never carry literal `**`.
+ const name = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (!key || !name || searchLeaderMap.has(key)) continue;
  searchLeaderMap.set(key, { key, name });
  }
@@ -7874,12 +7957,15 @@ ${staticAnalyticsHtml}
  }
  };
 
- // Collect unique locations and companies from stats leaders
+ // Collect unique locations and companies from stats leaders. `name` is the
+ // same whitespace-only-normalized stats-leader data class as the title
+ // leaders above; strip at the source so combo `copy.heading`/title (rendered
+ // into scanned `<main>` + breadcrumb JSON-LD) can never carry literal `**`.
  const locationLeaders = new Map<string, string>();
  for (const groupKey of ['topLocationsActive', 'topLocationsAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !locationLeaders.has(k)) locationLeaders.set(k, n);
  }
  }
@@ -7887,7 +7973,7 @@ ${staticAnalyticsHtml}
  for (const groupKey of ['topCompaniesActive', 'topCompaniesAdded30d'] as const) {
  for (const item of (statsRaw?.leaders?.[groupKey] ?? [])) {
  const k = String(item?.key || '').trim();
- const n = String(item?.name || '').trim();
+ const n = stripLiteralMarkdownFromTitle(String(item?.name || '').trim());
  if (k && n && !companyLeaders.has(k)) companyLeaders.set(k, n);
  }
  }
@@ -8235,6 +8321,7 @@ ${staticAnalyticsHtml}
  }
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
+ logBuildMem('jobsSeoPages: after job-pages-DONE', collector);
 
  // Active-job emit done — release canonicalCleanedCache (~22k entries ×
  // CleanedFallbackContent, hundreds of MB peak). Only `memoCanonicalCleaned`
@@ -8964,9 +9051,11 @@ ${staticAnalyticsHtml}
        // BFS-depth closure (Phase 8a follow-up — May 2026): top company hubs
        // (`/cerca-lavoro-{canton}/azienda-{empKey}/`) are emitted by the
        // per-canton company-hub block (~line 6275-6400) using
-       // `canonicalCompanySlugBuild`, gated MIN_JOBS_PER_CANTON_COMPANY=3.
-       // Re-derive the slug here using the SAME `canonicalCompanySlugBuild`
-       // helper so the hrefs exactly match what's emitted. Top 6 by job
+       // `companyHubSlugBuild`, gated MIN_JOBS_PER_CANTON_COMPANY=3.
+       // Re-derive the slug here using the SAME `companyHubSlugBuild`
+       // helper (brand-alias-folded) so the hrefs exactly match what's
+       // emitted — an alias like migros-ticino folds to azienda-migros, the
+       // page that is actually written. Top 6 by job
        // count keeps the navigator focused; ties broken by slug for
        // determinism.
        const companyHubs: Array<{ slug: string; label: string }> = [];
@@ -8974,7 +9063,7 @@ ${staticAnalyticsHtml}
          const companyCounts = new Map<string, { name: string; count: number }>();
          for (const j of cantonJobsAll) {
            const jc = j as { company?: string; companyKey?: string };
-           const cSlug = canonicalCompanySlugBuild(jc.company || '', jc.companyKey);
+           const cSlug = companyHubSlugBuild(jc.company || '', jc.companyKey);
            if (!cSlug) continue;
            const cur = companyCounts.get(cSlug);
            if (cur) { cur.count++; }
@@ -9099,7 +9188,15 @@ ${staticAnalyticsHtml}
      }
 
      const bodyHtml = [
-       `<main class="seo-static-content s-LFxJYv">`,
+       // #974: drop `seo-static-content` from this INNER <main> (keep the
+       // `s-LFxJYv` layout class). buildSeoPageHtml wraps bodyHtml in the OUTER
+       // main.seo-static-content (display:grid); leaving the class here made the
+       // inner main a nested grid item with default min-width:auto, so its track
+       // could not shrink and wide content forced horizontal overflow on mobile
+       // (382px). Mirrors comparisonsHub #962 / borderWaitMap #958. The outer
+       // shell main still carries seo-static-content (lite-shell detector +
+       // staticOverlay handoff preserved).
+       `<main class="s-LFxJYv">`,
        `<nav class="s-ZVaIKh"><a class="s-t_pXue" href="/">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header class="s-TYF4UK"><h1 class="s-Wb8ho2">${esc(display)}</h1><p class="s-b7cYUf">${esc(labels.lede)}</p></header>`,
        tileGrid,
@@ -9184,6 +9281,7 @@ ${staticAnalyticsHtml}
  // should be treated as previous slugs (bridge pages), not as current.
  const implicitPreviousSlugs: { job: typeof validJobs[0]; slug: string }[] = [];
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const itSlug = localizedSlug(job, 'it');
  // Only add job.slug to currentSlugs if it matches the actual IT page slug.
  // When they differ, the old slug needs a bridge page, not exclusion.
@@ -9640,6 +9738,7 @@ ${staticAnalyticsHtml}
  // same IT path, so we must group by IT path to catch them all.
  const bridgeItPaths = new Set<string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const s of _allPrevSlugs(job)) {
  bridgeSlugSet.add(s);
  const itPath = (tracking[s] as any)?.it;
@@ -9678,6 +9777,7 @@ ${staticAnalyticsHtml}
  // Now we exclude only the specific locale paths that actually conflict.
  const bridgeClaimedPaths = new Set<string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const oldSlug of _allPrevSlugs(job)) {
  if (!oldSlug) continue;
  for (const locale of localeList) {
@@ -9761,6 +9861,7 @@ ${staticAnalyticsHtml}
  } catch { /* adapters dir missing */ }
  // Also include companies from active jobs (covers crawlers without adapters)
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const key = String(job.companyKey || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
  if (key && !seenCompanySlugs.has(key)) {
  companySlugMap.push({ slug: key, name: job.company });
@@ -10806,6 +10907,7 @@ ${staticAnalyticsHtml}
 
  if (expiredCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
+ logBuildMem('jobsSeoPages: after expired-softlandings', collector);
  // Backpressure between expired-soft-landing (~150k pages) and the
  // next big emit (previousSlugs full-content ~65k pages).
  await collector.awaitDrainSlot(2);
@@ -10915,6 +11017,7 @@ ${staticAnalyticsHtml}
  // contract shouldn't depend on that).
  const cantonByKey = new Map<string, string>();
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
  if (pslByLocale && typeof pslByLocale === 'object') {
@@ -10991,6 +11094,7 @@ ${staticAnalyticsHtml}
  let bridgeCount = 0;
  let bridgeSkippedNotWinner = 0;
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  // Collect previous slugs that aren't locale-attributed (legacy flat entries)
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -11222,6 +11326,7 @@ ${staticAnalyticsHtml}
  // the base locale's current slug URL. No redirect, no countdown.
  let crossLocaleCount = 0;
  for (const job of validJobs) {
+  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  const slugPerLocale: Record<string, string> = {};
  for (const locale of localeList) {
  const s = localizedSlug(job, locale);

@@ -18,10 +18,18 @@ on:
 
 concurrency:
   group: traffic-scheduler
-  cancel-in-progress: true
+  # cancel-in-progress is FALSE so a freshness-watchdog re-dispatch (issue #1106
+  # item 2) can never cancel an in-flight run that is about to write the data
+  # file: under sustained stale (>90min) the hourly watchdog dispatches this
+  # workflow every hour, and with cancel=true an arriving dispatch would kill a
+  # */15 cron run mid-collect, leaving data stale → watchdog re-dispatches → loop.
+  # Runs are ≤10min and crons are spaced ≥15min, so serialized queueing (group
+  # without cancel) still prevents overlap without the cancellation race.
+  cancel-in-progress: false
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   collect:
@@ -81,3 +89,19 @@ jobs:
         # NOTE: Commit + push goes to main BUT deploy.yml has paths-ignore on
         # data/border-wait-* so this won't trigger a deploy storm — periodic
         # deploys will pick up the new JSON.
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

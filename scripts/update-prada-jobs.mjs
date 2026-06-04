@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -157,7 +158,11 @@ async function main() {
       continue;
     }
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-prada-group-${loc}`);
+    // Slug-only guard: `loc` (`detail?.location || raw.location || 'Mendrisio'`)
+    // can be the literal "undefined"/"null" string (truthy) → `-undefined` in an
+    // active slug (#952, class #900/#901). addressLocality keeps `loc` (choke-point
+    // normalizer handles de-index).
+    const jobSlug = slugify(`${raw.title}-prada-group-${safeLocationToken(loc, 'Mendrisio')}`);
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,

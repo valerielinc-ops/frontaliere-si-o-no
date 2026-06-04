@@ -78,16 +78,27 @@ function swallowBackgroundLoadError(_err: unknown): void {
 
 // ─── Blog Translations (2-tier: meta + per-article body) ─────
 
-// Tier 1: Blog meta (titles, excerpts, imageAlt)
-const blogMetaLoaders: Record<Locale, () => Promise<{ default: Translations }>> = {
+// Tier 1: Blog meta (titles, excerpts, imageAlt) — per article section
+type ArticleSectionName = 'frontaliere' | 'svizzera';
+
+const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{ default: Translations }>>> = {
+ frontaliere: {
  it: () => import('./locales/blog-meta-it'),
  en: () => import('./locales/blog-meta-en'),
  de: () => import('./locales/blog-meta-de'),
  fr: () => import('./locales/blog-meta-fr'),
+ },
+ svizzera: {
+ it: () => import('./locales/blog-meta-ch-it'),
+ en: () => import('./locales/blog-meta-ch-en'),
+ de: () => import('./locales/blog-meta-ch-de'),
+ fr: () => import('./locales/blog-meta-ch-fr'),
+ },
 };
 
-let blogMetaLoaded = false;
-let blogMetaLoadingPromise: Promise<void> | null = null;
+// "section:locale" markers for meta chunks already merged in.
+const blogMetaLoaded = new Set<string>();
+const blogMetaLoadingPromises = new Map<string, Promise<void>>();
 
 // Tier 2: Per-article body (body1, body2, body3) — loaded on demand
 const loadedArticleBodies = new Set<string>(); // "locale:articleId"
@@ -98,41 +109,46 @@ const articleBodyPromises = new Map<string, Promise<void>>();
  * This is ~85% smaller than the old monolithic blog load.
  * Safe to call multiple times — subsequent calls are no-ops.
  */
-export async function loadBlogMeta(): Promise<void> {
- if (blogMetaLoaded) return;
- if (blogMetaLoadingPromise) {
- await blogMetaLoadingPromise;
+export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'): Promise<void> {
+ const loaders = blogMetaLoaders[section];
+ const key = `${section}:${currentLocale}`;
+ if (blogMetaLoaded.has(key)) return;
+ const existing = blogMetaLoadingPromises.get(key);
+ if (existing) {
+ await existing;
  return;
  }
- blogMetaLoadingPromise = (async () => {
- const itMeta = await blogMetaLoaders.it();
+ const promise = (async () => {
+ const itMeta = await loaders.it();
  loadedLocales['it'] = { ...loadedLocales['it'], ...itMeta.default };
 
  if (currentLocale !== 'it') {
- const localeMeta = await blogMetaLoaders[currentLocale]();
+ const localeMeta = await loaders[currentLocale]();
  loadedLocales[currentLocale] = { ...loadedLocales[currentLocale], ...localeMeta.default };
  }
- blogMetaLoaded = true;
+ blogMetaLoaded.add(`${section}:it`);
+ blogMetaLoaded.add(key);
  localeTick++;
  listeners.forEach(fn => fn(currentLocale));
  })();
- await blogMetaLoadingPromise;
+ blogMetaLoadingPromises.set(key, promise);
+ await promise;
 }
 
 /**
  * Lazily loads BODY translations (body1, body2, body3) for a single article.
  * Called when the user opens a specific article. ~3-7 KB per article.
  */
-export async function loadArticleBody(articleId: string): Promise<void> {
+export async function loadArticleBody(articleId: string, section: ArticleSectionName = 'frontaliere'): Promise<void> {
  const locale = currentLocale;
- const key = `${locale}:${articleId}`;
- const itKey = `it:${articleId}`;
+ const key = `${section}:${locale}:${articleId}`;
+ const itKey = `${section}:it:${articleId}`;
 
  // Load IT fallback body if not loaded
  if (!loadedArticleBodies.has(itKey) && !articleBodyPromises.has(itKey)) {
  articleBodyPromises.set(itKey, (async () => {
  const { loadBlogBodyChunk } = await import('./blogBodyLoader');
- const data = await loadBlogBodyChunk('it', articleId);
+ const data = await loadBlogBodyChunk('it', articleId, section);
  if (data) {
  mergeLocaleTranslations('it', data);
  loadedArticleBodies.add(itKey);
@@ -144,7 +160,7 @@ export async function loadArticleBody(articleId: string): Promise<void> {
  if (locale !== 'it' && !loadedArticleBodies.has(key) && !articleBodyPromises.has(key)) {
  articleBodyPromises.set(key, (async () => {
  const { loadBlogBodyChunk } = await import('./blogBodyLoader');
- const data = await loadBlogBodyChunk(locale, articleId);
+ const data = await loadBlogBodyChunk(locale, articleId, section);
  if (data) {
  mergeLocaleTranslations(locale, data);
  loadedArticleBodies.add(key);
@@ -170,8 +186,8 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  if (locale === 'it') {
  // IT translations are loaded eagerly via itReady; wait for them
  await itReady;
- if (blogMetaLoaded && !loadedLocales['it']?.['blog.article.stipendio-netto-2026.title']) {
- const itMeta = await blogMetaLoaders['it']();
+ if (blogMetaLoaded.size > 0 && !loadedLocales['it']?.['blog.article.stipendio-netto-2026.title']) {
+ const itMeta = await blogMetaLoaders.frontaliere['it']();
  loadedLocales['it'] = { ...loadedLocales['it'], ...itMeta.default };
  }
  return;
@@ -183,8 +199,8 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
 
  // If core+calculator already loaded, just wait for any in-flight loading
  if (loadedLocaleChunks[locale].has('core')) {
- if (blogMetaLoaded && !loadedLocales[locale]?.['blog.article.stipendio-netto-2026.title']) {
- const localeMeta = await blogMetaLoaders[locale]();
+ if (blogMetaLoaded.size > 0 && !loadedLocales[locale]?.['blog.article.stipendio-netto-2026.title']) {
+ const localeMeta = await blogMetaLoaders.frontaliere[locale]();
  mergeLocaleTranslations(locale, localeMeta.default);
  }
  return;
@@ -218,9 +234,14 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  loadedLocaleChunks[locale].add('seo-links');
 
  // If blog meta was already loaded, merge meta keys for this locale too
- if (blogMetaLoaded) {
- const localeMeta = await blogMetaLoaders[locale]();
+ if (blogMetaLoaded.size > 0) {
+ const localeMeta = await blogMetaLoaders.frontaliere[locale]();
  mergeLocaleTranslations(locale, localeMeta.default);
+ // Also top up svizzera meta for this locale if that section was loaded.
+ if (blogMetaLoaded.has(`svizzera:${locale}`) || blogMetaLoaded.has('svizzera:it')) {
+ const chMeta = await blogMetaLoaders.svizzera[locale]();
+ mergeLocaleTranslations(locale, chMeta.default);
+ }
  }
 
  // Background-load remaining page chunks
