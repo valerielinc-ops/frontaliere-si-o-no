@@ -1731,3 +1731,39 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
   white-space: nowrap;
   border: 0;
 }
+
+/* ── Fuel daily / station pages (fuelDailyPagesPlugin) ───────────────────
+ * Extract the repeated inline styles emitted by the shared fuel history
+ * chart + range selector into hashed classes. These renderers run for every
+ * page under /prezzi-benzina/ + /prezzi-diesel/ (station, zone, italian-city,
+ * italian-station, ~1k+ pages × 4 locales). The chart axis-tick `<text>`
+ * style alone repeats ~13× per page; moving it here strips ~1.4 MB across the
+ * fuel corpus. Computed style is byte-identical to the former inline strings.
+ *
+ * `.s-rbtn` active/inactive visuals are driven by the `aria-pressed` attribute
+ * (already toggled by the inline range-selector script) so the script no
+ * longer writes `style.background`/`style.color`. `.s-rcont` / `.s-rstat`
+ * visibility is toggled via the `.s-on` class instead of `style.display`.
+ */
+.s-ctk { font:11px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-chart-label);font-variant-numeric:tabular-nums }
+.s-fhc { background:var(--color-surface);border:1px solid var(--color-edge);border-radius:16px;padding:20px;box-shadow:0 1px 2px rgba(0,0,0,0.04);max-width:720px;margin:0 0 14px }
+.s-fhc-h { display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-bottom:14px }
+.s-fhc-r { display:flex;gap:6px;flex-wrap:wrap }
+.s-rbtn { border:0;cursor:pointer;padding:6px 12px;border-radius:8px;font:600 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;transition:background-color 0.15s,color 0.15s }
+.s-rbtn[aria-pressed="true"] { background:var(--color-success-strong);color:var(--color-on-accent) }
+.s-rbtn[aria-pressed="false"] { background:var(--color-surface-raised);color:var(--color-subtle) }
+.s-rcont { display:none }
+.s-rcont.s-on { display:block }
+.s-rstat { display:none;justify-content:space-between;gap:8px;margin-top:14px;font:500 12px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-subtle);min-height:20px }
+.s-rstat.s-on { display:flex }
+
+/* Typography class equivalents of the HERO_EYEBROW_STYLE / H1_STYLE /
+ * LEDE_STYLE / H2_STYLE inline constants (seoContentTokens.ts). Used by the
+ * fuel plugin's page headers + section headings; computed style is identical.
+ * Other SEO plugins still inline the constants — migrating them is a separate
+ * follow-up (would touch ~200k job pages). */
+.s-eyb { margin:0 0 8px;color:var(--color-accent);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em }
+.s-h1 { margin:0 0 12px;font-size:clamp(1.8rem,4.5vw,2.75rem);line-height:1.15;color:var(--color-heading);font-weight:700 }
+.s-lede { margin:0 0 14px;font-size:18px;line-height:1.55;color:var(--color-body);max-width:60ch }
+.s-h2 { margin:2rem 0 1rem;font-size:1.75rem;line-height:1.2;color:var(--color-heading);font-weight:600 }
+.s-cempty { font:13px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-subtle) }
