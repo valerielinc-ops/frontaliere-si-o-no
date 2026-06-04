@@ -7953,6 +7953,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Gesundheitsabgabe für Grenzgänger: Tessin lehnt ab',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'Der Tessiner Staatsrat stuft den Gesundheitsbeitrag als Steuer ein. Die Rückerstattungen und das Steuerabkommen mit Italien sind in Gefahr.',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'Blick auf das Schloss von Bellinzona im Tessin',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Gesundheitsabgabe für Grenzgänger: Tessin hält sie für unzulässig',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Der Tessiner Staatsrat kritisiert die Gesundheitsabgabe für Alt-Grenzgänger und stuft diese als widersprüchlich zu den Doppelbesteuerungsabkommen ein.',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande in Bellinzona, Sitz des Tessiner Staatsrates',
 };
 
 export default blogMetaDe;

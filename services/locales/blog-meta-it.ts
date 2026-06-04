@@ -7955,6 +7955,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Tassa salute frontalieri: il Ticino boccia il prelievo',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'Il Consiglio di Stato ticinese definisce il contributo sanitario come un\'imposta. A rischio i ristorni e la tenuta dell\'accordo fiscale con l\'Italia.',
     'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'Veduta del Castello di Bellinzona in Ticino',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Tassa salute frontalieri: il Ticino la definisce indebita',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Il Consiglio di Stato ticinese contesta la tassa sulla salute per i vecchi frontalieri, giudicandola contraria agli accordi sulla doppia imposizione.',
+    'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande di Bellinzona, sede del Consiglio di Stato ticinese',
 };
 
 export default blogMetaIt;

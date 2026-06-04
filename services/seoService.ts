@@ -3915,6 +3915,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-13esima-avs-iva-nazionale': { name: '13esima AVS IVA', path: '/articoli-frontaliere/13esima-avs-iva-nazionale', parent: 'blog' },
     'blog-consiglio-stato-ticino-boccia-tassa-salute': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute', parent: 'blog' },
     'blog-svizzera-dazi-usa-lavoro-forzato': { name: 'Svizzera respinge dazi USA su lavoro for', path: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-ticino-indebita': { name: 'Fisco frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

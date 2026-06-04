@@ -25245,6 +25245,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'tassa-salute-frontalieri-ticino-indebita',
+ category: 'fiscale',
+ date: '2026-06-04T02:26:50.005Z',
+ image: '/images/blog/tassa-salute-frontalieri-ticino-indebita.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
