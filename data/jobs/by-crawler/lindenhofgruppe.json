@@ -310,9 +310,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -336,7 +336,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-pflegefachfrau-mann-fh-hf/694cd906-d05d-4f2c-ae63-840ec84dc3e0",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.853Z",
+      "crawledAt": "2026-06-04T12:46:38.378Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -356,8 +356,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -370,15 +368,12 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.775Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -895,7 +890,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/auszubildende-zur-m-dipl-pflegefachfrau-mann-fh-teilzeit-bsc-fuer-fage-2-bis-4-jahre/6893e117-5788-4b2e-a22d-ca4385dd35f7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.849Z",
+      "crawledAt": "2026-06-04T12:46:38.375Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -931,7 +926,6 @@
           "apprentissage-a-m-dipl-carriere-femme-mann-fh-bsc-a-temps-partiel-pour-fage-2-a-4-ans-lindenhofgruppe-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.772Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -977,7 +971,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-experte-expertin-anaesthesie-nds-hf/5adceb3d-3a8a-420e-9261-52ee6dbe40c9",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.848Z",
+      "crawledAt": "2026-06-04T12:46:38.374Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1008,7 +1002,6 @@
           "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.771Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1054,7 +1047,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/dipl-expertin-experte-notfallpflege-nds-hf/47300e6c-06e9-45e2-8702-9613935ba6a7",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.847Z",
+      "crawledAt": "2026-06-04T12:46:38.373Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1084,7 +1077,6 @@
           "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.769Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1284,7 +1276,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/mitarbeiter-in-patienten-hotellerie/ab8a9551-f216-4484-99e2-87cc305e9949",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.846Z",
+      "crawledAt": "2026-06-04T12:46:38.373Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1315,7 +1307,6 @@
           "mitarbeiter-in-patienten-hotellerie-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T21:57:57.767Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2144,7 +2135,7 @@
       "url": "https://karriere.lindenhofgruppe.ch/offene-stellen/fachfrau-mann-gesundheit/d212d6f5-f1ab-4cef-af8c-47f68fe26e03",
       "source": "Lindenhofgruppe Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T15:21:15.833Z",
+      "crawledAt": "2026-06-04T12:46:38.362Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2182,7 +2173,6 @@
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:34:55.517Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
