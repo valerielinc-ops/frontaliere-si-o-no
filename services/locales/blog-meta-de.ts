@@ -7950,6 +7950,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.13esima-avs-iva-nazionale.title': '13. AHV: Nationalrat besteht auf Mehrwertsteuer',
     'blog.article.13esima-avs-iva-nazionale.excerpt': 'Der Nationalrat hat die Finanzierung der 13. AHV-Rente ausschließlich durch eine Erhöhung der Mehrwertsteuer bestätigt und die Mischlösung verworfen. Folgen für Grenzgänger.',
     'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Schweizer Franken-Banknoten und Münzen mit Blick auf den Luganersee',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Gesundheitsabgabe für Grenzgänger: Tessin lehnt ab',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'Der Tessiner Staatsrat stuft den Gesundheitsbeitrag als Steuer ein. Die Rückerstattungen und das Steuerabkommen mit Italien sind in Gefahr.',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'Blick auf das Schloss von Bellinzona im Tessin',
 };
 
 export default blogMetaDe;

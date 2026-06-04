@@ -7951,6 +7951,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.13esima-avs-iva-nazionale.title': '13th AVS Pension: National Council Insists on VAT Increase',
     'blog.article.13esima-avs-iva-nazionale.excerpt': 'The National Council has confirmed the funding of the 13th AVS pension solely through a VAT increase, rejecting the mixed solution. Implications for cross-border workers.',
     'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Swiss franc banknotes and coins with a view of Lake Lugano',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Cross-border health tax: Ticino rejects the levy',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'The Ticino Council of State defines the health contribution as a tax. Financial compensation and the stability of the tax agreement with Italy are at risk.',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'View of the Bellinzona Castle in Ticino',
 };
 
 export default blogMetaEn;

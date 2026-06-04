@@ -7952,6 +7952,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.13esima-avs-iva-nazionale.title': '13esima AVS: il Nazionale insiste sull\'IVA',
     'blog.article.13esima-avs-iva-nazionale.excerpt': 'Il Consiglio nazionale ha confermato il finanziamento della 13esima rendita AVS solo con aumento IVA, respingendo la soluzione mista. Implicazioni per i frontalieri.',
     'blog.article.13esima-avs-iva-nazionale.imageAlt': 'Banconote e monete svizzere con vista sul Lago di Lugano',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.title': 'Tassa salute frontalieri: il Ticino boccia il prelievo',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.excerpt': 'Il Consiglio di Stato ticinese definisce il contributo sanitario come un\'imposta. A rischio i ristorni e la tenuta dell\'accordo fiscale con l\'Italia.',
+    'blog.article.consiglio-stato-ticino-boccia-tassa-salute.imageAlt': 'Veduta del Castello di Bellinzona in Ticino',
 };
 
 export default blogMetaIt;

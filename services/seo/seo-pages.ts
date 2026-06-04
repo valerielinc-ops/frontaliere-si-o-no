@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2716,
+ "numberOfItems": 2717,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7356,7 +7356,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2713, "name": "Guerre dell'informazione: minacce e strategie", "url": `${BASE_URL}/articoli-frontaliere/guerre-dellinformazione` },
           { "@type": "ListItem", "position": 2714, "name": "Imposta alla fonte non restituita: cosa cambia ...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2715, "name": "Come Ginevra ha identificato l'hantavirus: impl...", "url": `${BASE_URL}/articoli-frontaliere/hantavirus-ginevra-identificazione` },
-          { "@type": "ListItem", "position": 2716, "name": "13esima AVS: il Nazionale insiste sull'IVA", "url": `${BASE_URL}/articoli-frontaliere/13esima-avs-iva-nazionale` }
+          { "@type": "ListItem", "position": 2716, "name": "13esima AVS: il Nazionale insiste sull'IVA", "url": `${BASE_URL}/articoli-frontaliere/13esima-avs-iva-nazionale` },
+          { "@type": "ListItem", "position": 2717, "name": "Tassa salute frontalieri: il Ticino boccia il p...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute` }
  ]
  },
  {

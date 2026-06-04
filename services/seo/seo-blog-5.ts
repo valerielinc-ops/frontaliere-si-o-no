@@ -42233,6 +42233,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-stato-ticino-boccia-tassa-salute': {
+    title: 'Tassa salute frontalieri: il Ticino boccia il prelievo',
+    description: 'Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi. Analisi degli impatti e procedure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, boccia, prelievo',
+    ogTitle: 'Tassa salute frontalieri: il Ticino boccia il prelievo',
+    ogDescription: 'Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi.',
+    canonicalPath: '/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: il Ticino boccia il prelievo",
+      "description": "Il Consiglio di Stato del Ticino boccia la tassa salute per i frontalieri: rischio ristorni e violazione accordi. Analisi degli impatti e procedure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/consiglio-stato-ticino-boccia-tassa-salute.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Castello di Bellinzona in Ticino"
+      },
+      "datePublished": "2026-06-04T02:16:09+00:00",
+      "dateModified": "2026-06-04T02:16:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
