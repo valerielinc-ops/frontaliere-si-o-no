@@ -4004,7 +4004,11 @@ export function validateDedicatedLocaleCoverage({
       // while the good jobs commit normally.
       const SYSTEMIC_THIN_RATIO = Number(process.env.JOBS_SYSTEMIC_THIN_RATIO) || 0.5;
       const suspiciousRatio = suspiciousThin.length / jobs.length;
-      const systemic = suspiciousRatio >= SYSTEMIC_THIN_RATIO;
+      // Require an absolute floor of >=2 thin jobs too: on a tiny listing source
+      // (2-4 jobs) a SINGLE naturally-short posting is already >=50% and would
+      // otherwise still brick the whole run. A parser break manifests as MANY
+      // thin jobs, so one thin job is never "systemic" regardless of ratio.
+      const systemic = suspiciousRatio >= SYSTEMIC_THIN_RATIO && suspiciousThin.length >= 2;
 
       if (systemic) {
         throw new Error(

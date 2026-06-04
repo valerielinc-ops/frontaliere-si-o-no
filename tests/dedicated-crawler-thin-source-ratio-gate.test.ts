@@ -134,6 +134,19 @@ describe('validateDedicatedLocaleCoverage — ratio-gated thin-source abort', ()
     expect(() => runGuard(jobsPath)).toThrow(/thin-source investigation failed/i);
   });
 
+  it('(c) tiny source, single thin at 50% → does NOT throw (>=2 absolute floor)', () => {
+    // 1 good + 1 thin = 50% ratio, but only ONE thin job. A parser break
+    // manifests as MANY thin jobs, so a lone naturally-short posting on a tiny
+    // listing source must never brick the run despite hitting the ratio.
+    const jobs = [makeGoodJob('good-0', 0), makeThinJob('thin-0', 0)];
+    const { jobsPath } = writeJobs(jobs);
+
+    expect(() => runGuard(jobsPath)).not.toThrow();
+    const after = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as Array<{ description: string }>;
+    expect(after).toHaveLength(1);
+    expect(after[0].description).not.toBe('Stampa');
+  });
+
   it('all good → passes cleanly with no quarantine', () => {
     const jobs = Array.from({ length: 5 }, (_, i) => makeGoodJob(`good-${i}`, i));
     const { jobsPath } = writeJobs(jobs);
