@@ -1284,8 +1284,8 @@
       "slugByLocale": {
         "de": "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun",
         "it": "apprendistato-fage-cfc-erwachsenenbildung-in-wattenwil-spitex-region-thun-ag-thun",
-        "en": "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun",
-        "fr": "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun"
+        "en": "apprenticeship-fage-efz-adult-education-in-wattenwil-spitex-region-thun-ag-thun",
+        "fr": "apprentissage-fage-efz-education-des-adultes-a-wattenwil-spitex-region-thun-ag-thun"
       },
       "company": "SPITEX Region Thun AG",
       "companyKey": "spitex-ch",
@@ -1331,6 +1331,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun"
+        ],
+        "en": [
+          "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun"
+        ],
+        "fr": [
           "lehrstelle-fage-efz-erwachsenenbildung-in-wattenwil-spitex-ch-thun"
         ]
       },
@@ -1431,9 +1437,9 @@
       "slug": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
       "slugByLocale": {
         "it": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
-        "en": "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
+        "en": "team-management-somatic-care-80-100-spitex-region-aarau-aarau-64af6d",
         "de": "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
-        "fr": "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
+        "fr": "gestion-d-equipe-somatic-80-100-spitex-region-aarau-aarau"
       },
       "company": "Spitex Region Aarau",
       "companyKey": "spitex-ch",
@@ -1477,19 +1483,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
-        "team-management-somatic-care-80-100-spitex-region-aarau-aarau-64af6d",
-        "gestion-d-equipe-somatic-80-100-spitex-region-aarau-aarau"
+        "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
         ],
         "en": [
-          "team-management-somatic-care-80-100-spitex-region-aarau-aarau-64af6d"
+          "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
         ],
         "fr": [
-          "gestion-d-equipe-somatic-80-100-spitex-region-aarau-aarau"
+          "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
         ]
       },
       "firstSeenAt": "2026-06-03T15:22:54.338Z",

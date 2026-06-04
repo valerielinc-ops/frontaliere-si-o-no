@@ -224,7 +224,7 @@
       "slugByLocale": {
         "en": "executive-assistant-research-assistant-ubs",
         "it": "executive-assistant-research-assistant-ubs",
-        "de": "executive-assistant-research-assistant-ubs",
+        "de": "executive-assistent-forschung-assistent-ubs-ticino",
         "fr": "executive-assistant-research-assistant-ubs"
       },
       "company": "UBS",
@@ -580,11 +580,11 @@
     },
     {
       "id": "ubs-abe694406918",
-      "slug": "market-director-ubs",
+      "slug": "market-direttore-ubs-ticino",
       "slugByLocale": {
         "en": "market-director-ubs",
-        "it": "market-director-ubs",
-        "de": "market-director-ubs",
+        "it": "market-direttore-ubs-ticino",
+        "de": "market-direktor-ubs-ticino",
         "fr": "market-director-ubs"
       },
       "company": "UBS",
@@ -648,15 +648,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T16:00:00.209Z"
+      "firstSeenAt": "2026-06-04T16:00:00.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-director-ubs"
+        ],
+        "de": [
+          "market-director-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-director-ubs"
+      ]
     },
     {
       "id": "ubs-3bab2979ceaf",
-      "slug": "market-director-ubs-2",
+      "slug": "market-direttore-ubs-ticino-99ea20",
       "slugByLocale": {
         "en": "market-director-ubs",
-        "it": "market-director-ubs-2",
-        "de": "market-director-ubs-2",
+        "it": "market-direttore-ubs-ticino-99ea20",
+        "de": "market-direktor-ubs-ticino-99ea20",
         "fr": "market-director-ubs-2"
       },
       "company": "UBS",
@@ -720,7 +731,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T16:00:00.208Z"
+      "firstSeenAt": "2026-06-04T16:00:00.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-director-ubs-2"
+        ],
+        "de": [
+          "market-director-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "market-director-ubs-2"
+      ]
     },
     {
       "id": "ubs-061b6f46e0e5",
@@ -1156,12 +1178,12 @@
     },
     {
       "id": "ubs-65f2b1045be5",
-      "slug": "research-analyst-hedge-funds-ubs",
+      "slug": "ricerca-analista-hedge-funds-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-hedge-funds-ubs",
-        "it": "research-analyst-hedge-funds-ubs",
+        "it": "ricerca-analista-hedge-funds-ubs-ticino",
         "de": "research-analyst-hedge-funds-ubs",
-        "fr": "research-analyst-hedge-funds-ubs"
+        "fr": "recherche-analyste-hedge-funds-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1224,7 +1246,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T16:00:00.198Z"
+      "firstSeenAt": "2026-06-04T16:00:00.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-hedge-funds-ubs"
+        ],
+        "fr": [
+          "research-analyst-hedge-funds-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-hedge-funds-ubs"
+      ]
     },
     {
       "id": "ubs-a04b6d462da3",
@@ -1894,12 +1927,12 @@
     },
     {
       "id": "ubs-3130f24e8fe1",
-      "slug": "fund-accountant-ubs",
+      "slug": "fund-contabile-ubs-ticino",
       "slugByLocale": {
         "en": "fund-accountant-ubs",
-        "it": "fund-accountant-ubs",
+        "it": "fund-contabile-ubs-ticino",
         "de": "fund-accountant-ubs",
-        "fr": "fund-accountant-ubs"
+        "fr": "fund-comptable-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1962,7 +1995,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T16:00:00.187Z"
+      "firstSeenAt": "2026-06-04T16:00:00.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fund-accountant-ubs"
+        ],
+        "fr": [
+          "fund-accountant-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "fund-accountant-ubs"
+      ]
     },
     {
       "id": "ubs-146722c98777",
@@ -2128,12 +2172,12 @@
     },
     {
       "id": "ubs-5d2548b426ab",
-      "slug": "research-analyst-small-caps-ubs",
+      "slug": "ricerca-analista-small-caps-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-small-caps-ubs",
-        "it": "research-analyst-small-caps-ubs",
+        "it": "ricerca-analista-small-caps-ubs-ticino",
         "de": "research-analyst-small-caps-ubs",
-        "fr": "research-analyst-small-caps-ubs"
+        "fr": "recherche-analyste-small-caps-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2196,7 +2240,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T16:00:00.183Z"
+      "firstSeenAt": "2026-06-04T16:00:00.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-small-caps-ubs"
+        ],
+        "fr": [
+          "research-analyst-small-caps-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-small-caps-ubs"
+      ]
     },
     {
       "id": "ubs-1e4b0d03668b",

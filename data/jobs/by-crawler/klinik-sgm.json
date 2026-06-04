@@ -802,7 +802,7 @@
         "de": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
         "it": "psicoterapeuta-psicoterapeuta-ambulatorio-langenthal-klinik-sgm-langenthal-langenthal",
         "en": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal",
-        "fr": "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
+        "fr": "psychotherapie-psychotherapie-ambulateurium-langenthal-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -860,6 +860,9 @@
       "firstSeenAt": "2026-06-04T12:35:42.184Z",
       "previousSlugsByLocale": {
         "it": [
+          "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
+        ],
+        "fr": [
           "psychotherapeutin-psychotherapeut-ambulatorium-langenthal-klinik-sgm-langenthal"
         ]
       },

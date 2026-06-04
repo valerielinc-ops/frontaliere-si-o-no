@@ -345,10 +345,10 @@
     },
     {
       "id": "mobiliar-93ab31d924dc",
-      "slug": "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch",
+      "slug": "programma-it-junior-ingegnere-java-completo-w-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch",
-        "it": "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch",
+        "it": "programma-it-junior-ingegnere-java-completo-w-m-d-die-mobiliar-bern",
         "en": "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch",
         "fr": "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch"
       },
@@ -423,7 +423,15 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-04T13:01:55.076Z"
+      "firstSeenAt": "2026-06-04T13:01:55.076Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "it-nachwuchsprogramm-fullstack-java-engineer-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c22eb504fb1f",

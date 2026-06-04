@@ -7312,9 +7312,9 @@
     },
     {
       "id": "bachem-6dd471c0ab59",
-      "slug": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+      "slug": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
       "slugByLocale": {
-        "it": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
+        "it": "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
         "en": "lab-technician-qc-ipc-a-100-bachem-bubendorf",
         "de": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2",
         "fr": "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
@@ -7360,12 +7360,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
-        "lab-technician-qc-ipc-a-100-bachem-bubendorf"
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf",
+        "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-laboratorio-qc-ipc-a-100-bachem-ag-bubendorf-e66106",
           "lab-technician-qc-ipc-a-100-bachem-bubendorf",
           "lab-technician-qc-ipc-a-100-bachem-bubendorf-2"
         ]
@@ -7391,7 +7390,7 @@
         "en": "senior-capex-project-controller-a-100-bachem-bubendorf",
         "it": "senior-capex-project-controller-a-100-bachem-bubendorf",
         "de": "senior-capex-project-controller-a-100-bachem-bubendorf",
-        "fr": "senior-capex-project-controller-a-100-bachem-bubendorf"
+        "fr": "controleur-principal-de-projet-capex-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -7513,12 +7512,12 @@
     },
     {
       "id": "bachem-b285a1a1f671",
-      "slug": "temporary-content-designer-60-bachem-bubendorf",
+      "slug": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "temporary-content-designer-60-bachem-bubendorf",
+        "it": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
         "en": "temporary-content-designer-60-bachem-bubendorf",
         "de": "temporary-content-designer-60-bachem-bubendorf",
-        "fr": "temporary-content-designer-60-bachem-bubendorf"
+        "fr": "designer-temporaire-de-contenu-60-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -7571,7 +7570,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "temporary-content-designer-60-bachem-bubendorf"
+        ],
+        "fr": [
+          "temporary-content-designer-60-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "temporary-content-designer-60-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-3a679d7f3437",
@@ -8256,12 +8266,12 @@
     },
     {
       "id": "bachem-b285a1a1f671",
-      "slug": "temporary-content-designer-60-bachem-bubendorf",
+      "slug": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
       "slugByLocale": {
         "en": "temporary-content-designer-60-bachem-bubendorf",
-        "it": "temporary-content-designer-60-bachem-bubendorf",
+        "it": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
         "de": "temporary-content-designer-60-bachem-bubendorf",
-        "fr": "temporary-content-designer-60-bachem-bubendorf"
+        "fr": "designer-temporaire-de-contenu-60-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -8319,11 +8329,16 @@
       "firstSeenAt": "2026-06-03T22:46:41.269Z",
       "previousSlugsByLocale": {
         "fr": [
-          "designer-de-contenu-temporaire-60-bachem-ag-bubendorf"
+          "designer-de-contenu-temporaire-60-bachem-ag-bubendorf",
+          "temporary-content-designer-60-bachem-bubendorf"
+        ],
+        "it": [
+          "temporary-content-designer-60-bachem-bubendorf"
         ]
       },
       "previousSlugs": [
-        "designer-de-contenu-temporaire-60-bachem-ag-bubendorf"
+        "designer-de-contenu-temporaire-60-bachem-ag-bubendorf",
+        "temporary-content-designer-60-bachem-bubendorf"
       ]
     }
   ]

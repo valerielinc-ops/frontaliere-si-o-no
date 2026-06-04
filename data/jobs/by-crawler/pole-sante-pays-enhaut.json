@@ -341,8 +341,8 @@
       "slugByLocale": {
         "fr": "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex",
         "it": "assistente-sanitario-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "en": "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex"
+        "en": "health-assistant-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
       "companyKey": "pole-sante-pays-enhaut",
@@ -389,6 +389,12 @@
         "it": [
           "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex",
           "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "auxiliaire-de-sante-pole-sante-pays-enhaut-chateau-d-oex"
         ]
       },
       "previousSlugs": [

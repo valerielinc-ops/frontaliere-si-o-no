@@ -471,7 +471,7 @@
       },
       "slugByLocale": {
         "it": "sales-manager-ultra-fresh-societe-cooperative-migros-vaud-bussigny",
-        "en": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny-396ukz",
+        "en": "ultra-fresh-sales-manager-societe-cooperative-migros-vaud-bussigny",
         "de": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny-396ukz",
         "fr": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny-396ukz"
       },
@@ -495,6 +495,9 @@
         "it": [
           "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny-396ukz",
           "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny"
+        ],
+        "en": [
+          "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-bussigny-396ukz"
         ]
       },
       "previousSlugs": [
@@ -668,9 +671,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5",
-        "en": "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5",
+        "en": "staff-in-cash-register-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden",
         "de": "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5",
-        "fr": "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5"
+        "fr": "personnel-en-caisse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden"
       },
       "requirementsByLocale": {
         "it": [],
@@ -688,10 +691,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden"
+        ],
+        "en": [
+          "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5"
+        ],
+        "fr": [
+          "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden"
+        "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden",
+        "mitarbeiter-in-kasse-migros-gelterkinden-genossenschaft-migros-basel-gelterkinden-ru22o5"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -770,9 +780,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-junior-presso-hausbackerei-uster-fresh-food-beverage-group-uster",
-        "en": "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq",
+        "en": "junior-head-in-hausbackerei-uster-fresh-food-beverage-group-uster",
         "de": "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq",
-        "fr": "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq"
+        "fr": "chef-junior-a-hausbackerei-uster-fresh-food-beverage-group-uster"
       },
       "requirementsByLocale": {
         "it": [],
@@ -793,6 +803,12 @@
         "it": [
           "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq",
           "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster"
+        ],
+        "en": [
+          "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq"
+        ],
+        "fr": [
+          "nachwuchs-leiter-in-hausbackerei-uster-fresh-food-beverage-group-uster-k5y0eq"
         ]
       },
       "previousSlugs": [
@@ -872,8 +888,8 @@
       },
       "slugByLocale": {
         "it": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly",
-        "en": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo",
-        "de": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo",
+        "en": "multipurpose-seller-h-f-d-societe-cooperative-migros-vaud-prilly",
+        "de": "mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-prilly",
         "fr": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo"
       },
       "requirementsByLocale": {
@@ -893,6 +909,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo"
+        ],
+        "en": [
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo"
+        ],
+        "de": [
           "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-prilly-g5hmlo"
         ]
       },
@@ -980,7 +1002,7 @@
       },
       "slugByLocale": {
         "it": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle",
-        "en": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle-c228ze",
+        "en": "ultra-cost-sales-manager-h-f-d-societe-cooperative-migros-vaud-aigle",
         "de": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle-c228ze",
         "fr": "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle-c228ze"
       },
@@ -1002,6 +1024,9 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle-c228ze"
+        ],
+        "en": [
           "gestionnaire-de-vente-ultra-frais-m-w-d-societe-cooperative-migros-vaud-aigle-c228ze"
         ]
       },
@@ -1202,9 +1227,9 @@
       },
       "slugByLocale": {
         "it": "specialista-in-contabilita-migros-logistics-suhr",
-        "en": "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm",
+        "en": "specialist-in-accounting-migros-logistics-suhr",
         "de": "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm",
-        "fr": "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm"
+        "fr": "specialiste-en-comptabilite-migros-logistics-suhr"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1225,6 +1250,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-rechnungswesen-migros-logistics-suhr",
+          "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm"
+        ],
+        "en": [
+          "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm"
+        ],
+        "fr": [
           "fachspezialist-in-rechnungswesen-migros-logistics-suhr-qghybm"
         ]
       },
@@ -1307,9 +1338,9 @@
       },
       "slugByLocale": {
         "it": "junior-projektleiter-in-business-development-e-strategie-genossenschaft-migros-ostschweiz-gossau",
-        "en": "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u",
+        "en": "junior-project-manager-in-business-development-and-strategy-genossenschaft-migros-ostschweiz-gossau",
         "de": "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u",
-        "fr": "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
+        "fr": "gestionnaire-de-projet-junior-dans-developpement-des-affaires-et-strategie-genossenschaft-migros-ostschweiz-gossau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1329,11 +1360,18 @@
         "it": [
           "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau",
           "junior-projektleiter-in-business-development-e-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
+        ],
+        "en": [
+          "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
+        ],
+        "fr": [
+          "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
         ]
       },
       "previousSlugs": [
         "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau",
-        "junior-projektleiter-in-business-development-e-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
+        "junior-projektleiter-in-business-development-e-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u",
+        "junior-projektleiter-in-business-development-und-strategie-genossenschaft-migros-ostschweiz-gossau-akmf7u"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -1394,7 +1432,7 @@
       "firstSeenAt": "2026-06-04T13:07:50.808Z",
       "slugByLocale": {
         "it": "collaboratore-polivalente-m-f-d-societe-cooperative-migros-vaud-morges",
-        "en": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-5qlcnm",
+        "en": "multipurpose-collaborator-h-f-d-societe-cooperative-migros-vaud-morges",
         "de": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-5qlcnm",
         "fr": "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-montreux-5qlcnm"
       },
@@ -1448,6 +1486,9 @@
           "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-montreux-5qlcnm"
         ],
         "fr": [
+          "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-5qlcnm"
+        ],
+        "en": [
           "collaborateur-polyvalent-m-w-d-societe-cooperative-migros-vaud-morges-5qlcnm"
         ]
       },
@@ -3590,7 +3631,7 @@
         "it": "student-in-come-ferienaushilfe-denner-horw",
         "en": "student-in-als-ferienaushilfe-denner-horw",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc"
       },
       "titleByLocale": {
         "en": "Student*in als Ferienaushilfe",
@@ -3658,14 +3699,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "fr": [
-          "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc",
           "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln",
           "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
-        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln-bc97bc",
-        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln"
+        "etudiant-en-tant-qu-aide-de-vacances-denner-ag-einsiedeln",
+        "student-in-als-ferienaushilfe-denner"
       ]
     },
     {
@@ -4852,7 +4892,7 @@
     },
     {
       "id": "company-ax4knf",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-a-a-ore-denner-ag-grenchen",
       "company": "Denner AG",
       "title": "Student*in im Stundenlohn",
       "location": "Grenchen",
@@ -4898,10 +4938,10 @@
       "crawledAt": "2026-06-03T06:44:54.971Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-a-a-ore-denner-ag-grenchen",
         "en": "student-in-im-stundenlohn-denner-biel-bienne",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-e-a-l-heure-denner-ag-grenchen"
       },
       "titleByLocale": {
         "en": "Student*in im Stundenlohn",
@@ -4958,19 +4998,16 @@
         ],
         "fr": [
           "etudiant-e-a-l-heure-denner-ag-grenchen-ax4knf",
-          "etudiant-e-a-l-heure-denner-ag-grenchen",
           "student-in-im-stundenlohn-denner"
         ],
         "it": [
-          "studente-a-a-ore-denner-ag-grenchen",
           "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
         "studentin-in-im-stundenlohn-denner-ag-grenchen-ax4knf",
         "etudiant-e-a-l-heure-denner-ag-grenchen-ax4knf",
-        "etudiant-e-a-l-heure-denner-ag-grenchen",
-        "studente-a-a-ore-denner-ag-grenchen"
+        "student-in-im-stundenlohn-denner"
       ],
       "sourceLang": "de",
       "salaryMin": 49500,
@@ -6234,7 +6271,7 @@
         "it": "application-manager-erp-odoo-u-d-f-migros-genossenschafts-bund-zurich-5aafbm",
         "en": "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm",
         "de": "anwendungsmanager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm",
-        "fr": "gestionnaire-des-applications-erp-odoo-migros-genossenschafts-bund-zurich"
+        "fr": "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -6242,13 +6279,12 @@
           "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich"
         ],
         "fr": [
-          "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm",
           "gestionnaire-des-applications-erp-odoo-migros-genossenschafts-bund-zurich"
         ]
       },
       "previousSlugs": [
         "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich",
-        "application-manager-erp-odoo-m-w-d-migros-genossenschafts-bund-zurich-5aafbm"
+        "gestionnaire-des-applications-erp-odoo-migros-genossenschafts-bund-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

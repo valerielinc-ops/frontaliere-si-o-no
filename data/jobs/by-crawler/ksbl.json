@@ -5484,9 +5484,6 @@
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
         "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -5833,9 +5830,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
-        "en": "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5881,9 +5878,11 @@
         "dipl-career-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-career-a-kantonsspital-baselland-ksbl-liestal",
+        "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95",
-        "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal"
+        "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal",
+        "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6600,8 +6599,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal",
         "it": "mitarbeiterin-collaboratore-trice-empfangsdienst-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal",
-        "fr": "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal"
+        "en": "personnel-service-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "service-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6647,6 +6646,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-empfangsdienst-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
@@ -6672,8 +6677,8 @@
       "slugByLocale": {
         "de": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
         "it": "mpa-ambulatorio-oncologia-ematologia-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal",
-        "fr": "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        "en": "mpa-oncology-haematology-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "mpa-oncologie-et-hematologie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -6731,6 +6736,12 @@
       "firstSeenAt": "2026-06-04T12:40:35.660Z",
       "previousSlugsByLocale": {
         "it": [
+          "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "en": [
+          "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
+        ],
+        "fr": [
           "mpa-ambulatorium-onkologie-hamatologie-a-ksbl-liestal"
         ]
       },

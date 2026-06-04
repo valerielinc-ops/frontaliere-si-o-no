@@ -973,8 +973,7 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-de-production-siegfried-zofingen",
-        "ingegnere-di-produzione-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1468,12 +1467,12 @@
     },
     {
       "id": "siegfried-d27c4c05d0a2",
-      "slug": "head-of-sales-business-development-drug-products-siegfried-ch",
+      "slug": "responsabile-vendite-e-sviluppo-commerciale-prodotti-farmaceutici-siegfried-zofingen",
       "slugByLocale": {
         "en": "head-of-sales-business-development-drug-products-siegfried-ch",
-        "it": "head-of-sales-business-development-drug-products-siegfried-ch",
+        "it": "responsabile-vendite-e-sviluppo-commerciale-prodotti-farmaceutici-siegfried-zofingen",
         "de": "head-of-sales-business-development-drug-products-siegfried-ch",
-        "fr": "head-of-sales-business-development-drug-products-siegfried-ch"
+        "fr": "chef-des-ventes-et-du-developpement-des-entreprises-produits-pharmaceutiques-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1530,7 +1529,18 @@
       },
       "postalCode": "5000",
       "addressRegion": "AG",
-      "firstSeenAt": "2026-06-04T13:31:49.514Z"
+      "firstSeenAt": "2026-06-04T13:31:49.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-sales-business-development-drug-products-siegfried-ch"
+        ],
+        "fr": [
+          "head-of-sales-business-development-drug-products-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-sales-business-development-drug-products-siegfried-ch"
+      ]
     },
     {
       "id": "siegfried-5242db5ae6b0",

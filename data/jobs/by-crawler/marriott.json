@@ -577,8 +577,8 @@
       "slugByLocale": {
         "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "it": "cameriere-tress-brasserie-u-yama-inverno-26-27-w-verbier-marriott-international-verbier",
-        "de": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        "de": "kellner-baum-brasserie-u-yama-winter-26-27-w-verbier-marriott-international-verbier",
+        "fr": "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -646,6 +646,12 @@
       "firstSeenAt": "2026-06-04T12:53:17.333Z",
       "previousSlugsByLocale": {
         "it": [
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "de": [
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
           "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
@@ -941,7 +947,6 @@
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
         "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "responsabile-revenue-management-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
@@ -2537,7 +2542,6 @@
         "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
         "mixologe-winter-2026-2027-w-verbier-marriott-international-verbier",
         "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier",
-        "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
         "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2805,29 +2809,23 @@
           "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier"
         ],
         "en": [
-          "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
           "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
-          "mixologe-winter-2026-2027-w-verbier-marriott-international-verbier",
           "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
-          "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier",
           "patisserie-hiver-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "previousSlugs": [
         "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
-        "mixologe-winter-2026-2027-w-verbier-marriott-international-verbier",
-        "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier",
         "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
         "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
         "pastry-cook-long-term-w-verbier-marriott-verbier",
         "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier",
-        "mixologo-inverno-2026-2027-w-verbier-marriott-international-verbier",
         "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
         "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier",
         "patisserie-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -2854,7 +2852,7 @@
         "en": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
         "it": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
         "de": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "nuit-ird-chef-de-rang-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3279,7 +3277,7 @@
       "slugByLocale": {
         "it": "tecnico-dell-hotel-marriott-international-zurich",
         "en": "hotel-technician-marriott-zurich",
-        "de": "hoteltechniker-marriott-international-zurich",
+        "de": "hotel-techniker-marriott-international-zurich",
         "fr": "technicien-d-hotel-marriott-international-zurich"
       },
       "company": "Marriott International",
@@ -3331,14 +3329,16 @@
         "publishEndDate": ""
       },
       "previousSlugs": [
-        "hotel-technician-marriott-zurich"
+        "hotel-technician-marriott-zurich",
+        "hoteltechniker-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hotel-technician-marriott-zurich"
         ],
         "de": [
-          "hotel-technician-marriott-zurich"
+          "hotel-technician-marriott-zurich",
+          "hoteltechniker-marriott-international-zurich"
         ],
         "fr": [
           "hotel-technician-marriott-zurich"
@@ -3365,7 +3365,7 @@
       "slugByLocale": {
         "en": "hotel-cleanliness-expert-marriott-zurich",
         "it": "esperto-di-pulizia-alberghiera-marriott-international-zurich",
-        "de": "hotel-cleanliness-expert-marriott-zurich",
+        "de": "hotel-sauberkeitsexperte-marriott-international-zurich",
         "fr": "hotel-cleanliness-expert-marriott-zurich"
       },
       "company": "Marriott International",
@@ -3434,6 +3434,9 @@
       "firstSeenAt": "2026-06-04T12:53:17.306Z",
       "previousSlugsByLocale": {
         "it": [
+          "hotel-cleanliness-expert-marriott-zurich"
+        ],
+        "de": [
           "hotel-cleanliness-expert-marriott-zurich"
         ]
       },
@@ -3588,7 +3591,6 @@
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
         "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "esperienza-degli-ospiti-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3904,12 +3906,12 @@
     },
     {
       "id": "marriott-7a55a7a6f053",
-      "slug": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "it": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+        "it": "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3976,23 +3978,22 @@
       "addressRegion": "VS",
       "firstSeenAt": "2026-06-04T12:53:17.298Z",
       "previousSlugs": [
+        "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
+        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
         "pastry-cook-winter-26-27-w-verbier-marriott-verbier",
+        "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier",
+        "patisserie-hiver-26-27-w-verbier-marriott-international-verbier",
         "cucina-pasticceria-lungo-termine-w-verbier-marriott-international-verbier",
         "pastry-cook-long-term-w-verbier-marriott-verbier",
-        "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
-        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier",
         "mixologo-inverno-2026-2027-w-verbier-marriott-international-verbier",
         "mixologist-winter-2026-2027-w-verbier-marriott-verbier",
         "mixologe-winter-2026-2027-w-verbier-marriott-international-verbier",
-        "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier",
-        "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
-        "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier",
-        "patisserie-hiver-26-27-w-verbier-marriott-international-verbier"
+        "mixologue-hiver-2026-2027-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier"
+          "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
         ],
         "en": [
           "pastry-cook-winter-26-27-w-verbier-marriott-verbier"
@@ -4001,7 +4002,8 @@
           "gebackkoch-winter-26-27-w-verbier-marriott-international-verbier"
         ],
         "fr": [
-          "patisserie-hiver-26-27-w-verbier-marriott-international-verbier"
+          "patisserie-hiver-26-27-w-verbier-marriott-international-verbier",
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
         ]
       }
     },
@@ -4095,7 +4097,7 @@
         "en": "commis-cuisine-long-term-w-verbier-marriott-verbier",
         "it": "cucina-commis-a-lungo-termine-w-verbier-marriott-international-verbier",
         "de": "commis-cuisine-long-term-w-verbier-marriott-verbier",
-        "fr": "commis-cuisine-long-term-w-verbier-marriott-verbier"
+        "fr": "cuisine-de-la-commission-long-terme-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -4164,6 +4166,9 @@
       "previousSlugsByLocale": {
         "it": [
           "commis-cuisine-long-term-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "commis-cuisine-long-term-w-verbier-marriott-verbier"
         ]
       },
       "previousSlugs": [
@@ -4177,7 +4182,7 @@
         "en": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
         "it": "chef-de-rang-ird-sera-servizio-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "chef-de-rang-ird-soir-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -4245,6 +4250,9 @@
       "firstSeenAt": "2026-06-04T12:53:17.295Z",
       "previousSlugsByLocale": {
         "it": [
+          "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
           "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
@@ -4496,7 +4504,7 @@
         "en": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
         "it": "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
         "de": "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
-        "fr": "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier"
+        "fr": "chef-de-partie-salon-la-plage-long-terme-w-verbier-marriott-international-verbier-9d97ed"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -4559,7 +4567,6 @@
       },
       "previousSlugs": [
         "chef-de-partie-living-room-la-plage-long-term-w-verbier-marriott-verbier",
-        "chef-de-partie-living-room-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
         "chef-de-partie-soggiorno-la-plage-lungo-termine-w-verbier-marriott-international-verbier",
         "chef-de-partie-salon-la-plage-long-terme-w-verbier-marriott-international-verbier"
       ],

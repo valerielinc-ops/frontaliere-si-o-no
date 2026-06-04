@@ -1688,10 +1688,10 @@
     },
     {
       "id": "ukbb-0999f809a219",
-      "slug": "arztsekretar-in-orthopadie-60-ukbb-basel",
+      "slug": "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-orthopadie-60-ukbb-basel",
-        "it": "arztsekretar-in-orthopadie-60-ukbb-basel",
+        "it": "arztsekretar-in-orthopala-60-universitats-kinderspital-beider-basel-basel",
         "en": "arztsekretar-in-orthopadie-60-ukbb-basel",
         "fr": "arztsekretar-in-orthopadie-60-ukbb-basel"
       },
@@ -1750,7 +1750,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T15:59:08.867Z"
+      "firstSeenAt": "2026-06-04T15:59:08.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-orthopadie-60-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-orthopadie-60-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-a49cbc60a583",
@@ -1811,9 +1819,6 @@
         ],
         "it": [
           "sede-centrale-a3-90-universitats-kinderspital-beider-basel-basel"
-        ],
-        "de": [
-          "leitung-pflege-station-a3-90-ukbb-basel"
         ]
       },
       "previousSlugs": [
