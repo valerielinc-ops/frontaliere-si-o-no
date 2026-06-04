@@ -311,6 +311,26 @@ async function main() {
         : `${compat.source || 'gsc-export'}+url-inspection`,
       lastUpdated: new Date().toISOString().slice(0, 10),
     };
+    // Floor-guard (2026-06-04, #404-truncation): il compat è un ACCUMULATORE
+    // (~300-650k path). Se la lettura iniziale (riga ~154) è fallita con fallback
+    // `{paths:[]}` — es. file già toccato da un job cancellato mid-write, o read
+    // race — `compatSet` parte vuoto e questo write SOVRASCRIVE i 657k path buoni
+    // con poche migliaia → 404→301 resolver giù in prod (osservato: commit
+    // 06546ba ha troncato 657594→0, main rosso, test floor 150000 violato). Mai
+    // distruggere dati buoni: se il write scende sotto una soglia di sanità,
+    // ABORTISCI con exit 1 (il workflow fallisce RUMOROSAMENTE → restore manuale,
+    // niente commit di regressione).
+    const SANITY_FLOOR = 100_000;
+    const prevCount = readJsonSafe(compatPath, { paths: [] }).paths?.length ?? 0;
+    if (updatedCompat.paths.length < SANITY_FLOOR && prevCount >= SANITY_FLOOR) {
+      console.error(
+        `❌ ABORT write: ${updatedCompat.paths.length} path < floor ${SANITY_FLOOR} ` +
+          `mentre l'esistente ne ha ${prevCount} → troncamento catastrofico evitato. ` +
+          `La lettura iniziale del compat è probabilmente fallita (fallback a vuoto). ` +
+          `NON sovrascrivo. Indaga (file corrotto/race) e ripristina se serve.`
+      );
+      process.exit(1);
+    }
     fs.writeFileSync(compatPath, JSON.stringify(updatedCompat, null, 2) + '\n');
     console.log(`\n✅ Wrote ${compatPath} (${updatedCompat.paths.length} total paths)`);
   } else {
