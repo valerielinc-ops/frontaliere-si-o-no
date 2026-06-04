@@ -1,18 +1,19 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-06-04T13:00:30.603Z",
+  "generatedAt": "2026-06-04T15:29:09.941Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 13426,
-  "avgDurationMs": 13426,
+  "durationMs": 9594,
+  "avgDurationMs": 9594,
   "durationHistory": [
-    13426
+    9594
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Summer Intern – Data Entry &amp; Supporto Amministrativo",
       "slug": "summer-intern-data-entry-amp-supporto-amministrativo-mks-pamp-castel-san-pietro",
@@ -35,16 +36,21 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "_qualityScore": 68,
+      "id": "mks-pamp-22b5b8499fdc",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "firstSeenAt": "2026-06-04T13:00:30.601Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Internship — AI Engineering &amp; Data Analysis",
       "slug": "internship-ai-engineering-amp-data-analysis-mks-pamp-geneve",
