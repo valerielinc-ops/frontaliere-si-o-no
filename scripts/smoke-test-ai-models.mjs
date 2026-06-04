@@ -97,11 +97,31 @@ const hasMistralKey = Boolean((process.env.MISTRAL_API_KEY || '').trim());
 const mistralLatest = results.filter(
   r => r.model.startsWith('mistral/') && /-latest$/.test(r.model),
 );
-if (hasMistralKey && mistralLatest.length > 0 && mistralLatest.every(r => r.status !== 'pass')) {
+// The gate's purpose (#892) is to catch a discovery-alias REGRESSION (aliases[]
+// field drift → every -latest entry pre-marked stale, a silent code no-op). A
+// dead/revoked Mistral API key surfaces as http_401/http_403 on EVERY model and
+// is an ENVIRONMENT problem (rotate the key in Remote Config), not the code
+// regression this gate exists to detect. Firing on pure auth failures opens a
+// "Workflow Failure" issue implying a code bug and burns triage quota chasing a
+// secret rotation (issue #1276: MISTRAL_API_KEY returned 401). So: only trip the
+// regression gate when the -latest failures are NOT entirely auth failures.
+const mistralAuthFailures = mistralLatest.filter(r => r.status === 'http_401' || r.status === 'http_403');
+const allLatestFailed = mistralLatest.length > 0 && mistralLatest.every(r => r.status !== 'pass');
+const allFailuresAreAuth = mistralLatest.length > 0 && mistralAuthFailures.length === mistralLatest.length;
+if (hasMistralKey && allLatestFailed && allFailuresAreAuth) {
+  // Dead key, not an alias regression. Surface clearly but do NOT fail the run
+  // (no code fix would help; the key must be rotated in Remote Config).
+  console.error(
+    `\n⚠️  Mistral -latest: all ${mistralLatest.length} attempted -latest model(s) ` +
+      `failed with auth errors (401/403). MISTRAL_API_KEY is likely revoked — ` +
+      `rotate it in Firebase Remote Config. NOT an alias regression (see #892/#1276); ` +
+      `not failing the smoke run.`,
+  );
+} else if (hasMistralKey && allLatestFailed) {
   console.error(
     `\n❌ Mistral -latest regression: all ${mistralLatest.length} attempted ` +
-      `-latest model(s) failed. Likely the discovery alias pass (aliases[] ` +
-      `field in lib/ai-models.mjs) is a no-op — see issue #892.`,
+      `-latest model(s) failed (non-auth). Likely the discovery alias pass ` +
+      `(aliases[] field in lib/ai-models.mjs) is a no-op — see issue #892.`,
   );
   process.exitCode = 1;
 }

@@ -9,21 +9,38 @@
 //
 // If both keys are missing, embedBatch throws a typed error with a stable
 // message — build-article-embeddings.mjs catches it and graceful-skips.
+//
+// Runtime fallback: if the first keyed provider FAILS at request time (e.g.
+// Mistral returns 401 because its key was revoked, or 429/5xx), embedBatch
+// falls through to the next keyed provider in the chain instead of throwing.
+// A dead Mistral key must not take down the embeddings build when a working
+// Cohere key is present (the documented chain). Only when EVERY keyed provider
+// fails do we throw the aggregated error.
 
 import { EMBEDDING_DIM, EMBEDDING_PROVIDERS } from './constants.mjs';
 
 const NO_PROVIDER_MSG = 'no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY)';
 
 /**
+ * All providers whose API key is in env, in chain order. Empty if none.
+ * @returns {Array<{id:string, model:string, dim:number, url:string, key:string}>}
+ */
+function selectProviders() {
+  const out = [];
+  for (const p of EMBEDDING_PROVIDERS) {
+    const key = (process.env[p.keyEnv] || '').trim();
+    if (key) out.push({ ...p, key });
+  }
+  return out;
+}
+
+/**
  * Pick the first provider whose API key is in env. Returns null if none.
+ * Kept for backward compat (tests/debugging import this).
  * @returns {{id:string, model:string, dim:number, url:string, key:string}|null}
  */
 function selectProvider() {
-  for (const p of EMBEDDING_PROVIDERS) {
-    const key = (process.env[p.keyEnv] || '').trim();
-    if (key) return { ...p, key };
-  }
-  return null;
+  return selectProviders()[0] || null;
 }
 
 /**
@@ -80,30 +97,65 @@ async function callCohere({ provider, inputs, fetchImpl }) {
  * @throws {Error} when no provider key is configured (caller graceful-skips)
  * @throws {Error} when provider returns wrong shape or HTTP error
  */
+// Model id of the provider that produced the most recent successful embedding.
+// CRITICAL for store consistency: mistral-embed and embed-multilingual-v3.0
+// share dim=1024 but are DIFFERENT vector spaces — cosine across them is
+// meaningless. Consumers (findTopK, semanticDedup, cascadedScore, the
+// incremental embeddings build) must compare query↔store ONLY when both come
+// from the same model. Reading the *first keyed provider* is NOT sufficient
+// (the Mistral key can be present but revoked → embeds actually come from the
+// Cohere fallback), so we record the model that ACTUALLY answered.
+let _lastUsedModel = null;
+
+/**
+ * Model id (e.g. 'mistral-embed' / 'embed-multilingual-v3.0') of the provider
+ * that produced the most recent successful embedBatch/embedOne call, or null if
+ * none has succeeded yet in this process. Use to gate cross-provider cosine.
+ * @returns {string|null}
+ */
+export function lastUsedEmbeddingModel() {
+  return _lastUsedModel;
+}
+
 export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
   if (!Array.isArray(inputs) || inputs.length === 0) return [];
 
-  const provider = selectProvider();
-  if (!provider) throw new Error(NO_PROVIDER_MSG);
+  const providers = selectProviders();
+  if (providers.length === 0) throw new Error(NO_PROVIDER_MSG);
 
-  let vectors;
-  if (provider.id === 'mistral') {
-    vectors = await callMistral({ provider, inputs, fetchImpl });
-  } else if (provider.id === 'cohere') {
-    vectors = await callCohere({ provider, inputs, fetchImpl });
-  } else {
-    throw new Error(`unknown embedding provider: ${provider.id}`);
-  }
+  const failures = [];
+  for (const provider of providers) {
+    try {
+      let vectors;
+      if (provider.id === 'mistral') {
+        vectors = await callMistral({ provider, inputs, fetchImpl });
+      } else if (provider.id === 'cohere') {
+        vectors = await callCohere({ provider, inputs, fetchImpl });
+      } else {
+        throw new Error(`unknown embedding provider: ${provider.id}`);
+      }
 
-  if (vectors.length !== inputs.length) {
-    throw new Error(`provider ${provider.id} returned ${vectors.length} vectors for ${inputs.length} inputs`);
-  }
-  for (const v of vectors) {
-    if (v.length !== EMBEDDING_DIM) {
-      throw new Error(`provider ${provider.id} returned dim=${v.length} expected ${EMBEDDING_DIM}`);
+      if (vectors.length !== inputs.length) {
+        throw new Error(`provider ${provider.id} returned ${vectors.length} vectors for ${inputs.length} inputs`);
+      }
+      for (const v of vectors) {
+        if (v.length !== EMBEDDING_DIM) {
+          throw new Error(`provider ${provider.id} returned dim=${v.length} expected ${EMBEDDING_DIM}`);
+        }
+      }
+      if (failures.length > 0) {
+        // We recovered via a fallback provider — surface which one for diagnosis.
+        console.error(`embedBatch: recovered on '${provider.id}' after ${failures.length} provider failure(s): ${failures.join(' | ')}`);
+      }
+      _lastUsedModel = provider.model;
+      return vectors;
+    } catch (err) {
+      failures.push(`${provider.id}: ${err?.message || err}`);
+      // Try the next keyed provider in the chain before giving up.
     }
   }
-  return vectors;
+
+  throw new Error(`all embedding providers failed — ${failures.join(' | ')}`);
 }
 
 /**

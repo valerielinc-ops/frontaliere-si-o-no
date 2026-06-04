@@ -11,7 +11,7 @@
 
 import { extractTerms } from './termExtractor.mjs';
 import { findTopK, cosineSimilarity } from './embeddingMatcher.mjs';
-import { embedOne } from '../evidence/embeddingClient.mjs';
+import { embedOne, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import {
   GSC_MIN_SIGNAL,
@@ -187,7 +187,13 @@ export async function scoreFromEmbedding(headline, evidence, opts = {}) {
     lruSet(headline, queryVec);
   }
 
-  const topK = findTopK(queryVec, { store: opts.store, meta: opts.meta, k: EMBEDDING_TOP_K });
+  // Gate cross-provider cosine (see embeddingMatcher.findTopK): if the active
+  // embedding provider (Mistral, or its Cohere fallback when Mistral's key is
+  // revoked) differs from the model the store was built with, findTopK returns
+  // [] and we degrade to the next cascade stage — exactly as a pre-fallback
+  // embed failure did. Avoids scoring on meaningless cross-model similarity.
+  const queryModel = opts.queryModel !== undefined ? opts.queryModel : lastUsedEmbeddingModel();
+  const topK = findTopK(queryVec, { store: opts.store, meta: opts.meta, k: EMBEDDING_TOP_K, queryModel });
   if (!topK || topK.length === 0) return null;
   if (topK[0].cosine < EMBEDDING_MIN_COSINE) return null;
 
