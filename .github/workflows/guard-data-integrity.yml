@@ -1,0 +1,133 @@
+name: Guard data integrity (anti-truncation)
+
+# Catch-all contro il troncamento catastrofico dei file-dati accumulatori su
+# main. I 43 workflow che committano dati committano DIRETTAMENTE su main (no PR
+# → no vitest/review gate): un writer che sovrascrive un accumulatore con un
+# fallback vuoto va live silenziosamente (incidente 2026-06-04: seo-404-compat-
+# paths.json 657594→0 da discover-404s.yml → 404→301 resolver giù). Questo guard
+# gira DOPO ogni push su main, rileva i crolli di size catastrofici (>70% su file
+# >1MB), AUTO-REVERTA il file al contenuto pre-push e apre una issue urgente col
+# colpevole. Byte-size based = copre tutti i writer (presenti e futuri), array e
+# object-map, senza manifest per-file. Zero-Claude.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'public/data/**'
+
+# Serialize: due push ravvicinati non devono revertare in parallelo.
+concurrency:
+  group: guard-data-integrity
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    # Non girare sui commit di revert del guard stesso (anti-ricorsione): il
+    # revert restaura il file (cresce → nessuno shrink → no-op comunque), ma
+    # saltarlo evita una run inutile.
+    if: ${{ !contains(github.event.head_commit.message, '[data-guard revert]') }}
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Detect catastrophic truncation
+        id: detect
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+        run: |
+          set -euo pipefail
+          violations=$(node scripts/ci/guard-data-integrity.mjs "$BEFORE" "$AFTER")
+          echo "violations=$violations"
+          echo "violations=$violations" >> "$GITHUB_OUTPUT"
+          count=$(node -e "process.stdout.write(String(JSON.parse(process.argv[1]).length))" "$violations")
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Trovate $count violazioni."
+
+      - name: Auto-revert truncated files + open urgent issue
+        if: steps.detect.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.event.after }}
+          VIOLATIONS: ${{ steps.detect.outputs.violations }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Ripristina ogni file troncato al contenuto PRE-push (ultimo buono).
+          files=$(node -e "JSON.parse(process.argv[1]).forEach(v=>console.log(v.file))" "$VIOLATIONS")
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            echo "revert $f -> $BEFORE"
+            git checkout "$BEFORE" -- "$f"
+            git add "$f"
+          done <<< "$files"
+
+          if git diff --cached --quiet; then
+            echo "Niente da revertare (gia allineato)."
+          else
+            git commit -m "fix(data-guard): auto-revert troncamento catastrofico dal push ${AFTER} [data-guard revert]"
+            git fetch origin main || true
+            git rebase origin/main || { git rebase --abort 2>/dev/null || true; git reset --hard origin/main; }
+            git push origin HEAD:main || echo "::error::push del revert fallito — restore manuale necessario."
+          fi
+
+          # Issue urgente DEDUPLICATA (titolo stabile + idempotenza per-commit).
+          culprit=$(git show -s --format='%an' "$AFTER" 2>/dev/null || echo "unknown")
+          culprit_msg=$(git show -s --format='%s' "$AFTER" 2>/dev/null || echo "?")
+          run_url="${GITHUB_SERVER_URL}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID}"
+          rows=$(node -e "JSON.parse(process.argv[1]).forEach(x=>console.log('- \`'+x.file+'\`: '+x.prevBytes+' B -> '+x.newBytes+' B (-'+x.shrinkPct+'%)'))" "$VIOLATIONS")
+          TITLE="Data integrity: troncamento catastrofico auto-revertato"
+          BODY="$(printf '%s\n' \
+            "## 🚨 File-dati accumulatore troncato su main — auto-revertato" \
+            "" \
+            "Il push \`${AFTER}\` (\"${culprit_msg}\", autore ${culprit}) ha ridotto uno o piu" \
+            "file-dati accumulatori oltre la soglia di sanita (>70% su file >1MB). Il guard" \
+            "li ha **ripristinati automaticamente** al contenuto pre-push (\`${BEFORE}\`)." \
+            "" \
+            "### File troncati (ripristinati)" \
+            "${rows}" \
+            "" \
+            "### Azione" \
+            "1. Trova il writer responsabile (workflow/script dietro il commit \`${AFTER}\`)." \
+            "2. Aggiungi un floor-guard al write (mai sovrascrivere l'accumulatore con un" \
+            "   fallback vuoto — vedi \`scripts/discover-404s-via-inspection.mjs\` SANITY_FLOOR)." \
+            "3. Chiudi questa issue quando il writer e hardenato." \
+            "" \
+            "Run: ${run_url}" \
+            "_Filed automatically by Guard data integrity._")"
+
+          existing=$(gh issue list --repo "$GH_REPO" --state open --search "in:title \"$TITLE\"" \
+            --json number,title --jq "[.[] | select(.title==\"$TITLE\")][0].number" 2>/dev/null || true)
+          if [ -n "$existing" ] && [ "$existing" != "null" ]; then
+            gh issue comment "$existing" --repo "$GH_REPO" --body "🔁 Nuovo troncamento auto-revertato (push \`${AFTER}\`). ${run_url}" || true
+          else
+            gh issue create --repo "$GH_REPO" --title "$TITLE" --body "$BODY" \
+              --label bug --label priority:urgent || echo "::warning::gh issue create fallito."
+          fi
+
+      - name: Fail the run (so the revert is visible)
+        if: steps.detect.outputs.count != '0'
+        run: |
+          echo "Troncamento rilevato e auto-revertato — run rossa per visibilita."
+          exit 1
