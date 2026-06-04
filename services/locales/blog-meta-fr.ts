@@ -7961,6 +7961,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Impôt à la source des frontaliers : fonctionnement au Tessin',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Guide complet sur l\'impôt à la source pour les frontaliers au Tessin : calculs, taux et obligations liés au nouvel accord fiscal.',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Vue panoramique de Lugano avec drapeaux suisse et italien',
+    'blog.article.frontaliere-ticino-mobilita.title': 'Impacts de la mobilité sur la vie des frontaliers ticos',
+    'blog.article.frontaliere-ticino-mobilita.excerpt': 'La mobilité augmente la complexité pour les frontaliers, avec des problèmes de trafic et des coûts élevés',
+    'blog.article.frontaliere-ticino-mobilita.imageAlt': 'image d\'un commutant',
 };
 
 export default blogMetaFr;

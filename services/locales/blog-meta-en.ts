@@ -7960,6 +7960,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Cross-border tax in Ticino: how it works',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'A complete guide to withholding tax for cross-border commuters in Ticino: calculations, rates, and requirements under the new tax agreement.',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Panoramic view of Lugano with Swiss and Italian flags',
+    'blog.article.frontaliere-ticino-mobilita.title': 'Impact of Mobility on the Lives of Ticino Frontiers',
+    'blog.article.frontaliere-ticino-mobilita.excerpt': 'Mobility increases complexity for frontiers, with traffic problems and high costs',
+    'blog.article.frontaliere-ticino-mobilita.imageAlt': 'image of a commuter',
 };
 
 export default blogMetaEn;

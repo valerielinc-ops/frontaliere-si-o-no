@@ -7961,6 +7961,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Imposta alla fonte frontalieri: come funziona in Ticino',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Guida completa all\'imposta alla fonte per i frontalieri in Ticino: calcoli, aliquote e adempimenti previsti dal nuovo accordo fiscale.',
     'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Vista panoramica di Lugano con bandiere svizzera e italiana',
+    'blog.article.frontaliere-ticino-mobilita.title': 'Impatti della mobilità sulla vita dei frontaliere ticinesi',
+    'blog.article.frontaliere-ticino-mobilita.excerpt': 'La mobilità aumenta la complessità per i frontalieri, con problemi di traffico e costi elevati',
+    'blog.article.frontaliere-ticino-mobilita.imageAlt': 'immagine di un pendolari',
 };
 
 export default blogMetaIt;
