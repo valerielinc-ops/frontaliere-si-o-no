@@ -184,7 +184,10 @@ async function fetchListingPageViaBrowser(url, timeoutMs) {
   const browser = await chromium.launch({ headless: true });
   try {
     const page = await browser.newPage({ userAgent: BROWSER_USER_AGENTS[0] });
-    await page.goto(url, { waitUntil: 'networkidle', timeout: Math.max(timeoutMs, 45000) });
+    // domcontentloaded (not networkidle): the listing is static HTML; networkidle
+    // can hang past the timeout on pages with ads/polling/keep-alive, silently
+    // skipping a parsable run. The job links are in the initial document.
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: Math.max(timeoutMs, 45000) });
     return await page.content();
   } finally {
     await browser.close();
