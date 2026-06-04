@@ -1,16 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-06-04T15:30:48.804Z",
+  "generatedAt": "2026-06-04T22:48:38.875Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2006,
-  "avgDurationMs": 2006,
+  "durationMs": 1798,
+  "avgDurationMs": 1798,
   "durationHistory": [
-    2006
+    1798
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,17 +37,16 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "impresa-pizzarotti-ec6ee74e2f70",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:52:26.697Z",
       "postalCode": "2000",
-      "_qualityScore": 85,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 19,
+        "translation": 16,
         "completeness": 22
       }
     }
