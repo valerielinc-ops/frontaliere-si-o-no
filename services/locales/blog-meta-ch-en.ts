@@ -50,6 +50,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rientro-svizzera-senza-lavoro.title': 'Returning to Switzerland: transfer your benefits',
     'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Returning to Switzerland without a job requires a financial plan, a benefits transfer form and registration with the local employment service.',
     'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'People returning to Switzerland after unemployment abroad receive advice at an office.',
+    'blog.article.festivita-ticino-2026.title': 'Ticino Holidays in 2026',
+    'blog.article.festivita-ticino-2026.excerpt': 'Discover the main public holidays in Ticino in 2026 and how they will affect the daily life of residents and cross-border workers. ',
+    'blog.article.festivita-ticino-2026.imageAlt': 'Festivity in Lugano',
 };
 
 export default blogMetaChEn;

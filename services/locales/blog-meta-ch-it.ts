@@ -50,6 +50,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rientro-svizzera-senza-lavoro.title': 'Rientro in Svizzera, come trasferire le indennità',
     'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Rientrare in Svizzera senza lavoro richiede un piano finanziario, il modulo di trasferimento delle indennità e la registrazione al servizio di collocamento locale.',
     'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Persone che rientrano in Svizzera dopo disoccupazione all\'estero ricevono consulenza in un ufficio.',
+    'blog.article.festivita-ticino-2026.title': 'Festività in Ticino 2026',
+    'blog.article.festivita-ticino-2026.excerpt': 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri.',
+    'blog.article.festivita-ticino-2026.imageAlt': 'Festa a Lugano',
 };
 
 export default blogMetaChIt;
