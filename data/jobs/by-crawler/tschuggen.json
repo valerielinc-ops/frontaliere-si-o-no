@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-28T00:43:29.856Z",
+  "assembledAt": "2026-06-04T15:58:31.770Z",
   "jobs": [
     {
       "id": "tschuggen-8d19d792463c",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:27.703Z",
+      "crawledAt": "2026-06-04T15:58:29.295Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:33.133Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -71,7 +72,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-569e89ca49d1",
@@ -104,7 +106,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:26.835Z",
+      "crawledAt": "2026-06-04T15:58:28.326Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -123,6 +125,7 @@
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-05-17T11:16:32.081Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134,7 +137,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-01d1354d56c4",
@@ -167,7 +171,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:25.975Z",
+      "crawledAt": "2026-06-04T15:58:27.358Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -195,6 +199,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:31.064Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -206,7 +211,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-8d1a677afc27",
@@ -239,7 +245,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:25.104Z",
+      "crawledAt": "2026-06-04T15:58:26.390Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -267,6 +273,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -278,7 +285,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-b8ea0b25f793",
@@ -311,7 +319,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:24.210Z",
+      "crawledAt": "2026-06-04T15:58:25.440Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -339,6 +347,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:29.035Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -350,7 +359,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-f50e3b0b4f33",
@@ -368,7 +378,7 @@
       "titleByLocale": {
         "it": "Spa Receptionist (m/w/d) Stagione estiva 2026",
         "en": "Spa Rezeptionist/in (m/w/d) Sommersaison 2026",
-        "de": "Zimmerausstattung (m/w/d) Sommersaison 2026",
+        "de": "Spa Rezeptionist/in (m/w/d) Sommersaison 2026",
         "fr": "Réceptionniste du Spa (m/m/j) Saison estivale 2026"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt ab Ende Juni Arbeitsverhältnis befristet bis Anfang September 2026 | Sicherheit im Umgang mit MS-Office Programmen, sowie Outlook und TAC-System Berufserfahrung in 5*-Häusern erwünscht Fliessende Deutsch- und Englischkenntnisse sind Voraussetzung, jede weitere Sprache von Vorteil Teamfähig , verantwortungsbewusst und flexibel Gepflegtes Erscheinungsbild und professionelle Umgangsformen Empathische und diskrete Persönlichkeit sowie serviceorientiertes Auftreten | Beratung und Betreuung der Gäste Allgemeine Administrationsarbeiten Koordinierung der Behandlungsterminen Verwaltung des E-mail Accounts Aktiver Verkauf des gesamten Spa Angebots und deren Produkte | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
@@ -383,7 +393,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1256/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:23.307Z",
+      "crawledAt": "2026-06-04T15:58:24.452Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -418,6 +428,7 @@
           "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-19T12:49:09.335Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -431,14 +442,13 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-aab5770d3181",
-      "slug": "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "assistant-food-and-beverage-manager-m-w-d-evento-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch",
+        "it": "assistant-food-and-beverage-manager-m-w-d-evento-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch",
         "de": "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch",
         "fr": "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch"
@@ -465,7 +475,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1347/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:22.460Z",
+      "crawledAt": "2026-06-04T15:58:23.512Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -484,6 +494,15 @@
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-05-27T14:17:01.753Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-food-and-beverage-manager-m-w-d-event-wintersaison-2026-2027-tschuggen-ch"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -495,13 +514,14 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-f9f0ae3ba780",
-      "slug": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
+        "it": "food-and-beverage-assistant-m-w-d-shopping-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
         "de": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch",
         "fr": "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
@@ -528,7 +548,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:21.592Z",
+      "crawledAt": "2026-06-04T15:58:22.560Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -547,6 +567,15 @@
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "food-and-beverage-assistant-m-w-d-einkauf-wintersaison-2026-2027-tschuggen-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -558,15 +587,16 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-2e54f859be33",
       "slug": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "de": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "it": "projektmanager-m-w-d-tschuggen-collection-st-moritz",
         "en": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
+        "de": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "fr": "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
@@ -574,16 +604,16 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Front Office Manager (m/w/d), in unbefristeter Anstellung",
       "titleByLocale": {
-        "de": "Front Office Manager (m/w/d), in unbefristeter Anstellung",
-        "en": "Front Office Manager (m/w/d), in unbefristeter Anstellung",
         "it": "Projektmanager (m/w/d)",
+        "en": "Front Office Manager (m/w/d), in unbefristeter Anstellung",
+        "de": "Front Office Manager (m/w/d), in unbefristeter Anstellung",
         "fr": "Front Office Manager (m/w/d), in unbefristeter Anstellung"
       },
       "description": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
       "descriptionByLocale": {
-        "de": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
         "it": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
         "en": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
+        "de": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome",
         "fr": "Das Carlton Hotel in St. Moritz ist ein auf 1'856m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen, designed by Carlo Rampazzi. Als eines der 4 Häuser der \"The Tschuggen Collection AG\", bietet unser Haus 60 individuell gestaltete Suiten und Zimmer, dazu stilvolle Restaurants – darunter das Gourmet‑Highlight Da Vittorio mit 18 Punkten Gault Millau & 2 Michelin‑Sternen und das Grand Restaurant, eine Hommage an die Natur und die kulinarischen Köstlichkeiten des Engadins – sowie ein beeindruckender 1 200 m² grosser Spa. Wir legen grossen Wert auf Nachhaltigkeit, sind Green Globe zertifiziert und Mitglied von Leading Hotels of the World, der Swiss Deluxe Hotels, des Forbes Travel Guides und der American Express Fine Hotels & Resorts. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Eintritt ab August oder nach Vereinbarung | - Ausbildung in der Luxushotellerie und/oder Abschluss einer Hotelfachschule und Erfahrung in der selben Position - Mindestens 2-jährige Berufserfahrung in der selben oder vergleichbaren Position in der 5* Hotellerie - Ausgezeichnete Deutsch- und Englischkenntnisse, Verkaufstalent und Flexibilität in der Zwischensaison auch die Reservierung wochenweise zu übernehmen - Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein sowie Liebe zum Detail - Freude an der Herausforderung, Biss und Professionalität - Charmantes, gewinnendes und höfliches Auftreten und gepflegtes Erscheinungsbild - Empathische und diskrete Persönlichkeit, sowie Bereitschaft, die Extrameile zu gehen | - Sie sind die 1. Ansprechperson für an- und abreisende Gäste und Zuständig für die Betreuung der Gäste während dem gesamten Aufenthalt - Führung, Schulung und Einsatzplanung eines Teams von ca. 15 Mitarbeitenden (Front Office & Concierge & Loge) - Kontinuierliches on-the-job Training der unterstellten Mitarbeitenden in LQA Standards, ISO Richtlinien, Protel, Einhaltung der LHW und Swiss Deluxe Hotel Vorgaben - Tages- und Monatsabschlüsse im System Protel und Erstellen diverser Statistiken, Überwachung des Budgets, sowie Verantwortung für die Hauptkasse und Debitorenverwaltung - Übernahme von Duty Manager Diensten | Ausgewogenes Menü-Angebot in unserem Mitarbeiterrestaurant \"Le Bistro\" während der Wintersaison Yoga für Mitarbeitende, sowie monatliche Poolabende & Nutzung unseres Fitnesscenters während der Wintersaison Bevorzugte Konditionen und Rabatte bei unseren Partnern (z.B.: Update Fitness, hauseigenes Sportgeschäft) Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels sowie attraktive externe Weiterbildungsmöglichkeiten | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Arbeitszeugnisse & Diplome"
       },
       "location": "St. Moritz",
@@ -591,7 +621,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1345/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:20.731Z",
+      "crawledAt": "2026-06-04T15:58:21.602Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -606,11 +636,19 @@
       "postedDate": "2026-05-28",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1345/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-28T00:43:20.731Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -623,50 +661,42 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-28T00:43:20.731Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
-        ]
-      },
-      "previousSlugs": [
-        "front-office-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
-      "id": "tschuggen-9d2cf0abe326",
-      "slug": "account-manager-m-w-d-tschuggen-collection-ascona",
+      "id": "tschuggen-f73aab9f5ab3",
+      "slug": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
       "slugByLocale": {
-        "it": "etagen-portier-m-w-d-tschuggen-ch",
-        "en": "etagen-portier-m-w-d-tschuggen-ch",
-        "de": "etagen-portier-m-w-d-tschuggen-collection-ascona",
-        "fr": "etagen-portier-m-w-d-tschuggen-ch"
+        "de": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "it": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "en": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "fr": "assistant-reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
       "companyDomain": "tschuggencollection.ch",
-      "title": "Etagen Portier (m/w/d)",
+      "title": "Assistant Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
       "titleByLocale": {
-        "it": "Account Manager (m/w/d)",
-        "en": "Account Manager (m/w/d)",
-        "de": "Etagen Portier (m/w/d)",
-        "fr": "Gestionnaire de compte (m/w/d)"
+        "de": "Assistent Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
+        "en": "Assistant Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
+        "it": "Assistant Reservation Manager (m/w/d) in unbefristeter Jahresanstellung",
+        "fr": "Assistant Reservation Manager (m/w/d) in unbefristeter Jahresanstellung"
       },
-      "description": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Ab sofort oder nach Vereinbarung! Mit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig! | Freundliches Auftreten, Höflichkeit gegenüber Gästen, gepflegtes Erscheinungsbild und Körperliche Belastbarkeit Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandard Erfahrung in einer vergleichbaren Position von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail | Unterstützung der Zimmerfrauen beim Reinigen der Zimmer, Etagen, der öffentlichen Bereiche und der Back of House Bereiche nach den geforderten Standards und gemäss Reinigungsplan Unterstützung beim Putzen der Fenster in den öffentlichen Räumen, beim Shampoonieren der Teppiche im ganzen Haus sowie bei der fachgerechten Abfallentsorgung | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | INTERESSIERT? BEWERBEN SIE SICH JETZT!",
+      "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per sofort oder nach Absprache | Abgeschlossene Berufsausbildung Erfahrung in ähnlichen Position von Vorteil Erfahrung in der 4/5* Hotellerie Deutsch und Englisch als Sprache ist Bedingung, jede Weitere von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail Sorgfalt und Genauigkeit beim Einhalten der Standards Empathische Persönlichkeit Gepflegtes Erscheinungsbild Belastbarkeit, Flexibilität | Annahme von Individualreservierungen & Gruppenreservationen per Telefon Unterstützung bei der Überwachung der Buchungskanäle Erstellen von Revenue Reports stellvertretende \n• Aufgaben vom Reservations- & Revenuemanager Bearbeitung von e-mails in dt. & engl., Erstellen von Offerten via Serenata Reservationen erfassen im PMS Protel Erledigung aller anfallenden \n• Aufgaben in der Reservierung Gewährleistung eines reibungslosen Ablaufes der Früh- sowie der Spätschicht Kontrolle der Vorgaben lt. LQA und „Mistral“ (ISO) Einarbeiten von Mitarbeitern | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
       "descriptionByLocale": {
-        "it": "Descrizione L'Hotel Eden Roc si trova direttamente sulle rive del Lago Maggiore e, in quanto hotel di lusso superiore a 5 stelle, è uno dei \"Swiss Deluxe Hotels\" e dei \"Principali Hotel al Mondo\". Come uno dei quattro hotel della \"Collezione Tschuggen\", ha ricevuto diversi premi come miglior hotel vacanze in Svizzera. L'hotel dispone di 95 lussuose camere e suite, quattro ristoranti, tra cui il gourmet La Brezza con 19 punti Gault Millau e due stelle Michelin, oltre alla Spa Eden Roc di 2000 m². Il ampio giardino con spiaggia privata, molo panoramico e marina è integrato da una vasta gamma di sport acquatici, una scuola di sci nautico e vela, oltre al noleggio barche. ## Visione - Restituiamo il valore al tempo. ## Lavoro - D'ora in poi o su appuntamento! ##\n• Requisiti - Con il tuo entusiasmo per il servizio agli ospiti, sei nel posto giusto! - Aspetto cordiale, cortesia verso gli ospiti, aspetto curato e resilienza fisica - Cura e accuratezza nel rispetto degli standard di pulizia - Esperienza in una posizione comparabile è un vantaggio - Sensibilità al servizio, alta consapevolezza della qualità, attenzione ai dettagli ## Compiti - Supporto alle governanti nella pulizia delle stanze, dei pavimenti, delle aree pubbliche e delle aree dietro la casa secondo gli standard richiesti e secondo Piano di pulizia - Supporto nella pulizia delle finestre nelle aree pubbliche, nello shampoo dei tappeti in tutta la casa e nello smaltimento professionale dei rifiuti ## Vantaggi - Alloggi interessanti per il personale vicino all'hotel - Offerta di menù equilibrata nella nostra trattoria del personale con opzioni vegetariane e vegane - Prezzi speciali per i trattamenti nella spa dell'hotel e Lido Locarno - Piscina e fitness - Prezzi speciali per le pernottamenti nelle nostre case del \"The Tschuggen Collection\" così come gli Swiss Deluxe Hotels - Sconti speciali presso AMAG, Sunrise e numerose altre aziende ## Contatto - INTERESSATO? CANDIDATI ORA!",
-        "en": "Descrizione The Hotel Eden Roc is located directly on the shores of Lake Maggiore and, as a 5-star superior luxury hotel, is one of the \"Swiss Deluxe Hotels\" and the \"Leading Hotels of the World\". As one of the four hotels in \"The Tschuggen Collection\", it has received several awards as the best holiday hotel in Switzerland. The hotel has 95 luxurious guest rooms and suites, four restaurants, including the gourmet highlight La Brezza with 19 Gault Millau points and two Michelin stars, as well as the 2000 m² Eden Roc Spa. The spacious garden with private beach, panoramic jetty and marina is complemented by a wide range of water sports, a water skiing and sailing school as well as boat rental. ## Vision - We give time back its value. ## Job - From now on or by appointment! ##\n• Requirements - With your enthusiasm for guest service, you've come to the right place! - Friendly appearance, politeness towards guests, well-groomed appearance and physical resilience - Care and accuracy in adhering to the cleaning standard - Experience in a comparable position is an advantage - Pronounced service thinking, high quality awareness, attention to detail ## Tasks - Support of the housekeepers in cleaning the rooms, floors, public areas and back of house areas according to the required standards and according to Cleaning plan - Support in cleaning the windows in the public areas, shampooing the carpets throughout the house and in professional waste disposal ## Advantages - Attractive staff accommodation near the hotel - Balanced menu offer in our staff trattoria with vegetarian and vegan options - Special prices for treatments in the hotel's own spa and Lido Locarno - Swimming pool and fitness - Special prices for overnight stays in our houses of the \"The Tschuggen Collection\" as well as the Swiss Deluxe Hotels - Special discounts at AMAG, Sunrise and numerous other companies ## Contact - INTERESTED? APPLY NOW!",
-        "de": "Das Hotel Eden Roc liegt direkt am Ufer des Lago Maggiore und gehört als 5-Sterne-Superior‑Luxushotel zu den \"Swiss Deluxe Hotels\" und den \"Leading Hotels of the World\". Als eines der vier Häuser der \"The Tschuggen Collection\" wurde es mehrfach als bestes Ferienhotel der Schweiz ausgezeichnet. Das Hotel verfügt über 95 luxuriöse Gästezimmer und Suiten, vier Restaurants, darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault Millau & zwei Michelin‑Sternen sowie den 2000 m² umfassenden Eden Roc Spa. Der weitläufige Garten mit privatem Badestrand, Panorama-Bootssteg und Jachthafen wird durch ein vielseitiges Wassersportangebot, eine Wasserski- und Segelschule sowie Bootsverleih ergänzt. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Ab sofort oder nach Vereinbarung! Mit Ihrer Begeisterung für den Service am Gast sind Sie bei uns genau richtig! | Freundliches Auftreten, Höflichkeit gegenüber Gästen, gepflegtes Erscheinungsbild und Körperliche Belastbarkeit Sorgfalt und Genauigkeit beim Einhalten der Reinigungsstandard Erfahrung in einer vergleichbaren Position von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail | Unterstützung der Zimmerfrauen beim Reinigen der Zimmer, Etagen, der öffentlichen Bereiche und der Back of House Bereiche nach den geforderten Standards und gemäss Reinigungsplan Unterstützung beim Putzen der Fenster in den öffentlichen Räumen, beim Shampoonieren der Teppiche im ganzen Haus sowie bei der fachgerechten Abfallentsorgung | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen Spezialpreise bei Anwendungen im Hoteleigenen Spa sowie Lido Locarno - Schwimmbad und Fitness Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels Sonderrabatte bei AMAG, Sunrise und zahlreichen weiteren Firmen | INTERESSIERT? BEWERBEN SIE SICH JETZT!",
-        "fr": "Descrizione L’Hôtel Eden Roc est situé directement sur les rives du lac Majeur et, en tant qu’hôtel de luxe supérieur 5 étoiles, fait partie des « Swiss Deluxe Hotels » et des « Meilleurs hôtels du monde ». En tant que l’un des quatre hôtels de la « Collection Tschuggen », il a reçu plusieurs prix en tant que meilleur hôtel de vacances de Suisse. L’hôtel dispose de 95 chambres et suites luxueuses, de quatre restaurants, dont le gastronomique La Brezza avec 19 points Gault Millau et deux étoiles Michelin, ainsi que l’Eden Roc Spa de 2000 m². Le vaste jardin avec plage privée, jetée panoramique et marina est complété par une large gamme de sports nautiques, une école de ski nautique et de voile ainsi qu’une location de bateaux. ## Vision - Nous rendons la valeur du temps. ## Job - À partir de maintenant ou sur rendez-vous ! ##\n• Exigences - Avec votre enthousiasme pour le service client, vous êtes au bon endroit ! - Apparence amicale, politesse envers les invités, apparence soignée et résilience physique - Soin et précision dans le respect des normes de nettoyage - Expérience dans un poste comparable est un avantage - Réflexion marquée sur le service, haute conscience de la qualité, attention aux détails ## Tâches - Soutien aux femmes de ménage dans le nettoyage des pièces, des sols, des espaces publics et des espaces de l’arrière-ménage selon les normes requises et selon Plan de nettoyage - Aide au nettoyage des fenêtres dans les espaces publics, au shampooing des tapis dans toute la maison et à l’élimination professionnelle des déchets ## Avantages - Hébergement attractif près de l’hôtel - Offre équilibrée de menu dans notre trattoria du personnel avec options végétariennes et véganes - Tarifs spéciaux pour les traitements dans le spa propre de l’hôtel et Lido Locarno - Piscine et fitness - Prix spéciaux pour les nuitées dans nos maisons de la « The Tschuggen Collection » ainsi que les Swiss Deluxe Hotels - Réductions spéciales chez AMAG, Sunrise et de nombreuses autres entreprises ## Contact - INTÉRESSÉ ? POSTULEZ DÈS MAINTENANT !"
+        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per sofort oder nach Absprache | Abgeschlossene Berufsausbildung Erfahrung in ähnlichen Position von Vorteil Erfahrung in der 4/5* Hotellerie Deutsch und Englisch als Sprache ist Bedingung, jede Weitere von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail Sorgfalt und Genauigkeit beim Einhalten der Standards Empathische Persönlichkeit Gepflegtes Erscheinungsbild Belastbarkeit, Flexibilität | Annahme von Individualreservierungen & Gruppenreservationen per Telefon Unterstützung bei der Überwachung der Buchungskanäle Erstellen von Revenue Reports stellvertretende \n• Aufgaben vom Reservations- & Revenuemanager Bearbeitung von e-mails in dt. & engl., Erstellen von Offerten via Serenata Reservationen erfassen im PMS Protel Erledigung aller anfallenden \n• Aufgaben in der Reservierung Gewährleistung eines reibungslosen Ablaufes der Früh- sowie der Spätschicht Kontrolle der Vorgaben lt. LQA und „Mistral“ (ISO) Einarbeiten von Mitarbeitern | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
+        "it": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per sofort oder nach Absprache | Abgeschlossene Berufsausbildung Erfahrung in ähnlichen Position von Vorteil Erfahrung in der 4/5* Hotellerie Deutsch und Englisch als Sprache ist Bedingung, jede Weitere von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail Sorgfalt und Genauigkeit beim Einhalten der Standards Empathische Persönlichkeit Gepflegtes Erscheinungsbild Belastbarkeit, Flexibilität | Annahme von Individualreservierungen & Gruppenreservationen per Telefon Unterstützung bei der Überwachung der Buchungskanäle Erstellen von Revenue Reports stellvertretende \n• Aufgaben vom Reservations- & Revenuemanager Bearbeitung von e-mails in dt. & engl., Erstellen von Offerten via Serenata Reservationen erfassen im PMS Protel Erledigung aller anfallenden \n• Aufgaben in der Reservierung Gewährleistung eines reibungslosen Ablaufes der Früh- sowie der Spätschicht Kontrolle der Vorgaben lt. LQA und „Mistral“ (ISO) Einarbeiten von Mitarbeitern | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
+        "en": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per sofort oder nach Absprache | Abgeschlossene Berufsausbildung Erfahrung in ähnlichen Position von Vorteil Erfahrung in der 4/5* Hotellerie Deutsch und Englisch als Sprache ist Bedingung, jede Weitere von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail Sorgfalt und Genauigkeit beim Einhalten der Standards Empathische Persönlichkeit Gepflegtes Erscheinungsbild Belastbarkeit, Flexibilität | Annahme von Individualreservierungen & Gruppenreservationen per Telefon Unterstützung bei der Überwachung der Buchungskanäle Erstellen von Revenue Reports stellvertretende \n• Aufgaben vom Reservations- & Revenuemanager Bearbeitung von e-mails in dt. & engl., Erstellen von Offerten via Serenata Reservationen erfassen im PMS Protel Erledigung aller anfallenden \n• Aufgaben in der Reservierung Gewährleistung eines reibungslosen Ablaufes der Früh- sowie der Spätschicht Kontrolle der Vorgaben lt. LQA und „Mistral“ (ISO) Einarbeiten von Mitarbeitern | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
+        "fr": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per sofort oder nach Absprache | Abgeschlossene Berufsausbildung Erfahrung in ähnlichen Position von Vorteil Erfahrung in der 4/5* Hotellerie Deutsch und Englisch als Sprache ist Bedingung, jede Weitere von Vorteil Ausgeprägtes Servicedenken, hohes Qualitätsbewusstsein, Liebe zum Detail Sorgfalt und Genauigkeit beim Einhalten der Standards Empathische Persönlichkeit Gepflegtes Erscheinungsbild Belastbarkeit, Flexibilität | Annahme von Individualreservierungen & Gruppenreservationen per Telefon Unterstützung bei der Überwachung der Buchungskanäle Erstellen von Revenue Reports stellvertretende \n• Aufgaben vom Reservations- & Revenuemanager Bearbeitung von e-mails in dt. & engl., Erstellen von Offerten via Serenata Reservationen erfassen im PMS Protel Erledigung aller anfallenden \n• Aufgaben in der Reservierung Gewährleistung eines reibungslosen Ablaufes der Früh- sowie der Spätschicht Kontrolle der Vorgaben lt. LQA und „Mistral“ (ISO) Einarbeiten von Mitarbeitern | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome"
       },
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
+      "location": "Arosa",
+      "canton": "GR",
+      "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-28T00:43:19.870Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
+      "crawledAt": "2026-06-04T15:58:20.628Z",
+      "addressLocality": "Arosa",
+      "postalCode": "7050",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ospitalità",
@@ -676,25 +706,15 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "requirements": [],
-      "requirementsByLocale": {},
-      "hotelName": "Hotel Eden Roc",
-      "previousSlugsByLocale": {
-        "fr": [
-          "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona"
-        ],
-        "de": [
-          "etagen-portier-m-w-d-tschuggen-ch"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "previousSlugs": [
-        "etagen-portier-m-w-d-tschuggen-ch",
-        "gestionnaire-de-compte-m-w-d-tschuggen-collection-ascona",
-        "account-manager-m-w-d-tschuggen-collection-ascona"
-      ],
-      "firstSeenAt": "2026-05-06T11:50:09.955Z",
+      "department": "Rooms Division",
+      "hotelName": "Tschuggen Grand Hotel",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -706,7 +726,9 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-04T15:58:20.628Z"
     }
   ]
 }
