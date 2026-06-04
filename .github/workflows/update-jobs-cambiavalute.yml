@@ -49,6 +49,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # cambiavalute.ch hard-403s plain fetch (anti-bot); the crawler falls back
+      # to a headless Chromium (fetchListingPageViaBrowser). npm ci installs the
+      # playwright package but NOT the browser binaries — without this step
+      # launch() throws "Executable doesn't exist" and the fallback no-ops.
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
       - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}

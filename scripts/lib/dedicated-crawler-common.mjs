@@ -3989,9 +3989,52 @@ export function validateDedicatedLocaleCoverage({
         .slice(0, sampleLimit)
         .map((d) => `- ${d.slug} len=${d.sourceLen} issues=${d.issueReasons.join(',')} diagnosis=${d.diagnosisReasons.join(',') || 'ultra_thin'} url=${d.url}`)
         .join('\n');
-      throw new Error(
-        `${label} thin-source investigation failed (${suspiciousThin.length} suspected crawl issues).\n${sample}\nInvestigate crawler extraction for these URLs before disabling strict validation.`
+
+      // Ratio-gate the abort. The crawler guard's job is to catch PARSER BREAKS
+      // (systemic extraction failure), NOT to act as the thin-content index gate
+      // — the build owns that (build-plugins/jobsSeoPagesPlugin.ts noindexes and
+      // excludes <50-word jobs from the sitemap; build-plugins/jobBoardSeo.ts
+      // gates board inclusion on >=50 words). Many sources (listing-only ATS at
+      // hospitals/hotels) legitimately have a couple of ultra-short postings;
+      // bricking the whole run on those discards every good job and files a
+      // false-positive issue. So: HARD-FAIL only when the suspicious-thin ratio
+      // is systemic (>= SYSTEMIC_THIN_RATIO of the crawled jobs) — that signals a
+      // genuine parser regression. Below the threshold: WARN and QUARANTINE the
+      // suspicious-thin jobs from the persisted dataset so they're never indexed,
+      // while the good jobs commit normally.
+      const SYSTEMIC_THIN_RATIO = Number(process.env.JOBS_SYSTEMIC_THIN_RATIO) || 0.5;
+      const suspiciousRatio = suspiciousThin.length / jobs.length;
+      // Require an absolute floor of >=2 thin jobs too: on a tiny listing source
+      // (2-4 jobs) a SINGLE naturally-short posting is already >=50% and would
+      // otherwise still brick the whole run. A parser break manifests as MANY
+      // thin jobs, so one thin job is never "systemic" regardless of ratio.
+      const systemic = suspiciousRatio >= SYSTEMIC_THIN_RATIO && suspiciousThin.length >= 2;
+
+      if (systemic) {
+        throw new Error(
+          `${label} thin-source investigation failed (${suspiciousThin.length}/${jobs.length} jobs = ${(suspiciousRatio * 100).toFixed(0)}% suspected crawl issues, >= ${(SYSTEMIC_THIN_RATIO * 100).toFixed(0)}% systemic threshold → likely parser break).\n${sample}\nInvestigate crawler extraction for these URLs before disabling strict validation.`
+        );
+      }
+
+      // Non-systemic: a few naturally-thin postings among many good ones.
+      const quarantineSlugs = new Set(suspiciousThin.map((d) => d.slug));
+      console.warn(
+        `⚠️ ${label} thin-source: ${suspiciousThin.length}/${jobs.length} job(s) below the suspicious-thin threshold (${(suspiciousRatio * 100).toFixed(0)}% < ${(SYSTEMIC_THIN_RATIO * 100).toFixed(0)}% systemic) — NOT a parser break. Quarantining them from the dataset (the good jobs commit; the build also noindexes/sitemap-excludes <50-word pages).\n${sample}`
       );
+      try {
+        const removed = raw.filter((j) => isTargetJob(j) && quarantineSlugs.has(j?.slug));
+        const kept = raw.filter((j) => !(isTargetJob(j) && quarantineSlugs.has(j?.slug)));
+        if (removed.length > 0) {
+          writeJson(resolvedDataJobsPath, kept);
+          const publicJobsPath = inferPublicJobsPath(resolvedDataJobsPath);
+          if (fs.existsSync(publicJobsPath)) {
+            writeJson(publicJobsPath, kept);
+          }
+          console.warn(`🧹 ${label} quarantined ${removed.length} thin job(s) from the dataset (${raw.length} → ${kept.length}).`);
+        }
+      } catch (quarantineErr) {
+        console.warn(`⚠️ ${label} thin-source quarantine write failed: ${quarantineErr?.message || quarantineErr}. Build-level thin-content noindex still applies.`);
+      }
     }
 
     const localeQualityIssues = softIssues.filter((i) => i.reason === 'untranslated_title' || i.reason === 'untranslated_slug');
