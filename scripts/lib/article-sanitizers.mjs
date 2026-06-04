@@ -237,7 +237,7 @@ const NAV_SEMANTIC_KEYWORDS_IT = {
   ],
   transport: [
     'transport', 'trasport', 'mobilità', 'pendolar', 'tragitto',
-    'tempo\\s+di\\s+viaggio', 'percorso',
+    'tempo\\s+di\\s+viaggio', 'percorso', 'mezzi\\s+pubblici',
   ],
   'salary-compare': [
     'stipend', 'salari', 'comparatore\\s+sal', 'comparazione',
