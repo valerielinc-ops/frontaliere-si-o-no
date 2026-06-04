@@ -7958,6 +7958,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Taxe santé des frontaliers : le Tessin la juge indue',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Le Conseil d\'État tessinois conteste la taxe sur la santé pour les anciens frontaliers, la jugeant contraire aux accords sur la double imposition.',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande à Bellinzone, siège du Conseil d\'État tessinois',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Impôt à la source des frontaliers : fonctionnement au Tessin',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Guide complet sur l\'impôt à la source pour les frontaliers au Tessin : calculs, taux et obligations liés au nouvel accord fiscal.',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Vue panoramique de Lugano avec drapeaux suisse et italien',
 };
 
 export default blogMetaFr;

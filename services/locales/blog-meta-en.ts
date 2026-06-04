@@ -7957,6 +7957,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Cross-border health tax: Ticino deems it undue',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'The Ticino Council of State challenges the health tax for long-term cross-border workers, judging it contrary to double taxation agreements.',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande in Bellinzona, seat of the Ticino Council of State',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Cross-border tax in Ticino: how it works',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'A complete guide to withholding tax for cross-border commuters in Ticino: calculations, rates, and requirements under the new tax agreement.',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Panoramic view of Lugano with Swiss and Italian flags',
 };
 
 export default blogMetaEn;

@@ -3917,6 +3917,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-dazi-usa-lavoro-forzato': { name: 'Svizzera respinge dazi USA su lavoro for', path: '/articoli-svizzera/svizzera-dazi-usa-lavoro-forzato/', parent: 'blog' },
     'blog-tassa-salute-frontalieri-ticino-indebita': { name: 'Fisco frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita', parent: 'blog' },
     'blog-rientro-svizzera-senza-lavoro': { name: 'Rientro lavoro', path: '/articoli-svizzera/rientro-svizzera-senza-lavoro/', parent: 'blog' },
+    'blog-imposta-fonte-frontalieri-ticino-dettagli': { name: 'Imposta alla fonte', path: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli', parent: 'blog' },
  };
 
  const info = sectionNames[section];

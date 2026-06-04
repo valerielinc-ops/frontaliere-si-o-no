@@ -7958,6 +7958,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Tassa salute frontalieri: il Ticino la definisce indebita',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Il Consiglio di Stato ticinese contesta la tassa sulla salute per i vecchi frontalieri, giudicandola contraria agli accordi sulla doppia imposizione.',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande di Bellinzona, sede del Consiglio di Stato ticinese',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Imposta alla fonte frontalieri: come funziona in Ticino',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Guida completa all\'imposta alla fonte per i frontalieri in Ticino: calcoli, aliquote e adempimenti previsti dal nuovo accordo fiscale.',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Vista panoramica di Lugano con bandiere svizzera e italiana',
 };
 
 export default blogMetaIt;

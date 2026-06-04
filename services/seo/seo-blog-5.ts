@@ -42311,6 +42311,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-fonte-frontalieri-ticino-dettagli': {
+    title: 'Imposta alla fonte frontalieri: come funziona in Ticino',
+    description: 'Scopri come funziona l\'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, funziona',
+    ogTitle: 'Imposta alla fonte frontalieri Ticino: guida e calcolo',
+    ogDescription: 'Guida pratica all\'imposta alla fonte per frontalieri in Ticino: calcoli e adempimenti.',
+    canonicalPath: '/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta alla fonte frontalieri: come funziona in Ticino",
+      "description": "Scopri come funziona l'imposta alla fonte per i frontalieri in Ticino, le aliquote e gli adempimenti fiscali necessari per la gestione del salario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-fonte-frontalieri-ticino-dettagli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con bandiere svizzera e italiana"
+      },
+      "datePublished": "2026-06-04T02:52:40+00:00",
+      "dateModified": "2026-06-04T02:52:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

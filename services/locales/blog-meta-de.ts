@@ -7956,6 +7956,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-indebita.title': 'Gesundheitsabgabe für Grenzgänger: Tessin hält sie für unzulässig',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.excerpt': 'Der Tessiner Staatsrat kritisiert die Gesundheitsabgabe für Alt-Grenzgänger und stuft diese als widersprüchlich zu den Doppelbesteuerungsabkommen ein.',
     'blog.article.tassa-salute-frontalieri-ticino-indebita.imageAlt': 'Castelgrande in Bellinzona, Sitz des Tessiner Staatsrates',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.title': 'Quellsteuer für Grenzgänger: Wie funktioniert\'s im Tessin?',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.excerpt': 'Vollständige Anleitung zur Quellsteuer für Grenzgänger im Tessin: Berechnungen, Sätze und Pflichten gemäß dem neuen Steuerausschlussvertrag.',
+    'blog.article.imposta-fonte-frontalieri-ticino-dettagli.imageAlt': 'Panoramablick auf Lugano mit Schweizer und italienischen Flaggen',
 };
 
 export default blogMetaDe;

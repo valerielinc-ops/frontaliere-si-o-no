@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2720,
+ "numberOfItems": 2721,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7360,7 +7360,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2717, "name": "Tassa salute frontalieri: il Ticino boccia il p...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-stato-ticino-boccia-tassa-salute` },
           { "@type": "ListItem", "position": 2718, "name": "Svizzera respinge dazi USA su lavoro forzato, t...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-dazi-usa-lavoro-forzato` },
           { "@type": "ListItem", "position": 2719, "name": "Tassa salute frontalieri: il Ticino la definisc...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-indebita` },
-          { "@type": "ListItem", "position": 2720, "name": "Rientro in Svizzera, come trasferire le indennità", "url": `${BASE_URL}/articoli-frontaliere/rientro-svizzera-senza-lavoro` }
+          { "@type": "ListItem", "position": 2720, "name": "Rientro in Svizzera, come trasferire le indennità", "url": `${BASE_URL}/articoli-frontaliere/rientro-svizzera-senza-lavoro` },
+          { "@type": "ListItem", "position": 2721, "name": "Imposta alla fonte frontalieri: come funziona i...", "url": `${BASE_URL}/articoli-frontaliere/imposta-fonte-frontalieri-ticino-dettagli` }
  ]
  },
  {
