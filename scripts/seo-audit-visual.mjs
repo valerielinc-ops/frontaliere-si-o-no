@@ -10,7 +10,7 @@
  * Samples 25 representative URLs covering all SEO page types.
  */
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 
 const OUT_DIR = '.orchestration/audit';
 mkdirSync(OUT_DIR, { recursive: true });
@@ -132,7 +132,7 @@ async function checkUrl(browser, entry) {
 }
 
 async function run() {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchChromium({ headless: true });
   const results = [];
   for (const entry of URLS) {
     console.log(`[${entry.type}] ${entry.url}`);

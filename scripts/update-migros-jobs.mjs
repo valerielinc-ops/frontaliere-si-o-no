@@ -29,7 +29,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -145,7 +145,7 @@ async function fetchMigrosJobDetailUrls() {
   // runaway pagination control. Was 25 → silently dropped ~380 of 1180 jobs.
   const maxPages = Number(process.env.JOBS_MIGROS_MAX_PAGES) || 1000;
 
-  const browser = await chromium.launch({
+  const browser = await launchChromium({
     headless,
     args: ['--disable-blink-features=AutomationControlled'],
   });

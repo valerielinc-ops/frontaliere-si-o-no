@@ -16,6 +16,7 @@
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
+import { launchChromium } from '../ensure-chromium.mjs';
 
 // Soft-bias for Lombardia cross-tagging: independent of FRONTALIERI_DOMAIN_RE
 // because we want to surface "auto in Varese" / "Como confine" even when
@@ -168,8 +169,7 @@ const RELATED_QUERIES_SELECTORS = [
 async function _playwrightFallbackInner(keyword, geo) {
   let browser = null;
   try {
-    const { chromium } = await import('playwright');
-    browser = await chromium.launch({ headless: true });
+    browser = await launchChromium({ headless: true });
     const ctx = await browser.newContext({
       userAgent:
         'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',

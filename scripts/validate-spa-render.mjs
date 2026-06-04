@@ -21,7 +21,7 @@
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, readdirSync, statSync, appendFileSync } from 'node:fs';
 import { join, extname } from 'node:path';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 
 const ROOT = process.cwd();
 const DIST = join(ROOT, 'dist');
@@ -181,7 +181,7 @@ async function main() {
   // Launch browser
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await launchChromium({ headless: true });
   } catch (e) {
     console.error('❌ Failed to launch Chromium. Run: npx playwright install chromium');
     console.error(`   ${e.message}`);

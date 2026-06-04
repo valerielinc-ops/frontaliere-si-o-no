@@ -7,7 +7,7 @@
  * Flow:
  *
  *   ┌──────────────────┐
- *   │  createBrowser   │   chromium.launch(headless, stealth args)
+ *   │  createBrowser   │   launchChromium(headless, stealth args)
  *   └────────┬─────────┘
  *            │ Browser
  *            ▼
@@ -42,7 +42,7 @@
  *   - AntiBotBlockError
  */
 
-import { chromium } from 'playwright';
+import { launchChromium } from '../ensure-chromium.mjs';
 
 const DEFAULT_USER_AGENT =
   'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
@@ -104,7 +104,7 @@ export class AntiBotBlockError extends Error {
 export async function createBrowser(options = {}) {
   const userAgent = options.userAgent || DEFAULT_USER_AGENT;
   try {
-    const browser = await chromium.launch({
+    const browser = await launchChromium({
       headless: true,
       args: ['--disable-blink-features=AutomationControlled'],
     });

@@ -23,6 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
+import { launchChromium } from './ensure-chromium.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -47,17 +48,6 @@ const PW_USER_AGENT =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36';
 
 /* ── Helpers ───────────────────────────────────────────────── */
-
-async function loadPlaywright() {
-  try {
-    const mod = await import('playwright');
-    return mod.chromium;
-  } catch (err) {
-    throw new Error(
-      `Playwright not available — install with \`npx playwright install chromium\`. (${err?.message || err})`,
-    );
-  }
-}
 
 async function createStealthContext(browser) {
   const ctx = await browser.newContext({
@@ -271,10 +261,9 @@ export async function fetchAllClinicaHolisticaJobs() {
   console.log(`🏥 Fetching Clinica Holistica Engiadina jobs`);
   console.log(`   Public career page: ${PUBLIC_CAREER_URL}\n`);
 
-  const chromium = await loadPlaywright();
   let browser;
   try {
-    browser = await chromium.launch({ headless: true, args: PW_LAUNCH_ARGS });
+    browser = await launchChromium({ headless: true, args: PW_LAUNCH_ARGS });
   } catch (err) {
     console.warn(`⚠️ chromium launch failed: ${err?.message || err}`);
     return [];

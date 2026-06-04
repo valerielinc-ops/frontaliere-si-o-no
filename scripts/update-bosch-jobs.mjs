@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -104,7 +104,7 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
 }
 
 async function fetchRenderedBoschListings() {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchChromium({ headless: true });
   try {
     const page = await browser.newPage({
       userAgent: 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',

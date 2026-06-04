@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -252,7 +252,7 @@ async function dismissConsent(page) {
 
 async function withBrowser(fn) {
   const headless = process.env.JOBS_GRACE_HEADLESS === '1';
-  const browser = await chromium.launch({
+  const browser = await launchChromium({
     headless,
     args: ['--disable-blink-features=AutomationControlled'],
   });
