@@ -25236,6 +25236,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'consiglio-stato-ticino-boccia-tassa-salute',
+ category: 'fiscale',
+ date: '2026-06-04T02:16:09.702Z',
+ image: '/images/blog/consiglio-stato-ticino-boccia-tassa-salute.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
