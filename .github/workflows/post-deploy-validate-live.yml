@@ -185,22 +185,33 @@ jobs:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
           set -uo pipefail
-          html="$(curl -s --max-time 30 "${LIVE_BASE_URL}/" || true)"
+          # Retry the homepage fetch so a transient network blip can't masquerade
+          # as "no CDN ref → nothing to verify" and silently skip the gate.
+          html=""
+          for i in 1 2 3 4; do
+            html="$(curl -s --max-time 30 "${LIVE_BASE_URL}/" || true)"
+            [ -n "$html" ] && break
+            sleep 5
+          done
+          if [ -z "$html" ]; then
+            echo "[validate-live] homepage fetch returned empty after 4 tries — inconclusive (transient); the e2e:live smoke below exercises boot end-to-end. Skipping CDN gate."
+            exit 0
+          fi
           asset="$(printf '%s' "$html" | grep -oE 'https://cdn\.frontaliereticino\.ch/assets/[^"'"'"' )]+\.(js|css)' | head -1)"
           if [ -z "$asset" ]; then
-            echo "[validate-live] homepage references no cdn.frontaliereticino.ch/assets bundle — assets served same-origin this deploy; nothing to verify."
+            echo "[validate-live] homepage (non-empty) references no cdn.frontaliereticino.ch/assets bundle — assets served same-origin this deploy; nothing to verify."
             exit 0
           fi
           echo "[validate-live] verifying boot bundle on CDN: $asset"
           ok=""
-          for i in $(seq 1 6); do
+          for i in $(seq 1 12); do
             code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$asset" || echo 000)"
             echo "  attempt $i: $code"
             [ "$code" = "200" ] && { ok=1; break; }
             sleep 10
           done
           if [ -z "$ok" ]; then
-            echo "::error::[validate-live] CDN boot bundle $asset not serving (live site references it but it 404s) — failing → rollback"
+            echo "::error::[validate-live] CDN boot bundle $asset not serving after ~2min (live homepage references it but it 404s) — failing → rollback"
             exit 1
           fi
           echo "✅ [validate-live] CDN boot bundle serves 200 from cdn.frontaliereticino.ch"
