@@ -848,20 +848,28 @@ jobs:
           retention-days: 1
           if-no-files-found: ignore
 
-      # Master jobs.json for post-deploy validators. The deploy artifact
-      # strips dist/data/jobs.json (jobsJsonDistCleanupPlugin, PR #712) to
-      # stay under the 10 GB GH Pages cap — runtime SPA fetches the
-      # per-locale shards instead. Validators like
-      # validate:translation-completeness still need the master file with
-      # titleByLocale / descriptionByLocale, so we upload it as a small
-      # dedicated artifact (retention 1d) that post-deploy-validate-dist
-      # downloads back into data/.
-      - name: Upload master jobs.json for post-deploy validators
+      # Master source data for post-deploy validators. The deploy artifact
+      # strips dist/data/jobs.json (jobsJsonDistCleanupPlugin, PR #712) and
+      # offloads the rest of dist/data/ to the CDN repo, DELETING the
+      # cdn-only copies from dist (offload-generated-images-cdn.mjs, PR
+      # #1288) — to stay under the 10 GB GH Pages cap; runtime SPA fetches
+      # the per-locale shards / CDN instead. Validators still read the
+      # master source files from data/:
+      #   • jobs.json                   — validate:translation-completeness
+      #                                   (titleByLocale / descriptionByLocale)
+      #   • jobs-crawler-summaries.json — validate:crawler-summaries
+      #                                   (gitignored, assembled at build; its
+      #                                   dist copy is CDN-offloaded + deleted)
+      # so we upload both as one small dedicated artifact (retention 1d)
+      # that post-deploy-validate-dist downloads back into data/.
+      - name: Upload master source data for post-deploy validators
         if: github.event.inputs.profile_sequential != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: jobs-master-${{ github.run_id }}
-          path: data/jobs.json
+          path: |
+            data/jobs.json
+            data/jobs-crawler-summaries.json
           retention-days: 1
           if-no-files-found: error
 
