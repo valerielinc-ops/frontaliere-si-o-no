@@ -1,18 +1,53 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-06-04T00:45:01.094Z",
-  "total": 15,
-  "newCount": 0,
+  "generatedAt": "2026-06-04T13:13:16.855Z",
+  "total": 16,
+  "newCount": 1,
   "updatedCount": 10,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 32114,
-  "avgDurationMs": 32114,
+  "durationMs": 33719,
+  "avgDurationMs": 33719,
   "durationHistory": [
-    32114
+    33719
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/default/job/SAP-Enterprise-Architektin-%28Enterprise-Services%29/73783-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/SAP-Enterprise-Architektin-%28Enterprise-Services%29/73783-de_DE",
+      "title": "SAP Enterprise Architekt:in (Enterprise Services)",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "sap-enterprise-architekt-in-enterprise-services-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-06-04",
+      "validThrough": "2026-06-25",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "70-100%",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Mitarbeiterin-Logistik/73787-de_DE",
@@ -454,53 +489,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "title": "PostAuto-Fahrer:in",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Ilanz",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "driver-per-il-carrello-postauto-ilanz",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-13",
-      "validThrough": "2026-06-03",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "20-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Ilanz"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-17ff4c3a48fc",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "7130",
-      "addressLocality": "Ilanz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-17T10:53:34.351Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://job.post.ch/default/job/Solution-Architektin-Business-Intelligence-&-Analytics/73707-de_DE",
