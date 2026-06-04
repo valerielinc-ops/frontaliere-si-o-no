@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-04T01:26:16.199Z",
+  "generatedAt": "2026-06-04T15:55:50.307Z",
   "total": 16,
   "newCount": 16,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 53111,
-  "avgDurationMs": 53111,
+  "durationMs": 102481,
+  "avgDurationMs": 102481,
   "durationHistory": [
-    53111
+    102481
   ],
   "newJobs": [
     {
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-06-04T01:25:50.245Z",
       "firstSeenAt": "2026-06-04T01:25:50.245Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 85500,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
