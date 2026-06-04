@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-06-03T14:03:22.242Z",
+  "assembledAt": "2026-06-04T00:00:19.146Z",
   "jobs": [
     {
       "id": "jumbo-1c670883-34c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/1c670883-34ce-4a84-b01a-e1726167bc5c",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:03:20.273Z",
+      "crawledAt": "2026-06-04T00:00:17.058Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/890c5910-af33-4f69-8100-307051dff257",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:03:20.272Z",
+      "crawledAt": "2026-06-04T00:00:17.057Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cb72777c-d77c-4e8b-bf4a-23f23f88709a",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:03:20.272Z",
+      "crawledAt": "2026-06-04T00:00:17.057Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -363,7 +363,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/5020b7ed-25d5-4c66-80ba-4a9214f8531e",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:03:20.271Z",
+      "crawledAt": "2026-06-04T00:00:17.056Z",
       "addressLocality": "Brig-Glis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -399,6 +399,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:15:29.086Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -443,7 +444,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-inkl-stellvertretung-der-geschaeftsfuehrung/4149462b-53bc-440b-85e0-d2773303c3c5",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:03:20.270Z",
+      "crawledAt": "2026-06-04T00:00:17.055Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -489,72 +490,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:18:49.424Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "jumbo-c9cdcd13-7b6",
-      "slug": "caissiere-caissier-f-h-d-jumbo-sierre",
-      "slugByLocale": {
-        "it": "caissiere-caissier-f-h-d-jumbo-sierre",
-        "en": "cashier-cashier-f-h-d-jumbo-sierre",
-        "de": "kasse-kasse-f-h-d-jumbo-sierre",
-        "fr": "caissiere-caissier-f-h-d-jumbo-sierre"
-      },
-      "company": "JUMBO",
-      "companyKey": "jumbo",
-      "companyDomain": "jumbo.ch",
-      "title": "Caissière / Caissier (f/h/d)",
-      "titleByLocale": {
-        "it": "Caissière / Caissier (f/m/d)",
-        "en": "Cashier / Cashier (f/h/d)",
-        "de": "Kasse / Kasse (f/h/d)",
-        "fr": "Caissière / Caissier (f/h/d)"
-      },
-      "description": "## Aufgaben\n• Vous assurez le service à la caisse et garantissez un processus de paiement fluide• Vous réservez un accueil chaleureux et professionnel à la clientèle• Vous maintenez l'ordre et la propreté autour de votre caisse• Vous apportez occasionnellement votre aide à l'équipe de vente pour le rangement et la mise en place en rayon de la marchandise\n\n## Anforderungen\n• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous\n\n## Wir bieten\n• Rabais et réductions:• Conditions d'engagement:• Temps de travail:• Formation continue:• Développement durable:• Communication:• Santé:",
-      "descriptionByLocale": {
-        "it": "Aufgaben\n• Fornire assistenza alla caisse e garantire un processo di pagamento regolare• Si riserva un caloroso e professionale benvenuto alla clientela• Mantenete ordine e pulizia intorno al vostro caisse• occasionalmente aiuta il team di vendita per memorizzare e impostare la merce Anforderungen\n• Idealmente, avete esperienza professionale in un settore simile• Sei fluente in francese, stai ascoltando i clienti e li accolgono sempre con un sorriso e una cortesia, anche quando la pressione aumenta• Lavori in modo affidabile e meticoloso, combinando la facilità relazionale e il senso del lavoro di squadra• Sei flessibile in programma e lavorare il sabato o il venerdì sera non è un ostacolo per te Wir bieten\n• Sconti e riduzioni:• Condizioni di lavoro:• Tempo di lavoro:• Formazione continua:• Sviluppo sostenibile:• Comunicazione:• Salute:",
-        "en": "Aufgaben\n• You provide service to the caisse and guarantee a smooth payment process• You reserve a warm and professional welcome to the clientele• You maintain order and cleanliness around your caisse• You occasionally help the sales team to store and set up the merchandise Anforderungen\n• Ideally, you have professional experience in a similar sector• You are fluent in French, you are listening to clients and always welcome them with a smile and courtesy, even when the pressure rises• You work reliably and meticulously, combining relational ease and a sense of teamwork• You are flexible on schedule and working on Saturday or Friday night is not an obstacle for you Wir bieten\n• Discounts and reductions:• Conditions of employment:• Working time:• Continuing training:• Sustainable development:• Communication:• Health:",
-        "de": "Aufgaben\n• Sie bieten Service für die Kasse und garantieren einen reibungslosen Zahlungsvorgang• Sie behalten sich eine herzliche und professionelle Begrüßung der Klientel vor• Sie pflegen Ordnung und Sauberkeit rund um Ihre caisse• Sie helfen gelegentlich dem Vertriebsteam, die Ware zu speichern und einzurichten Anforderungen\n• Idealerweise haben Sie Berufserfahrung in einem ähnlichen Bereich• Sie sind fließend auf Französisch, Sie hören Kunden und begrüßen sie immer mit einem Lächeln und Höflichkeit, auch wenn der Druck steigt• Sie arbeiten zuverlässig und sorgfältig, kombinieren relationale Leichtigkeit und ein Gefühl von Teamarbeit• Sie sind flexibel auf Zeitplan und arbeiten am Samstag oder Freitag Nacht ist kein Hindernis für Sie Wir bieten\n• Rabatte und Ermäßigungen:• Beschäftigungsbedingungen:• Arbeitszeit:• Weiterbildung:• Nachhaltige Entwicklung:• Kommunikation:• Gesundheit:",
-        "fr": "## Aufgaben\n• Vous assurez le service à la caisse et garantissez un processus de paiement fluide• Vous réservez un accueil chaleureux et professionnel à la clientèle• Vous maintenez l'ordre et la propreté autour de votre caisse• Vous apportez occasionnellement votre aide à l'équipe de vente pour le rangement et la mise en place en rayon de la marchandise ## Anforderungen\n• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous ## Wir bieten\n• Rabais et réductions:• Conditions d'engagement:• Temps de travail:• Formation continue:• Développement durable:• Communication:• Santé:"
-      },
-      "location": "Sierre",
-      "canton": "VS",
-      "url": "https://jobs.coopjobs.ch/postes-vacantes/caissiere-caissier-f-h-d/c9cdcd13-7b67-4eba-bd10-b6a3d09d621f",
-      "source": "JUMBO Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-03T14:03:20.269Z",
-      "addressLocality": "Sierre",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3960",
-      "streetAddress": "Route de Sion 115",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Commercio al dettaglio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "pensum": "8-20%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165916",
-      "requirements": [
-        "• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous"
-      ],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-21T12:18:16.291Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -599,7 +535,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/f5577ce8-6ba0-4200-8d4b-714c355d7b96",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:03:20.268Z",
+      "crawledAt": "2026-06-04T00:00:17.054Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -635,6 +571,74 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:59:36.350Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "jumbo-c9cdcd13-7b6",
+      "slug": "caissiere-caissier-f-h-d-jumbo-sierre",
+      "slugByLocale": {
+        "it": "caissiere-caissier-f-h-d-jumbo-sierre",
+        "en": "cashier-cashier-f-h-d-jumbo-sierre",
+        "de": "kasse-kasse-f-h-d-jumbo-sierre",
+        "fr": "caissiere-caissier-f-h-d-jumbo-sierre"
+      },
+      "company": "JUMBO",
+      "companyKey": "jumbo",
+      "companyDomain": "jumbo.ch",
+      "title": "Caissière / Caissier (f/h/d)",
+      "titleByLocale": {
+        "it": "Caissière / Caissier (f/m/d)",
+        "en": "Cashier / Cashier (f/h/d)",
+        "de": "Kasse / Kasse (f/h/d)",
+        "fr": "Caissière / Caissier (f/h/d)"
+      },
+      "description": "## Aufgaben\n• Vous assurez le service à la caisse et garantissez un processus de paiement fluide• Vous réservez un accueil chaleureux et professionnel à la clientèle• Vous maintenez l'ordre et la propreté autour de votre caisse• Vous apportez occasionnellement votre aide à l'équipe de vente pour le rangement et la mise en place en rayon de la marchandise\n\n## Anforderungen\n• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous\n\n## Wir bieten\n• Rabais et réductions:• Conditions d'engagement:• Temps de travail:• Formation continue:• Développement durable:• Communication:• Santé:",
+      "descriptionByLocale": {
+        "it": "Aufgaben\n• Fornire assistenza alla caisse e garantire un processo di pagamento regolare• Si riserva un caloroso e professionale benvenuto alla clientela• Mantenete ordine e pulizia intorno al vostro caisse• occasionalmente aiuta il team di vendita per memorizzare e impostare la merce Anforderungen\n• Idealmente, avete esperienza professionale in un settore simile• Sei fluente in francese, stai ascoltando i clienti e li accolgono sempre con un sorriso e una cortesia, anche quando la pressione aumenta• Lavori in modo affidabile e meticoloso, combinando la facilità relazionale e il senso del lavoro di squadra• Sei flessibile in programma e lavorare il sabato o il venerdì sera non è un ostacolo per te Wir bieten\n• Sconti e riduzioni:• Condizioni di lavoro:• Tempo di lavoro:• Formazione continua:• Sviluppo sostenibile:• Comunicazione:• Salute:",
+        "en": "Aufgaben\n• You provide service to the caisse and guarantee a smooth payment process• You reserve a warm and professional welcome to the clientele• You maintain order and cleanliness around your caisse• You occasionally help the sales team to store and set up the merchandise Anforderungen\n• Ideally, you have professional experience in a similar sector• You are fluent in French, you are listening to clients and always welcome them with a smile and courtesy, even when the pressure rises• You work reliably and meticulously, combining relational ease and a sense of teamwork• You are flexible on schedule and working on Saturday or Friday night is not an obstacle for you Wir bieten\n• Discounts and reductions:• Conditions of employment:• Working time:• Continuing training:• Sustainable development:• Communication:• Health:",
+        "de": "Aufgaben\n• Sie bieten Service für die Kasse und garantieren einen reibungslosen Zahlungsvorgang• Sie behalten sich eine herzliche und professionelle Begrüßung der Klientel vor• Sie pflegen Ordnung und Sauberkeit rund um Ihre caisse• Sie helfen gelegentlich dem Vertriebsteam, die Ware zu speichern und einzurichten Anforderungen\n• Idealerweise haben Sie Berufserfahrung in einem ähnlichen Bereich• Sie sind fließend auf Französisch, Sie hören Kunden und begrüßen sie immer mit einem Lächeln und Höflichkeit, auch wenn der Druck steigt• Sie arbeiten zuverlässig und sorgfältig, kombinieren relationale Leichtigkeit und ein Gefühl von Teamarbeit• Sie sind flexibel auf Zeitplan und arbeiten am Samstag oder Freitag Nacht ist kein Hindernis für Sie Wir bieten\n• Rabatte und Ermäßigungen:• Beschäftigungsbedingungen:• Arbeitszeit:• Weiterbildung:• Nachhaltige Entwicklung:• Kommunikation:• Gesundheit:",
+        "fr": "## Aufgaben\n• Vous assurez le service à la caisse et garantissez un processus de paiement fluide• Vous réservez un accueil chaleureux et professionnel à la clientèle• Vous maintenez l'ordre et la propreté autour de votre caisse• Vous apportez occasionnellement votre aide à l'équipe de vente pour le rangement et la mise en place en rayon de la marchandise ## Anforderungen\n• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous ## Wir bieten\n• Rabais et réductions:• Conditions d'engagement:• Temps de travail:• Formation continue:• Développement durable:• Communication:• Santé:"
+      },
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://jobs.coopjobs.ch/postes-vacantes/caissiere-caissier-f-h-d/c9cdcd13-7b67-4eba-bd10-b6a3d09d621f",
+      "source": "JUMBO Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T00:00:17.054Z",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3960",
+      "streetAddress": "Route de Sion 115",
+      "category": "Commerciale",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Commercio al dettaglio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "pensum": "8-20%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=165916",
+      "requirements": [
+        "• Vous bénéficiez dans l'idéal d'une expérience professionnelle dans un secteur similaire• Vous parlez couramment le français, vous montrez à l'écoute de la clientèle et l'accueillez toujours avec le sourire et courtoisie, même lorsque la pression monte• Vous travaillez de manière fiable et méticuleuse, alliez aisance relationnelle et sens du travail en équipe• Vous êtes flexible au niveau des horaires et travailler le samedi ou le vendredi soir n'est pas un obstacle pour vous"
+      ],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-05-21T12:18:16.291Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -679,7 +683,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/5342df1a-efe0-47ea-8786-f3499f04428f",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T14:03:20.267Z",
+      "crawledAt": "2026-06-04T00:00:17.052Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -715,6 +719,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:59:57.997Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
