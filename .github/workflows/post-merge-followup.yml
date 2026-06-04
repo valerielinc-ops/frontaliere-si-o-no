@@ -88,7 +88,7 @@ jobs:
             3. Carica:
                - `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
                - `gh api repos/$REPO/pulls/$PR_NUMBER/reviews`
-               - `gh issue list --label follow-up --state all --json number,title,body --limit 50`
+               - `gh issue list --label follow-up --state all --json number,title --limit 50` (SOLO `number,title`: il bulk overview serve per la vista d'insieme/titoli; il dedup vero è item-level scoped via `--search` — vedi FOLLOWUP.md § Dedup. MAI aggiungere `,body`: con ~170 issue follow-up il dump arriva a ~170KB emoji-heavy, viene troncato a un boundary di surrogate UTF-16 → lone surrogate → request body API JSON invalido `400 no low surrogate in string`, ogni run fallisce.)
 
             **Esegui workflow come specificato in FOLLOWUP.md:**
             - Parse PR body `## Non implementato` (skip motivi `out of scope` / `posposto`).
