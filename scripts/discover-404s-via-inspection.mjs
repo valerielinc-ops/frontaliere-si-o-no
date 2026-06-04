@@ -320,7 +320,7 @@ async function main() {
     // distruggere dati buoni: se il write scende sotto una soglia di sanità,
     // ABORTISCI con exit 1 (il workflow fallisce RUMOROSAMENTE → restore manuale,
     // niente commit di regressione).
-    const SANITY_FLOOR = 100_000;
+    const SANITY_FLOOR = 150_000;
     const prevCount = readJsonSafe(compatPath, { paths: [] }).paths?.length ?? 0;
     if (updatedCompat.paths.length < SANITY_FLOOR && prevCount >= SANITY_FLOOR) {
       console.error(
