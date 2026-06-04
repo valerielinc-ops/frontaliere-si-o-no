@@ -535,6 +535,16 @@ NODE
 
 # ── 0a. Size guard: trim stale jobs if data/jobs.json approaches GitHub's 100 MB limit ──
 # (Skipped in --slice-only mode: shared files are not committed by crawlers)
+#
+# IMPORTANT: data/jobs.json is .gitignored (see .gitignore) — it is NEVER staged
+# or pushed (the stage loop below filters gitignored paths via `git check-ignore`).
+# So an over-size jobs.json cannot poison a push and there is nothing to protect
+# by aborting. The trim is best-effort housekeeping; a residual over-size file is
+# a WARNING, not a hard failure. A hard `exit 1` here is pure collateral: it took
+# down newsletter-qa, sync-gsc-orphans, recover-prev-slugs, translate-pending and
+# every crawler the moment the LIVE corpus grew past 90 MB (issue #1273), aborting
+# the commit of completely unrelated files (QA reports, slices). We do NOT trim
+# more aggressively (corpus = funnel; never cut pages); we just stop failing.
 if [ "$SLICE_ONLY" = true ]; then
   echo "📦 Slice-only mode: skipping shared file operations (assembly happens at deploy)"
 fi
@@ -558,8 +568,11 @@ fs.writeFileSync(filePath, JSON.stringify(fresh, null, 2) + '\n', 'utf8');
 const afterMb = Buffer.byteLength(JSON.stringify(fresh)) / (1024 * 1024);
 console.log(`  Trimmed ${before - fresh.length} stale jobs (${before} → ${fresh.length}, ~${afterMb.toFixed(1)} MB)`);
 if (afterMb > 90) {
-  console.error(`❌ data/jobs.json is still ${afterMb.toFixed(1)} MB after trim — manual intervention required`);
-  process.exit(1);
+  // data/jobs.json is gitignored: it is never staged or pushed, so a residual
+  // over-size file is harmless to the commit. Warn (don't abort) so unrelated
+  // files in this commit still get pushed. The corpus is intentionally large
+  // (SEO funnel) — aggressive pruning is out of scope here.
+  console.warn(`⚠️  data/jobs.json is still ${afterMb.toFixed(1)} MB after trim (gitignored — not pushed; continuing).`);
 }
 NODE
   fi

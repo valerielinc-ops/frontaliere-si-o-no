@@ -4318,10 +4318,50 @@ ${terminologyByLang[targetLang] || ''}`;
   data.content.de = deContent;
   data.content.fr = frContent;
 
-  // Validate translated content fields
+  // Validate translated content fields. A transient AI failure (429/timeout/
+  // empty completion under quota exhaustion) can leave a single field empty —
+  // historically this hard-threw and discarded the ENTIRE generated article,
+  // including the fine IT source content (issue #1266: "Campo excerpt mancante
+  // nella traduzione de" during a run where nearly every model 429'd). That is
+  // a brittle all-or-nothing guard inconsistent with the retry-then-accept
+  // philosophy already used below for identical / over-long fields.
+  //
+  // Structural fix: instead of hard-throwing (which discarded the whole article
+  // including the fine IT source), retry the missing field once via a focused
+  // re-translation, and only if THAT also fails fall back to the Italian source
+  // value. Shipping the IT value under a localized URL is an hreflang compromise
+  // (esp. for body1/2/3), so we genuinely re-attempt the translation first; the
+  // IT fallback is the last resort that keeps the page indexable rather than
+  // nuking the article. Only throw if the field is missing from the IT source
+  // itself (a real upstream defect we cannot paper over).
   for (const locale of ['en', 'de', 'fr']) {
+    const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
-      if (!data.content[locale][field]) throw new Error(`Campo ${field} mancante nella traduzione ${locale}`);
+      if (data.content[locale][field]) continue;
+      const itValue = itContent[field];
+      if (!itValue) {
+        throw new Error(`Campo ${field} mancante nella traduzione ${locale} (e assente anche nella sorgente IT)`);
+      }
+      console.error(`  ⚠️  Campo ${field} mancante nella traduzione ${locale} — retry traduzione mirata...`);
+      try {
+        // Reuse the in-scope callWithRetry (callLLM + JSON repair + truncation
+        // back-off) for a focused single-field re-translation.
+        const parsed = await callWithRetry(
+          `Traduci OBBLIGATORIAMENTE in ${langName} il seguente campo per il sito Frontaliere Ticino. Rispondi SOLO con JSON (no markdown):\n\nCAMPO ITALIANO (${field}):\n${itValue}\n\nFormato risposta: {"${field}": "..."}`,
+          1500,
+          `${locale}:${field}-missing-retry`,
+        );
+        const retried = parsed?.[field];
+        if (retried && String(retried).trim() && String(retried).trim() !== String(itValue).trim()) {
+          data.content[locale][field] = retried;
+          console.error(`  ✅ Campo ${field} (${locale}) ritradotto con successo dopo missing-field retry`);
+          continue;
+        }
+        console.error(`  ⚠️  Retry ${field} (${locale}) non ha prodotto una traduzione valida — fallback al valore italiano`);
+      } catch (retryErr) {
+        console.error(`  ⚠️  Retry ${field} (${locale}) fallito: ${retryErr.message} — fallback al valore italiano`);
+      }
+      data.content[locale][field] = itValue;
     }
   }
 

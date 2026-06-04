@@ -132,7 +132,14 @@ export function cosineSimilarity(a, b) {
  * Find the top-K most similar published articles to a query vector.
  *
  * @param {Float32Array} queryVec
- * @param {{ store?: object, meta?: object, k?: number }} [opts]
+ * @param {{ store?: object, meta?: object, k?: number, queryModel?: string|null }} [opts]
+ *   queryModel — model id (e.g. 'mistral-embed') that produced queryVec. When
+ *   provided AND the store's meta.model is known AND they differ, the comparison
+ *   is skipped (returns []). mistral-embed and embed-multilingual-v3.0 share
+ *   dim=1024 but are DIFFERENT vector spaces — cross-model cosine is garbage and
+ *   would silently mis-rank near-duplicates. Degrading to [] reproduces the
+ *   pre-fallback "clean skip" behaviour when the active provider drifts from the
+ *   model the store was built with.
  * @returns {Array<{ slug: string|null, hash: string, cosine: number, index: number }>}
  */
 export function findTopK(queryVec, opts = {}) {
@@ -142,6 +149,15 @@ export function findTopK(queryVec, opts = {}) {
 
   const k = Math.max(1, opts.k || EMBEDDING_TOP_K);
   const meta = opts.meta !== undefined ? opts.meta : loadEmbeddingMeta();
+
+  // Model-consistency guard (cross-provider cosine is meaningless). Only enforce
+  // when BOTH sides are known — if either is unknown we fall back to the prior
+  // (dim-only) behaviour rather than over-blocking.
+  const storeModel = meta && typeof meta.model === 'string' ? meta.model : null;
+  const queryModel = typeof opts.queryModel === 'string' ? opts.queryModel : null;
+  if (storeModel && queryModel && storeModel !== queryModel) {
+    return [];
+  }
   const hashToSlug = buildHashToSlugIndex(meta);
 
   // Heap-free top-K — corpus is ~5k articles, a single linear scan with

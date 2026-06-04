@@ -24,7 +24,7 @@ import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { embedBatch } from './lib/evidence/embeddingClient.mjs';
+import { embedBatch, lastUsedEmbeddingModel } from './lib/evidence/embeddingClient.mjs';
 import { EMBEDDING_DIM, EMBEDDING_MODEL } from './lib/evidence/constants.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -139,6 +139,38 @@ async function main() {
     }
   }
 
+  // Provider-drift guard. The persisted .bin vectors live in ONE model's vector
+  // space (mistral-embed vs embed-multilingual-v3.0 — same dim=1024, DIFFERENT
+  // spaces). If the active provider has drifted from the model that built the
+  // store (e.g. MISTRAL_API_KEY revoked → Cohere fallback), appending new
+  // vectors would silently mix incompatible spaces and corrupt every downstream
+  // cosine. Probe the active model with a tiny embed; if it differs from the
+  // store's meta.model, discard the preserved vectors and re-embed the whole
+  // corpus with the active provider so the store stays single-model.
+  let existingStoreModel = null;
+  if (!isFullRebuild && existsSync(OUTPUT_META)) {
+    try {
+      const m = JSON.parse(readFileSync(OUTPUT_META, 'utf8'));
+      if (m && typeof m.model === 'string') existingStoreModel = m.model;
+    } catch { /* unreadable meta → treat as unknown, no drift forcing */ }
+  }
+  let forceFullReembed = isFullRebuild;
+  if (!forceFullReembed && existingStore.count > 0 && existingStoreModel) {
+    try {
+      await embedBatch({ inputs: ['__provider_probe__'] });
+      const activeModel = lastUsedEmbeddingModel();
+      if (activeModel && activeModel !== existingStoreModel) {
+        console.error(`EMBEDDINGS_BUILD provider drift: store='${existingStoreModel}' active='${activeModel}' — discarding preserved vectors and re-embedding full corpus (cross-model cosine would be invalid).`);
+        forceFullReembed = true;
+        existingStore = { hashes: new Map(), dim: EMBEDDING_DIM, count: 0, buf: null };
+      }
+    } catch (err) {
+      // Probe failed (e.g. all providers down) — leave incremental as-is; the
+      // real embed loop below will surface the error. Do not corrupt the store.
+      console.error(`EMBEDDINGS_BUILD provider probe failed (continuing incremental): ${err.message}`);
+    }
+  }
+
   // Build per-slug records: existing first (preserved verbatim), then new.
   const records = [];
   const perArticle = {};
@@ -155,11 +187,12 @@ async function main() {
     }
   }
 
-  // Identify new (uncached) articles.
+  // Identify new (uncached) articles. On a forced full re-embed (explicit
+  // --full, or provider drift detected above) every article is re-embedded.
   const toEmbed = [];
   for (const [slug, art] of articles) {
     const hashHex = slugHashBuffer(slug).toString('hex');
-    if (!existingStore.hashes.has(hashHex) || isFullRebuild) {
+    if (!existingStore.hashes.has(hashHex) || forceFullReembed) {
       toEmbed.push({ slug, text: articleText(art) });
     }
   }
@@ -170,7 +203,9 @@ async function main() {
     if (!hasMistral && !hasCohere) {
       console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
       const meta = {
-        model: EMBEDDING_MODEL,
+        // Preserve the untouched store's own model label (don't relabel a store
+        // we didn't rebuild). Fall back to EMBEDDING_MODEL only if unknown.
+        model: existingStoreModel || EMBEDDING_MODEL,
         dim: EMBEDDING_DIM,
         count: existingStore.count,
         builtAt: new Date().toISOString(),
@@ -217,8 +252,14 @@ async function main() {
   writeFileSync(tmpBin, out);
   renameSync(tmpBin, OUTPUT_BIN);
 
+  // Record the model that ACTUALLY produced the vectors in this store, not a
+  // hardcoded default. After a provider drift / fallback the store is rebuilt in
+  // the active provider's space; meta.model must reflect that so the read-side
+  // guard (embeddingMatcher.findTopK) can detect future drift. If nothing was
+  // embedded this run (incremental no-op), keep the prior label.
+  const builtModel = lastUsedEmbeddingModel() || existingStoreModel || EMBEDDING_MODEL;
   const meta = {
-    model: EMBEDDING_MODEL,
+    model: builtModel,
     dim: EMBEDDING_DIM,
     count,
     builtAt: new Date().toISOString(),

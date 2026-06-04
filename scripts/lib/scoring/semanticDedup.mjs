@@ -19,7 +19,7 @@
 // embedding store is absent or the embedding API call fails, so a transient
 // outage never blocks the pipeline.
 
-import { embedOne } from '../evidence/embeddingClient.mjs';
+import { embedOne, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
 import { findTopK, loadEmbeddingStore, loadEmbeddingMeta } from './embeddingMatcher.mjs';
 import { EMBEDDING_NEAR_DUP_COSINE, EMBEDDING_TOP_K } from './constants.mjs';
 
@@ -86,7 +86,15 @@ export async function checkSemanticNearDuplicate(data, opts = {}) {
   }
 
   const meta = opts.meta !== undefined ? opts.meta : loadEmbeddingMeta();
-  const topK = findTopK(vec, { store, meta, k });
+  // Gate cross-provider cosine: the query was embedded by whichever provider
+  // actually answered (Mistral or its Cohere fallback). If that model differs
+  // from the model the store was built with, findTopK degrades to a clean skip.
+  const queryModel = opts.queryModel !== undefined ? opts.queryModel : lastUsedEmbeddingModel();
+  const topK = findTopK(vec, { store, meta, k, queryModel });
+  if (topK.length === 0 && meta && typeof meta.model === 'string' && queryModel && meta.model !== queryModel) {
+    log(`  ⏭️  Dedup semantico saltato (store model '${meta.model}' ≠ provider attivo '${queryModel}' — cosine cross-provider non valida)`);
+    return data;
+  }
 
   // The new article isn't in the store yet, but a re-publish could match
   // itself — exclude any neighbour that resolves to this same article.
