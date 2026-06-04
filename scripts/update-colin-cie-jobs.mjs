@@ -25,6 +25,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -178,8 +179,7 @@ async function fetchPage(url) {
       } else {
         console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying Playwright fallback...`);
         try {
-          const { chromium } = await import('playwright');
-          const browser = await chromium.launch({ headless: true });
+          const browser = await launchChromium({ headless: true });
           try {
             const page = await browser.newPage({ userAgent: USER_AGENTS[0] });
             await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });

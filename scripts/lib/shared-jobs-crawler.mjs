@@ -460,6 +460,8 @@ async function getFastXmlParserModule() {
   return fastXmlParserModulePromise;
 }
 
+import { launchChromium } from './ensure-chromium.mjs';
+
 async function getPlaywrightChromium() {
   if (playwrightChromiumPromise) return playwrightChromiumPromise;
   playwrightChromiumPromise = import('playwright')
@@ -2486,7 +2488,7 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
   let browser = null;
   const out = new Set();
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await launchChromium({ headless: true });
     const page = await browser.newPage({ userAgent: CRAWLER_USER_AGENT });
     await page.goto(companyWebsite, { waitUntil: 'domcontentloaded', timeout: BROWSER_FALLBACK_TIMEOUT_MS });
     if (BROWSER_FALLBACK_WAIT_MS > 0) {

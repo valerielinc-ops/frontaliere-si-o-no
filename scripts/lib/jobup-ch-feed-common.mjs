@@ -33,6 +33,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
+import { launchChromium } from './ensure-chromium.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -83,8 +84,7 @@ export function looksLikeJsonFeedBody(text) {
 async function fetchFeedViaPlaywright(url) {
   let browser;
   try {
-    const { chromium } = await import('playwright');
-    browser = await chromium.launch({ headless: true });
+    browser = await launchChromium({ headless: true });
     const context = await browser.newContext({
       userAgent: BROWSER_USER_AGENTS[0],
       locale: 'fr-CH',

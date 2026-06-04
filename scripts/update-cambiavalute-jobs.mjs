@@ -17,6 +17,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -180,8 +181,7 @@ async function fetchListingPage(url, timeoutMs, userAgent) {
 // A real headless Chromium passes the JS/TLS fingerprint checks that block
 // node's fetch. Lazy-imported so the dependency is only loaded on fallback.
 async function fetchListingPageViaBrowser(url, timeoutMs) {
-  const { chromium } = await import('playwright');
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchChromium({ headless: true });
   try {
     const page = await browser.newPage({ userAgent: BROWSER_USER_AGENTS[0] });
     // domcontentloaded (not networkidle): the listing is static HTML; networkidle

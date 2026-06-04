@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import { JSDOM, VirtualConsole } from 'jsdom';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 
@@ -313,15 +314,11 @@ async function fetchWithTimeout(url, { timeoutMs = 15000, headers = {}, redirect
   }
 }
 
-let playwrightModulePromise = null;
 let browserPromise = null;
 
 async function getBrowser() {
-  if (!playwrightModulePromise) playwrightModulePromise = import('playwright');
   if (!browserPromise) {
-    browserPromise = playwrightModulePromise.then(({ chromium }) =>
-      chromium.launch({ headless: true }).catch(() => null)
-    );
+    browserPromise = launchChromium({ headless: true }).catch(() => null);
   }
   return browserPromise;
 }

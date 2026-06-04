@@ -10,6 +10,7 @@
 import { fnv1a8, normalizeKeyword } from './gscOrphans.mjs';
 import { FRONTALIERI_DOMAIN_RE } from '../perf-sources/domainTerms.mjs';
 import { detectLocale } from './detectLocale.mjs';
+import { launchChromium } from '../ensure-chromium.mjs';
 
 // Reddit relevance — split into TWO regexes (2026-05-07 tightening):
 //
@@ -313,8 +314,7 @@ async function playwrightFallback(endpointOrUrl) {
 
   let browser = null;
   try {
-    const { chromium } = await import('playwright');
-    browser = await chromium.launch({ headless: true });
+    browser = await launchChromium({ headless: true });
     const ctx = await browser.newContext({ userAgent: USER_AGENT });
     const page = await ctx.newPage();
 
