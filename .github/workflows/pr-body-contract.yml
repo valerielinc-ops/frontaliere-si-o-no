@@ -1,0 +1,71 @@
+# Deterministic, ZERO-Claude gate for the PR-body completeness contract.
+#
+# Why: the single most frequent reviewer finding (7 PRs in #1185–1311) is the
+# 🔴 process "mancano ## Implementato / ## Non implementato". Detecting it with a
+# Claude review turn is wasteful — it's a literal-grep check. This workflow posts
+# the verdict the instant the PR is opened/edited, so the author fixes the body
+# BEFORE the expensive pr-review-loop runs. Mirrors REVIEW.md "Completeness contract".
+#
+# It does NOT block auto-merge (auto-merge-on-lgtm only gates on the `## LGTM`
+# string, never on other checks) — the failing status is an early nudge, not a
+# hard gate. Pure github-script (no Claude, no PAT) → zero shared-quota cost.
+name: pr-body-contract
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-body-contract-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const STICKY = '<!-- pr-body-contract -->';
+            const body = context.payload.pull_request.body || '';
+            // Literal headers required by REVIEW.md. Tolerate trailing text on the
+            // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
+            const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
+            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
+            const missing = [];
+            if (!hasImpl) missing.push('`## Implementato`');
+            if (!hasNon)  missing.push('`## Non implementato (ancora)`');
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            // Find a prior sticky comment to update (avoid comment spam on edits).
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100,
+            });
+            const prior = comments.find(c => (c.body || '').includes(STICKY));
+
+            if (missing.length === 0) {
+              const ok = `${STICKY}\n✅ **PR-body contract OK** — entrambe le sezioni obbligatorie presenti.`;
+              if (prior) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: ok });
+              }
+              core.info('PR body contract satisfied.');
+              return;
+            }
+
+            const msg = `${STICKY}\n🔴 **PR-body contract** — mancano: ${missing.join(', ')}.\n\n` +
+              `Il completeness contract (REVIEW.md / AGENTS.md § Workflow) richiede i due header letterali ` +
+              `\`## Implementato\` e \`## Non implementato (ancora)\`. ` +
+              `Header alternativi (\`## Fix\`, \`## Verify\`, \`## Effetto\`) non contano.\n\n` +
+              `Aggiorna la PR description (vedi \`.github/pull_request_template.md\`) — questo check ricalcola a ogni edit.`;
+            if (prior) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: prior.id, body: msg });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body: msg });
+            }
+            core.setFailed(`PR body missing required section(s): ${missing.join(', ')}`);
