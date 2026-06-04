@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hib-broye",
-  "assembledAt": "2026-06-04T12:15:05.225Z",
+  "assembledAt": "2026-06-04T15:05:47.302Z",
   "jobs": [
     {
       "id": "hib-broye-c91295de9ba0",
@@ -34,7 +34,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/psychologue-psychotherapeute-a-20",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.177Z",
+      "crawledAt": "2026-06-04T15:05:44.855Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-logisticien-ne-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.176Z",
+      "crawledAt": "2026-06-04T15:05:44.854Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -176,7 +176,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.174Z",
+      "crawledAt": "2026-06-04T15:05:44.852Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -247,7 +247,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-icls-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.173Z",
+      "crawledAt": "2026-06-04T15:05:44.850Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -318,7 +318,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/technologue-en-dispositifs-medicaux-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.172Z",
+      "crawledAt": "2026-06-04T15:05:44.849Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -413,7 +413,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-30-a-50",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.171Z",
+      "crawledAt": "2026-06-04T15:05:44.848Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/aide-de-cuisine-de-90-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.169Z",
+      "crawledAt": "2026-06-04T15:05:44.846Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -604,7 +604,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-clinicien-ne-specialise-e-en-soins-durgences-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.167Z",
+      "crawledAt": "2026-06-04T15:05:44.843Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -630,77 +630,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.567Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hib-broye-506681f0f1e2",
-      "slug": "addetta-o-alle-pulizie-al-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "addetta-o-alle-pulizie-al-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "housekeeper-at-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "hauswirtschaftskraft-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Employé-e de maison à 70%",
-      "titleByLocale": {
-        "it": "Addetta/o alle pulizie al 70%",
-        "en": "Housekeeper at 70%",
-        "de": "Hauswirtschaftskraft (70%)",
-        "fr": "Employé-e de maison à 70%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) à Estavayer le Lac assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e de maison à 70%\n\nVotre mission\n\n• Effectuer le nettoyage d'entretien et à fond des locaux communs, chambres et sanitaires, du matériel et des équipements\n\n• Maitriser les machines de nettoyage telles qu'autolaveuse, monobrosse etc…\n\n• Nettoyer et rhabiller les lits et brancards des patients\n\n• Faire le contrôle électrique des lits et effectuer des réparations\n\n• Transporter les lits et brancards dans les différentes unités de soins\n\n• Préparer et aménager les salles de conférence en vue des réunions\n\n• Gérer le système informatique du distributeur automatique de vêtements et l'approvisionner en tenues de travail\n\n• Lavez et entretenir certains articles de linge spécifiques\n\n• Eliminer les déchets\n\n• Contribuer à divers travaux administratifs et de suivi\n\n• Dispenser une communication efficace et personnalisées avec les patients et leur entourage ainsi que tous les clients, partenaires et collaborateurs\n\n• Effectuer le travail selon les bonnes pratiques, les règles d'hygiène, de sécurité et d'ergonomie\n\n• Entretien de la piscine\n\n• Travaux de conciergerie et petites réparations\n\nVos atouts\n\n• Vous êtes polyvalent et passez d'une tâche à l'autre en sachant gérer les priorités\n\n• Vous disposez de compétences manuelles pour effectuer des petites réparations comme changer les roues ou un moteur de lit etc...\n\n• Vous êtes dynamique et flexible (horaires irréguliers en journées et soirées ainsi que les weekends et jours fériés)\n\n• Vous avez la capacité à accomplir des tâches nécessitant une mobilisation d'équipements hospitaliers\n\n• Vous savez manipuler et déplacer du matériel en respectant les protocoles de sécurité\n\n• Vous avez un excellent sens du service et une forte aptitude à travailler en équipe tout en sachant être autonome\n\n• Votre intérêt pour l'hygiène et la propreté est reconnu\n\n• Vous maitrisez le français (oral et écrit) ainsi que les outils informatiques usuels (suite Office, Waware un atout)\n\nNous vous offrons\n\n• Rémunération selon la CCT SAN\n\n• Assurance complémentaire couvrant les risques téméraires ainsi que la couverture privée en cas d'hospitalisation\n\n• Bilan de santé et suivi vaccinal pour l'ensemble des collaborateurs\n\n• Caisse de pension auprès de la Fondation Interprofessionnelle Sanitaire de Prévoyance offrant d'excellentes prestations\n\n• Parking à prix très attractif et restaurant d'entreprise à tarif préférentiel\n\n• Environnement de travail et une équipe à taille humaine\n\n• Outils de travail moderne et offre de formation proposée\n\nEntrée en fonction : de suite ou à convenir.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Monica Coelho Morais, responsable intendance sur le site d'Estavayer, au 026 662 89 56.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
-      "descriptionByLocale": {
-        "it": "Descrizione Grazie alle sue 800 collaboratrici e collaboratori, l'Hôpital Intercantonal de la Broye (HIB) a Estavayer-le-Lac garantisce una missione di cure acute e di riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione broyarda. Per affrontare le numerose sfide che la attendono, l'HIB è alla ricerca di un/a: Addetta/o alle pulizie al 70% La tua missione - Effettuare la pulizia di manutenzione e approfondita di locali comuni, camere e servizi igienici, del materiale e delle attrezzature - Gestire le macchine di pulizia come autolavatrice, monospazzola ecc... - Pulire e rifoderare i letti e le barelle dei pazienti - Effettuare il controllo elettrico dei letti e le riparazioni - Trasportare letti e barelle nelle diverse unità di cura - Preparare e allestire le sale conferenze per le riunioni - Gestire il sistema informatico del distributore automatico di abbigliamento e rifornirlo di divise di lavoro - Lavare e curare alcuni articoli di biancheria specifica - Smaltire i rifiuti - Contribuire a vari lavori amministrativi e di monitoraggio - Comunicare in modo efficace e personalizzato con i pazienti e i loro familiari, così come con tutti i clienti, partner e collaboratori - Eseguire il lavoro secondo le buone pratiche, le norme di igiene, sicurezza ed ergonomia - Manutenzione della piscina - Lavori di portineria e piccole riparazioni I tuoi punti di forza - Sei polivalente e sai passare da un compito all’altro gestendo le priorità - Possiedi competenze manuali per effettuare piccole riparazioni come cambiare ruote o motore di un letto ecc... - Sei dinamico/a e flessibile/a (orari irregolari diurni e serali, anche nei fine settimana e giorni festivi) - Hai la capacità di svolgere compiti che richiedono l’uso di attrezzature ospedaliere - Sai maneggiare e spostare materiali rispettando i protocolli di sicurezza - Hai un ottimo senso del servizio e una forte attitudine al lavoro di squadra, mantenendo anche autonomia - Il tuo interesse per l’igiene e la pulizia è riconosciuto - Parli fluentemente francese (orale e scritto) e conosci gli strumenti informatici di uso comune (suite Office, Waware è un plus) Ti offriamo - Retribuzione secondo il CCT SAN - Assicurazione complementare che copre i rischi professionali e la copertura privata in caso di ospedalizzazione - Visita medica e monitoraggio vaccinale per tutti i collaboratori - Cassa pensione presso la Fondazione Interprofessionale Sanitaria di Previsione con prestazioni eccellenti - Parcheggio a prezzo molto competitivo e mensa aziendale a tariffa agevolata - Ambiente di lavoro e team di dimensioni umane - Strumenti di lavoro moderni e offerta di formazione Contatto Inizio: immediato o da concordare. Per qualsiasi domanda supplementare riguardo a questa posizione, puoi contattare la Sig.ra Monica Coelho Morais, responsabile della gestione presso il sito di Estavayer, al numero 026 662 89 56. In caso di difficoltà tecniche, ti invitiamo a contattare il nostro servizio di reclutamento al numero 026 662 81 91.",
-        "en": "Description With its 800 staff members, the Intercantonal Hospital of Broye (HIB) in Estavayer-le-Lac provides acute care and rehabilitation services. Its ambition is to be a dynamic, innovative healthcare institution committed to excellence for the benefit of the Broye population. To meet the many challenges ahead, HIB is looking for a: Housekeeper at 70% Your mission - Perform routine and deep cleaning of common areas, rooms, and sanitary facilities, as well as equipment and materials - Operate cleaning machines such as floor scrubbers, monobrushes, etc. - Clean and re-make patient beds and stretchers - Conduct electrical checks on beds and carry out repairs - Transport beds and stretchers within different care units - Prepare and set up conference rooms for meetings - Manage the clothing vending machine system and restock workwear - Wash and maintain specific linen items - Dispose of waste - Assist with various administrative and monitoring tasks - Communicate effectively and personally with patients and their families, as well as with all clients, partners, and colleagues - Perform work according to best practices, hygiene, safety, and ergonomic rules - Maintain the swimming pool - Concierge work and small repairs Your strengths - You are versatile and can switch between tasks while managing priorities - You have manual skills for small repairs such as changing wheels or bed motors - You are dynamic and flexible (irregular daytime and evening hours, including weekends and public holidays) - You can handle tasks requiring the use of hospital equipment - You know how to handle and move materials respecting safety protocols - You have an excellent sense of service and a strong team spirit, while being autonomous - Your interest in hygiene and cleanliness is recognized - You speak French fluently (spoken and written) and are familiar with common IT tools (MS Office suite, Waware is a plus)\n• We offer - Salary according to the CCT SAN - Supplementary insurance covering occupational risks and private hospitalization - Health check-up and vaccination monitoring for all staff - Pension fund with excellent benefits through the Interprofessional Healthcare Provident Foundation - Very attractive parking and a company restaurant at preferential rates - A friendly working environment and a small team - Modern work tools and training opportunities Contact Start date: immediate or to be agreed. For any further questions about this position, you can contact Ms. Monica Coelho Morais, head of facilities at the Estavayer site, at 026 662 89 56. In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
-        "de": "Beschreibung Mit ihren 800 Mitarbeitenden sorgt das Interkantonale Spital Broye (HIB) in Estavayer-le-Lac für die Versorgung in den Bereichen Akutmedizin und Rehabilitation. Ihr Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die Exzellenz zum Wohle der Bevölkerung der Broye anstrebt. Um die zahlreichen Herausforderungen zu meistern, sucht das HIB eine/n: Hauswirtschaftskraft (70%) Ihre Aufgabe - Durchführung der Grund- und Tiefenreinigung in Gemeinschaftsbereichen, Zimmern und Sanitärräumen sowie bei Material und Geräten - Bedienung von Reinigungsmaschinen wie Autowaschanlagen, Monobürsten etc. - Reinigung und Neueindeckung der Betten und Tragen der Patienten - Elektrische Kontrolle der Betten und Durchführung von Reparaturen - Transport der Betten und Tragen in den verschiedenen Pflegeeinheiten - Vorbereitung und Einrichtung der Konferenzräume für Meetings - Verwaltung des automatischen Kleiderverteilersystems und Nachbestellung der Arbeitskleidung - Waschen und Pflege spezieller Wäschestücke - Abfallentsorgung - Unterstützung bei verschiedenen administrativen und Überwachungsaufgaben - Effektive und persönliche Kommunikation mit Patienten, deren Angehörigen sowie allen Kunden, Partnern und Mitarbeitenden - Arbeiten nach bewährten Praktiken, Hygiene-, Sicherheits- und Ergonomieregeln - Pflege des Schwimmbads - Concierge-Tätigkeiten und kleinere Reparaturen Ihre Stärken - Sie sind vielseitig und können zwischen\n• Aufgaben wechseln, während Sie Prioritäten setzen - Sie verfügen über handwerkliches Geschick für kleine Reparaturen wie Reifenwechsel oder Bettenmotoren - Sie sind dynamisch und flexibel (unregelmäßige Tages- und Abendstunden sowie Wochenenden und Feiertage) - Sie können\n• Aufgaben ausführen, die den Einsatz von Krankenhausgeräten erfordern - Sie wissen, wie man Material sicher handhabt und bewegt - Sie haben einen ausgeprägten Servicegedanken und Teamgeist, sind aber auch selbstständig - Ihr Interesse an Hygiene und Sauberkeit ist anerkannt - Sie sprechen fließend Französisch (mündlich und schriftlich) und kennen die gängigen IT-Tools (MS Office, Waware von Vorteil)\n• Wir bieten - Vergütung nach dem CCT SAN - Ergänzungsversicherung für Berufsrisiken und private Spitalisation - Gesundheits-Check-up und Impfstatusüberwachung für alle Mitarbeitenden - Pensionskasse bei der Interprofessionellen Sanitäts-Previson-Stiftung mit hervorragenden Leistungen - Sehr attraktiver Parkplatz und Mitarbeitermenü zu Vorzugskonditionen - Ein angenehmes Arbeitsumfeld in einem kleinen Team - Moderne Arbeitsmittel und Weiterbildungsangebote Kontakt Eintritt: sofort oder nach Vereinbarung. Für weitere Fragen zu dieser Stelle können Sie Frau Monica Coelho Morais, Verantwortliche für die Hauswirtschaft am Standort Estavayer, unter 026 662 89 56 kontaktieren. Bei technischen Schwierigkeiten wenden Sie sich bitte an unseren Rekrutierungsdienst unter 026 662 81 91.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) à Estavayer le Lac assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Employé-e de maison à 70% Votre mission\n• Effectuer le nettoyage d'entretien et à fond des locaux communs, chambres et sanitaires, du matériel et des équipements\n• Maitriser les machines de nettoyage telles qu'autolaveuse, monobrosse etc…\n• Nettoyer et rhabiller les lits et brancards des patients\n• Faire le contrôle électrique des lits et effectuer des réparations\n• Transporter les lits et brancards dans les différentes unités de soins\n• Préparer et aménager les salles de conférence en vue des réunions\n• Gérer le système informatique du distributeur automatique de vêtements et l'approvisionner en tenues de travail\n• Lavez et entretenir certains articles de linge spécifiques\n• Eliminer les déchets\n• Contribuer à divers travaux administratifs et de suivi\n• Dispenser une communication efficace et personnalisées avec les patients et leur entourage ainsi que tous les clients, partenaires et collaborateurs\n• Effectuer le travail selon les bonnes pratiques, les règles d'hygiène, de sécurité et d'ergonomie\n• Entretien de la piscine\n• Travaux de conciergerie et petites réparations Vos atouts\n• Vous êtes polyvalent et passez d'une tâche à l'autre en sachant gérer les priorités\n• Vous disposez de compétences manuelles pour effectuer des petites réparations comme changer les roues ou un moteur de lit etc...\n• Vous êtes dynamique et flexible (horaires irréguliers en journées et soirées ainsi que les weekends et jours fériés)\n• Vous avez la capacité à accomplir des tâches nécessitant une mobilisation d'équipements hospitaliers\n• Vous savez manipuler et déplacer du matériel en respectant les protocoles de sécurité\n• Vous avez un excellent sens du service et une forte aptitude à travailler en équipe tout en sachant être autonome\n• Votre intérêt pour l'hygiène et la propreté est reconnu\n• Vous maitrisez le français (oral et écrit) ainsi que les outils informatiques usuels (suite Office, Waware un atout) Nous vous offrons\n• Rémunération selon la CCT SAN\n• Assurance complémentaire couvrant les risques téméraires ainsi que la couverture privée en cas d'hospitalisation\n• Bilan de santé et suivi vaccinal pour l'ensemble des collaborateurs\n• Caisse de pension auprès de la Fondation Interprofessionnelle Sanitaire de Prévoyance offrant d'excellentes prestations\n• Parking à prix très attractif et restaurant d'entreprise à tarif préférentiel\n• Environnement de travail et une équipe à taille humaine\n• Outils de travail moderne et offre de formation proposée Entrée en fonction : de suite ou à convenir. Pour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Monica Coelho Morais, responsable intendance sur le site d'Estavayer, au 026 662 89 56. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
-      },
-      "needsRetranslation": false,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.166Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:42.565Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -746,7 +675,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-gestionnaire-en-intendance",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.165Z",
+      "crawledAt": "2026-06-04T15:05:44.841Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -772,6 +701,77 @@
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:42.564Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hib-broye-506681f0f1e2",
+      "slug": "addetta-o-alle-pulizie-al-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "addetta-o-alle-pulizie-al-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "housekeeper-at-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "hauswirtschaftskraft-70-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Employé-e de maison à 70%",
+      "titleByLocale": {
+        "it": "Addetta/o alle pulizie al 70%",
+        "en": "Housekeeper at 70%",
+        "de": "Hauswirtschaftskraft (70%)",
+        "fr": "Employé-e de maison à 70%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) à Estavayer le Lac assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e de maison à 70%\n\nVotre mission\n\n• Effectuer le nettoyage d'entretien et à fond des locaux communs, chambres et sanitaires, du matériel et des équipements\n\n• Maitriser les machines de nettoyage telles qu'autolaveuse, monobrosse etc…\n\n• Nettoyer et rhabiller les lits et brancards des patients\n\n• Faire le contrôle électrique des lits et effectuer des réparations\n\n• Transporter les lits et brancards dans les différentes unités de soins\n\n• Préparer et aménager les salles de conférence en vue des réunions\n\n• Gérer le système informatique du distributeur automatique de vêtements et l'approvisionner en tenues de travail\n\n• Lavez et entretenir certains articles de linge spécifiques\n\n• Eliminer les déchets\n\n• Contribuer à divers travaux administratifs et de suivi\n\n• Dispenser une communication efficace et personnalisées avec les patients et leur entourage ainsi que tous les clients, partenaires et collaborateurs\n\n• Effectuer le travail selon les bonnes pratiques, les règles d'hygiène, de sécurité et d'ergonomie\n\n• Entretien de la piscine\n\n• Travaux de conciergerie et petites réparations\n\nVos atouts\n\n• Vous êtes polyvalent et passez d'une tâche à l'autre en sachant gérer les priorités\n\n• Vous disposez de compétences manuelles pour effectuer des petites réparations comme changer les roues ou un moteur de lit etc...\n\n• Vous êtes dynamique et flexible (horaires irréguliers en journées et soirées ainsi que les weekends et jours fériés)\n\n• Vous avez la capacité à accomplir des tâches nécessitant une mobilisation d'équipements hospitaliers\n\n• Vous savez manipuler et déplacer du matériel en respectant les protocoles de sécurité\n\n• Vous avez un excellent sens du service et une forte aptitude à travailler en équipe tout en sachant être autonome\n\n• Votre intérêt pour l'hygiène et la propreté est reconnu\n\n• Vous maitrisez le français (oral et écrit) ainsi que les outils informatiques usuels (suite Office, Waware un atout)\n\nNous vous offrons\n\n• Rémunération selon la CCT SAN\n\n• Assurance complémentaire couvrant les risques téméraires ainsi que la couverture privée en cas d'hospitalisation\n\n• Bilan de santé et suivi vaccinal pour l'ensemble des collaborateurs\n\n• Caisse de pension auprès de la Fondation Interprofessionnelle Sanitaire de Prévoyance offrant d'excellentes prestations\n\n• Parking à prix très attractif et restaurant d'entreprise à tarif préférentiel\n\n• Environnement de travail et une équipe à taille humaine\n\n• Outils de travail moderne et offre de formation proposée\n\nEntrée en fonction : de suite ou à convenir.\n\nPour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Monica Coelho Morais, responsable intendance sur le site d'Estavayer, au 026 662 89 56.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
+      "descriptionByLocale": {
+        "it": "Descrizione Grazie alle sue 800 collaboratrici e collaboratori, l'Hôpital Intercantonal de la Broye (HIB) a Estavayer-le-Lac garantisce una missione di cure acute e di riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione broyarda. Per affrontare le numerose sfide che la attendono, l'HIB è alla ricerca di un/a: Addetta/o alle pulizie al 70% La tua missione - Effettuare la pulizia di manutenzione e approfondita di locali comuni, camere e servizi igienici, del materiale e delle attrezzature - Gestire le macchine di pulizia come autolavatrice, monospazzola ecc... - Pulire e rifoderare i letti e le barelle dei pazienti - Effettuare il controllo elettrico dei letti e le riparazioni - Trasportare letti e barelle nelle diverse unità di cura - Preparare e allestire le sale conferenze per le riunioni - Gestire il sistema informatico del distributore automatico di abbigliamento e rifornirlo di divise di lavoro - Lavare e curare alcuni articoli di biancheria specifica - Smaltire i rifiuti - Contribuire a vari lavori amministrativi e di monitoraggio - Comunicare in modo efficace e personalizzato con i pazienti e i loro familiari, così come con tutti i clienti, partner e collaboratori - Eseguire il lavoro secondo le buone pratiche, le norme di igiene, sicurezza ed ergonomia - Manutenzione della piscina - Lavori di portineria e piccole riparazioni I tuoi punti di forza - Sei polivalente e sai passare da un compito all’altro gestendo le priorità - Possiedi competenze manuali per effettuare piccole riparazioni come cambiare ruote o motore di un letto ecc... - Sei dinamico/a e flessibile/a (orari irregolari diurni e serali, anche nei fine settimana e giorni festivi) - Hai la capacità di svolgere compiti che richiedono l’uso di attrezzature ospedaliere - Sai maneggiare e spostare materiali rispettando i protocolli di sicurezza - Hai un ottimo senso del servizio e una forte attitudine al lavoro di squadra, mantenendo anche autonomia - Il tuo interesse per l’igiene e la pulizia è riconosciuto - Parli fluentemente francese (orale e scritto) e conosci gli strumenti informatici di uso comune (suite Office, Waware è un plus) Ti offriamo - Retribuzione secondo il CCT SAN - Assicurazione complementare che copre i rischi professionali e la copertura privata in caso di ospedalizzazione - Visita medica e monitoraggio vaccinale per tutti i collaboratori - Cassa pensione presso la Fondazione Interprofessionale Sanitaria di Previsione con prestazioni eccellenti - Parcheggio a prezzo molto competitivo e mensa aziendale a tariffa agevolata - Ambiente di lavoro e team di dimensioni umane - Strumenti di lavoro moderni e offerta di formazione Contatto Inizio: immediato o da concordare. Per qualsiasi domanda supplementare riguardo a questa posizione, puoi contattare la Sig.ra Monica Coelho Morais, responsabile della gestione presso il sito di Estavayer, al numero 026 662 89 56. In caso di difficoltà tecniche, ti invitiamo a contattare il nostro servizio di reclutamento al numero 026 662 81 91.",
+        "en": "Description With its 800 staff members, the Intercantonal Hospital of Broye (HIB) in Estavayer-le-Lac provides acute care and rehabilitation services. Its ambition is to be a dynamic, innovative healthcare institution committed to excellence for the benefit of the Broye population. To meet the many challenges ahead, HIB is looking for a: Housekeeper at 70% Your mission - Perform routine and deep cleaning of common areas, rooms, and sanitary facilities, as well as equipment and materials - Operate cleaning machines such as floor scrubbers, monobrushes, etc. - Clean and re-make patient beds and stretchers - Conduct electrical checks on beds and carry out repairs - Transport beds and stretchers within different care units - Prepare and set up conference rooms for meetings - Manage the clothing vending machine system and restock workwear - Wash and maintain specific linen items - Dispose of waste - Assist with various administrative and monitoring tasks - Communicate effectively and personally with patients and their families, as well as with all clients, partners, and colleagues - Perform work according to best practices, hygiene, safety, and ergonomic rules - Maintain the swimming pool - Concierge work and small repairs Your strengths - You are versatile and can switch between tasks while managing priorities - You have manual skills for small repairs such as changing wheels or bed motors - You are dynamic and flexible (irregular daytime and evening hours, including weekends and public holidays) - You can handle tasks requiring the use of hospital equipment - You know how to handle and move materials respecting safety protocols - You have an excellent sense of service and a strong team spirit, while being autonomous - Your interest in hygiene and cleanliness is recognized - You speak French fluently (spoken and written) and are familiar with common IT tools (MS Office suite, Waware is a plus)\n• We offer - Salary according to the CCT SAN - Supplementary insurance covering occupational risks and private hospitalization - Health check-up and vaccination monitoring for all staff - Pension fund with excellent benefits through the Interprofessional Healthcare Provident Foundation - Very attractive parking and a company restaurant at preferential rates - A friendly working environment and a small team - Modern work tools and training opportunities Contact Start date: immediate or to be agreed. For any further questions about this position, you can contact Ms. Monica Coelho Morais, head of facilities at the Estavayer site, at 026 662 89 56. In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
+        "de": "Beschreibung Mit ihren 800 Mitarbeitenden sorgt das Interkantonale Spital Broye (HIB) in Estavayer-le-Lac für die Versorgung in den Bereichen Akutmedizin und Rehabilitation. Ihr Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die Exzellenz zum Wohle der Bevölkerung der Broye anstrebt. Um die zahlreichen Herausforderungen zu meistern, sucht das HIB eine/n: Hauswirtschaftskraft (70%) Ihre Aufgabe - Durchführung der Grund- und Tiefenreinigung in Gemeinschaftsbereichen, Zimmern und Sanitärräumen sowie bei Material und Geräten - Bedienung von Reinigungsmaschinen wie Autowaschanlagen, Monobürsten etc. - Reinigung und Neueindeckung der Betten und Tragen der Patienten - Elektrische Kontrolle der Betten und Durchführung von Reparaturen - Transport der Betten und Tragen in den verschiedenen Pflegeeinheiten - Vorbereitung und Einrichtung der Konferenzräume für Meetings - Verwaltung des automatischen Kleiderverteilersystems und Nachbestellung der Arbeitskleidung - Waschen und Pflege spezieller Wäschestücke - Abfallentsorgung - Unterstützung bei verschiedenen administrativen und Überwachungsaufgaben - Effektive und persönliche Kommunikation mit Patienten, deren Angehörigen sowie allen Kunden, Partnern und Mitarbeitenden - Arbeiten nach bewährten Praktiken, Hygiene-, Sicherheits- und Ergonomieregeln - Pflege des Schwimmbads - Concierge-Tätigkeiten und kleinere Reparaturen Ihre Stärken - Sie sind vielseitig und können zwischen\n• Aufgaben wechseln, während Sie Prioritäten setzen - Sie verfügen über handwerkliches Geschick für kleine Reparaturen wie Reifenwechsel oder Bettenmotoren - Sie sind dynamisch und flexibel (unregelmäßige Tages- und Abendstunden sowie Wochenenden und Feiertage) - Sie können\n• Aufgaben ausführen, die den Einsatz von Krankenhausgeräten erfordern - Sie wissen, wie man Material sicher handhabt und bewegt - Sie haben einen ausgeprägten Servicegedanken und Teamgeist, sind aber auch selbstständig - Ihr Interesse an Hygiene und Sauberkeit ist anerkannt - Sie sprechen fließend Französisch (mündlich und schriftlich) und kennen die gängigen IT-Tools (MS Office, Waware von Vorteil)\n• Wir bieten - Vergütung nach dem CCT SAN - Ergänzungsversicherung für Berufsrisiken und private Spitalisation - Gesundheits-Check-up und Impfstatusüberwachung für alle Mitarbeitenden - Pensionskasse bei der Interprofessionellen Sanitäts-Previson-Stiftung mit hervorragenden Leistungen - Sehr attraktiver Parkplatz und Mitarbeitermenü zu Vorzugskonditionen - Ein angenehmes Arbeitsumfeld in einem kleinen Team - Moderne Arbeitsmittel und Weiterbildungsangebote Kontakt Eintritt: sofort oder nach Vereinbarung. Für weitere Fragen zu dieser Stelle können Sie Frau Monica Coelho Morais, Verantwortliche für die Hauswirtschaft am Standort Estavayer, unter 026 662 89 56 kontaktieren. Bei technischen Schwierigkeiten wenden Sie sich bitte an unseren Rekrutierungsdienst unter 026 662 81 91.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) à Estavayer le Lac assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Employé-e de maison à 70% Votre mission\n• Effectuer le nettoyage d'entretien et à fond des locaux communs, chambres et sanitaires, du matériel et des équipements\n• Maitriser les machines de nettoyage telles qu'autolaveuse, monobrosse etc…\n• Nettoyer et rhabiller les lits et brancards des patients\n• Faire le contrôle électrique des lits et effectuer des réparations\n• Transporter les lits et brancards dans les différentes unités de soins\n• Préparer et aménager les salles de conférence en vue des réunions\n• Gérer le système informatique du distributeur automatique de vêtements et l'approvisionner en tenues de travail\n• Lavez et entretenir certains articles de linge spécifiques\n• Eliminer les déchets\n• Contribuer à divers travaux administratifs et de suivi\n• Dispenser une communication efficace et personnalisées avec les patients et leur entourage ainsi que tous les clients, partenaires et collaborateurs\n• Effectuer le travail selon les bonnes pratiques, les règles d'hygiène, de sécurité et d'ergonomie\n• Entretien de la piscine\n• Travaux de conciergerie et petites réparations Vos atouts\n• Vous êtes polyvalent et passez d'une tâche à l'autre en sachant gérer les priorités\n• Vous disposez de compétences manuelles pour effectuer des petites réparations comme changer les roues ou un moteur de lit etc...\n• Vous êtes dynamique et flexible (horaires irréguliers en journées et soirées ainsi que les weekends et jours fériés)\n• Vous avez la capacité à accomplir des tâches nécessitant une mobilisation d'équipements hospitaliers\n• Vous savez manipuler et déplacer du matériel en respectant les protocoles de sécurité\n• Vous avez un excellent sens du service et une forte aptitude à travailler en équipe tout en sachant être autonome\n• Votre intérêt pour l'hygiène et la propreté est reconnu\n• Vous maitrisez le français (oral et écrit) ainsi que les outils informatiques usuels (suite Office, Waware un atout) Nous vous offrons\n• Rémunération selon la CCT SAN\n• Assurance complémentaire couvrant les risques téméraires ainsi que la couverture privée en cas d'hospitalisation\n• Bilan de santé et suivi vaccinal pour l'ensemble des collaborateurs\n• Caisse de pension auprès de la Fondation Interprofessionnelle Sanitaire de Prévoyance offrant d'excellentes prestations\n• Parking à prix très attractif et restaurant d'entreprise à tarif préférentiel\n• Environnement de travail et une équipe à taille humaine\n• Outils de travail moderne et offre de formation proposée Entrée en fonction : de suite ou à convenir. Pour toutes questions complémentaires au sujet de ce poste, vous pouvez prendre contact avec Mme Monica Coelho Morais, responsable intendance sur le site d'Estavayer, au 026 662 89 56. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
+      },
+      "needsRetranslation": false,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:05:44.841Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/apprenti.e-logisticien.ne",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-maison-a-70-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:42.565Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -817,7 +817,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/apprenti-e-gestionnaire-en-intendance",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.164Z",
+      "crawledAt": "2026-06-04T15:05:44.839Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -888,7 +888,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assc-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.163Z",
+      "crawledAt": "2026-06-04T15:05:44.838Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -928,6 +928,77 @@
       }
     },
     {
+      "id": "hib-broye-69c5f3f0b055",
+      "slug": "stage-in-amministrazione-pre-heg-hes-heig-cdd-1-anno-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "stage-in-amministrazione-pre-heg-hes-heig-cdd-1-anno-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "internship-in-pre-heg-hes-heig-administration-1-year-fixed-term-at-100-hopital-intercantonal-de-la-broye-hib-estavayer",
+        "de": "praktikum-in-verwaltung-vor-heg-hes-heig-befristet-1-jahr-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%",
+      "titleByLocale": {
+        "it": "Stage in amministrazione pre-HEG/HES/HEIG (CDD 1 anno) al 100%",
+        "en": "Internship in Pre-HEG/HES/HEIG Administration (1-year fixed-term) at 100%",
+        "de": "Praktikum in Verwaltung vor-HEG/HES/HEIG (befristet 1 Jahr) 100%",
+        "fr": "Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Les archives médicales assurent la gestion, la conservation et la sécurisation des dossiers médicaux des patients, garantissant à la fois leur confidentialité et leur disponibilité pour les professionnels de santé. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nStagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%\n\nVotre mission\n\n• Numériser les différents documents médicaux de notre établissement\n\n• Traiter les différentes demandes administratives internes et externes\n\n• Traiter les demandes des patients pour le dossier électronique du patient (DEP/DES)\n\n• Organiser le suivi administratif hebdomadaire de la documentation médicale (lettres de sortie et protocoles opératoires)\n\n• Maintenir à jour la base de données des destinataires dans le logiciel Medex\n\n• Traiter les appels téléphoniques et emails du service\n\nVos atouts\n\n• Remplir les conditions d'admission d'une HEG/HES ou HEIG\n\n• Maturité gymnasiale\n\n• Maîtrise des logiciels informatiques usuels (Outlook Word, Excel)\n\n• Présenter un intérêt pour le domaine médical\n\n• Sens de la communication, dynamisme et implication\n\nEntrée en fonction : 01.07.2026\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toute question complémentaire sur ce poste, veuillez contacter Mme Nathalie Erismann au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
+      "descriptionByLocale": {
+        "it": "Descrizione Grazie ai suoi 800 collaboratori, l'Hôpital Intercantonal de la Broye (HIB) assicura una missione di cure acute e riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione broyarda. Gli archivi medici garantiscono la gestione, la conservazione e la sicurezza delle cartelle cliniche dei pazienti, garantendo sia la loro riservatezza che la disponibilità per i professionisti della salute. Per affrontare le numerose sfide che lo attendono, l'HIB è alla ricerca di un/a: Stagista amministrativo pre-HEG/HES/HEIG (CDD 1 anno) al 100% La tua missione - Digitalizzare i vari documenti medici della nostra struttura - Gestire le diverse richieste amministrative interne ed esterne - Gestire le richieste dei pazienti per il dossier elettronico del paziente (DEP/DES) - Organizzare il monitoraggio amministrativo settimanale della documentazione medica (lettere di dimissione e protocolli operatori) - Mantenere aggiornato il database dei destinatari nel software Medex - Gestire le chiamate telefoniche e le email del servizio I tuoi punti di forza - Soddisfare i requisiti di ammissione di un HEG/HES o HEIG - Maturità ginnasiale - Conoscenza dei software informatici di uso comune (Outlook, Word, Excel) - Interesse per il settore medico - Capacità di comunicazione, dinamismo e coinvolgimento Inizio attività 01.07.2026 Candidature e contatto Ti ringraziamo per inviarci il tuo dossier di candidatura completo candidandoti online. Per qualsiasi domanda supplementare su questa posizione, contatta la Sig.ra Nathalie Erismann al numero 026 662 85 52. In caso di difficoltà tecniche, ti invitiamo a contattare il nostro servizio di reclutamento al numero 026 662 81 91.",
+        "en": "Description With its 800 staff members, the Intercantonal Hospital of Broye (HIB) ensures a mission of acute care and rehabilitation. Its ambition is to be a dynamic, innovative health institution committed to excellence for the benefit of the Broye population. Medical archives ensure the management, preservation, and security of patients' medical records, guaranteeing both confidentiality and availability for healthcare professionals. To meet the many challenges ahead, HIB is looking for a: Pre-HEG/HES/HEIG Administration Intern (1-year fixed-term) at 100% Your mission - Digitize various medical documents of our establishment - Process internal and external administrative requests - Handle patient requests for the electronic patient record (DEP/DES) - Organize weekly administrative follow-up of medical documentation (discharge letters and surgical protocols) - Keep the recipient database up to date in the Medex software - Manage phone calls and emails from the department Your strengths - Meet admission requirements for HEG/HES or HEIG - Gymnasium-level maturity - Proficiency in common office software (Outlook, Word, Excel) - Interest in the medical field - Good communication skills, dynamism, and involvement Start date 01.07.2026 Application and contact Please submit your complete application online. For any additional questions about this position, contact Ms. Nathalie Erismann at 026 662 85 52. In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
+        "de": "Beschreibung Mit seinen 800 Mitarbeitenden übernimmt das Interkantonale Spital der Broye (HIB) eine Aufgabe in der Akut- und Rehabilitationspflege. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die Exzellenz zum Wohle der Bevölkerung der Broye anstrebt. Medizinische Archive gewährleisten die Verwaltung, die Aufbewahrung und die Sicherung der Patientenakten, wobei sowohl deren Vertraulichkeit als auch die Verfügbarkeit für medizinisches Fachpersonal garantiert werden. Um die zahlreichen Herausforderungen zu meistern, sucht das HIB eine/n: Praktikant/in in Verwaltung vor-HEG/HES/HEIG (befristet 1 Jahr) zu 100% Ihre Aufgabe - Digitalisierung der verschiedenen medizinischen Dokumente unserer Einrichtung - Bearbeitung interner und externer administrativer Anfragen - Bearbeitung der Patientenanfragen für die elektronische Patientenakte (DEP/DES) - Wöchentliche organisatorische Nachverfolgung der medizinischen Dokumentation (Entlassungsschreiben und Operationsprotokolle) - Pflege der Empfängerdatenbank in der Medex-Software - Bearbeitung der Anrufe und E-Mails des Dienstes Ihre Stärken - Erfüllung der Zulassungsvoraussetzungen für HEG/HES oder HEIG - Gymnasiale Reife - Sicherer Umgang mit gängiger Bürosoftware (Outlook, Word, Excel) - Interesse am medizinischen Bereich - Kommunikationsfähigkeit, Dynamik und Engagement Eintrittstermin 01.07.2026 Bewerbung und Kontakt Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen online. Bei weiteren Fragen zu dieser Stelle wenden Sie sich bitte an Frau Nathalie Erismann unter 026 662 85 52. Bei technischen Schwierigkeiten kontaktieren Sie bitte unseren Rekrutierungsdienst unter 026 662 81 91.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Les archives médicales assurent la gestion, la conservation et la sécurisation des dossiers médicaux des patients, garantissant à la fois leur confidentialité et leur disponibilité pour les professionnels de santé. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100% Votre mission\n• Numériser les différents documents médicaux de notre établissement\n• Traiter les différentes demandes administratives internes et externes\n• Traiter les demandes des patients pour le dossier électronique du patient (DEP/DES)\n• Organiser le suivi administratif hebdomadaire de la documentation médicale (lettres de sortie et protocoles opératoires)\n• Maintenir à jour la base de données des destinataires dans le logiciel Medex\n• Traiter les appels téléphoniques et emails du service Vos atouts\n• Remplir les conditions d'admission d'une HEG/HES ou HEIG\n• Maturité gymnasiale\n• Maîtrise des logiciels informatiques usuels (Outlook Word, Excel)\n• Présenter un intérêt pour le domaine médical\n• Sens de la communication, dynamisme et implication Entrée en fonction : 01.07.2026 Nous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne. Pour toute question complémentaire sur ce poste, veuillez contacter Mme Nathalie Erismann au 026 662 85 52. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
+      },
+      "needsRetranslation": false,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-pre-heghesheig-cdd-1-an-a-100",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:05:44.837Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-pre-heghesheig-cdd-1-an-a-100",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:42.561Z",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hib-broye-9765fb119227",
       "slug": "assistente-hr-a-tempo-pieno-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
@@ -959,7 +1030,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-radiologie-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.162Z",
+      "crawledAt": "2026-06-04T15:05:44.836Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1027,167 +1098,6 @@
       }
     },
     {
-      "id": "hib-broye-69c5f3f0b055",
-      "slug": "stage-in-amministrazione-pre-heg-hes-heig-cdd-1-anno-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "stage-in-amministrazione-pre-heg-hes-heig-cdd-1-anno-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "internship-in-pre-heg-hes-heig-administration-1-year-fixed-term-at-100-hopital-intercantonal-de-la-broye-hib-estavayer",
-        "de": "praktikum-in-verwaltung-vor-heg-hes-heig-befristet-1-jahr-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%",
-      "titleByLocale": {
-        "it": "Stage in amministrazione pre-HEG/HES/HEIG (CDD 1 anno) al 100%",
-        "en": "Internship in Pre-HEG/HES/HEIG Administration (1-year fixed-term) at 100%",
-        "de": "Praktikum in Verwaltung vor-HEG/HES/HEIG (befristet 1 Jahr) 100%",
-        "fr": "Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Les archives médicales assurent la gestion, la conservation et la sécurisation des dossiers médicaux des patients, garantissant à la fois leur confidentialité et leur disponibilité pour les professionnels de santé. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nStagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100%\n\nVotre mission\n\n• Numériser les différents documents médicaux de notre établissement\n\n• Traiter les différentes demandes administratives internes et externes\n\n• Traiter les demandes des patients pour le dossier électronique du patient (DEP/DES)\n\n• Organiser le suivi administratif hebdomadaire de la documentation médicale (lettres de sortie et protocoles opératoires)\n\n• Maintenir à jour la base de données des destinataires dans le logiciel Medex\n\n• Traiter les appels téléphoniques et emails du service\n\nVos atouts\n\n• Remplir les conditions d'admission d'une HEG/HES ou HEIG\n\n• Maturité gymnasiale\n\n• Maîtrise des logiciels informatiques usuels (Outlook Word, Excel)\n\n• Présenter un intérêt pour le domaine médical\n\n• Sens de la communication, dynamisme et implication\n\nEntrée en fonction : 01.07.2026\n\nNous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne.\n\nPour toute question complémentaire sur ce poste, veuillez contacter Mme Nathalie Erismann au 026 662 85 52.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
-      "descriptionByLocale": {
-        "it": "Descrizione Grazie ai suoi 800 collaboratori, l'Hôpital Intercantonal de la Broye (HIB) assicura una missione di cure acute e riabilitazione. La sua ambizione è di essere un'istituzione sanitaria dinamica, innovativa e orientata all'eccellenza a beneficio della popolazione broyarda. Gli archivi medici garantiscono la gestione, la conservazione e la sicurezza delle cartelle cliniche dei pazienti, garantendo sia la loro riservatezza che la disponibilità per i professionisti della salute. Per affrontare le numerose sfide che lo attendono, l'HIB è alla ricerca di un/a: Stagista amministrativo pre-HEG/HES/HEIG (CDD 1 anno) al 100% La tua missione - Digitalizzare i vari documenti medici della nostra struttura - Gestire le diverse richieste amministrative interne ed esterne - Gestire le richieste dei pazienti per il dossier elettronico del paziente (DEP/DES) - Organizzare il monitoraggio amministrativo settimanale della documentazione medica (lettere di dimissione e protocolli operatori) - Mantenere aggiornato il database dei destinatari nel software Medex - Gestire le chiamate telefoniche e le email del servizio I tuoi punti di forza - Soddisfare i requisiti di ammissione di un HEG/HES o HEIG - Maturità ginnasiale - Conoscenza dei software informatici di uso comune (Outlook, Word, Excel) - Interesse per il settore medico - Capacità di comunicazione, dinamismo e coinvolgimento Inizio attività 01.07.2026 Candidature e contatto Ti ringraziamo per inviarci il tuo dossier di candidatura completo candidandoti online. Per qualsiasi domanda supplementare su questa posizione, contatta la Sig.ra Nathalie Erismann al numero 026 662 85 52. In caso di difficoltà tecniche, ti invitiamo a contattare il nostro servizio di reclutamento al numero 026 662 81 91.",
-        "en": "Description With its 800 staff members, the Intercantonal Hospital of Broye (HIB) ensures a mission of acute care and rehabilitation. Its ambition is to be a dynamic, innovative health institution committed to excellence for the benefit of the Broye population. Medical archives ensure the management, preservation, and security of patients' medical records, guaranteeing both confidentiality and availability for healthcare professionals. To meet the many challenges ahead, HIB is looking for a: Pre-HEG/HES/HEIG Administration Intern (1-year fixed-term) at 100% Your mission - Digitize various medical documents of our establishment - Process internal and external administrative requests - Handle patient requests for the electronic patient record (DEP/DES) - Organize weekly administrative follow-up of medical documentation (discharge letters and surgical protocols) - Keep the recipient database up to date in the Medex software - Manage phone calls and emails from the department Your strengths - Meet admission requirements for HEG/HES or HEIG - Gymnasium-level maturity - Proficiency in common office software (Outlook, Word, Excel) - Interest in the medical field - Good communication skills, dynamism, and involvement Start date 01.07.2026 Application and contact Please submit your complete application online. For any additional questions about this position, contact Ms. Nathalie Erismann at 026 662 85 52. In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
-        "de": "Beschreibung Mit seinen 800 Mitarbeitenden übernimmt das Interkantonale Spital der Broye (HIB) eine Aufgabe in der Akut- und Rehabilitationspflege. Sein Ziel ist es, eine dynamische, innovative Gesundheitseinrichtung zu sein, die Exzellenz zum Wohle der Bevölkerung der Broye anstrebt. Medizinische Archive gewährleisten die Verwaltung, die Aufbewahrung und die Sicherung der Patientenakten, wobei sowohl deren Vertraulichkeit als auch die Verfügbarkeit für medizinisches Fachpersonal garantiert werden. Um die zahlreichen Herausforderungen zu meistern, sucht das HIB eine/n: Praktikant/in in Verwaltung vor-HEG/HES/HEIG (befristet 1 Jahr) zu 100% Ihre Aufgabe - Digitalisierung der verschiedenen medizinischen Dokumente unserer Einrichtung - Bearbeitung interner und externer administrativer Anfragen - Bearbeitung der Patientenanfragen für die elektronische Patientenakte (DEP/DES) - Wöchentliche organisatorische Nachverfolgung der medizinischen Dokumentation (Entlassungsschreiben und Operationsprotokolle) - Pflege der Empfängerdatenbank in der Medex-Software - Bearbeitung der Anrufe und E-Mails des Dienstes Ihre Stärken - Erfüllung der Zulassungsvoraussetzungen für HEG/HES oder HEIG - Gymnasiale Reife - Sicherer Umgang mit gängiger Bürosoftware (Outlook, Word, Excel) - Interesse am medizinischen Bereich - Kommunikationsfähigkeit, Dynamik und Engagement Eintrittstermin 01.07.2026 Bewerbung und Kontakt Bitte senden Sie uns Ihre vollständigen Bewerbungsunterlagen online. Bei weiteren Fragen zu dieser Stelle wenden Sie sich bitte an Frau Nathalie Erismann unter 026 662 85 52. Bei technischen Schwierigkeiten kontaktieren Sie bitte unseren Rekrutierungsdienst unter 026 662 81 91.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Les archives médicales assurent la gestion, la conservation et la sécurisation des dossiers médicaux des patients, garantissant à la fois leur confidentialité et leur disponibilité pour les professionnels de santé. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Stagiaire administration pré-HEG/HES/HEIG (CDD 1 an) à 100% Votre mission\n• Numériser les différents documents médicaux de notre établissement\n• Traiter les différentes demandes administratives internes et externes\n• Traiter les demandes des patients pour le dossier électronique du patient (DEP/DES)\n• Organiser le suivi administratif hebdomadaire de la documentation médicale (lettres de sortie et protocoles opératoires)\n• Maintenir à jour la base de données des destinataires dans le logiciel Medex\n• Traiter les appels téléphoniques et emails du service Vos atouts\n• Remplir les conditions d'admission d'une HEG/HES ou HEIG\n• Maturité gymnasiale\n• Maîtrise des logiciels informatiques usuels (Outlook Word, Excel)\n• Présenter un intérêt pour le domaine médical\n• Sens de la communication, dynamisme et implication Entrée en fonction : 01.07.2026 Nous vous remercions de nous transmettre votre dossier de candidature complet en postulant en ligne. Pour toute question complémentaire sur ce poste, veuillez contacter Mme Nathalie Erismann au 026 662 85 52. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
-      },
-      "needsRetranslation": false,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-pre-heghesheig-cdd-1-an-a-100",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.162Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-pre-heghesheig-cdd-1-an-a-100",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stagiaire-administration-pre-heg-hes-heig-cdd-1-an-a-100-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:42.561Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hib-broye-fd165eeb5306",
-      "slug": "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-      "slugByLocale": {
-        "it": "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "en": "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "de": "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
-        "fr": "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
-      },
-      "company": "Hôpital Intercantonal de la Broye (HIB)",
-      "companyKey": "hib-broye",
-      "companyDomain": "hopital-broye.ch",
-      "title": "Employé-e d'administration en facturation de 80% à 100%",
-      "titleByLocale": {
-        "it": "Amministratore/a di fatturazione 80% - 100%",
-        "en": "Administration Clerk - Billing 80% - 100%",
-        "de": "Verwaltungskraft - Rechnungswesen 80% - 100%",
-        "fr": "Employé-e d'administration en facturation de 80% à 100%"
-      },
-      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
-      "descriptionByLocale": {
-        "it": "L'Hôpital Intercantonal de la Broye (HIB) è un ospedale che conta 800 collaboratrici e collaboratori e si impegna a garantire una missione di cura e riabilitazione. La sua ambizione è essere un'istituzione di salute dinamica, innovativa e mirata all'eccezionalità a beneficio della popolazione broyarde. Per affrontare i numerosi sfidi che lo attendono, l'HIB è alla ricerca di un/a: Compiti - Collaborare alla fatturazione ambulatoriale e/o ospedaliera - Partecipare alla registrazione delle diverse prestazioni - Partecipare ai controlli e alle analisi prima della fatturazione - Trattare la corrispondenza con le assicurazioni - Rispondere alle domande telefoniche dei pazienti\n• Requisiti - CFC di impiegato/a di commercio o titolo equivalente - Esperienza ospedaliera o nelle assicurazioni è un plus - Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout - Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia\n• Cosa offriamo - Inizio di funzione: a convenire - Contratto a durata determinata di 6 mesi Contatto - Per tutte le domande complementari sul soggetto di questo posto, si prega di prendere contatto con la Sig.ra Sophie Pidoux, responsabile del servizio di fatturazione, al 026 664 73 31. - In caso di difficoltà tecniche, si invita a contattare il nostro servizio di reclutamento al 026 662 81 91.",
-        "en": "The Hôpital Intercantonal de la Broye (HIB) is a hospital with 800 employees and is committed to providing a care and rehabilitation mission. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To face the numerous challenges that await it, the HIB is looking for a: Tasks - Collaborate on outpatient and/or hospital billing - Participate in the registration of various services - Participate in controls and analyses before billing - Handle correspondence with insurance companies - Answer patient phone calls\n• Requirements - Commercial clerk CFC or equivalent title - Hospital or insurance experience is a plus - Good knowledge of usual computer tools, knowledge of the Opale system is an asset - Adaptability, sense of organization and autonomy\n• What we offer - Start date: to be agreed - 6-month fixed-term contract Contact - For all additional questions on this position, please contact Mrs. Sophie Pidoux, billing service manager, at 026 664 73 31. - In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
-        "de": "Das Hôpital Intercantonal de la Broye (HIB) ist ein Krankenhaus mit 800 Mitarbeitern und ist an einer Pflege- und Rehabilitationssmission beteiligt. Seine Ambition ist es, eine dynamische, innovative und exzellente Gesundheitsinstitution für die Bevölkerung der Broyard zu sein. Um die zahlreichen Herausforderungen zu meistern, die es erwarten, sucht das HIB einen:\n• Aufgaben - Zusammenarbeit bei der ambulanten und/oder stationären Rechnungswesen - Teilnahme an der Registrierung verschiedener Dienstleistungen - Teilnahme an Kontrollen und Analysen vor der Rechnung - Bearbeitung von Korrespondenz mit Versicherungsgesellschaften - Beantwortung von Anrufen von Patienten\n• Anforderungen - CFC für Verkaufsmitarbeiter oder äquivalenter Titel - Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus - Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil - Anpassungsfähigkeit, Organisations- und Autonomiegefühl\n• Was wir bieten - Beginn der Arbeit: zu vereinbaren - 6-monatiger befristeter Vertrag Kontakt - Für alle weiteren Fragen zu diesem Posten, wenden Sie sich bitte an Frau Sophie Pidoux, Leiterin des Rechnungswesens, unter 026 664 73 31. - Bei technischen Schwierigkeiten bitten wir um Kontakt mit unserem Rekrutierungsamt unter 026 662 81 91.",
-        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Employé-e d'administration en facturation de 80% à 100% Votre mission\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n• Participer à la saisie des diverses prestations\n• Participer aux contrôles et analyses avant facturation\n• Traiter la correspondance avec les assurances\n• Répondre aux questions téléphoniques des patients Vos atouts\n• CFC d'employé-e de commerce ou titre équivalent\n• Expérience hospitalière ou dans les assurances est un plus\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie Entrée en fonction : à convenir. Contrat à durée déterminée de 6 mois. Nous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne. Pour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
-      },
-      "needsRetranslation": true,
-      "location": "Estavayer-le-Lac",
-      "canton": "FR",
-      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
-      "source": "HIB Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.160Z",
-      "addressLocality": "Estavayer-le-Lac",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1530",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "CFC di impiegato/a di commercio o titolo equivalente",
-          "Esperienza ospedaliera o nelle assicurazioni è un plus",
-          "Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout",
-          "Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia"
-        ],
-        "en": [
-          "Commercial clerk CFC or equivalent title",
-          "Hospital or insurance experience is a plus",
-          "Good knowledge of usual computer tools, knowledge of the Opale system is an asset",
-          "Adaptability, sense of organization and autonomy"
-        ],
-        "de": [
-          "CFC für Verkaufsmitarbeiter oder äquivalenter Titel",
-          "Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus",
-          "Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil",
-          "Anpassungsfähigkeit, Organisations- und Autonomiegefühl"
-        ]
-      },
-      "previousSlugs": [
-        "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T09:58:42.558Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "hib-broye-b0c37cd9b7a8",
       "slug": "stagiaire-amministrazione-nel-servizio-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
@@ -1219,7 +1129,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/stagiaire-administration-au-sein-du-service-de-facturation-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.160Z",
+      "crawledAt": "2026-06-04T15:05:44.834Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1290,6 +1200,96 @@
       }
     },
     {
+      "id": "hib-broye-fd165eeb5306",
+      "slug": "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+      "slugByLocale": {
+        "it": "amministratore-a-di-fatturazione-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "administration-clerk-billing-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "verwaltungskraft-rechnungswesen-80-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "fr": "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
+      },
+      "company": "Hôpital Intercantonal de la Broye (HIB)",
+      "companyKey": "hib-broye",
+      "companyDomain": "hopital-broye.ch",
+      "title": "Employé-e d'administration en facturation de 80% à 100%",
+      "titleByLocale": {
+        "it": "Amministratore/a di fatturazione 80% - 100%",
+        "en": "Administration Clerk - Billing 80% - 100%",
+        "de": "Verwaltungskraft - Rechnungswesen 80% - 100%",
+        "fr": "Employé-e d'administration en facturation de 80% à 100%"
+      },
+      "description": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e :\n\nEmployé-e d'administration en facturation de 80% à 100%\n\nVotre mission\n\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n\n• Participer à la saisie des diverses prestations\n\n• Participer aux contrôles et analyses avant facturation\n\n• Traiter la correspondance avec les assurances\n\n• Répondre aux questions téléphoniques des patients\n\nVos atouts\n\n• CFC d'employé-e de commerce ou titre équivalent\n\n• Expérience hospitalière ou dans les assurances est un plus\n\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie\n\nEntrée en fonction : à convenir.\n\nContrat à durée déterminée de 6 mois.\n\nNous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne.\n\nPour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31.\n\nEn cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91.",
+      "descriptionByLocale": {
+        "it": "L'Hôpital Intercantonal de la Broye (HIB) è un ospedale che conta 800 collaboratrici e collaboratori e si impegna a garantire una missione di cura e riabilitazione. La sua ambizione è essere un'istituzione di salute dinamica, innovativa e mirata all'eccezionalità a beneficio della popolazione broyarde. Per affrontare i numerosi sfidi che lo attendono, l'HIB è alla ricerca di un/a: Compiti - Collaborare alla fatturazione ambulatoriale e/o ospedaliera - Partecipare alla registrazione delle diverse prestazioni - Partecipare ai controlli e alle analisi prima della fatturazione - Trattare la corrispondenza con le assicurazioni - Rispondere alle domande telefoniche dei pazienti\n• Requisiti - CFC di impiegato/a di commercio o titolo equivalente - Esperienza ospedaliera o nelle assicurazioni è un plus - Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout - Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia\n• Cosa offriamo - Inizio di funzione: a convenire - Contratto a durata determinata di 6 mesi Contatto - Per tutte le domande complementari sul soggetto di questo posto, si prega di prendere contatto con la Sig.ra Sophie Pidoux, responsabile del servizio di fatturazione, al 026 664 73 31. - In caso di difficoltà tecniche, si invita a contattare il nostro servizio di reclutamento al 026 662 81 91.",
+        "en": "The Hôpital Intercantonal de la Broye (HIB) is a hospital with 800 employees and is committed to providing a care and rehabilitation mission. Its ambition is to be a dynamic, innovative and excellence-oriented health institution for the benefit of the Broyard population. To face the numerous challenges that await it, the HIB is looking for a: Tasks - Collaborate on outpatient and/or hospital billing - Participate in the registration of various services - Participate in controls and analyses before billing - Handle correspondence with insurance companies - Answer patient phone calls\n• Requirements - Commercial clerk CFC or equivalent title - Hospital or insurance experience is a plus - Good knowledge of usual computer tools, knowledge of the Opale system is an asset - Adaptability, sense of organization and autonomy\n• What we offer - Start date: to be agreed - 6-month fixed-term contract Contact - For all additional questions on this position, please contact Mrs. Sophie Pidoux, billing service manager, at 026 664 73 31. - In case of technical difficulties, please contact our recruitment service at 026 662 81 91.",
+        "de": "Das Hôpital Intercantonal de la Broye (HIB) ist ein Krankenhaus mit 800 Mitarbeitern und ist an einer Pflege- und Rehabilitationssmission beteiligt. Seine Ambition ist es, eine dynamische, innovative und exzellente Gesundheitsinstitution für die Bevölkerung der Broyard zu sein. Um die zahlreichen Herausforderungen zu meistern, die es erwarten, sucht das HIB einen:\n• Aufgaben - Zusammenarbeit bei der ambulanten und/oder stationären Rechnungswesen - Teilnahme an der Registrierung verschiedener Dienstleistungen - Teilnahme an Kontrollen und Analysen vor der Rechnung - Bearbeitung von Korrespondenz mit Versicherungsgesellschaften - Beantwortung von Anrufen von Patienten\n• Anforderungen - CFC für Verkaufsmitarbeiter oder äquivalenter Titel - Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus - Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil - Anpassungsfähigkeit, Organisations- und Autonomiegefühl\n• Was wir bieten - Beginn der Arbeit: zu vereinbaren - 6-monatiger befristeter Vertrag Kontakt - Für alle weiteren Fragen zu diesem Posten, wenden Sie sich bitte an Frau Sophie Pidoux, Leiterin des Rechnungswesens, unter 026 664 73 31. - Bei technischen Schwierigkeiten bitten wir um Kontakt mit unserem Rekrutierungsamt unter 026 662 81 91.",
+        "fr": "Grâce à ses 800 collaboratrices et collaborateurs, l'Hôpital Intercantonal de la Broye (HIB) assure une mission de soins aigus et de réadaptation. Son ambition est d'être une institution de santé dynamique, novatrice et visant l'excellence au profit de la population broyarde. Pour relever les nombreux défis qui l'attendent, l'HIB est à la recherche d'un-e : Employé-e d'administration en facturation de 80% à 100% Votre mission\n• Collaborer à la facturation ambulatoire et/ou hospitalière\n• Participer à la saisie des diverses prestations\n• Participer aux contrôles et analyses avant facturation\n• Traiter la correspondance avec les assurances\n• Répondre aux questions téléphoniques des patients Vos atouts\n• CFC d'employé-e de commerce ou titre équivalent\n• Expérience hospitalière ou dans les assurances est un plus\n• Bonnes connaissances des outils informatiques usuels, la connaissance du système Opale est un atout\n• Rapidité d'adaptation, sens de l'organisation et de l'autonomie Entrée en fonction : à convenir. Contrat à durée déterminée de 6 mois. Nous vous remercions de nous transmettre votre dossier complet de candidature en postulant en ligne. Pour toutes questions complémentaires au sujet de ce poste, veuillez prendre contact avec Mme Sophie Pidoux, responsable du service de facturation, au 026 664 73 31. En cas de difficultés techniques, nous vous invitons à contacter notre service de recrutement au 026 662 81 91."
+      },
+      "needsRetranslation": true,
+      "location": "Estavayer-le-Lac",
+      "canton": "FR",
+      "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
+      "source": "HIB Dedicated Parser (VD emploi platform)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-04T15:05:44.833Z",
+      "addressLocality": "Estavayer-le-Lac",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1530",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "applyUrl": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-technique-specialise.e-en-salle-doperation-de-80-a-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "CFC di impiegato/a di commercio o titolo equivalente",
+          "Esperienza ospedaliera o nelle assicurazioni è un plus",
+          "Buone conoscenze degli strumenti informatici usuale, la conoscenza del sistema Opale è un atout",
+          "Rapidezza di adattamento, senso dell'organizzazione e dell'autonomia"
+        ],
+        "en": [
+          "Commercial clerk CFC or equivalent title",
+          "Hospital or insurance experience is a plus",
+          "Good knowledge of usual computer tools, knowledge of the Opale system is an asset",
+          "Adaptability, sense of organization and autonomy"
+        ],
+        "de": [
+          "CFC für Verkaufsmitarbeiter oder äquivalenter Titel",
+          "Erfahrung in einem Krankenhaus oder bei Versicherungen ist ein Plus",
+          "Gute Kenntnisse von üblichen Computer-Tools, Kenntnisse des Opale-Systems sind ein Vorteil",
+          "Anpassungsfähigkeit, Organisations- und Autonomiegefühl"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-d-administration-en-facturation-de-80-a-100-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T09:58:42.558Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "hib-broye-98f0140f7e65",
       "slug": "assistente-medico-80-hopital-intercantonal-de-la-broye-hib-maison-medicalisee-de-moudon",
       "slugByLocale": {
@@ -1321,7 +1321,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant-e-medical-e-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.159Z",
+      "crawledAt": "2026-06-04T15:05:44.832Z",
       "addressLocality": "Maison médicalisée de Moudon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1392,7 +1392,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/offre-spontanee-medecin-assistant.e-pour-le-centre-de-readaptation",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.157Z",
+      "crawledAt": "2026-06-04T15:05:44.831Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1488,7 +1488,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/offre-spontanee-medecin-assistant.e-en-anesthesie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.156Z",
+      "crawledAt": "2026-06-04T15:05:44.829Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1583,7 +1583,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-specialise.e-de-80-a-100-dans-le-service-danesthesie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.155Z",
+      "crawledAt": "2026-06-04T15:05:44.827Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1679,7 +1679,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-specialise-e-de-80-a-100-pour-le-service-des-soins-intensifs",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.153Z",
+      "crawledAt": "2026-06-04T15:05:44.825Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1775,7 +1775,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-de-80-a-100-pour-le-service-de-chirurgie",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.152Z",
+      "crawledAt": "2026-06-04T15:05:44.823Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1877,7 +1877,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-ou-chef.fe-de-clinique-adjoint.e",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.151Z",
+      "crawledAt": "2026-06-04T15:05:44.822Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1979,7 +1979,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-en-gyneco-obstetrique-de-50-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.150Z",
+      "crawledAt": "2026-06-04T15:05:44.821Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2074,7 +2074,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-en-pharmacie-cdm",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.149Z",
+      "crawledAt": "2026-06-04T15:05:44.820Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2166,7 +2166,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/physiotherapeute-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.147Z",
+      "crawledAt": "2026-06-04T15:05:44.818Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2268,7 +2268,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/medecin-chef.fe-du-service-chirurgie-orthopedique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.146Z",
+      "crawledAt": "2026-06-04T15:05:44.816Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2370,7 +2370,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/assistant.e-rh",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.145Z",
+      "crawledAt": "2026-06-04T15:05:44.813Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2441,7 +2441,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/trm-de-60-a-70",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.144Z",
+      "crawledAt": "2026-06-04T15:05:44.812Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2512,7 +2512,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/controleur.euse-de-gestion-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.142Z",
+      "crawledAt": "2026-06-04T15:05:44.810Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2610,7 +2610,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/collaborateur-trice-dexploitation-cfc-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.141Z",
+      "crawledAt": "2026-06-04T15:05:44.808Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2706,7 +2706,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-de-medecine-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.140Z",
+      "crawledAt": "2026-06-04T15:05:44.807Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2808,7 +2808,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/technicien.ne-en-analyses-biomedicales-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.139Z",
+      "crawledAt": "2026-06-04T15:05:44.805Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2898,7 +2898,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-des-urgences-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.137Z",
+      "crawledAt": "2026-06-04T15:05:44.804Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2969,7 +2969,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier.ere-pour-le-service-de-dialyse-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.136Z",
+      "crawledAt": "2026-06-04T15:05:44.802Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3040,7 +3040,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/specialiste-rh-administration-et-salaires-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.135Z",
+      "crawledAt": "2026-06-04T15:05:44.801Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3127,7 +3127,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/sage-femme-homme-sage-femme-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.134Z",
+      "crawledAt": "2026-06-04T15:05:44.800Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3214,7 +3214,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/ergotherapeute-de-80-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.133Z",
+      "crawledAt": "2026-06-04T15:05:44.798Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3316,7 +3316,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/infirmier-ere-de-recherche-clinique-a-100-cdd-2-ans",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.132Z",
+      "crawledAt": "2026-06-04T15:05:44.796Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3418,7 +3418,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier-ere-en-dietetique-a-80",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.130Z",
+      "crawledAt": "2026-06-04T15:05:44.794Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3520,7 +3520,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/chef.fe-de-clinique-en-radiologie-a-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.128Z",
+      "crawledAt": "2026-06-04T15:05:44.792Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3622,7 +3622,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/cuisinier.ere-en-dietetique",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.119Z",
+      "crawledAt": "2026-06-04T15:05:44.780Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3701,7 +3701,7 @@
       "url": "https://emploi.hopital-broye.ch/nos-offres/codificateur-trice-medical-e-80-100",
       "source": "HIB Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-04T12:15:03.101Z",
+      "crawledAt": "2026-06-04T15:05:44.757Z",
       "addressLocality": "Estavayer-le-Lac",
       "addressRegion": "FR",
       "addressCountry": "CH",
