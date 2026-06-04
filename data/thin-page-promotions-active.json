@@ -1808,5 +1808,18 @@
     "/fr/trouver-emploi-zurich/recherche-apprentissage-geneve",
     "/fr/trouver-emploi-zurich/recherche-chef-d-equipe-construction-de-tunnels-80-zurich",
     "/fr/trouver-emploi-zurich/recherche-stage-dans-les-soins-a"
-  ]
+  ],
+  "patterns": [
+    {
+      "urlClass": "soft-landing-expired",
+      "action": "thin",
+      "minAgeDays": 7
+    },
+    {
+      "urlClass": "previousSlug",
+      "action": "thin",
+      "minAgeDays": 7
+    }
+  ],
+  "_note": "ONE-SHOT conservative thin to slim dist under the 10-min Pages publish cap (outage recovery 2026-06-05). evidence-gated: GSC-traffic URLs stay full. REVERT patterns to [] once a deploy publishes + site recovers."
 }
