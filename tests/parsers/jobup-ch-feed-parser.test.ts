@@ -21,6 +21,7 @@ import {
   parseJobupDate,
   detectEmploymentTypeFromOccupation,
   decodeEntities,
+  looksLikeJsonFeedBody,
 } from '../../scripts/lib/jobup-ch-feed-common.mjs';
 import {
   POLE_SANTE_PAYS_ENHAUT_KEY,
@@ -157,6 +158,28 @@ describe('decodeEntities — handles double-encoded entities', () => {
 
   it('leaves unknown entities intact', () => {
     expect(decodeEntities('&unknownEntity;')).toBe('&unknownEntity;');
+  });
+});
+
+describe('looksLikeJsonFeedBody — Playwright fallback body guard', () => {
+  it('accepts raw JSON object/array bodies', () => {
+    expect(looksLikeJsonFeedBody('{"jobcount":"7","jobs":[]}')).toBe(true);
+    expect(looksLikeJsonFeedBody('  [\n{"titre":"x"}\n]  ')).toBe(true);
+  });
+
+  it('accepts a JSONP-wrapped body (jobup xCallback quirk)', () => {
+    expect(looksLikeJsonFeedBody('xCallback({"jobs":[]});')).toBe(true);
+  });
+
+  it('rejects a 200 anti-bot/CAPTCHA challenge page', () => {
+    expect(looksLikeJsonFeedBody('<!DOCTYPE html><html><head><title>Just a moment...</title>')).toBe(false);
+    expect(looksLikeJsonFeedBody('Please enable JavaScript to continue')).toBe(false);
+  });
+
+  it('rejects empty / nullish bodies', () => {
+    expect(looksLikeJsonFeedBody('')).toBe(false);
+    expect(looksLikeJsonFeedBody('   ')).toBe(false);
+    expect(looksLikeJsonFeedBody(undefined as any)).toBe(false);
   });
 });
 
