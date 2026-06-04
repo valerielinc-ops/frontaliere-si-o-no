@@ -18,7 +18,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 
@@ -241,7 +241,7 @@ function runStressChecks(html, stressHtml) {
 /* ── Screenshots via Playwright ─────────────────────────────── */
 
 async function takeScreenshots(html, prefix) {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await launchChromium({ headless: true });
   const screenshots = {};
   try {
     for (const { width, label } of [
