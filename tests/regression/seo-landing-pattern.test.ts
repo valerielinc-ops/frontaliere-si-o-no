@@ -104,8 +104,13 @@ describe('SEO landing pattern — canonical token usage', () => {
       it('renders LEDE_STYLE tagline in at least one header (H1 + LEDE pattern)', () => {
         // We expect at least one `<p style="${LEDE_STYLE}">` after
         // an `<h1 style="${H1_STYLE}">` somewhere in the file.
-        const hasH1 = /\$\{H1_STYLE\}/.test(source);
-        const hasLede = /\$\{LEDE_STYLE\}/.test(source);
+        // PR #1343 migrated H1_STYLE/LEDE_STYLE inline styles to the s-h1/s-lede
+        // CSS atoms in seo-static.css (byte-identical computed style) for the
+        // fuel plugin — accept either form, mirroring the STAT_TILE_*/CTA atoms
+        // above, so the regression still catches a plugin that drops the
+        // H1 + LEDE header pattern entirely.
+        const hasH1 = /\$\{H1_STYLE\}/.test(source) || /\bclass="s-h1"/.test(source);
+        const hasLede = /\$\{LEDE_STYLE\}/.test(source) || /\bclass="s-lede"/.test(source);
         expect(hasH1).toBe(true);
         expect(hasLede).toBe(true);
       });
