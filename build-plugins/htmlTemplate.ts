@@ -197,7 +197,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
  const ldTags = jsonLdScripts.map(ld => ` <script type="application/ld+json">${ld}</script>`).join('\n');
- const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : '';
+ const cssLink = entryCss ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : '';
  // PR #454 extracted ~3 920 static inline `style=` attributes into content-
  // hashed CSS classes (s-{6char}) appended to public/assets/seo-static.css.
  // The hand-rolled HTML in jobsSeoPagesPlugin / seoHubsPlugin already inlines
