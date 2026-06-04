@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gesundheitsnetz-kuesnacht",
-  "assembledAt": "2026-06-04T12:04:56.671Z",
+  "assembledAt": "2026-06-04T14:59:48.800Z",
   "jobs": [
     {
       "id": "gesundheitsnetz-kuesnacht-7c9ffcb9e80b",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/780392/0087/pub/8/index.html",
       "source": "Gesundheitsnetz Küsnacht Dedicated Parser (Refline 780392)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-04T12:04:51.649Z",
+      "crawledAt": "2026-06-04T14:59:42.596Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,24 +71,24 @@
         ]
       },
       "externalId": "0087",
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
-          "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
-        ],
-        "it": [
-          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
-          "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
-          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
-          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
-        ]
-      },
       "previousSlugs": [
         "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
         "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
         "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
         "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
+          "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht",
+          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-e-naturwissenschaften-gesundheitsnetz-kusnacht-ag-kusnacht",
+          "aufgestellte-r-fachfrau-fachmann-gesundheit-gesundheitsnetz-kuesnacht-kusnacht"
+        ],
+        "de": [
+          "pflegepraktikum-im-rahmen-der-fachmaturitat-gesundheit-und-naturwissenschaften",
+          "initiative-r-abteilungsleiter-in-betreuung-und-pflege-gesundheitsnetz-kuesnacht-kusnacht"
+        ]
+      },
       "firstSeenAt": "2026-05-19T17:19:57.775Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
