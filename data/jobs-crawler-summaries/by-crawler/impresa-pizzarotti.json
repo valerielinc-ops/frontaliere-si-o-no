@@ -1,16 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-06-04T00:43:43.693Z",
+  "generatedAt": "2026-06-04T13:11:51.639Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2192,
-  "avgDurationMs": 2192,
+  "durationMs": 2077,
+  "avgDurationMs": 2077,
   "durationHistory": [
-    2192
+    2077
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,11 +43,11 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:52:26.697Z",
       "postalCode": "2000",
-      "_qualityScore": 85,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 19,
+        "translation": 16,
         "completeness": 22
       }
     }
