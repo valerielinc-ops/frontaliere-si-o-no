@@ -4008,7 +4008,22 @@ export function validateDedicatedLocaleCoverage({
       // (2-4 jobs) a SINGLE naturally-short posting is already >=50% and would
       // otherwise still brick the whole run. A parser break manifests as MANY
       // thin jobs, so one thin job is never "systemic" regardless of ratio.
-      const systemic = suspiciousRatio >= SYSTEMIC_THIN_RATIO && suspiciousThin.length >= 2;
+      //
+      // ...AND require a minimum TOTAL job count (>=4 by default). On a micro-
+      // source with exactly 2-3 postings all naturally short, ratio hits 1.0 with
+      // count >=2 — indistinguishable from a 2-3-job parser break, so the gate
+      // would still hard-fail + file a spurious priority:high issue EVERY run.
+      // A genuine parser break manifests across MANY jobs; below this floor the
+      // signal is too weak to justify bricking the run, so micro-sources are
+      // relegated to the (safer) quarantine path: thin jobs are dropped from the
+      // dataset (the build noindexes/sitemap-excludes them anyway) and no issue
+      // is filed. Only sources with enough jobs to make "majority thin" a
+      // reliable parser-break signal hard-fail.
+      const SYSTEMIC_MIN_TOTAL = Number(process.env.JOBS_SYSTEMIC_MIN_TOTAL) || 4;
+      const systemic =
+        suspiciousRatio >= SYSTEMIC_THIN_RATIO &&
+        suspiciousThin.length >= 2 &&
+        jobs.length >= SYSTEMIC_MIN_TOTAL;
 
       if (systemic) {
         throw new Error(
@@ -4016,10 +4031,17 @@ export function validateDedicatedLocaleCoverage({
         );
       }
 
-      // Non-systemic: a few naturally-thin postings among many good ones.
+      // Non-systemic: either a few naturally-thin postings among many good ones
+      // (ratio below the systemic threshold), or a micro-source below the total-
+      // job floor (too few jobs for "majority thin" to be a reliable parser-break
+      // signal). Both are quarantined rather than hard-failed.
       const quarantineSlugs = new Set(suspiciousThin.map((d) => d.slug));
+      const nonSystemicReason =
+        jobs.length < SYSTEMIC_MIN_TOTAL
+          ? `micro-source (${jobs.length} job(s) < ${SYSTEMIC_MIN_TOTAL} total floor) — too few to distinguish naturally-short postings from a parser break`
+          : `${(suspiciousRatio * 100).toFixed(0)}% < ${(SYSTEMIC_THIN_RATIO * 100).toFixed(0)}% systemic ratio`;
       console.warn(
-        `⚠️ ${label} thin-source: ${suspiciousThin.length}/${jobs.length} job(s) below the suspicious-thin threshold (${(suspiciousRatio * 100).toFixed(0)}% < ${(SYSTEMIC_THIN_RATIO * 100).toFixed(0)}% systemic) — NOT a parser break. Quarantining them from the dataset (the good jobs commit; the build also noindexes/sitemap-excludes <50-word pages).\n${sample}`
+        `⚠️ ${label} thin-source: ${suspiciousThin.length}/${jobs.length} suspicious job(s), ${nonSystemicReason} — NOT a parser break. Quarantining them from the dataset (the good jobs commit; the build also noindexes/sitemap-excludes <50-word pages).\n${sample}`
       );
       try {
         const removed = raw.filter((j) => isTargetJob(j) && quarantineSlugs.has(j?.slug));
