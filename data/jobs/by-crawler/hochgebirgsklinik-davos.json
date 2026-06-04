@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-06-03T23:50:46.038Z",
+  "assembledAt": "2026-06-04T12:17:15.958Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.014Z",
+      "crawledAt": "2026-06-04T12:17:14.125Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -102,6 +102,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.483Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -147,7 +148,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.013Z",
+      "crawledAt": "2026-06-04T12:17:14.124Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -198,6 +199,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.482Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -243,7 +245,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.012Z",
+      "crawledAt": "2026-06-04T12:17:14.123Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -299,6 +301,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -344,7 +347,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.011Z",
+      "crawledAt": "2026-06-04T12:17:14.122Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -401,6 +404,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.481Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -446,7 +450,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.010Z",
+      "crawledAt": "2026-06-04T12:17:14.121Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -500,102 +504,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.480Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
-      "slug": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "healthcare-specialist-w-m-d-hochgebirgsklinik-davos-davos",
-        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
-        "fr": "specialiste-en-sante-h-f-x-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Fachperson Gesundheit (w/m/d)",
-      "titleByLocale": {
-        "it": "Specialista in Salute (m/f/d)",
-        "en": "Healthcare Specialist (w/m/d)",
-        "de": "Fachperson Gesundheit (w/m/d)",
-        "fr": "Spécialiste en Santé (h/f/x)"
-      },
-      "description": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
-      "descriptionByLocale": {
-        "it": "Descrizione Cerchi un lavoro in cui assumi responsabilità e accompagni attivamente i tuoi pazienti nel loro percorso di guarigione? Nella nostra clinica di riabilitazione, lavori in modo interdisciplinare, con un alto livello di competenza medica e con risultati tangibili. ## Compiti - Cura e sostegno: Assumi la cura, la consulenza e il sostegno dei tuoi pazienti. - Agire in modo integrale: Lavorare in modo medico, sociale, emotivo e funzionale. - Collaborare in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento. - Rafforzare l'autonomia: Accompagni i pazienti nel ritorno alla vita quotidiana. ##\n• Requisiti - Formazione come Specialista in Salute EFZ - Passione per il lavoro di cura responsabile - Empatia, capacità di comunicazione e spirito di squadra - Interesse per lo scambio interdisciplinare ##\n• Cosa offriamo - Equilibrio lavoro-vita: Turni pianificati, poche ore straordinarie, pochi o nessun turno di notte - Cultura di squadra: Percorsi brevi, comunicazione aperta, cura nella direzione aziendale - Orientamento relazionale: Tempo per le conversazioni e i progressi - Goditi la salute: Pasti mediterranei e pasto economico - Tempo libero: Abbonamento annuale gratuito per la funivia e offerte di sport e benessere",
-        "en": "Description Are you looking for a job where you take responsibility and actively accompany your patients on their recovery journey? In our rehabilitation clinic, you work interdisciplinarily, with high medical demands and tangible success. ## Tasks - Care & Support: You take care of, advise, and support your patients. - Act Holistically: You work medically, socially, emotionally, and functionally. - Interdisciplinary Collaboration: Physio, Ergo, Sport, Psychology, Doctors, Social Service, and others - all together for treatment success. - Strengthen Independence: You accompany patients back into everyday life. ##\n• Requirements - Education as a Healthcare Specialist EFZ - Enjoyment of responsible care work - Empathy, communication skills, and team spirit - Interest in interdisciplinary exchange ## What We Offer - Work-Life Balance: Scheduled shifts, few overtime hours, few or no night shifts - Team Culture: Short distances, open communication, care in the management - Relationship-Oriented: Time for conversations and progress - Enjoy Health: Mediterranean meals & affordable food - Leisure: Free ski pass annual subscription and sport/wellness offers",
-        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
-        "fr": "Description Vous cherchez un emploi où vous prenez des responsabilités et accompagnez activement vos patients dans leur parcours de guérison? Dans notre clinique de réadaptation, vous travaillez de manière interdisciplinaire, avec des exigences médicales élevées et des résultats tangibles. ## Tâches - Soins et Soutien: Vous prenez soin, conseillez et soutenez vos patients. - Agir de manière Holistique: Vous travaillez de manière médicale, sociale, émotionnelle et fonctionnelle. - Collaboration Interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres - tous ensemble pour le succès du traitement. - Renforcer l'Autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne. ##\n• Exigences - Formation de Spécialiste en Santé EFZ - Plaisir du travail de soins responsable - Empathie, compétences en communication et esprit d'équipe - Intérêt pour l'échange interdisciplinaire ## Ce que nous offrons - Équilibre travail-vie: Services planifiés, peu d'heures supplémentaires, peu ou aucun service de nuit - Culture d'équipe: Chemins courts, communication ouverte, soins dans la direction - Orientation relationnelle: Temps pour les conversations et les progrès - Profitez de la santé: Repas méditerranéens et nourriture abordable - Loisirs: Abonnement annuel gratuit pour le téléphérique et offres de sport et bien-être"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.009Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-17",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/609/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come Specialista in Salute EFZ",
-          "Passione per il lavoro di cura responsabile",
-          "Empatia, capacità di comunicazione e spirito di squadra",
-          "Interesse per lo scambio interdisciplinare"
-        ],
-        "en": [
-          "Education as a Healthcare Specialist EFZ",
-          "Enjoyment of responsible care work",
-          "Empathy, communication skills, and team spirit",
-          "Interest in interdisciplinary exchange"
-        ],
-        "fr": [
-          "Formation de Spécialiste en Santé EFZ",
-          "Plaisir du travail de soins responsable",
-          "Empathie, compétences en communication et esprit d'équipe",
-          "Intérêt pour l'échange interdisciplinaire"
-        ]
-      },
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
-      "previousSlugs": [
-        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
-        "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
-        "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
-        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -641,7 +550,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.008Z",
+      "crawledAt": "2026-06-04T12:17:14.120Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -692,6 +601,104 @@
         "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
       ],
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-5ff7d3c95a56",
+      "slug": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "specialista-in-salute-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "healthcare-specialist-w-m-d-hochgebirgsklinik-davos-davos",
+        "de": "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+        "fr": "specialiste-en-sante-h-f-x-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Fachperson Gesundheit (w/m/d)",
+      "titleByLocale": {
+        "it": "Specialista in Salute (m/f/d)",
+        "en": "Healthcare Specialist (w/m/d)",
+        "de": "Fachperson Gesundheit (w/m/d)",
+        "fr": "Spécialiste en Santé (h/f/x)"
+      },
+      "description": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
+      "descriptionByLocale": {
+        "it": "Descrizione Cerchi un lavoro in cui assumi responsabilità e accompagni attivamente i tuoi pazienti nel loro percorso di guarigione? Nella nostra clinica di riabilitazione, lavori in modo interdisciplinare, con un alto livello di competenza medica e con risultati tangibili. ## Compiti - Cura e sostegno: Assumi la cura, la consulenza e il sostegno dei tuoi pazienti. - Agire in modo integrale: Lavorare in modo medico, sociale, emotivo e funzionale. - Collaborare in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento. - Rafforzare l'autonomia: Accompagni i pazienti nel ritorno alla vita quotidiana. ##\n• Requisiti - Formazione come Specialista in Salute EFZ - Passione per il lavoro di cura responsabile - Empatia, capacità di comunicazione e spirito di squadra - Interesse per lo scambio interdisciplinare ##\n• Cosa offriamo - Equilibrio lavoro-vita: Turni pianificati, poche ore straordinarie, pochi o nessun turno di notte - Cultura di squadra: Percorsi brevi, comunicazione aperta, cura nella direzione aziendale - Orientamento relazionale: Tempo per le conversazioni e i progressi - Goditi la salute: Pasti mediterranei e pasto economico - Tempo libero: Abbonamento annuale gratuito per la funivia e offerte di sport e benessere",
+        "en": "Description Are you looking for a job where you take responsibility and actively accompany your patients on their recovery journey? In our rehabilitation clinic, you work interdisciplinarily, with high medical demands and tangible success. ## Tasks - Care & Support: You take care of, advise, and support your patients. - Act Holistically: You work medically, socially, emotionally, and functionally. - Interdisciplinary Collaboration: Physio, Ergo, Sport, Psychology, Doctors, Social Service, and others - all together for treatment success. - Strengthen Independence: You accompany patients back into everyday life. ##\n• Requirements - Education as a Healthcare Specialist EFZ - Enjoyment of responsible care work - Empathy, communication skills, and team spirit - Interest in interdisciplinary exchange ## What We Offer - Work-Life Balance: Scheduled shifts, few overtime hours, few or no night shifts - Team Culture: Short distances, open communication, care in the management - Relationship-Oriented: Time for conversations and progress - Enjoy Health: Mediterranean meals & affordable food - Leisure: Free ski pass annual subscription and sport/wellness offers",
+        "de": "Du suchst eine Tätigkeit, in der du Verantwortung übernimmst und deine Patient:innen aktiv auf ihrem Genesungsweg begleitest? In unserer Reha-Klinik arbeitest du interdisziplinär, medizinisch anspruchsvoll und mit spürbarem Erfolg. | Aufgaben:\n• Pflegen & Fördern: Du übernimmst die Pflege, Beratung und Unterstützung deiner Patient:innen.\n• Ganzheitlich handeln: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär zusammenarbeiten: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit stärken: Du begleitest die Patient:innen zurück in den Alltag. | Anforderungen:\n• Ausbildung als Fachperson Gesundheit EFZ\n• Freude an verantwortungsvoller Pflegearbeit\n• Empathie, Kommunikationsstärke und Teamgeist\n• Interesse an interdisziplinärem Austausch | Wir bieten:\n• Work-Life-Balance: Planbare Dienste, kaum Überstunden, wenig bis keine Nachtdienste\n• Teamkultur: Kurze Wege, offene Kommunikation, Pflege in der Geschäftsleitung\n• Beziehungsorientiert: Zeit für Gespräche und Fortschritt\n• Gesund geniessen: Mediterrane Mahlzeiten & günstige Verpflegung\n• Freizeit: Gratis Bergbahn-Jahreskarte und Sport-/Wellnessangebote",
+        "fr": "Description Vous cherchez un emploi où vous prenez des responsabilités et accompagnez activement vos patients dans leur parcours de guérison? Dans notre clinique de réadaptation, vous travaillez de manière interdisciplinaire, avec des exigences médicales élevées et des résultats tangibles. ## Tâches - Soins et Soutien: Vous prenez soin, conseillez et soutenez vos patients. - Agir de manière Holistique: Vous travaillez de manière médicale, sociale, émotionnelle et fonctionnelle. - Collaboration Interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres - tous ensemble pour le succès du traitement. - Renforcer l'Autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne. ##\n• Exigences - Formation de Spécialiste en Santé EFZ - Plaisir du travail de soins responsable - Empathie, compétences en communication et esprit d'équipe - Intérêt pour l'échange interdisciplinaire ## Ce que nous offrons - Équilibre travail-vie: Services planifiés, peu d'heures supplémentaires, peu ou aucun service de nuit - Culture d'équipe: Chemins courts, communication ouverte, soins dans la direction - Orientation relationnelle: Temps pour les conversations et les progrès - Profitez de la santé: Repas méditerranéens et nourriture abordable - Loisirs: Abonnement annuel gratuit pour le téléphérique et offres de sport et bien-être"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T12:17:14.120Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-17",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/609/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione come Specialista in Salute EFZ",
+          "Passione per il lavoro di cura responsabile",
+          "Empatia, capacità di comunicazione e spirito di squadra",
+          "Interesse per lo scambio interdisciplinare"
+        ],
+        "en": [
+          "Education as a Healthcare Specialist EFZ",
+          "Enjoyment of responsible care work",
+          "Empathy, communication skills, and team spirit",
+          "Interest in interdisciplinary exchange"
+        ],
+        "fr": [
+          "Formation de Spécialiste en Santé EFZ",
+          "Plaisir du travail de soins responsable",
+          "Empathie, compétences en communication et esprit d'équipe",
+          "Intérêt pour l'échange interdisciplinaire"
+        ]
+      },
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
+      "previousSlugs": [
+        "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch",
+        "healthcare-specialist-m-f-d-in-the-psychosomatic-department-hochgebirgsklinik-davos-davos",
+        "specialista-in-salute-m-f-d-nel-reparto-di-psicosomatica-hochgebirgsklinik-davos-davos",
+        "specialiste-en-sante-m-f-d-dans-le-service-de-psychosomatique-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -737,7 +744,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.007Z",
+      "crawledAt": "2026-06-04T12:17:14.119Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -791,6 +798,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -836,7 +844,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.006Z",
+      "crawledAt": "2026-06-04T12:17:14.118Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -874,89 +882,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:45:59.207Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-133fb3c5884c",
-      "slug": "consulente-senior-m-w-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "consulente-senior-m-w-hochgebirgsklinik-davos-davos",
-        "en": "senior-consultant-m-w-hochgebirgsklinik-davos-davos",
-        "de": "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch",
-        "fr": "consultant-principal-m-m-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Assistenzarzt Innere Medizin / Psychosomatik (m/w) 100%",
-      "titleByLocale": {
-        "it": "Consulente senior (m/w)",
-        "en": "Senior Consultant (m/w)",
-        "de": "Assistenzarzt Innere Medizin / Psychosomatik (m/w) 100%",
-        "fr": "Consultant principal (m/m)"
-      },
-      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Weiterbildungsziel Psychiatrie und Psychotherapie\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1)\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen:\n• Eigenständige psychosomatisch-psychotherapeutische Behandlung von stationären Patientinnen und Patienten ab 18 Jahren in enger Supervision\n• Betreuung von kardiologischen und herzchirurgischen Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik",
-      "descriptionByLocale": {
-        "it": "Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Compiti:\n• Diploma di dottorato federale o studi medici completi con riconoscimento svizzero (MEBEKO)\n• Esperienza professionale nel campo della medicina interna o ulteriore educazione Psichiatria e psicoterapia\n• Molto buona conoscenza tedesca di Parola e Scrittura (Goethe C1)\n• Funzionamento autonomo e affidabile\n• Capacità di carico, flessibilità, responsabilità e competenze di squadra | Requisiti:\n• Trattamento psicosomatico-psicoterapeutico indipendente di pazienti stazionari di 18 anni in stretta supervisione\n• pazienti cardiologici e cardiochirurgici\n• Supporto per pazienti internisti-oncologici\n• Cooperazione interdisciplinare\n• Assistenza medica per l'intera clinica",
-        "en": "Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. Tasks:\n• Federal doctoral diploma or completed medical studies with Swiss recognition (MEBEKO)\n• Professional experience in the field of internal medicine or further education Psychiatry and psychotherapy\n• Very good German knowledge of Word and Writing (Goethe C1)\n• Self-employed and reliable operation\n• Loadability, flexibility, responsibility and team skills | Requirements:\n• Independent psychosomatic-psychotherapeutic treatment of stationary patients aged 18 years in close supervision\n• Cardiological and heart-surgical patients\n• Support for internalist-oncological patients\n• Interdisciplinary cooperation\n• Medical assistance for the entire clinic",
-        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Weiterbildungsziel Psychiatrie und Psychotherapie\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1)\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen:\n• Eigenständige psychosomatisch-psychotherapeutische Behandlung von stationären Patientinnen und Patienten ab 18 Jahren in enger Supervision\n• Betreuung von kardiologischen und herzchirurgischen Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik",
-        "fr": "Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Tâches :\n• Doctorat fédéral ou études médicales avec reconnaissance suisse (MEBEKO)\n• Expérience professionnelle dans le domaine de la médecine interne ou de la formation continue Psychiatrie et psychothérapie\n• Très bonne connaissance allemande de la Parole et de l'Écriture (Goethe C1)\n• Travailleurs indépendants et fonctionnement fiable\n• Chargeabilité, flexibilité, responsabilité et compétences en équipe\n• Traitement psychosomatique et psychothérapeutique indépendant des patients en établissement de 18 ans sous surveillance étroite\n• Patients cardio-chirurgicaux\n• Soutien aux patients internalistes-oncologiques\n• Coopération interdisciplinaire\n• Assistance médicale pour toute la clinique"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ2&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.005Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/646/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "contactPerson": "Isabelle Künzli",
-      "contactPhone": "+41 81 417 30 40",
-      "previousSlugs": [
-        "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T12:10:00.974Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1002,7 +928,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.005Z",
+      "crawledAt": "2026-06-04T12:17:14.117Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1063,6 +989,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1072,6 +999,89 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-133fb3c5884c",
+      "slug": "consulente-senior-m-w-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "consulente-senior-m-w-hochgebirgsklinik-davos-davos",
+        "en": "senior-consultant-m-w-hochgebirgsklinik-davos-davos",
+        "de": "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch",
+        "fr": "consultant-principal-m-m-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Assistenzarzt Innere Medizin / Psychosomatik (m/w) 100%",
+      "titleByLocale": {
+        "it": "Consulente senior (m/w)",
+        "en": "Senior Consultant (m/w)",
+        "de": "Assistenzarzt Innere Medizin / Psychosomatik (m/w) 100%",
+        "fr": "Consultant principal (m/m)"
+      },
+      "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Weiterbildungsziel Psychiatrie und Psychotherapie\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1)\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen:\n• Eigenständige psychosomatisch-psychotherapeutische Behandlung von stationären Patientinnen und Patienten ab 18 Jahren in enger Supervision\n• Betreuung von kardiologischen und herzchirurgischen Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik",
+      "descriptionByLocale": {
+        "it": "Dietro la nostra storia di successo è il team Hochgebirgsklinik con più di 400 dipendenti dedicati. Le diverse aree di competenza e stretta collaborazione tra i team consentono di avere un compito responsabile e opzioni di progettazione. Inoltre, l'Hochgebirgsklinik offre condizioni di lavoro contemporanee e una posizione ideale per attività ricreative versatili nella regione turistica Grigioni. Compiti:\n• Diploma di dottorato federale o studi medici completi con riconoscimento svizzero (MEBEKO)\n• Esperienza professionale nel campo della medicina interna o ulteriore educazione Psichiatria e psicoterapia\n• Molto buona conoscenza tedesca di Parola e Scrittura (Goethe C1)\n• Funzionamento autonomo e affidabile\n• Capacità di carico, flessibilità, responsabilità e competenze di squadra | Requisiti:\n• Trattamento psicosomatico-psicoterapeutico indipendente di pazienti stazionari di 18 anni in stretta supervisione\n• pazienti cardiologici e cardiochirurgici\n• Supporto per pazienti internisti-oncologici\n• Cooperazione interdisciplinare\n• Assistenza medica per l'intera clinica",
+        "en": "Behind our success story is the Hochgebirgsklinik team with more than 400 dedicated employees. The diverse areas of competence and close cooperation between the teams allow you to have a responsible task and design options. In addition, the Hochgebirgsklinik offers contemporary employment conditions and an ideal location for versatile leisure activities in the holiday region Graubünden. Tasks:\n• Federal doctoral diploma or completed medical studies with Swiss recognition (MEBEKO)\n• Professional experience in the field of internal medicine or further education Psychiatry and psychotherapy\n• Very good German knowledge of Word and Writing (Goethe C1)\n• Self-employed and reliable operation\n• Loadability, flexibility, responsibility and team skills | Requirements:\n• Independent psychosomatic-psychotherapeutic treatment of stationary patients aged 18 years in close supervision\n• Cardiological and heart-surgical patients\n• Support for internalist-oncological patients\n• Interdisciplinary cooperation\n• Medical assistance for the entire clinic",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Weiterbildungsziel Psychiatrie und Psychotherapie\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1)\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit | Anforderungen:\n• Eigenständige psychosomatisch-psychotherapeutische Behandlung von stationären Patientinnen und Patienten ab 18 Jahren in enger Supervision\n• Betreuung von kardiologischen und herzchirurgischen Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik",
+        "fr": "Derrière notre réussite se trouve l'équipe Hochgebirgsklinik avec plus de 400 employés dévoués. Les différents domaines de compétence et la coopération étroite entre les équipes vous permettent d'avoir une tâche responsable et des options de conception. En outre, le Hochgebirgsklinik offre des conditions d'emploi contemporaines et un emplacement idéal pour des activités de loisirs polyvalentes dans la région de vacances Graubünden. Tâches :\n• Doctorat fédéral ou études médicales avec reconnaissance suisse (MEBEKO)\n• Expérience professionnelle dans le domaine de la médecine interne ou de la formation continue Psychiatrie et psychothérapie\n• Très bonne connaissance allemande de la Parole et de l'Écriture (Goethe C1)\n• Travailleurs indépendants et fonctionnement fiable\n• Chargeabilité, flexibilité, responsabilité et compétences en équipe\n• Traitement psychosomatique et psychothérapeutique indépendant des patients en établissement de 18 ans sous surveillance étroite\n• Patients cardio-chirurgicaux\n• Soutien aux patients internalistes-oncologiques\n• Coopération interdisciplinaire\n• Assistance médicale pour toute la clinique"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ2&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-04T12:17:14.116Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/646/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contactPerson": "Isabelle Künzli",
+      "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "assistenzarzt-innere-medizin-psychosomatik-m-w-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-21T12:10:00.974Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -1108,7 +1118,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.004Z",
+      "crawledAt": "2026-06-04T12:17:14.115Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1146,6 +1156,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:42:17.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1191,7 +1202,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.003Z",
+      "crawledAt": "2026-06-04T12:17:14.114Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1231,6 +1242,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:02:00.149Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1276,7 +1288,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:44.002Z",
+      "crawledAt": "2026-06-04T12:17:14.113Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1339,6 +1351,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:15.476Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1384,7 +1397,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:43.999Z",
+      "crawledAt": "2026-06-04T12:17:14.111Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1467,7 +1480,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:43.998Z",
+      "crawledAt": "2026-06-04T12:17:14.110Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1550,7 +1563,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-03T23:50:43.989Z",
+      "crawledAt": "2026-06-04T12:17:14.101Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1588,6 +1601,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T11:51:46.132Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
