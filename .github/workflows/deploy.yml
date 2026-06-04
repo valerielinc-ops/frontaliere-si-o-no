@@ -735,38 +735,26 @@ jobs:
 
       # Boot-critical asset offload. The build already rebased Vite asset URLs to
       # the CDN (ASSET_CDN/renderBuiltUrl) → the artifact's HTML/JS point at
-      # cdn.frontaliereticino.ch/assets/* with no same-origin fallback. Two guards
-      # before deleting dist/assets:
-      #   (A) FAIL the deploy if the push failed (CDN_BASE unset) or a sample asset
-      #       never serves from the CDN within ~4min — the Vite refs are already
-      #       baked to the CDN with no fallback, so publishing would break boot.
-      #       Failing keeps the last good deploy live.
-      #   (B) If ANY dist HTML still references a SAME-ORIGIN /assets/ path (e.g. a
+      # cdn.frontaliereticino.ch/assets/* with no same-origin fallback. BUILD-TIME
+      # guards before deleting dist/assets (no live polling here — the CDN Pages
+      # build lags the push, which made an inline poll a flaky false-negative that
+      # blocked the whole build; the CDN-serves-live check now runs post-deploy in
+      # validate-live, with the rollback job as the safety net):
+      #   (A) FAIL the deploy if the push failed (CDN_BASE unset) — the Vite refs
+      #       are already baked to the CDN with no fallback, so the artifact is
+      #       broken; failing keeps the last good deploy live.
+      #   (B) If ANY dist HTML still references a SAME-ORIGIN /assets/ path (a
       #       custom SSG emitter that didn't go through renderBuiltUrl), KEEP
       #       dist/assets (skip the delete) — non-fatal: those pages keep working
-      #       same-origin while the Vite refs use the CDN. No artifact win for
-      #       assets that round, but nothing breaks.
-      - name: Verify CDN assets live, then drop dist/assets (fail-safe)
+      #       same-origin while the Vite refs use the CDN. No artifact win this
+      #       round, but nothing breaks.
+      - name: Drop dist/assets after CDN push (build-time guards; live check in validate-live)
         if: github.event.inputs.profile_sequential != 'true'
         run: |
           set -uo pipefail
           [ -d dist/assets ] || { echo "no dist/assets — nothing to offload"; exit 0; }
           if [ -z "${CDN_BASE:-}" ]; then
             echo "::error::CDN push failed but dist/assets URLs are already rebased to the CDN (no fallback) — failing deploy (last good stays live)"; exit 1
-          fi
-          sample="$(cd dist/assets && ls -1 *.js 2>/dev/null | head -1)"
-          [ -z "$sample" ] && sample="$(cd dist/assets && ls -1 | head -1)"
-          url="${CDN_BASE}/assets/${sample}"
-          echo "verifying $url (CDN Pages build may lag the push)…"
-          ok=""
-          for i in $(seq 1 24); do
-            code="$(curl -s -o /dev/null -w '%{http_code}' "$url" || echo 000)"
-            echo "  attempt $i: $code"
-            [ "$code" = "200" ] && { ok=1; break; }
-            sleep 10
-          done
-          if [ -z "$ok" ]; then
-            echo "::error::CDN asset $url not serving after ~4min — failing deploy (assets stay live on last good build)"; exit 1
           fi
           # Guard B: any surviving SAME-ORIGIN /assets/ reference in dist HTML?
           # Extension/path coverage is a SUPERSET of the offload script's Phase 3
@@ -778,7 +766,7 @@ jobs:
           fi
           freed="$(du -sh dist/assets | cut -f1)"
           rm -rf dist/assets
-          echo "✅ assets verified on CDN + no same-origin refs; dropped dist/assets (${freed}) from artifact"
+          echo "✅ no same-origin /assets/ refs survive; dropped dist/assets (${freed}) from artifact (CDN: ${CDN_BASE}/assets — verified live in validate-live)"
 
       - name: Capture pre-deploy sitemap URLs (for IndexNow diff)
         if: github.event.inputs.profile_sequential != 'true'
