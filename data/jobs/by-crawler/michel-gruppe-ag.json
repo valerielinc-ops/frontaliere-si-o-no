@@ -263,8 +263,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel",
-          "estate-2027-specialista-centro-di-insegnamento-specialita-efz-bambini-100-michel-gruppe-ag-meiringen",
-          "sommer-2027-apprendistato-fachfrau-fachmann-betreuung-cfc-specializzazione-kinder-100-michel-gruppe-ag-meiringen"
+          "estate-2027-specialista-centro-di-insegnamento-specialita-efz-bambini-100-michel-gruppe-ag-meiringen"
         ],
         "en": [
           "sommer-2027-lehrstelle-fachfrau-fachmann-betreuung-efz-fachrichtung-kinder-100-michel"
@@ -568,8 +567,8 @@
       "slugByLocale": {
         "de": "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen",
         "it": "stv-leitung-bau-e-technik-100-michel-gruppe-ag-meiringen",
-        "en": "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen",
-        "fr": "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen"
+        "en": "stv-construction-and-technology-100-michel-gruppe-ag-meiringen",
+        "fr": "stv-construction-et-technologie-100-michel-gruppe-ag-meiringen"
       },
       "company": "Michel Gruppe AG",
       "companyKey": "michel-gruppe-ag",
@@ -620,6 +619,12 @@
       "department": "Bau und Technik",
       "previousSlugsByLocale": {
         "it": [
+          "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen"
+        ],
+        "en": [
+          "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen"
+        ],
+        "fr": [
           "stv-leitung-bau-und-technik-100-michel-gruppe-ag-meiringen"
         ]
       },

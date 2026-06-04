@@ -410,7 +410,7 @@
       "slugByLocale": {
         "it": "metrologia-tecnico-100-agie-charmilles-sa-biel-bienne",
         "en": "metrology-technician-100-agie-charmilles-biel-bienne",
-        "de": "messtechnik-100-agie-charmilles-sa-biel-bienne",
+        "de": "metrology-techniker-100-agie-charmilles-sa-biel-bienne",
         "fr": "technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-accaba5b6616",
@@ -434,14 +434,16 @@
           "metrology-technician-100-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "metrology-technician-100-agie-charmilles-biel-bienne"
+          "metrology-technician-100-agie-charmilles-biel-bienne",
+          "messtechnik-100-agie-charmilles-sa-biel-bienne"
         ],
         "fr": [
           "metrology-technician-100-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "metrology-technician-100-agie-charmilles-biel-bienne"
+        "metrology-technician-100-agie-charmilles-biel-bienne",
+        "messtechnik-100-agie-charmilles-sa-biel-bienne"
       ]
     },
     {
@@ -584,8 +586,7 @@
           "field-service-engineer-100-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "field-service-engineer-100-agie-charmilles-biel-bienne",
-          "au-endienstingenieur-100-agie-charmilles-sa-biel-bienne"
+          "field-service-engineer-100-agie-charmilles-biel-bienne"
         ],
         "fr": [
           "field-service-engineer-100-agie-charmilles-biel-bienne"
@@ -1381,8 +1382,7 @@
           "field-service-expert-100-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "field-service-expert-100-agie-charmilles-biel-bienne",
-          "experten-fur-den-au-endienst-100-agie-charmilles-sa-biel-bienne"
+          "field-service-expert-100-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -2189,8 +2189,7 @@
           "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "field-service-expert-d-w-m-agie-charmilles-biel-bienne",
-          "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne"
+          "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [
@@ -2351,7 +2350,6 @@
         "technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne",
         "tecnico-di-metrologia-100-agie-charmilles-sa-biel-bienne",
         "sap-developer-agie-charmilles-biel-bienne",
-        "sap-developer-100-agie-charmilles-biel-bienne",
         "tecnico-laboratorio-metrologia-agie-charmilles-sa-biel-bienne",
         "sap-developer-agie-charmilles-biel-bienne-502xgd",
         "sap-sviluppatore-agie-charmilles-sa-biel-bienne"
@@ -2434,9 +2432,6 @@
         "automatic-efz-w-m-d-agie-charmilles-sa-biel-bienne",
         "automatiker-efz-w-m-d-agie-charmilles-biel-bienne",
         "efz-automatique-w-m-d-agie-charmilles-sa-biel-bienne",
-        "utensili-automatici-della-macchina-100-agie-charmilles-sa-biel-bienne",
-        "automatic-machine-tools-100-agie-charmilles-sa-biel-bienne",
-        "outils-automatiques-100-agie-charmilles-sa-biel-bienne",
         "automatiker-cfc-w-m-d-agie-charmilles-sa-biel-bienne"
       ],
       "previousSlugsByLocale": {

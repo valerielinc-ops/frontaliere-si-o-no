@@ -3788,12 +3788,12 @@
     },
     {
       "id": "spital-uster-09963dc8f9c8",
-      "slug": "hr-administration-specialist-60-70-spital-uster-ch",
+      "slug": "risorse-umane-administration-specialista-60-70-spital-uster-uster",
       "slugByLocale": {
         "de": "hr-administration-specialist-60-70-spital-uster-ch",
-        "it": "hr-administration-specialist-60-70-spital-uster-ch",
+        "it": "risorse-umane-administration-specialista-60-70-spital-uster-uster",
         "en": "hr-administration-specialist-60-70-spital-uster-ch",
-        "fr": "hr-administration-specialist-60-70-spital-uster-ch"
+        "fr": "ressources-humaines-administration-specialiste-60-70-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3849,7 +3849,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-04T13:43:30.183Z"
+      "firstSeenAt": "2026-06-04T13:43:30.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-administration-specialist-60-70-spital-uster-ch"
+        ],
+        "fr": [
+          "hr-administration-specialist-60-70-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-administration-specialist-60-70-spital-uster-ch"
+      ]
     }
   ]
 }

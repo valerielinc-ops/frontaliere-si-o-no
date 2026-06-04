@@ -349,8 +349,8 @@
       "slugByLocale": {
         "fr": "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz",
         "it": "assistente-medico-di-medicina-interna-generale-50-100-hopital-riviera-chablais-hrc-rennaz",
-        "en": "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz",
-        "de": "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz"
+        "en": "assistant-physician-in-general-internal-medicine-50-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "assistent-arzt-in-der-allgemeinen-internen-medizin-50-100-hopital-riviera-chablais-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
       "companyKey": "hrc",
@@ -397,6 +397,12 @@
         "it": [
           "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz",
           "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hopital-riviera-chablais-hrc-rennaz"
+        ],
+        "en": [
+          "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz"
+        ],
+        "de": [
+          "medecin-adjoint-e-en-medecine-interne-generale-a-50-100-hrc-rennaz"
         ]
       },
       "previousSlugs": [

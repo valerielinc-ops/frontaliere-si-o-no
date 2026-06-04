@@ -475,7 +475,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
-        "dipl-radiology-specialist-60-bethesda-spital-basel",
         "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
@@ -484,7 +483,6 @@
           "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
-          "dipl-radiology-specialist-60-bethesda-spital-basel",
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "fr": [
@@ -849,7 +847,7 @@
         "de": "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "it": "specialista-infermieristico-sss-sup-klinik-sonnenhalde-riehen",
         "en": "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
-        "fr": "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        "fr": "poire-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -907,6 +905,9 @@
       "firstSeenAt": "2026-06-04T12:36:43.883Z",
       "previousSlugsByLocale": {
         "it": [
+          "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
           "dip-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ]
       },

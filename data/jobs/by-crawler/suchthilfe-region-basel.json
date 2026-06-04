@@ -316,8 +316,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel",
         "it": "collaboratore-trice-in-betreuung-k-a-60-70-suchthilfe-region-basel",
-        "en": "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel",
-        "fr": "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel"
+        "en": "staff-in-care-k-a-60-70-suchthilfe-region-basel-basel",
+        "fr": "personnel-en-soins-k-a-60-70-suchthilfe-region-basel-basel"
       },
       "company": "Suchthilfe Region Basel",
       "companyKey": "suchthilfe-region-basel",
@@ -362,6 +362,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-betreuung-k-a-60-70-suchthilfe-region-basel-basel"
         ]
       },
