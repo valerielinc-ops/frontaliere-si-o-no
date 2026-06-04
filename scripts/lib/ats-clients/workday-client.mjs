@@ -21,6 +21,8 @@
  *   - Tenant URL:       https://{tenant}.{datacenter}.myworkdayjobs.com/{lang}/{site}
  */
 
+import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
+
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
 /**
@@ -123,63 +125,70 @@ async function fetchJsonWithRetry(url, options = {}) {
     retries = 1,
   } = options;
 
-  let lastErr = null;
+  // Route through the shared transient-fetch retry/backoff. Only TRANSIENT
+  // failures retry: network blips/timeouts (shared classifier) and 5xx/429
+  // (tagged `retryable`). Persistent failures fail fast — 401/403 anti-bot
+  // (WorkdayAuthError) and 4xx WorkdayApiError (404 = moved). The previous
+  // hand-rolled loop retried EVERY WorkdayApiError including 404s; this no
+  // longer hammers a genuinely-gone endpoint.
+  try {
+    return await fetchWithRetry(
+      async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const res = await fetch(url, {
+            method,
+            body,
+            signal: controller.signal,
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+              'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+              'User-Agent': userAgent,
+            },
+          });
 
-  for (let attempt = 0; attempt <= retries; attempt += 1) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        method,
-        body,
-        signal: controller.signal,
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
-          'User-Agent': userAgent,
-        },
-      });
-      clearTimeout(timer);
-
-      if (res.status === 401 || res.status === 403) {
-        throw new WorkdayAuthError(
-          `Workday auth/anti-bot block (HTTP ${res.status}) for ${url}`,
-          res.status,
-          url,
-        );
-      }
-      if (!res.ok) {
-        throw new WorkdayApiError(
-          `Workday API error HTTP ${res.status} for ${url}`,
-          res.status,
-          url,
-        );
-      }
-      return await res.json();
-    } catch (err) {
-      clearTimeout(timer);
-      lastErr = err;
-
-      // Auth errors are not retryable — fail fast.
-      if (err instanceof WorkdayAuthError) throw err;
-
-      // Last attempt → throw whatever happened, wrapped.
-      if (attempt >= retries) {
-        if (err instanceof WorkdayApiError) throw err;
-        throw new WorkdayApiError(
-          `Workday fetch failed for ${url}: ${err?.message || err}`,
-          0,
-          url,
-        );
-      }
-
-      // Retry once after a small backoff.
-      await new Promise((r) => setTimeout(r, 750));
-    }
+          if (res.status === 401 || res.status === 403) {
+            throw new WorkdayAuthError(
+              `Workday auth/anti-bot block (HTTP ${res.status}) for ${url}`,
+              res.status,
+              url,
+            );
+          }
+          if (!res.ok) {
+            const err = new WorkdayApiError(
+              `Workday API error HTTP ${res.status} for ${url}`,
+              res.status,
+              url,
+            );
+            err.status = res.status;
+            err.retryable = RETRYABLE_STATUS.has(res.status);
+            throw err;
+          }
+          return await res.json();
+        } finally {
+          clearTimeout(timer);
+        }
+      },
+      {
+        retries,
+        label: `workday ${url}`,
+        // WorkdayAuthError (401/403) is a persistent anti-bot block, never
+        // retry. Otherwise defer to the shared transient classifier (which
+        // honours the `retryable` flag set above + network/timeout signals).
+        isTransient: (err) =>
+          !(err instanceof WorkdayAuthError) && isTransientFetchError(err),
+      },
+    );
+  } catch (err) {
+    if (err instanceof WorkdayApiError) throw err; // includes WorkdayAuthError
+    throw new WorkdayApiError(
+      `Workday fetch failed for ${url}: ${err?.message || err}`,
+      0,
+      url,
+    );
   }
-
-  throw lastErr;
 }
 
 /* ── Listing iterator ──────────────────────────────────────────────────── */
@@ -356,26 +365,41 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
   } = options;
 
   const url = `${String(apiBase).replace(/\/+$/, '')}${externalPath}`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
+  // Per-job detail: degrade to null on persistent failure (the job is still
+  // kept without enriched detail) but retry TRANSIENT blips so a network
+  // hiccup doesn't silently drop the description on a single attempt.
   try {
-    const res = await fetch(url, {
-      method: 'GET',
-      signal: controller.signal,
-      redirect: 'follow',
-      headers: {
-        Accept: 'application/json',
-        'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
-        'User-Agent': userAgent,
-      },
-    });
-    if (!res.ok) return null;
-    return await res.json();
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          method: 'GET',
+          signal: controller.signal,
+          redirect: 'follow',
+          headers: {
+            Accept: 'application/json',
+            'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+            'User-Agent': userAgent,
+          },
+        });
+        if (!res.ok) {
+          if (RETRYABLE_STATUS.has(res.status)) {
+            const err = new Error(`HTTP ${res.status} from ${url}`);
+            err.status = res.status;
+            err.retryable = true;
+            throw err;
+          }
+          return null; // persistent 4xx → no detail, keep the job
+        }
+        return await res.json();
+      } finally {
+        clearTimeout(timer);
+      }
+    }, { label: `workday-detail ${url}` });
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
