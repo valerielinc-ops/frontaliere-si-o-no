@@ -45,6 +45,17 @@ function ghJson(args) {
 // Each finding (a 🔴/🟡/❓ line in a reviewer review body) maps to ONE bucket so
 // recurrence is countable without fuzzy NLP. `docKeys` are substrings searched
 // in the doc corpus to decide "already documented".
+//
+// Two finding FAMILIES live here:
+//   - TOPIC buckets (structured-data, cls, auto-ads, …): "agent shipped wrong
+//     code about <domain>". Adding a NEW doc rule fixes these.
+//   - PROCESS-failure-mode buckets (pr-body-contract, sibling-class-fix,
+//     unvalidated-claim, stale-comment): "agent repeats a meta-mistake". These
+//     are usually ALREADY documented, so they never surface as `novel`. They
+//     matter via the EFFICACY signal instead: documented-but-still-recurring →
+//     `recurringDespiteRule` → the prose rule isn't working → escalate to a
+//     STRUCTURAL fix (template / CI gate / shared module), not another line.
+//     (These 4 buckets were the harvester's blind spot until 2026-06-04.)
 const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
@@ -55,10 +66,39 @@ const TAXONOMY = [
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   { key: 'i18n-naming', re: /locale|i18n|translat|canton-?aware|naming|brand/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
   { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'] },
+  // PROCESS-failure-mode buckets (see family note above):
+  { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'] },
+  { key: 'sibling-class-fix', re: /stesso anti-?pattern|file gemello|stesso costrutto|sibling|non toccat|class-complete/i, docKeys: ['file gemello', 'stesso anti', 'class-complete'] },
+  { key: 'unvalidated-claim', re: /claim.*(non validat|unvalidated|speculativ)|non validat.*pre-?merge|atteso\s+green|revert-?trigger|sufficienza speculativa/i, docKeys: ['non validat', 'revert-trigger', 'speculativ'] },
+  { key: 'stale-comment', re: /stale (comment|doc)|comment(o|i)? stale|docblock stale|descrive ancora|title.*(contraddice|stale)|commento.*vecchio/i, docKeys: ['stale comment', 'docblock', 'descrive ancora'] },
 ];
+
+// Catch-all fingerprint: when a finding matches NO taxonomy bucket, don't drop
+// it silently (the old behaviour that hid the 4 process classes above). Derive a
+// deterministic fingerprint from the first few CONTENT words (stopwords, emoji,
+// severity labels, code spans, paths and digits stripped) so genuinely-NEW
+// recurring phrasings still cluster and surface for human review. Coarse by
+// design: it catches stable lead-phrases ("manca la sezione…", "claim non…"),
+// not every paraphrase — a safety net, not a classifier.
+const STOPWORDS = new Set(['the', 'a', 'an', 'di', 'la', 'il', 'le', 'lo', 'un', 'una',
+  'e', 'ed', 'o', 'in', 'su', 'per', 'con', 'da', 'del', 'della', 'dei', 'delle', 'al',
+  'non', 'che', 'è', 'this', 'is', 'to', 'of', 'and', 'or', 'no', 'nel', 'nella']);
+function fingerprintFinding(text) {
+  const words = text
+    .toLowerCase()
+    .replace(/[🔴🟡🟣❓]/g, ' ')
+    .replace(/`[^`]*`/g, ' ')          // code spans (file paths, symbols, values)
+    .replace(/\b(important|nit|q|pre-existing|process)\b/gi, ' ') // severity labels
+    .replace(/[#/].*?(\s|$)/g, ' ')    // headings, paths
+    .replace(/[^a-zàèéìòù\s-]+/gi, ' ') // punctuation, digits
+    .split(/\s+/)
+    .filter((w) => w.length > 2 && !STOPWORDS.has(w));
+  const lead = words.slice(0, 4);
+  return lead.length >= 3 ? `fp:${lead.join('-')}` : null; // too short → still drop
+}
 function bucketFinding(text) {
   for (const t of TAXONOMY) if (t.re.test(text)) return t.key;
-  return null; // unbucketed findings are ignored for recurrence (too noisy)
+  return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
 }
 
 // ---- 1. Reviewer findings on recently-merged PRs ----
@@ -142,6 +182,10 @@ function alreadyDocumented(bucketKey) {
 }
 
 // ---- Assemble clusters above threshold + novel ----
+// EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
+// is evidence the prose rule isn't preventing the mistake → escalate to a
+// structural fix instead of writing another line nobody follows.
+const EFFICACY_FACTOR = Number(process.env.EFFICACY_FACTOR || 2);
 const clusters = [];
 // `driver`: clusters that can drive a doc-rule proposal (an agent repeating a
 // mistake or hitting a wall). issue-class counts are operational VOLUME handled
@@ -151,8 +195,11 @@ function consider(source, counts, examples, { driver }) {
   for (const [key, count] of Object.entries(counts)) {
     if (count < THRESHOLD) continue;
     const documented = alreadyDocumented(key);
+    // Documented + still recurring hard = the rule exists but isn't working.
+    const recurringDespiteRule = driver && documented && count >= THRESHOLD * EFFICACY_FACTOR;
     clusters.push({ source, key, count, driver, novel: driver && !documented,
-      alreadyDocumented: documented, examples: (examples[key] || []).slice(0, 5) });
+      recurringDespiteRule, alreadyDocumented: documented,
+      examples: (examples[key] || []).slice(0, 5) });
   }
 }
 consider('reviewer-finding', findingCounts, findingExamples, { driver: true });
@@ -161,9 +208,11 @@ consider('issue-class', issueCounts, issueExamples, { driver: false });
 
 clusters.sort((a, b) => b.count - a.count);
 const novel = clusters.filter((c) => c.novel);
+const escalations = clusters.filter((c) => c.recurringDespiteRule);
 
-const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD, since: sinceDay,
-  totalClusters: clusters.length, novelClusters: novel.length, clusters };
+const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
+  efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
+  novelClusters: novel.length, escalationClusters: escalations.length, clusters };
 fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
 
 // ---- Human summary ----
@@ -171,11 +220,14 @@ console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), thr
 console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}`);
 if (!clusters.length) console.log('No recurring clusters above threshold.');
 for (const c of clusters) {
-  console.log(`  [${c.novel ? 'NOVEL' : 'documented'}] ${c.source}/${c.key} ×${c.count}` +
+  const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
+  console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}` +
     (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
 }
-console.log(`\n→ novel recurring clusters: ${novel.length}`);
+console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
 
 if (process.env.GITHUB_OUTPUT) {
-  fs.appendFileSync(process.env.GITHUB_OUTPUT, `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n`);
+  fs.appendFileSync(process.env.GITHUB_OUTPUT,
+    `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n` +
+    `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n`);
 }
