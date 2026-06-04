@@ -1,0 +1,8 @@
+const bodyRientroSvizzeraSenzaLavoro: Record<string, string> = {
+    'blog.article.rientro-svizzera-senza-lavoro.body1': '## In Kürze',
+    'blog.article.rientro-svizzera-senza-lavoro.body2': '[object Object]\n\n## Empfohlene Tools\nFür eine aktuelle Schätzung nutzen Sie den [Nettolohnrechner](nav:calculator) und den [CHF-EUR-Wechselvergleich](nav:exchange).',
+    'blog.article.rientro-svizzera-senza-lavoro.body3': '[object Object]\n\nErster Tag als Grenzgänger? Unser [praktischer Leitfaden](nav:first-day) begleitet Sie von der Anmeldung bis zum ersten Gehalt.\n\n*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/emigrazione/senza-lavoro-allestero-ecco-cosa-considerare-quando-si-ritorna-in-svizzera/88366386)*',
+    'blog.article.rientro-svizzera-senza-lavoro.faq': '[{"q":"Wie lange kann man ausländische Leistungen in der Schweiz beziehen?","a":"Die Leistungen des Wohnsitzlandes werden für einen Zeitraum von drei bis sechs Monaten in die Schweiz übertragen, aber nur wenn das Überweisungsformular beim Arbeitsvermittlungsbüro der Zielgemeinde eingereicht wurde."},{"q":"Welche Konsequenzen hat die Nichtausfüllung des Überweisungsformulars?","a":"Wenn das Formular nicht ausgefüllt wurde, wie im Fall der Bürgerin, die aus dem Vereinigten Königreich zurückgekehrt ist, erhält man keine Leistungen des vorherigen Landes und hat keinen Anspruch auf die schweizerische Arbeitslosenhilfe."},{"q":"Welche Voraussetzungen müssen erfüllt sein, um Sozialhilfe in der Schweiz zu erhalten?","a":"Um Sozialhilfe zu beantragen, muss man nachweisen, dass man kein Einkommen hat, keine ausreichenden Ersparnisse für die Übergangszeit besitzt und beim kantonalen Arbeitsvermittlungsdienst angemeldet ist."}]',
+};
+
+export default bodyRientroSvizzeraSenzaLavoro;

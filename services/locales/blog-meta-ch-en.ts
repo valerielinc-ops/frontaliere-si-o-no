@@ -47,6 +47,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Switzerland rejects US tariffs on forced labor, talks underway',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Bern rejects US accusations and negotiates in Paris. 12.5% tariffs under discussion, comment deadline July 6, 2026.',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Federal Palace in Bern, seat of the Swiss government negotiating trade tariffs with the United States',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Returning to Switzerland: transfer your benefits',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Returning to Switzerland without a job requires a financial plan, a benefits transfer form and registration with the local employment service.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'People returning to Switzerland after unemployment abroad receive advice at an office.',
 };
 
 export default blogMetaChEn;

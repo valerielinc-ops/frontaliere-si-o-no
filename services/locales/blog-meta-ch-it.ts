@@ -47,6 +47,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Svizzera respinge dazi USA su lavoro forzato, trattative in corso',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Berna rifiuta accuse americane e negozia a Parigi. Dazi del 12,5% in discussione, scadenza osservazioni 6 luglio 2026.',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Palazzo Federale a Berna, sede del governo svizzero che negozia con gli Stati Uniti sui dazi commerciali',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Rientro in Svizzera, come trasferire le indennità',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Rientrare in Svizzera senza lavoro richiede un piano finanziario, il modulo di trasferimento delle indennità e la registrazione al servizio di collocamento locale.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Persone che rientrano in Svizzera dopo disoccupazione all\'estero ricevono consulenza in un ufficio.',
 };
 
 export default blogMetaChIt;

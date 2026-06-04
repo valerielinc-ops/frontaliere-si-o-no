@@ -47,6 +47,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-dazi-usa-lavoro-forzato.title': 'Schweiz weist US-Zölle auf Zwangsarbeit zurück',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.excerpt': 'Bern weist amerikanische Vorwürfe zurück und verhandelt in Paris. Zölle von 12,5% im Gespräch, Frist für Stellungnahmen: 6. Juli 2026.',
     'blog.article.svizzera-dazi-usa-lavoro-forzato.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung in Handelsverhandlungen mit den USA',
+    'blog.article.rientro-svizzera-senza-lavoro.title': 'Rückkehr in die Schweiz: Überweisung von Zulagen',
+    'blog.article.rientro-svizzera-senza-lavoro.excerpt': 'Die Rückkehr in die Schweiz ohne Arbeit erfordert eine Finanzplanung, das Formular für die Überweisung von Zulagen und die Registrierung beim lokalen Arbeitsvermittlungsdienst.',
+    'blog.article.rientro-svizzera-senza-lavoro.imageAlt': 'Personen, die nach Arbeitslosigkeit aus dem Ausland in die Schweiz zurückkehren, erhalten Beratung im Büro.',
 };
 
 export default blogMetaChDe;
