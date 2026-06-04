@@ -89,30 +89,52 @@ describe('index.css (SPA bundle source) cascade does not un-hide the cluster', (
     return matches;
   };
 
-  it('does not override .related-search-cluster position out of the off-screen recipe', () => {
+  // The off-screen recipe hides the body with SIX co-operating properties
+  // (`seo-static.css:1722`): position:absolute; width:1px; height:1px;
+  // overflow:hidden; clip:rect(0,0,0,0); clip-path:inset(50%). Resetting ANY
+  // single one to its visible value un-hides the ~9 KB body — e.g.
+  // `width:auto`, `overflow:visible`, `clip:auto`, `clip-path:none` reflow it
+  // WITHOUT touching `position`. A position-only guard locks 1 vector of 6;
+  // `width` is the most likely culprit. So assert every hide-critical decl
+  // that `index.css` defines on `.related-search-cluster` keeps a hidden
+  // value (matchers mirror the recipe).
+  const HIDE_DECL_GUARDS: Record<string, RegExp> = {
+    position: /^absolute$/i,
+    width: /^1px$/i,
+    height: /^1px$/i,
+    overflow: /^hidden$/i,
+    clip: /^rect\(\s*0/i,
+    'clip-path': /^inset\(/i,
+  };
+
+  it('does not reset any .related-search-cluster hide property out of the off-screen recipe', () => {
     for (const rule of collectRules('.related-search-cluster')) {
-      rule.walkDecls('position', (d) => {
+      rule.walkDecls((d) => {
+        const prop = d.prop.toLowerCase();
+        const expected = HIDE_DECL_GUARDS[prop];
+        if (!expected) return;
         expect(
-          d.value,
-          `index.css rule "${rule.selector}" resets .related-search-cluster ` +
-            `position to "${d.value}" — this reflows the crawler-only body visible ` +
-            `post-hydration, re-opening the #1249 regression. Keep position:absolute ` +
-            `or drop the override.`,
-        ).toBe('absolute');
+          expected.test(d.value.trim()),
+          `index.css rule "${rule.selector}" sets ${d.prop}:${d.value} on ` +
+            `.related-search-cluster — this un-hides the crawler-only body ` +
+            `(reflows VISIBLE on ~180k cluster pages post-hydration, re-opening ` +
+            `the #1249 regression). Keep the off-screen recipe value or drop the ` +
+            `override.`,
+        ).toBe(true);
       });
     }
   });
 
-  it('does not give .cluster-seo-prose wrapper a visible footprint (padding/min-height)', () => {
+  it('does not give .cluster-seo-prose wrapper a visible footprint (padding/min-height/height/border)', () => {
     for (const rule of collectRules('cluster-seo-prose')) {
-      rule.walkDecls(/^(padding|min-height)/, (d) => {
+      rule.walkDecls(/^(padding|min-height|height|border)/, (d) => {
         const collapses = /^(0|0px|0em|0rem|none)$/i.test(d.value.trim());
         expect(
           collapses,
           `index.css rule "${rule.selector}" sets ${d.prop}:${d.value} on the ` +
             `cluster wrapper — its child is position:absolute, so this leaves a ` +
             `visible whitespace gap (added CLS) on ~180k cluster pages. Keep the ` +
-            `wrapper collapsible (no padding / min-height).`,
+            `wrapper collapsible (no padding / min-height / height / border).`,
         ).toBe(true);
       });
     }
