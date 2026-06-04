@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import {
   BASE_URL,
+  FUEL_CHART_SCRIPT_TAG,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
 } from './constants';
@@ -1032,7 +1033,7 @@ function renderFuelAreaChartSvg(opts: {
 
   if (series.length < 2) {
     return `<svg class="s-hUQt0t" role="img" aria-label="${esc(ariaLabel)}" viewBox="0 0 ${dims.width} ${dims.height}" preserveAspectRatio="xMidYMid meet">
-      <rect x="${dims.padLeft}" y="${dims.padTop}" width="${plotW}" height="${plotH}" fill="var(--color-surface-muted)" rx="8"></rect>
+      <rect x="${dims.padLeft}" y="${dims.padTop}" width="${plotW}" height="${plotH}" rx="8" class="s-crect"></rect>
       <text x="${dims.padLeft + plotW / 2}" y="${dims.padTop + plotH / 2}" text-anchor="middle" dominant-baseline="middle"
         class="s-cempty">${esc(FUEL_RANGE_EMPTY_MSG[locale])}</text>
     </svg>`;
@@ -1084,10 +1085,12 @@ function renderFuelAreaChartSvg(opts: {
   // tabular-nums) — repeats ~13×/page, so a class instead of an inline style
   // strips ~1.4 MB across the fuel corpus.
 
+  // Grid-line + path stroke styling lives in seo-static.css (.s-cgl / .s-cgx /
+  // .s-cpl / .s-cpa); only the per-element geometry stays inline.
   const yGridLines = yTicks
     .map(
       (t) =>
-        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"></line>`,
+        `<line x1="${dims.padLeft}" x2="${dims.width - dims.padRight}" y1="${t.y.toFixed(1)}" y2="${t.y.toFixed(1)}" class="s-cgl"></line>`,
     )
     .join('');
   const yLabels = yTicks
@@ -1099,7 +1102,7 @@ function renderFuelAreaChartSvg(opts: {
   const xGridLines = xTicks
     .map(
       (t) =>
-        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" stroke="var(--color-chart-grid)" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"></line>`,
+        `<line x1="${t.x.toFixed(1)}" x2="${t.x.toFixed(1)}" y1="${dims.padTop}" y2="${(dims.padTop + plotH).toFixed(1)}" class="s-cgx"></line>`,
     )
     .join('');
   const xLabels = xTicks
@@ -1118,8 +1121,8 @@ function renderFuelAreaChartSvg(opts: {
     </defs>
     ${yGridLines}
     ${xGridLines}
-    <path d="${areaPath}" fill="url(#${gradientId})" stroke="none"></path>
-    <path d="${linePath}" fill="none" stroke="var(--color-chart-line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="${areaPath}" fill="url(#${gradientId})" class="s-cpa"></path>
+    <path d="${linePath}" class="s-cpl"></path>
     ${yLabels}
     ${xLabels}
   </svg>`;
@@ -1231,38 +1234,18 @@ function renderFuelHistoryCard(opts: {
     })
     .join('');
 
-  // Inline IIFE to wire up the range selector. Reads data-range-btn /
-  // data-range-content / data-range-stats; flips `aria-pressed` (button
-  // visuals follow via CSS) and toggles the `.s-on` visibility class.
-  const script = `<script>(function(){
-    var root = document.currentScript.previousElementSibling;
-    if(!root) return;
-    var btns = root.querySelectorAll('[data-range-btn]');
-    var contents = root.querySelectorAll('[data-range-content]');
-    var statsEls = root.querySelectorAll('[data-range-stats]');
-    function setActive(r){
-      btns.forEach(function(b){
-        b.setAttribute('aria-pressed', b.getAttribute('data-range-btn') === r ? 'true' : 'false');
-      });
-      contents.forEach(function(c){
-        c.classList.toggle('s-on', c.getAttribute('data-range-content') === r);
-      });
-      statsEls.forEach(function(s){
-        s.classList.toggle('s-on', s.getAttribute('data-range-stats') === r);
-      });
-    }
-    btns.forEach(function(b){
-      b.addEventListener('click', function(){ setActive(b.getAttribute('data-range-btn')); });
-    });
-  })();</script>`;
-
+  // Range-selector wiring is externalised to one cached
+  // `/assets/fuel-chart-{hash}.js` (FUEL_CHART_SCRIPT_TAG) instead of a ~600 B
+  // inline IIFE repeated on every chart page. The external script self-wires
+  // ALL `[data-fuel-history-chart]` blocks and is idempotent across duplicate
+  // tags, so emitting it next to each card is safe.
   return `<div data-fuel-history-chart class="s-fhc">
     <div class="s-fhc-h">
       <div class="s-fhc-r" role="tablist" aria-label="${esc(trendLabel)}">${buttonsHtml}</div>
     </div>
     <div data-fuel-history-charts>${variantsHtml}</div>
     ${statsVariantsHtml}
-  </div>${script}`;
+  </div>${FUEL_CHART_SCRIPT_TAG}`;
 }
 
 /**

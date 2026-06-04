@@ -1767,3 +1767,12 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .s-lede { margin:0 0 14px;font-size:18px;line-height:1.55;color:var(--color-body);max-width:60ch }
 .s-h2 { margin:2rem 0 1rem;font-size:1.75rem;line-height:1.2;color:var(--color-heading);font-weight:600 }
 .s-cempty { font:13px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:var(--color-subtle) }
+
+/* Fuel chart SVG presentation attrs → classes (geometry stays inline).
+ * grid lines repeat ~12×/chart, line path 1×/chart, × up to 5 range charts
+ * per page → strips several KB/page across the fuel corpus. */
+.s-cgl { stroke:var(--color-chart-grid);stroke-width:1;stroke-dasharray:3 3;opacity:0.5 }
+.s-cgx { stroke:var(--color-chart-grid);stroke-width:1;stroke-dasharray:3 3;opacity:0.3 }
+.s-cpl { fill:none;stroke:var(--color-chart-line);stroke-width:2;stroke-linecap:round;stroke-linejoin:round }
+.s-cpa { stroke:none }
+.s-crect { fill:var(--color-surface-muted) }
