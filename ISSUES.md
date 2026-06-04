@@ -71,7 +71,7 @@ Trigger sull'aggiunta della label `agent:fix`. La label È il consenso. Può met
 4. Fix **chirurgico** (AGENTS.md #6). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
 5. Commit identity canonica `Valerie Linc <valerielinc@gmail.com>`. No path home assoluti, no email personali (Privacy).
 6. Push branch + `gh pr create`.
-7. PR body OBBLIGATORIO `## Implementato` (con `Closes #N`) + `## Non implementato (ancora)` (REVIEW.md completeness contract).
+7. PR body OBBLIGATORIO `## Implementato` (con `Closes #N`) + `## Non implementato (ancora)` (REVIEW.md completeness contract). Per chiudere PIÙ issue: una keyword per issue, una per riga (`Closes #a` / `Closes #b`) — MAI `Closes #a #b #c` su una riga (GitHub chiude solo `#a`; `pr-body-contract.yml` lo flagga).
 8. La PR fluisce in `pr-review-loop` → `## LGTM` → `auto-merge-on-lgtm`. **L'agent NON mergia a mano.**
 
 ### Tier (mirror di pr-review-loop)
