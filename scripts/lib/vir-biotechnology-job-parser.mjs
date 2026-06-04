@@ -41,7 +41,7 @@ export function htmlToText(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li[^>]*>/gi, '- ')
     .replace(/<[^>]+>/g, '')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')

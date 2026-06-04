@@ -56,7 +56,7 @@ function stripHtml(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&amp;/g, '&')

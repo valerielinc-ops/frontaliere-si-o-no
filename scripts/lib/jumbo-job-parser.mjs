@@ -64,7 +64,7 @@ function htmlToMarkdown(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li[^>]*>/gi, '- ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/div>/gi, '\n')
     .replace(/<[^>]+>/g, '')

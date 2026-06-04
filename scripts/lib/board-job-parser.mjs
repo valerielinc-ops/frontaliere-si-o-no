@@ -52,7 +52,7 @@ function htmlFragmentToMarkdown(html = '') {
           .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
           .replace(/<\/(?:p|div|li)>/gi, '\n')
-          .replace(/<li[^>]*>/gi, '\n- ')
+          .replace(/<li[^>]*>/gi, '- ')
           .replace(/<[^>]+>/g, ' ')
       );
       if (inner) parts.push(inner);
