@@ -127,9 +127,18 @@ function main() {
   const stuckFix = listIssues(LBL_FIX).filter(
     (i) => has(i, 'follow-up') && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
   );
+  // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
+  // la run viva OPPURE non ancora registrata in `gh run list` (latenza
+  // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
+  // logicamente occupato anche se inFlightFixCount()==0 (vedi guard al DRAIN).
+  let settlingPromotions = 0;
   for (const iss of stuckFix) {
-    if (minutesSince(iss.updatedAt) < ORPHAN_MIN_AGE_MIN) continue; // run forse viva
-    if (hasFixPR(iss.number)) continue; // ha già prodotto una PR → non orfano
+    const young = minutesSince(iss.updatedAt) < ORPHAN_MIN_AGE_MIN;
+    const hasPR = hasFixPR(iss.number);
+    if (young && !hasPR) { settlingPromotions++; continue; } // run viva o in registrazione
+    if (young) continue;   // giovane + PR → run completata, non orfano
+    if (hasPR) continue;   // vecchio + PR → non orfano
+    // vecchio + nessuna PR → orfano: rescue/park
     const attempt = attemptOf(iss) + 1;
     const prevAttemptLabel = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
     if (attempt >= MAX_ATTEMPTS) {
@@ -148,6 +157,19 @@ function main() {
   }
 
   // --- DRAIN: promuovi 1 queued a agent:fix (slot già verificato libero) -------
+  // Guard race-visibilità-run (#1339 item 2): `gh run list` può ancora non
+  // mostrare come `queued` la run di una promozione appena fatta (latenza di
+  // registrazione). In quella finestra inFlightFixCount()==0 ma lo slot NON è
+  // libero: promuovere un secondo → due pending → con cancel-in-progress:false
+  // la precedente viene cancellata-in-coda → supersession/starvation, proprio la
+  // regressione che il drainer esiste per eliminare. Riusa l'euristica d'età del
+  // rescue: se esiste una promozione in assestamento, rinvia il drain di un tick
+  // (cron ~20min; al più un giro di ritardo, mai una doppia-promozione).
+  if (settlingPromotions > 0) {
+    console.log(`promozione in assestamento (settling=${settlingPromotions}, run non ancora visibile) → drain rinviato per evitare doppia-promozione/supersession.`);
+    return;
+  }
+
   const queued = listIssues(LBL_QUEUED)
     .filter((i) => !has(i, LBL_PARKED))
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
