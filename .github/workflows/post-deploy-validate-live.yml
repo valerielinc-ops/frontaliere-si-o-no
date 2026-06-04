@@ -170,6 +170,41 @@ jobs:
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
 
+      # Verify the offloaded JS/CSS bundle actually serves from the CDN on the
+      # LIVE site. Moved here from the build job: the CDN Pages build lags the
+      # push, so an inline build-time poll was a flaky false-negative that blocked
+      # the whole build. By the time validate-live runs the deploy is propagated
+      # and the CDN repo's Pages site has long since built, so this is reliable.
+      # The boot chain (entry JS/CSS) is rebased to cdn.frontaliereticino.ch by
+      # ASSET_CDN/renderBuiltUrl; if the homepage references such a URL it MUST
+      # serve 200, else the live site can't boot → fail → caller rolls back.
+      # If no CDN /assets/ ref is present (assets stayed same-origin this round —
+      # Guard B kept dist/assets), there is nothing to verify → pass.
+      - name: Verify CDN-offloaded bundle serves live
+        env:
+          LIVE_BASE_URL: https://frontaliereticino.ch
+        run: |
+          set -uo pipefail
+          html="$(curl -s --max-time 30 "${LIVE_BASE_URL}/" || true)"
+          asset="$(printf '%s' "$html" | grep -oE 'https://cdn\.frontaliereticino\.ch/assets/[^"'"'"' )]+\.(js|css)' | head -1)"
+          if [ -z "$asset" ]; then
+            echo "[validate-live] homepage references no cdn.frontaliereticino.ch/assets bundle — assets served same-origin this deploy; nothing to verify."
+            exit 0
+          fi
+          echo "[validate-live] verifying boot bundle on CDN: $asset"
+          ok=""
+          for i in $(seq 1 6); do
+            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$asset" || echo 000)"
+            echo "  attempt $i: $code"
+            [ "$code" = "200" ] && { ok=1; break; }
+            sleep 10
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::[validate-live] CDN boot bundle $asset not serving (live site references it but it 404s) — failing → rollback"
+            exit 1
+          fi
+          echo "✅ [validate-live] CDN boot bundle serves 200 from cdn.frontaliereticino.ch"
+
       - name: Live smoke (probe 5xx + e2e:live)
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
