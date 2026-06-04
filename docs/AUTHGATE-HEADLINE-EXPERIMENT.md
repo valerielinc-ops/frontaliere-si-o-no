@@ -78,7 +78,18 @@ Exact copy tested, all 4 locales (source of truth: `CHALLENGER_HEADLINES` in
 3. ✅ `authgate-headline-v1` deactivated (round 1 closed).
 
 Bucketing is live from 2026-06-01; first attributed events accrue from then.
-Re-run `node scripts/query-authgate-experiment.mjs` to read the round-2 arms.
+
+**Windowing precondition (round-2 verdict):** `headline_variant` is a persistent
+PostHog super property (set via `ph.register()` in `services/authGateExperiment.ts`).
+Returning users from round-1 carry a stale `headline_variant` value until the
+round-2 flag fires and overwrites it. The default `--days 90` window includes
+pre-round-2 events where those stale values would produce a spurious
+`frictionless vs control` z-test output. **Always pass `--since 2026-06-01`
+when querying round-2 results** to exclude all pre-launch events:
+
+```
+node scripts/query-authgate-experiment.mjs --since 2026-06-01
+```
 
 **Calling the round (when to stop):**
 - Wait for ≥ ~1500–2000 attributed persons per arm (round 1 reached
