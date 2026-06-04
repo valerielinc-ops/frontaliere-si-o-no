@@ -42428,6 +42428,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telelavoro-frontalieri-italia-svizzera': {
+    title: 'Telelavoro per frontalieri: cosa cambia con la nuova normativa',
+    description: 'La Svizzera e l\'Italia stanno discutendo nuove regole per il telelavoro dei frontalieri. Scopri cosa potrebbe cambiare e come potrebbe influenzare la tua vita',
+    keywords: 'frontalieri, ticino, svizzera, italia, telelavoro, cosa, cambia, nuova',
+    ogTitle: 'Telelavoro per frontalieri: cosa cambia',
+    ogDescription: 'La nuova normativa sul telelavoro per i frontalieri potrebbe cambiare le regole per i lavoratori che svolgono attività da remoto.',
+    canonicalPath: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telelavoro per frontalieri: cosa cambia con la nuova normativa",
+      "description": "La Svizzera e l'Italia stanno discutendo nuove regole per il telelavoro dei frontalieri. Scopri cosa potrebbe cambiare e come potrebbe influenzare la tua vita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telelavoro-frontalieri-italia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona che lavora da remoto con vista su Lugano"
+      },
+      "datePublished": "2026-06-04T04:31:14+00:00",
+      "dateModified": "2026-06-04T04:31:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
