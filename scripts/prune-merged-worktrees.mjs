@@ -29,6 +29,10 @@
 import { execSync } from 'node:child_process';
 
 const APPLY = process.argv.includes('--apply');
+// --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
+// `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
+// EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
+const ORPHANS_ONLY = process.argv.includes('--orphans-only');
 
 function sh(cmd, { allowFail = false } = {}) {
   try {
@@ -55,10 +59,41 @@ function shOk(cmd) {
 const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', { allowFail: true })
   .replace(/^origin\//, '') || 'main';
 
+// --- FAST PATH: --orphans-only (SessionEnd hook) ----------------------------
+// Solo i branch worktree-agent-* 0-ahead SENZA worktree attaccato (case c:
+// sessione morta non raggiunge il pre-task-close). Self-contained, niente gh,
+// niente rimozione worktree, NIENTE fetch di rete → istantaneo, safe da girare
+// non-presidiato a ogni fine sessione. Usa l'origin/<main> locale: anche se
+// leggermente stale, un worktree-agent-* nasce branchato da main recente → resta
+// 0-ahead; se per stale risultasse ahead>0, viene saltato (mai cancellato a torto).
+if (ORPHANS_ONLY) {
+  const attached = new Set(
+    sh('git worktree list --porcelain', { allowFail: true })
+      .split('\n').filter((l) => l.startsWith('branch '))
+      .map((l) => l.slice('branch refs/heads/'.length)),
+  );
+  const orphans = sh("git for-each-ref --format='%(refname:short)' refs/heads", { allowFail: true })
+    .split('\n').filter(Boolean)
+    .filter((b) => /^worktree-agent-/.test(b) && !attached.has(b))
+    .filter((b) => sh(`git rev-list --count origin/${mainBranch}..${b}`, { allowFail: true }) === '0');
+  if (!APPLY) {
+    console.log(`[orphans-only] ${orphans.length} branch worktree-agent-* 0-ahead orfani:`);
+    orphans.forEach((b) => console.log(`  - ${b}`));
+    console.log(orphans.length ? 'dry-run: ri-esegui con --apply.' : 'niente da fare.');
+    process.exit(0);
+  }
+  let n = 0;
+  for (const b of orphans) if (shOk(`git branch -D "${b}"`)) { n++; console.log(`deleted ${b}`); }
+  if (orphans.length) console.log(`[orphans-only] ${n}/${orphans.length} branch orfani cancellati.`);
+  process.exit(0);
+}
+
 // Aggiorna origin/<main> (best-effort): se è stale, un branch già su main mostra
 // ahead>0 e finisce report-only invece di essere potato → riduce l'efficacia del
-// cleanup `worktree-agent-*` 0-ahead (caso bersaglio). Fail silenzioso = offline.
-sh(`git fetch origin ${mainBranch} -q`, { allowFail: true });
+// cleanup. `--prune` pota i ref remote-tracking stantii (EC5): senza, `git branch
+// -r` mostra branch già cancellati su origin → diagnosi falsata ("merged ma
+// ancora lì" fantasma).
+sh(`git fetch origin ${mainBranch} --prune -q`, { allowFail: true });
 
 // Opera SOLO su worktree dentro le dir di isolamento canoniche (AGENTS.md): il
 // checkout principale (`main`) vive fuori da queste e non va MAI toccato. Nota:

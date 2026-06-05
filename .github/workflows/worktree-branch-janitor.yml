@@ -44,8 +44,10 @@ jobs:
           REPO: ${{ github.repository }}
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
+          STALE_DAYS: '60'   # no-PR + commit unici + inattivo ≥ questo = abbandonato → delete
         run: |
           set -uo pipefail
+          NOW=$(date -u +%s)
           # TUTTO via gh API: niente `actions/checkout` né comandi git locali. Senza
           # repo checked-out un `git rev-list`/`git push --delete` fallirebbe in
           # silenzio (ingoiato da `||`) → workflow VERDE ma che non cancella nulla
@@ -89,15 +91,36 @@ jobs:
             if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
               REASON="PR $STATE (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
             else
-              # no-PR: ahead via API compare (ahead_by). Errore API → sentinella "x"
-              # (mai 0) → report-only, mai delete su dubbio.
-              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" \
-                --jq '.ahead_by' 2>/dev/null || echo "x")
+              # no-PR. ahead via API compare (.ahead_by). EC1: un branch orfano
+              # (history non correlata, es. content-branch) dà 404 "No common
+              # ancestor" → l'output NON è un intero. Valida il formato: tutto ciò
+              # che non è ^[0-9]+$ = ahead SCONOSCIUTO → report-only (mai delete su
+              # dubbio, niente più blob JSON d'errore stampato come "ahead=").
+              AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
+              if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
+                echo "::warning::origin/$NAME — no-PR, ahead non determinabile (branch orfano / API error): REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
               if [ "$AHEAD" = "0" ]; then
                 REASON="0-ahead su $DEFAULT_BRANCH, no-PR (contenuto già su main)"
               else
-                echo "::warning::origin/$NAME — ahead=$AHEAD, no-PR: possibile lavoro vivo pushato senza PR, REPORT-only (non cancello)"
-                flagged=$((flagged+1)); continue
+                # EC2: no-PR CON commit unici. Può essere WIP vivo pushato senza PR
+                # o un tentativo abbandonato (es. issue-fix che non ha aperto PR).
+                # Age-gate sull'ultimo commit: inattivo ≥ STALE_DAYS + niente PR =
+                # abbandonato → delete; sotto soglia → report-only (no distruzione
+                # di WIP recente). Data sconosciuta → report-only (safe).
+                LAST=$(gh api "repos/$REPO/commits/$NAME" --jq '.commit.committer.date' 2>/dev/null || true)
+                AGE_D=-1
+                if [ -n "$LAST" ]; then
+                  LAST_S=$(date -u -d "$LAST" +%s 2>/dev/null || echo 0)
+                  [ "$LAST_S" -gt 0 ] && AGE_D=$(( (NOW - LAST_S) / 86400 ))
+                fi
+                if [ "$AGE_D" -ge "$STALE_DAYS" ]; then
+                  REASON="no-PR, ahead=$AHEAD, inattivo ${AGE_D}d ≥ ${STALE_DAYS}d (abbandonato)"
+                else
+                  echo "::warning::origin/$NAME — no-PR, ahead=$AHEAD, inattivo ${AGE_D}d (<${STALE_DAYS}d o ignota): REPORT-only (WIP recente, non cancello)"
+                  flagged=$((flagged+1)); continue
+                fi
               fi
             fi
 

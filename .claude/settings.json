@@ -7,7 +7,18 @@
     "superpowers@superpowers-dev": false,
     "ui-ux-pro-max@ui-ux-pro-max-skill": false
   },
-  "hooks": {},
+  "hooks": {
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/scripts/prune-merged-worktrees.mjs\" --apply --orphans-only 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  },
   "env": {
     "SKIP_FUEL_DAILY": "1",
     "SKIP_WEEKLY_EMPLOYERS": "1",
