@@ -36,6 +36,7 @@ import {
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 
 export const CIC_KEY = 'clinique-cic';
 export const CIC_COMPANY_NAME = 'Clinique CIC (Saxon & Clarens)';
@@ -69,6 +70,7 @@ async function fetchMaskHtml(url) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+  let directErr;
   try {
     const res = await fetch(url, {
       headers: {
@@ -79,15 +81,24 @@ async function fetchMaskHtml(url) {
       signal: controller.signal,
     });
     clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    // The mask returns iso-8859-1 — decode explicitly so accented chars
-    // (è, é, à, …) render correctly downstream.
-    const buf = await res.arrayBuffer();
-    return new TextDecoder('iso-8859-1').decode(buf);
+    if (res.ok) {
+      // The mask returns iso-8859-1 — decode explicitly so accented chars
+      // (è, é, à, …) render correctly downstream.
+      const buf = await res.arrayBuffer();
+      return new TextDecoder('iso-8859-1').decode(buf);
+    }
+    directErr = new Error(`HTTP ${res.status} from ${url}`);
   } catch (err) {
     clearTimeout(timer);
-    throw err;
+    directErr = err;
   }
+  // jobup.ch serves HTTP 403 to the GitHub Actions datacenter egress IP — an
+  // IP-reputation WAF block (not a real auth failure: a clean/residential IP
+  // gets 200). Re-fetch through Jina's clean IP pool so the data IS collected.
+  // The mask is iso-8859-1 on the wire; Jina normalises to a correct JS string.
+  const viaJina = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
+  if (viaJina != null) return viaJina;
+  throw directErr;
 }
 
 /**
