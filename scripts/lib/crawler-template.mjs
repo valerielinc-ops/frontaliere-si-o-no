@@ -156,7 +156,7 @@ import {
   isTransientFetchError,
   fetchWithRetry,
 } from './transient-fetch.mjs';
-import { fetchViaJina } from './jina-proxy.mjs';
+import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
@@ -506,8 +506,22 @@ export async function fetchHtml(url, options = {}) {
     // errors still propagate. (fetchJson is intentionally NOT proxied — Jina
     // returns HTML, which would corrupt a JSON response.)
     if (isTransientFetchError(err)) {
-      const res = await fetchViaJina(url, { timeoutMs });
-      if (res.ok) return await res.text();
+      let res;
+      try {
+        res = await fetchViaJina(url, { timeoutMs });
+      } catch {
+        // Proxy fetch itself failed — re-throw the ORIGINAL egress error.
+        throw err;
+      }
+      if (res.ok) {
+        const html = await res.text();
+        // Jina returns HTTP 200 even on a challenge / error / empty page; feeding
+        // that to parsers silently yields 0 jobs → expired-archival / de-index on
+        // multi-page crawlers. Detect and safe-fail (re-throw original) instead.
+        const reason = detectJinaErrorBody(html);
+        if (!reason) return html;
+        console.warn(`⚠️ Jina egress returned a non-target body (${reason}) for ${url} — preserving safe-fail.`);
+      }
     }
     throw err;
   }

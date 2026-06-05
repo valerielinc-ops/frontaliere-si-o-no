@@ -10,7 +10,7 @@
  */
 
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from './transient-fetch.mjs';
-import { fetchViaJina } from './jina-proxy.mjs';
+import { fetchViaJina, detectJinaErrorBody } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -118,8 +118,27 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
     // unchanged and the data IS collected. Only for connection-level transient
     // errors — HTTP 4xx/5xx and parse errors are real and still propagate.
     if (isTransientFetchError(err)) {
-      const res = await fetchViaJina(url, { timeoutMs: t });
-      if (res.ok) return await res.text();
+      let res;
+      try {
+        res = await fetchViaJina(url, { timeoutMs: t });
+      } catch {
+        // The proxy fetch itself failed — re-throw the ORIGINAL egress error so
+        // the failure log reports the real cause, not a Jina-side error.
+        throw err;
+      }
+      if (res.ok) {
+        const html = await res.text();
+        // Jina answers HTTP 200 even when it never reached the target (a
+        // challenge / error / empty page). Feeding that non-target HTML to the
+        // parsers would silently yield 0 jobs → on a multi-page crawler those
+        // pages' jobs look "removed" → archived as expired → de-indexed. Detect
+        // it and re-throw the original error instead (safe-fail: dataset
+        // preserved, exactly the pre-proxy behaviour). Same guard as goline /
+        // cambiavalute.
+        const reason = detectJinaErrorBody(html);
+        if (!reason) return html;
+        console.warn(`⚠️ Jina egress returned a non-target body (${reason}) for ${url} — preserving safe-fail.`);
+      }
     }
     throw err;
   }
