@@ -131,7 +131,7 @@ import {
  consumeAuthJobContext,
 } from '@/services/authService';
 import type { AuthJobContext } from '@/services/authService';
-import { settleNewsletterAutologin } from '@/services/newsletterAutologinSignal';
+import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
 import {
  upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
@@ -439,10 +439,11 @@ const App: React.FC = () => {
  (async () => {
  try {
  const url = new URL(window.location.href);
- // 'ac' = HMAC autologin code (never expires, exchanged for fresh token)
- // 'at'/'authToken' = legacy Firebase custom token (expires in 1h, direct sign-in)
- const autologinCode = url.searchParams.get('ac');
- const legacyAuthToken = url.searchParams.get('at') || url.searchParams.get('authToken');
+ // Shared parser owns the credential/email param names (ac, at/authToken,
+ // ne/newsletter_email/email) so this effect and the in-flight signal can
+ // never drift — see services/newsletterAutologinSignal.ts.
+ const { code: autologinCode, legacyToken: legacyAuthToken, email: rawEmail, action } =
+ parseNewsletterAutologin(url.searchParams);
 
  // Always strip newsletter-specific query params from the URL immediately so
  // they don't persist during SPA navigation (privacy + cosmetics).
@@ -450,12 +451,10 @@ const App: React.FC = () => {
  const hadNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
 
  // Skip if there's a newsletter action — the action handler owns auth in that case
- const action = url.searchParams.get('action');
  if (action === 'unsubscribe' || action === 'resubscribe' || action === 'confirm_newsletter') return;
 
- // Read email before stripping params (support short 'ne', legacy 'newsletter_email',
- // and 'email' fallback for confirmation links that share the 'email' param)
- const email = normalizeNewsletterEmail(url.searchParams.get('ne') || url.searchParams.get('newsletter_email') || url.searchParams.get('email') || '');
+ // Normalize the recipient email read by the shared parser.
+ const email = normalizeNewsletterEmail(rawEmail);
 
  // Strip newsletter params from URL right away
  if (hadNewsletterParams) {
