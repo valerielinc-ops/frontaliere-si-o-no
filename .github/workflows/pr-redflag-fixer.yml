@@ -30,13 +30,16 @@ jobs:
   redflag-fix:
     # Gate evento (tutti necessari):
     #   - review autore = claude-bot (user.type=='Bot' + startsWith 'claude').
-    #   - review body contiene un 🔴 (finding important).
+    #   - review body contiene `🔴 Important` (finding important reale; NON il
+    #     bare 🔴 che può comparire in prosa/legenda anche in una review LGTM
+    #     pulita → falso trigger che brucerebbe un round Claude. Simmetrico col
+    #     gate di blocco in auto-merge-eval.mjs).
     #   - PR autonoma: autore Bot OPPURE head ref `fix/*`. MAI su PR umane.
     #   - PR non draft.
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
-      contains(github.event.review.body, '🔴') &&
+      contains(github.event.review.body, '🔴 Important') &&
       github.event.pull_request.draft == false &&
       (github.event.pull_request.user.type == 'Bot' ||
        startsWith(github.event.pull_request.head.ref, 'fix/'))
