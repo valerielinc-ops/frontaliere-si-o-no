@@ -65,6 +65,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Cross-Border Permits G vs B: Changes Beyond 20 km',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Research Results and Data for the Area Beyond 20 km',
     'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Map of Lugano with the Italian-Swiss border and the area beyond 20 km',
+    'blog.article.calcul-salaire-net-suiss-frontalier.title': 'Calculate Swiss Net Salary for Cross-Border Workers',
+    'blog.article.calcul-salaire-net-suiss-frontalier.excerpt': 'Practical guide to calculate net salary in Switzerland, including taxes, deductions, and contributions for cross-border commuters.',
+    'blog.article.calcul-salaire-net-suiss-frontalier.imageAlt': 'Woman with pay slip',
 };
 
 export default blogMetaChEn;
