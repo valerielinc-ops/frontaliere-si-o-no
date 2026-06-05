@@ -41,7 +41,11 @@ export function parseOnlyfyListing(html, { portalBase, defaultLocation = 'Schwei
     const hrefMatch = openTag.match(/\bhref="([^"]+)"/);
     if (!hrefMatch) continue;
     const path = hrefMatch[1];
-    if (!/\/job\/[a-z0-9]+/i.test(path)) continue;
+    // Hash char-class is `[a-z0-9-]`, not `[a-z0-9]`: onlyfy hashes are opaque
+    // and a `-` separator must NOT make this guard reject an otherwise-valid
+    // job card (that would silently drop the role from the listing). Keep in
+    // lockstep with the `matchKey` regex in the per-tenant update scripts.
+    if (!/\/job\/[a-z0-9-]+/i.test(path)) continue;
     const url = /^https?:/i.test(path) ? path : `${base}${path}`;
     if (seen.has(url)) continue;
 

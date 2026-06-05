@@ -23,6 +23,6 @@ runStandardCrawlerPipeline({
   // the full URL — letting the `/de/` lang prefix (or the historical
   // `/job/`→`/de/job/` move) fragment the merge key and drop previousSlugs +
   // translations on re-crawl. Key on the stable `/job/{hash}` token instead.
-  matchKey: (j) => (String(j?.url || '').match(/\/job\/([a-z0-9]+)/i)?.[1] || j?.url || ''),
+  matchKey: (j) => (String(j?.url || '').match(/\/job\/([a-z0-9-]+)/i)?.[1] || j?.url || ''),
   defaultSourceLang: 'de',
 }).catch((err) => { console.error(`❌ Vitrea Gesundheit crawler failed: ${err?.message || err}`); process.exit(1); });
