@@ -75,6 +75,7 @@ const deSeoLinks: Record<string, string> = {
   'seoHubs.footer.allCompanies': 'Alle Firmen →',
   'seoHubs.footer.articles': 'Neueste Artikel',
   'seoHubs.footer.allArticles': 'Alle Artikel →',
+  'seoHubs.footer.allSwissArticles': 'Alle Schweiz-Artikel →',
 
   // Phase 2-UI — SEO hub-page
   'seo.hub.jobs.title': 'Alle Stellenangebote',
