@@ -800,6 +800,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lonza-concierge-ticino-job': {
+    title: 'Lonza cerca personale di portineria | Frontaliere Ticino',
+    description: 'Lonza AG apre posizioni lavorative per addetti al servizio di installazioni e portineria in Ticino (80-100%). Scopri i requisiti e come candidarti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lonza, cerca, personale, portineria',
+    ogTitle: 'Lonza cerca personale di portineria in Ticino',
+    ogDescription: 'Opportunità di impiego all\'80-100% per addetti alle installazioni e alla portineria presso Lonza in Ticino. Scopri i dettagli e i requisiti.',
+    canonicalPath: '/articoli-svizzera/lonza-concierge-ticino-job/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lonza cerca personale di portineria",
+      "description": "Lonza AG apre posizioni lavorative per addetti al servizio di installazioni e portineria in Ticino (80-100%). Scopri i requisiti e come candidarti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lonza-concierge-ticino-job.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio Lonza in Svizzera, simbolo di occupazione e innovazione."
+      },
+      "datePublished": "2026-06-05T07:29:16+00:00",
+      "dateModified": "2026-06-05T07:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lonza-concierge-ticino-job/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

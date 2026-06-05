@@ -98,7 +98,7 @@ import {
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
-import { jinaProxiedRequest, hostMatchesProxyList } from './jina-proxy.mjs';
+import { jinaProxiedRequest, hostMatchesProxyList, fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import {
   extractMigrosStructuredData,
   extractMigrosSectionItems,
@@ -2286,6 +2286,16 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
   let targetUrl = url;
   let proxyHeaders = {};
   if (hostMatchesProxyList(url, process.env.JOBS_CRAWLER_FETCH_PROXY)) {
+    // Route through Jina Reader, and for idempotent GET/HEAD retry on a fresh
+    // Jina egress IP when the proxy lands on a WAF-flagged IP (the challenge
+    // comes back HTTP 200, so the generic status-based retry below never fires).
+    // Same root cause as discovery (#1363): ~1-in-5 Jina IPs are blocked by the
+    // sgcaptcha IP-reputation WAF, so a single proxied fetch drops that detail
+    // page → the job is parsed empty. Short-circuit so every proxied detail page
+    // gets the same retry-until-clean-IP treatment as the sitemap discovery.
+    if (canRetry) {
+      return await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
+    }
     const proxied = jinaProxiedRequest(url);
     targetUrl = proxied.url;
     proxyHeaders = proxied.headers;

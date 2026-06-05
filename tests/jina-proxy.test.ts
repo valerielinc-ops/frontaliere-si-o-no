@@ -11,7 +11,7 @@
 
 import { describe, it, expect } from 'vitest';
 // @ts-expect-error — modulo .mjs senza tipi
-import { detectJinaErrorBody } from '../scripts/lib/jina-proxy.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry } from '../scripts/lib/jina-proxy.mjs';
 
 describe('detectJinaErrorBody', () => {
   it('flags an empty / whitespace-only body', () => {
@@ -48,5 +48,80 @@ describe('detectJinaErrorBody', () => {
     const body = `<html><body>${'x'.repeat(120)}</body></html>`;
     expect(detectJinaErrorBody(body, { minLength: 100 })).toBeNull();
     expect(detectJinaErrorBody(body, { minLength: 500 })).toMatch(/body too short/);
+  });
+
+  it('flags a SiteGround sgcaptcha IP-reputation challenge even when long', () => {
+    // The challenge a blocked egress IP gets on a 200 — padded past the too-short
+    // floor so this proves the explicit marker (not just the length heuristic).
+    const body =
+      `<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Fcareer-sitemap.xml&y=ipr:34.96.49.15">` +
+      `</head><body>${'x'.repeat(400)}</body></html>`;
+    expect(detectJinaErrorBody(body)).toMatch(/error\/challenge marker/);
+  });
+});
+
+describe('fetchViaJinaWithRetry', () => {
+  // Padded past detectJinaErrorBody's too-short floor so these tests exercise the
+  // explicit `sgcaptcha` marker (not the length heuristic) — a long real challenge
+  // variant, which is exactly what the marker exists to catch. (The short form
+  // was caught only by "body too short", so the exhaustion assertion below — which
+  // checks for the marker reason specifically — needs the marker to fire.)
+  const SGCAPTCHA =
+    `<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?y=ipr:34.96.49.15"></head>` +
+    `<body>${'x'.repeat(400)}</body></html>`;
+  const REAL_SITEMAP =
+    `<html><body>` +
+    `<a href="https://cambiavalute.ch/annuncio-di-lavoro/legal-compliance-officer/">job</a>` +
+    `<a href="https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-mercato-tedesco/">job</a>` +
+    `${'real sitemap content '.repeat(20)}</body></html>`;
+
+  it('retries on a fresh Jina IP when a 200 challenge is returned, then returns the clean page', async () => {
+    let calls = 0;
+    const fetchImpl = async () => {
+      calls += 1;
+      // First two attempts land on blocked IPs (challenge), third is clean.
+      return new Response(calls < 3 ? SGCAPTCHA : REAL_SITEMAP, { status: 200 });
+    };
+    const res = await fetchViaJinaWithRetry('https://cambiavalute.ch/career-sitemap.xml', {
+      attempts: 4,
+      retryDelayMs: 0,
+      fetchImpl,
+    });
+    expect(res.ok).toBe(true);
+    expect(calls).toBe(3);
+    const body = await res.text();
+    expect(body).toContain('legal-compliance-officer');
+    expect(detectJinaErrorBody(body)).toBeNull();
+  });
+
+  it('returns the last response shape (no throw) when every attempt is blocked', async () => {
+    let calls = 0;
+    const fetchImpl = async () => {
+      calls += 1;
+      return new Response(SGCAPTCHA, { status: 200 });
+    };
+    const res = await fetchViaJinaWithRetry('https://cambiavalute.ch/career-sitemap.xml', {
+      attempts: 3,
+      retryDelayMs: 0,
+      fetchImpl,
+    });
+    expect(calls).toBe(3);
+    // Graceful: caller's existing detectJinaErrorBody warning + skip path runs.
+    expect(detectJinaErrorBody(await res.text())).toMatch(/error\/challenge marker/);
+  });
+
+  it('returns immediately on a clean first attempt (no wasted retries)', async () => {
+    let calls = 0;
+    const fetchImpl = async () => {
+      calls += 1;
+      return new Response(REAL_SITEMAP, { status: 200 });
+    };
+    const res = await fetchViaJinaWithRetry('https://cambiavalute.ch/career-sitemap.xml', {
+      attempts: 4,
+      retryDelayMs: 0,
+      fetchImpl,
+    });
+    expect(calls).toBe(1);
+    expect(res.ok).toBe(true);
   });
 });
