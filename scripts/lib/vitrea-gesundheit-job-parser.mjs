@@ -7,11 +7,13 @@
  *
  * Vitrea Gesundheit operates several Swiss rehab/care facilities including
  * Rehaklinik Seewis (covered separately via Rehaklinik Seewis parser?).
- * The onlyfy.jobs portal aggregates listings server-side as HTML rows with
- * `<strong class="job-title"><a href="/job/{hash}">{TITLE}</a></strong>`
- * plus an `icon-map-marker` location line and `icon-time` employment type.
+ * The onlyfy.jobs portal serves listings server-side with the redesigned
+ * card markup (shared with Spitex Zürich), parsed by `parseOnlyfyListing`:
+ *   <a data-testid="job-card" aria-label="{Title}" href="/{lang}/job/{hash}">
+ *     <h3 data-testid="job-title">{Title}</h3>
+ *     <div data-testid="job-more-info">{Location} | {Type} | {Date}</div>
  *
- * Detail pages live at `https://vamed-ag-ch.onlyfy.jobs/job/{hash}` and
+ * Detail pages live at `https://vamed-ag-ch.onlyfy.jobs/{lang}/job/{hash}` and
  * carry rich description sections (Aufgaben/Profil/Wir bieten).
  */
 import { createHash } from 'node:crypto';
@@ -26,6 +28,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { isDetailContentValid } from './umantis-listing-common.mjs';
+import { parseOnlyfyListing } from './onlyfy-listing-common.mjs';
 
 export const VITREA_GESUNDHEIT_KEY = 'vitrea-gesundheit';
 export const VITREA_GESUNDHEIT_COMPANY_NAME = 'Vitrea Gesundheit';
@@ -54,28 +57,9 @@ export function isTrustedDomain(rawUrl = '') {
 }
 
 export function parseVitreaListing(html) {
-  const out = [];
-  const seen = new Set();
-  // Match `<strong class="job-title"> <a href="/job/{hash}">{TITLE}</a>`
-  const rx = /<strong class="job-title">\s*<a\s+href="(\/job\/[a-z0-9]+)"[^>]*>([\s\S]*?)<\/a>/g;
-  let m;
-  while ((m = rx.exec(html))) {
-    const path = m[1];
-    const title = normalizeSpace(decodeEntities(m[2].replace(/<[^>]+>/g, '')));
-    if (!title || title.length < 5) continue;
-    const url = `${PORTAL_BASE}${path}`;
-    if (seen.has(url)) continue;
-    seen.add(url);
-    // Capture the location and employment-type lines that follow the title row
-    const followIdx = m.index + m[0].length;
-    const window = html.slice(followIdx, followIdx + 1200);
-    const locMatch = window.match(/icon-map-marker[\s\S]*?>\s*([^<]+?)\s*</);
-    const typeMatch = window.match(/icon-time[\s\S]*?>\s*([^<]+?)\s*</);
-    const location = locMatch ? normalizeSpace(decodeEntities(locMatch[1])) : 'Schweiz';
-    const employmentTypeStr = typeMatch ? normalizeSpace(decodeEntities(typeMatch[1])) : '';
-    out.push({ url, title, location, employmentTypeStr });
-  }
-  return out;
+  // onlyfy.jobs redesigned card markup — shared parser keeps this tenant in
+  // lockstep with Spitex Zürich (both broke identically on the old selector).
+  return parseOnlyfyListing(html, { portalBase: PORTAL_BASE, defaultLocation: 'Schweiz' });
 }
 
 async function fetchDetailContent(url) {
