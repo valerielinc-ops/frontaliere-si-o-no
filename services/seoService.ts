@@ -3926,6 +3926,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-telelavoro-frontalieri-italia-svizzera': { name: 'Telelavoro frontalieri', path: '/articoli-frontaliere/telelavoro-frontalieri-italia-svizzera', parent: 'blog' },
     'blog-naspi-unemployment-benefits': { name: 'NASPI disoccupazione', path: '/articoli-frontaliere/naspi-unemployment-benefits', parent: 'blog' },
     'blog-frontalieri-svizzera': { name: 'Frontalieri', path: '/articoli-svizzera/frontalieri-svizzera/', parent: 'blog' },
+    'blog-concierge-ticino-lonza-ch': { name: 'Offerte Lavoro', path: '/articoli-frontaliere/concierge-ticino-lonza-ch', parent: 'blog' },
  };
 
  const info = sectionNames[section];

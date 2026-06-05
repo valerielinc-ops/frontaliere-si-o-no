@@ -7971,6 +7971,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.naspi-unemployment-benefits.title': 'NASPI und Grenzgänger: Was ändert sich',
     'blog.article.naspi-unemployment-benefits.excerpt': 'Die NASPI ist eine Arbeitslosenleistung für italienische Arbeitnehmer. Wie funktioniert sie für Grenzgänger?',
     'blog.article.naspi-unemployment-benefits.imageAlt': 'Eine Person mit einem Zertifikat und einem Telefon in der Hand, mit Lugano-Stadt im Hintergrund',
+    'blog.article.concierge-ticino-lonza-ch.title': 'Lonza sucht Service des Installations Concierge in Ticino',
+    'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA sucht einen Service des Installations Concierge (80-100%) in Ticino. Alle Details der Stellenausschreibung finden Sie hier. 📊',
+    'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Panoramablick auf den Luganersee mit modernen Gebäuden.',
 };
 
 export default blogMetaDe;

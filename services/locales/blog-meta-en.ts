@@ -7972,6 +7972,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.naspi-unemployment-benefits.title': 'NASPI for cross-border workers: what\'s changing',
     'blog.article.naspi-unemployment-benefits.excerpt': 'NASPI is an unemployment benefit for Italian workers. How does it work for cross-border commuters?',
     'blog.article.naspi-unemployment-benefits.imageAlt': 'A person with a certificate and phone in hand, with Lugano cityscape in the background',
+    'blog.article.concierge-ticino-lonza-ch.title': 'Lonza seeks Concierge for Installations in Ticino',
+    'blog.article.concierge-ticino-lonza-ch.excerpt': 'Lonza SA is looking for a Service des Installations Concierge (80-100%) in Ticino. Discover the details of the job offer.',
+    'blog.article.concierge-ticino-lonza-ch.imageAlt': 'Panoramic view of Lugano lakefront with modern buildings.',
 };
 
 export default blogMetaEn;
