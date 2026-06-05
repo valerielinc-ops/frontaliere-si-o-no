@@ -2820,12 +2820,12 @@
     },
     {
       "id": "asana-spital-e88e05243c8d",
-      "slug": "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken",
+      "slug": "fisioterapista-con-funzione-di-formazione-professionale-60-100-asana-spital-ag-menziken-leuggern-menziken",
       "slugByLocale": {
-        "it": "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken",
-        "en": "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken",
+        "it": "fisioterapista-con-funzione-di-formazione-professionale-60-100-asana-spital-ag-menziken-leuggern-menziken",
+        "en": "graduated-physiotherapist-with-vocational-training-function-60-100-asana-spital-ag-menziken-leuggern-menziken",
         "de": "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken",
-        "fr": "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken"
+        "fr": "physiotherapeute-diplome-avec-fonction-de-formation-professionnelle-60-100-asana-spital-ag-menziken-leuggern-menziken"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2878,7 +2878,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken"
+        ],
+        "en": [
+          "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken"
+        ],
+        "fr": [
+          "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-r-physiotherapeut-in-mit-berufsbildungsfunktion-60-100-asana-spital-menziken"
+      ]
     }
   ]
 }
