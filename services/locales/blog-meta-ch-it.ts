@@ -62,6 +62,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.frontalieri-svizzera.title': 'Frontalieri in Svizzera',
     'blog.article.frontalieri-svizzera.excerpt': 'Informazioni pratiche per frontalieri',
     'blog.article.frontalieri-svizzera.imageAlt': 'Vista della città di Lugano',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'Permessi G vs B frontalieri 2026: cosa cambia oltre 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Risultati di ricerca e dati sulla zona oltre i 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Mappa di Lugano con il confine italo-svizzero e la zona oltre i 20 km',
 };
 
 export default blogMetaChIt;

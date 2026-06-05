@@ -62,6 +62,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.frontalieri-svizzera.title': 'Grenzgänger in der Schweiz',
     'blog.article.frontalieri-svizzera.excerpt': 'Praktische Informationen für Grenzgänger',
     'blog.article.frontalieri-svizzera.imageAlt': 'Blick auf die Stadt Lugano',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.title': 'G-Bewilligung G vs B Grenzgänger 2026: Was ändert sich über 20 km',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.excerpt': 'Erfolgsergebnisse und Daten zur Zone über 20 km 📊💡⚠️',
+    'blog.article.permesso-g-vs-b-2026-oltre-20-km.imageAlt': 'Karte von Lugano mit der italienisch-schweizerischen Grenze und dem Bereich über 20 km',
 };
 
 export default blogMetaChDe;
