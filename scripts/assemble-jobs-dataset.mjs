@@ -50,6 +50,7 @@ import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawle
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
+import { SWISS_LOCALITY_SENTENCE_SPLIT_RX } from './lib/swiss-locality-sentence-split.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -156,7 +157,8 @@ function sanitizeJobLocationField(rawValue) {
     // in Swiss city names (St. Moritz, St. Gallen, Ste. Croix). The negative
     // lookbehind keeps the period when it directly follows a "St"/"Ste" token;
     // prose still cuts on every other period (e.g. "…Switzerland.Availability").
-    .split(/[\n;]|(?<!\bSte?)\./)[0]
+    // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
+    .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
