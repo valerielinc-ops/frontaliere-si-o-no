@@ -179,6 +179,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'frontalieri-svizzera',
+    category: 'pratico',
+    date: '2026-06-05T03:01:14.928Z',
+    image: '/images/blog/frontalieri-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

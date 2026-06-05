@@ -59,6 +59,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Médecin Médecine Interne/Intensive EOC Bellinzona',
     'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'L\'Ente Ospedaliero Cantonale (EOC) recherche des candidats médecins pour les divisions de Médecine Interne et/ou Médecine Intensive à l\'Hôpital Régional de Bellinzona. Postes ouverts pour spécialistes et assistants.',
     'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Châteaux de Bellinzona, un symbole d\'opportunités d\'emploi au Tessin',
+    'blog.article.frontalieri-svizzera.title': 'Frontaliers en Suisse',
+    'blog.article.frontalieri-svizzera.excerpt': 'Informations pratiques pour frontaliers',
+    'blog.article.frontalieri-svizzera.imageAlt': 'Vue de la ville de Lugano',
 };
 
 export default blogMetaChFr;

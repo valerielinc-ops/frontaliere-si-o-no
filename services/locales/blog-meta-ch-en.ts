@@ -59,6 +59,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.medico-medicina-interna-intensiva-eoc.title': 'Internal/Intensive Medicine Doctor EOC Bellinzona',
     'blog.article.medico-medicina-interna-intensiva-eoc.excerpt': 'The Cantonal Hospital Organization (EOC) is seeking doctor candidates for the Internal Medicine and/or Intensive Care divisions at the Bellinzona Regional Hospital. Open positions for specialists and assistants.',
     'blog.article.medico-medicina-interna-intensiva-eoc.imageAlt': 'Castles of Bellinzona, a symbol of job opportunities in Ticino',
+    'blog.article.frontalieri-svizzera.title': 'Cross-border workers in Switzerland',
+    'blog.article.frontalieri-svizzera.excerpt': 'Practical information for cross-border commuters',
+    'blog.article.frontalieri-svizzera.imageAlt': 'View of the city of Lugano',
 };
 
 export default blogMetaChEn;
