@@ -38,9 +38,15 @@ interface VisualCase {
 
 const CASES: VisualCase[] = [
   // Home renders CalcolatoreTabContent: InputCard is lazy + its locale chunk
-  // (`it-calculator.ts`) is lazy too. Without a ready selector the screenshot
-  // can fire while SkeletonInputCard is still rendered, producing ~11% diff.
-  { name: 'home', url: '/', readySelector: '[data-testid="calculator-input-card"]' },
+  // (`it-calculator.ts`) is lazy too. But gating only on the left InputCard is
+  // NOT enough: the right-side ResultsView hydrates independently (default
+  // RAL=75k auto-computes), and `results-advantage-banner` is the last element
+  // to mount — same as salary-calculator. Gating only on the input card let the
+  // screenshot fire while the entire ResultsView (Analisi Comparativa + Vivere
+  // cards) was still empty, baking an empty-results-pane baseline that then
+  // diffed ~11% against every fully-hydrated live render (run 26999410533).
+  // Gate on the banner so the capture is always at full hydration.
+  { name: 'home', url: '/', readySelector: '[data-testid="results-advantage-banner"]' },
   {
     name: 'salary-calculator',
     url: '/calcola-stipendio/',
